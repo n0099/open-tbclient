@@ -14,10 +14,10 @@ public final class NativeCrashHandler {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f43534a;
+    public static boolean f43641a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Context f43535b;
+    public static Context f43642b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -35,7 +35,7 @@ public final class NativeCrashHandler {
         }
         try {
             System.loadLibrary("crash_analysis");
-            f43534a = true;
+            f43641a = true;
         } catch (Throwable unused) {
         }
     }
@@ -56,7 +56,7 @@ public final class NativeCrashHandler {
 
     public static void doNativeCrash() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65538, null) == null) && f43534a) {
+        if ((interceptable == null || interceptable.invokeV(65538, null) == null) && f43641a) {
             try {
                 nativeException();
             } catch (Throwable unused) {
@@ -69,8 +69,8 @@ public final class NativeCrashHandler {
         if (!(interceptable == null || interceptable.invokeL(65539, null, context) == null) || context == null) {
             return;
         }
-        f43535b = context;
-        if (f43534a) {
+        f43642b = context;
+        if (f43641a) {
             File cacheDir = context.getCacheDir();
             if (cacheDir.exists() && cacheDir.isDirectory()) {
                 try {
@@ -92,13 +92,13 @@ public final class NativeCrashHandler {
     public static void onCrashCallbackFromNative(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65544, null, str) == null) {
-            ExceptionAnalysis.getInstance().saveCrashInfo(f43535b, System.currentTimeMillis(), str, "NativeException", 1, 0);
+            ExceptionAnalysis.getInstance().saveCrashInfo(f43642b, System.currentTimeMillis(), str, "NativeException", 1, 0);
         }
     }
 
     public static void process(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65545, null, str) == null) || str == null || str.length() == 0 || !f43534a) {
+        if (!(interceptable == null || interceptable.invokeL(65545, null, str) == null) || str == null || str.length() == 0 || !f43641a) {
             return;
         }
         File file = new File(str);
@@ -112,7 +112,7 @@ public final class NativeCrashHandler {
 
     public static void uninit() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65546, null) == null) && f43534a) {
+        if ((interceptable == null || interceptable.invokeV(65546, null) == null) && f43641a) {
             try {
                 nativeUnint();
             } catch (Throwable unused) {

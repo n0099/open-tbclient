@@ -29,10 +29,10 @@ public class u implements TTAdManager {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f66639a;
+    public String f66839a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f66640b;
+    public String f66840b;
 
     public u() {
         Interceptable interceptable = $ic;
@@ -47,8 +47,8 @@ public class u implements TTAdManager {
                 return;
             }
         }
-        this.f66639a = "com.union_test.toutiao";
-        this.f66640b = "5001121";
+        this.f66839a = "com.union_test.toutiao";
+        this.f66840b = "5001121";
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -163,7 +163,7 @@ public class u implements TTAdManager {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048588, this, new Object[]{str, Integer.valueOf(i2), str2, str3, str4})) == null) {
-            if (this.f66639a.equals(o.a().getPackageName()) && this.f66640b.equals(h.d().h()) && !TextUtils.isEmpty(str)) {
+            if (this.f66839a.equals(o.a().getPackageName()) && this.f66840b.equals(h.d().h()) && !TextUtils.isEmpty(str)) {
                 try {
                     Method a2 = com.bytedance.sdk.component.utils.v.a("com.bytedance.sdk.openadsdk.TTC3Proxy", "verityPlayable", String.class, Integer.TYPE, String.class, String.class, String.class);
                     if (a2 != null) {

@@ -14,13 +14,13 @@ public class f<T> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Class<?> f31837a;
+    public final Class<?> f31943a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f31838b;
+    public final String f31944b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Class[] f31839c;
+    public final Class[] f31945c;
 
     public f(Class<?> cls, String str, Class... clsArr) {
         Interceptable interceptable = $ic;
@@ -37,9 +37,9 @@ public class f<T> {
                 return;
             }
         }
-        this.f31837a = cls;
-        this.f31838b = str;
-        this.f31839c = clsArr;
+        this.f31943a = cls;
+        this.f31944b = str;
+        this.f31945c = clsArr;
     }
 
     public static Method b(Class<?> cls, String str, Class[] clsArr) {
@@ -67,10 +67,10 @@ public class f<T> {
         Class<?> cls2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cls)) == null) {
-            String str = this.f31838b;
+            String str = this.f31944b;
             if (str != null) {
-                Method b2 = b(cls, str, this.f31839c);
-                if (b2 == null || (cls2 = this.f31837a) == null || cls2.isAssignableFrom(b2.getReturnType())) {
+                Method b2 = b(cls, str, this.f31945c);
+                if (b2 == null || (cls2 = this.f31943a) == null || cls2.isAssignableFrom(b2.getReturnType())) {
                     return b2;
                 }
                 return null;
@@ -94,7 +94,7 @@ public class f<T> {
                     throw assertionError;
                 }
             }
-            throw new AssertionError("Method " + this.f31838b + " not supported for object " + t);
+            throw new AssertionError("Method " + this.f31944b + " not supported for object " + t);
         }
         return invokeLL.objValue;
     }

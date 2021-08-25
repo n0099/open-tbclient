@@ -16,6 +16,7 @@ public class ErrorCode {
     public static final int BIND_RESOURCE_CONFLICT = 200409;
     public static final int BIND_SUCCESS = 200200;
     public static final int CAN_NOT_USE = -5;
+    public static final int CLIENT_CANCEL_REQUEST = -800;
     public static final int CONSUME_CONFIRM_NEED = -10;
     public static final int EXCEED_DAILY_LIMIT = -7;
     public static final int EXCEED_LIMIT = -8;

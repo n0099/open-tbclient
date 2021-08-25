@@ -12,10 +12,10 @@ public class GeoPoint {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public double f41498a;
+    public double f41605a;
 
     /* renamed from: b  reason: collision with root package name */
-    public double f41499b;
+    public double f41606b;
 
     public GeoPoint(double d2, double d3) {
         Interceptable interceptable = $ic;
@@ -32,8 +32,8 @@ public class GeoPoint {
                 return;
             }
         }
-        this.f41498a = d2;
-        this.f41499b = d3;
+        this.f41605a = d2;
+        this.f41606b = d3;
     }
 
     public boolean equals(Object obj) {
@@ -42,7 +42,7 @@ public class GeoPoint {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
             if (obj != null && obj.getClass() == GeoPoint.class) {
                 GeoPoint geoPoint = (GeoPoint) obj;
-                return this.f41498a == geoPoint.f41498a && this.f41499b == geoPoint.f41499b;
+                return this.f41605a == geoPoint.f41605a && this.f41606b == geoPoint.f41606b;
             }
             return false;
         }
@@ -52,26 +52,26 @@ public class GeoPoint {
     public double getLatitudeE6() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f41498a : invokeV.doubleValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f41605a : invokeV.doubleValue;
     }
 
     public double getLongitudeE6() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f41499b : invokeV.doubleValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f41606b : invokeV.doubleValue;
     }
 
     public void setLatitudeE6(double d2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Double.valueOf(d2)}) == null) {
-            this.f41498a = d2;
+            this.f41605a = d2;
         }
     }
 
     public void setLongitudeE6(double d2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Double.valueOf(d2)}) == null) {
-            this.f41499b = d2;
+            this.f41606b = d2;
         }
     }
 
@@ -79,7 +79,7 @@ public class GeoPoint {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return "GeoPoint: Latitude: " + this.f41498a + ", Longitude: " + this.f41499b;
+            return "GeoPoint: Latitude: " + this.f41605a + ", Longitude: " + this.f41606b;
         }
         return (String) invokeV.objValue;
     }

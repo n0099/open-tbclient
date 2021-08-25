@@ -18,10 +18,10 @@ public class u {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Field f2531a;
+    public static Field f2589a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Field f2532b;
+    public static Field f2590b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
@@ -30,7 +30,7 @@ public class u {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public Handler f2533a;
+        public Handler f2591a;
 
         public a(Handler handler) {
             Interceptable interceptable = $ic;
@@ -47,7 +47,7 @@ public class u {
                     return;
                 }
             }
-            this.f2533a = handler;
+            this.f2591a = handler;
         }
 
         @Override // android.os.Handler
@@ -66,8 +66,8 @@ public class u {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, message) == null) {
                 try {
-                    if (this.f2533a != null) {
-                        this.f2533a.handleMessage(message);
+                    if (this.f2591a != null) {
+                        this.f2591a.handleMessage(message);
                     }
                 } catch (Exception unused) {
                 }
@@ -91,10 +91,10 @@ public class u {
         try {
             if (Build.VERSION.SDK_INT < 28) {
                 Field declaredField = Toast.class.getDeclaredField("mTN");
-                f2531a = declaredField;
+                f2589a = declaredField;
                 declaredField.setAccessible(true);
-                Field declaredField2 = f2531a.getType().getDeclaredField("mHandler");
-                f2532b = declaredField2;
+                Field declaredField2 = f2589a.getType().getDeclaredField("mHandler");
+                f2590b = declaredField2;
                 declaredField2.setAccessible(true);
             }
         } catch (Exception unused) {
@@ -107,10 +107,10 @@ public class u {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, null, toast) == null) {
             try {
-                if (Build.VERSION.SDK_INT >= 28 || f2531a == null || f2532b == null || (obj = f2531a.get(toast)) == null || (handler = (Handler) f2532b.get(obj)) == null) {
+                if (Build.VERSION.SDK_INT >= 28 || f2589a == null || f2590b == null || (obj = f2589a.get(toast)) == null || (handler = (Handler) f2590b.get(obj)) == null) {
                     return;
                 }
-                f2532b.set(obj, new a(handler));
+                f2590b.set(obj, new a(handler));
             } catch (Exception unused) {
             }
         }

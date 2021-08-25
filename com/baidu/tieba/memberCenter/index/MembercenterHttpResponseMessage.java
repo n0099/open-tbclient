@@ -1,8 +1,8 @@
 package com.baidu.tieba.memberCenter.index;
 
 import c.a.e.e.d.l;
-import c.a.o0.s.r.a;
-import c.a.p0.w1.c.k.m;
+import c.a.p0.s.r.a;
+import c.a.q0.w1.c.k.m;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -65,7 +65,9 @@ public class MembercenterHttpResponseMessage extends TbHttpResponsedMessage {
             this.mMembercenter = new m(dataRes);
         }
         if (getError() == 0) {
-            l<byte[]> e2 = a.f().e("tb_member_center", TbadkCoreApplication.isLogin() ? TbadkCoreApplication.getCurrentAccount() : SevenZipUtils.FILE_NAME_TEMP);
+            String currentAccount = TbadkCoreApplication.isLogin() ? TbadkCoreApplication.getCurrentAccount() : SevenZipUtils.FILE_NAME_TEMP;
+            a.f();
+            l<byte[]> e2 = a.e("tb_member_center", currentAccount);
             if (e2 == null || bArr == null) {
                 return;
             }

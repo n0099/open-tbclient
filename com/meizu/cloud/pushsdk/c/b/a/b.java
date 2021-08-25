@@ -8,18 +8,18 @@ import java.util.concurrent.Future;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static ExecutorService f74386a = null;
+    public static ExecutorService f74586a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f74387b = 2;
+    public static int f74587b = 2;
 
     public static ExecutorService a() {
         synchronized (b.class) {
-            if (f74386a == null) {
-                f74386a = Executors.newScheduledThreadPool(f74387b);
+            if (f74586a == null) {
+                f74586a = Executors.newScheduledThreadPool(f74587b);
             }
         }
-        return f74386a;
+        return f74586a;
     }
 
     public static Future a(Callable callable) {
@@ -27,7 +27,7 @@ public class b {
     }
 
     public static void a(int i2) {
-        f74387b = i2;
+        f74587b = i2;
     }
 
     public static void a(Runnable runnable) {

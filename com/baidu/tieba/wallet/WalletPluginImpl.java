@@ -4,9 +4,9 @@ import android.app.Activity;
 import android.content.Context;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.o0.n0.d;
-import c.a.o0.n0.e;
-import c.a.o0.n0.f;
+import c.a.p0.n0.d;
+import c.a.p0.n0.e;
+import c.a.p0.n0.f;
 import com.alipay.sdk.app.PayTask;
 import com.alipay.sdk.util.i;
 import com.baidu.adp.BdUniqueId;
@@ -120,9 +120,9 @@ public class WalletPluginImpl implements IWalletPlugin {
                         str3 = null;
                     }
                     e eVar = new e();
-                    eVar.f13352a = this.val$tag;
-                    eVar.f13353b = i2;
-                    eVar.f13354c = str3;
+                    eVar.f13643a = this.val$tag;
+                    eVar.f13644b = i2;
+                    eVar.f13645c = str3;
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921393, eVar));
                 }
             }
@@ -172,8 +172,8 @@ public class WalletPluginImpl implements IWalletPlugin {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str2) == null) {
                         e eVar = new e();
-                        eVar.f13353b = i2;
-                        eVar.f13354c = str2;
+                        eVar.f13644b = i2;
+                        eVar.f13645c = str2;
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921335, eVar));
                     }
                 }
@@ -226,9 +226,9 @@ public class WalletPluginImpl implements IWalletPlugin {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str2) == null) {
                         e eVar = new e();
-                        eVar.f13352a = this.val$tag;
-                        eVar.f13353b = i2;
-                        eVar.f13354c = str2;
+                        eVar.f13643a = this.val$tag;
+                        eVar.f13644b = i2;
+                        eVar.f13645c = str2;
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921393, eVar));
                     }
                 }
@@ -502,7 +502,7 @@ public class WalletPluginImpl implements IWalletPlugin {
                         int i2 = -1;
                         String str2 = null;
                         for (String str3 : map.keySet()) {
-                            if (TextUtils.equals(str3, i.f35879a)) {
+                            if (TextUtils.equals(str3, i.f35985a)) {
                                 i2 = Integer.parseInt(map.get(str3));
                             } else if (TextUtils.equals(str3, "result")) {
                                 str2 = map.get(str3);
@@ -510,9 +510,9 @@ public class WalletPluginImpl implements IWalletPlugin {
                         }
                         int i3 = i2 == 9000 ? 0 : i2 == 8000 ? 1 : i2 == 6001 ? 2 : 6;
                         e eVar = new e();
-                        eVar.f13352a = this.val$tag;
-                        eVar.f13353b = i3;
-                        eVar.f13354c = str2;
+                        eVar.f13643a = this.val$tag;
+                        eVar.f13644b = i3;
+                        eVar.f13645c = str2;
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921393, eVar));
                     }
                 }

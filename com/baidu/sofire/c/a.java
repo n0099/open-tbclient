@@ -8,25 +8,25 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f45007a;
+    public String f45114a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f45008b;
+    public String f45115b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f45009c;
+    public String f45116c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f45010d;
+    public String f45117d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f45011e;
+    public String f45118e;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -48,11 +48,11 @@ public final class a {
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, aVar)) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("0", aVar.f45007a);
-                jSONObject.put("1", aVar.f45009c);
-                jSONObject.put("2", aVar.f45010d);
-                jSONObject.put("3", aVar.f45011e);
-                jSONObject.put("4", aVar.f45008b);
+                jSONObject.put("0", aVar.f45114a);
+                jSONObject.put("1", aVar.f45116c);
+                jSONObject.put("2", aVar.f45117d);
+                jSONObject.put("3", aVar.f45118e);
+                jSONObject.put("4", aVar.f45115b);
             } catch (Throwable unused) {
                 c.a();
             }
@@ -70,28 +70,28 @@ public final class a {
             }
             if (obj != null && a.class == obj.getClass()) {
                 a aVar = (a) obj;
-                String str = this.f45010d;
+                String str = this.f45117d;
                 if (str == null) {
-                    if (aVar.f45010d != null) {
+                    if (aVar.f45117d != null) {
                         return false;
                     }
-                } else if (!str.equals(aVar.f45010d)) {
+                } else if (!str.equals(aVar.f45117d)) {
                     return false;
                 }
-                String str2 = this.f45011e;
+                String str2 = this.f45118e;
                 if (str2 == null) {
-                    if (aVar.f45011e != null) {
+                    if (aVar.f45118e != null) {
                         return false;
                     }
-                } else if (!str2.equals(aVar.f45011e)) {
+                } else if (!str2.equals(aVar.f45118e)) {
                     return false;
                 }
-                String str3 = this.f45008b;
+                String str3 = this.f45115b;
                 if (str3 == null) {
-                    if (aVar.f45008b != null) {
+                    if (aVar.f45115b != null) {
                         return false;
                     }
-                } else if (!str3.equals(aVar.f45008b)) {
+                } else if (!str3.equals(aVar.f45115b)) {
                     return false;
                 }
                 return true;
@@ -105,11 +105,11 @@ public final class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            String str = this.f45010d;
+            String str = this.f45117d;
             int hashCode = ((str == null ? 0 : str.hashCode()) + 31) * 31;
-            String str2 = this.f45011e;
+            String str2 = this.f45118e;
             int hashCode2 = (hashCode + (str2 == null ? 0 : str2.hashCode())) * 31;
-            String str3 = this.f45008b;
+            String str3 = this.f45115b;
             return hashCode2 + (str3 != null ? str3.hashCode() : 0);
         }
         return invokeV.intValue;
@@ -122,11 +122,11 @@ public final class a {
             a aVar = new a();
             try {
                 JSONObject jSONObject = new JSONObject(str);
-                aVar.f45007a = jSONObject.optString("0");
-                aVar.f45009c = jSONObject.optString("1");
-                aVar.f45010d = jSONObject.optString("2");
-                aVar.f45011e = jSONObject.optString("3");
-                aVar.f45008b = jSONObject.optString("4");
+                aVar.f45114a = jSONObject.optString("0");
+                aVar.f45116c = jSONObject.optString("1");
+                aVar.f45117d = jSONObject.optString("2");
+                aVar.f45118e = jSONObject.optString("3");
+                aVar.f45115b = jSONObject.optString("4");
                 return aVar;
             } catch (Exception unused) {
                 c.a();

@@ -5,27 +5,27 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
-import c.a.n0.a.v2.v;
-import c.a.n0.e.l.b;
+import c.a.o0.a.v2.v;
+import c.a.o0.e.l.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class SwanEntryActivity extends Activity {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String LAUNCHER_URI = "SWAN_URI";
     public static final String SWAN_ACTION = "com.baidu.swan.launcher";
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SwanEntryActivity f49092e;
+        public final /* synthetic */ SwanEntryActivity f49200e;
 
         public a(SwanEntryActivity swanEntryActivity) {
             Interceptable interceptable = $ic;
@@ -42,14 +42,14 @@ public class SwanEntryActivity extends Activity {
                     return;
                 }
             }
-            this.f49092e = swanEntryActivity;
+            this.f49200e = swanEntryActivity;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f49092e.finish();
+                this.f49200e.finish();
             }
         }
     }

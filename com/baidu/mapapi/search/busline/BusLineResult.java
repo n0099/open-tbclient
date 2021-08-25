@@ -23,34 +23,34 @@ public class BusLineResult extends SearchResult implements Parcelable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f41509a;
+    public String f41616a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f41510b;
+    public String f41617b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f41511c;
+    public boolean f41618c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Date f41512d;
+    public Date f41619d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Date f41513e;
+    public Date f41620e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f41514f;
+    public String f41621f;
 
     /* renamed from: g  reason: collision with root package name */
-    public List<BusStation> f41515g;
+    public List<BusStation> f41622g;
 
     /* renamed from: h  reason: collision with root package name */
-    public List<BusStep> f41516h;
+    public List<BusStep> f41623h;
 
     /* renamed from: i  reason: collision with root package name */
-    public float f41517i;
+    public float f41624i;
 
     /* renamed from: j  reason: collision with root package name */
-    public float f41518j;
+    public float f41625j;
     public String k;
 
     /* loaded from: classes5.dex */
@@ -122,10 +122,10 @@ public class BusLineResult extends SearchResult implements Parcelable {
                 return;
             }
         }
-        this.f41509a = null;
-        this.f41510b = null;
-        this.f41515g = null;
-        this.f41516h = null;
+        this.f41616a = null;
+        this.f41617b = null;
+        this.f41622g = null;
+        this.f41623h = null;
         this.k = null;
     }
 
@@ -144,19 +144,19 @@ public class BusLineResult extends SearchResult implements Parcelable {
                 return;
             }
         }
-        this.f41509a = null;
-        this.f41510b = null;
-        this.f41515g = null;
-        this.f41516h = null;
+        this.f41616a = null;
+        this.f41617b = null;
+        this.f41622g = null;
+        this.f41623h = null;
         this.k = null;
-        this.f41509a = parcel.readString();
-        this.f41510b = parcel.readString();
-        this.f41511c = ((Boolean) parcel.readValue(Boolean.class.getClassLoader())).booleanValue();
-        this.f41512d = (Date) parcel.readValue(Date.class.getClassLoader());
-        this.f41513e = (Date) parcel.readValue(Date.class.getClassLoader());
-        this.f41514f = parcel.readString();
-        this.f41515g = parcel.readArrayList(BusStation.class.getClassLoader());
-        this.f41516h = parcel.readArrayList(RouteStep.class.getClassLoader());
+        this.f41616a = parcel.readString();
+        this.f41617b = parcel.readString();
+        this.f41618c = ((Boolean) parcel.readValue(Boolean.class.getClassLoader())).booleanValue();
+        this.f41619d = (Date) parcel.readValue(Date.class.getClassLoader());
+        this.f41620e = (Date) parcel.readValue(Date.class.getClassLoader());
+        this.f41621f = parcel.readString();
+        this.f41622g = parcel.readArrayList(BusStation.class.getClassLoader());
+        this.f41623h = parcel.readArrayList(RouteStep.class.getClassLoader());
     }
 
     @Override // com.baidu.mapapi.search.core.SearchResult, android.os.Parcelable
@@ -172,25 +172,25 @@ public class BusLineResult extends SearchResult implements Parcelable {
     public float getBasePrice() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f41517i : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f41624i : invokeV.floatValue;
     }
 
     public String getBusCompany() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f41509a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f41616a : (String) invokeV.objValue;
     }
 
     public String getBusLineName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f41510b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f41617b : (String) invokeV.objValue;
     }
 
     public Date getEndTime() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f41513e : (Date) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f41620e : (Date) invokeV.objValue;
     }
 
     public String getLineDirection() {
@@ -202,57 +202,57 @@ public class BusLineResult extends SearchResult implements Parcelable {
     public float getMaxPrice() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f41518j : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f41625j : invokeV.floatValue;
     }
 
     public Date getStartTime() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f41512d : (Date) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f41619d : (Date) invokeV.objValue;
     }
 
     public List<BusStation> getStations() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f41515g : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f41622g : (List) invokeV.objValue;
     }
 
     public List<BusStep> getSteps() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f41516h : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f41623h : (List) invokeV.objValue;
     }
 
     public String getUid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f41514f : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f41621f : (String) invokeV.objValue;
     }
 
     public boolean isMonthTicket() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f41511c : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f41618c : invokeV.booleanValue;
     }
 
     public void setBasePrice(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048588, this, f2) == null) {
-            this.f41517i = f2;
+            this.f41624i = f2;
         }
     }
 
     public void setBusLineName(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {
-            this.f41510b = str;
+            this.f41617b = str;
         }
     }
 
     public void setEndTime(Date date) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, date) == null) {
-            this.f41513e = date;
+            this.f41620e = date;
         }
     }
 
@@ -266,42 +266,42 @@ public class BusLineResult extends SearchResult implements Parcelable {
     public void setMaxPrice(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048592, this, f2) == null) {
-            this.f41518j = f2;
+            this.f41625j = f2;
         }
     }
 
     public void setMonthTicket(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048593, this, z) == null) {
-            this.f41511c = z;
+            this.f41618c = z;
         }
     }
 
     public void setStartTime(Date date) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048594, this, date) == null) {
-            this.f41512d = date;
+            this.f41619d = date;
         }
     }
 
     public void setStations(List<BusStation> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048595, this, list) == null) {
-            this.f41515g = list;
+            this.f41622g = list;
         }
     }
 
     public void setSteps(List<BusStep> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048596, this, list) == null) {
-            this.f41516h = list;
+            this.f41623h = list;
         }
     }
 
     public void setUid(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048597, this, str) == null) {
-            this.f41514f = str;
+            this.f41621f = str;
         }
     }
 
@@ -309,14 +309,14 @@ public class BusLineResult extends SearchResult implements Parcelable {
     public void writeToParcel(Parcel parcel, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048598, this, parcel, i2) == null) {
-            parcel.writeString(this.f41509a);
-            parcel.writeString(this.f41510b);
-            parcel.writeValue(Boolean.valueOf(this.f41511c));
-            parcel.writeValue(this.f41512d);
-            parcel.writeValue(this.f41513e);
-            parcel.writeString(this.f41514f);
-            parcel.writeList(this.f41515g);
-            parcel.writeList(this.f41516h);
+            parcel.writeString(this.f41616a);
+            parcel.writeString(this.f41617b);
+            parcel.writeValue(Boolean.valueOf(this.f41618c));
+            parcel.writeValue(this.f41619d);
+            parcel.writeValue(this.f41620e);
+            parcel.writeString(this.f41621f);
+            parcel.writeList(this.f41622g);
+            parcel.writeList(this.f41623h);
         }
     }
 }

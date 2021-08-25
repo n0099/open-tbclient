@@ -11,7 +11,7 @@ public class ap implements d.b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ an f76904a;
+    public final /* synthetic */ an f77105a;
 
     public ap(an anVar) {
         Interceptable interceptable = $ic;
@@ -28,6 +28,6 @@ public class ap implements d.b {
                 return;
             }
         }
-        this.f76904a = anVar;
+        this.f77105a = anVar;
     }
 }

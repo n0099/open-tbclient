@@ -71,7 +71,7 @@ public final class VivoIdentifier {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeZL(1048576, this, z, idSupplier) == null) {
                     try {
-                        String str = u0.f31212j;
+                        String str = u0.f31318j;
                         o0.e(str, "OaidMiit#OnSupport isSupport=" + z + ", supplier=" + idSupplier);
                         if (z && idSupplier != null) {
                             this.this$0.setupOaid(idSupplier.getOAID());
@@ -99,7 +99,7 @@ public final class VivoIdentifier {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, str) == null) {
             synchronized (this) {
-                String str2 = u0.f31212j;
+                String str2 = u0.f31318j;
                 o0.e(str2, "OaidMiit#setupOaid id=" + str + ", oaid=" + this.oaid);
                 if (!TextUtils.isEmpty(str) && !str.equals(this.oaid)) {
                     this.oaid = str;
@@ -118,7 +118,7 @@ public final class VivoIdentifier {
                 }
             }
             v0.a aVar = new v0.a();
-            aVar.f31223a = this.oaid;
+            aVar.f31329a = this.oaid;
             return aVar;
         }
         return (v0.a) invokeL.objValue;
@@ -131,30 +131,30 @@ public final class VivoIdentifier {
                 this.mProloading = true;
                 int callFromReflect = callFromReflect(context);
                 if (callFromReflect == 1008612) {
-                    o0.e(u0.f31212j, "OaidMiit#getDeviceIds 不支持的设备");
+                    o0.e(u0.f31318j, "OaidMiit#getDeviceIds 不支持的设备");
                     this.resultCode = "不支持的设备";
                 } else if (callFromReflect == 1008613) {
-                    o0.e(u0.f31212j, "OaidMiit#getDeviceIds 加载配置文件出错");
+                    o0.e(u0.f31318j, "OaidMiit#getDeviceIds 加载配置文件出错");
                     this.resultCode = "加载配置文件出错";
                 } else if (callFromReflect == 1008611) {
-                    o0.e(u0.f31212j, "OaidMiit#getDeviceIds 不支持的设备厂商");
+                    o0.e(u0.f31318j, "OaidMiit#getDeviceIds 不支持的设备厂商");
                     this.resultCode = "不支持的设备厂商";
                 } else if (callFromReflect == 1008614) {
-                    o0.e(u0.f31212j, "OaidMiit#getDeviceIds 获取接口是异步的，结果会在回调中返回，回调执行的回调可能在工作线程");
+                    o0.e(u0.f31318j, "OaidMiit#getDeviceIds 获取接口是异步的，结果会在回调中返回，回调执行的回调可能在工作线程");
                     if (this.mSecondCallGetDeviceIds.compareAndSet(false, true)) {
                         preloadOaid(context);
                     } else {
                         this.resultCode = "结果会在回调中返回";
                     }
                 } else if (callFromReflect == 1008615) {
-                    o0.e(u0.f31212j, "OaidMiit#getDeviceIds 反射调用出错");
+                    o0.e(u0.f31318j, "OaidMiit#getDeviceIds 反射调用出错");
                     this.resultCode = "反射调用出错";
                 } else if (callFromReflect == 0) {
-                    o0.e(u0.f31212j, "OaidMiit#getDeviceIds 正确");
+                    o0.e(u0.f31318j, "OaidMiit#getDeviceIds 正确");
                     this.resultCode = "正确";
                 } else {
                     this.resultCode = "未知 resultCode=" + callFromReflect;
-                    String str = u0.f31212j;
+                    String str = u0.f31318j;
                     o0.e(str, "OaidMiit#getDeviceIds 未知 resultCode=" + callFromReflect);
                 }
             }

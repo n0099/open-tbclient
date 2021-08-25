@@ -3,8 +3,8 @@ package com.baidu.tieba.pb.pb.main;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import c.a.o0.s.u.c;
-import c.a.p0.i2.h.d;
+import c.a.p0.s.u.c;
+import c.a.q0.i2.h.d;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
@@ -20,16 +20,16 @@ public class PbChildTitleViewHolder extends TypeAdapter.ViewHolder {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public View f54646a;
+    public View f54811a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f54647b;
+    public View f54812b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ViewGroup f54648c;
+    public ViewGroup f54813c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TextView f54649d;
+    public TextView f54814d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PbChildTitleViewHolder(View view) {
@@ -49,40 +49,40 @@ public class PbChildTitleViewHolder extends TypeAdapter.ViewHolder {
                 return;
             }
         }
-        this.f54646a = view;
-        this.f54647b = view.findViewById(R.id.pb_child_title_top_line);
-        this.f54648c = (ViewGroup) view.findViewById(R.id.rl_pb_child_title_area);
+        this.f54811a = view;
+        this.f54812b = view.findViewById(R.id.pb_child_title_top_line);
+        this.f54813c = (ViewGroup) view.findViewById(R.id.rl_pb_child_title_area);
         TextView textView = (TextView) view.findViewById(R.id.tv_pb_child_title);
-        this.f54649d = textView;
-        c.d(textView).y(R.string.F_X02);
+        this.f54814d = textView;
+        c.d(textView).z(R.string.F_X02);
     }
 
     public void bindData(d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, dVar) == null) {
-            this.f54649d.setText(dVar.c());
+            this.f54814d.setText(dVar.c());
         }
     }
 
     public View getRootView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f54646a : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f54811a : (View) invokeV.objValue;
     }
 
     public void onChangeSkinType() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            SkinManager.setBackgroundColor(this.f54647b, R.color.CAM_X0204);
-            SkinManager.setBackgroundColor(this.f54648c, R.color.CAM_X0205);
-            SkinManager.setViewTextColor(this.f54649d, R.color.CAM_X0105);
+            SkinManager.setBackgroundColor(this.f54812b, R.color.CAM_X0204);
+            SkinManager.setBackgroundColor(this.f54813c, R.color.CAM_X0205);
+            SkinManager.setViewTextColor(this.f54814d, R.color.CAM_X0105);
         }
     }
 
     public void setViewVisibility(int i2) {
         View view;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048579, this, i2) == null) || (view = this.f54646a) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048579, this, i2) == null) || (view = this.f54811a) == null) {
             return;
         }
         view.setVisibility(i2);

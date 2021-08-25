@@ -19,10 +19,10 @@ public interface w {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final String f32728a;
+        public final String f32834a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final byte[] f32729b;
+        public final byte[] f32835b;
 
         public a(String str, int i2, byte[] bArr) {
             Interceptable interceptable = $ic;
@@ -39,8 +39,8 @@ public interface w {
                     return;
                 }
             }
-            this.f32728a = str;
-            this.f32729b = bArr;
+            this.f32834a = str;
+            this.f32835b = bArr;
         }
     }
 
@@ -50,16 +50,16 @@ public interface w {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final int f32730a;
+        public final int f32836a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final String f32731b;
+        public final String f32837b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final List<a> f32732c;
+        public final List<a> f32838c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final byte[] f32733d;
+        public final byte[] f32839d;
 
         public b(int i2, String str, List<a> list, byte[] bArr) {
             List<a> unmodifiableList;
@@ -77,15 +77,15 @@ public interface w {
                     return;
                 }
             }
-            this.f32730a = i2;
-            this.f32731b = str;
+            this.f32836a = i2;
+            this.f32837b = str;
             if (list == null) {
                 unmodifiableList = Collections.emptyList();
             } else {
                 unmodifiableList = Collections.unmodifiableList(list);
             }
-            this.f32732c = unmodifiableList;
-            this.f32733d = bArr;
+            this.f32838c = unmodifiableList;
+            this.f32839d = bArr;
         }
     }
 
@@ -102,19 +102,19 @@ public interface w {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final String f32734a;
+        public final String f32840a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final int f32735b;
+        public final int f32841b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final int f32736c;
+        public final int f32842c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f32737d;
+        public int f32843d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f32738e;
+        public String f32844e;
 
         /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
         public d(int i2, int i3) {
@@ -140,9 +140,9 @@ public interface w {
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                int i2 = this.f32737d;
-                this.f32737d = i2 == Integer.MIN_VALUE ? this.f32735b : i2 + this.f32736c;
-                this.f32738e = this.f32734a + this.f32737d;
+                int i2 = this.f32843d;
+                this.f32843d = i2 == Integer.MIN_VALUE ? this.f32841b : i2 + this.f32842c;
+                this.f32844e = this.f32840a + this.f32843d;
             }
         }
 
@@ -151,7 +151,7 @@ public interface w {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
                 d();
-                return this.f32738e;
+                return this.f32844e;
             }
             return (String) invokeV.objValue;
         }
@@ -161,14 +161,14 @@ public interface w {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
                 d();
-                return this.f32737d;
+                return this.f32843d;
             }
             return invokeV.intValue;
         }
 
         public final void d() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && this.f32737d == Integer.MIN_VALUE) {
+            if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && this.f32843d == Integer.MIN_VALUE) {
                 throw new IllegalStateException("generateNewId() must be called before retrieving ids.");
             }
         }
@@ -194,10 +194,10 @@ public interface w {
             } else {
                 str = "";
             }
-            this.f32734a = str;
-            this.f32735b = i3;
-            this.f32736c = i4;
-            this.f32737d = Integer.MIN_VALUE;
+            this.f32840a = str;
+            this.f32841b = i3;
+            this.f32842c = i4;
+            this.f32843d = Integer.MIN_VALUE;
         }
     }
 

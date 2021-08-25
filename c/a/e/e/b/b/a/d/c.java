@@ -12,7 +12,7 @@ public class c implements h {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Bundle f2103a;
+    public Bundle f2161a;
 
     public c(Bundle bundle) {
         Interceptable interceptable = $ic;
@@ -29,7 +29,7 @@ public class c implements h {
                 return;
             }
         }
-        this.f2103a = bundle;
+        this.f2161a = bundle;
     }
 
     @Override // c.a.e.e.b.b.a.d.h

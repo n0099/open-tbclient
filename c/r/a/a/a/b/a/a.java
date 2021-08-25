@@ -19,19 +19,19 @@ public final class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f35258a;
+    public Context f35364a;
 
     /* renamed from: b  reason: collision with root package name */
-    public com.yxcorp.kuaishou.addfp.a.b.a.b f35259b;
+    public com.yxcorp.kuaishou.addfp.a.b.a.b f35365b;
 
     /* renamed from: c  reason: collision with root package name */
-    public com.yxcorp.kuaishou.addfp.a.b.b f35260c;
+    public com.yxcorp.kuaishou.addfp.a.b.b f35366c;
 
     /* renamed from: d  reason: collision with root package name */
-    public CountDownLatch f35261d;
+    public CountDownLatch f35367d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ServiceConnection f35262e;
+    public ServiceConnection f35368e;
 
     public a(Context context) {
         Interceptable interceptable = $ic;
@@ -48,16 +48,16 @@ public final class a {
                 return;
             }
         }
-        this.f35261d = new CountDownLatch(1);
-        this.f35262e = new b(this);
-        this.f35258a = context;
+        this.f35367d = new CountDownLatch(1);
+        this.f35368e = new b(this);
+        this.f35364a = context;
     }
 
     public final void b() {
         ServiceConnection serviceConnection;
         Context context;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (serviceConnection = this.f35262e) == null || (context = this.f35258a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (serviceConnection = this.f35368e) == null || (context = this.f35364a) == null) {
             return;
         }
         context.unbindService(serviceConnection);
@@ -67,17 +67,17 @@ public final class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
             try {
-                this.f35260c = bVar;
+                this.f35366c = bVar;
                 Intent intent = new Intent("com.asus.msa.action.ACCESS_DID");
                 ComponentName componentName = new ComponentName("com.asus.msa.SupplementaryDID", "com.asus.msa.SupplementaryDID.SupplementaryDIDService");
                 Intent intent2 = new Intent(intent);
                 intent2.setComponent(componentName);
-                if (!this.f35258a.bindService(intent2, this.f35262e, 1)) {
+                if (!this.f35364a.bindService(intent2, this.f35368e, 1)) {
                     d(false);
                     return;
                 }
-                this.f35261d.await(10L, TimeUnit.SECONDS);
-                if (this.f35259b != null) {
+                this.f35367d.await(10L, TimeUnit.SECONDS);
+                if (this.f35365b != null) {
                     d(true);
                 } else {
                     d(false);
@@ -93,9 +93,9 @@ public final class a {
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
             if (z) {
                 try {
-                    String a2 = this.f35259b.a();
+                    String a2 = this.f35365b.a();
                     if (!TextUtils.isEmpty(a2)) {
-                        this.f35260c.a(a2);
+                        this.f35366c.a(a2);
                         return;
                     }
                 } catch (Throwable th) {
@@ -103,7 +103,7 @@ public final class a {
                     return;
                 }
             }
-            this.f35260c.e();
+            this.f35366c.e();
         }
     }
 }

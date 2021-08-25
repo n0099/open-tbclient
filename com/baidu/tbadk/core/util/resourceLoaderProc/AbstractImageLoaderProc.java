@@ -12,7 +12,7 @@ import c.a.e.e.l.e;
 import c.a.e.e.p.j;
 import c.a.e.e.p.k;
 import c.a.e.e.p.l;
-import c.a.e.k.d.a;
+import c.a.e.l.d.a;
 import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
 import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
 import com.baidu.adp.lib.featureSwitch.SwitchManager;
@@ -202,7 +202,7 @@ public abstract class AbstractImageLoaderProc implements e<a> {
     public boolean isNeedLoad() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? c.a.o0.s.k.c().g() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? c.a.p0.s.k.c().g() : invokeV.booleanValue;
     }
 
     public Bitmap resizeBitmapSize(Bitmap bitmap, int i2, int i3) {
@@ -213,7 +213,7 @@ public abstract class AbstractImageLoaderProc implements e<a> {
                 return null;
             }
             if (bitmap.getWidth() > i2 || bitmap.getHeight() > i3) {
-                c.a.o0.b0.c.k().i(BitmapHelper.getBitmapSize(bitmap) * 2);
+                c.a.p0.b0.c.k().i(BitmapHelper.getBitmapSize(bitmap) * 2);
                 return BitmapHelper.resizeBitmap(bitmap, i2, i3, true);
             }
             return bitmap;
@@ -244,7 +244,7 @@ public abstract class AbstractImageLoaderProc implements e<a> {
         if (bVar != null) {
             DiskCancelWorker diskCancelWorker = new DiskCancelWorker();
             diskCancelWorker.setOperate(cVar);
-            bVar.f2324a = diskCancelWorker;
+            bVar.f2382a = diskCancelWorker;
         }
     }
 
@@ -257,7 +257,7 @@ public abstract class AbstractImageLoaderProc implements e<a> {
                 long currentTimeMillis = System.currentTimeMillis();
                 aVar.A(i2);
                 aVar.z(i3);
-                c.a.o0.b0.c.k().d(str, aVar);
+                c.a.p0.b0.c.k().d(str, aVar);
                 c.a.e.e.l.a.l(true, System.currentTimeMillis() - currentTimeMillis);
             }
         }
@@ -293,7 +293,7 @@ public abstract class AbstractImageLoaderProc implements e<a> {
             if (bVar != null) {
                 DiskCancelWorker diskCancelWorker = new DiskCancelWorker();
                 diskCancelWorker.setOperate(createDiskPicOperate);
-                bVar.f2324a = diskCancelWorker;
+                bVar.f2382a = diskCancelWorker;
             }
             if (!c.a.e.e.a.d.g().a(createDiskPicOperate)) {
                 c.a.e.e.l.a.f(false, 0L);
@@ -333,7 +333,7 @@ public abstract class AbstractImageLoaderProc implements e<a> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048586, this, new Object[]{str, str2, Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z), objArr})) == null) {
             long currentTimeMillis = System.currentTimeMillis();
-            a m = c.a.o0.b0.c.k().m(str);
+            a m = c.a.p0.b0.c.k().m(str);
             if (z) {
                 c.a.e.e.l.a.i(m != null, System.currentTimeMillis() - currentTimeMillis);
             }
@@ -410,7 +410,7 @@ public abstract class AbstractImageLoaderProc implements e<a> {
                 z = true;
                 webClient = new WebClient();
                 if (bVar != null) {
-                    bVar.f2324a = webClient;
+                    bVar.f2382a = webClient;
                 }
                 downloadImageBytes = webClient.downloadImageBytes(str3, !isFromCDN);
                 boolean needCache = webClient.needCache();
@@ -469,14 +469,14 @@ public abstract class AbstractImageLoaderProc implements e<a> {
                     webClient2 = webClient;
                     i4 = 1;
                     c2 = 0;
-                    if (!webClient2.getResponse().f2269a) {
+                    if (!webClient2.getResponse().f2327a) {
                         c.a.e.e.l.a.j(false, str3, webClient2.mStat, 0L, 0L);
                         ImageLogger.imagePerfNetLog(str, false, str3, Boolean.valueOf(z), webClient2.mStat, "NetworkError", System.currentTimeMillis() - currentTimeMillis, webClient2.isMobileProxy(), getProcType());
                         return null;
                     }
                 }
                 if (downloadImageBytes != null) {
-                    if (webClient2.getResponse().f2269a) {
+                    if (webClient2.getResponse().f2327a) {
                         return null;
                     }
                     c.a.e.e.l.a.j(false, str3, webClient2.mStat, 0L, 0L);
@@ -500,7 +500,7 @@ public abstract class AbstractImageLoaderProc implements e<a> {
                     ImageLogger.imagePerfNetLog(str, false, str3, Boolean.valueOf(z), webClient2.mStat, "bytes<1", currentTimeMillis2, webClient2.isMobileProxy(), getProcType());
                 }
                 byte[] bArr2 = bArr;
-                c.a.o0.b0.c.k().i(TbConfig.getPbImageSize() + bArr2.length);
+                c.a.p0.b0.c.k().i(TbConfig.getPbImageSize() + bArr2.length);
                 if (getProcType() == 19) {
                     i7 = 1;
                     Object[] objArr3 = new Object[1];

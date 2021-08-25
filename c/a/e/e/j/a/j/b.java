@@ -24,11 +24,11 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static b f2285b;
+    public static b f2343b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public HashMap<String, c.a.e.e.j.a.j.a> f2286a;
+    public HashMap<String, c.a.e.e.j.a.j.a> f2344a;
 
     /* loaded from: classes.dex */
     public class a implements HostnameVerifier {
@@ -36,7 +36,7 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ c f2287a;
+        public final /* synthetic */ c f2345a;
 
         public a(b bVar, c cVar) {
             Interceptable interceptable = $ic;
@@ -53,7 +53,7 @@ public class b {
                     return;
                 }
             }
-            this.f2287a = cVar;
+            this.f2345a = cVar;
         }
 
         @Override // javax.net.ssl.HostnameVerifier
@@ -63,7 +63,7 @@ public class b {
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, sSLSession)) == null) {
                 boolean verify = HttpsURLConnection.getDefaultHostnameVerifier().verify("httpsdns.baidu.com", sSLSession);
                 if (!verify) {
-                    this.f2287a.e(true);
+                    this.f2345a.e(true);
                 }
                 return verify;
             }
@@ -99,21 +99,21 @@ public class b {
                 return;
             }
         }
-        this.f2286a = new HashMap<>();
+        this.f2344a = new HashMap<>();
     }
 
     public static b a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f2285b == null) {
+            if (f2343b == null) {
                 synchronized (b.class) {
-                    if (f2285b == null) {
-                        f2285b = new b();
+                    if (f2343b == null) {
+                        f2343b = new b();
                     }
                 }
             }
-            return f2285b;
+            return f2343b;
         }
         return (b) invokeV.objValue;
     }
@@ -123,7 +123,7 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
             c cVar = new c();
-            c.a.e.e.j.a.j.a aVar = this.f2286a.get(str);
+            c.a.e.e.j.a.j.a aVar = this.f2344a.get(str);
             if (aVar != null && !aVar.c(System.currentTimeMillis()) && aVar.a() != null && aVar.a().size() > 0) {
                 cVar.g(aVar.a().get(0));
             }
@@ -132,18 +132,18 @@ public class b {
         return (c) invokeL.objValue;
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:33:0x00e4 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:63:0x0126 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:33:0x00e3 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:63:0x0125 */
     /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:52:0x010b A[Catch: all -> 0x0126, TryCatch #1 {all -> 0x0126, blocks: (B:22:0x00b2, B:24:0x00b8, B:25:0x00bc, B:50:0x00fc, B:52:0x010b, B:53:0x010e), top: B:81:0x0015 }] */
-    /* JADX WARN: Removed duplicated region for block: B:57:0x0118 A[Catch: Exception -> 0x0125, TryCatch #10 {Exception -> 0x0125, blocks: (B:55:0x0113, B:57:0x0118, B:59:0x011d, B:61:0x0122), top: B:84:0x0113 }] */
-    /* JADX WARN: Removed duplicated region for block: B:59:0x011d A[Catch: Exception -> 0x0125, TryCatch #10 {Exception -> 0x0125, blocks: (B:55:0x0113, B:57:0x0118, B:59:0x011d, B:61:0x0122), top: B:84:0x0113 }] */
-    /* JADX WARN: Removed duplicated region for block: B:61:0x0122 A[Catch: Exception -> 0x0125, TRY_LEAVE, TryCatch #10 {Exception -> 0x0125, blocks: (B:55:0x0113, B:57:0x0118, B:59:0x011d, B:61:0x0122), top: B:84:0x0113 }] */
-    /* JADX WARN: Removed duplicated region for block: B:68:0x012f A[Catch: Exception -> 0x013c, TryCatch #7 {Exception -> 0x013c, blocks: (B:66:0x012a, B:68:0x012f, B:70:0x0134, B:72:0x0139), top: B:82:0x012a }] */
-    /* JADX WARN: Removed duplicated region for block: B:70:0x0134 A[Catch: Exception -> 0x013c, TryCatch #7 {Exception -> 0x013c, blocks: (B:66:0x012a, B:68:0x012f, B:70:0x0134, B:72:0x0139), top: B:82:0x012a }] */
-    /* JADX WARN: Removed duplicated region for block: B:72:0x0139 A[Catch: Exception -> 0x013c, TRY_LEAVE, TryCatch #7 {Exception -> 0x013c, blocks: (B:66:0x012a, B:68:0x012f, B:70:0x0134, B:72:0x0139), top: B:82:0x012a }] */
-    /* JADX WARN: Removed duplicated region for block: B:82:0x012a A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:84:0x0113 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:52:0x010a A[Catch: all -> 0x0125, TryCatch #1 {all -> 0x0125, blocks: (B:22:0x00b1, B:24:0x00b7, B:25:0x00bb, B:50:0x00fb, B:52:0x010a, B:53:0x010d), top: B:81:0x0015 }] */
+    /* JADX WARN: Removed duplicated region for block: B:57:0x0117 A[Catch: Exception -> 0x0124, TryCatch #10 {Exception -> 0x0124, blocks: (B:55:0x0112, B:57:0x0117, B:59:0x011c, B:61:0x0121), top: B:84:0x0112 }] */
+    /* JADX WARN: Removed duplicated region for block: B:59:0x011c A[Catch: Exception -> 0x0124, TryCatch #10 {Exception -> 0x0124, blocks: (B:55:0x0112, B:57:0x0117, B:59:0x011c, B:61:0x0121), top: B:84:0x0112 }] */
+    /* JADX WARN: Removed duplicated region for block: B:61:0x0121 A[Catch: Exception -> 0x0124, TRY_LEAVE, TryCatch #10 {Exception -> 0x0124, blocks: (B:55:0x0112, B:57:0x0117, B:59:0x011c, B:61:0x0121), top: B:84:0x0112 }] */
+    /* JADX WARN: Removed duplicated region for block: B:68:0x012e A[Catch: Exception -> 0x013b, TryCatch #7 {Exception -> 0x013b, blocks: (B:66:0x0129, B:68:0x012e, B:70:0x0133, B:72:0x0138), top: B:82:0x0129 }] */
+    /* JADX WARN: Removed duplicated region for block: B:70:0x0133 A[Catch: Exception -> 0x013b, TryCatch #7 {Exception -> 0x013b, blocks: (B:66:0x0129, B:68:0x012e, B:70:0x0133, B:72:0x0138), top: B:82:0x0129 }] */
+    /* JADX WARN: Removed duplicated region for block: B:72:0x0138 A[Catch: Exception -> 0x013b, TRY_LEAVE, TryCatch #7 {Exception -> 0x013b, blocks: (B:66:0x0129, B:68:0x012e, B:70:0x0133, B:72:0x0138), top: B:82:0x0129 }] */
+    /* JADX WARN: Removed duplicated region for block: B:82:0x0129 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:84:0x0112 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /* JADX WARN: Type inference failed for: r10v0, types: [java.lang.Object, java.lang.String] */
     /* JADX WARN: Type inference failed for: r10v12 */
     /* JADX WARN: Type inference failed for: r10v13, types: [java.net.HttpURLConnection] */
@@ -384,7 +384,7 @@ public class b {
             if (k.isEmpty(str)) {
                 return cVar;
             }
-            c.a.e.e.j.a.j.a aVar = this.f2286a.get(str);
+            c.a.e.e.j.a.j.a aVar = this.f2344a.get(str);
             if (aVar != null && !aVar.c(System.currentTimeMillis()) && aVar.a() != null && aVar.a().size() > 0) {
                 for (int i2 = 0; i2 < aVar.a().size(); i2++) {
                     if (!k.isEquals(str2, aVar.a().get(i2))) {
@@ -406,7 +406,7 @@ public class b {
                 cVar.f(System.currentTimeMillis() - currentTimeMillis);
                 if (c2 != null && c2.a() != null && c2.a().size() > 0) {
                     c2.d(300L);
-                    this.f2286a.put(str, c2);
+                    this.f2344a.put(str, c2);
                     for (int i4 = 0; i4 < c2.a().size(); i4++) {
                         if (!k.isEquals(str2, c2.a().get(i3))) {
                             cVar.j(i4);
@@ -420,7 +420,7 @@ public class b {
                     }
                     continue;
                 } else {
-                    c.a.e.e.j.a.j.a aVar2 = this.f2286a.get(str);
+                    c.a.e.e.j.a.j.a aVar2 = this.f2344a.get(str);
                     if (aVar2 != null && aVar2.a() != null && aVar2.a().size() > 0) {
                         cVar.g(aVar2.a().get(0));
                         return cVar;

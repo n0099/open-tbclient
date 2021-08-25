@@ -7,9 +7,9 @@ import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
-import c.a.o0.s.q.k1;
-import c.a.o0.s.u.c;
-import c.a.p0.i3.q0.j;
+import c.a.p0.s.q.k1;
+import c.a.p0.s.u.c;
+import c.a.q0.i3.r0.j;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -22,16 +22,16 @@ public class PublishProgressView extends RelativeLayout implements View.OnClickL
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public PublishProgressBar f47552e;
+    public PublishProgressBar f47649e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f47553f;
+    public TextView f47650f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f47554g;
+    public TextView f47651g;
 
     /* renamed from: h  reason: collision with root package name */
-    public k1 f47555h;
+    public k1 f47652h;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PublishProgressView(Context context, AttributeSet attributeSet, int i2) {
@@ -58,7 +58,7 @@ public class PublishProgressView extends RelativeLayout implements View.OnClickL
     private void setProgress(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(65539, this, i2) == null) {
-            this.f47553f.setText(String.format(getResources().getString(R.string.publish_progress_prefix), Integer.valueOf(this.f47552e.c(i2))));
+            this.f47650f.setText(String.format(getResources().getString(R.string.publish_progress_prefix), Integer.valueOf(this.f47649e.c(i2))));
         }
     }
 
@@ -66,12 +66,12 @@ public class PublishProgressView extends RelativeLayout implements View.OnClickL
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, context, attributeSet) == null) {
             View inflate = LayoutInflater.from(context).inflate(R.layout.publish_progress_view, this);
-            this.f47552e = (PublishProgressBar) inflate.findViewById(R.id.progress_bar);
-            this.f47553f = (TextView) inflate.findViewById(R.id.progress_text);
+            this.f47649e = (PublishProgressBar) inflate.findViewById(R.id.progress_bar);
+            this.f47650f = (TextView) inflate.findViewById(R.id.progress_text);
             TextView textView = (TextView) inflate.findViewById(R.id.progress_close_btn);
-            this.f47554g = textView;
+            this.f47651g = textView;
             textView.setOnClickListener(this);
-            this.f47552e.setOnClickListener(this);
+            this.f47649e.setOnClickListener(this);
             onChangeSkinType();
         }
     }
@@ -79,11 +79,11 @@ public class PublishProgressView extends RelativeLayout implements View.OnClickL
     public final void b() {
         k1 k1Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (k1Var = this.f47555h) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (k1Var = this.f47652h) == null) {
             return;
         }
         if (k1Var.d()) {
-            setProgress(this.f47555h.a());
+            setProgress(this.f47652h.a());
             setVisibility(0);
             return;
         }
@@ -94,15 +94,15 @@ public class PublishProgressView extends RelativeLayout implements View.OnClickL
     public void onChangeSkinType() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f47552e.b();
-            c d2 = c.d(this.f47553f);
-            d2.t(R.color.CAM_X0101);
-            d2.x(R.dimen.T_X06);
-            d2.y(R.string.F_X01);
-            c d3 = c.d(this.f47554g);
-            d3.t(R.color.CAM_X0101);
-            d3.x(R.dimen.T_X09);
-            d3.y(R.string.F_X01);
+            this.f47649e.b();
+            c d2 = c.d(this.f47650f);
+            d2.u(R.color.CAM_X0101);
+            d2.y(R.dimen.T_X06);
+            d2.z(R.string.F_X01);
+            c d3 = c.d(this.f47651g);
+            d3.u(R.color.CAM_X0101);
+            d3.y(R.dimen.T_X09);
+            d3.z(R.string.F_X01);
         }
     }
 
@@ -110,7 +110,7 @@ public class PublishProgressView extends RelativeLayout implements View.OnClickL
     public void onClick(View view) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048579, this, view) == null) && view.getId() == R.id.progress_close_btn) {
-            k1 k1Var = this.f47555h;
+            k1 k1Var = this.f47652h;
             if (k1Var != null) {
                 k1Var.b();
                 b();
@@ -122,12 +122,12 @@ public class PublishProgressView extends RelativeLayout implements View.OnClickL
     public void updateCurProgressData(@NonNull k1 k1Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, k1Var) == null) {
-            if (k1Var.equals(this.f47555h)) {
-                this.f47555h.g(k1Var);
+            if (k1Var.equals(this.f47652h)) {
+                this.f47652h.g(k1Var);
                 b();
                 return;
             }
-            this.f47555h = k1Var;
+            this.f47652h = k1Var;
             b();
         }
     }

@@ -2,7 +2,7 @@ package com.baidu.tieba.homepage.tabfeed.data;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-import c.a.e.k.e.n;
+import c.a.e.l.e.n;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -111,7 +111,7 @@ public class SpecialColumnItemData implements n, Parcelable {
         return invokeV.intValue;
     }
 
-    @Override // c.a.e.k.e.n
+    @Override // c.a.e.l.e.n
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

@@ -10,7 +10,7 @@ public class s extends r {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public c f2638a;
+    public c f2696a;
 
     public s(c cVar) {
         Interceptable interceptable = $ic;
@@ -27,6 +27,6 @@ public class s extends r {
                 return;
             }
         }
-        this.f2638a = cVar;
+        this.f2696a = cVar;
     }
 }

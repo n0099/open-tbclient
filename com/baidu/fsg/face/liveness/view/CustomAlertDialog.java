@@ -21,28 +21,28 @@ public class CustomAlertDialog extends Dialog {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ViewSwitcher f40104a;
+    public ViewSwitcher f40211a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f40105b;
+    public TextView f40212b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f40106c;
+    public TextView f40213c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Button f40107d;
+    public Button f40214d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Button f40108e;
+    public Button f40215e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f40109f;
+    public TextView f40216f;
 
     /* renamed from: g  reason: collision with root package name */
-    public LinearLayout f40110g;
+    public LinearLayout f40217g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Spinner f40111h;
+    public Spinner f40218h;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public CustomAlertDialog(Context context) {
@@ -71,12 +71,12 @@ public class CustomAlertDialog extends Dialog {
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
             setContentView(R.layout.layout_sapi_liveness_dialog_alert);
             setCanceledOnTouchOutside(false);
-            this.f40104a = (ViewSwitcher) findViewById(R.id.view_switcher);
-            this.f40105b = (TextView) findViewById(R.id.dialog_title);
-            this.f40106c = (TextView) findViewById(R.id.msg_text);
-            this.f40107d = (Button) findViewById(R.id.positive_btn);
-            this.f40108e = (Button) findViewById(R.id.negative_btn);
-            this.f40109f = (TextView) findViewById(R.id.neutral_btn);
+            this.f40211a = (ViewSwitcher) findViewById(R.id.view_switcher);
+            this.f40212b = (TextView) findViewById(R.id.dialog_title);
+            this.f40213c = (TextView) findViewById(R.id.msg_text);
+            this.f40214d = (Button) findViewById(R.id.positive_btn);
+            this.f40215e = (Button) findViewById(R.id.negative_btn);
+            this.f40216f = (TextView) findViewById(R.id.neutral_btn);
         }
     }
 
@@ -89,9 +89,9 @@ public class CustomAlertDialog extends Dialog {
                 i2 = 2;
             }
             if (i2 == 2) {
-                this.f40104a.setDisplayedChild(0);
+                this.f40211a.setDisplayedChild(0);
             } else {
-                this.f40104a.setDisplayedChild(1);
+                this.f40211a.setDisplayedChild(1);
             }
         }
     }
@@ -99,45 +99,45 @@ public class CustomAlertDialog extends Dialog {
     public void setMessageIcon(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            this.f40106c.setText(i2);
+            this.f40213c.setText(i2);
         }
     }
 
     public void setMessageText(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.f40106c.setText(str);
+            this.f40213c.setText(str);
         }
     }
 
     public void setNegativeBtn(String str, View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, str, onClickListener) == null) {
-            this.f40108e.setText(str);
-            this.f40108e.setOnClickListener(onClickListener);
+            this.f40215e.setText(str);
+            this.f40215e.setOnClickListener(onClickListener);
         }
     }
 
     public void setNeutralBtn(String str, View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, str, onClickListener) == null) {
-            this.f40109f.setText(str);
-            this.f40109f.setOnClickListener(onClickListener);
+            this.f40216f.setText(str);
+            this.f40216f.setOnClickListener(onClickListener);
         }
     }
 
     public void setPositiveBtn(String str, View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048581, this, str, onClickListener) == null) {
-            this.f40107d.setText(str);
-            this.f40107d.setOnClickListener(onClickListener);
+            this.f40214d.setText(str);
+            this.f40214d.setOnClickListener(onClickListener);
         }
     }
 
     public void setTitleMsg(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.f40105b.setText(str);
+            this.f40212b.setText(str);
         }
     }
 
@@ -145,9 +145,9 @@ public class CustomAlertDialog extends Dialog {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
             if (z) {
-                this.f40105b.setVisibility(0);
+                this.f40212b.setVisibility(0);
             } else {
-                this.f40105b.setVisibility(8);
+                this.f40212b.setVisibility(8);
             }
         }
     }

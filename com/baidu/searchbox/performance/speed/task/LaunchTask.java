@@ -1,5 +1,6 @@
 package com.baidu.searchbox.performance.speed.task;
 
+import android.os.Looper;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.config.AppConfig;
 import com.baidu.searchbox.launch.stats.SpeedStatsManager;
@@ -65,6 +66,9 @@ public abstract class LaunchTask implements Runnable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             long currentTimeMillis = System.currentTimeMillis();
+            if (Looper.myLooper() == null) {
+                Looper.prepare();
+            }
             execute();
             SpeedStatsManager.getInstance().setTaskRunTime(getName(), System.currentTimeMillis() - currentTimeMillis);
         }

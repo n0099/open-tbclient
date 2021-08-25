@@ -103,7 +103,7 @@ public class IMMediaGetContactorSettingRequest extends IMMediaBaseHttpRequest {
                 if (!TextUtils.isEmpty(this.mContactorThirdid)) {
                     jSONObject.put("contacter_third_id", this.mContactorThirdid);
                 }
-                jSONObject.put(a.f35824j, this.mSetting);
+                jSONObject.put(a.f35930j, this.mSetting);
                 jSONObject.put("sign", generateSign(jSONObject));
             } catch (JSONException e2) {
                 LogUtils.e(TAG, "getRequestParameter Exception ", e2);

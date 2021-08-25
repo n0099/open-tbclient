@@ -12,16 +12,16 @@ public class BeanErrorContent {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f69416a;
+    public int f69616a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f69417b;
+    public int f69617b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f69418c;
+    public String f69618c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Object f69419d;
+    public Object f69619d;
 
     public BeanErrorContent(int i2, int i3, String str, Object obj) {
         Interceptable interceptable = $ic;
@@ -38,33 +38,33 @@ public class BeanErrorContent {
                 return;
             }
         }
-        this.f69416a = i2;
-        this.f69417b = i3;
-        this.f69418c = str;
-        this.f69419d = obj;
+        this.f69616a = i2;
+        this.f69617b = i3;
+        this.f69618c = str;
+        this.f69619d = obj;
     }
 
     public int getBeanId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f69416a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f69616a : invokeV.intValue;
     }
 
     public Object getErrContent() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f69419d : invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f69619d : invokeV.objValue;
     }
 
     public String getMsg() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f69418c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f69618c : (String) invokeV.objValue;
     }
 
     public int getRet() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f69417b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f69617b : invokeV.intValue;
     }
 }

@@ -12,10 +12,10 @@ public class bd implements bf {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f77011a;
+    public final String f77212a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f77012b;
+    public final String f77213b;
 
     public bd(String str, String str2) {
         Interceptable interceptable = $ic;
@@ -35,21 +35,21 @@ public class bd implements bf {
         if (str == null) {
             throw new IllegalArgumentException("Name may not be null");
         }
-        this.f77011a = str;
-        this.f77012b = str2;
+        this.f77212a = str;
+        this.f77213b = str2;
     }
 
     @Override // com.xiaomi.push.bf
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f77011a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f77212a : (String) invokeV.objValue;
     }
 
     @Override // com.xiaomi.push.bf
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f77012b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f77213b : (String) invokeV.objValue;
     }
 }

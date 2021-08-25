@@ -22,7 +22,7 @@ public class BdListViewHelper {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f48262a;
+    public static final int f48369a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
@@ -94,7 +94,7 @@ public class BdListViewHelper {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f48263a;
+        public static final /* synthetic */ int[] f48370a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -111,21 +111,21 @@ public class BdListViewHelper {
                 }
             }
             int[] iArr = new int[HeadType.values().length];
-            f48263a = iArr;
+            f48370a = iArr;
             try {
                 iArr[HeadType.DEFAULT.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f48263a[HeadType.HASTAB.ordinal()] = 2;
+                f48370a[HeadType.HASTAB.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f48263a[HeadType.HAS_NO_NETWORK_BAR.ordinal()] = 3;
+                f48370a[HeadType.HAS_NO_NETWORK_BAR.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
             try {
-                f48263a[HeadType.TIP.ordinal()] = 4;
+                f48370a[HeadType.TIP.ordinal()] = 4;
             } catch (NoSuchFieldError unused4) {
             }
         }
@@ -144,7 +144,7 @@ public class BdListViewHelper {
                 return;
             }
         }
-        f48262a = l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.ds320);
+        f48369a = l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.ds320);
     }
 
     public static int a(HeadType headType) {
@@ -152,7 +152,7 @@ public class BdListViewHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, headType)) == null) {
             Context context = TbadkCoreApplication.getInst().getContext();
-            int i2 = a.f48263a[headType.ordinal()];
+            int i2 = a.f48370a[headType.ordinal()];
             if (i2 != 1) {
                 if (i2 != 2) {
                     if (i2 != 3) {

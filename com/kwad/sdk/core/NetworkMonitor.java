@@ -25,17 +25,17 @@ public class NetworkMonitor {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile boolean f71066a;
+    public static volatile boolean f71266a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<WeakReference<a>> f71067b;
+    public List<WeakReference<a>> f71267b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f71068c;
+    public boolean f71268c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final BroadcastReceiver f71069d;
+    public final BroadcastReceiver f71269d;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes10.dex */
@@ -199,14 +199,14 @@ public class NetworkMonitor {
                 return;
             }
         }
-        this.f71067b = Collections.synchronizedList(new LinkedList());
-        this.f71068c = false;
-        this.f71069d = new BroadcastReceiver(this) { // from class: com.kwad.sdk.core.NetworkMonitor.1
+        this.f71267b = Collections.synchronizedList(new LinkedList());
+        this.f71268c = false;
+        this.f71269d = new BroadcastReceiver(this) { // from class: com.kwad.sdk.core.NetworkMonitor.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ NetworkMonitor f71070a;
+            public final /* synthetic */ NetworkMonitor f71270a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -223,7 +223,7 @@ public class NetworkMonitor {
                         return;
                     }
                 }
-                this.f71070a = this;
+                this.f71270a = this;
             }
 
             @Override // android.content.BroadcastReceiver
@@ -237,16 +237,16 @@ public class NetworkMonitor {
                         if ((ContextCompat.checkSelfPermission(context, DefaultConnectivityMonitorFactory.NETWORK_PERMISSION) == 0) && (connectivityManager = (ConnectivityManager) context.getSystemService("connectivity")) != null) {
                             NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
                             if (activeNetworkInfo == null || !activeNetworkInfo.isConnected()) {
-                                networkMonitor = this.f71070a;
+                                networkMonitor = this.f71270a;
                                 networkState = NetworkState.NETWORK_NONE;
                             } else if (1 == activeNetworkInfo.getType()) {
-                                networkMonitor = this.f71070a;
+                                networkMonitor = this.f71270a;
                                 networkState = NetworkState.NETWORK_WIFI;
                             } else if (activeNetworkInfo.getType() == 0) {
-                                networkMonitor = this.f71070a;
+                                networkMonitor = this.f71270a;
                                 networkState = NetworkState.NETWORK_MOBILE;
                             } else {
-                                networkMonitor = this.f71070a;
+                                networkMonitor = this.f71270a;
                                 networkState = NetworkState.NETWORK_NONE;
                             }
                             networkMonitor.a(networkState);
@@ -264,7 +264,7 @@ public class NetworkMonitor {
         a aVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, this, networkState) == null) {
-            Iterator<WeakReference<a>> it = this.f71067b.iterator();
+            Iterator<WeakReference<a>> it = this.f71267b.iterator();
             while (it.hasNext()) {
                 WeakReference<a> next = it.next();
                 if (next == null || (aVar = next.get()) == null) {

@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import c.a.e.e.p.k;
-import c.a.o0.s.q.c2;
+import c.a.p0.s.q.c2;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
@@ -67,43 +67,43 @@ public class ShareItem {
     public boolean Z;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f47870a;
+    public boolean f47977a;
     public boolean a0;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f47871b;
+    public boolean f47978b;
     public boolean b0;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f47872c;
+    public boolean f47979c;
     public boolean c0;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f47873d;
+    public boolean f47980d;
     public boolean d0;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f47874e;
+    public boolean f47981e;
     public int e0;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f47875f;
+    public boolean f47982f;
     public String f0;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f47876g;
+    public boolean f47983g;
     public boolean g0;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f47877h;
+    public boolean f47984h;
     public boolean h0;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f47878i;
+    public boolean f47985i;
     public String i0;
 
     /* renamed from: j  reason: collision with root package name */
-    public boolean f47879j;
+    public boolean f47986j;
     public int j0;
     public boolean k;
     public String k0;
@@ -159,16 +159,16 @@ public class ShareItem {
                 return;
             }
         }
-        this.f47870a = false;
-        this.f47871b = false;
-        this.f47872c = false;
-        this.f47873d = false;
-        this.f47874e = false;
-        this.f47875f = false;
-        this.f47876g = false;
-        this.f47877h = false;
-        this.f47878i = false;
-        this.f47879j = false;
+        this.f47977a = false;
+        this.f47978b = false;
+        this.f47979c = false;
+        this.f47980d = false;
+        this.f47981e = false;
+        this.f47982f = false;
+        this.f47983g = false;
+        this.f47984h = false;
+        this.f47985i = false;
+        this.f47986j = false;
         this.k = false;
         this.l = false;
         this.m = false;
@@ -442,10 +442,10 @@ public class ShareItem {
                     }
                     forwardInfo.showText = c2Var.v1.d();
                     OriginalThreadInfo originalThreadInfo = c2Var.v1;
-                    forwardInfo.showPicUrl = originalThreadInfo.f47197c;
-                    forwardInfo.showType = originalThreadInfo.f47195a;
+                    forwardInfo.showPicUrl = originalThreadInfo.f47303c;
+                    forwardInfo.showType = originalThreadInfo.f47301a;
                     forwardInfo.originalBaijiahaoData = originalThreadInfo.p;
-                    forwardInfo.originalTid = originalThreadInfo.f47200f;
+                    forwardInfo.originalTid = originalThreadInfo.f47306f;
                     if (i2 == 1) {
                         if (postData != null && postData.K() != null) {
                             str = postData.K().toString();
@@ -474,8 +474,8 @@ public class ShareItem {
                     OriginalThreadInfo k = OriginalThreadInfo.k(c2Var);
                     if (k != null) {
                         forwardInfo.showText = k.d();
-                        forwardInfo.showPicUrl = k.f47197c;
-                        forwardInfo.showType = k.f47195a;
+                        forwardInfo.showPicUrl = k.f47303c;
+                        forwardInfo.showType = k.f47301a;
                     }
                     forwardInfo.originalTid = c2Var.q1();
                 }

@@ -18,7 +18,7 @@ public class o extends XMPushService.i {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public XMPushService f77845a;
+    public XMPushService f78046a;
 
     /* renamed from: a  reason: collision with other field name */
     public String f970a;
@@ -27,10 +27,10 @@ public class o extends XMPushService.i {
     public byte[] f971a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f77846b;
+    public String f78047b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f77847c;
+    public String f78048c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public o(XMPushService xMPushService, String str, String str2, String str3, byte[] bArr) {
@@ -50,11 +50,11 @@ public class o extends XMPushService.i {
                 return;
             }
         }
-        this.f77845a = xMPushService;
+        this.f78046a = xMPushService;
         this.f970a = str;
         this.f971a = bArr;
-        this.f77846b = str2;
-        this.f77847c = str3;
+        this.f78047b = str2;
+        this.f78048c = str3;
     }
 
     @Override // com.xiaomi.push.service.XMPushService.i
@@ -69,43 +69,43 @@ public class o extends XMPushService.i {
         av.b next;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            l a2 = m.a((Context) this.f77845a);
+            l a2 = m.a((Context) this.f78046a);
             if (a2 == null) {
                 try {
-                    a2 = m.a(this.f77845a, this.f970a, this.f77846b, this.f77847c);
+                    a2 = m.a(this.f78046a, this.f970a, this.f78047b, this.f78048c);
                 } catch (Exception e2) {
                     com.xiaomi.channel.commonutils.logger.b.d("fail to register push account. " + e2);
                 }
             }
             if (a2 == null) {
                 com.xiaomi.channel.commonutils.logger.b.d("no account for mipush");
-                p.a(this.f77845a, ErrorCode.ERROR_AUTHERICATION_ERROR, "no account.");
+                p.a(this.f78046a, ErrorCode.ERROR_AUTHERICATION_ERROR, "no account.");
                 return;
             }
             Collection<av.b> m604a = av.a().m604a("5");
             if (m604a.isEmpty()) {
-                next = a2.a(this.f77845a);
-                y.a(this.f77845a, next);
+                next = a2.a(this.f78046a);
+                y.a(this.f78046a, next);
                 av.a().a(next);
             } else {
                 next = m604a.iterator().next();
             }
-            if (!this.f77845a.m570c()) {
-                this.f77845a.a(true);
+            if (!this.f78046a.m570c()) {
+                this.f78046a.a(true);
                 return;
             }
             try {
-                if (next.f913a == av.c.f77765c) {
-                    y.a(this.f77845a, this.f970a, this.f971a);
-                } else if (next.f913a == av.c.f77763a) {
-                    XMPushService xMPushService = this.f77845a;
-                    XMPushService xMPushService2 = this.f77845a;
+                if (next.f913a == av.c.f77966c) {
+                    y.a(this.f78046a, this.f970a, this.f971a);
+                } else if (next.f913a == av.c.f77964a) {
+                    XMPushService xMPushService = this.f78046a;
+                    XMPushService xMPushService2 = this.f78046a;
                     xMPushService2.getClass();
                     xMPushService.a(new XMPushService.a(xMPushService2, next));
                 }
             } catch (fw e3) {
                 com.xiaomi.channel.commonutils.logger.b.d("meet error, disconnect connection. " + e3);
-                this.f77845a.a(10, e3);
+                this.f78046a.a(10, e3);
             }
         }
     }

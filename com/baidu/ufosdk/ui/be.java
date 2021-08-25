@@ -13,7 +13,7 @@ public final class be implements TextView.OnEditorActionListener {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ FeedbackInputActivity f59363a;
+    public final /* synthetic */ FeedbackInputActivity f59563a;
 
     public be(FeedbackInputActivity feedbackInputActivity) {
         Interceptable interceptable = $ic;
@@ -30,7 +30,7 @@ public final class be implements TextView.OnEditorActionListener {
                 return;
             }
         }
-        this.f59363a = feedbackInputActivity;
+        this.f59563a = feedbackInputActivity;
     }
 
     @Override // android.widget.TextView.OnEditorActionListener
@@ -39,7 +39,7 @@ public final class be implements TextView.OnEditorActionListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048576, this, textView, i2, keyEvent)) == null) {
             if (i2 == 4) {
-                FeedbackInputActivity.a(this.f59363a);
+                FeedbackInputActivity.a(this.f59563a);
                 return false;
             }
             return false;

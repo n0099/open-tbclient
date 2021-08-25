@@ -7,7 +7,7 @@ import android.content.IntentFilter;
 import android.os.Handler;
 import android.os.IBinder;
 import android.text.TextUtils;
-import c.a.p0.n;
+import c.a.q0.n;
 import com.baidu.adp.base.BdBaseService;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.config.AppConfig;
@@ -39,7 +39,7 @@ public class AsInstallService extends BdBaseService {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AsInstallService f56277e;
+        public final /* synthetic */ AsInstallService f56442e;
 
         public a(AsInstallService asInstallService) {
             Interceptable interceptable = $ic;
@@ -56,14 +56,14 @@ public class AsInstallService extends BdBaseService {
                     return;
                 }
             }
-            this.f56277e = asInstallService;
+            this.f56442e = asInstallService;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f56277e.stopSelf();
+                this.f56442e.stopSelf();
             }
         }
     }

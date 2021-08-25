@@ -17,14 +17,14 @@ public class d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static d f1993c;
+    public static d f2051c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public SecretKey f1994a;
+    public SecretKey f2052a;
 
     /* renamed from: b  reason: collision with root package name */
-    public byte[] f1995b;
+    public byte[] f2053b;
 
     static {
         InterceptResult invokeClinit;
@@ -54,22 +54,22 @@ public class d {
                 return;
             }
         }
-        this.f1994a = null;
-        this.f1995b = null;
+        this.f2052a = null;
+        this.f2053b = null;
     }
 
     public static d a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f1993c == null) {
+            if (f2051c == null) {
                 synchronized (d.class) {
-                    if (f1993c == null) {
-                        f1993c = new d();
+                    if (f2051c == null) {
+                        f2051c = new d();
                     }
                 }
             }
-            return f1993c;
+            return f2051c;
         }
         return (d) invokeV.objValue;
     }
@@ -77,13 +77,13 @@ public class d {
     public SecretKey b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f1994a : (SecretKey) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f2052a : (SecretKey) invokeV.objValue;
     }
 
     public byte[] c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f1995b : (byte[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f2053b : (byte[]) invokeV.objValue;
     }
 
     public void d(byte[] bArr) {
@@ -96,12 +96,12 @@ public class d {
                 for (int i2 = 0; i2 < g2.length(); i2++) {
                     bArr2[i2] = (byte) g2.charAt(i2);
                 }
-                this.f1994a = s.f(g2);
-                this.f1995b = s.d(e2, bArr2);
+                this.f2052a = s.f(g2);
+                this.f2053b = s.d(e2, bArr2);
             } catch (Throwable th) {
                 BdLog.e(th.getMessage());
-                this.f1994a = null;
-                this.f1995b = new byte[0];
+                this.f2052a = null;
+                this.f2053b = new byte[0];
             }
         }
     }

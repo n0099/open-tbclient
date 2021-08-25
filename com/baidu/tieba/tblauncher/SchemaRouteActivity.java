@@ -8,14 +8,15 @@ import android.text.TextUtils;
 import android.util.Base64;
 import androidx.annotation.Nullable;
 import c.a.e.a.b;
-import c.a.o0.a.d;
-import c.a.o0.a.g;
-import c.a.o0.a.w;
-import c.a.p0.i3.h0.n;
+import c.a.p0.a.d;
+import c.a.p0.a.g;
+import c.a.p0.a.w;
+import c.a.q0.i3.i0.n;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.GrowthStatsUtil;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.ForumRulesShowActivityConfig;
@@ -57,7 +58,7 @@ public class SchemaRouteActivity extends BaseActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ SchemaRouteActivity f56988a;
+        public final /* synthetic */ SchemaRouteActivity f57154a;
 
         public a(SchemaRouteActivity schemaRouteActivity) {
             Interceptable interceptable = $ic;
@@ -74,17 +75,17 @@ public class SchemaRouteActivity extends BaseActivity {
                     return;
                 }
             }
-            this.f56988a = schemaRouteActivity;
+            this.f57154a = schemaRouteActivity;
         }
 
-        @Override // c.a.o0.a.g.b
+        @Override // c.a.p0.a.g.b
         public void onCallBack(HashMap<String, Object> hashMap) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, hashMap) == null) && hashMap != null && (hashMap.get(g.w) instanceof String)) {
-                TbWebViewActivityConfig tbWebViewActivityConfig = new TbWebViewActivityConfig(this.f56988a.getActivity(), null, (String) hashMap.get(g.w), true);
+                TbWebViewActivityConfig tbWebViewActivityConfig = new TbWebViewActivityConfig(this.f57154a.getActivity(), null, (String) hashMap.get(g.w), true);
                 tbWebViewActivityConfig.setIsFromSchema(true);
                 tbWebViewActivityConfig.setUri((Uri) hashMap.get(g.K));
-                this.f56988a.sendMessage(new CustomMessage(2002001, tbWebViewActivityConfig));
+                this.f57154a.sendMessage(new CustomMessage(2002001, tbWebViewActivityConfig));
             }
         }
     }
@@ -122,6 +123,7 @@ public class SchemaRouteActivity extends BaseActivity {
         UtilHelper.clearClipBoardBySchemaParam(dataString);
         w.e(intent.getData());
         w.c(intent.getData());
+        GrowthStatsUtil.statisticChannel(GrowthStatsUtil.SPLASH_SOURCE.THIRD_PARTY, dataString);
         if (!TextUtils.isEmpty(dataString) && (dataString.contains("invoke_frs") || dataString.contains("tbfrs") || dataString.contains("unidispatch/frs"))) {
             FrsActivityConfig frsActivityConfig = new FrsActivityConfig(getActivity());
             frsActivityConfig.setUri(intent.getData());
@@ -174,7 +176,7 @@ public class SchemaRouteActivity extends BaseActivity {
             d.y().L(true);
         } else {
             if (!TextUtils.isEmpty(dataString)) {
-                if (dataString.contains(g.f12332b + g.k)) {
+                if (dataString.contains(g.f12599b + g.k)) {
                     Uri parse = Uri.parse(dataString);
                     String queryParameter = parse.getQueryParameter(g.F);
                     String queryParameter2 = parse.getQueryParameter(g.G);
@@ -186,7 +188,7 @@ public class SchemaRouteActivity extends BaseActivity {
                 }
             }
             if (!TextUtils.isEmpty(dataString)) {
-                if (dataString.contains(g.f12332b + g.l)) {
+                if (dataString.contains(g.f12599b + g.l)) {
                     String queryParameter3 = Uri.parse(dataString).getQueryParameter(g.H);
                     if (queryParameter3 != null) {
                         UrlManager.getInstance().dealOneLink(getPageContext(), new String[]{new String(Base64.decode(queryParameter3.getBytes(), 2))});

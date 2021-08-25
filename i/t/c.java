@@ -13,7 +13,7 @@ public class c<T, R> extends d<T, R> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: f  reason: collision with root package name */
-    public final i.q.d<T> f78490f;
+    public final i.q.d<T> f78691f;
 
     /* loaded from: classes10.dex */
     public class a implements d.a<R> {
@@ -21,7 +21,7 @@ public class c<T, R> extends d<T, R> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d f78491e;
+        public final /* synthetic */ d f78692e;
 
         public a(d dVar) {
             Interceptable interceptable = $ic;
@@ -38,7 +38,7 @@ public class c<T, R> extends d<T, R> {
                     return;
                 }
             }
-            this.f78491e = dVar;
+            this.f78692e = dVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -47,7 +47,7 @@ public class c<T, R> extends d<T, R> {
         public void call(j<? super R> jVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, jVar) == null) {
-                this.f78491e.I(jVar);
+                this.f78692e.I(jVar);
             }
         }
     }
@@ -70,14 +70,14 @@ public class c<T, R> extends d<T, R> {
                 return;
             }
         }
-        this.f78490f = new i.q.d<>(dVar);
+        this.f78691f = new i.q.d<>(dVar);
     }
 
     @Override // i.e
     public void onCompleted() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f78490f.onCompleted();
+            this.f78691f.onCompleted();
         }
     }
 
@@ -85,7 +85,7 @@ public class c<T, R> extends d<T, R> {
     public void onError(Throwable th) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
-            this.f78490f.onError(th);
+            this.f78691f.onError(th);
         }
     }
 
@@ -93,7 +93,7 @@ public class c<T, R> extends d<T, R> {
     public void onNext(T t) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) {
-            this.f78490f.onNext(t);
+            this.f78691f.onNext(t);
         }
     }
 }

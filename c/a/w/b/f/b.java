@@ -1,28 +1,27 @@
 package c.a.w.b.f;
 
+import c.a.w.e.g.j;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.nio.FloatBuffer;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class b extends a {
+public class b {
     public static /* synthetic */ Interceptable $ic;
 
-    /* renamed from: g  reason: collision with root package name */
-    public static final float[] f30639g;
+    /* renamed from: a  reason: collision with root package name */
+    public static Map<String, c.a.w.b.d.c.f> f30375a;
 
-    /* renamed from: h  reason: collision with root package name */
-    public static final float[] f30640h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public static final FloatBuffer f30641i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public static final FloatBuffer f30642j;
+    /* renamed from: b  reason: collision with root package name */
+    public static List<String> f30376b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -38,31 +37,68 @@ public class b extends a {
                 return;
             }
         }
-        float[] fArr = {-1.0f, -1.0f, 1.0f, -1.0f, -1.0f, 1.0f, 1.0f, 1.0f};
-        f30639g = fArr;
-        f30640h = new float[]{0.0f, 0.0f, 1.0f, 0.0f, 0.0f, 1.0f, 1.0f, 1.0f};
-        f30641i = c.a.w.b.h.a.b(fArr);
-        f30642j = c.a.w.b.h.a.b(f30640h);
+        f30375a = new HashMap();
+        f30376b = new ArrayList();
     }
 
-    public b() {
+    public static void a(List<String> list) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (!(interceptable == null || interceptable.invokeL(65537, null, list) == null) || f30375a.isEmpty() || c.a.w.e.g.d.c(list)) {
+            return;
+        }
+        Iterator<Map.Entry<String, c.a.w.b.d.c.f>> it = f30375a.entrySet().iterator();
+        while (it.hasNext()) {
+            Map.Entry<String, c.a.w.b.d.c.f> next = it.next();
+            if (next != null && list.contains(next.getKey())) {
+                it.remove();
             }
         }
-        this.f30633a = f30641i;
-        this.f30634b = f30642j;
-        this.f30636d = 2;
-        this.f30637e = 2 * 4;
-        this.f30635c = f30639g.length / 2;
-        this.f30638f = 8;
+    }
+
+    public static String b() {
+        InterceptResult invokeV;
+        JSONObject a2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (f30375a.isEmpty()) {
+                return "";
+            }
+            JSONArray jSONArray = new JSONArray();
+            for (Map.Entry<String, c.a.w.b.d.c.f> entry : f30375a.entrySet()) {
+                if (entry != null) {
+                    String key = entry.getKey();
+                    c.a.w.b.d.c.f value = entry.getValue();
+                    if (value != null && (a2 = value.a()) != null) {
+                        jSONArray.put(a2);
+                        f30376b.add(key);
+                    }
+                }
+            }
+            return jSONArray.toString();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static void c(String str, boolean z, boolean z2) {
+        c.a.w.b.d.c.f fVar;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{str, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) || j.a(str)) {
+            return;
+        }
+        if (f30375a.containsKey(str)) {
+            fVar = f30375a.get(str);
+        } else {
+            fVar = new c.a.w.b.d.c.f();
+            f30375a.put(str, fVar);
+        }
+        fVar.f30342a = str;
+        if (z2) {
+            fVar.f30344c = 1;
+            fVar.f30346e = System.currentTimeMillis() / 1000;
+        }
+        if (z) {
+            fVar.f30343b = 1;
+            fVar.f30345d = System.currentTimeMillis() / 1000;
+        }
     }
 }

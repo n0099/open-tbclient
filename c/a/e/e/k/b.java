@@ -15,16 +15,16 @@ public class b<T> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f2314a;
+    public int f2372a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f2315b;
+    public int f2373b;
 
     /* renamed from: c  reason: collision with root package name */
-    public LinkedList<T> f2316c;
+    public LinkedList<T> f2374c;
 
     /* renamed from: d  reason: collision with root package name */
-    public c<T> f2317d;
+    public c<T> f2375d;
 
     public b(c<T> cVar, int i2, int i3) {
         Interceptable interceptable = $ic;
@@ -41,16 +41,16 @@ public class b<T> {
                 return;
             }
         }
-        this.f2314a = 10;
-        this.f2315b = 0;
-        this.f2316c = null;
-        this.f2317d = null;
+        this.f2372a = 10;
+        this.f2373b = 0;
+        this.f2374c = null;
+        this.f2375d = null;
         if (cVar != null && i2 > 0 && i3 <= i2) {
-            this.f2317d = cVar;
-            this.f2314a = i2;
-            this.f2315b = i3;
-            this.f2316c = new LinkedList<>();
-            a(this.f2315b);
+            this.f2375d = cVar;
+            this.f2372a = i2;
+            this.f2373b = i3;
+            this.f2374c = new LinkedList<>();
+            a(this.f2373b);
             return;
         }
         throw new InvalidParameterException("invalid params");
@@ -65,12 +65,12 @@ public class b<T> {
                 for (int i3 = 0; i3 < i2; i3++) {
                     Object obj = null;
                     try {
-                        obj = this.f2317d.a(this.f2317d.d());
+                        obj = this.f2375d.a(this.f2375d.d());
                     } catch (Exception e2) {
                         BdLog.e(e2.getMessage());
                     }
                     if (obj != null) {
-                        this.f2316c.offer(obj);
+                        this.f2374c.offer(obj);
                     }
                 }
             }
@@ -85,12 +85,12 @@ public class b<T> {
             synchronized (this) {
                 t = null;
                 try {
-                    if (this.f2316c.size() > 0) {
-                        t = this.f2317d.a(this.f2316c.poll());
+                    if (this.f2374c.size() > 0) {
+                        t = this.f2375d.a(this.f2374c.poll());
                     } else {
-                        t = this.f2317d.a(this.f2317d.d());
+                        t = this.f2375d.a(this.f2375d.d());
                     }
-                    a(this.f2315b - this.f2316c.size());
+                    a(this.f2373b - this.f2374c.size());
                 } catch (Exception e2) {
                     BdLog.e(e2.getMessage());
                 }
@@ -104,7 +104,7 @@ public class b<T> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             synchronized (this) {
-                this.f2316c.clear();
+                this.f2374c.clear();
             }
         }
     }
@@ -115,7 +115,7 @@ public class b<T> {
             synchronized (this) {
                 for (int i3 = 0; i3 < i2; i3++) {
                     try {
-                        this.f2317d.b(this.f2316c.poll());
+                        this.f2375d.b(this.f2374c.poll());
                     } catch (Exception e2) {
                         BdLog.e(e2.getMessage());
                     }
@@ -128,18 +128,18 @@ public class b<T> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, t) == null) {
             synchronized (this) {
-                if (this.f2316c.size() < this.f2314a) {
+                if (this.f2374c.size() < this.f2372a) {
                     T t2 = null;
                     try {
-                        t2 = this.f2317d.c(t);
+                        t2 = this.f2375d.c(t);
                     } catch (Exception e2) {
                         BdLog.e(e2.getMessage());
                     }
                     if (t2 != null) {
-                        this.f2316c.offer(t2);
+                        this.f2374c.offer(t2);
                     }
                 } else {
-                    this.f2317d.b(t);
+                    this.f2375d.b(t);
                 }
             }
         }
@@ -149,14 +149,14 @@ public class b<T> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
             synchronized (this) {
-                if (i2 < this.f2315b) {
-                    i2 = this.f2315b;
+                if (i2 < this.f2373b) {
+                    i2 = this.f2373b;
                 }
                 if (i2 <= 0) {
                     i2 = 1;
                 }
-                this.f2314a = i2;
-                d(this.f2316c.size() - this.f2314a);
+                this.f2372a = i2;
+                d(this.f2374c.size() - this.f2372a);
             }
         }
     }
@@ -165,11 +165,11 @@ public class b<T> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
             synchronized (this) {
-                if (i2 > this.f2314a) {
-                    i2 = this.f2314a;
+                if (i2 > this.f2372a) {
+                    i2 = this.f2372a;
                 }
-                this.f2315b = i2;
-                a(i2 - this.f2316c.size());
+                this.f2373b = i2;
+                a(i2 - this.f2374c.size());
             }
         }
     }

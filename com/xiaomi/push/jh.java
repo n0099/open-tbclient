@@ -16,19 +16,19 @@ public class jh extends ix {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f77667b = 10000;
+    public static int f77868b = 10000;
 
     /* renamed from: c  reason: collision with root package name */
-    public static int f77668c = 10000;
+    public static int f77869c = 10000;
 
     /* renamed from: d  reason: collision with root package name */
-    public static int f77669d = 10000;
+    public static int f77870d = 10000;
 
     /* renamed from: e  reason: collision with root package name */
-    public static int f77670e = 10485760;
+    public static int f77871e = 10485760;
 
     /* renamed from: f  reason: collision with root package name */
-    public static int f77671f = 104857600;
+    public static int f77872f = 104857600;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes10.dex */
@@ -81,8 +81,8 @@ public class jh extends ix {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jlVar)) == null) {
-                jh jhVar = new jh(jlVar, ((ix.a) this).f812a, this.f77654b);
-                int i2 = ((ix.a) this).f77653a;
+                jh jhVar = new jh(jlVar, ((ix.a) this).f812a, this.f77855b);
+                int i2 = ((ix.a) this).f77854a;
                 if (i2 != 0) {
                     jhVar.b(i2);
                 }
@@ -135,7 +135,7 @@ public class jh extends ix {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             byte a2 = a();
             int a3 = a();
-            if (a3 <= f77668c) {
+            if (a3 <= f77869c) {
                 return new iz(a2, a3);
             }
             throw new jc(3, "Thrift list size " + a3 + " out of range!");
@@ -151,7 +151,7 @@ public class jh extends ix {
             byte a2 = a();
             byte a3 = a();
             int a4 = a();
-            if (a4 <= f77667b) {
+            if (a4 <= f77868b) {
                 return new ja(a2, a3, a4);
             }
             throw new jc(3, "Thrift map size " + a4 + " out of range!");
@@ -166,7 +166,7 @@ public class jh extends ix {
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             byte a2 = a();
             int a3 = a();
-            if (a3 <= f77669d) {
+            if (a3 <= f77870d) {
                 return new jf(a2, a3);
             }
             throw new jc(3, "Thrift set size " + a3 + " out of range!");
@@ -180,12 +180,12 @@ public class jh extends ix {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             int a2 = a();
-            if (a2 > f77670e) {
+            if (a2 > f77871e) {
                 throw new jc(3, "Thrift string size " + a2 + " out of range!");
-            } else if (((jb) this).f77662a.b() >= a2) {
+            } else if (((jb) this).f77863a.b() >= a2) {
                 try {
-                    String str = new String(((jb) this).f77662a.m534a(), ((jb) this).f77662a.a(), a2, "UTF-8");
-                    ((jb) this).f77662a.a(a2);
+                    String str = new String(((jb) this).f77863a.m534a(), ((jb) this).f77863a.a(), a2, "UTF-8");
+                    ((jb) this).f77863a.a(a2);
                     return str;
                 } catch (UnsupportedEncodingException unused) {
                     throw new iv("JVM DOES NOT SUPPORT UTF-8");
@@ -203,17 +203,17 @@ public class jh extends ix {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             int a2 = a();
-            if (a2 > f77671f) {
+            if (a2 > f77872f) {
                 throw new jc(3, "Thrift binary size " + a2 + " out of range!");
             }
             c(a2);
-            if (((jb) this).f77662a.b() >= a2) {
-                ByteBuffer wrap = ByteBuffer.wrap(((jb) this).f77662a.m534a(), ((jb) this).f77662a.a(), a2);
-                ((jb) this).f77662a.a(a2);
+            if (((jb) this).f77863a.b() >= a2) {
+                ByteBuffer wrap = ByteBuffer.wrap(((jb) this).f77863a.m534a(), ((jb) this).f77863a.a(), a2);
+                ((jb) this).f77863a.a(a2);
                 return wrap;
             }
             byte[] bArr = new byte[a2];
-            ((jb) this).f77662a.b(bArr, 0, a2);
+            ((jb) this).f77863a.b(bArr, 0, a2);
             return ByteBuffer.wrap(bArr);
         }
         return (ByteBuffer) invokeV.objValue;

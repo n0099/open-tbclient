@@ -51,10 +51,10 @@ public class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public HostnameVerifier f36995a;
+        public HostnameVerifier f37101a;
 
         /* renamed from: b  reason: collision with root package name */
-        public HttpsURLConnection f36996b;
+        public HttpsURLConnection f37102b;
 
         public a(HttpsURLConnection httpsURLConnection) {
             Interceptable interceptable = $ic;
@@ -71,8 +71,8 @@ public class c {
                     return;
                 }
             }
-            this.f36995a = HttpsURLConnection.getDefaultHostnameVerifier();
-            this.f36996b = httpsURLConnection;
+            this.f37101a = HttpsURLConnection.getDefaultHostnameVerifier();
+            this.f37102b = httpsURLConnection;
         }
 
         @Override // javax.net.SocketFactory
@@ -130,7 +130,7 @@ public class c {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{socket, str, Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
-                String requestProperty = this.f36996b.getRequestProperty("Host");
+                String requestProperty = this.f37102b.getRequestProperty("Host");
                 if (!TextUtils.isEmpty(requestProperty)) {
                     str = requestProperty;
                 }
@@ -149,7 +149,7 @@ public class c {
                     } catch (Throwable unused) {
                     }
                 }
-                if (this.f36995a.verify(str, sSLSocket.getSession())) {
+                if (this.f37101a.verify(str, sSLSocket.getSession())) {
                     return sSLSocket;
                 }
                 throw new SSLPeerUnverifiedException("Cannot verify hostname: " + str);
@@ -372,7 +372,7 @@ public class c {
                             public transient /* synthetic */ FieldHolder $fh;
 
                             /* renamed from: a  reason: collision with root package name */
-                            public final /* synthetic */ HttpURLConnection f36993a;
+                            public final /* synthetic */ HttpURLConnection f37099a;
 
                             {
                                 Interceptable interceptable2 = $ic;
@@ -389,7 +389,7 @@ public class c {
                                         return;
                                     }
                                 }
-                                this.f36993a = httpURLConnection;
+                                this.f37099a = httpURLConnection;
                             }
 
                             @Override // javax.net.ssl.HostnameVerifier
@@ -397,7 +397,7 @@ public class c {
                                 InterceptResult invokeLL;
                                 Interceptable interceptable2 = $ic;
                                 if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, str5, sSLSession)) == null) {
-                                    String requestProperty = this.f36993a.getRequestProperty("Host");
+                                    String requestProperty = this.f37099a.getRequestProperty("Host");
                                     if (!TextUtils.isEmpty(requestProperty)) {
                                         str5 = requestProperty;
                                     }
@@ -464,7 +464,7 @@ public class c {
                             public transient /* synthetic */ FieldHolder $fh;
 
                             /* renamed from: a  reason: collision with root package name */
-                            public final /* synthetic */ HttpURLConnection f36994a;
+                            public final /* synthetic */ HttpURLConnection f37100a;
 
                             {
                                 Interceptable interceptable2 = $ic;
@@ -481,7 +481,7 @@ public class c {
                                         return;
                                     }
                                 }
-                                this.f36994a = httpURLConnection;
+                                this.f37100a = httpURLConnection;
                             }
 
                             @Override // javax.net.ssl.HostnameVerifier
@@ -489,7 +489,7 @@ public class c {
                                 InterceptResult invokeLL;
                                 Interceptable interceptable2 = $ic;
                                 if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, str4, sSLSession)) == null) {
-                                    String requestProperty = this.f36994a.getRequestProperty("Host");
+                                    String requestProperty = this.f37100a.getRequestProperty("Host");
                                     if (!TextUtils.isEmpty(requestProperty)) {
                                         str4 = requestProperty;
                                     }

@@ -15,12 +15,12 @@ import androidx.core.view.InputDeviceCompat;
 import c.a.e.a.g;
 import c.a.e.a.h;
 import c.a.e.e.p.l;
-import c.a.o0.a.s;
-import c.a.o0.m0.a;
-import c.a.o0.m0.b;
-import c.a.o0.m0.d;
-import c.a.o0.m0.e;
-import c.a.o0.s.c;
+import c.a.p0.a.s;
+import c.a.p0.m0.a;
+import c.a.p0.m0.b;
+import c.a.p0.m0.d;
+import c.a.p0.m0.e;
+import c.a.p0.s.c;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.framework.MessageManager;
@@ -80,7 +80,7 @@ public class FlutterPageActivity<T> extends BoostFlutterActivity implements TbPa
     public long lastResumeTime;
     public PermissionJudgePolicy mCurrentPermissionJudgePolicy;
     public BdUniqueId mId;
-    public c.a.o0.s.a mLayoutInflateFactory;
+    public c.a.p0.s.a mLayoutInflateFactory;
     public c mLayoutMode;
     public SwipeBackLayout mSwipeBackLayout;
     public boolean mUseStyleImmersiveSticky;
@@ -228,7 +228,7 @@ public class FlutterPageActivity<T> extends BoostFlutterActivity implements TbPa
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, motionEvent)) == null) {
             s.a(motionEvent, getPageId(), 0L);
-            c.a.p0.n3.a.getInstance().behaviorRecordEvent(motionEvent, this);
+            c.a.q0.n3.a.getInstance().behaviorRecordEvent(motionEvent, this);
             try {
                 return super.dispatchTouchEvent(motionEvent);
             } catch (Exception e2) {
@@ -275,20 +275,20 @@ public class FlutterPageActivity<T> extends BoostFlutterActivity implements TbPa
             hashMap.put("native_view_cost", Long.valueOf(this.creatTime));
             hashMap.put("native_start_time", Long.valueOf(this.startTime));
             hashMap.put("flutter_start_time", Long.valueOf(this.flutterStartTime));
-            hashMap.put("sorce_key_list", c.a.o0.m0.c.a(getCurrentPageSourceKeyList()));
+            hashMap.put("sorce_key_list", c.a.p0.m0.c.a(getCurrentPageSourceKeyList()));
             return hashMap;
         }
         return (Map) invokeV.objValue;
     }
 
-    @Override // c.a.o0.m0.a
+    @Override // c.a.p0.m0.a
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? getContainerUrl() : (String) invokeV.objValue;
     }
 
-    @Override // c.a.o0.m0.a
+    @Override // c.a.p0.m0.a
     public List<String> getCurrentPageSourceKeyList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -308,7 +308,7 @@ public class FlutterPageActivity<T> extends BoostFlutterActivity implements TbPa
         return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.mLayoutMode : (c) invokeV.objValue;
     }
 
-    @Override // c.a.o0.m0.a
+    @Override // c.a.p0.m0.a
     public List<String> getNextPageSourceKeyList() {
         InterceptResult invokeV;
         ArrayList arrayList;
@@ -361,7 +361,7 @@ public class FlutterPageActivity<T> extends BoostFlutterActivity implements TbPa
         return (d) invokeV.objValue;
     }
 
-    @Override // c.a.o0.m0.a
+    @Override // c.a.p0.m0.a
     public b getPageStayFilter() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -388,7 +388,7 @@ public class FlutterPageActivity<T> extends BoostFlutterActivity implements TbPa
                 this.this$0 = this;
             }
 
-            @Override // c.a.o0.m0.b
+            @Override // c.a.p0.m0.b
             public boolean canStat(d dVar) {
                 InterceptResult invokeL;
                 Interceptable interceptable2 = $ic;
@@ -398,14 +398,14 @@ public class FlutterPageActivity<T> extends BoostFlutterActivity implements TbPa
                 return invokeL.booleanValue;
             }
 
-            @Override // c.a.o0.m0.b
+            @Override // c.a.p0.m0.b
             public int getMaxCost() {
                 InterceptResult invokeV2;
                 Interceptable interceptable2 = $ic;
                 return (interceptable2 == null || (invokeV2 = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? e.b().c() : invokeV2.intValue;
             }
 
-            @Override // c.a.o0.m0.b
+            @Override // c.a.p0.m0.b
             public boolean isCurrentPageCanBeAddToSourceTrace() {
                 InterceptResult invokeV2;
                 Interceptable interceptable2 = $ic;
@@ -491,7 +491,7 @@ public class FlutterPageActivity<T> extends BoostFlutterActivity implements TbPa
                 BdSocketLinkService.startService(false, "app start");
             }
             this.mLayoutMode = new c();
-            c.a.o0.s.a aVar = new c.a.o0.s.a();
+            c.a.p0.s.a aVar = new c.a.p0.s.a();
             this.mLayoutInflateFactory = aVar;
             aVar.a(this.mLayoutMode);
             TbadkCoreApplication.setIsAppRunning(true);
@@ -531,7 +531,7 @@ public class FlutterPageActivity<T> extends BoostFlutterActivity implements TbPa
     public void onPause() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
-            c.a.p0.n3.a.getInstance().onPause(this);
+            c.a.q0.n3.a.getInstance().onPause(this);
             super.onPause();
             if (TbSingleton.getInstance().isShowBackLabel && this == TbadkCoreApplication.getInst().getCurrentActivity()) {
                 hideFloatingWindow();
@@ -597,7 +597,7 @@ public class FlutterPageActivity<T> extends BoostFlutterActivity implements TbPa
             this.flutterStartTime = System.currentTimeMillis();
             TbadkCoreApplication.getInst().AddResumeNum();
             super.onResume();
-            c.a.p0.n3.a.getInstance().onResume(this);
+            c.a.q0.n3.a.getInstance().onResume(this);
             this.lastResumeTime = System.currentTimeMillis();
             TiebaStaticHelper.setCurrentActivity(FlutterPageActivity.class.getName());
             TbadkCoreApplication.getInst().setCurrentActivity(getPageContext().getPageActivity());

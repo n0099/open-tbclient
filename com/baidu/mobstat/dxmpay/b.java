@@ -16,10 +16,10 @@ public class b {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile boolean f43569a = true;
+    public static volatile boolean f43676a = true;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile boolean f43570b;
+    public static volatile boolean f43677b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes5.dex */

@@ -1,7 +1,7 @@
 package com.baidu.nps.interfa;
 
 import c.a.e.g.f.b;
-import c.a.g0.a.a;
+import c.a.h0.a.a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -26,7 +26,7 @@ public class IHostAppRuntime_HostAppRuntimeManager_Provider implements a {
         }
     }
 
-    @Override // c.a.g0.a.a
+    @Override // c.a.h0.a.a
     public Object get() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

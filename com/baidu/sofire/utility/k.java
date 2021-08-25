@@ -15,14 +15,14 @@ public final class k {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final k f45222c;
+    public static final k f45329c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public HandlerThread f45223a;
+    public HandlerThread f45330a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Handler f45224b;
+    public Handler f45331b;
 
     static {
         InterceptResult invokeClinit;
@@ -37,7 +37,7 @@ public final class k {
                 return;
             }
         }
-        f45222c = new k();
+        f45329c = new k();
     }
 
     public k() {
@@ -54,14 +54,14 @@ public final class k {
             }
         }
         HandlerThread handlerThread = new HandlerThread("rp_th", 10);
-        this.f45223a = handlerThread;
+        this.f45330a = handlerThread;
         handlerThread.start();
-        this.f45224b = new Handler(this.f45223a.getLooper());
+        this.f45331b = new Handler(this.f45330a.getLooper());
     }
 
     public static Looper a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f45222c.f45224b.getLooper() : (Looper) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f45329c.f45331b.getLooper() : (Looper) invokeV.objValue;
     }
 }

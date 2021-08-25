@@ -17,9 +17,10 @@ import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
 import c.a.e.e.p.k;
 import c.a.e.e.p.l;
-import c.a.o0.s.q.c2;
-import c.a.p0.a0.m;
-import c.a.p0.v0.l0;
+import c.a.p0.b1.t;
+import c.a.p0.s.q.c2;
+import c.a.q0.a0.m;
+import c.a.q0.v0.l0;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
@@ -39,7 +40,6 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.FrsActivityConfig;
 import com.baidu.tbadk.core.atomData.PbActivityConfig;
 import com.baidu.tbadk.core.atomData.ShareDialogConfig;
-import com.baidu.tbadk.core.atomData.VideoPlayActivityConfig;
 import com.baidu.tbadk.core.data.ItemData;
 import com.baidu.tbadk.core.data.MediaData;
 import com.baidu.tbadk.core.data.OriginalForumInfo;
@@ -120,19 +120,19 @@ public class ThreadCommentAndPraiseInfoLayout extends FrameLayout implements Vie
     public boolean barNameClickEnable;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f47573e;
+    public int f47670e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f47574f;
+    public TextView f47671f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f47575g;
+    public int f47672g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f47576h;
+    public int f47673h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f47577i;
+    public int f47674i;
     public boolean isBarNameVisible;
     public boolean isCommentNumEnable;
     public boolean isLiveShareEnable;
@@ -144,7 +144,7 @@ public class ThreadCommentAndPraiseInfoLayout extends FrameLayout implements Vie
     public boolean isVisible;
 
     /* renamed from: j  reason: collision with root package name */
-    public String f47578j;
+    public String f47675j;
     public String k;
     public String l;
     public View.OnClickListener m;
@@ -194,7 +194,7 @@ public class ThreadCommentAndPraiseInfoLayout extends FrameLayout implements Vie
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ThreadCommentAndPraiseInfoLayout f47579e;
+        public final /* synthetic */ ThreadCommentAndPraiseInfoLayout f47676e;
 
         public a(ThreadCommentAndPraiseInfoLayout threadCommentAndPraiseInfoLayout) {
             Interceptable interceptable = $ic;
@@ -211,17 +211,17 @@ public class ThreadCommentAndPraiseInfoLayout extends FrameLayout implements Vie
                     return;
                 }
             }
-            this.f47579e = threadCommentAndPraiseInfoLayout;
+            this.f47676e = threadCommentAndPraiseInfoLayout;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                if (this.f47579e.m != null) {
-                    this.f47579e.m.onClick(view);
+                if (this.f47676e.m != null) {
+                    this.f47676e.m.onClick(view);
                 }
-                ThreadCommentAndPraiseInfoLayout threadCommentAndPraiseInfoLayout = this.f47579e;
+                ThreadCommentAndPraiseInfoLayout threadCommentAndPraiseInfoLayout = this.f47676e;
                 threadCommentAndPraiseInfoLayout.g(view, threadCommentAndPraiseInfoLayout.mData);
             }
         }
@@ -233,7 +233,7 @@ public class ThreadCommentAndPraiseInfoLayout extends FrameLayout implements Vie
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ThreadCommentAndPraiseInfoLayout f47580e;
+        public final /* synthetic */ ThreadCommentAndPraiseInfoLayout f47677e;
 
         public b(ThreadCommentAndPraiseInfoLayout threadCommentAndPraiseInfoLayout) {
             Interceptable interceptable = $ic;
@@ -250,7 +250,7 @@ public class ThreadCommentAndPraiseInfoLayout extends FrameLayout implements Vie
                     return;
                 }
             }
-            this.f47580e = threadCommentAndPraiseInfoLayout;
+            this.f47677e = threadCommentAndPraiseInfoLayout;
         }
 
         @Override // android.view.View.OnTouchListener
@@ -258,7 +258,7 @@ public class ThreadCommentAndPraiseInfoLayout extends FrameLayout implements Vie
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view, motionEvent)) == null) {
-                this.f47580e.mSelectImg.onTouchEvent(motionEvent);
+                this.f47677e.mSelectImg.onTouchEvent(motionEvent);
                 return false;
             }
             return invokeLL.booleanValue;
@@ -271,7 +271,7 @@ public class ThreadCommentAndPraiseInfoLayout extends FrameLayout implements Vie
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ThreadCommentAndPraiseInfoLayout f47581e;
+        public final /* synthetic */ ThreadCommentAndPraiseInfoLayout f47678e;
 
         public c(ThreadCommentAndPraiseInfoLayout threadCommentAndPraiseInfoLayout) {
             Interceptable interceptable = $ic;
@@ -288,14 +288,14 @@ public class ThreadCommentAndPraiseInfoLayout extends FrameLayout implements Vie
                     return;
                 }
             }
-            this.f47581e = threadCommentAndPraiseInfoLayout;
+            this.f47678e = threadCommentAndPraiseInfoLayout;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f47581e.mSelectImg.performClick();
+                this.f47678e.mSelectImg.performClick();
             }
         }
     }
@@ -306,7 +306,7 @@ public class ThreadCommentAndPraiseInfoLayout extends FrameLayout implements Vie
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ThreadCommentAndPraiseInfoLayout f47582e;
+        public final /* synthetic */ ThreadCommentAndPraiseInfoLayout f47679e;
 
         public d(ThreadCommentAndPraiseInfoLayout threadCommentAndPraiseInfoLayout) {
             Interceptable interceptable = $ic;
@@ -323,14 +323,14 @@ public class ThreadCommentAndPraiseInfoLayout extends FrameLayout implements Vie
                     return;
                 }
             }
-            this.f47582e = threadCommentAndPraiseInfoLayout;
+            this.f47679e = threadCommentAndPraiseInfoLayout;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f47582e.mSelectImg.performClick();
+                this.f47679e.mSelectImg.performClick();
             }
         }
     }
@@ -341,7 +341,7 @@ public class ThreadCommentAndPraiseInfoLayout extends FrameLayout implements Vie
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ThreadCommentAndPraiseInfoLayout f47583e;
+        public final /* synthetic */ ThreadCommentAndPraiseInfoLayout f47680e;
 
         public e(ThreadCommentAndPraiseInfoLayout threadCommentAndPraiseInfoLayout) {
             Interceptable interceptable = $ic;
@@ -358,7 +358,7 @@ public class ThreadCommentAndPraiseInfoLayout extends FrameLayout implements Vie
                     return;
                 }
             }
-            this.f47583e = threadCommentAndPraiseInfoLayout;
+            this.f47680e = threadCommentAndPraiseInfoLayout;
         }
 
         @Override // android.view.View.OnTouchListener
@@ -366,7 +366,7 @@ public class ThreadCommentAndPraiseInfoLayout extends FrameLayout implements Vie
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view, motionEvent)) == null) {
-                this.f47583e.mSelectImg.onTouchEvent(motionEvent);
+                this.f47680e.mSelectImg.onTouchEvent(motionEvent);
                 return false;
             }
             return invokeLL.booleanValue;
@@ -379,7 +379,7 @@ public class ThreadCommentAndPraiseInfoLayout extends FrameLayout implements Vie
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ThreadCommentAndPraiseInfoLayout f47584e;
+        public final /* synthetic */ ThreadCommentAndPraiseInfoLayout f47681e;
 
         public f(ThreadCommentAndPraiseInfoLayout threadCommentAndPraiseInfoLayout) {
             Interceptable interceptable = $ic;
@@ -396,14 +396,14 @@ public class ThreadCommentAndPraiseInfoLayout extends FrameLayout implements Vie
                     return;
                 }
             }
-            this.f47584e = threadCommentAndPraiseInfoLayout;
+            this.f47681e = threadCommentAndPraiseInfoLayout;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f47584e.mSelectImg.performClick();
+                this.f47681e.mSelectImg.performClick();
             }
         }
     }
@@ -414,7 +414,7 @@ public class ThreadCommentAndPraiseInfoLayout extends FrameLayout implements Vie
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ThreadCommentAndPraiseInfoLayout f47585a;
+        public final /* synthetic */ ThreadCommentAndPraiseInfoLayout f47682a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public g(ThreadCommentAndPraiseInfoLayout threadCommentAndPraiseInfoLayout, int i2) {
@@ -434,7 +434,7 @@ public class ThreadCommentAndPraiseInfoLayout extends FrameLayout implements Vie
                     return;
                 }
             }
-            this.f47585a = threadCommentAndPraiseInfoLayout;
+            this.f47682a = threadCommentAndPraiseInfoLayout;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -445,26 +445,26 @@ public class ThreadCommentAndPraiseInfoLayout extends FrameLayout implements Vie
                 return;
             }
             c2 c2Var = (c2) customResponsedMessage.getData();
-            if (this.f47585a.mData == null || c2Var == null) {
+            if (this.f47682a.mData == null || c2Var == null) {
                 return;
             }
             String str = c2Var.L() != null ? c2Var.L().oriUgcNid : "";
-            String str2 = this.f47585a.mData.L() != null ? this.f47585a.mData.L().oriUgcNid : "";
+            String str2 = this.f47682a.mData.L() != null ? this.f47682a.mData.L().oriUgcNid : "";
             if (!"0".equals(str) && !TextUtils.isEmpty(str)) {
                 if (str.equals(str2)) {
-                    this.f47585a.mData.d4(c2Var.S0());
-                    this.f47585a.updateReplyNum(c2Var);
+                    this.f47682a.mData.d4(c2Var.S0());
+                    this.f47682a.updateReplyNum(c2Var);
                     return;
                 }
                 return;
             }
             String f0 = c2Var.f0();
-            String f02 = this.f47585a.mData.f0();
+            String f02 = this.f47682a.mData.f0();
             if ("0".equals(f02) || TextUtils.isEmpty(f02) || !f02.equals(f0)) {
                 return;
             }
-            this.f47585a.mData.d4(c2Var.S0());
-            this.f47585a.updateReplyNum(c2Var);
+            this.f47682a.mData.d4(c2Var.S0());
+            this.f47682a.updateReplyNum(c2Var);
         }
     }
 
@@ -474,7 +474,7 @@ public class ThreadCommentAndPraiseInfoLayout extends FrameLayout implements Vie
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ThreadCommentAndPraiseInfoLayout f47586a;
+        public final /* synthetic */ ThreadCommentAndPraiseInfoLayout f47683a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public h(ThreadCommentAndPraiseInfoLayout threadCommentAndPraiseInfoLayout, int i2) {
@@ -494,7 +494,7 @@ public class ThreadCommentAndPraiseInfoLayout extends FrameLayout implements Vie
                     return;
                 }
             }
-            this.f47586a = threadCommentAndPraiseInfoLayout;
+            this.f47683a = threadCommentAndPraiseInfoLayout;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -506,18 +506,18 @@ public class ThreadCommentAndPraiseInfoLayout extends FrameLayout implements Vie
                 return;
             }
             String str = (String) customResponsedMessage.getData();
-            if (TextUtils.isEmpty(str) || (c2Var = this.f47586a.mData) == null || "0".equals(c2Var.f0()) || !str.equals(this.f47586a.mData.f0())) {
+            if (TextUtils.isEmpty(str) || (c2Var = this.f47683a.mData) == null || "0".equals(c2Var.f0()) || !str.equals(this.f47683a.mData.f0())) {
                 return;
             }
-            if ((this.f47586a.mData.e2() || this.f47586a.mData.p2()) && this.f47586a.mData.j1() != null) {
-                if (this.f47586a.mData.j1() != null && this.f47586a.mData.j1().share_info != null) {
-                    this.f47586a.mData.j1().share_info.share_count++;
+            if ((this.f47683a.mData.e2() || this.f47683a.mData.p2()) && this.f47683a.mData.j1() != null) {
+                if (this.f47683a.mData.j1() != null && this.f47683a.mData.j1().share_info != null) {
+                    this.f47683a.mData.j1().share_info.share_count++;
                 }
             } else {
-                c2 c2Var2 = this.f47586a.mData;
+                c2 c2Var2 = this.f47683a.mData;
                 c2Var2.i4(c2Var2.Z0() + 1);
             }
-            ThreadCommentAndPraiseInfoLayout threadCommentAndPraiseInfoLayout = this.f47586a;
+            ThreadCommentAndPraiseInfoLayout threadCommentAndPraiseInfoLayout = this.f47683a;
             threadCommentAndPraiseInfoLayout.updateShareNum(threadCommentAndPraiseInfoLayout.mData);
         }
     }
@@ -551,7 +551,7 @@ public class ThreadCommentAndPraiseInfoLayout extends FrameLayout implements Vie
             }
         }
         this.TBDS84 = l.g(TbadkApplication.getInst(), R.dimen.tbds84);
-        this.f47573e = 11;
+        this.f47670e = 11;
         this.isVisible = false;
         this.isReplyTimeVisible = true;
         this.isPraiseNumVisible = true;
@@ -563,8 +563,8 @@ public class ThreadCommentAndPraiseInfoLayout extends FrameLayout implements Vie
         this.isShareVisible = true;
         this.isManageVisible = false;
         this.isSelectVisible = true;
-        this.f47575g = 2;
-        this.f47576h = 1;
+        this.f47672g = 2;
+        this.f47673h = 1;
         this.n = 3;
         this.q = null;
         this.s = true;
@@ -590,7 +590,7 @@ public class ThreadCommentAndPraiseInfoLayout extends FrameLayout implements Vie
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this)) == null) {
-            int i2 = this.f47576h;
+            int i2 = this.f47673h;
             if (i2 == 1) {
                 return 5;
             }
@@ -621,7 +621,7 @@ public class ThreadCommentAndPraiseInfoLayout extends FrameLayout implements Vie
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this)) == null) {
-            int i2 = this.f47575g;
+            int i2 = this.f47672g;
             if (i2 == 4 || i2 == 9) {
                 return 1;
             }
@@ -680,24 +680,6 @@ public class ThreadCommentAndPraiseInfoLayout extends FrameLayout implements Vie
         return invokeV.intValue;
     }
 
-    public static void l(Context context, int i2, c2 c2Var) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLIL(65545, null, context, i2, c2Var) == null) || c2Var == null) {
-            return;
-        }
-        VideoItemData videoItemData = new VideoItemData();
-        ArrayList arrayList = new ArrayList();
-        String str = i2 == 3 ? "frs" : i2 == 2 ? "index" : "";
-        videoItemData.buildWithThreadData(c2Var);
-        arrayList.add(videoItemData);
-        VideoPlayActivityConfig videoPlayActivityConfig = new VideoPlayActivityConfig(context, arrayList, 0, null, "from_nani_video", "personalize_page", "", str, str, true);
-        videoPlayActivityConfig.setParamIsVertail(videoItemData.isVerticalVideo == 1);
-        if (c2Var.L() != null) {
-            videoPlayActivityConfig.setNid(c2Var.L().oriUgcNid);
-        }
-        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, videoPlayActivityConfig));
-    }
-
     public void addPraiseStats(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
@@ -712,7 +694,7 @@ public class ThreadCommentAndPraiseInfoLayout extends FrameLayout implements Vie
     public final void c(ShareDialogConfig shareDialogConfig) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, shareDialogConfig) == null) {
-            int i2 = this.f47575g;
+            int i2 = this.f47672g;
             if (i2 == 1) {
                 shareDialogConfig.setFrom(ShareDialogConfig.From.Recommend);
             } else if (i2 == 2) {
@@ -758,7 +740,7 @@ public class ThreadCommentAndPraiseInfoLayout extends FrameLayout implements Vie
                 }
                 statisticItem.param("obj_source", "1");
                 statisticItem.param("fid", this.mData.T());
-                statisticItem.param("obj_locate", this.f47575g);
+                statisticItem.param("obj_locate", this.f47672g);
                 statisticItem.param("obj_id", i2);
                 if (!k.isEmpty(this.statFloor)) {
                     statisticItem.param(TiebaStatic.Params.OBJ_FLOOR, this.statFloor);
@@ -775,7 +757,7 @@ public class ThreadCommentAndPraiseInfoLayout extends FrameLayout implements Vie
                 if (this.mData.L() != null && !k.isEmpty(this.mData.L().oriUgcVid)) {
                     statisticItem.param(TiebaStatic.Params.OBJ_PARAM6, this.mData.L().oriUgcVid);
                 }
-                c.a.o0.k0.c f2 = TbPageExtraHelper.f(this);
+                c.a.p0.k0.c f2 = TbPageExtraHelper.f(this);
                 if (f2 != null) {
                     statisticItem.param(TiebaStatic.Params.OBJ_CUR_PAGE, f2.a());
                 }
@@ -797,7 +779,7 @@ public class ThreadCommentAndPraiseInfoLayout extends FrameLayout implements Vie
                 return null;
             }
             int i2 = 0;
-            int i3 = this.f47576h;
+            int i3 = this.f47673h;
             if (i3 == 1) {
                 i2 = 4;
             } else if (i3 == 2) {
@@ -828,7 +810,7 @@ public class ThreadCommentAndPraiseInfoLayout extends FrameLayout implements Vie
             statisticItem.param("tid", this.mData.q1());
             statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
             statisticItem.param("obj_locate", i2);
-            statisticItem.param(TiebaStatic.Params.OBJ_PARAM2, this.f47577i);
+            statisticItem.param(TiebaStatic.Params.OBJ_PARAM2, this.f47674i);
             if (!k.isEmpty(this.statFloor)) {
                 statisticItem.param(TiebaStatic.Params.OBJ_FLOOR, this.statFloor);
             }
@@ -866,13 +848,13 @@ public class ThreadCommentAndPraiseInfoLayout extends FrameLayout implements Vie
                     }
                 }
             }
-            int i5 = this.f47575g;
+            int i5 = this.f47672g;
             if (i5 == 1 || i5 == 2) {
                 statisticItem.param(TiebaStatic.Params.OBJ_TAB, "a002");
             }
-            if (this.f47575g == 18) {
+            if (this.f47672g == 18) {
                 statisticItem.param(TiebaStatic.Params.OBJ_TAB, "a099");
-                statisticItem.param(TiebaStatic.Params.RESOURCE_ID, this.f47578j);
+                statisticItem.param(TiebaStatic.Params.RESOURCE_ID, this.f47675j);
             }
             if (this.mData.L() != null) {
                 statisticItem.param(TiebaStatic.Params.OBJ_PARAM4, this.mData.L().oriUgcNid);
@@ -892,7 +874,7 @@ public class ThreadCommentAndPraiseInfoLayout extends FrameLayout implements Vie
             }
             TbPageContext tbPageContext = this.mPageContext;
             if (tbPageContext != null) {
-                c.a.o0.l0.c.b(tbPageContext.getPageActivity(), statisticItem);
+                c.a.p0.l0.c.b(tbPageContext.getPageActivity(), statisticItem);
             }
             statisticItem.param("nid", this.mData.D0());
             return statisticItem;
@@ -955,7 +937,7 @@ public class ThreadCommentAndPraiseInfoLayout extends FrameLayout implements Vie
         } else {
             i2 = id == R.id.img_disagree ? 2 : 0;
         }
-        int i4 = this.f47575g;
+        int i4 = this.f47672g;
         if (i4 == 1) {
             i3 = 1;
         } else if (i4 == 2) {
@@ -970,7 +952,7 @@ public class ThreadCommentAndPraiseInfoLayout extends FrameLayout implements Vie
         if (i2 <= 0 || i3 <= 0) {
             return;
         }
-        TiebaStatic.log(c.a.p0.h3.a.o("c13694", c2Var, i3, i2));
+        TiebaStatic.log(c.a.q0.h3.a.o("c13694", c2Var, i3, i2));
     }
 
     public TextView getBarNameTv() {
@@ -1072,17 +1054,17 @@ public class ThreadCommentAndPraiseInfoLayout extends FrameLayout implements Vie
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048594, this, view) == null) {
             this.mBarName = (TextView) view.findViewById(R.id.thread_info_bar_name);
-            this.f47574f = (TextView) view.findViewById(R.id.thread_info_reply_time);
+            this.f47671f = (TextView) view.findViewById(R.id.thread_info_reply_time);
             this.mRootView = (LinearLayout) view.findViewById(R.id.thread_comment_layout_root);
             EMTextView eMTextView = (EMTextView) view.findViewById(R.id.thread_info_commont_num);
             this.mCommentNum = eMTextView;
-            c.a.o0.s.u.c.d(eMTextView).y(R.string.F_X01);
+            c.a.p0.s.u.c.d(eMTextView).z(R.string.F_X01);
             this.mCommentImageView = (ImageView) view.findViewById(R.id.thread_info_commont_img);
             this.mCommentGrabSofa = (EMTextView) view.findViewById(R.id.thread_info_commont_grab_sofa);
             this.mCommentContainer = view.findViewById(R.id.thread_info_commont_container);
             EMTextView eMTextView2 = (EMTextView) view.findViewById(R.id.share_num);
             this.mShareNum = eMTextView2;
-            c.a.o0.s.u.c.d(eMTextView2).y(R.string.F_X01);
+            c.a.p0.s.u.c.d(eMTextView2).z(R.string.F_X01);
             this.mShareImageView = (ImageView) view.findViewById(R.id.share_num_img);
             this.mShareContainer = view.findViewById(R.id.share_num_container);
             this.mButtonMoreContainer = (FrameLayout) view.findViewById(R.id.btn_card_bottom_op_more_container);
@@ -1096,12 +1078,12 @@ public class ThreadCommentAndPraiseInfoLayout extends FrameLayout implements Vie
             this.mManageViewContainer = view.findViewById(R.id.manage_view_container);
             EMTextView eMTextView3 = (EMTextView) view.findViewById(R.id.thread_info_manage_text);
             this.mManageText = eMTextView3;
-            c.a.o0.s.u.c.d(eMTextView3).y(R.string.F_X01);
+            c.a.p0.s.u.c.d(eMTextView3).z(R.string.F_X01);
             this.mManageImageView = (ImageView) view.findViewById(R.id.thread_info_manage_img);
             this.mSelectImg = (ImageView) view.findViewById(R.id.manage_select_img);
             EMTextView eMTextView4 = (EMTextView) view.findViewById(R.id.manage_select_text);
             this.mSelectText = eMTextView4;
-            c.a.o0.s.u.c.d(eMTextView4).y(R.string.F_X01);
+            c.a.p0.s.u.c.d(eMTextView4).z(R.string.F_X01);
             LinearLayout linearLayout = (LinearLayout) view.findViewById(R.id.manage_select_container);
             this.mSelectContainer = linearLayout;
             linearLayout.setOnTouchListener(new b(this));
@@ -1111,14 +1093,14 @@ public class ThreadCommentAndPraiseInfoLayout extends FrameLayout implements Vie
             EMTextView eMTextView5 = (EMTextView) view.findViewById(R.id.qq_share_text);
             this.mQQShareText = eMTextView5;
             if (eMTextView5 != null) {
-                c.a.o0.s.u.c.d(eMTextView5).y(R.string.F_X01);
+                c.a.p0.s.u.c.d(eMTextView5).z(R.string.F_X01);
             }
             this.mCollectNumContainer = (LinearLayout) view.findViewById(R.id.collect_num_container);
             this.mCollectNumImageView = (ImageView) view.findViewById(R.id.collect_num_image);
             EMTextView eMTextView6 = (EMTextView) view.findViewById(R.id.collect_num_text);
             this.mCollectNumText = eMTextView6;
             if (eMTextView6 != null) {
-                c.a.o0.s.u.c.d(eMTextView6).y(R.string.F_X01);
+                c.a.p0.s.u.c.d(eMTextView6).z(R.string.F_X01);
             }
             this.mSelectContainer.setOnClickListener(new d(this));
             this.mCommentContainer.setOnClickListener(this);
@@ -1221,9 +1203,34 @@ public class ThreadCommentAndPraiseInfoLayout extends FrameLayout implements Vie
         return invokeL.intValue;
     }
 
+    public final void l(Context context, int i2, c2 c2Var) {
+        String str;
+        String str2;
+        int i3;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLIL(1048599, this, context, i2, c2Var) == null) || c2Var == null) {
+            return;
+        }
+        VideoItemData videoItemData = new VideoItemData();
+        ArrayList arrayList = new ArrayList();
+        if (i2 == 3) {
+            str2 = "frs";
+        } else {
+            if (i2 != 2 && (i3 = this.f47672g) != 4 && i3 != 9 && i3 != 1) {
+                str = "";
+                str2 = str;
+            }
+            str = "index";
+            str2 = str;
+        }
+        videoItemData.buildWithThreadData(c2Var);
+        arrayList.add(videoItemData);
+        t.g(context, arrayList, c2Var.L() != null ? c2Var.L().oriUgcNid : null, videoItemData.isVerticalVideo == 1, 0, null, "from_nani_video", "personalize_page", "", str2, str2, true);
+    }
+
     public final void m() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048599, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048600, this) == null) {
             this.mShareContainer.setVisibility(p(1) ? 0 : 8);
             this.mCommentContainer.setVisibility(p(2) ? 0 : 8);
             View view = this.mManageViewContainer;
@@ -1241,7 +1248,7 @@ public class ThreadCommentAndPraiseInfoLayout extends FrameLayout implements Vie
 
     public final void n(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048600, this, context) == null) {
+        if (interceptable == null || interceptable.invokeL(1048601, this, context) == null) {
             this.mContext = context;
             if (context instanceof BaseActivity) {
                 this.mPageContext = ((BaseActivity) context).getPageContext();
@@ -1256,13 +1263,13 @@ public class ThreadCommentAndPraiseInfoLayout extends FrameLayout implements Vie
     public final boolean o(c2 c2Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048601, this, c2Var)) == null) ? (c2Var == null || !c2Var.A2() || c2Var.o1() == null) ? false : true : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048602, this, c2Var)) == null) ? (c2Var == null || !c2Var.A2() || c2Var.o1() == null) ? false : true : invokeL.booleanValue;
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public void onAttachedToWindow() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048602, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048603, this) == null) {
             super.onAttachedToWindow();
             MessageManager.getInstance().registerListener(this.t);
             MessageManager.getInstance().registerListener(this.u);
@@ -1271,7 +1278,7 @@ public class ThreadCommentAndPraiseInfoLayout extends FrameLayout implements Vie
 
     public void onChangeSkinType() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048603, this) == null) || this.n == TbadkCoreApplication.getInst().getSkinType()) {
+        if (!(interceptable == null || interceptable.invokeV(1048604, this) == null) || this.n == TbadkCoreApplication.getInst().getSkinType()) {
             return;
         }
         this.n = TbadkCoreApplication.getInst().getSkinType();
@@ -1281,7 +1288,7 @@ public class ThreadCommentAndPraiseInfoLayout extends FrameLayout implements Vie
             maskView.onChangeSkin();
         }
         SkinManager.setViewTextColor(this.mBarName, R.color.CAM_X0109);
-        SkinManager.setViewTextColor(this.f47574f, R.color.CAM_X0107);
+        SkinManager.setViewTextColor(this.f47671f, R.color.CAM_X0107);
         updateReplyStateUI();
         updateCollectStateUI(this.mData);
         updateShareStateUI(this.mData);
@@ -1302,20 +1309,20 @@ public class ThreadCommentAndPraiseInfoLayout extends FrameLayout implements Vie
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048604, this, view) == null) {
+        if (interceptable == null || interceptable.invokeL(1048605, this, view) == null) {
             c2 c2Var = this.mData;
             if (c2Var == null || c2Var.getType() != c2.M3) {
                 if (view == this.mBarName) {
                     q(view);
                 } else if (view == this.mCommentContainer) {
                     onCommentNumClick(view);
-                    int i2 = this.f47575g;
+                    int i2 = this.f47672g;
                     if (i2 == 1 || i2 == 2) {
                         TbSingleton.getInstance().saveHomeRecommendItemClickTime();
                     }
                 } else if (view == this.mShareContainer) {
                     onShareNumClick(view);
-                    int i3 = this.f47575g;
+                    int i3 = this.f47672g;
                     if (i3 == 1 || i3 == 2) {
                         TbSingleton.getInstance().saveHomeRecommendItemClickTime();
                     }
@@ -1336,28 +1343,28 @@ public class ThreadCommentAndPraiseInfoLayout extends FrameLayout implements Vie
 
     public void onCollectNumClick(View view) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048605, this, view) == null) {
+        if (interceptable == null || interceptable.invokeL(1048606, this, view) == null) {
         }
     }
 
     public void onCommentNumClick(View view) {
         c2 c2Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048606, this, view) == null) || (c2Var = this.mData) == null || this.mContext == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048607, this, view) == null) || (c2Var = this.mData) == null || this.mContext == null) {
             return;
         }
         m.a(c2Var.q1());
         StatisticItem statisticItem = new StatisticItem("c12942");
-        statisticItem.param("obj_locate", this.f47575g);
+        statisticItem.param("obj_locate", this.f47672g);
         statisticItem.param("obj_type", getThreadType());
         statisticItem.param("tid", this.mData.q1());
         statisticItem.param("nid", this.mData.D0());
-        if (this.f47575g == 18) {
+        if (this.f47672g == 18) {
             statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
             statisticItem.param("fid", this.mData.T());
-            statisticItem.param(TiebaStatic.Params.RESOURCE_ID, this.f47578j);
+            statisticItem.param(TiebaStatic.Params.RESOURCE_ID, this.f47675j);
         }
-        c.a.o0.k0.c f2 = TbPageExtraHelper.f(this);
+        c.a.p0.k0.c f2 = TbPageExtraHelper.f(this);
         if (f2 != null) {
             statisticItem.param(TiebaStatic.Params.OBJ_CUR_PAGE, f2.a());
         }
@@ -1367,34 +1374,34 @@ public class ThreadCommentAndPraiseInfoLayout extends FrameLayout implements Vie
         TiebaStatic.log(statisticItem);
         if (this.mData.o1() != null && !TextUtils.isEmpty(this.mData.o1().video_url)) {
             l(this.mContext, getThreadType(), this.mData);
-            return;
+        } else {
+            PbActivityConfig addLocateParam = new PbActivityConfig(this.mContext).createFromThreadCfg(this.mData, null, this.k, 0, true, false, false).addLocateParam("");
+            addLocateParam.setForumId(String.valueOf(this.mData.T()));
+            addLocateParam.setForumName(this.mData.Z());
+            if (this.mData.i0() && this.mData.Y() != null) {
+                addLocateParam.setForumId(this.mData.Y().getForumId());
+                addLocateParam.setForumName(this.mData.Y().getForumName());
+            }
+            addLocateParam.setJumpToCommentArea(true);
+            i iVar = this.r;
+            if (iVar != null) {
+                iVar.a(addLocateParam);
+            }
+            if (TbSingleton.getInstance().isPbPreloadSwitchOn() && o(this.mData)) {
+                addLocateParam.setNeedPreLoad(true);
+                c.a.q0.v0.l.c(this.mData);
+            }
+            if (this.mData.U1) {
+                addLocateParam.setFromHomePageQuality(true);
+            }
+            if (this.mData.a2() && addLocateParam.getIntent() != null) {
+                addLocateParam.getIntent().putExtra("KEY_IS_INTERVIEW_LIVE", true);
+            }
+            addLocateParam.setStartFrom(this.sourceFromForPb);
+            MessageManager.getInstance().sendMessage(new CustomMessage(2004001, addLocateParam));
         }
-        PbActivityConfig addLocateParam = new PbActivityConfig(this.mContext).createFromThreadCfg(this.mData, null, this.k, 0, true, false, false).addLocateParam("");
-        addLocateParam.setForumId(String.valueOf(this.mData.T()));
-        addLocateParam.setForumName(this.mData.Z());
-        if (this.mData.i0() && this.mData.Y() != null) {
-            addLocateParam.setForumId(this.mData.Y().getForumId());
-            addLocateParam.setForumName(this.mData.Y().getForumName());
-        }
-        addLocateParam.setJumpToCommentArea(true);
-        i iVar = this.r;
-        if (iVar != null) {
-            iVar.a(addLocateParam);
-        }
-        if (TbSingleton.getInstance().isPbPreloadSwitchOn() && o(this.mData)) {
-            addLocateParam.setNeedPreLoad(true);
-            c.a.p0.v0.l.c(this.mData);
-        }
-        if (this.mData.U1) {
-            addLocateParam.setFromHomePageQuality(true);
-        }
-        if (this.mData.a2() && addLocateParam.getIntent() != null) {
-            addLocateParam.getIntent().putExtra("KEY_IS_INTERVIEW_LIVE", true);
-        }
-        addLocateParam.setStartFrom(this.sourceFromForPb);
-        MessageManager.getInstance().sendMessage(new CustomMessage(2004001, addLocateParam));
         StatisticItem statisticItem2 = new StatisticItem("c12291");
-        statisticItem2.param("obj_locate", this.f47575g);
+        statisticItem2.param("obj_locate", this.f47672g);
         TiebaStatic.log(statisticItem2);
         h();
         g(view, this.mData);
@@ -1406,14 +1413,14 @@ public class ThreadCommentAndPraiseInfoLayout extends FrameLayout implements Vie
 
     public void onDataAfterLayout() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048607, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048608, this) == null) {
         }
     }
 
     public void onDestroy() {
         ThreadManageDialog threadManageDialog;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048608, this) == null) || (threadManageDialog = this.mManageDialog) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048609, this) == null) || (threadManageDialog = this.mManageDialog) == null) {
             return;
         }
         threadManageDialog.destory();
@@ -1422,7 +1429,7 @@ public class ThreadCommentAndPraiseInfoLayout extends FrameLayout implements Vie
     @Override // android.view.ViewGroup, android.view.View
     public void onDetachedFromWindow() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048609, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048610, this) == null) {
             super.onDetachedFromWindow();
             MessageManager.getInstance().unRegisterListener(this.t);
             MessageManager.getInstance().unRegisterListener(this.u);
@@ -1431,7 +1438,7 @@ public class ThreadCommentAndPraiseInfoLayout extends FrameLayout implements Vie
 
     public void onManageViewClick(View view) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048610, this, view) == null) {
+        if (interceptable == null || interceptable.invokeL(1048611, this, view) == null) {
             if (this.mManageDialog == null) {
                 this.mManageDialog = new ThreadManageDialog(this.mPageContext, p(16));
             }
@@ -1445,33 +1452,33 @@ public class ThreadCommentAndPraiseInfoLayout extends FrameLayout implements Vie
 
     public void onQQShareClick(View view) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048611, this, view) == null) {
+        if (interceptable == null || interceptable.invokeL(1048612, this, view) == null) {
         }
     }
 
     public void onSelectClick(View view) {
         c2 c2Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048612, this, view) == null) || this.mSelectImg == null || (c2Var = this.mData) == null || this.mSelectText == null || c2Var.y2()) {
+        if (!(interceptable == null || interceptable.invokeL(1048613, this, view) == null) || this.mSelectImg == null || (c2Var = this.mData) == null || this.mSelectText == null || c2Var.y2()) {
             return;
         }
         boolean z = true;
-        if (!this.mData.f2() && c.a.p0.v0.b.f().i()) {
-            if (c.a.p0.v0.b.f().a(this.mData)) {
+        if (!this.mData.f2() && c.a.q0.v0.b.f().i()) {
+            if (c.a.q0.v0.b.f().a(this.mData)) {
                 this.mData.W3(true);
             }
-        } else if (!this.mData.g2() && c.a.p0.v0.a.h().j()) {
-            if (c.a.p0.v0.a.h().a(this.mData)) {
+        } else if (!this.mData.g2() && c.a.q0.v0.a.h().j()) {
+            if (c.a.q0.v0.a.h().a(this.mData)) {
                 this.mData.X3(true);
             }
         } else {
-            c.a.p0.v0.b.f().l(this.mData);
+            c.a.q0.v0.b.f().l(this.mData);
             this.mData.W3(false);
-            c.a.p0.v0.a.h().l(this.mData);
+            c.a.q0.v0.a.h().l(this.mData);
             this.mData.X3(false);
         }
         if (!this.mData.f2() && !this.mData.g2()) {
-            c.a.o0.s.u.c.d(this.mSelectText).v(R.color.CAM_X0107);
+            c.a.p0.s.u.c.d(this.mSelectText).w(R.color.CAM_X0107);
             WebPManager.setPureDrawable(this.mSelectImg, R.drawable.icon_pure_frs_select_22, R.color.CAM_X0107, null);
         } else {
             SkinManager.setViewTextColor(this.mSelectText, R.color.CAM_X0304);
@@ -1488,7 +1495,7 @@ public class ThreadCommentAndPraiseInfoLayout extends FrameLayout implements Vie
 
     public void onShareNumClick(View view) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048613, this, view) == null) {
+        if (interceptable == null || interceptable.invokeL(1048614, this, view) == null) {
             if ((ShareSwitch.isOn() || ViewHelper.checkUpIsLogin(this.mContext)) && this.mData != null) {
                 s();
                 g(view, this.mData);
@@ -1507,13 +1514,13 @@ public class ThreadCommentAndPraiseInfoLayout extends FrameLayout implements Vie
     public final boolean p(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048614, this, i2)) == null) ? (i2 & this.f47573e) > 0 : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048615, this, i2)) == null) ? (i2 & this.f47670e) > 0 : invokeI.booleanValue;
     }
 
     public final void q(View view) {
         c2 c2Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048615, this, view) == null) || (c2Var = this.mData) == null || StringUtils.isNull(c2Var.Z())) {
+        if (!(interceptable == null || interceptable.invokeL(1048616, this, view) == null) || (c2Var = this.mData) == null || StringUtils.isNull(c2Var.Z())) {
             return;
         }
         if (!StringUtils.isNull(this.k) && !StringUtils.isNull(this.l)) {
@@ -1529,13 +1536,13 @@ public class ThreadCommentAndPraiseInfoLayout extends FrameLayout implements Vie
 
     public final void r(View view) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048616, this, view) == null) {
+        if (interceptable == null || interceptable.invokeL(1048617, this, view) == null) {
         }
     }
 
     public void resetShareContainer() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048617, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048618, this) == null) {
             this.isShareVisible = true;
             RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.mCommentImageView.getLayoutParams();
             layoutParams.leftMargin = this.mContext.getResources().getDimensionPixelSize(R.dimen.tbds78);
@@ -1545,7 +1552,7 @@ public class ThreadCommentAndPraiseInfoLayout extends FrameLayout implements Vie
 
     public final void s() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048618, this) == null) || this.mData == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048619, this) == null) || this.mData == null) {
             return;
         }
         StatisticItem e2 = e();
@@ -1555,14 +1562,14 @@ public class ThreadCommentAndPraiseInfoLayout extends FrameLayout implements Vie
 
     public void setAgreeClickable(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048619, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048620, this, z) == null) {
         }
     }
 
-    public void setAgreeStatisticData(c.a.o0.s.q.f fVar) {
+    public void setAgreeStatisticData(c.a.p0.s.q.f fVar) {
         AgreeView agreeView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048620, this, fVar) == null) || (agreeView = this.mAgreeView) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048621, this, fVar) == null) || (agreeView = this.mAgreeView) == null) {
             return;
         }
         agreeView.setStatisticData(fVar);
@@ -1570,14 +1577,14 @@ public class ThreadCommentAndPraiseInfoLayout extends FrameLayout implements Vie
 
     public void setAgreeViewType(c2 c2Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048621, this, c2Var) == null) && c2Var != null && c2Var.z2()) {
+        if ((interceptable == null || interceptable.invokeL(1048622, this, c2Var) == null) && c2Var != null && c2Var.z2()) {
             this.mAgreeView.setAgreeAlone(true);
         }
     }
 
     public void setBarNameClickEnabled(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048622, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048623, this, z) == null) {
             this.barNameClickEnable = z;
             TextView textView = this.mBarName;
             if (textView != null) {
@@ -1589,7 +1596,7 @@ public class ThreadCommentAndPraiseInfoLayout extends FrameLayout implements Vie
     public void setCollectVisible(boolean z) {
         LinearLayout linearLayout;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048623, this, z) == null) || (linearLayout = this.mCollectNumContainer) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048624, this, z) == null) || (linearLayout = this.mCollectNumContainer) == null) {
             return;
         }
         if (z) {
@@ -1602,7 +1609,7 @@ public class ThreadCommentAndPraiseInfoLayout extends FrameLayout implements Vie
     public void setCommentClickable(boolean z) {
         View view;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048624, this, z) == null) || (view = this.mCommentContainer) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048625, this, z) == null) || (view = this.mCommentContainer) == null) {
             return;
         }
         view.setClickable(z);
@@ -1612,14 +1619,14 @@ public class ThreadCommentAndPraiseInfoLayout extends FrameLayout implements Vie
 
     public void setCommentNumEnable(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048625, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048626, this, z) == null) {
         }
     }
 
     public boolean setData(c2 c2Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048626, this, c2Var)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048627, this, c2Var)) == null) {
             if (c2Var == null) {
                 setVisibility(8);
                 return false;
@@ -1644,27 +1651,27 @@ public class ThreadCommentAndPraiseInfoLayout extends FrameLayout implements Vie
 
     public void setDisPraiseFrom(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048627, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048628, this, i2) == null) {
         }
     }
 
     public void setForumAfterClickListener(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048628, this, onClickListener) == null) {
+        if (interceptable == null || interceptable.invokeL(1048629, this, onClickListener) == null) {
             this.m = onClickListener;
         }
     }
 
     public void setForumId(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048629, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048630, this, str) == null) {
         }
     }
 
     public void setFrom(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048630, this, i2) == null) {
-            this.f47575g = i2;
+        if (interceptable == null || interceptable.invokeI(1048631, this, i2) == null) {
+            this.f47672g = i2;
             AgreeView agreeView = this.mAgreeView;
             if (agreeView != null) {
                 agreeView.setFrom(i2);
@@ -1674,8 +1681,8 @@ public class ThreadCommentAndPraiseInfoLayout extends FrameLayout implements Vie
 
     public void setGameId(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048631, this, i2) == null) {
-            this.f47577i = i2;
+        if (interceptable == null || interceptable.invokeI(1048632, this, i2) == null) {
+            this.f47674i = i2;
             AgreeView agreeView = this.mAgreeView;
             if (agreeView != null) {
                 agreeView.setGameId(i2);
@@ -1685,61 +1692,61 @@ public class ThreadCommentAndPraiseInfoLayout extends FrameLayout implements Vie
 
     public void setInFrsAllThread(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048632, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048633, this, z) == null) {
             this.s = z;
         }
     }
 
     public void setIsBarViewVisible(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048633, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048634, this, z) == null) {
             this.isBarNameVisible = z;
         }
     }
 
     public void setLiveShareEnable(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048634, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048635, this, z) == null) {
             this.isLiveShareEnable = z;
         }
     }
 
     public void setManageVisible(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048635, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048636, this, z) == null) {
             this.isManageVisible = z;
         }
     }
 
     public void setMultiForumCount(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048636, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048637, this, i2) == null) {
         }
     }
 
     public void setNeedAddPraiseIcon(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048637, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048638, this, z) == null) {
         }
     }
 
     public void setNeedAddReplyIcon(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048638, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048639, this, z) == null) {
             this.needAddReplyIcon = z;
         }
     }
 
     public void setOnCommentClickCallback(i iVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048639, this, iVar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048640, this, iVar) == null) {
             this.r = iVar;
         }
     }
 
     public void setOnSelectStatusChangeListener(j jVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048640, this, jVar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048641, this, jVar) == null) {
             this.q = jVar;
         }
     }
@@ -1747,7 +1754,7 @@ public class ThreadCommentAndPraiseInfoLayout extends FrameLayout implements Vie
     public void setQQShareVisible(boolean z) {
         LinearLayout linearLayout;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048641, this, z) == null) || (linearLayout = this.mQQShareContainer) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048642, this, z) == null) || (linearLayout = this.mQQShareContainer) == null) {
             return;
         }
         if (z) {
@@ -1759,14 +1766,14 @@ public class ThreadCommentAndPraiseInfoLayout extends FrameLayout implements Vie
 
     public void setReplyTimeVisible(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048642, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048643, this, z) == null) {
             this.isReplyTimeVisible = z;
         }
     }
 
     public void setSelectVisible(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048643, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048644, this, z) == null) {
             this.isSelectVisible = z;
         }
     }
@@ -1774,7 +1781,7 @@ public class ThreadCommentAndPraiseInfoLayout extends FrameLayout implements Vie
     public void setShareClickable(boolean z) {
         View view;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048644, this, z) == null) || (view = this.mShareContainer) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048645, this, z) == null) || (view = this.mShareContainer) == null) {
             return;
         }
         view.setClickable(z);
@@ -1784,20 +1791,20 @@ public class ThreadCommentAndPraiseInfoLayout extends FrameLayout implements Vie
 
     public void setShareReportFrom(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048645, this, i2) == null) {
-            this.f47576h = i2;
+        if (interceptable == null || interceptable.invokeI(1048646, this, i2) == null) {
+            this.f47673h = i2;
         }
     }
 
     public void setShareVisible(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048646, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048647, this, z) == null) {
         }
     }
 
     public void setShowCommonView() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048647, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048648, this) == null) {
             setReplyTimeVisible(false);
             setIsBarViewVisible(false);
             setShowPraiseNum(true);
@@ -1809,29 +1816,29 @@ public class ThreadCommentAndPraiseInfoLayout extends FrameLayout implements Vie
 
     public void setShowFlag(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048648, this, i2) == null) {
-            this.f47573e = i2;
+        if (interceptable == null || interceptable.invokeI(1048649, this, i2) == null) {
+            this.f47670e = i2;
             m();
         }
     }
 
     public void setShowPraiseNum(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048649, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048650, this, z) == null) {
         }
     }
 
     public void setStType(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048650, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048651, this, str) == null) {
             this.k = str;
         }
     }
 
     public void setTabName(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048651, this, str) == null) {
-            this.f47578j = str;
+        if (interceptable == null || interceptable.invokeL(1048652, this, str) == null) {
+            this.f47675j = str;
             AgreeView agreeView = this.mAgreeView;
             if (agreeView != null) {
                 agreeView.setTabName(str);
@@ -1841,14 +1848,14 @@ public class ThreadCommentAndPraiseInfoLayout extends FrameLayout implements Vie
 
     public void setYuelaouLocate(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048652, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048653, this, str) == null) {
             this.l = str;
         }
     }
 
     public void showOperationMaskView(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048653, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048654, this, z) == null) {
             if (z && this.p == null) {
                 MaskView maskView = new MaskView(getContext());
                 this.p = maskView;
@@ -1885,7 +1892,7 @@ public class ThreadCommentAndPraiseInfoLayout extends FrameLayout implements Vie
         String format;
         ShareItem shareItem;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048654, this) == null) || (c2Var = this.mData) == null || this.mContext == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048655, this) == null) || (c2Var = this.mData) == null || this.mContext == null) {
             return;
         }
         String valueOf = String.valueOf(c2Var.T());
@@ -1955,8 +1962,8 @@ public class ThreadCommentAndPraiseInfoLayout extends FrameLayout implements Vie
             shareItem.J = str3;
             shareItem.p = str2;
             shareItem.K = str6;
-            shareItem.f47875f = true;
-            shareItem.o = this.f47576h;
+            shareItem.f47982f = true;
+            shareItem.o = this.f47673h;
             shareItem.E = getShareObjSource();
             shareItem.M = k;
             shareItem.F = 3;
@@ -1973,7 +1980,7 @@ public class ThreadCommentAndPraiseInfoLayout extends FrameLayout implements Vie
             }
             f();
             shareItem.T = OriginalThreadInfo.ShareInfo.generateShareInfo(this.mData);
-            if (this.f47575g != 13) {
+            if (this.f47672g != 13) {
                 shareItem.U = ShareItem.ForwardInfo.generateForwardInfo(this.mData, 2);
             } else {
                 shareItem.U = ShareItem.ForwardInfo.generateForwardInfo(this.mData);
@@ -1995,7 +2002,7 @@ public class ThreadCommentAndPraiseInfoLayout extends FrameLayout implements Vie
             ShareDialogConfig shareDialogConfig = new ShareDialogConfig(this.mContext, shareItem, true, true);
             shareDialogConfig.setIsAlaLive(this.mData.m1() != 49 || this.mData.m1() == 60 || this.mData.m1() == 69);
             c(shareDialogConfig);
-            c.a.p0.e0.f.b().k(shareDialogConfig);
+            c.a.q0.e0.f.b().k(shareDialogConfig);
         }
         z = true;
         if (this.mData.j1() != null) {
@@ -2024,8 +2031,8 @@ public class ThreadCommentAndPraiseInfoLayout extends FrameLayout implements Vie
         shareItem.J = str3;
         shareItem.p = str2;
         shareItem.K = str6;
-        shareItem.f47875f = true;
-        shareItem.o = this.f47576h;
+        shareItem.f47982f = true;
+        shareItem.o = this.f47673h;
         shareItem.E = getShareObjSource();
         shareItem.M = k2;
         shareItem.F = 3;
@@ -2039,7 +2046,7 @@ public class ThreadCommentAndPraiseInfoLayout extends FrameLayout implements Vie
         }
         f();
         shareItem.T = OriginalThreadInfo.ShareInfo.generateShareInfo(this.mData);
-        if (this.f47575g != 13) {
+        if (this.f47672g != 13) {
         }
         TbadkCoreApplication.getInst().setShareItem(shareItem);
         Bundle bundle2 = new Bundle();
@@ -2056,39 +2063,39 @@ public class ThreadCommentAndPraiseInfoLayout extends FrameLayout implements Vie
         ShareDialogConfig shareDialogConfig2 = new ShareDialogConfig(this.mContext, shareItem, true, true);
         shareDialogConfig2.setIsAlaLive(this.mData.m1() != 49 || this.mData.m1() == 60 || this.mData.m1() == 69);
         c(shareDialogConfig2);
-        c.a.p0.e0.f.b().k(shareDialogConfig2);
+        c.a.q0.e0.f.b().k(shareDialogConfig2);
     }
 
     public final void u(c2 c2Var) {
         String Q0;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048655, this, c2Var) == null) || this.f47574f == null || c2Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048656, this, c2Var) == null) || this.f47671f == null || c2Var == null) {
             return;
         }
         if (c2Var.t0() > 0 && this.isReplyTimeVisible) {
-            this.f47574f.setVisibility(0);
-            if (this.f47575g == 3) {
+            this.f47671f.setVisibility(0);
+            if (this.f47672g == 3) {
                 Q0 = c2Var.R0();
             } else {
                 Q0 = c2Var.Q0();
             }
-            this.f47574f.setText(Q0);
+            this.f47671f.setText(Q0);
             this.isVisible = true;
             return;
         }
-        this.f47574f.setVisibility(8);
+        this.f47671f.setVisibility(8);
     }
 
     public void updateBarName(c2 c2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048656, this, c2Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048657, this, c2Var) == null) {
             this.mBarName.setVisibility(8);
         }
     }
 
     public void updateCollectNum(c2 c2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048657, this, c2Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048658, this, c2Var) == null) {
             EMTextView eMTextView = this.mCollectNumText;
             if (eMTextView != null) {
                 int i2 = c2Var.K2;
@@ -2104,7 +2111,7 @@ public class ThreadCommentAndPraiseInfoLayout extends FrameLayout implements Vie
 
     public void updateCollectStateUI(c2 c2Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048658, this, c2Var) == null) || this.mCollectNumImageView == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048659, this, c2Var) == null) || this.mCollectNumImageView == null) {
             return;
         }
         if (c2Var != null && c2Var.k0() != 0) {
@@ -2116,15 +2123,15 @@ public class ThreadCommentAndPraiseInfoLayout extends FrameLayout implements Vie
 
     public void updateLayout() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048659, this) == null) {
-            c.a.o0.s.f0.h.b(this.mRootView);
+        if (interceptable == null || interceptable.invokeV(1048660, this) == null) {
+            c.a.p0.s.f0.h.b(this.mRootView);
         }
     }
 
     public void updateManageView(c2 c2Var) {
         LinearLayout linearLayout;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048660, this, c2Var) == null) || this.mManageViewContainer == null || c2Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048661, this, c2Var) == null) || this.mManageViewContainer == null || c2Var == null) {
             return;
         }
         this.isManageVisible = p(4);
@@ -2146,12 +2153,12 @@ public class ThreadCommentAndPraiseInfoLayout extends FrameLayout implements Vie
     public void updateManagerUI() {
         int color;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048661, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048662, this) == null) {
             WebPManager.setPureDrawable(this.mManageImageView, R.drawable.icon_pure_card_administration22, R.color.CAM_X0107, WebPManager.ResourceStateType.NORMAL_PRESS_DISABLE);
             EMTextView eMTextView = this.mManageText;
             c2 c2Var = this.mData;
             if (c2Var != null && c2Var.getType() == c2.M3) {
-                color = c.a.p0.i3.c.a(SkinManager.getColor(R.color.CAM_X0107), SkinManager.RESOURCE_ALPHA_DISABLE);
+                color = c.a.q0.i3.c.a(SkinManager.getColor(R.color.CAM_X0107), SkinManager.RESOURCE_ALPHA_DISABLE);
             } else {
                 color = SkinManager.getColor(R.color.CAM_X0107);
             }
@@ -2164,14 +2171,14 @@ public class ThreadCommentAndPraiseInfoLayout extends FrameLayout implements Vie
 
     public void updateOperationMaskView(c2 c2Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048662, this, c2Var) == null) && c2Var != null && this.f47575g == 13) {
+        if ((interceptable == null || interceptable.invokeL(1048663, this, c2Var) == null) && c2Var != null && this.f47672g == 13) {
             showOperationMaskView(c2Var.I2 == 1);
         }
     }
 
     public void updatePraiseNum(c2 c2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048663, this, c2Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048664, this, c2Var) == null) {
             setAgreeViewType(c2Var);
             if (c2Var.B() != null) {
                 c2Var.B().isInThread = true;
@@ -2187,7 +2194,7 @@ public class ThreadCommentAndPraiseInfoLayout extends FrameLayout implements Vie
 
     public void updateReplyNum(c2 c2Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048664, this, c2Var) == null) || this.mCommentNum == null || c2Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048665, this, c2Var) == null) || this.mCommentNum == null || c2Var == null) {
             return;
         }
         if (this.isCommentNumEnable) {
@@ -2222,7 +2229,7 @@ public class ThreadCommentAndPraiseInfoLayout extends FrameLayout implements Vie
     public void updateReplyStateUI() {
         int color;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048665, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048666, this) == null) {
             if (this.needAddReplyIcon) {
                 WebPManager.setPureDrawable(this.mCommentImageView, R.drawable.icon_pure_card_comment22, R.color.CAM_X0107, WebPManager.ResourceStateType.NORMAL_PRESS_DISABLE);
             }
@@ -2232,19 +2239,19 @@ public class ThreadCommentAndPraiseInfoLayout extends FrameLayout implements Vie
             EMTextView eMTextView = this.mCommentNum;
             c2 c2Var2 = this.mData;
             if (c2Var2 != null && c2Var2.getType() == c2.M3) {
-                color = c.a.p0.i3.c.a(SkinManager.getColor(R.color.CAM_X0107), SkinManager.RESOURCE_ALPHA_DISABLE);
+                color = c.a.q0.i3.c.a(SkinManager.getColor(R.color.CAM_X0107), SkinManager.RESOURCE_ALPHA_DISABLE);
             } else {
                 color = SkinManager.getColor(R.color.CAM_X0107);
             }
             eMTextView.setTextColor(color);
-            c.a.o0.s.f0.h.a(this.mCommentImageView, R.drawable.icon_pure_card_comment20);
-            c.a.o0.s.f0.h.e(this.mCommentNum);
+            c.a.p0.s.f0.h.a(this.mCommentImageView, R.drawable.icon_pure_card_comment20);
+            c.a.p0.s.f0.h.e(this.mCommentNum);
         }
     }
 
     public void updateSelectView(c2 c2Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048666, this, c2Var) == null) || this.mSelectContainer == null || this.mSelectImg == null || this.mSelectText == null || c2Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048667, this, c2Var) == null) || this.mSelectContainer == null || this.mSelectImg == null || this.mSelectText == null || c2Var == null) {
             return;
         }
         if (!this.s) {
@@ -2253,7 +2260,7 @@ public class ThreadCommentAndPraiseInfoLayout extends FrameLayout implements Vie
                 view.setVisibility(8);
             }
             this.mSelectContainer.setVisibility(8);
-        } else if (this.isSelectVisible && !p(128) && (c.a.p0.v0.b.f().i() || c.a.p0.v0.a.h().j())) {
+        } else if (this.isSelectVisible && !p(128) && (c.a.q0.v0.b.f().i() || c.a.q0.v0.a.h().j())) {
             if (this.o == null) {
                 View view2 = new View(getContext());
                 this.o = view2;
@@ -2272,7 +2279,7 @@ public class ThreadCommentAndPraiseInfoLayout extends FrameLayout implements Vie
                 requestLayout();
             }
             if (!this.mData.f2() && !this.mData.g2()) {
-                c.a.o0.s.u.c.d(this.mSelectText).v(R.color.CAM_X0107);
+                c.a.p0.s.u.c.d(this.mSelectText).w(R.color.CAM_X0107);
                 WebPManager.setPureDrawable(this.mSelectImg, R.drawable.icon_pure_frs_select_22, R.color.CAM_X0107, null);
             } else {
                 SkinManager.setViewTextColor(this.mSelectText, R.color.CAM_X0304);
@@ -2292,7 +2299,7 @@ public class ThreadCommentAndPraiseInfoLayout extends FrameLayout implements Vie
     public void updateShareNum(c2 c2Var) {
         View view;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048667, this, c2Var) == null) || (view = this.mShareContainer) == null || this.mShareNum == null || c2Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048668, this, c2Var) == null) || (view = this.mShareContainer) == null || this.mShareNum == null || c2Var == null) {
             return;
         }
         if (this.isShareVisible) {
@@ -2315,25 +2322,25 @@ public class ThreadCommentAndPraiseInfoLayout extends FrameLayout implements Vie
 
     public void updateShareStateUI(c2 c2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048668, this, c2Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048669, this, c2Var) == null) {
             WebPManager.setPureDrawable(this.mShareImageView, R.drawable.icon_pure_card_share22, R.color.CAM_X0107, WebPManager.ResourceStateType.NORMAL_PRESS_DISABLE);
             if (AntiHelper.o(c2Var)) {
                 setShareClickable(true);
-                this.mShareNum.setTextColor(c.a.p0.i3.c.a(SkinManager.getColor(R.color.CAM_X0107), SkinManager.RESOURCE_ALPHA_DISABLE));
+                this.mShareNum.setTextColor(c.a.q0.i3.c.a(SkinManager.getColor(R.color.CAM_X0107), SkinManager.RESOURCE_ALPHA_DISABLE));
             } else if (c2Var != null && c2Var.v1 != null && this.mData.v1.m) {
                 setShareClickable(false);
-                this.mShareNum.setTextColor(c.a.p0.i3.c.a(SkinManager.getColor(R.color.CAM_X0107), SkinManager.RESOURCE_ALPHA_DISABLE));
+                this.mShareNum.setTextColor(c.a.q0.i3.c.a(SkinManager.getColor(R.color.CAM_X0107), SkinManager.RESOURCE_ALPHA_DISABLE));
             } else {
                 setShareClickable(true);
-                c.a.o0.s.u.c.d(this.mShareNum).v(R.color.CAM_X0107);
+                c.a.p0.s.u.c.d(this.mShareNum).w(R.color.CAM_X0107);
             }
             c2 c2Var2 = this.mData;
             if (c2Var2 != null && c2Var2.getType() == c2.M3) {
                 this.mShareImageView.setEnabled(false);
-                this.mShareNum.setTextColor(c.a.p0.i3.c.a(SkinManager.getColor(R.color.CAM_X0107), SkinManager.RESOURCE_ALPHA_DISABLE));
+                this.mShareNum.setTextColor(c.a.q0.i3.c.a(SkinManager.getColor(R.color.CAM_X0107), SkinManager.RESOURCE_ALPHA_DISABLE));
             }
-            c.a.o0.s.f0.h.a(this.mShareImageView, R.drawable.icon_pure_card_share20);
-            c.a.o0.s.f0.h.e(this.mShareNum);
+            c.a.p0.s.f0.h.a(this.mShareImageView, R.drawable.icon_pure_card_share20);
+            c.a.p0.s.f0.h.e(this.mShareNum);
         }
     }
 
@@ -2371,7 +2378,7 @@ public class ThreadCommentAndPraiseInfoLayout extends FrameLayout implements Vie
             }
         }
         this.TBDS84 = l.g(TbadkApplication.getInst(), R.dimen.tbds84);
-        this.f47573e = 11;
+        this.f47670e = 11;
         this.isVisible = false;
         this.isReplyTimeVisible = true;
         this.isPraiseNumVisible = true;
@@ -2383,8 +2390,8 @@ public class ThreadCommentAndPraiseInfoLayout extends FrameLayout implements Vie
         this.isShareVisible = true;
         this.isManageVisible = false;
         this.isSelectVisible = true;
-        this.f47575g = 2;
-        this.f47576h = 1;
+        this.f47672g = 2;
+        this.f47673h = 1;
         this.n = 3;
         this.q = null;
         this.s = true;

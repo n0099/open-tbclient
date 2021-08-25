@@ -3,7 +3,7 @@ package com.baidu.tieba.location.selectpoi;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.LinearLayout;
-import c.a.p0.s1.e.c;
+import c.a.q0.s1.e.c;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -26,7 +26,7 @@ public class SelectLocationActivity extends SuspendedActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ SelectLocationActivity f53756a;
+        public final /* synthetic */ SelectLocationActivity f53898a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(SelectLocationActivity selectLocationActivity, int i2) {
@@ -46,7 +46,7 @@ public class SelectLocationActivity extends SuspendedActivity {
                     return;
                 }
             }
-            this.f53756a = selectLocationActivity;
+            this.f53898a = selectLocationActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -56,7 +56,7 @@ public class SelectLocationActivity extends SuspendedActivity {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null) {
                 return;
             }
-            this.f53756a.finish();
+            this.f53898a.finish();
         }
     }
 
@@ -77,10 +77,10 @@ public class SelectLocationActivity extends SuspendedActivity {
     }
 
     @Override // com.baidu.tbadk.suspended.SuspendedActivity
-    public c.a.o0.v0.a getSuspendedContentView(LinearLayout linearLayout, NavigationBar navigationBar) {
+    public c.a.p0.v0.a getSuspendedContentView(LinearLayout linearLayout, NavigationBar navigationBar) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, linearLayout, navigationBar)) == null) ? new c(getPageContext(), linearLayout, navigationBar) : (c.a.o0.v0.a) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, linearLayout, navigationBar)) == null) ? new c(getPageContext(), linearLayout, navigationBar) : (c.a.p0.v0.a) invokeLL.objValue;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity

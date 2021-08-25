@@ -13,7 +13,7 @@ public abstract class a<M extends Message<?>, T extends MessageTask> implements 
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public MessageManager f1934a;
+    public MessageManager f1992a;
 
     public a(MessageManager messageManager) {
         Interceptable interceptable = $ic;
@@ -30,7 +30,7 @@ public abstract class a<M extends Message<?>, T extends MessageTask> implements 
                 return;
             }
         }
-        this.f1934a = null;
-        this.f1934a = messageManager;
+        this.f1992a = null;
+        this.f1992a = messageManager;
     }
 }

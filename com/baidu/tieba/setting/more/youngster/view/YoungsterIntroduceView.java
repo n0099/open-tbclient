@@ -6,7 +6,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import c.a.o0.s.f0.n.a;
+import c.a.p0.s.f0.n.a;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -25,22 +25,22 @@ public class YoungsterIntroduceView extends LinearLayout implements View.OnClick
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public ImageView f56430e;
+    public ImageView f56595e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f56431f;
+    public TextView f56596f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f56432g;
+    public TextView f56597g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f56433h;
+    public TextView f56598h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f56434i;
+    public TextView f56599i;
 
     /* renamed from: j  reason: collision with root package name */
-    public TextView f56435j;
+    public TextView f56600j;
     public TBSpecificationBtn k;
     public int l;
 
@@ -69,12 +69,12 @@ public class YoungsterIntroduceView extends LinearLayout implements View.OnClick
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             LinearLayout.inflate(getContext(), R.layout.youngster_introduce, this);
-            this.f56430e = (ImageView) findViewById(R.id.img_youngster_introduce);
-            this.f56431f = (TextView) findViewById(R.id.txt_youngster_introduce_title);
-            this.f56432g = (TextView) findViewById(R.id.txt_youngster_introduce_content1);
-            this.f56433h = (TextView) findViewById(R.id.txt_youngster_introduce_content2);
-            this.f56434i = (TextView) findViewById(R.id.txt_youngster_introduce_content3);
-            this.f56435j = (TextView) findViewById(R.id.txt_youngster_introduce_content4);
+            this.f56595e = (ImageView) findViewById(R.id.img_youngster_introduce);
+            this.f56596f = (TextView) findViewById(R.id.txt_youngster_introduce_title);
+            this.f56597g = (TextView) findViewById(R.id.txt_youngster_introduce_content1);
+            this.f56598h = (TextView) findViewById(R.id.txt_youngster_introduce_content2);
+            this.f56599i = (TextView) findViewById(R.id.txt_youngster_introduce_content3);
+            this.f56600j = (TextView) findViewById(R.id.txt_youngster_introduce_content4);
             TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) findViewById(R.id.btn_youngster_open);
             this.k = tBSpecificationBtn;
             tBSpecificationBtn.setConfig(new a());
@@ -87,12 +87,12 @@ public class YoungsterIntroduceView extends LinearLayout implements View.OnClick
     public void onChangeSkinType() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f56430e.setImageDrawable(WebPManager.getMaskDrawable(R.drawable.pic_mask_qingshaonian_time, WebPManager.ResourceStateType.NORMAL));
-            SkinManager.setViewTextColor(this.f56431f, R.color.CAM_X0105);
-            SkinManager.setViewTextColor(this.f56432g, R.color.CAM_X0107);
-            SkinManager.setViewTextColor(this.f56433h, R.color.CAM_X0107);
-            SkinManager.setViewTextColor(this.f56434i, R.color.CAM_X0107);
-            SkinManager.setViewTextColor(this.f56435j, R.color.CAM_X0107);
+            this.f56595e.setImageDrawable(WebPManager.getMaskDrawable(R.drawable.pic_mask_qingshaonian_time, WebPManager.ResourceStateType.NORMAL));
+            SkinManager.setViewTextColor(this.f56596f, R.color.CAM_X0105);
+            SkinManager.setViewTextColor(this.f56597g, R.color.CAM_X0107);
+            SkinManager.setViewTextColor(this.f56598h, R.color.CAM_X0107);
+            SkinManager.setViewTextColor(this.f56599i, R.color.CAM_X0107);
+            SkinManager.setViewTextColor(this.f56600j, R.color.CAM_X0107);
             this.k.changeSkinType();
         }
     }

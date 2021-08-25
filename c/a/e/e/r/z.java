@@ -10,10 +10,10 @@ public class z extends r {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f2644a;
+    public int f2702a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f2645b;
+    public String f2703b;
 
     public z(int i2, String str) {
         Interceptable interceptable = $ic;
@@ -30,7 +30,7 @@ public class z extends r {
                 return;
             }
         }
-        this.f2644a = i2;
-        this.f2645b = str;
+        this.f2702a = i2;
+        this.f2703b = str;
     }
 }

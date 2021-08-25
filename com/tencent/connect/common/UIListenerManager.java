@@ -25,11 +25,11 @@ public class UIListenerManager {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static UIListenerManager f75833a;
+    public static UIListenerManager f76034a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public Map<String, ApiTask> f75834b;
+    public Map<String, ApiTask> f76035b;
 
     /* loaded from: classes10.dex */
     public class ApiTask {
@@ -37,7 +37,7 @@ public class UIListenerManager {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ UIListenerManager f75835a;
+        public final /* synthetic */ UIListenerManager f76036a;
         public IUiListener mListener;
         public int mRequestCode;
 
@@ -56,7 +56,7 @@ public class UIListenerManager {
                     return;
                 }
             }
-            this.f75835a = uIListenerManager;
+            this.f76036a = uIListenerManager;
             this.mRequestCode = i2;
             this.mListener = iUiListener;
         }
@@ -91,9 +91,9 @@ public class UIListenerManager {
             }
         }
         Map<String, ApiTask> synchronizedMap = Collections.synchronizedMap(new HashMap());
-        this.f75834b = synchronizedMap;
+        this.f76035b = synchronizedMap;
         if (synchronizedMap == null) {
-            this.f75834b = Collections.synchronizedMap(new HashMap());
+            this.f76035b = Collections.synchronizedMap(new HashMap());
         }
     }
 
@@ -117,10 +117,10 @@ public class UIListenerManager {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (f75833a == null) {
-                f75833a = new UIListenerManager();
+            if (f76034a == null) {
+                f76034a = new UIListenerManager();
             }
-            return f75833a;
+            return f76034a;
         }
         return (UIListenerManager) invokeV.objValue;
     }
@@ -134,9 +134,9 @@ public class UIListenerManager {
                 SLog.e("openSDK_LOG.UIListenerManager", "getListnerWithAction action is null!");
                 return null;
             }
-            synchronized (this.f75834b) {
-                apiTask = this.f75834b.get(str);
-                this.f75834b.remove(str);
+            synchronized (this.f76035b) {
+                apiTask = this.f76035b.get(str);
+                this.f76035b.remove(str);
             }
             if (apiTask == null) {
                 return null;
@@ -296,8 +296,8 @@ public class UIListenerManager {
                 SLog.e("openSDK_LOG.UIListenerManager", "setListener action is null! rquestCode=" + i2);
                 return null;
             }
-            synchronized (this.f75834b) {
-                put = this.f75834b.put(a2, new ApiTask(this, i2, iUiListener));
+            synchronized (this.f76035b) {
+                put = this.f76035b.put(a2, new ApiTask(this, i2, iUiListener));
             }
             if (put == null) {
                 return null;
@@ -317,8 +317,8 @@ public class UIListenerManager {
                 SLog.e("openSDK_LOG.UIListenerManager", "setListnerWithAction fail, action = " + str);
                 return null;
             }
-            synchronized (this.f75834b) {
-                put = this.f75834b.put(str, new ApiTask(this, a2, iUiListener));
+            synchronized (this.f76035b) {
+                put = this.f76035b.put(str, new ApiTask(this, a2, iUiListener));
             }
             if (put == null) {
                 return null;

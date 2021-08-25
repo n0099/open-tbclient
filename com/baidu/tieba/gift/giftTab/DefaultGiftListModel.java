@@ -1,9 +1,9 @@
 package com.baidu.tieba.gift.giftTab;
 
 import c.a.e.a.f;
-import c.a.o0.s.q.j0;
-import c.a.o0.s.q.k0;
-import c.a.p0.z0.b.e;
+import c.a.p0.s.q.j0;
+import c.a.p0.s.q.k0;
+import c.a.q0.z0.b.e;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -21,22 +21,22 @@ public class DefaultGiftListModel extends BdBaseModel<GiftTabActivity> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public ArrayList<c.a.p0.z0.b.a> f51608e;
+    public ArrayList<c.a.q0.z0.b.a> f51758e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ArrayList<j0> f51609f;
+    public ArrayList<j0> f51759f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ArrayList<e> f51610g;
+    public ArrayList<e> f51760g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f51611h;
+    public String f51761h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f51612i;
+    public int f51762i;
 
     /* renamed from: j  reason: collision with root package name */
-    public b f51613j;
+    public b f51763j;
     public c.a.e.c.g.a k;
 
     /* loaded from: classes7.dex */
@@ -45,7 +45,7 @@ public class DefaultGiftListModel extends BdBaseModel<GiftTabActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ DefaultGiftListModel f51614a;
+        public final /* synthetic */ DefaultGiftListModel f51764a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(DefaultGiftListModel defaultGiftListModel, int i2, int i3) {
@@ -66,7 +66,7 @@ public class DefaultGiftListModel extends BdBaseModel<GiftTabActivity> {
                     return;
                 }
             }
-            this.f51614a = defaultGiftListModel;
+            this.f51764a = defaultGiftListModel;
         }
 
         /* JADX WARN: Removed duplicated region for block: B:21:0x008e  */
@@ -90,41 +90,41 @@ public class DefaultGiftListModel extends BdBaseModel<GiftTabActivity> {
             }
             if (z) {
                 DefaultGiftListHttpResponseMessage defaultGiftListHttpResponseMessage = (DefaultGiftListHttpResponseMessage) responsedMessage;
-                this.f51614a.f51608e = defaultGiftListHttpResponseMessage.getCategoryList();
-                this.f51614a.f51609f = defaultGiftListHttpResponseMessage.getGiftList();
-                this.f51614a.f51610g = defaultGiftListHttpResponseMessage.getGiftNumberList();
-                this.f51614a.f51611h = defaultGiftListHttpResponseMessage.getAddFreeUrl();
-                this.f51614a.f51612i = defaultGiftListHttpResponseMessage.getFreeChance();
+                this.f51764a.f51758e = defaultGiftListHttpResponseMessage.getCategoryList();
+                this.f51764a.f51759f = defaultGiftListHttpResponseMessage.getGiftList();
+                this.f51764a.f51760g = defaultGiftListHttpResponseMessage.getGiftNumberList();
+                this.f51764a.f51761h = defaultGiftListHttpResponseMessage.getAddFreeUrl();
+                this.f51764a.f51762i = defaultGiftListHttpResponseMessage.getFreeChance();
                 i3 = defaultGiftListHttpResponseMessage.currencyType;
                 k0Var2 = defaultGiftListHttpResponseMessage.urlTitleData;
             } else if (!(responsedMessage instanceof DefaultGiftListSocketResponseMessage)) {
                 k0Var = null;
                 i2 = 0;
-                if (this.f51614a.f51613j == null) {
-                    this.f51614a.f51613j.a(responsedMessage.getError(), responsedMessage.getErrorString(), this.f51614a.f51612i, this.f51614a.f51611h, i2, k0Var, this.f51614a.f51608e, this.f51614a.f51609f, this.f51614a.f51610g);
+                if (this.f51764a.f51763j == null) {
+                    this.f51764a.f51763j.a(responsedMessage.getError(), responsedMessage.getErrorString(), this.f51764a.f51762i, this.f51764a.f51761h, i2, k0Var, this.f51764a.f51758e, this.f51764a.f51759f, this.f51764a.f51760g);
                     return;
                 }
                 return;
             } else {
                 DefaultGiftListSocketResponseMessage defaultGiftListSocketResponseMessage = (DefaultGiftListSocketResponseMessage) responsedMessage;
-                this.f51614a.f51608e = defaultGiftListSocketResponseMessage.getCategoryList();
-                this.f51614a.f51609f = defaultGiftListSocketResponseMessage.getGiftList();
-                this.f51614a.f51610g = defaultGiftListSocketResponseMessage.getGiftNumberList();
-                this.f51614a.f51611h = defaultGiftListSocketResponseMessage.getAddFreeUrl();
-                this.f51614a.f51612i = defaultGiftListSocketResponseMessage.getFreeChance();
+                this.f51764a.f51758e = defaultGiftListSocketResponseMessage.getCategoryList();
+                this.f51764a.f51759f = defaultGiftListSocketResponseMessage.getGiftList();
+                this.f51764a.f51760g = defaultGiftListSocketResponseMessage.getGiftNumberList();
+                this.f51764a.f51761h = defaultGiftListSocketResponseMessage.getAddFreeUrl();
+                this.f51764a.f51762i = defaultGiftListSocketResponseMessage.getFreeChance();
                 i3 = defaultGiftListSocketResponseMessage.currencyType;
                 k0Var2 = defaultGiftListSocketResponseMessage.urlTitleData;
             }
             i2 = i3;
             k0Var = k0Var2;
-            if (this.f51614a.f51613j == null) {
+            if (this.f51764a.f51763j == null) {
             }
         }
     }
 
     /* loaded from: classes7.dex */
     public interface b {
-        void a(int i2, String str, int i3, String str2, int i4, k0 k0Var, ArrayList<c.a.p0.z0.b.a> arrayList, ArrayList<j0> arrayList2, ArrayList<e> arrayList3);
+        void a(int i2, String str, int i3, String str2, int i4, k0 k0Var, ArrayList<c.a.q0.z0.b.a> arrayList, ArrayList<j0> arrayList2, ArrayList<e> arrayList3);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -163,7 +163,7 @@ public class DefaultGiftListModel extends BdBaseModel<GiftTabActivity> {
     public void I(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
-            this.f51613j = bVar;
+            this.f51763j = bVar;
         }
     }
 
@@ -197,8 +197,8 @@ public class DefaultGiftListModel extends BdBaseModel<GiftTabActivity> {
     public final void registerTask() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            c.a.p0.i3.d0.a.h(309054, DefaultGiftListSocketResponseMessage.class, false, false);
-            c.a.p0.i3.d0.a.c(309054, CmdConfigHttp.CMD_DEFAULT_GIFT_LIST, TbConfig.GET_DEFAULT_GIFT_LIST, DefaultGiftListHttpResponseMessage.class, false, false, false, false);
+            c.a.q0.i3.d0.a.h(309054, DefaultGiftListSocketResponseMessage.class, false, false);
+            c.a.q0.i3.d0.a.c(309054, CmdConfigHttp.CMD_DEFAULT_GIFT_LIST, TbConfig.GET_DEFAULT_GIFT_LIST, DefaultGiftListHttpResponseMessage.class, false, false, false, false);
         }
     }
 }

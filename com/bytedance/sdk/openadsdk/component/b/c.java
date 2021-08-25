@@ -29,27 +29,27 @@ import com.bytedance.sdk.openadsdk.q.q;
 import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes9.dex */
-public class c extends com.bytedance.sdk.openadsdk.core.f.a implements TTFeedAd, c.b, c.InterfaceC1907c, p, a.InterfaceC1917a {
+public class c extends com.bytedance.sdk.openadsdk.core.f.a implements TTFeedAd, c.b, c.InterfaceC1911c, p, a.InterfaceC1921a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public com.bytedance.sdk.openadsdk.multipro.b.a f65311a;
+    public com.bytedance.sdk.openadsdk.multipro.b.a f65511a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f65312b;
+    public boolean f65512b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f65313c;
+    public boolean f65513c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f65314d;
+    public int f65514d;
 
     /* renamed from: e  reason: collision with root package name */
-    public AdSlot f65315e;
+    public AdSlot f65515e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f65316f;
+    public int f65516f;
     public int[] n;
     public TTFeedAd.VideoAdListener o;
     public TTFeedAd.CustomizeVideo p;
@@ -75,14 +75,14 @@ public class c extends com.bytedance.sdk.openadsdk.core.f.a implements TTFeedAd,
             }
         }
         this.n = null;
-        this.f65312b = false;
-        this.f65313c = true;
+        this.f65512b = false;
+        this.f65513c = true;
         this.q = false;
-        this.f65316f = i2;
-        this.f65315e = adSlot;
-        this.f65311a = new com.bytedance.sdk.openadsdk.multipro.b.a();
-        int d2 = q.d(this.f66202h.ao());
-        this.f65314d = d2;
+        this.f65516f = i2;
+        this.f65515e = adSlot;
+        this.f65511a = new com.bytedance.sdk.openadsdk.multipro.b.a();
+        int d2 = q.d(this.f66402h.ao());
+        this.f65514d = d2;
         a(d2);
     }
 
@@ -119,17 +119,17 @@ public class c extends com.bytedance.sdk.openadsdk.core.f.a implements TTFeedAd,
         NativeVideoTsView nativeVideoTsView;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            if (this.f66202h != null && this.f66203i != null) {
+            if (this.f66402h != null && this.f66403i != null) {
                 if (h()) {
                     try {
-                        nativeVideoTsView = new NativeVideoTsView(this.f66203i, this.f66202h, false, false, q.b(this.f65316f), false, false);
+                        nativeVideoTsView = new NativeVideoTsView(this.f66403i, this.f66402h, false, false, q.b(this.f65516f), false, false);
                         if (i()) {
                             nativeVideoTsView.setVideoAdClickListener(new NativeVideoTsView.b(this) { // from class: com.bytedance.sdk.openadsdk.component.b.c.1
                                 public static /* synthetic */ Interceptable $ic;
                                 public transient /* synthetic */ FieldHolder $fh;
 
                                 /* renamed from: a  reason: collision with root package name */
-                                public final /* synthetic */ c f65317a;
+                                public final /* synthetic */ c f65517a;
 
                                 {
                                     Interceptable interceptable2 = $ic;
@@ -146,16 +146,16 @@ public class c extends com.bytedance.sdk.openadsdk.core.f.a implements TTFeedAd,
                                             return;
                                         }
                                     }
-                                    this.f65317a = this;
+                                    this.f65517a = this;
                                 }
 
                                 @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.NativeVideoTsView.b
                                 public void a(View view, int i2) {
                                     Interceptable interceptable2 = $ic;
-                                    if (!(interceptable2 == null || interceptable2.invokeLI(1048576, this, view, i2) == null) || this.f65317a.f66201g == null) {
+                                    if (!(interceptable2 == null || interceptable2.invokeLI(1048576, this, view, i2) == null) || this.f65517a.f66401g == null) {
                                         return;
                                     }
-                                    this.f65317a.f66201g.a(view, i2);
+                                    this.f65517a.f66401g.a(view, i2);
                                 }
                             });
                         }
@@ -164,7 +164,7 @@ public class c extends com.bytedance.sdk.openadsdk.core.f.a implements TTFeedAd,
                             public transient /* synthetic */ FieldHolder $fh;
 
                             /* renamed from: a  reason: collision with root package name */
-                            public final /* synthetic */ c f65318a;
+                            public final /* synthetic */ c f65518a;
 
                             {
                                 Interceptable interceptable2 = $ic;
@@ -181,30 +181,30 @@ public class c extends com.bytedance.sdk.openadsdk.core.f.a implements TTFeedAd,
                                         return;
                                     }
                                 }
-                                this.f65318a = this;
+                                this.f65518a = this;
                             }
 
                             @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.NativeVideoTsView.a
                             public void a(boolean z, long j2, long j3, long j4, boolean z2) {
                                 Interceptable interceptable2 = $ic;
                                 if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), Boolean.valueOf(z2)}) == null) {
-                                    com.bytedance.sdk.openadsdk.multipro.b.a aVar = this.f65318a.f65311a;
-                                    aVar.f67733a = z;
-                                    aVar.f67737e = j2;
-                                    aVar.f67738f = j3;
-                                    aVar.f67739g = j4;
-                                    aVar.f67736d = z2;
+                                    com.bytedance.sdk.openadsdk.multipro.b.a aVar = this.f65518a.f65511a;
+                                    aVar.f67933a = z;
+                                    aVar.f67937e = j2;
+                                    aVar.f67938f = j3;
+                                    aVar.f67939g = j4;
+                                    aVar.f67936d = z2;
                                 }
                             }
                         });
                         nativeVideoTsView.setVideoAdLoadListener(this);
                         nativeVideoTsView.setVideoAdInteractionListener(this);
-                        if (5 == this.f65316f) {
-                            nativeVideoTsView.setIsAutoPlay(this.f65312b ? this.f65315e.isAutoPlay() : this.f65313c);
+                        if (5 == this.f65516f) {
+                            nativeVideoTsView.setIsAutoPlay(this.f65512b ? this.f65515e.isAutoPlay() : this.f65513c);
                         } else {
-                            nativeVideoTsView.setIsAutoPlay(this.f65313c);
+                            nativeVideoTsView.setIsAutoPlay(this.f65513c);
                         }
-                        nativeVideoTsView.setIsQuiet(o.h().b(this.f65314d));
+                        nativeVideoTsView.setIsQuiet(o.h().b(this.f65514d));
                     } catch (Exception unused) {
                     }
                     if (!h() && nativeVideoTsView != null && nativeVideoTsView.a(0L, true, false)) {
@@ -226,7 +226,7 @@ public class c extends com.bytedance.sdk.openadsdk.core.f.a implements TTFeedAd,
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             try {
                 if (this.n == null) {
-                    this.n = x.a(this.f66202h);
+                    this.n = x.a(this.f66402h);
                 }
                 if (this.n != null && this.n.length >= 2) {
                     return this.n[1];
@@ -246,7 +246,7 @@ public class c extends com.bytedance.sdk.openadsdk.core.f.a implements TTFeedAd,
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
             try {
                 if (this.n == null) {
-                    this.n = x.a(this.f66202h);
+                    this.n = x.a(this.f66402h);
                 }
                 if (this.n != null && this.n.length >= 2) {
                     return this.n[0];
@@ -264,17 +264,17 @@ public class c extends com.bytedance.sdk.openadsdk.core.f.a implements TTFeedAd,
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            if (m.a(this.f66202h)) {
+            if (m.a(this.f66402h)) {
                 if (this.p == null) {
                     this.p = new TTFeedAd.CustomizeVideo(this) { // from class: com.bytedance.sdk.openadsdk.component.b.c.3
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
 
                         /* renamed from: a  reason: collision with root package name */
-                        public final /* synthetic */ c f65319a;
+                        public final /* synthetic */ c f65519a;
 
                         /* renamed from: b  reason: collision with root package name */
-                        public long f65320b;
+                        public long f65520b;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -291,8 +291,8 @@ public class c extends com.bytedance.sdk.openadsdk.core.f.a implements TTFeedAd,
                                     return;
                                 }
                             }
-                            this.f65319a = this;
-                            this.f65320b = 0L;
+                            this.f65519a = this;
+                            this.f65520b = 0L;
                         }
 
                         @Override // com.bytedance.sdk.openadsdk.TTFeedAd.CustomizeVideo
@@ -300,13 +300,13 @@ public class c extends com.bytedance.sdk.openadsdk.core.f.a implements TTFeedAd,
                             InterceptResult invokeV2;
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || (invokeV2 = interceptable2.invokeV(1048576, this)) == null) {
-                                if (this.f65319a.f66202h == null || this.f65319a.f66202h.a() != 1 || this.f65319a.f66202h.V() == null) {
+                                if (this.f65519a.f66402h == null || this.f65519a.f66402h.a() != 1 || this.f65519a.f66402h.V() == null) {
                                     return null;
                                 }
-                                if (!this.f65319a.q) {
-                                    this.f65319a.q = true;
+                                if (!this.f65519a.q) {
+                                    this.f65519a.q = true;
                                 }
-                                return this.f65319a.f66202h.V().i();
+                                return this.f65519a.f66402h.V().i();
                             }
                             return (String) invokeV2.objValue;
                         }
@@ -315,21 +315,21 @@ public class c extends com.bytedance.sdk.openadsdk.core.f.a implements TTFeedAd,
                         public void reportVideoAutoStart() {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                                d.a(this.f65319a.f66203i, this.f65319a.f66202h, q.a(this.f65319a.f66202h), "feed_auto_play", 0L, 0, (Map<String, Object>) null);
-                                if (this.f65319a.f66202h == null || this.f65319a.f66202h.V() == null) {
+                                d.a(this.f65519a.f66403i, this.f65519a.f66402h, q.a(this.f65519a.f66402h), "feed_auto_play", 0L, 0, (Map<String, Object>) null);
+                                if (this.f65519a.f66402h == null || this.f65519a.f66402h.V() == null) {
                                     return;
                                 }
                                 com.bytedance.sdk.openadsdk.n.f.b bVar = new com.bytedance.sdk.openadsdk.n.f.b();
-                                bVar.a(this.f65319a.f66202h.V().i());
-                                bVar.a(this.f65319a.f66202h.V().m());
-                                bVar.b(this.f65319a.f66202h.V().l());
+                                bVar.a(this.f65519a.f66402h.V().i());
+                                bVar.a(this.f65519a.f66402h.V().m());
+                                bVar.b(this.f65519a.f66402h.V().l());
                                 bVar.c(CacheDirConstants.getFeedCacheDir());
-                                bVar.a(this.f65319a.f66202h.m());
-                                bVar.a(this.f65319a.f66202h);
-                                bVar.b(this.f65319a.f66202h.V().d());
-                                bVar.a(this.f65319a.f66202h);
+                                bVar.a(this.f65519a.f66402h.m());
+                                bVar.a(this.f65519a.f66402h);
+                                bVar.b(this.f65519a.f66402h.V().d());
+                                bVar.a(this.f65519a.f66402h);
                                 bVar.c(true);
-                                com.bytedance.sdk.openadsdk.e.a.a.a(this.f65319a.f66203i, this.f65319a.f66202h, this.f65319a, bVar);
+                                com.bytedance.sdk.openadsdk.e.a.a.a(this.f65519a.f66403i, this.f65519a.f66402h, this.f65519a, bVar);
                             }
                         }
 
@@ -337,11 +337,11 @@ public class c extends com.bytedance.sdk.openadsdk.core.f.a implements TTFeedAd,
                         public void reportVideoBreak(long j2) {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2) == null) {
-                                if (this.f65320b == 0) {
-                                    this.f65320b = SystemClock.elapsedRealtime();
+                                if (this.f65520b == 0) {
+                                    this.f65520b = SystemClock.elapsedRealtime();
                                 }
-                                long videoDuration = ((long) this.f65319a.getVideoDuration()) * 1000;
-                                long elapsedRealtime = (SystemClock.elapsedRealtime() - this.f65320b) - j2;
+                                long videoDuration = ((long) this.f65519a.getVideoDuration()) * 1000;
+                                long elapsedRealtime = (SystemClock.elapsedRealtime() - this.f65520b) - j2;
                                 long j3 = elapsedRealtime >= 0 ? elapsedRealtime : 0L;
                                 o.a aVar = new o.a();
                                 aVar.a(j2);
@@ -350,7 +350,7 @@ public class c extends com.bytedance.sdk.openadsdk.core.f.a implements TTFeedAd,
                                 aVar.e(0);
                                 aVar.f(0);
                                 aVar.a(true);
-                                com.bytedance.sdk.openadsdk.e.a.a.f(this.f65319a.f66203i, this.f65319a, aVar);
+                                com.bytedance.sdk.openadsdk.e.a.a.f(this.f65519a.f66403i, this.f65519a, aVar);
                             }
                         }
 
@@ -358,17 +358,17 @@ public class c extends com.bytedance.sdk.openadsdk.core.f.a implements TTFeedAd,
                         public void reportVideoContinue(long j2) {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeJ(1048579, this, j2) == null) {
-                                if (this.f65320b == 0) {
-                                    this.f65320b = SystemClock.elapsedRealtime();
+                                if (this.f65520b == 0) {
+                                    this.f65520b = SystemClock.elapsedRealtime();
                                 }
-                                long elapsedRealtime = (SystemClock.elapsedRealtime() - this.f65320b) - j2;
+                                long elapsedRealtime = (SystemClock.elapsedRealtime() - this.f65520b) - j2;
                                 long j3 = elapsedRealtime >= 0 ? elapsedRealtime : 0L;
                                 o.a aVar = new o.a();
                                 aVar.a(j2);
-                                aVar.c(((long) this.f65319a.getVideoDuration()) * 1000);
+                                aVar.c(((long) this.f65519a.getVideoDuration()) * 1000);
                                 aVar.b(j3);
                                 aVar.a(true);
-                                com.bytedance.sdk.openadsdk.e.a.a.c(this.f65319a.f66203i, this.f65319a, aVar);
+                                com.bytedance.sdk.openadsdk.e.a.a.c(this.f65519a.f66403i, this.f65519a, aVar);
                             }
                         }
 
@@ -376,11 +376,11 @@ public class c extends com.bytedance.sdk.openadsdk.core.f.a implements TTFeedAd,
                         public void reportVideoError(long j2, int i2, int i3) {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeCommon(1048580, this, new Object[]{Long.valueOf(j2), Integer.valueOf(i2), Integer.valueOf(i3)}) == null) {
-                                if (this.f65320b == 0) {
-                                    this.f65320b = SystemClock.elapsedRealtime();
+                                if (this.f65520b == 0) {
+                                    this.f65520b = SystemClock.elapsedRealtime();
                                 }
-                                long videoDuration = ((long) this.f65319a.getVideoDuration()) * 1000;
-                                long elapsedRealtime = (SystemClock.elapsedRealtime() - this.f65320b) - j2;
+                                long videoDuration = ((long) this.f65519a.getVideoDuration()) * 1000;
+                                long elapsedRealtime = (SystemClock.elapsedRealtime() - this.f65520b) - j2;
                                 long j3 = elapsedRealtime >= 0 ? elapsedRealtime : 0L;
                                 o.a aVar = new o.a();
                                 aVar.b(j3);
@@ -389,7 +389,7 @@ public class c extends com.bytedance.sdk.openadsdk.core.f.a implements TTFeedAd,
                                 aVar.a(i2);
                                 aVar.b(i3);
                                 aVar.a(true);
-                                com.bytedance.sdk.openadsdk.e.a.a.d(this.f65319a.f66203i, this.f65319a, aVar);
+                                com.bytedance.sdk.openadsdk.e.a.a.d(this.f65519a.f66403i, this.f65519a, aVar);
                             }
                         }
 
@@ -397,11 +397,11 @@ public class c extends com.bytedance.sdk.openadsdk.core.f.a implements TTFeedAd,
                         public void reportVideoFinish() {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeV(1048581, this) == null) {
-                                if (this.f65320b == 0) {
-                                    this.f65320b = SystemClock.elapsedRealtime();
+                                if (this.f65520b == 0) {
+                                    this.f65520b = SystemClock.elapsedRealtime();
                                 }
-                                long videoDuration = ((long) this.f65319a.getVideoDuration()) * 1000;
-                                long elapsedRealtime = (SystemClock.elapsedRealtime() - this.f65320b) - videoDuration;
+                                long videoDuration = ((long) this.f65519a.getVideoDuration()) * 1000;
+                                long elapsedRealtime = (SystemClock.elapsedRealtime() - this.f65520b) - videoDuration;
                                 long j2 = elapsedRealtime >= 0 ? elapsedRealtime : 0L;
                                 o.a aVar = new o.a();
                                 aVar.a(videoDuration);
@@ -409,7 +409,7 @@ public class c extends com.bytedance.sdk.openadsdk.core.f.a implements TTFeedAd,
                                 aVar.b(j2);
                                 aVar.f(0);
                                 aVar.a(true);
-                                com.bytedance.sdk.openadsdk.e.a.a.g(this.f65319a.f66203i, this.f65319a, aVar);
+                                com.bytedance.sdk.openadsdk.e.a.a.g(this.f65519a.f66403i, this.f65519a, aVar);
                             }
                         }
 
@@ -417,17 +417,17 @@ public class c extends com.bytedance.sdk.openadsdk.core.f.a implements TTFeedAd,
                         public void reportVideoPause(long j2) {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeJ(1048582, this, j2) == null) {
-                                if (this.f65320b == 0) {
-                                    this.f65320b = SystemClock.elapsedRealtime();
+                                if (this.f65520b == 0) {
+                                    this.f65520b = SystemClock.elapsedRealtime();
                                 }
-                                long elapsedRealtime = (SystemClock.elapsedRealtime() - this.f65320b) - j2;
+                                long elapsedRealtime = (SystemClock.elapsedRealtime() - this.f65520b) - j2;
                                 long j3 = elapsedRealtime >= 0 ? elapsedRealtime : 0L;
                                 o.a aVar = new o.a();
                                 aVar.a(j2);
-                                aVar.c(((long) this.f65319a.getVideoDuration()) * 1000);
+                                aVar.c(((long) this.f65519a.getVideoDuration()) * 1000);
                                 aVar.b(j3);
                                 aVar.a(true);
-                                com.bytedance.sdk.openadsdk.e.a.a.b(this.f65319a.f66203i, this.f65319a, aVar);
+                                com.bytedance.sdk.openadsdk.e.a.a.b(this.f65519a.f66403i, this.f65519a, aVar);
                             }
                         }
 
@@ -435,11 +435,11 @@ public class c extends com.bytedance.sdk.openadsdk.core.f.a implements TTFeedAd,
                         public void reportVideoStart() {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeV(1048583, this) == null) {
-                                this.f65320b = SystemClock.elapsedRealtime();
+                                this.f65520b = SystemClock.elapsedRealtime();
                                 o.a aVar = new o.a();
                                 aVar.b(true);
                                 aVar.a(true);
-                                com.bytedance.sdk.openadsdk.e.a.a.a(this.f65319a.f66203i, this.f65319a, aVar);
+                                com.bytedance.sdk.openadsdk.e.a.a.a(this.f65519a.f66403i, this.f65519a, aVar);
                             }
                         }
 
@@ -448,15 +448,15 @@ public class c extends com.bytedance.sdk.openadsdk.core.f.a implements TTFeedAd,
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeII(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2, i3) == null) {
                                 HashMap hashMap = new HashMap();
-                                hashMap.put("creative_id", this.f65319a.f66202h.ak());
+                                hashMap.put("creative_id", this.f65519a.f66402h.ak());
                                 hashMap.put("error_code", Integer.valueOf(i2));
                                 hashMap.put("extra_error_code", Integer.valueOf(i3));
-                                x V = this.f65319a.f66202h.V();
+                                x V = this.f65519a.f66402h.V();
                                 if (V != null) {
                                     hashMap.put("video_size", Long.valueOf(V.d()));
                                     hashMap.put("video_resolution", V.f());
                                 }
-                                d.c(this.f65319a.f66203i, this.f65319a.f66202h, q.a(this.f65319a.f66202h), "play_start_error", hashMap);
+                                d.c(this.f65519a.f66403i, this.f65519a.f66402h, q.a(this.f65519a.f66402h), "play_start_error", hashMap);
                             }
                         }
                     };
@@ -472,11 +472,11 @@ public class c extends com.bytedance.sdk.openadsdk.core.f.a implements TTFeedAd,
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            m mVar = this.f66202h;
+            m mVar = this.f66402h;
             if (mVar == null || mVar.V() == null) {
                 return 0.0d;
             }
-            return this.f66202h.V().e();
+            return this.f66402h.V().e();
         }
         return invokeV.doubleValue;
     }
@@ -510,8 +510,8 @@ public class c extends com.bytedance.sdk.openadsdk.core.f.a implements TTFeedAd,
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65554, this)) == null) {
-            m mVar = this.f66202h;
-            return mVar != null && mVar.P() == null && this.f66202h.h() == 1 && m.b(this.f66202h);
+            m mVar = this.f66402h;
+            return mVar != null && mVar.P() == null && this.f66402h.h() == 1 && m.b(this.f66402h);
         }
         return invokeV.booleanValue;
     }
@@ -519,7 +519,7 @@ public class c extends com.bytedance.sdk.openadsdk.core.f.a implements TTFeedAd,
     public com.bytedance.sdk.openadsdk.multipro.b.a e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f65311a : (com.bytedance.sdk.openadsdk.multipro.b.a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f65511a : (com.bytedance.sdk.openadsdk.multipro.b.a) invokeV.objValue;
     }
 
     public boolean g() {
@@ -531,7 +531,7 @@ public class c extends com.bytedance.sdk.openadsdk.core.f.a implements TTFeedAd,
     public boolean h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? m.b(this.f66202h) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? m.b(this.f66402h) : invokeV.booleanValue;
     }
 
     private void a(int i2) {
@@ -539,21 +539,21 @@ public class c extends com.bytedance.sdk.openadsdk.core.f.a implements TTFeedAd,
         if (interceptable == null || interceptable.invokeI(65544, this, i2) == null) {
             int d2 = com.bytedance.sdk.openadsdk.core.o.h().d(i2);
             if (3 == d2) {
-                this.f65312b = false;
-                this.f65313c = false;
-            } else if (1 == d2 && n.d(this.f66203i)) {
-                this.f65312b = false;
-                this.f65313c = true;
+                this.f65512b = false;
+                this.f65513c = false;
+            } else if (1 == d2 && n.d(this.f66403i)) {
+                this.f65512b = false;
+                this.f65513c = true;
             } else if (2 == d2) {
-                if (n.e(this.f66203i) || n.d(this.f66203i) || n.f(this.f66203i)) {
-                    this.f65312b = false;
-                    this.f65313c = true;
+                if (n.e(this.f66403i) || n.d(this.f66403i) || n.f(this.f66403i)) {
+                    this.f65512b = false;
+                    this.f65513c = true;
                 }
             } else if (4 == d2) {
-                this.f65312b = true;
+                this.f65512b = true;
             } else if (5 == d2) {
-                if (n.d(this.f66203i) || n.f(this.f66203i)) {
-                    this.f65313c = true;
+                if (n.d(this.f66403i) || n.f(this.f66403i)) {
+                    this.f65513c = true;
                 }
             }
         }

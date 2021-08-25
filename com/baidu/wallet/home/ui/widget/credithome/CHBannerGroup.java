@@ -27,13 +27,13 @@ public class CHBannerGroup extends BaseItemLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public FocusImageViewGroup f60977a;
+    public FocusImageViewGroup f61177a;
 
     /* renamed from: b  reason: collision with root package name */
-    public LinearLayout f60978b;
+    public LinearLayout f61178b;
 
     /* renamed from: c  reason: collision with root package name */
-    public WalletBannerItem[] f60979c;
+    public WalletBannerItem[] f61179c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public CHBannerGroup(Context context) {
@@ -70,9 +70,9 @@ public class CHBannerGroup extends BaseItemLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             LayoutInflater.from(getContext()).inflate(ResUtils.layout(getContext(), "wallet_home_ch_banner_group"), this);
-            this.f60977a = (FocusImageViewGroup) findViewById(ResUtils.id(getContext(), "wallet_home_banner_gallery"));
-            this.f60978b = (LinearLayout) findViewById(ResUtils.id(getContext(), "wallet_home_banner_indicators"));
-            FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.f60977a.getLayoutParams();
+            this.f61177a = (FocusImageViewGroup) findViewById(ResUtils.id(getContext(), "wallet_home_banner_gallery"));
+            this.f61178b = (LinearLayout) findViewById(ResUtils.id(getContext(), "wallet_home_banner_indicators"));
+            FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.f61177a.getLayoutParams();
             int displayWidth = DisplayUtils.getDisplayWidth(getContext()) - DisplayUtils.dip2px(getContext(), 40.0f);
             int i2 = (displayWidth * Constants.METHOD_IM_GET_USER_PROFILE_BY_BAIDU_UID) / 750;
             if (layoutParams == null) {
@@ -81,14 +81,14 @@ public class CHBannerGroup extends BaseItemLayout {
                 layoutParams.width = displayWidth;
                 layoutParams.height = i2;
             }
-            this.f60977a.setChildLeft(DisplayUtils.dip2px(getContext(), 20.0f));
-            this.f60977a.setLayoutParams(layoutParams);
-            this.f60977a.setCurrFocusImagePos(new BannerFocusImageViewGroup.CurrFocusImagePos(this) { // from class: com.baidu.wallet.home.ui.widget.credithome.CHBannerGroup.1
+            this.f61177a.setChildLeft(DisplayUtils.dip2px(getContext(), 20.0f));
+            this.f61177a.setLayoutParams(layoutParams);
+            this.f61177a.setCurrFocusImagePos(new BannerFocusImageViewGroup.CurrFocusImagePos(this) { // from class: com.baidu.wallet.home.ui.widget.credithome.CHBannerGroup.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ CHBannerGroup f60980a;
+                public final /* synthetic */ CHBannerGroup f61180a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -105,7 +105,7 @@ public class CHBannerGroup extends BaseItemLayout {
                             return;
                         }
                     }
-                    this.f60980a = this;
+                    this.f61180a = this;
                 }
 
                 @Override // com.baidu.wallet.base.widget.banner.BannerFocusImageViewGroup.CurrFocusImagePos
@@ -114,8 +114,8 @@ public class CHBannerGroup extends BaseItemLayout {
                     if (interceptable2 == null || interceptable2.invokeII(1048576, this, i3, i4) == null) {
                         int i5 = 0;
                         while (i5 < i4) {
-                            if (this.f60980a.f60978b.getChildAt(i5) != null) {
-                                this.f60980a.f60978b.getChildAt(i5).setSelected(i5 == i3);
+                            if (this.f61180a.f61178b.getChildAt(i5) != null) {
+                                this.f61180a.f61178b.getChildAt(i5).setSelected(i5 == i3);
                             }
                             i5++;
                         }
@@ -142,11 +142,11 @@ public class CHBannerGroup extends BaseItemLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             HomeCfgResponse.DataItem[] dataItemArr = this.mConfigData.list;
-            this.f60979c = dataItemArr;
-            this.f60977a.setFocusConfigInfo(dataItemArr, getWalletInterface().getAndroidPrefix(), getWalletInterface().getPageType());
+            this.f61179c = dataItemArr;
+            this.f61177a.setFocusConfigInfo(dataItemArr, getWalletInterface().getAndroidPrefix(), getWalletInterface().getPageType());
             int drawable = ResUtils.drawable(getContext(), "wallet_home_ch_indicators");
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(DisplayUtils.dip2px(getContext(), 8.5f), DisplayUtils.dip2px(getContext(), 2.0f));
-            WalletBannerItem[] walletBannerItemArr = this.f60979c;
+            WalletBannerItem[] walletBannerItemArr = this.f61179c;
             if (walletBannerItemArr.length > 1) {
                 int length = walletBannerItemArr.length <= 10 ? walletBannerItemArr.length : 10;
                 int i2 = 0;
@@ -154,14 +154,14 @@ public class CHBannerGroup extends BaseItemLayout {
                     View view = new View(getContext());
                     view.setBackgroundResource(drawable);
                     view.setSelected(i2 == 0);
-                    this.f60978b.addView(view, layoutParams);
+                    this.f61178b.addView(view, layoutParams);
                     layoutParams.leftMargin = DisplayUtils.dip2px(getContext(), 6.0f);
                     i2++;
                 }
-                this.f60978b.setVisibility(0);
+                this.f61178b.setVisibility(0);
                 return;
             }
-            this.f60978b.setVisibility(8);
+            this.f61178b.setVisibility(8);
         }
     }
 

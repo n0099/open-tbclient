@@ -11,7 +11,7 @@ public class iy {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final byte f77655a;
+    public final byte f77856a;
 
     /* renamed from: a  reason: collision with other field name */
     public final String f813a;
@@ -54,7 +54,7 @@ public class iy {
             }
         }
         this.f813a = str;
-        this.f77655a = b2;
+        this.f77856a = b2;
         this.f814a = s;
     }
 
@@ -62,7 +62,7 @@ public class iy {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "<TField name:'" + this.f813a + "' type:" + ((int) this.f77655a) + " field-id:" + ((int) this.f814a) + ">";
+            return "<TField name:'" + this.f813a + "' type:" + ((int) this.f77856a) + " field-id:" + ((int) this.f814a) + ">";
         }
         return (String) invokeV.objValue;
     }

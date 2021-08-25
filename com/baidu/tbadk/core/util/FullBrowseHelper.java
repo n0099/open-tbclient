@@ -15,8 +15,8 @@ import androidx.core.view.InputDeviceCompat;
 import c.a.e.a.f;
 import c.a.e.a.j;
 import c.a.e.c.f.b;
-import c.a.o0.m.a;
-import c.a.o0.s.u.c;
+import c.a.p0.m.a;
+import c.a.p0.s.u.c;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -224,7 +224,7 @@ public class FullBrowseHelper {
             TextView textView = (TextView) inflate.findViewById(R.id.private_title);
             inflate.findViewById(R.id.protocol_layout).setVisibility(0);
             TextView textView2 = (TextView) inflate.findViewById(R.id.protocol_scrollable_textview);
-            c.d(textView2).t(R.color.CAM_X0107);
+            c.d(textView2).u(R.color.CAM_X0107);
             textView2.setHighlightColor(0);
             TextView textView3 = (TextView) inflate.findViewById(R.id.private_yes);
             TextView textView4 = (TextView) inflate.findViewById(R.id.private_no);
@@ -261,7 +261,7 @@ public class FullBrowseHelper {
                 public void onClick(@NonNull View view) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                        a.j(this.val$pageContext.getContext(), "http://tieba.baidu.com/tb/mobile/wisemainstatic/secretright.html");
+                        a.k(this.val$pageContext.getContext(), "http://tieba.baidu.com/tb/mobile/wisemainstatic/secretright.html");
                     }
                 }
             }, 47, 53, 33);
@@ -295,7 +295,7 @@ public class FullBrowseHelper {
                 public void onClick(@NonNull View view) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                        a.j(this.val$pageContext.getContext(), "https://gsp0.baidu.com/5aAHeD3nKhI2p27j8IqW0jdnxx1xbK/tb/eula.html");
+                        a.k(this.val$pageContext.getContext(), "https://gsp0.baidu.com/5aAHeD3nKhI2p27j8IqW0jdnxx1xbK/tb/eula.html");
                     }
                 }
             }, 54, 60, 33);
@@ -305,7 +305,7 @@ public class FullBrowseHelper {
             }
             textView2.setMovementMethod(LinkMovementMethod.getInstance());
             textView2.setText(spannableString);
-            c.a.o0.s.s.a aVar = new c.a.o0.s.s.a(fVar.getPageActivity());
+            c.a.p0.s.s.a aVar = new c.a.p0.s.s.a(fVar.getPageActivity());
             aVar.setContentView(inflate);
             aVar.setContentViewSize(8);
             aVar.setCanceledOnTouchOutside(false);
@@ -321,7 +321,7 @@ public class FullBrowseHelper {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ IAcceptPrivacyConfirm val$acceptPrivacyConfirm;
-                public final /* synthetic */ c.a.o0.s.s.a val$mPrivateDialog;
+                public final /* synthetic */ c.a.p0.s.s.a val$mPrivateDialog;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -362,7 +362,7 @@ public class FullBrowseHelper {
             textView4.setOnClickListener(new View.OnClickListener(aVar) { // from class: com.baidu.tbadk.core.util.FullBrowseHelper.4
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ c.a.o0.s.s.a val$mPrivateDialog;
+                public final /* synthetic */ c.a.p0.s.s.a val$mPrivateDialog;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -394,13 +394,13 @@ public class FullBrowseHelper {
             aVar.create(fVar);
             aVar.show();
             TiebaStatic.log(new StatisticItem(CommonStatisticKey.WINDOW_EXPOSURE).addParam("obj_type", 4));
-            c.d(textView).t(R.color.CAM_X0105);
+            c.d(textView).u(R.color.CAM_X0105);
             WebPManager.setMaskDrawable((ImageView) inflate.findViewById(R.id.full_browse_image1), R.drawable.full_mode_icon_mask_recommend1, null);
-            c.d((TextView) inflate.findViewById(R.id.full_browse_image_text1)).t(R.color.CAM_X0105);
+            c.d((TextView) inflate.findViewById(R.id.full_browse_image_text1)).u(R.color.CAM_X0105);
             WebPManager.setMaskDrawable((ImageView) inflate.findViewById(R.id.full_browse_image2), R.drawable.full_mode_icon_mask_interaction2, null);
-            c.d((TextView) inflate.findViewById(R.id.full_browse_image_text2)).t(R.color.CAM_X0105);
+            c.d((TextView) inflate.findViewById(R.id.full_browse_image_text2)).u(R.color.CAM_X0105);
             WebPManager.setMaskDrawable((ImageView) inflate.findViewById(R.id.full_browse_image3), R.drawable.full_mode_icon_mask_lssue3, null);
-            c.d((TextView) inflate.findViewById(R.id.full_browse_image_text3)).t(R.color.CAM_X0105);
+            c.d((TextView) inflate.findViewById(R.id.full_browse_image_text3)).u(R.color.CAM_X0105);
         }
     }
 }

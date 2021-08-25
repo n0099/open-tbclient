@@ -27,22 +27,22 @@ public final class c implements k, p.a<f<b>> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final b.a f33174e;
+    public final b.a f33280e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final n f33175f;
+    public final n f33281f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final int f33176g;
+    public final int f33282g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final b.a f33177h;
+    public final b.a f33283h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final c.i.b.a.h0.b f33178i;
+    public final c.i.b.a.h0.b f33284i;
 
     /* renamed from: j  reason: collision with root package name */
-    public final t f33179j;
+    public final t f33285j;
     public final c.i.b.a.a0.q.k[] k;
     public k.a l;
     public c.i.b.a.d0.x.e.a m;
@@ -64,15 +64,15 @@ public final class c implements k, p.a<f<b>> {
                 return;
             }
         }
-        this.f33174e = aVar2;
-        this.f33175f = nVar;
-        this.f33176g = i2;
-        this.f33177h = aVar3;
-        this.f33178i = bVar;
-        this.f33179j = f(aVar);
-        a.C1485a c1485a = aVar.f33188b;
-        if (c1485a != null) {
-            this.k = new c.i.b.a.a0.q.k[]{new c.i.b.a.a0.q.k(true, null, 8, m(c1485a.f33193b), 0, 0, null)};
+        this.f33280e = aVar2;
+        this.f33281f = nVar;
+        this.f33282g = i2;
+        this.f33283h = aVar3;
+        this.f33284i = bVar;
+        this.f33285j = f(aVar);
+        a.C1489a c1489a = aVar.f33294b;
+        if (c1489a != null) {
+            this.k = new c.i.b.a.a0.q.k[]{new c.i.b.a.a0.q.k(true, null, 8, m(c1489a.f33299b), 0, 0, null)};
         } else {
             this.k = null;
         }
@@ -88,12 +88,12 @@ public final class c implements k, p.a<f<b>> {
         if (interceptable != null && (invokeL = interceptable.invokeL(65537, null, aVar)) != null) {
             return (t) invokeL.objValue;
         }
-        s[] sVarArr = new s[aVar.f33189c.length];
+        s[] sVarArr = new s[aVar.f33295c.length];
         int i2 = 0;
         while (true) {
-            a.b[] bVarArr = aVar.f33189c;
+            a.b[] bVarArr = aVar.f33295c;
             if (i2 < bVarArr.length) {
-                sVarArr[i2] = new s(bVarArr[i2].f33196c);
+                sVarArr[i2] = new s(bVarArr[i2].f33302c);
                 i2++;
             } else {
                 return new t(sVarArr);
@@ -139,8 +139,8 @@ public final class c implements k, p.a<f<b>> {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048576, this, fVar, j2)) == null) {
-            int b2 = this.f33179j.b(fVar.d());
-            return new f<>(this.m.f33189c[b2].f33194a, null, this.f33174e.a(this.f33175f, this.m, b2, fVar, this.k), this, this.f33178i, j2, this.f33176g, this.f33177h);
+            int b2 = this.f33285j.b(fVar.d());
+            return new f<>(this.m.f33295c[b2].f33300a, null, this.f33280e.a(this.f33281f, this.m, b2, fVar, this.k), this, this.f33284i, j2, this.f33282g, this.f33283h);
         }
         return (f) invokeLJ.objValue;
     }
@@ -225,7 +225,7 @@ public final class c implements k, p.a<f<b>> {
     public t k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f33179j : (t) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f33285j : (t) invokeV.objValue;
     }
 
     @Override // c.i.b.a.d0.k
@@ -251,7 +251,7 @@ public final class c implements k, p.a<f<b>> {
     public void q() throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            this.f33175f.a();
+            this.f33281f.a();
         }
     }
 

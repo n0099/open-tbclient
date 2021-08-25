@@ -41,22 +41,22 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Supplier<List<ProcessEventSceneHandler>> f12219a;
+    public Supplier<List<ProcessEventSceneHandler>> f4343a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f12220b;
+    public String f4344b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Context f12221c;
+    public Context f4345c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f12222d;
+    public long f4346d;
 
     public b(@NonNull Context context) {
         Interceptable interceptable = $ic;
@@ -74,12 +74,12 @@ public class b {
             }
         }
         if (context instanceof Application) {
-            this.f12221c = context;
+            this.f4345c = context;
         } else {
-            this.f12221c = context.getApplicationContext();
+            this.f4345c = context.getApplicationContext();
         }
-        this.f12220b = c.a.g0.b.a.a.b();
-        this.f12222d = System.currentTimeMillis();
+        this.f4344b = c.a.h0.b.a.a.b();
+        this.f4346d = System.currentTimeMillis();
         if (Build.VERSION.SDK_INT <= 19) {
             b();
         }
@@ -94,7 +94,7 @@ public class b {
             if (Build.VERSION.SDK_INT > 19) {
                 forwardingProcessEventSceneHandler.addEventHandleCallback(new DefaultProcessEventSceneHandler());
             }
-            Supplier<List<ProcessEventSceneHandler>> supplier = this.f12219a;
+            Supplier<List<ProcessEventSceneHandler>> supplier = this.f4343a;
             if (supplier != null && Build.VERSION.SDK_INT > 19) {
                 forwardingProcessEventSceneHandler.addEventHandleCallback(supplier.get());
             }
@@ -157,27 +157,27 @@ public class b {
         Set<LogFile> obtainProcessSnapShots;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048583, this, str, logExtra) == null) {
-            File obtainFileDirWithProcessName = LogPipelineSingleton.obtainFileDirWithProcessName(this.f12220b);
+            File obtainFileDirWithProcessName = LogPipelineSingleton.obtainFileDirWithProcessName(this.f4344b);
             if (!obtainFileDirWithProcessName.exists()) {
                 obtainFileDirWithProcessName.mkdirs();
             }
             JSONObject jSONObject = new JSONObject();
-            c(this.f12221c, jSONObject);
+            c(this.f4345c, jSONObject);
             logExtra.mJSONAttach = jSONObject.toString();
             ForwardingProcessEventSceneHandler a2 = a();
             File file = null;
             if (a2 != null) {
                 hashSet = new HashSet(5);
                 EventObject eventObject = new EventObject(LogType.NATIVE_CRASH, str);
-                Set<ProcessSnapshotType> requireGeneralSnapshots = a2.requireGeneralSnapshots(this.f12221c, eventObject);
-                if (requireGeneralSnapshots != null && requireGeneralSnapshots.size() > 0 && (obtainProcessSnapShots = SnapshotUtil.obtainProcessSnapShots(this.f12221c, requireGeneralSnapshots, obtainFileDirWithProcessName, this.f12220b, logExtra)) != null && obtainProcessSnapShots.size() > 0) {
+                Set<ProcessSnapshotType> requireGeneralSnapshots = a2.requireGeneralSnapshots(this.f4345c, eventObject);
+                if (requireGeneralSnapshots != null && requireGeneralSnapshots.size() > 0 && (obtainProcessSnapShots = SnapshotUtil.obtainProcessSnapShots(this.f4345c, requireGeneralSnapshots, obtainFileDirWithProcessName, this.f4344b, logExtra)) != null && obtainProcessSnapShots.size() > 0) {
                     hashSet.addAll(obtainProcessSnapShots);
                 }
-                Set<LogFile> customizedSnapshots = a2.getCustomizedSnapshots(this.f12221c, obtainFileDirWithProcessName, eventObject);
+                Set<LogFile> customizedSnapshots = a2.getCustomizedSnapshots(this.f4345c, obtainFileDirWithProcessName, eventObject);
                 if (customizedSnapshots != null && customizedSnapshots.size() > 0) {
                     hashSet.addAll(customizedSnapshots);
                 }
-                LogFile obtainFragmentSnapShot = SnapshotUtil.obtainFragmentSnapShot(this.f12221c, a2, eventObject, obtainFileDirWithProcessName, SnapshotConstant.ProcessConstants.PROCESS_SHARED_FRAGMENT_FILE);
+                LogFile obtainFragmentSnapShot = SnapshotUtil.obtainFragmentSnapShot(this.f4345c, a2, eventObject, obtainFileDirWithProcessName, SnapshotConstant.ProcessConstants.PROCESS_SHARED_FRAGMENT_FILE);
                 if (obtainFragmentSnapShot != null && obtainFragmentSnapShot.mFile.exists()) {
                     hashSet.add(obtainFragmentSnapShot);
                 }
@@ -189,14 +189,14 @@ public class b {
             } else {
                 hashSet = null;
             }
-            e(this.f12221c);
+            e(this.f4345c);
             if (hashSet != null) {
                 file = SnapshotUtil.createPathNameKeeper(obtainFileDirWithProcessName, hashSet);
                 if (LLog.sDebug && file != null) {
                     String str3 = "pathNameKeeper = " + file.getAbsolutePath();
                 }
             }
-            g(this.f12221c, str, file, logExtra);
+            g(this.f4345c, str, file, logExtra);
         }
     }
 
@@ -213,7 +213,7 @@ public class b {
                 }
             }
             logExtra.mCrashTime = String.valueOf(System.currentTimeMillis());
-            logExtra.mLaunchTime = String.valueOf(this.f12222d);
+            logExtra.mLaunchTime = String.valueOf(this.f4346d);
             if (DeviceUtil.OSInfo.hasNougat()) {
                 logExtra.mProcessLifeTime = String.valueOf(SystemClock.elapsedRealtime() - Utility.getProcessStartElapsedRealTime());
             }

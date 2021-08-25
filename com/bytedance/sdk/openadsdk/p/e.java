@@ -12,16 +12,16 @@ public class e {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f67967a;
+    public String f68167a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f67968b;
+    public String f68168b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f67969c;
+    public boolean f68169c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f67970d;
+    public int f68170d;
 
     public e(String str, String str2, boolean z, int i2) {
         Interceptable interceptable = $ic;
@@ -38,40 +38,40 @@ public class e {
                 return;
             }
         }
-        this.f67967a = str;
-        this.f67968b = str2;
-        this.f67969c = z;
-        this.f67970d = i2;
+        this.f68167a = str;
+        this.f68168b = str2;
+        this.f68169c = z;
+        this.f68170d = i2;
     }
 
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f67967a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f68167a : (String) invokeV.objValue;
     }
 
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f67968b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f68168b : (String) invokeV.objValue;
     }
 
     public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f67969c : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f68169c : invokeV.booleanValue;
     }
 
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f67970d : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f68170d : invokeV.intValue;
     }
 
     public void a(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            this.f67970d = i2;
+            this.f68170d = i2;
         }
     }
 }

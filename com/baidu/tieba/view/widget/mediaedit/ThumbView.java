@@ -19,19 +19,19 @@ public class ThumbView extends View {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final int f58198e;
+    public final int f58395e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Drawable f58199f;
+    public Drawable f58396f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f58200g;
+    public boolean f58397g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f58201h;
+    public int f58398h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f58202i;
+    public int f58399i;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ThumbView(Context context, int i2, int i3, Drawable drawable) {
@@ -51,11 +51,11 @@ public class ThumbView extends View {
                 return;
             }
         }
-        this.f58201h = i2;
-        this.f58202i = i3;
-        this.f58199f = drawable;
-        this.f58198e = (int) TypedValue.applyDimension(1, 15.0f, context.getResources().getDisplayMetrics());
-        setBackgroundDrawable(this.f58199f);
+        this.f58398h = i2;
+        this.f58399i = i3;
+        this.f58396f = drawable;
+        this.f58395e = (int) TypedValue.applyDimension(1, 15.0f, context.getResources().getDisplayMetrics());
+        setBackgroundDrawable(this.f58396f);
     }
 
     public boolean inInTarget(int i2, int i3) {
@@ -65,7 +65,7 @@ public class ThumbView extends View {
             Rect rect = new Rect();
             getHitRect(rect);
             int i4 = rect.left;
-            int i5 = this.f58198e;
+            int i5 = this.f58395e;
             rect.left = i4 - i5;
             rect.right += i5;
             rect.top -= i5;
@@ -79,14 +79,14 @@ public class ThumbView extends View {
     public boolean isPressed() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f58200g : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f58397g : invokeV.booleanValue;
     }
 
     @Override // android.view.View
     public void onMeasure(int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i2, i3) == null) {
-            super.onMeasure(View.MeasureSpec.makeMeasureSpec(this.f58201h, 1073741824), View.MeasureSpec.makeMeasureSpec(this.f58202i, 1073741824));
+            super.onMeasure(View.MeasureSpec.makeMeasureSpec(this.f58398h, 1073741824), View.MeasureSpec.makeMeasureSpec(this.f58399i, 1073741824));
         }
     }
 
@@ -94,28 +94,28 @@ public class ThumbView extends View {
     public void setPressed(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.f58200g = z;
+            this.f58397g = z;
         }
     }
 
     public void setThumbDrawable(Drawable drawable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, drawable) == null) {
-            this.f58199f = drawable;
+            this.f58396f = drawable;
         }
     }
 
     public void setThumbHeight(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-            this.f58202i = i2;
+            this.f58399i = i2;
         }
     }
 
     public void setThumbWidth(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-            this.f58201h = i2;
+            this.f58398h = i2;
         }
     }
 }

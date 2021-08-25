@@ -1,28 +1,20 @@
 package j.a.a.e.n;
 
+import android.content.ClipData;
+import android.content.ClipboardManager;
+import android.content.Context;
+import com.baidu.searchbox.datacollector.growth.utils.GrowthConstant;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.yy.mobile.framework.revenuesdk.IRevenue;
-import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-import com.yy.mobile.framework.revenuesdk.payapi.IAppPayService;
-import tv.athena.revenue.RevenueManager;
 /* loaded from: classes2.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static IAppPayService a(int i2, int i3) {
-        InterceptResult invokeII;
+    public static void a(String str, Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(65536, null, i2, i3)) == null) {
-            IRevenue revenue = RevenueManager.instance().getRevenue(i2, i3);
-            if (revenue == null) {
-                RLog.error("CommonUtils", "getAppPayService null iRevenue", new Object[0]);
-                return null;
-            }
-            return revenue.getAppPayService();
+        if (interceptable == null || interceptable.invokeLL(65536, null, str, context) == null) {
+            ((ClipboardManager) context.getSystemService(GrowthConstant.UBC_VALUE_TYPE_CLIP_BOARD)).setPrimaryClip(ClipData.newPlainText("Label", str));
         }
-        return (IAppPayService) invokeII.objValue;
     }
 }

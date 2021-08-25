@@ -20,7 +20,7 @@ public class e {
     public LuaMsgListener cc;
 
     /* renamed from: f  reason: collision with root package name */
-    public b f38187f;
+    public b f38293f;
     public c rN;
     public DefinedLuaListener sX;
 
@@ -42,7 +42,7 @@ public class e {
         if (bVar == null) {
             return;
         }
-        this.f38187f = bVar;
+        this.f38293f = bVar;
         fl();
         if (this.cc == null) {
             this.cc = new LuaMsgListener(this) { // from class: com.baidu.ar.lua.e.1
@@ -133,7 +133,7 @@ public class e {
                 }
             };
             this.rN = cVar;
-            this.f38187f.c(cVar);
+            this.f38293f.c(cVar);
         }
     }
 
@@ -179,7 +179,7 @@ public class e {
     public void release() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            b bVar = this.f38187f;
+            b bVar = this.f38293f;
             if (bVar != null) {
                 if (this.cc != null) {
                     bVar.fk().removeLuaMsgListener(this.cc);
@@ -187,10 +187,10 @@ public class e {
                 }
                 c cVar = this.rN;
                 if (cVar != null) {
-                    this.f38187f.d(cVar);
+                    this.f38293f.d(cVar);
                     this.rN = null;
                 }
-                this.f38187f = null;
+                this.f38293f = null;
             }
             this.sX = null;
         }

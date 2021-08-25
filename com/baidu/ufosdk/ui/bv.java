@@ -4,6 +4,7 @@ import android.text.ClipboardManager;
 import android.view.View;
 import android.widget.PopupWindow;
 import android.widget.TextView;
+import com.baidu.searchbox.datacollector.growth.utils.GrowthConstant;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -14,13 +15,13 @@ public final class bv implements View.OnClickListener {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ View f59382a;
+    public final /* synthetic */ View f59582a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ PopupWindow f59383b;
+    public final /* synthetic */ PopupWindow f59583b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ FeedbackInputActivity f59384c;
+    public final /* synthetic */ FeedbackInputActivity f59584c;
 
     public bv(FeedbackInputActivity feedbackInputActivity, View view, PopupWindow popupWindow) {
         Interceptable interceptable = $ic;
@@ -37,17 +38,17 @@ public final class bv implements View.OnClickListener {
                 return;
             }
         }
-        this.f59384c = feedbackInputActivity;
-        this.f59382a = view;
-        this.f59383b = popupWindow;
+        this.f59584c = feedbackInputActivity;
+        this.f59582a = view;
+        this.f59583b = popupWindow;
     }
 
     @Override // android.view.View.OnClickListener
     public final void onClick(View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-            ((ClipboardManager) this.f59384c.getSystemService("clipboard")).setText(((TextView) this.f59382a).getText().toString());
-            this.f59383b.dismiss();
+            ((ClipboardManager) this.f59584c.getSystemService(GrowthConstant.UBC_VALUE_TYPE_CLIP_BOARD)).setText(((TextView) this.f59582a).getText().toString());
+            this.f59583b.dismiss();
         }
     }
 }

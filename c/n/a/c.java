@@ -20,28 +20,28 @@ public final class c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public HashMap<String, Boolean> f34126a;
+    public HashMap<String, Boolean> f34232a;
 
     /* renamed from: b  reason: collision with root package name */
-    public HashMap<String, Bitmap> f34127b;
+    public HashMap<String, Bitmap> f34233b;
 
     /* renamed from: c  reason: collision with root package name */
-    public HashMap<String, String> f34128c;
+    public HashMap<String, String> f34234c;
 
     /* renamed from: d  reason: collision with root package name */
-    public HashMap<String, TextPaint> f34129d;
+    public HashMap<String, TextPaint> f34235d;
 
     /* renamed from: e  reason: collision with root package name */
-    public HashMap<String, StaticLayout> f34130e;
+    public HashMap<String, StaticLayout> f34236e;
 
     /* renamed from: f  reason: collision with root package name */
-    public HashMap<String, Function2<Canvas, Integer, Boolean>> f34131f;
+    public HashMap<String, Function2<Canvas, Integer, Boolean>> f34237f;
 
     /* renamed from: g  reason: collision with root package name */
-    public HashMap<String, Function4<Canvas, Integer, Integer, Integer, Boolean>> f34132g;
+    public HashMap<String, Function4<Canvas, Integer, Integer, Integer, Boolean>> f34238g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f34133h;
+    public boolean f34239h;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -56,67 +56,67 @@ public final class c {
                 return;
             }
         }
-        this.f34126a = new HashMap<>();
-        this.f34127b = new HashMap<>();
-        this.f34128c = new HashMap<>();
-        this.f34129d = new HashMap<>();
-        this.f34130e = new HashMap<>();
-        this.f34131f = new HashMap<>();
-        this.f34132g = new HashMap<>();
+        this.f34232a = new HashMap<>();
+        this.f34233b = new HashMap<>();
+        this.f34234c = new HashMap<>();
+        this.f34235d = new HashMap<>();
+        this.f34236e = new HashMap<>();
+        this.f34237f = new HashMap<>();
+        this.f34238g = new HashMap<>();
     }
 
     public final HashMap<String, Function2<Canvas, Integer, Boolean>> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f34131f : (HashMap) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f34237f : (HashMap) invokeV.objValue;
     }
 
     public final HashMap<String, Function4<Canvas, Integer, Integer, Integer, Boolean>> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f34132g : (HashMap) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f34238g : (HashMap) invokeV.objValue;
     }
 
     public final HashMap<String, Boolean> c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f34126a : (HashMap) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f34232a : (HashMap) invokeV.objValue;
     }
 
     public final HashMap<String, Bitmap> d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f34127b : (HashMap) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f34233b : (HashMap) invokeV.objValue;
     }
 
     public final HashMap<String, StaticLayout> e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f34130e : (HashMap) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f34236e : (HashMap) invokeV.objValue;
     }
 
     public final HashMap<String, String> f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f34128c : (HashMap) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f34234c : (HashMap) invokeV.objValue;
     }
 
     public final HashMap<String, TextPaint> g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f34129d : (HashMap) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f34235d : (HashMap) invokeV.objValue;
     }
 
     public final boolean h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f34133h : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f34239h : invokeV.booleanValue;
     }
 
     public final void i(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
-            this.f34133h = z;
+            this.f34239h = z;
         }
     }
 }

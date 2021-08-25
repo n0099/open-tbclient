@@ -25,25 +25,25 @@ public class b implements Cloneable {
     @ColorInt
 
     /* renamed from: e  reason: collision with root package name */
-    public int f78620e;
+    public int f78821e;
     @ColorInt
 
     /* renamed from: f  reason: collision with root package name */
-    public int f78621f;
+    public int f78822f;
     @FloatRange(from = 0.0d, to = 1.0d)
 
     /* renamed from: g  reason: collision with root package name */
-    public float f78622g;
+    public float f78823g;
     @FloatRange(from = 0.0d, to = 1.0d)
 
     /* renamed from: h  reason: collision with root package name */
-    public float f78623h;
+    public float f78824h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f78624i;
+    public boolean f78825i;
 
     /* renamed from: j  reason: collision with root package name */
-    public boolean f78625j;
+    public boolean f78826j;
     public BarHide k;
     public boolean l;
     public boolean m;
@@ -78,12 +78,12 @@ public class b implements Cloneable {
                 return;
             }
         }
-        this.f78620e = 0;
-        this.f78621f = -16777216;
-        this.f78622g = 0.0f;
-        this.f78623h = 0.0f;
-        this.f78624i = false;
-        this.f78625j = false;
+        this.f78821e = 0;
+        this.f78822f = -16777216;
+        this.f78823g = 0.0f;
+        this.f78824h = 0.0f;
+        this.f78825i = false;
+        this.f78826j = false;
         this.k = BarHide.FLAG_SHOW_BAR;
         this.l = false;
         this.m = true;

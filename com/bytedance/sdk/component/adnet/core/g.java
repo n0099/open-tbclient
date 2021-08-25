@@ -18,13 +18,13 @@ public class g implements com.bytedance.sdk.component.adnet.face.c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Executor f63941a;
+    public final Executor f64141a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Executor f63942b;
+    public final Executor f64142b;
 
     /* renamed from: c  reason: collision with root package name */
-    public com.bytedance.sdk.component.adnet.c.c f63943c;
+    public com.bytedance.sdk.component.adnet.c.c f64143c;
 
     /* loaded from: classes9.dex */
     public static class a implements Runnable {
@@ -32,13 +32,13 @@ public class g implements com.bytedance.sdk.component.adnet.face.c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final Request f63946a;
+        public final Request f64146a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final m f63947b;
+        public final m f64147b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final Runnable f63948c;
+        public final Runnable f64148c;
 
         public a(Request request, m mVar, Runnable runnable) {
             Interceptable interceptable = $ic;
@@ -55,36 +55,36 @@ public class g implements com.bytedance.sdk.component.adnet.face.c {
                     return;
                 }
             }
-            this.f63946a = request;
-            this.f63947b = mVar;
-            this.f63948c = runnable;
+            this.f64146a = request;
+            this.f64147b = mVar;
+            this.f64148c = runnable;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.f63946a.isCanceled()) {
-                    this.f63946a.a("canceled-at-delivery");
+                if (this.f64146a.isCanceled()) {
+                    this.f64146a.a("canceled-at-delivery");
                     return;
                 }
-                this.f63947b.f63978g = this.f63946a.getExtra();
-                this.f63947b.a(SystemClock.elapsedRealtime() - this.f63946a.getStartTime());
-                this.f63947b.b(this.f63946a.getNetDuration());
+                this.f64147b.f64178g = this.f64146a.getExtra();
+                this.f64147b.a(SystemClock.elapsedRealtime() - this.f64146a.getStartTime());
+                this.f64147b.b(this.f64146a.getNetDuration());
                 try {
-                    if (this.f63947b.a()) {
-                        this.f63946a.a(this.f63947b);
+                    if (this.f64147b.a()) {
+                        this.f64146a.a(this.f64147b);
                     } else {
-                        this.f63946a.deliverError(this.f63947b);
+                        this.f64146a.deliverError(this.f64147b);
                     }
                 } catch (Throwable unused) {
                 }
-                if (this.f63947b.f63975d) {
-                    this.f63946a.addMarker("intermediate-response");
+                if (this.f64147b.f64175d) {
+                    this.f64146a.addMarker("intermediate-response");
                 } else {
-                    this.f63946a.a(AuthoritySharedPreferences.KEY_CONFIG_PRIVILEGE_DONE);
+                    this.f64146a.a(AuthoritySharedPreferences.KEY_CONFIG_PRIVILEGE_DONE);
                 }
-                Runnable runnable = this.f63948c;
+                Runnable runnable = this.f64148c;
                 if (runnable != null) {
                     try {
                         runnable.run();
@@ -110,15 +110,15 @@ public class g implements com.bytedance.sdk.component.adnet.face.c {
                 return;
             }
         }
-        this.f63941a = new Executor(this, handler) { // from class: com.bytedance.sdk.component.adnet.core.g.1
+        this.f64141a = new Executor(this, handler) { // from class: com.bytedance.sdk.component.adnet.core.g.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ Handler f63944a;
+            public final /* synthetic */ Handler f64144a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ g f63945b;
+            public final /* synthetic */ g f64145b;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -135,26 +135,26 @@ public class g implements com.bytedance.sdk.component.adnet.face.c {
                         return;
                     }
                 }
-                this.f63945b = this;
-                this.f63944a = handler;
+                this.f64145b = this;
+                this.f64144a = handler;
             }
 
             @Override // java.util.concurrent.Executor
             public void execute(Runnable runnable) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, runnable) == null) {
-                    this.f63944a.post(runnable);
+                    this.f64144a.post(runnable);
                 }
             }
         };
-        this.f63942b = Executors.newCachedThreadPool();
-        this.f63943c = com.bytedance.sdk.component.adnet.c.f.a();
+        this.f64142b = Executors.newCachedThreadPool();
+        this.f64143c = com.bytedance.sdk.component.adnet.c.f.a();
     }
 
     private Executor a(Request<?> request) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, this, request)) == null) ? (request == null || request.isResponseOnMain()) ? this.f63941a : this.f63942b : (Executor) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65537, this, request)) == null) ? (request == null || request.isResponseOnMain()) ? this.f64141a : this.f64142b : (Executor) invokeL.objValue;
     }
 
     @Override // com.bytedance.sdk.component.adnet.face.c
@@ -162,7 +162,7 @@ public class g implements com.bytedance.sdk.component.adnet.face.c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, request, mVar) == null) {
             a(request, mVar, null);
-            com.bytedance.sdk.component.adnet.c.c cVar = this.f63943c;
+            com.bytedance.sdk.component.adnet.c.c cVar = this.f64143c;
             if (cVar != null) {
                 cVar.a(request, mVar);
             }
@@ -176,7 +176,7 @@ public class g implements com.bytedance.sdk.component.adnet.face.c {
             request.markDelivered();
             request.addMarker("post-response");
             a(request).execute(new a(request, mVar, runnable));
-            com.bytedance.sdk.component.adnet.c.c cVar = this.f63943c;
+            com.bytedance.sdk.component.adnet.c.c cVar = this.f64143c;
             if (cVar != null) {
                 cVar.a(request, mVar);
             }
@@ -189,7 +189,7 @@ public class g implements com.bytedance.sdk.component.adnet.face.c {
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, request, vAdError) == null) {
             request.addMarker("post-error");
             a(request).execute(new a(request, m.a(vAdError), null));
-            com.bytedance.sdk.component.adnet.c.c cVar = this.f63943c;
+            com.bytedance.sdk.component.adnet.c.c cVar = this.f64143c;
             if (cVar != null) {
                 cVar.a(request, vAdError);
             }

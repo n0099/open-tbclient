@@ -33,16 +33,16 @@ public class b {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static long f66340a = 1800000;
+    public static long f66540a = 1800000;
 
     /* renamed from: b  reason: collision with root package name */
-    public static com.bytedance.sdk.openadsdk.core.k.a f66341b;
+    public static com.bytedance.sdk.openadsdk.core.k.a f66541b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static long f66342c;
+    public static long f66542c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static Handler f66343d;
+    public static Handler f66543d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes9.dex */
@@ -76,17 +76,17 @@ public class b {
 
     /* renamed from: com.bytedance.sdk.openadsdk.core.k.b$b  reason: collision with other inner class name */
     /* loaded from: classes9.dex */
-    public static class CallableC1903b implements Callable<Location> {
+    public static class CallableC1907b implements Callable<Location> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public LocationManager f66352a;
+        public LocationManager f66552a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f66353b;
+        public String f66553b;
 
-        public CallableC1903b(LocationManager locationManager, String str) {
+        public CallableC1907b(LocationManager locationManager, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -101,8 +101,8 @@ public class b {
                     return;
                 }
             }
-            this.f66352a = locationManager;
-            this.f66353b = str;
+            this.f66552a = locationManager;
+            this.f66553b = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -113,7 +113,7 @@ public class b {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 long currentTimeMillis = System.currentTimeMillis();
-                Location lastKnownLocation = this.f66352a.getLastKnownLocation(this.f66353b);
+                Location lastKnownLocation = this.f66552a.getLastKnownLocation(this.f66553b);
                 long currentTimeMillis2 = System.currentTimeMillis() - currentTimeMillis;
                 k.b("AdLocationUtils", "location:" + lastKnownLocation + ",getLastKnownLocation use time :" + currentTimeMillis2);
                 return lastKnownLocation;
@@ -135,7 +135,7 @@ public class b {
                 return;
             }
         }
-        f66343d = new Handler(Looper.getMainLooper());
+        f66543d = new Handler(Looper.getMainLooper());
     }
 
     public static com.bytedance.sdk.openadsdk.core.k.a c(Context context) {
@@ -166,10 +166,10 @@ public class b {
                             public transient /* synthetic */ FieldHolder $fh;
 
                             /* renamed from: a  reason: collision with root package name */
-                            public final /* synthetic */ Context f66345a;
+                            public final /* synthetic */ Context f66545a;
 
                             /* renamed from: b  reason: collision with root package name */
-                            public final /* synthetic */ LocationManager f66346b;
+                            public final /* synthetic */ LocationManager f66546b;
 
                             {
                                 Interceptable interceptable2 = $ic;
@@ -186,15 +186,15 @@ public class b {
                                         return;
                                     }
                                 }
-                                this.f66345a = context;
-                                this.f66346b = locationManager;
+                                this.f66545a = context;
+                                this.f66546b = locationManager;
                             }
 
                             @Override // java.lang.Runnable
                             public void run() {
                                 Interceptable interceptable2 = $ic;
                                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                                    b.b(this.f66345a, this.f66346b);
+                                    b.b(this.f66545a, this.f66546b);
                                 }
                             }
                         });
@@ -223,7 +223,7 @@ public class b {
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ f f66348a;
+                    public final /* synthetic */ f f66548a;
 
                     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                     {
@@ -243,14 +243,14 @@ public class b {
                                 return;
                             }
                         }
-                        this.f66348a = fVar;
+                        this.f66548a = fVar;
                     }
 
                     @Override // java.lang.Runnable
                     public void run() {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            this.f66348a.run();
+                            this.f66548a.run();
                         }
                     }
                 });
@@ -270,13 +270,13 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
             if (h.d().f().isCanUseLocation() || h.d().f().getTTLocation() != null) {
-                com.bytedance.sdk.openadsdk.core.k.a aVar = f66341b;
+                com.bytedance.sdk.openadsdk.core.k.a aVar = f66541b;
                 Context a2 = context == null ? o.a() : context.getApplicationContext();
-                k.b("AdLocationUtils", "Location cache time =", Long.valueOf(f66340a));
-                if (f66341b != null && !a()) {
-                    return f66341b;
+                k.b("AdLocationUtils", "Location cache time =", Long.valueOf(f66540a));
+                if (f66541b != null && !a()) {
+                    return f66541b;
                 }
-                String a3 = h.a("sdk_ad_location", f66340a);
+                String a3 = h.a("sdk_ad_location", f66540a);
                 if (!TextUtils.isEmpty(a3)) {
                     try {
                         JSONObject jSONObject = new JSONObject(a3);
@@ -284,21 +284,21 @@ public class b {
                         String string2 = jSONObject.getString("longitude");
                         long j2 = jSONObject.getLong("lbstime");
                         if (!TextUtils.isEmpty(string) && !TextUtils.isEmpty(string2)) {
-                            f66341b = new com.bytedance.sdk.openadsdk.core.k.a(Float.valueOf(string).floatValue(), Float.valueOf(string2).floatValue(), j2);
+                            f66541b = new com.bytedance.sdk.openadsdk.core.k.a(Float.valueOf(string).floatValue(), Float.valueOf(string2).floatValue(), j2);
                         }
                     } catch (Throwable th) {
                         th.printStackTrace();
                     }
                 }
                 if (a()) {
-                    f66342c = System.currentTimeMillis();
+                    f66542c = System.currentTimeMillis();
                     k.c("AdLocationUtils", "Locating ...");
                     e.a(new g("getLocation c", a2) { // from class: com.bytedance.sdk.openadsdk.core.k.b.1
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
 
                         /* renamed from: a  reason: collision with root package name */
-                        public final /* synthetic */ Context f66344a;
+                        public final /* synthetic */ Context f66544a;
 
                         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                         {
@@ -318,34 +318,34 @@ public class b {
                                     return;
                                 }
                             }
-                            this.f66344a = a2;
+                            this.f66544a = a2;
                         }
 
                         @Override // java.lang.Runnable
                         public void run() {
                             com.bytedance.sdk.openadsdk.core.k.a c2;
                             Interceptable interceptable2 = $ic;
-                            if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || (c2 = b.c(this.f66344a)) == null) {
+                            if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || (c2 = b.c(this.f66544a)) == null) {
                                 return;
                             }
                             try {
                                 JSONObject jSONObject2 = new JSONObject();
-                                jSONObject2.put("latitude", Float.toString(c2.f66337a));
-                                jSONObject2.put("longitude", Float.toString(c2.f66338b));
-                                jSONObject2.put("lbstime", c2.f66339c);
+                                jSONObject2.put("latitude", Float.toString(c2.f66537a));
+                                jSONObject2.put("longitude", Float.toString(c2.f66538b));
+                                jSONObject2.put("lbstime", c2.f66539c);
                                 h.a("sdk_ad_location", jSONObject2.toString());
                             } catch (JSONException e2) {
                                 e2.printStackTrace();
                             }
-                            com.bytedance.sdk.openadsdk.core.k.a unused = b.f66341b = c2;
+                            com.bytedance.sdk.openadsdk.core.k.a unused = b.f66541b = c2;
                         }
                     });
                 }
-                if (f66341b == null) {
-                    f66341b = aVar;
+                if (f66541b == null) {
+                    f66541b = aVar;
                     k.c("AdLocationUtils", "Use the last valid location");
                 }
-                return f66341b;
+                return f66541b;
             }
             return null;
         }
@@ -380,7 +380,7 @@ public class b {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ LocationManager f66349a;
+            public final /* synthetic */ LocationManager f66549a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -397,7 +397,7 @@ public class b {
                         return;
                     }
                 }
-                this.f66349a = locationManager;
+                this.f66549a = locationManager;
             }
 
             @Override // android.location.LocationListener
@@ -407,7 +407,7 @@ public class b {
                     if (location != null) {
                         b.b(location);
                     }
-                    b.b(this.f66349a, this);
+                    b.b(this.f66549a, this);
                 }
             }
 
@@ -438,15 +438,15 @@ public class b {
                 return;
             }
             locationManager.requestSingleUpdate(b2, locationListener, Looper.getMainLooper());
-            f66343d.postDelayed(new Runnable(locationManager, locationListener) { // from class: com.bytedance.sdk.openadsdk.core.k.b.6
+            f66543d.postDelayed(new Runnable(locationManager, locationListener) { // from class: com.bytedance.sdk.openadsdk.core.k.b.6
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ LocationManager f66350a;
+                public final /* synthetic */ LocationManager f66550a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ LocationListener f66351b;
+                public final /* synthetic */ LocationListener f66551b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -463,15 +463,15 @@ public class b {
                             return;
                         }
                     }
-                    this.f66350a = locationManager;
-                    this.f66351b = locationListener;
+                    this.f66550a = locationManager;
+                    this.f66551b = locationListener;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        b.b(this.f66350a, this.f66351b);
+                        b.b(this.f66550a, this.f66551b);
                     }
                 }
             }, 30000L);
@@ -506,7 +506,7 @@ public class b {
     public static boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? System.currentTimeMillis() - f66342c > f66340a : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? System.currentTimeMillis() - f66542c > f66540a : invokeV.booleanValue;
     }
 
     public static Location a(LocationManager locationManager) {
@@ -527,13 +527,13 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, locationManager, str)) == null) {
             try {
-                f fVar = new f(new CallableC1903b(locationManager, str), 1, 2);
+                f fVar = new f(new CallableC1907b(locationManager, str), 1, 2);
                 e.a(new g("getLastKnownLocation", fVar) { // from class: com.bytedance.sdk.openadsdk.core.k.b.3
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ f f66347a;
+                    public final /* synthetic */ f f66547a;
 
                     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                     {
@@ -553,14 +553,14 @@ public class b {
                                 return;
                             }
                         }
-                        this.f66347a = fVar;
+                        this.f66547a = fVar;
                     }
 
                     @Override // java.lang.Runnable
                     public void run() {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            this.f66347a.run();
+                            this.f66547a.run();
                         }
                     }
                 });

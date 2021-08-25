@@ -14,19 +14,19 @@ public class c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f71044a;
+    public String f71244a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f71045b;
+    public String f71245b;
 
     /* renamed from: c  reason: collision with root package name */
-    public VideoPlayerStatus f71046c;
+    public VideoPlayerStatus f71246c;
 
     /* renamed from: d  reason: collision with root package name */
-    public b f71047d;
+    public b f71247d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f71048e;
+    public boolean f71248e;
 
     /* renamed from: com.kwad.sdk.contentalliance.detail.video.c$1  reason: invalid class name */
     /* loaded from: classes10.dex */
@@ -41,19 +41,19 @@ public class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f71049a;
+        public String f71249a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f71050b;
+        public String f71250b;
 
         /* renamed from: c  reason: collision with root package name */
-        public VideoPlayerStatus f71051c;
+        public VideoPlayerStatus f71251c;
 
         /* renamed from: d  reason: collision with root package name */
-        public b f71052d;
+        public b f71252d;
 
         /* renamed from: e  reason: collision with root package name */
-        public boolean f71053e;
+        public boolean f71253e;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -68,14 +68,14 @@ public class c {
                     return;
                 }
             }
-            this.f71053e = false;
+            this.f71253e = false;
         }
 
         public a a(@NonNull b bVar) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bVar)) == null) {
-                this.f71052d = bVar;
+                this.f71252d = bVar;
                 return this;
             }
             return (a) invokeL.objValue;
@@ -85,7 +85,7 @@ public class c {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, videoPlayerStatus)) == null) {
-                this.f71051c = videoPlayerStatus;
+                this.f71251c = videoPlayerStatus;
                 return this;
             }
             return (a) invokeL.objValue;
@@ -95,7 +95,7 @@ public class c {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-                this.f71049a = str;
+                this.f71249a = str;
                 return this;
             }
             return (a) invokeL.objValue;
@@ -105,7 +105,7 @@ public class c {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZ = interceptable.invokeZ(1048579, this, z)) == null) {
-                this.f71053e = z;
+                this.f71253e = z;
                 return this;
             }
             return (a) invokeZ.objValue;
@@ -121,7 +121,7 @@ public class c {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-                this.f71050b = str;
+                this.f71250b = str;
                 return this;
             }
             return (a) invokeL.objValue;
@@ -143,18 +143,18 @@ public class c {
                 return;
             }
         }
-        this.f71047d = new b();
-        this.f71048e = false;
-        this.f71044a = aVar.f71049a;
-        this.f71045b = aVar.f71050b;
-        this.f71046c = aVar.f71051c;
-        if (aVar.f71052d != null) {
-            this.f71047d.f71040a = aVar.f71052d.f71040a;
-            this.f71047d.f71041b = aVar.f71052d.f71041b;
-            this.f71047d.f71042c = aVar.f71052d.f71042c;
-            this.f71047d.f71043d = aVar.f71052d.f71043d;
+        this.f71247d = new b();
+        this.f71248e = false;
+        this.f71244a = aVar.f71249a;
+        this.f71245b = aVar.f71250b;
+        this.f71246c = aVar.f71251c;
+        if (aVar.f71252d != null) {
+            this.f71247d.f71240a = aVar.f71252d.f71240a;
+            this.f71247d.f71241b = aVar.f71252d.f71241b;
+            this.f71247d.f71242c = aVar.f71252d.f71242c;
+            this.f71247d.f71243d = aVar.f71252d.f71243d;
         }
-        this.f71048e = aVar.f71053e;
+        this.f71248e = aVar.f71253e;
     }
 
     public /* synthetic */ c(a aVar, AnonymousClass1 anonymousClass1) {

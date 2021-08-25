@@ -26,49 +26,49 @@ public class g {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f42670b;
+    public static boolean f42777b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public c f42671a;
+    public c f42778a;
 
     /* renamed from: c  reason: collision with root package name */
-    public Context f42672c;
+    public Context f42779c;
 
     /* renamed from: d  reason: collision with root package name */
-    public a.C1673a f42673d;
+    public a.C1677a f42780d;
 
     /* renamed from: e  reason: collision with root package name */
-    public com.baidu.mobads.cid.cesium.b.b f42674e;
+    public com.baidu.mobads.cid.cesium.b.b f42781e;
 
     /* loaded from: classes5.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final String[] f42675b;
+        public static final String[] f42782b;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public boolean f42676a;
+        public boolean f42783a;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f42677c;
+        public String f42784c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f42678d;
+        public String f42785d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f42679e;
+        public String f42786e;
 
         /* renamed from: f  reason: collision with root package name */
-        public long f42680f;
+        public long f42787f;
 
         /* renamed from: g  reason: collision with root package name */
-        public String f42681g;
+        public String f42788g;
 
         /* renamed from: h  reason: collision with root package name */
-        public int f42682h;
+        public int f42789h;
 
         static {
             InterceptResult invokeClinit;
@@ -83,7 +83,7 @@ public class g {
                     return;
                 }
             }
-            f42675b = new String[]{"V", "O", "0"};
+            f42782b = new String[]{"V", "O", "0"};
         }
 
         public a() {
@@ -99,18 +99,18 @@ public class g {
                     return;
                 }
             }
-            this.f42682h = 1;
-            this.f42676a = false;
+            this.f42789h = 1;
+            this.f42783a = false;
         }
 
         public String a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (this.f42676a) {
+                if (this.f42783a) {
                     return null;
                 }
-                return this.f42677c;
+                return this.f42784c;
             }
             return (String) invokeV.objValue;
         }
@@ -121,12 +121,12 @@ public class g {
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
                 try {
                     JSONObject jSONObject = new JSONObject();
-                    jSONObject.put("dik", this.f42677c);
-                    jSONObject.put("v270fk", this.f42678d);
-                    jSONObject.put("cck", this.f42679e);
-                    jSONObject.put("vsk", this.f42682h);
-                    jSONObject.put("ctk", this.f42680f);
-                    jSONObject.put("ek", this.f42681g);
+                    jSONObject.put("dik", this.f42784c);
+                    jSONObject.put("v270fk", this.f42785d);
+                    jSONObject.put("cck", this.f42786e);
+                    jSONObject.put("vsk", this.f42789h);
+                    jSONObject.put("ctk", this.f42787f);
+                    jSONObject.put("ek", this.f42788g);
                     return jSONObject.toString();
                 } catch (JSONException e2) {
                     com.baidu.mobads.cid.cesium.f.c.a(e2);
@@ -140,22 +140,22 @@ public class g {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                if (this.f42676a) {
+                if (this.f42783a) {
                     return null;
                 }
-                String str = this.f42678d;
+                String str = this.f42785d;
                 if (TextUtils.isEmpty(str)) {
                     str = "0";
                 }
                 StringBuilder sb = new StringBuilder();
-                sb.append(this.f42677c);
+                sb.append(this.f42784c);
                 sb.append("|");
                 sb.append(str);
                 if ("V".equals(str)) {
-                    sb.append(this.f42679e);
+                    sb.append(this.f42786e);
                 }
-                if (!TextUtils.isEmpty(this.f42681g)) {
-                    sb.append(this.f42681g);
+                if (!TextUtils.isEmpty(this.f42788g)) {
+                    sb.append(this.f42788g);
                 }
                 return sb.toString().trim();
             }
@@ -173,9 +173,9 @@ public class g {
                     return false;
                 }
                 a aVar = (a) obj;
-                if (this.f42682h == aVar.f42682h && this.f42677c.equals(aVar.f42677c) && this.f42678d.equals(aVar.f42678d) && this.f42679e.equals(aVar.f42679e)) {
-                    String str = this.f42681g;
-                    String str2 = aVar.f42681g;
+                if (this.f42789h == aVar.f42789h && this.f42784c.equals(aVar.f42784c) && this.f42785d.equals(aVar.f42785d) && this.f42786e.equals(aVar.f42786e)) {
+                    String str = this.f42788g;
+                    String str2 = aVar.f42788g;
                     if (str == str2) {
                         return true;
                     }
@@ -191,7 +191,7 @@ public class g {
         public int hashCode() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? Arrays.hashCode(new Object[]{this.f42677c, this.f42678d, this.f42679e, this.f42681g, Integer.valueOf(this.f42682h)}) : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? Arrays.hashCode(new Object[]{this.f42784c, this.f42785d, this.f42786e, this.f42788g, Integer.valueOf(this.f42789h)}) : invokeV.intValue;
         }
     }
 
@@ -228,11 +228,11 @@ public class g {
         if (context == null) {
             throw new NullPointerException("context should not be null!!!");
         }
-        this.f42672c = context.getApplicationContext();
-        a.C1673a a2 = aVar.b().a("bohrium");
-        this.f42673d = a2;
+        this.f42779c = context.getApplicationContext();
+        a.C1677a a2 = aVar.b().a("bohrium");
+        this.f42780d = a2;
         a2.a();
-        this.f42671a = cVar;
+        this.f42778a = cVar;
         a(aVar);
     }
 
@@ -253,12 +253,12 @@ public class g {
                 String optString4 = jSONObject.optString("v270fk", "V");
                 if (!TextUtils.isEmpty(optString)) {
                     a aVar = new a();
-                    aVar.f42677c = optString;
-                    aVar.f42679e = optString2;
-                    aVar.f42680f = optLong;
-                    aVar.f42682h = optInt;
-                    aVar.f42681g = optString3;
-                    aVar.f42678d = optString4;
+                    aVar.f42784c = optString;
+                    aVar.f42786e = optString2;
+                    aVar.f42787f = optLong;
+                    aVar.f42789h = optInt;
+                    aVar.f42788g = optString3;
+                    aVar.f42785d = optString4;
                     return aVar;
                 }
             } catch (Exception e2) {
@@ -278,12 +278,12 @@ public class g {
                     String b2 = b(str);
                     long currentTimeMillis = System.currentTimeMillis();
                     a aVar = new a();
-                    aVar.f42677c = str;
-                    aVar.f42679e = b2;
-                    aVar.f42680f = currentTimeMillis;
-                    aVar.f42682h = 1;
-                    aVar.f42681g = str3;
-                    aVar.f42678d = str2;
+                    aVar.f42784c = str;
+                    aVar.f42786e = b2;
+                    aVar.f42787f = currentTimeMillis;
+                    aVar.f42789h = 1;
+                    aVar.f42788g = str3;
+                    aVar.f42785d = str2;
                     return aVar;
                 } catch (Exception e2) {
                     com.baidu.mobads.cid.cesium.f.c.a(e2);
@@ -308,15 +308,15 @@ public class g {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, aVar) == null) {
             com.baidu.mobads.cid.cesium.b.b bVar = new com.baidu.mobads.cid.cesium.b.b(new com.baidu.mobads.cid.cesium.a());
-            a.C1671a c1671a = new a.C1671a();
-            c1671a.f42534a = this.f42672c;
-            c1671a.f42535b = aVar;
+            a.C1675a c1675a = new a.C1675a();
+            c1675a.f42641a = this.f42779c;
+            c1675a.f42642b = aVar;
             a.c cVar = new a.c();
             for (com.baidu.mobads.cid.cesium.b.a aVar2 : bVar.a()) {
-                aVar2.a(c1671a);
+                aVar2.a(c1675a);
                 aVar2.a(cVar);
             }
-            this.f42674e = bVar;
+            this.f42781e = bVar;
         }
     }
 
@@ -339,7 +339,7 @@ public class g {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             a aVar = new a();
-            aVar.f42676a = true;
+            aVar.f42783a = true;
             return aVar;
         }
         return (a) invokeV.objValue;
@@ -352,28 +352,28 @@ public class g {
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, eVar)) == null) {
             if (eVar != null) {
                 a aVar = new a();
-                aVar.f42680f = System.currentTimeMillis();
-                aVar.f42682h = 1;
+                aVar.f42787f = System.currentTimeMillis();
+                aVar.f42789h = 1;
                 try {
                     boolean z = false;
-                    aVar.f42678d = eVar.f42654b.substring(0, 1);
-                    aVar.f42677c = eVar.f42653a;
-                    aVar.f42679e = b(eVar.f42653a);
-                    String[] strArr = a.f42675b;
+                    aVar.f42785d = eVar.f42761b.substring(0, 1);
+                    aVar.f42784c = eVar.f42760a;
+                    aVar.f42786e = b(eVar.f42760a);
+                    String[] strArr = a.f42782b;
                     int length = strArr.length;
                     int i2 = 0;
                     while (true) {
                         if (i2 >= length) {
                             z = true;
                             break;
-                        } else if (strArr[i2].equals(aVar.f42678d)) {
+                        } else if (strArr[i2].equals(aVar.f42785d)) {
                             break;
                         } else {
                             i2++;
                         }
                     }
-                    if (z && (str = eVar.f42654b) != null && str.length() >= 2) {
-                        aVar.f42681g = eVar.f42654b.substring(1);
+                    if (z && (str = eVar.f42761b) != null && str.length() >= 2) {
+                        aVar.f42788g = eVar.f42761b.substring(1);
                     }
                     return aVar;
                 } catch (Exception unused) {
@@ -391,16 +391,16 @@ public class g {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             a.d dVar = new a.d();
-            dVar.f42540a = true;
-            List<com.baidu.mobads.cid.cesium.b.a> a2 = this.f42674e.a();
-            Collections.sort(a2, com.baidu.mobads.cid.cesium.b.a.f42529c);
-            List<b> b2 = this.f42671a.b(this.f42672c);
+            dVar.f42647a = true;
+            List<com.baidu.mobads.cid.cesium.b.a> a2 = this.f42781e.a();
+            Collections.sort(a2, com.baidu.mobads.cid.cesium.b.a.f42636c);
+            List<b> b2 = this.f42778a.b(this.f42779c);
             if (b2 != null) {
                 for (b bVar : b2) {
-                    if (!bVar.f42528d && bVar.f42527c) {
+                    if (!bVar.f42635d && bVar.f42634c) {
                         for (com.baidu.mobads.cid.cesium.b.a aVar2 : a2) {
-                            a.e a3 = aVar2.a(bVar.f42525a.packageName, dVar);
-                            if (a3 != null && a3.a() && (aVar = a3.f42541a) != null) {
+                            a.e a3 = aVar2.a(bVar.f42632a.packageName, dVar);
+                            if (a3 != null && a3.a() && (aVar = a3.f42648a) != null) {
                                 return aVar;
                             }
                         }
@@ -418,15 +418,15 @@ public class g {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            String a2 = a(this.f42672c);
+            String a2 = a(this.f42779c);
             String a3 = com.baidu.mobads.cid.cesium.d.b.a(("com.baidu" + a2).getBytes(), true);
             a aVar = new a();
-            aVar.f42680f = System.currentTimeMillis();
-            aVar.f42682h = 1;
-            aVar.f42677c = a3;
-            aVar.f42678d = "V";
-            aVar.f42679e = b(a3);
-            aVar.f42681g = null;
+            aVar.f42787f = System.currentTimeMillis();
+            aVar.f42789h = 1;
+            aVar.f42784c = a3;
+            aVar.f42785d = "V";
+            aVar.f42786e = b(a3);
+            aVar.f42788g = null;
             return aVar;
         }
         return (a) invokeV.objValue;

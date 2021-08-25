@@ -17,23 +17,23 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static a f71865a;
+    public static a f72065a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Object f71866b;
+    public static Object f72066b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public HashMap<String, URLPackage> f71867c;
+    public HashMap<String, URLPackage> f72067c;
 
     /* renamed from: d  reason: collision with root package name */
-    public HashMap<String, URLPackage> f71868d;
+    public HashMap<String, URLPackage> f72068d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final URLPackage f71869e;
+    public final URLPackage f72069e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final EntryPackage f71870f;
+    public final EntryPackage f72070f;
 
     static {
         InterceptResult invokeClinit;
@@ -48,7 +48,7 @@ public class a {
                 return;
             }
         }
-        f71866b = new Object();
+        f72066b = new Object();
     }
 
     public a() {
@@ -64,24 +64,24 @@ public class a {
                 return;
             }
         }
-        this.f71867c = new HashMap<>();
-        this.f71868d = new HashMap<>();
-        this.f71869e = new URLPackage("", 0);
-        this.f71870f = new EntryPackage("", 0);
+        this.f72067c = new HashMap<>();
+        this.f72068d = new HashMap<>();
+        this.f72069e = new URLPackage("", 0);
+        this.f72070f = new EntryPackage("", 0);
     }
 
     public static a a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f71865a == null) {
-                synchronized (f71866b) {
-                    if (f71865a == null) {
-                        f71865a = new a();
+            if (f72065a == null) {
+                synchronized (f72066b) {
+                    if (f72065a == null) {
+                        f72065a = new a();
                     }
                 }
             }
-            return f71865a;
+            return f72065a;
         }
         return (a) invokeV.objValue;
     }
@@ -91,7 +91,7 @@ public class a {
         InterceptResult invokeL;
         URLPackage uRLPackage;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? (TextUtils.isEmpty(str) || (uRLPackage = this.f71867c.get(str)) == null || (uRLPackage instanceof EntryPackage)) ? this.f71869e : uRLPackage : (URLPackage) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? (TextUtils.isEmpty(str) || (uRLPackage = this.f72067c.get(str)) == null || (uRLPackage instanceof EntryPackage)) ? this.f72069e : uRLPackage : (URLPackage) invokeL.objValue;
     }
 
     public EntryPackage b(String str) {
@@ -99,20 +99,20 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
             if (!TextUtils.isEmpty(str)) {
-                URLPackage uRLPackage = this.f71867c.get(str);
-                int size = this.f71867c.size();
+                URLPackage uRLPackage = this.f72067c.get(str);
+                int size = this.f72067c.size();
                 for (int i2 = 0; uRLPackage != null && !(uRLPackage instanceof EntryPackage) && i2 < size; i2++) {
                     String str2 = uRLPackage.identity;
                     if (TextUtils.isEmpty(str2)) {
                         break;
                     }
-                    uRLPackage = this.f71867c.get(str2);
+                    uRLPackage = this.f72067c.get(str2);
                 }
                 if (uRLPackage instanceof EntryPackage) {
                     return (EntryPackage) uRLPackage;
                 }
             }
-            return this.f71870f;
+            return this.f72070f;
         }
         return (EntryPackage) invokeL.objValue;
     }

@@ -31,34 +31,34 @@ public abstract class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Activity f65351a;
+    public Activity f65551a;
 
     /* renamed from: b  reason: collision with root package name */
-    public m f65352b;
+    public m f65552b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f65353c;
+    public String f65553c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f65354d;
+    public boolean f65554d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f65355e;
+    public String f65555e;
 
     /* renamed from: f  reason: collision with root package name */
-    public SSWebView f65356f;
+    public SSWebView f65556f;
 
     /* renamed from: g  reason: collision with root package name */
-    public w f65357g;
+    public w f65557g;
 
     /* renamed from: h  reason: collision with root package name */
-    public q f65358h;
+    public q f65558h;
 
     /* renamed from: i  reason: collision with root package name */
-    public j f65359i;
+    public j f65559i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f65360j;
+    public int f65560j;
     public String k;
     public boolean l;
     public final AtomicBoolean m;
@@ -84,7 +84,7 @@ public abstract class a {
                 return;
             }
         }
-        this.f65360j = 0;
+        this.f65560j = 0;
         this.k = "";
         this.l = false;
         this.m = new AtomicBoolean(true);
@@ -93,7 +93,7 @@ public abstract class a {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ a f65361a;
+            public final /* synthetic */ a f65561a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -110,7 +110,7 @@ public abstract class a {
                         return;
                     }
                 }
-                this.f65361a = this;
+                this.f65561a = this;
             }
 
             @Override // com.bytedance.sdk.openadsdk.i.a
@@ -118,10 +118,10 @@ public abstract class a {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
-                    SSWebView sSWebView = this.f65361a.f65356f;
+                    SSWebView sSWebView = this.f65561a.f65556f;
                     int measuredHeight = sSWebView != null ? sSWebView.getMeasuredHeight() : -1;
                     k.c("TTAndroidObject", "mWebView>>>>height=" + measuredHeight);
-                    return measuredHeight <= 0 ? s.d((Context) this.f65361a.f65351a) : measuredHeight;
+                    return measuredHeight <= 0 ? s.d((Context) this.f65561a.f65551a) : measuredHeight;
                 }
                 return invokeV.intValue;
             }
@@ -131,10 +131,10 @@ public abstract class a {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                    SSWebView sSWebView = this.f65361a.f65356f;
+                    SSWebView sSWebView = this.f65561a.f65556f;
                     int measuredWidth = sSWebView != null ? sSWebView.getMeasuredWidth() : -1;
                     k.c("TTAndroidObject", "mWebView>>>>width=" + measuredWidth);
-                    return measuredWidth <= 0 ? s.c((Context) this.f65361a.f65351a) : measuredWidth;
+                    return measuredWidth <= 0 ? s.c((Context) this.f65561a.f65551a) : measuredWidth;
                 }
                 return invokeV.intValue;
             }
@@ -144,7 +144,7 @@ public abstract class a {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ a f65362a;
+            public final /* synthetic */ a f65562a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -161,14 +161,14 @@ public abstract class a {
                         return;
                     }
                 }
-                this.f65362a = this;
+                this.f65562a = this;
             }
 
             @Override // com.bytedance.sdk.openadsdk.i.h
             public void a() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    SSWebView sSWebView = this.f65362a.f65356f;
+                    SSWebView sSWebView = this.f65562a.f65556f;
                     if (sSWebView == null) {
                         k.b("BaseEndCard", "webView has destroy when onPauseWebView");
                         return;
@@ -182,7 +182,7 @@ public abstract class a {
             public void b() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                    SSWebView sSWebView = this.f65362a.f65356f;
+                    SSWebView sSWebView = this.f65562a.f65556f;
                     if (sSWebView == null) {
                         k.b("BaseEndCard", "webView has destroy when onPauseWebViewTimers");
                         return;
@@ -192,28 +192,28 @@ public abstract class a {
                 }
             }
         };
-        this.f65351a = activity;
-        this.f65352b = mVar;
-        this.f65353c = str;
+        this.f65551a = activity;
+        this.f65552b = mVar;
+        this.f65553c = str;
         this.n = i2;
         this.o = i3;
         this.p = i4;
         this.q = f2;
-        this.f65354d = z;
-        this.f65355e = str2;
+        this.f65554d = z;
+        this.f65555e = str2;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(int i2, int i3) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeII(65538, this, i2, i3) == null) || this.f65357g == null || this.f65351a.isFinishing()) {
+        if (!(interceptable == null || interceptable.invokeII(65538, this, i2, i3) == null) || this.f65557g == null || this.f65551a.isFinishing()) {
             return;
         }
         try {
             JSONObject jSONObject = new JSONObject();
             jSONObject.put("width", i2);
             jSONObject.put("height", i3);
-            this.f65357g.a("resize", jSONObject);
+            this.f65557g.a("resize", jSONObject);
         } catch (Exception e2) {
             e2.printStackTrace();
         }
@@ -221,11 +221,11 @@ public abstract class a {
 
     public void c(boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048585, this, z) == null) || this.f65357g == null || this.f65351a.isFinishing()) {
+        if (!(interceptable == null || interceptable.invokeZ(1048585, this, z) == null) || this.f65557g == null || this.f65551a.isFinishing()) {
             return;
         }
         try {
-            this.f65357g.b(z);
+            this.f65557g.b(z);
         } catch (Exception e2) {
             e2.printStackTrace();
         }
@@ -235,38 +235,38 @@ public abstract class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
             if (z) {
-                s.a((View) this.f65356f, 0.0f);
+                s.a((View) this.f65556f, 0.0f);
             }
-            s.a((View) this.f65356f, 0);
+            s.a((View) this.f65556f, 0);
         }
     }
 
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            s.a((View) this.f65356f, 8);
+            s.a((View) this.f65556f, 8);
         }
     }
 
     public void f() {
         SSWebView sSWebView;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048590, this) == null) && (sSWebView = this.f65356f) != null && sSWebView.canGoBack()) {
-            this.f65356f.goBack();
+        if ((interceptable == null || interceptable.invokeV(1048590, this) == null) && (sSWebView = this.f65556f) != null && sSWebView.canGoBack()) {
+            this.f65556f.goBack();
         }
     }
 
     public void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            this.f65358h = null;
+            this.f65558h = null;
         }
     }
 
     public int h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.f65360j : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.f65560j : invokeV.intValue;
     }
 
     public String i() {
@@ -278,27 +278,27 @@ public abstract class a {
     public void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
-            SSWebView sSWebView = this.f65356f;
+            SSWebView sSWebView = this.f65556f;
             if (sSWebView != null) {
                 sSWebView.onResume();
             }
-            w wVar = this.f65357g;
+            w wVar = this.f65557g;
             if (wVar != null) {
                 wVar.q();
-                SSWebView sSWebView2 = this.f65356f;
+                SSWebView sSWebView2 = this.f65556f;
                 if (sSWebView2 != null) {
                     if (sSWebView2.getVisibility() == 0) {
-                        this.f65357g.b(true);
+                        this.f65557g.b(true);
                         a(true);
                         a(false, true);
                     } else {
-                        this.f65357g.b(false);
+                        this.f65557g.b(false);
                         a(false);
                         a(true, false);
                     }
                 }
             }
-            j jVar = this.f65359i;
+            j jVar = this.f65559i;
             if (jVar != null) {
                 jVar.c();
             }
@@ -308,14 +308,14 @@ public abstract class a {
     public void k() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
-            SSWebView sSWebView = this.f65356f;
+            SSWebView sSWebView = this.f65556f;
             if (sSWebView != null) {
                 sSWebView.onPause();
             }
-            w wVar = this.f65357g;
+            w wVar = this.f65557g;
             if (wVar != null) {
                 wVar.r();
-                this.f65357g.b(false);
+                this.f65557g.b(false);
                 a(false);
                 a(true, false);
             }
@@ -325,7 +325,7 @@ public abstract class a {
     public void l() {
         j jVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048596, this) == null) || (jVar = this.f65359i) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048596, this) == null) || (jVar = this.f65559i) == null) {
             return;
         }
         jVar.d();
@@ -334,23 +334,23 @@ public abstract class a {
     public void m() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
-            SSWebView sSWebView = this.f65356f;
+            SSWebView sSWebView = this.f65556f;
             if (sSWebView != null) {
                 sSWebView.destroy();
-                aa.a(this.f65351a, this.f65356f);
-                aa.a(this.f65356f);
+                aa.a(this.f65551a, this.f65556f);
+                aa.a(this.f65556f);
             }
-            this.f65356f = null;
-            w wVar = this.f65357g;
+            this.f65556f = null;
+            w wVar = this.f65557g;
             if (wVar != null) {
                 wVar.s();
             }
-            q qVar = this.f65358h;
+            q qVar = this.f65558h;
             if (qVar != null) {
                 qVar.a(true);
-                this.f65358h.t();
+                this.f65558h.t();
             }
-            j jVar = this.f65359i;
+            j jVar = this.f65559i;
             if (jVar != null) {
                 jVar.e();
             }
@@ -360,18 +360,18 @@ public abstract class a {
     public void n() {
         SSWebView sSWebView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048598, this) == null) || (sSWebView = this.f65356f) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048598, this) == null) || (sSWebView = this.f65556f) == null) {
             return;
         }
         sSWebView.onResume();
-        this.f65356f.resumeTimers();
-        s.a((View) this.f65356f, 1.0f);
+        this.f65556f.resumeTimers();
+        s.a((View) this.f65556f, 1.0f);
     }
 
     public void o() {
         q qVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048599, this) == null) || (qVar = this.f65358h) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048599, this) == null) || (qVar = this.f65558h) == null) {
             return;
         }
         qVar.n();
@@ -380,7 +380,7 @@ public abstract class a {
     public void p() {
         q qVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048600, this) == null) || (qVar = this.f65358h) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048600, this) == null) || (qVar = this.f65558h) == null) {
             return;
         }
         qVar.m();
@@ -389,7 +389,7 @@ public abstract class a {
     public void q() {
         q qVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048601, this) == null) || (qVar = this.f65358h) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048601, this) == null) || (qVar = this.f65558h) == null) {
             return;
         }
         qVar.o();
@@ -398,7 +398,7 @@ public abstract class a {
     public void r() {
         q qVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048602, this) == null) || (qVar = this.f65358h) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048602, this) == null) || (qVar = this.f65558h) == null) {
             return;
         }
         qVar.p();
@@ -407,18 +407,18 @@ public abstract class a {
     public void s() {
         q qVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048603, this) == null) || (qVar = this.f65358h) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048603, this) == null) || (qVar = this.f65558h) == null) {
             return;
         }
         qVar.c();
-        this.f65358h.h();
+        this.f65558h.h();
     }
 
     public boolean t() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) {
-            w wVar = this.f65357g;
+            w wVar = this.f65557g;
             if (wVar == null) {
                 return false;
             }
@@ -430,7 +430,7 @@ public abstract class a {
     public void a() {
         SSWebView sSWebView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (sSWebView = this.f65356f) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (sSWebView = this.f65556f) == null) {
             return;
         }
         sSWebView.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener(this) { // from class: com.bytedance.sdk.openadsdk.component.reward.a.a.3
@@ -438,7 +438,7 @@ public abstract class a {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ a f65363a;
+            public final /* synthetic */ a f65563a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -455,7 +455,7 @@ public abstract class a {
                         return;
                     }
                 }
-                this.f65363a = this;
+                this.f65563a = this;
             }
 
             @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
@@ -464,14 +464,14 @@ public abstract class a {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                     if (Build.VERSION.SDK_INT >= 16) {
-                        this.f65363a.f65356f.getViewTreeObserver().removeOnGlobalLayoutListener(this);
+                        this.f65563a.f65556f.getViewTreeObserver().removeOnGlobalLayoutListener(this);
                     } else {
-                        this.f65363a.f65356f.getViewTreeObserver().removeGlobalOnLayoutListener(this);
+                        this.f65563a.f65556f.getViewTreeObserver().removeGlobalOnLayoutListener(this);
                     }
-                    int measuredWidth = this.f65363a.f65356f.getMeasuredWidth();
-                    int measuredHeight = this.f65363a.f65356f.getMeasuredHeight();
-                    if (this.f65363a.f65356f.getVisibility() == 0) {
-                        this.f65363a.b(measuredWidth, measuredHeight);
+                    int measuredWidth = this.f65563a.f65556f.getMeasuredWidth();
+                    int measuredHeight = this.f65563a.f65556f.getMeasuredHeight();
+                    if (this.f65563a.f65556f.getVisibility() == 0) {
+                        this.f65563a.b(measuredWidth, measuredHeight);
                     }
                 }
             }
@@ -481,7 +481,7 @@ public abstract class a {
     public void d() {
         j jVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048587, this) == null) || (jVar = this.f65359i) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048587, this) == null) || (jVar = this.f65559i) == null) {
             return;
         }
         jVar.a(System.currentTimeMillis());
@@ -495,13 +495,13 @@ public abstract class a {
 
     public void a(boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048580, this, z) == null) || this.f65357g == null || this.f65351a.isFinishing()) {
+        if (!(interceptable == null || interceptable.invokeZ(1048580, this, z) == null) || this.f65557g == null || this.f65551a.isFinishing()) {
             return;
         }
         try {
             JSONObject jSONObject = new JSONObject();
             jSONObject.put("viewStatus", z ? 1 : 0);
-            this.f65357g.a("viewableChange", jSONObject);
+            this.f65557g.a("viewableChange", jSONObject);
         } catch (Exception e2) {
             e2.printStackTrace();
         }
@@ -509,13 +509,13 @@ public abstract class a {
 
     public void b(boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048583, this, z) == null) || this.f65357g == null || this.f65351a.isFinishing()) {
+        if (!(interceptable == null || interceptable.invokeZ(1048583, this, z) == null) || this.f65557g == null || this.f65551a.isFinishing()) {
             return;
         }
         try {
             JSONObject jSONObject = new JSONObject();
             jSONObject.put("endcard_mute", z);
-            this.f65357g.a("volumeChange", jSONObject);
+            this.f65557g.a("volumeChange", jSONObject);
         } catch (Exception e2) {
             e2.printStackTrace();
         }
@@ -523,14 +523,14 @@ public abstract class a {
 
     public void a(boolean z, boolean z2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) || this.f65357g == null || this.f65351a.isFinishing()) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) || this.f65557g == null || this.f65551a.isFinishing()) {
             return;
         }
         try {
             JSONObject jSONObject = new JSONObject();
             jSONObject.put("endcard_mute", z);
             jSONObject.put("endcard_show", z2);
-            this.f65357g.a("endcard_control_event", jSONObject);
+            this.f65557g.a("endcard_control_event", jSONObject);
         } catch (Exception e2) {
             e2.printStackTrace();
         }
@@ -544,14 +544,14 @@ public abstract class a {
 
     public void a(int i2, int i3) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3) == null) || this.f65357g == null || this.f65351a.isFinishing()) {
+        if (!(interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3) == null) || this.f65557g == null || this.f65551a.isFinishing()) {
             return;
         }
         try {
             JSONObject jSONObject = new JSONObject();
             jSONObject.put("downloadStatus", i2);
             jSONObject.put("downloadProcessRate", i3);
-            this.f65357g.b("showDownloadStatus", jSONObject);
+            this.f65557g.b("showDownloadStatus", jSONObject);
         } catch (Exception e2) {
             e2.printStackTrace();
         }
@@ -570,20 +570,20 @@ public abstract class a {
         if (!(interceptable == null || interceptable.invokeL(1048579, this, sSWebView) == null) || sSWebView == null) {
             return;
         }
-        com.bytedance.sdk.openadsdk.core.widget.webview.c.a(this.f65351a).a(false).b(false).a(sSWebView);
+        com.bytedance.sdk.openadsdk.core.widget.webview.c.a(this.f65551a).a(false).b(false).a(sSWebView);
         sSWebView.getSettings().setUserAgentString(i.a(sSWebView, 3703));
         if (Build.VERSION.SDK_INT >= 21) {
             sSWebView.getSettings().setMixedContentMode(0);
         }
         if (Build.VERSION.SDK_INT < 24) {
-            this.f65356f.setLayerType(0, null);
+            this.f65556f.setLayerType(0, null);
         }
     }
 
     public void a(boolean z, int i2, String str) {
         q qVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), str}) == null) || (qVar = this.f65358h) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), str}) == null) || (qVar = this.f65558h) == null) {
             return;
         }
         if (z) {

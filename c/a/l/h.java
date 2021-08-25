@@ -8,12 +8,12 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
-public abstract class h extends a<c.a.o0.s.q.a> {
+public abstract class h extends a<c.a.p0.s.q.a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f3570j;
+    public int f3812j;
     public int k;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -34,7 +34,7 @@ public abstract class h extends a<c.a.o0.s.q.a> {
                 return;
             }
         }
-        this.f3570j = 0;
+        this.f3812j = 0;
         this.k = 0;
     }
 
@@ -47,7 +47,7 @@ public abstract class h extends a<c.a.o0.s.q.a> {
     public int o() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f3570j : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f3812j : invokeV.intValue;
     }
 
     public void p(int i2) {
@@ -60,7 +60,7 @@ public abstract class h extends a<c.a.o0.s.q.a> {
     public void q(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            this.f3570j = i2;
+            this.f3812j = i2;
         }
     }
 }

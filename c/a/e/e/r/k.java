@@ -10,13 +10,13 @@ public class k extends r {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public byte[] f2624a;
+    public byte[] f2682a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f2625b;
+    public long f2683b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f2626c;
+    public long f2684c;
 
     public k(byte[] bArr, long j2, long j3) {
         Interceptable interceptable = $ic;
@@ -33,8 +33,8 @@ public class k extends r {
                 return;
             }
         }
-        this.f2624a = bArr;
-        this.f2625b = j2;
-        this.f2626c = j3;
+        this.f2682a = bArr;
+        this.f2683b = j2;
+        this.f2684c = j3;
     }
 }

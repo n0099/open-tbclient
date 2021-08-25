@@ -12,10 +12,10 @@ public final class ci implements View.OnClickListener {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ int f59400a;
+    public final /* synthetic */ int f59600a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ cg f59401b;
+    public final /* synthetic */ cg f59601b;
 
     public ci(cg cgVar, int i2) {
         Interceptable interceptable = $ic;
@@ -32,8 +32,8 @@ public final class ci implements View.OnClickListener {
                 return;
             }
         }
-        this.f59401b = cgVar;
-        this.f59400a = i2;
+        this.f59601b = cgVar;
+        this.f59600a = i2;
     }
 
     @Override // android.view.View.OnClickListener
@@ -41,7 +41,7 @@ public final class ci implements View.OnClickListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
             com.baidu.ufosdk.f.c.a("点击已解决！！！");
-            ((Map) this.f59401b.f59397a.f59298h.get(this.f59400a)).put("ask", 2);
+            ((Map) this.f59601b.f59597a.f59498h.get(this.f59600a)).put("ask", 2);
             new Thread(new cj(this)).start();
         }
     }

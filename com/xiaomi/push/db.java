@@ -25,7 +25,7 @@ public class db {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile db f77086a;
+    public static volatile db f77287a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
@@ -40,7 +40,7 @@ public class db {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ db f77087a;
+        public final /* synthetic */ db f77288a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(db dbVar) {
@@ -60,14 +60,14 @@ public class db {
                     return;
                 }
             }
-            this.f77087a = dbVar;
+            this.f77288a = dbVar;
         }
 
         @Override // com.xiaomi.push.db.b, com.xiaomi.push.al.b
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f77087a.b();
+                this.f77288a.b();
             }
         }
     }
@@ -78,10 +78,10 @@ public class db {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public long f77088a;
+        public long f77289a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ db f77089b;
+        public final /* synthetic */ db f77290b;
 
         public b(db dbVar) {
             Interceptable interceptable = $ic;
@@ -98,8 +98,8 @@ public class db {
                     return;
                 }
             }
-            this.f77089b = dbVar;
-            this.f77088a = System.currentTimeMillis();
+            this.f77290b = dbVar;
+            this.f77289a = System.currentTimeMillis();
         }
 
         @Override // com.xiaomi.push.al.b
@@ -123,7 +123,7 @@ public class db {
         public final boolean b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? System.currentTimeMillis() - this.f77088a > StrictModeTask.CLEAN_FILE_INTERVAL : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? System.currentTimeMillis() - this.f77289a > StrictModeTask.CLEAN_FILE_INTERVAL : invokeV.booleanValue;
         }
     }
 
@@ -133,7 +133,7 @@ public class db {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f77090a;
+        public int f77291a;
 
         /* renamed from: a  reason: collision with other field name */
         public final /* synthetic */ db f223a;
@@ -148,7 +148,7 @@ public class db {
         public boolean f226a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f77091b;
+        public String f77292b;
 
         /* renamed from: b  reason: collision with other field name */
         public boolean f227b;
@@ -173,7 +173,7 @@ public class db {
             }
             this.f223a = dbVar;
             this.f225a = str;
-            this.f77091b = str2;
+            this.f77292b = str2;
             this.f224a = file;
             this.f227b = z;
         }
@@ -229,7 +229,7 @@ public class db {
                     if (c()) {
                         HashMap hashMap = new HashMap();
                         hashMap.put("uid", com.xiaomi.push.service.bi.m615a());
-                        hashMap.put("token", this.f77091b);
+                        hashMap.put("token", this.f77292b);
                         hashMap.put("net", bg.m175a(this.f223a.f221a));
                         bg.a(this.f225a, hashMap, this.f224a, "file");
                     }
@@ -245,16 +245,16 @@ public class db {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
                 if (!this.f226a) {
-                    int i2 = this.f77090a + 1;
-                    this.f77090a = i2;
+                    int i2 = this.f77291a + 1;
+                    this.f77291a = i2;
                     if (i2 < 3) {
                         this.f223a.f222a.add(this);
                     }
                 }
-                if (this.f226a || this.f77090a >= 3) {
+                if (this.f226a || this.f77291a >= 3) {
                     this.f224a.delete();
                 }
-                this.f223a.a((1 << this.f77090a) * 1000);
+                this.f223a.a((1 << this.f77291a) * 1000);
             }
         }
     }
@@ -300,15 +300,15 @@ public class db {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
-            if (f77086a == null) {
+            if (f77287a == null) {
                 synchronized (db.class) {
-                    if (f77086a == null) {
-                        f77086a = new db(context);
+                    if (f77287a == null) {
+                        f77287a = new db(context);
                     }
                 }
             }
-            f77086a.f221a = context;
-            return f77086a;
+            f77287a.f221a = context;
+            return f77287a;
         }
         return (db) invokeL.objValue;
     }

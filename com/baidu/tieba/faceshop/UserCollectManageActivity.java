@@ -12,10 +12,10 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
 import c.a.e.e.p.l;
-import c.a.o0.s.s.a;
-import c.a.p0.q0.d;
-import c.a.p0.q0.n;
-import c.a.p0.q0.t;
+import c.a.p0.s.s.a;
+import c.a.q0.q0.d;
+import c.a.q0.q0.n;
+import c.a.q0.q0.t;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.android.imsdk.internal.Constants;
@@ -41,35 +41,35 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes7.dex */
-public class UserCollectManageActivity extends ProxyAdkBaseActivity<UserCollectManageActivity> implements t.l, d.e, d.InterfaceC1087d, n.c {
+public class UserCollectManageActivity extends ProxyAdkBaseActivity<UserCollectManageActivity> implements t.l, d.e, d.InterfaceC1098d, n.c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public NavigationBar f50275e;
+    public NavigationBar f50383e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f50276f;
+    public TextView f50384f;
 
     /* renamed from: g  reason: collision with root package name */
-    public GridView f50277g;
+    public GridView f50385g;
 
     /* renamed from: h  reason: collision with root package name */
-    public c.a.p0.q0.d f50278h;
+    public c.a.q0.q0.d f50386h;
 
     /* renamed from: i  reason: collision with root package name */
-    public RelativeLayout f50279i;
+    public RelativeLayout f50387i;
 
     /* renamed from: j  reason: collision with root package name */
-    public TextView f50280j;
+    public TextView f50388j;
     public TextView k;
     public TextView l;
     public View m;
     public View n;
     public boolean o;
-    public c.a.o0.s.s.a p;
+    public c.a.p0.s.s.a p;
     public n q;
-    public c.a.o0.s.f0.a r;
+    public c.a.p0.s.f0.a r;
     public DialogInterface.OnCancelListener s;
     public PermissionJudgePolicy t;
     public View.OnClickListener u;
@@ -80,7 +80,7 @@ public class UserCollectManageActivity extends ProxyAdkBaseActivity<UserCollectM
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ UserCollectManageActivity f50281a;
+        public final /* synthetic */ UserCollectManageActivity f50389a;
 
         public a(UserCollectManageActivity userCollectManageActivity) {
             Interceptable interceptable = $ic;
@@ -97,7 +97,7 @@ public class UserCollectManageActivity extends ProxyAdkBaseActivity<UserCollectM
                     return;
                 }
             }
-            this.f50281a = userCollectManageActivity;
+            this.f50389a = userCollectManageActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -107,14 +107,14 @@ public class UserCollectManageActivity extends ProxyAdkBaseActivity<UserCollectM
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, voidArr)) == null) {
-                List<CollectEmotionData> n = c.a.p0.q0.g.k().n(TbadkCoreApplication.getCurrentAccount());
+                List<CollectEmotionData> n = c.a.q0.q0.g.k().n(TbadkCoreApplication.getCurrentAccount());
                 if (n == null || n.size() < 1) {
                     return null;
                 }
                 ArrayList arrayList = new ArrayList();
                 for (CollectEmotionData collectEmotionData : n) {
-                    if (!c.a.o0.b0.d.f12537d.equals(collectEmotionData.sharpText) && !TextUtils.isEmpty(collectEmotionData.pid)) {
-                        String str = TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/.collect/" + c.a.o0.b0.d.b() + "/" + collectEmotionData.pid + "_s.jpg";
+                    if (!c.a.p0.b0.d.f12807d.equals(collectEmotionData.sharpText) && !TextUtils.isEmpty(collectEmotionData.pid)) {
+                        String str = TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/.collect/" + c.a.p0.b0.d.b() + "/" + collectEmotionData.pid + "_s.jpg";
                         ImageFileInfo imageFileInfo = new ImageFileInfo();
                         imageFileInfo.setFilePath(str);
                         File file = new File(str);
@@ -136,8 +136,8 @@ public class UserCollectManageActivity extends ProxyAdkBaseActivity<UserCollectM
         public void onPostExecute(List<CollectEmotionData> list) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
-                this.f50281a.f50278h.i(list);
-                this.f50281a.f50278h.notifyDataSetChanged();
+                this.f50389a.f50386h.i(list);
+                this.f50389a.f50386h.notifyDataSetChanged();
             }
         }
     }
@@ -148,7 +148,7 @@ public class UserCollectManageActivity extends ProxyAdkBaseActivity<UserCollectM
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ UserCollectManageActivity f50282e;
+        public final /* synthetic */ UserCollectManageActivity f50390e;
 
         public b(UserCollectManageActivity userCollectManageActivity) {
             Interceptable interceptable = $ic;
@@ -165,14 +165,14 @@ public class UserCollectManageActivity extends ProxyAdkBaseActivity<UserCollectM
                     return;
                 }
             }
-            this.f50282e = userCollectManageActivity;
+            this.f50390e = userCollectManageActivity;
         }
 
         @Override // android.content.DialogInterface.OnCancelListener
         public void onCancel(DialogInterface dialogInterface) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
-                this.f50282e.destroyWaitingDialog();
+                this.f50390e.destroyWaitingDialog();
             }
         }
     }
@@ -183,7 +183,7 @@ public class UserCollectManageActivity extends ProxyAdkBaseActivity<UserCollectM
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ UserCollectManageActivity f50283e;
+        public final /* synthetic */ UserCollectManageActivity f50391e;
 
         public c(UserCollectManageActivity userCollectManageActivity) {
             Interceptable interceptable = $ic;
@@ -200,14 +200,14 @@ public class UserCollectManageActivity extends ProxyAdkBaseActivity<UserCollectM
                     return;
                 }
             }
-            this.f50283e = userCollectManageActivity;
+            this.f50391e = userCollectManageActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f50283e.finish();
+                this.f50391e.finish();
             }
         }
     }
@@ -218,7 +218,7 @@ public class UserCollectManageActivity extends ProxyAdkBaseActivity<UserCollectM
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ UserCollectManageActivity f50284e;
+        public final /* synthetic */ UserCollectManageActivity f50392e;
 
         public d(UserCollectManageActivity userCollectManageActivity) {
             Interceptable interceptable = $ic;
@@ -235,31 +235,31 @@ public class UserCollectManageActivity extends ProxyAdkBaseActivity<UserCollectM
                     return;
                 }
             }
-            this.f50284e = userCollectManageActivity;
+            this.f50392e = userCollectManageActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                if (c.a.p0.d2.d.m().n()) {
+                if (c.a.q0.d2.d.m().n()) {
                     l.L(view.getContext(), R.string.face_collect_is_syncing);
                     return;
                 }
-                UserCollectManageActivity userCollectManageActivity = this.f50284e;
+                UserCollectManageActivity userCollectManageActivity = this.f50392e;
                 userCollectManageActivity.o = !userCollectManageActivity.o;
-                if (this.f50284e.o) {
-                    SkinManager.setNavbarTitleColor(this.f50284e.f50276f, R.color.CAM_X0302, R.color.s_navbar_title_color);
-                    this.f50284e.f50276f.setText(R.string.done);
-                    this.f50284e.f50279i.setVisibility(0);
-                    this.f50284e.m.setVisibility(0);
+                if (this.f50392e.o) {
+                    SkinManager.setNavbarTitleColor(this.f50392e.f50384f, R.color.CAM_X0302, R.color.s_navbar_title_color);
+                    this.f50392e.f50384f.setText(R.string.done);
+                    this.f50392e.f50387i.setVisibility(0);
+                    this.f50392e.m.setVisibility(0);
                 } else {
-                    SkinManager.setViewTextColor(this.f50284e.f50276f, R.color.CAM_X0105, 1);
-                    this.f50284e.f50276f.setText(R.string.collect_manage);
-                    this.f50284e.f50279i.setVisibility(8);
-                    this.f50284e.l.setText(R.string.delete);
+                    SkinManager.setViewTextColor(this.f50392e.f50384f, R.color.CAM_X0105, 1);
+                    this.f50392e.f50384f.setText(R.string.collect_manage);
+                    this.f50392e.f50387i.setVisibility(8);
+                    this.f50392e.l.setText(R.string.delete);
                 }
-                this.f50284e.f50278h.j(this.f50284e.o);
+                this.f50392e.f50386h.j(this.f50392e.o);
             }
         }
     }
@@ -270,7 +270,7 @@ public class UserCollectManageActivity extends ProxyAdkBaseActivity<UserCollectM
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ UserCollectManageActivity f50285e;
+        public final /* synthetic */ UserCollectManageActivity f50393e;
 
         public e(UserCollectManageActivity userCollectManageActivity) {
             Interceptable interceptable = $ic;
@@ -287,38 +287,38 @@ public class UserCollectManageActivity extends ProxyAdkBaseActivity<UserCollectM
                     return;
                 }
             }
-            this.f50285e = userCollectManageActivity;
+            this.f50393e = userCollectManageActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && this.f50285e.o) {
-                ArrayList arrayList = new ArrayList(this.f50285e.f50278h.g());
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && this.f50393e.o) {
+                ArrayList arrayList = new ArrayList(this.f50393e.f50386h.g());
                 if (arrayList.size() == 0) {
                     return;
                 }
-                if (view == this.f50285e.l) {
-                    this.f50285e.t();
+                if (view == this.f50393e.l) {
+                    this.f50393e.t();
                     return;
                 }
-                if (view != this.f50285e.f50280j) {
-                    if (view == this.f50285e.k) {
-                        Activity pageActivity = this.f50285e.getPageContext().getPageActivity();
-                        if (this.f50285e.t == null) {
-                            this.f50285e.t = new PermissionJudgePolicy();
+                if (view != this.f50393e.f50388j) {
+                    if (view == this.f50393e.k) {
+                        Activity pageActivity = this.f50393e.getPageContext().getPageActivity();
+                        if (this.f50393e.t == null) {
+                            this.f50393e.t = new PermissionJudgePolicy();
                         }
-                        this.f50285e.t.clearRequestPermissionList();
-                        this.f50285e.t.appendRequestPermission(pageActivity, "android.permission.WRITE_EXTERNAL_STORAGE");
-                        if (this.f50285e.t.startRequestPermission(pageActivity)) {
+                        this.f50393e.t.clearRequestPermissionList();
+                        this.f50393e.t.appendRequestPermission(pageActivity, "android.permission.WRITE_EXTERNAL_STORAGE");
+                        if (this.f50393e.t.startRequestPermission(pageActivity)) {
                             return;
                         }
-                        t.s().v(arrayList, this.f50285e);
+                        t.s().v(arrayList, this.f50393e);
                     }
                 } else {
-                    t.s().t(arrayList, true, this.f50285e);
+                    t.s().t(arrayList, true, this.f50393e);
                 }
-                this.f50285e.f50278h.e();
+                this.f50393e.f50386h.e();
             }
         }
     }
@@ -329,7 +329,7 @@ public class UserCollectManageActivity extends ProxyAdkBaseActivity<UserCollectM
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ UserCollectManageActivity f50286e;
+        public final /* synthetic */ UserCollectManageActivity f50394e;
 
         public f(UserCollectManageActivity userCollectManageActivity) {
             Interceptable interceptable = $ic;
@@ -346,17 +346,17 @@ public class UserCollectManageActivity extends ProxyAdkBaseActivity<UserCollectM
                     return;
                 }
             }
-            this.f50286e = userCollectManageActivity;
+            this.f50394e = userCollectManageActivity;
         }
 
-        @Override // c.a.o0.s.s.a.e
-        public void onClick(c.a.o0.s.s.a aVar) {
+        @Override // c.a.p0.s.s.a.e
+        public void onClick(c.a.p0.s.s.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                t.s().l(new ArrayList(this.f50286e.f50278h.g()), true, this.f50286e);
+                t.s().l(new ArrayList(this.f50394e.f50386h.g()), true, this.f50394e);
                 aVar.dismiss();
-                this.f50286e.f50278h.e();
-                this.f50286e.l.setText(R.string.delete);
+                this.f50394e.f50386h.e();
+                this.f50394e.l.setText(R.string.delete);
             }
         }
     }
@@ -367,7 +367,7 @@ public class UserCollectManageActivity extends ProxyAdkBaseActivity<UserCollectM
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ UserCollectManageActivity f50287e;
+        public final /* synthetic */ UserCollectManageActivity f50395e;
 
         public g(UserCollectManageActivity userCollectManageActivity) {
             Interceptable interceptable = $ic;
@@ -384,11 +384,11 @@ public class UserCollectManageActivity extends ProxyAdkBaseActivity<UserCollectM
                     return;
                 }
             }
-            this.f50287e = userCollectManageActivity;
+            this.f50395e = userCollectManageActivity;
         }
 
-        @Override // c.a.o0.s.s.a.e
-        public void onClick(c.a.o0.s.s.a aVar) {
+        @Override // c.a.p0.s.s.a.e
+        public void onClick(c.a.p0.s.s.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
                 aVar.dismiss();
@@ -412,7 +412,7 @@ public class UserCollectManageActivity extends ProxyAdkBaseActivity<UserCollectM
         this.u = new e(this);
     }
 
-    @Override // c.a.p0.q0.d.e
+    @Override // c.a.q0.q0.d.e
     public void b(List<CollectEmotionData> list) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048576, this, list) == null) || list == null) {
@@ -427,7 +427,7 @@ public class UserCollectManageActivity extends ProxyAdkBaseActivity<UserCollectM
         this.l.setText(String.format(getResources().getString(R.string.collect_delete_tip), Integer.valueOf(list.size())));
     }
 
-    @Override // c.a.p0.q0.n.c
+    @Override // c.a.q0.q0.n.c
     public void c(List<String> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
@@ -447,7 +447,7 @@ public class UserCollectManageActivity extends ProxyAdkBaseActivity<UserCollectM
         }
     }
 
-    @Override // c.a.p0.q0.n.c
+    @Override // c.a.q0.q0.n.c
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
@@ -455,7 +455,7 @@ public class UserCollectManageActivity extends ProxyAdkBaseActivity<UserCollectM
         }
     }
 
-    @Override // c.a.p0.q0.d.InterfaceC1087d
+    @Override // c.a.q0.q0.d.InterfaceC1098d
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
@@ -484,10 +484,10 @@ public class UserCollectManageActivity extends ProxyAdkBaseActivity<UserCollectM
         if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
             super.onChangeSkinType(i2);
             getLayoutMode().k(i2 == 1);
-            this.f50278h.k(i2);
-            this.f50275e.onChangeSkinType(getPageContext(), i2);
-            SkinManager.setBackgroundColor(this.f50279i, R.color.CAM_X0201, i2);
-            SkinManager.setBackgroundColor(this.f50277g, R.color.CAM_X0201, i2);
+            this.f50386h.k(i2);
+            this.f50383e.onChangeSkinType(getPageContext(), i2);
+            SkinManager.setBackgroundColor(this.f50387i, R.color.CAM_X0201, i2);
+            SkinManager.setBackgroundColor(this.f50385g, R.color.CAM_X0201, i2);
             if (i2 != 1 && i2 != 4) {
                 SkinManager.setBackgroundColor(this.m, R.color.white_alpha70, i2);
             } else {
@@ -514,11 +514,11 @@ public class UserCollectManageActivity extends ProxyAdkBaseActivity<UserCollectM
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             super.onDestroy();
-            this.f50278h.h(null);
+            this.f50386h.h(null);
         }
     }
 
-    @Override // c.a.p0.q0.t.l
+    @Override // c.a.q0.q0.t.l
     public void onResult(int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIII(1048585, this, i2, i3, i4) == null) {
@@ -556,19 +556,19 @@ public class UserCollectManageActivity extends ProxyAdkBaseActivity<UserCollectM
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             NavigationBar navigationBar = (NavigationBar) findViewById(R.id.view_navigation_bar);
-            this.f50275e = navigationBar;
+            this.f50383e = navigationBar;
             navigationBar.setCenterTextTitle(getString(R.string.collect_manage_title));
-            this.f50275e.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new c(this));
-            if (this.f50275e.getBackImageView() != null) {
-                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f50275e.getBackImageView(), R.drawable.icon_pure_topbar_close44_svg, R.color.CAM_X0106, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+            this.f50383e.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new c(this));
+            if (this.f50383e.getBackImageView() != null) {
+                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f50383e.getBackImageView(), R.drawable.icon_pure_topbar_close44_svg, R.color.CAM_X0106, SvgManager.SvgResourceStateType.NORMAL_PRESS);
             }
-            TextView addTextButton = this.f50275e.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getPageContext().getString(R.string.collect_manage), new d(this));
-            this.f50276f = addTextButton;
+            TextView addTextButton = this.f50383e.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getPageContext().getString(R.string.collect_manage), new d(this));
+            this.f50384f = addTextButton;
             SkinManager.setViewTextColor(addTextButton, R.color.CAM_X0105);
-            this.f50277g = (GridView) findViewById(R.id.collect_image_gridview);
-            this.f50279i = (RelativeLayout) findViewById(R.id.controller_layout);
+            this.f50385g = (GridView) findViewById(R.id.collect_image_gridview);
+            this.f50387i = (RelativeLayout) findViewById(R.id.controller_layout);
             TextView textView = (TextView) findViewById(R.id.move_to_first);
-            this.f50280j = textView;
+            this.f50388j = textView;
             textView.setOnClickListener(this.u);
             TextView textView2 = (TextView) findViewById(R.id.save_to_local);
             this.k = textView2;
@@ -580,13 +580,13 @@ public class UserCollectManageActivity extends ProxyAdkBaseActivity<UserCollectM
             this.l = textView3;
             textView3.setOnClickListener(this.u);
             this.m = findViewById(R.id.cover);
-            this.f50277g = (GridView) findViewById(R.id.collect_image_gridview);
-            c.a.p0.q0.d dVar = new c.a.p0.q0.d(this);
-            this.f50278h = dVar;
+            this.f50385g = (GridView) findViewById(R.id.collect_image_gridview);
+            c.a.q0.q0.d dVar = new c.a.q0.q0.d(this);
+            this.f50386h = dVar;
             dVar.h(this);
-            this.f50278h.notifyDataSetChanged();
-            this.f50277g.setAdapter((ListAdapter) this.f50278h);
-            this.r = new c.a.o0.s.f0.a(getPageContext());
+            this.f50386h.notifyDataSetChanged();
+            this.f50385g.setAdapter((ListAdapter) this.f50386h);
+            this.r = new c.a.p0.s.f0.a(getPageContext());
             TiebaStatic.log("c12225");
         }
     }
@@ -605,7 +605,7 @@ public class UserCollectManageActivity extends ProxyAdkBaseActivity<UserCollectM
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
             if (this.p == null) {
-                c.a.o0.s.s.a aVar = new c.a.o0.s.s.a(getPageContext().getPageActivity());
+                c.a.p0.s.s.a aVar = new c.a.p0.s.s.a(getPageContext().getPageActivity());
                 this.p = aVar;
                 aVar.setMessageId(R.string.collect_delete_confirm_tip);
                 this.p.setPositiveButton(R.string.dialog_ok, new f(this));

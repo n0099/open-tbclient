@@ -15,11 +15,11 @@ public class h {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static h f2360b;
+    public static h f2418b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final ThreadPoolExecutor f2361a;
+    public final ThreadPoolExecutor f2419a;
 
     static {
         InterceptResult invokeClinit;
@@ -34,7 +34,7 @@ public class h {
                 return;
             }
         }
-        f2360b = new h();
+        f2418b = new h();
     }
 
     public h() {
@@ -50,24 +50,24 @@ public class h {
                 return;
             }
         }
-        this.f2361a = new ScheduledThreadPoolExecutor(1);
+        this.f2419a = new ScheduledThreadPoolExecutor(1);
     }
 
     public static h a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f2360b : (h) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f2418b : (h) invokeV.objValue;
     }
 
     public void b(Runnable runnable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, runnable) == null) {
-            if (this.f2361a.getTaskCount() >= 1) {
+            if (this.f2419a.getTaskCount() >= 1) {
                 new Thread(runnable).start();
                 return;
             }
             try {
-                this.f2361a.submit(runnable);
+                this.f2419a.submit(runnable);
             } catch (Throwable unused) {
             }
         }
@@ -77,7 +77,7 @@ public class h {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, runnable) == null) {
             try {
-                this.f2361a.submit(runnable);
+                this.f2419a.submit(runnable);
             } catch (Throwable unused) {
             }
         }

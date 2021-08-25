@@ -17,7 +17,7 @@ public class q implements h {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public SparseArray<?> f2088a;
+    public SparseArray<?> f2146a;
 
     public q(SparseArray<?> sparseArray) {
         Interceptable interceptable = $ic;
@@ -34,7 +34,7 @@ public class q implements h {
                 return;
             }
         }
-        this.f2088a = sparseArray;
+        this.f2146a = sparseArray;
     }
 
     @Override // c.a.e.e.b.b.a.b.h
@@ -58,14 +58,14 @@ public class q implements h {
     public Object b(c.a.e.e.b.b.a.e.c cVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar)) == null) ? this.f2088a : invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar)) == null) ? this.f2146a : invokeL.objValue;
     }
 
     @Override // c.a.e.e.b.b.a.b.h
     public Object c(c.a.e.e.b.b.a.e.c cVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cVar)) == null) ? this.f2088a : invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cVar)) == null) ? this.f2146a : invokeL.objValue;
     }
 
     @Override // c.a.e.e.b.b.a.b.h
@@ -96,10 +96,10 @@ public class q implements h {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, cVar)) == null) {
             Type[] b2 = cVar.b();
             JSONObject jSONObject = new JSONObject();
-            int size = this.f2088a.size();
+            int size = this.f2146a.size();
             for (int i2 = 0; i2 < size; i2++) {
-                int keyAt = this.f2088a.keyAt(i2);
-                Object obj = this.f2088a.get(keyAt);
+                int keyAt = this.f2146a.keyAt(i2);
+                Object obj = this.f2146a.get(keyAt);
                 if (obj != null) {
                     if (b2 != null && b2.length >= 1) {
                         Object f2 = c.a.e.e.b.b.a.e.f.a(obj).f(new c.a.e.e.b.b.a.e.c(b2[0]));

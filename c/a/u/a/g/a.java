@@ -18,23 +18,23 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static a f29895c;
+    public static a f30146c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int f29896d;
+    public static final int f30147d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int f29897e;
+    public static final int f30148e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final int f29898f;
+    public static final int f30149f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ThreadPoolExecutor f29899a;
+    public ThreadPoolExecutor f30150a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f29900b;
+    public Context f30151b;
 
     static {
         InterceptResult invokeClinit;
@@ -50,9 +50,9 @@ public class a {
             }
         }
         int availableProcessors = Runtime.getRuntime().availableProcessors();
-        f29896d = availableProcessors;
-        f29897e = Math.max(2, Math.min(availableProcessors - 1, 4));
-        f29898f = (f29896d * 2) + 1;
+        f30147d = availableProcessors;
+        f30148e = Math.max(2, Math.min(availableProcessors - 1, 4));
+        f30149f = (f30147d * 2) + 1;
     }
 
     public a(Context context) {
@@ -70,10 +70,10 @@ public class a {
                 return;
             }
         }
-        this.f29899a = null;
-        this.f29900b = context;
-        ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(f29897e, f29898f, 30L, TimeUnit.SECONDS, new LinkedBlockingQueue());
-        this.f29899a = threadPoolExecutor;
+        this.f30150a = null;
+        this.f30151b = context;
+        ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(f30148e, f30149f, 30L, TimeUnit.SECONDS, new LinkedBlockingQueue());
+        this.f30150a = threadPoolExecutor;
         threadPoolExecutor.allowCoreThreadTimeOut(true);
         Executors.newSingleThreadExecutor();
     }
@@ -85,14 +85,14 @@ public class a {
             if (context == null) {
                 return null;
             }
-            if (f29895c == null) {
+            if (f30146c == null) {
                 synchronized (a.class) {
-                    if (f29895c == null) {
-                        f29895c = new a(context);
+                    if (f30146c == null) {
+                        f30146c = new a(context);
                     }
                 }
             }
-            return f29895c;
+            return f30146c;
         }
         return (a) invokeL.objValue;
     }
@@ -101,7 +101,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, runnable) == null) {
             try {
-                this.f29899a.submit(runnable);
+                this.f30150a.submit(runnable);
             } catch (Throwable th) {
                 e.c("TaskManager", "Exception ", th);
             }

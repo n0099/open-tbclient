@@ -12,11 +12,11 @@ public class d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile d f71122b;
+    public static volatile d f71322b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Map<String, String> f71123a;
+    public Map<String, String> f71323a;
 
     public d() {
         Interceptable interceptable = $ic;
@@ -31,21 +31,21 @@ public class d {
                 return;
             }
         }
-        this.f71123a = new HashMap();
+        this.f71323a = new HashMap();
     }
 
     public static d a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f71122b == null) {
+            if (f71322b == null) {
                 synchronized (d.class) {
-                    if (f71122b == null) {
-                        f71122b = new d();
+                    if (f71322b == null) {
+                        f71322b = new d();
                     }
                 }
             }
-            return f71122b;
+            return f71322b;
         }
         return (d) invokeV.objValue;
     }
@@ -54,7 +54,7 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
             synchronized (this) {
-                this.f71123a.put(str, str2);
+                this.f71323a.put(str, str2);
             }
         }
     }

@@ -24,7 +24,7 @@ public abstract class a<T> {
         }
     }
 
-    public abstract void a(Request request, Exception exc);
+    public abstract void a(Request request, boolean z, Exception exc);
 
     public abstract void b(T t);
 }

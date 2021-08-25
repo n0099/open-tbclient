@@ -5,7 +5,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
-import c.a.p0.o2.q.e;
+import c.a.q0.o2.q.e;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.util.SkinManager;
@@ -33,7 +33,7 @@ public class SimpleVideoPlayActivity extends BaseActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SimpleVideoPlayActivity f55778e;
+        public final /* synthetic */ SimpleVideoPlayActivity f55943e;
 
         public a(SimpleVideoPlayActivity simpleVideoPlayActivity) {
             Interceptable interceptable = $ic;
@@ -50,14 +50,14 @@ public class SimpleVideoPlayActivity extends BaseActivity {
                     return;
                 }
             }
-            this.f55778e = simpleVideoPlayActivity;
+            this.f55943e = simpleVideoPlayActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f55778e.finish();
+                this.f55943e.finish();
             }
         }
     }

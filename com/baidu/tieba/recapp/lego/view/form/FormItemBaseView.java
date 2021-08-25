@@ -113,7 +113,7 @@ public abstract class FormItemBaseView extends RelativeLayout implements FormCar
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f56117a;
+        public static final /* synthetic */ int[] f56282a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -130,13 +130,13 @@ public abstract class FormItemBaseView extends RelativeLayout implements FormCar
                 }
             }
             int[] iArr = new int[DrawableType.values().length];
-            f56117a = iArr;
+            f56282a = iArr;
             try {
                 iArr[DrawableType.ERROR_FRAME.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f56117a[DrawableType.ORDINARY_FRAME.ordinal()] = 2;
+                f56282a[DrawableType.ORDINARY_FRAME.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
         }
@@ -217,7 +217,7 @@ public abstract class FormItemBaseView extends RelativeLayout implements FormCar
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, view, drawableType) == null) {
             this.mFrameView = view;
-            int i2 = a.f56117a[drawableType.ordinal()];
+            int i2 = a.f56282a[drawableType.ordinal()];
             if (i2 == 1) {
                 this.mFrameView.setBackgroundResource(R.drawable.form_frame_red);
             } else if (i2 != 2) {
@@ -275,10 +275,10 @@ public abstract class FormItemBaseView extends RelativeLayout implements FormCar
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, bVar)) == null) {
-            if (bVar != null && bVar.f56008a != -1 && !TextUtils.isEmpty(bVar.f56009b)) {
+            if (bVar != null && bVar.f56173a != -1 && !TextUtils.isEmpty(bVar.f56174b)) {
                 setVisibility(0);
                 reset();
-                this.mTag = bVar.f56010c;
+                this.mTag = bVar.f56175c;
                 return true;
             }
             setVisibility(8);

@@ -15,13 +15,13 @@ public final class g implements c.r.a.a.a.b.b, com.yxcorp.kuaishou.addfp.a.b.b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f77893a;
+    public Context f78094a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c.r.a.a.a.a.a f77894b;
+    public c.r.a.a.a.a.a f78095b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f77895c;
+    public String f78096c;
 
     public g(Context context, c.r.a.a.a.a.a aVar) {
         Interceptable interceptable = $ic;
@@ -38,8 +38,8 @@ public final class g implements c.r.a.a.a.b.b, com.yxcorp.kuaishou.addfp.a.b.b {
                 return;
             }
         }
-        this.f77893a = context;
-        this.f77894b = aVar;
+        this.f78094a = context;
+        this.f78095b = aVar;
     }
 
     @Override // c.r.a.a.a.b.b
@@ -47,23 +47,23 @@ public final class g implements c.r.a.a.a.b.b, com.yxcorp.kuaishou.addfp.a.b.b {
         c.r.a.a.a.b.g.a aVar2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-            aVar2 = c.r.a.a.a.b.g.c.f35291a;
-            aVar2.e(this.f77893a, this);
+            aVar2 = c.r.a.a.a.b.g.c.f35397a;
+            aVar2.e(this.f78094a, this);
         }
     }
 
     @Override // com.yxcorp.kuaishou.addfp.a.b.b
     public final void a(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || this.f77894b == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || this.f78095b == null) {
             return;
         }
         if (TextUtils.isEmpty(str)) {
-            this.f77894b.a(false, null);
+            this.f78095b.a(false, null);
             return;
         }
-        this.f77895c = str;
-        this.f77894b.a(true, this);
+        this.f78096c = str;
+        this.f78095b.a(true, this);
     }
 
     @Override // c.r.a.a.a.b.b
@@ -90,7 +90,7 @@ public final class g implements c.r.a.a.a.b.b, com.yxcorp.kuaishou.addfp.a.b.b {
     public final String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f77895c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f78096c : (String) invokeV.objValue;
     }
 
     @Override // c.r.a.a.a.b.b
@@ -99,7 +99,7 @@ public final class g implements c.r.a.a.a.b.b, com.yxcorp.kuaishou.addfp.a.b.b {
         c.r.a.a.a.b.g.a aVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            aVar = c.r.a.a.a.b.g.c.f35291a;
+            aVar = c.r.a.a.a.b.g.c.f35397a;
             return aVar.g();
         }
         return invokeV.booleanValue;
@@ -110,18 +110,18 @@ public final class g implements c.r.a.a.a.b.b, com.yxcorp.kuaishou.addfp.a.b.b {
         c.r.a.a.a.b.g.a aVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            aVar = c.r.a.a.a.b.g.c.f35291a;
-            aVar.d(this.f77893a);
+            aVar = c.r.a.a.a.b.g.c.f35397a;
+            aVar.d(this.f78094a);
         }
     }
 
     @Override // com.yxcorp.kuaishou.addfp.a.b.b
     public final void e() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || this.f77894b == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || this.f78095b == null) {
             return;
         }
         c.r.a.a.c.b.c.b("failed here");
-        this.f77894b.a(false, this);
+        this.f78095b.a(false, this);
     }
 }

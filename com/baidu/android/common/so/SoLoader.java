@@ -325,7 +325,6 @@ public final class SoLoader {
             String fullName = SoUtils.getFullName(str);
             ZipFile zipFile = null;
             try {
-                String str2 = SoUtils.uris[0] + File.separator + fullName;
                 try {
                     zipFile = new ZipFile(new File(context.getApplicationInfo().sourceDir));
                 } catch (ZipException e2) {
@@ -339,9 +338,11 @@ public final class SoLoader {
                     SoUtils.sendLog(this.sb.toString());
                     return false;
                 }
+                int i2 = !SoUtils.is64Bit() ? 1 : 0;
+                String str2 = SoUtils.uris[i2] + File.separator + fullName;
                 File file = new File(getNativeLibraryDir(context), fullName);
                 if (file.exists()) {
-                    if (file.length() == getSoSize(zipFile, str2) && load(iCallingSoLoader, fullName, file.getAbsolutePath(), "SO_NATIVE_LIB_LOAD")) {
+                    if (file.length() == getSoSize(zipFile, str2) && load(iCallingSoLoader, file.getAbsolutePath(), "SO_NATIVE_LIB_LOAD")) {
                         if (zipFile != null) {
                             try {
                                 zipFile.close();
@@ -354,7 +355,7 @@ public final class SoLoader {
                 }
                 File file2 = new File(getReleaseSoFilePath(context), fullName);
                 if (file2.exists()) {
-                    if (file2.length() == getSoSize(zipFile, str2) && load(iCallingSoLoader, fullName, file2.getAbsolutePath(), "SO_RELEASE_LIB_LOAD")) {
+                    if (file2.length() == getSoSize(zipFile, str2) && load(iCallingSoLoader, file2.getAbsolutePath(), "SO_RELEASE_LIB_LOAD")) {
                         if (zipFile != null) {
                             try {
                                 zipFile.close();
@@ -365,8 +366,8 @@ public final class SoLoader {
                         return true;
                     }
                 }
-                for (int i2 = 0; i2 < SoUtils.uris.length; i2++) {
-                    if (executeRelease(context, zipFile, fullName, SoUtils.uris[i2]) && load(iCallingSoLoader, fullName, file2.getAbsolutePath(), "SO_RELEASE_EXECUTE_LOAD")) {
+                while (i2 < SoUtils.uris.length) {
+                    if (executeRelease(context, zipFile, fullName, SoUtils.uris[i2]) && load(iCallingSoLoader, file2.getAbsolutePath(), "SO_RELEASE_EXECUTE_LOAD")) {
                         if (zipFile != null) {
                             try {
                                 zipFile.close();
@@ -376,6 +377,7 @@ public final class SoLoader {
                         }
                         return true;
                     }
+                    i2++;
                 }
                 SoUtils.sendLog(this.sb.toString());
                 if (zipFile != null) {
@@ -565,19 +567,19 @@ public final class SoLoader {
         }
     }
 
-    private boolean load(ICallingSoLoader iCallingSoLoader, String str, String str2, String str3) {
-        InterceptResult invokeLLLL;
+    private boolean load(ICallingSoLoader iCallingSoLoader, String str, String str2) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65549, this, iCallingSoLoader, str, str2, str3)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65549, this, iCallingSoLoader, str, str2)) == null) {
             try {
-                iCallingSoLoader.load(str2);
+                iCallingSoLoader.load(str);
                 return true;
             } catch (Throwable th) {
                 StringBuilder sb = this.sb;
-                sb.append(str3 + ":::" + str2 + ":" + Log.getStackTraceString(th));
+                sb.append(str2 + ":::" + str + ":" + Log.getStackTraceString(th));
                 return false;
             }
         }
-        return invokeLLLL.booleanValue;
+        return invokeLLL.booleanValue;
     }
 }

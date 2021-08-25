@@ -1,7 +1,7 @@
 package com.baidu.tieba.wallet.pay;
 
 import c.a.e.e.m.b;
-import c.a.o0.b1.w;
+import c.a.p0.b1.w;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;

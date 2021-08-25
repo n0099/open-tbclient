@@ -3,9 +3,9 @@ package com.baidu.media.duplayer;
 import android.content.Context;
 import android.util.AttributeSet;
 import androidx.core.view.InputDeviceCompat;
-import c.a.y.a.c;
-import c.a.y.a.e;
-import c.a.y.b.a;
+import c.a.z.a.c;
+import c.a.z.a.e;
+import c.a.z.b.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.cyberplayer.sdk.CyberLog;
 import com.baidu.cyberplayer.sdk.CyberPlayerCoreProvider;
@@ -92,7 +92,7 @@ public class CyberPlayerCoreImpl extends CyberPlayerCoreProvider {
     public ExtractorProvider createCyberExtractor() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? c.a.y.c.a.a() : (ExtractorProvider) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? c.a.z.c.a.a() : (ExtractorProvider) invokeV.objValue;
     }
 
     @Override // com.baidu.cyberplayer.sdk.CyberPlayerCoreProvider

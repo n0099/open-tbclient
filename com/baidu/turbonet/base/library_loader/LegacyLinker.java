@@ -11,18 +11,18 @@ import com.baidu.turbonet.base.ThreadUtils;
 import com.baidu.turbonet.base.annotations.CalledByNative;
 import com.baidu.turbonet.base.library_loader.Linker;
 import javax.annotation.Nullable;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class LegacyLinker extends Linker {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ long f58911e;
+        public final /* synthetic */ long f59111e;
 
         public a(long j2) {
             Interceptable interceptable = $ic;
@@ -39,14 +39,14 @@ public class LegacyLinker extends Linker {
                     return;
                 }
             }
-            this.f58911e = j2;
+            this.f59111e = j2;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                LegacyLinker.nativeRunCallbackOnUiThread(this.f58911e);
+                LegacyLinker.nativeRunCallbackOnUiThread(this.f59111e);
             }
         }
     }

@@ -71,7 +71,7 @@ public final class c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
-    public static class a extends Handler {
+    public class a extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -105,7 +105,7 @@ public final class c {
     }
 
     /* loaded from: classes.dex */
-    public static class b extends Handler {
+    public class b extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -326,13 +326,13 @@ public final class c {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:101:0x01c2  */
-    /* JADX WARN: Removed duplicated region for block: B:108:0x0230  */
-    /* JADX WARN: Removed duplicated region for block: B:15:0x0046  */
-    /* JADX WARN: Removed duplicated region for block: B:16:0x0048  */
-    /* JADX WARN: Removed duplicated region for block: B:19:0x005a  */
-    /* JADX WARN: Removed duplicated region for block: B:22:0x0068  */
-    /* JADX WARN: Removed duplicated region for block: B:48:0x00d8 A[Catch: all -> 0x0323, TRY_LEAVE, TryCatch #1 {, blocks: (B:24:0x006b, B:26:0x006f, B:28:0x0075, B:29:0x007d, B:48:0x00d8, B:32:0x008e, B:33:0x009b, B:35:0x00a1, B:36:0x00ab, B:38:0x00b1, B:40:0x00c1, B:42:0x00cb, B:51:0x00e2, B:55:0x00ea, B:59:0x00fc, B:58:0x00fa, B:54:0x00e8), top: B:125:0x006b }] */
+    /* JADX WARN: Removed duplicated region for block: B:101:0x01c1  */
+    /* JADX WARN: Removed duplicated region for block: B:108:0x022f  */
+    /* JADX WARN: Removed duplicated region for block: B:15:0x0045  */
+    /* JADX WARN: Removed duplicated region for block: B:16:0x0047  */
+    /* JADX WARN: Removed duplicated region for block: B:19:0x0059  */
+    /* JADX WARN: Removed duplicated region for block: B:22:0x0067  */
+    /* JADX WARN: Removed duplicated region for block: B:48:0x00d7 A[Catch: all -> 0x0322, TRY_LEAVE, TryCatch #0 {, blocks: (B:24:0x006a, B:26:0x006e, B:28:0x0074, B:29:0x007c, B:48:0x00d7, B:32:0x008d, B:33:0x009a, B:35:0x00a0, B:36:0x00aa, B:38:0x00b0, B:40:0x00c0, B:42:0x00ca, B:51:0x00e1, B:55:0x00e9, B:59:0x00fb, B:58:0x00f9, B:54:0x00e7), top: B:123:0x006a }] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */

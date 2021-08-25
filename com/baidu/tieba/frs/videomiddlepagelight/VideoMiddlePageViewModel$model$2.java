@@ -27,7 +27,7 @@ public final class VideoMiddlePageViewModel$model$2 extends Lambda implements Fu
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ VideoMiddlePageViewModel$model$2 f51398a;
+        public final /* synthetic */ VideoMiddlePageViewModel$model$2 f51548a;
 
         /* JADX DEBUG: Incorrect args count in method signature: ()V */
         public a(VideoMiddlePageViewModel$model$2 videoMiddlePageViewModel$model$2) {
@@ -45,15 +45,15 @@ public final class VideoMiddlePageViewModel$model$2 extends Lambda implements Fu
                     return;
                 }
             }
-            this.f51398a = videoMiddlePageViewModel$model$2;
+            this.f51548a = videoMiddlePageViewModel$model$2;
         }
 
         @Override // com.baidu.tieba.frs.videomiddlepage.VideoMiddleModel.b
         public void a(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                this.f51398a.this$0.isLoading().setValue(Boolean.FALSE);
-                this.f51398a.this$0.getLoadErrorMsg().setValue(str);
+                this.f51548a.this$0.isLoading().setValue(Boolean.FALSE);
+                this.f51548a.this$0.getLoadErrorMsg().setValue(str);
             }
         }
 
@@ -61,10 +61,10 @@ public final class VideoMiddlePageViewModel$model$2 extends Lambda implements Fu
         public void b(List<? extends BaseCardInfo> list, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list, z) == null) {
-                this.f51398a.this$0.isLoading().setValue(Boolean.FALSE);
-                this.f51398a.this$0.getHasMore().setValue(Boolean.valueOf(z));
-                this.f51398a.this$0.addData(CollectionsKt___CollectionsKt.toMutableList((Collection) list));
-                this.f51398a.this$0.getLoadErrorMsg().setValue("");
+                this.f51548a.this$0.isLoading().setValue(Boolean.FALSE);
+                this.f51548a.this$0.getHasMore().setValue(Boolean.valueOf(z));
+                this.f51548a.this$0.addData(CollectionsKt___CollectionsKt.toMutableList((Collection) list));
+                this.f51548a.this$0.getLoadErrorMsg().setValue("");
             }
         }
     }

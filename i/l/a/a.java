@@ -13,11 +13,11 @@ public final class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final a f78149b;
+    public static final a f78350b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final AtomicReference<b> f78150a;
+    public final AtomicReference<b> f78351a;
 
     static {
         InterceptResult invokeClinit;
@@ -32,7 +32,7 @@ public final class a {
                 return;
             }
         }
-        f78149b = new a();
+        f78350b = new a();
     }
 
     public a() {
@@ -48,23 +48,23 @@ public final class a {
                 return;
             }
         }
-        this.f78150a = new AtomicReference<>();
+        this.f78351a = new AtomicReference<>();
     }
 
     public static a a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f78149b : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f78350b : (a) invokeV.objValue;
     }
 
     public b b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.f78150a.get() == null) {
-                this.f78150a.compareAndSet(null, b.a());
+            if (this.f78351a.get() == null) {
+                this.f78351a.compareAndSet(null, b.a());
             }
-            return this.f78150a.get();
+            return this.f78351a.get();
         }
         return (b) invokeV.objValue;
     }

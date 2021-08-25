@@ -2,7 +2,7 @@ package com.baidu.tieba.ala.frsgamelive.view;
 
 import android.view.View;
 import android.widget.TextView;
-import c.a.p0.a0.b;
+import c.a.q0.a0.b;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class AlaFrsLiveListGatherRecommendTitleView extends b<c.a.p0.v.e.b.b> {
+public class AlaFrsLiveListGatherRecommendTitleView extends b<c.a.q0.v.e.b.b> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public View m;
@@ -78,14 +78,14 @@ public class AlaFrsLiveListGatherRecommendTitleView extends b<c.a.p0.v.e.b.b> {
         l(tbPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
 
-    @Override // c.a.p0.a0.b
+    @Override // c.a.q0.a0.b
     public int f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.ala_frs_game_live_recommend_title_view : invokeV.intValue;
     }
 
-    @Override // c.a.p0.a0.b
+    @Override // c.a.q0.a0.b
     public void l(TbPageContext<?> tbPageContext, int i2) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i2) == null) || this.q == i2) {
@@ -105,9 +105,9 @@ public class AlaFrsLiveListGatherRecommendTitleView extends b<c.a.p0.v.e.b.b> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // c.a.p0.a0.b
+    @Override // c.a.q0.a0.b
     /* renamed from: p */
-    public void k(c.a.p0.v.e.b.b bVar) {
+    public void k(c.a.q0.v.e.b.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, bVar) == null) {
             l(this.p, TbadkCoreApplication.getInst().getSkinType());

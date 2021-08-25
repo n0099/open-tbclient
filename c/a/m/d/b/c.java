@@ -12,7 +12,7 @@ public class c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public b f4017a;
+    public b f3992a;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -27,18 +27,18 @@ public class c {
                 return;
             }
         }
-        this.f4017a = new b(32);
+        this.f3992a = new b(32);
     }
 
     public byte[] a(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bArr)) == null) ? this.f4017a.j(bArr) : (byte[]) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bArr)) == null) ? this.f3992a.j(bArr) : (byte[]) invokeL.objValue;
     }
 
     public byte[] b(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr)) == null) ? this.f4017a.m(bArr) : (byte[]) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr)) == null) ? this.f3992a.m(bArr) : (byte[]) invokeL.objValue;
     }
 }

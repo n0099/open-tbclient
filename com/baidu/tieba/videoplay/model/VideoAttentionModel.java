@@ -35,22 +35,22 @@ public class VideoAttentionModel extends BdBaseModel {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public c f57676e;
+    public c f57860e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f57677f;
+    public long f57861f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f57678g;
+    public String f57862g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f57679h;
+    public int f57863h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f57680i;
+    public boolean f57864i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f57681j;
+    public int f57865j;
     public HttpMessageListener k;
     public final CustomMessageListener l;
     public int mHasMore;
@@ -61,7 +61,7 @@ public class VideoAttentionModel extends BdBaseModel {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ VideoAttentionModel f57682a;
+        public final /* synthetic */ VideoAttentionModel f57866a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(VideoAttentionModel videoAttentionModel, int i2, boolean z) {
@@ -82,7 +82,7 @@ public class VideoAttentionModel extends BdBaseModel {
                     return;
                 }
             }
-            this.f57682a = videoAttentionModel;
+            this.f57866a = videoAttentionModel;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -90,9 +90,9 @@ public class VideoAttentionModel extends BdBaseModel {
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) {
-                if (this.f57682a.f57679h == 1) {
-                    this.f57682a.f57680i = false;
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921576, Integer.valueOf(this.f57682a.f57681j)));
+                if (this.f57866a.f57863h == 1) {
+                    this.f57866a.f57864i = false;
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921576, Integer.valueOf(this.f57866a.f57865j)));
                 }
                 if (httpResponsedMessage == null || httpResponsedMessage.getError() != 0) {
                     return;
@@ -103,24 +103,24 @@ public class VideoAttentionModel extends BdBaseModel {
                     VideoAttentionHttpResponseMessage videoAttentionHttpResponseMessage = (VideoAttentionHttpResponseMessage) httpResponsedMessage;
                     arrayList = videoAttentionHttpResponseMessage.getVideoItemDatas();
                     arrayList2 = videoAttentionHttpResponseMessage.getVideoAttentionPersonListData();
-                    this.f57682a.f57677f = videoAttentionHttpResponseMessage.getFeedId();
-                    this.f57682a.f57678g = videoAttentionHttpResponseMessage.getShowWord();
-                    this.f57682a.mHasMore = videoAttentionHttpResponseMessage.getHasMore();
+                    this.f57866a.f57861f = videoAttentionHttpResponseMessage.getFeedId();
+                    this.f57866a.f57862g = videoAttentionHttpResponseMessage.getShowWord();
+                    this.f57866a.mHasMore = videoAttentionHttpResponseMessage.getHasMore();
                 }
                 TbSingleton.getInstance().clearVideoRecord();
-                if (this.f57682a.f57676e != null) {
+                if (this.f57866a.f57860e != null) {
                     if (ListUtils.isEmpty(arrayList)) {
-                        this.f57682a.f57676e.c(arrayList2, this.f57682a.f57678g, this.f57682a.f57680i);
+                        this.f57866a.f57860e.c(arrayList2, this.f57866a.f57862g, this.f57866a.f57864i);
                         return;
-                    } else if (this.f57682a.f57679h == 1) {
+                    } else if (this.f57866a.f57863h == 1) {
                         if (arrayList != null) {
-                            this.f57682a.f57676e.a(arrayList, this.f57682a.f57680i);
+                            this.f57866a.f57860e.a(arrayList, this.f57866a.f57864i);
                         }
                     } else if (arrayList != null) {
-                        this.f57682a.f57676e.b(arrayList);
+                        this.f57866a.f57860e.b(arrayList);
                     }
                 }
-                VideoAttentionModel.x(this.f57682a);
+                VideoAttentionModel.x(this.f57866a);
             }
         }
     }
@@ -131,7 +131,7 @@ public class VideoAttentionModel extends BdBaseModel {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ VideoAttentionModel f57683a;
+        public final /* synthetic */ VideoAttentionModel f57867a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(VideoAttentionModel videoAttentionModel, int i2, boolean z) {
@@ -152,7 +152,7 @@ public class VideoAttentionModel extends BdBaseModel {
                     return;
                 }
             }
-            this.f57683a = videoAttentionModel;
+            this.f57867a = videoAttentionModel;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -163,11 +163,11 @@ public class VideoAttentionModel extends BdBaseModel {
                 return;
             }
             Object data = customResponsedMessage.getData();
-            if ((data instanceof Integer) && ((Integer) data).intValue() == this.f57683a.f57681j && TbadkCoreApplication.isLogin() && !this.f57683a.f57680i) {
-                this.f57683a.f57680i = true;
-                this.f57683a.G();
+            if ((data instanceof Integer) && ((Integer) data).intValue() == this.f57867a.f57865j && TbadkCoreApplication.isLogin() && !this.f57867a.f57864i) {
+                this.f57867a.f57864i = true;
+                this.f57867a.G();
                 TbSingleton.getInstance().setVideoChannelAttentionRedIcon(null);
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921575, Integer.valueOf(this.f57683a.f57681j)));
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921575, Integer.valueOf(this.f57867a.f57865j)));
             }
         }
     }
@@ -199,7 +199,7 @@ public class VideoAttentionModel extends BdBaseModel {
                 return;
             }
         }
-        this.f57680i = false;
+        this.f57864i = false;
         this.k = new a(this, CmdConfigHttp.CMD_HTTP_VIDEO_ATTENTION_FEED, true);
         this.l = new b(this, 2921574, true);
         setUniqueId(bdUniqueId);
@@ -211,8 +211,8 @@ public class VideoAttentionModel extends BdBaseModel {
     }
 
     public static /* synthetic */ int x(VideoAttentionModel videoAttentionModel) {
-        int i2 = videoAttentionModel.f57679h;
-        videoAttentionModel.f57679h = i2 + 1;
+        int i2 = videoAttentionModel.f57863h;
+        videoAttentionModel.f57863h = i2 + 1;
         return i2;
     }
 
@@ -224,9 +224,9 @@ public class VideoAttentionModel extends BdBaseModel {
             httpMessage.addParam("load_type", i2);
             httpMessage.addParam(Constants.EXTRA_CONFIG_LIMIT, 10);
             if (i2 == 0) {
-                this.f57677f = 0L;
+                this.f57861f = 0L;
             }
-            httpMessage.addParam("feed_id", this.f57677f);
+            httpMessage.addParam("feed_id", this.f57861f);
             return httpMessage;
         }
         return (HttpMessage) invokeI.objValue;
@@ -235,7 +235,7 @@ public class VideoAttentionModel extends BdBaseModel {
     public void G() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f57679h = 1;
+            this.f57863h = 1;
             sendMessage(F(0));
         }
     }
@@ -243,14 +243,14 @@ public class VideoAttentionModel extends BdBaseModel {
     public void H(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            this.f57681j = i2;
+            this.f57865j = i2;
         }
     }
 
     public void I(c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, cVar) == null) {
-            this.f57676e = cVar;
+            this.f57860e = cVar;
         }
     }
 

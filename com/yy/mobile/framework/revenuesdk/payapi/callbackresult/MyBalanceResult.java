@@ -58,4 +58,10 @@ public class MyBalanceResult {
         }
         return (MyBalanceInfo.Account) invokeI.objValue;
     }
+
+    public MyBalanceInfo getMyBalanceInfo() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.myBalanceInfo : (MyBalanceInfo) invokeV.objValue;
+    }
 }

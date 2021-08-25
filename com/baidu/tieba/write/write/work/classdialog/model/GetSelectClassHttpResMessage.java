@@ -1,6 +1,6 @@
 package com.baidu.tieba.write.write.work.classdialog.model;
 
-import c.a.o0.u.n;
+import c.a.p0.u.n;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;

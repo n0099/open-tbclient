@@ -2,12 +2,15 @@ package c.a.e.g;
 
 import android.app.Application;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.base.BdBaseApplication;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.nps.main.manager.Configurations;
 import com.baidu.nps.main.manager.NPSManager;
 import com.baidu.nps.pm.BundleInfo;
 import com.baidu.nps.pm.manager.NPSPackageManager;
+import com.baidu.nps.utils.SourceData;
 import com.baidu.searchbox.live.nps.LiveNPSPluginManager;
 import com.baidu.searchbox.pms.init.RequestParams;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -22,17 +25,52 @@ public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f2684b;
+    public static boolean f2742b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static boolean f2685c;
+    public static boolean f2743c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static c f2686d;
+    public static c f2744d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public volatile c.a.e.i.a f2687a;
+    public volatile c.a.e.i.a f2745a;
+
+    /* loaded from: classes.dex */
+    public static class a implements c.a.b0.d.a.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // c.a.b0.d.a.a
+        public void onProgress(long j2, long j3) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)}) == null) {
+            }
+        }
+
+        @Override // c.a.b0.d.a.a
+        public void onResult(int i2, String str) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str) == null) && BdBaseApplication.getInst().isDebugMode()) {
+                BdLog.e("Plug-in predownload status{\"code\": " + i2 + ", \"msg\": " + str + "}");
+            }
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -47,7 +85,7 @@ public class c {
                 return;
             }
         }
-        f2686d = new c();
+        f2744d = new c();
     }
 
     public c() {
@@ -66,25 +104,25 @@ public class c {
 
     public static void a() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65538, null) == null) && !f2685c && c.a.e.i.a.m()) {
-            f2685c = true;
+        if ((interceptable == null || interceptable.invokeV(65538, null) == null) && !f2743c && c.a.e.i.a.m()) {
+            f2743c = true;
             NPSPackageManager.getInstance().downloadAllBundles();
         }
     }
 
     public static void b() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65539, null) == null) || f2684b) {
+        if (!(interceptable == null || interceptable.invokeV(65539, null) == null) || f2742b) {
             return;
         }
-        f2684b = true;
+        f2742b = true;
         NPSPackageManager.getInstance().fetchBundleInfo();
     }
 
     public static c d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? f2686d : (c) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? f2744d : (c) invokeV.objValue;
     }
 
     public static void j() {
@@ -94,12 +132,25 @@ public class c {
         }
     }
 
+    public static void k(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, str) == null) {
+            if (str != null && str.trim().length() != 0) {
+                SourceData sourceData = new SourceData();
+                sourceData.source = "";
+                NPSPackageManager.getInstance().preDownload(str, new a(), 1, sourceData);
+            } else if (BdBaseApplication.getInst().isDebugMode()) {
+                BdLog.e("PackageName of Plug-in is null.");
+            }
+        }
+    }
+
     public RequestParams.Channel c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             i();
-            return this.f2687a.l();
+            return this.f2745a.l();
         }
         return (RequestParams.Channel) invokeV.objValue;
     }
@@ -115,7 +166,7 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             i();
-            return this.f2687a;
+            return this.f2745a;
         }
         return (c.a.e.i.a) invokeV.objValue;
     }
@@ -148,8 +199,8 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             synchronized (this) {
-                if (this.f2687a == null) {
-                    this.f2687a = new c.a.e.i.a();
+                if (this.f2745a == null) {
+                    this.f2745a = new c.a.e.i.a();
                 }
             }
         }

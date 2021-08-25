@@ -18,7 +18,7 @@ public class c implements h {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Bundle f2075a;
+    public Bundle f2133a;
 
     public c(Bundle bundle) {
         Interceptable interceptable = $ic;
@@ -35,7 +35,7 @@ public class c implements h {
                 return;
             }
         }
-        this.f2075a = bundle;
+        this.f2133a = bundle;
     }
 
     @Override // c.a.e.e.b.b.a.b.h
@@ -59,21 +59,21 @@ public class c implements h {
     public Object b(c.a.e.e.b.b.a.e.c cVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar)) == null) ? this.f2075a : invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar)) == null) ? this.f2133a : invokeL.objValue;
     }
 
     @Override // c.a.e.e.b.b.a.b.h
     public Object c(c.a.e.e.b.b.a.e.c cVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cVar)) == null) ? this.f2075a : invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cVar)) == null) ? this.f2133a : invokeL.objValue;
     }
 
     @Override // c.a.e.e.b.b.a.b.h
     public Object d(c.a.e.e.b.b.a.e.c cVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, cVar)) == null) ? this.f2075a : invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, cVar)) == null) ? this.f2133a : invokeL.objValue;
     }
 
     @Override // c.a.e.e.b.b.a.b.h
@@ -89,10 +89,10 @@ public class c implements h {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, cVar)) == null) {
             Type[] b2 = cVar.b();
-            Set<String> keySet = this.f2075a.keySet();
+            Set<String> keySet = this.f2133a.keySet();
             JSONObject jSONObject = new JSONObject();
             for (String str : keySet) {
-                Object obj = this.f2075a.get(str);
+                Object obj = this.f2133a.get(str);
                 if (b2 != null && b2.length >= 2) {
                     try {
                         jSONObject.put(str, c.a.e.e.b.b.a.e.f.a(obj).f(new c.a.e.e.b.b.a.e.c(b2[1])));

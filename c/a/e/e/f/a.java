@@ -24,14 +24,14 @@ public abstract class a {
 
     /* renamed from: c.a.e.e.f.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0042a implements b.a {
+    public class C0032a implements b.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f2186a;
+        public final /* synthetic */ a f2244a;
 
-        public C0042a(a aVar) {
+        public C0032a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -46,14 +46,14 @@ public abstract class a {
                     return;
                 }
             }
-            this.f2186a = aVar;
+            this.f2244a = aVar;
         }
 
         @Override // c.a.e.e.f.b.a
         public void a(String str, int i2, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{str, Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
-                this.f2186a.changeSettingByType(i2);
+                this.f2244a.changeSettingByType(i2);
             }
         }
     }
@@ -74,7 +74,7 @@ public abstract class a {
         this.mDefaultType = 0;
         this.mOffType = 1;
         this.mMaxCrashTimes = 10;
-        this.mSwitchListener = new C0042a(this);
+        this.mSwitchListener = new C0032a(this);
         initData();
         addToManager();
     }

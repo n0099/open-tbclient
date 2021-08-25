@@ -19,6 +19,10 @@ public interface NativeExpressADData2 extends ApkDownloadComplianceInterface {
 
     void render();
 
+    void sendLossNotification(int i2, int i3, String str);
+
+    void sendWinNotification(int i2);
+
     void setAdEventListener(AdEventListener adEventListener);
 
     void setMediaListener(MediaEventListener mediaEventListener);

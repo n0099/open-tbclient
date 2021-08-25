@@ -11,7 +11,7 @@ public abstract class jb {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public jl f77662a;
+    public jl f77863a;
 
     public jb(jl jlVar) {
         Interceptable interceptable = $ic;
@@ -28,7 +28,7 @@ public abstract class jb {
                 return;
             }
         }
-        this.f77662a = jlVar;
+        this.f77863a = jlVar;
     }
 
     public abstract byte a();

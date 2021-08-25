@@ -20,7 +20,6 @@ import com.baidu.searchbox.launch.SmartLaunchStats;
 import com.baidu.searchbox.launch.stats.SpeedStatsManager;
 import com.baidu.searchbox.launch.utils.SpeedStatsUtils;
 import com.baidu.searchbox.launched.LaunchedTaskSpeedStats;
-import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -60,6 +59,7 @@ public class SpeedStats {
     public static final String UBC_LAUNCH_SPEED_ID = "127";
     public static SpeedStats mInstance;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean isMainPageStatsEnd;
     public Context mContext;
     public int mCpuCore;
     public int mFeedDataType;
@@ -138,7 +138,7 @@ public class SpeedStats {
         this.mIsExternalTransfer = false;
         this.mHasForegroundToBackground = false;
         this.mSpeedStatsManager = SpeedStatsManager.getInstance();
-        this.mContext = TbadkApplication.getInst().getContext();
+        this.isMainPageStatsEnd = false;
     }
 
     private void asyncUploadSpeedInfo() {
@@ -861,6 +861,7 @@ public class SpeedStats {
     public void onMainPageStatsEnd(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048596, this, context) == null) {
+            this.isMainPageStatsEnd = true;
             if (this.mSpeedStatsManager.getStatsFlag()) {
                 this.mSpeedStatsManager.addStatsTimeStamp(6000);
                 if (!checkValid()) {
@@ -898,16 +899,23 @@ public class SpeedStats {
         }
     }
 
+    public void setContext(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048599, this, context) == null) {
+            this.mContext = context;
+        }
+    }
+
     public void setFeedDataType(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048599, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048600, this, i2) == null) {
             this.mFeedDataType = i2;
         }
     }
 
     public void setForegroundToBackgroundFlag() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048600, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048601, this) == null) {
             this.mHasForegroundToBackground = true;
             ExternalTransferSpeedStats.setForegroundToBackgroundFlag(true);
         }
@@ -915,7 +923,7 @@ public class SpeedStats {
 
     public void setHotwordDataType(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048601, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048602, this, i2) == null) {
             this.mHotwordDataType = i2;
         }
     }

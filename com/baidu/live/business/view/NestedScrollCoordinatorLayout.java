@@ -34,10 +34,10 @@ public class NestedScrollCoordinatorLayout extends CoordinatorLayout implements 
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f40602a;
+        public int f40709a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final int[] f40603b;
+        public final int[] f40710b;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -52,8 +52,8 @@ public class NestedScrollCoordinatorLayout extends CoordinatorLayout implements 
                     return;
                 }
             }
-            this.f40602a = 1;
-            this.f40603b = new int[2];
+            this.f40709a = 1;
+            this.f40710b = new int[2];
         }
 
         @Override // com.baidu.live.framework.coordinatorlayout.CoordinatorLayout.Behavior
@@ -74,7 +74,7 @@ public class NestedScrollCoordinatorLayout extends CoordinatorLayout implements 
         public void E(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-                this.f40602a = i2;
+                this.f40709a = i2;
             }
         }
 
@@ -84,7 +84,7 @@ public class NestedScrollCoordinatorLayout extends CoordinatorLayout implements 
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{coordinatorLayout, dummyview, view, Float.valueOf(f2), Float.valueOf(f3)})) == null) {
                 boolean dispatchNestedPreFling = ((NestedScrollCoordinatorLayout) coordinatorLayout).dispatchNestedPreFling(f2, f3);
-                if (this.f40602a == 1) {
+                if (this.f40709a == 1) {
                     return dispatchNestedPreFling;
                 }
                 return false;
@@ -97,11 +97,11 @@ public class NestedScrollCoordinatorLayout extends CoordinatorLayout implements 
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{coordinatorLayout, dummyview, view, Integer.valueOf(i2), Integer.valueOf(i3), iArr, Integer.valueOf(i4)}) == null) {
                 NestedScrollCoordinatorLayout nestedScrollCoordinatorLayout = (NestedScrollCoordinatorLayout) coordinatorLayout;
-                int i5 = this.f40602a;
+                int i5 = this.f40709a;
                 if (i5 == 1) {
                     nestedScrollCoordinatorLayout.dispatchNestedPreScroll(i2, i3, iArr, null);
                 } else if (i5 == 0) {
-                    int[] iArr2 = this.f40603b;
+                    int[] iArr2 = this.f40710b;
                     iArr2[0] = iArr[0];
                     iArr2[1] = iArr[1];
                     nestedScrollCoordinatorLayout.dispatchNestedPreScroll(i2, i3, iArr2, null);

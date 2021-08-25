@@ -23,7 +23,7 @@ public class ar {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, aqVar, hlVar)) == null) {
-            return aqVar.f902a.getInt(a(hlVar), as.f77744a[hlVar.ordinal()] != 1 ? 0 : 1);
+            return aqVar.f902a.getInt(a(hlVar), as.f77945a[hlVar.ordinal()] != 1 ? 0 : 1);
         }
         return invokeLL.intValue;
     }
@@ -52,7 +52,7 @@ public class ar {
                     if (z && hqVar.f519a) {
                         arrayList.add(new Pair(Integer.valueOf(a2), null));
                     } else {
-                        int i2 = as.f77745b[a3.ordinal()];
+                        int i2 = as.f77946b[a3.ordinal()];
                         arrayList.add(i2 != 1 ? i2 != 2 ? i2 != 3 ? i2 != 4 ? null : new Pair(Integer.valueOf(a2), Boolean.valueOf(hqVar.g())) : new Pair(Integer.valueOf(a2), hqVar.m396a()) : new Pair(Integer.valueOf(a2), Long.valueOf(hqVar.m395a())) : new Pair(Integer.valueOf(a2), Integer.valueOf(hqVar.c())));
                     }
                 }

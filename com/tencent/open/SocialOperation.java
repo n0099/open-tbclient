@@ -68,7 +68,7 @@ public class SocialOperation extends BaseApi {
                 return;
             }
             StringBuffer stringBuffer = new StringBuffer("mqqapi://opensdk/bind_group?src_type=app&version=1");
-            String appId = this.f75827c.getAppId();
+            String appId = this.f76028c.getAppId();
             if (TextUtils.isEmpty(appId)) {
                 SLog.e("openSDK_LOG.GameAppOperation", "-->bindQQGroup, appId is empty.");
                 if (iUiListener != null) {
@@ -77,7 +77,7 @@ public class SocialOperation extends BaseApi {
                 }
                 return;
             }
-            String openId = this.f75827c.getOpenId();
+            String openId = this.f76028c.getOpenId();
             if (TextUtils.isEmpty(openId)) {
                 SLog.e("openSDK_LOG.GameAppOperation", "-->bindQQGroup, openid is empty.");
                 if (iUiListener != null) {
@@ -119,16 +119,16 @@ public class SocialOperation extends BaseApi {
                         public transient /* synthetic */ FieldHolder $fh;
 
                         /* renamed from: a  reason: collision with root package name */
-                        public final /* synthetic */ IUiListener f75900a;
+                        public final /* synthetic */ IUiListener f76101a;
 
                         /* renamed from: b  reason: collision with root package name */
-                        public final /* synthetic */ Activity f75901b;
+                        public final /* synthetic */ Activity f76102b;
 
                         /* renamed from: c  reason: collision with root package name */
-                        public final /* synthetic */ Intent f75902c;
+                        public final /* synthetic */ Intent f76103c;
 
                         /* renamed from: d  reason: collision with root package name */
-                        public final /* synthetic */ SocialOperation f75903d;
+                        public final /* synthetic */ SocialOperation f76104d;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -145,10 +145,10 @@ public class SocialOperation extends BaseApi {
                                     return;
                                 }
                             }
-                            this.f75903d = this;
-                            this.f75900a = iUiListener;
-                            this.f75901b = activity;
-                            this.f75902c = intent;
+                            this.f76104d = this;
+                            this.f76101a = iUiListener;
+                            this.f76102b = activity;
+                            this.f76103c = intent;
                         }
 
                         @Override // com.tencent.tauth.DefaultUiListener, com.tencent.tauth.IUiListener
@@ -164,19 +164,19 @@ public class SocialOperation extends BaseApi {
                             if (interceptable2 == null || interceptable2.invokeL(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
                                 SLog.w("openSDK_LOG.GameAppOperation", "-->bind group resp is: " + obj);
                                 if (obj == null) {
-                                    IUiListener iUiListener2 = this.f75900a;
+                                    IUiListener iUiListener2 = this.f76101a;
                                     if (iUiListener2 != null) {
                                         iUiListener2.onError(new UiError(4001, "服务端错误，请稍后重试", "资格检查回包为null。"));
                                     }
                                 } else if (((JSONObject) obj).optInt("bind") != 1) {
                                     try {
-                                        this.f75903d.a(this.f75901b, (int) Constants.REQUEST_BIND_GROUP, this.f75902c, false);
+                                        this.f76104d.a(this.f76102b, (int) Constants.REQUEST_BIND_GROUP, this.f76103c, false);
                                     } catch (Exception e2) {
                                         SLog.e("openSDK_LOG.GameAppOperation", "-->bind group, start activity exception.", e2);
-                                        this.f75903d.a(this.f75901b);
+                                        this.f76104d.a(this.f76102b);
                                     }
                                 } else {
-                                    IUiListener iUiListener3 = this.f75900a;
+                                    IUiListener iUiListener3 = this.f76101a;
                                     if (iUiListener3 != null) {
                                         iUiListener3.onError(new UiError(3002, "该群已绑定！", "绑定过的群不能再次绑定。"));
                                     }
@@ -190,7 +190,7 @@ public class SocialOperation extends BaseApi {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeL(com.baidu.android.imsdk.internal.Constants.METHOD_SEND_USER_MSG, this, uiError) == null) {
                                 SLog.v("openSDK_LOG.GameAppOperation", "-->bindQQGroup, error: " + uiError);
-                                IUiListener iUiListener2 = this.f75900a;
+                                IUiListener iUiListener2 = this.f76101a;
                                 if (iUiListener2 != null) {
                                     iUiListener2.onError(uiError);
                                 }
@@ -200,7 +200,7 @@ public class SocialOperation extends BaseApi {
                     Bundle a3 = a();
                     a3.putString("appid", appId);
                     a3.putString("orgid", str);
-                    HttpUtils.requestAsync(this.f75827c, activity, "https://openmobile.qq.com/cgi-bin/qunopensdk/check_group", a3, "GET", new BaseApi.TempRequestListener(this, defaultUiListener));
+                    HttpUtils.requestAsync(this.f76028c, activity, "https://openmobile.qq.com/cgi-bin/qunopensdk/check_group", a3, "GET", new BaseApi.TempRequestListener(this, defaultUiListener));
                     SLog.i("openSDK_LOG.GameAppOperation", "-->bindQQGroup() do.");
                     return;
                 }
@@ -226,7 +226,7 @@ public class SocialOperation extends BaseApi {
                 }
             } else {
                 Intent intent = new Intent();
-                String appId = this.f75827c.getAppId();
+                String appId = this.f76028c.getAppId();
                 if (TextUtils.isEmpty(appId)) {
                     SLog.e("openSDK_LOG.GameAppOperation", "-->joinGroup, appid is empty.");
                     if (iUiListener != null) {
@@ -235,7 +235,7 @@ public class SocialOperation extends BaseApi {
                     }
                     return;
                 }
-                String openId = this.f75827c.getOpenId();
+                String openId = this.f76028c.getOpenId();
                 if (TextUtils.isEmpty(openId)) {
                     SLog.e("openSDK_LOG.GameAppOperation", "-->joinGroup, openid is empty.");
                     if (iUiListener != null) {
@@ -256,16 +256,16 @@ public class SocialOperation extends BaseApi {
                         public transient /* synthetic */ FieldHolder $fh;
 
                         /* renamed from: a  reason: collision with root package name */
-                        public final /* synthetic */ IUiListener f75896a;
+                        public final /* synthetic */ IUiListener f76097a;
 
                         /* renamed from: b  reason: collision with root package name */
-                        public final /* synthetic */ Activity f75897b;
+                        public final /* synthetic */ Activity f76098b;
 
                         /* renamed from: c  reason: collision with root package name */
-                        public final /* synthetic */ Intent f75898c;
+                        public final /* synthetic */ Intent f76099c;
 
                         /* renamed from: d  reason: collision with root package name */
-                        public final /* synthetic */ SocialOperation f75899d;
+                        public final /* synthetic */ SocialOperation f76100d;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -282,10 +282,10 @@ public class SocialOperation extends BaseApi {
                                     return;
                                 }
                             }
-                            this.f75899d = this;
-                            this.f75896a = iUiListener;
-                            this.f75897b = activity;
-                            this.f75898c = intent;
+                            this.f76100d = this;
+                            this.f76097a = iUiListener;
+                            this.f76098b = activity;
+                            this.f76099c = intent;
                         }
 
                         @Override // com.tencent.tauth.DefaultUiListener, com.tencent.tauth.IUiListener
@@ -301,19 +301,19 @@ public class SocialOperation extends BaseApi {
                             if (interceptable2 == null || interceptable2.invokeL(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
                                 SLog.w("openSDK_LOG.GameAppOperation", "-->join group resp is: " + obj);
                                 if (obj == null) {
-                                    IUiListener iUiListener2 = this.f75896a;
+                                    IUiListener iUiListener2 = this.f76097a;
                                     if (iUiListener2 != null) {
                                         iUiListener2.onError(new UiError(4001, "服务端错误，请稍后重试", "资格检查回包为null。"));
                                     }
                                 } else if (((JSONObject) obj).optInt("bind") == 1) {
                                     try {
-                                        this.f75899d.a(this.f75897b, (int) Constants.REQUEST_JOIN_GROUP, this.f75898c, false);
+                                        this.f76100d.a(this.f76098b, (int) Constants.REQUEST_JOIN_GROUP, this.f76099c, false);
                                     } catch (Exception e2) {
                                         SLog.e("openSDK_LOG.GameAppOperation", "-->join group, start activity exception.", e2);
-                                        this.f75899d.a(this.f75897b);
+                                        this.f76100d.a(this.f76098b);
                                     }
                                 } else {
-                                    IUiListener iUiListener3 = this.f75896a;
+                                    IUiListener iUiListener3 = this.f76097a;
                                     if (iUiListener3 != null) {
                                         iUiListener3.onError(new UiError(3003, "该组织未绑群，无法加入", "该组织未绑群，无法加入。"));
                                     }
@@ -326,7 +326,7 @@ public class SocialOperation extends BaseApi {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeL(com.baidu.android.imsdk.internal.Constants.METHOD_SEND_USER_MSG, this, uiError) == null) {
                                 SLog.v("openSDK_LOG.GameAppOperation", "-->joinQQGroup, error: " + uiError);
-                                IUiListener iUiListener2 = this.f75896a;
+                                IUiListener iUiListener2 = this.f76097a;
                                 if (iUiListener2 != null) {
                                     iUiListener2.onError(uiError);
                                 }
@@ -336,7 +336,7 @@ public class SocialOperation extends BaseApi {
                     Bundle a2 = a();
                     a2.putString("appid", appId);
                     a2.putString("orgid", str);
-                    HttpUtils.requestAsync(this.f75827c, activity, "https://openmobile.qq.com/cgi-bin/qunopensdk/check_group", a2, "GET", new BaseApi.TempRequestListener(this, defaultUiListener));
+                    HttpUtils.requestAsync(this.f76028c, activity, "https://openmobile.qq.com/cgi-bin/qunopensdk/check_group", a2, "GET", new BaseApi.TempRequestListener(this, defaultUiListener));
                     SLog.i("openSDK_LOG.GameAppOperation", "-->joinQQGroup() do.");
                     return;
                 }
@@ -352,20 +352,20 @@ public class SocialOperation extends BaseApi {
             SLog.i("openSDK_LOG.GameAppOperation", "-->makeFriend()  -- start");
             if (bundle == null) {
                 SLog.e("openSDK_LOG.GameAppOperation", "-->makeFriend params is null");
-                d.a().a(this.f75827c.getOpenId(), this.f75827c.getAppId(), Constants.VIA_MAKE_FRIEND, "14", "18", "1");
+                d.a().a(this.f76028c.getOpenId(), this.f76028c.getAppId(), Constants.VIA_MAKE_FRIEND, "14", "18", "1");
                 return;
             }
             String string = bundle.getString(GAME_FRIEND_OPENID);
             if (TextUtils.isEmpty(string)) {
                 SLog.e("openSDK_LOG.GameAppOperation", "-->make friend, fOpenid is empty.");
-                d.a().a(this.f75827c.getOpenId(), this.f75827c.getAppId(), Constants.VIA_MAKE_FRIEND, "14", "18", "1");
+                d.a().a(this.f76028c.getOpenId(), this.f76028c.getAppId(), Constants.VIA_MAKE_FRIEND, "14", "18", "1");
                 return;
             }
             String string2 = bundle.getString(GAME_FRIEND_LABEL);
             String string3 = bundle.getString(GAME_FRIEND_ADD_MESSAGE);
             String a2 = l.a(activity);
-            String openId = this.f75827c.getOpenId();
-            String appId = this.f75827c.getAppId();
+            String openId = this.f76028c.getOpenId();
+            String appId = this.f76028c.getAppId();
             SLog.v("openSDK_LOG.GameAppOperation", "-->make friend, fOpenid: " + string + " | label: " + string2 + " | message: " + string3 + " | openid: " + openId + " | appid:" + appId);
             StringBuffer stringBuffer = new StringBuffer("mqqapi://gamesdk/add_friend?src_type=app&version=1");
             StringBuilder sb = new StringBuilder();
@@ -394,16 +394,16 @@ public class SocialOperation extends BaseApi {
                 SLog.i("openSDK_LOG.GameAppOperation", "-->makeFriend target activity found, qqver greater than 5.1.0");
                 try {
                     activity.startActivity(intent);
-                    d.a().a(this.f75827c.getOpenId(), this.f75827c.getAppId(), Constants.VIA_MAKE_FRIEND, "14", "18", "0");
+                    d.a().a(this.f76028c.getOpenId(), this.f76028c.getAppId(), Constants.VIA_MAKE_FRIEND, "14", "18", "0");
                 } catch (Exception e2) {
                     SLog.e("openSDK_LOG.GameAppOperation", "-->make friend, start activity exception.", e2);
                     a(activity);
-                    d.a().a(this.f75827c.getOpenId(), this.f75827c.getAppId(), Constants.VIA_MAKE_FRIEND, "14", "18", "1");
+                    d.a().a(this.f76028c.getOpenId(), this.f76028c.getAppId(), Constants.VIA_MAKE_FRIEND, "14", "18", "1");
                 }
             } else {
                 SLog.w("openSDK_LOG.GameAppOperation", "-->make friend, there is no activity.");
                 a(activity);
-                d.a().a(this.f75827c.getOpenId(), this.f75827c.getAppId(), Constants.VIA_MAKE_FRIEND, "14", "18", "1");
+                d.a().a(this.f76028c.getOpenId(), this.f76028c.getAppId(), Constants.VIA_MAKE_FRIEND, "14", "18", "1");
             }
             SLog.i("openSDK_LOG.GameAppOperation", "-->makeFriend()  -- end");
         }
@@ -424,7 +424,7 @@ public class SocialOperation extends BaseApi {
                     iUiListener.onError(new UiError(1006, "param organizationId is null", "organizationId param of api can not be null."));
                 }
             } else {
-                String appId = this.f75827c.getAppId();
+                String appId = this.f76028c.getAppId();
                 if (TextUtils.isEmpty(appId)) {
                     SLog.e("openSDK_LOG.GameAppOperation", "-->unBindGroup, appid is empty.");
                     if (iUiListener != null) {
@@ -438,10 +438,10 @@ public class SocialOperation extends BaseApi {
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ IUiListener f75894a;
+                    public final /* synthetic */ IUiListener f76095a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ SocialOperation f75895b;
+                    public final /* synthetic */ SocialOperation f76096b;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -458,8 +458,8 @@ public class SocialOperation extends BaseApi {
                                 return;
                             }
                         }
-                        this.f75895b = this;
-                        this.f75894a = iUiListener;
+                        this.f76096b = this;
+                        this.f76095a = iUiListener;
                     }
 
                     @Override // com.tencent.tauth.DefaultUiListener, com.tencent.tauth.IUiListener
@@ -475,7 +475,7 @@ public class SocialOperation extends BaseApi {
                         if (interceptable2 == null || interceptable2.invokeL(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
                             SLog.w("openSDK_LOG.GameAppOperation", "-->unbind group resp is: " + obj);
                             if (obj == null) {
-                                IUiListener iUiListener2 = this.f75894a;
+                                IUiListener iUiListener2 = this.f76095a;
                                 if (iUiListener2 != null) {
                                     iUiListener2.onError(new UiError(4001, "服务端错误，请稍后重试", "资格检查回包为null。"));
                                     return;
@@ -483,7 +483,7 @@ public class SocialOperation extends BaseApi {
                                 return;
                             }
                             JSONObject jSONObject = (JSONObject) obj;
-                            IUiListener iUiListener3 = this.f75894a;
+                            IUiListener iUiListener3 = this.f76095a;
                             if (iUiListener3 != null) {
                                 iUiListener3.onComplete(jSONObject);
                             }
@@ -495,7 +495,7 @@ public class SocialOperation extends BaseApi {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(com.baidu.android.imsdk.internal.Constants.METHOD_SEND_USER_MSG, this, uiError) == null) {
                             SLog.v("openSDK_LOG.GameAppOperation", "-->unbindQQGroup, error: " + uiError);
-                            IUiListener iUiListener2 = this.f75894a;
+                            IUiListener iUiListener2 = this.f76095a;
                             if (iUiListener2 != null) {
                                 iUiListener2.onError(uiError);
                             }
@@ -505,7 +505,7 @@ public class SocialOperation extends BaseApi {
                 Bundle a2 = a();
                 a2.putString("appid", appId);
                 a2.putString("orgid", str);
-                HttpUtils.requestAsync(this.f75827c, context, "https://openmobile.qq.com/cgi-bin/qunopensdk/unbind", a2, "GET", new BaseApi.TempRequestListener(this, defaultUiListener));
+                HttpUtils.requestAsync(this.f76028c, context, "https://openmobile.qq.com/cgi-bin/qunopensdk/unbind", a2, "GET", new BaseApi.TempRequestListener(this, defaultUiListener));
                 SLog.i("openSDK_LOG.GameAppOperation", "-->unBindQQGroup() do.");
             }
         }
@@ -522,7 +522,7 @@ public class SocialOperation extends BaseApi {
     private void a(Activity activity, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65538, this, activity, str) == null) {
-            new TDialog(activity, "", a(str), null, this.f75827c).show();
+            new TDialog(activity, "", a(str), null, this.f76028c).show();
         }
     }
 }

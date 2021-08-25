@@ -1,6 +1,6 @@
 package com.baidu.tieba.quickWebView;
 
-import c.a.p0.i3.d0.a;
+import c.a.q0.i3.d0.a;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbSingleton;

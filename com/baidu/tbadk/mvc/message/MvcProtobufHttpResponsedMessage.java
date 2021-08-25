@@ -4,9 +4,9 @@ import android.text.TextUtils;
 import c.a.e.e.d.l;
 import c.a.e.e.p.b;
 import c.a.e.e.p.n;
-import c.a.o0.i0.b.d;
-import c.a.o0.i0.b.h;
-import c.a.o0.s.r.a;
+import c.a.p0.i0.b.d;
+import c.a.p0.i0.b.h;
+import c.a.p0.s.r.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -49,7 +49,6 @@ public abstract class MvcProtobufHttpResponsedMessage<D extends h, M extends Mes
     @Override // com.baidu.adp.framework.message.ResponsedMessage
     public void afterDispatchInBackGround(int i2, byte[] bArr) {
         d dVar;
-        l<byte[]> e2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, bArr) == null) {
             super.afterDispatchInBackGround(i2, (int) bArr);
@@ -75,7 +74,12 @@ public abstract class MvcProtobufHttpResponsedMessage<D extends h, M extends Mes
                 String cacheKey = dVar.getCacheKey();
                 String v = dVar.v();
                 String currentAccount = dVar.isNeedUid() ? TbadkCoreApplication.getCurrentAccount() : null;
-                if (cacheKey == null || TextUtils.isEmpty(v) || bArr == null || (e2 = a.f().e(v, currentAccount)) == null) {
+                if (cacheKey == null || TextUtils.isEmpty(v) || bArr == null) {
+                    return;
+                }
+                a.f();
+                l<byte[]> e2 = a.e(v, currentAccount);
+                if (e2 == null) {
                     return;
                 }
                 e2.g(cacheKey, bArr);

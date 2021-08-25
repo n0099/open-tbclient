@@ -2,8 +2,8 @@ package com.baidu.tieba.im.chat.officialBar;
 
 import android.view.View;
 import android.widget.TextView;
-import c.a.p0.j1.f.e;
-import c.a.p0.j1.l.c.a;
+import c.a.q0.j1.f.e;
+import c.a.q0.j1.l.c.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.R;
@@ -48,9 +48,9 @@ public class MsgMultiImageTextView extends e {
             return;
         }
         u(chatMessage);
-        List<a.C0959a> b2 = a.b(chatMessage.getContent(), chatMessage.getUserInfo().getUserId(), chatMessage.getUserInfo(), chatMessage.getMsgId(), chatMessage.getStatTaskId(), chatMessage.getStatisticsServiceId());
-        this.t.setPosition(this.f20302f);
-        this.t.setOnItemViewLongClickListener(this.f20299c);
+        List<a.C0970a> b2 = a.b(chatMessage.getContent(), chatMessage.getUserInfo().getUserId(), chatMessage.getUserInfo(), chatMessage.getMsgId(), chatMessage.getStatTaskId(), chatMessage.getStatisticsServiceId());
+        this.t.setPosition(this.f20632f);
+        this.t.setOnItemViewLongClickListener(this.f20629c);
         this.t.setNeedNightMode(true);
         this.t.setType(1);
         this.t.setData(tbPageContext, b2, view);
@@ -59,7 +59,7 @@ public class MsgMultiImageTextView extends e {
     public final void z() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f20304h = (TextView) c(R.id.tex_msgitem_time);
+            this.f20634h = (TextView) c(R.id.tex_msgitem_time);
             this.t = (MultiContentView) c(R.id.msg_content);
         }
     }

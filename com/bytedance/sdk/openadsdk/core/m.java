@@ -23,34 +23,34 @@ public class m extends Dialog {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public View f66368a;
+    public View f66568a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f66369b;
+    public Context f66569b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ImageView f66370c;
+    public ImageView f66570c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ImageView f66371d;
+    public ImageView f66571d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f66372e;
+    public TextView f66572e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f66373f;
+    public TextView f66573f;
 
     /* renamed from: g  reason: collision with root package name */
-    public FrameLayout f66374g;
+    public FrameLayout f66574g;
 
     /* renamed from: h  reason: collision with root package name */
-    public com.bytedance.sdk.openadsdk.core.e.m f66375h;
+    public com.bytedance.sdk.openadsdk.core.e.m f66575h;
 
     /* renamed from: i  reason: collision with root package name */
-    public a f66376i;
+    public a f66576i;
 
     /* renamed from: j  reason: collision with root package name */
-    public boolean f66377j;
+    public boolean f66577j;
 
     /* loaded from: classes9.dex */
     public interface a {
@@ -86,27 +86,27 @@ public class m extends Dialog {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
             try {
-                if (this.f66374g != null && this.f66374g.getChildCount() > 0) {
-                    View childAt = this.f66374g.getChildAt(0);
+                if (this.f66574g != null && this.f66574g.getChildCount() > 0) {
+                    View childAt = this.f66574g.getChildAt(0);
                     if (childAt instanceof NativeExpressView) {
                         NativeExpressView nativeExpressView = (NativeExpressView) childAt;
                         if (nativeExpressView.n()) {
-                            this.f66374g.setVisibility(0);
-                            this.f66370c.setVisibility(8);
-                            this.f66371d.setVisibility(8);
-                            this.f66372e.setVisibility(8);
-                            this.f66373f.setVisibility(8);
-                            View findViewById = nativeExpressView.findViewById(com.bytedance.sdk.component.utils.t.e(this.f66369b, "tt_bu_close"));
+                            this.f66574g.setVisibility(0);
+                            this.f66570c.setVisibility(8);
+                            this.f66571d.setVisibility(8);
+                            this.f66572e.setVisibility(8);
+                            this.f66573f.setVisibility(8);
+                            View findViewById = nativeExpressView.findViewById(com.bytedance.sdk.component.utils.t.e(this.f66569b, "tt_bu_close"));
                             if (findViewById != null) {
                                 findViewById.setOnClickListener(new View.OnClickListener(this, findViewById) { // from class: com.bytedance.sdk.openadsdk.core.m.3
                                     public static /* synthetic */ Interceptable $ic;
                                     public transient /* synthetic */ FieldHolder $fh;
 
                                     /* renamed from: a  reason: collision with root package name */
-                                    public final /* synthetic */ View f66380a;
+                                    public final /* synthetic */ View f66580a;
 
                                     /* renamed from: b  reason: collision with root package name */
-                                    public final /* synthetic */ m f66381b;
+                                    public final /* synthetic */ m f66581b;
 
                                     {
                                         Interceptable interceptable2 = $ic;
@@ -123,17 +123,17 @@ public class m extends Dialog {
                                                 return;
                                             }
                                         }
-                                        this.f66381b = this;
-                                        this.f66380a = findViewById;
+                                        this.f66581b = this;
+                                        this.f66580a = findViewById;
                                     }
 
                                     @Override // android.view.View.OnClickListener
                                     public void onClick(View view) {
                                         Interceptable interceptable2 = $ic;
-                                        if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) || this.f66381b.f66376i == null) {
+                                        if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) || this.f66581b.f66576i == null) {
                                             return;
                                         }
-                                        this.f66381b.f66376i.a(this.f66380a);
+                                        this.f66581b.f66576i.a(this.f66580a);
                                     }
                                 });
                             }
@@ -183,19 +183,19 @@ public class m extends Dialog {
                 return;
             }
         }
-        this.f66377j = false;
-        this.f66369b = context;
+        this.f66577j = false;
+        this.f66569b = context;
     }
 
     public void a(boolean z, a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZL(Constants.METHOD_SEND_USER_MSG, this, z, aVar) == null) {
-            this.f66377j = z;
-            this.f66376i = aVar;
+            this.f66577j = z;
+            this.f66576i = aVar;
             a();
-            a aVar2 = this.f66376i;
+            a aVar2 = this.f66576i;
             if (aVar2 != null) {
-                aVar2.a(this.f66370c, this.f66371d, this.f66374g);
+                aVar2.a(this.f66570c, this.f66571d, this.f66574g);
             }
         }
     }
@@ -203,7 +203,7 @@ public class m extends Dialog {
     public void a(com.bytedance.sdk.openadsdk.core.e.m mVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, mVar) == null) {
-            this.f66375h = mVar;
+            this.f66575h = mVar;
         }
     }
 
@@ -211,35 +211,35 @@ public class m extends Dialog {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
             setCancelable(false);
-            View inflate = LayoutInflater.from(this.f66369b).inflate(com.bytedance.sdk.component.utils.t.f(this.f66369b, "tt_insert_ad_layout"), (ViewGroup) null);
-            this.f66368a = inflate;
+            View inflate = LayoutInflater.from(this.f66569b).inflate(com.bytedance.sdk.component.utils.t.f(this.f66569b, "tt_insert_ad_layout"), (ViewGroup) null);
+            this.f66568a = inflate;
             setContentView(inflate);
-            this.f66370c = (ImageView) this.f66368a.findViewById(com.bytedance.sdk.component.utils.t.e(this.f66369b, "tt_insert_ad_img"));
-            this.f66371d = (ImageView) this.f66368a.findViewById(com.bytedance.sdk.component.utils.t.e(this.f66369b, "tt_insert_dislike_icon_img"));
-            this.f66372e = (TextView) this.f66368a.findViewById(com.bytedance.sdk.component.utils.t.e(this.f66369b, "tt_ad_logo"));
-            this.f66373f = (TextView) this.f66368a.findViewById(com.bytedance.sdk.component.utils.t.e(this.f66369b, "tt_insert_ad_text"));
-            com.bytedance.sdk.openadsdk.q.s.a(this.f66372e, this.f66375h);
-            this.f66374g = (FrameLayout) this.f66368a.findViewById(com.bytedance.sdk.component.utils.t.e(this.f66369b, "tt_insert_express_ad_fl"));
-            int c2 = com.bytedance.sdk.openadsdk.q.s.c(this.f66369b);
+            this.f66570c = (ImageView) this.f66568a.findViewById(com.bytedance.sdk.component.utils.t.e(this.f66569b, "tt_insert_ad_img"));
+            this.f66571d = (ImageView) this.f66568a.findViewById(com.bytedance.sdk.component.utils.t.e(this.f66569b, "tt_insert_dislike_icon_img"));
+            this.f66572e = (TextView) this.f66568a.findViewById(com.bytedance.sdk.component.utils.t.e(this.f66569b, "tt_ad_logo"));
+            this.f66573f = (TextView) this.f66568a.findViewById(com.bytedance.sdk.component.utils.t.e(this.f66569b, "tt_insert_ad_text"));
+            com.bytedance.sdk.openadsdk.q.s.a(this.f66572e, this.f66575h);
+            this.f66574g = (FrameLayout) this.f66568a.findViewById(com.bytedance.sdk.component.utils.t.e(this.f66569b, "tt_insert_express_ad_fl"));
+            int c2 = com.bytedance.sdk.openadsdk.q.s.c(this.f66569b);
             int i2 = c2 / 3;
-            this.f66370c.setMaxWidth(c2);
-            this.f66370c.setMinimumWidth(i2);
-            this.f66370c.setMinimumHeight(i2);
-            this.f66374g.setMinimumWidth(i2);
-            this.f66374g.setMinimumHeight(i2);
-            this.f66370c.setVisibility(this.f66377j ? 8 : 0);
-            this.f66371d.setVisibility(0);
-            this.f66372e.setVisibility(this.f66377j ? 8 : 0);
-            this.f66373f.setVisibility(this.f66377j ? 8 : 0);
-            this.f66374g.setVisibility(this.f66377j ? 0 : 8);
-            int b2 = (int) com.bytedance.sdk.openadsdk.q.s.b(this.f66369b, 15.0f);
-            com.bytedance.sdk.openadsdk.q.s.a(this.f66371d, b2, b2, b2, b2);
-            this.f66371d.setOnClickListener(new View.OnClickListener(this) { // from class: com.bytedance.sdk.openadsdk.core.m.1
+            this.f66570c.setMaxWidth(c2);
+            this.f66570c.setMinimumWidth(i2);
+            this.f66570c.setMinimumHeight(i2);
+            this.f66574g.setMinimumWidth(i2);
+            this.f66574g.setMinimumHeight(i2);
+            this.f66570c.setVisibility(this.f66577j ? 8 : 0);
+            this.f66571d.setVisibility(0);
+            this.f66572e.setVisibility(this.f66577j ? 8 : 0);
+            this.f66573f.setVisibility(this.f66577j ? 8 : 0);
+            this.f66574g.setVisibility(this.f66577j ? 0 : 8);
+            int b2 = (int) com.bytedance.sdk.openadsdk.q.s.b(this.f66569b, 15.0f);
+            com.bytedance.sdk.openadsdk.q.s.a(this.f66571d, b2, b2, b2, b2);
+            this.f66571d.setOnClickListener(new View.OnClickListener(this) { // from class: com.bytedance.sdk.openadsdk.core.m.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ m f66378a;
+                public final /* synthetic */ m f66578a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -256,24 +256,24 @@ public class m extends Dialog {
                             return;
                         }
                     }
-                    this.f66378a = this;
+                    this.f66578a = this;
                 }
 
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) || this.f66378a.f66376i == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) || this.f66578a.f66576i == null) {
                         return;
                     }
-                    this.f66378a.f66376i.a(view);
+                    this.f66578a.f66576i.a(view);
                 }
             });
-            this.f66373f.setOnClickListener(new View.OnClickListener(this) { // from class: com.bytedance.sdk.openadsdk.core.m.2
+            this.f66573f.setOnClickListener(new View.OnClickListener(this) { // from class: com.bytedance.sdk.openadsdk.core.m.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ m f66379a;
+                public final /* synthetic */ m f66579a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -290,16 +290,16 @@ public class m extends Dialog {
                             return;
                         }
                     }
-                    this.f66379a = this;
+                    this.f66579a = this;
                 }
 
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) || this.f66379a.f66376i == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) || this.f66579a.f66576i == null) {
                         return;
                     }
-                    this.f66379a.f66376i.b(view);
+                    this.f66579a.f66576i.b(view);
                 }
             });
         }
@@ -308,7 +308,7 @@ public class m extends Dialog {
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            com.bytedance.sdk.openadsdk.q.r.a(this.f66372e, str);
+            com.bytedance.sdk.openadsdk.q.r.a(this.f66572e, str);
         }
     }
 }

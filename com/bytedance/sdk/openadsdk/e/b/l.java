@@ -12,16 +12,16 @@ public class l implements c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f67345a;
+    public String f67545a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f67346b;
+    public long f67546b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f67347c;
+    public long f67547c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f67348d;
+    public long f67548d;
 
     public l() {
         Interceptable interceptable = $ic;
@@ -40,28 +40,28 @@ public class l implements c {
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            this.f67345a = str;
+            this.f67545a = str;
         }
     }
 
     public void b(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048579, this, j2) == null) {
-            this.f67347c = j2;
+            this.f67547c = j2;
         }
     }
 
     public void c(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048580, this, j2) == null) {
-            this.f67348d = j2;
+            this.f67548d = j2;
         }
     }
 
     public void a(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048576, this, j2) == null) {
-            this.f67346b = j2;
+            this.f67546b = j2;
         }
     }
 
@@ -72,10 +72,10 @@ public class l implements c {
             return;
         }
         try {
-            jSONObject.put("preload_url", this.f67346b);
-            jSONObject.put("preload_size", this.f67346b);
-            jSONObject.put("load_time", this.f67347c);
-            jSONObject.put("local_cache", this.f67348d);
+            jSONObject.put("preload_url", this.f67546b);
+            jSONObject.put("preload_size", this.f67546b);
+            jSONObject.put("load_time", this.f67547c);
+            jSONObject.put("local_cache", this.f67548d);
         } catch (Throwable th) {
             th.printStackTrace();
         }

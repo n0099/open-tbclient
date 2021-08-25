@@ -15,7 +15,7 @@ public class h {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f71358a;
+    public Context f71558a;
 
     public h(Context context) {
         Interceptable interceptable = $ic;
@@ -32,7 +32,7 @@ public class h {
                 return;
             }
         }
-        this.f71358a = context;
+        this.f71558a = context;
     }
 
     public String a() {
@@ -43,7 +43,7 @@ public class h {
             Cursor cursor = null;
             try {
                 try {
-                    cursor = this.f71358a.getContentResolver().query(Uri.parse("content://com.vivo.vms.IdProvider/IdentifierId/OAID"), null, null, null, null);
+                    cursor = this.f71558a.getContentResolver().query(Uri.parse("content://com.vivo.vms.IdProvider/IdentifierId/OAID"), null, null, null, null);
                     if (cursor != null && cursor.moveToNext()) {
                         str = cursor.getString(cursor.getColumnIndex("value"));
                         com.kwad.sdk.core.d.a.c("VivoDeviceIDHelper", "getOAID oaid:" + str);

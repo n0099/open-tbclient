@@ -18,7 +18,7 @@ public class g extends s1 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Context f31127e;
+    public final Context f31233e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public g(Context context) {
@@ -39,7 +39,7 @@ public class g extends s1 {
                 return;
             }
         }
-        this.f31127e = context;
+        this.f31233e = context;
     }
 
     @Override // c.b.a.s1
@@ -49,13 +49,13 @@ public class g extends s1 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONObject)) == null) {
             try {
-                str = Settings.Secure.getString(this.f31127e.getContentResolver(), IAdRequestParam.ANDROID_ID);
+                str = Settings.Secure.getString(this.f31233e.getContentResolver(), IAdRequestParam.ANDROID_ID);
             } catch (Exception e2) {
                 h0.d("", e2);
                 str = null;
             }
             if (!z1.q(str) || "9774d56d682e549c".equals(str)) {
-                SharedPreferences sharedPreferences = this.f31127e.getSharedPreferences("snssdk_openudid", 0);
+                SharedPreferences sharedPreferences = this.f31233e.getSharedPreferences("snssdk_openudid", 0);
                 String string = sharedPreferences.getString("openudid", null);
                 if (!z1.q(string)) {
                     string = new BigInteger(64, new SecureRandom()).toString(16);

@@ -166,7 +166,7 @@ public class CameraCtrl implements Camera.ErrorCallback, NoProguard {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static CameraCtrl f69166a;
+        public static CameraCtrl f69366a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -182,7 +182,7 @@ public class CameraCtrl implements Camera.ErrorCallback, NoProguard {
                     return;
                 }
             }
-            f69166a = new CameraCtrl(null);
+            f69366a = new CameraCtrl(null);
         }
     }
 
@@ -251,7 +251,7 @@ public class CameraCtrl implements Camera.ErrorCallback, NoProguard {
     public static CameraCtrl getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? b.f69166a : (CameraCtrl) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? b.f69366a : (CameraCtrl) invokeV.objValue;
     }
 
     private Camera.Size getSimilarRatioSize(int i2, int i3, List<Camera.Size> list, int i4) {
@@ -343,7 +343,7 @@ public class CameraCtrl implements Camera.ErrorCallback, NoProguard {
                 try {
                     this._cameraProxy = c.f.b.a.a.a.b.a();
                     if (-1 != i2 && isSupportMultiCamera()) {
-                        this._cameraProxy.f32108a = (Camera) this._newVersionMethods[MethodIndex.open.ordinal()].invoke(Camera.class, Integer.valueOf(i2));
+                        this._cameraProxy.f32214a = (Camera) this._newVersionMethods[MethodIndex.open.ordinal()].invoke(Camera.class, Integer.valueOf(i2));
                         k = this._cameraProxy.k();
                         if (k != null) {
                             return false;
@@ -380,7 +380,7 @@ public class CameraCtrl implements Camera.ErrorCallback, NoProguard {
                                     Method method = this._newVersionMethods[MethodIndex.setDisplayOrientation.ordinal()];
                                     if (method != null) {
                                         try {
-                                            method.invoke(this._cameraProxy.f32108a, Integer.valueOf(i5));
+                                            method.invoke(this._cameraProxy.f32214a, Integer.valueOf(i5));
                                             this._rotation = i5;
                                         } catch (Exception e2) {
                                             LogUtil.e(Tag, "", e2);

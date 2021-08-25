@@ -13,10 +13,10 @@ public class IndoorPlanNode {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public LatLng f41654a;
+    public LatLng f41761a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f41655b;
+    public String f41762b;
 
     public IndoorPlanNode(LatLng latLng, String str) {
         Interceptable interceptable = $ic;
@@ -33,21 +33,21 @@ public class IndoorPlanNode {
                 return;
             }
         }
-        this.f41654a = null;
-        this.f41655b = null;
-        this.f41654a = latLng;
-        this.f41655b = str;
+        this.f41761a = null;
+        this.f41762b = null;
+        this.f41761a = latLng;
+        this.f41762b = str;
     }
 
     public String getFloor() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f41655b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f41762b : (String) invokeV.objValue;
     }
 
     public LatLng getLocation() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f41654a : (LatLng) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f41761a : (LatLng) invokeV.objValue;
     }
 }

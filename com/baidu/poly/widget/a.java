@@ -10,10 +10,10 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import c.a.d0.e;
-import c.a.d0.f;
-import c.a.d0.g;
-import c.a.d0.k.d.b;
+import c.a.e0.e;
+import c.a.e0.f;
+import c.a.e0.g;
+import c.a.e0.k.d.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -25,23 +25,23 @@ public class a extends RelativeLayout implements View.OnClickListener {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public ImageView f44145e;
+    public ImageView f44252e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f44146f;
+    public TextView f44253f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f44147g;
+    public TextView f44254g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ImageView f44148h;
+    public ImageView f44255h;
 
     /* renamed from: i  reason: collision with root package name */
-    public InterfaceC1687a f44149i;
+    public InterfaceC1691a f44256i;
 
     /* renamed from: com.baidu.poly.widget.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public interface InterfaceC1687a {
+    public interface InterfaceC1691a {
         void a();
     }
 
@@ -66,45 +66,45 @@ public class a extends RelativeLayout implements View.OnClickListener {
         }
     }
 
-    public void a(o oVar, InterfaceC1687a interfaceC1687a) {
+    public void a(o oVar, InterfaceC1691a interfaceC1691a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, oVar, interfaceC1687a) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048576, this, oVar, interfaceC1691a) == null) {
             String displayName = oVar.getDisplayName();
             String S = oVar.S();
             String icon = oVar.getIcon();
             int P = oVar.P();
             int N = oVar.N();
-            b.c().b(this.f44145e, icon);
-            this.f44146f.setText(displayName);
+            b.c().b(this.f44252e, icon);
+            this.f44253f.setText(displayName);
             if (P == 1) {
-                this.f44148h.setImageResource(e.channel_checked);
+                this.f44255h.setImageResource(e.channel_checked);
             } else {
-                this.f44148h.setImageResource(e.unchecked);
+                this.f44255h.setImageResource(e.unchecked);
             }
             if (1 == N) {
-                this.f44149i = interfaceC1687a;
+                this.f44256i = interfaceC1691a;
             } else {
-                this.f44145e.setAlpha(0.4f);
-                this.f44146f.setAlpha(0.4f);
-                this.f44147g.setAlpha(0.4f);
-                this.f44148h.setVisibility(8);
+                this.f44252e.setAlpha(0.4f);
+                this.f44253f.setAlpha(0.4f);
+                this.f44254g.setAlpha(0.4f);
+                this.f44255h.setVisibility(8);
             }
             if (!TextUtils.isEmpty(S)) {
                 String M = oVar.M();
                 if (!TextUtils.isEmpty(M)) {
                     try {
-                        this.f44147g.setTextColor(Color.parseColor(M));
+                        this.f44254g.setTextColor(Color.parseColor(M));
                     } catch (Exception unused) {
                     }
                 }
-                this.f44147g.setText(S);
+                this.f44254g.setText(S);
                 return;
             }
-            this.f44147g.setVisibility(8);
-            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.f44146f.getLayoutParams();
+            this.f44254g.setVisibility(8);
+            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.f44253f.getLayoutParams();
             layoutParams.addRule(15);
             layoutParams.topMargin = 0;
-            this.f44146f.setLayoutParams(layoutParams);
+            this.f44253f.setLayoutParams(layoutParams);
         }
     }
 
@@ -112,22 +112,22 @@ public class a extends RelativeLayout implements View.OnClickListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
             LayoutInflater.from(context).inflate(g.view_channel_list_item, (ViewGroup) this, true);
-            this.f44145e = (ImageView) findViewById(f.channel_icon_view);
-            this.f44146f = (TextView) findViewById(f.channel_name_view);
-            this.f44147g = (TextView) findViewById(f.channel_desc_view);
-            this.f44148h = (ImageView) findViewById(f.channel_select_view);
+            this.f44252e = (ImageView) findViewById(f.channel_icon_view);
+            this.f44253f = (TextView) findViewById(f.channel_name_view);
+            this.f44254g = (TextView) findViewById(f.channel_desc_view);
+            this.f44255h = (ImageView) findViewById(f.channel_select_view);
             setOnClickListener(this);
         }
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        InterfaceC1687a interfaceC1687a;
+        InterfaceC1691a interfaceC1691a;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view) == null) || (interfaceC1687a = this.f44149i) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view) == null) || (interfaceC1691a = this.f44256i) == null) {
             return;
         }
-        interfaceC1687a.a();
+        interfaceC1691a.a();
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */

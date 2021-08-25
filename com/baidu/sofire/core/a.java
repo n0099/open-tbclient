@@ -13,13 +13,13 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.util.ArrayList;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class a implements Serializable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ArrayList<b> f45018a;
+    public ArrayList<b> f45125a;
 
     public a(ActivityInfo[] activityInfoArr) {
         int length;
@@ -37,30 +37,30 @@ public final class a implements Serializable {
                 return;
             }
         }
-        this.f45018a = null;
+        this.f45125a = null;
         if (activityInfoArr == null || (length = activityInfoArr.length) <= 0) {
             return;
         }
-        this.f45018a = new ArrayList<>(length);
+        this.f45125a = new ArrayList<>(length);
         for (int i4 = 0; i4 < length; i4++) {
             if (activityInfoArr[i4] != null) {
                 b bVar = new b();
-                bVar.f45026h = activityInfoArr[i4].configChanges;
-                bVar.f45024f = activityInfoArr[i4].flags;
+                bVar.f45133h = activityInfoArr[i4].configChanges;
+                bVar.f45131f = activityInfoArr[i4].flags;
                 bVar.l = activityInfoArr[i4].labelRes;
-                bVar.f45020b = activityInfoArr[i4].launchMode;
+                bVar.f45127b = activityInfoArr[i4].launchMode;
                 if (activityInfoArr[i4].nonLocalizedLabel != null) {
                     bVar.m = activityInfoArr[i4].nonLocalizedLabel.toString();
                 }
-                bVar.f45028j = activityInfoArr[i4].name;
+                bVar.f45135j = activityInfoArr[i4].name;
                 bVar.k = activityInfoArr[i4].packageName;
-                bVar.f45021c = activityInfoArr[i4].permission;
-                bVar.f45025g = activityInfoArr[i4].screenOrientation;
-                bVar.f45027i = activityInfoArr[i4].softInputMode;
-                bVar.f45023e = activityInfoArr[i4].targetActivity;
-                bVar.f45022d = activityInfoArr[i4].taskAffinity;
-                bVar.f45019a = activityInfoArr[i4].theme;
-                this.f45018a.add(bVar);
+                bVar.f45128c = activityInfoArr[i4].permission;
+                bVar.f45132g = activityInfoArr[i4].screenOrientation;
+                bVar.f45134i = activityInfoArr[i4].softInputMode;
+                bVar.f45130e = activityInfoArr[i4].targetActivity;
+                bVar.f45129d = activityInfoArr[i4].taskAffinity;
+                bVar.f45126a = activityInfoArr[i4].theme;
+                this.f45125a.add(bVar);
             }
         }
     }
@@ -79,7 +79,7 @@ public final class a implements Serializable {
             try {
                 objectOutputStream = new ObjectOutputStream(byteArrayOutputStream);
                 try {
-                    objectOutputStream.writeObject(this.f45018a);
+                    objectOutputStream.writeObject(this.f45125a);
                     objectOutputStream.close();
                     byteArrayOutputStream.close();
                     byte[] byteArray = byteArrayOutputStream.toByteArray();

@@ -21,17 +21,17 @@ public class SSRenderSurfaceView extends SSSurfaceView implements SurfaceHolder.
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final ArrayList<c> f66821c;
+    public static final ArrayList<c> f67021c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public WeakReference<a> f66822a;
+    public WeakReference<a> f67022a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c f66823b;
+    public c f67023b;
 
     /* renamed from: d  reason: collision with root package name */
-    public b.a f66824d;
+    public b.a f67024d;
 
     static {
         InterceptResult invokeClinit;
@@ -46,7 +46,7 @@ public class SSRenderSurfaceView extends SSSurfaceView implements SurfaceHolder.
                 return;
             }
         }
-        f66821c = new ArrayList<>();
+        f67021c = new ArrayList<>();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -74,8 +74,8 @@ public class SSRenderSurfaceView extends SSSurfaceView implements SurfaceHolder.
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
             c cVar = new c(this);
-            this.f66823b = cVar;
-            f66821c.add(cVar);
+            this.f67023b = cVar;
+            f67021c.add(cVar);
         }
     }
 
@@ -91,7 +91,7 @@ public class SSRenderSurfaceView extends SSSurfaceView implements SurfaceHolder.
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
             super.onWindowVisibilityChanged(i2);
-            b.a aVar = this.f66824d;
+            b.a aVar = this.f67024d;
             if (aVar != null) {
                 aVar.a(i2);
             }
@@ -101,7 +101,7 @@ public class SSRenderSurfaceView extends SSSurfaceView implements SurfaceHolder.
     public void setWindowVisibilityChangedListener(b.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
-            this.f66824d = aVar;
+            this.f67024d = aVar;
         }
     }
 
@@ -109,40 +109,40 @@ public class SSRenderSurfaceView extends SSSurfaceView implements SurfaceHolder.
     public void surfaceChanged(SurfaceHolder surfaceHolder, int i2, int i3, int i4) {
         WeakReference<a> weakReference;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLIII(1048581, this, surfaceHolder, i2, i3, i4) == null) || (weakReference = this.f66822a) == null || weakReference.get() == null) {
+        if (!(interceptable == null || interceptable.invokeLIII(1048581, this, surfaceHolder, i2, i3, i4) == null) || (weakReference = this.f67022a) == null || weakReference.get() == null) {
             return;
         }
-        this.f66822a.get().a(surfaceHolder, i2, i3, i4);
+        this.f67022a.get().a(surfaceHolder, i2, i3, i4);
     }
 
     @Override // android.view.SurfaceHolder.Callback
     public void surfaceCreated(SurfaceHolder surfaceHolder) {
         WeakReference<a> weakReference;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, surfaceHolder) == null) || (weakReference = this.f66822a) == null || weakReference.get() == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048582, this, surfaceHolder) == null) || (weakReference = this.f67022a) == null || weakReference.get() == null) {
             return;
         }
-        this.f66822a.get().a(surfaceHolder);
+        this.f67022a.get().a(surfaceHolder);
     }
 
     @Override // android.view.SurfaceHolder.Callback
     public void surfaceDestroyed(SurfaceHolder surfaceHolder) {
         WeakReference<a> weakReference;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048583, this, surfaceHolder) == null) || (weakReference = this.f66822a) == null || weakReference.get() == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048583, this, surfaceHolder) == null) || (weakReference = this.f67022a) == null || weakReference.get() == null) {
             return;
         }
-        this.f66822a.get().b(surfaceHolder);
+        this.f67022a.get().b(surfaceHolder);
     }
 
     @Override // com.bytedance.sdk.openadsdk.core.video.renderview.b
     public void a(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-            this.f66822a = new WeakReference<>(aVar);
+            this.f67022a = new WeakReference<>(aVar);
             SurfaceHolder holder = getHolder();
             holder.setFormat(-3);
-            Iterator<c> it = f66821c.iterator();
+            Iterator<c> it = f67021c.iterator();
             while (it.hasNext()) {
                 c next = it.next();
                 if (next.a() == null) {
@@ -150,7 +150,7 @@ public class SSRenderSurfaceView extends SSSurfaceView implements SurfaceHolder.
                     it.remove();
                 }
             }
-            holder.addCallback(this.f66823b);
+            holder.addCallback(this.f67023b);
         }
     }
 

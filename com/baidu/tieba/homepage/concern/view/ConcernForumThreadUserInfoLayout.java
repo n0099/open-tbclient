@@ -9,8 +9,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import c.a.o0.s.q.c2;
-import c.a.p0.a0.m;
+import c.a.p0.s.q.c2;
+import c.a.q0.a0.m;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -33,22 +33,22 @@ public class ConcernForumThreadUserInfoLayout extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f51782e;
+    public TextView f51932e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f51783f;
+    public View f51933f;
 
     /* renamed from: g  reason: collision with root package name */
-    public c2 f51784g;
+    public c2 f51934g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View.OnClickListener f51785h;
+    public View.OnClickListener f51935h;
 
     /* renamed from: i  reason: collision with root package name */
-    public View.OnClickListener f51786i;
+    public View.OnClickListener f51936i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f51787j;
+    public int f51937j;
     public View.OnClickListener k;
     public TextView mForumName;
     public ClickableHeaderImageView mHeaderImg;
@@ -60,7 +60,7 @@ public class ConcernForumThreadUserInfoLayout extends LinearLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ConcernForumThreadUserInfoLayout f51788e;
+        public final /* synthetic */ ConcernForumThreadUserInfoLayout f51938e;
 
         public a(ConcernForumThreadUserInfoLayout concernForumThreadUserInfoLayout) {
             Interceptable interceptable = $ic;
@@ -77,18 +77,18 @@ public class ConcernForumThreadUserInfoLayout extends LinearLayout {
                     return;
                 }
             }
-            this.f51788e = concernForumThreadUserInfoLayout;
+            this.f51938e = concernForumThreadUserInfoLayout;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f51788e.f51784g == null || StringUtils.isNull(this.f51788e.f51784g.Z())) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f51938e.f51934g == null || StringUtils.isNull(this.f51938e.f51934g.Z())) {
                 return;
             }
-            MessageManager.getInstance().sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.f51788e.getContext()).createNormalCfg(this.f51788e.f51784g.Z(), m.g())));
-            if (this.f51788e.f51786i != null) {
-                this.f51788e.f51786i.onClick(view);
+            MessageManager.getInstance().sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.f51938e.getContext()).createNormalCfg(this.f51938e.f51934g.Z(), m.g())));
+            if (this.f51938e.f51936i != null) {
+                this.f51938e.f51936i.onClick(view);
             }
         }
     }
@@ -132,8 +132,8 @@ public class ConcernForumThreadUserInfoLayout extends LinearLayout {
             this.mHeaderImg = (ClickableHeaderImageView) inflate.findViewById(R.id.card_home_page_normal_thread_user_header);
             this.mForumName = (TextView) inflate.findViewById(R.id.thread_info_forum_name);
             this.mUsernameAndReplyTime = (TextView) inflate.findViewById(R.id.thread_user_name_and_reply_time);
-            this.f51782e = (TextView) inflate.findViewById(R.id.thread_info_address);
-            this.f51783f = inflate.findViewById(R.id.divider);
+            this.f51932e = (TextView) inflate.findViewById(R.id.thread_info_address);
+            this.f51933f = inflate.findViewById(R.id.divider);
             setGravity(16);
             e();
             this.mForumName.setOnClickListener(this.k);
@@ -156,13 +156,13 @@ public class ConcernForumThreadUserInfoLayout extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, c2Var) == null) {
             if (c2Var != null && !StringUtils.isNull(c2Var.A())) {
-                this.f51782e.setText(this.f51784g.A());
-                this.f51782e.setVisibility(0);
-                this.f51783f.setVisibility(0);
+                this.f51932e.setText(this.f51934g.A());
+                this.f51932e.setVisibility(0);
+                this.f51933f.setVisibility(0);
                 return;
             }
-            this.f51782e.setVisibility(8);
-            this.f51783f.setVisibility(8);
+            this.f51932e.setVisibility(8);
+            this.f51933f.setVisibility(8);
         }
     }
 
@@ -189,14 +189,14 @@ public class ConcernForumThreadUserInfoLayout extends LinearLayout {
 
     public void onChangeSkinType(int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048583, this, i2) == null) || this.f51787j == i2) {
+        if (!(interceptable == null || interceptable.invokeI(1048583, this, i2) == null) || this.f51937j == i2) {
             return;
         }
-        this.f51787j = i2;
+        this.f51937j = i2;
         SkinManager.setViewTextColor(this.mForumName, R.color.CAM_X0304);
         SkinManager.setViewTextColor(this.mUsernameAndReplyTime, R.color.CAM_X0109);
-        SkinManager.setViewTextColor(this.f51782e, R.color.CAM_X0109);
-        SkinManager.setBackgroundColor(this.f51783f, R.color.CAM_X0110);
+        SkinManager.setViewTextColor(this.f51932e, R.color.CAM_X0109);
+        SkinManager.setBackgroundColor(this.f51933f, R.color.CAM_X0110);
     }
 
     public String processUserName(String str) {
@@ -212,7 +212,7 @@ public class ConcernForumThreadUserInfoLayout extends LinearLayout {
             if (c2Var == null) {
                 return false;
             }
-            this.f51784g = c2Var;
+            this.f51934g = c2Var;
             c(c2Var);
             updateForumName(c2Var);
             updateUserNameAndReplyTime(c2Var);
@@ -225,7 +225,7 @@ public class ConcernForumThreadUserInfoLayout extends LinearLayout {
     public void setForumAfterClickListener(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, onClickListener) == null) {
-            this.f51786i = onClickListener;
+            this.f51936i = onClickListener;
         }
     }
 
@@ -241,7 +241,7 @@ public class ConcernForumThreadUserInfoLayout extends LinearLayout {
     public void setUserAfterClickListener(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, onClickListener) == null) {
-            this.f51785h = onClickListener;
+            this.f51935h = onClickListener;
             ClickableHeaderImageView clickableHeaderImageView = this.mHeaderImg;
             if (clickableHeaderImageView != null) {
                 clickableHeaderImageView.setAfterClickListener(onClickListener);
@@ -253,7 +253,7 @@ public class ConcernForumThreadUserInfoLayout extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048589, this, z) == null) {
             if (z) {
-                updateForumName(this.f51784g);
+                updateForumName(this.f51934g);
             } else {
                 this.mForumName.setVisibility(8);
             }
@@ -264,7 +264,7 @@ public class ConcernForumThreadUserInfoLayout extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, c2Var) == null) {
             if (c2Var != null && !StringUtils.isNull(c2Var.Z())) {
-                this.mForumName.setText(StringHelper.cutChineseAndEnglishWithSuffix(this.f51784g.Z(), 16, "...") + getResources().getString(R.string.forum));
+                this.mForumName.setText(StringHelper.cutChineseAndEnglishWithSuffix(this.f51934g.Z(), 16, "...") + getResources().getString(R.string.forum));
                 this.mForumName.setVisibility(0);
                 return;
             }
@@ -274,10 +274,10 @@ public class ConcernForumThreadUserInfoLayout extends LinearLayout {
 
     public void updateUserNameAndReplyTime(c2 c2Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048591, this, c2Var) == null) || c2Var == null || StringUtils.isNull(this.f51784g.J().getName_show())) {
+        if (!(interceptable == null || interceptable.invokeL(1048591, this, c2Var) == null) || c2Var == null || StringUtils.isNull(this.f51934g.J().getName_show())) {
             return;
         }
-        this.mUsernameAndReplyTime.setText(getContext().getString(R.string.user_name_and_publish_time, processUserName(this.f51784g.J().getName_show()), StringHelper.getFormatTime(c2Var.P())));
+        this.mUsernameAndReplyTime.setText(getContext().getString(R.string.user_name_and_publish_time, processUserName(this.f51934g.J().getName_show()), StringHelper.getFormatTime(c2Var.P())));
         this.mUsernameAndReplyTime.setVisibility(0);
     }
 
@@ -321,7 +321,7 @@ public class ConcernForumThreadUserInfoLayout extends LinearLayout {
                 return;
             }
         }
-        this.f51787j = 3;
+        this.f51937j = 3;
         this.k = new a(this);
         d(getContext());
     }

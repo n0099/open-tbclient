@@ -2,8 +2,8 @@ package com.baidu.tieba.im.chat.officialBar;
 
 import android.os.Bundle;
 import android.util.LongSparseArray;
-import c.a.o0.h0.i;
-import c.a.p0.j1.f.j.g;
+import c.a.p0.h0.i;
+import c.a.q0.j1.f.j.g;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
@@ -36,7 +36,7 @@ public class SingleForumBroadcastFeedActivity extends BaseActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ SingleForumBroadcastFeedActivity f52709g;
+        public final /* synthetic */ SingleForumBroadcastFeedActivity f52870g;
 
         public a(SingleForumBroadcastFeedActivity singleForumBroadcastFeedActivity) {
             Interceptable interceptable = $ic;
@@ -53,18 +53,18 @@ public class SingleForumBroadcastFeedActivity extends BaseActivity {
                     return;
                 }
             }
-            this.f52709g = singleForumBroadcastFeedActivity;
+            this.f52870g = singleForumBroadcastFeedActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // c.a.o0.h0.b
+        @Override // c.a.p0.h0.b
         /* renamed from: a */
         public boolean onEvent(TopToastEvent topToastEvent) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, topToastEvent)) == null) {
-                if (this.f52709g.feedView != null) {
-                    this.f52709g.feedView.m(topToastEvent.isSuccess(), topToastEvent.getContent());
+                if (this.f52870g.feedView != null) {
+                    this.f52870g.feedView.m(topToastEvent.isSuccess(), topToastEvent.getContent());
                     return false;
                 }
                 return false;
@@ -79,7 +79,7 @@ public class SingleForumBroadcastFeedActivity extends BaseActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ SingleForumBroadcastFeedActivity f52710a;
+        public final /* synthetic */ SingleForumBroadcastFeedActivity f52871a;
 
         public b(SingleForumBroadcastFeedActivity singleForumBroadcastFeedActivity) {
             Interceptable interceptable = $ic;
@@ -96,22 +96,22 @@ public class SingleForumBroadcastFeedActivity extends BaseActivity {
                     return;
                 }
             }
-            this.f52710a = singleForumBroadcastFeedActivity;
+            this.f52871a = singleForumBroadcastFeedActivity;
         }
 
-        @Override // c.a.p0.j1.f.j.g.d
-        public void a(List<c.a.p0.j1.l.c.b> list) {
+        @Override // c.a.q0.j1.f.j.g.d
+        public void a(List<c.a.q0.j1.l.c.b> list) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
-                this.f52710a.feedView.j(list, null);
+                this.f52871a.feedView.j(list, null);
             }
         }
 
-        @Override // c.a.p0.j1.f.j.g.d
-        public void onReadCountLoad(LongSparseArray<c.a.p0.j1.i.a.b.b> longSparseArray) {
+        @Override // c.a.q0.j1.f.j.g.d
+        public void onReadCountLoad(LongSparseArray<c.a.q0.j1.i.a.b.b> longSparseArray) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, longSparseArray) == null) {
-                this.f52710a.feedView.k(longSparseArray);
+                this.f52871a.feedView.k(longSparseArray);
             }
         }
     }

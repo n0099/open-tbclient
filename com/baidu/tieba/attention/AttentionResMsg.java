@@ -1,6 +1,6 @@
 package com.baidu.tieba.attention;
 
-import c.a.o0.u.i;
+import c.a.p0.u.i;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pass.ecommerce.bean.AddressField;
 import com.baidu.tbadk.core.data.PostPrefixData;
@@ -56,19 +56,19 @@ public class AttentionResMsg extends JsonHttpResponsedMessage {
             JSONObject optJSONObject2 = jSONArray.optJSONObject(i2);
             if (optJSONObject2 != null) {
                 i iVar = new i();
-                iVar.f14713a = optJSONObject2.optString("id");
-                iVar.f14714b = optJSONObject2.optString("avatar");
-                iVar.f14715c = optJSONObject2.optString("name");
-                iVar.f14716d = optJSONObject2.optInt("level_id");
-                iVar.f14717e = optJSONObject2.optInt("this_week_post") == 1;
+                iVar.f15024a = optJSONObject2.optString("id");
+                iVar.f15025b = optJSONObject2.optString("avatar");
+                iVar.f15026c = optJSONObject2.optString("name");
+                iVar.f15027d = optJSONObject2.optInt("level_id");
+                iVar.f15028e = optJSONObject2.optInt("this_week_post") == 1;
                 JSONObject optJSONObject3 = optJSONObject2.optJSONObject("block_pop_info");
                 if (optJSONObject3 != null) {
-                    iVar.f14718f = optJSONObject3.optInt("can_post") == 1;
-                    iVar.f14719g = optJSONObject3.optString("block_info");
+                    iVar.f15029f = optJSONObject3.optInt("can_post") == 1;
+                    iVar.f15030g = optJSONObject3.optString("block_info");
                 }
                 JSONArray optJSONArray = optJSONObject2.optJSONArray("tab_info");
                 if (optJSONArray != null && optJSONArray.length() > 0) {
-                    iVar.f14720h = new ArrayList();
+                    iVar.f15031h = new ArrayList();
                     for (int i3 = 0; i3 < optJSONArray.length(); i3++) {
                         JSONObject optJSONObject4 = optJSONArray.optJSONObject(i3);
                         if (optJSONObject4 != null) {
@@ -83,14 +83,14 @@ public class AttentionResMsg extends JsonHttpResponsedMessage {
                             builder.tab_code = optJSONObject4.optString("tab_code");
                             builder.tab_version = Integer.valueOf(optJSONObject4.optInt("tab_version"));
                             builder.is_default = Integer.valueOf(optJSONObject4.optInt(AddressField.KEY_IS_DEFAULT));
-                            iVar.f14720h.add(new FrsTabItemData(builder.build(true)));
+                            iVar.f15031h.add(new FrsTabItemData(builder.build(true)));
                         }
                     }
                 }
-                iVar.f14722j = optJSONObject2.optInt("is_forum_business_account") == 1;
+                iVar.f15033j = optJSONObject2.optInt("is_forum_business_account") == 1;
                 if (optJSONObject2.optInt("has_postpre") == 1 && (optJSONObject = optJSONObject2.optJSONObject("post_prefix")) != null) {
                     PostPrefixData postPrefixData = new PostPrefixData();
-                    iVar.f14721i = postPrefixData;
+                    iVar.f15032i = postPrefixData;
                     postPrefixData.parserJson(optJSONObject);
                 }
                 this.mSelectForumDataList.add(iVar);

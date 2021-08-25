@@ -18,7 +18,7 @@ public final class e {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Pattern f64181a;
+    public static final Pattern f64381a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -34,7 +34,7 @@ public final class e {
                 return;
             }
         }
-        f64181a = Pattern.compile(" +([^ \"=]*)=(:?\"([^\"]*)\"|([^ \"=]*)) *(:?,|$)");
+        f64381a = Pattern.compile(" +([^ \"=]*)=(:?\"([^\"]*)\"|([^ \"=]*)) *(:?,|$)");
     }
 
     public static long a(ab abVar) {
@@ -80,7 +80,7 @@ public final class e {
 
     public static void a(m mVar, t tVar, s sVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(AdIconUtil.BAIDU_LOGO_ID, null, mVar, tVar, sVar) == null) || mVar == m.f64542a) {
+        if (!(interceptable == null || interceptable.invokeLLL(AdIconUtil.BAIDU_LOGO_ID, null, mVar, tVar, sVar) == null) || mVar == m.f64742a) {
             return;
         }
         List<com.bytedance.sdk.component.b.b.l> a2 = com.bytedance.sdk.component.b.b.l.a(tVar, sVar);

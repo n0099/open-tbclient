@@ -112,7 +112,7 @@ public class AccountCenterExternalActivity extends AccountCenterActivity {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ AccountCenterExternalActivity f44365a;
+                public final /* synthetic */ AccountCenterExternalActivity f44472a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -129,7 +129,7 @@ public class AccountCenterExternalActivity extends AccountCenterActivity {
                             return;
                         }
                     }
-                    this.f44365a = this;
+                    this.f44472a = this;
                 }
 
                 @Override // com.baidu.sapi2.SapiWebView.OnNewBackCallback
@@ -137,7 +137,7 @@ public class AccountCenterExternalActivity extends AccountCenterActivity {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
-                        this.f44365a.a();
+                        this.f44472a.a();
                         return false;
                     }
                     return invokeV.booleanValue;
@@ -148,7 +148,7 @@ public class AccountCenterExternalActivity extends AccountCenterActivity {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ AccountCenterExternalActivity f44366a;
+                public final /* synthetic */ AccountCenterExternalActivity f44473a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -165,14 +165,14 @@ public class AccountCenterExternalActivity extends AccountCenterActivity {
                             return;
                         }
                     }
-                    this.f44366a = this;
+                    this.f44473a = this;
                 }
 
                 @Override // com.baidu.sapi2.SapiWebView.OnFinishCallback
                 public void onFinish() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f44366a.finishActivity();
+                        this.f44473a.finishActivity();
                     }
                 }
             });
@@ -181,7 +181,7 @@ public class AccountCenterExternalActivity extends AccountCenterActivity {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ AccountCenterExternalActivity f44367a;
+                public final /* synthetic */ AccountCenterExternalActivity f44474a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -198,7 +198,7 @@ public class AccountCenterExternalActivity extends AccountCenterActivity {
                             return;
                         }
                     }
-                    this.f44367a = this;
+                    this.f44474a = this;
                 }
 
                 @Override // com.baidu.sapi2.SapiWebView.OnSlidePageFinishCallback
@@ -206,12 +206,12 @@ public class AccountCenterExternalActivity extends AccountCenterActivity {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, str) == null) {
                         if (SlideActiviy.ACCOUNT_CENTER_PAGE_NAME.equals(str)) {
-                            Intent intent2 = new Intent(this.f44367a, AccountCenterActivity.class);
+                            Intent intent2 = new Intent(this.f44474a, AccountCenterActivity.class);
                             intent2.setFlags(CodedInputStream.DEFAULT_SIZE_LIMIT);
-                            this.f44367a.startActivity(intent2);
+                            this.f44474a.startActivity(intent2);
                         }
                         if (SlideActiviy.SLIDE_ACTION_QUIT.equals(str)) {
-                            this.f44367a.b();
+                            this.f44474a.b();
                         }
                     }
                 }
@@ -221,7 +221,7 @@ public class AccountCenterExternalActivity extends AccountCenterActivity {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ AccountCenterExternalActivity f44368a;
+                public final /* synthetic */ AccountCenterExternalActivity f44475a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -238,7 +238,7 @@ public class AccountCenterExternalActivity extends AccountCenterActivity {
                             return;
                         }
                     }
-                    this.f44368a = this;
+                    this.f44475a = this;
                 }
 
                 @Override // com.baidu.sapi2.SapiWebView.SwitchAccountCallback
@@ -253,7 +253,7 @@ public class AccountCenterExternalActivity extends AccountCenterActivity {
                                 public transient /* synthetic */ FieldHolder $fh;
 
                                 /* renamed from: a  reason: collision with root package name */
-                                public final /* synthetic */ AnonymousClass4 f44369a;
+                                public final /* synthetic */ AnonymousClass4 f44476a;
 
                                 {
                                     Interceptable interceptable3 = $ic;
@@ -270,7 +270,7 @@ public class AccountCenterExternalActivity extends AccountCenterActivity {
                                             return;
                                         }
                                     }
-                                    this.f44369a = this;
+                                    this.f44476a = this;
                                 }
 
                                 @Override // com.baidu.sapi2.result.AccountCenterResult
@@ -278,8 +278,8 @@ public class AccountCenterExternalActivity extends AccountCenterActivity {
                                     Interceptable interceptable3 = $ic;
                                     if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
                                         super.loginSuc();
-                                        this.f44369a.f44368a.b();
-                                        this.f44369a.f44368a.loginStatusChange = true;
+                                        this.f44476a.f44475a.b();
+                                        this.f44476a.f44475a.loginStatusChange = true;
                                     }
                                 }
                             };
@@ -295,7 +295,7 @@ public class AccountCenterExternalActivity extends AccountCenterActivity {
                             accountCenterCallback.onFinish(accountCenterResult);
                             return;
                         }
-                        Intent intent2 = new Intent(this.f44368a, LoginActivity.class);
+                        Intent intent2 = new Intent(this.f44475a, LoginActivity.class);
                         intent2.putExtra(BaseActivity.EXTRA_PARAM_BUSINESS_FROM, 2003);
                         int i2 = result.switchAccountType;
                         if (i2 == 1) {
@@ -312,7 +312,7 @@ public class AccountCenterExternalActivity extends AccountCenterActivity {
                             }
                             intent2.putExtra(LoginActivity.EXTRA_PARAM_ENCRYPTED_UID, result.encryptedUid);
                         }
-                        this.f44368a.startActivityForResult(intent2, 1004);
+                        this.f44475a.startActivityForResult(intent2, 1004);
                     }
                 }
             });

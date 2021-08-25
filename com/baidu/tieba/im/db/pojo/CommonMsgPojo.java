@@ -4,8 +4,8 @@ import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import c.a.e.e.m.b;
 import c.a.e.e.p.k;
-import c.a.p0.j1.s.a;
-import c.a.p0.j1.w.c;
+import c.a.q0.j1.s.a;
+import c.a.q0.j1.w.c;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -622,9 +622,9 @@ public class CommonMsgPojo extends OrmObject implements Serializable {
             if (chatMessage instanceof CommonGroupChatMessage) {
                 this.gid = ((CommonGroupChatMessage) chatMessage).getGroupId();
             } else if (chatMessage instanceof PersonalChatMessage) {
-                this.gid = String.valueOf(a.f20671i);
+                this.gid = String.valueOf(a.f21001i);
             } else if (chatMessage instanceof OfficialChatMessage) {
-                this.gid = String.valueOf(a.f20672j);
+                this.gid = String.valueOf(a.f21002j);
             }
             this.mid = chatMessage.getMsgId();
             this.uid = String.valueOf(chatMessage.getUserId());

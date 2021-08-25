@@ -13,7 +13,7 @@ public class j<T> extends d<T> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public final c<T> f2160c;
+    public final c<T> f2218c;
 
     /* loaded from: classes.dex */
     public class a implements Runnable {
@@ -21,10 +21,10 @@ public class j<T> extends d<T> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f2161e;
+        public final /* synthetic */ String f2219e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ j f2162f;
+        public final /* synthetic */ j f2220f;
 
         public a(j jVar, String str) {
             Interceptable interceptable = $ic;
@@ -41,15 +41,15 @@ public class j<T> extends d<T> {
                     return;
                 }
             }
-            this.f2162f = jVar;
-            this.f2161e = str;
+            this.f2220f = jVar;
+            this.f2219e = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f2162f.f2160c.o(this.f2161e);
+                this.f2220f.f2218c.o(this.f2219e);
             }
         }
     }
@@ -60,10 +60,10 @@ public class j<T> extends d<T> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f2163e;
+        public final /* synthetic */ String f2221e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ j f2164f;
+        public final /* synthetic */ j f2222f;
 
         public b(j jVar, String str) {
             Interceptable interceptable = $ic;
@@ -80,15 +80,15 @@ public class j<T> extends d<T> {
                     return;
                 }
             }
-            this.f2164f = jVar;
-            this.f2163e = str;
+            this.f2222f = jVar;
+            this.f2221e = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f2164f.f2160c.n(this.f2163e);
+                this.f2222f.f2218c.n(this.f2221e);
             }
         }
     }
@@ -112,17 +112,17 @@ public class j<T> extends d<T> {
                 return;
             }
         }
-        this.f2160c = cVar;
+        this.f2218c = cVar;
     }
 
     @Override // c.a.e.e.d.k
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            if (this.f2143b instanceof e.b) {
+            if (this.f2201b instanceof e.b) {
                 c.a.e.e.m.h.a().b(new a(this, str));
             }
-            if (this.f2143b instanceof e.a) {
+            if (this.f2201b instanceof e.a) {
                 c.a.e.e.m.h.a().b(new b(this, str));
             }
         }
@@ -132,7 +132,7 @@ public class j<T> extends d<T> {
     public void g(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            this.f2160c.c(str);
+            this.f2218c.c(str);
         }
     }
 
@@ -140,14 +140,14 @@ public class j<T> extends d<T> {
     public g<T> i(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) ? this.f2160c.f(str) : (g) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) ? this.f2218c.f(str) : (g) invokeL.objValue;
     }
 
     @Override // c.a.e.e.d.d
     public void j(g<T> gVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, gVar) == null) {
-            this.f2160c.b(gVar);
+            this.f2218c.b(gVar);
         }
     }
 
@@ -155,7 +155,7 @@ public class j<T> extends d<T> {
     public void l(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.f2160c.e(str);
+            this.f2218c.e(str);
         }
     }
 
@@ -163,13 +163,13 @@ public class j<T> extends d<T> {
     public void m(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.f2160c.a(str, true);
+            this.f2218c.a(str, true);
         }
     }
 
     public c<T> n() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f2160c : (c) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f2218c : (c) invokeV.objValue;
     }
 }

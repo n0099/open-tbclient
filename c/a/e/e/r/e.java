@@ -20,7 +20,7 @@ public class e {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static c.a.e.e.r.b f2568a;
+    public static c.a.e.e.r.b f2626a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
@@ -50,19 +50,19 @@ public class e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public SocketChannel f2569a;
+        public SocketChannel f2627a;
 
         /* renamed from: b  reason: collision with root package name */
-        public long f2570b;
+        public long f2628b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f2571c;
+        public String f2629c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f2572d;
+        public String f2630d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f2573e;
+        public String f2631e;
 
         public b(String str, int i2, d0 d0Var) throws Exception {
             Interceptable interceptable = $ic;
@@ -79,23 +79,23 @@ public class e {
                     return;
                 }
             }
-            this.f2569a = null;
-            this.f2570b = 0L;
-            this.f2571c = null;
-            this.f2572d = null;
-            this.f2573e = null;
-            this.f2569a = SocketChannel.open();
+            this.f2627a = null;
+            this.f2628b = 0L;
+            this.f2629c = null;
+            this.f2630d = null;
+            this.f2631e = null;
+            this.f2627a = SocketChannel.open();
             long currentTimeMillis = System.currentTimeMillis();
             InetSocketAddress inetSocketAddress = new InetSocketAddress(str, i2);
             if (inetSocketAddress.getAddress() != null) {
-                this.f2571c = inetSocketAddress.getAddress().getHostAddress();
-                this.f2570b = System.currentTimeMillis() - currentTimeMillis;
+                this.f2629c = inetSocketAddress.getAddress().getHostAddress();
+                this.f2628b = System.currentTimeMillis() - currentTimeMillis;
             }
-            this.f2569a.socket().connect(inetSocketAddress, d0Var.e());
-            this.f2569a.socket().setSoTimeout(d0Var.f());
-            this.f2569a.socket().setTcpNoDelay(d0Var.g());
-            this.f2572d = c.a.e.e.p.l.m();
-            this.f2573e = c.a.e.e.p.l.n();
+            this.f2627a.socket().connect(inetSocketAddress, d0Var.e());
+            this.f2627a.socket().setSoTimeout(d0Var.f());
+            this.f2627a.socket().setTcpNoDelay(d0Var.g());
+            this.f2630d = c.a.e.e.p.l.m();
+            this.f2631e = c.a.e.e.p.l.n();
         }
 
         @Override // c.a.e.e.r.e.a
@@ -112,21 +112,21 @@ public class e {
         public String b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f2573e : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f2631e : (String) invokeV.objValue;
         }
 
         @Override // c.a.e.e.r.e.a
         public long c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f2570b : invokeV.longValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f2628b : invokeV.longValue;
         }
 
         @Override // c.a.e.e.r.e.a
         public void close() throws IOException {
             SocketChannel socketChannel;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (socketChannel = this.f2569a) == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (socketChannel = this.f2627a) == null) {
                 return;
             }
             socketChannel.close();
@@ -136,14 +136,14 @@ public class e {
         public String d() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f2571c : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f2629c : (String) invokeV.objValue;
         }
 
         @Override // c.a.e.e.r.e.a
         public String getLocalDns() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f2572d : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f2630d : (String) invokeV.objValue;
         }
 
         @Override // c.a.e.e.r.e.a
@@ -151,7 +151,7 @@ public class e {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-                SocketChannel socketChannel = this.f2569a;
+                SocketChannel socketChannel = this.f2627a;
                 if (socketChannel != null) {
                     return socketChannel.isConnected();
                 }
@@ -164,14 +164,14 @@ public class e {
         public int read(ByteBuffer byteBuffer) throws Exception {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, byteBuffer)) == null) ? this.f2569a.read(byteBuffer) : invokeL.intValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, byteBuffer)) == null) ? this.f2627a.read(byteBuffer) : invokeL.intValue;
         }
 
         @Override // c.a.e.e.r.e.a
         public int write(ByteBuffer byteBuffer) throws Exception {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, byteBuffer)) == null) ? this.f2569a.write(byteBuffer) : invokeL.intValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, byteBuffer)) == null) ? this.f2627a.write(byteBuffer) : invokeL.intValue;
         }
     }
 
@@ -181,28 +181,28 @@ public class e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public Socket f2574a;
+        public Socket f2632a;
 
         /* renamed from: b  reason: collision with root package name */
-        public InputStream f2575b;
+        public InputStream f2633b;
 
         /* renamed from: c  reason: collision with root package name */
-        public OutputStream f2576c;
+        public OutputStream f2634c;
 
         /* renamed from: d  reason: collision with root package name */
-        public byte[] f2577d;
+        public byte[] f2635d;
 
         /* renamed from: e  reason: collision with root package name */
-        public long f2578e;
+        public long f2636e;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f2579f;
+        public String f2637f;
 
         /* renamed from: g  reason: collision with root package name */
-        public String f2580g;
+        public String f2638g;
 
         /* renamed from: h  reason: collision with root package name */
-        public String f2581h;
+        public String f2639h;
 
         public c(String str, int i2, d0 d0Var) throws Exception {
             Interceptable interceptable = $ic;
@@ -219,29 +219,29 @@ public class e {
                     return;
                 }
             }
-            this.f2574a = null;
-            this.f2575b = null;
-            this.f2576c = null;
-            this.f2577d = null;
-            this.f2578e = 0L;
-            this.f2579f = null;
-            this.f2580g = null;
-            this.f2581h = null;
-            this.f2574a = new Socket();
+            this.f2632a = null;
+            this.f2633b = null;
+            this.f2634c = null;
+            this.f2635d = null;
+            this.f2636e = 0L;
+            this.f2637f = null;
+            this.f2638g = null;
+            this.f2639h = null;
+            this.f2632a = new Socket();
             long currentTimeMillis = System.currentTimeMillis();
             InetSocketAddress inetSocketAddress = new InetSocketAddress(str, i2);
             if (inetSocketAddress.getAddress() != null) {
-                this.f2579f = inetSocketAddress.getAddress().getHostAddress();
-                this.f2578e = System.currentTimeMillis() - currentTimeMillis;
+                this.f2637f = inetSocketAddress.getAddress().getHostAddress();
+                this.f2636e = System.currentTimeMillis() - currentTimeMillis;
             }
-            this.f2574a.connect(inetSocketAddress, d0Var.e());
-            this.f2574a.setSoTimeout(d0Var.f());
-            this.f2574a.setTcpNoDelay(d0Var.g());
-            this.f2575b = this.f2574a.getInputStream();
-            this.f2576c = this.f2574a.getOutputStream();
-            this.f2577d = new byte[1024];
-            this.f2580g = c.a.e.e.p.l.m();
-            this.f2581h = c.a.e.e.p.l.n();
+            this.f2632a.connect(inetSocketAddress, d0Var.e());
+            this.f2632a.setSoTimeout(d0Var.f());
+            this.f2632a.setTcpNoDelay(d0Var.g());
+            this.f2633b = this.f2632a.getInputStream();
+            this.f2634c = this.f2632a.getOutputStream();
+            this.f2635d = new byte[1024];
+            this.f2638g = c.a.e.e.p.l.m();
+            this.f2639h = c.a.e.e.p.l.n();
         }
 
         @Override // c.a.e.e.r.e.a
@@ -258,14 +258,14 @@ public class e {
         public String b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f2581h : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f2639h : (String) invokeV.objValue;
         }
 
         @Override // c.a.e.e.r.e.a
         public long c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f2578e : invokeV.longValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f2636e : invokeV.longValue;
         }
 
         @Override // c.a.e.e.r.e.a
@@ -273,16 +273,16 @@ public class e {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
                 try {
-                    this.f2575b.close();
+                    this.f2633b.close();
                 } catch (Exception e2) {
                     BdLog.e(e2.getMessage());
                 }
                 try {
-                    this.f2576c.close();
+                    this.f2634c.close();
                 } catch (Exception e3) {
                     BdLog.e(e3.getMessage());
                 }
-                Socket socket = this.f2574a;
+                Socket socket = this.f2632a;
                 if (socket != null) {
                     try {
                         socket.close();
@@ -298,14 +298,14 @@ public class e {
         public String d() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f2579f : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f2637f : (String) invokeV.objValue;
         }
 
         @Override // c.a.e.e.r.e.a
         public String getLocalDns() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f2580g : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f2638g : (String) invokeV.objValue;
         }
 
         @Override // c.a.e.e.r.e.a
@@ -313,7 +313,7 @@ public class e {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-                Socket socket = this.f2574a;
+                Socket socket = this.f2632a;
                 if (socket != null) {
                     return socket.isConnected();
                 }
@@ -327,9 +327,9 @@ public class e {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, byteBuffer)) == null) {
-                int read = this.f2575b.read(this.f2577d);
+                int read = this.f2633b.read(this.f2635d);
                 if (read > 0) {
-                    byteBuffer.put(this.f2577d, 0, read);
+                    byteBuffer.put(this.f2635d, 0, read);
                 }
                 return read;
             }
@@ -345,7 +345,7 @@ public class e {
                 if (remaining > 0) {
                     byte[] bArr = new byte[remaining];
                     byteBuffer.get(bArr);
-                    this.f2576c.write(bArr);
+                    this.f2634c.write(bArr);
                 }
                 return remaining;
             }
@@ -371,7 +371,7 @@ public class e {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{str, Integer.valueOf(i2), d0Var, Boolean.valueOf(z)})) == null) {
-            c.a.e.e.r.b bVar = f2568a;
+            c.a.e.e.r.b bVar = f2626a;
             if (bVar != null) {
                 return bVar.a(str, i2, d0Var);
             }

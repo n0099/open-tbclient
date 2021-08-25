@@ -20,7 +20,7 @@ public class a implements c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Bundle f2090a;
+    public Bundle f2148a;
 
     public a(Bundle bundle) {
         Interceptable interceptable = $ic;
@@ -37,14 +37,14 @@ public class a implements c {
                 return;
             }
         }
-        this.f2090a = bundle;
+        this.f2148a = bundle;
     }
 
     @Override // c.a.e.e.b.b.a.c.c
     public Set<String> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f2090a.keySet() : (Set) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f2148a.keySet() : (Set) invokeV.objValue;
     }
 
     @Override // c.a.e.e.b.b.a.c.c
@@ -52,25 +52,25 @@ public class a implements c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, obj) == null) {
             if (obj instanceof Boolean) {
-                this.f2090a.putBoolean(str, ((Boolean) obj).booleanValue());
+                this.f2148a.putBoolean(str, ((Boolean) obj).booleanValue());
             } else if (obj instanceof Byte) {
-                this.f2090a.putByte(str, ((Byte) obj).byteValue());
+                this.f2148a.putByte(str, ((Byte) obj).byteValue());
             } else if (obj instanceof Short) {
-                this.f2090a.putShort(str, ((Short) obj).shortValue());
+                this.f2148a.putShort(str, ((Short) obj).shortValue());
             } else if (obj instanceof Integer) {
-                this.f2090a.putInt(str, ((Integer) obj).intValue());
+                this.f2148a.putInt(str, ((Integer) obj).intValue());
             } else if (obj instanceof Character) {
-                this.f2090a.putChar(str, ((Character) obj).charValue());
+                this.f2148a.putChar(str, ((Character) obj).charValue());
             } else if (obj instanceof Long) {
-                this.f2090a.putLong(str, ((Long) obj).longValue());
+                this.f2148a.putLong(str, ((Long) obj).longValue());
             } else if (obj instanceof Float) {
-                this.f2090a.putFloat(str, ((Float) obj).floatValue());
+                this.f2148a.putFloat(str, ((Float) obj).floatValue());
             } else if (obj instanceof Double) {
-                this.f2090a.putDouble(str, ((Double) obj).doubleValue());
+                this.f2148a.putDouble(str, ((Double) obj).doubleValue());
             } else if (obj instanceof String) {
-                this.f2090a.putString(str, (String) obj);
+                this.f2148a.putString(str, (String) obj);
             } else if (obj instanceof Bundle) {
-                this.f2090a.putBundle(str, (Bundle) obj);
+                this.f2148a.putBundle(str, (Bundle) obj);
             } else if (obj instanceof ArrayList) {
                 ArrayList<String> arrayList = (ArrayList) obj;
                 if (arrayList == null || arrayList.size() <= 0) {
@@ -78,45 +78,45 @@ public class a implements c {
                 }
                 String str2 = arrayList.get(0);
                 if (str2 instanceof String) {
-                    this.f2090a.putStringArrayList(str, arrayList);
+                    this.f2148a.putStringArrayList(str, arrayList);
                 } else if (str2 instanceof Integer) {
-                    this.f2090a.putIntegerArrayList(str, arrayList);
+                    this.f2148a.putIntegerArrayList(str, arrayList);
                 } else if (str2 instanceof Parcelable) {
-                    this.f2090a.putParcelableArrayList(str, arrayList);
+                    this.f2148a.putParcelableArrayList(str, arrayList);
                 }
             } else if (obj instanceof SparseArray) {
-                this.f2090a.putSparseParcelableArray(str, (SparseArray) obj);
+                this.f2148a.putSparseParcelableArray(str, (SparseArray) obj);
             } else if (obj.getClass().isArray()) {
                 Class<?> componentType = obj.getClass().getComponentType();
                 if (componentType == Boolean.TYPE) {
-                    this.f2090a.putBooleanArray(str, (boolean[]) obj);
+                    this.f2148a.putBooleanArray(str, (boolean[]) obj);
                 } else if (componentType == Byte.TYPE) {
-                    this.f2090a.putByteArray(str, (byte[]) obj);
+                    this.f2148a.putByteArray(str, (byte[]) obj);
                 } else if (componentType == Character.TYPE) {
-                    this.f2090a.putCharArray(str, (char[]) obj);
+                    this.f2148a.putCharArray(str, (char[]) obj);
                 } else if (componentType == Double.TYPE) {
-                    this.f2090a.putDoubleArray(str, (double[]) obj);
+                    this.f2148a.putDoubleArray(str, (double[]) obj);
                 } else if (componentType == Float.TYPE) {
-                    this.f2090a.putFloatArray(str, (float[]) obj);
+                    this.f2148a.putFloatArray(str, (float[]) obj);
                 } else if (componentType == Integer.TYPE) {
-                    this.f2090a.putIntArray(str, (int[]) obj);
+                    this.f2148a.putIntArray(str, (int[]) obj);
                 } else if (componentType == Long.TYPE) {
-                    this.f2090a.putLongArray(str, (long[]) obj);
+                    this.f2148a.putLongArray(str, (long[]) obj);
                 } else if (componentType == Short.TYPE) {
-                    this.f2090a.putShortArray(str, (short[]) obj);
+                    this.f2148a.putShortArray(str, (short[]) obj);
                 } else if (componentType == String.class) {
-                    this.f2090a.putStringArray(str, (String[]) obj);
+                    this.f2148a.putStringArray(str, (String[]) obj);
                 } else if (c.a.e.e.b.a.a.e(componentType, Parcelable.class)) {
-                    this.f2090a.putParcelableArray(str, (Parcelable[]) obj);
+                    this.f2148a.putParcelableArray(str, (Parcelable[]) obj);
                 }
             } else if (obj instanceof CharSequence) {
-                this.f2090a.putCharSequence(str, (CharSequence) obj);
+                this.f2148a.putCharSequence(str, (CharSequence) obj);
             } else if (obj instanceof IBinder) {
             } else {
                 if (obj instanceof Parcelable) {
-                    this.f2090a.putParcelable(str, (Parcelable) obj);
+                    this.f2148a.putParcelable(str, (Parcelable) obj);
                 } else if (obj instanceof Serializable) {
-                    this.f2090a.putSerializable(str, (Serializable) obj);
+                    this.f2148a.putSerializable(str, (Serializable) obj);
                 }
             }
         }
@@ -144,6 +144,6 @@ public class a implements c {
     public Object d(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) ? this.f2090a.get(str) : invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) ? this.f2148a.get(str) : invokeL.objValue;
     }
 }

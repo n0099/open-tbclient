@@ -10,34 +10,34 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f2020a;
+    public long f2078a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f2021b;
+    public long f2079b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f2022c;
+    public long f2080c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f2023d;
+    public long f2081d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f2024e;
+    public long f2082e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f2025f;
+    public long f2083f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f2026g;
+    public long f2084g;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f2027h;
+    public long f2085h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f2028i;
+    public int f2086i;
 
     /* renamed from: j  reason: collision with root package name */
-    public long f2029j;
+    public long f2087j;
     public long k;
     public long l;
 
@@ -54,16 +54,16 @@ public class a {
                 return;
             }
         }
-        this.f2020a = 0L;
-        this.f2021b = 0L;
-        this.f2022c = 0L;
-        this.f2023d = 0L;
-        this.f2024e = 0L;
-        this.f2025f = 0L;
-        this.f2026g = 0L;
-        this.f2027h = 0L;
-        this.f2028i = 0;
-        this.f2029j = 0L;
+        this.f2078a = 0L;
+        this.f2079b = 0L;
+        this.f2080c = 0L;
+        this.f2081d = 0L;
+        this.f2082e = 0L;
+        this.f2083f = 0L;
+        this.f2084g = 0L;
+        this.f2085h = 0L;
+        this.f2086i = 0;
+        this.f2087j = 0L;
         this.k = 0L;
         this.l = 0L;
     }

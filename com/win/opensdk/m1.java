@@ -21,34 +21,34 @@ public class m1 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f76716a;
+    public Context f76917a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f76717b;
+    public String f76918b;
 
     /* renamed from: c  reason: collision with root package name */
-    public g1 f76718c;
+    public g1 f76919c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f76719d;
+    public boolean f76920d;
 
     /* renamed from: e  reason: collision with root package name */
-    public M f76720e;
+    public M f76921e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f76721f;
+    public int f76922f;
 
     /* renamed from: g  reason: collision with root package name */
-    public n1 f76722g;
+    public n1 f76923g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f76723h;
+    public boolean f76924h;
 
     /* renamed from: i  reason: collision with root package name */
-    public r1 f76724i;
+    public r1 f76925i;
 
     /* renamed from: j  reason: collision with root package name */
-    public Handler f76725j;
+    public Handler f76926j;
 
     public m1(Context context, String str, M m) {
         Interceptable interceptable = $ic;
@@ -65,14 +65,14 @@ public class m1 {
                 return;
             }
         }
-        this.f76719d = false;
-        this.f76721f = 5;
-        this.f76725j = new h1(this, Looper.getMainLooper());
-        this.f76716a = context;
-        this.f76717b = str;
-        this.f76720e = m;
-        this.f76718c = new g1();
-        this.f76721f = U1.r(context);
+        this.f76920d = false;
+        this.f76922f = 5;
+        this.f76926j = new h1(this, Looper.getMainLooper());
+        this.f76917a = context;
+        this.f76918b = str;
+        this.f76921e = m;
+        this.f76919c = new g1();
+        this.f76922f = U1.r(context);
     }
 
     public static /* synthetic */ int c() {
@@ -87,22 +87,22 @@ public class m1 {
 
     public final void a(PBError pBError) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, pBError) == null) || this.f76723h) {
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, pBError) == null) || this.f76924h) {
             return;
         }
-        this.f76723h = true;
-        X1.f76551a.post(new j1(this, pBError));
+        this.f76924h = true;
+        X1.f76752a.post(new j1(this, pBError));
     }
 
     public void b() {
         JSONStringer object;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            X1.f76551a.post(new l1(this));
+            X1.f76752a.post(new l1(this));
             boolean z = false;
-            this.f76723h = false;
-            Context context = this.f76716a;
-            String str = this.f76717b;
+            this.f76924h = false;
+            Context context = this.f76917a;
+            String str = this.f76918b;
             String l = U1.l(context);
             if (!TextUtils.isEmpty(l)) {
                 try {
@@ -125,11 +125,11 @@ public class m1 {
                 }
             }
             if (!z) {
-                Y0 a2 = Z0.a(this.f76716a);
-                String str2 = this.f76717b;
+                Y0 a2 = Z0.a(this.f76917a);
+                String str2 = this.f76918b;
                 try {
                     object = new JSONStringer().object();
-                    a2.f76554b = object;
+                    a2.f76755b = object;
                     a2.a("e", "Ld").a("pid", str2).a("timeis", Z0.b());
                 } catch (JSONException unused2) {
                 }
@@ -137,34 +137,34 @@ public class m1 {
                 a(PBError.PID_INVALID);
                 return;
             }
-            Info b2 = this.f76718c.b();
+            Info b2 = this.f76919c.b();
             if (b2 == null) {
-                if (this.f76719d) {
+                if (this.f76920d) {
                     a(PBError.LOAD_TOO_FREQUENTLY);
                     return;
                 }
-                this.f76719d = true;
-                r1 r1Var = new r1(this.f76716a);
-                r1Var.f76776b = this.f76717b;
+                this.f76920d = true;
+                r1 r1Var = new r1(this.f76917a);
+                r1Var.f76977b = this.f76918b;
                 r1 a3 = r1Var.a(new i1(this));
-                this.f76724i = a3;
-                M m = this.f76720e;
-                if (m == M.f76432a) {
+                this.f76925i = a3;
+                M m = this.f76921e;
+                if (m == M.f76633a) {
                     a3.a();
                     return;
-                } else if (m == M.f76433b) {
+                } else if (m == M.f76634b) {
                     a3.c();
                     return;
-                } else if (m == M.f76434c) {
+                } else if (m == M.f76635c) {
                     a3.d();
                     return;
-                } else if (m == M.f76435d) {
+                } else if (m == M.f76636d) {
                     a3.f();
                     return;
-                } else if (m == M.f76436e) {
+                } else if (m == M.f76637e) {
                     a3.e();
                     return;
-                } else if (m == M.f76437f) {
+                } else if (m == M.f76638f) {
                     a3.b();
                     return;
                 } else {
@@ -177,28 +177,28 @@ public class m1 {
 
     public final void a(Info info) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, info) == null) || this.f76723h) {
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, info) == null) || this.f76924h) {
             return;
         }
-        this.f76723h = true;
-        X1.f76551a.post(new k1(this, info));
+        this.f76924h = true;
+        X1.f76752a.post(new k1(this, info));
     }
 
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             try {
-                if (this.f76724i != null) {
-                    this.f76724i.f76778d = null;
+                if (this.f76925i != null) {
+                    this.f76925i.f76979d = null;
                 }
-                if (this.f76725j != null) {
-                    this.f76725j.removeCallbacksAndMessages(null);
+                if (this.f76926j != null) {
+                    this.f76926j.removeCallbacksAndMessages(null);
                 }
-                if (this.f76718c != null) {
-                    this.f76718c.a();
+                if (this.f76919c != null) {
+                    this.f76919c.a();
                 }
-                if (this.f76722g != null) {
-                    this.f76722g = null;
+                if (this.f76923g != null) {
+                    this.f76923g = null;
                 }
             } catch (Exception unused) {
             }
@@ -211,11 +211,11 @@ public class m1 {
             return;
         }
         try {
-            List list = k.f76426a;
+            List list = k.f76627a;
             if (list == null || list.size() <= 0) {
                 return;
             }
-            this.f76718c.a(k.f76426a);
+            this.f76919c.a(k.f76627a);
         } catch (Exception unused) {
         }
     }

@@ -15,11 +15,11 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile a f1728b;
+    public static volatile a f1953b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f1729a;
+    public Context f1954a;
 
     public a(Context context) {
         Interceptable interceptable = $ic;
@@ -36,7 +36,7 @@ public class a {
                 return;
             }
         }
-        this.f1729a = context.getApplicationContext();
+        this.f1954a = context.getApplicationContext();
     }
 
     public static synchronized a b(Context context) {
@@ -45,14 +45,14 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
             synchronized (a.class) {
-                if (f1728b == null) {
+                if (f1953b == null) {
                     synchronized (a.class) {
-                        if (f1728b == null) {
-                            f1728b = new a(context.getApplicationContext());
+                        if (f1953b == null) {
+                            f1953b = new a(context.getApplicationContext());
                         }
                     }
                 }
-                aVar = f1728b;
+                aVar = f1953b;
             }
             return aVar;
         }
@@ -62,7 +62,7 @@ public class a {
     public final i a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? new c(this.f1729a).c(str) : (i) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? new c(this.f1954a).c(str) : (i) invokeL.objValue;
     }
 
     public Pair c(String str) {
@@ -73,13 +73,13 @@ public class a {
             long j2 = -1;
             if (a2.d()) {
                 try {
-                    j2 = c.a.d.a.a.e.a.a(a2.f1726a);
+                    j2 = c.a.d.a.a.e.a.a(a2.f1951a);
                     return new Pair(0, Long.valueOf(j2));
                 } catch (IllegalArgumentException unused) {
                     return new Pair(-108, Long.valueOf(j2));
                 }
             }
-            return new Pair(Integer.valueOf(a2.f1727b), -1L);
+            return new Pair(Integer.valueOf(a2.f1952b), -1L);
         }
         return (Pair) invokeL.objValue;
     }

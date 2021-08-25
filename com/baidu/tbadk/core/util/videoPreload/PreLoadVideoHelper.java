@@ -1,8 +1,8 @@
 package com.baidu.tbadk.core.util.videoPreload;
 
 import android.text.TextUtils;
-import c.a.e.k.e.o;
-import c.a.e.k.e.q;
+import c.a.e.l.e.o;
+import c.a.e.l.e.q;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.cyberplayer.sdk.CyberPlayerManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;

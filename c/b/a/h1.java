@@ -11,13 +11,13 @@ public abstract class h1 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final j1 f31133a;
+    public final j1 f31239a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f31134b;
+    public int f31240b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f31135c;
+    public boolean f31241c;
 
     public h1(j1 j1Var) {
         Interceptable interceptable = $ic;
@@ -34,8 +34,8 @@ public abstract class h1 {
                 return;
             }
         }
-        this.f31134b = 0;
-        this.f31133a = j1Var;
+        this.f31240b = 0;
+        this.f31239a = j1Var;
     }
 
     public abstract boolean a();
@@ -51,14 +51,14 @@ public abstract class h1 {
     public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.f31135c = true;
+            this.f31241c = true;
         }
     }
 
     public boolean g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f31135c : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f31241c : invokeV.booleanValue;
     }
 
     public final long h() {
@@ -67,7 +67,7 @@ public abstract class h1 {
         long j2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            if (!a() || e0.a(this.f31133a.f())) {
+            if (!a() || e0.a(this.f31239a.f())) {
                 long b2 = b();
                 long currentTimeMillis = System.currentTimeMillis();
                 if (b2 <= 1000 + currentTimeMillis) {
@@ -78,12 +78,12 @@ public abstract class h1 {
                         z = false;
                     }
                     if (z) {
-                        this.f31134b = 0;
+                        this.f31240b = 0;
                         j2 = b() - System.currentTimeMillis();
                     } else {
                         long[] c2 = c();
-                        int i2 = this.f31134b;
-                        this.f31134b = i2 + 1;
+                        int i2 = this.f31240b;
+                        this.f31240b = i2 + 1;
                         j2 = c2[i2 % c2.length];
                     }
                     h0.e(e() + " worked:" + z + " " + j2, null);

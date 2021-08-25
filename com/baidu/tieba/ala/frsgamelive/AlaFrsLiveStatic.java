@@ -1,7 +1,7 @@
 package com.baidu.tieba.ala.frsgamelive;
 
-import c.a.p0.v0.i0;
-import c.a.p0.v0.j0;
+import c.a.q0.v0.i0;
+import c.a.q0.v0.j0;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -69,8 +69,8 @@ public class AlaFrsLiveStatic {
             Object data = customResponsedMessage.getData();
             if (data instanceof j0) {
                 j0 j0Var = (j0) data;
-                c.a.p0.v.e.c.a aVar = new c.a.p0.v.e.c.a(true);
-                aVar.getFragmentTabStructure().f13189e = 2;
+                c.a.q0.v.e.c.a aVar = new c.a.q0.v.e.c.a(true);
+                aVar.getFragmentTabStructure().f13480e = 2;
                 aVar.b(j0Var.c());
                 aVar.c(j0Var.d());
                 aVar.a(j0Var.b());
@@ -116,8 +116,8 @@ public class AlaFrsLiveStatic {
             Object data = customResponsedMessage.getData();
             if (data instanceof i0) {
                 i0 i0Var = (i0) data;
-                c.a.p0.v.e.c.a aVar = new c.a.p0.v.e.c.a(true);
-                aVar.getFragmentTabStructure().f13189e = 9;
+                c.a.q0.v.e.c.a aVar = new c.a.q0.v.e.c.a(true);
+                aVar.getFragmentTabStructure().f13480e = 9;
                 aVar.b(i0Var.d());
                 aVar.c(i0Var.e());
                 aVar.a(i0Var.c());
@@ -165,8 +165,8 @@ public class AlaFrsLiveStatic {
             Object data = customResponsedMessage.getData();
             if (data instanceof j0) {
                 j0 j0Var = (j0) data;
-                c.a.p0.v.e.c.a aVar = new c.a.p0.v.e.c.a(false);
-                aVar.getFragmentTabStructure().f13189e = 1;
+                c.a.q0.v.e.c.a aVar = new c.a.q0.v.e.c.a(false);
+                aVar.getFragmentTabStructure().f13480e = 1;
                 aVar.b(j0Var.c());
                 aVar.c(j0Var.d());
                 aVar.a(j0Var.b());
@@ -212,8 +212,8 @@ public class AlaFrsLiveStatic {
             Object data = customResponsedMessage.getData();
             if (data instanceof j0) {
                 j0 j0Var = (j0) data;
-                c.a.p0.v.g.a.a aVar = new c.a.p0.v.g.a.a();
-                aVar.getFragmentTabStructure().f13189e = 3;
+                c.a.q0.v.g.a.a aVar = new c.a.q0.v.g.a.a();
+                aVar.getFragmentTabStructure().f13480e = 3;
                 aVar.a(j0Var.c());
                 aVar.b(j0Var.d());
                 aVar.c(false);
@@ -257,9 +257,9 @@ public class AlaFrsLiveStatic {
             Object data = customResponsedMessage.getData();
             if (data instanceof i0) {
                 i0 i0Var = (i0) data;
-                c.a.p0.v.g.a.a aVar = new c.a.p0.v.g.a.a();
-                aVar.getFragmentTabStructure().f13189e = 8;
-                aVar.getFragmentTabStructure().f13186b = R.string.ala_video;
+                c.a.q0.v.g.a.a aVar = new c.a.q0.v.g.a.a();
+                aVar.getFragmentTabStructure().f13480e = 8;
+                aVar.getFragmentTabStructure().f13477b = R.string.ala_video;
                 aVar.a(i0Var.d());
                 aVar.b(i0Var.e());
                 aVar.c(true);
@@ -305,7 +305,7 @@ public class AlaFrsLiveStatic {
             Object data = customResponsedMessage.getData();
             if (data instanceof i0) {
                 i0 i0Var = (i0) data;
-                c.a.p0.v.f.a aVar = new c.a.p0.v.f.a();
+                c.a.q0.v.f.a aVar = new c.a.q0.v.f.a();
                 aVar.c(i0Var.d());
                 aVar.d(i0Var.e());
                 aVar.b(i0Var.c());

@@ -12,7 +12,7 @@ public final class i extends h {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final i f78484a;
+    public static final i f78685a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -28,7 +28,7 @@ public final class i extends h {
                 return;
             }
         }
-        f78484a = new i();
+        f78685a = new i();
     }
 
     public i() {
@@ -48,6 +48,6 @@ public final class i extends h {
     public static h e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f78484a : (h) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f78685a : (h) invokeV.objValue;
     }
 }

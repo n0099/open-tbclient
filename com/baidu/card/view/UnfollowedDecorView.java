@@ -7,9 +7,9 @@ import android.view.View;
 import android.widget.ImageView;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.AppCompatImageView;
-import c.a.o0.b1.l;
-import c.a.o0.s.q.c2;
-import c.a.p0.e0.g;
+import c.a.p0.b1.l;
+import c.a.p0.s.q.c2;
+import c.a.q0.e0.g;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbPageContext;
@@ -29,10 +29,10 @@ public class UnfollowedDecorView extends AppCompatImageView implements View.OnCl
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f38599e;
+    public int f38706e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f38600f;
+    public int f38707f;
     public g mViewController;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -86,7 +86,7 @@ public class UnfollowedDecorView extends AppCompatImageView implements View.OnCl
     public void onChangeSkinType() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            setImageDrawable(WebPManager.getPureDrawable(this.f38599e, SkinManager.getColor(this.f38600f), WebPManager.ResourceStateType.NORMAL_PRESS));
+            setImageDrawable(WebPManager.getPureDrawable(this.f38706e, SkinManager.getColor(this.f38707f), WebPManager.ResourceStateType.NORMAL_PRESS));
         }
     }
 
@@ -103,9 +103,9 @@ public class UnfollowedDecorView extends AppCompatImageView implements View.OnCl
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             int i2 = R.drawable.icon_pure_card_more22;
-            this.f38599e = i2;
+            this.f38706e = i2;
             int i3 = R.color.CAM_X0111;
-            this.f38600f = i3;
+            this.f38707f = i3;
             setImageDrawable(WebPManager.getPureDrawable(i2, SkinManager.getColor(i3), WebPManager.ResourceStateType.NORMAL_PRESS));
         }
     }
@@ -113,8 +113,8 @@ public class UnfollowedDecorView extends AppCompatImageView implements View.OnCl
     public void setWebPResId(int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048581, this, i2, i3) == null) {
-            this.f38599e = i2;
-            this.f38600f = i3;
+            this.f38706e = i2;
+            this.f38707f = i3;
             setImageDrawable(WebPManager.getPureDrawable(i2, SkinManager.getColor(i3), WebPManager.ResourceStateType.NORMAL_PRESS));
         }
     }
@@ -159,8 +159,8 @@ public class UnfollowedDecorView extends AppCompatImageView implements View.OnCl
                 return;
             }
         }
-        this.f38599e = R.drawable.icon_pure_card_more22;
-        this.f38600f = R.color.CAM_X0111;
+        this.f38706e = R.drawable.icon_pure_card_more22;
+        this.f38707f = R.color.CAM_X0111;
         this.mViewController = new g(a((Activity) context), this);
         setOnClickListener(this);
         setScaleType(ImageView.ScaleType.CENTER_INSIDE);

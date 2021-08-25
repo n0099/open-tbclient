@@ -15,13 +15,13 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f68784a;
+    public int f68984a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Map<String, List<String>> f68785b;
+    public Map<String, List<String>> f68985b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f68786c;
+    public String f68986c;
 
     public b(int i2, Map<String, List<String>> map, String str) {
         Interceptable interceptable = $ic;
@@ -38,22 +38,22 @@ public class b {
                 return;
             }
         }
-        this.f68784a = i2;
-        this.f68785b = map;
-        this.f68786c = str;
+        this.f68984a = i2;
+        this.f68985b = map;
+        this.f68986c = str;
     }
 
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f68784a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f68984a : invokeV.intValue;
     }
 
     public Map<String, List<String>> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            Map<String, List<String>> map = this.f68785b;
+            Map<String, List<String>> map = this.f68985b;
             return map == null ? new HashMap() : map;
         }
         return (Map) invokeV.objValue;
@@ -63,7 +63,7 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            String str = this.f68786c;
+            String str = this.f68986c;
             return str == null ? "" : str;
         }
         return (String) invokeV.objValue;
@@ -73,7 +73,7 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            int i2 = this.f68784a;
+            int i2 = this.f68984a;
             return i2 == 302 || i2 == 301;
         }
         return invokeV.booleanValue;

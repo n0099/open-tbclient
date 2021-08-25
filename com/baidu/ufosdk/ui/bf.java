@@ -11,7 +11,7 @@ public final class bf implements View.OnClickListener {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ FeedbackInputActivity f59364a;
+    public final /* synthetic */ FeedbackInputActivity f59564a;
 
     public bf(FeedbackInputActivity feedbackInputActivity) {
         Interceptable interceptable = $ic;
@@ -28,7 +28,7 @@ public final class bf implements View.OnClickListener {
                 return;
             }
         }
-        this.f59364a = feedbackInputActivity;
+        this.f59564a = feedbackInputActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -36,16 +36,16 @@ public final class bf implements View.OnClickListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
             try {
-                if (!com.baidu.ufosdk.b.d.c(this.f59364a.getApplicationContext())) {
+                if (!com.baidu.ufosdk.b.d.c(this.f59564a.getApplicationContext())) {
                     com.baidu.ufosdk.f.c.b("Network is not avaiable!");
                     return;
                 }
-                this.f59364a.f59292b.setVisibility(8);
-                this.f59364a.k.setVisibility(0);
-                if (this.f59364a.f59295e == null || this.f59364a.f59295e.length() <= 0) {
+                this.f59564a.f59492b.setVisibility(8);
+                this.f59564a.k.setVisibility(0);
+                if (this.f59564a.f59495e == null || this.f59564a.f59495e.length() <= 0) {
                     return;
                 }
-                this.f59364a.l.execute(new bg(this));
+                this.f59564a.l.execute(new bg(this));
             } catch (Exception e2) {
                 e2.printStackTrace();
             }

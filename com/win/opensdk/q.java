@@ -13,7 +13,7 @@ public class q implements m0 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ ImageView f76759a;
+    public final /* synthetic */ ImageView f76960a;
 
     public q(PBDrawVideo pBDrawVideo, ImageView imageView) {
         Interceptable interceptable = $ic;
@@ -30,7 +30,7 @@ public class q implements m0 {
                 return;
             }
         }
-        this.f76759a = imageView;
+        this.f76960a = imageView;
     }
 
     @Override // com.win.opensdk.m0
@@ -44,7 +44,7 @@ public class q implements m0 {
     public void a(Bitmap bitmap) {
         ImageView imageView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bitmap) == null) || (imageView = this.f76759a) == null || bitmap == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bitmap) == null) || (imageView = this.f76960a) == null || bitmap == null) {
             return;
         }
         imageView.setImageBitmap(bitmap);

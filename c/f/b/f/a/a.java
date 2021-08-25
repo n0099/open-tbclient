@@ -19,11 +19,11 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Pattern f32149a;
+    public Pattern f32255a;
 
     /* renamed from: c.f.b.f.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public static /* synthetic */ class C1470a {
+    public static /* synthetic */ class C1474a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
@@ -33,7 +33,7 @@ public class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static a f32150a;
+        public static a f32256a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -49,18 +49,18 @@ public class a {
                     return;
                 }
             }
-            f32150a = new a(null);
+            f32256a = new a(null);
         }
     }
 
-    public /* synthetic */ a(C1470a c1470a) {
+    public /* synthetic */ a(C1474a c1474a) {
         this();
     }
 
     public static a a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.f32150a : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.f32256a : (a) invokeV.objValue;
     }
 
     public String b(Context context) {
@@ -72,7 +72,7 @@ public class a {
                 e = e2;
             }
             try {
-                return this.f32149a.matcher(PhoneUtils.getCUID(context)).replaceAll("");
+                return this.f32255a.matcher(PhoneUtils.getCUID(context)).replaceAll("");
             } catch (Exception e3) {
                 e = e3;
                 e.printStackTrace();
@@ -91,7 +91,7 @@ public class a {
                 e = e2;
             }
             try {
-                return this.f32149a.matcher(PhoneUtils.getCUID2(context)).replaceAll("");
+                return this.f32255a.matcher(PhoneUtils.getCUID2(context)).replaceAll("");
             } catch (Exception e3) {
                 e = e3;
                 e.printStackTrace();
@@ -141,6 +141,6 @@ public class a {
                 return;
             }
         }
-        this.f32149a = Pattern.compile("\\s*|\t|\r|\n");
+        this.f32255a = Pattern.compile("\\s*|\t|\r|\n");
     }
 }

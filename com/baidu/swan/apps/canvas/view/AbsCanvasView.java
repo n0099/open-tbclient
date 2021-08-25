@@ -15,13 +15,13 @@ public abstract class AbsCanvasView extends View {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f45611e;
+    public boolean f45718e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f45612f;
+    public boolean f45719f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f45613g;
+    public boolean f45720g;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public AbsCanvasView(Context context) {
@@ -47,39 +47,39 @@ public abstract class AbsCanvasView extends View {
     public boolean isGesture() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f45612f : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f45719f : invokeV.booleanValue;
     }
 
     public boolean isHide() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f45613g : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f45720g : invokeV.booleanValue;
     }
 
     public boolean isInterceptTouchEvent() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f45611e : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f45718e : invokeV.booleanValue;
     }
 
     public void setGesture(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.f45612f = z;
+            this.f45719f = z;
         }
     }
 
     public void setHide(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            this.f45613g = z;
+            this.f45720g = z;
         }
     }
 
     public void setInterceptTouchEvent(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            this.f45611e = z;
+            this.f45718e = z;
         }
     }
 
@@ -123,8 +123,8 @@ public abstract class AbsCanvasView extends View {
                 return;
             }
         }
-        this.f45611e = false;
-        this.f45612f = false;
-        this.f45613g = false;
+        this.f45718e = false;
+        this.f45719f = false;
+        this.f45720g = false;
     }
 }

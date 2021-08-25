@@ -13,10 +13,10 @@ public class c extends RecyclerView.ViewHolder {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Presenter f71717a;
+    public final Presenter f71917a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final e f71718b;
+    public final e f71918b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public c(View view, Presenter presenter, e eVar) {
@@ -36,8 +36,8 @@ public class c extends RecyclerView.ViewHolder {
                 return;
             }
         }
-        this.f71718b = eVar;
-        this.f71717a = presenter;
+        this.f71918b = eVar;
+        this.f71917a = presenter;
         presenter.a(view);
     }
 }

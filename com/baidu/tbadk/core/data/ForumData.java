@@ -2,16 +2,16 @@ package com.baidu.tbadk.core.data;
 
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.e.k.e.n;
-import c.a.o0.s.q.b0;
-import c.a.o0.s.q.d0;
-import c.a.o0.s.q.e2;
-import c.a.o0.s.q.f2;
-import c.a.o0.s.q.g0;
-import c.a.o0.s.q.h2;
-import c.a.o0.s.q.l;
-import c.a.o0.s.q.m0;
-import c.a.o0.s.q.o2;
+import c.a.e.l.e.n;
+import c.a.p0.s.q.b0;
+import c.a.p0.s.q.d0;
+import c.a.p0.s.q.e2;
+import c.a.p0.s.q.f2;
+import c.a.p0.s.q.g0;
+import c.a.p0.s.q.h2;
+import c.a.p0.s.q.l;
+import c.a.p0.s.q.m0;
+import c.a.p0.s.q.o2;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
@@ -513,7 +513,7 @@ public class ForumData implements Serializable, PreLoadImageProvider, n {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048625, this)) == null) ? this.topic_special_icon_right : (String) invokeV.objValue;
     }
 
-    @Override // c.a.e.k.e.n
+    @Override // c.a.e.l.e.n
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

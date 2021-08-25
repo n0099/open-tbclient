@@ -27,17 +27,17 @@ public class ReplyLinearLayout extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: h  reason: collision with root package name */
-    public static ViewGroup.LayoutParams f55760h;
+    public static ViewGroup.LayoutParams f55925h;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<TextView> f55761e;
+    public List<TextView> f55926e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f55762f;
+    public boolean f55927f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View.OnClickListener f55763g;
+    public View.OnClickListener f55928g;
 
     /* loaded from: classes7.dex */
     public class a implements View.OnClickListener {
@@ -45,7 +45,7 @@ public class ReplyLinearLayout extends LinearLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ReplyLinearLayout f55764e;
+        public final /* synthetic */ ReplyLinearLayout f55929e;
 
         public a(ReplyLinearLayout replyLinearLayout) {
             Interceptable interceptable = $ic;
@@ -62,7 +62,7 @@ public class ReplyLinearLayout extends LinearLayout {
                     return;
                 }
             }
-            this.f55764e = replyLinearLayout;
+            this.f55929e = replyLinearLayout;
         }
 
         @Override // android.view.View.OnClickListener
@@ -70,9 +70,9 @@ public class ReplyLinearLayout extends LinearLayout {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
                 String[] strArr = (String[]) view.getTag();
-                TiebaStatic.log(new StatisticItem("c12043").param("obj_type", this.f55764e.f55762f ? 1 : 2));
+                TiebaStatic.log(new StatisticItem("c12043").param("obj_type", this.f55929e.f55927f ? 1 : 2));
                 if (strArr != null) {
-                    Context context = this.f55764e.getContext();
+                    Context context = this.f55929e.getContext();
                     if ("0".equals(strArr[3])) {
                         PbActivityConfig createNormalCfg = new PbActivityConfig(context).createNormalCfg(strArr[1], strArr[2], "person_page");
                         createNormalCfg.setStartFrom(4);
@@ -140,19 +140,19 @@ public class ReplyLinearLayout extends LinearLayout {
         int i4;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, arrayList) == null) {
-            if (f55760h == null) {
-                f55760h = new LinearLayout.LayoutParams(-1, -2);
+            if (f55925h == null) {
+                f55925h = new LinearLayout.LayoutParams(-1, -2);
             }
             ViewGroup.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, 1);
             int size = ((arrayList.size() - 1) * 3) + 1;
-            int size2 = size - this.f55761e.size();
+            int size2 = size - this.f55926e.size();
             for (int i5 = 0; i5 < size2; i5++) {
                 TextView textView = new TextView(getContext());
-                this.f55761e.add(textView);
+                this.f55926e.add(textView);
                 addView(textView);
             }
-            for (int i6 = 0; i6 < this.f55761e.size(); i6++) {
-                TextView textView2 = this.f55761e.get(i6);
+            for (int i6 = 0; i6 < this.f55926e.size(); i6++) {
+                TextView textView2 = this.f55926e.get(i6);
                 if (i6 < size) {
                     if (i6 != 0 && i6 != 1) {
                         int i7 = i6 % 3;
@@ -168,12 +168,12 @@ public class ReplyLinearLayout extends LinearLayout {
                             textView2.setText(charSequenceArr[4]);
                         }
                         textView2.setTag(charSequenceArr);
-                        textView2.setOnClickListener(this.f55763g);
+                        textView2.setOnClickListener(this.f55928g);
                         b(textView2, i6);
                         if (i6 != 0) {
                             textView2.setTextSize(17.0f);
                             textView2.setMaxLines(3);
-                            textView2.setLayoutParams(f55760h);
+                            textView2.setLayoutParams(f55925h);
                             SkinManager.setViewTextColor(textView2, R.color.CAM_X0105, 1);
                         } else if (i6 == 1 || (i3 = i6 % 3) == 1) {
                             textView2.setLayoutParams(layoutParams);
@@ -181,11 +181,11 @@ public class ReplyLinearLayout extends LinearLayout {
                         } else if (i3 == 2) {
                             textView2.setTextSize(15.0f);
                             textView2.setMaxLines(2);
-                            textView2.setLayoutParams(f55760h);
+                            textView2.setLayoutParams(f55925h);
                             SkinManager.setViewTextColor(textView2, R.color.CAM_X0106, 1);
                         } else if (i3 == 0) {
                             textView2.setTextSize(10.0f);
-                            textView2.setLayoutParams(f55760h);
+                            textView2.setLayoutParams(f55925h);
                             SkinManager.setViewTextColor(textView2, R.color.CAM_X0109, 1);
                         }
                         textView2.setVisibility(0);
@@ -196,7 +196,7 @@ public class ReplyLinearLayout extends LinearLayout {
                     }
                     textView2.setText(charSequenceArr[0]);
                     textView2.setTag(charSequenceArr);
-                    textView2.setOnClickListener(this.f55763g);
+                    textView2.setOnClickListener(this.f55928g);
                     b(textView2, i6);
                     if (i6 != 0) {
                     }
@@ -211,7 +211,7 @@ public class ReplyLinearLayout extends LinearLayout {
     public void setIsHost(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            this.f55762f = z;
+            this.f55927f = z;
         }
     }
 
@@ -234,7 +234,7 @@ public class ReplyLinearLayout extends LinearLayout {
                 return;
             }
         }
-        this.f55763g = new a(this);
-        this.f55761e = new ArrayList();
+        this.f55928g = new a(this);
+        this.f55926e = new ArrayList();
     }
 }

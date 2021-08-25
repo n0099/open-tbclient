@@ -24,34 +24,34 @@ public class h {
     public static ArrayList<BasicNameValuePair> E = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f1968a = -100000000;
+    public static int f2026a = -100000000;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f1969b;
+    public static final int f2027b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f1970c;
+    public static final int f2028c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int f1971d;
+    public static final int f2029d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int f1972e;
+    public static final int f2030e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final int f1973f;
+    public static final int f2031f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final int f1974g;
+    public static final int f2032g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final int f1975h;
+    public static final int f2033h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final int f1976i;
+    public static final int f2034i;
 
     /* renamed from: j  reason: collision with root package name */
-    public static final int f1977j;
+    public static final int f2035j;
     public static final int k;
     public static final int l;
     public static final int m;
@@ -83,15 +83,15 @@ public class h {
                 return;
             }
         }
-        f1969b = (-100000000) - 200;
-        f1970c = (-100000000) - 211;
-        f1971d = (-100000000) - 213;
-        f1972e = (-100000000) - 214;
-        f1973f = (-100000000) - 221;
-        f1974g = (-100000000) - 230;
-        f1975h = (-100000000) - 232;
-        f1976i = (-100000000) - 233;
-        f1977j = (-100000000) - 234;
+        f2027b = (-100000000) - 200;
+        f2028c = (-100000000) - 211;
+        f2029d = (-100000000) - 213;
+        f2030e = (-100000000) - 214;
+        f2031f = (-100000000) - 221;
+        f2032g = (-100000000) - 230;
+        f2033h = (-100000000) - 232;
+        f2034i = (-100000000) - 233;
+        f2035j = (-100000000) - 234;
         k = (-100000000) - 235;
         l = (-100000000) - 236;
         m = (-100000000) - 301;
@@ -109,7 +109,7 @@ public class h {
         y = (-100000000) - 310;
         z = (-100000000) - 311;
         A = (-100000000) + ErrorCode.ARGS_ERROR;
-        D = c.a.e.c.c.f1933a;
+        D = c.a.e.c.c.f1991a;
         E = null;
     }
 
@@ -170,7 +170,7 @@ public class h {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(65545, null, i2)) == null) {
-            int i3 = f1968a - i2;
+            int i3 = f2026a - i2;
             Application app = BdBaseApplication.getInst().getApp();
             if (i3 > -300 && i3 <= -200) {
                 return app.getString(R.string.im_error_codec);

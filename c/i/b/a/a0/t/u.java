@@ -13,13 +13,13 @@ public final class u implements r {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public c.i.b.a.i0.s f32708a;
+    public c.i.b.a.i0.s f32814a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c.i.b.a.a0.m f32709b;
+    public c.i.b.a.a0.m f32815b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f32710c;
+    public boolean f32816c;
 
     public u() {
         Interceptable interceptable = $ic;
@@ -39,10 +39,10 @@ public final class u implements r {
     public void a(c.i.b.a.i0.s sVar, c.i.b.a.a0.g gVar, w.d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048576, this, sVar, gVar, dVar) == null) {
-            this.f32708a = sVar;
+            this.f32814a = sVar;
             dVar.a();
             c.i.b.a.a0.m a2 = gVar.a(dVar.c(), 4);
-            this.f32709b = a2;
+            this.f32815b = a2;
             a2.b(Format.createSampleFormat(dVar.b(), "application/x-scte35", null, -1, null));
         }
     }
@@ -51,16 +51,16 @@ public final class u implements r {
     public void c(c.i.b.a.i0.l lVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, lVar) == null) {
-            if (!this.f32710c) {
-                if (this.f32708a.e() == -9223372036854775807L) {
+            if (!this.f32816c) {
+                if (this.f32814a.e() == -9223372036854775807L) {
                     return;
                 }
-                this.f32709b.b(Format.createSampleFormat(null, "application/x-scte35", this.f32708a.e()));
-                this.f32710c = true;
+                this.f32815b.b(Format.createSampleFormat(null, "application/x-scte35", this.f32814a.e()));
+                this.f32816c = true;
             }
             int a2 = lVar.a();
-            this.f32709b.a(lVar, a2);
-            this.f32709b.c(this.f32708a.d(), 1, a2, 0, null);
+            this.f32815b.a(lVar, a2);
+            this.f32815b.c(this.f32814a.d(), 1, a2, 0, null);
         }
     }
 }

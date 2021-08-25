@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import android.view.ViewParent;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import c.a.o0.n.g;
+import c.a.p0.n.g;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tbadk.TbPageContext;
@@ -41,7 +41,7 @@ public class DefaultNavigationBarCoverTip extends NavigationBarCoverTip {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ DefaultNavigationBarCoverTip f57787e;
+        public final /* synthetic */ DefaultNavigationBarCoverTip f57983e;
 
         public a(DefaultNavigationBarCoverTip defaultNavigationBarCoverTip) {
             Interceptable interceptable = $ic;
@@ -58,7 +58,7 @@ public class DefaultNavigationBarCoverTip extends NavigationBarCoverTip {
                     return;
                 }
             }
-            this.f57787e = defaultNavigationBarCoverTip;
+            this.f57983e = defaultNavigationBarCoverTip;
         }
 
         @Override // android.view.View.OnClickListener
@@ -66,11 +66,11 @@ public class DefaultNavigationBarCoverTip extends NavigationBarCoverTip {
             TbPageContext<?> tbPageContext;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f57787e.hideTip();
-                if (this.f57787e.l == null || TextUtils.isEmpty(this.f57787e.n) || (tbPageContext = UtilHelper.getTbPageContext(this.f57787e.l)) == null) {
+                this.f57983e.hideTip();
+                if (this.f57983e.l == null || TextUtils.isEmpty(this.f57983e.n) || (tbPageContext = UtilHelper.getTbPageContext(this.f57983e.l)) == null) {
                     return;
                 }
-                UrlManager.getInstance().dealOneLink(tbPageContext, new String[]{this.f57787e.n});
+                UrlManager.getInstance().dealOneLink(tbPageContext, new String[]{this.f57983e.n});
             }
         }
     }
@@ -81,7 +81,7 @@ public class DefaultNavigationBarCoverTip extends NavigationBarCoverTip {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ DefaultNavigationBarCoverTip f57788e;
+        public final /* synthetic */ DefaultNavigationBarCoverTip f57984e;
 
         public b(DefaultNavigationBarCoverTip defaultNavigationBarCoverTip) {
             Interceptable interceptable = $ic;
@@ -98,15 +98,15 @@ public class DefaultNavigationBarCoverTip extends NavigationBarCoverTip {
                     return;
                 }
             }
-            this.f57788e = defaultNavigationBarCoverTip;
+            this.f57984e = defaultNavigationBarCoverTip;
         }
 
-        @Override // c.a.o0.n.g, android.app.Application.ActivityLifecycleCallbacks
+        @Override // c.a.p0.n.g, android.app.Application.ActivityLifecycleCallbacks
         public void onActivityDestroyed(Activity activity) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, activity) == null) && activity == this.f57788e.l) {
-                this.f57788e.setCoverTipListener(null);
-                this.f57788e.l();
+            if ((interceptable == null || interceptable.invokeL(1048576, this, activity) == null) && activity == this.f57984e.l) {
+                this.f57984e.setCoverTipListener(null);
+                this.f57984e.l();
             }
         }
     }
@@ -117,7 +117,7 @@ public class DefaultNavigationBarCoverTip extends NavigationBarCoverTip {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ DefaultNavigationBarCoverTip f57789a;
+        public final /* synthetic */ DefaultNavigationBarCoverTip f57985a;
 
         public c(DefaultNavigationBarCoverTip defaultNavigationBarCoverTip) {
             Interceptable interceptable = $ic;
@@ -134,14 +134,14 @@ public class DefaultNavigationBarCoverTip extends NavigationBarCoverTip {
                     return;
                 }
             }
-            this.f57789a = defaultNavigationBarCoverTip;
+            this.f57985a = defaultNavigationBarCoverTip;
         }
 
         @Override // com.baidu.tieba.view.NavigationBarCoverTip.e
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f57789a.l();
+                this.f57985a.l();
             }
         }
 
@@ -211,7 +211,7 @@ public class DefaultNavigationBarCoverTip extends NavigationBarCoverTip {
             TextView textView = (TextView) inflate.findViewById(R.id.write_thread_success_tips);
             TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) this.m.findViewById(R.id.share_icon);
             tBSpecificationBtn.setTextSize(R.dimen.tbds34);
-            c.a.o0.s.f0.n.c cVar = new c.a.o0.s.f0.n.c();
+            c.a.p0.s.f0.n.c cVar = new c.a.p0.s.f0.n.c();
             cVar.r();
             tBSpecificationBtn.setConfig(cVar);
             textView.setSingleLine();
@@ -240,6 +240,7 @@ public class DefaultNavigationBarCoverTip extends NavigationBarCoverTip {
             if (parent instanceof ViewGroup) {
                 ((ViewGroup) parent).removeView(this);
             }
+            TbadkCoreApplication.getInst().unregisterActivityLifecycleCallbacks(this.p);
         }
     }
 

@@ -9,10 +9,10 @@ import java.util.TreeMap;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static Map<String, String> f74577a = a();
+    public static Map<String, String> f74777a = a();
 
     /* renamed from: b  reason: collision with root package name */
-    public static final List<String> f74578b = new ArrayList(f74577a.keySet());
+    public static final List<String> f74778b = new ArrayList(f74777a.keySet());
 
     public static String a(String str) {
         String str2;
@@ -22,8 +22,8 @@ public class a {
         try {
             if (str.length() > 3) {
                 String substring = str.substring(0, 3);
-                if (f74577a.containsKey(substring)) {
-                    String str3 = f74577a.get(substring);
+                if (f74777a.containsKey(substring)) {
+                    String str3 = f74777a.get(substring);
                     str2 = str.substring(3, str.length());
                     try {
                         char[] cArr = new char[str2.length() / 2];
@@ -53,35 +53,35 @@ public class a {
     }
 
     public static Map<String, String> a() {
-        if (a(f74577a)) {
+        if (a(f74777a)) {
             synchronized (a.class) {
-                if (a(f74577a)) {
+                if (a(f74777a)) {
                     TreeMap treeMap = new TreeMap();
-                    f74577a = treeMap;
+                    f74777a = treeMap;
                     treeMap.put("UCI", "v9tC0Myz1MGwXRFy");
-                    f74577a.put("G3G", "XAsFqhhaf4gKpmAi");
-                    f74577a.put("V5R", "cOqH18NXwBtZVkvz");
-                    f74577a.put("0XC", "IgSEKZ3Ea6Pm4woS");
-                    f74577a.put("Z9K", "pH6J9DMPNgqQp8m8");
-                    f74577a.put("EIM", "K11Rs9HAKRXeNwq8");
-                    f74577a.put("SO7", "T8LquL1DvwVcogiU");
-                    f74577a.put("DDI", "d02F6ttOtV05MYCQ");
-                    f74577a.put("ULY", "ToZZIhAywnUfHShN");
-                    f74577a.put("0EV", "r5D5RRwQhfV0AYLb");
-                    f74577a.put("N6A", "QAtSBFcXnQoUgHO2");
-                    f74577a.put("S5Q", "sDWLrZINnum227am");
-                    f74577a.put("RA5", "4Uq3Ruxo1FTBdHQE");
-                    f74577a.put("J04", "N5hViUTdLCpN59H0");
-                    f74577a.put("B68", "EY3sH1KKtalg5ZaT");
-                    f74577a.put("9IW", "q1u0MiuFyim4pCYY");
-                    f74577a.put("UU3", "syLnkkd8AqNykVV7");
-                    f74577a.put("Z49", "V00FiWu124yE91sH");
-                    f74577a.put("BNA", "rPP7AK1VWpKEry3p");
-                    f74577a.put("WXG", "om8w5ahkJJgpAH9v");
+                    f74777a.put("G3G", "XAsFqhhaf4gKpmAi");
+                    f74777a.put("V5R", "cOqH18NXwBtZVkvz");
+                    f74777a.put("0XC", "IgSEKZ3Ea6Pm4woS");
+                    f74777a.put("Z9K", "pH6J9DMPNgqQp8m8");
+                    f74777a.put("EIM", "K11Rs9HAKRXeNwq8");
+                    f74777a.put("SO7", "T8LquL1DvwVcogiU");
+                    f74777a.put("DDI", "d02F6ttOtV05MYCQ");
+                    f74777a.put("ULY", "ToZZIhAywnUfHShN");
+                    f74777a.put("0EV", "r5D5RRwQhfV0AYLb");
+                    f74777a.put("N6A", "QAtSBFcXnQoUgHO2");
+                    f74777a.put("S5Q", "sDWLrZINnum227am");
+                    f74777a.put("RA5", "4Uq3Ruxo1FTBdHQE");
+                    f74777a.put("J04", "N5hViUTdLCpN59H0");
+                    f74777a.put("B68", "EY3sH1KKtalg5ZaT");
+                    f74777a.put("9IW", "q1u0MiuFyim4pCYY");
+                    f74777a.put("UU3", "syLnkkd8AqNykVV7");
+                    f74777a.put("Z49", "V00FiWu124yE91sH");
+                    f74777a.put("BNA", "rPP7AK1VWpKEry3p");
+                    f74777a.put("WXG", "om8w5ahkJJgpAH9v");
                 }
             }
         }
-        return f74577a;
+        return f74777a;
     }
 
     public static <K, V> boolean a(Map<K, V> map) {

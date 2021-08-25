@@ -22,17 +22,17 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static a f2182d;
+    public static a f2240d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f2183a;
+    public long f2241a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f2184b;
+    public String f2242b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f2185c;
+    public long f2243c;
 
     static {
         InterceptResult invokeClinit;
@@ -62,27 +62,27 @@ public class a {
                 return;
             }
         }
-        this.f2183a = 0L;
-        this.f2184b = null;
-        this.f2185c = 0L;
+        this.f2241a = 0L;
+        this.f2242b = null;
+        this.f2243c = 0L;
         SharedPreferences a2 = a();
-        this.f2183a = a2.getLong(f("c.tieba.baidu.com"), 0L);
-        this.f2184b = a2.getString(e("c.tieba.baidu.com"), null);
-        this.f2185c = a2.getLong(d("c.tieba.baidu.com"), 0L);
+        this.f2241a = a2.getLong(f("c.tieba.baidu.com"), 0L);
+        this.f2242b = a2.getString(e("c.tieba.baidu.com"), null);
+        this.f2243c = a2.getLong(d("c.tieba.baidu.com"), 0L);
     }
 
     public static final a c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f2182d == null) {
+            if (f2240d == null) {
                 synchronized (a.class) {
-                    if (f2182d == null) {
-                        f2182d = new a();
+                    if (f2240d == null) {
+                        f2240d = new a();
                     }
                 }
             }
-            return f2182d;
+            return f2240d;
         }
         return (a) invokeV.objValue;
     }
@@ -151,9 +151,9 @@ public class a {
                 }
                 if ("c.tieba.baidu.com".equals(host)) {
                     long currentTimeMillis = System.currentTimeMillis();
-                    long j2 = this.f2183a;
-                    long j3 = this.f2185c;
-                    String str4 = this.f2184b;
+                    long j2 = this.f2241a;
+                    long j3 = this.f2243c;
+                    String str4 = this.f2242b;
                     if (currentTimeMillis - j2 > 43200000) {
                         h(host, str3, z, "12hour", z2);
                         return;
@@ -167,7 +167,7 @@ public class a {
                     } else if (System.currentTimeMillis() - j3 > 3600000) {
                         String b2 = TextUtils.isEmpty(str3) ? b(host) : str3;
                         if (TextUtils.equals(b2, str4) && str4 != null) {
-                            this.f2185c = System.currentTimeMillis();
+                            this.f2243c = System.currentTimeMillis();
                         } else {
                             h(host, b2, z, "ipchange", z2);
                         }
@@ -201,8 +201,8 @@ public class a {
         EditorHelper.putLong(a2, f(str), currentTimeMillis);
         EditorHelper.putString(a2, e(str), str2);
         EditorHelper.putLong(a2, d(str), currentTimeMillis2);
-        this.f2183a = currentTimeMillis;
-        this.f2185c = currentTimeMillis2;
-        this.f2184b = str2;
+        this.f2241a = currentTimeMillis;
+        this.f2243c = currentTimeMillis2;
+        this.f2242b = str2;
     }
 }

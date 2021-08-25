@@ -1,117 +1,64 @@
 package c.a.o0.w;
 
-import android.content.SharedPreferences;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.NotificationHelper;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.download.DownloadData;
+import android.annotation.SuppressLint;
+import android.preference.PreferenceManager;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.webkit.sdk.ZeusWebViewPreloadClass;
+import java.io.File;
 /* loaded from: classes3.dex */
-public class a implements e {
+public class a {
     public static /* synthetic */ Interceptable $ic;
+
+    /* renamed from: a  reason: collision with root package name */
+    public static final String f12446a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public a() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(997768730, "Lc/a/o0/w/a;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(997768730, "Lc/a/o0/w/a;");
+                return;
             }
         }
+        f12446a = AppRuntime.getAppContext().getFilesDir().getAbsolutePath() + File.separator + ZeusWebViewPreloadClass.ZEUS_FILE_DIR + File.separator + "libs";
+        String str = AppRuntime.getAppContext().getFilesDir().getAbsolutePath() + File.separator + "swan_so_lite" + File.separator + "libs";
     }
 
-    @Override // c.a.o0.w.e
-    public void onFileDownloadFailed(DownloadData downloadData, int i2, String str) {
+    public static boolean a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048576, this, downloadData, i2, str) == null) {
-            c.a.p0.x2.f0.e n = c.a.p0.x2.f0.e.n();
-            if (i2 == 3) {
-                n.v(downloadData);
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016484, downloadData));
-            } else {
-                n.B(downloadData);
-            }
-            b.a(downloadData);
-            c.a.p0.x2.f0.e.n().y(downloadData);
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? PreferenceManager.getDefaultSharedPreferences(AppRuntime.getAppContext()).getBoolean("swan_full_install", true) : invokeV.booleanValue;
     }
 
-    @Override // c.a.o0.w.e
-    public void onFileDownloadSucceed(DownloadData downloadData) {
+    public static boolean b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadData) == null) || downloadData == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            StringBuilder sb = new StringBuilder();
+            sb.append(f12446a);
+            sb.append(File.separator);
+            sb.append("libzeuswebviewchromium.so");
+            return new File(sb.toString()).exists() && a();
         }
-        String[] tag = downloadData.getTag();
-        if (tag != null && tag.length == 3) {
-            String str = tag[0];
-            String str2 = tag[1];
-            TiebaStatic.eventStat(TbadkCoreApplication.getInst().getApp(), "dl_game_success", PrefetchEvent.STATE_CLICK, 1, "dev_id", downloadData.getId(), "ref_id", str, "is_detail", tag[2], "ref_type", str2);
-        }
-        b.c(downloadData);
-        NotificationHelper.cancelNotification(TbadkCoreApplication.getInst().getApp(), downloadData.getNotifyId());
-        c.a.p0.x2.f0.e.n().y(downloadData);
-        if (downloadData.isNeedInvokeApk()) {
-            UtilHelper.install_apk(TbadkCoreApplication.getInst().getApp(), downloadData.getId().replace(".", "_") + ".apk");
-        }
+        return invokeV.booleanValue;
     }
 
-    @Override // c.a.o0.w.e
-    public boolean onFileDownloaded(DownloadData downloadData) {
-        InterceptResult invokeL;
+    @SuppressLint({"ApplySharedPref"})
+    public static void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, downloadData)) == null) {
-            if (downloadData == null) {
-                return false;
-            }
-            downloadData.setStatusMsg(null);
-            return true;
+        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
+            PreferenceManager.getDefaultSharedPreferences(AppRuntime.getAppContext()).edit().putBoolean("swan_t7_success", false).commit();
         }
-        return invokeL.booleanValue;
-    }
-
-    @Override // c.a.o0.w.e
-    public void onFileUpdateProgress(DownloadData downloadData) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, downloadData) == null) || downloadData == null) {
-            return;
-        }
-        SharedPreferences sharedPreferences = TbadkCoreApplication.getInst().getSharedPreferences("app_download_progress", 0);
-        long j2 = sharedPreferences.getLong(downloadData.getId(), 0L);
-        if (j2 <= 1 || (downloadData.getSize() > 1 && j2 != downloadData.getSize())) {
-            SharedPreferences.Editor edit = sharedPreferences.edit();
-            edit.putLong(downloadData.getId(), downloadData.getSize());
-            edit.commit();
-        }
-        c.a.p0.x2.f0.e.n().C(downloadData);
-        c.a.p0.x2.f0.e.n().y(downloadData);
-    }
-
-    @Override // c.a.o0.w.e
-    public boolean onPreDownload(DownloadData downloadData) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, downloadData)) == null) {
-            if (downloadData == null) {
-                return false;
-            }
-            downloadData.setStatusMsg(null);
-            return true;
-        }
-        return invokeL.booleanValue;
     }
 }

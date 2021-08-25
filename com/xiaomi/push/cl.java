@@ -13,7 +13,7 @@ public class cl {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f77057a;
+    public static String f77258a;
 
     /* renamed from: a  reason: collision with other field name */
     public static SimpleDateFormat f192a;
@@ -34,7 +34,7 @@ public class cl {
         }
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy/MM/dd");
         f192a = simpleDateFormat;
-        f77057a = simpleDateFormat.format(Long.valueOf(System.currentTimeMillis()));
+        f77258a = simpleDateFormat.format(Long.valueOf(System.currentTimeMillis()));
     }
 
     public static hj a(Context context, String str) {

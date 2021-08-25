@@ -32,34 +32,34 @@ public class b extends c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f65832a;
+    public String f66032a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f65833b;
+    public Context f66033b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final m f65834c;
+    public final m f66034c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final String f65835d;
+    public final String f66035d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final int f65836e;
+    public final int f66036e;
 
     /* renamed from: f  reason: collision with root package name */
-    public WeakReference<View> f65837f;
+    public WeakReference<View> f66037f;
 
     /* renamed from: g  reason: collision with root package name */
-    public WeakReference<View> f65838g;
+    public WeakReference<View> f66038g;
 
     /* renamed from: h  reason: collision with root package name */
-    public f f65839h;
+    public f f66039h;
 
     /* renamed from: i  reason: collision with root package name */
-    public a f65840i;
+    public a f66040i;
 
     /* renamed from: j  reason: collision with root package name */
-    public TTNativeAd f65841j;
+    public TTNativeAd f66041j;
     public com.bytedance.sdk.openadsdk.core.video.nativevideo.c k;
     public boolean l;
     public com.bytedance.sdk.openadsdk.downloadnew.core.a m;
@@ -68,7 +68,7 @@ public class b extends c {
     public TTSplashAd p;
     public com.bytedance.sdk.openadsdk.core.nativeexpress.a q;
     public boolean r;
-    public InterfaceC1898b s;
+    public InterfaceC1902b s;
 
     /* loaded from: classes9.dex */
     public interface a {
@@ -77,7 +77,7 @@ public class b extends c {
 
     /* renamed from: com.bytedance.sdk.openadsdk.core.b.b$b  reason: collision with other inner class name */
     /* loaded from: classes9.dex */
-    public interface InterfaceC1898b {
+    public interface InterfaceC1902b {
         void a();
 
         void b();
@@ -100,10 +100,10 @@ public class b extends c {
         }
         this.l = false;
         this.r = false;
-        this.f65833b = context;
-        this.f65834c = mVar;
-        this.f65835d = str;
-        this.f65836e = i2;
+        this.f66033b = context;
+        this.f66034c = mVar;
+        this.f66035d = str;
+        this.f66036e = i2;
         this.n = new HashMap();
     }
 
@@ -117,7 +117,7 @@ public class b extends c {
     public void b(View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, view) == null) {
-            this.f65838g = new WeakReference<>(view);
+            this.f66038g = new WeakReference<>(view);
         }
     }
 
@@ -138,7 +138,7 @@ public class b extends c {
     public String f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.f65832a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.f66032a : (String) invokeV.objValue;
     }
 
     private boolean b(String str) {
@@ -163,17 +163,17 @@ public class b extends c {
     public void e() {
         m mVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048593, this) == null) || (mVar = this.f65834c) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048593, this) == null) || (mVar = this.f66034c) == null) {
             return;
         }
         boolean a2 = o.a(mVar);
-        z.a(this.f65833b, this.f65834c, this.f65836e, this.f65841j, this.o, this.p, a2 ? this.f65835d : q.a(this.f65836e), this.m, a2, this.n, this.r, b(this.f65835d));
+        z.a(this.f66033b, this.f66034c, this.f66036e, this.f66041j, this.o, this.p, a2 ? this.f66035d : q.a(this.f66036e), this.m, a2, this.n, this.r, b(this.f66035d));
     }
 
     public void a(TTNativeAd tTNativeAd) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, tTNativeAd) == null) {
-            this.f65841j = tTNativeAd;
+            this.f66041j = tTNativeAd;
         }
     }
 
@@ -201,21 +201,21 @@ public class b extends c {
     public void a(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, aVar) == null) {
-            this.f65840i = aVar;
+            this.f66040i = aVar;
         }
     }
 
-    public void a(InterfaceC1898b interfaceC1898b) {
+    public void a(InterfaceC1902b interfaceC1902b) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, interfaceC1898b) == null) {
-            this.s = interfaceC1898b;
+        if (interceptable == null || interceptable.invokeL(1048583, this, interfaceC1902b) == null) {
+            this.s = interfaceC1902b;
         }
     }
 
     public void a(View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view) == null) {
-            this.f65837f = new WeakReference<>(view);
+            this.f66037f = new WeakReference<>(view);
         }
     }
 
@@ -238,26 +238,26 @@ public class b extends c {
         if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{view, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) || a(1)) {
             return;
         }
-        if (this.f65833b == null) {
-            this.f65833b = com.bytedance.sdk.openadsdk.core.o.a();
+        if (this.f66033b == null) {
+            this.f66033b = com.bytedance.sdk.openadsdk.core.o.a();
         }
-        if (this.f65833b == null) {
+        if (this.f66033b == null) {
             return;
         }
         long j2 = this.x;
         long j3 = this.y;
-        WeakReference<View> weakReference = this.f65837f;
+        WeakReference<View> weakReference = this.f66037f;
         View view2 = weakReference == null ? null : weakReference.get();
-        WeakReference<View> weakReference2 = this.f65838g;
-        this.f65839h = a(i2, i3, i4, i5, j2, j3, view2, weakReference2 == null ? null : weakReference2.get(), f());
-        a aVar = this.f65840i;
+        WeakReference<View> weakReference2 = this.f66038g;
+        this.f66039h = a(i2, i3, i4, i5, j2, j3, view2, weakReference2 == null ? null : weakReference2.get(), f());
+        a aVar = this.f66040i;
         if (aVar != null) {
             aVar.a(view, -1);
         }
-        boolean a2 = o.a(this.f65834c);
-        boolean a3 = z.a(this.f65833b, this.f65834c, this.f65836e, this.f65841j, this.o, this.p, a2 ? this.f65835d : q.a(this.f65836e), this.m, a2, this.n, this.r, b(this.f65835d));
-        if (a3 || (mVar = this.f65834c) == null || mVar.an() == null || this.f65834c.an().c() != 2) {
-            com.bytedance.sdk.openadsdk.e.d.a(this.f65833b, PrefetchEvent.STATE_CLICK, this.f65834c, this.f65839h, this.f65835d, a3, this.n);
+        boolean a2 = o.a(this.f66034c);
+        boolean a3 = z.a(this.f66033b, this.f66034c, this.f66036e, this.f66041j, this.o, this.p, a2 ? this.f66035d : q.a(this.f66036e), this.m, a2, this.n, this.r, b(this.f66035d));
+        if (a3 || (mVar = this.f66034c) == null || mVar.an() == null || this.f66034c.an().c() != 2) {
+            com.bytedance.sdk.openadsdk.e.d.a(this.f66033b, PrefetchEvent.STATE_CLICK, this.f66034c, this.f66039h, this.f66035d, a3, this.n);
         }
     }
 
@@ -277,10 +277,10 @@ public class b extends c {
             if (this.q != null) {
                 int[] iArr = new int[2];
                 int[] iArr2 = new int[2];
-                WeakReference<View> weakReference = this.f65838g;
+                WeakReference<View> weakReference = this.f66038g;
                 if (weakReference != null) {
                     iArr = s.a(weakReference.get());
-                    iArr2 = s.c(this.f65838g.get());
+                    iArr2 = s.c(this.f66038g.get());
                 }
                 this.q.a(i2, new k.a().d(this.t).c(this.u).b(this.v).a(this.w).b(this.x).a(this.y).e(iArr[0]).f(iArr[1]).g(iArr2[0]).h(iArr2[1]).a());
                 return true;
@@ -293,7 +293,7 @@ public class b extends c {
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
-            this.f65832a = str;
+            this.f66032a = str;
         }
     }
 }

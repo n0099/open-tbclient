@@ -2,8 +2,8 @@ package com.baidu.tieba.hottopicselect;
 
 import GetSugTopic.DataRes;
 import GetSugTopic.GetSugTopicResIdl;
-import c.a.o0.s.r.a;
-import c.a.p0.i1.c;
+import c.a.p0.s.r.a;
+import c.a.q0.i1.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
@@ -69,7 +69,8 @@ public class HotSelectHttpResponseMessage extends TbHttpResponsedMessage {
             if (bArr == null || bArr.length <= 0 || getError() != 0) {
                 return;
             }
-            a.f().e("topic_select_space", TbadkCoreApplication.getCurrentAccount()).a("topic_select_user", bArr);
+            a.f();
+            a.e("topic_select_space", TbadkCoreApplication.getCurrentAccount()).a("topic_select_user", bArr);
         }
     }
 

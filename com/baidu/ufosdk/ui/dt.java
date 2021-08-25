@@ -11,19 +11,19 @@ public final class dt {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public TextView f59472a;
+    public TextView f59672a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f59473b;
+    public TextView f59673b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f59474c;
+    public TextView f59674c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TextView f59475d;
+    public TextView f59675d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final /* synthetic */ FeedbackListActivity f59476e;
+    public final /* synthetic */ FeedbackListActivity f59676e;
 
     public dt(FeedbackListActivity feedbackListActivity) {
         Interceptable interceptable = $ic;
@@ -40,6 +40,6 @@ public final class dt {
                 return;
             }
         }
-        this.f59476e = feedbackListActivity;
+        this.f59676e = feedbackListActivity;
     }
 }

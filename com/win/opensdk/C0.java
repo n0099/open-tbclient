@@ -12,7 +12,7 @@ public class C0 implements x2 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ E0 f76387a;
+    public final /* synthetic */ E0 f76588a;
 
     public C0(E0 e0) {
         Interceptable interceptable = $ic;
@@ -29,7 +29,7 @@ public class C0 implements x2 {
                 return;
             }
         }
-        this.f76387a = e0;
+        this.f76588a = e0;
     }
 
     @Override // com.win.opensdk.x2
@@ -44,17 +44,17 @@ public class C0 implements x2 {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) {
-            E0 e0 = this.f76387a;
-            if (Q1.a(e0.f76402c, e0.f76407h)) {
-                this.f76387a.f76407h = System.currentTimeMillis();
-                E0 e02 = this.f76387a;
-                Q1.a(e02.f76400a, str, e02.f76402c, e02.f76406g, str2);
-                Z0.a(this.f76387a.f76400a).a(new a1(this.f76387a.f76402c), str).a("desc", str2).a();
-                PBNativeListener pBNativeListener = this.f76387a.f76405f;
+            E0 e0 = this.f76588a;
+            if (Q1.a(e0.f76603c, e0.f76608h)) {
+                this.f76588a.f76608h = System.currentTimeMillis();
+                E0 e02 = this.f76588a;
+                Q1.a(e02.f76601a, str, e02.f76603c, e02.f76607g, str2);
+                Z0.a(this.f76588a.f76601a).a(new a1(this.f76588a.f76603c), str).a("desc", str2).a();
+                PBNativeListener pBNativeListener = this.f76588a.f76606f;
                 if (pBNativeListener != null) {
                     pBNativeListener.onClicked();
                 }
-                N.a(this.f76387a.f76402c, str2);
+                N.a(this.f76588a.f76603c, str2);
                 return true;
             }
             return true;

@@ -17,13 +17,13 @@ public class h {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Method f1723a;
+    public Method f1948a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Method f1724b;
+    public Method f1949b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Class f1725c;
+    public Class f1950c;
 
     public h(Context context) {
         Interceptable interceptable = $ic;
@@ -52,7 +52,7 @@ public class h {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, obj, obj2)) == null) {
             try {
-                return ((Integer) this.f1723a.invoke(obj, obj2)).intValue();
+                return ((Integer) this.f1948a.invoke(obj, obj2)).intValue();
             } catch (Exception unused) {
                 throw new q("gces error");
             }
@@ -65,7 +65,7 @@ public class h {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
             try {
-                return this.f1724b.invoke(context, new Object[0]);
+                return this.f1949b.invoke(context, new Object[0]);
             } catch (Exception unused) {
                 throw new q("gpm error");
             }
@@ -77,16 +77,16 @@ public class h {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
             Method d2 = k.d(Context.class, k.c(j.c()), null);
-            this.f1724b = d2;
+            this.f1949b = d2;
             Object invoke = d2.invoke(context, new Object[0]);
             Intent intent = new Intent();
             intent.setClassName(context.getPackageName(), "");
-            this.f1725c = k.d(intent.getClass(), k.c(j.d()), null).invoke(intent, new Object[0]).getClass();
+            this.f1950c = k.d(intent.getClass(), k.c(j.d()), null).invoke(intent, new Object[0]).getClass();
             String c2 = k.c(j.a());
             Class<?> cls = invoke.getClass();
             Class cls2 = Integer.TYPE;
-            k.d(cls, c2, new Class[]{this.f1725c, cls2, cls2});
-            this.f1723a = k.d(invoke.getClass(), k.c(j.b()), new Class[]{this.f1725c});
+            k.d(cls, c2, new Class[]{this.f1950c, cls2, cls2});
+            this.f1948a = k.d(invoke.getClass(), k.c(j.b()), new Class[]{this.f1950c});
         }
     }
 }

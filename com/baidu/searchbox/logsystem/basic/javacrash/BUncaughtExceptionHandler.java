@@ -6,7 +6,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import c.a.g0.b.a.a;
+import c.a.h0.b.a.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.util.devices.DeviceUtil;
 import com.baidu.searchbox.aperf.runtime.AperfRuntime;

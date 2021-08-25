@@ -14,16 +14,16 @@ public class HorizontalCenterLinearLayout extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Runnable f60111a;
+    public Runnable f60311a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f60112b;
+    public int f60312b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f60113c;
+    public int f60313c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f60114d;
+    public boolean f60314d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public HorizontalCenterLinearLayout(Context context) {
@@ -43,12 +43,12 @@ public class HorizontalCenterLinearLayout extends LinearLayout {
                 return;
             }
         }
-        this.f60111a = new Runnable(this) { // from class: com.baidu.wallet.base.widget.HorizontalCenterLinearLayout.1
+        this.f60311a = new Runnable(this) { // from class: com.baidu.wallet.base.widget.HorizontalCenterLinearLayout.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ HorizontalCenterLinearLayout f60115a;
+            public final /* synthetic */ HorizontalCenterLinearLayout f60315a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -65,14 +65,14 @@ public class HorizontalCenterLinearLayout extends LinearLayout {
                         return;
                     }
                 }
-                this.f60115a = this;
+                this.f60315a = this;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    this.f60115a.a();
+                    this.f60315a.a();
                 }
             }
         };
@@ -83,7 +83,7 @@ public class HorizontalCenterLinearLayout extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIII(1048576, this, i2, i3, i4, i5) == null) {
             super.onSizeChanged(i2, i3, i4, i5);
-            post(this.f60111a);
+            post(this.f60311a);
         }
     }
 
@@ -108,12 +108,12 @@ public class HorizontalCenterLinearLayout extends LinearLayout {
                 i2 = abs;
                 abs = 0;
             }
-            if (!this.f60114d) {
-                this.f60112b = getPaddingLeft();
-                this.f60113c = getPaddingRight();
-                this.f60114d = true;
+            if (!this.f60314d) {
+                this.f60312b = getPaddingLeft();
+                this.f60313c = getPaddingRight();
+                this.f60314d = true;
             }
-            setPadding(this.f60112b + i2, getPaddingTop(), this.f60113c + abs, getPaddingBottom());
+            setPadding(this.f60312b + i2, getPaddingTop(), this.f60313c + abs, getPaddingBottom());
         }
     }
 
@@ -136,12 +136,12 @@ public class HorizontalCenterLinearLayout extends LinearLayout {
                 return;
             }
         }
-        this.f60111a = new Runnable(this) { // from class: com.baidu.wallet.base.widget.HorizontalCenterLinearLayout.1
+        this.f60311a = new Runnable(this) { // from class: com.baidu.wallet.base.widget.HorizontalCenterLinearLayout.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ HorizontalCenterLinearLayout f60115a;
+            public final /* synthetic */ HorizontalCenterLinearLayout f60315a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -158,14 +158,14 @@ public class HorizontalCenterLinearLayout extends LinearLayout {
                         return;
                     }
                 }
-                this.f60115a = this;
+                this.f60315a = this;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    this.f60115a.a();
+                    this.f60315a.a();
                 }
             }
         };
@@ -190,12 +190,12 @@ public class HorizontalCenterLinearLayout extends LinearLayout {
                 return;
             }
         }
-        this.f60111a = new Runnable(this) { // from class: com.baidu.wallet.base.widget.HorizontalCenterLinearLayout.1
+        this.f60311a = new Runnable(this) { // from class: com.baidu.wallet.base.widget.HorizontalCenterLinearLayout.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ HorizontalCenterLinearLayout f60115a;
+            public final /* synthetic */ HorizontalCenterLinearLayout f60315a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -212,14 +212,14 @@ public class HorizontalCenterLinearLayout extends LinearLayout {
                         return;
                     }
                 }
-                this.f60115a = this;
+                this.f60315a = this;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    this.f60115a.a();
+                    this.f60315a.a();
                 }
             }
         };

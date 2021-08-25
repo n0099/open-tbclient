@@ -36,14 +36,14 @@ public class MiTinyDataClient {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static volatile a f76878a;
+        public static volatile a f77079a;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with other field name */
         public Context f52a;
 
         /* renamed from: a  reason: collision with other field name */
-        public C2091a f53a;
+        public C2095a f53a;
 
         /* renamed from: a  reason: collision with other field name */
         public Boolean f54a;
@@ -56,12 +56,12 @@ public class MiTinyDataClient {
 
         /* renamed from: com.xiaomi.mipush.sdk.MiTinyDataClient$a$a  reason: collision with other inner class name */
         /* loaded from: classes10.dex */
-        public class C2091a {
+        public class C2095a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ a f76879a;
+            public final /* synthetic */ a f77080a;
 
             /* renamed from: a  reason: collision with other field name */
             public final Runnable f57a;
@@ -75,7 +75,7 @@ public class MiTinyDataClient {
             /* renamed from: a  reason: collision with other field name */
             public ScheduledThreadPoolExecutor f60a;
 
-            public C2091a(a aVar) {
+            public C2095a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -90,7 +90,7 @@ public class MiTinyDataClient {
                         return;
                     }
                 }
-                this.f76879a = aVar;
+                this.f77080a = aVar;
                 this.f60a = new ScheduledThreadPoolExecutor(1);
                 this.f58a = new ArrayList<>();
                 this.f57a = new aa(this);
@@ -109,9 +109,9 @@ public class MiTinyDataClient {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this) == null) {
                     hj remove = this.f58a.remove(0);
-                    for (ie ieVar : bm.a(Arrays.asList(remove), this.f76879a.f52a.getPackageName(), b.m114a(this.f76879a.f52a).m115a(), TbConfig.VOICE_CHUNK_UPLOAD_SIZE)) {
+                    for (ie ieVar : bm.a(Arrays.asList(remove), this.f77080a.f52a.getPackageName(), b.m114a(this.f77080a.f52a).m115a(), TbConfig.VOICE_CHUNK_UPLOAD_SIZE)) {
                         com.xiaomi.channel.commonutils.logger.b.c("MiTinyDataClient Send item by PushServiceClient.sendMessage(XmActionNotification)." + remove.d());
-                        an.a(this.f76879a.f52a).a((an) ieVar, hf.f77389i, true, (hs) null);
+                        an.a(this.f77080a.f52a).a((an) ieVar, hf.f77590i, true, (hs) null);
                     }
                 }
             }
@@ -137,7 +137,7 @@ public class MiTinyDataClient {
                     return;
                 }
             }
-            this.f53a = new C2091a(this);
+            this.f53a = new C2095a(this);
             this.f56a = new ArrayList<>();
         }
 
@@ -145,14 +145,14 @@ public class MiTinyDataClient {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-                if (f76878a == null) {
+                if (f77079a == null) {
                     synchronized (a.class) {
-                        if (f76878a == null) {
-                            f76878a = new a();
+                        if (f77079a == null) {
+                            f77079a = new a();
                         }
                     }
                 }
-                return f76878a;
+                return f77079a;
             }
             return (a) invokeV.objValue;
         }

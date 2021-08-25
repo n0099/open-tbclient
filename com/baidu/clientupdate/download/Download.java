@@ -20,16 +20,16 @@ public class Download implements Serializable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f38686a;
+    public long f38793a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f38687b;
+    public long f38794b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f38688c;
+    public int f38795c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f38689d;
+    public boolean f38796d;
     public long mCurrentLength;
     public String mETag;
     public String mFailReason;
@@ -73,10 +73,10 @@ public class Download implements Serializable {
         this.mSourceKey = "";
         this.mNeedNotification = false;
         this.mRequestHeaders = new ArrayList();
-        this.f38686a = 0L;
-        this.f38687b = 0L;
-        this.f38688c = 0;
-        this.f38689d = true;
+        this.f38793a = 0L;
+        this.f38794b = 0L;
+        this.f38795c = 0;
+        this.f38796d = true;
     }
 
     public void addRequestHeader(String str, String str2) {

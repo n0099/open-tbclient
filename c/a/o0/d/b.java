@@ -1,12 +1,8 @@
 package c.a.o0.d;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.adBillingLog.AdBillingLogHttpResMsg;
-import com.baidu.tbadk.adBillingLog.AdBillingLogReqMsg;
-import com.baidu.tbadk.adBillingLog.AdBillingLogSocketResMsg;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.task.TbHttpMessageTask;
+import android.annotation.SuppressLint;
+import c.a.o0.t.j;
+import com.baidu.searchbox.config.QuickPersistConfig;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,50 +10,69 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
-public class b {
+@SuppressLint({"SyntheticAccessor", "StaticFieldLeak"})
+/* loaded from: classes.dex */
+public class b extends j {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(997202732, "Lc/a/o0/d/b;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(997202732, "Lc/a/o0/d/b;");
-                return;
-            }
-        }
-        c.a.p0.i3.d0.a.f(309711, AdBillingLogSocketResMsg.class, false);
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_AD_BILLING_LOG, c.a.p0.i3.d0.a.a(TbConfig.URL_AD_BILLING_LOG, 309711));
-        tbHttpMessageTask.setResponsedClass(AdBillingLogHttpResMsg.class);
-        MessageManager.getInstance().registerTask(tbHttpMessageTask);
+    /* loaded from: classes.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
     }
 
+    /* renamed from: c.a.o0.d.b$b  reason: collision with other inner class name */
+    /* loaded from: classes.dex */
+    public static final class C0509b {
+        public static /* synthetic */ Interceptable $ic;
+
+        /* renamed from: a  reason: collision with root package name */
+        public static final b f10355a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(534099438, "Lc/a/o0/d/b$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(534099438, "Lc/a/o0/d/b$b;");
+                    return;
+                }
+            }
+            f10355a = new b(null);
+        }
+    }
+
+    public /* synthetic */ b(a aVar) {
+        this();
+    }
+
+    public static b g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? C0509b.f10355a : (b) invokeV.objValue;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b() {
+        super(QuickPersistConfig.SP_FILE_STARTUP);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
+                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-        }
-    }
-
-    public void a(c cVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, cVar) == null) {
-            AdBillingLogReqMsg adBillingLogReqMsg = new AdBillingLogReqMsg();
-            adBillingLogReqMsg.setReqData(cVar);
-            MessageManager.getInstance().sendMessage(adBillingLogReqMsg);
         }
     }
 }

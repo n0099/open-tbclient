@@ -24,22 +24,22 @@ public class SkipView extends LinearLayout implements View.OnClickListener {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final b f73653a;
+    public final b f73853a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f73654b;
+    public View f73854b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f73655c;
+    public TextView f73855c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TextView f73656d;
+    public TextView f73856d;
 
     /* renamed from: e  reason: collision with root package name */
-    public a f73657e;
+    public a f73857e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f73658f;
+    public int f73858f;
 
     /* loaded from: classes10.dex */
     public interface a {
@@ -54,22 +54,22 @@ public class SkipView extends LinearLayout implements View.OnClickListener {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f73660a;
+        public String f73860a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f73661b;
+        public String f73861b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f73662c;
+        public int f73862c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f73663d;
+        public int f73863d;
 
         /* renamed from: e  reason: collision with root package name */
-        public boolean f73664e;
+        public boolean f73864e;
 
         /* renamed from: f  reason: collision with root package name */
-        public boolean f73665f;
+        public boolean f73865f;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -84,24 +84,24 @@ public class SkipView extends LinearLayout implements View.OnClickListener {
                     return;
                 }
             }
-            this.f73660a = "跳过";
-            this.f73661b = "倒计时";
-            this.f73662c = 5;
-            this.f73663d = 5;
-            this.f73664e = true;
-            this.f73665f = true;
+            this.f73860a = "跳过";
+            this.f73861b = "倒计时";
+            this.f73862c = 5;
+            this.f73863d = 5;
+            this.f73864e = true;
+            this.f73865f = true;
         }
 
         /* JADX INFO: Access modifiers changed from: private */
         public boolean c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65544, this)) == null) ? this.f73664e && this.f73665f : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65544, this)) == null) ? this.f73864e && this.f73865f : invokeV.booleanValue;
         }
 
         public static /* synthetic */ int e(b bVar) {
-            int i2 = bVar.f73663d;
-            bVar.f73663d = i2 - 1;
+            int i2 = bVar.f73863d;
+            bVar.f73863d = i2 - 1;
             return i2;
         }
 
@@ -111,18 +111,18 @@ public class SkipView extends LinearLayout implements View.OnClickListener {
             int i2;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                int i3 = this.f73663d;
+                int i3 = this.f73863d;
                 if (i3 < 0) {
-                    return this.f73661b;
+                    return this.f73861b;
                 }
                 if (i3 == 0) {
                     sb = new StringBuilder();
-                    sb.append(this.f73661b);
+                    sb.append(this.f73861b);
                     i2 = 1;
                 } else {
                     sb = new StringBuilder();
-                    sb.append(this.f73661b);
-                    i2 = this.f73663d;
+                    sb.append(this.f73861b);
+                    i2 = this.f73863d;
                 }
                 sb.append(i2);
                 return sb.toString();
@@ -133,23 +133,23 @@ public class SkipView extends LinearLayout implements View.OnClickListener {
         public void a(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-                this.f73662c = i2;
-                this.f73663d = i2;
+                this.f73862c = i2;
+                this.f73863d = i2;
             }
         }
 
         public void a(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-                this.f73663d = -1;
-                this.f73661b = str;
+                this.f73863d = -1;
+                this.f73861b = str;
             }
         }
 
         public boolean b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f73663d <= 0 : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f73863d <= 0 : invokeV.booleanValue;
         }
     }
 
@@ -171,8 +171,8 @@ public class SkipView extends LinearLayout implements View.OnClickListener {
                 return;
             }
         }
-        this.f73653a = new b();
-        this.f73658f = -1;
+        this.f73853a = new b();
+        this.f73858f = -1;
         a(context, null, 0, 0);
     }
 
@@ -195,8 +195,8 @@ public class SkipView extends LinearLayout implements View.OnClickListener {
                 return;
             }
         }
-        this.f73653a = new b();
-        this.f73658f = -1;
+        this.f73853a = new b();
+        this.f73858f = -1;
         a(context, attributeSet, 0, 0);
     }
 
@@ -219,8 +219,8 @@ public class SkipView extends LinearLayout implements View.OnClickListener {
                 return;
             }
         }
-        this.f73653a = new b();
-        this.f73658f = -1;
+        this.f73853a = new b();
+        this.f73858f = -1;
         a(context, attributeSet, i2, 0);
     }
 
@@ -244,8 +244,8 @@ public class SkipView extends LinearLayout implements View.OnClickListener {
                 return;
             }
         }
-        this.f73653a = new b();
-        this.f73658f = -1;
+        this.f73853a = new b();
+        this.f73858f = -1;
         a(context, attributeSet, i2, i3);
     }
 
@@ -254,11 +254,11 @@ public class SkipView extends LinearLayout implements View.OnClickListener {
         if (interceptable == null || interceptable.invokeLLII(AdIconUtil.AD_TEXT_ID, this, context, attributeSet, i2, i3) == null) {
             setOrientation(0);
             LayoutInflater.from(context).inflate(R.layout.ksad_skip_view, this);
-            this.f73655c = (TextView) findViewById(R.id.ksad_skip_view_skip);
-            this.f73656d = (TextView) findViewById(R.id.ksad_skip_view_timer);
-            this.f73654b = findViewById(R.id.ksad_skip_view_divider);
-            this.f73655c.setOnClickListener(this);
-            this.f73656d.setOnClickListener(this);
+            this.f73855c = (TextView) findViewById(R.id.ksad_skip_view_skip);
+            this.f73856d = (TextView) findViewById(R.id.ksad_skip_view_timer);
+            this.f73854b = findViewById(R.id.ksad_skip_view_divider);
+            this.f73855c.setOnClickListener(this);
+            this.f73856d.setOnClickListener(this);
             setSkipBtnVisible(true);
             setTimerBtnVisible(true);
         }
@@ -271,27 +271,27 @@ public class SkipView extends LinearLayout implements View.OnClickListener {
         if (!(interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, this, bVar) == null) || bVar == null) {
             return;
         }
-        if (this.f73655c != null) {
-            if (bVar.f73660a != null) {
-                this.f73655c.setText(bVar.f73660a);
+        if (this.f73855c != null) {
+            if (bVar.f73860a != null) {
+                this.f73855c.setText(bVar.f73860a);
             }
-            this.f73655c.setVisibility(this.f73653a.f73664e ? 0 : 8);
+            this.f73855c.setVisibility(this.f73853a.f73864e ? 0 : 8);
         }
         String a2 = bVar.a();
-        TextView textView = this.f73656d;
+        TextView textView = this.f73856d;
         if (textView != null) {
             if (a2 != null) {
                 textView.setText(a2);
             }
-            this.f73656d.setVisibility(this.f73653a.f73665f ? 0 : 8);
+            this.f73856d.setVisibility(this.f73853a.f73865f ? 0 : 8);
         }
-        if (this.f73654b != null) {
-            boolean c2 = this.f73653a.c();
-            this.f73654b.setVisibility(c2 ? 0 : 8);
+        if (this.f73854b != null) {
+            boolean c2 = this.f73853a.c();
+            this.f73854b.setVisibility(c2 ? 0 : 8);
             ViewGroup.LayoutParams layoutParams = getLayoutParams();
             if (layoutParams != null) {
                 if (c2) {
-                    i2 = this.f73658f;
+                    i2 = this.f73858f;
                     if (i2 <= 0) {
                         return;
                     }
@@ -307,13 +307,13 @@ public class SkipView extends LinearLayout implements View.OnClickListener {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            a(this.f73653a);
+            a(this.f73853a);
             post(new Runnable(this) { // from class: com.kwad.sdk.widget.SkipView.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ SkipView f73659a;
+                public final /* synthetic */ SkipView f73859a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -330,19 +330,19 @@ public class SkipView extends LinearLayout implements View.OnClickListener {
                             return;
                         }
                     }
-                    this.f73659a = this;
+                    this.f73859a = this;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        SkipView skipView = this.f73659a;
-                        skipView.a(skipView.f73653a);
-                        if (!this.f73659a.f73653a.b()) {
-                            this.f73659a.postDelayed(this, 1000L);
+                        SkipView skipView = this.f73859a;
+                        skipView.a(skipView.f73853a);
+                        if (!this.f73859a.f73853a.b()) {
+                            this.f73859a.postDelayed(this, 1000L);
                         }
-                        b.e(this.f73659a.f73653a);
+                        b.e(this.f73859a.f73853a);
                     }
                 }
             });
@@ -354,8 +354,8 @@ public class SkipView extends LinearLayout implements View.OnClickListener {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || str == null) {
             return;
         }
-        this.f73653a.a(str);
-        a(this.f73653a);
+        this.f73853a.a(str);
+        a(this.f73853a);
     }
 
     public void b() {
@@ -379,7 +379,7 @@ public class SkipView extends LinearLayout implements View.OnClickListener {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            TextView textView = this.f73656d;
+            TextView textView = this.f73856d;
             return textView != null && textView.getVisibility() == 0;
         }
         return invokeV.booleanValue;
@@ -392,11 +392,11 @@ public class SkipView extends LinearLayout implements View.OnClickListener {
         if (interceptable == null || interceptable.invokeL(1048581, this, view) == null) {
             int id = view.getId();
             if (R.id.ksad_skip_view_skip == id) {
-                a aVar2 = this.f73657e;
+                a aVar2 = this.f73857e;
                 if (aVar2 != null) {
                     aVar2.a();
                 }
-            } else if (R.id.ksad_skip_view_timer != id || (aVar = this.f73657e) == null) {
+            } else if (R.id.ksad_skip_view_timer != id || (aVar = this.f73857e) == null) {
             } else {
                 aVar.b();
             }
@@ -408,54 +408,54 @@ public class SkipView extends LinearLayout implements View.OnClickListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, layoutParams) == null) {
             super.setLayoutParams(layoutParams);
-            this.f73658f = layoutParams.width;
+            this.f73858f = layoutParams.width;
         }
     }
 
     public void setOnViewListener(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, aVar) == null) {
-            this.f73657e = aVar;
+            this.f73857e = aVar;
         }
     }
 
     public void setSkipBtnVisible(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
-            this.f73653a.f73664e = z;
-            a(this.f73653a);
+            this.f73853a.f73864e = z;
+            a(this.f73853a);
         }
     }
 
     public void setSkipText(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
-            this.f73653a.f73660a = str;
-            a(this.f73653a);
+            this.f73853a.f73860a = str;
+            a(this.f73853a);
         }
     }
 
     public void setTimerBtnVisible(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
-            this.f73653a.f73665f = z;
-            a(this.f73653a);
+            this.f73853a.f73865f = z;
+            a(this.f73853a);
         }
     }
 
     public void setTimerPrefixText(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
-            this.f73653a.f73661b = str;
-            a(this.f73653a);
+            this.f73853a.f73861b = str;
+            a(this.f73853a);
         }
     }
 
     public void setTimerSecond(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048588, this, i2) == null) {
-            this.f73653a.a(i2);
-            a(this.f73653a);
+            this.f73853a.a(i2);
+            a(this.f73853a);
         }
     }
 }

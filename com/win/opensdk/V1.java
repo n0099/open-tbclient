@@ -13,7 +13,7 @@ public final class V1 implements ThreadFactory {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final AtomicInteger f76539a;
+    public final AtomicInteger f76740a;
 
     public V1() {
         Interceptable interceptable = $ic;
@@ -28,7 +28,7 @@ public final class V1 implements ThreadFactory {
                 return;
             }
         }
-        this.f76539a = new AtomicInteger(1);
+        this.f76740a = new AtomicInteger(1);
     }
 
     @Override // java.util.concurrent.ThreadFactory
@@ -36,7 +36,7 @@ public final class V1 implements ThreadFactory {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, runnable)) == null) {
-            return new Thread(runnable, "T#" + this.f76539a.getAndIncrement());
+            return new Thread(runnable, "T#" + this.f76740a.getAndIncrement());
         }
         return (Thread) invokeL.objValue;
     }

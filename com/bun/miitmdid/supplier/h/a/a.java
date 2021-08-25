@@ -14,7 +14,7 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f63633a;
+    public Context f63833a;
 
     public a(Context context) {
         Interceptable interceptable = $ic;
@@ -31,7 +31,7 @@ public class a {
                 return;
             }
         }
-        this.f63633a = context;
+        this.f63833a = context;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:18:0x0040  */
@@ -54,7 +54,7 @@ public class a {
                     str3 = "content://com.vivo.vms.IdProvider/IdentifierId/VAID_";
                 } else if (i2 != 2) {
                     parse = null;
-                    query = this.f63633a.getContentResolver().query(parse, null, null, null, null);
+                    query = this.f63833a.getContentResolver().query(parse, null, null, null, null);
                     if (query == null) {
                         r0 = query.moveToNext() ? query.getString(query.getColumnIndex("value")) : null;
                         query.close();
@@ -73,7 +73,7 @@ public class a {
                 str2 = "content://com.vivo.vms.IdProvider/IdentifierId/OAID";
             }
             parse = Uri.parse(str2);
-            query = this.f63633a.getContentResolver().query(parse, null, null, null, null);
+            query = this.f63833a.getContentResolver().query(parse, null, null, null, null);
             if (query == null) {
             }
             return r0;

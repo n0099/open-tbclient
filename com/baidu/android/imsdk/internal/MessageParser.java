@@ -85,8 +85,8 @@ public class MessageParser {
             return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.msg : (ChatMsg) invokeV.objValue;
         }
 
-        /* JADX WARN: Removed duplicated region for block: B:30:0x013b  */
-        /* JADX WARN: Removed duplicated region for block: B:32:0x013f  */
+        /* JADX WARN: Removed duplicated region for block: B:30:0x0139  */
+        /* JADX WARN: Removed duplicated region for block: B:32:0x013d  */
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
@@ -357,11 +357,11 @@ public class MessageParser {
         return (ChatMsg) invokeL.objValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:106:0x026d A[RETURN] */
-    /* JADX WARN: Removed duplicated region for block: B:108:0x026f A[Catch: Exception -> 0x0329, TryCatch #5 {Exception -> 0x0329, blocks: (B:115:0x028d, B:117:0x0293, B:119:0x02ad, B:121:0x02bf, B:122:0x02c6, B:124:0x02ce, B:128:0x02db, B:129:0x02de, B:131:0x02e4, B:133:0x02ea, B:135:0x02f0, B:136:0x02f3, B:138:0x02f9, B:140:0x02fe, B:142:0x030a, B:144:0x0319, B:143:0x030e, B:109:0x0277, B:104:0x0260, B:108:0x026f), top: B:167:0x0260 }] */
+    /* JADX WARN: Removed duplicated region for block: B:106:0x026c A[RETURN] */
+    /* JADX WARN: Removed duplicated region for block: B:108:0x026e A[Catch: Exception -> 0x0328, TryCatch #5 {Exception -> 0x0328, blocks: (B:115:0x028c, B:117:0x0292, B:119:0x02ac, B:121:0x02be, B:122:0x02c5, B:124:0x02cd, B:128:0x02da, B:129:0x02dd, B:131:0x02e3, B:133:0x02e9, B:135:0x02ef, B:136:0x02f2, B:138:0x02f8, B:140:0x02fd, B:142:0x0309, B:144:0x0318, B:143:0x030d, B:109:0x0276, B:104:0x025f, B:108:0x026e), top: B:167:0x025f }] */
     /* JADX WARN: Type inference failed for: r0v11, types: [T, java.lang.Long] */
     /* JADX WARN: Type inference failed for: r1v13 */
-    /* JADX WARN: Type inference failed for: r1v14, types: [boolean, int] */
+    /* JADX WARN: Type inference failed for: r1v14, types: [int, boolean] */
     /* JADX WARN: Type inference failed for: r1v17 */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -632,12 +632,12 @@ public class MessageParser {
             for (List<NewAckMessage.Tripule> list2 : splitList) {
                 NewAckMessage newAckMessage = new NewAckMessage(context, IMSDK.getInstance(context).getUk(), j2, z);
                 newAckMessage.addTriples(list2);
-                if (a.f29659e) {
+                if (a.f30000e) {
                     BLCPRequest bLCPRequest = new BLCPRequest();
-                    bLCPRequest.f40425a = 2L;
-                    bLCPRequest.f40426b = 95L;
-                    bLCPRequest.f40427c = newAckMessage.getBody().getBytes();
-                    bLCPRequest.f40428d = System.nanoTime();
+                    bLCPRequest.f40532a = 2L;
+                    bLCPRequest.f40533b = 95L;
+                    bLCPRequest.f40534c = newAckMessage.getBody().getBytes();
+                    bLCPRequest.f40535d = System.nanoTime();
                     c.a.u.a.b.a.c(bLCPRequest, new b(newAckMessage, context) { // from class: com.baidu.android.imsdk.internal.MessageParser.3
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
@@ -697,7 +697,7 @@ public class MessageParser {
     }
 
     /*  JADX ERROR: JadxRuntimeException in pass: BlockProcessor
-        jadx.core.utils.exceptions.JadxRuntimeException: Unreachable block: B:42:0x0123
+        jadx.core.utils.exceptions.JadxRuntimeException: Unreachable block: B:42:0x0122
         	at jadx.core.dex.visitors.blocks.BlockProcessor.checkForUnreachableBlocks(BlockProcessor.java:81)
         	at jadx.core.dex.visitors.blocks.BlockProcessor.processBlocksTree(BlockProcessor.java:47)
         	at jadx.core.dex.visitors.blocks.BlockProcessor.visit(BlockProcessor.java:39)
@@ -705,153 +705,153 @@ public class MessageParser {
     public static synchronized java.util.List<com.baidu.android.imsdk.request.NewAckMessage.Tripule> handleAck(android.content.Context r40, java.util.ArrayList<com.baidu.android.imsdk.chatmessage.messages.ChatMsg> r41, boolean r42, boolean r43) {
         /*
             com.baidu.titan.sdk.runtime.Interceptable r0 = com.baidu.android.imsdk.internal.MessageParser.$ic
-            if (r0 != 0) goto L265
+            if (r0 != 0) goto L264
         L4:
             r1 = r40
             r2 = r41
             java.lang.Class<com.baidu.android.imsdk.internal.MessageParser> r3 = com.baidu.android.imsdk.internal.MessageParser.class
             monitor-enter(r3)
-            if (r2 == 0) goto L262
-            int r0 = r41.size()     // Catch: java.lang.Throwable -> L25f
+            if (r2 == 0) goto L261
+            int r0 = r41.size()     // Catch: java.lang.Throwable -> L25e
             if (r0 != 0) goto L15
-            goto L262
+            goto L261
         L15:
             java.lang.String r0 = "MessageParser"
-            java.lang.StringBuilder r5 = new java.lang.StringBuilder     // Catch: java.lang.Throwable -> L25f
-            r5.<init>()     // Catch: java.lang.Throwable -> L25f
+            java.lang.StringBuilder r5 = new java.lang.StringBuilder     // Catch: java.lang.Throwable -> L25e
+            r5.<init>()     // Catch: java.lang.Throwable -> L25e
             java.lang.String r6 = "ack type: "
-            r5.append(r6)     // Catch: java.lang.Throwable -> L25f
-            java.lang.String r6 = java.lang.String.valueOf(r43)     // Catch: java.lang.Throwable -> L25f
-            r5.append(r6)     // Catch: java.lang.Throwable -> L25f
+            r5.append(r6)     // Catch: java.lang.Throwable -> L25e
+            java.lang.String r6 = java.lang.String.valueOf(r43)     // Catch: java.lang.Throwable -> L25e
+            r5.append(r6)     // Catch: java.lang.Throwable -> L25e
             java.lang.String r6 = ", ack> handleAck...number="
-            r5.append(r6)     // Catch: java.lang.Throwable -> L25f
-            int r6 = r41.size()     // Catch: java.lang.Throwable -> L25f
-            r5.append(r6)     // Catch: java.lang.Throwable -> L25f
+            r5.append(r6)     // Catch: java.lang.Throwable -> L25e
+            int r6 = r41.size()     // Catch: java.lang.Throwable -> L25e
+            r5.append(r6)     // Catch: java.lang.Throwable -> L25e
             java.lang.String r6 = ", msgs:"
-            r5.append(r6)     // Catch: java.lang.Throwable -> L25f
-            java.lang.String r6 = r41.toString()     // Catch: java.lang.Throwable -> L25f
-            r5.append(r6)     // Catch: java.lang.Throwable -> L25f
-            java.lang.String r5 = r5.toString()     // Catch: java.lang.Throwable -> L25f
-            com.baidu.android.imsdk.utils.LogUtils.d(r0, r5)     // Catch: java.lang.Throwable -> L25f
-            java.util.ArrayList r5 = new java.util.ArrayList     // Catch: java.lang.Throwable -> L25f
-            r5.<init>()     // Catch: java.lang.Throwable -> L25f
-            java.util.ArrayList r6 = new java.util.ArrayList     // Catch: java.lang.Throwable -> L25f
-            r6.<init>()     // Catch: java.lang.Throwable -> L25f
-            java.util.LinkedList r7 = new java.util.LinkedList     // Catch: java.lang.Throwable -> L25f
-            r7.<init>()     // Catch: java.lang.Throwable -> L25f
-            long r8 = com.baidu.android.imsdk.utils.Utility.getTriggerId(r40)     // Catch: java.lang.Throwable -> L25f
-            com.baidu.android.imsdk.account.AccountManagerImpl r0 = com.baidu.android.imsdk.account.AccountManagerImpl.getInstance(r40)     // Catch: java.lang.Throwable -> L25f
-            int r0 = r0.getLoginType()     // Catch: java.lang.Throwable -> L25f
+            r5.append(r6)     // Catch: java.lang.Throwable -> L25e
+            java.lang.String r6 = r41.toString()     // Catch: java.lang.Throwable -> L25e
+            r5.append(r6)     // Catch: java.lang.Throwable -> L25e
+            java.lang.String r5 = r5.toString()     // Catch: java.lang.Throwable -> L25e
+            com.baidu.android.imsdk.utils.LogUtils.d(r0, r5)     // Catch: java.lang.Throwable -> L25e
+            java.util.ArrayList r5 = new java.util.ArrayList     // Catch: java.lang.Throwable -> L25e
+            r5.<init>()     // Catch: java.lang.Throwable -> L25e
+            java.util.ArrayList r6 = new java.util.ArrayList     // Catch: java.lang.Throwable -> L25e
+            r6.<init>()     // Catch: java.lang.Throwable -> L25e
+            java.util.LinkedList r7 = new java.util.LinkedList     // Catch: java.lang.Throwable -> L25e
+            r7.<init>()     // Catch: java.lang.Throwable -> L25e
+            long r8 = com.baidu.android.imsdk.utils.Utility.getTriggerId(r40)     // Catch: java.lang.Throwable -> L25e
+            com.baidu.android.imsdk.account.AccountManagerImpl r0 = com.baidu.android.imsdk.account.AccountManagerImpl.getInstance(r40)     // Catch: java.lang.Throwable -> L25e
+            int r0 = r0.getLoginType()     // Catch: java.lang.Throwable -> L25e
             r10 = 6
             if (r0 != r10) goto L68
             java.lang.String r0 = "cuid"
-            goto L6b
+            goto L6a
         L68:
             java.lang.String r0 = "uid"
-        L6b:
+        L6a:
             r31 = r0
-            long r32 = com.baidu.android.imsdk.account.AccountManager.getUK(r40)     // Catch: java.lang.Throwable -> L25f
+            long r32 = com.baidu.android.imsdk.account.AccountManager.getUK(r40)     // Catch: java.lang.Throwable -> L25e
             r0 = 0
             r14 = 0
             r15 = 0
-        L74:
-            int r0 = r41.size()     // Catch: java.lang.Throwable -> L25f
-            if (r14 >= r0) goto L246
-            java.lang.Object r0 = r2.get(r14)     // Catch: java.lang.Throwable -> L25f
+        L73:
+            int r0 = r41.size()     // Catch: java.lang.Throwable -> L25e
+            if (r14 >= r0) goto L245
+            java.lang.Object r0 = r2.get(r14)     // Catch: java.lang.Throwable -> L25e
             r13 = r0
-            com.baidu.android.imsdk.chatmessage.messages.ChatMsg r13 = (com.baidu.android.imsdk.chatmessage.messages.ChatMsg) r13     // Catch: java.lang.Throwable -> L25f
-            if (r13 == 0) goto L234
-            int r11 = r13.getCategory()     // Catch: java.lang.Throwable -> L25f
-            int r17 = r13.getMsgType()     // Catch: java.lang.Throwable -> L25f
-            long r19 = r13.getFromUser()     // Catch: java.lang.Throwable -> L25f
+            com.baidu.android.imsdk.chatmessage.messages.ChatMsg r13 = (com.baidu.android.imsdk.chatmessage.messages.ChatMsg) r13     // Catch: java.lang.Throwable -> L25e
+            if (r13 == 0) goto L233
+            int r11 = r13.getCategory()     // Catch: java.lang.Throwable -> L25e
+            int r17 = r13.getMsgType()     // Catch: java.lang.Throwable -> L25e
+            long r19 = r13.getFromUser()     // Catch: java.lang.Throwable -> L25e
             r34 = r5
-            long r4 = r13.getContacter()     // Catch: java.lang.Throwable -> L25f
+            long r4 = r13.getContacter()     // Catch: java.lang.Throwable -> L25e
             java.lang.String r10 = ""
             java.lang.String r12 = ""
             java.lang.String r16 = ""
             java.lang.String r0 = ""
             r18 = -1
             r2 = 1
-            if (r11 != r2) goto Lb8
+            if (r11 != r2) goto Lb7
             java.lang.String r0 = "qunxiaoxi"
             r29 = r10
             r28 = r12
             r23 = r14
             r30 = r16
             r2 = r34
-        Lae:
+        Lad:
             r25 = -1
             r26 = -1
             r27 = -1
-        Lb4:
+        Lb3:
             r16 = r0
-            goto L1ab
-        Lb8:
-            if (r11 != 0) goto L191
+            goto L1aa
+        Lb7:
+            if (r11 != 0) goto L190
             r21 = 17592186044416(0x100000000000, double:8.691694759794E-311)
             long r21 = r4 & r21
             r23 = 0
             int r25 = (r21 > r23 ? 1 : (r21 == r23 ? 0 : -1))
-            if (r25 == 0) goto L17d
-            com.baidu.android.imsdk.pubaccount.PaInfo r21 = com.baidu.android.imsdk.pubaccount.PaManager.getPaInfo(r1, r4)     // Catch: java.lang.Throwable -> L25f
-            if (r21 == 0) goto L154
+            if (r25 == 0) goto L17c
+            com.baidu.android.imsdk.pubaccount.PaInfo r21 = com.baidu.android.imsdk.pubaccount.PaManager.getPaInfo(r1, r4)     // Catch: java.lang.Throwable -> L25e
+            if (r21 == 0) goto L153
             java.lang.String r0 = "MessageParser"
-            java.lang.StringBuilder r2 = new java.lang.StringBuilder     // Catch: java.lang.Throwable -> L25f
-            r2.<init>()     // Catch: java.lang.Throwable -> L25f
+            java.lang.StringBuilder r2 = new java.lang.StringBuilder     // Catch: java.lang.Throwable -> L25e
+            r2.<init>()     // Catch: java.lang.Throwable -> L25e
             r22 = r10
             java.lang.String r10 = "ack> painfo in local db, paid="
-            r2.append(r10)     // Catch: java.lang.Throwable -> L25f
-            r2.append(r4)     // Catch: java.lang.Throwable -> L25f
-            java.lang.String r2 = r2.toString()     // Catch: java.lang.Throwable -> L25f
-            com.baidu.android.imsdk.utils.LogUtils.d(r0, r2)     // Catch: java.lang.Throwable -> L25f
-            int r2 = r21.getSubtype()     // Catch: java.lang.Throwable -> L25f
-            int r10 = r21.getSubsetType()     // Catch: java.lang.Throwable -> L25f
-            int r18 = r21.getClassType()     // Catch: java.lang.Throwable -> L25f
-            java.lang.String r0 = r21.getPaExt()     // Catch: java.lang.Throwable -> L25f
-            boolean r21 = android.text.TextUtils.isEmpty(r0)     // Catch: java.lang.Throwable -> L25f
-            if (r21 != 0) goto L13c
+            r2.append(r10)     // Catch: java.lang.Throwable -> L25e
+            r2.append(r4)     // Catch: java.lang.Throwable -> L25e
+            java.lang.String r2 = r2.toString()     // Catch: java.lang.Throwable -> L25e
+            com.baidu.android.imsdk.utils.LogUtils.d(r0, r2)     // Catch: java.lang.Throwable -> L25e
+            int r2 = r21.getSubtype()     // Catch: java.lang.Throwable -> L25e
+            int r10 = r21.getSubsetType()     // Catch: java.lang.Throwable -> L25e
+            int r18 = r21.getClassType()     // Catch: java.lang.Throwable -> L25e
+            java.lang.String r0 = r21.getPaExt()     // Catch: java.lang.Throwable -> L25e
+            boolean r21 = android.text.TextUtils.isEmpty(r0)     // Catch: java.lang.Throwable -> L25e
+            if (r21 != 0) goto L13b
             r21 = r12
-            org.json.JSONObject r12 = new org.json.JSONObject     // Catch: org.json.JSONException -> L12d java.lang.Throwable -> L25f
-            r12.<init>(r0)     // Catch: org.json.JSONException -> L12d java.lang.Throwable -> L25f
+            org.json.JSONObject r12 = new org.json.JSONObject     // Catch: org.json.JSONException -> L12c java.lang.Throwable -> L25e
+            r12.<init>(r0)     // Catch: org.json.JSONException -> L12c java.lang.Throwable -> L25e
             java.lang.String r0 = "msg_category"
             r23 = r14
             java.lang.String r14 = ""
-            java.lang.String r14 = r12.optString(r0, r14)     // Catch: org.json.JSONException -> L12b java.lang.Throwable -> L25f
+            java.lang.String r14 = r12.optString(r0, r14)     // Catch: org.json.JSONException -> L12a java.lang.Throwable -> L25e
             java.lang.String r0 = "business_source"
             r21 = r14
             java.lang.String r14 = ""
-            java.lang.String r14 = r12.optString(r0, r14)     // Catch: org.json.JSONException -> L12b java.lang.Throwable -> L25f
+            java.lang.String r14 = r12.optString(r0, r14)     // Catch: org.json.JSONException -> L12a java.lang.Throwable -> L25e
             java.lang.String r0 = "third_id"
             r22 = r14
             java.lang.String r14 = ""
-            java.lang.String r16 = r12.optString(r0, r14)     // Catch: org.json.JSONException -> L12b java.lang.Throwable -> L25f
+            java.lang.String r16 = r12.optString(r0, r14)     // Catch: org.json.JSONException -> L12a java.lang.Throwable -> L25e
             r12 = r21
-            goto L140
-        L123:
+            goto L13f
+        L122:
             r0 = move-exception
             r22 = r14
-            goto L130
-        L127:
+            goto L12f
+        L126:
             r0 = move-exception
             r21 = r14
-            goto L130
-        L12b:
+            goto L12f
+        L12a:
             r0 = move-exception
-            goto L130
-        L12d:
+            goto L12f
+        L12c:
             r0 = move-exception
             r23 = r14
-        L130:
+        L12f:
             r12 = r21
             java.lang.String r14 = "MessageParser"
-            java.lang.String r0 = r0.getMessage()     // Catch: java.lang.Throwable -> L25f
-            com.baidu.android.imsdk.utils.LogUtils.d(r14, r0)     // Catch: java.lang.Throwable -> L25f
-            goto L140
-        L13c:
+            java.lang.String r0 = r0.getMessage()     // Catch: java.lang.Throwable -> L25e
+            com.baidu.android.imsdk.utils.LogUtils.d(r14, r0)     // Catch: java.lang.Throwable -> L25e
+            goto L13f
+        L13b:
             r21 = r12
             r23 = r14
-        L140:
-            java.lang.String r0 = getPaPage(r2, r10)     // Catch: java.lang.Throwable -> L25f
+        L13f:
+            java.lang.String r0 = getPaPage(r2, r10)     // Catch: java.lang.Throwable -> L25e
             r25 = r2
             r26 = r10
             r28 = r12
@@ -859,73 +859,73 @@ public class MessageParser {
             r27 = r18
             r29 = r22
             r2 = r34
-            goto Lb4
-        L154:
+            goto Lb3
+        L153:
             r22 = r10
             r21 = r12
             r23 = r14
             java.lang.String r2 = "MessageParser"
-            java.lang.StringBuilder r10 = new java.lang.StringBuilder     // Catch: java.lang.Throwable -> L25f
-            r10.<init>()     // Catch: java.lang.Throwable -> L25f
+            java.lang.StringBuilder r10 = new java.lang.StringBuilder     // Catch: java.lang.Throwable -> L25e
+            r10.<init>()     // Catch: java.lang.Throwable -> L25e
             java.lang.String r12 = "ack> painfo not in local db, paid="
-            r10.append(r12)     // Catch: java.lang.Throwable -> L25f
-            r10.append(r4)     // Catch: java.lang.Throwable -> L25f
-            java.lang.String r10 = r10.toString()     // Catch: java.lang.Throwable -> L25f
-            com.baidu.android.imsdk.utils.LogUtils.d(r2, r10)     // Catch: java.lang.Throwable -> L25f
-            java.lang.Long r2 = java.lang.Long.valueOf(r4)     // Catch: java.lang.Throwable -> L25f
-            r6.add(r2)     // Catch: java.lang.Throwable -> L25f
+            r10.append(r12)     // Catch: java.lang.Throwable -> L25e
+            r10.append(r4)     // Catch: java.lang.Throwable -> L25e
+            java.lang.String r10 = r10.toString()     // Catch: java.lang.Throwable -> L25e
+            com.baidu.android.imsdk.utils.LogUtils.d(r2, r10)     // Catch: java.lang.Throwable -> L25e
+            java.lang.Long r2 = java.lang.Long.valueOf(r4)     // Catch: java.lang.Throwable -> L25e
+            r6.add(r2)     // Catch: java.lang.Throwable -> L25e
             r2 = r34
-            r2.add(r13)     // Catch: java.lang.Throwable -> L25f
-            goto L189
-        L17d:
+            r2.add(r13)     // Catch: java.lang.Throwable -> L25e
+            goto L188
+        L17c:
             r22 = r10
             r21 = r12
             r23 = r14
             r2 = r34
-            if (r25 != 0) goto L189
+            if (r25 != 0) goto L188
             java.lang.String r0 = "C2C"
-        L189:
+        L188:
             r30 = r16
             r28 = r21
             r29 = r22
-            goto Lae
-        L191:
+            goto Lad
+        L190:
             r22 = r10
             r21 = r12
             r23 = r14
             r2 = r34
-            java.lang.StringBuilder r0 = new java.lang.StringBuilder     // Catch: java.lang.Throwable -> L25f
-            r0.<init>()     // Catch: java.lang.Throwable -> L25f
+            java.lang.StringBuilder r0 = new java.lang.StringBuilder     // Catch: java.lang.Throwable -> L25e
+            r0.<init>()     // Catch: java.lang.Throwable -> L25e
             java.lang.String r10 = "others_category_"
-            r0.append(r10)     // Catch: java.lang.Throwable -> L25f
-            r0.append(r11)     // Catch: java.lang.Throwable -> L25f
-            java.lang.String r0 = r0.toString()     // Catch: java.lang.Throwable -> L25f
-            goto L189
-        L1ab:
-            java.lang.String r0 = r13.getExt()     // Catch: java.lang.Throwable -> L25f
-            if (r0 == 0) goto L1d6
-            org.json.JSONObject r10 = new org.json.JSONObject     // Catch: org.json.JSONException -> L1c5 java.lang.Throwable -> L25f
-            r10.<init>(r0)     // Catch: org.json.JSONException -> L1c5 java.lang.Throwable -> L25f
+            r0.append(r10)     // Catch: java.lang.Throwable -> L25e
+            r0.append(r11)     // Catch: java.lang.Throwable -> L25e
+            java.lang.String r0 = r0.toString()     // Catch: java.lang.Throwable -> L25e
+            goto L188
+        L1aa:
+            java.lang.String r0 = r13.getExt()     // Catch: java.lang.Throwable -> L25e
+            if (r0 == 0) goto L1d5
+            org.json.JSONObject r10 = new org.json.JSONObject     // Catch: org.json.JSONException -> L1c4 java.lang.Throwable -> L25e
+            r10.<init>(r0)     // Catch: org.json.JSONException -> L1c4 java.lang.Throwable -> L25e
             java.lang.String r0 = "ack"
-            boolean r0 = r10.has(r0)     // Catch: org.json.JSONException -> L1c5 java.lang.Throwable -> L25f
-            if (r0 == 0) goto L1d6
+            boolean r0 = r10.has(r0)     // Catch: org.json.JSONException -> L1c4 java.lang.Throwable -> L25e
+            if (r0 == 0) goto L1d5
             java.lang.String r0 = "ack"
-            org.json.JSONObject r0 = r10.getJSONObject(r0)     // Catch: org.json.JSONException -> L1c5 java.lang.Throwable -> L25f
-            goto L1d7
-        L1c5:
+            org.json.JSONObject r0 = r10.getJSONObject(r0)     // Catch: org.json.JSONException -> L1c4 java.lang.Throwable -> L25e
+            goto L1d6
+        L1c4:
             r0 = move-exception
-            com.baidu.android.imsdk.upload.action.IMTrack$CrashBuilder r10 = new com.baidu.android.imsdk.upload.action.IMTrack$CrashBuilder     // Catch: java.lang.Throwable -> L25f
-            r10.<init>(r1)     // Catch: java.lang.Throwable -> L25f
-            java.lang.String r0 = android.util.Log.getStackTraceString(r0)     // Catch: java.lang.Throwable -> L25f
-            com.baidu.android.imsdk.upload.action.IMTrack$CrashBuilder r0 = r10.exception(r0)     // Catch: java.lang.Throwable -> L25f
-            r0.build()     // Catch: java.lang.Throwable -> L25f
-        L1d6:
+            com.baidu.android.imsdk.upload.action.IMTrack$CrashBuilder r10 = new com.baidu.android.imsdk.upload.action.IMTrack$CrashBuilder     // Catch: java.lang.Throwable -> L25e
+            r10.<init>(r1)     // Catch: java.lang.Throwable -> L25e
+            java.lang.String r0 = android.util.Log.getStackTraceString(r0)     // Catch: java.lang.Throwable -> L25e
+            com.baidu.android.imsdk.upload.action.IMTrack$CrashBuilder r0 = r10.exception(r0)     // Catch: java.lang.Throwable -> L25e
+            r0.build()     // Catch: java.lang.Throwable -> L25e
+        L1d5:
             r0 = 0
-        L1d7:
-            com.baidu.android.imsdk.request.NewAckMessage$Tripule r14 = new com.baidu.android.imsdk.request.NewAckMessage$Tripule     // Catch: java.lang.Throwable -> L25f
-            long r21 = r13.getMsgId()     // Catch: java.lang.Throwable -> L25f
-            java.lang.String r18 = r13.getMsgKey()     // Catch: java.lang.Throwable -> L25f
-            long r35 = java.lang.System.currentTimeMillis()     // Catch: java.lang.Throwable -> L25f
+        L1d6:
+            com.baidu.android.imsdk.request.NewAckMessage$Tripule r14 = new com.baidu.android.imsdk.request.NewAckMessage$Tripule     // Catch: java.lang.Throwable -> L25e
+            long r21 = r13.getMsgId()     // Catch: java.lang.Throwable -> L25e
+            java.lang.String r18 = r13.getMsgKey()     // Catch: java.lang.Throwable -> L25e
+            long r35 = java.lang.System.currentTimeMillis()     // Catch: java.lang.Throwable -> L25e
             r10 = r14
             r37 = r8
             r8 = r11
@@ -939,70 +939,70 @@ public class MessageParser {
             r18 = r31
             r21 = r32
             r23 = r4
-            r10.<init>(r11, r13, r14, r16, r17, r18, r19, r21, r23, r25, r26, r27, r28, r29, r30)     // Catch: java.lang.Throwable -> L25f
-            long r4 = r9.getFromUser()     // Catch: java.lang.Throwable -> L25f
-            r1.setFromUser(r4)     // Catch: java.lang.Throwable -> L25f
-            if (r0 == 0) goto L20a
-            r1.setAck(r0)     // Catch: java.lang.Throwable -> L25f
-        L20a:
+            r10.<init>(r11, r13, r14, r16, r17, r18, r19, r21, r23, r25, r26, r27, r28, r29, r30)     // Catch: java.lang.Throwable -> L25e
+            long r4 = r9.getFromUser()     // Catch: java.lang.Throwable -> L25e
+            r1.setFromUser(r4)     // Catch: java.lang.Throwable -> L25e
+            if (r0 == 0) goto L209
+            r1.setAck(r0)     // Catch: java.lang.Throwable -> L25e
+        L209:
             r0 = 4
-            if (r8 != r0) goto L22e
+            if (r8 != r0) goto L22d
             r13 = r9
-            com.baidu.android.imsdk.chatmessage.messages.TextMsg r13 = (com.baidu.android.imsdk.chatmessage.messages.TextMsg) r13     // Catch: java.lang.Throwable -> L25f
-            long r4 = r13.getCastId()     // Catch: java.lang.Throwable -> L25f
-            r1.setMcastId(r4)     // Catch: java.lang.Throwable -> L25f
-            com.baidu.android.imsdk.conversation.ConversationStudioManImpl r0 = com.baidu.android.imsdk.conversation.ConversationStudioManImpl.getInstance(r40)     // Catch: java.lang.Throwable -> L25f
+            com.baidu.android.imsdk.chatmessage.messages.TextMsg r13 = (com.baidu.android.imsdk.chatmessage.messages.TextMsg) r13     // Catch: java.lang.Throwable -> L25e
+            long r4 = r13.getCastId()     // Catch: java.lang.Throwable -> L25e
+            r1.setMcastId(r4)     // Catch: java.lang.Throwable -> L25e
+            com.baidu.android.imsdk.conversation.ConversationStudioManImpl r0 = com.baidu.android.imsdk.conversation.ConversationStudioManImpl.getInstance(r40)     // Catch: java.lang.Throwable -> L25e
             r13 = r9
-            com.baidu.android.imsdk.chatmessage.messages.TextMsg r13 = (com.baidu.android.imsdk.chatmessage.messages.TextMsg) r13     // Catch: java.lang.Throwable -> L25f
-            long r4 = r13.getCastId()     // Catch: java.lang.Throwable -> L25f
-            boolean r0 = r0.isReliable(r4)     // Catch: java.lang.Throwable -> L25f
-            if (r0 == 0) goto L22e
+            com.baidu.android.imsdk.chatmessage.messages.TextMsg r13 = (com.baidu.android.imsdk.chatmessage.messages.TextMsg) r13     // Catch: java.lang.Throwable -> L25e
+            long r4 = r13.getCastId()     // Catch: java.lang.Throwable -> L25e
+            boolean r0 = r0.isReliable(r4)     // Catch: java.lang.Throwable -> L25e
+            if (r0 == 0) goto L22d
             r4 = 1
-            r1.setStudioIsReliable(r4)     // Catch: java.lang.Throwable -> L25f
+            r1.setStudioIsReliable(r4)     // Catch: java.lang.Throwable -> L25e
             r15 = 1
-            goto L230
-        L22e:
+            goto L22f
+        L22d:
             r15 = r39
-        L230:
-            r7.add(r1)     // Catch: java.lang.Throwable -> L25f
-            goto L23b
-        L234:
+        L22f:
+            r7.add(r1)     // Catch: java.lang.Throwable -> L25e
+            goto L23a
+        L233:
             r2 = r5
             r37 = r8
             r34 = r14
             r39 = r15
-        L23b:
+        L23a:
             int r14 = r34 + 1
             r1 = r40
             r5 = r2
             r8 = r37
             r2 = r41
-            goto L74
-        L246:
+            goto L73
+        L245:
             r2 = r5
             r37 = r8
             r39 = r15
-            if (r43 != 0) goto L24f
+            if (r43 != 0) goto L24e
             monitor-exit(r3)
             return r7
-        L24f:
+        L24e:
             r1 = r40
             r4 = r42
-            getAckNeedPainfos(r1, r4, r2, r6)     // Catch: java.lang.Throwable -> L25f
+            getAckNeedPainfos(r1, r4, r2, r6)     // Catch: java.lang.Throwable -> L25e
             r4 = r37
             r15 = r39
-            sendNewAckToServer(r1, r4, r7, r15)     // Catch: java.lang.Throwable -> L25f
+            sendNewAckToServer(r1, r4, r7, r15)     // Catch: java.lang.Throwable -> L25e
             monitor-exit(r3)
             return r7
-        L25f:
+        L25e:
             r0 = move-exception
             monitor-exit(r3)
             throw r0
-        L262:
+        L261:
             monitor-exit(r3)
             r1 = 0
             return r1
-        L265:
+        L264:
             r3 = 4
             java.lang.Object[] r3 = new java.lang.Object[r3]
             r1 = 0

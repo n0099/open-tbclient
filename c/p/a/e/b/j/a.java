@@ -25,36 +25,36 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final h<Integer, a> f35013e;
+    public static final h<Integer, a> f35119e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final a f35014f;
+    public static final a f35120f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static JSONObject f35015g;
+    public static JSONObject f35121g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static JSONObject f35016h;
+    public static JSONObject f35122h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static Boolean f35017i;
+    public static Boolean f35123i;
 
     /* renamed from: j  reason: collision with root package name */
-    public static boolean f35018j;
+    public static boolean f35124j;
     public static a k;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final JSONObject f35019a;
+    public final JSONObject f35125a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final JSONObject f35020b;
+    public final JSONObject f35126b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Boolean f35021c;
+    public final Boolean f35127c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f35022d;
+    public int f35128d;
 
     static {
         InterceptResult invokeClinit;
@@ -69,8 +69,8 @@ public class a {
                 return;
             }
         }
-        f35013e = new h<>(16, 16);
-        f35014f = new a(null);
+        f35119e = new h<>(16, 16);
+        f35120f = new a(null);
         i();
     }
 
@@ -90,7 +90,7 @@ public class a {
                 return;
             }
         }
-        this.f35019a = jSONObject;
+        this.f35125a = jSONObject;
         JSONObject jSONObject2 = null;
         r0 = null;
         r0 = null;
@@ -106,8 +106,8 @@ public class a {
             jSONObject2 = optJSONObject;
             bool = bool3;
         }
-        this.f35020b = jSONObject2;
-        this.f35021c = bool;
+        this.f35126b = jSONObject2;
+        this.f35127c = bool;
     }
 
     @NonNull
@@ -123,17 +123,17 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(65539, null, i2, downloadInfo)) == null) {
             a aVar2 = k;
-            if (aVar2 == null || aVar2.f35022d != i2) {
-                synchronized (f35013e) {
-                    aVar = f35013e.get(Integer.valueOf(i2));
+            if (aVar2 == null || aVar2.f35128d != i2) {
+                synchronized (f35119e) {
+                    aVar = f35119e.get(Integer.valueOf(i2));
                 }
                 if (aVar == null) {
                     aVar = downloadInfo == null ? s(i2) : n(downloadInfo);
-                    synchronized (f35013e) {
-                        f35013e.put(Integer.valueOf(i2), aVar);
+                    synchronized (f35119e) {
+                        f35119e.put(Integer.valueOf(i2), aVar);
                     }
                 }
-                aVar.f35022d = i2;
+                aVar.f35128d = i2;
                 k = aVar;
                 return aVar;
             }
@@ -148,7 +148,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, downloadInfo)) == null) {
             if (downloadInfo == null) {
-                return f35014f;
+                return f35120f;
             }
             return e(downloadInfo.getId(), downloadInfo);
         }
@@ -160,12 +160,12 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, jSONObject)) == null) {
-            if (jSONObject != null && jSONObject != o() && !f35018j) {
+            if (jSONObject != null && jSONObject != o() && !f35124j) {
                 a aVar = k;
-                if (aVar == null || aVar.f35019a != jSONObject) {
-                    synchronized (f35013e) {
-                        for (a aVar2 : f35013e.values()) {
-                            if (aVar2.f35019a == jSONObject) {
+                if (aVar == null || aVar.f35125a != jSONObject) {
+                    synchronized (f35119e) {
+                        for (a aVar2 : f35119e.values()) {
+                            if (aVar2.f35125a == jSONObject) {
                                 k = aVar2;
                                 return aVar2;
                             }
@@ -177,7 +177,7 @@ public class a {
                 }
                 return aVar;
             }
-            return f35014f;
+            return f35120f;
         }
         return (a) invokeL.objValue;
     }
@@ -186,48 +186,48 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null) == null) {
             JSONObject e2 = e.e();
-            f35018j = e2.optInt("disable_task_setting", 0) == 1;
-            f35015g = e2.optJSONObject("disabled_task_keys");
+            f35124j = e2.optInt("disable_task_setting", 0) == 1;
+            f35121g = e2.optJSONObject("disabled_task_keys");
             JSONObject optJSONObject = e2.optJSONObject("bugfix");
             Boolean bool = null;
             if (optJSONObject != null && optJSONObject.has("default")) {
                 bool = Boolean.valueOf(optJSONObject.optInt("default", 0) == 1);
             }
-            f35016h = optJSONObject;
-            f35017i = bool;
+            f35122h = optJSONObject;
+            f35123i = bool;
         }
     }
 
     public static void j(int i2, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(65543, null, i2, jSONObject) == null) || jSONObject == null || jSONObject == o() || f35018j) {
+        if (!(interceptable == null || interceptable.invokeIL(65543, null, i2, jSONObject) == null) || jSONObject == null || jSONObject == o() || f35124j) {
             return;
         }
-        synchronized (f35013e) {
+        synchronized (f35119e) {
             a aVar = k;
-            if (aVar != null && aVar.f35019a == jSONObject) {
-                aVar.f35022d = i2;
+            if (aVar != null && aVar.f35125a == jSONObject) {
+                aVar.f35128d = i2;
             } else {
                 aVar = null;
-                Iterator<a> it = f35013e.values().iterator();
+                Iterator<a> it = f35119e.values().iterator();
                 while (true) {
                     if (!it.hasNext()) {
                         break;
                     }
                     a next = it.next();
-                    if (next.f35019a == jSONObject) {
-                        next.f35022d = i2;
+                    if (next.f35125a == jSONObject) {
+                        next.f35128d = i2;
                         aVar = next;
                         break;
                     }
                 }
                 if (aVar == null) {
                     aVar = new a(jSONObject);
-                    aVar.f35022d = i2;
+                    aVar.f35128d = i2;
                 }
                 k = aVar;
             }
-            f35013e.put(Integer.valueOf(i2), aVar);
+            f35119e.put(Integer.valueOf(i2), aVar);
         }
     }
 
@@ -235,10 +235,10 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(65544, null, str, z) == null) {
             try {
-                if (f35016h == null) {
-                    f35016h = new JSONObject();
+                if (f35122h == null) {
+                    f35122h = new JSONObject();
                 }
-                f35016h.put(str, z ? 1 : 0);
+                f35122h.put(str, z ? 1 : 0);
             } catch (JSONException unused) {
             }
         }
@@ -248,8 +248,8 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, downloadInfo)) == null) {
-            if (f35018j) {
-                return f35014f;
+            if (f35124j) {
+                return f35120f;
             }
             try {
                 String downloadSettingString = downloadInfo.getDownloadSettingString();
@@ -259,7 +259,7 @@ public class a {
             } catch (Throwable th) {
                 th.printStackTrace();
             }
-            return f35014f;
+            return f35120f;
         }
         return (a) invokeL.objValue;
     }
@@ -275,11 +275,11 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(65547, null, i2) == null) {
             a aVar = k;
-            if (aVar != null && aVar.f35022d == i2) {
+            if (aVar != null && aVar.f35128d == i2) {
                 k = null;
             }
-            synchronized (f35013e) {
-                f35013e.remove(Integer.valueOf(i2));
+            synchronized (f35119e) {
+                f35119e.remove(Integer.valueOf(i2));
             }
         }
     }
@@ -288,7 +288,7 @@ public class a {
     public static a r() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) ? f35014f : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) ? f35120f : (a) invokeV.objValue;
     }
 
     public static a s(int i2) {
@@ -296,14 +296,14 @@ public class a {
         DownloadInfo f2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(65549, null, i2)) == null) {
-            if (f35018j) {
-                return f35014f;
+            if (f35124j) {
+                return f35120f;
             }
             Context n = e.n();
             if (n != null && (f2 = c.p.a.e.b.g.a.H(n).f(i2)) != null) {
                 return n(f2);
             }
-            return f35014f;
+            return f35120f;
         }
         return (a) invokeI.objValue;
     }
@@ -312,7 +312,7 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65550, null, str)) == null) {
-            JSONObject jSONObject = f35015g;
+            JSONObject jSONObject = f35121g;
             return jSONObject != null && jSONObject.optInt(str, 0) == 1;
         }
         return invokeL.booleanValue;
@@ -322,9 +322,9 @@ public class a {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{str, Double.valueOf(d2)})) == null) {
-            JSONObject jSONObject = this.f35019a;
+            JSONObject jSONObject = this.f35125a;
             if (jSONObject != null && jSONObject.has(str) && !w(str)) {
-                return this.f35019a.optDouble(str, d2);
+                return this.f35125a.optDouble(str, d2);
             }
             return o().optDouble(str, d2);
         }
@@ -335,9 +335,9 @@ public class a {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i2)) == null) {
-            JSONObject jSONObject = this.f35019a;
+            JSONObject jSONObject = this.f35125a;
             if (jSONObject != null && jSONObject.has(str) && !w(str)) {
-                return this.f35019a.optInt(str, i2);
+                return this.f35125a.optInt(str, i2);
             }
             return o().optInt(str, i2);
         }
@@ -348,9 +348,9 @@ public class a {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, str, j2)) == null) {
-            JSONObject jSONObject = this.f35019a;
+            JSONObject jSONObject = this.f35125a;
             if (jSONObject != null && jSONObject.has(str) && !w(str)) {
-                return this.f35019a.optLong(str, j2);
+                return this.f35125a.optLong(str, j2);
             }
             return o().optLong(str, j2);
         }
@@ -361,9 +361,9 @@ public class a {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, str2)) == null) {
-            JSONObject jSONObject = this.f35019a;
+            JSONObject jSONObject = this.f35125a;
             if (jSONObject != null && jSONObject.has(str) && !w(str)) {
-                return this.f35019a.optString(str, str2);
+                return this.f35125a.optString(str, str2);
             }
             return o().optString(str, str2);
         }
@@ -386,21 +386,21 @@ public class a {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048582, this, str, z)) == null) {
-            if (this.f35020b != null && !w(str)) {
-                if (this.f35020b.has(str)) {
-                    return this.f35020b.optInt(str, z ? 1 : 0) == 1;
+            if (this.f35126b != null && !w(str)) {
+                if (this.f35126b.has(str)) {
+                    return this.f35126b.optInt(str, z ? 1 : 0) == 1;
                 }
-                Boolean bool = this.f35021c;
+                Boolean bool = this.f35127c;
                 if (bool != null) {
                     return bool.booleanValue();
                 }
             }
-            JSONObject jSONObject = f35016h;
+            JSONObject jSONObject = f35122h;
             if (jSONObject != null) {
                 if (jSONObject.has(str)) {
-                    return f35016h.optInt(str, z ? 1 : 0) == 1;
+                    return f35122h.optInt(str, z ? 1 : 0) == 1;
                 }
-                Boolean bool2 = f35017i;
+                Boolean bool2 = f35123i;
                 if (bool2 != null) {
                     return bool2.booleanValue();
                 }
@@ -420,9 +420,9 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
-            JSONObject jSONObject = this.f35019a;
+            JSONObject jSONObject = this.f35125a;
             if (jSONObject != null && jSONObject.has(str) && !w(str)) {
-                return this.f35019a.optJSONObject(str);
+                return this.f35125a.optJSONObject(str);
             }
             return o().optJSONObject(str);
         }
@@ -433,9 +433,9 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) {
-            JSONObject jSONObject = this.f35019a;
+            JSONObject jSONObject = this.f35125a;
             if (jSONObject != null && jSONObject.has(str) && !w(str)) {
-                return this.f35019a.optJSONArray(str);
+                return this.f35125a.optJSONArray(str);
             }
             return o().optJSONArray(str);
         }

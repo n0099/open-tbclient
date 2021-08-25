@@ -18,6 +18,7 @@ import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.datacollector.growth.utils.GrowthConstant;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -198,7 +199,7 @@ public class InputConnectionAdaptor extends BaseInputConnection {
                 if (selectionStart != selectionEnd) {
                     int min = Math.min(selectionStart, selectionEnd);
                     int max = Math.max(selectionStart, selectionEnd);
-                    ((ClipboardManager) this.mFlutterView.getContext().getSystemService("clipboard")).setPrimaryClip(ClipData.newPlainText("text label?", this.mEditable.subSequence(min, max)));
+                    ((ClipboardManager) this.mFlutterView.getContext().getSystemService(GrowthConstant.UBC_VALUE_TYPE_CLIP_BOARD)).setPrimaryClip(ClipData.newPlainText("text label?", this.mEditable.subSequence(min, max)));
                     this.mEditable.delete(min, max);
                     setSelection(min, min);
                 }
@@ -207,11 +208,11 @@ public class InputConnectionAdaptor extends BaseInputConnection {
                 int selectionStart2 = Selection.getSelectionStart(this.mEditable);
                 int selectionEnd2 = Selection.getSelectionEnd(this.mEditable);
                 if (selectionStart2 != selectionEnd2) {
-                    ((ClipboardManager) this.mFlutterView.getContext().getSystemService("clipboard")).setPrimaryClip(ClipData.newPlainText("text label?", this.mEditable.subSequence(Math.min(selectionStart2, selectionEnd2), Math.max(selectionStart2, selectionEnd2))));
+                    ((ClipboardManager) this.mFlutterView.getContext().getSystemService(GrowthConstant.UBC_VALUE_TYPE_CLIP_BOARD)).setPrimaryClip(ClipData.newPlainText("text label?", this.mEditable.subSequence(Math.min(selectionStart2, selectionEnd2), Math.max(selectionStart2, selectionEnd2))));
                 }
                 return true;
             } else if (i2 == 16908322) {
-                ClipData primaryClip = ((ClipboardManager) this.mFlutterView.getContext().getSystemService("clipboard")).getPrimaryClip();
+                ClipData primaryClip = ((ClipboardManager) this.mFlutterView.getContext().getSystemService(GrowthConstant.UBC_VALUE_TYPE_CLIP_BOARD)).getPrimaryClip();
                 if (primaryClip != null) {
                     CharSequence coerceToText = primaryClip.getItemAt(0).coerceToText(this.mFlutterView.getContext());
                     int max2 = Math.max(0, Selection.getSelectionStart(this.mEditable));

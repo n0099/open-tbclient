@@ -33,11 +33,11 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final a f74903a;
+    public static final a f75104a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public volatile Boolean f74904b;
+    public volatile Boolean f75105b;
 
     static {
         InterceptResult invokeClinit;
@@ -52,7 +52,7 @@ public class a {
                 return;
             }
         }
-        f74903a = new a();
+        f75104a = new a();
     }
 
     public a() {
@@ -68,13 +68,13 @@ public class a {
                 return;
             }
         }
-        this.f74904b = Boolean.FALSE;
+        this.f75105b = Boolean.FALSE;
     }
 
     public static a a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f74903a : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f75104a : (a) invokeV.objValue;
     }
 
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:23:0x0009 */
@@ -130,11 +130,11 @@ public class a {
 
     public final void a(Context context, SM sm, PM pm, DeviceStatus deviceStatus, APPStatus aPPStatus, long j2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{context, sm, pm, deviceStatus, aPPStatus, Long.valueOf(j2)}) == null) || this.f74904b.booleanValue()) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{context, sm, pm, deviceStatus, aPPStatus, Long.valueOf(j2)}) == null) || this.f75105b.booleanValue()) {
             return;
         }
         synchronized (a.class) {
-            if (this.f74904b.booleanValue()) {
+            if (this.f75105b.booleanValue()) {
                 return;
             }
             String a2 = a(sm, pm, deviceStatus, aPPStatus, j2);
@@ -146,10 +146,10 @@ public class a {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public /* synthetic */ PM f74905a;
+                public /* synthetic */ PM f75106a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public /* synthetic */ a f74906b;
+                public /* synthetic */ a f75107b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -166,8 +166,8 @@ public class a {
                             return;
                         }
                     }
-                    this.f74906b = this;
-                    this.f74905a = pm;
+                    this.f75107b = this;
+                    this.f75106a = pm;
                 }
 
                 @Override // com.qq.e.comm.net.NetworkCallBack
@@ -194,16 +194,16 @@ public class a {
                                 JSONObject jSONObject = new JSONObject(stringContent);
                                 int i2 = jSONObject.has(Constants.KEYS.RET) ? jSONObject.getInt(Constants.KEYS.RET) : -1;
                                 if (i2 == 0) {
-                                    if (this.f74905a != null) {
+                                    if (this.f75106a != null) {
                                         try {
-                                            this.f74905a.getPOFactory().config(1, stringContent);
+                                            this.f75106a.getPOFactory().config(1, stringContent);
                                         } catch (c e2) {
                                             e2.printStackTrace();
                                         }
                                         if (jSONObject.has("sig")) {
                                             JSONObject jSONObject2 = jSONObject.getJSONObject("sig");
                                             if (jSONObject2.has("jar") && jSONObject2.has("url")) {
-                                                this.f74905a.update(jSONObject2.getString("jar"), jSONObject2.getString("url"));
+                                                this.f75106a.update(jSONObject2.getString("jar"), jSONObject2.getString("url"));
                                                 return;
                                             }
                                             return;
@@ -227,7 +227,7 @@ public class a {
                     }
                 }
             });
-            this.f74904b = Boolean.TRUE;
+            this.f75105b = Boolean.TRUE;
         }
     }
 }

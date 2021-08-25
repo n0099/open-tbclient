@@ -10,7 +10,7 @@ public class o extends r {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f2636a;
+    public String f2694a;
 
     public o(int i2, String str) {
         Interceptable interceptable = $ic;
@@ -27,6 +27,6 @@ public class o extends r {
                 return;
             }
         }
-        this.f2636a = str;
+        this.f2694a = str;
     }
 }

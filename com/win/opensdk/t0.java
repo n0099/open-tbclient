@@ -11,7 +11,7 @@ public class t0 implements Runnable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ GifImageView f76794a;
+    public final /* synthetic */ GifImageView f76995a;
 
     public t0(GifImageView gifImageView) {
         Interceptable interceptable = $ic;
@@ -28,18 +28,18 @@ public class t0 implements Runnable {
                 return;
             }
         }
-        this.f76794a = gifImageView;
+        this.f76995a = gifImageView;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            GifImageView gifImageView = this.f76794a;
-            gifImageView.f76677b = null;
-            gifImageView.f76676a = null;
-            gifImageView.f76682g = null;
-            gifImageView.f76681f = false;
+            GifImageView gifImageView = this.f76995a;
+            gifImageView.f76878b = null;
+            gifImageView.f76877a = null;
+            gifImageView.f76883g = null;
+            gifImageView.f76882f = false;
         }
     }
 }

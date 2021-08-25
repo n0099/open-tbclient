@@ -12,16 +12,16 @@ public class d implements c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f67321a;
+    public long f67521a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f67322b;
+    public long f67522b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f67323c;
+    public int f67523c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f67324d;
+    public int f67524d;
 
     public d() {
         Interceptable interceptable = $ic;
@@ -36,34 +36,34 @@ public class d implements c {
                 return;
             }
         }
-        this.f67324d = 0;
+        this.f67524d = 0;
     }
 
     public void a(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2) == null) {
-            this.f67321a = j2;
+            this.f67521a = j2;
         }
     }
 
     public void b(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048580, this, j2) == null) {
-            this.f67322b = j2;
+            this.f67522b = j2;
         }
     }
 
     public void a(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-            this.f67323c = i2;
+            this.f67523c = i2;
         }
     }
 
     public void b(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            this.f67324d = i2;
+            this.f67524d = i2;
         }
     }
 
@@ -74,10 +74,10 @@ public class d implements c {
             return;
         }
         try {
-            jSONObject.put("total_duration", this.f67321a);
-            jSONObject.put("buffers_time", this.f67322b);
-            jSONObject.put("break_reason", this.f67323c);
-            jSONObject.put("video_backup", this.f67324d);
+            jSONObject.put("total_duration", this.f67521a);
+            jSONObject.put("buffers_time", this.f67522b);
+            jSONObject.put("break_reason", this.f67523c);
+            jSONObject.put("video_backup", this.f67524d);
         } catch (Throwable th) {
             th.printStackTrace();
         }

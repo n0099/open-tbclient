@@ -15,7 +15,7 @@ public abstract class j<IN, OUT> extends l<IN, OUT> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f68255d;
+    public String f68455d;
 
     public j() {
         Interceptable interceptable = $ic;
@@ -45,22 +45,22 @@ public abstract class j<IN, OUT> extends l<IN, OUT> {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, bVar, in)) == null) {
-            this.f68255d = a(new m(bVar), in);
-            l.a aVar = a().get(this.f68255d);
+            this.f68455d = a(new m(bVar), in);
+            l.a aVar = a().get(this.f68455d);
             while (aVar != null) {
-                List<h> list = aVar.f68258a;
+                List<h> list = aVar.f68458a;
                 try {
-                    Object a2 = c.a(list, bVar.f68251a, this).a((b) in);
+                    Object a2 = c.a(list, bVar.f68451a, this).a((b) in);
                     return !a(list) ? a2 : bVar.a((b<OUT>) a2);
                 } catch (i.a e2) {
-                    this.f68255d = a(new m(bVar), in, e2.getCause(), this.f68255d);
-                    aVar = a().get(this.f68255d);
+                    this.f68455d = a(new m(bVar), in, e2.getCause(), this.f68455d);
+                    aVar = a().get(this.f68455d);
                 } catch (Throwable th) {
-                    this.f68255d = a(new m(bVar), in, th, this.f68255d);
-                    aVar = a().get(this.f68255d);
+                    this.f68455d = a(new m(bVar), in, th, this.f68455d);
+                    aVar = a().get(this.f68455d);
                 }
             }
-            throw new IllegalArgumentException("can not found branch，branch name is：" + this.f68255d);
+            throw new IllegalArgumentException("can not found branch，branch name is：" + this.f68455d);
         }
         return invokeLL.objValue;
     }

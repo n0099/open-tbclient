@@ -1,6 +1,6 @@
 package com.baidu.tieba.pbextra;
 
-import c.a.p0.i3.h0.d;
+import c.a.q0.i3.i0.d;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -50,7 +50,7 @@ public class PbExtraStatic {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2004015 && (customResponsedMessage.getData() instanceof d)) {
-                ((d) customResponsedMessage.getData()).a().add(new c.a.p0.j2.a.a(null, PostData.z0));
+                ((d) customResponsedMessage.getData()).a().add(new c.a.q0.j2.a.a(null, PostData.z0));
             }
         }
     }

@@ -15,25 +15,25 @@ public final class da {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public TextView f59429a;
+    public TextView f59629a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ImageView f59430b;
+    public ImageView f59630b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ListView f59431c;
+    public ListView f59631c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TextView f59432d;
+    public TextView f59632d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f59433e;
+    public TextView f59633e;
 
     /* renamed from: f  reason: collision with root package name */
-    public LinearLayout f59434f;
+    public LinearLayout f59634f;
 
     /* renamed from: g  reason: collision with root package name */
-    public RelativeLayout f59435g;
+    public RelativeLayout f59635g;
 
     public da() {
         Interceptable interceptable = $ic;

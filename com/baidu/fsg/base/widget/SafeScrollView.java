@@ -25,35 +25,35 @@ public class SafeScrollView extends ScrollView {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f39519a;
+    public static final String f39626a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public ScrollChangedListener f39520b;
+    public ScrollChangedListener f39627b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f39521c;
+    public boolean f39628c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f39522d;
+    public int f39629d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f39523e;
+    public Context f39630e;
 
     /* renamed from: f  reason: collision with root package name */
-    public SafeKeyBoardEditText f39524f;
+    public SafeKeyBoardEditText f39631f;
 
     /* renamed from: g  reason: collision with root package name */
-    public SafeKeyBoardUtil f39525g;
+    public SafeKeyBoardUtil f39632g;
 
     /* renamed from: h  reason: collision with root package name */
-    public onKeyBoardStatusChangeListener f39526h;
+    public onKeyBoardStatusChangeListener f39633h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f39527i;
+    public int f39634i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f39528j;
+    public int f39635j;
     public boolean k;
 
     /* loaded from: classes5.dex */
@@ -79,7 +79,7 @@ public class SafeScrollView extends ScrollView {
                 return;
             }
         }
-        f39519a = SafeScrollView.class.getSimpleName();
+        f39626a = SafeScrollView.class.getSimpleName();
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -101,7 +101,7 @@ public class SafeScrollView extends ScrollView {
                 return;
             }
         }
-        this.f39523e = context;
+        this.f39630e = context;
         setSafeFlag(true);
     }
 
@@ -124,20 +124,20 @@ public class SafeScrollView extends ScrollView {
                 return;
             }
         }
-        this.f39521c = false;
-        this.f39522d = 0;
-        this.f39525g = new SafeKeyBoardUtil();
-        this.f39527i = 0;
-        this.f39528j = 0;
+        this.f39628c = false;
+        this.f39629d = 0;
+        this.f39632g = new SafeKeyBoardUtil();
+        this.f39634i = 0;
+        this.f39635j = 0;
         this.k = false;
-        this.f39523e = context;
+        this.f39630e = context;
         setSafeFlag(true);
     }
 
     private void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
-            this.f39520b = null;
+            this.f39627b = null;
         }
     }
 
@@ -148,10 +148,10 @@ public class SafeScrollView extends ScrollView {
         }
         if (!(view instanceof ViewGroup)) {
             if ((view instanceof EditText) && view.hasWindowFocus() && view.getVisibility() == 0 && view.isShown() && view.isEnabled()) {
-                int i2 = this.f39522d + 1;
-                this.f39522d = i2;
+                int i2 = this.f39629d + 1;
+                this.f39629d = i2;
                 if (i2 == 1 && (view instanceof SafeKeyBoardEditText)) {
-                    this.f39524f = (SafeKeyBoardEditText) view;
+                    this.f39631f = (SafeKeyBoardEditText) view;
                     return;
                 }
                 return;
@@ -183,7 +183,7 @@ public class SafeScrollView extends ScrollView {
     public void dismissKeyBoard() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f39525g.hideSoftKeyBoard();
+            this.f39632g.hideSoftKeyBoard();
         }
     }
 
@@ -191,14 +191,14 @@ public class SafeScrollView extends ScrollView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, safeKeyBoardEditText) == null) {
             if (!safeKeyBoardEditText.getUseSafeKeyBoard()) {
-                RimGlobalUtils.hideInputMethod(this.f39523e, safeKeyBoardEditText);
+                RimGlobalUtils.hideInputMethod(this.f39630e, safeKeyBoardEditText);
                 return;
             }
-            onKeyBoardStatusChangeListener onkeyboardstatuschangelistener = this.f39526h;
+            onKeyBoardStatusChangeListener onkeyboardstatuschangelistener = this.f39633h;
             if (onkeyboardstatuschangelistener != null) {
                 onkeyboardstatuschangelistener.onKeyBoardStatusChange(false, 0);
             }
-            this.f39525g.hideSoftKeyBoard();
+            this.f39632g.hideSoftKeyBoard();
         }
     }
 
@@ -207,7 +207,7 @@ public class SafeScrollView extends ScrollView {
         SafeKeyBoardPopupWindow safeKeyBoardPopupWindow;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            SafeKeyBoardUtil safeKeyBoardUtil = this.f39525g;
+            SafeKeyBoardUtil safeKeyBoardUtil = this.f39632g;
             return (safeKeyBoardUtil == null || (safeKeyBoardPopupWindow = safeKeyBoardUtil.mPopupWindow) == null || !safeKeyBoardPopupWindow.isShowing()) ? false : true;
         }
         return invokeV.booleanValue;
@@ -215,14 +215,14 @@ public class SafeScrollView extends ScrollView {
 
     public void notifyShowKeyBoard(int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048579, this, i2) == null) || this.f39526h == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048579, this, i2) == null) || this.f39633h == null) {
             return;
         }
-        SafeKeyBoardPopupWindow safeKeyBoardPopupWindow = this.f39525g.mPopupWindow;
+        SafeKeyBoardPopupWindow safeKeyBoardPopupWindow = this.f39632g.mPopupWindow;
         if (safeKeyBoardPopupWindow != null) {
             safeKeyBoardPopupWindow.getHeight();
         }
-        this.f39526h.onKeyBoardStatusChange(true, i2);
+        this.f39633h.onKeyBoardStatusChange(true, i2);
     }
 
     @Override // android.widget.ScrollView, android.view.ViewGroup, android.view.View
@@ -240,19 +240,19 @@ public class SafeScrollView extends ScrollView {
         if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
             super.onLayout(z, i2, i3, i4, i5);
             if (this.k) {
-                int i6 = this.f39528j;
+                int i6 = this.f39635j;
                 if (i6 == i5) {
                     return;
                 }
-                int i7 = this.f39527i;
+                int i7 = this.f39634i;
                 if (i5 < i7 && i6 < i7) {
                     return;
                 }
             } else {
                 this.k = true;
-                this.f39527i = i5;
+                this.f39634i = i5;
             }
-            this.f39528j = i5;
+            this.f39635j = i5;
         }
     }
 
@@ -261,7 +261,7 @@ public class SafeScrollView extends ScrollView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIII(1048582, this, i2, i3, i4, i5) == null) {
             super.onScrollChanged(i2, i3, i4, i5);
-            ScrollChangedListener scrollChangedListener = this.f39520b;
+            ScrollChangedListener scrollChangedListener = this.f39627b;
             if (scrollChangedListener != null) {
                 scrollChangedListener.onScrollChanged(i2, i3, i4, i5);
             }
@@ -274,19 +274,19 @@ public class SafeScrollView extends ScrollView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
             super.onWindowFocusChanged(z);
-            if (!z && !this.f39521c) {
-                this.f39525g.hideSoftKeyBoard();
+            if (!z && !this.f39628c) {
+                this.f39632g.hideSoftKeyBoard();
                 return;
             }
-            this.f39522d = 0;
+            this.f39629d = 0;
             a((View) this);
-            if (this.f39522d == 1 && (safeKeyBoardEditText = this.f39524f) != null && safeKeyBoardEditText.isFocused() && this.f39524f.getUseSafeKeyBoard()) {
+            if (this.f39629d == 1 && (safeKeyBoardEditText = this.f39631f) != null && safeKeyBoardEditText.isFocused() && this.f39631f.getUseSafeKeyBoard()) {
                 new Handler().postDelayed(new Runnable(this) { // from class: com.baidu.fsg.base.widget.SafeScrollView.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ SafeScrollView f39529a;
+                    public final /* synthetic */ SafeScrollView f39636a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -303,15 +303,15 @@ public class SafeScrollView extends ScrollView {
                                 return;
                             }
                         }
-                        this.f39529a = this;
+                        this.f39636a = this;
                     }
 
                     @Override // java.lang.Runnable
                     public void run() {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            this.f39529a.f39525g.init(this.f39529a.f39523e, this.f39529a.f39524f.getViewGroup(), this.f39529a);
-                            this.f39529a.f39525g.showSoftKeyBoard(this.f39529a.f39524f, this.f39529a.f39524f.getVisibleView());
+                            this.f39636a.f39632g.init(this.f39636a.f39630e, this.f39636a.f39631f.getViewGroup(), this.f39636a);
+                            this.f39636a.f39632g.showSoftKeyBoard(this.f39636a.f39631f, this.f39636a.f39631f.getVisibleView());
                         }
                     }
                 }, 100L);
@@ -322,14 +322,14 @@ public class SafeScrollView extends ScrollView {
     public void setAlwaysShowSoftKeyBoard(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
-            this.f39521c = z;
+            this.f39628c = z;
         }
     }
 
     public void setKeyBoardStatusChangeListener(onKeyBoardStatusChangeListener onkeyboardstatuschangelistener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, onkeyboardstatuschangelistener) == null) {
-            this.f39526h = onkeyboardstatuschangelistener;
+            this.f39633h = onkeyboardstatuschangelistener;
         }
     }
 
@@ -344,14 +344,14 @@ public class SafeScrollView extends ScrollView {
     public void setSafeKeyBoardUtil(SafeKeyBoardUtil safeKeyBoardUtil) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, safeKeyBoardUtil) == null) {
-            this.f39525g = safeKeyBoardUtil;
+            this.f39632g = safeKeyBoardUtil;
         }
     }
 
     public void setScrollChangeListener(ScrollChangedListener scrollChangedListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, scrollChangedListener) == null) {
-            this.f39520b = scrollChangedListener;
+            this.f39627b = scrollChangedListener;
         }
     }
 
@@ -359,14 +359,14 @@ public class SafeScrollView extends ScrollView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048589, this, viewGroup, safeKeyBoardEditText, view) == null) {
             if (!safeKeyBoardEditText.getUseSafeKeyBoard() || view == null) {
-                RimGlobalUtils.showInputMethod(this.f39523e, safeKeyBoardEditText);
+                RimGlobalUtils.showInputMethod(this.f39630e, safeKeyBoardEditText);
                 return;
             }
-            SafeKeyBoardPopupWindow safeKeyBoardPopupWindow = this.f39525g.mPopupWindow;
+            SafeKeyBoardPopupWindow safeKeyBoardPopupWindow = this.f39632g.mPopupWindow;
             if (safeKeyBoardPopupWindow == null || !safeKeyBoardPopupWindow.isShowing()) {
-                this.f39525g.init(this.f39523e, viewGroup, this);
+                this.f39632g.init(this.f39630e, viewGroup, this);
             }
-            this.f39525g.showSoftKeyBoard(safeKeyBoardEditText, view);
+            this.f39632g.showSoftKeyBoard(safeKeyBoardEditText, view);
         }
     }
 }

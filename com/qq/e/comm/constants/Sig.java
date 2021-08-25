@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes10.dex */
 public class Sig {
     public static /* synthetic */ Interceptable $ic = null;
-    public static String ASSET_PLUGIN_SIG = "RJ/TtH8aJygvkOyXNrUdUBuKtfyz93+8LOaCB+aOG5KyZH0XxOC1BB5F4bo/eQaN0UOpaonTjjKfwfJRUllqWCfTbxP2no/1/xIoRdtgBP2gaVtG53CxN5PmeAocyd8/rLTb4DGhojdgNf2i3521FL+Hf7qqJ1y6/adb5oZLgYg=";
+    public static String ASSET_PLUGIN_SIG = "GceXV92n5SOy8xjbJqsVytFjqRy1VsHbfQqoj7C6WkZ/2AOImfsflNl/pbS/+LCLbm4pMq1Lw0KIghsXJW9uZNaOjFAYOqj6ufb3mB3o3nr6DMX4Qu8v6pIpc7o0EtdLDPtDQUtch2lFuLjMTp0gSd0Ncb1n5zX0e3mm3P3h3aU=";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {

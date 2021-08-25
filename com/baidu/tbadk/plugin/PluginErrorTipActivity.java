@@ -45,7 +45,7 @@ public class PluginErrorTipActivity extends BaseActivity<PluginErrorTipActivity>
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PluginErrorTipActivity f48213e;
+        public final /* synthetic */ PluginErrorTipActivity f48320e;
 
         public a(PluginErrorTipActivity pluginErrorTipActivity) {
             Interceptable interceptable = $ic;
@@ -62,7 +62,7 @@ public class PluginErrorTipActivity extends BaseActivity<PluginErrorTipActivity>
                     return;
                 }
             }
-            this.f48213e = pluginErrorTipActivity;
+            this.f48320e = pluginErrorTipActivity;
         }
 
         @Override // java.lang.Runnable
@@ -75,7 +75,7 @@ public class PluginErrorTipActivity extends BaseActivity<PluginErrorTipActivity>
                 List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = ((ActivityManager) BdBaseApplication.getInst().getContext().getSystemService("activity")).getRunningAppProcesses();
                 if (runningAppProcesses != null) {
                     for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : runningAppProcesses) {
-                        if (runningAppProcessInfo != null && (str = runningAppProcessInfo.processName) != null && str.startsWith(this.f48213e.getApplication().getPackageName()) && runningAppProcessInfo.pid != Process.myPid() && hashSet.contains(runningAppProcessInfo.processName)) {
+                        if (runningAppProcessInfo != null && (str = runningAppProcessInfo.processName) != null && str.startsWith(this.f48320e.getApplication().getPackageName()) && runningAppProcessInfo.pid != Process.myPid() && hashSet.contains(runningAppProcessInfo.processName)) {
                             hashSet2.add(Integer.valueOf(runningAppProcessInfo.pid));
                         }
                     }

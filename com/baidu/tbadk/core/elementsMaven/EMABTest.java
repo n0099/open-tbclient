@@ -1,7 +1,7 @@
 package com.baidu.tbadk.core.elementsMaven;
 
 import android.text.TextUtils;
-import c.a.o0.s.u.a;
+import c.a.p0.s.u.a;
 import com.baidu.tbadk.TbSingleton;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -39,7 +39,7 @@ public class EMABTest {
             if (TextUtils.isEmpty(o)) {
                 return 0;
             }
-            String a2 = c.a.p0.k0.a.a(o);
+            String a2 = c.a.q0.k0.a.a(o);
             if (TextUtils.isEmpty(a2)) {
                 return 0;
             }

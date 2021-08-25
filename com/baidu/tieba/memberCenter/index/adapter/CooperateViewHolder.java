@@ -1,8 +1,8 @@
 package com.baidu.tieba.memberCenter.index.adapter;
 
 import android.view.View;
-import c.a.p0.w1.c.c;
-import c.a.p0.w1.c.k.e;
+import c.a.q0.w1.c.c;
+import c.a.q0.w1.c.k.e;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,7 +15,7 @@ public class CooperateViewHolder extends TypeAdapter.ViewHolder {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public c f53988a;
+    public c f54130a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public CooperateViewHolder(View view, BaseFragmentActivity baseFragmentActivity) {
@@ -35,7 +35,7 @@ public class CooperateViewHolder extends TypeAdapter.ViewHolder {
                 return;
             }
         }
-        this.f53988a = new c(baseFragmentActivity, view);
+        this.f54130a = new c(baseFragmentActivity, view);
     }
 
     public void fillView(e eVar) {
@@ -43,7 +43,7 @@ public class CooperateViewHolder extends TypeAdapter.ViewHolder {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, eVar) == null) || eVar == null) {
             return;
         }
-        this.f53988a.d(eVar);
-        this.f53988a.f();
+        this.f54130a.d(eVar);
+        this.f54130a.f();
     }
 }

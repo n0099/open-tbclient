@@ -9,14 +9,14 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import j.a.a.e.n.h;
+import j.a.a.e.n.i;
 /* loaded from: classes2.dex */
 public class AutoHideSoftInputDialog extends Dialog {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f79567e;
+    public Context f79769e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AutoHideSoftInputDialog(Context context, int i2) {
@@ -37,7 +37,7 @@ public class AutoHideSoftInputDialog extends Dialog {
                 return;
             }
         }
-        this.f79567e = context;
+        this.f79769e = context;
     }
 
     @Override // android.app.Dialog, android.content.DialogInterface
@@ -48,7 +48,7 @@ public class AutoHideSoftInputDialog extends Dialog {
             if (currentFocus instanceof EditText) {
                 ((InputMethodManager) getContext().getSystemService("input_method")).hideSoftInputFromWindow(currentFocus.getWindowToken(), 0);
             }
-            if (h.f78736a.a(this.f79567e)) {
+            if (i.f78937a.a(this.f79769e)) {
                 super.dismiss();
             }
         }

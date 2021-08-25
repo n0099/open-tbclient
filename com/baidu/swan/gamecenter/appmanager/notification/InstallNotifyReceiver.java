@@ -6,8 +6,8 @@ import android.content.Intent;
 import android.net.Uri;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.n0.a.c1.a;
-import c.a.n0.g.c.i.c;
+import c.a.o0.a.c1.a;
+import c.a.o0.g.c.i.c;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.unitedscheme.SchemeRouter;
@@ -104,7 +104,7 @@ public class InstallNotifyReceiver extends BroadcastReceiver {
             if (TextUtils.isEmpty(stringExtra)) {
                 return;
             }
-            c.a.n0.g.c.a.n().q(stringExtra, this.mOpportunity);
+            c.a.o0.g.c.a.n().q(stringExtra, this.mOpportunity);
         }
     }
 
@@ -152,8 +152,8 @@ public class InstallNotifyReceiver extends BroadcastReceiver {
             startInstallPage(intent);
         } else if (c2 != 2) {
         } else {
-            c.a.n0.g.c.h.a.f().l();
-            c.a.n0.g.c.h.a.f().n("todayfirst");
+            c.a.o0.g.c.h.a.f().l();
+            c.a.o0.g.c.h.a.f().n("todayfirst");
         }
     }
 

@@ -30,34 +30,34 @@ public class CommonDialog extends Dialog implements com.baidu.pass.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public Context f44045a;
+        public Context f44152a;
 
         /* renamed from: b  reason: collision with root package name */
-        public CharSequence f44046b;
+        public CharSequence f44153b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f44047c;
+        public String f44154c;
 
         /* renamed from: d  reason: collision with root package name */
-        public boolean f44048d;
+        public boolean f44155d;
 
         /* renamed from: e  reason: collision with root package name */
-        public boolean f44049e;
+        public boolean f44156e;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f44050f;
+        public String f44157f;
 
         /* renamed from: g  reason: collision with root package name */
-        public View.OnClickListener f44051g;
+        public View.OnClickListener f44158g;
 
         /* renamed from: h  reason: collision with root package name */
-        public String f44052h;
+        public String f44159h;
 
         /* renamed from: i  reason: collision with root package name */
-        public View.OnClickListener f44053i;
+        public View.OnClickListener f44160i;
 
         /* renamed from: j  reason: collision with root package name */
-        public int f44054j;
+        public int f44161j;
 
         public Builder(Context context) {
             Interceptable interceptable = $ic;
@@ -74,37 +74,37 @@ public class CommonDialog extends Dialog implements com.baidu.pass.a {
                     return;
                 }
             }
-            this.f44049e = false;
-            this.f44045a = context;
+            this.f44156e = false;
+            this.f44152a = context;
         }
 
         public CommonDialog build() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                View inflate = LayoutInflater.from(this.f44045a).inflate(R.layout.pass_sdk_base_ui_common_dialog, (ViewGroup) null);
-                CommonDialog commonDialog = new CommonDialog(this.f44045a, R.style.pass_base_ui_common_dialog_style);
+                View inflate = LayoutInflater.from(this.f44152a).inflate(R.layout.pass_sdk_base_ui_common_dialog, (ViewGroup) null);
+                CommonDialog commonDialog = new CommonDialog(this.f44152a, R.style.pass_base_ui_common_dialog_style);
                 TextView textView = (TextView) inflate.findViewById(R.id.pass_base_ui_dialog_title);
                 TextView textView2 = (TextView) inflate.findViewById(R.id.pass_base_ui_dialog_content);
                 View findViewById = inflate.findViewById(R.id.pass_base_ui_dialog_horizontal_split_line);
                 TextView textView3 = (TextView) inflate.findViewById(R.id.negative_btn);
                 TextView textView4 = (TextView) inflate.findViewById(R.id.positive_btn);
                 View findViewById2 = inflate.findViewById(R.id.pass_base_ui_dialog_vertical_split_line);
-                textView.setText(this.f44047c);
-                textView2.setText(TextUtils.isEmpty(this.f44046b) ? "" : this.f44046b);
+                textView.setText(this.f44154c);
+                textView2.setText(TextUtils.isEmpty(this.f44153b) ? "" : this.f44153b);
                 textView2.setMovementMethod(LinkMovementMethod.getInstance());
                 textView2.setHighlightColor(0);
-                int i2 = this.f44054j;
+                int i2 = this.f44161j;
                 if (i2 > 0) {
                     textView2.setGravity(i2);
                 }
-                textView3.setText(this.f44052h);
+                textView3.setText(this.f44159h);
                 textView3.setOnClickListener(new a(this, commonDialog));
-                textView4.setText(this.f44050f);
+                textView4.setText(this.f44157f);
                 textView4.setOnClickListener(new b(this, commonDialog));
                 commonDialog.setContentView(inflate);
-                commonDialog.setCancelable(this.f44049e);
-                commonDialog.setCanceledOnTouchOutside(this.f44049e);
+                commonDialog.setCancelable(this.f44156e);
+                commonDialog.setCanceledOnTouchOutside(this.f44156e);
                 Window window = commonDialog.getWindow();
                 window.setGravity(17);
                 WindowManager.LayoutParams attributes = window.getAttributes();
@@ -113,16 +113,16 @@ public class CommonDialog extends Dialog implements com.baidu.pass.a {
                 attributes.width = -1;
                 attributes.height = -2;
                 window.setAttributes(attributes);
-                if (this.f44048d) {
+                if (this.f44155d) {
                     inflate.findViewById(R.id.pass_base_ui_dialog_root_view).setBackgroundResource(R.drawable.pass_base_ui_common_dialog_dark_bg);
-                    textView.setTextColor(this.f44045a.getResources().getColor(R.color.pass_base_ui_dialog_title_dark_text_color));
-                    textView2.setTextColor(this.f44045a.getResources().getColor(R.color.pass_base_ui_dialog_content_text_dark_color));
-                    findViewById.setBackgroundColor(this.f44045a.getResources().getColor(R.color.pass_base_ui_dialog_split_line_dark_color));
-                    textView3.setTextColor(this.f44045a.getResources().getColor(R.color.pass_base_ui_dialog_negative_btn_text_dark_color));
-                    textView4.setTextColor(this.f44045a.getResources().getColor(R.color.pass_base_ui_dialog_positive_btn_text_dark_color));
-                    findViewById2.setBackgroundColor(this.f44045a.getResources().getColor(R.color.pass_base_ui_dialog_split_line_dark_color));
+                    textView.setTextColor(this.f44152a.getResources().getColor(R.color.pass_base_ui_dialog_title_dark_text_color));
+                    textView2.setTextColor(this.f44152a.getResources().getColor(R.color.pass_base_ui_dialog_content_text_dark_color));
+                    findViewById.setBackgroundColor(this.f44152a.getResources().getColor(R.color.pass_base_ui_dialog_split_line_dark_color));
+                    textView3.setTextColor(this.f44152a.getResources().getColor(R.color.pass_base_ui_dialog_negative_btn_text_dark_color));
+                    textView4.setTextColor(this.f44152a.getResources().getColor(R.color.pass_base_ui_dialog_positive_btn_text_dark_color));
+                    findViewById2.setBackgroundColor(this.f44152a.getResources().getColor(R.color.pass_base_ui_dialog_split_line_dark_color));
                 }
-                Context context = this.f44045a;
+                Context context = this.f44152a;
                 if (context instanceof Activity) {
                     Display defaultDisplay = ((Activity) context).getWindowManager().getDefaultDisplay();
                     WindowManager.LayoutParams attributes2 = commonDialog.getWindow().getAttributes();
@@ -139,7 +139,7 @@ public class CommonDialog extends Dialog implements com.baidu.pass.a {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) {
-                this.f44049e = z;
+                this.f44156e = z;
                 return this;
             }
             return (Builder) invokeZ.objValue;
@@ -149,7 +149,7 @@ public class CommonDialog extends Dialog implements com.baidu.pass.a {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z)) == null) {
-                this.f44048d = z;
+                this.f44155d = z;
                 return this;
             }
             return (Builder) invokeZ.objValue;
@@ -159,7 +159,7 @@ public class CommonDialog extends Dialog implements com.baidu.pass.a {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, charSequence)) == null) {
-                this.f44046b = charSequence;
+                this.f44153b = charSequence;
                 return this;
             }
             return (Builder) invokeL.objValue;
@@ -169,7 +169,7 @@ public class CommonDialog extends Dialog implements com.baidu.pass.a {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) {
-                this.f44054j = i2;
+                this.f44161j = i2;
                 return this;
             }
             return (Builder) invokeI.objValue;
@@ -179,8 +179,8 @@ public class CommonDialog extends Dialog implements com.baidu.pass.a {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, str, onClickListener)) == null) {
-                this.f44052h = str;
-                this.f44053i = onClickListener;
+                this.f44159h = str;
+                this.f44160i = onClickListener;
                 return this;
             }
             return (Builder) invokeLL.objValue;
@@ -190,8 +190,8 @@ public class CommonDialog extends Dialog implements com.baidu.pass.a {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, str, onClickListener)) == null) {
-                this.f44050f = str;
-                this.f44051g = onClickListener;
+                this.f44157f = str;
+                this.f44158g = onClickListener;
                 return this;
             }
             return (Builder) invokeLL.objValue;
@@ -201,7 +201,7 @@ public class CommonDialog extends Dialog implements com.baidu.pass.a {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
-                this.f44047c = str;
+                this.f44154c = str;
                 return this;
             }
             return (Builder) invokeL.objValue;

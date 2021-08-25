@@ -55,21 +55,21 @@ public final class a implements IMiddlePayService {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final MiddleRevenueConfig f78608a;
+    public final MiddleRevenueConfig f78809a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final IAppPayService f78609b;
+    public final IAppPayService f78810b;
 
     /* renamed from: j.a.a.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static final class C2141a implements IPayCallback<String> {
+    public static final class C2145a implements IPayCallback<String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ IPayCallback f78610a;
+        public final /* synthetic */ IPayCallback f78811a;
 
-        public C2141a(IPayCallback iPayCallback) {
+        public C2145a(IPayCallback iPayCallback) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -84,7 +84,7 @@ public final class a implements IMiddlePayService {
                     return;
                 }
             }
-            this.f78610a = iPayCallback;
+            this.f78811a = iPayCallback;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -94,7 +94,7 @@ public final class a implements IMiddlePayService {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, str, payCallBackBean) == null) {
                 RLog.debug("MiddlePayService", "doPayProduct onSuccess");
-                IPayCallback iPayCallback = this.f78610a;
+                IPayCallback iPayCallback = this.f78811a;
                 if (iPayCallback != null) {
                     iPayCallback.onSuccess(str, payCallBackBean);
                 }
@@ -106,7 +106,7 @@ public final class a implements IMiddlePayService {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str, payCallBackBean) == null) {
                 RLog.debug("MiddlePayService", "doPayProduct onFail [code = " + i2 + ", failReason=" + str + ']');
-                IPayCallback iPayCallback = this.f78610a;
+                IPayCallback iPayCallback = this.f78811a;
                 if (iPayCallback != null) {
                     iPayCallback.onFail(i2, str, payCallBackBean);
                 }
@@ -118,7 +118,7 @@ public final class a implements IMiddlePayService {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
                 RLog.debug("MiddlePayService", "doPayProduct onPayStart");
-                IPayCallback iPayCallback = this.f78610a;
+                IPayCallback iPayCallback = this.f78811a;
                 if (iPayCallback != null) {
                     iPayCallback.onPayStart();
                 }
@@ -129,7 +129,7 @@ public final class a implements IMiddlePayService {
         public void onPayStatus(PurchaseStatus purchaseStatus, PayCallBackBean payCallBackBean) {
             IPayCallback iPayCallback;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLL(1048579, this, purchaseStatus, payCallBackBean) == null) || (iPayCallback = this.f78610a) == null) {
+            if (!(interceptable == null || interceptable.invokeLL(1048579, this, purchaseStatus, payCallBackBean) == null) || (iPayCallback = this.f78811a) == null) {
                 return;
             }
             iPayCallback.onPayStatus(purchaseStatus, payCallBackBean);
@@ -166,8 +166,8 @@ public final class a implements IMiddlePayService {
                 return;
             }
         }
-        this.f78608a = middleRevenueConfig;
-        this.f78609b = iAppPayService;
+        this.f78809a = middleRevenueConfig;
+        this.f78810b = iAppPayService;
     }
 
     @Override // tv.athena.revenue.api.pay.IMiddlePayService
@@ -182,7 +182,7 @@ public final class a implements IMiddlePayService {
     public void addAlipaySdkProxy(IAlipaySdkServiceProxy iAlipaySdkServiceProxy) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iAlipaySdkServiceProxy) == null) {
-            this.f78609b.addAlipaySdkProxy(iAlipaySdkServiceProxy);
+            this.f78810b.addAlipaySdkProxy(iAlipaySdkServiceProxy);
         }
     }
 
@@ -190,7 +190,7 @@ public final class a implements IMiddlePayService {
     public void addDxmPaySdkProxy(IDxmSdkServiceProxy iDxmSdkServiceProxy) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, iDxmSdkServiceProxy) == null) {
-            this.f78609b.addDxmPaySdkProxy(iDxmSdkServiceProxy);
+            this.f78810b.addDxmPaySdkProxy(iDxmSdkServiceProxy);
         }
     }
 
@@ -198,7 +198,7 @@ public final class a implements IMiddlePayService {
     public void addPayListener(IAppPayServiceListener iAppPayServiceListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, iAppPayServiceListener) == null) {
-            this.f78609b.addPayListener(iAppPayServiceListener);
+            this.f78810b.addPayListener(iAppPayServiceListener);
         }
     }
 
@@ -206,7 +206,7 @@ public final class a implements IMiddlePayService {
     public void addWechatSdkProxy(IWechatSdkServiceProxy iWechatSdkServiceProxy) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, iWechatSdkServiceProxy) == null) {
-            this.f78609b.addWechatSdkProxy(iWechatSdkServiceProxy);
+            this.f78810b.addWechatSdkProxy(iWechatSdkServiceProxy);
         }
     }
 
@@ -230,12 +230,12 @@ public final class a implements IMiddlePayService {
                         map2 = map;
                         map3 = appServerExpand;
                         aVar = this;
-                        payWithProductInfo(activity, c(activity, payType, productInfo, j2, str, i2, i3, str3, i4, aVar.d(map3, map2), str2, iToken, appCustomExpand != null ? appCustomExpand.appClientExpand : null, str4), productInfo, payType, 5, 3000, 10000, new C2141a(iPayCallback));
+                        payWithProductInfo(activity, c(activity, payType, productInfo, j2, str, i2, i3, str3, i4, aVar.d(map3, map2), str2, iToken, appCustomExpand != null ? appCustomExpand.appClientExpand : null, str4), productInfo, payType, 5, 3000, 10000, new C2145a(iPayCallback));
                     }
                 }
                 aVar = this;
                 map2 = map;
-                payWithProductInfo(activity, c(activity, payType, productInfo, j2, str, i2, i3, str3, i4, aVar.d(map3, map2), str2, iToken, appCustomExpand != null ? appCustomExpand.appClientExpand : null, str4), productInfo, payType, 5, 3000, 10000, new C2141a(iPayCallback));
+                payWithProductInfo(activity, c(activity, payType, productInfo, j2, str, i2, i3, str3, i4, aVar.d(map3, map2), str2, iToken, appCustomExpand != null ? appCustomExpand.appClientExpand : null, str4), productInfo, payType, 5, 3000, 10000, new C2145a(iPayCallback));
             }
         }
     }
@@ -247,11 +247,11 @@ public final class a implements IMiddlePayService {
             ChargeCurrencyReqParams chargeCurrencyReqParams = new ChargeCurrencyReqParams();
             chargeCurrencyReqParams.setUid(j2);
             chargeCurrencyReqParams.setToken(str);
-            chargeCurrencyReqParams.setAppId(this.f78608a.getAppId());
+            chargeCurrencyReqParams.setAppId(this.f78809a.getAppId());
             chargeCurrencyReqParams.setSid(0);
             chargeCurrencyReqParams.setUsedChannel(i2);
             chargeCurrencyReqParams.setCurrencyType(i3);
-            chargeCurrencyReqParams.setClientVersion(this.f78608a.getVersion());
+            chargeCurrencyReqParams.setClientVersion(this.f78809a.getVersion());
             chargeCurrencyReqParams.setSubscriptionType(i4);
             chargeCurrencyReqParams.setExpand(str3);
             chargeCurrencyReqParams.setReturnUrl(str2);
@@ -278,10 +278,18 @@ public final class a implements IMiddlePayService {
         return (ChargeCurrencyReqParams) invokeCommon.objValue;
     }
 
+    @Override // com.yy.mobile.framework.revenuesdk.payapi.IAppPayService
+    public void cancelAllRequest() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            this.f78810b.cancelAllRequest();
+        }
+    }
+
     public final String d(Map<String, String> map, Map<String, Object> map2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, map, map2)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, map, map2)) == null) {
             JSONObject jSONObject = new JSONObject();
             if (map2 != null) {
                 try {
@@ -319,7 +327,7 @@ public final class a implements IMiddlePayService {
     public final boolean e(Activity activity) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, activity)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, activity)) == null) {
             if (activity == null || activity.isFinishing() || activity.isDestroyed()) {
                 RLog.info("MiddlePayService", "act not alive");
                 return false;
@@ -332,16 +340,16 @@ public final class a implements IMiddlePayService {
     @Override // com.yy.mobile.framework.revenuesdk.payapi.IAppPayService
     public void exchangeCurrency(ExchangeCurrencyReqParams exchangeCurrencyReqParams, IResult<ExchangeResult> iResult) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048585, this, exchangeCurrencyReqParams, iResult) == null) {
-            exchangeCurrencyReqParams.setAppId(this.f78608a.getAppId());
-            exchangeCurrencyReqParams.setClientVersion(this.f78608a.getVersion());
-            this.f78609b.exchangeCurrency(exchangeCurrencyReqParams, iResult);
+        if (interceptable == null || interceptable.invokeLL(1048586, this, exchangeCurrencyReqParams, iResult) == null) {
+            exchangeCurrencyReqParams.setAppId(this.f78809a.getAppId());
+            exchangeCurrencyReqParams.setClientVersion(this.f78809a.getVersion());
+            this.f78810b.exchangeCurrency(exchangeCurrencyReqParams, iResult);
         }
     }
 
     public final void f(Activity activity, PayType payType, long j2, String str, ProductInfo productInfo, int i2, int i3, IMiddlePayService.SubscriptType subscriptType, IMiddlePayService.ChargeSource chargeSource, String str2, Map<String, Object> map, IPayCallback<String> iPayCallback, IToken iToken, AppCustomExpand appCustomExpand, String str3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{activity, payType, Long.valueOf(j2), str, productInfo, Integer.valueOf(i2), Integer.valueOf(i3), subscriptType, chargeSource, str2, map, iPayCallback, iToken, appCustomExpand, str3}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{activity, payType, Long.valueOf(j2), str, productInfo, Integer.valueOf(i2), Integer.valueOf(i3), subscriptType, chargeSource, str2, map, iPayCallback, iToken, appCustomExpand, str3}) == null) {
             if (isSupported(activity, payType)) {
                 b(activity, payType, j2, str, productInfo, i2, i3, subscriptType.getValue(), chargeSource.getValue(), str2, map, iPayCallback, iToken, appCustomExpand, str3);
             } else if (iPayCallback != null) {
@@ -354,129 +362,137 @@ public final class a implements IMiddlePayService {
     public boolean isPayingStatus(PayType payType) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, payType)) == null) ? this.f78609b.isPayingStatus(payType) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, payType)) == null) ? this.f78810b.isPayingStatus(payType) : invokeL.booleanValue;
     }
 
     @Override // com.yy.mobile.framework.revenuesdk.payapi.IAppPayService
     public boolean isSupported(Activity activity, PayType payType) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048588, this, activity, payType)) == null) ? this.f78609b.isSupported(activity, payType) : invokeLL.booleanValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048589, this, activity, payType)) == null) ? this.f78810b.isSupported(activity, payType) : invokeLL.booleanValue;
+    }
+
+    @Override // com.yy.mobile.framework.revenuesdk.payapi.IAppPayService
+    public void onQQPayResult(int i2, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048590, this, i2, str) == null) {
+            this.f78810b.onQQPayResult(i2, str);
+        }
     }
 
     @Override // com.yy.mobile.framework.revenuesdk.payapi.IAppPayService
     public void onWxPayResult(int i2, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048589, this, i2, str) == null) {
-            this.f78609b.onWxPayResult(i2, str);
+        if (interceptable == null || interceptable.invokeIL(1048591, this, i2, str) == null) {
+            this.f78810b.onWxPayResult(i2, str);
         }
     }
 
     @Override // com.yy.mobile.framework.revenuesdk.payapi.IAppPayService
     public void payWithProductInfo(Activity activity, ChargeCurrencyReqParams chargeCurrencyReqParams, ProductInfo productInfo, PayType payType, IPayCallback<String> iPayCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(1048591, this, activity, chargeCurrencyReqParams, productInfo, payType, iPayCallback) == null) {
-            this.f78609b.payWithProductInfo(activity, chargeCurrencyReqParams, productInfo, payType, iPayCallback);
+        if (interceptable == null || interceptable.invokeLLLLL(1048593, this, activity, chargeCurrencyReqParams, productInfo, payType, iPayCallback) == null) {
+            this.f78810b.payWithProductInfo(activity, chargeCurrencyReqParams, productInfo, payType, iPayCallback);
         }
     }
 
     @Override // com.yy.mobile.framework.revenuesdk.payapi.IAppPayService
     public void queryBannerConfigRequest(GetBannerConfigReqParams getBannerConfigReqParams, IResult<BannerConfigResult> iResult) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048592, this, getBannerConfigReqParams, iResult) == null) {
-            this.f78609b.queryBannerConfigRequest(getBannerConfigReqParams, iResult);
+        if (interceptable == null || interceptable.invokeLL(1048594, this, getBannerConfigReqParams, iResult) == null) {
+            this.f78810b.queryBannerConfigRequest(getBannerConfigReqParams, iResult);
         }
     }
 
     @Override // com.yy.mobile.framework.revenuesdk.payapi.IAppPayService
     public void queryChargeOrderStatus(GetChargeOrderStatusReqParams getChargeOrderStatusReqParams, IResult<GetChargeOrderStatusResult> iResult) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048593, this, getChargeOrderStatusReqParams, iResult) == null) {
-            getChargeOrderStatusReqParams.setAppId(this.f78608a.getAppId());
-            this.f78609b.queryChargeOrderStatus(getChargeOrderStatusReqParams, iResult);
+        if (interceptable == null || interceptable.invokeLL(1048595, this, getChargeOrderStatusReqParams, iResult) == null) {
+            getChargeOrderStatusReqParams.setAppId(this.f78809a.getAppId());
+            this.f78810b.queryChargeOrderStatus(getChargeOrderStatusReqParams, iResult);
         }
     }
 
     @Override // com.yy.mobile.framework.revenuesdk.payapi.IAppPayService
     public void queryMyBalance(QueryCurrencyReqParams queryCurrencyReqParams, IResult<MyBalanceResult> iResult) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048594, this, queryCurrencyReqParams, iResult) == null) {
-            this.f78609b.queryMyBalance(queryCurrencyReqParams, iResult);
+        if (interceptable == null || interceptable.invokeLL(1048596, this, queryCurrencyReqParams, iResult) == null) {
+            this.f78810b.queryMyBalance(queryCurrencyReqParams, iResult);
         }
     }
 
     @Override // com.yy.mobile.framework.revenuesdk.payapi.IAppPayService
     public void queryProductList(QueryCurrencyReqParams queryCurrencyReqParams, IResult<ProductListResult> iResult) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048595, this, queryCurrencyReqParams, iResult) == null) {
-            queryCurrencyReqParams.setAppId(this.f78608a.getAppId());
-            this.f78609b.queryProductList(queryCurrencyReqParams, iResult);
+        if (interceptable == null || interceptable.invokeLL(1048597, this, queryCurrencyReqParams, iResult) == null) {
+            queryCurrencyReqParams.setAppId(this.f78809a.getAppId());
+            this.f78810b.queryProductList(queryCurrencyReqParams, iResult);
         }
     }
 
     @Override // com.yy.mobile.framework.revenuesdk.payapi.IAppPayService
     public void queryProductListChannels(QueryCurrencyChannelsReqParams queryCurrencyChannelsReqParams, IResult<ProductListResult> iResult) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048596, this, queryCurrencyChannelsReqParams, iResult) == null) {
-            queryCurrencyChannelsReqParams.setAppId(this.f78608a.getAppId());
-            this.f78609b.queryProductListChannels(queryCurrencyChannelsReqParams, iResult);
+        if (interceptable == null || interceptable.invokeLL(1048598, this, queryCurrencyChannelsReqParams, iResult) == null) {
+            queryCurrencyChannelsReqParams.setAppId(this.f78809a.getAppId());
+            this.f78810b.queryProductListChannels(queryCurrencyChannelsReqParams, iResult);
         }
     }
 
     @Override // com.yy.mobile.framework.revenuesdk.payapi.IAppPayService
     public void queryRechargeHistory(QueryRechargeHistoryReqParams queryRechargeHistoryReqParams, IResult<RechargeHistoryResult> iResult) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048597, this, queryRechargeHistoryReqParams, iResult) == null) {
-            this.f78609b.queryRechargeHistory(queryRechargeHistoryReqParams, iResult);
+        if (interceptable == null || interceptable.invokeLL(1048599, this, queryRechargeHistoryReqParams, iResult) == null) {
+            this.f78810b.queryRechargeHistory(queryRechargeHistoryReqParams, iResult);
         }
     }
 
     @Override // com.yy.mobile.framework.revenuesdk.payapi.IAppPayService
     public void queryUserYbDetailsRequest(GetUserYbDetailsReqParams getUserYbDetailsReqParams, IResult<GetUserYbDetailsResult> iResult) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048598, this, getUserYbDetailsReqParams, iResult) == null) {
-            getUserYbDetailsReqParams.setAppId(this.f78608a.getAppId());
-            this.f78609b.queryUserYbDetailsRequest(getUserYbDetailsReqParams, iResult);
+        if (interceptable == null || interceptable.invokeLL(1048600, this, getUserYbDetailsReqParams, iResult) == null) {
+            getUserYbDetailsReqParams.setAppId(this.f78809a.getAppId());
+            this.f78810b.queryUserYbDetailsRequest(getUserYbDetailsReqParams, iResult);
         }
     }
 
     @Override // com.yy.mobile.framework.revenuesdk.payapi.IAppPayService
     public void registerPayReporter(IPayReporter iPayReporter) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048599, this, iPayReporter) == null) {
-            this.f78609b.registerPayReporter(iPayReporter);
+        if (interceptable == null || interceptable.invokeL(1048601, this, iPayReporter) == null) {
+            this.f78810b.registerPayReporter(iPayReporter);
         }
     }
 
     @Override // com.yy.mobile.framework.revenuesdk.payapi.IAppPayService
     public void removePayListener(IAppPayServiceListener iAppPayServiceListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048600, this, iAppPayServiceListener) == null) {
-            this.f78609b.removePayListener(iAppPayServiceListener);
+        if (interceptable == null || interceptable.invokeL(1048602, this, iAppPayServiceListener) == null) {
+            this.f78810b.removePayListener(iAppPayServiceListener);
         }
     }
 
     @Override // com.yy.mobile.framework.revenuesdk.payapi.IAppPayService
     public void reportPayEntrancePage(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048601, this, i2) == null) {
-            this.f78609b.reportPayEntrancePage(i2);
+        if (interceptable == null || interceptable.invokeI(1048603, this, i2) == null) {
+            this.f78810b.reportPayEntrancePage(i2);
         }
     }
 
     @Override // com.yy.mobile.framework.revenuesdk.payapi.IAppPayService
     public void requestPay(Activity activity, PayType payType, String str, String str2, boolean z, IPayCallback<PurchaseInfo> iPayCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048602, this, new Object[]{activity, payType, str, str2, Boolean.valueOf(z), iPayCallback}) == null) {
-            this.f78609b.requestPay(activity, payType, str, str2, z, iPayCallback);
+        if (interceptable == null || interceptable.invokeCommon(1048604, this, new Object[]{activity, payType, str, str2, Boolean.valueOf(z), iPayCallback}) == null) {
+            this.f78810b.requestPay(activity, payType, str, str2, z, iPayCallback);
         }
     }
 
     @Override // com.yy.mobile.framework.revenuesdk.payapi.IAppPayService
     public void payWithProductInfo(Activity activity, ChargeCurrencyReqParams chargeCurrencyReqParams, ProductInfo productInfo, PayType payType, int i2, int i3, int i4, IPayCallback<String> iPayCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048590, this, new Object[]{activity, chargeCurrencyReqParams, productInfo, payType, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), iPayCallback}) == null) {
-            this.f78609b.payWithProductInfo(activity, chargeCurrencyReqParams, productInfo, payType, i2, i3, i4, iPayCallback);
+        if (interceptable == null || interceptable.invokeCommon(1048592, this, new Object[]{activity, chargeCurrencyReqParams, productInfo, payType, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), iPayCallback}) == null) {
+            this.f78810b.payWithProductInfo(activity, chargeCurrencyReqParams, productInfo, payType, i2, i3, i4, iPayCallback);
         }
     }
 }

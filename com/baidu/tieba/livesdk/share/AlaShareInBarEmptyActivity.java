@@ -5,8 +5,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import c.a.e.e.p.j;
-import c.a.p0.r1.d;
-import c.a.p0.r1.g;
+import c.a.q0.r1.d;
+import c.a.q0.r1.g;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
@@ -36,7 +36,7 @@ public class AlaShareInBarEmptyActivity extends BaseActivity<AlaShareInBarEmptyA
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AlaShareInBarEmptyActivity f53738e;
+        public final /* synthetic */ AlaShareInBarEmptyActivity f53880e;
 
         public a(AlaShareInBarEmptyActivity alaShareInBarEmptyActivity) {
             Interceptable interceptable = $ic;
@@ -53,14 +53,14 @@ public class AlaShareInBarEmptyActivity extends BaseActivity<AlaShareInBarEmptyA
                     return;
                 }
             }
-            this.f53738e = alaShareInBarEmptyActivity;
+            this.f53880e = alaShareInBarEmptyActivity;
         }
 
         @Override // android.content.DialogInterface.OnCancelListener
         public void onCancel(DialogInterface dialogInterface) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
-                this.f53738e.mPostModel.cancelLoadData();
+                this.f53880e.mPostModel.cancelLoadData();
             }
         }
     }
@@ -71,7 +71,7 @@ public class AlaShareInBarEmptyActivity extends BaseActivity<AlaShareInBarEmptyA
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ AlaShareInBarEmptyActivity f53739a;
+        public final /* synthetic */ AlaShareInBarEmptyActivity f53881a;
 
         public b(AlaShareInBarEmptyActivity alaShareInBarEmptyActivity) {
             Interceptable interceptable = $ic;
@@ -88,25 +88,25 @@ public class AlaShareInBarEmptyActivity extends BaseActivity<AlaShareInBarEmptyA
                     return;
                 }
             }
-            this.f53739a = alaShareInBarEmptyActivity;
+            this.f53881a = alaShareInBarEmptyActivity;
         }
 
         @Override // com.baidu.tieba.livesdk.share.model.AlaShareInBarModel.b
-        public void a(int i2, String str, c.a.p0.r1.l.b.a aVar) {
+        public void a(int i2, String str, c.a.q0.r1.l.b.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeILL(1048576, this, i2, str, aVar) == null) {
-                this.f53739a.closeLoadingDialog();
+                this.f53881a.closeLoadingDialog();
                 int i3 = 1;
                 if (i2 == 0 && aVar != null) {
-                    BdToast.h(this.f53739a.getPageContext().getPageActivity(), this.f53739a.getPageContext().getPageActivity().getString(g.share_alert_success), d.icon_pure_toast_succeed40_svg, 3000, true).q();
+                    BdToast.h(this.f53881a.getPageContext().getPageActivity(), this.f53881a.getPageContext().getPageActivity().getString(g.share_alert_success), d.icon_pure_toast_succeed40_svg, 3000, true).q();
                 } else {
-                    this.f53739a.showToast(str);
+                    this.f53881a.showToast(str);
                     i3 = 2;
                 }
                 Intent intent = new Intent();
                 intent.putExtra("extra_share_status", i3);
-                this.f53739a.setResult(-1, intent);
-                this.f53739a.finish();
+                this.f53881a.setResult(-1, intent);
+                this.f53881a.finish();
             }
         }
     }

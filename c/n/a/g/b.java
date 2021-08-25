@@ -18,10 +18,10 @@ public final class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f34157a;
+    public final String f34263a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Path f34158b;
+    public Path f34264b;
 
     public b(String str) {
         Interceptable interceptable = $ic;
@@ -38,26 +38,26 @@ public final class b {
                 return;
             }
         }
-        this.f34157a = StringsKt__StringsKt.contains$default((CharSequence) str, (CharSequence) ",", false, 2, (Object) null) ? StringsKt__StringsJVMKt.replace$default(str, ",", " ", false, 4, (Object) null) : str;
+        this.f34263a = StringsKt__StringsKt.contains$default((CharSequence) str, (CharSequence) ",", false, 2, (Object) null) ? StringsKt__StringsJVMKt.replace$default(str, ",", " ", false, 4, (Object) null) : str;
     }
 
     public final void a(Path path) {
         Set set;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, path) == null) {
-            Path path2 = this.f34158b;
+            Path path2 = this.f34264b;
             if (path2 != null) {
                 path.set(path2);
                 return;
             }
             Path path3 = new Path();
-            StringTokenizer stringTokenizer = new StringTokenizer(this.f34157a, "MLHVCSQRAZmlhvcsqraz", true);
+            StringTokenizer stringTokenizer = new StringTokenizer(this.f34263a, "MLHVCSQRAZmlhvcsqraz", true);
             String str = "";
             while (stringTokenizer.hasMoreTokens()) {
                 String segment = stringTokenizer.nextToken();
                 Intrinsics.checkExpressionValueIsNotNull(segment, "segment");
                 if (!(segment.length() == 0)) {
-                    set = c.f34159a;
+                    set = c.f34265a;
                     if (set.contains(segment)) {
                         if (Intrinsics.areEqual(segment, "Z") || Intrinsics.areEqual(segment, "z")) {
                             b(path3, segment, new StringTokenizer("", ""));
@@ -68,7 +68,7 @@ public final class b {
                     }
                 }
             }
-            this.f34158b = path3;
+            this.f34264b = path3;
             path.set(path3);
         }
     }

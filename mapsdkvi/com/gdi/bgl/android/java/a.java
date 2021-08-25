@@ -11,10 +11,10 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Typeface f78828a;
+    public Typeface f79029a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f78829b;
+    public int f79030b;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -29,7 +29,7 @@ public class a {
                 return;
             }
         }
-        this.f78828a = null;
-        this.f78829b = 0;
+        this.f79029a = null;
+        this.f79030b = 0;
     }
 }

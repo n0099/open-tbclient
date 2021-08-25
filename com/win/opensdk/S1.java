@@ -14,20 +14,20 @@ public class S1 {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static S1 f76511b;
+    public static S1 f76712b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f76512c;
+    public static String f76713c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f76513d;
+    public static String f76714d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f76514e;
+    public static String f76715e;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f76515a;
+    public Context f76716a;
 
     public S1(Context context) {
         Interceptable interceptable = $ic;
@@ -44,21 +44,21 @@ public class S1 {
                 return;
             }
         }
-        this.f76515a = context;
+        this.f76716a = context;
     }
 
     public static S1 a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            if (f76511b == null) {
+            if (f76712b == null) {
                 synchronized (S1.class) {
-                    if (f76511b == null) {
-                        f76511b = new S1(context);
+                    if (f76712b == null) {
+                        f76712b = new S1(context);
                     }
                 }
             }
-            return f76511b;
+            return f76712b;
         }
         return (S1) invokeL.objValue;
     }
@@ -66,22 +66,22 @@ public class S1 {
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? f76513d : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? f76714d : (String) invokeV.objValue;
     }
 
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (TextUtils.isEmpty(f76512c)) {
+            if (TextUtils.isEmpty(f76713c)) {
                 try {
-                    return U1.k(this.f76515a);
+                    return U1.k(this.f76716a);
                 } catch (Exception e2) {
                     e2.printStackTrace();
                     return "";
                 }
             }
-            return f76512c;
+            return f76713c;
         }
         return (String) invokeV.objValue;
     }
@@ -89,7 +89,7 @@ public class S1 {
     public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? f76514e : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? f76715e : (String) invokeV.objValue;
     }
 
     public void d() {
@@ -105,7 +105,7 @@ public class S1 {
             }
             if (z) {
                 try {
-                    FunOpenIDSdk.getOaid(this.f76515a, new R1(this));
+                    FunOpenIDSdk.getOaid(this.f76716a, new R1(this));
                 } catch (Exception unused2) {
                 }
             }

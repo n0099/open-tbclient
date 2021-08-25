@@ -19,13 +19,13 @@ public class e {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f40402a;
+    public Context f40509a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<HashMap<String, String>> f40403b;
+    public List<HashMap<String, String>> f40510b;
 
     /* renamed from: c  reason: collision with root package name */
-    public a<String> f40404c;
+    public a<String> f40511c;
 
     /* loaded from: classes5.dex */
     public interface a<Result> {
@@ -47,9 +47,9 @@ public class e {
                 return;
             }
         }
-        this.f40403b = null;
-        this.f40404c = null;
-        this.f40402a = context;
+        this.f40510b = null;
+        this.f40511c = null;
+        this.f40509a = context;
     }
 
     private List<HashMap<String, String>> a(HashMap<String, String> hashMap, String[] strArr) {
@@ -100,7 +100,7 @@ public class e {
                     e2.printStackTrace();
                 }
             }
-            a<String> aVar = this.f40404c;
+            a<String> aVar = this.f40511c;
             if (aVar != null) {
                 aVar.a(jSONObject.toString());
             }
@@ -122,7 +122,7 @@ public class e {
             while (i3 < list.size()) {
                 com.baidu.lbsapi.auth.a.a("syncConnect resuest " + i3 + "  start!!!");
                 HashMap<String, String> hashMap = list.get(i3);
-                g gVar = new g(this.f40402a);
+                g gVar = new g(this.f40509a);
                 if (gVar.a()) {
                     String a2 = gVar.a(hashMap);
                     if (a2 == null) {
@@ -167,8 +167,8 @@ public class e {
     public void a(HashMap<String, String> hashMap, String[] strArr, a<String> aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048576, this, hashMap, strArr, aVar) == null) {
-            this.f40403b = a(hashMap, strArr);
-            this.f40404c = aVar;
+            this.f40510b = a(hashMap, strArr);
+            this.f40511c = aVar;
             new Thread(new f(this)).start();
         }
     }

@@ -23,20 +23,20 @@ public final class h implements Closeable {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Logger f64333a;
+    public static final Logger f64533a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public final d.a f64334b;
+    public final d.a f64534b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final com.bytedance.sdk.component.b.a.e f64335c;
+    public final com.bytedance.sdk.component.b.a.e f64535c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final a f64336d;
+    public final a f64536d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final boolean f64337e;
+    public final boolean f64537e;
 
     /* loaded from: classes9.dex */
     public interface b {
@@ -74,7 +74,7 @@ public final class h implements Closeable {
                 return;
             }
         }
-        f64333a = Logger.getLogger(e.class.getName());
+        f64533a = Logger.getLogger(e.class.getName());
     }
 
     public h(com.bytedance.sdk.component.b.a.e eVar, boolean z) {
@@ -92,11 +92,11 @@ public final class h implements Closeable {
                 return;
             }
         }
-        this.f64335c = eVar;
-        this.f64337e = z;
+        this.f64535c = eVar;
+        this.f64537e = z;
         a aVar = new a(eVar);
-        this.f64336d = aVar;
-        this.f64334b = new d.a(4096, aVar);
+        this.f64536d = aVar;
+        this.f64534b = new d.a(4096, aVar);
     }
 
     private void b(b bVar, int i2, byte b2, int i3) throws IOException {
@@ -107,9 +107,9 @@ public final class h implements Closeable {
             }
             boolean z = (b2 & 1) != 0;
             if (!((b2 & 32) != 0)) {
-                short h2 = (b2 & 8) != 0 ? (short) (this.f64335c.h() & 255) : (short) 0;
-                bVar.a(z, i3, this.f64335c, a(i2, b2, h2));
-                this.f64335c.h(h2);
+                short h2 = (b2 & 8) != 0 ? (short) (this.f64535c.h() & 255) : (short) 0;
+                bVar.a(z, i3, this.f64535c, a(i2, b2, h2));
+                this.f64535c.h(h2);
                 return;
             }
             throw e.b("PROTOCOL_ERROR: FLAG_COMPRESSED without SETTINGS_COMPRESS_DATA", new Object[0]);
@@ -137,7 +137,7 @@ public final class h implements Closeable {
                 throw e.b("TYPE_RST_STREAM length: %d != 4", Integer.valueOf(i2));
             }
             if (i3 != 0) {
-                int j2 = this.f64335c.j();
+                int j2 = this.f64535c.j();
                 com.bytedance.sdk.component.b.b.a.e.b a2 = com.bytedance.sdk.component.b.b.a.e.b.a(j2);
                 if (a2 == null) {
                     throw e.b("TYPE_RST_STREAM unexpected error code: %d", Integer.valueOf(j2));
@@ -166,8 +166,8 @@ public final class h implements Closeable {
             } else {
                 n nVar = new n();
                 for (int i4 = 0; i4 < i2; i4 += 6) {
-                    short i5 = this.f64335c.i();
-                    int j2 = this.f64335c.j();
+                    short i5 = this.f64535c.i();
+                    int j2 = this.f64535c.j();
                     if (i5 != 2) {
                         if (i5 == 3) {
                             i5 = 4;
@@ -193,8 +193,8 @@ public final class h implements Closeable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65547, this, new Object[]{bVar, Integer.valueOf(i2), Byte.valueOf(b2), Integer.valueOf(i3)}) == null) {
             if (i3 != 0) {
-                short h2 = (b2 & 8) != 0 ? (short) (this.f64335c.h() & 255) : (short) 0;
-                bVar.a(i3, this.f64335c.j() & Integer.MAX_VALUE, a(a(i2 - 4, b2, h2), h2, b2, i3));
+                short h2 = (b2 & 8) != 0 ? (short) (this.f64535c.h() & 255) : (short) 0;
+                bVar.a(i3, this.f64535c.j() & Integer.MAX_VALUE, a(a(i2 - 4, b2, h2), h2, b2, i3));
                 return;
             }
             throw e.b("PROTOCOL_ERROR: TYPE_PUSH_PROMISE streamId == 0", new Object[0]);
@@ -208,7 +208,7 @@ public final class h implements Closeable {
                 throw e.b("TYPE_PING length != 8: %s", Integer.valueOf(i2));
             }
             if (i3 == 0) {
-                bVar.a((b2 & 1) != 0, this.f64335c.j(), this.f64335c.j());
+                bVar.a((b2 & 1) != 0, this.f64535c.j(), this.f64535c.j());
                 return;
             }
             throw e.b("TYPE_PING streamId != 0", new Object[0]);
@@ -222,16 +222,16 @@ public final class h implements Closeable {
                 throw e.b("TYPE_GOAWAY length < 8: %s", Integer.valueOf(i2));
             }
             if (i3 == 0) {
-                int j2 = this.f64335c.j();
-                int j3 = this.f64335c.j();
+                int j2 = this.f64535c.j();
+                int j3 = this.f64535c.j();
                 int i4 = i2 - 8;
                 com.bytedance.sdk.component.b.b.a.e.b a2 = com.bytedance.sdk.component.b.b.a.e.b.a(j3);
                 if (a2 == null) {
                     throw e.b("TYPE_GOAWAY unexpected error code: %d", Integer.valueOf(j3));
                 }
-                com.bytedance.sdk.component.b.a.f fVar = com.bytedance.sdk.component.b.a.f.f64029b;
+                com.bytedance.sdk.component.b.a.f fVar = com.bytedance.sdk.component.b.a.f.f64229b;
                 if (i4 > 0) {
-                    fVar = this.f64335c.c(i4);
+                    fVar = this.f64535c.c(i4);
                 }
                 bVar.a(j2, a2, fVar);
                 return;
@@ -246,7 +246,7 @@ public final class h implements Closeable {
             if (i2 != 4) {
                 throw e.b("TYPE_WINDOW_UPDATE length !=4: %s", Integer.valueOf(i2));
             }
-            long j2 = this.f64335c.j() & 2147483647L;
+            long j2 = this.f64535c.j() & 2147483647L;
             if (j2 == 0) {
                 throw e.b("windowSizeIncrement was 0", Long.valueOf(j2));
             }
@@ -257,17 +257,17 @@ public final class h implements Closeable {
     public void a(b bVar) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
-            if (this.f64337e) {
+            if (this.f64537e) {
                 if (!a(true, bVar)) {
                     throw e.b("Required SETTINGS preface not received", new Object[0]);
                 }
                 return;
             }
-            com.bytedance.sdk.component.b.a.f c2 = this.f64335c.c(e.f64265a.g());
-            if (f64333a.isLoggable(Level.FINE)) {
-                f64333a.fine(com.bytedance.sdk.component.b.b.a.c.a("<< CONNECTION %s", c2.e()));
+            com.bytedance.sdk.component.b.a.f c2 = this.f64535c.c(e.f64465a.g());
+            if (f64533a.isLoggable(Level.FINE)) {
+                f64533a.fine(com.bytedance.sdk.component.b.b.a.c.a("<< CONNECTION %s", c2.e()));
             }
-            if (!e.f64265a.equals(c2)) {
+            if (!e.f64465a.equals(c2)) {
                 throw e.b("Expected a connection header but was %s", c2.a());
             }
         }
@@ -277,7 +277,7 @@ public final class h implements Closeable {
     public void close() throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f64335c.close();
+            this.f64535c.close();
         }
     }
 
@@ -287,22 +287,22 @@ public final class h implements Closeable {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f64338a;
+        public int f64538a;
 
         /* renamed from: b  reason: collision with root package name */
-        public byte f64339b;
+        public byte f64539b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f64340c;
+        public int f64540c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f64341d;
+        public int f64541d;
 
         /* renamed from: e  reason: collision with root package name */
-        public short f64342e;
+        public short f64542e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final com.bytedance.sdk.component.b.a.e f64343f;
+        public final com.bytedance.sdk.component.b.a.e f64543f;
 
         public a(com.bytedance.sdk.component.b.a.e eVar) {
             Interceptable interceptable = $ic;
@@ -319,23 +319,23 @@ public final class h implements Closeable {
                     return;
                 }
             }
-            this.f64343f = eVar;
+            this.f64543f = eVar;
         }
 
         private void b() throws IOException {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(65537, this) == null) {
-                int i2 = this.f64340c;
-                int a2 = h.a(this.f64343f);
-                this.f64341d = a2;
-                this.f64338a = a2;
-                byte h2 = (byte) (this.f64343f.h() & 255);
-                this.f64339b = (byte) (this.f64343f.h() & 255);
-                if (h.f64333a.isLoggable(Level.FINE)) {
-                    h.f64333a.fine(e.a(true, this.f64340c, this.f64338a, h2, this.f64339b));
+                int i2 = this.f64540c;
+                int a2 = h.a(this.f64543f);
+                this.f64541d = a2;
+                this.f64538a = a2;
+                byte h2 = (byte) (this.f64543f.h() & 255);
+                this.f64539b = (byte) (this.f64543f.h() & 255);
+                if (h.f64533a.isLoggable(Level.FINE)) {
+                    h.f64533a.fine(e.a(true, this.f64540c, this.f64538a, h2, this.f64539b));
                 }
-                int j2 = this.f64343f.j() & Integer.MAX_VALUE;
-                this.f64340c = j2;
+                int j2 = this.f64543f.j() & Integer.MAX_VALUE;
+                this.f64540c = j2;
                 if (h2 != 9) {
                     throw e.b("%s != TYPE_CONTINUATION", Byte.valueOf(h2));
                 }
@@ -353,20 +353,20 @@ public final class h implements Closeable {
                 return invokeLJ.longValue;
             }
             while (true) {
-                int i2 = this.f64341d;
+                int i2 = this.f64541d;
                 if (i2 == 0) {
-                    this.f64343f.h(this.f64342e);
-                    this.f64342e = (short) 0;
-                    if ((this.f64339b & 4) != 0) {
+                    this.f64543f.h(this.f64542e);
+                    this.f64542e = (short) 0;
+                    if ((this.f64539b & 4) != 0) {
                         return -1L;
                     }
                     b();
                 } else {
-                    long a2 = this.f64343f.a(cVar, Math.min(j2, i2));
+                    long a2 = this.f64543f.a(cVar, Math.min(j2, i2));
                     if (a2 == -1) {
                         return -1L;
                     }
-                    this.f64341d = (int) (this.f64341d - a2);
+                    this.f64541d = (int) (this.f64541d - a2);
                     return a2;
                 }
             }
@@ -383,7 +383,7 @@ public final class h implements Closeable {
         public t a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f64343f.a() : (t) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f64543f.a() : (t) invokeV.objValue;
         }
     }
 
@@ -392,17 +392,17 @@ public final class h implements Closeable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZL = interceptable.invokeZL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z, bVar)) == null) {
             try {
-                this.f64335c.a(9L);
-                int a2 = a(this.f64335c);
+                this.f64535c.a(9L);
+                int a2 = a(this.f64535c);
                 if (a2 < 0 || a2 > 16384) {
                     throw e.b("FRAME_SIZE_ERROR: %s", Integer.valueOf(a2));
                 }
-                byte h2 = (byte) (this.f64335c.h() & 255);
+                byte h2 = (byte) (this.f64535c.h() & 255);
                 if (!z || h2 == 4) {
-                    byte h3 = (byte) (this.f64335c.h() & 255);
-                    int j2 = this.f64335c.j() & Integer.MAX_VALUE;
-                    if (f64333a.isLoggable(Level.FINE)) {
-                        f64333a.fine(e.a(true, j2, a2, h2, h3));
+                    byte h3 = (byte) (this.f64535c.h() & 255);
+                    int j2 = this.f64535c.j() & Integer.MAX_VALUE;
+                    if (f64533a.isLoggable(Level.FINE)) {
+                        f64533a.fine(e.a(true, j2, a2, h2, h3));
                     }
                     switch (h2) {
                         case 0:
@@ -433,7 +433,7 @@ public final class h implements Closeable {
                             i(bVar, a2, h3, j2);
                             break;
                         default:
-                            this.f64335c.h(a2);
+                            this.f64535c.h(a2);
                             break;
                     }
                     return true;
@@ -451,7 +451,7 @@ public final class h implements Closeable {
         if (interceptable == null || interceptable.invokeCommon(AdIconUtil.BAIDU_LOGO_ID, this, new Object[]{bVar, Integer.valueOf(i2), Byte.valueOf(b2), Integer.valueOf(i3)}) == null) {
             if (i3 != 0) {
                 boolean z = (b2 & 1) != 0;
-                short h2 = (b2 & 8) != 0 ? (short) (this.f64335c.h() & 255) : (short) 0;
+                short h2 = (b2 & 8) != 0 ? (short) (this.f64535c.h() & 255) : (short) 0;
                 if ((b2 & 32) != 0) {
                     a(bVar, i3);
                     i2 -= 5;
@@ -467,14 +467,14 @@ public final class h implements Closeable {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{Integer.valueOf(i2), Short.valueOf(s), Byte.valueOf(b2), Integer.valueOf(i3)})) == null) {
-            a aVar = this.f64336d;
-            aVar.f64341d = i2;
-            aVar.f64338a = i2;
-            aVar.f64342e = s;
-            aVar.f64339b = b2;
-            aVar.f64340c = i3;
-            this.f64334b.a();
-            return this.f64334b.b();
+            a aVar = this.f64536d;
+            aVar.f64541d = i2;
+            aVar.f64538a = i2;
+            aVar.f64542e = s;
+            aVar.f64539b = b2;
+            aVar.f64540c = i3;
+            this.f64534b.a();
+            return this.f64534b.b();
         }
         return (List) invokeCommon.objValue;
     }
@@ -482,8 +482,8 @@ public final class h implements Closeable {
     private void a(b bVar, int i2) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(AdIconUtil.AD_TEXT_ID, this, bVar, i2) == null) {
-            int j2 = this.f64335c.j();
-            bVar.a(i2, j2 & Integer.MAX_VALUE, (this.f64335c.h() & 255) + 1, (Integer.MIN_VALUE & j2) != 0);
+            int j2 = this.f64535c.j();
+            bVar.a(i2, j2 & Integer.MAX_VALUE, (this.f64535c.h() & 255) + 1, (Integer.MIN_VALUE & j2) != 0);
         }
     }
 

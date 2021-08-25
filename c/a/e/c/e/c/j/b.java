@@ -24,7 +24,7 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static b f1988a;
+    public static b f2046a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -60,14 +60,14 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f1988a == null) {
+            if (f2046a == null) {
                 synchronized (b.class) {
-                    if (f1988a == null) {
-                        f1988a = new b();
+                    if (f2046a == null) {
+                        f2046a = new b();
                     }
                 }
             }
-            return f1988a;
+            return f2046a;
         }
         return (b) invokeV.objValue;
     }
@@ -105,7 +105,7 @@ public class b {
                 newInstance.setOrginalMessage(socketMessage);
                 if (z) {
                     try {
-                        newInstance.onDecodeFailedInBackGround(i2, bArr, h.f1970c);
+                        newInstance.onDecodeFailedInBackGround(i2, bArr, h.f2028c);
                     } catch (Exception e2) {
                         e2.printStackTrace();
                     }
@@ -115,7 +115,7 @@ public class b {
                 return newInstance;
             } catch (Throwable th) {
                 BdStatisticsManager.getInstance().error("im", socketMessage != null ? socketMessage.getClientLogID() : 0L, (String) null, "cmd", Integer.valueOf(i2), "byteslength", Integer.valueOf(bArr != null ? bArr.length : 0), "comment", th.getMessage());
-                throw new CoderException(h.f1970c);
+                throw new CoderException(h.f2028c);
             }
         }
         return (SocketResponsedMessage) invokeCommon.objValue;
@@ -130,15 +130,15 @@ public class b {
                 a a2 = a.a(bArr);
                 if (a2 != null) {
                     c cVar = new c();
-                    cVar.f1989a = a2;
-                    cVar.f1990b = bArr;
-                    cVar.f1991c = f2;
-                    cVar.f1992d = bArr.length - f2;
+                    cVar.f2047a = a2;
+                    cVar.f2048b = bArr;
+                    cVar.f2049c = f2;
+                    cVar.f2050d = bArr.length - f2;
                     return cVar;
                 }
-                throw new CoderException(h.f1969b);
+                throw new CoderException(h.f2027b);
             }
-            throw new CoderException(h.f1969b);
+            throw new CoderException(h.f2027b);
         }
         return (c) invokeL.objValue;
     }
@@ -149,34 +149,34 @@ public class b {
         int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, cVar)) == null) {
-            if (cVar != null && (aVar = cVar.f1989a) != null && cVar.f1990b != null) {
-                if (aVar.d() && cVar.f1992d > 0) {
+            if (cVar != null && (aVar = cVar.f2047a) != null && cVar.f2048b != null) {
+                if (aVar.d() && cVar.f2050d > 0) {
                     if (d.a().b() != null) {
                         try {
-                            byte[] a2 = s.a(d.a().b(), cVar.f1990b, cVar.f1991c, cVar.f1992d);
-                            cVar.f1990b = a2;
-                            cVar.f1991c = 0;
-                            cVar.f1992d = a2.length;
+                            byte[] a2 = s.a(d.a().b(), cVar.f2048b, cVar.f2049c, cVar.f2050d);
+                            cVar.f2048b = a2;
+                            cVar.f2049c = 0;
+                            cVar.f2050d = a2.length;
                         } catch (Exception unused) {
-                            throw new CoderException(h.f1975h);
+                            throw new CoderException(h.f2033h);
                         }
                     } else {
-                        throw new CoderException(h.f1974g);
+                        throw new CoderException(h.f2032g);
                     }
                 }
-                if (aVar.c() && (i2 = cVar.f1992d) > 0) {
+                if (aVar.c() && (i2 = cVar.f2050d) > 0) {
                     try {
-                        byte[] g2 = g(cVar.f1990b, cVar.f1991c, i2);
-                        cVar.f1990b = g2;
-                        cVar.f1991c = 0;
-                        cVar.f1992d = g2.length;
+                        byte[] g2 = g(cVar.f2048b, cVar.f2049c, i2);
+                        cVar.f2048b = g2;
+                        cVar.f2049c = 0;
+                        cVar.f2050d = g2.length;
                     } catch (Exception unused2) {
-                        throw new CoderException(h.f1973f);
+                        throw new CoderException(h.f2031f);
                     }
                 }
                 return cVar;
             }
-            throw new CoderException(h.f1969b);
+            throw new CoderException(h.f2027b);
         }
         return (c) invokeL.objValue;
     }
@@ -192,7 +192,7 @@ public class b {
             byte[] encodeInBackGround = socketMessage.encodeInBackGround();
             byte[] encodeExtraDataInBackGround = socketMessage.encodeExtraDataInBackGround();
             if (encodeExtraDataInBackGround != null) {
-                ByteBuffer allocate = ByteBuffer.allocate(encodeInBackGround.length + encodeExtraDataInBackGround.length + a.f1978g);
+                ByteBuffer allocate = ByteBuffer.allocate(encodeInBackGround.length + encodeExtraDataInBackGround.length + a.f2036g);
                 if (encodeExtraDataInBackGround.length <= Integer.MAX_VALUE) {
                     allocate.putInt(encodeExtraDataInBackGround.length);
                     allocate.put(encodeExtraDataInBackGround);
@@ -200,7 +200,7 @@ public class b {
                     encodeInBackGround = allocate.array();
                     z3 = true;
                 } else {
-                    throw new CoderException(h.f1972e);
+                    throw new CoderException(h.f2030e);
                 }
             } else {
                 z3 = false;

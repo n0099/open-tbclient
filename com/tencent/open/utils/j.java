@@ -26,16 +26,16 @@ public final class j {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Executor f76067a;
+    public static final Executor f76268a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Object f76068b;
+    public static Object f76269b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static Handler f76069c;
+    public static Handler f76270c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static HandlerThread f76070d;
+    public static HandlerThread f76271d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.tencent.open.utils.j$1  reason: invalid class name */
@@ -58,8 +58,8 @@ public final class j {
                 return;
             }
         }
-        f76068b = new Object();
-        f76067a = c();
+        f76269b = new Object();
+        f76268a = c();
     }
 
     public j() {
@@ -80,15 +80,15 @@ public final class j {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f76069c == null) {
+            if (f76270c == null) {
                 synchronized (j.class) {
                     HandlerThread handlerThread = new HandlerThread("SDK_SUB");
-                    f76070d = handlerThread;
+                    f76271d = handlerThread;
                     handlerThread.start();
-                    f76069c = new Handler(f76070d.getLooper());
+                    f76270c = new Handler(f76271d.getLooper());
                 }
             }
-            return f76069c;
+            return f76270c;
         }
         return (Handler) invokeV.objValue;
     }
@@ -129,10 +129,10 @@ public final class j {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final Queue<Runnable> f76071a;
+        public final Queue<Runnable> f76272a;
 
         /* renamed from: b  reason: collision with root package name */
-        public Runnable f76072b;
+        public Runnable f76273b;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -147,17 +147,17 @@ public final class j {
                     return;
                 }
             }
-            this.f76071a = new LinkedList();
+            this.f76272a = new LinkedList();
         }
 
         public synchronized void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 synchronized (this) {
-                    Runnable poll = this.f76071a.poll();
-                    this.f76072b = poll;
+                    Runnable poll = this.f76272a.poll();
+                    this.f76273b = poll;
                     if (poll != null) {
-                        j.f76067a.execute(poll);
+                        j.f76268a.execute(poll);
                     }
                 }
             }
@@ -168,15 +168,15 @@ public final class j {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, runnable) == null) {
                 synchronized (this) {
-                    this.f76071a.offer(new Runnable(this, runnable) { // from class: com.tencent.open.utils.j.a.1
+                    this.f76272a.offer(new Runnable(this, runnable) { // from class: com.tencent.open.utils.j.a.1
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
 
                         /* renamed from: a  reason: collision with root package name */
-                        public final /* synthetic */ Runnable f76073a;
+                        public final /* synthetic */ Runnable f76274a;
 
                         /* renamed from: b  reason: collision with root package name */
-                        public final /* synthetic */ a f76074b;
+                        public final /* synthetic */ a f76275b;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -193,8 +193,8 @@ public final class j {
                                     return;
                                 }
                             }
-                            this.f76074b = this;
-                            this.f76073a = runnable;
+                            this.f76275b = this;
+                            this.f76274a = runnable;
                         }
 
                         @Override // java.lang.Runnable
@@ -202,14 +202,14 @@ public final class j {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                                 try {
-                                    this.f76073a.run();
+                                    this.f76274a.run();
                                 } finally {
-                                    this.f76074b.a();
+                                    this.f76275b.a();
                                 }
                             }
                         }
                     });
-                    if (this.f76072b == null) {
+                    if (this.f76273b == null) {
                         a();
                     }
                 }

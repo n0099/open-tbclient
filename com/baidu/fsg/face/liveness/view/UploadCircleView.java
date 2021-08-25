@@ -20,34 +20,34 @@ public class UploadCircleView extends View {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Paint f40237a;
+    public Paint f40344a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Paint f40238b;
+    public Paint f40345b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Paint f40239c;
+    public Paint f40346c;
 
     /* renamed from: d  reason: collision with root package name */
-    public RectF f40240d;
+    public RectF f40347d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f40241e;
+    public int f40348e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f40242f;
+    public int f40349f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f40243g;
+    public int f40350g;
 
     /* renamed from: h  reason: collision with root package name */
-    public float f40244h;
+    public float f40351h;
 
     /* renamed from: i  reason: collision with root package name */
-    public float f40245i;
+    public float f40352i;
 
     /* renamed from: j  reason: collision with root package name */
-    public String f40246j;
+    public String f40353j;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public UploadCircleView(Context context) {
@@ -75,21 +75,21 @@ public class UploadCircleView extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) {
             float width = getWidth() / 2;
-            float f2 = width - (this.f40243g / 2);
-            canvas.drawCircle(width, width, f2, this.f40237a);
+            float f2 = width - (this.f40350g / 2);
+            canvas.drawCircle(width, width, f2, this.f40344a);
             float f3 = width - f2;
             float f4 = f2 + width;
-            this.f40240d.set(f3, f3, f4, f4);
-            canvas.drawArc(this.f40240d, -90.0f, this.f40245i, false, this.f40238b);
-            canvas.drawText(this.f40246j, width - (this.f40239c.measureText(this.f40246j) / 2.0f), width, this.f40239c);
+            this.f40347d.set(f3, f3, f4, f4);
+            canvas.drawArc(this.f40347d, -90.0f, this.f40352i, false, this.f40345b);
+            canvas.drawText(this.f40353j, width - (this.f40346c.measureText(this.f40353j) / 2.0f), width, this.f40346c);
         }
     }
 
     public void setProgress(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            this.f40246j = i2 + "%";
-            this.f40245i = (float) ((i2 * 360) / 100);
+            this.f40353j = i2 + "%";
+            this.f40352i = (float) ((i2 * 360) / 100);
             postInvalidate();
         }
     }
@@ -134,28 +134,28 @@ public class UploadCircleView extends View {
                 return;
             }
         }
-        this.f40246j = "";
-        this.f40243g = h.a(context, 3.0f);
-        this.f40244h = h.a(context, 24.0f);
-        this.f40241e = Color.parseColor("#E1DDDD");
-        this.f40242f = Color.parseColor("#3C76FF");
-        this.f40237a = new Paint();
-        this.f40238b = new Paint();
-        this.f40239c = new Paint();
-        this.f40240d = new RectF();
-        this.f40237a.setColor(this.f40241e);
-        this.f40237a.setStyle(Paint.Style.STROKE);
-        this.f40237a.setStrokeWidth(this.f40243g);
-        this.f40237a.setAntiAlias(true);
-        this.f40237a.setStrokeCap(Paint.Cap.ROUND);
-        this.f40238b.setColor(this.f40242f);
-        this.f40238b.setStyle(Paint.Style.STROKE);
-        this.f40238b.setStrokeWidth(this.f40243g);
-        this.f40238b.setAntiAlias(true);
-        this.f40238b.setStrokeCap(Paint.Cap.ROUND);
-        this.f40239c.setStrokeWidth(0.0f);
-        this.f40239c.setColor(this.f40242f);
-        this.f40239c.setTextSize(this.f40244h);
-        this.f40239c.setTypeface(Typeface.DEFAULT_BOLD);
+        this.f40353j = "";
+        this.f40350g = h.a(context, 3.0f);
+        this.f40351h = h.a(context, 24.0f);
+        this.f40348e = Color.parseColor("#E1DDDD");
+        this.f40349f = Color.parseColor("#3C76FF");
+        this.f40344a = new Paint();
+        this.f40345b = new Paint();
+        this.f40346c = new Paint();
+        this.f40347d = new RectF();
+        this.f40344a.setColor(this.f40348e);
+        this.f40344a.setStyle(Paint.Style.STROKE);
+        this.f40344a.setStrokeWidth(this.f40350g);
+        this.f40344a.setAntiAlias(true);
+        this.f40344a.setStrokeCap(Paint.Cap.ROUND);
+        this.f40345b.setColor(this.f40349f);
+        this.f40345b.setStyle(Paint.Style.STROKE);
+        this.f40345b.setStrokeWidth(this.f40350g);
+        this.f40345b.setAntiAlias(true);
+        this.f40345b.setStrokeCap(Paint.Cap.ROUND);
+        this.f40346c.setStrokeWidth(0.0f);
+        this.f40346c.setColor(this.f40349f);
+        this.f40346c.setTextSize(this.f40351h);
+        this.f40346c.setTypeface(Typeface.DEFAULT_BOLD);
     }
 }

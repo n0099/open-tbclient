@@ -21,10 +21,10 @@ public class c implements a {
     public static c I = null;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final String f60580i = "life_host";
+    public static final String f60780i = "life_host";
 
     /* renamed from: j  reason: collision with root package name */
-    public static final String f60581j = "my_host";
+    public static final String f60781j = "my_host";
     public static final String k = "credit_card_host";
     public static final String l = "app_host";
     public static final String m = "nfc_host";
@@ -377,7 +377,7 @@ public class c implements a {
             } else {
                 this.v = "https://www.baifubao.com";
             }
-            String optString2 = jSONObject.optString(a.f60571b);
+            String optString2 = jSONObject.optString(a.f60771b);
             if (!TextUtils.isEmpty(optString2) && H.matcher(optString2).matches()) {
                 this.x = optString2;
             } else {
@@ -397,7 +397,7 @@ public class c implements a {
                 this.y = "https://www.baifubao.com";
                 com.baidu.apollon.heartbeat.a.c().a(this.y);
             }
-            String optString5 = jSONObject.optString(a.f60574e);
+            String optString5 = jSONObject.optString(a.f60774e);
             if (!TextUtils.isEmpty(optString5) && H.matcher(optString5).matches()) {
                 this.A = optString5;
                 this.C = optString5;
@@ -409,7 +409,7 @@ public class c implements a {
                 this.E = "https://co.baifubao.com";
                 this.D = "https://qianbao.baidu.com";
             }
-            String optString6 = jSONObject.optString(a.f60575f);
+            String optString6 = jSONObject.optString(a.f60775f);
             if (!TextUtils.isEmpty(optString6) && H.matcher(optString6).matches()) {
                 this.G = optString6;
             } else {

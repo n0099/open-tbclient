@@ -17,13 +17,13 @@ public class l {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f71828a;
+    public static String f72028a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static long f71829b;
+    public static long f72029b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static Context f71830c;
+    public static Context f72030c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -39,8 +39,8 @@ public class l {
                 return;
             }
         }
-        f71828a = f();
-        f71829b = 0L;
+        f72028a = f();
+        f72029b = 0L;
     }
 
     public static String a() {
@@ -49,7 +49,7 @@ public class l {
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
             com.kwad.sdk.core.d.a.a("ReportIdManager", ">> updateSessionId");
             String f2 = f();
-            f71828a = f2;
+            f72028a = f2;
             return f2;
         }
         return (String) invokeV.objValue;
@@ -58,7 +58,7 @@ public class l {
     public static void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, null, context) == null) {
-            f71830c = context;
+            f72030c = context;
         }
     }
 
@@ -94,7 +94,7 @@ public class l {
     public static String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? f71828a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? f72028a : (String) invokeV.objValue;
     }
 
     @WorkerThread
@@ -117,8 +117,8 @@ public class l {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            long b2 = b(f71830c);
-            a(f71830c, 1 + b2);
+            long b2 = b(f72030c);
+            a(f72030c, 1 + b2);
             return b2;
         }
         return invokeV.longValue;
@@ -145,8 +145,8 @@ public class l {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
             synchronized (l.class) {
-                c2 = c(f71830c);
-                b(f71830c, 1 + c2);
+                c2 = c(f72030c);
+                b(f72030c, 1 + c2);
             }
             return c2;
         }
@@ -156,7 +156,7 @@ public class l {
     public static long e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) ? f71829b : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) ? f72029b : invokeV.longValue;
     }
 
     public static String f() {

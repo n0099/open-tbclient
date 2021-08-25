@@ -1,6 +1,6 @@
 package com.baidu.tieba.newinterest.activity;
 
-import c.a.p0.e2.e.b;
+import c.a.q0.e2.g.b;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.InterestGuideActivityConfig;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -29,7 +29,7 @@ public class InterestGuideActivityStatic {
             }
         }
         TbadkCoreApplication.getInst().RegisterIntent(InterestGuideActivityConfig.class, InterestGuideActivity.class);
-        b.n();
+        b.p();
     }
 
     public InterestGuideActivityStatic() {

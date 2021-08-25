@@ -1,18 +1,18 @@
 package com.baidu.searchbox.taskmanager;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.performance.speed.SpeedStats;
 import com.baidu.searchbox.performance.speed.task.BaseTaskPool;
 import com.baidu.searchbox.performance.speed.task.LaunchTask;
 import com.baidu.searchbox.task.item.CheckRepackagingTask;
-import com.baidu.searchbox.task.item.FetchDnsTask;
-import com.baidu.searchbox.task.item.FrescoTask;
-import com.baidu.searchbox.task.item.InitReceiverTask;
-import com.baidu.searchbox.task.item.LeakCanaryTask;
-import com.baidu.searchbox.task.item.NPSInitTask;
-import com.baidu.searchbox.task.item.PreloadClassTask;
-import com.baidu.searchbox.task.item.StrictModeTask;
-import com.baidu.searchbox.task.item.WebkitTask;
+import com.baidu.searchbox.task.item.InitAccountChangeTask;
+import com.baidu.searchbox.task.item.InitAccountTask;
+import com.baidu.searchbox.task.item.InitAllTask;
+import com.baidu.searchbox.task.item.InitArTask;
+import com.baidu.searchbox.task.item.InitDimenAdaptTask;
+import com.baidu.searchbox.task.item.InitMessageTask;
+import com.baidu.searchbox.task.item.InitSapiTask;
+import com.baidu.searchbox.task.item.PermissionUtilTask;
+import com.baidu.tbadk.switchs.LaunchUpSpeedSwitch;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -45,17 +45,15 @@ public class ApplicationTaskPool extends BaseTaskPool {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             ArrayList arrayList = new ArrayList();
-            if (z) {
-                arrayList.add(new PreloadClassTask());
-                arrayList.add(new FetchDnsTask());
-                arrayList.add(new InitReceiverTask());
-                SpeedStats.getInstance().getLaunchType();
-            } else {
-                arrayList.add(new LeakCanaryTask());
-                arrayList.add(new NPSInitTask());
-                arrayList.add(new WebkitTask());
-                arrayList.add(new FrescoTask());
-                arrayList.add(new StrictModeTask());
+            if (z && LaunchUpSpeedSwitch.getIsOn()) {
+                arrayList.add(new InitMessageTask());
+                arrayList.add(new InitAccountChangeTask());
+                arrayList.add(new PermissionUtilTask());
+                arrayList.add(new InitDimenAdaptTask());
+                arrayList.add(new InitAllTask());
+                arrayList.add(new InitAccountTask());
+                arrayList.add(new InitSapiTask());
+                arrayList.add(new InitArTask());
             }
             return arrayList;
         }

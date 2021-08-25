@@ -25,16 +25,16 @@ public abstract class HeaderScrollingViewBehavior extends ViewOffsetBehavior<Vie
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d  reason: collision with root package name */
-    public final Rect f40686d;
+    public final Rect f40793d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Rect f40687e;
+    public final Rect f40794e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f40688f;
+    public int f40795f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f40689g;
+    public int f40796g;
 
     public HeaderScrollingViewBehavior() {
         Interceptable interceptable = $ic;
@@ -49,9 +49,9 @@ public abstract class HeaderScrollingViewBehavior extends ViewOffsetBehavior<Vie
                 return;
             }
         }
-        this.f40686d = new Rect();
-        this.f40687e = new Rect();
-        this.f40688f = 0;
+        this.f40793d = new Rect();
+        this.f40794e = new Rect();
+        this.f40795f = 0;
     }
 
     public static int N(int i2) {
@@ -67,22 +67,22 @@ public abstract class HeaderScrollingViewBehavior extends ViewOffsetBehavior<Vie
             View H = H(coordinatorLayout.getDependencies(view));
             if (H != null) {
                 CoordinatorLayout.e eVar = (CoordinatorLayout.e) view.getLayoutParams();
-                Rect rect = this.f40686d;
+                Rect rect = this.f40793d;
                 rect.set(coordinatorLayout.getPaddingLeft() + ((ViewGroup.MarginLayoutParams) eVar).leftMargin, H.getBottom() + ((ViewGroup.MarginLayoutParams) eVar).topMargin, (coordinatorLayout.getWidth() - coordinatorLayout.getPaddingRight()) - ((ViewGroup.MarginLayoutParams) eVar).rightMargin, ((coordinatorLayout.getHeight() + H.getBottom()) - coordinatorLayout.getPaddingBottom()) - ((ViewGroup.MarginLayoutParams) eVar).bottomMargin);
                 WindowInsetsCompat lastWindowInsets = coordinatorLayout.getLastWindowInsets();
                 if (lastWindowInsets != null && ViewCompat.getFitsSystemWindows(coordinatorLayout) && !ViewCompat.getFitsSystemWindows(view)) {
                     rect.left += lastWindowInsets.getSystemWindowInsetLeft();
                     rect.right -= lastWindowInsets.getSystemWindowInsetRight();
                 }
-                Rect rect2 = this.f40687e;
-                GravityCompat.apply(N(eVar.f40703c), view.getMeasuredWidth(), view.getMeasuredHeight(), rect, rect2, i2);
+                Rect rect2 = this.f40794e;
+                GravityCompat.apply(N(eVar.f40810c), view.getMeasuredWidth(), view.getMeasuredHeight(), rect, rect2, i2);
                 int I = I(H);
                 view.layout(rect2.left, rect2.top - I, rect2.right, rect2.bottom - I);
-                this.f40688f = rect2.top - H.getBottom();
+                this.f40795f = rect2.top - H.getBottom();
                 return;
             }
             super.F(coordinatorLayout, view, i2);
-            this.f40688f = 0;
+            this.f40795f = 0;
         }
     }
 
@@ -92,11 +92,11 @@ public abstract class HeaderScrollingViewBehavior extends ViewOffsetBehavior<Vie
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view)) == null) {
-            if (this.f40689g == 0) {
+            if (this.f40796g == 0) {
                 return 0;
             }
             float J = J(view);
-            int i2 = this.f40689g;
+            int i2 = this.f40796g;
             return MathUtils.clamp((int) (J * i2), 0, i2);
         }
         return invokeL.intValue;
@@ -114,7 +114,7 @@ public abstract class HeaderScrollingViewBehavior extends ViewOffsetBehavior<Vie
     public final int K() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f40689g : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f40796g : invokeV.intValue;
     }
 
     public int L(View view) {
@@ -126,13 +126,13 @@ public abstract class HeaderScrollingViewBehavior extends ViewOffsetBehavior<Vie
     public final int M() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f40688f : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f40795f : invokeV.intValue;
     }
 
     public final void O(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-            this.f40689g = i2;
+            this.f40796g = i2;
         }
     }
 
@@ -182,8 +182,8 @@ public abstract class HeaderScrollingViewBehavior extends ViewOffsetBehavior<Vie
                 return;
             }
         }
-        this.f40686d = new Rect();
-        this.f40687e = new Rect();
-        this.f40688f = 0;
+        this.f40793d = new Rect();
+        this.f40794e = new Rect();
+        this.f40795f = 0;
     }
 }

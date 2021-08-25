@@ -33,27 +33,27 @@ public final class a implements t {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final d f31556a;
+    public final d f31662a;
 
     /* renamed from: c.d.b.e0.g.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C1449a implements Source {
+    public class C1453a implements Source {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public boolean f31557e;
+        public boolean f31663e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ BufferedSource f31558f;
+        public final /* synthetic */ BufferedSource f31664f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ b f31559g;
+        public final /* synthetic */ b f31665g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ BufferedSink f31560h;
+        public final /* synthetic */ BufferedSink f31666h;
 
-        public C1449a(a aVar, BufferedSource bufferedSource, b bVar, BufferedSink bufferedSink) {
+        public C1453a(a aVar, BufferedSource bufferedSource, b bVar, BufferedSink bufferedSink) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -68,20 +68,20 @@ public final class a implements t {
                     return;
                 }
             }
-            this.f31558f = bufferedSource;
-            this.f31559g = bVar;
-            this.f31560h = bufferedSink;
+            this.f31664f = bufferedSource;
+            this.f31665g = bVar;
+            this.f31666h = bufferedSink;
         }
 
         @Override // okio.Source, java.io.Closeable, java.lang.AutoCloseable
         public void close() throws IOException {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (!this.f31557e && !e.o(this, 100, TimeUnit.MILLISECONDS)) {
-                    this.f31557e = true;
-                    this.f31559g.abort();
+                if (!this.f31663e && !e.o(this, 100, TimeUnit.MILLISECONDS)) {
+                    this.f31663e = true;
+                    this.f31665g.abort();
                 }
-                this.f31558f.close();
+                this.f31664f.close();
             }
         }
 
@@ -91,21 +91,21 @@ public final class a implements t {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, buffer, j2)) == null) {
                 try {
-                    long read = this.f31558f.read(buffer, j2);
+                    long read = this.f31664f.read(buffer, j2);
                     if (read == -1) {
-                        if (!this.f31557e) {
-                            this.f31557e = true;
-                            this.f31560h.close();
+                        if (!this.f31663e) {
+                            this.f31663e = true;
+                            this.f31666h.close();
                         }
                         return -1L;
                     }
-                    buffer.copyTo(this.f31560h.buffer(), buffer.size() - read, read);
-                    this.f31560h.emitCompleteSegments();
+                    buffer.copyTo(this.f31666h.buffer(), buffer.size() - read, read);
+                    this.f31666h.emitCompleteSegments();
                     return read;
                 } catch (IOException e2) {
-                    if (!this.f31557e) {
-                        this.f31557e = true;
-                        this.f31559g.abort();
+                    if (!this.f31663e) {
+                        this.f31663e = true;
+                        this.f31665g.abort();
                     }
                     throw e2;
                 }
@@ -117,7 +117,7 @@ public final class a implements t {
         public Timeout timeout() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f31558f.timeout() : (Timeout) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f31664f.timeout() : (Timeout) invokeV.objValue;
         }
     }
 
@@ -136,7 +136,7 @@ public final class a implements t {
                 return;
             }
         }
-        this.f31556a = dVar;
+        this.f31662a = dVar;
     }
 
     public static r c(r rVar, r rVar2) {
@@ -149,14 +149,14 @@ public final class a implements t {
                 String e2 = rVar.e(i2);
                 String h2 = rVar.h(i2);
                 if ((!"Warning".equalsIgnoreCase(e2) || !h2.startsWith("1")) && (d(e2) || !e(e2) || rVar2.c(e2) == null)) {
-                    c.d.b.e0.a.f31543a.b(aVar, e2, h2);
+                    c.d.b.e0.a.f31649a.b(aVar, e2, h2);
                 }
             }
             int g3 = rVar2.g();
             for (int i3 = 0; i3 < g3; i3++) {
                 String e3 = rVar2.e(i3);
                 if (!d(e3) && e(e3)) {
-                    c.d.b.e0.a.f31543a.b(aVar, e3, rVar2.h(i3));
+                    c.d.b.e0.a.f31649a.b(aVar, e3, rVar2.h(i3));
                 }
             }
             return aVar.d();
@@ -195,12 +195,12 @@ public final class a implements t {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) {
-            d dVar = this.f31556a;
+            d dVar = this.f31662a;
             b0 d2 = dVar != null ? dVar.d(aVar.request()) : null;
             c c2 = new c.a(System.currentTimeMillis(), aVar.request(), d2).c();
-            z zVar = c2.f31561a;
-            b0 b0Var = c2.f31562b;
-            d dVar2 = this.f31556a;
+            z zVar = c2.f31667a;
+            b0 b0Var = c2.f31668b;
+            d dVar2 = this.f31662a;
             if (dVar2 != null) {
                 dVar2.c(c2);
             }
@@ -213,7 +213,7 @@ public final class a implements t {
                 aVar2.n(Protocol.HTTP_1_1);
                 aVar2.g(504);
                 aVar2.k("Unsatisfiable Request (only-if-cached)");
-                aVar2.b(e.f31548c);
+                aVar2.b(e.f31654c);
                 aVar2.q(-1L);
                 aVar2.o(System.currentTimeMillis());
                 return aVar2.c();
@@ -236,8 +236,8 @@ public final class a implements t {
                             z2.l(f(a2));
                             b0 c3 = z2.c();
                             a2.g().close();
-                            this.f31556a.trackConditionalCacheHit();
-                            this.f31556a.e(b0Var, c3);
+                            this.f31662a.trackConditionalCacheHit();
+                            this.f31662a.e(b0Var, c3);
                             return c3;
                         }
                         e.f(b0Var.g());
@@ -246,13 +246,13 @@ public final class a implements t {
                     z3.d(f(b0Var));
                     z3.l(f(a2));
                     b0 c4 = z3.c();
-                    if (this.f31556a != null) {
+                    if (this.f31662a != null) {
                         if (c.d.b.e0.i.e.c(c4) && c.a(c4, zVar)) {
-                            return b(this.f31556a.a(c4), c4);
+                            return b(this.f31662a.a(c4), c4);
                         }
                         if (f.a(zVar.f())) {
                             try {
-                                this.f31556a.b(zVar);
+                                this.f31662a.b(zVar);
                             } catch (IOException unused) {
                             }
                         }
@@ -276,11 +276,11 @@ public final class a implements t {
             if (bVar == null || (body = bVar.body()) == null) {
                 return b0Var;
             }
-            C1449a c1449a = new C1449a(this, b0Var.g().r(), bVar, Okio.buffer(body));
+            C1453a c1453a = new C1453a(this, b0Var.g().r(), bVar, Okio.buffer(body));
             String s = b0Var.s("Content-Type");
             long n = b0Var.g().n();
             b0.a z = b0Var.z();
-            z.b(new h(s, n, Okio.buffer(c1449a)));
+            z.b(new h(s, n, Okio.buffer(c1453a)));
             return z.c();
         }
         return (b0) invokeLL.objValue;

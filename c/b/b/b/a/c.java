@@ -40,7 +40,7 @@ public final class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public com.bytedance.mobsec.metasec.ml.b f31258a;
+        public com.bytedance.mobsec.metasec.ml.b f31364a;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -55,7 +55,7 @@ public final class c {
                     return;
                 }
             }
-            this.f31258a = null;
+            this.f31364a = null;
         }
 
         @Override // ms.bd.c.b.a
@@ -64,11 +64,11 @@ public final class c {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2), str, obj})) == null) {
                 Context a2 = ms.bd.c.a.c().a();
-                if (this.f31258a == null) {
+                if (this.f31364a == null) {
                     synchronized (this) {
-                        if (this.f31258a == null) {
+                        if (this.f31364a == null) {
                             com.bytedance.mobsec.metasec.ml.b bVar = new com.bytedance.mobsec.metasec.ml.b(a2);
-                            this.f31258a = bVar;
+                            this.f31364a = bVar;
                             bVar.a();
                         }
                     }
@@ -115,17 +115,17 @@ public final class c {
                 if (Build.VERSION.SDK_INT >= 17) {
                     defaultDisplay.getRealSize(point);
                 } else if (Build.VERSION.SDK_INT < 13) {
-                    p1.f78882a = defaultDisplay.getWidth();
+                    p1.f79083a = defaultDisplay.getWidth();
                     height = defaultDisplay.getHeight();
-                    p1.f78883b = height;
-                    return p1.f78882a + "*" + p1.f78883b;
+                    p1.f79084b = height;
+                    return p1.f79083a + "*" + p1.f79084b;
                 } else {
                     defaultDisplay.getSize(point);
                 }
-                p1.f78882a = point.x;
+                p1.f79083a = point.x;
                 height = point.y;
-                p1.f78883b = height;
-                return p1.f78882a + "*" + p1.f78883b;
+                p1.f79084b = height;
+                return p1.f79083a + "*" + p1.f79084b;
             }
             return invokeCommon.objValue;
         }
@@ -133,11 +133,11 @@ public final class c {
 
     /* renamed from: c.b.b.b.a.c$c  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public static class C1441c extends b.a {
+    public static class C1445c extends b.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public C1441c() {
+        public C1445c() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -541,7 +541,7 @@ public final class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65536, null) == null) {
             ms.bd.c.b.a((int) RouterCallback.CODE_ERROR, new b());
-            ms.bd.c.b.a((int) RouterCallback.CODE_NOT_FOUND, new C1441c());
+            ms.bd.c.b.a((int) RouterCallback.CODE_NOT_FOUND, new C1445c());
             ms.bd.c.b.a((int) RouterCallback.CODE_INVALID, new d());
             ms.bd.c.b.a((int) RouterCallback.CODE_ROUTER_NOT_REGISTER, new e());
             ms.bd.c.b.a((int) RouterCallback.CODE_NOT_IMPLEMENT, new f());

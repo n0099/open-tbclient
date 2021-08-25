@@ -27,13 +27,13 @@ public class NHBannerGroup extends BaseItemLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public FocusImageViewGroup f61072a;
+    public FocusImageViewGroup f61272a;
 
     /* renamed from: b  reason: collision with root package name */
-    public LinearLayout f61073b;
+    public LinearLayout f61273b;
 
     /* renamed from: c  reason: collision with root package name */
-    public WalletBannerItem[] f61074c;
+    public WalletBannerItem[] f61274c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public NHBannerGroup(Context context) {
@@ -70,9 +70,9 @@ public class NHBannerGroup extends BaseItemLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             LayoutInflater.from(getContext()).inflate(ResUtils.layout(getContext(), "wallet_home_nh_banner_layout"), this);
-            this.f61072a = (FocusImageViewGroup) findViewById(ResUtils.id(getContext(), "wallet_home_banner_gallery"));
-            this.f61073b = (LinearLayout) findViewById(ResUtils.id(getContext(), "wallet_home_banner_indicators"));
-            FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.f61072a.getLayoutParams();
+            this.f61272a = (FocusImageViewGroup) findViewById(ResUtils.id(getContext(), "wallet_home_banner_gallery"));
+            this.f61273b = (LinearLayout) findViewById(ResUtils.id(getContext(), "wallet_home_banner_indicators"));
+            FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.f61272a.getLayoutParams();
             int displayWidth = DisplayUtils.getDisplayWidth(getContext()) - DisplayUtils.dip2px(getContext(), 34.0f);
             int i2 = (displayWidth * 80) / 341;
             if (layoutParams == null) {
@@ -81,14 +81,14 @@ public class NHBannerGroup extends BaseItemLayout {
                 layoutParams.width = displayWidth;
                 layoutParams.height = i2;
             }
-            this.f61072a.setChildLeft(DisplayUtils.dip2px(getContext(), 17.0f));
-            this.f61072a.setLayoutParams(layoutParams);
-            this.f61072a.setCurrFocusImagePos(new BannerFocusImageViewGroup.CurrFocusImagePos(this) { // from class: com.baidu.wallet.home.ui.widget.newhome.NHBannerGroup.1
+            this.f61272a.setChildLeft(DisplayUtils.dip2px(getContext(), 17.0f));
+            this.f61272a.setLayoutParams(layoutParams);
+            this.f61272a.setCurrFocusImagePos(new BannerFocusImageViewGroup.CurrFocusImagePos(this) { // from class: com.baidu.wallet.home.ui.widget.newhome.NHBannerGroup.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ NHBannerGroup f61075a;
+                public final /* synthetic */ NHBannerGroup f61275a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -105,7 +105,7 @@ public class NHBannerGroup extends BaseItemLayout {
                             return;
                         }
                     }
-                    this.f61075a = this;
+                    this.f61275a = this;
                 }
 
                 @Override // com.baidu.wallet.base.widget.banner.BannerFocusImageViewGroup.CurrFocusImagePos
@@ -114,8 +114,8 @@ public class NHBannerGroup extends BaseItemLayout {
                     if (interceptable2 == null || interceptable2.invokeII(1048576, this, i3, i4) == null) {
                         int i5 = 0;
                         while (i5 < i4) {
-                            if (this.f61075a.f61073b.getChildAt(i5) != null) {
-                                this.f61075a.f61073b.getChildAt(i5).setSelected(i5 == i3);
+                            if (this.f61275a.f61273b.getChildAt(i5) != null) {
+                                this.f61275a.f61273b.getChildAt(i5).setSelected(i5 == i3);
                             }
                             i5++;
                         }
@@ -142,24 +142,24 @@ public class NHBannerGroup extends BaseItemLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             HomeCfgResponse.DataItem[] dataItemArr = this.mConfigData.list;
-            this.f61074c = dataItemArr;
-            this.f61072a.setFocusConfigInfo(dataItemArr, getWalletInterface().getAndroidPrefix(), getWalletInterface().getPageType());
+            this.f61274c = dataItemArr;
+            this.f61272a.setFocusConfigInfo(dataItemArr, getWalletInterface().getAndroidPrefix(), getWalletInterface().getPageType());
             int drawable = ResUtils.drawable(getContext(), "wallet_base_indicators");
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(DisplayUtils.dip2px(getContext(), 8.5f), DisplayUtils.dip2px(getContext(), 2.0f));
-            if (this.f61074c.length > 1) {
+            if (this.f61274c.length > 1) {
                 int i2 = 0;
-                while (i2 < this.f61074c.length) {
+                while (i2 < this.f61274c.length) {
                     View view = new View(getContext());
                     view.setBackgroundResource(drawable);
                     view.setSelected(i2 == 0);
-                    this.f61073b.addView(view, layoutParams);
+                    this.f61273b.addView(view, layoutParams);
                     layoutParams.leftMargin = DisplayUtils.dip2px(getContext(), 6.0f);
                     i2++;
                 }
-                this.f61073b.setVisibility(0);
+                this.f61273b.setVisibility(0);
                 return;
             }
-            this.f61073b.setVisibility(8);
+            this.f61273b.setVisibility(8);
         }
     }
 

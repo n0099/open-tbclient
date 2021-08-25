@@ -17,7 +17,7 @@ public class LightappWebView extends SafeWebView {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public a f61345a;
+    public a f61545a;
 
     /* loaded from: classes8.dex */
     public interface a {
@@ -66,7 +66,7 @@ public class LightappWebView extends SafeWebView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3, i4, i5) == null) {
             super.onScrollChanged(i2, i3, i4, i5);
-            a aVar = this.f61345a;
+            a aVar = this.f61545a;
             if (aVar != null) {
                 aVar.a(i3);
             }
@@ -83,7 +83,7 @@ public class LightappWebView extends SafeWebView {
     public void setOnMyScrollChangeListener(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
-            this.f61345a = aVar;
+            this.f61545a = aVar;
         }
     }
 

@@ -13,11 +13,11 @@ import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import c.a.e.e.p.j;
 import c.a.e.e.p.l;
-import c.a.e.k.e.n;
-import c.a.o0.d1.j.e;
-import c.a.o0.s.q.b2;
-import c.a.o0.s.q.c2;
-import c.a.p0.v0.c1;
+import c.a.e.l.e.n;
+import c.a.p0.d1.j.e;
+import c.a.p0.s.q.b2;
+import c.a.p0.s.q.c2;
+import c.a.q0.v0.c1;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -52,8 +52,8 @@ public class FrsSportsRecommendFragment extends FrsCommonTabFragment {
     public ImageView A;
     public ImageView B;
     public NoNetworkView C;
-    public c.a.p0.v0.i2.a D;
-    public c.a.p0.v0.i2.b E;
+    public c.a.q0.v0.i2.a D;
+    public c.a.q0.v0.i2.b E;
     public CollapsingToolbarLayout F;
     public AppBarLayout G;
     public FrameLayout H;
@@ -79,7 +79,7 @@ public class FrsSportsRecommendFragment extends FrsCommonTabFragment {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ FrsSportsRecommendFragment f51260a;
+        public final /* synthetic */ FrsSportsRecommendFragment f51410a;
 
         public a(FrsSportsRecommendFragment frsSportsRecommendFragment) {
             Interceptable interceptable = $ic;
@@ -96,16 +96,16 @@ public class FrsSportsRecommendFragment extends FrsCommonTabFragment {
                     return;
                 }
             }
-            this.f51260a = frsSportsRecommendFragment;
+            this.f51410a = frsSportsRecommendFragment;
         }
 
-        @Override // c.a.o0.d1.j.e
+        @Override // c.a.p0.d1.j.e
         public void a(View view, int i2, int i3, int i4, int i5) {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) || i3 == i5) {
                 return;
             }
-            this.f51260a.F.setMinimumHeight(i3);
+            this.f51410a.F.setMinimumHeight(i3);
         }
     }
 
@@ -115,7 +115,7 @@ public class FrsSportsRecommendFragment extends FrsCommonTabFragment {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ FrsSportsRecommendFragment f51261e;
+        public final /* synthetic */ FrsSportsRecommendFragment f51411e;
 
         public b(FrsSportsRecommendFragment frsSportsRecommendFragment) {
             Interceptable interceptable = $ic;
@@ -132,15 +132,15 @@ public class FrsSportsRecommendFragment extends FrsCommonTabFragment {
                     return;
                 }
             }
-            this.f51261e = frsSportsRecommendFragment;
+            this.f51411e = frsSportsRecommendFragment;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && this.f51261e.z != null && view == this.f51261e.z) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && this.f51411e.z != null && view == this.f51411e.z) {
                 CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2921342);
-                customResponsedMessage.setmOrginalMessage(new CustomMessage(2001627, this.f51261e.getPageContext().getUniqueId()));
+                customResponsedMessage.setmOrginalMessage(new CustomMessage(2001627, this.f51411e.getPageContext().getUniqueId()));
                 MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage);
             }
         }
@@ -152,7 +152,7 @@ public class FrsSportsRecommendFragment extends FrsCommonTabFragment {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ FrsSportsRecommendFragment f51262a;
+        public final /* synthetic */ FrsSportsRecommendFragment f51412a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public c(FrsSportsRecommendFragment frsSportsRecommendFragment, int i2) {
@@ -172,7 +172,7 @@ public class FrsSportsRecommendFragment extends FrsCommonTabFragment {
                     return;
                 }
             }
-            this.f51262a = frsSportsRecommendFragment;
+            this.f51412a = frsSportsRecommendFragment;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -184,9 +184,9 @@ public class FrsSportsRecommendFragment extends FrsCommonTabFragment {
             }
             String[] split = ((String) customResponsedMessage.getData()).split("_");
             if (split.length == 2 && "FrsSportsRecommendTab".equals(split[0]) && 25 == c.a.e.e.m.b.d(split[1], 0)) {
-                this.f51262a.G.setExpanded(true, false);
-                this.f51262a.mMainView.y(0);
-                this.f51262a.forceRefresh();
+                this.f51412a.G.setExpanded(true, false);
+                this.f51412a.mMainView.y(0);
+                this.f51412a.forceRefresh();
             }
         }
     }
@@ -197,7 +197,7 @@ public class FrsSportsRecommendFragment extends FrsCommonTabFragment {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ FrsSportsRecommendFragment f51263a;
+        public final /* synthetic */ FrsSportsRecommendFragment f51413a;
 
         public d(FrsSportsRecommendFragment frsSportsRecommendFragment) {
             Interceptable interceptable = $ic;
@@ -214,19 +214,19 @@ public class FrsSportsRecommendFragment extends FrsCommonTabFragment {
                     return;
                 }
             }
-            this.f51263a = frsSportsRecommendFragment;
+            this.f51413a = frsSportsRecommendFragment;
         }
 
         @Override // com.google.android.material.appbar.AppBarLayout.OnOffsetChangedListener, com.google.android.material.appbar.AppBarLayout.BaseOnOffsetChangedListener
         public void onOffsetChanged(AppBarLayout appBarLayout, int i2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLI(1048576, this, appBarLayout, i2) == null) || this.f51263a.M == i2) {
+            if (!(interceptable == null || interceptable.invokeLI(1048576, this, appBarLayout, i2) == null) || this.f51413a.M == i2) {
                 return;
             }
             int statusBarHeight = UtilHelper.canUseStyleImmersiveSticky() ? UtilHelper.getStatusBarHeight() : 0;
-            int height = this.f51263a.w.getHeight();
-            int height2 = (this.f51263a.C == null || j.z()) ? 0 : this.f51263a.C.getHeight();
-            int g2 = ((l.g(this.f51263a.getContext(), R.dimen.tbds318) - height) - height2) - statusBarHeight;
+            int height = this.f51413a.w.getHeight();
+            int height2 = (this.f51413a.C == null || j.z()) ? 0 : this.f51413a.C.getHeight();
+            int g2 = ((l.g(this.f51413a.getContext(), R.dimen.tbds318) - height) - height2) - statusBarHeight;
             int i3 = statusBarHeight + height + height2 + g2;
             int totalScrollRange = (appBarLayout.getTotalScrollRange() - i3) - g2;
             int totalScrollRange2 = appBarLayout.getTotalScrollRange() - Math.abs(i2);
@@ -238,34 +238,34 @@ public class FrsSportsRecommendFragment extends FrsCommonTabFragment {
             if (Float.compare(abs, 1.0f) > 0) {
                 abs = 1.0f;
             }
-            if (Float.compare(abs, 0.05f) <= 0 && this.f51263a.M - i2 < 0) {
+            if (Float.compare(abs, 0.05f) <= 0 && this.f51413a.M - i2 < 0) {
                 abs = 0.0f;
             }
-            if (g2 + i2 <= 0 || this.f51263a.w == null || this.f51263a.w.getBarBgView() == null || this.f51263a.w.getBarBgView().getAlpha() != 0.0f) {
+            if (g2 + i2 <= 0 || this.f51413a.w == null || this.f51413a.w.getBarBgView() == null || this.f51413a.w.getBarBgView().getAlpha() != 0.0f) {
                 if (Float.compare(abs, 1.0f) == 0) {
-                    this.f51263a.D(Math.abs(i3 - totalScrollRange2));
-                    if (this.f51263a.t != null) {
-                        this.f51263a.t.setVisibility(0);
+                    this.f51413a.D(Math.abs(i3 - totalScrollRange2));
+                    if (this.f51413a.t != null) {
+                        this.f51413a.t.setVisibility(0);
                     }
-                } else if (this.f51263a.t != null && this.f51263a.u != null) {
-                    if (this.f51263a.u.getHeight() != UtilHelper.getStatusBarHeight()) {
-                        this.f51263a.D(0);
+                } else if (this.f51413a.t != null && this.f51413a.u != null) {
+                    if (this.f51413a.u.getHeight() != UtilHelper.getStatusBarHeight()) {
+                        this.f51413a.D(0);
                     }
-                    this.f51263a.t.setVisibility(8);
+                    this.f51413a.t.setVisibility(8);
                 }
                 if (abs > 0.5f) {
-                    UtilHelper.changeStatusBarIconAndTextColor(false, this.f51263a.getPageContext().getPageActivity());
+                    UtilHelper.changeStatusBarIconAndTextColor(false, this.f51413a.getPageContext().getPageActivity());
                 } else {
-                    UtilHelper.changeStatusBarIconAndTextColor(true, this.f51263a.getPageContext().getPageActivity());
+                    UtilHelper.changeStatusBarIconAndTextColor(true, this.f51413a.getPageContext().getPageActivity());
                     f2 = abs;
                 }
-                if (this.f51263a.w != null) {
-                    this.f51263a.w.getBarBgView().setAlpha(f2);
-                    this.f51263a.J();
+                if (this.f51413a.w != null) {
+                    this.f51413a.w.getBarBgView().setAlpha(f2);
+                    this.f51413a.J();
                 }
-                this.f51263a.K(i2, f2);
-                this.f51263a.M = i2;
-                this.f51263a.adjustRefreshView(i2);
+                this.f51413a.K(i2, f2);
+                this.f51413a.M = i2;
+                this.f51413a.adjustRefreshView(i2);
             }
         }
     }
@@ -464,7 +464,7 @@ public class FrsSportsRecommendFragment extends FrsCommonTabFragment {
         }
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragment, c.a.o0.m0.a
+    @Override // com.baidu.tbadk.core.BaseFragment, c.a.p0.m0.a
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -479,17 +479,17 @@ public class FrsSportsRecommendFragment extends FrsCommonTabFragment {
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
-    public c.a.o0.m0.d getPageStayDurationItem() {
+    public c.a.p0.m0.d getPageStayDurationItem() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            c.a.o0.m0.d pageStayDurationItem = super.getPageStayDurationItem();
+            c.a.p0.m0.d pageStayDurationItem = super.getPageStayDurationItem();
             if (pageStayDurationItem != null) {
                 pageStayDurationItem.r(c.a.e.e.m.b.f(this.forumId, 0L));
             }
             return pageStayDurationItem;
         }
-        return (c.a.o0.m0.d) invokeV.objValue;
+        return (c.a.p0.m0.d) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
@@ -504,11 +504,11 @@ public class FrsSportsRecommendFragment extends FrsCommonTabFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048585, this, i2) == null) {
             super.onChangeSkinType(i2);
-            c.a.p0.v0.i2.a aVar = this.D;
+            c.a.q0.v0.i2.a aVar = this.D;
             if (aVar != null) {
                 aVar.h();
             }
-            c.a.p0.v0.i2.b bVar = this.E;
+            c.a.q0.v0.i2.b bVar = this.E;
             if (bVar != null) {
                 bVar.d();
             }
@@ -559,11 +559,11 @@ public class FrsSportsRecommendFragment extends FrsCommonTabFragment {
             this.G = appBarLayout;
             appBarLayout.addOnOffsetChangedListener(this.O);
             z();
-            c.a.p0.v0.i2.a aVar = new c.a.p0.v0.i2.a(this, this.mRootView);
+            c.a.q0.v0.i2.a aVar = new c.a.q0.v0.i2.a(this, this.mRootView);
             this.D = aVar;
             aVar.j(this.viewData);
-            this.E = new c.a.p0.v0.i2.b(this, this.mRootView);
-            c.a.p0.v0.k1.c cVar = this.mModelController;
+            this.E = new c.a.q0.v0.i2.b(this, this.mRootView);
+            c.a.q0.v0.k1.c cVar = this.mModelController;
             if (cVar != null) {
                 cVar.q(0L);
             }
@@ -602,12 +602,12 @@ public class FrsSportsRecommendFragment extends FrsCommonTabFragment {
         }
     }
 
-    @Override // com.baidu.tieba.frs.commontab.FrsCommonTabFragment, c.a.p0.v0.r0
+    @Override // com.baidu.tieba.frs.commontab.FrsCommonTabFragment, c.a.q0.v0.r0
     public void onPullRefresh() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
             y();
-            c.a.p0.v0.k1.c cVar = this.mModelController;
+            c.a.q0.v0.k1.c cVar = this.mModelController;
             if (cVar != null) {
                 cVar.q(this.K);
             }
@@ -616,7 +616,7 @@ public class FrsSportsRecommendFragment extends FrsCommonTabFragment {
     }
 
     @Override // com.baidu.tieba.frs.commontab.FrsCommonTabFragment
-    public void onViewDataChange(c.a.p0.v0.k1.d dVar) {
+    public void onViewDataChange(c.a.q0.v0.k1.d dVar) {
         FrsViewData frsViewData;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, dVar) == null) {
@@ -624,19 +624,19 @@ public class FrsSportsRecommendFragment extends FrsCommonTabFragment {
             if (dVar == null) {
                 return;
             }
-            c.a.p0.v0.i2.a aVar = this.D;
+            c.a.q0.v0.i2.a aVar = this.D;
             if (aVar != null) {
-                aVar.k(dVar.f25992i, dVar.f25993j, dVar.k);
+                aVar.k(dVar.f26328i, dVar.f26329j, dVar.k);
             }
             if (this.E != null && (frsViewData = this.viewData) != null && frsViewData.getForum() != null) {
                 this.E.e(dVar.l, this.viewData.getForum().getId());
             }
-            c.a.p0.v0.k1.c cVar = this.mModelController;
+            c.a.q0.v0.k1.c cVar = this.mModelController;
             if (cVar != null && cVar.i()) {
-                B(dVar.f25991h);
+                B(dVar.f26327h);
             }
-            if (!ListUtils.isEmpty(dVar.f25990g)) {
-                Iterator<n> it = dVar.f25990g.iterator();
+            if (!ListUtils.isEmpty(dVar.f26326g)) {
+                Iterator<n> it = dVar.f26326g.iterator();
                 while (true) {
                     if (!it.hasNext()) {
                         break;
@@ -663,7 +663,7 @@ public class FrsSportsRecommendFragment extends FrsCommonTabFragment {
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void showLoadingView(View view, boolean z, int i2) {
-        c.a.p0.v0.k1.b bVar;
+        c.a.q0.v0.k1.b bVar;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeCommon(1048592, this, new Object[]{view, Boolean.valueOf(z), Integer.valueOf(i2)}) == null) || (bVar = this.mMainView) == null) {
             return;

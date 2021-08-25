@@ -25,23 +25,23 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile a f2763b;
+    public static volatile a f2821b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public HashMap<String, ArrayList<Message<?>>> f2764a;
+    public HashMap<String, ArrayList<Message<?>>> f2822a;
 
     /* renamed from: c.a.e.h.i.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0053a extends CustomMessageListener {
+    public class C0043a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f2765a;
+        public final /* synthetic */ a f2823a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C0053a(a aVar, int i2) {
+        public C0043a(a aVar, int i2) {
             super(i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -58,7 +58,7 @@ public class a {
                     return;
                 }
             }
-            this.f2765a = aVar;
+            this.f2823a = aVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -69,13 +69,13 @@ public class a {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2000997 && (data = customResponsedMessage.getData()) != null && (data instanceof PluginLoadedMessage.a)) {
                 PluginLoadedMessage.a aVar = (PluginLoadedMessage.a) data;
-                if (aVar.f36099b == 0 && this.f2765a.f2764a.size() > 0 && (arrayList = (ArrayList) this.f2765a.f2764a.get(aVar.f36098a)) != null && arrayList.size() > 0) {
+                if (aVar.f36205b == 0 && this.f2823a.f2822a.size() > 0 && (arrayList = (ArrayList) this.f2823a.f2822a.get(aVar.f36204a)) != null && arrayList.size() > 0) {
                     Iterator it = arrayList.iterator();
                     while (it.hasNext()) {
                         MessageManager.getInstance().sendMessage((Message) it.next());
                     }
                 }
-                this.f2765a.f2764a.remove(aVar.f36098a);
+                this.f2823a.f2822a.remove(aVar.f36204a);
             }
         }
     }
@@ -86,7 +86,7 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f2766a;
+        public final /* synthetic */ a f2824a;
 
         public b(a aVar) {
             Interceptable interceptable = $ic;
@@ -103,7 +103,7 @@ public class a {
                     return;
                 }
             }
-            this.f2766a = aVar;
+            this.f2824a = aVar;
         }
 
         @Override // c.a.e.c.g.b
@@ -119,12 +119,12 @@ public class a {
                     return false;
                 }
                 if (!PluginCenter.getInstance().hasInstance(g2)) {
-                    this.f2766a.c(g2, message);
-                    return PluginCenter.getInstance().launch(g2).f36086a;
+                    this.f2824a.c(g2, message);
+                    return PluginCenter.getInstance().launch(g2).f36192a;
                 } else if (PluginCenter.getInstance().isLoaded(g2)) {
                     return false;
                 } else {
-                    this.f2766a.c(g2, message);
+                    this.f2824a.c(g2, message);
                     return true;
                 }
             }
@@ -160,21 +160,21 @@ public class a {
                 return;
             }
         }
-        this.f2764a = null;
+        this.f2822a = null;
     }
 
     public static a d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (f2763b == null) {
+            if (f2821b == null) {
                 synchronized (a.class) {
-                    if (f2763b == null) {
-                        f2763b = new a();
+                    if (f2821b == null) {
+                        f2821b = new a();
                     }
                 }
             }
-            return f2763b;
+            return f2821b;
         }
         return (a) invokeV.objValue;
     }
@@ -184,10 +184,10 @@ public class a {
         if (!(interceptable == null || interceptable.invokeLL(1048576, this, str, message) == null) || TextUtils.isEmpty(str) || message == null) {
             return;
         }
-        ArrayList<Message<?>> arrayList = this.f2764a.get(str);
+        ArrayList<Message<?>> arrayList = this.f2822a.get(str);
         if (arrayList == null) {
             arrayList = new ArrayList<>();
-            this.f2764a.put(str, arrayList);
+            this.f2822a.put(str, arrayList);
         }
         arrayList.add(message);
     }
@@ -195,7 +195,7 @@ public class a {
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f2764a = new HashMap<>();
+            this.f2822a = new HashMap<>();
             f();
             g();
         }
@@ -211,7 +211,7 @@ public class a {
     public final void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            MessageManager.getInstance().registerListener(2000997, new C0053a(this, 0));
+            MessageManager.getInstance().registerListener(2000997, new C0043a(this, 0));
         }
     }
 }

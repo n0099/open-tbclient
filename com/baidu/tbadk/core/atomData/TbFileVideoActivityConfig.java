@@ -13,6 +13,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.Serializable;
 /* loaded from: classes6.dex */
 public class TbFileVideoActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
@@ -54,7 +55,7 @@ public class TbFileVideoActivityConfig extends IntentConfig {
     public void setFilter(QmFilterItem qmFilterItem) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, qmFilterItem) == null) {
-            getIntent().putExtra(FILTER_NAME, qmFilterItem);
+            getIntent().putExtra(FILTER_NAME, (Serializable) qmFilterItem);
         }
     }
 

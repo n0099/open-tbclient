@@ -12,13 +12,13 @@ public class PoiDetailSearchOption {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f41594a;
+    public String f41701a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f41595b;
+    public String f41702b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f41596c;
+    public boolean f41703c;
 
     public PoiDetailSearchOption() {
         Interceptable interceptable = $ic;
@@ -33,35 +33,35 @@ public class PoiDetailSearchOption {
                 return;
             }
         }
-        this.f41594a = "";
-        this.f41595b = "";
-        this.f41596c = false;
+        this.f41701a = "";
+        this.f41702b = "";
+        this.f41703c = false;
     }
 
     public String getUid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f41594a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f41701a : (String) invokeV.objValue;
     }
 
     public String getUids() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f41595b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f41702b : (String) invokeV.objValue;
     }
 
     public boolean isSearchByUids() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f41596c : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f41703c : invokeV.booleanValue;
     }
 
     public PoiDetailSearchOption poiUid(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            this.f41596c = false;
-            this.f41594a = str;
+            this.f41703c = false;
+            this.f41701a = str;
             return this;
         }
         return (PoiDetailSearchOption) invokeL.objValue;
@@ -71,8 +71,8 @@ public class PoiDetailSearchOption {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            this.f41596c = true;
-            this.f41595b = str;
+            this.f41703c = true;
+            this.f41702b = str;
             return this;
         }
         return (PoiDetailSearchOption) invokeL.objValue;

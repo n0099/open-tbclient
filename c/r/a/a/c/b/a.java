@@ -20,7 +20,7 @@ public final class a {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f35332a = "";
+    public static String f35438a = "";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -43,22 +43,22 @@ public final class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
             synchronized (a.class) {
-                if (TextUtils.isEmpty(f35332a)) {
+                if (TextUtils.isEmpty(f35438a)) {
                     String str = new String(Base64.decode("YW5kcm9pZF9pZA==", 0));
                     String c2 = c(context, str);
-                    f35332a = c2;
+                    f35438a = c2;
                     if (TextUtils.isEmpty(c2)) {
                         String b2 = b(context, str);
-                        f35332a = b2;
+                        f35438a = b2;
                         if (TextUtils.isEmpty(b2)) {
                             String string = Settings.Secure.getString(context.getContentResolver(), str);
-                            f35332a = string;
+                            f35438a = string;
                             return string;
                         }
                     }
-                    return f35332a;
+                    return f35438a;
                 }
-                return f35332a;
+                return f35438a;
             }
         }
         return (String) invokeL.objValue;

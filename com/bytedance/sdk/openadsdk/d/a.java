@@ -21,15 +21,15 @@ public abstract class a {
 
     /* renamed from: com.bytedance.sdk.openadsdk.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes9.dex */
-    public class CallableC1910a implements Callable<Void> {
+    public class CallableC1914a implements Callable<Void> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f67123a;
+        public final /* synthetic */ a f67323a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final File f67124b;
+        public final File f67324b;
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.concurrent.Callable
@@ -38,13 +38,13 @@ public abstract class a {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                this.f67123a.b(this.f67124b);
+                this.f67323a.b(this.f67324b);
                 return null;
             }
             return (Void) invokeV.objValue;
         }
 
-        public CallableC1910a(a aVar, File file) {
+        public CallableC1914a(a aVar, File file) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -59,8 +59,8 @@ public abstract class a {
                     return;
                 }
             }
-            this.f67123a = aVar;
-            this.f67124b = file;
+            this.f67323a = aVar;
+            this.f67324b = file;
         }
     }
 
@@ -102,16 +102,16 @@ public abstract class a {
     public void a(File file) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, file) == null) {
-            com.bytedance.sdk.component.d.f fVar = new com.bytedance.sdk.component.d.f(new CallableC1910a(file), 1, 2);
+            com.bytedance.sdk.component.d.f fVar = new com.bytedance.sdk.component.d.f(new CallableC1914a(file), 1, 2);
             e.a(new g(this, "touch", fVar.a(), fVar) { // from class: com.bytedance.sdk.openadsdk.d.a.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ com.bytedance.sdk.component.d.f f67121a;
+                public final /* synthetic */ com.bytedance.sdk.component.d.f f67321a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ a f67122b;
+                public final /* synthetic */ a f67322b;
 
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                 {
@@ -132,15 +132,15 @@ public abstract class a {
                             return;
                         }
                     }
-                    this.f67122b = this;
-                    this.f67121a = fVar;
+                    this.f67322b = this;
+                    this.f67321a = fVar;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f67121a.run();
+                        this.f67321a.run();
                     }
                 }
             });

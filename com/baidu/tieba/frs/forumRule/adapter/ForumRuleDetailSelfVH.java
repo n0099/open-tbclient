@@ -8,7 +8,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
 import c.a.e.e.p.l;
-import c.a.o0.s.u.c;
+import c.a.p0.s.u.c;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.common.others.lang.StringUtil;
@@ -36,10 +36,10 @@ public class ForumRuleDetailSelfVH extends TypeAdapter.ViewHolder {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public View f50854a;
+    public View f50962a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f50855b;
+    public final int f50963b;
     public TextView mBjhAuthorAuth;
     public EMTextView mCheckStatus;
     public TBSpecificationBtn mEditStatusBtn;
@@ -70,8 +70,8 @@ public class ForumRuleDetailSelfVH extends TypeAdapter.ViewHolder {
                 return;
             }
         }
-        this.f50855b = l.g(TbadkCoreApplication.getInst(), R.dimen.tbds6);
-        this.f50854a = view;
+        this.f50963b = l.g(TbadkCoreApplication.getInst(), R.dimen.tbds6);
+        this.f50962a = view;
         initView(view);
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
@@ -139,18 +139,18 @@ public class ForumRuleDetailSelfVH extends TypeAdapter.ViewHolder {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
             c d2 = c.d(this.mUserName);
-            d2.y(R.string.F_X01);
-            d2.t(R.color.CAM_X0105);
+            d2.z(R.string.F_X01);
+            d2.u(R.color.CAM_X0105);
             c d3 = c.d(this.mTime);
-            d3.y(R.string.F_X01);
-            d3.t(R.color.CAM_X0109);
+            d3.z(R.string.F_X01);
+            d3.u(R.color.CAM_X0109);
             c d4 = c.d(this.mCheckStatus);
-            d4.y(R.string.F_X01);
-            d4.t(R.color.CAM_X0107);
-            c.d(this.mPreface).t(R.color.CAM_X0105);
+            d4.z(R.string.F_X01);
+            d4.u(R.color.CAM_X0107);
+            c.d(this.mPreface).u(R.color.CAM_X0105);
             c d5 = c.d(this.mPrefaceTitle);
-            d5.y(R.string.F_X02);
-            d5.t(R.color.CAM_X0105);
+            d5.z(R.string.F_X02);
+            d5.u(R.color.CAM_X0105);
             SkinManager.setViewTextColor(this.mBjhAuthorAuth, R.color.CAM_X0109);
             if (i2 != 1 && i2 != 4) {
                 this.mHeadView.setIsNight(false);
@@ -189,9 +189,9 @@ public class ForumRuleDetailSelfVH extends TypeAdapter.ViewHolder {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
             if ("manager".equals(str) || PushDialogActivity.HomeWatcherReceiver.SYSTEM_DIALOG_REASON_ASSIST.equals(str)) {
-                DrawableSelector radius = DrawableSelector.make().setShape(0).radius(this.f50855b);
+                DrawableSelector radius = DrawableSelector.make().setShape(0).radius(this.f50963b);
                 int i2 = R.color.CAM_X0303;
-                LayerDrawable layerDrawable = new LayerDrawable(new Drawable[]{radius.gradientLinear(DrawableSelector.TL_BR, i2, i2).build(), DrawableSelector.make().setShape(0).radius(this.f50855b).defaultColor("#4D000000").build()});
+                LayerDrawable layerDrawable = new LayerDrawable(new Drawable[]{radius.gradientLinear(DrawableSelector.TL_BR, i2, i2).build(), DrawableSelector.make().setShape(0).radius(this.f50963b).defaultColor("#4D000000").build()});
                 if (TbadkCoreApplication.getInst().getSkinType() == 1) {
                     if (layerDrawable.getDrawable(1) != null) {
                         layerDrawable.getDrawable(1).setAlpha(255);

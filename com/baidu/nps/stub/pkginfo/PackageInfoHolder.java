@@ -2,8 +2,8 @@ package com.baidu.nps.stub.pkginfo;
 
 import android.app.Application;
 import android.content.pm.PackageInfo;
-import c.a.a0.i.c;
-import c.a.a0.i.e;
+import c.a.b0.i.c;
+import c.a.b0.i.e;
 import com.baidu.nps.stub.context.ContextHolderImpl;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;

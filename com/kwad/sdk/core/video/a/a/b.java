@@ -1,6 +1,7 @@
 package com.kwad.sdk.core.video.a.a;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.datacollector.growth.utils.GrowthConstant;
 import com.baidu.searchbox.live.interfaces.DI;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -58,9 +59,9 @@ public class b extends com.kwad.sdk.core.network.b {
             a("SDKVersionCode", 3031100);
             b("sdkApiVersion", KsAdSDKImpl.get().getApiVersion());
             a("sdkApiVersionCode", KsAdSDKImpl.get().getApiVersionCode());
-            a("sdkType", d.f72343a);
+            a("sdkType", d.f72543a);
             a(DI.APP_INFO_NAME, com.kwad.sdk.core.g.a.b.a());
-            a("deviceInfo", com.kwad.sdk.core.g.a.d.a(false));
+            a(GrowthConstant.UBC_VALUE_TYPE_DEVICE_INFO, com.kwad.sdk.core.g.a.d.a(false));
             a("networkInfo", i.a());
             a("geoInfo", e.a());
         }

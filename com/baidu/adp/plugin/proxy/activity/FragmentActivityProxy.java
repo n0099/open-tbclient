@@ -46,7 +46,7 @@ import c.a.e.a.i;
 import c.a.e.h.d;
 import c.a.e.h.f.b;
 import c.a.e.h.k.d;
-import c.a.e.k.e.q;
+import c.a.e.l.e.q;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.util.BdLog;
@@ -2351,13 +2351,13 @@ public class FragmentActivityProxy extends FragmentActivity implements b, i, Han
         if (interceptable == null || (invokeL = interceptable.invokeL(1048798, this, intent)) == null) {
             String stringExtra = intent.getStringExtra(Plugin.INTENT_EXTRA_SERVICE);
             d.a c2 = stringExtra != null ? c.a.e.h.d.a().c(stringExtra) : null;
-            if (c2 != null && c2.f2716a != null) {
+            if (c2 != null && c2.f2774a != null) {
                 if (c.a.e.h.d.a().b() == 1) {
                     c.a.e.h.d.a().e(stringExtra);
-                    c2.f2716a.stopSelf();
+                    c2.f2774a.stopSelf();
                     return true;
                 }
-                c2.f2716a.onDestroy();
+                c2.f2774a.onDestroy();
                 c.a.e.h.d.a().e(stringExtra);
                 return true;
             }

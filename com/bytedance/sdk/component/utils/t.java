@@ -15,10 +15,10 @@ public final class t {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f64877a;
+    public static String f65077a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Resources f64878b;
+    public static Resources f65078b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -40,10 +40,10 @@ public final class t {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            if (f64877a == null) {
-                f64877a = context.getPackageName();
+            if (f65077a == null) {
+                f65077a = context.getPackageName();
             }
-            return f64877a;
+            return f65077a;
         }
         return (String) invokeL.objValue;
     }
@@ -118,10 +118,10 @@ public final class t {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, context, str, str2)) == null) {
-            if (f64878b == null) {
-                f64878b = context.getResources();
+            if (f65078b == null) {
+                f65078b = context.getResources();
             }
-            return f64878b.getIdentifier(str, str2, a(context));
+            return f65078b.getIdentifier(str, str2, a(context));
         }
         return invokeLLL.intValue;
     }

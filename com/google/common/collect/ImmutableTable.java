@@ -98,13 +98,13 @@ public abstract class ImmutableTable<R, C, V> extends i<R, C, V> implements Seri
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final List<k1.a<R, C, V>> f70158a;
+        public final List<k1.a<R, C, V>> f70358a;
 
         /* renamed from: b  reason: collision with root package name */
-        public Comparator<? super R> f70159b;
+        public Comparator<? super R> f70359b;
 
         /* renamed from: c  reason: collision with root package name */
-        public Comparator<? super C> f70160c;
+        public Comparator<? super C> f70360c;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -119,19 +119,19 @@ public abstract class ImmutableTable<R, C, V> extends i<R, C, V> implements Seri
                     return;
                 }
             }
-            this.f70158a = Lists.i();
+            this.f70358a = Lists.i();
         }
 
         public ImmutableTable<R, C, V> a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                int size = this.f70158a.size();
+                int size = this.f70358a.size();
                 if (size != 0) {
                     if (size != 1) {
-                        return RegularImmutableTable.forCells(this.f70158a, this.f70159b, this.f70160c);
+                        return RegularImmutableTable.forCells(this.f70358a, this.f70359b, this.f70360c);
                     }
-                    return new SingletonImmutableTable((k1.a) o0.i(this.f70158a));
+                    return new SingletonImmutableTable((k1.a) o0.i(this.f70358a));
                 }
                 return ImmutableTable.of();
             }
@@ -146,7 +146,7 @@ public abstract class ImmutableTable<R, C, V> extends i<R, C, V> implements Seri
                     n.q(aVar.getRowKey(), "row");
                     n.q(aVar.getColumnKey(), "column");
                     n.q(aVar.getValue(), "value");
-                    this.f70158a.add(aVar);
+                    this.f70358a.add(aVar);
                 } else {
                     c(aVar.getRowKey(), aVar.getColumnKey(), aVar.getValue());
                 }
@@ -159,7 +159,7 @@ public abstract class ImmutableTable<R, C, V> extends i<R, C, V> implements Seri
             InterceptResult invokeLLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, r, c2, v)) == null) {
-                this.f70158a.add(ImmutableTable.cellOf(r, c2, v));
+                this.f70358a.add(ImmutableTable.cellOf(r, c2, v));
                 return this;
             }
             return (a) invokeLLL.objValue;

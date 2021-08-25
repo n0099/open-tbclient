@@ -3,6 +3,7 @@ package com.kwad.sdk.utils;
 import android.content.Context;
 import android.text.TextUtils;
 import com.baidu.mobads.container.util.EncryptUtils;
+import com.baidu.searchbox.datacollector.growth.utils.GrowthConstant;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -18,13 +19,13 @@ public class m {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f73594a = "";
+    public static String f73794a = "";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f73595b = "";
+    public static String f73795b = "";
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f73596c = "";
+    public static String f73796c = "";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -68,16 +69,16 @@ public class m {
                 return "";
             }
             if (i2 == 0) {
-                str = f73594a;
-                str2 = "aes_key";
+                str = f73794a;
+                str2 = GrowthConstant.UBC_KEY_AES_KEY;
             } else if (i2 == 1) {
-                str = f73595b;
+                str = f73795b;
                 str2 = "rsa_public_key";
             } else if (i2 != 2) {
                 str = "";
                 str2 = str;
             } else {
-                str = f73596c;
+                str = f73796c;
                 str2 = "rsa_private_key";
             }
             if (TextUtils.isEmpty(str)) {
@@ -94,11 +95,11 @@ public class m {
                         com.kwad.sdk.core.d.a.e(EncryptUtils.TAG, "EncryptUtils getKey get encryptedKey is invalid ");
                     }
                     if (i2 == 0) {
-                        f73594a = a2;
+                        f73794a = a2;
                     } else if (i2 == 1) {
-                        f73595b = a2;
+                        f73795b = a2;
                     } else if (i2 == 2) {
-                        f73596c = a2;
+                        f73796c = a2;
                     }
                     return a2;
                 }

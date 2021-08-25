@@ -15,16 +15,16 @@ public class d<T> implements c.a.r.c<T> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public volatile boolean f29237a;
+    public volatile boolean f29519a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final CountDownLatch f29238b;
+    public final CountDownLatch f29520b;
 
     /* renamed from: c  reason: collision with root package name */
-    public b<T> f29239c;
+    public b<T> f29521c;
 
     /* renamed from: d  reason: collision with root package name */
-    public a f29240d;
+    public a f29522d;
 
     /* loaded from: classes4.dex */
     public static class a {
@@ -32,7 +32,7 @@ public class d<T> implements c.a.r.c<T> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public Bundle f29241a;
+        public Bundle f29523a;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -55,10 +55,10 @@ public class d<T> implements c.a.r.c<T> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public T f29242a;
+        public T f29524a;
 
         /* renamed from: b  reason: collision with root package name */
-        public Bundle f29243b;
+        public Bundle f29525b;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -88,16 +88,16 @@ public class d<T> implements c.a.r.c<T> {
                 return;
             }
         }
-        this.f29237a = false;
-        this.f29238b = new CountDownLatch(1);
-        this.f29239c = null;
-        this.f29240d = null;
+        this.f29519a = false;
+        this.f29520b = new CountDownLatch(1);
+        this.f29521c = null;
+        this.f29522d = null;
     }
 
     public b<T> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f29239c : (b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f29521c : (b) invokeV.objValue;
     }
 
     public boolean b(int i2) {
@@ -105,14 +105,14 @@ public class d<T> implements c.a.r.c<T> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
             try {
-                this.f29238b.await(i2, TimeUnit.MILLISECONDS);
-                if (this.f29240d == null) {
-                    this.f29240d = new a();
+                this.f29520b.await(i2, TimeUnit.MILLISECONDS);
+                if (this.f29522d == null) {
+                    this.f29522d = new a();
                 }
             } catch (InterruptedException e2) {
                 e2.printStackTrace();
             }
-            return this.f29237a;
+            return this.f29519a;
         }
         return invokeI.booleanValue;
     }
@@ -120,7 +120,7 @@ public class d<T> implements c.a.r.c<T> {
     public a c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f29240d : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f29522d : (a) invokeV.objValue;
     }
 
     @Override // c.a.r.c
@@ -128,10 +128,10 @@ public class d<T> implements c.a.r.c<T> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(1048579, this, i2, th, bundle) == null) {
             a aVar = new a();
-            this.f29240d = aVar;
-            aVar.f29241a = bundle;
-            this.f29237a = false;
-            this.f29238b.countDown();
+            this.f29522d = aVar;
+            aVar.f29523a = bundle;
+            this.f29519a = false;
+            this.f29520b.countDown();
         }
     }
 
@@ -140,11 +140,11 @@ public class d<T> implements c.a.r.c<T> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, t, bundle) == null) {
             b<T> bVar = new b<>();
-            this.f29239c = bVar;
-            bVar.f29242a = t;
-            bVar.f29243b = bundle;
-            this.f29237a = true;
-            this.f29238b.countDown();
+            this.f29521c = bVar;
+            bVar.f29524a = t;
+            bVar.f29525b = bundle;
+            this.f29519a = true;
+            this.f29520b.countDown();
         }
     }
 }

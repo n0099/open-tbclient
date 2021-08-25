@@ -9,31 +9,31 @@ public final class a {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f35610a = false;
+    public static final boolean f35716a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f35611b = "com.alipay.sdk";
+    public static final String f35717b = "com.alipay.sdk";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f35612c = "release";
+    public static final String f35718c = "release";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f35613d = "utdidSec";
+    public static final String f35719d = "utdidSec";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int f35614e = 1;
+    public static final int f35720e = 1;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f35615f = "15.7.7";
+    public static final String f35721f = "15.7.7";
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f35616g = "726a7a5-clean";
+    public static final String f35722g = "726a7a5-clean";
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f35617h = "15.7.7";
+    public static final String f35723h = "15.7.7";
 
     /* renamed from: i  reason: collision with root package name */
-    public static final String f35618i = "h.a.3.7.7";
+    public static final String f35724i = "h.a.3.7.7";
     public transient /* synthetic */ FieldHolder $fh;
 
     public a() {

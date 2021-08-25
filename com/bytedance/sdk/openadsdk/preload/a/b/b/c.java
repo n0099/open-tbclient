@@ -14,14 +14,14 @@ public final class c extends b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Class f68078a;
+    public static Class f68278a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Object f68079b;
+    public final Object f68279b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Field f68080c;
+    public final Field f68280c;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -36,8 +36,8 @@ public final class c extends b {
                 return;
             }
         }
-        this.f68079b = b();
-        this.f68080c = c();
+        this.f68279b = b();
+        this.f68280c = c();
     }
 
     public static Field c() {
@@ -70,9 +70,9 @@ public final class c extends b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, accessibleObject)) == null) {
-            if (this.f68079b != null && this.f68080c != null) {
+            if (this.f68279b != null && this.f68280c != null) {
                 try {
-                    f68078a.getMethod("putBoolean", Object.class, Long.TYPE, Boolean.TYPE).invoke(this.f68079b, accessibleObject, Long.valueOf(((Long) f68078a.getMethod("objectFieldOffset", Field.class).invoke(this.f68079b, this.f68080c)).longValue()), Boolean.TRUE);
+                    f68278a.getMethod("putBoolean", Object.class, Long.TYPE, Boolean.TYPE).invoke(this.f68279b, accessibleObject, Long.valueOf(((Long) f68278a.getMethod("objectFieldOffset", Field.class).invoke(this.f68279b, this.f68280c)).longValue()), Boolean.TRUE);
                     return true;
                 } catch (Exception unused) {
                 }
@@ -88,7 +88,7 @@ public final class c extends b {
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
             try {
                 Class<?> cls = Class.forName("sun.misc.Unsafe");
-                f68078a = cls;
+                f68278a = cls;
                 Field declaredField = cls.getDeclaredField("theUnsafe");
                 declaredField.setAccessible(true);
                 return declaredField.get(null);

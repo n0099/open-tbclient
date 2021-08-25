@@ -16,10 +16,10 @@ public class b implements a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static a f35998a;
+    public static a f36104a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static com.alipay.security.mobile.module.http.a f35999b;
+    public static com.alipay.security.mobile.module.http.a f36105b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -58,11 +58,11 @@ public class b implements a {
             if (context == null) {
                 return null;
             }
-            if (f35998a == null) {
-                f35999b = d.a(context, str);
-                f35998a = new b();
+            if (f36104a == null) {
+                f36105b = d.a(context, str);
+                f36104a = new b();
             }
-            return f35998a;
+            return f36104a;
         }
         return (a) invokeLL.objValue;
     }
@@ -71,13 +71,13 @@ public class b implements a {
     public c a(com.alipay.security.mobile.module.http.model.d dVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, dVar)) == null) ? com.alipay.security.mobile.module.http.model.b.a(f35999b.a(com.alipay.security.mobile.module.http.model.b.a(dVar))) : (c) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, dVar)) == null) ? com.alipay.security.mobile.module.http.model.b.a(f36105b.a(com.alipay.security.mobile.module.http.model.b.a(dVar))) : (c) invokeL.objValue;
     }
 
     @Override // com.alipay.security.mobile.module.http.v2.a
     public boolean a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? f35999b.a(str) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? f36105b.a(str) : invokeL.booleanValue;
     }
 }

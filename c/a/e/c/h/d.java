@@ -21,7 +21,7 @@ public class d extends c<SocketMessage, SocketMessageTask, k, SocketResponsedMes
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: i  reason: collision with root package name */
-    public g f2019i;
+    public g f2077i;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public d(MessageManager messageManager) {
@@ -41,36 +41,36 @@ public class d extends c<SocketMessage, SocketMessageTask, k, SocketResponsedMes
                 return;
             }
         }
-        this.f2019i = null;
-        this.f2019i = new g(messageManager);
-        this.f2016e = c.a.e.c.j.c.c();
+        this.f2077i = null;
+        this.f2077i = new g(messageManager);
+        this.f2074e = c.a.e.c.j.c.c();
     }
 
     @Override // c.a.e.c.b
     public LinkedList<SocketMessage> e(int i2, BdUniqueId bdUniqueId) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i2, bdUniqueId)) == null) ? this.f2019i.e(i2, bdUniqueId) : (LinkedList) invokeIL.objValue;
+        return (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i2, bdUniqueId)) == null) ? this.f2077i.e(i2, bdUniqueId) : (LinkedList) invokeIL.objValue;
     }
 
     @Override // c.a.e.c.b
     public void h(int i2, BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i2, bdUniqueId) == null) {
-            this.f2019i.h(i2, bdUniqueId);
+            this.f2077i.h(i2, bdUniqueId);
         }
     }
 
     public LinkedList<SocketMessage> v(BdUniqueId bdUniqueId) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, bdUniqueId)) == null) ? this.f2019i.n(bdUniqueId) : (LinkedList) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, bdUniqueId)) == null) ? this.f2077i.n(bdUniqueId) : (LinkedList) invokeL.objValue;
     }
 
     public g w() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f2019i : (g) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f2077i : (g) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -79,13 +79,13 @@ public class d extends c<SocketMessage, SocketMessageTask, k, SocketResponsedMes
     public SocketMessage l(SocketMessage socketMessage, SocketMessageTask socketMessageTask) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, socketMessage, socketMessageTask)) == null) ? this.f2012a.getController().m(socketMessage, socketMessageTask) : (SocketMessage) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, socketMessage, socketMessageTask)) == null) ? this.f2070a.getController().m(socketMessage, socketMessageTask) : (SocketMessage) invokeLL.objValue;
     }
 
     public void y(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, bdUniqueId) == null) {
-            this.f2019i.C(bdUniqueId);
+            this.f2077i.C(bdUniqueId);
         }
     }
 
@@ -95,7 +95,7 @@ public class d extends c<SocketMessage, SocketMessageTask, k, SocketResponsedMes
     public void f(SocketMessage socketMessage, SocketMessageTask socketMessageTask) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, socketMessage, socketMessageTask) == null) {
-            this.f2019i.f(socketMessage, socketMessageTask);
+            this.f2077i.f(socketMessage, socketMessageTask);
         }
     }
 }

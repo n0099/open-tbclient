@@ -36,7 +36,7 @@ public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static C1395c f29892a;
+    public static C1401c f30143a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes4.dex */
@@ -45,7 +45,7 @@ public class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d f29893a;
+        public final /* synthetic */ d f30144a;
 
         public a(d dVar) {
             Interceptable interceptable = $ic;
@@ -62,7 +62,7 @@ public class c {
                     return;
                 }
             }
-            this.f29893a = dVar;
+            this.f30144a = dVar;
         }
 
         @Override // okhttp3.Callback
@@ -73,7 +73,7 @@ public class c {
                 if (iOException instanceof SocketException) {
                     str = "HttpRequest SocketException :" + iOException.toString();
                 }
-                c.c(this.f29893a, 10003, str);
+                c.c(this.f30144a, 10003, str);
             }
         }
 
@@ -83,16 +83,16 @@ public class c {
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, call, response) == null) {
                 try {
                     if (response.code() != 200) {
-                        c.c(this.f29893a, response.code(), response.message());
+                        c.c(this.f30144a, response.code(), response.message());
                     } else if (response.body() == null) {
-                        c.c(this.f29893a, 10004, "response body empty");
+                        c.c(this.f30144a, 10004, "response body empty");
                     } else {
                         byte[] bytes = response.body().bytes();
                         c.a.u.a.h.e.b("HttpExecutor", "onSuccess errorCode ：" + response.code() + ", errorMsg :" + new String(bytes));
-                        this.f29893a.onSuccess(bytes);
+                        this.f30144a.onSuccess(bytes);
                     }
                 } catch (IOException e2) {
-                    d dVar = this.f29893a;
+                    d dVar = this.f30144a;
                     c.c(dVar, 10001, "parse response exception ：" + e2);
                 }
             }
@@ -114,11 +114,11 @@ public class c {
 
     /* renamed from: c.a.u.a.f.c$c  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public static class C1395c implements X509TrustManager {
+    public static class C1401c implements X509TrustManager {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public C1395c() {
+        public C1401c() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -153,7 +153,7 @@ public class c {
             return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? new X509Certificate[0] : (X509Certificate[]) invokeV.objValue;
         }
 
-        public /* synthetic */ C1395c(a aVar) {
+        public /* synthetic */ C1401c(a aVar) {
             this();
         }
     }
@@ -204,9 +204,9 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
             try {
-                f29892a = new C1395c(null);
+                f30143a = new C1401c(null);
                 SSLContext sSLContext = SSLContext.getInstance("TLS");
-                sSLContext.init(null, new TrustManager[]{f29892a}, new SecureRandom());
+                sSLContext.init(null, new TrustManager[]{f30143a}, new SecureRandom());
                 return sSLContext.getSocketFactory();
             } catch (Exception e2) {
                 e2.printStackTrace();
@@ -268,7 +268,7 @@ public class c {
                         build = build.newBuilder().headers(d2).build();
                         String str = headers.get("Host");
                         if (!TextUtils.isEmpty(str) && str.contains(IMHttpDnsUrlRequest.HTTP_DNS_HOST)) {
-                            build2 = build2.newBuilder().sslSocketFactory(b(), f29892a).hostnameVerifier(new e(null)).build();
+                            build2 = build2.newBuilder().sslSocketFactory(b(), f30143a).hostnameVerifier(new e(null)).build();
                         }
                     }
                     c.a.u.a.h.e.a("HttpExecutor", "request url :" + host + " , method :" + bVar.getMethod() + " , body :" + new String(bVar.getRequestParameter()));

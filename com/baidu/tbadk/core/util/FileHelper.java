@@ -1253,7 +1253,7 @@ public class FileHelper {
                 if (new File(str3).exists()) {
                     File file = new File(str3 + str2);
                     if (file.exists()) {
-                        return f.y(file);
+                        return f.x(file);
                     }
                     return null;
                 }
@@ -1742,27 +1742,27 @@ public class FileHelper {
 
     public static boolean isGifImage(String str) {
         InterceptResult invokeL;
-        InputStream y;
+        InputStream x;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65609, null, str)) == null) {
             if (StringUtils.isNull(str)) {
                 return false;
             }
             File file = new File(str);
-            if (file.exists() && !file.isDirectory() && (y = f.y(file)) != null) {
+            if (file.exists() && !file.isDirectory() && (x = f.x(file)) != null) {
                 try {
                     byte[] bArr = new byte[7];
-                    if (y.read(bArr, 0, 6) == 6) {
+                    if (x.read(bArr, 0, 6) == 6) {
                         boolean B = l.B(bArr);
-                        a.c(y);
+                        a.c(x);
                         return B;
                     }
                 } catch (IOException unused) {
                 } catch (Throwable th) {
-                    a.c(y);
+                    a.c(x);
                     throw th;
                 }
-                a.c(y);
+                a.c(x);
             }
             return false;
         }

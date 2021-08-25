@@ -8,27 +8,27 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static InterfaceC1466a f32063a;
+    public static InterfaceC1470a f32169a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c.f.a.g.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public interface InterfaceC1466a {
+    public interface InterfaceC1470a {
         void a(String str, String str2);
 
         boolean a(String str);
     }
 
-    public static InterfaceC1466a a() {
+    public static InterfaceC1470a a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? f32063a : (InterfaceC1466a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? f32169a : (InterfaceC1470a) invokeV.objValue;
     }
 
-    public static void b(InterfaceC1466a interfaceC1466a) {
+    public static void b(InterfaceC1470a interfaceC1470a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, interfaceC1466a) == null) {
-            f32063a = interfaceC1466a;
+        if (interceptable == null || interceptable.invokeL(65537, null, interfaceC1470a) == null) {
+            f32169a = interfaceC1470a;
         }
     }
 }

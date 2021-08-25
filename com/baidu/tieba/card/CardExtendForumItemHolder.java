@@ -3,8 +3,8 @@ package com.baidu.tieba.card;
 import android.annotation.SuppressLint;
 import android.view.View;
 import android.widget.TextView;
-import c.a.p0.a0.d0.g;
-import c.a.p0.g1.b.c;
+import c.a.q0.a0.d0.g;
+import c.a.q0.g1.b.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
@@ -24,10 +24,10 @@ public class CardExtendForumItemHolder extends ItemViewHolder {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public g f49697a;
+    public g f49805a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f49698b;
+    public int f49806b;
     public EntelechyUserLikeButton mAddLoveBtnTextView;
     public BarImageView mForumAvatarImageView;
     public TextView mForumNameTextView;
@@ -53,7 +53,7 @@ public class CardExtendForumItemHolder extends ItemViewHolder {
         this.mForumAvatarImageView = null;
         this.mForumNameTextView = null;
         this.mAddLoveBtnTextView = null;
-        this.f49698b = 3;
+        this.f49806b = 3;
     }
 
     @SuppressLint({"ResourceAsColor"})
@@ -72,18 +72,18 @@ public class CardExtendForumItemHolder extends ItemViewHolder {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar) == null) {
             if (cVar != null && (cVar instanceof g)) {
                 g gVar = (g) cVar;
-                this.f49697a = gVar;
-                this.mForumAvatarImageView.setTag(gVar.f14970b);
-                this.mForumAvatarImageView.setTag(R.id.tag_forum_name, this.f49697a.f14971c);
-                this.mForumAvatarImageView.startLoad(this.f49697a.f14970b, 15, false);
+                this.f49805a = gVar;
+                this.mForumAvatarImageView.setTag(gVar.f15256b);
+                this.mForumAvatarImageView.setTag(R.id.tag_forum_name, this.f49805a.f15257c);
+                this.mForumAvatarImageView.startLoad(this.f49805a.f15256b, 15, false);
                 TextView textView = this.mForumNameTextView;
-                textView.setText(StringHelper.getFixedText(this.f49697a.f14971c, 4, true) + getView().getContext().getResources().getString(R.string.forum));
-                this.mForumNameTextView.setTag(R.id.tag_forum_name, this.f49697a.f14971c);
-                this.mAddLoveBtnTextView.setTag(R.id.tag_forum_id, Long.valueOf(this.f49697a.f14972d));
-                this.mAddLoveBtnTextView.setTag(R.id.tag_forum_name, this.f49697a.f14971c);
-                getView().setTag(R.id.tag_forum_id, Long.valueOf(this.f49697a.f14972d));
-                getView().setTag(R.id.tag_forum_name, this.f49697a.f14971c);
-                a(this.mAddLoveBtnTextView, this.f49697a.f14973e);
+                textView.setText(StringHelper.getFixedText(this.f49805a.f15257c, 4, true) + getView().getContext().getResources().getString(R.string.forum));
+                this.mForumNameTextView.setTag(R.id.tag_forum_name, this.f49805a.f15257c);
+                this.mAddLoveBtnTextView.setTag(R.id.tag_forum_id, Long.valueOf(this.f49805a.f15258d));
+                this.mAddLoveBtnTextView.setTag(R.id.tag_forum_name, this.f49805a.f15257c);
+                getView().setTag(R.id.tag_forum_id, Long.valueOf(this.f49805a.f15258d));
+                getView().setTag(R.id.tag_forum_name, this.f49805a.f15257c);
+                a(this.mAddLoveBtnTextView, this.f49805a.f15259e);
                 this.mForumAvatarImageView.setOnClickListener(this.onClickListener);
                 this.mAddLoveBtnTextView.setOnClickListener(this.onClickListener);
                 this.mForumNameTextView.setOnClickListener(this.onClickListener);
@@ -114,12 +114,12 @@ public class CardExtendForumItemHolder extends ItemViewHolder {
     public void onChangeSkinType(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            if (this.f49698b != i2) {
+            if (this.f49806b != i2) {
                 SkinManager.setBackgroundColor(getView(), R.color.CAM_X0201);
                 SkinManager.setViewTextColor(this.mForumNameTextView, R.color.CAM_X0105);
-                a(this.mAddLoveBtnTextView, this.f49697a.f14973e);
+                a(this.mAddLoveBtnTextView, this.f49805a.f15259e);
             }
-            this.f49698b = i2;
+            this.f49806b = i2;
         }
     }
 }

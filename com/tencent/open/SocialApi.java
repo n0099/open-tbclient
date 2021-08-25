@@ -15,7 +15,7 @@ public class SocialApi {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public SocialApiIml f75886a;
+    public SocialApiIml f76087a;
 
     public SocialApi(QQToken qQToken) {
         Interceptable interceptable = $ic;
@@ -32,34 +32,34 @@ public class SocialApi {
                 return;
             }
         }
-        this.f75886a = new SocialApiIml(qQToken);
+        this.f76087a = new SocialApiIml(qQToken);
     }
 
     public void ask(Activity activity, Bundle bundle, IUiListener iUiListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048576, this, activity, bundle, iUiListener) == null) {
-            this.f75886a.ask(activity, bundle, iUiListener);
+            this.f76087a.ask(activity, bundle, iUiListener);
         }
     }
 
     public void gift(Activity activity, Bundle bundle, IUiListener iUiListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, bundle, iUiListener) == null) {
-            this.f75886a.gift(activity, bundle, iUiListener);
+            this.f76087a.gift(activity, bundle, iUiListener);
         }
     }
 
     public void invite(Activity activity, Bundle bundle, IUiListener iUiListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, activity, bundle, iUiListener) == null) {
-            this.f75886a.invite(activity, bundle, iUiListener);
+            this.f76087a.invite(activity, bundle, iUiListener);
         }
     }
 
     public void story(Activity activity, Bundle bundle, IUiListener iUiListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048579, this, activity, bundle, iUiListener) == null) {
-            this.f75886a.story(activity, bundle, iUiListener);
+            this.f76087a.story(activity, bundle, iUiListener);
         }
     }
 }

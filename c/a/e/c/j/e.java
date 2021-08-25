@@ -13,7 +13,7 @@ public class e {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int[] f2036a;
+    public int[] f2094a;
 
     public e(int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
@@ -30,8 +30,8 @@ public class e {
                 return;
             }
         }
-        this.f2036a = null;
-        this.f2036a = r0;
+        this.f2094a = null;
+        this.f2094a = r0;
         int[] iArr = {i2, i3, i4};
     }
 
@@ -39,7 +39,7 @@ public class e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            int[] iArr = this.f2036a;
+            int[] iArr = this.f2094a;
             if (iArr == null || iArr.length != 1) {
                 return 0;
             }
@@ -52,7 +52,7 @@ public class e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            int[] iArr = this.f2036a;
+            int[] iArr = this.f2094a;
             if (iArr == null || iArr.length != 3) {
                 return 0;
             }
@@ -60,13 +60,13 @@ public class e {
             if (I != 1) {
                 if (I != 2) {
                     if (I != 3) {
-                        return this.f2036a[2];
+                        return this.f2094a[2];
                     }
-                    return this.f2036a[1];
+                    return this.f2094a[1];
                 }
-                return this.f2036a[0];
+                return this.f2094a[0];
             }
-            return this.f2036a[2];
+            return this.f2094a[2];
         }
         return invokeV.intValue;
     }

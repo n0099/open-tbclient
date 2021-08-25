@@ -34,22 +34,22 @@ public class MarioSDK {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public SurfaceHolder f44936a;
+        public SurfaceHolder f45043a;
 
         /* renamed from: b  reason: collision with root package name */
-        public GLSurfaceView.Renderer f44937b;
+        public GLSurfaceView.Renderer f45044b;
 
         /* renamed from: c  reason: collision with root package name */
-        public ArBridge.FirstFrameListener f44938c;
+        public ArBridge.FirstFrameListener f45045c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f44939d;
+        public int f45046d;
 
         /* renamed from: e  reason: collision with root package name */
-        public List<DebugConsole> f44940e;
+        public List<DebugConsole> f45047e;
 
         /* renamed from: f  reason: collision with root package name */
-        public Context f44941f;
+        public Context f45048f;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -64,7 +64,7 @@ public class MarioSDK {
                     return;
                 }
             }
-            this.f44940e = new ArrayList();
+            this.f45047e = new ArrayList();
         }
 
         public void f(DebugConsole debugConsole) {
@@ -72,40 +72,40 @@ public class MarioSDK {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, debugConsole) == null) || debugConsole == null) {
                 return;
             }
-            this.f44940e.add(debugConsole);
+            this.f45047e.add(debugConsole);
         }
 
         public List<DebugConsole> g() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f44940e : (List) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f45047e : (List) invokeV.objValue;
         }
 
         public void h(Context context) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
-                this.f44941f = context;
+                this.f45048f = context;
             }
         }
 
         public void i(ArBridge.FirstFrameListener firstFrameListener) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, firstFrameListener) == null) {
-                this.f44938c = firstFrameListener;
+                this.f45045c = firstFrameListener;
             }
         }
 
         public void j(GLSurfaceView.Renderer renderer) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048580, this, renderer) == null) {
-                this.f44937b = renderer;
+                this.f45044b = renderer;
             }
         }
 
         public void k(SurfaceHolder surfaceHolder) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048581, this, surfaceHolder) == null) {
-                this.f44936a = surfaceHolder;
+                this.f45043a = surfaceHolder;
             }
         }
     }
@@ -141,19 +141,19 @@ public class MarioSDK {
             if (aVar == null) {
                 return null;
             }
-            c.a.i0.a.a aVar2 = new c.a.i0.a.a();
-            if (aVar.f44936a != null) {
-                aVar2.q(aVar.f44936a);
+            c.a.j0.a.a aVar2 = new c.a.j0.a.a();
+            if (aVar.f45043a != null) {
+                aVar2.q(aVar.f45043a);
             }
-            if (aVar.f44938c != null) {
-                aVar2.setFirstFrameListener(aVar.f44938c);
+            if (aVar.f45045c != null) {
+                aVar2.setFirstFrameListener(aVar.f45045c);
             }
-            aVar2.setRenderMode(aVar.f44939d);
-            if (aVar.f44941f != null) {
-                aVar2.p(aVar.f44941f);
+            aVar2.setRenderMode(aVar.f45046d);
+            if (aVar.f45048f != null) {
+                aVar2.p(aVar.f45048f);
             }
-            if (aVar.f44937b != null) {
-                aVar2.setRenderer(aVar.f44937b);
+            if (aVar.f45044b != null) {
+                aVar2.setRenderer(aVar.f45044b);
             }
             if (aVar.g() != null) {
                 for (DebugConsole debugConsole : aVar.g()) {

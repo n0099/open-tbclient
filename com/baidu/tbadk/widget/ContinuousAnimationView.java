@@ -27,7 +27,7 @@ public class ContinuousAnimationView extends TBLottieAnimationView implements Bd
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ContinuousAnimationView f48267e;
+        public final /* synthetic */ ContinuousAnimationView f48376e;
 
         public a(ContinuousAnimationView continuousAnimationView) {
             Interceptable interceptable = $ic;
@@ -44,14 +44,14 @@ public class ContinuousAnimationView extends TBLottieAnimationView implements Bd
                     return;
                 }
             }
-            this.f48267e = continuousAnimationView;
+            this.f48376e = continuousAnimationView;
         }
 
         @Override // android.animation.Animator.AnimatorListener
         public void onAnimationCancel(Animator animator) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
-                this.f48267e.n();
+                this.f48376e.n();
             }
         }
 
@@ -59,12 +59,12 @@ public class ContinuousAnimationView extends TBLottieAnimationView implements Bd
         public void onAnimationEnd(Animator animator) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
-                this.f48267e.o();
-                if (this.f48267e.l) {
-                    this.f48267e.l = false;
+                this.f48376e.o();
+                if (this.f48376e.l) {
+                    this.f48376e.l = false;
                 }
-                this.f48267e.k = false;
-                this.f48267e.setFrame(0);
+                this.f48376e.k = false;
+                this.f48376e.setFrame(0);
             }
         }
 
@@ -72,10 +72,10 @@ public class ContinuousAnimationView extends TBLottieAnimationView implements Bd
         public void onAnimationRepeat(Animator animator) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animator) == null) {
-                this.f48267e.p();
-                if (this.f48267e.l) {
-                    this.f48267e.cancelAnimation();
-                    this.f48267e.l = false;
+                this.f48376e.p();
+                if (this.f48376e.l) {
+                    this.f48376e.cancelAnimation();
+                    this.f48376e.l = false;
                 }
             }
         }
@@ -84,8 +84,8 @@ public class ContinuousAnimationView extends TBLottieAnimationView implements Bd
         public void onAnimationStart(Animator animator) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, animator) == null) {
-                this.f48267e.q();
-                this.f48267e.k = true;
+                this.f48376e.q();
+                this.f48376e.k = true;
             }
         }
     }

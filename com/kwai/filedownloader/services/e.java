@@ -19,10 +19,10 @@ public class e extends b.a implements i {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final g f73965a;
+    public final g f74165a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final WeakReference<FileDownloadServiceProxy> f73966b;
+    public final WeakReference<FileDownloadServiceProxy> f74166b;
 
     /* loaded from: classes10.dex */
     public interface a {
@@ -46,8 +46,8 @@ public class e extends b.a implements i {
                 return;
             }
         }
-        this.f73966b = weakReference;
-        this.f73965a = gVar;
+        this.f74166b = weakReference;
+        this.f74165a = gVar;
     }
 
     @Override // com.kwai.filedownloader.services.i
@@ -64,7 +64,7 @@ public class e extends b.a implements i {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f73965a.a();
+            this.f74165a.a();
         }
     }
 
@@ -72,10 +72,10 @@ public class e extends b.a implements i {
     public void a(int i2, Notification notification) {
         WeakReference<FileDownloadServiceProxy> weakReference;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i2, notification) == null) || (weakReference = this.f73966b) == null || weakReference.get() == null) {
+        if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i2, notification) == null) || (weakReference = this.f74166b) == null || weakReference.get() == null) {
             return;
         }
-        this.f73966b.get().context.startForeground(i2, notification);
+        this.f74166b.get().context.startForeground(i2, notification);
     }
 
     @Override // com.kwai.filedownloader.services.i
@@ -97,7 +97,7 @@ public class e extends b.a implements i {
     public void a(String str, String str2, boolean z, int i2, int i3, int i4, boolean z2, com.kwai.filedownloader.d.b bVar, boolean z3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{str, str2, Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Boolean.valueOf(z2), bVar, Boolean.valueOf(z3)}) == null) {
-            this.f73965a.a(str, str2, z, i2, i3, i4, z2, bVar, z3);
+            this.f74165a.a(str, str2, z, i2, i3, i4, z2, bVar, z3);
         }
     }
 
@@ -105,24 +105,24 @@ public class e extends b.a implements i {
     public void a(boolean z) {
         WeakReference<FileDownloadServiceProxy> weakReference;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048582, this, z) == null) || (weakReference = this.f73966b) == null || weakReference.get() == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048582, this, z) == null) || (weakReference = this.f74166b) == null || weakReference.get() == null) {
             return;
         }
-        this.f73966b.get().context.stopForeground(z);
+        this.f74166b.get().context.stopForeground(z);
     }
 
     @Override // com.kwai.filedownloader.c.b
     public boolean a(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i2)) == null) ? this.f73965a.b(i2) : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i2)) == null) ? this.f74165a.b(i2) : invokeI.booleanValue;
     }
 
     @Override // com.kwai.filedownloader.c.b
     public boolean a(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, str2)) == null) ? this.f73965a.a(str, str2) : invokeLL.booleanValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, str2)) == null) ? this.f74165a.a(str, str2) : invokeLL.booleanValue;
     }
 
     @Override // com.kwai.filedownloader.c.b
@@ -136,28 +136,28 @@ public class e extends b.a implements i {
     public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f73965a.b() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f74165a.b() : invokeV.booleanValue;
     }
 
     @Override // com.kwai.filedownloader.c.b
     public boolean b(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048587, this, i2)) == null) ? this.f73965a.f(i2) : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048587, this, i2)) == null) ? this.f74165a.f(i2) : invokeI.booleanValue;
     }
 
     @Override // com.kwai.filedownloader.c.b
     public long c(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048588, this, i2)) == null) ? this.f73965a.c(i2) : invokeI.longValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048588, this, i2)) == null) ? this.f74165a.c(i2) : invokeI.longValue;
     }
 
     @Override // com.kwai.filedownloader.c.b
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            this.f73965a.c();
+            this.f74165a.c();
         }
     }
 
@@ -165,7 +165,7 @@ public class e extends b.a implements i {
     public long d(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048590, this, i2)) == null) ? this.f73965a.d(i2) : invokeI.longValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048590, this, i2)) == null) ? this.f74165a.d(i2) : invokeI.longValue;
     }
 
     @Override // com.kwai.filedownloader.services.i
@@ -180,13 +180,13 @@ public class e extends b.a implements i {
     public byte e(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048592, this, i2)) == null) ? this.f73965a.e(i2) : invokeI.byteValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048592, this, i2)) == null) ? this.f74165a.e(i2) : invokeI.byteValue;
     }
 
     @Override // com.kwai.filedownloader.c.b
     public boolean f(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048593, this, i2)) == null) ? this.f73965a.g(i2) : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048593, this, i2)) == null) ? this.f74165a.g(i2) : invokeI.booleanValue;
     }
 }

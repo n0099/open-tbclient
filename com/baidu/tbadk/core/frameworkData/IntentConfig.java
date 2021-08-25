@@ -17,8 +17,8 @@ import c.a.e.a.g;
 import c.a.e.a.j;
 import c.a.e.e.m.f;
 import c.a.e.h.j.g.d;
-import c.a.o0.h0.h;
-import c.a.o0.k0.c;
+import c.a.p0.h0.h;
+import c.a.p0.k0.c;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -83,6 +83,7 @@ public class IntentConfig extends OrmObject {
     public static final String KEY_CAN_SELECT_GIF = "can_select_gif";
     public static final String KEY_CAN_SELECT_ONLY_VIDEO = "can_select_only_video";
     public static final String KEY_CAN_SELECT_VIDEO = "can_select_video";
+    public static final String KEY_FORCE_INTERCEPT_STIME_STAT = "key_force_intercept_stime_stat";
     public static final String KEY_FROM_TYPE = "from_type";
     public static final String KEY_FROM_WRITE_TYPE = "from_write_type";
     public static final String KEY_IMAGE_CLIP_TYPE = "image_clip_type";
@@ -153,7 +154,7 @@ public class IntentConfig extends OrmObject {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ IntentConfig f47318e;
+        public final /* synthetic */ IntentConfig f47424e;
 
         public a(IntentConfig intentConfig) {
             Interceptable interceptable = $ic;
@@ -170,7 +171,7 @@ public class IntentConfig extends OrmObject {
                     return;
                 }
             }
-            this.f47318e = intentConfig;
+            this.f47424e = intentConfig;
         }
 
         @Override // android.content.ServiceConnection
@@ -179,17 +180,17 @@ public class IntentConfig extends OrmObject {
             if (!(interceptable == null || interceptable.invokeLL(1048576, this, componentName, iBinder) == null) || iBinder == null) {
                 return;
             }
-            this.f47318e.mReplyMessenger = new Messenger(iBinder);
-            if (this.f47318e.mReplyMessenger != null) {
+            this.f47424e.mReplyMessenger = new Messenger(iBinder);
+            if (this.f47424e.mReplyMessenger != null) {
                 Message obtain = Message.obtain();
                 Bundle bundle = new Bundle();
-                if (this.f47318e.mComponentClass != null) {
-                    bundle.putString(DealIntentService.KEY_CLASS, this.f47318e.mComponentClass.getName());
+                if (this.f47424e.mComponentClass != null) {
+                    bundle.putString(DealIntentService.KEY_CLASS, this.f47424e.mComponentClass.getName());
                 }
                 obtain.setData(bundle);
-                obtain.replyTo = this.f47318e.mClientMessenger;
+                obtain.replyTo = this.f47424e.mClientMessenger;
                 try {
-                    this.f47318e.mReplyMessenger.send(obtain);
+                    this.f47424e.mReplyMessenger.send(obtain);
                 } catch (RemoteException e2) {
                     e2.printStackTrace();
                 }
@@ -210,7 +211,7 @@ public class IntentConfig extends OrmObject {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ IntentConfig f47319a;
+        public final /* synthetic */ IntentConfig f47425a;
 
         public b(IntentConfig intentConfig) {
             Interceptable interceptable = $ic;
@@ -227,7 +228,7 @@ public class IntentConfig extends OrmObject {
                     return;
                 }
             }
-            this.f47319a = intentConfig;
+            this.f47425a = intentConfig;
         }
 
         public final boolean a(Message message) {
@@ -239,19 +240,19 @@ public class IntentConfig extends OrmObject {
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, message) == null) || this.f47319a.mContext == null) {
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, message) == null) || this.f47425a.mContext == null) {
                 return;
             }
             if (a(message)) {
-                if (this.f47319a.isForResult) {
-                    IntentConfig intentConfig = this.f47319a;
-                    intentConfig.startActivityForResult(intentConfig.mRequestCode, this.f47319a.mComponentClass);
+                if (this.f47425a.isForResult) {
+                    IntentConfig intentConfig = this.f47425a;
+                    intentConfig.startActivityForResult(intentConfig.mRequestCode, this.f47425a.mComponentClass);
                 } else {
-                    IntentConfig intentConfig2 = this.f47319a;
+                    IntentConfig intentConfig2 = this.f47425a;
                     intentConfig2.startActivity(intentConfig2.mComponentClass);
                 }
             }
-            f.e(this.f47319a.mContext, this.f47319a.mClientConnection);
+            f.e(this.f47425a.mContext, this.f47425a.mClientConnection);
         }
 
         public /* synthetic */ b(IntentConfig intentConfig, a aVar) {
@@ -305,7 +306,7 @@ public class IntentConfig extends OrmObject {
             return;
         }
         g<?> b2 = j.b(context);
-        c.a.o0.l0.b tbPageInfo = b2 instanceof c.a.o0.l0.a ? ((c.a.o0.l0.a) b2).getTbPageInfo() : null;
+        c.a.p0.l0.b tbPageInfo = b2 instanceof c.a.p0.l0.a ? ((c.a.p0.l0.a) b2).getTbPageInfo() : null;
         if (tbPageInfo != null) {
             this.mIntent.putExtra("tb_page_tag_source_trace", tbPageInfo.a());
         }
@@ -350,7 +351,7 @@ public class IntentConfig extends OrmObject {
             return;
         }
         g<?> b2 = j.b(this.mContext);
-        ArrayList<String> arrayList = b2 instanceof c.a.o0.m0.a ? (ArrayList) ((c.a.o0.m0.a) b2).getNextPageSourceKeyList() : null;
+        ArrayList<String> arrayList = b2 instanceof c.a.p0.m0.a ? (ArrayList) ((c.a.p0.m0.a) b2).getNextPageSourceKeyList() : null;
         if (ListUtils.isEmpty(arrayList)) {
             return;
         }
@@ -480,44 +481,53 @@ public class IntentConfig extends OrmObject {
         }
     }
 
+    public void setForceInterceptStimeStat(boolean z) {
+        Intent intent;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeZ(1048590, this, z) == null) || (intent = getIntent()) == null) {
+            return;
+        }
+        intent.putExtra(KEY_FORCE_INTERCEPT_STIME_STAT, z);
+    }
+
     public void setIntent(Intent intent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, intent) == null) {
+        if (interceptable == null || interceptable.invokeL(1048591, this, intent) == null) {
             this.mIntent = intent;
         }
     }
 
     public void setIntentAction(IntentAction intentAction) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, intentAction) == null) {
+        if (interceptable == null || interceptable.invokeL(1048592, this, intentAction) == null) {
             this.mIntentAction = intentAction;
         }
     }
 
     public void setRequestCode(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048592, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048593, this, i2) == null) {
             this.mRequestCode = i2;
         }
     }
 
     public void setServiceConnection(ServiceConnection serviceConnection) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048593, this, serviceConnection) == null) {
+        if (interceptable == null || interceptable.invokeL(1048594, this, serviceConnection) == null) {
             this.mServiceConnection = serviceConnection;
         }
     }
 
     public void setServiceConnectionFlags(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048594, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048595, this, i2) == null) {
             this.mServiceConnectionFlags = i2;
         }
     }
 
     public void start() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, this));
         }
     }
@@ -526,7 +536,7 @@ public class IntentConfig extends OrmObject {
         InterceptResult invokeL;
         Class<?> loadClass;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048596, this, cls)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048597, this, cls)) == null) {
             preJump();
             setComponentClass(cls);
             Class<?> cls2 = this.mComponentClass;
@@ -579,7 +589,7 @@ public class IntentConfig extends OrmObject {
 
     public void startActivityForRemote(Class<?> cls) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048597, this, cls) == null) {
+        if (interceptable == null || interceptable.invokeL(1048598, this, cls) == null) {
             setComponentClass(cls);
             Intent intent = new Intent();
             intent.setClass(this.mContext, RemoteActivityProxyService.class);
@@ -589,7 +599,7 @@ public class IntentConfig extends OrmObject {
 
     public void startActivityForResult(int i2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048598, this, i2) == null) && checkStartActivityInterval(this.mComponentClass)) {
+        if ((interceptable == null || interceptable.invokeI(1048599, this, i2) == null) && checkStartActivityInterval(this.mComponentClass)) {
             Context context = this.mContext;
             if (context instanceof Activity) {
                 ((Activity) context).startActivityForResult(this.mIntent, i2);
@@ -599,7 +609,7 @@ public class IntentConfig extends OrmObject {
 
     public void startActivityForResultForRemote(int i2, Class<?> cls) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048600, this, i2, cls) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048601, this, i2, cls) == null) {
             setRequestCode(i2);
             this.isForResult = true;
             setComponentClass(cls);
@@ -611,21 +621,21 @@ public class IntentConfig extends OrmObject {
 
     public void startService() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048601, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048602, this) == null) {
             this.mContext.startService(this.mIntent);
         }
     }
 
     public void stopService() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048603, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048604, this) == null) {
             this.mContext.stopService(this.mIntent);
         }
     }
 
     public void startService(Class<?> cls) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048602, this, cls) == null) {
+        if (interceptable == null || interceptable.invokeL(1048603, this, cls) == null) {
             setComponentClass(cls);
             if (this.mComponentClass == null || this.mContext == null) {
                 return;
@@ -662,7 +672,7 @@ public class IntentConfig extends OrmObject {
     public void startActivityForResult(int i2, Class<?> cls) {
         Class<?> loadClass;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048599, this, i2, cls) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048600, this, i2, cls) == null) {
             setComponentClass(cls);
             if (this.mComponentClass == null || this.mContext == null) {
                 return;

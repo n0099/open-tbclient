@@ -17,10 +17,10 @@ public final class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public File f35963a;
+    public File f36069a;
 
     /* renamed from: b  reason: collision with root package name */
-    public com.alipay.security.mobile.module.http.v2.a f35964b;
+    public com.alipay.security.mobile.module.http.v2.a f36070b;
 
     public b(String str, com.alipay.security.mobile.module.http.v2.a aVar) {
         Interceptable interceptable = $ic;
@@ -37,10 +37,10 @@ public final class b {
                 return;
             }
         }
-        this.f35963a = null;
-        this.f35964b = null;
-        this.f35963a = new File(str);
-        this.f35964b = aVar;
+        this.f36069a = null;
+        this.f36070b = null;
+        this.f36069a = new File(str);
+        this.f36070b = aVar;
     }
 
     public static String a(String str) {
@@ -64,12 +64,12 @@ public final class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
             synchronized (this) {
-                if (this.f35963a == null) {
+                if (this.f36069a == null) {
                     return;
                 }
-                if (this.f35963a.exists() && this.f35963a.isDirectory() && this.f35963a.list().length != 0) {
+                if (this.f36069a.exists() && this.f36069a.isDirectory() && this.f36069a.list().length != 0) {
                     ArrayList arrayList = new ArrayList();
-                    for (String str : this.f35963a.list()) {
+                    for (String str : this.f36069a.list()) {
                         arrayList.add(str);
                     }
                     Collections.sort(arrayList);
@@ -82,11 +82,11 @@ public final class b {
                         str2 = (String) arrayList.get(arrayList.size() - 2);
                         size--;
                     }
-                    if (!this.f35964b.a(a(com.alipay.security.mobile.module.a.b.a(this.f35963a.getAbsolutePath(), str2)))) {
+                    if (!this.f36070b.a(a(com.alipay.security.mobile.module.a.b.a(this.f36069a.getAbsolutePath(), str2)))) {
                         size--;
                     }
                     for (int i2 = 0; i2 < size; i2++) {
-                        new File(this.f35963a, (String) arrayList.get(i2)).delete();
+                        new File(this.f36069a, (String) arrayList.get(i2)).delete();
                     }
                 }
             }

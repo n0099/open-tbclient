@@ -38,7 +38,7 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            return e.f67752b + "/t_db/ttopensdk.db/";
+            return e.f67952b + "/t_db/ttopensdk.db/";
         }
         return (String) invokeV.objValue;
     }

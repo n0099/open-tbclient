@@ -1,8 +1,8 @@
 package com.baidu.tieba.im.message;
 
-import c.a.o0.s.r.a;
-import c.a.p0.j1.g.b;
-import c.a.p0.j1.g.c;
+import c.a.p0.s.r.a;
+import c.a.q0.j1.g.b;
+import c.a.q0.j1.g.c;
 import com.baidu.adp.framework.message.Message;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.websockt.TbSocketReponsedMessage;
@@ -57,8 +57,8 @@ public class ResponseOfficialBarMenuMessage extends TbSocketReponsedMessage {
         if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, bArr) == null) || (orginalMessage = getOrginalMessage()) == null || !(orginalMessage instanceof RequestOfficialBarMenuMessage) || getError() != 0 || (officialBarMenuDatas = getOfficialBarMenuDatas()) == null || !officialBarMenuDatas.c() || officialBarMenuDatas.a() == null || officialBarMenuDatas.a().size() <= 0) {
             return;
         }
-        String forum_id = ((RequestOfficialBarMenuMessage) orginalMessage).getForum_id();
-        TbSocketReponsedMessage.saveProtocolBufferDataToCache(a.f().d("tb.official_bar_menu"), OFFICIAL_BAR_MENU_KEY_PRE + forum_id, bArr);
+        a.f();
+        TbSocketReponsedMessage.saveProtocolBufferDataToCache(a.d("tb.official_bar_menu"), OFFICIAL_BAR_MENU_KEY_PRE + ((RequestOfficialBarMenuMessage) orginalMessage).getForum_id(), bArr);
     }
 
     /* JADX DEBUG: Method merged with bridge method */

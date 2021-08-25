@@ -23,10 +23,10 @@ public class SetPrivilegeHttpResponseMessage extends JsonHttpResponsedMessage {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f53971a;
+        public int f54113a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f53972b;
+        public String f54114b;
 
         public a(SetPrivilegeHttpResponseMessage setPrivilegeHttpResponseMessage) {
             Interceptable interceptable = $ic;
@@ -43,7 +43,7 @@ public class SetPrivilegeHttpResponseMessage extends JsonHttpResponsedMessage {
                     return;
                 }
             }
-            this.f53972b = null;
+            this.f54114b = null;
         }
 
         public void a(JSONObject jSONObject) throws Exception {
@@ -51,13 +51,13 @@ public class SetPrivilegeHttpResponseMessage extends JsonHttpResponsedMessage {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
                 return;
             }
-            this.f53971a = jSONObject.optInt("error_code");
+            this.f54113a = jSONObject.optInt("error_code");
             jSONObject.optString("error_msg");
-            this.f53972b = jSONObject.optString("field_text");
+            this.f54114b = jSONObject.optString("field_text");
             jSONObject.optString("left_button");
             jSONObject.optString("right_button");
-            if (this.f53971a == 0) {
-                StringUtils.isNull(this.f53972b);
+            if (this.f54113a == 0) {
+                StringUtils.isNull(this.f54114b);
             }
         }
     }

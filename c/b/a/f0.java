@@ -13,7 +13,7 @@ public class f0 {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, telephonyManager)) == null) {
-            if (h0.f31132b) {
+            if (h0.f31238b) {
                 h0.a("SensitiveUtils gDI c", null);
             }
             return telephonyManager.getDeviceId();

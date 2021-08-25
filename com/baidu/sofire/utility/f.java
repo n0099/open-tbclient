@@ -87,7 +87,7 @@ public final class f {
             try {
                 com.baidu.sofire.h.a a4 = com.baidu.sofire.h.a.a(context);
                 long currentTimeMillis = System.currentTimeMillis();
-                long j2 = a4.f45117a.getLong("pu_cl_fd", 0L);
+                long j2 = a4.f45224a.getLong("pu_cl_fd", 0L);
                 if (j2 == 0) {
                     j2 = System.currentTimeMillis();
                     a4.f();
@@ -101,10 +101,10 @@ public final class f {
                         hashMap.put("0", Integer.valueOf(a4.h()));
                         hashMap.put("1", Integer.valueOf(a4.i() + 1));
                     }
-                    a4.f45118b.putInt("mo_fa_pu_cl", 0);
-                    a4.f45118b.commit();
-                    a4.f45118b.putInt("wi_fa_pu_cl", 0);
-                    a4.f45118b.commit();
+                    a4.f45225b.putInt("mo_fa_pu_cl", 0);
+                    a4.f45225b.commit();
+                    a4.f45225b.putInt("wi_fa_pu_cl", 0);
+                    a4.f45225b.commit();
                     a4.f();
                     c.a(context, "1003112", (Map<String, Object>) hashMap, false);
                 } else if (c.e(context)) {

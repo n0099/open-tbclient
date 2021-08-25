@@ -15,10 +15,10 @@ public class k extends com.kwad.sdk.core.response.a.a implements com.kwad.sdk.co
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f71426a;
+    public int f71626a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f71427b;
+    public int f71627b;
 
     public k() {
         Interceptable interceptable = $ic;
@@ -33,8 +33,8 @@ public class k extends com.kwad.sdk.core.response.a.a implements com.kwad.sdk.co
                 return;
             }
         }
-        this.f71426a = -1;
-        this.f71427b = KsAdSDKImpl.get().isPersonalRecommend() ? 1 : 0;
+        this.f71626a = -1;
+        this.f71627b = KsAdSDKImpl.get().isPersonalRecommend() ? 1 : 0;
     }
 
     @Override // com.kwad.sdk.core.response.a.a
@@ -43,7 +43,7 @@ public class k extends com.kwad.sdk.core.response.a.a implements com.kwad.sdk.co
         if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
             super.afterParseJson(jSONObject);
             if (jSONObject != null) {
-                this.f71426a = jSONObject.optInt("dataFlowAutoStartSwitch", -1);
+                this.f71626a = jSONObject.optInt("dataFlowAutoStartSwitch", -1);
             }
         }
     }
@@ -52,7 +52,7 @@ public class k extends com.kwad.sdk.core.response.a.a implements com.kwad.sdk.co
     public void afterToJson(JSONObject jSONObject) {
         int i2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) || (i2 = this.f71426a) < 0) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) || (i2 = this.f71626a) < 0) {
             return;
         }
         q.a(jSONObject, "dataFlowAutoStartSwitch", i2);

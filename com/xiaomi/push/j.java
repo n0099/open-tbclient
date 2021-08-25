@@ -28,7 +28,7 @@ public final class j {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final String f77657a;
+        public final String f77858a;
 
         /* renamed from: a  reason: collision with other field name */
         public final boolean f816a;
@@ -48,14 +48,14 @@ public final class j {
                     return;
                 }
             }
-            this.f77657a = str;
+            this.f77858a = str;
             this.f816a = z;
         }
 
         public String a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f77657a : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f77858a : (String) invokeV.objValue;
         }
     }
 
@@ -65,7 +65,7 @@ public final class j {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final LinkedBlockingQueue<IBinder> f77658a;
+        public final LinkedBlockingQueue<IBinder> f77859a;
 
         /* renamed from: a  reason: collision with other field name */
         public boolean f817a;
@@ -84,7 +84,7 @@ public final class j {
                 }
             }
             this.f817a = false;
-            this.f77658a = new LinkedBlockingQueue<>(1);
+            this.f77859a = new LinkedBlockingQueue<>(1);
         }
 
         public /* synthetic */ b(k kVar) {
@@ -99,7 +99,7 @@ public final class j {
                     throw new IllegalStateException();
                 }
                 this.f817a = true;
-                return this.f77658a.poll(30000L, TimeUnit.MILLISECONDS);
+                return this.f77859a.poll(30000L, TimeUnit.MILLISECONDS);
             }
             return (IBinder) invokeV.objValue;
         }
@@ -109,7 +109,7 @@ public final class j {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, componentName, iBinder) == null) {
                 try {
-                    this.f77658a.put(iBinder);
+                    this.f77859a.put(iBinder);
                 } catch (InterruptedException unused) {
                 }
             }
@@ -129,7 +129,7 @@ public final class j {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public IBinder f77659a;
+        public IBinder f77860a;
 
         public c(IBinder iBinder) {
             Interceptable interceptable = $ic;
@@ -146,7 +146,7 @@ public final class j {
                     return;
                 }
             }
-            this.f77659a = iBinder;
+            this.f77860a = iBinder;
         }
 
         public String a() {
@@ -157,7 +157,7 @@ public final class j {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.google.android.gms.ads.identifier.internal.IAdvertisingIdService");
-                    this.f77659a.transact(1, obtain, obtain2, 0);
+                    this.f77860a.transact(1, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readString();
                 } finally {
@@ -172,7 +172,7 @@ public final class j {
         public IBinder asBinder() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f77659a : (IBinder) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f77860a : (IBinder) invokeV.objValue;
         }
     }
 

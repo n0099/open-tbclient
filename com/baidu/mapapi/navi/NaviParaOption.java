@@ -13,16 +13,16 @@ public class NaviParaOption {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public LatLng f41505a;
+    public LatLng f41612a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f41506b;
+    public String f41613b;
 
     /* renamed from: c  reason: collision with root package name */
-    public LatLng f41507c;
+    public LatLng f41614c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f41508d;
+    public String f41615d;
 
     public NaviParaOption() {
         Interceptable interceptable = $ic;
@@ -42,7 +42,7 @@ public class NaviParaOption {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            this.f41508d = str;
+            this.f41615d = str;
             return this;
         }
         return (NaviParaOption) invokeL.objValue;
@@ -52,7 +52,7 @@ public class NaviParaOption {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, latLng)) == null) {
-            this.f41507c = latLng;
+            this.f41614c = latLng;
             return this;
         }
         return (NaviParaOption) invokeL.objValue;
@@ -61,32 +61,32 @@ public class NaviParaOption {
     public String getEndName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f41508d : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f41615d : (String) invokeV.objValue;
     }
 
     public LatLng getEndPoint() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f41507c : (LatLng) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f41614c : (LatLng) invokeV.objValue;
     }
 
     public String getStartName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f41506b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f41613b : (String) invokeV.objValue;
     }
 
     public LatLng getStartPoint() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f41505a : (LatLng) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f41612a : (LatLng) invokeV.objValue;
     }
 
     public NaviParaOption startName(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
-            this.f41506b = str;
+            this.f41613b = str;
             return this;
         }
         return (NaviParaOption) invokeL.objValue;
@@ -96,7 +96,7 @@ public class NaviParaOption {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, latLng)) == null) {
-            this.f41505a = latLng;
+            this.f41612a = latLng;
             return this;
         }
         return (NaviParaOption) invokeL.objValue;

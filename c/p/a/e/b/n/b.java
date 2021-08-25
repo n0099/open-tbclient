@@ -19,19 +19,19 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f35160a;
+    public final String f35266a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final i f35161b;
+    public final i f35267b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final int f35162c;
+    public final int f35268c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f35163d;
+    public long f35269d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f35164e;
+    public long f35270e;
 
     public b(String str, i iVar) throws IOException {
         Interceptable interceptable = $ic;
@@ -48,47 +48,47 @@ public class b {
                 return;
             }
         }
-        this.f35160a = str;
-        this.f35162c = iVar.b();
-        this.f35161b = iVar;
+        this.f35266a = str;
+        this.f35268c = iVar.b();
+        this.f35267b = iVar;
     }
 
     public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? f.q0(this.f35162c) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? f.q0(this.f35268c) : invokeV.booleanValue;
     }
 
     public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? f.H(this.f35162c, this.f35161b.a(Util.ACCEPT_RANGES)) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? f.H(this.f35268c, this.f35267b.a(Util.ACCEPT_RANGES)) : invokeV.booleanValue;
     }
 
     public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f35161b.a(Util.ETAG) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f35267b.a(Util.ETAG) : (String) invokeV.objValue;
     }
 
     public String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f35161b.a("Content-Type") : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f35267b.a("Content-Type") : (String) invokeV.objValue;
     }
 
     public String e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? f.Y(this.f35161b, "Content-Range") : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? f.Y(this.f35267b, "Content-Range") : (String) invokeV.objValue;
     }
 
     public String f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            String Y = f.Y(this.f35161b, Headers.LAST_MODIFIED);
-            return TextUtils.isEmpty(Y) ? f.Y(this.f35161b, "Last-Modified") : Y;
+            String Y = f.Y(this.f35267b, Headers.LAST_MODIFIED);
+            return TextUtils.isEmpty(Y) ? f.Y(this.f35267b, "Last-Modified") : Y;
         }
         return (String) invokeV.objValue;
     }
@@ -96,17 +96,17 @@ public class b {
     public String g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? f.Y(this.f35161b, "Cache-Control") : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? f.Y(this.f35267b, "Cache-Control") : (String) invokeV.objValue;
     }
 
     public long h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            if (this.f35163d <= 0) {
-                this.f35163d = f.d(this.f35161b);
+            if (this.f35269d <= 0) {
+                this.f35269d = f.d(this.f35267b);
             }
-            return this.f35163d;
+            return this.f35269d;
         }
         return invokeV.longValue;
     }
@@ -116,7 +116,7 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             if (c.p.a.e.b.l.a.a(8)) {
-                return f.u0(this.f35161b);
+                return f.u0(this.f35267b);
             }
             return f.f0(h());
         }
@@ -127,17 +127,17 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            if (this.f35164e <= 0) {
+            if (this.f35270e <= 0) {
                 if (!i()) {
                     String e2 = e();
                     if (!TextUtils.isEmpty(e2)) {
-                        this.f35164e = f.V(e2);
+                        this.f35270e = f.V(e2);
                     }
                 } else {
-                    this.f35164e = -1L;
+                    this.f35270e = -1L;
                 }
             }
-            return this.f35164e;
+            return this.f35270e;
         }
         return invokeV.longValue;
     }

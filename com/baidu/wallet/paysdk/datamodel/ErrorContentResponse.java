@@ -227,7 +227,7 @@ public class ErrorContentResponse implements Serializable {
                         public transient /* synthetic */ FieldHolder $fh;
 
                         /* renamed from: a  reason: collision with root package name */
-                        public final /* synthetic */ Operations f62069a;
+                        public final /* synthetic */ Operations f62269a;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -244,7 +244,7 @@ public class ErrorContentResponse implements Serializable {
                                     return;
                                 }
                             }
-                            this.f62069a = this;
+                            this.f62269a = this;
                         }
 
                         /* JADX DEBUG: Method merged with bridge method */
@@ -252,7 +252,7 @@ public class ErrorContentResponse implements Serializable {
                         public void a(Operations operations, Context context) {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeLL(1048576, this, operations, context) == null) {
-                                StatHelper.statServiceEvent(PayStatServiceEvent.PAY_GUIDANCE_CICK, null, this.f62069a.type);
+                                StatHelper.statServiceEvent(PayStatServiceEvent.PAY_GUIDANCE_CICK, null, this.f62269a.type);
                             }
                         }
                     };
@@ -263,7 +263,7 @@ public class ErrorContentResponse implements Serializable {
                         public transient /* synthetic */ FieldHolder $fh;
 
                         /* renamed from: a  reason: collision with root package name */
-                        public final /* synthetic */ Operations f62070a;
+                        public final /* synthetic */ Operations f62270a;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -280,7 +280,7 @@ public class ErrorContentResponse implements Serializable {
                                     return;
                                 }
                             }
-                            this.f62070a = this;
+                            this.f62270a = this;
                         }
 
                         /* JADX DEBUG: Method merged with bridge method */
@@ -288,7 +288,7 @@ public class ErrorContentResponse implements Serializable {
                         public void a(Operations operations, Context context) {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeLL(1048576, this, operations, context) == null) {
-                                StatHelper.statServiceEvent(PayStatServiceEvent.PAY_GUIDANCE_CICK, null, this.f62070a.type);
+                                StatHelper.statServiceEvent(PayStatServiceEvent.PAY_GUIDANCE_CICK, null, this.f62270a.type);
                                 try {
                                     String str = operations.mobile;
                                     context.startActivity(new Intent("android.intent.action.DIAL", Uri.parse("tel:" + str)));
@@ -305,7 +305,7 @@ public class ErrorContentResponse implements Serializable {
                         public transient /* synthetic */ FieldHolder $fh;
 
                         /* renamed from: a  reason: collision with root package name */
-                        public final /* synthetic */ Operations f62071a;
+                        public final /* synthetic */ Operations f62271a;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -322,7 +322,7 @@ public class ErrorContentResponse implements Serializable {
                                     return;
                                 }
                             }
-                            this.f62071a = this;
+                            this.f62271a = this;
                         }
 
                         /* JADX DEBUG: Method merged with bridge method */
@@ -330,7 +330,7 @@ public class ErrorContentResponse implements Serializable {
                         public void a(Operations operations, Context context) {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeLL(1048576, this, operations, context) == null) {
-                                StatHelper.statServiceEvent(PayStatServiceEvent.PAY_GUIDANCE_CICK, null, this.f62071a.type);
+                                StatHelper.statServiceEvent(PayStatServiceEvent.PAY_GUIDANCE_CICK, null, this.f62271a.type);
                                 PayCallBackManager.callBackClientPaying(context);
                             }
                         }
@@ -342,7 +342,7 @@ public class ErrorContentResponse implements Serializable {
                         public transient /* synthetic */ FieldHolder $fh;
 
                         /* renamed from: a  reason: collision with root package name */
-                        public final /* synthetic */ Operations f62072a;
+                        public final /* synthetic */ Operations f62272a;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -359,7 +359,7 @@ public class ErrorContentResponse implements Serializable {
                                     return;
                                 }
                             }
-                            this.f62072a = this;
+                            this.f62272a = this;
                         }
 
                         /* JADX DEBUG: Method merged with bridge method */
@@ -367,22 +367,22 @@ public class ErrorContentResponse implements Serializable {
                         public void a(Operations operations, Context context) {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeLL(1048576, this, operations, context) == null) {
-                                StatHelper.statServiceEvent(PayStatServiceEvent.PAY_GUIDANCE_CICK, null, this.f62072a.type);
+                                StatHelper.statServiceEvent(PayStatServiceEvent.PAY_GUIDANCE_CICK, null, this.f62272a.type);
                                 if (context == null || operations == null || TextUtils.isEmpty(operations.jump_uri)) {
                                     return;
                                 }
-                                BaiduWalletDelegate.getInstance().openH5Module(context, this.f62072a.jump_uri, false);
-                                if ("1".equals(this.f62072a.need_close)) {
+                                BaiduWalletDelegate.getInstance().openH5Module(context, this.f62272a.jump_uri, false);
+                                if ("1".equals(this.f62272a.need_close)) {
                                     StatisticManager.onEvent("payTimeoutGuideToOrderDetail", PayDataCache.getInstance().getInsideTransOrder());
                                     new Handler().postDelayed(new Runnable(this, context) { // from class: com.baidu.wallet.paysdk.datamodel.ErrorContentResponse.Operations.4.1
                                         public static /* synthetic */ Interceptable $ic;
                                         public transient /* synthetic */ FieldHolder $fh;
 
                                         /* renamed from: a  reason: collision with root package name */
-                                        public final /* synthetic */ Context f62073a;
+                                        public final /* synthetic */ Context f62273a;
 
                                         /* renamed from: b  reason: collision with root package name */
-                                        public final /* synthetic */ AnonymousClass4 f62074b;
+                                        public final /* synthetic */ AnonymousClass4 f62274b;
 
                                         {
                                             Interceptable interceptable3 = $ic;
@@ -399,15 +399,15 @@ public class ErrorContentResponse implements Serializable {
                                                     return;
                                                 }
                                             }
-                                            this.f62074b = this;
-                                            this.f62073a = context;
+                                            this.f62274b = this;
+                                            this.f62273a = context;
                                         }
 
                                         @Override // java.lang.Runnable
                                         public void run() {
                                             Interceptable interceptable3 = $ic;
                                             if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
-                                                PayCallBackManager.callBackClientPaying(this.f62073a);
+                                                PayCallBackManager.callBackClientPaying(this.f62273a);
                                             }
                                         }
                                     }, 20L);
@@ -422,7 +422,7 @@ public class ErrorContentResponse implements Serializable {
                         public transient /* synthetic */ FieldHolder $fh;
 
                         /* renamed from: a  reason: collision with root package name */
-                        public final /* synthetic */ Operations f62075a;
+                        public final /* synthetic */ Operations f62275a;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -439,7 +439,7 @@ public class ErrorContentResponse implements Serializable {
                                     return;
                                 }
                             }
-                            this.f62075a = this;
+                            this.f62275a = this;
                         }
 
                         /* JADX DEBUG: Method merged with bridge method */
@@ -447,7 +447,7 @@ public class ErrorContentResponse implements Serializable {
                         public void a(Operations operations, Context context) {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeLL(1048576, this, operations, context) == null) {
-                                StatHelper.statServiceEvent(PayStatServiceEvent.PAY_GUIDANCE_CICK, null, this.f62075a.type);
+                                StatHelper.statServiceEvent(PayStatServiceEvent.PAY_GUIDANCE_CICK, null, this.f62275a.type);
                                 if (context instanceof PwdPayActivity) {
                                     ((PwdPayActivity) context).forgetPassword();
                                 } else if (context instanceof PwdCheckActivity) {

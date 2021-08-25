@@ -20,16 +20,16 @@ public class ChatImageWithTailView extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public ChatClipImageItemView f52724e;
+    public ChatClipImageItemView f52885e;
 
     /* renamed from: f  reason: collision with root package name */
-    public LinearLayout f52725f;
+    public LinearLayout f52886f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TbImageView f52726g;
+    public TbImageView f52887g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f52727h;
+    public TextView f52888h;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ChatImageWithTailView(Context context) {
@@ -55,25 +55,25 @@ public class ChatImageWithTailView extends LinearLayout {
     public TextView getFromSource() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f52727h : (TextView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f52888h : (TextView) invokeV.objValue;
     }
 
     public TbImageView getIcon() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f52726g : (TbImageView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f52887g : (TbImageView) invokeV.objValue;
     }
 
     public ChatClipImageItemView getImage() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f52724e : (ChatClipImageItemView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f52885e : (ChatClipImageItemView) invokeV.objValue;
     }
 
     public LinearLayout getTail() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f52725f : (LinearLayout) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f52886f : (LinearLayout) invokeV.objValue;
     }
 
     public void initUI(Context context) {
@@ -81,50 +81,50 @@ public class ChatImageWithTailView extends LinearLayout {
         if (interceptable == null || interceptable.invokeL(1048580, this, context) == null) {
             LayoutInflater.from(context).inflate(R.layout.chat_image_with_tail_item, this);
             ChatClipImageItemView chatClipImageItemView = (ChatClipImageItemView) findViewById(R.id.img_msgitem_image_new);
-            this.f52724e = chatClipImageItemView;
+            this.f52885e = chatClipImageItemView;
             chatClipImageItemView.setContentDescription(getContext().getString(R.string.editor_image));
-            this.f52724e.setDefaultResource(R.drawable.pic_image_h_not);
-            this.f52725f = (LinearLayout) findViewById(R.id.small_tail);
+            this.f52885e.setDefaultResource(R.drawable.pic_image_h_not);
+            this.f52886f = (LinearLayout) findViewById(R.id.small_tail);
             TbImageView tbImageView = (TbImageView) findViewById(R.id.tail_icon);
-            this.f52726g = tbImageView;
+            this.f52887g = tbImageView;
             tbImageView.setDefaultResource(R.drawable.tb_launcher_icon);
-            this.f52726g.setAutoChangeStyle(false);
-            this.f52727h = (TextView) findViewById(R.id.tail_game_from);
+            this.f52887g.setAutoChangeStyle(false);
+            this.f52888h = (TextView) findViewById(R.id.tail_game_from);
         }
     }
 
     public void setFromSource(TextView textView) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, textView) == null) {
-            this.f52727h = textView;
+            this.f52888h = textView;
         }
     }
 
     public void setIcon(TbImageView tbImageView) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, tbImageView) == null) {
-            this.f52726g = tbImageView;
+            this.f52887g = tbImageView;
         }
     }
 
     public void setImage(ChatClipImageItemView chatClipImageItemView) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, chatClipImageItemView) == null) {
-            this.f52724e = chatClipImageItemView;
+            this.f52885e = chatClipImageItemView;
         }
     }
 
     public void setIsSupportNight(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
-            this.f52726g.setAutoChangeStyle(z);
+            this.f52887g.setAutoChangeStyle(z);
         }
     }
 
     public void setTail(LinearLayout linearLayout) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, linearLayout) == null) {
-            this.f52725f = linearLayout;
+            this.f52886f = linearLayout;
         }
     }
 

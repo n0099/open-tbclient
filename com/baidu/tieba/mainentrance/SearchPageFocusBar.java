@@ -27,19 +27,19 @@ public class SearchPageFocusBar extends RelativeLayout implements View.OnClickLi
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public RelativeLayout f53773e;
+    public RelativeLayout f53915e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f53774f;
+    public TextView f53916f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TbPageContext<?> f53775g;
+    public TbPageContext<?> f53917g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Context f53776h;
+    public Context f53918h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f53777i;
+    public TextView f53919i;
 
     /* loaded from: classes7.dex */
     public class a implements View.OnClickListener {
@@ -47,10 +47,10 @@ public class SearchPageFocusBar extends RelativeLayout implements View.OnClickLi
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TbPageContext f53778e;
+        public final /* synthetic */ TbPageContext f53920e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ SearchPageFocusBar f53779f;
+        public final /* synthetic */ SearchPageFocusBar f53921f;
 
         public a(SearchPageFocusBar searchPageFocusBar, TbPageContext tbPageContext) {
             Interceptable interceptable = $ic;
@@ -67,15 +67,15 @@ public class SearchPageFocusBar extends RelativeLayout implements View.OnClickLi
                     return;
                 }
             }
-            this.f53779f = searchPageFocusBar;
-            this.f53778e = tbPageContext;
+            this.f53921f = searchPageFocusBar;
+            this.f53920e = tbPageContext;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f53778e.sendMessage(new CustomMessage(2015002, new MainTabActivityConfig(this.f53778e.getPageActivity()).createNormalCfg(1)));
+                this.f53920e.sendMessage(new CustomMessage(2015002, new MainTabActivityConfig(this.f53920e.getPageActivity()).createNormalCfg(1)));
             }
         }
     }
@@ -104,17 +104,17 @@ public class SearchPageFocusBar extends RelativeLayout implements View.OnClickLi
     public final void a(Context context, AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, context, attributeSet) == null) {
-            this.f53776h = context;
+            this.f53918h = context;
             LayoutInflater.from(context).inflate(R.layout.home_search_focusbar, this);
-            this.f53773e = (RelativeLayout) findViewById(R.id.focusbar_container);
+            this.f53915e = (RelativeLayout) findViewById(R.id.focusbar_container);
             TextView textView = (TextView) findViewById(R.id.focusbar_hint);
-            this.f53777i = textView;
+            this.f53919i = textView;
             SkinManager.setViewTextColor(textView, R.color.CAM_X0108, 1);
-            this.f53777i.setVisibility(8);
+            this.f53919i.setVisibility(8);
             TextView textView2 = (TextView) findViewById(R.id.focusbar_show);
-            this.f53774f = textView2;
+            this.f53916f = textView2;
             SkinManager.setViewTextColor(textView2, R.color.CAM_X0302, 1);
-            this.f53774f.setVisibility(8);
+            this.f53916f.setVisibility(8);
         }
     }
 
@@ -122,7 +122,7 @@ public class SearchPageFocusBar extends RelativeLayout implements View.OnClickLi
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i2) == null) {
             int dimension = i2 % 2 > 0 ? (int) getResources().getDimension(R.dimen.ds330) : 0;
-            TextView textView = (TextView) LayoutInflater.from(this.f53776h).inflate(R.layout.home_search_focusbar_item, (ViewGroup) null);
+            TextView textView = (TextView) LayoutInflater.from(this.f53918h).inflate(R.layout.home_search_focusbar_item, (ViewGroup) null);
             int dimension2 = (i2 / 2) * ((int) getResources().getDimension(R.dimen.ds110));
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams((int) getResources().getDimension(R.dimen.ds321), (int) getResources().getDimension(R.dimen.ds96));
             layoutParams.leftMargin = dimension;
@@ -132,17 +132,17 @@ public class SearchPageFocusBar extends RelativeLayout implements View.OnClickLi
             textView.setOnClickListener(this);
             SkinManager.setBackgroundResource(textView, R.drawable.home_like_item_bg);
             SkinManager.setViewTextColor(textView, R.color.CAM_X0105, 1);
-            this.f53773e.addView(textView);
+            this.f53915e.addView(textView);
         }
     }
 
     public void fillData(List<String> list, TbPageContext<?> tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, list, tbPageContext) == null) {
-            this.f53775g = tbPageContext;
-            this.f53773e.removeAllViews();
+            this.f53917g = tbPageContext;
+            this.f53915e.removeAllViews();
             if (list != null && list.size() > 0) {
-                this.f53777i.setVisibility(0);
+                this.f53919i.setVisibility(0);
                 for (int i2 = 0; i2 < list.size() && i2 <= 5; i2++) {
                     b(list.get(i2), i2);
                 }
@@ -150,8 +150,8 @@ public class SearchPageFocusBar extends RelativeLayout implements View.OnClickLi
             if (list == null || list.size() < 7) {
                 return;
             }
-            this.f53774f.setVisibility(0);
-            this.f53774f.setOnClickListener(new a(this, tbPageContext));
+            this.f53916f.setVisibility(0);
+            this.f53916f.setOnClickListener(new a(this, tbPageContext));
         }
     }
 
@@ -163,7 +163,7 @@ public class SearchPageFocusBar extends RelativeLayout implements View.OnClickLi
             if (StringUtils.isNull(charSequence)) {
                 return;
             }
-            this.f53775g.sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.f53775g.getPageActivity()).createNormalCfg(charSequence, FrsActivityConfig.FRS_FROM_SEARCH)));
+            this.f53917g.sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.f53917g.getPageActivity()).createNormalCfg(charSequence, FrsActivityConfig.FRS_FROM_SEARCH)));
         }
     }
 

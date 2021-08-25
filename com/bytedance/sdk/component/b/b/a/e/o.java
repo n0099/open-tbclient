@@ -11,7 +11,7 @@ public final class o extends IOException {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final b f64387a;
+    public final b f64587a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public o(b bVar) {
@@ -31,6 +31,6 @@ public final class o extends IOException {
                 return;
             }
         }
-        this.f64387a = bVar;
+        this.f64587a = bVar;
     }
 }

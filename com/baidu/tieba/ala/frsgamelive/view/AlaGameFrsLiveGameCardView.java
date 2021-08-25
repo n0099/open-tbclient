@@ -2,10 +2,10 @@ package com.baidu.tieba.ala.frsgamelive.view;
 
 import android.view.View;
 import android.view.ViewGroup;
-import c.a.o0.s.q.c2;
-import c.a.p0.a0.b;
-import c.a.p0.v.e.b.c;
-import c.a.p0.v.e.d.a;
+import c.a.p0.s.q.c2;
+import c.a.q0.a0.b;
+import c.a.q0.v.e.b.c;
+import c.a.q0.v.e.d.a;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
@@ -72,14 +72,14 @@ public class AlaGameFrsLiveGameCardView extends b<c> {
         p();
     }
 
-    @Override // c.a.p0.a0.b
+    @Override // c.a.q0.a0.b
     public int f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.ala_sub_list_game_live : invokeV.intValue;
     }
 
-    @Override // c.a.p0.a0.b
+    @Override // c.a.q0.a0.b
     public void l(TbPageContext<?> tbPageContext, int i2) {
         a aVar;
         Interceptable interceptable = $ic;
@@ -105,19 +105,19 @@ public class AlaGameFrsLiveGameCardView extends b<c> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // c.a.p0.a0.b
+    @Override // c.a.q0.a0.b
     /* renamed from: q */
     public void k(c cVar) {
         c2 c2Var;
         a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, cVar) == null) || cVar == null || (c2Var = cVar.f25138e) == null || (aVar = this.n) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, cVar) == null) || cVar == null || (c2Var = cVar.f25471e) == null || (aVar = this.n) == null) {
             return;
         }
         aVar.d(c2Var);
     }
 
-    public void s(c.a.p0.v.c cVar) {
+    public void s(c.a.q0.v.c cVar) {
         a aVar;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048582, this, cVar) == null) || (aVar = this.n) == null) {

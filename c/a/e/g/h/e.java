@@ -16,7 +16,7 @@ public abstract class e {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f2696a;
+    public boolean f2754a;
 
     public e() {
         Interceptable interceptable = $ic;
@@ -31,17 +31,17 @@ public abstract class e {
                 return;
             }
         }
-        this.f2696a = false;
+        this.f2754a = false;
     }
 
     public abstract String a();
 
     public void b(int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) || this.f2696a) {
+        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) || this.f2754a) {
             return;
         }
-        this.f2696a = true;
+        this.f2754a = true;
         if (TextUtils.isEmpty(a())) {
             return;
         }

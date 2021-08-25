@@ -1,7 +1,7 @@
 package com.baidu.tieba.addresslist.relationship;
 
-import c.a.o0.s.d0.b;
-import c.a.p0.s.f.a;
+import c.a.p0.s.d0.b;
+import c.a.q0.s.f.a;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;

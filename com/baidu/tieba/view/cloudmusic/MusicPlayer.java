@@ -20,14 +20,14 @@ public class MusicPlayer {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static MusicPlayer f58046c;
+    public static MusicPlayer f58242c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public MediaPlayer f58047a;
+    public MediaPlayer f58243a;
 
     /* renamed from: b  reason: collision with root package name */
-    public MusicPlayerState f58048b;
+    public MusicPlayerState f58244b;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes7.dex */
@@ -103,10 +103,10 @@ public class MusicPlayer {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CloudMusicData.MusicTagList.MusicList f58049e;
+        public final /* synthetic */ CloudMusicData.MusicTagList.MusicList f58245e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ MusicPlayer f58050f;
+        public final /* synthetic */ MusicPlayer f58246f;
 
         public a(MusicPlayer musicPlayer, CloudMusicData.MusicTagList.MusicList musicList) {
             Interceptable interceptable = $ic;
@@ -123,19 +123,19 @@ public class MusicPlayer {
                     return;
                 }
             }
-            this.f58050f = musicPlayer;
-            this.f58049e = musicList;
+            this.f58246f = musicPlayer;
+            this.f58245e = musicList;
         }
 
         @Override // android.media.MediaPlayer.OnPreparedListener
         public void onPrepared(MediaPlayer mediaPlayer) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, mediaPlayer) == null) {
-                c.a.p0.a4.k.i.a.b().d(this.f58049e);
+                c.a.q0.a4.k.i.a.b().d(this.f58245e);
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921307));
-                this.f58050f.f58047a.setLooping(true);
-                this.f58050f.f58047a.start();
-                this.f58050f.f58048b = MusicPlayerState.PREPARED;
+                this.f58246f.f58243a.setLooping(true);
+                this.f58246f.f58243a.start();
+                this.f58246f.f58244b = MusicPlayerState.PREPARED;
             }
         }
     }
@@ -173,7 +173,7 @@ public class MusicPlayer {
                 return;
             }
         }
-        this.f58048b = MusicPlayerState.WAIT;
+        this.f58244b = MusicPlayerState.WAIT;
     }
 
     public static synchronized MusicPlayer c() {
@@ -182,10 +182,10 @@ public class MusicPlayer {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
             synchronized (MusicPlayer.class) {
-                if (f58046c == null) {
-                    f58046c = new MusicPlayer();
+                if (f58242c == null) {
+                    f58242c = new MusicPlayer();
                 }
-                musicPlayer = f58046c;
+                musicPlayer = f58242c;
             }
             return musicPlayer;
         }
@@ -195,33 +195,33 @@ public class MusicPlayer {
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            MediaPlayer mediaPlayer = this.f58047a;
+            MediaPlayer mediaPlayer = this.f58243a;
             if (mediaPlayer != null && mediaPlayer.isPlaying()) {
-                this.f58047a.pause();
+                this.f58243a.pause();
             }
-            this.f58048b = MusicPlayerState.PAUSE;
+            this.f58244b = MusicPlayerState.PAUSE;
         }
     }
 
     public void e(String str, CloudMusicData.MusicTagList.MusicList musicList, b bVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, musicList, bVar) == null) || this.f58048b == MusicPlayerState.PAUSE) {
+        if (!(interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, musicList, bVar) == null) || this.f58244b == MusicPlayerState.PAUSE) {
             return;
         }
-        if (this.f58047a == null) {
+        if (this.f58243a == null) {
             MediaPlayer mediaPlayer = new MediaPlayer();
-            this.f58047a = mediaPlayer;
+            this.f58243a = mediaPlayer;
             mediaPlayer.setAudioStreamType(3);
         }
         try {
-            this.f58047a.reset();
-            this.f58047a.setDataSource(str);
-            this.f58047a.prepare();
-            this.f58048b = MusicPlayerState.WAIT;
-            this.f58047a.setOnPreparedListener(new a(this, musicList));
+            this.f58243a.reset();
+            this.f58243a.setDataSource(str);
+            this.f58243a.prepare();
+            this.f58244b = MusicPlayerState.WAIT;
+            this.f58243a.setOnPreparedListener(new a(this, musicList));
         } catch (IOException e2) {
             e2.printStackTrace();
-            this.f58048b = MusicPlayerState.ERROR;
+            this.f58244b = MusicPlayerState.ERROR;
             if (bVar != null) {
                 bVar.a();
             }
@@ -231,25 +231,25 @@ public class MusicPlayer {
     public void f() {
         MediaPlayer mediaPlayer;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (mediaPlayer = this.f58047a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (mediaPlayer = this.f58243a) == null) {
             return;
         }
         if (mediaPlayer.isPlaying()) {
-            this.f58047a.stop();
+            this.f58243a.stop();
         }
-        this.f58047a.release();
-        this.f58047a = null;
+        this.f58243a.release();
+        this.f58243a = null;
     }
 
     public void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            MediaPlayer mediaPlayer = this.f58047a;
+            MediaPlayer mediaPlayer = this.f58243a;
             if (mediaPlayer != null) {
                 mediaPlayer.start();
-                this.f58047a.seekTo(0);
+                this.f58243a.seekTo(0);
             }
-            this.f58048b = MusicPlayerState.RESUME;
+            this.f58244b = MusicPlayerState.RESUME;
         }
     }
 }

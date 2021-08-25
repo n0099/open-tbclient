@@ -22,10 +22,10 @@ public class PushInfoProvider extends ContentProvider {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f36588a;
+    public Context f36694a;
 
     /* renamed from: b  reason: collision with root package name */
-    public UriMatcher f36589b;
+    public UriMatcher f36695b;
 
     public PushInfoProvider() {
         Interceptable interceptable = $ic;
@@ -40,7 +40,7 @@ public class PushInfoProvider extends ContentProvider {
                 return;
             }
         }
-        this.f36589b = new UriMatcher(-1);
+        this.f36695b = new UriMatcher(-1);
     }
 
     @Override // android.content.ContentProvider
@@ -79,22 +79,22 @@ public class PushInfoProvider extends ContentProvider {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             Context context = getContext();
-            this.f36588a = context;
+            this.f36694a = context;
             String str = m.o(context) ? "pushinfo_v3" : "pushinfo";
-            if (this.f36589b == null) {
-                this.f36589b = new UriMatcher(-1);
+            if (this.f36695b == null) {
+                this.f36695b = new UriMatcher(-1);
             }
             try {
-                UriMatcher uriMatcher = this.f36589b;
-                uriMatcher.addURI(this.f36588a.getPackageName() + ".bdpush", str, 1);
-                UriMatcher uriMatcher2 = this.f36589b;
-                uriMatcher2.addURI(this.f36588a.getPackageName() + ".bdpush", "verif", 2);
-                UriMatcher uriMatcher3 = this.f36589b;
-                uriMatcher3.addURI(this.f36588a.getPackageName() + ".bdpush", "msgInfo", 3);
-                UriMatcher uriMatcher4 = this.f36589b;
-                uriMatcher4.addURI(this.f36588a.getPackageName() + ".bdpush", "appstatus", 4);
+                UriMatcher uriMatcher = this.f36695b;
+                uriMatcher.addURI(this.f36694a.getPackageName() + ".bdpush", str, 1);
+                UriMatcher uriMatcher2 = this.f36695b;
+                uriMatcher2.addURI(this.f36694a.getPackageName() + ".bdpush", "verif", 2);
+                UriMatcher uriMatcher3 = this.f36695b;
+                uriMatcher3.addURI(this.f36694a.getPackageName() + ".bdpush", "msgInfo", 3);
+                UriMatcher uriMatcher4 = this.f36695b;
+                uriMatcher4.addURI(this.f36694a.getPackageName() + ".bdpush", "appstatus", 4);
             } catch (Throwable th) {
-                new b.c(this.f36588a).a(Log.getStackTraceString(th)).a();
+                new b.c(this.f36694a).a(Log.getStackTraceString(th)).a();
             }
             return true;
         }
@@ -113,26 +113,26 @@ public class PushInfoProvider extends ContentProvider {
             synchronized (com.baidu.android.pushservice.c.c.a()) {
                 cursor = null;
                 try {
-                    match = this.f36589b.match(uri);
+                    match = this.f36695b.match(uri);
                 } catch (Exception e2) {
-                    new b.c(this.f36588a).a(Log.getStackTraceString(e2)).a();
+                    new b.c(this.f36694a).a(Log.getStackTraceString(e2)).a();
                 }
                 if (match == 1) {
-                    SQLiteDatabase a3 = com.baidu.android.pushservice.c.c.a(this.f36588a);
+                    SQLiteDatabase a3 = com.baidu.android.pushservice.c.c.a(this.f36694a);
                     if (a3 != null) {
                         query = a3.query("PushShareInfo", null, null, null, null, null, null);
                     }
                 } else if (match == 2) {
-                    SQLiteDatabase a4 = com.baidu.android.pushservice.c.c.a(this.f36588a);
+                    SQLiteDatabase a4 = com.baidu.android.pushservice.c.c.a(this.f36694a);
                     if (a4 != null) {
                         query = a4.query("PushVerifInfo", strArr, str, strArr2, null, null, str2);
                     }
                 } else if (match == 3) {
-                    SQLiteDatabase a5 = com.baidu.android.pushservice.c.c.a(this.f36588a);
+                    SQLiteDatabase a5 = com.baidu.android.pushservice.c.c.a(this.f36694a);
                     if (a5 != null) {
                         query = a5.query("PushMsgInfos", strArr, str, strArr2, null, null, str2);
                     }
-                } else if (match == 4 && (a2 = com.baidu.android.pushservice.c.c.a(this.f36588a)) != null) {
+                } else if (match == 4 && (a2 = com.baidu.android.pushservice.c.c.a(this.f36694a)) != null) {
                     query = a2.query("PushAppStatus", strArr, str, strArr2, null, null, str2);
                 }
                 cursor = query;
@@ -161,10 +161,10 @@ public class PushInfoProvider extends ContentProvider {
                 j2 = -1;
                 try {
                     try {
-                        if (this.f36589b.match(uri) != 1) {
+                        if (this.f36695b.match(uri) != 1) {
                             sQLiteDatabase = null;
                         } else {
-                            sQLiteDatabase = com.baidu.android.pushservice.c.c.a(this.f36588a);
+                            sQLiteDatabase = com.baidu.android.pushservice.c.c.a(this.f36694a);
                             if (sQLiteDatabase != null) {
                                 try {
                                     try {
@@ -179,7 +179,7 @@ public class PushInfoProvider extends ContentProvider {
                                             } catch (Exception e2) {
                                                 e = e2;
                                                 cursor = query;
-                                                new b.c(this.f36588a).a(Log.getStackTraceString(e)).a();
+                                                new b.c(this.f36694a).a(Log.getStackTraceString(e)).a();
                                                 if (cursor != null) {
                                                     cursor.close();
                                                 }

@@ -13,13 +13,13 @@ public final class m2 {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final m2 f76726a;
+    public static final m2 f76927a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final m2 f76727b;
+    public static final m2 f76928b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final /* synthetic */ m2[] f76728c;
+    public static final /* synthetic */ m2[] f76929c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -35,10 +35,10 @@ public final class m2 {
                 return;
             }
         }
-        f76726a = new m2("COUNT", 0);
+        f76927a = new m2("COUNT", 0);
         m2 m2Var = new m2("COUNT_BACK", 1);
-        f76727b = m2Var;
-        f76728c = new m2[]{f76726a, m2Var};
+        f76928b = m2Var;
+        f76929c = new m2[]{f76927a, m2Var};
     }
 
     public m2(String str, int i2) {
@@ -69,6 +69,6 @@ public final class m2 {
     public static m2[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (m2[]) f76728c.clone() : (m2[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (m2[]) f76929c.clone() : (m2[]) invokeV.objValue;
     }
 }

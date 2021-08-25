@@ -10,10 +10,10 @@ public class k<E> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final int f75088a;
+    public final int f75289a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final E f75089b;
+    public final E f75290b;
 
     public k(int i2, E e2) {
         Interceptable interceptable = $ic;
@@ -30,7 +30,7 @@ public class k<E> {
                 return;
             }
         }
-        this.f75088a = i2 == 0 ? b.f75064a : i2;
-        this.f75089b = e2;
+        this.f75289a = i2 == 0 ? b.f75265a : i2;
+        this.f75290b = e2;
     }
 }

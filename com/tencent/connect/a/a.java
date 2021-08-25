@@ -19,25 +19,25 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Class<?> f75696a;
+    public static Class<?> f75897a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Class<?> f75697b;
+    public static Class<?> f75898b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static Method f75698c;
+    public static Method f75899c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static Method f75699d;
+    public static Method f75900d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static Method f75700e;
+    public static Method f75901e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static Method f75701f;
+    public static Method f75902f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static boolean f75702g;
+    public static boolean f75903g;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -66,9 +66,9 @@ public class a {
         if (interceptable == null || interceptable.invokeLL(65539, null, context, qQToken) == null) {
             try {
                 if (a(context, qQToken)) {
-                    f75701f.invoke(f75696a, Boolean.TRUE);
+                    f75902f.invoke(f75897a, Boolean.TRUE);
                 } else {
-                    f75701f.invoke(f75696a, Boolean.FALSE);
+                    f75902f.invoke(f75897a, Boolean.FALSE);
                 }
             } catch (Exception e2) {
                 SLog.e("OpenConfig", "checkStatStatus exception: " + e2.toString());
@@ -81,21 +81,21 @@ public class a {
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, qQToken) == null) {
             String str = "Aqc" + qQToken.getAppId();
             try {
-                f75696a = Class.forName("com.tencent.stat.StatConfig");
+                f75897a = Class.forName("com.tencent.stat.StatConfig");
                 Class<?> cls = Class.forName("com.tencent.stat.StatService");
-                f75697b = cls;
-                f75698c = cls.getMethod("reportQQ", Context.class, String.class);
-                f75699d = f75697b.getMethod("trackCustomEvent", Context.class, String.class, String[].class);
-                f75700e = f75697b.getMethod("commitEvents", Context.class, Integer.TYPE);
-                f75701f = f75696a.getMethod("setEnableStatService", Boolean.TYPE);
+                f75898b = cls;
+                f75899c = cls.getMethod("reportQQ", Context.class, String.class);
+                f75900d = f75898b.getMethod("trackCustomEvent", Context.class, String.class, String[].class);
+                f75901e = f75898b.getMethod("commitEvents", Context.class, Integer.TYPE);
+                f75902f = f75897a.getMethod("setEnableStatService", Boolean.TYPE);
                 b(context, qQToken);
-                f75696a.getMethod("setAutoExceptionCaught", Boolean.TYPE).invoke(f75696a, Boolean.FALSE);
-                f75696a.getMethod("setEnableSmartReporting", Boolean.TYPE).invoke(f75696a, Boolean.TRUE);
-                f75696a.getMethod("setSendPeriodMinutes", Integer.TYPE).invoke(f75696a, 1440);
+                f75897a.getMethod("setAutoExceptionCaught", Boolean.TYPE).invoke(f75897a, Boolean.FALSE);
+                f75897a.getMethod("setEnableSmartReporting", Boolean.TYPE).invoke(f75897a, Boolean.TRUE);
+                f75897a.getMethod("setSendPeriodMinutes", Integer.TYPE).invoke(f75897a, 1440);
                 Class<?> cls2 = Class.forName("com.tencent.stat.StatReportStrategy");
-                f75696a.getMethod("setStatSendStrategy", cls2).invoke(f75696a, cls2.getField("PERIOD").get(null));
-                f75697b.getMethod("startStatService", Context.class, String.class, String.class).invoke(f75697b, context, str, Class.forName("com.tencent.stat.common.StatConstants").getField("VERSION").get(null));
-                f75702g = true;
+                f75897a.getMethod("setStatSendStrategy", cls2).invoke(f75897a, cls2.getField("PERIOD").get(null));
+                f75898b.getMethod("startStatService", Context.class, String.class, String.class).invoke(f75898b, context, str, Class.forName("com.tencent.stat.common.StatConstants").getField("VERSION").get(null));
+                f75903g = true;
             } catch (Exception e2) {
                 SLog.e("OpenConfig", "start4QQConnect exception: " + e2.toString());
             }
@@ -108,11 +108,11 @@ public class a {
             if (!TextUtils.isEmpty(qQToken.getOpenId())) {
                 d.a().a(qQToken.getOpenId(), qQToken.getAppId(), "2", "1", "11", "0", "0", "0");
             }
-            if (f75702g) {
+            if (f75903g) {
                 b(context, qQToken);
                 if (qQToken.getOpenId() != null) {
                     try {
-                        f75698c.invoke(f75697b, context, qQToken.getOpenId());
+                        f75899c.invoke(f75898b, context, qQToken.getOpenId());
                     } catch (Exception e2) {
                         SLog.e("OpenConfig", "reportQQ exception: " + e2.toString());
                     }
@@ -123,10 +123,10 @@ public class a {
 
     public static void a(Context context, QQToken qQToken, String str, String... strArr) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLLL(65537, null, context, qQToken, str, strArr) == null) && f75702g) {
+        if ((interceptable == null || interceptable.invokeLLLL(65537, null, context, qQToken, str, strArr) == null) && f75903g) {
             b(context, qQToken);
             try {
-                f75699d.invoke(f75697b, context, str, strArr);
+                f75900d.invoke(f75898b, context, str, strArr);
             } catch (Exception e2) {
                 SLog.e("OpenConfig", "trackCustomEvent exception: " + e2.toString());
             }

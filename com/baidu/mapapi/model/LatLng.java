@@ -16,7 +16,7 @@ public final class LatLng implements Parcelable {
     public static final Parcelable.Creator<LatLng> CREATOR;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f41491a;
+    public static final String f41598a;
     public transient /* synthetic */ FieldHolder $fh;
     public final double latitude;
     public final double latitudeE6;
@@ -36,7 +36,7 @@ public final class LatLng implements Parcelable {
                 return;
             }
         }
-        f41491a = LatLng.class.getSimpleName();
+        f41598a = LatLng.class.getSimpleName();
         CREATOR = new a();
     }
 

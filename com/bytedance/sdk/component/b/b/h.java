@@ -2,7 +2,6 @@ package com.bytedance.sdk.component.b.b;
 
 import androidx.core.view.InputDeviceCompat;
 import com.alibaba.fastjson.asm.Opcodes;
-import com.baidu.tieba.pb.pb.main.PbFullScreenEditorActivity;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -48,7 +47,7 @@ public final class h {
     public static final h Z;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Comparator<String> f64501a;
+    public static final Comparator<String> f64701a;
     public static final h aA;
     public static final h aB;
     public static final h aC;
@@ -103,7 +102,7 @@ public final class h {
     public static final h az;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final h f64502b;
+    public static final h f64702b;
     public static final h ba;
     public static final h bb;
     public static final h bc;
@@ -116,28 +115,28 @@ public final class h {
     public static final Map<String, h> bk;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final h f64503c;
+    public static final h f64703c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final h f64504d;
+    public static final h f64704d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final h f64505e;
+    public static final h f64705e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final h f64506f;
+    public static final h f64706f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final h f64507g;
+    public static final h f64707g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final h f64508h;
+    public static final h f64708h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final h f64509i;
+    public static final h f64709i;
 
     /* renamed from: j  reason: collision with root package name */
-    public static final h f64510j;
+    public static final h f64710j;
     public static final h k;
     public static final h l;
     public static final h m;
@@ -170,7 +169,7 @@ public final class h {
                 return;
             }
         }
-        f64501a = new Comparator<String>() { // from class: com.bytedance.sdk.component.b.b.h.1
+        f64701a = new Comparator<String>() { // from class: com.bytedance.sdk.component.b.b.h.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -213,16 +212,16 @@ public final class h {
                 return invokeLL.intValue;
             }
         };
-        bk = new TreeMap(f64501a);
-        f64502b = a("SSL_RSA_WITH_NULL_MD5", 1);
-        f64503c = a("SSL_RSA_WITH_NULL_SHA", 2);
-        f64504d = a("SSL_RSA_EXPORT_WITH_RC4_40_MD5", 3);
-        f64505e = a("SSL_RSA_WITH_RC4_128_MD5", 4);
-        f64506f = a("SSL_RSA_WITH_RC4_128_SHA", 5);
-        f64507g = a("SSL_RSA_EXPORT_WITH_DES40_CBC_SHA", 8);
-        f64508h = a("SSL_RSA_WITH_DES_CBC_SHA", 9);
-        f64509i = a("SSL_RSA_WITH_3DES_EDE_CBC_SHA", 10);
-        f64510j = a("SSL_DHE_DSS_EXPORT_WITH_DES40_CBC_SHA", 17);
+        bk = new TreeMap(f64701a);
+        f64702b = a("SSL_RSA_WITH_NULL_MD5", 1);
+        f64703c = a("SSL_RSA_WITH_NULL_SHA", 2);
+        f64704d = a("SSL_RSA_EXPORT_WITH_RC4_40_MD5", 3);
+        f64705e = a("SSL_RSA_WITH_RC4_128_MD5", 4);
+        f64706f = a("SSL_RSA_WITH_RC4_128_SHA", 5);
+        f64707g = a("SSL_RSA_EXPORT_WITH_DES40_CBC_SHA", 8);
+        f64708h = a("SSL_RSA_WITH_DES_CBC_SHA", 9);
+        f64709i = a("SSL_RSA_WITH_3DES_EDE_CBC_SHA", 10);
+        f64710j = a("SSL_DHE_DSS_EXPORT_WITH_DES40_CBC_SHA", 17);
         k = a("SSL_DHE_DSS_WITH_DES_CBC_SHA", 18);
         l = a("SSL_DHE_DSS_WITH_3DES_EDE_CBC_SHA", 19);
         m = a("SSL_DHE_RSA_EXPORT_WITH_DES40_CBC_SHA", 20);
@@ -268,7 +267,7 @@ public final class h {
         aa = a("TLS_DHE_RSA_WITH_CAMELLIA_256_CBC_SHA", 136);
         ab = a("TLS_PSK_WITH_RC4_128_SHA", 138);
         ac = a("TLS_PSK_WITH_3DES_EDE_CBC_SHA", 139);
-        ad = a("TLS_PSK_WITH_AES_128_CBC_SHA", PbFullScreenEditorActivity.REPLY_MAX_SIZE);
+        ad = a("TLS_PSK_WITH_AES_128_CBC_SHA", 140);
         ae = a("TLS_PSK_WITH_AES_256_CBC_SHA", 141);
         af = a("TLS_RSA_WITH_SEED_CBC_SHA", 150);
         ag = a("TLS_RSA_WITH_AES_128_GCM_SHA256", 156);

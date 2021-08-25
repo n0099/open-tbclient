@@ -25,16 +25,16 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final File f74952a;
+    public final File f75153a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final File f74953b;
+    public final File f75154b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f74954c;
+    public String f75155c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f74955d;
+    public int f75156d;
 
     public a(File file, File file2) {
         Interceptable interceptable = $ic;
@@ -51,8 +51,8 @@ public class a {
                 return;
             }
         }
-        this.f74952a = file;
-        this.f74953b = file2;
+        this.f75153a = file;
+        this.f75154b = file2;
     }
 
     public static boolean a(Context context, File file, File file2) {
@@ -71,7 +71,7 @@ public class a {
             if (str2 == null) {
                 str2 = "";
             }
-            StringUtil.writeTo("1250#####" + str2, file2);
+            StringUtil.writeTo("1260#####" + str2, file2);
             if (StringUtil.isEmpty(CustomPkgConstants.getAssetPluginXorKey())) {
                 return FileUtil.copyTo(assets.open(str), file);
             }
@@ -117,18 +117,18 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             try {
-                if (this.f74953b.exists() && this.f74952a.exists()) {
-                    String[] split = StringUtil.readAll(this.f74953b).split("#####");
+                if (this.f75154b.exists() && this.f75153a.exists()) {
+                    String[] split = StringUtil.readAll(this.f75154b).split("#####");
                     if (split.length == 2) {
                         String str = split[1];
                         int parseInteger = StringUtil.parseInteger(split[0], 0);
                         com.qq.e.comm.util.a a2 = com.qq.e.comm.util.a.a();
-                        File file = this.f74952a;
+                        File file = this.f75153a;
                         if (file != null && file.exists()) {
                             z = a2.b(str, Md5Util.encode(file));
                             if (z) {
-                                this.f74954c = str;
-                                this.f74955d = parseInteger;
+                                this.f75155c = str;
+                                this.f75156d = parseInteger;
                                 return true;
                             }
                         }
@@ -153,7 +153,7 @@ public class a {
             if (file == null || file2 == null) {
                 return false;
             }
-            return (file.equals(this.f74952a) || FileUtil.renameTo(this.f74952a, file)) && (file2.equals(this.f74953b) || FileUtil.renameTo(this.f74953b, file2));
+            return (file.equals(this.f75153a) || FileUtil.renameTo(this.f75153a, file)) && (file2.equals(this.f75154b) || FileUtil.renameTo(this.f75154b, file2));
         }
         return invokeLL.booleanValue;
     }
@@ -161,12 +161,12 @@ public class a {
     public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f74955d : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f75156d : invokeV.intValue;
     }
 
     public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f74954c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f75155c : (String) invokeV.objValue;
     }
 }

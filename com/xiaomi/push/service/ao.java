@@ -29,7 +29,7 @@ public class ao {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Context f77740a;
+    public static Context f77941a;
 
     /* renamed from: a  reason: collision with other field name */
     public static Object f897a;
@@ -45,7 +45,7 @@ public class ao {
     public String f900a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f77741b;
+    public String f77942b;
 
     static {
         InterceptResult invokeClinit;
@@ -87,7 +87,7 @@ public class ao {
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
             if (Build.VERSION.SDK_INT >= 24) {
                 try {
-                    return f77740a.getPackageManager().getPackageUid(str, 0);
+                    return f77941a.getPackageManager().getPackageUid(str, 0);
                 } catch (Exception unused) {
                     return -1;
                 }
@@ -100,7 +100,7 @@ public class ao {
     public static NotificationManager a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (NotificationManager) f77740a.getSystemService(ActionJsonData.TAG_NOTIFICATION) : (NotificationManager) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (NotificationManager) f77941a.getSystemService(ActionJsonData.TAG_NOTIFICATION) : (NotificationManager) invokeV.objValue;
     }
 
     public static ao a(Context context, String str) {
@@ -163,8 +163,8 @@ public class ao {
 
     public static void a(Context context) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65545, null, context) == null) && f77740a == null) {
-            f77740a = context.getApplicationContext();
+        if ((interceptable == null || interceptable.invokeL(65545, null, context) == null) && f77941a == null) {
+            f77941a = context.getApplicationContext();
             NotificationManager a2 = a();
             Boolean bool = (Boolean) com.xiaomi.push.bh.a((Object) a2, "isSystemConditionProviderEnabled", "xmsf_fake_condition_provider_path");
             m591a("fwk is support.init:" + bool);
@@ -190,7 +190,7 @@ public class ao {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
-            if (com.xiaomi.push.l.m538a() && aq.a(f77740a).a(hk.aZ.a(), true)) {
+            if (com.xiaomi.push.l.m538a() && aq.a(f77941a).a(hk.aZ.a(), true)) {
                 return f899a;
             }
             return false;
@@ -251,7 +251,7 @@ public class ao {
     public Context m595a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? f77740a : (Context) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? f77941a : (Context) invokeV.objValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
@@ -467,10 +467,10 @@ public class ao {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            if (TextUtils.isEmpty(this.f77741b)) {
-                this.f77741b = b("default");
+            if (TextUtils.isEmpty(this.f77942b)) {
+                this.f77942b = b("default");
             }
-            return this.f77741b;
+            return this.f77942b;
         }
         return (String) invokeV.objValue;
     }

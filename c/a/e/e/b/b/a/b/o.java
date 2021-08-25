@@ -17,7 +17,7 @@ public class o implements h {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Set<?> f2086a;
+    public Set<?> f2144a;
 
     public o(Set<?> set) {
         Interceptable interceptable = $ic;
@@ -34,7 +34,7 @@ public class o implements h {
                 return;
             }
         }
-        this.f2086a = set;
+        this.f2144a = set;
     }
 
     @Override // c.a.e.e.b.b.a.b.h
@@ -58,14 +58,14 @@ public class o implements h {
     public Object b(c.a.e.e.b.b.a.e.c cVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar)) == null) ? this.f2086a : invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar)) == null) ? this.f2144a : invokeL.objValue;
     }
 
     @Override // c.a.e.e.b.b.a.b.h
     public Object c(c.a.e.e.b.b.a.e.c cVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cVar)) == null) ? this.f2086a : invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cVar)) == null) ? this.f2144a : invokeL.objValue;
     }
 
     @Override // c.a.e.e.b.b.a.b.h
@@ -75,7 +75,7 @@ public class o implements h {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, cVar)) == null) {
             Type[] b2 = cVar.b();
             ArrayList arrayList = new ArrayList();
-            for (Object obj : this.f2086a) {
+            for (Object obj : this.f2144a) {
                 if (obj != null) {
                     if (b2 != null && b2.length >= 1) {
                         Object f2 = c.a.e.e.b.b.a.e.f.a(obj).f(new c.a.e.e.b.b.a.e.c(b2[0]));
@@ -109,7 +109,7 @@ public class o implements h {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, cVar)) == null) {
             Type[] b2 = cVar.b();
             JSONArray jSONArray = new JSONArray();
-            for (Object obj : this.f2086a) {
+            for (Object obj : this.f2144a) {
                 if (obj != null) {
                     if (b2 != null && b2.length >= 1) {
                         Object f2 = c.a.e.e.b.b.a.e.f.a(obj).f(new c.a.e.e.b.b.a.e.c(b2[0]));

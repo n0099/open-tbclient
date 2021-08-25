@@ -13,7 +13,7 @@ public final class dy implements View.OnClickListener {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ FeedbackReportActivity f59482a;
+    public final /* synthetic */ FeedbackReportActivity f59682a;
 
     public dy(FeedbackReportActivity feedbackReportActivity) {
         Interceptable interceptable = $ic;
@@ -30,7 +30,7 @@ public final class dy implements View.OnClickListener {
                 return;
             }
         }
-        this.f59482a = feedbackReportActivity;
+        this.f59682a = feedbackReportActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -45,31 +45,31 @@ public final class dy implements View.OnClickListener {
         List list4;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-            z = this.f59482a.B;
+            z = this.f59682a.B;
             if (z) {
                 return;
             }
-            list = this.f59482a.x;
+            list = this.f59682a.x;
             list.remove(((Integer) view.getTag()).intValue());
-            list2 = this.f59482a.x;
+            list2 = this.f59682a.x;
             if (list2.size() == 1) {
-                byte[] b2 = com.baidu.ufosdk.f.m.b(this.f59482a.getApplicationContext());
+                byte[] b2 = com.baidu.ufosdk.f.m.b(this.f59682a.getApplicationContext());
                 if (b2 == null) {
                     return;
                 }
-                list4 = this.f59482a.x;
+                list4 = this.f59682a.x;
                 list4.set(0, b2);
             }
-            bArr = this.f59482a.f59320j;
+            bArr = this.f59682a.f59520j;
             if (bArr != null) {
-                list3 = this.f59482a.x;
-                bArr2 = this.f59482a.f59320j;
+                list3 = this.f59682a.x;
+                bArr2 = this.f59682a.f59520j;
                 if (!list3.contains(bArr2)) {
-                    textView = this.f59482a.r;
+                    textView = this.f59682a.r;
                     textView.setText("上传截图");
                 }
             }
-            this.f59482a.c();
+            this.f59682a.c();
         }
     }
 }

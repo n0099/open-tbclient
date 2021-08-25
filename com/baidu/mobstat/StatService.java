@@ -34,10 +34,10 @@ public class StatService {
     public static final int JAVA_EXCEPTION_LOG = 16;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f42936a;
+    public static boolean f43043a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f42937b;
+    public static boolean f43044b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes5.dex */
@@ -319,7 +319,7 @@ public class StatService {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65581, null, feedTrackStrategy) == null) {
             av.a(feedTrackStrategy);
-            f42937b = true;
+            f43044b = true;
         }
     }
 
@@ -367,8 +367,8 @@ public class StatService {
 
     public static void setOn(Context context, int i2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(65586, null, context, i2) == null) && a(context, "setOn(...)") && !f42936a) {
-            f42936a = true;
+        if ((interceptable == null || interceptable.invokeLI(65586, null, context, i2) == null) && a(context, "setOn(...)") && !f43043a) {
+            f43043a = true;
             if ((i2 & 1) != 0) {
                 a(context, false);
             } else if ((i2 & 16) != 0) {
@@ -466,7 +466,7 @@ public class StatService {
             }
             af.a(appKey);
             af.a(z2);
-            if (!f42937b) {
+            if (!f43044b) {
                 setFeedTrack(MtjConfig.FeedTrackStrategy.TRACK_ALL);
             }
             BDStatCore.instance().init(context);

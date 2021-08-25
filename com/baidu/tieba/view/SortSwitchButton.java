@@ -15,8 +15,8 @@ import android.view.MotionEvent;
 import android.view.View;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import c.a.p0.g;
-import c.a.p0.i3.h0.s;
+import c.a.q0.g;
+import c.a.q0.i3.i0.s;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
@@ -66,22 +66,22 @@ public class SortSwitchButton extends View implements View.OnTouchListener {
     public GestureDetector.SimpleOnGestureListener b0;
 
     /* renamed from: e  reason: collision with root package name */
-    public float f57957e;
+    public float f58153e;
 
     /* renamed from: f  reason: collision with root package name */
-    public float f57958f;
+    public float f58154f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float f57959g;
+    public float f58155g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f57960h;
+    public int f58156h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f57961i;
+    public int f58157i;
 
     /* renamed from: j  reason: collision with root package name */
-    public float f57962j;
+    public float f58158j;
     public float k;
     public int l;
     public int m;
@@ -105,7 +105,7 @@ public class SortSwitchButton extends View implements View.OnTouchListener {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ SortSwitchButton f57963a;
+        public final /* synthetic */ SortSwitchButton f58159a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(SortSwitchButton sortSwitchButton, int i2) {
@@ -125,7 +125,7 @@ public class SortSwitchButton extends View implements View.OnTouchListener {
                     return;
                 }
             }
-            this.f57963a = sortSwitchButton;
+            this.f58159a = sortSwitchButton;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -135,17 +135,17 @@ public class SortSwitchButton extends View implements View.OnTouchListener {
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof Integer) && (customResponsedMessage.getOrginalMessage() instanceof CustomMessage) && (((CustomMessage) customResponsedMessage.getOrginalMessage()).getData() instanceof BdUniqueId)) {
                 BdUniqueId bdUniqueId = (BdUniqueId) ((CustomMessage) customResponsedMessage.getOrginalMessage()).getData();
                 BdUniqueId tag = customResponsedMessage.getOrginalMessage().getTag();
-                if (tag == null || bdUniqueId == null || this.f57963a.U == null) {
+                if (tag == null || bdUniqueId == null || this.f58159a.U == null) {
                     return;
                 }
                 Integer num = (Integer) customResponsedMessage.getData();
-                if (tag.getId() != this.f57963a.U.getId() || bdUniqueId.getId() == this.f57963a.V.getId() || this.f57963a.E.a() == num.intValue() || ListUtils.isEmpty(this.f57963a.K) || ListUtils.isEmpty(this.f57963a.L) || this.f57963a.L.size() <= num.intValue()) {
+                if (tag.getId() != this.f58159a.U.getId() || bdUniqueId.getId() == this.f58159a.V.getId() || this.f58159a.E.a() == num.intValue() || ListUtils.isEmpty(this.f58159a.K) || ListUtils.isEmpty(this.f58159a.L) || this.f58159a.L.size() <= num.intValue()) {
                     return;
                 }
-                this.f57963a.E.d(num.intValue());
-                SortSwitchButton sortSwitchButton = this.f57963a;
+                this.f58159a.E.d(num.intValue());
+                SortSwitchButton sortSwitchButton = this.f58159a;
                 sortSwitchButton.F = ((Float) sortSwitchButton.L.get(num.intValue())).floatValue();
-                this.f57963a.invalidate();
+                this.f58159a.invalidate();
             }
         }
     }
@@ -156,7 +156,7 @@ public class SortSwitchButton extends View implements View.OnTouchListener {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ SortSwitchButton f57964a;
+        public final /* synthetic */ SortSwitchButton f58160a;
 
         public b(SortSwitchButton sortSwitchButton) {
             Interceptable interceptable = $ic;
@@ -173,17 +173,17 @@ public class SortSwitchButton extends View implements View.OnTouchListener {
                     return;
                 }
             }
-            this.f57964a = sortSwitchButton;
+            this.f58160a = sortSwitchButton;
         }
 
-        @Override // c.a.p0.g.a
+        @Override // c.a.q0.g.a
         public void a(int i2, int i3) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeII(1048576, this, i2, i3) == null) {
                 ResponsedMessage<?> customResponsedMessage = new CustomResponsedMessage<>(2921458, Integer.valueOf(i3));
                 CustomMessage customMessage = new CustomMessage(2921458);
-                customMessage.setTag(this.f57964a.U);
-                customMessage.setData(this.f57964a.V);
+                customMessage.setTag(this.f58160a.U);
+                customMessage.setData(this.f58160a.V);
                 customResponsedMessage.setOrginalMessage(customMessage);
                 MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage);
             }
@@ -196,7 +196,7 @@ public class SortSwitchButton extends View implements View.OnTouchListener {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SortSwitchButton f57965e;
+        public final /* synthetic */ SortSwitchButton f58161e;
 
         public c(SortSwitchButton sortSwitchButton) {
             Interceptable interceptable = $ic;
@@ -213,7 +213,7 @@ public class SortSwitchButton extends View implements View.OnTouchListener {
                     return;
                 }
             }
-            this.f57965e = sortSwitchButton;
+            this.f58161e = sortSwitchButton;
         }
 
         @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
@@ -221,9 +221,9 @@ public class SortSwitchButton extends View implements View.OnTouchListener {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, motionEvent)) == null) {
-                if (!this.f57965e.I && motionEvent.getX() <= this.f57965e.f57957e && motionEvent.getY() <= this.f57965e.f57958f) {
-                    if (this.f57965e.getParent() != null) {
-                        this.f57965e.getParent().requestDisallowInterceptTouchEvent(true);
+                if (!this.f58161e.I && motionEvent.getX() <= this.f58161e.f58153e && motionEvent.getY() <= this.f58161e.f58154f) {
+                    if (this.f58161e.getParent() != null) {
+                        this.f58161e.getParent().requestDisallowInterceptTouchEvent(true);
                     }
                     return true;
                 }
@@ -237,17 +237,17 @@ public class SortSwitchButton extends View implements View.OnTouchListener {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{motionEvent, motionEvent2, Float.valueOf(f2), Float.valueOf(f3)})) == null) {
-                if (this.f57965e.H) {
-                    this.f57965e.F -= f2;
-                    if (this.f57965e.F < 0.0f) {
-                        this.f57965e.F = 0.0f;
+                if (this.f58161e.H) {
+                    this.f58161e.F -= f2;
+                    if (this.f58161e.F < 0.0f) {
+                        this.f58161e.F = 0.0f;
                     }
-                    Float f4 = (Float) ListUtils.getItem(this.f57965e.L, this.f57965e.L.size() - 1);
+                    Float f4 = (Float) ListUtils.getItem(this.f58161e.L, this.f58161e.L.size() - 1);
                     float floatValue = f4 != null ? f4.floatValue() : 0.0f;
-                    if (this.f57965e.F > floatValue) {
-                        this.f57965e.F = floatValue;
+                    if (this.f58161e.F > floatValue) {
+                        this.f58161e.F = floatValue;
                     }
-                    this.f57965e.invalidate();
+                    this.f58161e.invalidate();
                     return true;
                 }
                 return false;
@@ -260,18 +260,18 @@ public class SortSwitchButton extends View implements View.OnTouchListener {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, motionEvent)) == null) {
-                int a2 = this.f57965e.E.a();
-                this.f57965e.F = motionEvent.getX();
-                this.f57965e.E.c(this.f57965e.t());
-                this.f57965e.I = true;
-                if (this.f57965e.E.a() != a2) {
-                    this.f57965e.E(a2);
-                    if (this.f57965e.O != null) {
-                        this.f57965e.O.start();
+                int a2 = this.f58161e.E.a();
+                this.f58161e.F = motionEvent.getX();
+                this.f58161e.E.c(this.f58161e.t());
+                this.f58161e.I = true;
+                if (this.f58161e.E.a() != a2) {
+                    this.f58161e.E(a2);
+                    if (this.f58161e.O != null) {
+                        this.f58161e.O.start();
                     }
-                    this.f57965e.x(a2);
+                    this.f58161e.x(a2);
                 }
-                this.f57965e.I = false;
+                this.f58161e.I = false;
                 return true;
             }
             return invokeL.booleanValue;
@@ -284,7 +284,7 @@ public class SortSwitchButton extends View implements View.OnTouchListener {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SortSwitchButton f57966e;
+        public final /* synthetic */ SortSwitchButton f58162e;
 
         public d(SortSwitchButton sortSwitchButton) {
             Interceptable interceptable = $ic;
@@ -301,22 +301,22 @@ public class SortSwitchButton extends View implements View.OnTouchListener {
                     return;
                 }
             }
-            this.f57966e = sortSwitchButton;
+            this.f58162e = sortSwitchButton;
         }
 
         @Override // android.animation.ValueAnimator.AnimatorUpdateListener
         public void onAnimationUpdate(ValueAnimator valueAnimator) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
-                float floatValue = ((Float) valueAnimator.getAnimatedValue()).floatValue() * this.f57966e.P;
-                if (this.f57966e.R) {
-                    SortSwitchButton sortSwitchButton = this.f57966e;
+                float floatValue = ((Float) valueAnimator.getAnimatedValue()).floatValue() * this.f58162e.P;
+                if (this.f58162e.R) {
+                    SortSwitchButton sortSwitchButton = this.f58162e;
                     sortSwitchButton.F = sortSwitchButton.Q - floatValue;
                 } else {
-                    SortSwitchButton sortSwitchButton2 = this.f57966e;
+                    SortSwitchButton sortSwitchButton2 = this.f58162e;
                     sortSwitchButton2.F = sortSwitchButton2.Q + floatValue;
                 }
-                this.f57966e.invalidate();
+                this.f58162e.invalidate();
             }
         }
     }
@@ -327,7 +327,7 @@ public class SortSwitchButton extends View implements View.OnTouchListener {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SortSwitchButton f57967e;
+        public final /* synthetic */ SortSwitchButton f58163e;
 
         public e(SortSwitchButton sortSwitchButton) {
             Interceptable interceptable = $ic;
@@ -344,7 +344,7 @@ public class SortSwitchButton extends View implements View.OnTouchListener {
                     return;
                 }
             }
-            this.f57967e = sortSwitchButton;
+            this.f58163e = sortSwitchButton;
         }
 
         @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
@@ -352,9 +352,9 @@ public class SortSwitchButton extends View implements View.OnTouchListener {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
                 super.onAnimationEnd(animator);
-                if (this.f57967e.L.size() > this.f57967e.E.a()) {
-                    SortSwitchButton sortSwitchButton = this.f57967e;
-                    sortSwitchButton.F = ((Float) sortSwitchButton.L.get(this.f57967e.E.a())).floatValue();
+                if (this.f58163e.L.size() > this.f58163e.E.a()) {
+                    SortSwitchButton sortSwitchButton = this.f58163e;
+                    sortSwitchButton.F = ((Float) sortSwitchButton.L.get(this.f58163e.E.a())).floatValue();
                 }
             }
         }
@@ -391,16 +391,16 @@ public class SortSwitchButton extends View implements View.OnTouchListener {
         if (interceptable == null || interceptable.invokeLL(1048576, this, context, attributeSet) == null) {
             TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R$styleable.SortSwitchButton);
             int resourceId = obtainStyledAttributes.getResourceId(R$styleable.SortSwitchButton_background_color, R.color.CAM_X0107);
-            this.f57960h = resourceId;
-            this.f57961i = obtainStyledAttributes.getResourceId(R$styleable.SortSwitchButton_background_border_color, resourceId);
-            this.f57962j = obtainStyledAttributes.getDimension(R$styleable.SortSwitchButton_background_border_width, 0.0f);
+            this.f58156h = resourceId;
+            this.f58157i = obtainStyledAttributes.getResourceId(R$styleable.SortSwitchButton_background_border_color, resourceId);
+            this.f58158j = obtainStyledAttributes.getDimension(R$styleable.SortSwitchButton_background_border_width, 0.0f);
             this.k = obtainStyledAttributes.getFloat(R$styleable.SortSwitchButton_background_border_alpha, 1.0f);
             this.l = obtainStyledAttributes.getResourceId(R$styleable.SortSwitchButton_slide_color, R.color.CAM_X0101);
             this.m = obtainStyledAttributes.getResourceId(R$styleable.SortSwitchButton_un_selected_text_color, R.color.CAM_X0105);
             this.n = obtainStyledAttributes.getResourceId(R$styleable.SortSwitchButton_selected_text_color, R.color.CAM_X0105);
             this.o = obtainStyledAttributes.getDimension(R$styleable.SortSwitchButton_text_size, 5.0f);
             this.p = obtainStyledAttributes.getDimension(R$styleable.SortSwitchButton_text_horizontal_padding, 0.0f);
-            this.f57959g = obtainStyledAttributes.getDimension(R$styleable.SortSwitchButton_slide_height, 0.0f);
+            this.f58155g = obtainStyledAttributes.getDimension(R$styleable.SortSwitchButton_slide_height, 0.0f);
             this.q = obtainStyledAttributes.getDimension(R$styleable.SortSwitchButton_slide_border_width, 0.0f);
             this.r = obtainStyledAttributes.getResourceId(R$styleable.SortSwitchButton_slide_border_color, R.color.CAM_X0105);
             this.T = obtainStyledAttributes.getBoolean(R$styleable.SortSwitchButton_slide_need_sync, false);
@@ -412,34 +412,34 @@ public class SortSwitchButton extends View implements View.OnTouchListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             RectF rectF = this.w;
-            float f2 = this.f57962j;
-            rectF.set(f2, f2, this.f57957e - f2, this.f57958f - f2);
+            float f2 = this.f58158j;
+            rectF.set(f2, f2, this.f58153e - f2, this.f58154f - f2);
             this.x.reset();
             Path path = this.x;
             RectF rectF2 = this.w;
-            float f3 = this.f57958f;
+            float f3 = this.f58154f;
             path.addRoundRect(rectF2, f3 / 2.0f, f3 / 2.0f, Path.Direction.CW);
             RectF rectF3 = this.y;
             if (rectF3 != null && this.t != null) {
-                rectF3.set(0.0f, 0.0f, this.f57957e, this.f57958f);
-                float f4 = this.f57962j * 0.5f;
+                rectF3.set(0.0f, 0.0f, this.f58153e, this.f58154f);
+                float f4 = this.f58158j * 0.5f;
                 float f5 = -f4;
-                this.A.set(f5, f5, this.f57957e + f4, this.f57958f + f4);
+                this.A.set(f5, f5, this.f58153e + f4, this.f58154f + f4);
                 this.z.reset();
                 this.B.reset();
                 Path path2 = this.z;
                 RectF rectF4 = this.y;
-                float f6 = this.f57958f;
+                float f6 = this.f58154f;
                 path2.addRoundRect(rectF4, f6 / 2.0f, f6 / 2.0f, Path.Direction.CW);
                 Path path3 = this.B;
                 RectF rectF5 = this.A;
-                float f7 = this.f57958f;
+                float f7 = this.f58154f;
                 path3.addRoundRect(rectF5, (f7 + f4) * 0.5f, (f7 + f4) * 0.5f, Path.Direction.CW);
             }
             Float f8 = (Float) ListUtils.getItem(this.L, this.E.a());
             this.F = f8 != null ? f8.floatValue() : 0.0f;
             Paint.FontMetrics fontMetrics = this.v.getFontMetrics();
-            this.G = (this.f57958f / 2.0f) + ((Math.abs(fontMetrics.ascent) - fontMetrics.descent) / 2.0f);
+            this.G = (this.f58154f / 2.0f) + ((Math.abs(fontMetrics.ascent) - fontMetrics.descent) / 2.0f);
         }
     }
 
@@ -530,10 +530,10 @@ public class SortSwitchButton extends View implements View.OnTouchListener {
     public void onChangeSkinType() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && this.S) {
-            this.s.setColor(SkinManager.getColor(this.f57960h));
+            this.s.setColor(SkinManager.getColor(this.f58156h));
             Paint paint = this.t;
             if (paint != null) {
-                paint.setColor(c.a.p0.i3.c.a(SkinManager.getColor(this.f57960h), this.k));
+                paint.setColor(c.a.q0.i3.c.a(SkinManager.getColor(this.f58156h), this.k));
             }
             invalidate();
         }
@@ -572,19 +572,19 @@ public class SortSwitchButton extends View implements View.OnTouchListener {
             int count = ListUtils.getCount(this.K);
             float f2 = 0.0f;
             if (mode == Integer.MIN_VALUE) {
-                this.f57957e = 0.0f;
+                this.f58153e = 0.0f;
                 for (int i4 = 0; i4 < count; i4++) {
                     s sVar = (s) ListUtils.getItem(this.K, i4);
                     if (sVar != null) {
                         float measureText = this.v.measureText(sVar.b() == null ? "" : sVar.b()) + (this.p * 2.0f);
                         if (this.J) {
-                            this.L.add(Float.valueOf(this.f57957e));
+                            this.L.add(Float.valueOf(this.f58153e));
                         }
-                        this.f57957e += measureText;
+                        this.f58153e += measureText;
                     }
                 }
             } else {
-                this.f57957e = size;
+                this.f58153e = size;
                 if (count > 0) {
                     size /= count;
                 }
@@ -596,14 +596,14 @@ public class SortSwitchButton extends View implements View.OnTouchListener {
                 }
             }
             if (mode2 == Integer.MIN_VALUE) {
-                this.f57958f = this.f57959g;
+                this.f58154f = this.f58155g;
             } else {
-                this.f57958f = size2;
-                this.f57959g = size2;
+                this.f58154f = size2;
+                this.f58155g = size2;
             }
             this.J = false;
             B();
-            setMeasuredDimension((int) this.f57957e, (int) this.f57958f);
+            setMeasuredDimension((int) this.f58153e, (int) this.f58154f);
         }
     }
 
@@ -715,10 +715,10 @@ public class SortSwitchButton extends View implements View.OnTouchListener {
             if (z) {
                 return;
             }
-            this.s.setColor(SkinManager.getColor(0, this.f57960h));
+            this.s.setColor(SkinManager.getColor(0, this.f58156h));
             Paint paint = this.t;
             if (paint != null) {
-                paint.setColor(c.a.p0.i3.c.a(SkinManager.getColor(0, this.f57961i), this.k));
+                paint.setColor(c.a.q0.i3.c.a(SkinManager.getColor(0, this.f58157i), this.k));
             }
         }
     }
@@ -741,7 +741,7 @@ public class SortSwitchButton extends View implements View.OnTouchListener {
                 float floatValue2 = ((Float) ListUtils.getItem(this.L, i2)).floatValue();
                 int i3 = i2 + 1;
                 if (i3 == this.L.size()) {
-                    floatValue = this.f57957e;
+                    floatValue = this.f58153e;
                 } else {
                     floatValue = ((Float) ListUtils.getItem(this.L, i3)).floatValue();
                 }
@@ -768,7 +768,7 @@ public class SortSwitchButton extends View implements View.OnTouchListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048597, this, canvas) == null) {
             canvas.drawPath(this.x, this.s);
-            if (this.f57961i <= 0 || this.f57962j <= 0.0f || (paint = this.t) == null) {
+            if (this.f58157i <= 0 || this.f58158j <= 0.0f || (paint = this.t) == null) {
                 return;
             }
             canvas.drawPath(this.z, paint);
@@ -786,18 +786,18 @@ public class SortSwitchButton extends View implements View.OnTouchListener {
             if (this.E.a() + 1 < this.L.size()) {
                 f2 = this.L.get(this.E.a() + 1).floatValue();
             } else {
-                f2 = this.E.a() + 1 == this.L.size() ? this.f57957e : 0.0f;
+                f2 = this.E.a() + 1 == this.L.size() ? this.f58153e : 0.0f;
             }
             float f3 = this.F + (f2 - floatValue);
-            float f4 = this.f57957e;
+            float f4 = this.f58153e;
             if (f3 > f4) {
                 f3 = f4;
             }
-            this.C.set(this.F, 0.0f, f3, this.f57958f);
+            this.C.set(this.F, 0.0f, f3, this.f58154f);
             this.D.reset();
             Path path = this.D;
             RectF rectF = this.C;
-            float f5 = this.f57959g;
+            float f5 = this.f58155g;
             path.addRoundRect(rectF, f5 / 2.0f, f5 / 2.0f, Path.Direction.CW);
             this.u.reset();
             this.u.setAntiAlias(true);
@@ -811,8 +811,8 @@ public class SortSwitchButton extends View implements View.OnTouchListener {
             RectF rectF2 = this.C;
             float f6 = this.F;
             float f7 = this.q;
-            rectF2.set(f6 + (f7 / 2.0f), f7 / 2.0f, f3 - (f7 / 2.0f), this.f57959g - (f7 / 2.0f));
-            float f8 = (this.f57959g - this.q) / 2.0f;
+            rectF2.set(f6 + (f7 / 2.0f), f7 / 2.0f, f3 - (f7 / 2.0f), this.f58155g - (f7 / 2.0f));
+            float f8 = (this.f58155g - this.q) / 2.0f;
             canvas.drawRoundRect(this.C, f8, f8, this.u);
         }
     }
@@ -855,8 +855,8 @@ public class SortSwitchButton extends View implements View.OnTouchListener {
             this.D = new Path();
             Paint paint = new Paint(1);
             this.s = paint;
-            paint.setColor(SkinManager.getColor(this.f57960h));
-            if (this.f57961i > 0 && this.f57962j > 0.0f) {
+            paint.setColor(SkinManager.getColor(this.f58156h));
+            if (this.f58157i > 0 && this.f58158j > 0.0f) {
                 this.y = new RectF();
                 this.z = new Path();
                 this.A = new RectF();
@@ -864,8 +864,8 @@ public class SortSwitchButton extends View implements View.OnTouchListener {
                 Paint paint2 = new Paint(1);
                 this.t = paint2;
                 paint2.setStyle(Paint.Style.STROKE);
-                this.t.setStrokeWidth(this.f57962j);
-                this.t.setColor(c.a.p0.i3.c.a(SkinManager.getColor(this.f57960h), this.k));
+                this.t.setStrokeWidth(this.f58158j);
+                this.t.setColor(c.a.q0.i3.c.a(SkinManager.getColor(this.f58156h), this.k));
             }
             this.u = new Paint(1);
             Paint paint3 = new Paint(1);

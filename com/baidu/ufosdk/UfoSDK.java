@@ -401,9 +401,9 @@ public class UfoSDK {
                 hashMap.put("clientid", clientid);
                 hashMap.put("appid", appid);
                 hashMap.put("devid", devid);
-                hashMap.put("uid", b.f59171d);
-                hashMap.put(DpStatConstants.KEY_USER_ID, b.f59171d);
-                hashMap.put("username", b.f59169b);
+                hashMap.put("uid", b.f59371d);
+                hashMap.put(DpStatConstants.KEY_USER_ID, b.f59371d);
+                hashMap.put("username", b.f59369b);
                 hashMap.put("output_style", 1);
                 hashMap.put("interval", String.valueOf(b.ai));
                 String a2 = k.a(com.baidu.ufosdk.c.a.a(hashMap));
@@ -534,9 +534,9 @@ public class UfoSDK {
                 hashMap.put("clientid", clientid);
                 hashMap.put("appid", appid);
                 hashMap.put("devid", devid);
-                hashMap.put("uid", b.f59171d);
-                hashMap.put(DpStatConstants.KEY_USER_ID, b.f59171d);
-                hashMap.put("username", b.f59169b);
+                hashMap.put("uid", b.f59371d);
+                hashMap.put(DpStatConstants.KEY_USER_ID, b.f59371d);
+                hashMap.put("username", b.f59369b);
                 hashMap.put("interval", String.valueOf(b.ai));
                 String a2 = k.a(com.baidu.ufosdk.c.a.a(hashMap));
                 String a3 = com.baidu.ufosdk.e.b.a("https://ufosdk.baidu.com/?m=Index&a=getmsglistcount", "sdk_encrypt=" + URLEncoder.encode(a2, "UTF-8"));
@@ -592,9 +592,9 @@ public class UfoSDK {
                 hashMap.put("clientid", clientid);
                 hashMap.put("appid", appid);
                 hashMap.put("devid", devid);
-                hashMap.put("uid", b.f59171d);
-                hashMap.put(DpStatConstants.KEY_USER_ID, b.f59171d);
-                hashMap.put("username", b.f59169b);
+                hashMap.put("uid", b.f59371d);
+                hashMap.put(DpStatConstants.KEY_USER_ID, b.f59371d);
+                hashMap.put("username", b.f59369b);
                 hashMap.put("output_style", 1);
                 hashMap.put("interval", String.valueOf(b.ai));
                 String a2 = k.a(com.baidu.ufosdk.c.a.a(hashMap));
@@ -763,7 +763,7 @@ public class UfoSDK {
     public static void openLogcatSwitch() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65574, null) == null) {
-            b.f59168a = true;
+            b.f59368a = true;
         }
     }
 
@@ -799,7 +799,7 @@ public class UfoSDK {
     public static void setBackbtnText(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65579, null, str) == null) {
-            b.f59176i = str;
+            b.f59376i = str;
         }
     }
 
@@ -813,7 +813,7 @@ public class UfoSDK {
     public static void setBaiduCuid(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65581, null, str) == null) {
-            b.f59170c = str;
+            b.f59370c = str;
         }
     }
 
@@ -841,14 +841,14 @@ public class UfoSDK {
     public static void setCurrentUserIcon(Bitmap bitmap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65585, null, bitmap) == null) {
-            b.f59174g = bitmap;
+            b.f59374g = bitmap;
         }
     }
 
     public static void setCustomLocation(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65586, null, str) == null) {
-            b.f59175h = str;
+            b.f59375h = str;
         }
     }
 
@@ -871,7 +871,7 @@ public class UfoSDK {
     public static void setExtraData(Map map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65589, null, map) == null) {
-            b.f59173f = com.baidu.ufosdk.c.a.a(map);
+            b.f59373f = com.baidu.ufosdk.c.a.a(map);
         }
     }
 
@@ -1158,21 +1158,21 @@ public class UfoSDK {
     public static void setUserId(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65630, null, str) == null) {
-            b.f59171d = str;
+            b.f59371d = str;
         }
     }
 
     public static void setUserName(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65631, null, str) == null) {
-            b.f59169b = str;
+            b.f59369b = str;
         }
     }
 
     public static void setUserStatus(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(65632, null, i2) == null) {
-            b.f59172e = i2;
+            b.f59372e = i2;
         }
     }
 }

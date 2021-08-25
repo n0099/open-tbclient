@@ -33,34 +33,34 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public DownloadInfo f35150a;
+    public DownloadInfo f35256a;
 
     /* renamed from: b  reason: collision with root package name */
-    public i f35151b;
+    public i f35257b;
 
     /* renamed from: c  reason: collision with root package name */
-    public j f35152c;
+    public j f35258c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final Map<f, c.p.a.e.b.f.c> f35153d;
+    public final Map<f, c.p.a.e.b.f.c> f35259d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final SparseArray<f> f35154e;
+    public final SparseArray<f> f35260e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final SparseArray<c.p.a.e.b.f.c> f35155f;
+    public final SparseArray<c.p.a.e.b.f.c> f35261f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final SparseArray<c.p.a.e.b.f.c> f35156g;
+    public final SparseArray<c.p.a.e.b.f.c> f35262g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final SparseArray<c.p.a.e.b.f.c> f35157h;
+    public final SparseArray<c.p.a.e.b.f.c> f35263h;
 
     /* renamed from: i  reason: collision with root package name */
-    public e f35158i;
+    public e f35264i;
 
     /* renamed from: j  reason: collision with root package name */
-    public c.p.a.e.b.f.b f35159j;
+    public c.p.a.e.b.f.b f35265j;
     public s k;
     public z l;
     public DownloadInfo.b m;
@@ -76,11 +76,11 @@ public class a {
 
     /* renamed from: c.p.a.e.b.n.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C1549a implements j {
+    public class C1553a implements j {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public C1549a(a aVar) {
+        public C1553a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -120,15 +120,15 @@ public class a {
                 return;
             }
         }
-        this.f35153d = new ConcurrentHashMap();
-        this.f35154e = new SparseArray<>();
+        this.f35259d = new ConcurrentHashMap();
+        this.f35260e = new SparseArray<>();
         this.r = false;
         this.t = new ArrayList();
         this.v = true;
         this.m = new DownloadInfo.b();
-        this.f35155f = new SparseArray<>();
-        this.f35156g = new SparseArray<>();
-        this.f35157h = new SparseArray<>();
+        this.f35261f = new SparseArray<>();
+        this.f35262g = new SparseArray<>();
+        this.f35263h = new SparseArray<>();
     }
 
     public a A(y yVar) {
@@ -174,7 +174,7 @@ public class a {
     public i C() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f35151b : (i) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f35257b : (i) invokeV.objValue;
     }
 
     public a C0(c.p.a.e.b.g.s sVar) {
@@ -190,7 +190,7 @@ public class a {
     public j D() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f35152c : (j) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f35258c : (j) invokeV.objValue;
     }
 
     public a D0(String str) {
@@ -227,10 +227,10 @@ public class a {
 
     public final void F0() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048587, this) == null) || this.f35150a.getThrottleNetSpeed() <= 0) {
+        if (!(interceptable == null || interceptable.invokeV(1048587, this) == null) || this.f35256a.getThrottleNetSpeed() <= 0) {
             return;
         }
-        l(new C1549a(this));
+        l(new C1553a(this));
     }
 
     public r G(int i2) {
@@ -274,17 +274,17 @@ public class a {
             return;
         }
         try {
-            if (fVar == f.f75459a) {
-                synchronized (this.f35155f) {
-                    n(this.f35155f, sparseArray);
+            if (fVar == f.f75660a) {
+                synchronized (this.f35261f) {
+                    n(this.f35261f, sparseArray);
                 }
-            } else if (fVar == f.f75460b) {
-                synchronized (this.f35156g) {
-                    n(this.f35156g, sparseArray);
+            } else if (fVar == f.f75661b) {
+                synchronized (this.f35262g) {
+                    n(this.f35262g, sparseArray);
                 }
-            } else if (fVar == f.f75461c) {
-                synchronized (this.f35157h) {
-                    n(this.f35157h, sparseArray);
+            } else if (fVar == f.f75662c) {
+                synchronized (this.f35263h) {
+                    n(this.f35263h, sparseArray);
                 }
             }
         } catch (Throwable th) {
@@ -296,7 +296,7 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-            DownloadInfo downloadInfo = this.f35150a;
+            DownloadInfo downloadInfo = this.f35256a;
             if (downloadInfo == null) {
                 return 0;
             }
@@ -315,13 +315,13 @@ public class a {
     public DownloadInfo J() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.f35150a : (DownloadInfo) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.f35256a : (DownloadInfo) invokeV.objValue;
     }
 
     public void J0(e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048595, this, eVar) == null) {
-            this.f35158i = eVar;
+            this.f35264i = eVar;
         }
     }
 
@@ -384,14 +384,14 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048600, this, fVar)) == null) {
-            if (fVar == f.f75459a) {
-                return this.f35155f;
+            if (fVar == f.f75660a) {
+                return this.f35261f;
             }
-            if (fVar == f.f75460b) {
-                return this.f35156g;
+            if (fVar == f.f75661b) {
+                return this.f35262g;
             }
-            if (fVar == f.f75461c) {
-                return this.f35157h;
+            if (fVar == f.f75662c) {
+                return this.f35263h;
             }
             return null;
         }
@@ -403,12 +403,12 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048601, this, i2, cVar)) == null) {
             if (cVar != null) {
-                synchronized (this.f35156g) {
-                    this.f35156g.put(i2, cVar);
+                synchronized (this.f35262g) {
+                    this.f35262g.put(i2, cVar);
                 }
-                this.f35153d.put(f.f75460b, cVar);
-                synchronized (this.f35154e) {
-                    this.f35154e.put(i2, f.f75460b);
+                this.f35259d.put(f.f75661b, cVar);
+                synchronized (this.f35260e) {
+                    this.f35260e.put(i2, f.f75661b);
                 }
             }
             return this;
@@ -467,7 +467,7 @@ public class a {
     public c.p.a.e.b.f.b Q() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) ? this.f35159j : (c.p.a.e.b.f.b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) ? this.f35265j : (c.p.a.e.b.f.b) invokeV.objValue;
     }
 
     public z R() {
@@ -485,7 +485,7 @@ public class a {
     public e T() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048611, this)) == null) ? this.f35158i : (e) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048611, this)) == null) ? this.f35264i : (e) invokeV.objValue;
     }
 
     public c.p.a.e.b.g.s U() {
@@ -497,7 +497,7 @@ public class a {
     public c.p.a.e.b.f.c V(f fVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048613, this, fVar)) == null) ? this.f35153d.get(fVar) : (c.p.a.e.b.f.c) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048613, this, fVar)) == null) ? this.f35259d.get(fVar) : (c.p.a.e.b.f.c) invokeL.objValue;
     }
 
     public a W(boolean z) {
@@ -524,7 +524,7 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048616, this, bVar)) == null) {
-            this.f35159j = bVar;
+            this.f35265j = bVar;
             return this;
         }
         return (a) invokeL.objValue;
@@ -590,10 +590,10 @@ public class a {
         if (!(interceptable == null || interceptable.invokeCommon(1048622, this, new Object[]{Integer.valueOf(i2), cVar, fVar, Boolean.valueOf(z)}) == null) || cVar == null) {
             return;
         }
-        if (z && (map = this.f35153d) != null) {
+        if (z && (map = this.f35259d) != null) {
             map.put(fVar, cVar);
-            synchronized (this.f35154e) {
-                this.f35154e.put(i2, fVar);
+            synchronized (this.f35260e) {
+                this.f35260e.put(i2, fVar);
             }
         }
         SparseArray<c.p.a.e.b.f.c> M = M(fVar);
@@ -610,12 +610,12 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048623, this, i2, cVar)) == null) {
             if (cVar != null) {
-                synchronized (this.f35155f) {
-                    this.f35155f.put(i2, cVar);
+                synchronized (this.f35261f) {
+                    this.f35261f.put(i2, cVar);
                 }
-                this.f35153d.put(f.f75459a, cVar);
-                synchronized (this.f35154e) {
-                    this.f35154e.put(i2, f.f75459a);
+                this.f35259d.put(f.f75660a, cVar);
+                synchronized (this.f35260e) {
+                    this.f35260e.put(i2, f.f75660a);
                 }
             }
             return this;
@@ -627,13 +627,13 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048624, this) == null) {
             c.p.a.e.b.c.a.g("DownloadTask", "same task just tryDownloading, so add listener in last task instead of tryDownload");
-            DownloadInfo downloadInfo = this.f35150a;
+            DownloadInfo downloadInfo = this.f35256a;
             if (downloadInfo != null && !downloadInfo.isAddListenerToSameTask()) {
-                this.f35150a.setAddListenerToSameTask(true);
+                this.f35256a.setAddListenerToSameTask(true);
             }
-            e(f.f75459a);
-            e(f.f75460b);
-            c.p.a.e.b.e.a.e(this.l, this.f35150a, new BaseException(1003, "has another same task, add Listener to old task"), 0);
+            e(f.f75660a);
+            e(f.f75661b);
+            c.p.a.e.b.e.a.e(this.l, this.f35256a, new BaseException(1003, "has another same task, add Listener to old task"), 0);
         }
     }
 
@@ -678,9 +678,9 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048628, this)) == null) {
             synchronized (this) {
-                c.p.a.e.b.f.c V = V(f.f75459a);
+                c.p.a.e.b.f.c V = V(f.f75660a);
                 if (V == null) {
-                    V = V(f.f75460b);
+                    V = V(f.f75661b);
                 }
                 if (V != null) {
                     this.u = V.hashCode();
@@ -766,7 +766,7 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048636, this)) == null) {
-            DownloadInfo downloadInfo = this.f35150a;
+            DownloadInfo downloadInfo = this.f35256a;
             if (downloadInfo != null) {
                 return downloadInfo.canShowNotification();
             }
@@ -789,7 +789,7 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048638, this, iVar)) == null) {
-            this.f35151b = iVar;
+            this.f35257b = iVar;
             return this;
         }
         return (a) invokeL.objValue;
@@ -809,7 +809,7 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048640, this, jVar)) == null) {
-            this.f35152c = jVar;
+            this.f35258c = jVar;
             return this;
         }
         return (a) invokeL.objValue;
@@ -828,28 +828,28 @@ public class a {
     public void m(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048642, this, aVar) == null) {
-            for (Map.Entry<f, c.p.a.e.b.f.c> entry : aVar.f35153d.entrySet()) {
-                if (entry != null && !this.f35153d.containsKey(entry.getKey())) {
-                    this.f35153d.put(entry.getKey(), entry.getValue());
+            for (Map.Entry<f, c.p.a.e.b.f.c> entry : aVar.f35259d.entrySet()) {
+                if (entry != null && !this.f35259d.containsKey(entry.getKey())) {
+                    this.f35259d.put(entry.getKey(), entry.getValue());
                 }
             }
             try {
-                if (aVar.f35155f.size() != 0) {
-                    synchronized (this.f35155f) {
-                        y0(this.f35155f, aVar.f35155f);
-                        a(aVar.f35155f, this.f35155f);
+                if (aVar.f35261f.size() != 0) {
+                    synchronized (this.f35261f) {
+                        y0(this.f35261f, aVar.f35261f);
+                        a(aVar.f35261f, this.f35261f);
                     }
                 }
-                if (aVar.f35156g.size() != 0) {
-                    synchronized (this.f35156g) {
-                        y0(this.f35156g, aVar.f35156g);
-                        a(aVar.f35156g, this.f35156g);
+                if (aVar.f35262g.size() != 0) {
+                    synchronized (this.f35262g) {
+                        y0(this.f35262g, aVar.f35262g);
+                        a(aVar.f35262g, this.f35262g);
                     }
                 }
-                if (aVar.f35157h.size() != 0) {
-                    synchronized (this.f35157h) {
-                        y0(this.f35157h, aVar.f35157h);
-                        a(aVar.f35157h, this.f35157h);
+                if (aVar.f35263h.size() != 0) {
+                    synchronized (this.f35263h) {
+                        y0(this.f35263h, aVar.f35263h);
+                        a(aVar.f35263h, this.f35263h);
                     }
                 }
             } catch (Throwable th) {
@@ -956,17 +956,17 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048652, this)) == null) {
-            this.f35150a = this.m.E();
-            DownloadInfo b2 = c.p.a.e.b.g.e.M0().b(this.f35150a.getId());
+            this.f35256a = this.m.E();
+            DownloadInfo b2 = c.p.a.e.b.g.e.M0().b(this.f35256a.getId());
             if (b2 == null) {
-                this.f35150a.generateTaskId();
+                this.f35256a.generateTaskId();
                 c.p.a.e.b.e.a.i(this, null, 0);
             } else {
-                this.f35150a.copyTaskIdFromCacheData(b2);
+                this.f35256a.copyTaskIdFromCacheData(b2);
             }
             F0();
             c.p.a.e.b.g.f.c().j(this);
-            DownloadInfo downloadInfo = this.f35150a;
+            DownloadInfo downloadInfo = this.f35256a;
             if (downloadInfo == null) {
                 return 0;
             }
@@ -1019,7 +1019,7 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048657, this, eVar)) == null) {
-            this.f35158i = eVar;
+            this.f35264i = eVar;
             return this;
         }
         return (a) invokeL.objValue;
@@ -1063,12 +1063,12 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048661, this, i2, cVar)) == null) {
             if (cVar != null) {
-                synchronized (this.f35157h) {
-                    this.f35157h.put(i2, cVar);
+                synchronized (this.f35263h) {
+                    this.f35263h.put(i2, cVar);
                 }
-                this.f35153d.put(f.f75461c, cVar);
-                synchronized (this.f35154e) {
-                    this.f35154e.put(i2, f.f75461c);
+                this.f35259d.put(f.f75662c, cVar);
+                synchronized (this.f35260e) {
+                    this.f35260e.put(i2, f.f75662c);
                 }
             }
             return this;
@@ -1153,28 +1153,28 @@ public class a {
         if (interceptable == null || interceptable.invokeCommon(1048669, this, new Object[]{Integer.valueOf(i2), cVar, fVar, Boolean.valueOf(z)}) == null) {
             SparseArray<c.p.a.e.b.f.c> M = M(fVar);
             if (M == null) {
-                if (z && this.f35153d.containsKey(fVar)) {
-                    this.f35153d.remove(fVar);
+                if (z && this.f35259d.containsKey(fVar)) {
+                    this.f35259d.remove(fVar);
                     return;
                 }
                 return;
             }
             synchronized (M) {
                 if (z) {
-                    if (this.f35153d.containsKey(fVar)) {
-                        cVar = this.f35153d.get(fVar);
-                        this.f35153d.remove(fVar);
+                    if (this.f35259d.containsKey(fVar)) {
+                        cVar = this.f35259d.get(fVar);
+                        this.f35259d.remove(fVar);
                     }
                     if (cVar != null && (indexOfValue = M.indexOfValue(cVar)) >= 0 && indexOfValue < M.size()) {
                         M.removeAt(indexOfValue);
                     }
                 } else {
                     M.remove(i2);
-                    synchronized (this.f35154e) {
-                        f fVar2 = this.f35154e.get(i2);
-                        if (fVar2 != null && this.f35153d.containsKey(fVar2)) {
-                            this.f35153d.remove(fVar2);
-                            this.f35154e.remove(i2);
+                    synchronized (this.f35260e) {
+                        f fVar2 = this.f35260e.get(i2);
+                        if (fVar2 != null && this.f35259d.containsKey(fVar2)) {
+                            this.f35259d.remove(fVar2);
+                            this.f35260e.remove(i2);
                         }
                     }
                 }
@@ -1200,6 +1200,6 @@ public class a {
                 return;
             }
         }
-        this.f35150a = downloadInfo;
+        this.f35256a = downloadInfo;
     }
 }

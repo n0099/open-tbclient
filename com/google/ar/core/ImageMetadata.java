@@ -11,7 +11,7 @@ public class ImageMetadata {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final long f69854a;
+    public final long f70054a;
 
     public ImageMetadata() {
         Interceptable interceptable = $ic;
@@ -26,7 +26,7 @@ public class ImageMetadata {
                 return;
             }
         }
-        this.f69854a = 0L;
+        this.f70054a = 0L;
     }
 
     private native void nativeDestroyMetadataEntry(long j2, long j3);
@@ -70,7 +70,7 @@ public class ImageMetadata {
     public void finalize() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            long j2 = this.f69854a;
+            long j2 = this.f70054a;
             if (j2 != 0) {
                 nativeReleaseImageMetadata(j2);
             }

@@ -8,8 +8,8 @@ import android.util.AttributeSet;
 import android.view.View;
 import androidx.annotation.Nullable;
 import androidx.viewpager.widget.ViewPager;
-import c.a.n0.a.c;
-import c.a.n0.a.d;
+import c.a.o0.a.c;
+import c.a.o0.a.d;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -21,22 +21,22 @@ public class CircleIndicator extends View {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f45972e;
+    public int f46079e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f45973f;
+    public int f46080f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f45974g;
+    public int f46081g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f45975h;
+    public int f46082h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f45976i;
+    public int f46083i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f45977j;
+    public int f46084j;
     public int k;
     public Paint l;
     public int m;
@@ -51,7 +51,7 @@ public class CircleIndicator extends View {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CircleIndicator f45978e;
+        public final /* synthetic */ CircleIndicator f46085e;
 
         public a(CircleIndicator circleIndicator) {
             Interceptable interceptable = $ic;
@@ -68,14 +68,14 @@ public class CircleIndicator extends View {
                     return;
                 }
             }
-            this.f45978e = circleIndicator;
+            this.f46085e = circleIndicator;
         }
 
         @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
         public void onPageScrollStateChanged(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-                c.a.n0.a.w1.h.a.g(this.f45978e.getContext().getApplicationContext()).k();
+                c.a.o0.a.w1.h.a.g(this.f46085e.getContext().getApplicationContext()).k();
             }
         }
 
@@ -85,14 +85,14 @@ public class CircleIndicator extends View {
             if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), Float.valueOf(f2), Integer.valueOf(i3)}) == null) || f2 <= 0.0f) {
                 return;
             }
-            this.f45978e.scroll(i2, f2);
+            this.f46085e.scroll(i2, f2);
         }
 
         @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
         public void onPageSelected(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-                this.f45978e.f45973f = i2;
+                this.f46085e.f46080f = i2;
             }
         }
     }
@@ -122,9 +122,9 @@ public class CircleIndicator extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) {
             this.l.setColor(this.o);
-            for (int i2 = 0; i2 < this.f45972e; i2++) {
-                int i3 = this.f45975h;
-                canvas.drawCircle(this.f45977j + (this.f45974g * i2), i3, i3, this.l);
+            for (int i2 = 0; i2 < this.f46079e; i2++) {
+                int i3 = this.f46082h;
+                canvas.drawCircle(this.f46084j + (this.f46081g * i2), i3, i3, this.l);
             }
         }
     }
@@ -133,14 +133,14 @@ public class CircleIndicator extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             int count = this.n.getAdapter().getCount();
-            this.f45972e = count;
+            this.f46079e = count;
             if (count <= 0) {
                 return;
             }
             int i2 = this.m;
-            int i3 = this.f45974g;
-            this.f45977j = (i2 - ((count - 1) * i3)) / 2;
-            this.f45975h = i3 / 5;
+            int i3 = this.f46081g;
+            this.f46084j = (i2 - ((count - 1) * i3)) / 2;
+            this.f46082h = i3 / 5;
             invalidate();
         }
     }
@@ -149,8 +149,8 @@ public class CircleIndicator extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, canvas) == null) {
             this.l.setColor(this.p);
-            int i2 = (this.f45977j + this.k) - (this.f45974g / 2);
-            canvas.drawRoundRect(new RectF(i2, 0, this.f45976i + i2, (this.f45975h * 2) + 0), 10.0f, 10.0f, this.l);
+            int i2 = (this.f46084j + this.k) - (this.f46081g / 2);
+            canvas.drawRoundRect(new RectF(i2, 0, this.f46083i + i2, (this.f46082h * 2) + 0), 10.0f, 10.0f, this.l);
         }
     }
 
@@ -162,7 +162,7 @@ public class CircleIndicator extends View {
             paint.setAntiAlias(true);
             this.o = getResources().getColor(c.swanapp_emotion_circle_indicator);
             this.p = getResources().getColor(c.swanapp_emotion_circle_indicator_highlight);
-            this.f45974g = getResources().getDimensionPixelSize(d.aiapps_circle_inter_width);
+            this.f46081g = getResources().getDimensionPixelSize(d.aiapps_circle_inter_width);
         }
     }
 
@@ -182,17 +182,17 @@ public class CircleIndicator extends View {
         if (interceptable == null || interceptable.invokeIIII(1048581, this, i2, i3, i4, i5) == null) {
             super.onSizeChanged(i2, i3, i4, i5);
             this.m = i2;
-            int i6 = this.f45974g;
-            this.f45977j = (i2 - ((this.f45972e - 1) * i6)) / 2;
-            this.f45975h = i6 / 5;
-            this.f45976i = i6;
+            int i6 = this.f46081g;
+            this.f46084j = (i2 - ((this.f46079e - 1) * i6)) / 2;
+            this.f46082h = i6 / 5;
+            this.f46083i = i6;
         }
     }
 
     public void scroll(int i2, float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i2), Float.valueOf(f2)}) == null) {
-            this.k = (int) (this.f45974g * (f2 + i2));
+            this.k = (int) (this.f46081g * (f2 + i2));
             invalidate();
         }
     }
@@ -252,7 +252,7 @@ public class CircleIndicator extends View {
                 return;
             }
         }
-        this.f45972e = 1;
+        this.f46079e = 1;
         this.k = 0;
         this.q = new a(this);
         e();

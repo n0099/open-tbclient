@@ -47,7 +47,7 @@ public abstract class LBSBaseActivity extends DxmPayBaseActivity implements IBea
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ LBSBaseActivity f36516a;
+            public final /* synthetic */ LBSBaseActivity f36622a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -64,7 +64,7 @@ public abstract class LBSBaseActivity extends DxmPayBaseActivity implements IBea
                         return;
                     }
                 }
-                this.f36516a = this;
+                this.f36622a = this;
             }
 
             @Override // android.content.BroadcastReceiver
@@ -72,7 +72,7 @@ public abstract class LBSBaseActivity extends DxmPayBaseActivity implements IBea
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeLL(1048576, this, context, intent) == null) {
                     if (LBSPayResult.ACTION_EXIT.equals(intent.getAction())) {
-                        this.f36516a.finish();
+                        this.f36622a.finish();
                     }
                 }
             }
@@ -121,16 +121,16 @@ public abstract class LBSBaseActivity extends DxmPayBaseActivity implements IBea
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ int f36522a;
+                public final /* synthetic */ int f36628a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ int f36523b;
+                public final /* synthetic */ int f36629b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ String f36524c;
+                public final /* synthetic */ String f36630c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ LBSBaseActivity f36525d;
+                public final /* synthetic */ LBSBaseActivity f36631d;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -147,17 +147,17 @@ public abstract class LBSBaseActivity extends DxmPayBaseActivity implements IBea
                             return;
                         }
                     }
-                    this.f36525d = this;
-                    this.f36522a = i2;
-                    this.f36523b = i3;
-                    this.f36524c = str;
+                    this.f36631d = this;
+                    this.f36628a = i2;
+                    this.f36629b = i3;
+                    this.f36630c = str;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f36525d.handleFailure(this.f36522a, this.f36523b, this.f36524c);
+                        this.f36631d.handleFailure(this.f36628a, this.f36629b, this.f36630c);
                     }
                 }
             });
@@ -173,16 +173,16 @@ public abstract class LBSBaseActivity extends DxmPayBaseActivity implements IBea
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ int f36518a;
+                public final /* synthetic */ int f36624a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ Object f36519b;
+                public final /* synthetic */ Object f36625b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ String f36520c;
+                public final /* synthetic */ String f36626c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ LBSBaseActivity f36521d;
+                public final /* synthetic */ LBSBaseActivity f36627d;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -199,17 +199,17 @@ public abstract class LBSBaseActivity extends DxmPayBaseActivity implements IBea
                             return;
                         }
                     }
-                    this.f36521d = this;
-                    this.f36518a = i2;
-                    this.f36519b = obj;
-                    this.f36520c = str;
+                    this.f36627d = this;
+                    this.f36624a = i2;
+                    this.f36625b = obj;
+                    this.f36626c = str;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f36521d.handleResponse(this.f36518a, this.f36519b, this.f36520c);
+                        this.f36627d.handleResponse(this.f36624a, this.f36625b, this.f36626c);
                     }
                 }
             });
@@ -247,7 +247,7 @@ public abstract class LBSBaseActivity extends DxmPayBaseActivity implements IBea
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ LBSBaseActivity f36517a;
+            public final /* synthetic */ LBSBaseActivity f36623a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -264,14 +264,14 @@ public abstract class LBSBaseActivity extends DxmPayBaseActivity implements IBea
                         return;
                     }
                 }
-                this.f36517a = this;
+                this.f36623a = this;
             }
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                    this.f36517a.onBackPressed();
+                    this.f36623a.onBackPressed();
                 }
             }
         });

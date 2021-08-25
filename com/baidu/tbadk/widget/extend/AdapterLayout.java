@@ -1,12 +1,11 @@
 package com.baidu.tbadk.widget.extend;
 
-import android.app.Activity;
 import android.content.Context;
 import android.database.DataSetObserver;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
-import c.a.o0.n.g;
+import c.a.p0.d1.f.a.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -18,67 +17,19 @@ public abstract class AdapterLayout extends ViewGroup {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f48395e;
-    public c.a.o0.d1.f.a.b mAdapter;
+    public boolean f48504e;
+    public b mAdapter;
     public DataSetObserver mObserver;
 
     /* loaded from: classes6.dex */
-    public class a extends g {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f48396e;
-
-        /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ AdapterLayout f48397f;
-
-        public a(AdapterLayout adapterLayout, Context context) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {adapterLayout, context};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f48397f = adapterLayout;
-            this.f48396e = context;
-        }
-
-        @Override // c.a.o0.n.g, android.app.Application.ActivityLifecycleCallbacks
-        public void onActivityDestroyed(Activity activity) {
-            DataSetObserver dataSetObserver;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, activity) == null) && activity == this.f48396e) {
-                AdapterLayout adapterLayout = this.f48397f;
-                c.a.o0.d1.f.a.b bVar = adapterLayout.mAdapter;
-                if (bVar != null && (dataSetObserver = adapterLayout.mObserver) != null) {
-                    bVar.e(dataSetObserver);
-                    AdapterLayout adapterLayout2 = this.f48397f;
-                    adapterLayout2.mAdapter = null;
-                    adapterLayout2.mObserver = null;
-                }
-                ((Activity) this.f48396e).getApplication().unregisterActivityLifecycleCallbacks(this);
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b extends DataSetObserver {
+    public class a extends DataSetObserver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ AdapterLayout f48398a;
+        public final /* synthetic */ AdapterLayout f48505a;
 
-        public b(AdapterLayout adapterLayout) {
+        public a(AdapterLayout adapterLayout) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -93,14 +44,14 @@ public abstract class AdapterLayout extends ViewGroup {
                     return;
                 }
             }
-            this.f48398a = adapterLayout;
+            this.f48505a = adapterLayout;
         }
 
         @Override // android.database.DataSetObserver
         public void onChanged() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f48398a.resetLayout();
+                this.f48505a.resetLayout();
             }
         }
     }
@@ -127,24 +78,24 @@ public abstract class AdapterLayout extends ViewGroup {
     }
 
     public final void a() {
-        c.a.o0.d1.f.a.b bVar;
+        b bVar;
         DataSetObserver dataSetObserver;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (bVar = this.mAdapter) == null || (dataSetObserver = this.mObserver) == null || this.f48395e) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (bVar = this.mAdapter) == null || (dataSetObserver = this.mObserver) == null || this.f48504e) {
             return;
         }
         bVar.d(dataSetObserver);
-        this.f48395e = true;
+        this.f48504e = true;
     }
 
     public final void b() {
-        c.a.o0.d1.f.a.b bVar;
+        b bVar;
         DataSetObserver dataSetObserver;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (bVar = this.mAdapter) == null || (dataSetObserver = this.mObserver) == null || !this.f48395e) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (bVar = this.mAdapter) == null || (dataSetObserver = this.mObserver) == null || !this.f48504e) {
             return;
         }
-        this.f48395e = false;
+        this.f48504e = false;
         bVar.e(dataSetObserver);
     }
 
@@ -157,10 +108,22 @@ public abstract class AdapterLayout extends ViewGroup {
         }
     }
 
+    public void onDestroyed() {
+        b bVar;
+        DataSetObserver dataSetObserver;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (bVar = this.mAdapter) == null || (dataSetObserver = this.mObserver) == null) {
+            return;
+        }
+        bVar.e(dataSetObserver);
+        this.mAdapter = null;
+        this.mObserver = null;
+    }
+
     @Override // android.view.ViewGroup, android.view.View
     public void onDetachedFromWindow() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             b();
             super.onDetachedFromWindow();
         }
@@ -168,7 +131,7 @@ public abstract class AdapterLayout extends ViewGroup {
 
     public void resetLayout() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || this.mAdapter == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || this.mAdapter == null) {
             return;
         }
         removeAllViews();
@@ -180,13 +143,13 @@ public abstract class AdapterLayout extends ViewGroup {
         }
     }
 
-    public void setAdapter(c.a.o0.d1.f.a.b bVar) {
+    public void setAdapter(b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, bVar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048582, this, bVar) == null) {
             b();
             if (bVar != null) {
                 this.mAdapter = bVar;
-                this.mObserver = new b(this);
+                this.mObserver = new a(this);
                 a();
                 resetLayout();
                 return;
@@ -235,9 +198,6 @@ public abstract class AdapterLayout extends ViewGroup {
                 return;
             }
         }
-        this.f48395e = false;
-        if (context instanceof Activity) {
-            ((Activity) context).getApplication().registerActivityLifecycleCallbacks(new a(this, context));
-        }
+        this.f48504e = false;
     }
 }

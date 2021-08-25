@@ -17,7 +17,7 @@ public class u extends t.b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: g  reason: collision with root package name */
-    public final w f78897g;
+    public final w f79098g;
 
     public u(boolean z, w wVar) throws IOException {
         Interceptable interceptable = $ic;
@@ -34,22 +34,22 @@ public class u extends t.b {
                 return;
             }
         }
-        this.f78886a = z;
-        this.f78897g = wVar;
+        this.f79087a = z;
+        this.f79098g = wVar;
         ByteBuffer allocate = ByteBuffer.allocate(4);
         allocate.order(z ? ByteOrder.BIG_ENDIAN : ByteOrder.LITTLE_ENDIAN);
         wVar.h(allocate, 16L, 2);
         allocate.getShort();
         wVar.h(allocate, 28L, 4);
-        this.f78887b = allocate.getInt() & 4294967295L;
+        this.f79088b = allocate.getInt() & 4294967295L;
         wVar.h(allocate, 32L, 4);
-        this.f78888c = allocate.getInt() & 4294967295L;
+        this.f79089c = allocate.getInt() & 4294967295L;
         wVar.h(allocate, 42L, 2);
-        this.f78889d = allocate.getShort() & UShort.MAX_VALUE;
+        this.f79090d = allocate.getShort() & UShort.MAX_VALUE;
         wVar.h(allocate, 44L, 2);
-        this.f78890e = allocate.getShort() & UShort.MAX_VALUE;
+        this.f79091e = allocate.getShort() & UShort.MAX_VALUE;
         wVar.h(allocate, 46L, 2);
-        this.f78891f = allocate.getShort() & UShort.MAX_VALUE;
+        this.f79092f = allocate.getShort() & UShort.MAX_VALUE;
         wVar.h(allocate, 48L, 2);
         allocate.getShort();
         wVar.h(allocate, 50L, 2);
@@ -60,20 +60,20 @@ public class u extends t.b {
     public t.a a(long j2, int i2) throws IOException {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j2), Integer.valueOf(i2)})) == null) ? new r(this.f78897g, this, j2, i2) : (t.a) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j2), Integer.valueOf(i2)})) == null) ? new r(this.f79098g, this, j2, i2) : (t.a) invokeCommon.objValue;
     }
 
     @Override // ms.bd.c.t.b
     public t.c b(long j2) throws IOException {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2)) == null) ? new x(this.f78897g, this, j2) : (t.c) invokeJ.objValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2)) == null) ? new x(this.f79098g, this, j2) : (t.c) invokeJ.objValue;
     }
 
     @Override // ms.bd.c.t.b
     public t.d c(int i2) throws IOException {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? new z(this.f78897g, this, i2) : (t.d) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? new z(this.f79098g, this, i2) : (t.d) invokeI.objValue;
     }
 }

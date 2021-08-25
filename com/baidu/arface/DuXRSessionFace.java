@@ -62,7 +62,7 @@ public class DuXRSessionFace {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ DuXRSessionFace f38190a;
+        public final /* synthetic */ DuXRSessionFace f38296a;
 
         public a(DuXRSessionFace duXRSessionFace) {
             Interceptable interceptable = $ic;
@@ -79,7 +79,7 @@ public class DuXRSessionFace {
                     return;
                 }
             }
-            this.f38190a = duXRSessionFace;
+            this.f38296a = duXRSessionFace;
         }
 
         @Override // com.baidu.smallgame.sdk.permission.PermissionListener
@@ -88,11 +88,11 @@ public class DuXRSessionFace {
             if (interceptable == null || interceptable.invokeLI(1048576, this, str, i2) == null) {
                 if (i2 == 0) {
                     String str2 = "Permission ok!@ permissionState:" + i2;
-                    this.f38190a.initAlgoModule();
+                    this.f38296a.initAlgoModule();
                     return;
                 }
                 int i3 = i2 + 1000;
-                DuXRSessionFace duXRSessionFace = this.f38190a;
+                DuXRSessionFace duXRSessionFace = this.f38296a;
                 duXRSessionFace.sessionCreateFail(duXRSessionFace.mNativeSessionHandle, i3);
                 String str3 = "Permission fail:" + i3;
             }
@@ -105,7 +105,7 @@ public class DuXRSessionFace {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ DuXRSessionFace f38191e;
+        public final /* synthetic */ DuXRSessionFace f38297e;
 
         public b(DuXRSessionFace duXRSessionFace) {
             Interceptable interceptable = $ic;
@@ -122,14 +122,14 @@ public class DuXRSessionFace {
                     return;
                 }
             }
-            this.f38191e = duXRSessionFace;
+            this.f38297e = duXRSessionFace;
         }
 
         @Override // android.graphics.SurfaceTexture.OnFrameAvailableListener
         public void onFrameAvailable(SurfaceTexture surfaceTexture) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, surfaceTexture) == null) {
-                DuXRSessionFace duXRSessionFace = this.f38191e;
+                DuXRSessionFace duXRSessionFace = this.f38297e;
                 duXRSessionFace.onCameraFrameAvailable(duXRSessionFace.mNativeSessionHandle);
             }
         }
@@ -141,7 +141,7 @@ public class DuXRSessionFace {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ DuXRSessionFace f38192e;
+        public final /* synthetic */ DuXRSessionFace f38298e;
 
         public c(DuXRSessionFace duXRSessionFace) {
             Interceptable interceptable = $ic;
@@ -158,17 +158,17 @@ public class DuXRSessionFace {
                     return;
                 }
             }
-            this.f38192e = duXRSessionFace;
+            this.f38298e = duXRSessionFace;
         }
 
         @Override // android.hardware.Camera.PreviewCallback
         public void onPreviewFrame(byte[] bArr, Camera camera) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLL(1048576, this, bArr, camera) == null) && this.f38192e.mAlgoInited) {
+            if ((interceptable == null || interceptable.invokeLL(1048576, this, bArr, camera) == null) && this.f38298e.mAlgoInited) {
                 Message message = new Message();
                 message.what = 114;
                 message.obj = bArr;
-                this.f38192e.mSessionHandler.sendMessage(message);
+                this.f38298e.mSessionHandler.sendMessage(message);
             }
         }
     }
@@ -201,7 +201,7 @@ public class DuXRSessionFace {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ DuXRSessionFace f38193a;
+        public final /* synthetic */ DuXRSessionFace f38299a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public e(DuXRSessionFace duXRSessionFace, Looper looper) {
@@ -221,7 +221,7 @@ public class DuXRSessionFace {
                     return;
                 }
             }
-            this.f38193a = duXRSessionFace;
+            this.f38299a = duXRSessionFace;
         }
 
         @Override // android.os.Handler
@@ -230,40 +230,40 @@ public class DuXRSessionFace {
             if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
                 switch (message.what) {
                     case 110:
-                        this.f38193a.mAlgoInited = true;
-                        this.f38193a.startCamera(true);
+                        this.f38299a.mAlgoInited = true;
+                        this.f38299a.startCamera(true);
                         break;
                     case 111:
-                        this.f38193a.mAlgoInited = false;
-                        this.f38193a.mFaceSession = new FaceSession(this.f38193a.mContext, this.f38193a.mFaceListener);
-                        this.f38193a.mFaceSession.init();
+                        this.f38299a.mAlgoInited = false;
+                        this.f38299a.mFaceSession = new FaceSession(this.f38299a.mContext, this.f38299a.mFaceListener);
+                        this.f38299a.mFaceSession.init();
                         break;
                     case 112:
                         Object obj = message.obj;
                         long longValue = obj != null ? ((Long) obj).longValue() : 0L;
-                        DuXRSessionFace duXRSessionFace = this.f38193a;
+                        DuXRSessionFace duXRSessionFace = this.f38299a;
                         duXRSessionFace.onSessionFrameTracked(duXRSessionFace.mNativeSessionHandle, longValue);
                         break;
                     case 113:
                         long longValue2 = ((Long) message.obj).longValue();
-                        if (this.f38193a.mFaceSession != null) {
-                            this.f38193a.mFaceSession.destroyHandle(longValue2);
+                        if (this.f38299a.mFaceSession != null) {
+                            this.f38299a.mFaceSession.destroyHandle(longValue2);
                             break;
                         }
                         break;
                     case 114:
-                        if (this.f38193a.mAlgoInited) {
+                        if (this.f38299a.mAlgoInited) {
                             byte[] bArr = (byte[]) message.obj;
                             ByteBuffer allocateDirect = ByteBuffer.allocateDirect(bArr != null ? bArr.length : 0);
                             allocateDirect.put(bArr);
-                            this.f38193a.mFaceSession.updateFrameAsync(allocateDirect, this.f38193a.mPreviewWidth, this.f38193a.mPreviewHeight, 1);
+                            this.f38299a.mFaceSession.updateFrameAsync(allocateDirect, this.f38299a.mPreviewWidth, this.f38299a.mPreviewHeight, 1);
                             break;
                         }
                         break;
                     case 115:
-                        this.f38193a.mAlgoInited = false;
-                        this.f38193a.releaseCamera();
-                        this.f38193a.endAlgoModule();
+                        this.f38299a.mAlgoInited = false;
+                        this.f38299a.releaseCamera();
+                        this.f38299a.endAlgoModule();
                         removeMessages(112);
                         removeMessages(113);
                         break;
@@ -473,7 +473,7 @@ public class DuXRSessionFace {
                 return;
             }
             this.mTextureId = i4;
-            PermissionProxy permissionProxy = c.a.i0.a.a.o;
+            PermissionProxy permissionProxy = c.a.j0.a.a.o;
             if (permissionProxy != null) {
                 permissionProxy.requestPermission(PermissionProxy.SCOPE_ID_CAMERA, new a(this));
             } else {

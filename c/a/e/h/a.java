@@ -14,7 +14,7 @@ public class a extends DexClassLoader {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ClassLoader f2697a;
+    public ClassLoader f2755a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a(String str, String str2, String str3, ClassLoader classLoader, ClassLoader classLoader2) {
@@ -35,8 +35,8 @@ public class a extends DexClassLoader {
                 return;
             }
         }
-        this.f2697a = null;
-        this.f2697a = classLoader2;
+        this.f2755a = null;
+        this.f2755a = classLoader2;
     }
 
     @Override // dalvik.system.BaseDexClassLoader, java.lang.ClassLoader
@@ -47,7 +47,7 @@ public class a extends DexClassLoader {
             try {
                 return super.findClass(str);
             } catch (Exception unused) {
-                ClassLoader classLoader = this.f2697a;
+                ClassLoader classLoader = this.f2755a;
                 if (classLoader != null) {
                     Class<?> loadClass = classLoader.loadClass(str);
                     if (BdBaseApplication.getInst().isDebugMode()) {

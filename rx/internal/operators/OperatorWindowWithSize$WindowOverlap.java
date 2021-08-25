@@ -15,13 +15,13 @@ public final class OperatorWindowWithSize$WindowOverlap<T> extends j<T> implemen
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final int f79015e;
+    public final int f79216e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final int f79016f;
+    public final int f79217f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final AtomicLong f79017g;
+    public final AtomicLong f79218g;
 
     /* loaded from: classes2.dex */
     public final class WindowOverlapProducer extends AtomicBoolean implements f {
@@ -58,11 +58,11 @@ public final class OperatorWindowWithSize$WindowOverlap<T> extends j<T> implemen
                 } else if (i2 != 0) {
                     OperatorWindowWithSize$WindowOverlap operatorWindowWithSize$WindowOverlap = this.this$0;
                     if (!get() && compareAndSet(false, true)) {
-                        operatorWindowWithSize$WindowOverlap.request(i.o.a.a.a(i.o.a.a.c(operatorWindowWithSize$WindowOverlap.f79016f, j2 - 1), operatorWindowWithSize$WindowOverlap.f79015e));
+                        operatorWindowWithSize$WindowOverlap.request(i.o.a.a.a(i.o.a.a.c(operatorWindowWithSize$WindowOverlap.f79217f, j2 - 1), operatorWindowWithSize$WindowOverlap.f79216e));
                     } else {
-                        this.this$0.request(i.o.a.a.c(operatorWindowWithSize$WindowOverlap.f79016f, j2));
+                        this.this$0.request(i.o.a.a.c(operatorWindowWithSize$WindowOverlap.f79217f, j2));
                     }
-                    i.o.a.a.b(operatorWindowWithSize$WindowOverlap.f79017g, j2);
+                    i.o.a.a.b(operatorWindowWithSize$WindowOverlap.f79218g, j2);
                     operatorWindowWithSize$WindowOverlap.d();
                 }
             }

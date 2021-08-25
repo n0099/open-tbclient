@@ -5,8 +5,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RelativeLayout;
-import c.a.n0.a.f;
-import c.a.n0.a.g;
+import c.a.o0.a.f;
+import c.a.o0.a.g;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -17,10 +17,10 @@ public class ShowConfirmBarLayout extends RelativeLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Button f46398e;
+    public Button f46505e;
 
     /* renamed from: f  reason: collision with root package name */
-    public b f46399f;
+    public b f46506f;
 
     /* loaded from: classes6.dex */
     public class a implements View.OnClickListener {
@@ -28,7 +28,7 @@ public class ShowConfirmBarLayout extends RelativeLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ShowConfirmBarLayout f46400e;
+        public final /* synthetic */ ShowConfirmBarLayout f46507e;
 
         public a(ShowConfirmBarLayout showConfirmBarLayout) {
             Interceptable interceptable = $ic;
@@ -45,16 +45,16 @@ public class ShowConfirmBarLayout extends RelativeLayout {
                     return;
                 }
             }
-            this.f46400e = showConfirmBarLayout;
+            this.f46507e = showConfirmBarLayout;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f46400e.f46399f == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f46507e.f46506f == null) {
                 return;
             }
-            this.f46400e.f46399f.onClick(view);
+            this.f46507e.f46506f.onClick(view);
         }
     }
 
@@ -82,14 +82,14 @@ public class ShowConfirmBarLayout extends RelativeLayout {
             }
         }
         Button button = (Button) LayoutInflater.from(context).inflate(g.aiapps_textarea_confirm_bar, this).findViewById(f.confirm_button);
-        this.f46398e = button;
+        this.f46505e = button;
         button.setOnClickListener(new a(this));
     }
 
     public void setOnConfirmButtonClickListener(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
-            this.f46399f = bVar;
+            this.f46506f = bVar;
         }
     }
 }

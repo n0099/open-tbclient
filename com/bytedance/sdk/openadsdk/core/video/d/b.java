@@ -18,14 +18,14 @@ public class b {
 
     /* renamed from: com.bytedance.sdk.openadsdk.core.video.d.b$b  reason: collision with other inner class name */
     /* loaded from: classes9.dex */
-    public interface InterfaceC1906b {
+    public interface InterfaceC1910b {
         void a(Bitmap bitmap);
     }
 
-    public static void a(long j2, String str, InterfaceC1906b interfaceC1906b) {
+    public static void a(long j2, String str, InterfaceC1910b interfaceC1910b) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{Long.valueOf(j2), str, interfaceC1906b}) == null) {
-            new a(interfaceC1906b, j2).execute(str);
+        if (interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{Long.valueOf(j2), str, interfaceC1910b}) == null) {
+            new a(interfaceC1910b, j2).execute(str);
         }
     }
 
@@ -35,17 +35,17 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public InterfaceC1906b f66747a;
+        public InterfaceC1910b f66947a;
 
         /* renamed from: b  reason: collision with root package name */
-        public long f66748b;
+        public long f66948b;
 
-        public a(InterfaceC1906b interfaceC1906b, long j2) {
+        public a(InterfaceC1910b interfaceC1910b, long j2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {interfaceC1906b, Long.valueOf(j2)};
+                Object[] objArr = {interfaceC1910b, Long.valueOf(j2)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -55,9 +55,9 @@ public class b {
                     return;
                 }
             }
-            this.f66748b = 0L;
-            this.f66747a = interfaceC1906b;
-            this.f66748b = j2;
+            this.f66948b = 0L;
+            this.f66947a = interfaceC1910b;
+            this.f66948b = j2;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -76,7 +76,7 @@ public class b {
                     } else {
                         mediaMetadataRetriever.setDataSource(str);
                     }
-                    bitmap = mediaMetadataRetriever.getFrameAtTime(this.f66748b * 1000, 3);
+                    bitmap = mediaMetadataRetriever.getFrameAtTime(this.f66948b * 1000, 3);
                     mediaMetadataRetriever.release();
                     return bitmap;
                 } catch (Throwable th) {
@@ -94,9 +94,9 @@ public class b {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bitmap) == null) {
                 super.onPostExecute(bitmap);
-                InterfaceC1906b interfaceC1906b = this.f66747a;
-                if (interfaceC1906b != null) {
-                    interfaceC1906b.a(bitmap);
+                InterfaceC1910b interfaceC1910b = this.f66947a;
+                if (interfaceC1910b != null) {
+                    interfaceC1910b.a(bitmap);
                 }
             }
         }

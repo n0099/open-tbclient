@@ -12,7 +12,7 @@ public class n {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static HashMap<String, String> f2527a;
+    public static HashMap<String, String> f2585a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -29,19 +29,19 @@ public class n {
             }
         }
         HashMap<String, String> hashMap = new HashMap<>();
-        f2527a = hashMap;
+        f2585a = hashMap;
         hashMap.put("java.lang.String", "java.lang.String");
-        f2527a.put("java.lang.Integer", "java.lang.Integer");
-        f2527a.put("java.lang.Double", "java.lang.Double");
-        f2527a.put("java.lang.Float", "java.lang.Float");
-        f2527a.put("java.lang.Boolean", "java.lang.Boolean");
-        f2527a.put("java.lang.Character", "java.lang.Character");
-        f2527a.put("java.lang.Short", "java.lang.Short");
-        f2527a.put("java.lang.Long", "java.lang.Long");
-        f2527a.put("java.lang.Byte", "java.lang.Byte");
-        f2527a.put("java.util.Date", "java.util.Date");
-        f2527a.put("java.lang.Integer", "java.lang.Integer");
-        f2527a.put("java.lang.Integer", "java.lang.Integer");
+        f2585a.put("java.lang.Integer", "java.lang.Integer");
+        f2585a.put("java.lang.Double", "java.lang.Double");
+        f2585a.put("java.lang.Float", "java.lang.Float");
+        f2585a.put("java.lang.Boolean", "java.lang.Boolean");
+        f2585a.put("java.lang.Character", "java.lang.Character");
+        f2585a.put("java.lang.Short", "java.lang.Short");
+        f2585a.put("java.lang.Long", "java.lang.Long");
+        f2585a.put("java.lang.Byte", "java.lang.Byte");
+        f2585a.put("java.util.Date", "java.util.Date");
+        f2585a.put("java.lang.Integer", "java.lang.Integer");
+        f2585a.put("java.lang.Integer", "java.lang.Integer");
     }
 
     public static Object a(Object obj, Field field) {

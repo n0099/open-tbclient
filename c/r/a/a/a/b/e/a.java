@@ -17,11 +17,11 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile a f35276b;
+    public static volatile a f35382b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f35277a;
+    public Context f35383a;
 
     static {
         InterceptResult invokeClinit;
@@ -53,21 +53,21 @@ public class a {
                 return;
             }
         }
-        this.f35277a = context;
+        this.f35383a = context;
     }
 
     public static a a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            if (f35276b == null) {
+            if (f35382b == null) {
                 synchronized (a.class) {
-                    if (f35276b == null) {
-                        f35276b = new a(context);
+                    if (f35382b == null) {
+                        f35382b = new a(context);
                     }
                 }
             }
-            return f35276b;
+            return f35382b;
         }
         return (a) invokeL.objValue;
     }
@@ -122,7 +122,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
             try {
-                return b(this.f35277a, str);
+                return b(this.f35383a, str);
             } catch (Throwable th) {
                 c.c(th);
                 return null;
@@ -139,7 +139,7 @@ public class a {
             } catch (Throwable th) {
                 c.c(th);
             }
-            return this.f35277a.getPackageManager().resolveContentProvider("com.meizu.flyme.openidsdk", 0) != null;
+            return this.f35383a.getPackageManager().resolveContentProvider("com.meizu.flyme.openidsdk", 0) != null;
         }
         return invokeV.booleanValue;
     }

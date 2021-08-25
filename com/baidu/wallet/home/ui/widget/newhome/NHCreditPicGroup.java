@@ -23,10 +23,10 @@ public class NHCreditPicGroup extends BaseItemLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public NHTitleView f61096a;
+    public NHTitleView f61296a;
 
     /* renamed from: b  reason: collision with root package name */
-    public LinearLayout f61097b;
+    public LinearLayout f61297b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public NHCreditPicGroup(Context context) {
@@ -63,9 +63,9 @@ public class NHCreditPicGroup extends BaseItemLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             LayoutInflater.from(getContext()).inflate(ResUtils.layout(getContext(), "wallet_home_nh_credit_long_layout"), this);
-            this.f61096a = (NHTitleView) findViewById(ResUtils.id(getContext(), "credit_group_title"));
+            this.f61296a = (NHTitleView) findViewById(ResUtils.id(getContext(), "credit_group_title"));
             LinearLayout linearLayout = (LinearLayout) findViewById(ResUtils.id(getContext(), "credit_group_list"));
-            this.f61097b = linearLayout;
+            this.f61297b = linearLayout;
             linearLayout.setOrientation(0);
         }
     }
@@ -86,20 +86,20 @@ public class NHCreditPicGroup extends BaseItemLayout {
     public void refreshData() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f61096a.setData(this.mConfigData, getWalletInterface());
-            this.f61096a.setHasGap(this.mConfigData.isLayoutHasGap());
+            this.f61296a.setData(this.mConfigData, getWalletInterface());
+            this.f61296a.setHasGap(this.mConfigData.isLayoutHasGap());
             int displayWidth = (DisplayUtils.getDisplayWidth(getContext()) - (DisplayUtils.dip2px(getContext(), 15.0f) * 3)) / 2;
             int i2 = (displayWidth * 5) / 8;
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(displayWidth, i2);
             NHCreditPicItem nHCreditPicItem = new NHCreditPicItem(getContext());
             nHCreditPicItem.setData(this.mConfigData.list[0], getWalletInterface());
-            this.f61097b.addView(nHCreditPicItem, layoutParams);
+            this.f61297b.addView(nHCreditPicItem, layoutParams);
             if (this.mConfigData.list.length > 1) {
                 LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(displayWidth, i2);
                 NHCreditPicItem nHCreditPicItem2 = new NHCreditPicItem(getContext());
                 layoutParams2.setMargins(DisplayUtils.dip2px(getContext(), 15.0f), 0, 0, 0);
                 nHCreditPicItem2.setData(this.mConfigData.list[1], getWalletInterface());
-                this.f61097b.addView(nHCreditPicItem2, layoutParams2);
+                this.f61297b.addView(nHCreditPicItem2, layoutParams2);
             }
         }
     }

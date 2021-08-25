@@ -14,10 +14,10 @@ import android.view.animation.AnimationUtils;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import c.a.d0.a;
-import c.a.d0.k.j.a;
-import c.a.d0.p.a.a;
-import c.a.d0.p.c;
+import c.a.e0.a;
+import c.a.e0.k.j.a;
+import c.a.e0.p.a.a;
+import c.a.e0.p.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.lbspay.view.PayChannelController;
 import com.baidu.poly.widget.a;
@@ -44,10 +44,10 @@ public class m extends FrameLayout implements View.OnClickListener {
     public com.baidu.poly.a.l.c B;
     public Long C;
     public Long D;
-    public c.a.d0.k.i.c E;
-    public c.a.d0.p.c F;
+    public c.a.e0.k.i.c E;
+    public c.a.e0.p.c F;
     public String G;
-    public c.a.d0.p.a.a H;
+    public c.a.e0.p.a.a H;
     public boolean I;
     public boolean J;
     public Runnable K;
@@ -57,22 +57,22 @@ public class m extends FrameLayout implements View.OnClickListener {
     public boolean O;
 
     /* renamed from: e  reason: collision with root package name */
-    public View f44180e;
+    public View f44287e;
 
     /* renamed from: f  reason: collision with root package name */
-    public PolyFrameLayout f44181f;
+    public PolyFrameLayout f44288f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TipView f44182g;
+    public TipView f44289g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ViewGroup f44183h;
+    public ViewGroup f44290h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Bundle f44184i;
+    public Bundle f44291i;
 
     /* renamed from: j  reason: collision with root package name */
-    public ProgressButton f44185j;
+    public ProgressButton f44292j;
     public a.b k;
     public o l;
     public o[] m;
@@ -91,17 +91,17 @@ public class m extends FrameLayout implements View.OnClickListener {
     public View z;
 
     /* loaded from: classes5.dex */
-    public class a implements c.a.d0.k.j.a {
+    public class a implements c.a.e0.k.j.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ c.a.d0.k.j.a f44186a;
+        public final /* synthetic */ c.a.e0.k.j.a f44293a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ m f44187b;
+        public final /* synthetic */ m f44294b;
 
-        public a(m mVar, c.a.d0.k.j.a aVar) {
+        public a(m mVar, c.a.e0.k.j.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -116,34 +116,34 @@ public class m extends FrameLayout implements View.OnClickListener {
                     return;
                 }
             }
-            this.f44187b = mVar;
-            this.f44186a = aVar;
+            this.f44294b = mVar;
+            this.f44293a = aVar;
         }
 
-        @Override // c.a.d0.k.j.a
-        public void a(a.C0033a c0033a) {
+        @Override // c.a.e0.k.j.a
+        public void a(a.C0062a c0062a) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, c0033a) == null) {
-                if (c0033a.f1869a == 0) {
-                    this.f44187b.C = Long.valueOf(c0033a.f1871c);
-                    this.f44187b.J();
-                    if (this.f44187b.l != null && this.f44187b.l.P() == 1) {
-                        this.f44187b.l.l(c0033a.f1872d);
+            if (interceptable == null || interceptable.invokeL(1048576, this, c0062a) == null) {
+                if (c0062a.f3233a == 0) {
+                    this.f44294b.C = Long.valueOf(c0062a.f3235c);
+                    this.f44294b.J();
+                    if (this.f44294b.l != null && this.f44294b.l.P() == 1) {
+                        this.f44294b.l.l(c0062a.f3236d);
                     }
                 }
-                this.f44186a.a(c0033a);
-                this.f44187b.x.h();
+                this.f44293a.a(c0062a);
+                this.f44294b.x.h();
             }
         }
     }
 
     /* loaded from: classes5.dex */
-    public class b extends c.a.d0.k.a.a<JSONObject> {
+    public class b extends c.a.e0.k.a.a<JSONObject> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ m f44188a;
+        public final /* synthetic */ m f44295a;
 
         public b(m mVar) {
             Interceptable interceptable = $ic;
@@ -160,92 +160,92 @@ public class m extends FrameLayout implements View.OnClickListener {
                     return;
                 }
             }
-            this.f44188a = mVar;
+            this.f44295a = mVar;
         }
 
-        @Override // c.a.d0.k.a.a
+        @Override // c.a.e0.k.a.a
         public void b(Throwable th, String str) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th, str) == null) && this.f44188a.m == null) {
-                m mVar = this.f44188a;
-                mVar.Y(mVar.getResources().getString(c.a.d0.h.common_error_tips));
-                this.f44188a.onResult(3, "request channel list fail");
-                this.f44188a.detach();
-                c.a.d0.k.h.b bVar = new c.a.d0.k.h.b("1");
+            if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th, str) == null) && this.f44295a.m == null) {
+                m mVar = this.f44295a;
+                mVar.Y(mVar.getResources().getString(c.a.e0.h.common_error_tips));
+                this.f44295a.onResult(3, "request channel list fail");
+                this.f44295a.detach();
+                c.a.e0.k.h.b bVar = new c.a.e0.k.h.b("1");
                 bVar.c(new com.baidu.poly.a.i.a("gatewaylist error --> " + str, th).U());
-                c.a.d0.k.h.d.b(bVar);
+                c.a.e0.k.h.d.b(bVar);
             }
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // c.a.d0.k.a.a
+        @Override // c.a.e0.k.a.a
         /* renamed from: c */
         public void a(JSONObject jSONObject) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
-                c.a.d0.n.d.e("requestChannelList onSuccess");
+                c.a.e0.n.d.e("requestChannelList onSuccess");
                 Long valueOf = Long.valueOf(jSONObject.optLong("payMoney"));
                 String optString = jSONObject.optString("showTotalAmount", "1");
-                this.f44188a.O = optString.equals("1");
-                this.f44188a.C = valueOf;
+                this.f44295a.O = optString.equals("1");
+                this.f44295a.C = valueOf;
                 JSONArray optJSONArray = jSONObject.optJSONArray("payChannels");
                 if (optJSONArray != null && optJSONArray.length() > 0) {
                     o[] oVarArr = new o[optJSONArray.length()];
                     for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
                         o oVar = new o(optJSONArray.optJSONObject(i2));
                         if (oVar.P() == 1) {
-                            this.f44188a.N = oVar.R();
+                            this.f44295a.N = oVar.R();
                         }
                         oVarArr[i2] = oVar;
                     }
-                    this.f44188a.m = oVarArr;
+                    this.f44295a.m = oVarArr;
                     JSONArray optJSONArray2 = jSONObject.optJSONArray("coupons");
-                    this.f44188a.H = new c.a.d0.p.a.a(optJSONArray2);
-                    this.f44188a.x.a(this.f44188a.H);
-                    if (this.f44188a.A != null) {
-                        this.f44188a.A.a(this.f44188a.H.f1888b);
+                    this.f44295a.H = new c.a.e0.p.a.a(optJSONArray2);
+                    this.f44295a.x.a(this.f44295a.H);
+                    if (this.f44295a.A != null) {
+                        this.f44295a.A.a(this.f44295a.H.f3252b);
                     }
-                    c.a.d0.n.d.e("渲染coupon结束");
+                    c.a.e0.n.d.e("渲染coupon结束");
                     JSONArray optJSONArray3 = jSONObject.optJSONArray("marketChannels");
                     if (optJSONArray3 != null && optJSONArray3.length() > 0) {
-                        this.f44188a.l = new o(optJSONArray3.optJSONObject(0));
+                        this.f44295a.l = new o(optJSONArray3.optJSONObject(0));
                     }
-                    c.a.d0.n.d.e("渲染hostMark结束");
-                    c.a.d0.k.h.a.g("7");
-                    if (this.f44188a.m.length != 1 || this.f44188a.x.getVisibility() != 8 || this.f44188a.l != null || this.f44188a.m[0] == null) {
-                        this.f44188a.J();
-                        if (this.f44188a.l != null || this.f44188a.x.getVisibility() != 8) {
-                            this.f44188a.w.setVisibility(0);
+                    c.a.e0.n.d.e("渲染hostMark结束");
+                    c.a.e0.k.h.a.g("7");
+                    if (this.f44295a.m.length != 1 || this.f44295a.x.getVisibility() != 8 || this.f44295a.l != null || this.f44295a.m[0] == null) {
+                        this.f44295a.J();
+                        if (this.f44295a.l != null || this.f44295a.x.getVisibility() != 8) {
+                            this.f44295a.w.setVisibility(0);
                         } else {
-                            this.f44188a.w.setVisibility(8);
+                            this.f44295a.w.setVisibility(8);
                         }
-                        this.f44188a.x();
-                        c.a.d0.n.d.e("渲染宿主营销结束");
-                        m mVar = this.f44188a;
+                        this.f44295a.x();
+                        c.a.e0.n.d.e("渲染宿主营销结束");
+                        m mVar = this.f44295a;
                         o[] oVarArr2 = mVar.m;
                         mVar.l(oVarArr2);
                         mVar.q(oVarArr2);
-                        c.a.d0.n.d.e("渲染支付渠道结束");
-                        this.f44188a.f44182g.j();
-                        c.a.d0.n.d.e("隐藏loading状态");
-                        this.f44188a.L();
-                        this.f44188a.M = true;
-                        this.f44188a.U();
+                        c.a.e0.n.d.e("渲染支付渠道结束");
+                        this.f44295a.f44289g.j();
+                        c.a.e0.n.d.e("隐藏loading状态");
+                        this.f44295a.L();
+                        this.f44295a.M = true;
+                        this.f44295a.U();
                         return;
                     }
-                    this.f44188a.M = true;
-                    this.f44188a.U();
-                    TipView tipView = this.f44188a.f44182g;
-                    String Q = this.f44188a.m[0].Q();
-                    tipView.b(Q, "即将进入" + this.f44188a.m[0].getDisplayName() + "…");
-                    m mVar2 = this.f44188a;
+                    this.f44295a.M = true;
+                    this.f44295a.U();
+                    TipView tipView = this.f44295a.f44289g;
+                    String Q = this.f44295a.m[0].Q();
+                    tipView.b(Q, "即将进入" + this.f44295a.m[0].getDisplayName() + "…");
+                    m mVar2 = this.f44295a;
                     mVar2.p(mVar2.m[0]);
-                    c.a.d0.n.d.e("单渠道支付");
+                    c.a.e0.n.d.e("单渠道支付");
                     return;
                 }
-                c.a.d0.k.h.a.d("7", null, null);
+                c.a.e0.k.h.a.d("7", null, null);
                 b(new com.baidu.poly.a.i.b("channelList is null"), "request channelList payChannels is null");
-                c.a.d0.n.d.e("requestChannelList channelList is null");
+                c.a.e0.n.d.e("requestChannelList channelList is null");
             }
         }
     }
@@ -256,7 +256,7 @@ public class m extends FrameLayout implements View.OnClickListener {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ m f44189e;
+        public final /* synthetic */ m f44296e;
 
         public c(m mVar) {
             Interceptable interceptable = $ic;
@@ -273,14 +273,14 @@ public class m extends FrameLayout implements View.OnClickListener {
                     return;
                 }
             }
-            this.f44189e = mVar;
+            this.f44296e = mVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f44189e.S();
+                this.f44296e.S();
             }
         }
     }
@@ -291,7 +291,7 @@ public class m extends FrameLayout implements View.OnClickListener {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ m f44190a;
+        public final /* synthetic */ m f44297a;
 
         public d(m mVar) {
             Interceptable interceptable = $ic;
@@ -308,15 +308,15 @@ public class m extends FrameLayout implements View.OnClickListener {
                     return;
                 }
             }
-            this.f44190a = mVar;
+            this.f44297a = mVar;
         }
 
         @Override // android.view.animation.Animation.AnimationListener
         public void onAnimationEnd(Animation animation) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, animation) == null) {
-                this.f44190a.L = true;
-                this.f44190a.U();
+                this.f44297a.L = true;
+                this.f44297a.U();
             }
         }
 
@@ -341,7 +341,7 @@ public class m extends FrameLayout implements View.OnClickListener {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ m f44191a;
+        public final /* synthetic */ m f44298a;
 
         public e(m mVar) {
             Interceptable interceptable = $ic;
@@ -358,15 +358,15 @@ public class m extends FrameLayout implements View.OnClickListener {
                     return;
                 }
             }
-            this.f44191a = mVar;
+            this.f44298a = mVar;
         }
 
         @Override // com.baidu.poly.widget.hostmarket.HostMarketView.a
-        public void a(boolean z, o oVar, c.a.d0.k.j.a aVar) {
+        public void a(boolean z, o oVar, c.a.e0.k.j.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), oVar, aVar}) == null) {
-                this.f44191a.f44181f.a(true);
-                m mVar = this.f44191a;
+                this.f44298a.f44288f.a(true);
+                m mVar = this.f44298a;
                 mVar.postDelayed(mVar.K, 500L);
                 if (oVar == null) {
                     return;
@@ -375,21 +375,21 @@ public class m extends FrameLayout implements View.OnClickListener {
                 if (z) {
                     arrayList.add(oVar.O());
                 }
-                if (this.f44191a.x.getSelectedItem() != null) {
-                    arrayList.add(this.f44191a.x.getSelectedItem().f1896h);
+                if (this.f44298a.x.getSelectedItem() != null) {
+                    arrayList.add(this.f44298a.x.getSelectedItem().f3260h);
                 }
-                this.f44191a.j(arrayList, aVar);
+                this.f44298a.j(arrayList, aVar);
             }
         }
 
         @Override // com.baidu.poly.widget.hostmarket.HostMarketView.a
-        public void b(a.C0033a c0033a) {
+        public void b(a.C0062a c0062a) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, c0033a) == null) {
-                this.f44191a.f44181f.a(false);
-                m mVar = this.f44191a;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, c0062a) == null) {
+                this.f44298a.f44288f.a(false);
+                m mVar = this.f44298a;
                 mVar.removeCallbacks(mVar.K);
-                this.f44191a.e();
+                this.f44298a.e();
             }
         }
     }
@@ -400,7 +400,7 @@ public class m extends FrameLayout implements View.OnClickListener {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ m f44192e;
+        public final /* synthetic */ m f44299e;
 
         public f(m mVar) {
             Interceptable interceptable = $ic;
@@ -417,16 +417,16 @@ public class m extends FrameLayout implements View.OnClickListener {
                     return;
                 }
             }
-            this.f44192e = mVar;
+            this.f44299e = mVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (this.f44192e.getParent() instanceof ViewGroup)) {
-                m mVar = this.f44192e;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (this.f44299e.getParent() instanceof ViewGroup)) {
+                m mVar = this.f44299e;
                 mVar.startAnimation(mVar.s);
-                ((ViewGroup) this.f44192e.getParent()).removeView(this.f44192e);
+                ((ViewGroup) this.f44299e.getParent()).removeView(this.f44299e);
             }
         }
     }
@@ -437,7 +437,7 @@ public class m extends FrameLayout implements View.OnClickListener {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ m f44193e;
+        public final /* synthetic */ m f44300e;
 
         public g(m mVar) {
             Interceptable interceptable = $ic;
@@ -454,14 +454,14 @@ public class m extends FrameLayout implements View.OnClickListener {
                     return;
                 }
             }
-            this.f44193e = mVar;
+            this.f44300e = mVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f44193e.t();
+                this.f44300e.t();
             }
         }
     }
@@ -472,7 +472,7 @@ public class m extends FrameLayout implements View.OnClickListener {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ m f44194e;
+        public final /* synthetic */ m f44301e;
 
         public h(m mVar) {
             Interceptable interceptable = $ic;
@@ -489,14 +489,14 @@ public class m extends FrameLayout implements View.OnClickListener {
                     return;
                 }
             }
-            this.f44194e = mVar;
+            this.f44301e = mVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && this.f44194e.F != null && this.f44194e.F.u()) {
-                this.f44194e.F.q();
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && this.f44301e.F != null && this.f44301e.F.u()) {
+                this.f44301e.F.q();
             }
         }
     }
@@ -507,7 +507,7 @@ public class m extends FrameLayout implements View.OnClickListener {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ m f44195a;
+        public final /* synthetic */ m f44302a;
 
         public i(m mVar) {
             Interceptable interceptable = $ic;
@@ -524,31 +524,31 @@ public class m extends FrameLayout implements View.OnClickListener {
                     return;
                 }
             }
-            this.f44195a = mVar;
+            this.f44302a = mVar;
         }
 
-        @Override // c.a.d0.p.c.b
+        @Override // c.a.e0.p.c.b
         public void onDismiss() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f44195a.t();
+                this.f44302a.t();
             }
         }
     }
 
     /* loaded from: classes5.dex */
-    public class j implements a.InterfaceC1687a {
+    public class j implements a.InterfaceC1691a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ o[] f44196a;
+        public final /* synthetic */ o[] f44303a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ o f44197b;
+        public final /* synthetic */ o f44304b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ m f44198c;
+        public final /* synthetic */ m f44305c;
 
         public j(m mVar, o[] oVarArr, o oVar) {
             Interceptable interceptable = $ic;
@@ -565,22 +565,22 @@ public class m extends FrameLayout implements View.OnClickListener {
                     return;
                 }
             }
-            this.f44198c = mVar;
-            this.f44196a = oVarArr;
-            this.f44197b = oVar;
+            this.f44305c = mVar;
+            this.f44303a = oVarArr;
+            this.f44304b = oVar;
         }
 
-        @Override // com.baidu.poly.widget.a.InterfaceC1687a
+        @Override // com.baidu.poly.widget.a.InterfaceC1691a
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                o[] oVarArr = this.f44196a;
+                o[] oVarArr = this.f44303a;
                 int length = oVarArr.length;
                 for (int i2 = 0; i2 < length; i2++) {
                     o oVar = oVarArr[i2];
-                    oVar.i(oVar == this.f44197b ? 1 : 0);
+                    oVar.i(oVar == this.f44304b ? 1 : 0);
                 }
-                this.f44198c.q(this.f44196a);
+                this.f44305c.q(this.f44303a);
             }
         }
     }
@@ -591,7 +591,7 @@ public class m extends FrameLayout implements View.OnClickListener {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ m f44199a;
+        public final /* synthetic */ m f44306a;
 
         public k(m mVar) {
             Interceptable interceptable = $ic;
@@ -608,45 +608,45 @@ public class m extends FrameLayout implements View.OnClickListener {
                     return;
                 }
             }
-            this.f44199a = mVar;
+            this.f44306a = mVar;
         }
 
         @Override // com.baidu.poly.widget.coupon.l.h
-        public void a(a.C0036a c0036a, c.a.d0.k.j.a aVar) {
+        public void a(a.C0065a c0065a, c.a.e0.k.j.a aVar) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLL(1048576, this, c0036a, aVar) == null) || c0036a == null) {
+            if (!(interceptable == null || interceptable.invokeLL(1048576, this, c0065a, aVar) == null) || c0065a == null) {
                 return;
             }
             ArrayList arrayList = new ArrayList();
-            arrayList.add(c0036a.f1896h);
-            if (this.f44199a.l != null && this.f44199a.l.P() == 1) {
-                arrayList.add(this.f44199a.l.O());
+            arrayList.add(c0065a.f3260h);
+            if (this.f44306a.l != null && this.f44306a.l.P() == 1) {
+                arrayList.add(this.f44306a.l.O());
             }
-            this.f44199a.j(arrayList, aVar);
+            this.f44306a.j(arrayList, aVar);
         }
 
         @Override // com.baidu.poly.widget.coupon.l.h
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.f44199a.O();
+                this.f44306a.O();
             }
         }
 
         @Override // com.baidu.poly.widget.coupon.l.h
         public void d() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.f44199a.A == null) {
+            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.f44306a.A == null) {
                 return;
             }
-            this.f44199a.A.b(this.f44199a.f44181f);
+            this.f44306a.A.b(this.f44306a.f44288f);
         }
 
         @Override // com.baidu.poly.widget.coupon.l.h
         public void onDetach() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                this.f44199a.A = null;
+                this.f44306a.A = null;
             }
         }
     }
@@ -684,18 +684,18 @@ public class m extends FrameLayout implements View.OnClickListener {
     }
 
     public final void B() {
-        c.a.d0.p.a.a aVar;
-        List<a.C0036a> list;
+        c.a.e0.p.a.a aVar;
+        List<a.C0065a> list;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (aVar = this.H) == null || (list = aVar.f1888b) == null || list.size() <= 0) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (aVar = this.H) == null || (list = aVar.f3252b) == null || list.size() <= 0) {
             return;
         }
         com.baidu.poly.widget.coupon.l lVar = new com.baidu.poly.widget.coupon.l(getContext());
         this.A = lVar;
-        lVar.a(this.f44181f.getMeasuredHeight());
+        lVar.a(this.f44288f.getMeasuredHeight());
         this.A.setListener(new k(this));
-        this.A.a(this.H.f1888b);
-        this.A.a(this.f44181f);
+        this.A.a(this.H.f3252b);
+        this.A.a(this.f44288f);
     }
 
     public final void J() {
@@ -725,30 +725,30 @@ public class m extends FrameLayout implements View.OnClickListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             if (this.p <= 0) {
-                this.f44185j.setVisibility(4);
+                this.f44292j.setVisibility(4);
                 return;
             }
-            this.f44185j.setVisibility(0);
-            this.f44185j.setEnable(true);
+            this.f44292j.setVisibility(0);
+            this.f44292j.setEnable(true);
         }
     }
 
     public final void O() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            c.a.d0.n.d.e("requestChannelList start");
-            c.a.d0.k.b.b.j().c(this.f44184i, new b(this));
+            c.a.e0.n.d.e("requestChannelList start");
+            c.a.e0.k.b.b.j().c(this.f44291i, new b(this));
         }
     }
 
     public final void Q() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.f44180e.setVisibility(0);
-            this.f44181f.setVisibility(0);
-            this.f44180e.setAlpha(0.0f);
-            this.f44180e.animate().alpha(0.65f).setDuration(240L).start();
-            this.f44181f.startAnimation(this.r);
+            this.f44287e.setVisibility(0);
+            this.f44288f.setVisibility(0);
+            this.f44287e.setAlpha(0.0f);
+            this.f44287e.animate().alpha(0.65f).setDuration(240L).start();
+            this.f44288f.startAnimation(this.r);
             this.r.setAnimationListener(new d(this));
             L();
         }
@@ -759,14 +759,14 @@ public class m extends FrameLayout implements View.OnClickListener {
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
             layoutParams.gravity = 17;
-            this.B = c.a.d0.k.k.a.a(this.f44181f, layoutParams, "加载中", -1L);
+            this.B = c.a.e0.k.k.a.a(this.f44288f, layoutParams, "加载中", -1L);
         }
     }
 
     public final void U() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && this.L && this.M) {
-            c.a.d0.k.h.a.b();
+            c.a.e0.k.h.a.b();
         }
     }
 
@@ -774,18 +774,18 @@ public class m extends FrameLayout implements View.OnClickListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
             if (TextUtils.isEmpty(str)) {
-                str = getResources().getString(c.a.d0.h.common_error_tips);
+                str = getResources().getString(c.a.e0.h.common_error_tips);
             }
             if (this.F == null) {
-                View inflate = View.inflate(this.f44183h.getContext(), c.a.d0.g.default_pop_window, null);
-                ((TextView) inflate.findViewById(c.a.d0.f.pop_title)).setText(EventAlias.PayEventAlias.PAY_FAIL);
-                ((TextView) inflate.findViewById(c.a.d0.f.pop_tips)).setText(str.trim());
-                c.a.d0.p.c cVar = new c.a.d0.p.c(inflate, -1, -1, true);
+                View inflate = View.inflate(this.f44290h.getContext(), c.a.e0.g.default_pop_window, null);
+                ((TextView) inflate.findViewById(c.a.e0.f.pop_title)).setText(EventAlias.PayEventAlias.PAY_FAIL);
+                ((TextView) inflate.findViewById(c.a.e0.f.pop_tips)).setText(str.trim());
+                c.a.e0.p.c cVar = new c.a.e0.p.c(inflate, -1, -1, true);
                 this.F = cVar;
                 cVar.y(false);
                 this.F.C(false);
                 this.F.x(new ColorDrawable(0));
-                ((TextView) inflate.findViewById(c.a.d0.f.pop_button)).setOnClickListener(new h(this));
+                ((TextView) inflate.findViewById(c.a.e0.f.pop_button)).setOnClickListener(new h(this));
                 this.F.h(new i(this));
             }
             PolyActivity polyActivity = (PolyActivity) getContext();
@@ -805,9 +805,9 @@ public class m extends FrameLayout implements View.OnClickListener {
                 jSONObject.put("selected", str);
             } catch (JSONException unused) {
             }
-            c.a.d0.k.h.b bVar = new c.a.d0.k.h.b("5");
+            c.a.e0.k.h.b bVar = new c.a.e0.k.h.b("5");
             bVar.b(jSONObject);
-            c.a.d0.k.h.d.b(bVar);
+            c.a.e0.k.h.d.b(bVar);
         }
     }
 
@@ -815,7 +815,7 @@ public class m extends FrameLayout implements View.OnClickListener {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048589, this) == null) && this.n) {
             this.n = false;
-            this.f44180e.animate().alpha(0.0f).setDuration(240L).start();
+            this.f44287e.animate().alpha(0.0f).setDuration(240L).start();
             postDelayed(new f(this), 240L);
             postDelayed(new g(this), 480L);
         }
@@ -831,19 +831,19 @@ public class m extends FrameLayout implements View.OnClickListener {
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
-            c.a.d0.k.k.a.c(this.B);
+            c.a.e0.k.k.a.c(this.B);
             this.B = null;
         }
     }
 
-    public final void j(List<String> list, c.a.d0.k.j.a aVar) {
+    public final void j(List<String> list, c.a.e0.k.j.a aVar) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLL(1048594, this, list, aVar) == null) || aVar == null) {
             return;
         }
-        String string = this.f44184i.getString("bduss");
-        String string2 = this.f44184i.getString("appKey");
-        c.a.d0.k.j.b.a(string, string2, this.D + "", list, new a(this, aVar));
+        String string = this.f44291i.getString("bduss");
+        String string2 = this.f44291i.getString("appKey");
+        c.a.e0.k.j.b.a(string, string2, this.D + "", list, new a(this, aVar));
     }
 
     public final o[] l(o[] oVarArr) {
@@ -884,7 +884,7 @@ public class m extends FrameLayout implements View.OnClickListener {
                 return true;
             } else {
                 if (this.n) {
-                    onResult(2, c.a.d0.n.b.a(2, null, "key_back_cancel"));
+                    onResult(2, c.a.e0.n.b.a(2, null, "key_back_cancel"));
                     detach();
                     return true;
                 }
@@ -898,15 +898,15 @@ public class m extends FrameLayout implements View.OnClickListener {
     public void onClick(View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048597, this, view) == null) {
-            if (view.getId() == c.a.d0.f.close_button) {
+            if (view.getId() == c.a.e0.f.close_button) {
                 onResult(2, "主动取消支付");
                 detach();
-                c.a.d0.k.h.d.b(new c.a.d0.k.h.b("6"));
-            } else if (view.getId() == c.a.d0.f.pay_button) {
+                c.a.e0.k.h.d.b(new c.a.e0.k.h.b("6"));
+            } else if (view.getId() == c.a.e0.f.pay_button) {
                 if (this.p == 0) {
                     return;
                 }
-                this.f44185j.startLoading();
+                this.f44292j.startLoading();
                 this.o = true;
                 int i2 = 0;
                 this.I = false;
@@ -928,7 +928,7 @@ public class m extends FrameLayout implements View.OnClickListener {
                     p(oVar);
                     a0(oVar.R());
                 }
-            } else if (view.getId() == c.a.d0.f.coupon) {
+            } else if (view.getId() == c.a.e0.f.coupon) {
                 B();
             }
         }
@@ -937,16 +937,16 @@ public class m extends FrameLayout implements View.OnClickListener {
     public void onResult(int i2, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048598, this, i2, str) == null) {
-            c.a.d0.n.d.e("ChannelListView->onResult() statusCode = " + i2 + " result = " + str);
+            c.a.e0.n.d.e("ChannelListView->onResult() statusCode = " + i2 + " result = " + str);
             this.I = true;
             a.b bVar = this.k;
             if (bVar != null) {
                 bVar.a(i2, str);
                 this.k = null;
             }
-            c.a.d0.k.h.d.e(i2, str);
+            c.a.e0.k.h.d.e(i2, str);
             if (((PolyActivity) getContext()).isFinishing()) {
-                c.a.d0.k.h.d.j();
+                c.a.e0.k.h.d.j();
             }
             t();
         }
@@ -957,23 +957,23 @@ public class m extends FrameLayout implements View.OnClickListener {
         if (!(interceptable == null || interceptable.invokeL(1048599, this, oVar) == null) || oVar == null) {
             return;
         }
-        c.a.d0.k.h.a.e(Long.valueOf(System.currentTimeMillis()));
+        c.a.e0.k.h.a.e(Long.valueOf(System.currentTimeMillis()));
         JSONArray jSONArray = new JSONArray();
         try {
             if (this.l != null && this.l.P() == 1 && !TextUtils.isEmpty(this.l.O())) {
                 jSONArray.put(new JSONObject(this.l.O()));
             }
-            if (this.x.getSelectedItem() != null && !TextUtils.isEmpty(this.x.getSelectedItem().f1896h)) {
-                jSONArray.put(new JSONObject(this.x.getSelectedItem().f1896h));
+            if (this.x.getSelectedItem() != null && !TextUtils.isEmpty(this.x.getSelectedItem().f3260h)) {
+                jSONArray.put(new JSONObject(this.x.getSelectedItem().f3260h));
             }
         } catch (Exception unused) {
         }
         if (jSONArray.length() > 0) {
-            this.f44184i.putString("hostMarketingDetail", jSONArray.toString());
+            this.f44291i.putString("hostMarketingDetail", jSONArray.toString());
         }
         if (this.E != null) {
             this.G = oVar.R();
-            this.E.c(this.f44184i, oVar.R(), this);
+            this.E.c(this.f44291i, oVar.R(), this);
         }
     }
 
@@ -982,11 +982,11 @@ public class m extends FrameLayout implements View.OnClickListener {
         if (interceptable == null || interceptable.invokeL(1048600, this, oVarArr) == null) {
             this.z.setMinimumHeight(0);
             if (oVarArr != null) {
-                this.f44183h.removeAllViews();
+                this.f44290h.removeAllViews();
                 for (o oVar : oVarArr) {
                     com.baidu.poly.widget.a aVar = new com.baidu.poly.widget.a(getContext());
                     aVar.a(oVar, new j(this, oVarArr, oVar));
-                    this.f44183h.addView(aVar);
+                    this.f44290h.addView(aVar);
                 }
             }
         }
@@ -1015,7 +1015,7 @@ public class m extends FrameLayout implements View.OnClickListener {
         }
     }
 
-    public void setWalletList(c.a.d0.k.i.c cVar) {
+    public void setWalletList(c.a.e0.k.i.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048604, this, cVar) == null) {
             this.E = cVar;
@@ -1032,17 +1032,17 @@ public class m extends FrameLayout implements View.OnClickListener {
     public final void t() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048606, this) == null) {
-            c.a.d0.p.c cVar = this.F;
+            c.a.e0.p.c cVar = this.F;
             boolean z = ((cVar != null && cVar.u()) || this.o || this.n) ? false : true;
             if ((!TextUtils.isEmpty(this.G) && (TextUtils.equals(this.G, PayChannelController.ALIPAY_PAYCHANNEL) || TextUtils.equals(this.G, "BAIDU-ALIPAY-WISE-HUABEI-PAY"))) || this.J) {
-                c.a.d0.n.d.e("ChannelListView->confirmViewClose() ali pay channel");
+                c.a.e0.n.d.e("ChannelListView->confirmViewClose() ali pay channel");
                 z &= this.I;
             }
-            c.a.d0.n.d.e("ChannelListView->confirmViewClose() canFinishActivity = " + z);
+            c.a.e0.n.d.e("ChannelListView->confirmViewClose() canFinishActivity = " + z);
             if (!z || this.q == null) {
                 return;
             }
-            c.a.d0.n.d.e("ChannelListView->confirmViewClose() finish activity");
+            c.a.e0.n.d.e("ChannelListView->confirmViewClose() finish activity");
             this.q.onClose();
             this.q = null;
         }
@@ -1059,25 +1059,25 @@ public class m extends FrameLayout implements View.OnClickListener {
     public final void z() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048608, this) == null) {
-            this.r = AnimationUtils.loadAnimation(getContext(), c.a.d0.b.slide_in_bottom);
-            this.s = AnimationUtils.loadAnimation(getContext(), c.a.d0.b.slide_out_bottom);
-            LayoutInflater.from(getContext()).inflate(c.a.d0.g.view_channel_list, this);
-            this.f44180e = findViewById(c.a.d0.f.bg_view);
-            this.f44181f = (PolyFrameLayout) findViewById(c.a.d0.f.popup_view);
-            this.y = findViewById(c.a.d0.f.pay_money_layout);
-            this.z = findViewById(c.a.d0.f.channel_list_scroll_view);
-            this.f44182g = (TipView) findViewById(c.a.d0.f.tip_view);
-            this.f44183h = (ViewGroup) findViewById(c.a.d0.f.channel_list_view);
-            this.f44185j = (ProgressButton) findViewById(c.a.d0.f.pay_button);
-            this.w = findViewById(c.a.d0.f.line);
-            findViewById(c.a.d0.f.close_button).setOnClickListener(this);
-            this.f44185j.setOnClickListener(this);
-            this.t = (HostMarketView) findViewById(c.a.d0.f.hostmarket);
-            CouponEntranceView couponEntranceView = (CouponEntranceView) findViewById(c.a.d0.f.coupon);
+            this.r = AnimationUtils.loadAnimation(getContext(), c.a.e0.b.slide_in_bottom);
+            this.s = AnimationUtils.loadAnimation(getContext(), c.a.e0.b.slide_out_bottom);
+            LayoutInflater.from(getContext()).inflate(c.a.e0.g.view_channel_list, this);
+            this.f44287e = findViewById(c.a.e0.f.bg_view);
+            this.f44288f = (PolyFrameLayout) findViewById(c.a.e0.f.popup_view);
+            this.y = findViewById(c.a.e0.f.pay_money_layout);
+            this.z = findViewById(c.a.e0.f.channel_list_scroll_view);
+            this.f44289g = (TipView) findViewById(c.a.e0.f.tip_view);
+            this.f44290h = (ViewGroup) findViewById(c.a.e0.f.channel_list_view);
+            this.f44292j = (ProgressButton) findViewById(c.a.e0.f.pay_button);
+            this.w = findViewById(c.a.e0.f.line);
+            findViewById(c.a.e0.f.close_button).setOnClickListener(this);
+            this.f44292j.setOnClickListener(this);
+            this.t = (HostMarketView) findViewById(c.a.e0.f.hostmarket);
+            CouponEntranceView couponEntranceView = (CouponEntranceView) findViewById(c.a.e0.f.coupon);
             this.x = couponEntranceView;
             couponEntranceView.setOnClickListener(this);
-            this.u = (TextView) findViewById(c.a.d0.f.money);
-            this.v = (TextView) findViewById(c.a.d0.f.cut);
+            this.u = (TextView) findViewById(c.a.e0.f.money);
+            this.v = (TextView) findViewById(c.a.e0.f.cut);
         }
     }
 
@@ -1093,10 +1093,10 @@ public class m extends FrameLayout implements View.OnClickListener {
                         this.D = Long.valueOf(Long.parseLong(string));
                     }
                 } catch (Exception unused) {
-                    c.a.d0.n.d.e("totalAmount is not long");
+                    c.a.e0.n.d.e("totalAmount is not long");
                 }
             }
-            this.f44184i = bundle;
+            this.f44291i = bundle;
             O();
         }
     }
@@ -1108,8 +1108,8 @@ public class m extends FrameLayout implements View.OnClickListener {
             if (!this.n) {
                 this.n = true;
                 if (getContext() instanceof Activity) {
-                    this.f44182g.a("收银台加载中...");
-                    c.a.d0.n.d.e("ChannelListView->attach()");
+                    this.f44289g.a("收银台加载中...");
+                    c.a.e0.n.d.e("ChannelListView->attach()");
                     Q();
                 } else {
                     throw new IllegalStateException("can not attach to context " + getContext());
@@ -1133,10 +1133,10 @@ public class m extends FrameLayout implements View.OnClickListener {
             if (this.E != null) {
                 this.o = true;
                 this.I = false;
-                c.a.d0.k.h.a.e(Long.valueOf(System.currentTimeMillis()));
+                c.a.e0.k.h.a.e(Long.valueOf(System.currentTimeMillis()));
                 FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
                 layoutParams.gravity = 17;
-                this.B = c.a.d0.k.k.a.a(this, layoutParams, getResources().getString(c.a.d0.h.poly_fast_pay_loading), -1L);
+                this.B = c.a.e0.k.k.a.a(this, layoutParams, getResources().getString(c.a.e0.h.poly_fast_pay_loading), -1L);
                 this.E.c(bundle, str, this);
             }
         }
@@ -1145,12 +1145,12 @@ public class m extends FrameLayout implements View.OnClickListener {
     public void a(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048587, this, str, str2) == null) {
-            c.a.d0.n.d.e("ChannelListView->errorEnd()");
+            c.a.e0.n.d.e("ChannelListView->errorEnd()");
             e();
             if (!TextUtils.isEmpty(str2)) {
                 Y(str2);
             } else {
-                Y(getResources().getString(c.a.d0.h.common_error_tips));
+                Y(getResources().getString(c.a.e0.h.common_error_tips));
             }
             onResult(3, str);
             setIsPreparePaying(false);
@@ -1160,7 +1160,7 @@ public class m extends FrameLayout implements View.OnClickListener {
     public void a(int i2, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2, str) == null) {
-            c.a.d0.n.d.e("ChannelListView->payEnd()");
+            c.a.e0.n.d.e("ChannelListView->payEnd()");
             onResult(i2, str);
             setIsPreparePaying(false);
         }

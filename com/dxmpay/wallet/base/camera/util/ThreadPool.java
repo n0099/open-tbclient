@@ -15,10 +15,10 @@ public final class ThreadPool {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Thread[] f69167a;
+    public Thread[] f69367a;
 
     /* renamed from: b  reason: collision with root package name */
-    public LinkedBlockingQueue<Runnable> f69168b;
+    public LinkedBlockingQueue<Runnable> f69368b;
 
     public ThreadPool() {
         Interceptable interceptable = $ic;
@@ -33,9 +33,9 @@ public final class ThreadPool {
                 return;
             }
         }
-        this.f69167a = null;
-        this.f69168b = null;
-        this.f69168b = new LinkedBlockingQueue<>();
+        this.f69367a = null;
+        this.f69368b = null;
+        this.f69368b = new LinkedBlockingQueue<>();
     }
 
     public static int a(int i2) {
@@ -59,12 +59,12 @@ public final class ThreadPool {
             }
             int a2 = a(i2);
             ThreadPool threadPool = new ThreadPool();
-            threadPool.f69167a = new Thread[a2];
+            threadPool.f69367a = new Thread[a2];
             for (int i3 = a2 - 1; i3 >= 0; i3 += -1) {
-                threadPool.f69167a[i3] = new Thread(new c(threadPool.f69168b));
-                threadPool.f69167a[i3].setPriority(5);
-                threadPool.f69167a[i3].setName(str + " " + a2 + "." + (i3 + 1));
-                threadPool.f69167a[i3].start();
+                threadPool.f69367a[i3] = new Thread(new c(threadPool.f69368b));
+                threadPool.f69367a[i3].setPriority(5);
+                threadPool.f69367a[i3].setName(str + " " + a2 + "." + (i3 + 1));
+                threadPool.f69367a[i3].start();
             }
             return threadPool;
         }
@@ -75,17 +75,17 @@ public final class ThreadPool {
         Thread[] threadArr;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f69168b.clear();
-            for (Thread thread : this.f69167a) {
+            this.f69368b.clear();
+            for (Thread thread : this.f69367a) {
                 if (thread.isAlive()) {
-                    this.f69168b.offer(new b());
+                    this.f69368b.offer(new b());
                 }
             }
-            for (Thread thread2 : this.f69167a) {
+            for (Thread thread2 : this.f69367a) {
                 if (thread2.isAlive()) {
                     try {
                         synchronized (this) {
-                            wait(2000 / this.f69167a.length);
+                            wait(2000 / this.f69367a.length);
                         }
                     } catch (InterruptedException unused) {
                     }
@@ -101,7 +101,7 @@ public final class ThreadPool {
             return;
         }
         try {
-            this.f69168b.put(runnable);
+            this.f69368b.put(runnable);
         } catch (InterruptedException e2) {
             e2.printStackTrace();
         }

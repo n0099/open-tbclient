@@ -30,16 +30,16 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Object f2822a;
+    public static Object f2880a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c.a.e.h.k.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0055a implements Comparator<Object> {
+    public static class C0045a implements Comparator<Object> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public C0055a() {
+        public C0045a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -108,10 +108,10 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public boolean f2823a;
+        public boolean f2881a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f2824b;
+        public String f2882b;
 
         public c() {
             Interceptable interceptable = $ic;
@@ -141,7 +141,7 @@ public class a {
                 return;
             }
         }
-        f2822a = new Object();
+        f2880a = new Object();
     }
 
     public static Object b(Object obj, Object obj2) {
@@ -274,7 +274,7 @@ public class a {
             if (classLoader == null || classLoader2 == null) {
                 return null;
             }
-            synchronized (f2822a) {
+            synchronized (f2880a) {
                 boolean z2 = true;
                 try {
                     Class.forName("dalvik.system.BaseDexClassLoader");
@@ -474,7 +474,7 @@ public class a {
                         for (String str2 : (String[]) g(dexClassLoader, DexClassLoader.class, "mLibPaths")) {
                             arrayList.add(str2);
                         }
-                        Collections.sort(arrayList, new C0055a());
+                        Collections.sort(arrayList, new C0045a());
                     } catch (Exception unused) {
                         p(pathClassLoader, PathClassLoader.class, "mLibPaths", d(g(pathClassLoader, PathClassLoader.class, "mLibPaths"), g(dexClassLoader, DexClassLoader.class, "mLibPaths")));
                     }
@@ -503,8 +503,8 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZL = interceptable.invokeZL(65551, null, z, th)) == null) {
             c cVar = new c();
-            cVar.f2823a = z;
-            cVar.f2824b = th != null ? th.getLocalizedMessage() : null;
+            cVar.f2881a = z;
+            cVar.f2882b = th != null ? th.getLocalizedMessage() : null;
             return cVar;
         }
         return (c) invokeZL.objValue;

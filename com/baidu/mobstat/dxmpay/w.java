@@ -40,16 +40,16 @@ public class w {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f43627a;
+    public static String f43734a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f43628b;
+    public static String f43735b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f43629c;
+    public static String f43736c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final Pattern f43630d;
+    public static final Pattern f43737d;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -65,7 +65,7 @@ public class w {
                 return;
             }
         }
-        f43630d = Pattern.compile("\\s*|\t|\r|\n");
+        f43737d = Pattern.compile("\\s*|\t|\r|\n");
     }
 
     public static String a(Context context, String str) {
@@ -215,7 +215,7 @@ public class w {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65565, null, context)) == null) {
-            String str = f43628b;
+            String str = f43735b;
             if (str == null) {
                 String n = n(context);
                 String b2 = b(context, n);
@@ -223,7 +223,7 @@ public class w {
                     b2 = c(context, n);
                 }
                 str = b2 == null ? "" : b2;
-                f43628b = str;
+                f43735b = str;
             }
             return str;
         }
@@ -273,7 +273,7 @@ public class w {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65569, null, context)) == null) {
-            String str = f43627a;
+            String str = f43734a;
             if (str == null) {
                 try {
                     List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = ((ActivityManager) context.getSystemService("activity")).getRunningAppProcesses();
@@ -293,7 +293,7 @@ public class w {
                 if (str == null) {
                     str = "";
                 }
-                f43627a = str;
+                f43734a = str;
             }
             return str;
         }
@@ -469,7 +469,7 @@ public class w {
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            String str2 = f43629c;
+            String str2 = f43736c;
             if (str2 != null) {
                 return str2;
             }
@@ -490,7 +490,7 @@ public class w {
                     str = "flyme";
                 }
             }
-            f43629c = str;
+            f43736c = str;
             return str;
         }
         return (String) invokeV.objValue;
@@ -499,7 +499,7 @@ public class w {
     public static String a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) ? f43630d.matcher(x.a(context)).replaceAll("") : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) ? f43737d.matcher(x.a(context)).replaceAll("") : (String) invokeL.objValue;
     }
 
     public static String a(int i2, Context context) {

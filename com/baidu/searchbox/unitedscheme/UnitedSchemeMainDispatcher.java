@@ -17,7 +17,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.sdk.openadsdk.TTAdConstant;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -198,7 +197,7 @@ public class UnitedSchemeMainDispatcher extends UnitedSchemeBaseDispatcher {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) {
             InvokeSchemeInfo peek = sLastInvokeSchemeQueue.peek();
-            return peek != null && Math.abs(System.currentTimeMillis() - peek.invokeTime) > TTAdConstant.AD_MAX_EVENT_TIME;
+            return peek != null && Math.abs(System.currentTimeMillis() - peek.invokeTime) > 600000;
         }
         return invokeV.booleanValue;
     }

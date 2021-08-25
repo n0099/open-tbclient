@@ -18,14 +18,14 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile a f35299c;
+    public static volatile a f35405c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f35300a;
+    public Context f35406a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f35301b;
+    public boolean f35407b;
 
     static {
         InterceptResult invokeClinit;
@@ -57,23 +57,23 @@ public class a {
                 return;
             }
         }
-        this.f35301b = false;
-        this.f35300a = context;
-        this.f35301b = "1".equals(d("persist.sys.identifierid.supported", "0"));
+        this.f35407b = false;
+        this.f35406a = context;
+        this.f35407b = "1".equals(d("persist.sys.identifierid.supported", "0"));
     }
 
     public static a a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            if (f35299c == null) {
+            if (f35405c == null) {
                 synchronized (a.class) {
-                    if (f35299c == null) {
-                        f35299c = new a(context);
+                    if (f35405c == null) {
+                        f35405c = new a(context);
                     }
                 }
             }
-            return f35299c;
+            return f35405c;
         }
         return (a) invokeL.objValue;
     }
@@ -159,7 +159,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i2, str)) == null) {
             try {
-                return c(this.f35300a, 0, null);
+                return c(this.f35406a, 0, null);
             } catch (Throwable th) {
                 c.c(th);
                 return null;
@@ -171,14 +171,14 @@ public class a {
     public final boolean e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f35301b : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f35407b : invokeV.booleanValue;
     }
 
     public final String f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.f35301b) {
+            if (this.f35407b) {
                 return b(0, null);
             }
             return null;

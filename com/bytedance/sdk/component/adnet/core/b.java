@@ -17,20 +17,20 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Comparator<byte[]> f63906a;
+    public static final Comparator<byte[]> f64106a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public final List<byte[]> f63907b;
+    public final List<byte[]> f64107b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final List<byte[]> f63908c;
+    public final List<byte[]> f64108c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f63909d;
+    public int f64109d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final int f63910e;
+    public final int f64110e;
 
     static {
         InterceptResult invokeClinit;
@@ -45,7 +45,7 @@ public class b {
                 return;
             }
         }
-        f63906a = new Comparator<byte[]>() { // from class: com.bytedance.sdk.component.adnet.core.b.1
+        f64106a = new Comparator<byte[]>() { // from class: com.bytedance.sdk.component.adnet.core.b.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -89,10 +89,10 @@ public class b {
                 return;
             }
         }
-        this.f63907b = new ArrayList();
-        this.f63908c = new ArrayList(64);
-        this.f63909d = 0;
-        this.f63910e = i2;
+        this.f64107b = new ArrayList();
+        this.f64108c = new ArrayList(64);
+        this.f64109d = 0;
+        this.f64110e = i2;
     }
 
     public synchronized byte[] a(int i2) {
@@ -100,12 +100,12 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
             synchronized (this) {
-                for (int i3 = 0; i3 < this.f63908c.size(); i3++) {
-                    byte[] bArr = this.f63908c.get(i3);
+                for (int i3 = 0; i3 < this.f64108c.size(); i3++) {
+                    byte[] bArr = this.f64108c.get(i3);
                     if (bArr.length >= i2) {
-                        this.f63909d -= bArr.length;
-                        this.f63908c.remove(i3);
-                        this.f63907b.remove(bArr);
+                        this.f64109d -= bArr.length;
+                        this.f64108c.remove(i3);
+                        this.f64107b.remove(bArr);
                         return bArr;
                     }
                 }
@@ -120,14 +120,14 @@ public class b {
         if (interceptable == null || interceptable.invokeL(1048576, this, bArr) == null) {
             synchronized (this) {
                 if (bArr != null) {
-                    if (bArr.length <= this.f63910e) {
-                        this.f63907b.add(bArr);
-                        int binarySearch = Collections.binarySearch(this.f63908c, bArr, f63906a);
+                    if (bArr.length <= this.f64110e) {
+                        this.f64107b.add(bArr);
+                        int binarySearch = Collections.binarySearch(this.f64108c, bArr, f64106a);
                         if (binarySearch < 0) {
                             binarySearch = (-binarySearch) - 1;
                         }
-                        this.f63908c.add(binarySearch, bArr);
-                        this.f63909d += bArr.length;
+                        this.f64108c.add(binarySearch, bArr);
+                        this.f64109d += bArr.length;
                         a();
                     }
                 }
@@ -139,10 +139,10 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
             synchronized (this) {
-                while (this.f63909d > this.f63910e) {
-                    byte[] remove = this.f63907b.remove(0);
-                    this.f63908c.remove(remove);
-                    this.f63909d -= remove.length;
+                while (this.f64109d > this.f64110e) {
+                    byte[] remove = this.f64107b.remove(0);
+                    this.f64108c.remove(remove);
+                    this.f64109d -= remove.length;
                 }
             }
         }

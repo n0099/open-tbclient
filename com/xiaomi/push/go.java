@@ -11,7 +11,7 @@ public class go {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static al f77354a;
+    public static al f77555a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -27,27 +27,27 @@ public class go {
                 return;
             }
         }
-        f77354a = new al(true, 20);
+        f77555a = new al(true, 20);
     }
 
     public static void a(al.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, null, bVar) == null) {
-            f77354a.a(bVar);
+            f77555a.a(bVar);
         }
     }
 
     public static void a(al.b bVar, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLJ(65538, null, bVar, j2) == null) {
-            f77354a.a(bVar, j2);
+            f77555a.a(bVar, j2);
         }
     }
 
     public static void a(Runnable runnable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, null, runnable) == null) {
-            f77354a.a(new gp(runnable));
+            f77555a.a(new gp(runnable));
         }
     }
 }

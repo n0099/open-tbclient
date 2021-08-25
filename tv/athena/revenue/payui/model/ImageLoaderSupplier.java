@@ -51,7 +51,7 @@ public abstract class ImageLoaderSupplier {
             this.errorHolderResId = i3;
         }
 
-        public static /* bridge */ /* synthetic */ ImageParam copy$default(ImageParam imageParam, String str, int i2, int i3, int i4, Object obj) {
+        public static /* synthetic */ ImageParam copy$default(ImageParam imageParam, String str, int i2, int i3, int i4, Object obj) {
             if ((i4 & 1) != 0) {
                 str = imageParam.imageUrl;
             }

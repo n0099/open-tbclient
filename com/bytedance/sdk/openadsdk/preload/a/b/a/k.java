@@ -22,11 +22,11 @@ public final class k extends v<Time> {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final w f68023a;
+    public static final w f68223a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public final DateFormat f68024b;
+    public final DateFormat f68224b;
 
     static {
         InterceptResult invokeClinit;
@@ -41,7 +41,7 @@ public final class k extends v<Time> {
                 return;
             }
         }
-        f68023a = new w() { // from class: com.bytedance.sdk.openadsdk.preload.a.b.a.k.1
+        f68223a = new w() { // from class: com.bytedance.sdk.openadsdk.preload.a.b.a.k.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -87,7 +87,7 @@ public final class k extends v<Time> {
                 return;
             }
         }
-        this.f68024b = new SimpleDateFormat("hh:mm:ss a");
+        this.f68224b = new SimpleDateFormat("hh:mm:ss a");
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -98,12 +98,12 @@ public final class k extends v<Time> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) {
             synchronized (this) {
-                if (aVar.f() == com.bytedance.sdk.openadsdk.preload.a.d.b.f68184i) {
+                if (aVar.f() == com.bytedance.sdk.openadsdk.preload.a.d.b.f68384i) {
                     aVar.j();
                     return null;
                 }
                 try {
-                    return new Time(this.f68024b.parse(aVar.h()).getTime());
+                    return new Time(this.f68224b.parse(aVar.h()).getTime());
                 } catch (ParseException e2) {
                     throw new t(e2);
                 }
@@ -118,7 +118,7 @@ public final class k extends v<Time> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, cVar, time) == null) {
             synchronized (this) {
-                cVar.b(time == null ? null : this.f68024b.format((Date) time));
+                cVar.b(time == null ? null : this.f68224b.format((Date) time));
             }
         }
     }

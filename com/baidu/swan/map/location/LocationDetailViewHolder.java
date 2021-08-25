@@ -5,9 +5,9 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
-import c.a.n0.j.e;
-import c.a.n0.j.o.b;
-import c.a.n0.j.o.c;
+import c.a.o0.j.e;
+import c.a.o0.j.o.b;
+import c.a.o0.j.o.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -20,22 +20,22 @@ public class LocationDetailViewHolder extends RecyclerView.ViewHolder implements
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f46932e;
+    public TextView f47039e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f46933f;
+    public TextView f47040f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View f46934g;
+    public View f47041g;
 
     /* renamed from: h  reason: collision with root package name */
-    public LocationDetailAdapter f46935h;
+    public LocationDetailAdapter f47042h;
 
     /* renamed from: i  reason: collision with root package name */
-    public c f46936i;
+    public c f47043i;
 
     /* renamed from: j  reason: collision with root package name */
-    public b f46937j;
+    public b f47044j;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public LocationDetailViewHolder(View view, LocationDetailAdapter locationDetailAdapter, b bVar) {
@@ -56,17 +56,17 @@ public class LocationDetailViewHolder extends RecyclerView.ViewHolder implements
             }
         }
         a(view);
-        this.f46935h = locationDetailAdapter;
-        this.f46937j = bVar;
+        this.f47042h = locationDetailAdapter;
+        this.f47044j = bVar;
     }
 
     public final void a(View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-            this.f46932e = (TextView) view.findViewById(e.main_title);
-            this.f46933f = (TextView) view.findViewById(e.sub_title);
+            this.f47039e = (TextView) view.findViewById(e.main_title);
+            this.f47040f = (TextView) view.findViewById(e.sub_title);
             View findViewById = view.findViewById(e.select);
-            this.f46934g = findViewById;
+            this.f47041g = findViewById;
             findViewById.setVisibility(8);
             this.itemView.setOnClickListener(this);
         }
@@ -91,12 +91,12 @@ public class LocationDetailViewHolder extends RecyclerView.ViewHolder implements
     public void onClick(View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view) == null) {
-            this.f46935h.resetSelectStatus();
-            this.f46936i.f11490b = true;
-            this.f46935h.notifyDataSetChanged();
-            b bVar = this.f46937j;
+            this.f47042h.resetSelectStatus();
+            this.f47043i.f11736b = true;
+            this.f47042h.notifyDataSetChanged();
+            b bVar = this.f47044j;
             if (bVar != null) {
-                bVar.c(this.f46936i);
+                bVar.c(this.f47043i);
             }
         }
     }
@@ -113,13 +113,13 @@ public class LocationDetailViewHolder extends RecyclerView.ViewHolder implements
         if (!(interceptable == null || interceptable.invokeLLZ(1048580, this, cVar, str, z) == null) || cVar == null) {
             return;
         }
-        this.f46936i = cVar;
-        this.f46932e.setText(z ? b(cVar.f11489a.name, str) : cVar.f11489a.name);
-        this.f46933f.setVisibility(0);
-        this.f46933f.setText(cVar.f11489a.address);
-        if (cVar.f11491c || TextUtils.isEmpty(cVar.f11489a.address)) {
-            this.f46933f.setVisibility(8);
+        this.f47043i = cVar;
+        this.f47039e.setText(z ? b(cVar.f11735a.name, str) : cVar.f11735a.name);
+        this.f47040f.setVisibility(0);
+        this.f47040f.setText(cVar.f11735a.address);
+        if (cVar.f11737c || TextUtils.isEmpty(cVar.f11735a.address)) {
+            this.f47040f.setVisibility(8);
         }
-        this.f46934g.setVisibility(cVar.f11490b ? 0 : 8);
+        this.f47041g.setVisibility(cVar.f11736b ? 0 : 8);
     }
 }

@@ -29,7 +29,7 @@ public class av {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static av f77748a;
+    public static av f77949a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
@@ -49,7 +49,7 @@ public class av {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f77749a;
+        public int f77950a;
 
         /* renamed from: a  reason: collision with other field name */
         public Context f907a;
@@ -67,7 +67,7 @@ public class av {
         public XMPushService f911a;
 
         /* renamed from: a  reason: collision with other field name */
-        public final C2093b f912a;
+        public final C2097b f912a;
 
         /* renamed from: a  reason: collision with other field name */
         public c f913a;
@@ -85,7 +85,7 @@ public class av {
         public boolean f917a;
 
         /* renamed from: b  reason: collision with root package name */
-        public c f77750b;
+        public c f77951b;
 
         /* renamed from: b  reason: collision with other field name */
         public String f918b;
@@ -94,25 +94,25 @@ public class av {
         public boolean f919b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f77751c;
+        public String f77952c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f77752d;
+        public String f77953d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f77753e;
+        public String f77954e;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f77754f;
+        public String f77955f;
 
         /* renamed from: g  reason: collision with root package name */
-        public String f77755g;
+        public String f77956g;
 
         /* renamed from: h  reason: collision with root package name */
-        public String f77756h;
+        public String f77957h;
 
         /* renamed from: i  reason: collision with root package name */
-        public String f77757i;
+        public String f77958i;
 
         /* loaded from: classes10.dex */
         public interface a {
@@ -121,27 +121,27 @@ public class av {
 
         /* renamed from: com.xiaomi.push.service.av$b$b  reason: collision with other inner class name */
         /* loaded from: classes10.dex */
-        public class C2093b extends XMPushService.i {
+        public class C2097b extends XMPushService.i {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ b f77758a;
+            public final /* synthetic */ b f77959a;
 
             /* renamed from: a  reason: collision with other field name */
             public String f920a;
 
             /* renamed from: b  reason: collision with root package name */
-            public int f77759b;
+            public int f77960b;
 
             /* renamed from: b  reason: collision with other field name */
             public String f921b;
 
             /* renamed from: c  reason: collision with root package name */
-            public int f77760c;
+            public int f77961c;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-            public C2093b(b bVar) {
+            public C2097b(b bVar) {
                 super(0);
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
@@ -158,15 +158,15 @@ public class av {
                         return;
                     }
                 }
-                this.f77758a = bVar;
+                this.f77959a = bVar;
             }
 
             public XMPushService.i a(int i2, int i3, String str, String str2) {
                 InterceptResult invokeCommon;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), str, str2})) == null) {
-                    this.f77759b = i2;
-                    this.f77760c = i3;
+                    this.f77960b = i2;
+                    this.f77961c = i3;
                     this.f921b = str2;
                     this.f920a = str;
                     return this;
@@ -185,11 +185,11 @@ public class av {
             public void a() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                    if (this.f77758a.a(this.f77759b, this.f77760c, this.f921b)) {
-                        this.f77758a.a(this.f77759b, this.f77760c, this.f920a, this.f921b);
+                    if (this.f77959a.a(this.f77960b, this.f77961c, this.f921b)) {
+                        this.f77959a.a(this.f77960b, this.f77961c, this.f920a, this.f921b);
                         return;
                     }
-                    com.xiaomi.channel.commonutils.logger.b.b(" ignore notify client :" + this.f77758a.f77755g);
+                    com.xiaomi.channel.commonutils.logger.b.b(" ignore notify client :" + this.f77959a.f77956g);
                 }
             }
         }
@@ -200,13 +200,13 @@ public class av {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final Messenger f77761a;
+            public final Messenger f77962a;
 
             /* renamed from: a  reason: collision with other field name */
             public final b f922a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ b f77762b;
+            public final /* synthetic */ b f77963b;
 
             public c(b bVar, b bVar2, Messenger messenger) {
                 Interceptable interceptable = $ic;
@@ -223,19 +223,19 @@ public class av {
                         return;
                     }
                 }
-                this.f77762b = bVar;
+                this.f77963b = bVar;
                 this.f922a = bVar2;
-                this.f77761a = messenger;
+                this.f77962a = messenger;
             }
 
             @Override // android.os.IBinder.DeathRecipient
             public void binderDied() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    com.xiaomi.channel.commonutils.logger.b.b("peer died, chid = " + this.f922a.f77755g);
-                    this.f77762b.f911a.a(new ax(this, 0), 0L);
-                    if ("9".equals(this.f922a.f77755g) && "com.xiaomi.xmsf".equals(this.f77762b.f911a.getPackageName())) {
-                        this.f77762b.f911a.a(new ay(this, 0), 60000L);
+                    com.xiaomi.channel.commonutils.logger.b.b("peer died, chid = " + this.f922a.f77956g);
+                    this.f77963b.f911a.a(new ax(this, 0), 0L);
+                    if ("9".equals(this.f922a.f77956g) && "com.xiaomi.xmsf".equals(this.f77963b.f911a.getPackageName())) {
+                        this.f77963b.f911a.a(new ay(this, 0), 60000L);
                     }
                 }
             }
@@ -254,14 +254,14 @@ public class av {
                     return;
                 }
             }
-            this.f913a = c.f77763a;
-            this.f77749a = 0;
+            this.f913a = c.f77964a;
+            this.f77950a = 0;
             this.f916a = new ArrayList();
-            this.f77750b = null;
+            this.f77951b = null;
             this.f919b = false;
             this.f910a = new XMPushService.b(this);
             this.f908a = null;
-            this.f912a = new C2093b(this);
+            this.f912a = new C2097b(this);
         }
 
         public b(XMPushService xMPushService) {
@@ -279,14 +279,14 @@ public class av {
                     return;
                 }
             }
-            this.f913a = c.f77763a;
-            this.f77749a = 0;
+            this.f913a = c.f77964a;
+            this.f77950a = 0;
             this.f916a = new ArrayList();
-            this.f77750b = null;
+            this.f77951b = null;
             this.f919b = false;
             this.f910a = new XMPushService.b(this);
             this.f908a = null;
-            this.f912a = new C2093b(this);
+            this.f912a = new C2097b(this);
             this.f911a = xMPushService;
             a(new aw(this));
         }
@@ -303,17 +303,17 @@ public class av {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), str, str2}) == null) {
                 c cVar = this.f913a;
-                this.f77750b = cVar;
+                this.f77951b = cVar;
                 if (i2 == 2) {
                     this.f914a.a(this.f907a, this, i3);
                 } else if (i2 == 3) {
                     this.f914a.a(this.f907a, this, str2, str);
                 } else if (i2 == 1) {
-                    boolean z = cVar == c.f77765c;
+                    boolean z = cVar == c.f77966c;
                     if (!z && "wait".equals(str2)) {
-                        this.f77749a++;
+                        this.f77950a++;
                     } else if (z) {
-                        this.f77749a = 0;
+                        this.f77950a = 0;
                         if (this.f909a != null) {
                             try {
                                 this.f909a.send(Message.obtain(null, 16, this.f911a.f845a));
@@ -334,7 +334,7 @@ public class av {
             String str2;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeIIL = interceptable.invokeIIL(65543, this, i2, i3, str)) == null) {
-                c cVar = this.f77750b;
+                c cVar = this.f77951b;
                 if (cVar == null || !(z = this.f919b)) {
                     return true;
                 }
@@ -342,14 +342,14 @@ public class av {
                     sb = new StringBuilder();
                     str2 = " status recovered, don't notify client:";
                 } else if (this.f909a != null && z) {
-                    com.xiaomi.channel.commonutils.logger.b.b("Peer alive notify status to client:" + this.f77755g);
+                    com.xiaomi.channel.commonutils.logger.b.b("Peer alive notify status to client:" + this.f77956g);
                     return true;
                 } else {
                     sb = new StringBuilder();
                     str2 = "peer died, ignore notify ";
                 }
                 sb.append(str2);
-                sb.append(this.f77755g);
+                sb.append(this.f77956g);
                 com.xiaomi.channel.commonutils.logger.b.b(sb.toString());
                 return false;
             }
@@ -361,7 +361,7 @@ public class av {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeIIL = interceptable.invokeIIL(65545, this, i2, i3, str)) == null) {
                 if (i2 == 1) {
-                    return (this.f913a == c.f77765c || !this.f911a.m570c() || i3 == 21 || (i3 == 7 && "wait".equals(str))) ? false : true;
+                    return (this.f913a == c.f77966c || !this.f911a.m570c() || i3 == 21 || (i3 == 7 && "wait".equals(str))) ? false : true;
                 } else if (i2 != 2) {
                     if (i2 != 3) {
                         return false;
@@ -377,7 +377,7 @@ public class av {
         public long a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (((long) ((Math.random() * 20.0d) - 10.0d)) + ((this.f77749a + 1) * 15)) * 1000 : invokeV.longValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (((long) ((Math.random() * 20.0d) - 10.0d)) + ((this.f77950a + 1) * 15)) * 1000 : invokeV.longValue;
         }
 
         public String a(int i2) {
@@ -397,7 +397,7 @@ public class av {
                     }
                 } catch (Exception unused) {
                 }
-                this.f77750b = null;
+                this.f77951b = null;
             }
         }
 
@@ -412,7 +412,7 @@ public class av {
                         this.f908a = new c(this, this, messenger);
                         messenger.getBinder().linkToDeath(this.f908a, 0);
                     } else {
-                        com.xiaomi.channel.commonutils.logger.b.b("peer linked with old sdk chid = " + this.f77755g);
+                        com.xiaomi.channel.commonutils.logger.b.b("peer linked with old sdk chid = " + this.f77956g);
                     }
                 } catch (Exception e2) {
                     com.xiaomi.channel.commonutils.logger.b.b("peer linkToDeath err: " + e2.getMessage());
@@ -443,13 +443,13 @@ public class av {
                 c cVar2 = this.f913a;
                 int i4 = 0;
                 if (cVar2 != cVar) {
-                    com.xiaomi.channel.commonutils.logger.b.m73a(String.format("update the client %7$s status. %1$s->%2$s %3$s %4$s %5$s %6$s", cVar2, cVar, a(i2), az.a(i3), str, str2, this.f77755g));
+                    com.xiaomi.channel.commonutils.logger.b.m73a(String.format("update the client %7$s status. %1$s->%2$s %3$s %4$s %5$s %6$s", cVar2, cVar, a(i2), az.a(i3), str, str2, this.f77956g));
                     this.f913a = cVar;
                 }
                 if (this.f914a == null) {
                     com.xiaomi.channel.commonutils.logger.b.d("status changed while the client dispatcher is missing");
-                } else if (cVar != c.f77764b) {
-                    if (this.f77750b != null && (z = this.f919b)) {
+                } else if (cVar != c.f77965b) {
+                    if (this.f77951b != null && (z = this.f919b)) {
                         i4 = (this.f909a == null || !z) ? 10100 : 1000;
                     }
                     this.f911a.b(this.f912a);
@@ -478,16 +478,16 @@ public class av {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final c f77763a;
+        public static final c f77964a;
 
         /* renamed from: a  reason: collision with other field name */
         public static final /* synthetic */ c[] f923a;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final c f77764b;
+        public static final c f77965b;
 
         /* renamed from: c  reason: collision with root package name */
-        public static final c f77765c;
+        public static final c f77966c;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -503,11 +503,11 @@ public class av {
                     return;
                 }
             }
-            f77763a = new c("unbind", 0);
-            f77764b = new c("binding", 1);
+            f77964a = new c("unbind", 0);
+            f77965b = new c("binding", 1);
             c cVar = new c("binded", 2);
-            f77765c = cVar;
-            f923a = new c[]{f77763a, f77764b, cVar};
+            f77966c = cVar;
+            f923a = new c[]{f77964a, f77965b, cVar};
         }
 
         public c(String str, int i2) {
@@ -565,10 +565,10 @@ public class av {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
             synchronized (av.class) {
-                if (f77748a == null) {
-                    f77748a = new av();
+                if (f77949a == null) {
+                    f77949a = new av();
                 }
-                avVar = f77748a;
+                avVar = f77949a;
             }
             return avVar;
         }
@@ -657,7 +657,7 @@ public class av {
                 for (HashMap<String, b> hashMap : this.f906a.values()) {
                     for (b bVar : hashMap.values()) {
                         if (str.equals(bVar.f915a)) {
-                            arrayList.add(bVar.f77755g);
+                            arrayList.add(bVar.f77956g);
                         }
                     }
                 }
@@ -687,7 +687,7 @@ public class av {
             synchronized (this) {
                 for (HashMap<String, b> hashMap : this.f906a.values()) {
                     for (b bVar : hashMap.values()) {
-                        bVar.a(c.f77763a, 1, 3, (String) null, (String) null);
+                        bVar.a(c.f77964a, 1, 3, (String) null, (String) null);
                     }
                 }
             }
@@ -700,7 +700,7 @@ public class av {
             synchronized (this) {
                 for (HashMap<String, b> hashMap : this.f906a.values()) {
                     for (b bVar : hashMap.values()) {
-                        bVar.a(c.f77763a, 2, i2, (String) null, (String) null);
+                        bVar.a(c.f77964a, 2, i2, (String) null, (String) null);
                     }
                 }
             }
@@ -720,10 +720,10 @@ public class av {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, bVar) == null) {
             synchronized (this) {
-                HashMap<String, b> hashMap = this.f906a.get(bVar.f77755g);
+                HashMap<String, b> hashMap = this.f906a.get(bVar.f77956g);
                 if (hashMap == null) {
                     hashMap = new HashMap<>();
-                    this.f906a.put(bVar.f77755g, hashMap);
+                    this.f906a.put(bVar.f77956g, hashMap);
                 }
                 hashMap.put(a(bVar.f918b), bVar);
                 for (a aVar : this.f905a) {

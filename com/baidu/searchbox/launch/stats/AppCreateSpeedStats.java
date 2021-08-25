@@ -1,5 +1,6 @@
 package com.baidu.searchbox.launch.stats;
 
+import c.a.p0.s.d0.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.config.AppConfig;
 import com.baidu.searchbox.launch.utils.SpeedStatsUtils;
@@ -51,10 +52,12 @@ public final class AppCreateSpeedStats extends AbstractSpeedStats {
     public static final String INIT_UBC = "initUBC";
     public static final String INIT_VERSION = "initVersion";
     public static final String LAUNCH_TASK_SCHEDULE = "launchTaskSchedule";
+    public static final String NOSTATIC_INIT_TASKS_COST = "noStaticinitTasksCost";
     public static final String ON_APP_CREATE_END = "onAppCreateEnd";
     public static final String PERMMISSION_UTIL = "permissionUtil";
     public static final String PROCESS_UPGRADE = "processUpgrade";
     public static final String SHAREP_GET = "sharePreferGet";
+    public static final String STATIC_INIT_TASKS_COST = "staticInitTasksCost";
     public static final String WEBVIEW_SUFFIX = "webviewSuffix";
     public transient /* synthetic */ FieldHolder $fh;
     public long mAppCreateEndTimestamp;
@@ -223,29 +226,29 @@ public final class AppCreateSpeedStats extends AbstractSpeedStats {
             long j5 = this.mInitAccountChangeTimestamp;
             long j6 = j5 - j3;
             long j7 = this.mPermissionUtilEndTimestamp;
-            long j8 = j7 - j5;
-            long j9 = this.mInitAdapterDimonEndTimestamp;
-            long j10 = j9 - j7;
-            long j11 = this.mCleanDirectoryEndTimestamp;
-            long j12 = j11 - j9;
-            long j13 = this.mSharePEndTimestamp;
-            long j14 = j13 - j11;
-            long j15 = this.mCmdRouterInitEndTimestamp;
-            long j16 = j15 - j13;
-            long j17 = this.mWebViewSufEndTimestamp;
-            long j18 = j17 - j15;
-            long j19 = this.mInitCmdEndTimestamp;
-            long j20 = j19 - j17;
-            long j21 = this.mInitVersionEndTimestamp;
-            long j22 = j21 - j19;
-            long j23 = this.mInitAllEndTimestamp;
-            long j24 = j23 - j21;
-            long j25 = this.mInitFaceEndTimestamp;
-            long j26 = j25 - j23;
-            long j27 = this.mInitTasksEndTimestamp;
-            long j28 = j27 - j25;
+            long j8 = this.mInitTasksEndTimestamp;
+            long j9 = j7 - j8;
+            long j10 = this.mInitAdapterDimonEndTimestamp;
+            long j11 = j10 - j7;
+            long j12 = this.mCleanDirectoryEndTimestamp;
+            long j13 = j12 - j10;
+            long j14 = this.mSharePEndTimestamp;
+            long j15 = j14 - j12;
+            long j16 = this.mCmdRouterInitEndTimestamp;
+            long j17 = j16 - j14;
+            long j18 = this.mWebViewSufEndTimestamp;
+            long j19 = j18 - j16;
+            long j20 = this.mInitCmdEndTimestamp;
+            long j21 = j20 - j18;
+            long j22 = this.mInitVersionEndTimestamp;
+            long j23 = j22 - j20;
+            long j24 = this.mInitAllEndTimestamp;
+            long j25 = j24 - j22;
+            long j26 = this.mInitFaceEndTimestamp;
+            long j27 = j26 - j5;
+            long j28 = j8 - j26;
             long j29 = this.mInitGOEndTimestamp;
-            long j30 = j29 - j27;
+            long j30 = j29 - j24;
             long j31 = this.mInitLoginEndTimestamp;
             long j32 = j31 - j29;
             long j33 = this.mInitInterruptEndTimestamp;
@@ -281,22 +284,27 @@ public final class AppCreateSpeedStats extends AbstractSpeedStats {
             long j63 = this.mInitMsgEightEndTimestamp - this.mInitMsgEightStartTimestamp;
             long j64 = this.mInitMsgNineEndTimestamp - this.mInitMsgNineStartTimestamp;
             long j65 = j2 - j3;
-            if (j4 < 0 || j4 > 60000 || j6 < 0 || j6 > 60000 || j8 < 0 || j8 > 60000 || j10 < 0 || j10 > 60000 || j12 < 0 || j12 > 60000 || j14 < 0 || j14 > 60000 || j16 < 0 || j16 > 60000 || j18 < 0 || j18 > 60000 || j20 < 0 || j20 > 60000 || j22 < 0 || j22 > 60000 || j24 < 0 || j24 > 60000 || j26 < 0 || j26 > 60000 || j28 < 0 || j28 > 60000 || j30 < 0 || j30 > 60000 || j32 < 0 || j32 > 60000 || j34 < 0 || j34 > 60000 || j36 < 0 || j36 > 60000 || j38 < 0 || j38 > 60000 || j40 < 0 || j40 > 60000 || j42 < 0 || j42 > 60000 || j44 < 0 || j44 > 60000 || j46 < 0 || j46 > 60000 || j48 < 0 || j48 > 60000 || j50 < 0 || j50 > 60000 || j52 < 0 || j52 > 60000 || j54 < 0 || j54 > 60000 || j55 < 0 || j55 > 60000 || j56 < 0 || j56 > 60000 || j57 < 0 || j57 > 60000 || j58 < 0 || j58 > 60000 || j59 < 0 || j59 > 60000 || j60 < 0 || j60 > 60000 || j61 < 0 || j61 > 60000 || j62 < 0 || j62 > 60000 || j63 < 0 || j63 > 60000 || j64 < 0 || j64 > 60000 || j65 < 0 || j65 > 60000) {
+            if (j4 < 0 || j4 > 60000 || j6 < 0 || j6 > 60000 || j9 < 0 || j9 > 60000 || j11 < 0 || j11 > 60000 || j13 < 0 || j13 > 60000 || j15 < 0 || j15 > 60000 || j17 < 0 || j17 > 60000 || j19 < 0 || j19 > 60000 || j21 < 0 || j21 > 60000 || j23 < 0 || j23 > 60000 || j25 < 0 || j25 > 60000 || j27 < 0 || j27 > 60000 || j28 < 0 || j28 > 60000 || j30 < 0 || j30 > 60000 || j32 < 0 || j32 > 60000 || j34 < 0 || j34 > 60000 || j36 < 0 || j36 > 60000 || j38 < 0 || j38 > 60000 || j40 < 0 || j40 > 60000 || j42 < 0 || j42 > 60000 || j44 < 0 || j44 > 60000 || j46 < 0 || j46 > 60000 || j48 < 0 || j48 > 60000 || j50 < 0 || j50 > 60000 || j52 < 0 || j52 > 60000 || j54 < 0 || j54 > 60000 || j55 < 0 || j55 > 60000 || j56 < 0 || j56 > 60000 || j57 < 0 || j57 > 60000 || j58 < 0 || j58 > 60000 || j59 < 0 || j59 > 60000 || j60 < 0 || j60 > 60000 || j61 < 0 || j61 > 60000 || j62 < 0 || j62 > 60000 || j63 < 0 || j63 > 60000 || j64 < 0 || j64 > 60000 || j65 < 0 || j65 > 60000) {
                 return false;
             }
             HashMap hashMap = new HashMap();
             hashMap.put(INIT_ACCOUNT_CHANGE, String.valueOf(j6));
-            hashMap.put(PERMMISSION_UTIL, String.valueOf(j8));
-            hashMap.put(INIT_DIMON_ADAPT, String.valueOf(j10));
-            hashMap.put(CLEAN_DIRECTORY, String.valueOf(j12));
-            hashMap.put(SHAREP_GET, String.valueOf(j14));
-            hashMap.put(CMDROUTER_INIT, String.valueOf(j16));
-            hashMap.put(WEBVIEW_SUFFIX, String.valueOf(j18));
-            hashMap.put(INIT_CMD, String.valueOf(j20));
-            hashMap.put(INIT_VERSION, String.valueOf(j22));
-            hashMap.put(INIT_ALL, String.valueOf(j24));
-            hashMap.put(INIT_FACE, String.valueOf(j26));
+            hashMap.put(PERMMISSION_UTIL, String.valueOf(j9));
+            hashMap.put(INIT_DIMON_ADAPT, String.valueOf(j11));
+            hashMap.put(CLEAN_DIRECTORY, String.valueOf(j13));
+            hashMap.put(SHAREP_GET, String.valueOf(j15));
+            hashMap.put(CMDROUTER_INIT, String.valueOf(j17));
+            hashMap.put(WEBVIEW_SUFFIX, String.valueOf(j19));
+            hashMap.put(INIT_CMD, String.valueOf(j21));
+            hashMap.put(INIT_VERSION, String.valueOf(j23));
+            hashMap.put(INIT_ALL, String.valueOf(j25));
+            hashMap.put(INIT_FACE, String.valueOf(j27));
             hashMap.put(INIT_TASKS, String.valueOf(j28));
+            if (b.j().k("static_opt_open", 0) > 0) {
+                hashMap.put(NOSTATIC_INIT_TASKS_COST, String.valueOf(j28));
+            } else {
+                hashMap.put(STATIC_INIT_TASKS_COST, String.valueOf(j28));
+            }
             hashMap.put(INIT_GO_ACTION, String.valueOf(j30));
             hashMap.put(INIT_ACCOUNT, String.valueOf(j32));
             hashMap.put(INIT_INTERRUPT_RULE, String.valueOf(j34));

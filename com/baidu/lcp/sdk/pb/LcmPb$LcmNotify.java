@@ -74,13 +74,13 @@ public final class LcmPb$LcmNotify extends GeneratedMessageLite implements Messa
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f40436e;
+        public int f40543e;
 
         /* renamed from: f  reason: collision with root package name */
-        public long f40437f;
+        public long f40544f;
 
         /* renamed from: g  reason: collision with root package name */
-        public int f40438g;
+        public int f40545g;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -153,13 +153,13 @@ public final class LcmPb$LcmNotify extends GeneratedMessageLite implements Messa
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
                 LcmPb$LcmNotify lcmPb$LcmNotify = new LcmPb$LcmNotify(this, (c.a.u.a.e.a) null);
-                int i2 = this.f40436e;
+                int i2 = this.f40543e;
                 int i3 = (i2 & 1) != 1 ? 0 : 1;
-                lcmPb$LcmNotify.logId_ = this.f40437f;
+                lcmPb$LcmNotify.logId_ = this.f40544f;
                 if ((i2 & 2) == 2) {
                     i3 |= 2;
                 }
-                lcmPb$LcmNotify.action_ = this.f40438g;
+                lcmPb$LcmNotify.action_ = this.f40545g;
                 lcmPb$LcmNotify.bitField0_ = i3;
                 return lcmPb$LcmNotify;
             }
@@ -171,11 +171,11 @@ public final class LcmPb$LcmNotify extends GeneratedMessageLite implements Messa
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
                 super.clear();
-                this.f40437f = 0L;
-                int i2 = this.f40436e & (-2);
-                this.f40436e = i2;
-                this.f40438g = 0;
-                this.f40436e = i2 & (-3);
+                this.f40544f = 0L;
+                int i2 = this.f40543e & (-2);
+                this.f40543e = i2;
+                this.f40545g = 0;
+                this.f40543e = i2 & (-3);
                 return this;
             }
             return (b) invokeV.objValue;
@@ -207,7 +207,7 @@ public final class LcmPb$LcmNotify extends GeneratedMessageLite implements Messa
         public boolean s() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? (this.f40436e & 1) == 1 : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? (this.f40543e & 1) == 1 : invokeV.booleanValue;
         }
 
         public b t(LcmPb$LcmNotify lcmPb$LcmNotify) {
@@ -271,8 +271,8 @@ public final class LcmPb$LcmNotify extends GeneratedMessageLite implements Messa
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048599, this, i2)) == null) {
-                this.f40436e |= 2;
-                this.f40438g = i2;
+                this.f40543e |= 2;
+                this.f40545g = i2;
                 return this;
             }
             return (b) invokeI.objValue;
@@ -282,8 +282,8 @@ public final class LcmPb$LcmNotify extends GeneratedMessageLite implements Messa
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeJ = interceptable.invokeJ(1048600, this, j2)) == null) {
-                this.f40436e |= 1;
-                this.f40437f = j2;
+                this.f40543e |= 1;
+                this.f40544f = j2;
                 return this;
             }
             return (b) invokeJ.objValue;

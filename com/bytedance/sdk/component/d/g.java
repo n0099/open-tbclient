@@ -13,13 +13,13 @@ public abstract class g implements Comparable<g>, Runnable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f64683a;
+    public int f64883a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f64684b;
+    public String f64884b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f64685c;
+    public String f64885c;
 
     public g(String str, int i2) {
         Interceptable interceptable = $ic;
@@ -36,29 +36,29 @@ public abstract class g implements Comparable<g>, Runnable {
                 return;
             }
         }
-        this.f64683a = 0;
-        this.f64683a = i2 == 0 ? 5 : i2;
-        this.f64684b = UUID.randomUUID().toString() + "-" + String.valueOf(System.nanoTime());
-        this.f64685c = str;
+        this.f64883a = 0;
+        this.f64883a = i2 == 0 ? 5 : i2;
+        this.f64884b = UUID.randomUUID().toString() + "-" + String.valueOf(System.nanoTime());
+        this.f64885c = str;
     }
 
     public void a(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            this.f64683a = i2;
+            this.f64883a = i2;
         }
     }
 
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f64685c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f64885c : (String) invokeV.objValue;
     }
 
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f64683a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f64883a : invokeV.intValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -91,9 +91,9 @@ public abstract class g implements Comparable<g>, Runnable {
                 return;
             }
         }
-        this.f64683a = 0;
-        this.f64683a = 5;
-        this.f64684b = UUID.randomUUID().toString() + "-" + String.valueOf(System.nanoTime());
-        this.f64685c = str;
+        this.f64883a = 0;
+        this.f64883a = 5;
+        this.f64884b = UUID.randomUUID().toString() + "-" + String.valueOf(System.nanoTime());
+        this.f64885c = str;
     }
 }

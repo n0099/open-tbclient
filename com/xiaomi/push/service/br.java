@@ -15,7 +15,7 @@ public class br implements fq {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ XMPushService f77803a;
+    public final /* synthetic */ XMPushService f78004a;
 
     public br(XMPushService xMPushService) {
         Interceptable interceptable = $ic;
@@ -32,14 +32,14 @@ public class br implements fq {
                 return;
             }
         }
-        this.f77803a = xMPushService;
+        this.f78004a = xMPushService;
     }
 
     @Override // com.xiaomi.push.fq
     public void a(fa faVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, faVar) == null) {
-            XMPushService xMPushService = this.f77803a;
+            XMPushService xMPushService = this.f78004a;
             xMPushService.a(new XMPushService.c(xMPushService, faVar));
         }
     }
@@ -48,7 +48,7 @@ public class br implements fq {
     public void a(gc gcVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, gcVar) == null) {
-            XMPushService xMPushService = this.f77803a;
+            XMPushService xMPushService = this.f78004a;
             xMPushService.a(new XMPushService.k(xMPushService, gcVar));
         }
     }

@@ -4,8 +4,8 @@ import android.content.Context;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.View;
-import c.a.o0.b.d;
-import c.a.o0.s.q.c2;
+import c.a.p0.b.d;
+import c.a.p0.s.q.c2;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -45,7 +45,7 @@ public class HeadPendantClickableView extends HeadPendantView {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ HeadPendantClickableView f47415e;
+        public final /* synthetic */ HeadPendantClickableView f47521e;
 
         public a(HeadPendantClickableView headPendantClickableView) {
             Interceptable interceptable = $ic;
@@ -62,72 +62,60 @@ public class HeadPendantClickableView extends HeadPendantView {
                     return;
                 }
             }
-            this.f47415e = headPendantClickableView;
+            this.f47521e = headPendantClickableView;
         }
 
-        /* JADX WARN: Removed duplicated region for block: B:45:0x019d  */
-        /* JADX WARN: Removed duplicated region for block: B:53:? A[RETURN, SYNTHETIC] */
         @Override // android.view.View.OnClickListener
-        /*
-            Code decompiled incorrectly, please refer to instructions dump.
-        */
         public void onClick(View view) {
             String str;
             String str2;
             String str3;
             String str4;
-            AlaInfoData alaInfo;
+            String str5;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f47415e.r == null || this.f47415e.r.J() == null || StringUtils.isNull(this.f47415e.r.J().getName_show()) || StringUtils.isNull(this.f47415e.r.J().getUserId())) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f47521e.r == null || this.f47521e.r.J() == null || StringUtils.isNull(this.f47521e.r.J().getName_show()) || StringUtils.isNull(this.f47521e.r.J().getUserId())) {
                 return;
             }
-            boolean z = this.f47415e.r.X1;
-            String str5 = AddFriendActivityConfig.TYPE_HOME_HEAD;
-            if (z) {
-                if (this.f47415e.r.m1() == 69) {
-                    str3 = YYLiveUtil.SOURCE_HOME_RECOMMEND_LIVE_HEAD;
+            if (this.f47521e.r.X1) {
+                if (this.f47521e.r.m1() == 69) {
+                    str5 = YYLiveUtil.SOURCE_HOME_RECOMMEND_LIVE_HEAD;
                 } else {
-                    str3 = this.f47415e.r.m1() == 40 ? YYLiveUtil.SOURCE_HOME_RECOMMEND_VIDEO_HEAD : YYLiveUtil.SOURCE_HOME_RECOMMEND_TUWEN_HEAD;
+                    str5 = this.f47521e.r.m1() == 40 ? YYLiveUtil.SOURCE_HOME_RECOMMEND_VIDEO_HEAD : YYLiveUtil.SOURCE_HOME_RECOMMEND_TUWEN_HEAD;
                 }
-            } else {
-                if (this.f47415e.r.U1()) {
-                    if (this.f47415e.r.m1() == 69) {
-                        str4 = YYLiveUtil.SOURCE_HOME_CONCERN_LIVE_HEAD;
-                    } else {
-                        str4 = this.f47415e.r.m1() == 40 ? YYLiveUtil.SOURCE_HOME_CONCERN_VIDEO_HEAD : YYLiveUtil.SOURCE_HOME_CONCERN_TUWEN_HEAD;
-                    }
-                    str = str4;
-                    str2 = AddFriendActivityConfig.TYPE_CONCERN_HEAD;
-                } else if (this.f47415e.r.isFromFrs()) {
+                str = str5;
+                str2 = AddFriendActivityConfig.TYPE_HOME_HEAD;
+            } else if (this.f47521e.r.U1()) {
+                if (this.f47521e.r.m1() == 69) {
+                    str4 = YYLiveUtil.SOURCE_HOME_CONCERN_LIVE_HEAD;
+                } else {
+                    str4 = this.f47521e.r.m1() == 40 ? YYLiveUtil.SOURCE_HOME_CONCERN_VIDEO_HEAD : YYLiveUtil.SOURCE_HOME_CONCERN_TUWEN_HEAD;
+                }
+                str = str4;
+                str2 = AddFriendActivityConfig.TYPE_CONCERN_HEAD;
+            } else if (this.f47521e.r.isFromFrs()) {
+                if (this.f47521e.r.m1() == 69) {
+                    str3 = YYLiveUtil.SOURCE_FRS_LIVE_CARD_TAB;
+                } else {
                     str3 = YYLiveUtil.SOURCE_FRS_LIVE_HEAD_ + TbSingleton.getInstance().getFrsCurTabType();
-                    str5 = AddFriendActivityConfig.TYPE_FRS_HEAD;
-                } else {
-                    str = YYLiveUtil.SOURCE_NOT_DEFINE;
-                    str2 = "";
                 }
-                alaInfo = this.f47415e.r.J().getAlaInfo();
-                if (alaInfo == null && alaInfo.isLegalYYLiveData()) {
-                    TbPageContext tbPageContext = this.f47415e.getTbPageContext();
-                    YyExtData yyExtData = alaInfo.mYyExtData;
-                    YYLiveUtil.jumpToYYLiveRoom(tbPageContext, yyExtData.mSid, yyExtData.mSsid, yyExtData.mTemplateId, "" + alaInfo.roomId, str);
-                    HeadPendantClickableView headPendantClickableView = this.f47415e;
-                    headPendantClickableView.j(headPendantClickableView.r.q1(), String.valueOf(this.f47415e.r.T()), String.valueOf(alaInfo.roomId), String.valueOf(alaInfo.live_id), alaInfo.mYyExtData.mSid);
-                } else {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(this.f47415e.s, this.f47415e.r.J().getUserId(), this.f47415e.r.J().getName_show(), this.f47415e.r.Z(), str2, this.f47415e.r.q1(), this.f47415e.r.D0())));
-                }
-                if (this.f47415e.t == null) {
-                    this.f47415e.t.onClick(view);
-                    return;
-                }
-                return;
+                str = str3;
+                str2 = AddFriendActivityConfig.TYPE_FRS_HEAD;
+            } else {
+                str = YYLiveUtil.SOURCE_NOT_DEFINE;
+                str2 = "";
             }
-            str = str3;
-            str2 = str5;
-            alaInfo = this.f47415e.r.J().getAlaInfo();
-            if (alaInfo == null) {
+            AlaInfoData alaInfo = this.f47521e.r.J().getAlaInfo();
+            if (alaInfo != null && alaInfo.isLegalYYLiveData()) {
+                TbPageContext tbPageContext = this.f47521e.getTbPageContext();
+                YyExtData yyExtData = alaInfo.mYyExtData;
+                YYLiveUtil.jumpToYYLiveRoom(tbPageContext, yyExtData.mSid, yyExtData.mSsid, yyExtData.mTemplateId, "" + alaInfo.roomId, str);
+                HeadPendantClickableView headPendantClickableView = this.f47521e;
+                headPendantClickableView.j(headPendantClickableView.r.q1(), String.valueOf(this.f47521e.r.T()), String.valueOf(alaInfo.roomId), String.valueOf(alaInfo.live_id), alaInfo.mYyExtData.mSid);
+            } else {
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(this.f47521e.s, this.f47521e.r.J().getUserId(), this.f47521e.r.J().getName_show(), this.f47521e.r.Z(), str2, this.f47521e.r.q1(), this.f47521e.r.D0())));
             }
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(this.f47415e.s, this.f47415e.r.J().getUserId(), this.f47415e.r.J().getName_show(), this.f47415e.r.Z(), str2, this.f47415e.r.q1(), this.f47415e.r.D0())));
-            if (this.f47415e.t == null) {
+            if (this.f47521e.t != null) {
+                this.f47521e.t.onClick(view);
             }
         }
     }
@@ -221,7 +209,7 @@ public class HeadPendantClickableView extends HeadPendantView {
         getHeadView().setUserId(J.getUserId());
         getHeadView().setUserName(J.getUserName());
         getHeadView().setUrl(J.getAvater());
-        if (J.isDefaultAvatar && d.r0()) {
+        if (J.isDefaultAvatar && d.w0()) {
             getHeadView().startLoad(String.valueOf(R.drawable.pic_mask_pass_head), 24, false);
         } else if (!StringUtils.isNull(J.getAvater()) && J.getAvater().startsWith("http")) {
             getHeadView().startLoad(J.getAvater(), 10, false);

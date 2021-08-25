@@ -41,22 +41,22 @@ public class f implements ServiceConnection, t {
     @Nullable
 
     /* renamed from: e  reason: collision with root package name */
-    public com.ss.android.socialbase.downloader.b.c f75427e;
+    public com.ss.android.socialbase.downloader.b.c f75628e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Handler f75428f;
+    public Handler f75629f;
 
     /* renamed from: g  reason: collision with root package name */
-    public com.ss.android.socialbase.downloader.b.b f75429g;
+    public com.ss.android.socialbase.downloader.b.b f75630g;
 
     /* renamed from: h  reason: collision with root package name */
-    public e.d.a f75430h;
+    public e.d.a f75631h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Runnable f75431i;
+    public Runnable f75632i;
 
     /* renamed from: j  reason: collision with root package name */
-    public Future<?> f75432j;
+    public Future<?> f75633j;
     public CountDownLatch k;
 
     /* loaded from: classes10.dex */
@@ -65,7 +65,7 @@ public class f implements ServiceConnection, t {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ f f75438e;
+        public final /* synthetic */ f f75639e;
 
         public a(f fVar) {
             Interceptable interceptable = $ic;
@@ -82,16 +82,16 @@ public class f implements ServiceConnection, t {
                     return;
                 }
             }
-            this.f75438e = fVar;
+            this.f75639e = fVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || f.l || this.f75438e.f75430h == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || f.l || this.f75639e.f75631h == null) {
                 return;
             }
-            this.f75438e.f75430h.a();
+            this.f75639e.f75631h.a();
         }
     }
 
@@ -101,10 +101,10 @@ public class f implements ServiceConnection, t {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ IBinder f75439e;
+        public final /* synthetic */ IBinder f75640e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ f f75440f;
+        public final /* synthetic */ f f75641f;
 
         /* loaded from: classes10.dex */
         public class a implements IBinder.DeathRecipient {
@@ -112,7 +112,7 @@ public class f implements ServiceConnection, t {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ b f75441e;
+            public final /* synthetic */ b f75642e;
 
             public a(b bVar) {
                 Interceptable interceptable = $ic;
@@ -129,7 +129,7 @@ public class f implements ServiceConnection, t {
                         return;
                     }
                 }
-                this.f75441e = bVar;
+                this.f75642e = bVar;
             }
 
             @Override // android.os.IBinder.DeathRecipient
@@ -137,10 +137,10 @@ public class f implements ServiceConnection, t {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                     boolean unused = f.l = false;
-                    if (this.f75441e.f75440f.w() || this.f75441e.f75440f.f75430h == null) {
+                    if (this.f75642e.f75641f.w() || this.f75642e.f75641f.f75631h == null) {
                         return;
                     }
-                    this.f75441e.f75440f.f75428f.postDelayed(this.f75441e.f75440f.f75431i, 2000L);
+                    this.f75642e.f75641f.f75629f.postDelayed(this.f75642e.f75641f.f75632i, 2000L);
                 }
             }
         }
@@ -160,8 +160,8 @@ public class f implements ServiceConnection, t {
                     return;
                 }
             }
-            this.f75440f = fVar;
-            this.f75439e = iBinder;
+            this.f75641f = fVar;
+            this.f75640e = iBinder;
         }
 
         @Override // java.lang.Runnable
@@ -170,11 +170,11 @@ public class f implements ServiceConnection, t {
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 synchronized (this) {
                     try {
-                        if (this.f75440f.f75429g != null && this.f75440f.f75427e != null) {
-                            this.f75440f.f75427e.a(this.f75440f.f75429g);
+                        if (this.f75641f.f75630g != null && this.f75641f.f75628e != null) {
+                            this.f75641f.f75628e.a(this.f75641f.f75630g);
                         }
-                        this.f75440f.k.countDown();
-                        this.f75439e.linkToDeath(new a(this), 0);
+                        this.f75641f.k.countDown();
+                        this.f75640e.linkToDeath(new a(this), 0);
                     } catch (Throwable unused) {
                     }
                 }
@@ -188,7 +188,7 @@ public class f implements ServiceConnection, t {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ f f75442e;
+        public final /* synthetic */ f f75643e;
 
         public c(f fVar) {
             Interceptable interceptable = $ic;
@@ -205,14 +205,14 @@ public class f implements ServiceConnection, t {
                     return;
                 }
             }
-            this.f75442e = fVar;
+            this.f75643e = fVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                SqlDownloadCacheService.a(c.p.a.e.b.g.e.n(), this.f75442e);
+                SqlDownloadCacheService.a(c.p.a.e.b.g.e.n(), this.f75643e);
             }
         }
     }
@@ -245,9 +245,9 @@ public class f implements ServiceConnection, t {
                 return;
             }
         }
-        this.f75428f = new Handler(Looper.getMainLooper());
-        this.f75429g = null;
-        this.f75431i = new a(this);
+        this.f75629f = new Handler(Looper.getMainLooper());
+        this.f75630g = null;
+        this.f75632i = new a(this);
         this.k = new CountDownLatch(1);
         SqlDownloadCacheService.a(c.p.a.e.b.g.e.n(), this);
     }
@@ -255,7 +255,7 @@ public class f implements ServiceConnection, t {
     /* JADX DEBUG: Marked for inline */
     /* JADX DEBUG: Method not inlined, still used in: [com.ss.android.socialbase.downloader.b.f.b.run():void] */
     public static /* synthetic */ e.d.a a(f fVar) {
-        return fVar.f75430h;
+        return fVar.f75631h;
     }
 
     @Override // c.p.a.e.b.g.k
@@ -274,8 +274,8 @@ public class f implements ServiceConnection, t {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048588, this, i2)) == null) {
             try {
-                if (this.f75427e != null) {
-                    return this.f75427e.b(i2);
+                if (this.f75628e != null) {
+                    return this.f75628e.b(i2);
                 }
                 return null;
             } catch (RemoteException e2) {
@@ -292,8 +292,8 @@ public class f implements ServiceConnection, t {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048597, this, str)) == null) {
             try {
-                if (this.f75427e != null) {
-                    return this.f75427e.c(str);
+                if (this.f75628e != null) {
+                    return this.f75628e.c(str);
                 }
                 return null;
             } catch (RemoteException e2) {
@@ -310,8 +310,8 @@ public class f implements ServiceConnection, t {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048600, this, str)) == null) {
             try {
-                if (this.f75427e != null) {
-                    return this.f75427e.d(str);
+                if (this.f75628e != null) {
+                    return this.f75628e.d(str);
                 }
                 return null;
             } catch (RemoteException e2) {
@@ -328,8 +328,8 @@ public class f implements ServiceConnection, t {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048604, this, i2)) == null) {
             try {
-                if (this.f75427e != null) {
-                    return this.f75427e.e(i2);
+                if (this.f75628e != null) {
+                    return this.f75628e.e(i2);
                 }
                 return false;
             } catch (RemoteException e2) {
@@ -346,8 +346,8 @@ public class f implements ServiceConnection, t {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048605, this, i2)) == null) {
             try {
-                if (this.f75427e != null) {
-                    return this.f75427e.f(i2);
+                if (this.f75628e != null) {
+                    return this.f75628e.f(i2);
                 }
                 return false;
             } catch (RemoteException e2) {
@@ -364,8 +364,8 @@ public class f implements ServiceConnection, t {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048606, this, i2)) == null) {
             try {
-                if (this.f75427e != null) {
-                    return this.f75427e.g(i2);
+                if (this.f75628e != null) {
+                    return this.f75628e.g(i2);
                 }
                 return null;
             } catch (RemoteException e2) {
@@ -382,8 +382,8 @@ public class f implements ServiceConnection, t {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048607, this, i2)) == null) {
             try {
-                if (this.f75427e != null) {
-                    return this.f75427e.h(i2);
+                if (this.f75628e != null) {
+                    return this.f75628e.h(i2);
                 }
                 return null;
             } catch (RemoteException e2) {
@@ -400,8 +400,8 @@ public class f implements ServiceConnection, t {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048608, this, i2)) == null) {
             try {
-                if (this.f75427e != null) {
-                    return this.f75427e.i(i2);
+                if (this.f75628e != null) {
+                    return this.f75628e.i(i2);
                 }
                 return null;
             } catch (RemoteException e2) {
@@ -418,8 +418,8 @@ public class f implements ServiceConnection, t {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048609, this, i2)) == null) {
             try {
-                if (this.f75427e != null) {
-                    return this.f75427e.j(i2);
+                if (this.f75628e != null) {
+                    return this.f75628e.j(i2);
                 }
                 return null;
             } catch (RemoteException e2) {
@@ -456,8 +456,8 @@ public class f implements ServiceConnection, t {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048612, this) == null) {
             try {
-                if (this.f75427e != null) {
-                    this.f75427e.a();
+                if (this.f75628e != null) {
+                    this.f75628e.a();
                 }
             } catch (RemoteException e2) {
                 e2.printStackTrace();
@@ -476,14 +476,14 @@ public class f implements ServiceConnection, t {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048614, this, bVar) == null) {
             synchronized (this) {
-                if (this.f75427e != null) {
+                if (this.f75628e != null) {
                     try {
-                        this.f75427e.a(bVar);
+                        this.f75628e.a(bVar);
                     } catch (RemoteException e2) {
                         e2.printStackTrace();
                     }
                 } else {
-                    this.f75429g = bVar;
+                    this.f75630g = bVar;
                 }
             }
         }
@@ -494,13 +494,13 @@ public class f implements ServiceConnection, t {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048617, this, componentName, iBinder) == null) {
             l = true;
-            this.f75428f.removeCallbacks(this.f75431i);
+            this.f75629f.removeCallbacks(this.f75632i);
             try {
-                this.f75427e = c.a.a(iBinder);
+                this.f75628e = c.a.a(iBinder);
             } catch (Throwable th) {
                 th.printStackTrace();
             }
-            this.f75432j = c.p.a.e.b.g.e.A0().submit(new b(this, iBinder));
+            this.f75633j = c.p.a.e.b.g.e.A0().submit(new b(this, iBinder));
         }
     }
 
@@ -508,7 +508,7 @@ public class f implements ServiceConnection, t {
     public void onServiceDisconnected(ComponentName componentName) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048618, this, componentName) == null) {
-            this.f75427e = null;
+            this.f75628e = null;
             l = false;
         }
     }
@@ -529,7 +529,7 @@ public class f implements ServiceConnection, t {
                 }
                 m++;
                 n = currentTimeMillis;
-                this.f75428f.postDelayed(new c(this), 1000L);
+                this.f75629f.postDelayed(new c(this), 1000L);
                 return true;
             }
             return false;
@@ -546,16 +546,16 @@ public class f implements ServiceConnection, t {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ SparseArray f75433e;
+                public final /* synthetic */ SparseArray f75634e;
 
                 /* renamed from: f  reason: collision with root package name */
-                public final /* synthetic */ SparseArray f75434f;
+                public final /* synthetic */ SparseArray f75635f;
 
                 /* renamed from: g  reason: collision with root package name */
-                public final /* synthetic */ c.p.a.e.b.b.b f75435g;
+                public final /* synthetic */ c.p.a.e.b.b.b f75636g;
 
                 /* renamed from: h  reason: collision with root package name */
-                public final /* synthetic */ f f75436h;
+                public final /* synthetic */ f f75637h;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -572,10 +572,10 @@ public class f implements ServiceConnection, t {
                             return;
                         }
                     }
-                    this.f75436h = this;
-                    this.f75433e = sparseArray;
-                    this.f75434f = sparseArray2;
-                    this.f75435g = bVar;
+                    this.f75637h = this;
+                    this.f75634e = sparseArray;
+                    this.f75635f = sparseArray2;
+                    this.f75636g = bVar;
                 }
 
                 @Override // java.lang.Runnable
@@ -585,12 +585,12 @@ public class f implements ServiceConnection, t {
                     Future future;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f75436h.m(new b.a(this) { // from class: com.ss.android.socialbase.downloader.b.f.4.1
+                        this.f75637h.m(new b.a(this) { // from class: com.ss.android.socialbase.downloader.b.f.4.1
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
 
                             /* renamed from: a  reason: collision with root package name */
-                            public final /* synthetic */ AnonymousClass4 f75437a;
+                            public final /* synthetic */ AnonymousClass4 f75638a;
 
                             {
                                 Interceptable interceptable3 = $ic;
@@ -607,31 +607,31 @@ public class f implements ServiceConnection, t {
                                         return;
                                     }
                                 }
-                                this.f75437a = this;
+                                this.f75638a = this;
                             }
 
                             @Override // com.ss.android.socialbase.downloader.b.b
                             public void a(Map map, Map map2) {
                                 Interceptable interceptable3 = $ic;
                                 if (interceptable3 == null || interceptable3.invokeLL(1048576, this, map, map2) == null) {
-                                    c.p.a.e.b.l.f.v(this.f75437a.f75433e, map);
-                                    c.p.a.e.b.l.f.v(this.f75437a.f75434f, map2);
-                                    this.f75437a.f75435g.a();
-                                    this.f75437a.f75436h.m((com.ss.android.socialbase.downloader.b.b) null);
+                                    c.p.a.e.b.l.f.v(this.f75638a.f75634e, map);
+                                    c.p.a.e.b.l.f.v(this.f75638a.f75635f, map2);
+                                    this.f75638a.f75636g.a();
+                                    this.f75638a.f75637h.m((com.ss.android.socialbase.downloader.b.b) null);
                                 }
                             }
                         });
                         try {
-                            z = !this.f75436h.k.await(5000L, TimeUnit.MILLISECONDS);
+                            z = !this.f75637h.k.await(5000L, TimeUnit.MILLISECONDS);
                         } catch (Throwable th) {
                             th.printStackTrace();
                             z = false;
                         }
-                        if (z && (future = this.f75436h.f75432j) != null) {
+                        if (z && (future = this.f75637h.f75633j) != null) {
                             future.cancel(true);
                         }
-                        this.f75436h.l();
-                        if (!z || (bVar2 = this.f75435g) == null) {
+                        this.f75637h.l();
+                        if (!z || (bVar2 = this.f75636g) == null) {
                             return;
                         }
                         bVar2.a();
@@ -644,7 +644,7 @@ public class f implements ServiceConnection, t {
     public void n(e.d.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048616, this, aVar) == null) {
-            this.f75430h = aVar;
+            this.f75631h = aVar;
         }
     }
 
@@ -654,8 +654,8 @@ public class f implements ServiceConnection, t {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
             try {
-                if (this.f75427e != null) {
-                    return this.f75427e.a(str);
+                if (this.f75628e != null) {
+                    return this.f75628e.a(str);
                 }
                 return null;
             } catch (RemoteException e2) {
@@ -672,8 +672,8 @@ public class f implements ServiceConnection, t {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, str)) == null) {
             try {
-                if (this.f75427e != null) {
-                    return this.f75427e.b(str);
+                if (this.f75628e != null) {
+                    return this.f75628e.b(str);
                 }
                 return null;
             } catch (RemoteException e2) {
@@ -690,8 +690,8 @@ public class f implements ServiceConnection, t {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048596, this, i2)) == null) {
             try {
-                if (this.f75427e != null) {
-                    return this.f75427e.c(i2);
+                if (this.f75628e != null) {
+                    return this.f75628e.c(i2);
                 }
                 return null;
             } catch (RemoteException e2) {
@@ -707,8 +707,8 @@ public class f implements ServiceConnection, t {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048601, this, i2) == null) {
             try {
-                if (this.f75427e != null) {
-                    this.f75427e.d(i2);
+                if (this.f75628e != null) {
+                    this.f75628e.d(i2);
                 }
             } catch (RemoteException e2) {
                 e2.printStackTrace();
@@ -722,8 +722,8 @@ public class f implements ServiceConnection, t {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) {
             try {
-                if (this.f75427e != null) {
-                    return this.f75427e.e();
+                if (this.f75628e != null) {
+                    return this.f75628e.e();
                 }
                 return false;
             } catch (RemoteException e2) {
@@ -739,8 +739,8 @@ public class f implements ServiceConnection, t {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, bVar) == null) {
             try {
-                if (this.f75427e != null) {
-                    this.f75427e.a(bVar);
+                if (this.f75628e != null) {
+                    this.f75628e.a(bVar);
                 }
             } catch (RemoteException e2) {
                 e2.printStackTrace();
@@ -754,8 +754,8 @@ public class f implements ServiceConnection, t {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
             try {
-                if (this.f75427e != null) {
-                    return this.f75427e.b();
+                if (this.f75628e != null) {
+                    return this.f75628e.b();
                 }
                 return null;
             } catch (RemoteException e2) {
@@ -771,8 +771,8 @@ public class f implements ServiceConnection, t {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
             try {
-                if (this.f75427e != null) {
-                    this.f75427e.c();
+                if (this.f75628e != null) {
+                    this.f75628e.c();
                 }
             } catch (RemoteException e2) {
                 e2.printStackTrace();
@@ -786,8 +786,8 @@ public class f implements ServiceConnection, t {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048599, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2)})) == null) {
             try {
-                if (this.f75427e != null) {
-                    return this.f75427e.d(i2, j2);
+                if (this.f75628e != null) {
+                    return this.f75628e.d(i2, j2);
                 }
                 return null;
             } catch (RemoteException e2) {
@@ -803,8 +803,8 @@ public class f implements ServiceConnection, t {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Long.valueOf(j2)}) == null) {
             try {
-                if (this.f75427e != null) {
-                    this.f75427e.a(i2, i3, j2);
+                if (this.f75628e != null) {
+                    this.f75628e.a(i2, i3, j2);
                 }
             } catch (RemoteException e2) {
                 e2.printStackTrace();
@@ -817,8 +817,8 @@ public class f implements ServiceConnection, t {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048594, this, bVar) == null) {
             try {
-                if (this.f75427e != null) {
-                    this.f75427e.b(bVar);
+                if (this.f75628e != null) {
+                    this.f75628e.b(bVar);
                 }
             } catch (RemoteException e2) {
                 e2.printStackTrace();
@@ -832,8 +832,8 @@ public class f implements ServiceConnection, t {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048595, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2)})) == null) {
             try {
-                if (this.f75427e != null) {
-                    return this.f75427e.c(i2, j2);
+                if (this.f75628e != null) {
+                    return this.f75628e.c(i2, j2);
                 }
                 return null;
             } catch (RemoteException e2) {
@@ -850,8 +850,8 @@ public class f implements ServiceConnection, t {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) {
             try {
-                if (this.f75427e != null) {
-                    return this.f75427e.d();
+                if (this.f75628e != null) {
+                    return this.f75628e.d();
                 }
                 return false;
             } catch (RemoteException e2) {
@@ -867,8 +867,8 @@ public class f implements ServiceConnection, t {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Long.valueOf(j2)}) == null) {
             try {
-                if (this.f75427e != null) {
-                    this.f75427e.a(i2, i3, i4, j2);
+                if (this.f75628e != null) {
+                    this.f75628e.a(i2, i3, i4, j2);
                 }
             } catch (RemoteException e2) {
                 e2.printStackTrace();
@@ -882,8 +882,8 @@ public class f implements ServiceConnection, t {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048589, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2)})) == null) {
             try {
-                if (this.f75427e != null) {
-                    return this.f75427e.b(i2, j2);
+                if (this.f75628e != null) {
+                    return this.f75628e.b(i2, j2);
                 }
                 return null;
             } catch (RemoteException e2) {
@@ -899,8 +899,8 @@ public class f implements ServiceConnection, t {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIII(1048580, this, i2, i3, i4, i5) == null) {
             try {
-                if (this.f75427e != null) {
-                    this.f75427e.a(i2, i3, i4, i5);
+                if (this.f75628e != null) {
+                    this.f75628e.a(i2, i3, i4, i5);
                 }
             } catch (RemoteException e2) {
                 e2.printStackTrace();
@@ -913,8 +913,8 @@ public class f implements ServiceConnection, t {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048593, this, downloadInfo) == null) {
             try {
-                if (this.f75427e != null) {
-                    this.f75427e.b(downloadInfo);
+                if (this.f75628e != null) {
+                    this.f75628e.b(downloadInfo);
                 }
             } catch (RemoteException e2) {
                 e2.printStackTrace();
@@ -928,8 +928,8 @@ public class f implements ServiceConnection, t {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeII = interceptable.invokeII(1048576, this, i2, i3)) == null) {
             try {
-                if (this.f75427e != null) {
-                    return this.f75427e.a(i2, i3);
+                if (this.f75628e != null) {
+                    return this.f75628e.a(i2, i3);
                 }
                 return null;
             } catch (RemoteException e2) {
@@ -945,8 +945,8 @@ public class f implements ServiceConnection, t {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048592, this, i2, list) == null) {
             try {
-                if (this.f75427e != null) {
-                    this.f75427e.b(i2, list);
+                if (this.f75628e != null) {
+                    this.f75628e.b(i2, list);
                 }
             } catch (RemoteException e2) {
                 e2.printStackTrace();
@@ -960,8 +960,8 @@ public class f implements ServiceConnection, t {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, downloadInfo)) == null) {
             try {
-                if (this.f75427e != null) {
-                    return this.f75427e.a(downloadInfo);
+                if (this.f75628e != null) {
+                    return this.f75628e.a(downloadInfo);
                 }
                 return false;
             } catch (RemoteException e2) {
@@ -978,8 +978,8 @@ public class f implements ServiceConnection, t {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2), str, str2})) == null) {
             try {
-                if (this.f75427e != null) {
-                    return this.f75427e.a(i2, j2, str, str2);
+                if (this.f75628e != null) {
+                    return this.f75628e.a(i2, j2, str, str2);
                 }
                 return null;
             } catch (RemoteException e2) {
@@ -996,8 +996,8 @@ public class f implements ServiceConnection, t {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2)})) == null) {
             try {
-                if (this.f75427e != null) {
-                    return this.f75427e.a(i2, j2);
+                if (this.f75628e != null) {
+                    return this.f75628e.a(i2, j2);
                 }
                 return null;
             } catch (RemoteException e2) {
@@ -1013,8 +1013,8 @@ public class f implements ServiceConnection, t {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048583, this, i2, list) == null) {
             try {
-                if (this.f75427e != null) {
-                    this.f75427e.a(i2, list);
+                if (this.f75628e != null) {
+                    this.f75628e.a(i2, list);
                 }
             } catch (RemoteException e2) {
                 e2.printStackTrace();

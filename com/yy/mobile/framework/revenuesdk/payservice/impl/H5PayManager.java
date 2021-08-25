@@ -78,6 +78,8 @@ public class H5PayManager {
                             intent.putExtra(H5PayConstant.EXTRA_LOCAL_PAGE_TYPE, 3);
                         } else if (PayType.DXM_PAY_KJ.equals(payType)) {
                             intent.putExtra(H5PayConstant.EXTRA_LOCAL_PAGE_TYPE, 2);
+                        } else if (PayType.UNION_PAY.equals(payType)) {
+                            intent.putExtra(H5PayConstant.EXTRA_LOCAL_PAGE_TYPE, 4);
                         }
                         intent.putExtra(H5PayConstant.EXTRA_URL, h5PayParams.payBackBean.getPayLoad());
                         intent.putExtra(H5PayConstant.EXTRA_APP_ID, h5PayParams.reqParams.getAppId());
@@ -185,6 +187,7 @@ public class H5PayManager {
     public void onOrderVerifyAck(int i2, String str, H5PayVerifyTask h5PayVerifyTask, GetChargeOrderStatusResult getChargeOrderStatusResult, ChargeCurrencyReqParams chargeCurrencyReqParams) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(AdIconUtil.BAIDU_LOGO_ID, this, new Object[]{Integer.valueOf(i2), str, h5PayVerifyTask, getChargeOrderStatusResult, chargeCurrencyReqParams}) == null) {
+            RLog.info(TAG, "onOrderVerifyAck orderId:" + str);
             synchronized (this) {
                 H5PayParams h5PayParams = h5PayVerifyTask.h5PayParams;
                 if (!this.mOrderVerifyTaskMap.containsKey(str)) {
@@ -193,7 +196,7 @@ public class H5PayManager {
                 }
                 if (i2 == 1) {
                     removeOrderVerifyTask(str);
-                    RLog.info(TAG, "recharge verify success, query balance now.");
+                    RLog.info(TAG, "verify success, notifyPollingForChargeResult now.");
                     notifyPollingForChargeResult(str, h5PayParams, chargeCurrencyReqParams, getChargeOrderStatusResult, false);
                 } else {
                     int i3 = h5PayVerifyTask.mCurrentRetryCount;
@@ -205,7 +208,7 @@ public class H5PayManager {
                         RLog.error(TAG, "retry verify again,current count is " + h5PayVerifyTask.mCurrentRetryCount, new Object[0]);
                     } else {
                         removeOrderVerifyTask(str);
-                        RLog.error(TAG, "verify timeout!", new Object[0]);
+                        RLog.error(TAG, "verify timeout! notifyPollingForChargeResult", new Object[0]);
                         notifyPollingForChargeResult(str, h5PayParams, chargeCurrencyReqParams, getChargeOrderStatusResult, true);
                     }
                 }
@@ -281,7 +284,10 @@ public class H5PayManager {
                 public void onFail(int i2, String str2, PayCallBackBean payCallBackBean) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeILL(1048576, this, i2, str2, payCallBackBean) == null) {
-                        this.this$0.onOrderVerifyAck(2, this.val$orderId, this.val$orderVerifyTask, null, this.val$reqParams);
+                        RLog.error(H5PayManager.TAG, "verifyOrder onFail code:" + i2 + " failReason:" + str2, new Object[0]);
+                        GetChargeOrderStatusResult getChargeOrderStatusResult = new GetChargeOrderStatusResult();
+                        getChargeOrderStatusResult.status = 0;
+                        this.this$0.onOrderVerifyAck(2, this.val$orderId, this.val$orderVerifyTask, getChargeOrderStatusResult, this.val$reqParams);
                     }
                 }
 
@@ -290,6 +296,7 @@ public class H5PayManager {
                 public void onSuccess(GetChargeOrderStatusResult getChargeOrderStatusResult, PayCallBackBean payCallBackBean) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, getChargeOrderStatusResult, payCallBackBean) == null) {
+                        RLog.info(H5PayManager.TAG, "verifyOrder onSuccess orderId:" + this.val$orderId);
                         if (getChargeOrderStatusResult.getStatus() == 1) {
                             this.this$0.onOrderVerifyAck(1, this.val$orderId, this.val$orderVerifyTask, getChargeOrderStatusResult, this.val$reqParams);
                         } else if (getChargeOrderStatusResult.finish) {

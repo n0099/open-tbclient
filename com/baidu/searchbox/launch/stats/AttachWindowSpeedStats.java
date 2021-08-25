@@ -110,9 +110,134 @@ public final class AttachWindowSpeedStats extends AbstractSpeedStats {
     }
 
     @Override // com.baidu.searchbox.launch.stats.AbstractSpeedStats
+    public void addStatsTimeStamp(int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
+            addStatsTimeStamp(i2, System.currentTimeMillis());
+        }
+    }
+
+    @Override // com.baidu.searchbox.launch.stats.AbstractSpeedStats
+    public long getStatsEndTimeStamp() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mHomeFragmentOnResumeEndStamp : invokeV.longValue;
+    }
+
+    @Override // com.baidu.searchbox.launch.stats.AbstractSpeedStats
+    public long getStatsStartTimeStamp() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mHomeTabOnAttachStartStamp : invokeV.longValue;
+    }
+
+    @Override // com.baidu.searchbox.launch.stats.AbstractSpeedStats
+    public boolean packData(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, jSONObject)) == null) {
+            super.packData(jSONObject);
+            if (jSONObject == null) {
+                return true;
+            }
+            long j2 = this.mHomeFragmentOnResumeEndStamp;
+            long j3 = this.mHomeTabOnAttachStartStamp;
+            long j4 = j2 - j3;
+            long j5 = this.mHomeTabOnAttachEndStamp - j3;
+            long j6 = this.mHomeTabOnCreateEndStamp - this.mHomeTabOnCreateStartStamp;
+            long j7 = this.mHomeFragmentOnCreateViewEndStamp - this.mHomeFragmentOnCreateViewStartStamp;
+            long j8 = this.mScrollFragmentTabHostInitEndStamp - this.mScrollFragmentTabHostInitStartStamp;
+            long j9 = this.mHomeTabBarViewInitEndStamp - this.mHomeTabBarViewInitStartStamp;
+            long j10 = this.mCustomViewPagerEndStamp - this.mCustomViewPagerStartStamp;
+            long j11 = this.mNestedScrollHeaderEndStamp - this.mNestedScrollHeaderStartStamp;
+            long j12 = this.mHomeFragmentInitModelEndStamp - this.mHomeFragmentInitModelStartStamp;
+            long j13 = this.mHomeFragmentInitTableEndStamp - this.mHomeFragmentInitTableStartStamp;
+            long j14 = this.mHomeFragmentInitViewPaperEndStamp - this.mHomeFragmentInitViewPaperStartStamp;
+            long j15 = this.mHomeFragmentStartFirstLoadPaperEndStamp - this.mHomeFragmentStartFirstLoadStartStamp;
+            long j16 = this.mHomeFragmentCheckConcernRedTipEndStamp - this.mHomeFragmentCheckConcernRedTipStartStamp;
+            long j17 = this.mHomeFragmentShowConcernTabTipsEndStamp - this.mHomeFragmentShowConcernTabTipsStartStamp;
+            long j18 = this.mHomeFragmentOnActivityCreatedEndStamp - this.mHomeFragmentOnActivityCreatedStartStamp;
+            long j19 = j2 - this.mHomeFragmentOnResumeStartStamp;
+            if (j4 < 0 || j4 > 60000 || j5 < 0 || j5 > 60000 || j6 < 0 || j6 > 60000 || j7 < 0 || j7 > 60000 || j8 < 0 || j8 > 60000 || j9 < 0 || j9 > 60000 || j10 < 0 || j10 > 60000 || j11 < 0 || j11 > 60000 || j12 < 0 || j12 > 60000 || j13 < 0 || j13 > 60000 || j14 < 0 || j14 > 60000 || j15 < 0 || j15 > 60000 || j16 < 0 || j16 > 60000 || j17 < 0 || j17 > 60000 || j18 < 0 || j18 > 60000 || j19 < 0 || j19 > 60000) {
+                return false;
+            }
+            HashMap hashMap = new HashMap();
+            hashMap.put(HOME_FRAGMENT_TOTAL_TIME, String.valueOf(j4));
+            hashMap.put(HOME_FRAGMENT_ON_ATTACH, String.valueOf(j5));
+            hashMap.put(HOME_FRAGMENT_ON_CREATE, String.valueOf(j6));
+            hashMap.put(HOME_FRAGMENT_ON_CREATE_VIEW, String.valueOf(j7));
+            hashMap.put(SCROLL_FRAGMENT_TAB_HOST_INIT, String.valueOf(j8));
+            hashMap.put(HOME_TAB_BAR_VIEW_INIT, String.valueOf(j9));
+            hashMap.put(CUSTOM_VIEW_PAPER_INIT, String.valueOf(j10));
+            hashMap.put(NESTED_SCROLL_HEADER_INIT, String.valueOf(j11));
+            hashMap.put(HOME_FRAGMENT_INIT_MODEL, String.valueOf(j12));
+            hashMap.put(HOME_FRAGMENT_INIT_TABLE, String.valueOf(j13));
+            hashMap.put(HOME_FRAGMENT_INIT_VIEW_PAPER, String.valueOf(j14));
+            hashMap.put(HOME_FRAGMENT_FIRST_LOAD, String.valueOf(j15));
+            hashMap.put(HOME_FRAGMENT_CHECK_CONCERN_RED_TIP, String.valueOf(j16));
+            hashMap.put(HOME_FRAGMENT_SHOW_CONCERN_TAB_TIPS, String.valueOf(j17));
+            hashMap.put(HOME_FRAGMENT_ON_ACTIVITY_CREATED, String.valueOf(j18));
+            hashMap.put(HOME_FRAGMENT_ON_RESUME, String.valueOf(j19));
+            JSONObject jsonData = SpeedStatsUtils.getJsonData(j4, hashMap);
+            if (jsonData != null) {
+                try {
+                    jSONObject.put(SpeedStatsMainTable.ATTACH_WINDOW_STAGE, jsonData);
+                    return true;
+                } catch (JSONException e2) {
+                    if (AppConfig.isDebug()) {
+                        e2.printStackTrace();
+                        return true;
+                    }
+                    return true;
+                }
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.baidu.searchbox.launch.stats.AbstractSpeedStats
+    public void reset() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.mHomeTabOnAttachStartStamp = -1L;
+            this.mHomeTabOnAttachEndStamp = -1L;
+            this.mHomeTabOnCreateStartStamp = -1L;
+            this.mHomeTabOnCreateEndStamp = -1L;
+            this.mHomeFragmentOnCreateViewStartStamp = -1L;
+            this.mHomeFragmentOnCreateViewEndStamp = -1L;
+            this.mScrollFragmentTabHostInitStartStamp = -1L;
+            this.mScrollFragmentTabHostInitEndStamp = -1L;
+            this.mHomeTabBarViewInitStartStamp = -1L;
+            this.mHomeTabBarViewInitEndStamp = -1L;
+            this.mCustomViewPagerStartStamp = -1L;
+            this.mCustomViewPagerEndStamp = -1L;
+            this.mHomeFragmentOnResumeEndStamp = -1L;
+            this.mNestedScrollHeaderStartStamp = -1L;
+            this.mNestedScrollHeaderEndStamp = -1L;
+            this.mHomeFragmentInitModelStartStamp = -1L;
+            this.mHomeFragmentInitModelEndStamp = -1L;
+            this.mHomeFragmentInitTableStartStamp = -1L;
+            this.mHomeFragmentInitTableEndStamp = -1L;
+            this.mHomeFragmentInitViewPaperStartStamp = -1L;
+            this.mHomeFragmentInitViewPaperEndStamp = -1L;
+            this.mHomeFragmentStartFirstLoadStartStamp = -1L;
+            this.mHomeFragmentStartFirstLoadPaperEndStamp = -1L;
+            this.mHomeFragmentCheckConcernRedTipStartStamp = -1L;
+            this.mHomeFragmentCheckConcernRedTipEndStamp = -1L;
+            this.mHomeFragmentShowConcernTabTipsStartStamp = -1L;
+            this.mHomeFragmentShowConcernTabTipsEndStamp = -1L;
+            this.mHomeFragmentOnActivityCreatedStartStamp = -1L;
+            this.mHomeFragmentOnActivityCreatedEndStamp = -1L;
+            this.mHomeFragmentOnResumeStartStamp = -1L;
+            this.mHomeFragmentOnResumeEndStamp = -1L;
+        }
+    }
+
+    @Override // com.baidu.searchbox.launch.stats.AbstractSpeedStats
     public void addStatsTimeStamp(int i2, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
             super.addStatsTimeStamp(i2, j2);
             switch (i2) {
                 case 4000:
@@ -208,123 +333,6 @@ public final class AttachWindowSpeedStats extends AbstractSpeedStats {
                 default:
                     return;
             }
-        }
-    }
-
-    @Override // com.baidu.searchbox.launch.stats.AbstractSpeedStats
-    public long getStatsEndTimeStamp() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mHomeFragmentOnResumeEndStamp : invokeV.longValue;
-    }
-
-    @Override // com.baidu.searchbox.launch.stats.AbstractSpeedStats
-    public long getStatsStartTimeStamp() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mHomeTabOnAttachStartStamp : invokeV.longValue;
-    }
-
-    @Override // com.baidu.searchbox.launch.stats.AbstractSpeedStats
-    public boolean packData(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, jSONObject)) == null) {
-            super.packData(jSONObject);
-            if (jSONObject == null) {
-                return true;
-            }
-            long j2 = this.mHomeFragmentOnResumeEndStamp;
-            long j3 = this.mHomeTabOnAttachStartStamp;
-            long j4 = j2 - j3;
-            long j5 = this.mHomeTabOnAttachEndStamp - j3;
-            long j6 = this.mHomeTabOnCreateEndStamp - this.mHomeTabOnCreateStartStamp;
-            long j7 = this.mHomeFragmentOnCreateViewEndStamp - this.mHomeFragmentOnCreateViewStartStamp;
-            long j8 = this.mScrollFragmentTabHostInitEndStamp - this.mScrollFragmentTabHostInitStartStamp;
-            long j9 = this.mHomeTabBarViewInitEndStamp - this.mHomeTabBarViewInitStartStamp;
-            long j10 = this.mCustomViewPagerEndStamp - this.mCustomViewPagerStartStamp;
-            long j11 = this.mNestedScrollHeaderEndStamp - this.mNestedScrollHeaderStartStamp;
-            long j12 = this.mHomeFragmentInitModelEndStamp - this.mHomeFragmentInitModelStartStamp;
-            long j13 = this.mHomeFragmentInitTableEndStamp - this.mHomeFragmentInitTableStartStamp;
-            long j14 = this.mHomeFragmentInitViewPaperEndStamp - this.mHomeFragmentInitViewPaperStartStamp;
-            long j15 = this.mHomeFragmentStartFirstLoadPaperEndStamp - this.mHomeFragmentStartFirstLoadStartStamp;
-            long j16 = this.mHomeFragmentCheckConcernRedTipEndStamp - this.mHomeFragmentCheckConcernRedTipStartStamp;
-            long j17 = this.mHomeFragmentShowConcernTabTipsEndStamp - this.mHomeFragmentShowConcernTabTipsStartStamp;
-            long j18 = this.mHomeFragmentOnActivityCreatedEndStamp - this.mHomeFragmentOnActivityCreatedStartStamp;
-            long j19 = j2 - this.mHomeFragmentOnResumeStartStamp;
-            if (j4 < 0 || j4 > 60000 || j5 < 0 || j5 > 60000 || j6 < 0 || j6 > 60000 || j7 < 0 || j7 > 60000 || j8 < 0 || j8 > 60000 || j9 < 0 || j9 > 60000 || j10 < 0 || j10 > 60000 || j11 < 0 || j11 > 60000 || j12 < 0 || j12 > 60000 || j13 < 0 || j13 > 60000 || j14 < 0 || j14 > 60000 || j15 < 0 || j15 > 60000 || j16 < 0 || j16 > 60000 || j17 < 0 || j17 > 60000 || j18 < 0 || j18 > 60000 || j19 < 0 || j19 > 60000) {
-                return false;
-            }
-            HashMap hashMap = new HashMap();
-            hashMap.put(HOME_FRAGMENT_TOTAL_TIME, String.valueOf(j4));
-            hashMap.put(HOME_FRAGMENT_ON_ATTACH, String.valueOf(j5));
-            hashMap.put(HOME_FRAGMENT_ON_CREATE, String.valueOf(j6));
-            hashMap.put(HOME_FRAGMENT_ON_CREATE_VIEW, String.valueOf(j7));
-            hashMap.put(SCROLL_FRAGMENT_TAB_HOST_INIT, String.valueOf(j8));
-            hashMap.put(HOME_TAB_BAR_VIEW_INIT, String.valueOf(j9));
-            hashMap.put(CUSTOM_VIEW_PAPER_INIT, String.valueOf(j10));
-            hashMap.put(NESTED_SCROLL_HEADER_INIT, String.valueOf(j11));
-            hashMap.put(HOME_FRAGMENT_INIT_MODEL, String.valueOf(j12));
-            hashMap.put(HOME_FRAGMENT_INIT_TABLE, String.valueOf(j13));
-            hashMap.put(HOME_FRAGMENT_INIT_VIEW_PAPER, String.valueOf(j14));
-            hashMap.put(HOME_FRAGMENT_FIRST_LOAD, String.valueOf(j15));
-            hashMap.put(HOME_FRAGMENT_CHECK_CONCERN_RED_TIP, String.valueOf(j16));
-            hashMap.put(HOME_FRAGMENT_SHOW_CONCERN_TAB_TIPS, String.valueOf(j17));
-            hashMap.put(HOME_FRAGMENT_ON_ACTIVITY_CREATED, String.valueOf(j18));
-            hashMap.put(HOME_FRAGMENT_ON_RESUME, String.valueOf(j19));
-            JSONObject jsonData = SpeedStatsUtils.getJsonData(j4, hashMap);
-            if (jsonData != null) {
-                try {
-                    jSONObject.put(SpeedStatsMainTable.ATTACH_WINDOW_STAGE, jsonData);
-                    return true;
-                } catch (JSONException e2) {
-                    if (AppConfig.isDebug()) {
-                        e2.printStackTrace();
-                        return true;
-                    }
-                    return true;
-                }
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.baidu.searchbox.launch.stats.AbstractSpeedStats
-    public void reset() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.mHomeTabOnAttachStartStamp = -1L;
-            this.mHomeTabOnAttachEndStamp = -1L;
-            this.mHomeTabOnCreateStartStamp = -1L;
-            this.mHomeTabOnCreateEndStamp = -1L;
-            this.mHomeFragmentOnCreateViewStartStamp = -1L;
-            this.mHomeFragmentOnCreateViewEndStamp = -1L;
-            this.mScrollFragmentTabHostInitStartStamp = -1L;
-            this.mScrollFragmentTabHostInitEndStamp = -1L;
-            this.mHomeTabBarViewInitStartStamp = -1L;
-            this.mHomeTabBarViewInitEndStamp = -1L;
-            this.mCustomViewPagerStartStamp = -1L;
-            this.mCustomViewPagerEndStamp = -1L;
-            this.mHomeFragmentOnResumeEndStamp = -1L;
-            this.mNestedScrollHeaderStartStamp = -1L;
-            this.mNestedScrollHeaderEndStamp = -1L;
-            this.mHomeFragmentInitModelStartStamp = -1L;
-            this.mHomeFragmentInitModelEndStamp = -1L;
-            this.mHomeFragmentInitTableStartStamp = -1L;
-            this.mHomeFragmentInitTableEndStamp = -1L;
-            this.mHomeFragmentInitViewPaperStartStamp = -1L;
-            this.mHomeFragmentInitViewPaperEndStamp = -1L;
-            this.mHomeFragmentStartFirstLoadStartStamp = -1L;
-            this.mHomeFragmentStartFirstLoadPaperEndStamp = -1L;
-            this.mHomeFragmentCheckConcernRedTipStartStamp = -1L;
-            this.mHomeFragmentCheckConcernRedTipEndStamp = -1L;
-            this.mHomeFragmentShowConcernTabTipsStartStamp = -1L;
-            this.mHomeFragmentShowConcernTabTipsEndStamp = -1L;
-            this.mHomeFragmentOnActivityCreatedStartStamp = -1L;
-            this.mHomeFragmentOnActivityCreatedEndStamp = -1L;
-            this.mHomeFragmentOnResumeStartStamp = -1L;
-            this.mHomeFragmentOnResumeEndStamp = -1L;
         }
     }
 }

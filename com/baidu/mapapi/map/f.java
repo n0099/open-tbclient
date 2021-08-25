@@ -11,10 +11,10 @@ public /* synthetic */ class f {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final /* synthetic */ int[] f41450a;
+    public static final /* synthetic */ int[] f41557a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final /* synthetic */ int[] f41451b;
+    public static final /* synthetic */ int[] f41558b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -31,27 +31,27 @@ public /* synthetic */ class f {
             }
         }
         int[] iArr = new int[com.baidu.mapsdkplatform.comapi.map.aa.values().length];
-        f41451b = iArr;
+        f41558b = iArr;
         try {
-            iArr[com.baidu.mapsdkplatform.comapi.map.aa.f41953b.ordinal()] = 1;
+            iArr[com.baidu.mapsdkplatform.comapi.map.aa.f42060b.ordinal()] = 1;
         } catch (NoSuchFieldError unused) {
         }
         try {
-            f41451b[com.baidu.mapsdkplatform.comapi.map.aa.f41952a.ordinal()] = 2;
+            f41558b[com.baidu.mapsdkplatform.comapi.map.aa.f42059a.ordinal()] = 2;
         } catch (NoSuchFieldError unused2) {
         }
         int[] iArr2 = new int[MyLocationConfiguration.LocationMode.values().length];
-        f41450a = iArr2;
+        f41557a = iArr2;
         try {
             iArr2[MyLocationConfiguration.LocationMode.COMPASS.ordinal()] = 1;
         } catch (NoSuchFieldError unused3) {
         }
         try {
-            f41450a[MyLocationConfiguration.LocationMode.FOLLOWING.ordinal()] = 2;
+            f41557a[MyLocationConfiguration.LocationMode.FOLLOWING.ordinal()] = 2;
         } catch (NoSuchFieldError unused4) {
         }
         try {
-            f41450a[MyLocationConfiguration.LocationMode.NORMAL.ordinal()] = 3;
+            f41557a[MyLocationConfiguration.LocationMode.NORMAL.ordinal()] = 3;
         } catch (NoSuchFieldError unused5) {
         }
     }

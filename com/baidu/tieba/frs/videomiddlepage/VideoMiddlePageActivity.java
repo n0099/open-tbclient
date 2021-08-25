@@ -10,8 +10,8 @@ import androidx.core.view.InputDeviceCompat;
 import androidx.fragment.app.FragmentManager;
 import c.a.e.e.m.b;
 import c.a.e.e.p.k;
-import c.a.o0.m0.d;
-import c.a.p0.u3.c;
+import c.a.p0.m0.d;
+import c.a.q0.u3.c;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
@@ -124,7 +124,7 @@ public class VideoMiddlePageActivity extends BaseFragmentActivity {
         }
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, c.a.o0.m0.a
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, c.a.p0.m0.a
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -255,7 +255,7 @@ public class VideoMiddlePageActivity extends BaseFragmentActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             super.onPause();
-            c.a.o0.a.d.y().E();
+            c.a.p0.a.d.y().E();
         }
     }
 
@@ -267,7 +267,7 @@ public class VideoMiddlePageActivity extends BaseFragmentActivity {
             if (k.isEmpty(this.mId)) {
                 return;
             }
-            c.a.o0.a.d.y().P(c.a.o0.a.c.Z, b.f(this.mId, 0L));
+            c.a.p0.a.d.y().P(c.a.p0.a.c.Z, b.f(this.mId, 0L));
         }
     }
 

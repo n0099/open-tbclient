@@ -24,34 +24,34 @@ public final class HttpUrl {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final char[] f44906d;
+    public static final char[] f45013d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f44907a;
+    public final String f45014a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f44908b;
+    public final String f45015b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final int f44909c;
+    public final int f45016c;
 
     /* renamed from: e  reason: collision with root package name */
-    public final String f44910e;
+    public final String f45017e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final String f44911f;
+    public final String f45018f;
     @Nullable
 
     /* renamed from: g  reason: collision with root package name */
-    public final List<String> f44912g;
+    public final List<String> f45019g;
     @Nullable
 
     /* renamed from: h  reason: collision with root package name */
-    public final String f44913h;
+    public final String f45020h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final String f44914i;
+    public final String f45021i;
 
     /* loaded from: classes5.dex */
     public static final class Builder {
@@ -411,18 +411,18 @@ public final class HttpUrl {
                         throw new IllegalArgumentException("Expected URL scheme 'http' or 'https' but was '" + str.substring(0, schemeDelimiterOffset) + "'");
                     }
                 } else if (httpUrl != null) {
-                    this.scheme = httpUrl.f44907a;
+                    this.scheme = httpUrl.f45014a;
                 } else {
                     throw new IllegalArgumentException("Expected URL scheme 'http' or 'https' but no colon was found");
                 }
                 int slashCount = slashCount(str, a3, b2);
                 char c2 = '?';
                 char c3 = '#';
-                if (slashCount < 2 && httpUrl != null && httpUrl.f44907a.equals(this.scheme)) {
+                if (slashCount < 2 && httpUrl != null && httpUrl.f45014a.equals(this.scheme)) {
                     this.encodedUsername = httpUrl.a();
                     this.encodedPassword = httpUrl.b();
-                    this.host = httpUrl.f44908b;
-                    this.port = httpUrl.f44909c;
+                    this.host = httpUrl.f45015b;
+                    this.port = httpUrl.f45016c;
                     this.encodedPathSegments.clear();
                     this.encodedPathSegments.addAll(httpUrl.c());
                     if (a3 == b2 || str.charAt(a3) == '#') {
@@ -578,7 +578,7 @@ public final class HttpUrl {
                 return;
             }
         }
-        f44906d = new char[]{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
+        f45013d = new char[]{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
     }
 
     public HttpUrl(Builder builder) {
@@ -596,28 +596,28 @@ public final class HttpUrl {
                 return;
             }
         }
-        this.f44907a = builder.scheme;
-        this.f44910e = a(builder.encodedUsername, false);
-        this.f44911f = a(builder.encodedPassword, false);
-        this.f44908b = builder.host;
-        this.f44909c = builder.effectivePort();
+        this.f45014a = builder.scheme;
+        this.f45017e = a(builder.encodedUsername, false);
+        this.f45018f = a(builder.encodedPassword, false);
+        this.f45015b = builder.host;
+        this.f45016c = builder.effectivePort();
         List<String> list = builder.encodedQueryNamesAndValues;
-        this.f44912g = list != null ? a(list, true) : null;
+        this.f45019g = list != null ? a(list, true) : null;
         String str = builder.encodedFragment;
-        this.f44913h = str != null ? a(str, false) : null;
-        this.f44914i = builder.toString();
+        this.f45020h = str != null ? a(str, false) : null;
+        this.f45021i = builder.toString();
     }
 
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.f44910e.isEmpty()) {
+            if (this.f45017e.isEmpty()) {
                 return "";
             }
-            int length = this.f44907a.length() + 3;
-            String str = this.f44914i;
-            return this.f44914i.substring(length, b.a(str, length, str.length(), ":@"));
+            int length = this.f45014a.length() + 3;
+            String str = this.f45021i;
+            return this.f45021i.substring(length, b.a(str, length, str.length(), ":@"));
         }
         return (String) invokeV.objValue;
     }
@@ -626,10 +626,10 @@ public final class HttpUrl {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.f44911f.isEmpty()) {
+            if (this.f45018f.isEmpty()) {
                 return "";
             }
-            return this.f44914i.substring(this.f44914i.indexOf(58, this.f44907a.length() + 3) + 1, this.f44914i.indexOf(64));
+            return this.f45021i.substring(this.f45021i.indexOf(58, this.f45014a.length() + 3) + 1, this.f45021i.indexOf(64));
         }
         return (String) invokeV.objValue;
     }
@@ -638,14 +638,14 @@ public final class HttpUrl {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            int indexOf = this.f44914i.indexOf(47, this.f44907a.length() + 3);
-            String str = this.f44914i;
+            int indexOf = this.f45021i.indexOf(47, this.f45014a.length() + 3);
+            String str = this.f45021i;
             int a2 = b.a(str, indexOf, str.length(), "?#");
             ArrayList arrayList = new ArrayList();
             while (indexOf < a2) {
                 int i2 = indexOf + 1;
-                int a3 = b.a(this.f44914i, i2, a2, '/');
-                arrayList.add(this.f44914i.substring(i2, a3));
+                int a3 = b.a(this.f45021i, i2, a2, '/');
+                arrayList.add(this.f45021i.substring(i2, a3));
                 indexOf = a3;
             }
             return arrayList;
@@ -658,12 +658,12 @@ public final class HttpUrl {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (this.f44912g == null) {
+            if (this.f45019g == null) {
                 return null;
             }
-            int indexOf = this.f44914i.indexOf(63) + 1;
-            String str = this.f44914i;
-            return this.f44914i.substring(indexOf, b.a(str, indexOf, str.length(), '#'));
+            int indexOf = this.f45021i.indexOf(63) + 1;
+            String str = this.f45021i;
+            return this.f45021i.substring(indexOf, b.a(str, indexOf, str.length(), '#'));
         }
         return (String) invokeV.objValue;
     }
@@ -673,10 +673,10 @@ public final class HttpUrl {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (this.f44913h == null) {
+            if (this.f45020h == null) {
                 return null;
             }
-            return this.f44914i.substring(this.f44914i.indexOf(35) + 1);
+            return this.f45021i.substring(this.f45021i.indexOf(35) + 1);
         }
         return (String) invokeV.objValue;
     }
@@ -684,7 +684,7 @@ public final class HttpUrl {
     public boolean equals(@Nullable Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) ? (obj instanceof HttpUrl) && ((HttpUrl) obj).f44914i.equals(this.f44914i) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) ? (obj instanceof HttpUrl) && ((HttpUrl) obj).f45021i.equals(this.f45021i) : invokeL.booleanValue;
     }
 
     public Builder f() {
@@ -692,11 +692,11 @@ public final class HttpUrl {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             Builder builder = new Builder();
-            builder.scheme = this.f44907a;
+            builder.scheme = this.f45014a;
             builder.encodedUsername = a();
             builder.encodedPassword = b();
-            builder.host = this.f44908b;
-            builder.port = this.f44909c != a(this.f44907a) ? this.f44909c : -1;
+            builder.host = this.f45015b;
+            builder.port = this.f45016c != a(this.f45014a) ? this.f45016c : -1;
             builder.encodedPathSegments.clear();
             builder.encodedPathSegments.addAll(c());
             builder.encodedQuery(d());
@@ -709,13 +709,13 @@ public final class HttpUrl {
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f44914i.hashCode() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f45021i.hashCode() : invokeV.intValue;
     }
 
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f44914i : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f45021i : (String) invokeV.objValue;
     }
 
     public static int a(String str) {
@@ -745,7 +745,7 @@ public final class HttpUrl {
                 }
                 sb.append(str);
                 if (str2 != null) {
-                    sb.append(com.alipay.sdk.encrypt.a.f35773h);
+                    sb.append(com.alipay.sdk.encrypt.a.f35879h);
                     sb.append(str2);
                 }
             }
@@ -920,7 +920,7 @@ public final class HttpUrl {
                         if (aVar2 == null) {
                             aVar2 = new com.baidu.searchbox.v8engine.net.io.a();
                         }
-                        if (charset != null && !charset.equals(b.f44915a)) {
+                        if (charset != null && !charset.equals(b.f45022a)) {
                             aVar2.a(str, i2, Character.charCount(codePointAt) + i2, charset);
                         } else {
                             aVar2.a(codePointAt);
@@ -928,8 +928,8 @@ public final class HttpUrl {
                         while (!aVar2.a()) {
                             int b2 = aVar2.b() & 255;
                             aVar.b(37);
-                            aVar.b((int) f44906d[(b2 >> 4) & 15]);
-                            aVar.b((int) f44906d[b2 & 15]);
+                            aVar.b((int) f45013d[(b2 >> 4) & 15]);
+                            aVar.b((int) f45013d[b2 & 15]);
                         }
                     }
                 }

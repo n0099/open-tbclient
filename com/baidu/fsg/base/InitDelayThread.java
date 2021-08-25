@@ -58,9 +58,9 @@ public class InitDelayThread extends Thread {
             if (!TextUtils.isEmpty(rimAllConfig)) {
                 try {
                     GetFPResponse.RimConfig rimConfig = (GetFPResponse.RimConfig) JsonUtils.fromJson(rimAllConfig, GetFPResponse.RimConfig.class);
-                    if (rimConfig != null && rimConfig.f39189common != null) {
+                    if (rimConfig != null && rimConfig.f39296common != null) {
                         try {
-                            j2 = Long.parseLong(rimConfig.f39189common.init_delay);
+                            j2 = Long.parseLong(rimConfig.f39296common.init_delay);
                         } catch (NumberFormatException e2) {
                             e2.printStackTrace();
                         }
@@ -74,7 +74,7 @@ public class InitDelayThread extends Thread {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ InitDelayThread f39076a;
+                public final /* synthetic */ InitDelayThread f39183a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -91,14 +91,14 @@ public class InitDelayThread extends Thread {
                             return;
                         }
                     }
-                    this.f39076a = this;
+                    this.f39183a = this;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     InitDelayCallback initDelayCallback;
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || (initDelayCallback = this.f39076a.mCallback) == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || (initDelayCallback = this.f39183a.mCallback) == null) {
                         return;
                     }
                     initDelayCallback.callBack();

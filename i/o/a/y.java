@@ -12,7 +12,7 @@ public final class y<T> extends i.i<T> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: f  reason: collision with root package name */
-    public final i.j<? super T> f78299f;
+    public final i.j<? super T> f78500f;
 
     public y(i.j<? super T> jVar) {
         Interceptable interceptable = $ic;
@@ -29,14 +29,14 @@ public final class y<T> extends i.i<T> {
                 return;
             }
         }
-        this.f78299f = jVar;
+        this.f78500f = jVar;
     }
 
     @Override // i.i
     public void b(Throwable th) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, th) == null) {
-            this.f78299f.onError(th);
+            this.f78500f.onError(th);
         }
     }
 
@@ -44,7 +44,7 @@ public final class y<T> extends i.i<T> {
     public void c(T t) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t) == null) {
-            this.f78299f.setProducer(new SingleProducer(this.f78299f, t));
+            this.f78500f.setProducer(new SingleProducer(this.f78500f, t));
         }
     }
 }

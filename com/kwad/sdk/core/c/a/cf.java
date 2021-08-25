@@ -33,8 +33,8 @@ public class cf implements com.kwad.sdk.core.d<com.kwad.sdk.collector.a.f> {
         if (!(interceptable == null || interceptable.invokeLL(1048576, this, fVar, jSONObject) == null) || jSONObject == null) {
             return;
         }
-        fVar.f70935a = jSONObject.optInt("phoneCount");
-        fVar.f70936b = jSONObject.optInt("activePhoneCount");
+        fVar.f71135a = jSONObject.optInt("phoneCount");
+        fVar.f71136b = jSONObject.optInt("activePhoneCount");
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -46,8 +46,8 @@ public class cf implements com.kwad.sdk.core.d<com.kwad.sdk.collector.a.f> {
             if (jSONObject == null) {
                 jSONObject = new JSONObject();
             }
-            com.kwad.sdk.utils.q.a(jSONObject, "phoneCount", fVar.f70935a);
-            com.kwad.sdk.utils.q.a(jSONObject, "activePhoneCount", fVar.f70936b);
+            com.kwad.sdk.utils.q.a(jSONObject, "phoneCount", fVar.f71135a);
+            com.kwad.sdk.utils.q.a(jSONObject, "activePhoneCount", fVar.f71136b);
             return jSONObject;
         }
         return (JSONObject) invokeLL.objValue;

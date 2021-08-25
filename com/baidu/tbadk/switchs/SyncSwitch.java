@@ -142,6 +142,7 @@ public class SyncSwitch {
             SwitchManager.getInstance().registerSwitch(WeChatShareSmallAppToH5Switch.class);
             SwitchManager.getInstance().registerSwitch(QqShareH5Switch.class);
             SwitchManager.getInstance().registerSwitch(WorkAddTopicSwitch.class);
+            SwitchManager.getInstance().registerSwitch(UploadPicParallelSwitch.class);
         }
     }
 }

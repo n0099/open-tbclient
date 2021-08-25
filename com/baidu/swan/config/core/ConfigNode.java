@@ -2,8 +2,8 @@ package com.baidu.swan.config.core;
 
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.n0.d.g.a;
-import c.a.n0.d.g.b;
+import c.a.o0.d.g.a;
+import c.a.o0.d.g.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -41,9 +41,9 @@ public final class ConfigNode {
             }
         }
         HOST_INFO = new ConfigNode("HOST_INFO", 0, "host_info", a.class, b.class);
-        FRAMEWORK = new ConfigNode("FRAMEWORK", 1, "framework", c.a.n0.d.f.a.class, c.a.n0.d.f.b.class);
-        EXTENSION = new ConfigNode("EXTENSION", 2, ETAG.KEY_EXTENSION, c.a.n0.d.e.a.class, c.a.n0.d.e.b.class);
-        ConfigNode configNode = new ConfigNode("TIP_MSG", 3, "tipmsgs", c.a.n0.d.h.a.class, c.a.n0.d.h.b.class);
+        FRAMEWORK = new ConfigNode("FRAMEWORK", 1, "framework", c.a.o0.d.f.a.class, c.a.o0.d.f.b.class);
+        EXTENSION = new ConfigNode("EXTENSION", 2, ETAG.KEY_EXTENSION, c.a.o0.d.e.a.class, c.a.o0.d.e.b.class);
+        ConfigNode configNode = new ConfigNode("TIP_MSG", 3, "tipmsgs", c.a.o0.d.h.a.class, c.a.o0.d.h.b.class);
         TIP_MSG = configNode;
         $VALUES = new ConfigNode[]{HOST_INFO, FRAMEWORK, EXTENSION, configNode};
     }

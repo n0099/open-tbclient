@@ -74,7 +74,7 @@ public final class DefaultPayReporter implements IPayReporter {
             linkedHashMap.put(BaseStatisContent.SDKVER, BuildConfig.VERSION_NAME);
             String str2 = cReportResponse.mOrderId;
             Intrinsics.checkExpressionValueIsNotNull(str2, "response.mOrderId");
-            linkedHashMap.put("orderid", str2);
+            linkedHashMap.put(PayFlowContent.ORDERID, str2);
             String str3 = cReportResponse.mEventId;
             Intrinsics.checkExpressionValueIsNotNull(str3, "response.mEventId");
             linkedHashMap.put("eventid", str3);

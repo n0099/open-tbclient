@@ -34,47 +34,47 @@ public class a {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f34359e = "a";
+    public static final String f34465e = "a";
 
     /* renamed from: f  reason: collision with root package name */
-    public static a f34360f;
+    public static a f34466f;
     public transient /* synthetic */ FieldHolder $fh;
     @NonNull
 
     /* renamed from: a  reason: collision with root package name */
-    public CopyOnWriteArrayList<c.b> f34361a;
+    public CopyOnWriteArrayList<c.b> f34467a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f34362b;
+    public boolean f34468b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f34363c;
+    public String f34469c;
 
     /* renamed from: d  reason: collision with root package name */
-    public c.p.a.d.b.a.b f34364d;
+    public c.p.a.d.b.a.b f34470d;
 
     /* renamed from: c.p.a.d.b.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C1519a implements c.InterfaceC1515c {
+    public class C1523a implements c.InterfaceC1519c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ c.p.a.b.a.c.b f34365a;
+        public final /* synthetic */ c.p.a.b.a.c.b f34471a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ Context f34366b;
+        public final /* synthetic */ Context f34472b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ c.b f34367c;
+        public final /* synthetic */ c.b f34473c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ b f34368d;
+        public final /* synthetic */ b f34474d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f34369e;
+        public final /* synthetic */ a f34475e;
 
-        public C1519a(a aVar, c.p.a.b.a.c.b bVar, Context context, c.b bVar2, b bVar3) {
+        public C1523a(a aVar, c.p.a.b.a.c.b bVar, Context context, c.b bVar2, b bVar3) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -89,42 +89,42 @@ public class a {
                     return;
                 }
             }
-            this.f34369e = aVar;
-            this.f34365a = bVar;
-            this.f34366b = context;
-            this.f34367c = bVar2;
-            this.f34368d = bVar3;
+            this.f34475e = aVar;
+            this.f34471a = bVar;
+            this.f34472b = context;
+            this.f34473c = bVar2;
+            this.f34474d = bVar3;
         }
 
-        @Override // c.p.a.a.a.f.c.InterfaceC1515c
+        @Override // c.p.a.a.a.f.c.InterfaceC1519c
         public void a(DialogInterface dialogInterface) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
-                e.c.a().v("backdialog_install", this.f34365a);
-                c.p.a.e.a.e.t(this.f34366b, (int) this.f34367c.f34376a);
+                e.c.a().v("backdialog_install", this.f34471a);
+                c.p.a.e.a.e.t(this.f34472b, (int) this.f34473c.f34482a);
                 dialogInterface.dismiss();
             }
         }
 
-        @Override // c.p.a.a.a.f.c.InterfaceC1515c
+        @Override // c.p.a.a.a.f.c.InterfaceC1519c
         public void b(DialogInterface dialogInterface) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dialogInterface) == null) {
-                e.c.a().v("backdialog_exit", this.f34365a);
-                b bVar = this.f34368d;
+                e.c.a().v("backdialog_exit", this.f34471a);
+                b bVar = this.f34474d;
                 if (bVar != null) {
                     bVar.a();
                 }
-                this.f34369e.j("");
+                this.f34475e.j("");
                 dialogInterface.dismiss();
             }
         }
 
-        @Override // c.p.a.a.a.f.c.InterfaceC1515c
+        @Override // c.p.a.a.a.f.c.InterfaceC1519c
         public void c(DialogInterface dialogInterface) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, dialogInterface) == null) {
-                this.f34369e.j("");
+                this.f34475e.j("");
             }
         }
     }
@@ -162,20 +162,20 @@ public class a {
                 return;
             }
         }
-        this.f34362b = false;
+        this.f34468b = false;
         c.p.a.d.b.a.b bVar = new c.p.a.d.b.a.b();
-        this.f34364d = bVar;
-        this.f34361a = bVar.a("sp_ad_install_back_dialog", "key_uninstalled_list");
+        this.f34470d = bVar;
+        this.f34467a = bVar.a("sp_ad_install_back_dialog", "key_uninstalled_list");
     }
 
     public static a a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f34360f == null) {
-                f34360f = new a();
+            if (f34466f == null) {
+                f34466f = new a();
             }
-            return f34360f;
+            return f34466f;
         }
         return (a) invokeV.objValue;
     }
@@ -219,23 +219,23 @@ public class a {
     public void c(long j2, long j3, long j4, String str, String str2, String str3, String str4) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), str, str2, str3, str4}) == null) {
-            for (int i2 = 0; i2 < this.f34361a.size(); i2++) {
-                c.b bVar = this.f34361a.get(i2);
-                if (bVar != null && bVar.f34377b == j3) {
-                    this.f34361a.set(i2, new c.b(j2, j3, j4, str, str2, str3, str4));
-                    this.f34364d.b("sp_ad_install_back_dialog", "key_uninstalled_list", this.f34361a);
+            for (int i2 = 0; i2 < this.f34467a.size(); i2++) {
+                c.b bVar = this.f34467a.get(i2);
+                if (bVar != null && bVar.f34483b == j3) {
+                    this.f34467a.set(i2, new c.b(j2, j3, j4, str, str2, str3, str4));
+                    this.f34470d.b("sp_ad_install_back_dialog", "key_uninstalled_list", this.f34467a);
                     return;
                 }
             }
-            this.f34361a.add(new c.b(j2, j3, j4, str, str2, str3, str4));
-            this.f34364d.b("sp_ad_install_back_dialog", "key_uninstalled_list", this.f34361a);
+            this.f34467a.add(new c.b(j2, j3, j4, str, str2, str3, str4));
+            this.f34470d.b("sp_ad_install_back_dialog", "key_uninstalled_list", this.f34467a);
         }
     }
 
     public final void d(Context context, c.b bVar, b bVar2, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{context, bVar, bVar2, Boolean.valueOf(z)}) == null) {
-            c.p.a.b.a.c.b u = c.g.e().u(bVar.f34377b);
+            c.p.a.b.a.c.b u = c.g.e().u(bVar.f34483b);
             if (u == null) {
                 f.e.b().d("showBackInstallDialog nativeModel null");
                 return;
@@ -244,29 +244,29 @@ public class a {
             c.b bVar3 = new c.b(context);
             bVar3.e(z ? "应用安装确认" : "退出确认");
             Object[] objArr = new Object[1];
-            objArr[0] = TextUtils.isEmpty(bVar.f34380e) ? "刚刚下载的应用" : bVar.f34380e;
+            objArr[0] = TextUtils.isEmpty(bVar.f34486e) ? "刚刚下载的应用" : bVar.f34486e;
             bVar3.h(String.format("%1$s下载完成，是否立即安装？", objArr));
             bVar3.j("立即安装");
             bVar3.l(z ? "暂不安装" : String.format("退出%1$s", context.getResources().getString(context.getApplicationContext().getApplicationInfo().labelRes)));
             bVar3.f(false);
-            bVar3.c(h.r.i(context, bVar.f34382g));
-            bVar3.d(new C1519a(this, u, context, bVar, bVar2));
+            bVar3.c(h.r.i(context, bVar.f34488g));
+            bVar3.d(new C1523a(this, u, context, bVar, bVar2));
             bVar3.b(1);
             p.b(bVar3.g());
             e.c.a().v("backdialog_show", u);
-            this.f34363c = bVar.f34379d;
+            this.f34469c = bVar.f34485d;
         }
     }
 
     public void e(Context context, c.b bVar, boolean z, b bVar2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{context, bVar, Boolean.valueOf(z), bVar2}) == null) {
-            this.f34361a.clear();
+            this.f34467a.clear();
             d(context, bVar, bVar2, z);
-            this.f34362b = true;
+            this.f34468b = true;
             h.b(context).n();
-            this.f34364d.c("sp_ad_install_back_dialog", "key_uninstalled_list");
-            h.q.b(f34359e, "tryShowInstallDialog isShow:true", null);
+            this.f34470d.c("sp_ad_install_back_dialog", "key_uninstalled_list");
+            h.q.b(f34465e, "tryShowInstallDialog isShow:true", null);
         }
     }
 
@@ -284,7 +284,7 @@ public class a {
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{activity, downloadInfo, Boolean.valueOf(z), bVar})) == null) {
             if (downloadInfo == null) {
                 try {
-                    if (this.f34361a.isEmpty()) {
+                    if (this.f34467a.isEmpty()) {
                         return false;
                     }
                 } catch (Exception e2) {
@@ -293,27 +293,27 @@ public class a {
             }
             if (activity != null && !activity.isFinishing()) {
                 boolean z2 = true;
-                if (downloadInfo != null && this.f34361a.isEmpty()) {
+                if (downloadInfo != null && this.f34467a.isEmpty()) {
                     e(activity, new c.b(downloadInfo.getId(), 0L, 0L, downloadInfo.getPackageName(), downloadInfo.getTitle(), null, downloadInfo.getTargetFilePath()), z, bVar);
                     return true;
                 }
                 long lastModified = downloadInfo != null ? new File(downloadInfo.getTargetFilePath()).lastModified() : 0L;
-                ListIterator<c.b> listIterator = this.f34361a.listIterator(this.f34361a.size());
+                ListIterator<c.b> listIterator = this.f34467a.listIterator(this.f34467a.size());
                 while (true) {
                     if (!listIterator.hasPrevious()) {
                         z2 = false;
                         break;
                     }
                     c.b previous = listIterator.previous();
-                    if (previous != null && !h.r.G(l.a(), previous.f34379d) && h.r.w(previous.f34382g)) {
-                        if (new File(previous.f34382g).lastModified() >= lastModified) {
+                    if (previous != null && !h.r.G(l.a(), previous.f34485d) && h.r.w(previous.f34488g)) {
+                        if (new File(previous.f34488g).lastModified() >= lastModified) {
                             e(activity, previous, z, bVar);
                         } else {
                             e(activity, new c.b(downloadInfo.getId(), 0L, 0L, downloadInfo.getPackageName(), downloadInfo.getTitle(), null, downloadInfo.getTargetFilePath()), z, bVar);
                         }
                     }
                 }
-                String str = f34359e;
+                String str = f34465e;
                 h.q.b(str, "tryShowInstallDialog isShow:" + z2, null);
                 return z2;
             }
@@ -327,7 +327,7 @@ public class a {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{activity, Boolean.valueOf(z), bVar})) == null) {
-            if (l.v().optInt("disable_install_app_dialog") == 1 || this.f34362b) {
+            if (l.v().optInt("disable_install_app_dialog") == 1 || this.f34468b) {
                 return false;
             }
             return g(activity, b(activity), z, bVar);
@@ -338,16 +338,16 @@ public class a {
     public boolean i(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) ? TextUtils.equals(this.f34363c, str) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) ? TextUtils.equals(this.f34469c, str) : invokeL.booleanValue;
     }
 
     public void j(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
             if (TextUtils.isEmpty(str)) {
-                this.f34363c = "";
-            } else if (TextUtils.equals(this.f34363c, str)) {
-                this.f34363c = "";
+                this.f34469c = "";
+            } else if (TextUtils.equals(this.f34469c, str)) {
+                this.f34469c = "";
             }
         }
     }

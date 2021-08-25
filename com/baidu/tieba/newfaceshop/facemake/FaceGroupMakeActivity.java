@@ -19,9 +19,9 @@ import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
 import c.a.e.e.p.j;
 import c.a.e.e.p.l;
-import c.a.o0.b1.l0;
-import c.a.o0.s.s.a;
-import c.a.p0.d2.g.d;
+import c.a.p0.b1.l0;
+import c.a.p0.s.s.a;
+import c.a.q0.d2.g.d;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -64,7 +64,7 @@ public class FaceGroupMakeActivity extends BaseActivity implements d.c, BarInfor
     public BazhuInfoData.BaInfo mChoosedData;
     public ArrayList<FaceData> mChoosedImageList;
     public EditText mEditName;
-    public c.a.p0.d2.g.d mEmotionAdapter;
+    public c.a.q0.d2.g.d mEmotionAdapter;
     public GridView mGridView;
     public FaceImageLayout mLayoutImage;
     public LinearLayout mLayoutRoot;
@@ -81,7 +81,7 @@ public class FaceGroupMakeActivity extends BaseActivity implements d.c, BarInfor
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ FaceGroupMakeActivity f54338e;
+        public final /* synthetic */ FaceGroupMakeActivity f54481e;
 
         public a(FaceGroupMakeActivity faceGroupMakeActivity) {
             Interceptable interceptable = $ic;
@@ -98,14 +98,14 @@ public class FaceGroupMakeActivity extends BaseActivity implements d.c, BarInfor
                     return;
                 }
             }
-            this.f54338e = faceGroupMakeActivity;
+            this.f54481e = faceGroupMakeActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f54338e.onBack();
+                this.f54481e.onBack();
             }
         }
     }
@@ -116,7 +116,7 @@ public class FaceGroupMakeActivity extends BaseActivity implements d.c, BarInfor
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ FaceGroupMakeActivity f54339e;
+        public final /* synthetic */ FaceGroupMakeActivity f54482e;
 
         public b(FaceGroupMakeActivity faceGroupMakeActivity) {
             Interceptable interceptable = $ic;
@@ -133,44 +133,44 @@ public class FaceGroupMakeActivity extends BaseActivity implements d.c, BarInfor
                     return;
                 }
             }
-            this.f54339e = faceGroupMakeActivity;
+            this.f54482e = faceGroupMakeActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f54339e.mChoosedImageList == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f54482e.mChoosedImageList == null) {
                 return;
             }
-            String trim = this.f54339e.mEditName.getText().toString().trim();
+            String trim = this.f54482e.mEditName.getText().toString().trim();
             if (!TextUtils.isEmpty(trim)) {
-                if (this.f54339e.mChoosedImageList.size() - 1 >= 8) {
-                    if (this.f54339e.mChoosedImageList.size() - 1 > 24) {
-                        this.f54339e.showToast(R.string.face_group_add_pic_max);
+                if (this.f54482e.mChoosedImageList.size() - 1 >= 8) {
+                    if (this.f54482e.mChoosedImageList.size() - 1 > 24) {
+                        this.f54482e.showToast(R.string.face_group_add_pic_max);
                         return;
                     } else if (j.z()) {
-                        if (this.f54339e.isBarEmotion() && this.f54339e.mChoosedData == null) {
-                            this.f54339e.showToast(R.string.input_one_bar);
+                        if (this.f54482e.isBarEmotion() && this.f54482e.mChoosedData == null) {
+                            this.f54482e.showToast(R.string.input_one_bar);
                             return;
                         }
                         ArrayList arrayList = new ArrayList();
-                        arrayList.addAll(this.f54339e.mChoosedImageList);
-                        arrayList.remove(this.f54339e.mAddIconData);
-                        c.a.p0.d2.g.e.l().A(trim, arrayList, null, this.f54339e.mChoosedData != null ? this.f54339e.mChoosedData.forum_id : 0);
+                        arrayList.addAll(this.f54482e.mChoosedImageList);
+                        arrayList.remove(this.f54482e.mAddIconData);
+                        c.a.q0.d2.g.e.l().A(trim, arrayList, null, this.f54482e.mChoosedData != null ? this.f54482e.mChoosedData.forum_id : 0);
                         Intent intent = new Intent();
                         intent.putExtra("uploading", true);
-                        this.f54339e.setResult(-1, intent);
-                        this.f54339e.finish();
+                        this.f54482e.setResult(-1, intent);
+                        this.f54482e.finish();
                         return;
                     } else {
-                        this.f54339e.showToast(R.string.neterror);
+                        this.f54482e.showToast(R.string.neterror);
                         return;
                     }
                 }
-                this.f54339e.showToast(R.string.face_group_pic_less_tip);
+                this.f54482e.showToast(R.string.face_group_pic_less_tip);
                 return;
             }
-            this.f54339e.showToast(R.string.face_group_empty_name_tip);
+            this.f54482e.showToast(R.string.face_group_empty_name_tip);
         }
     }
 
@@ -180,7 +180,7 @@ public class FaceGroupMakeActivity extends BaseActivity implements d.c, BarInfor
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ FaceGroupMakeActivity f54340a;
+        public final /* synthetic */ FaceGroupMakeActivity f54483a;
 
         public c(FaceGroupMakeActivity faceGroupMakeActivity) {
             Interceptable interceptable = $ic;
@@ -197,14 +197,14 @@ public class FaceGroupMakeActivity extends BaseActivity implements d.c, BarInfor
                     return;
                 }
             }
-            this.f54340a = faceGroupMakeActivity;
+            this.f54483a = faceGroupMakeActivity;
         }
 
         @Override // com.baidu.tieba.newfaceshop.facemake.FaceImageLayout.a
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                l.x(this.f54340a.mActivity, this.f54340a.mEditName);
+                l.x(this.f54483a.mActivity, this.f54483a.mEditName);
             }
         }
     }
@@ -215,7 +215,7 @@ public class FaceGroupMakeActivity extends BaseActivity implements d.c, BarInfor
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ FaceGroupMakeActivity f54341e;
+        public final /* synthetic */ FaceGroupMakeActivity f54484e;
 
         public d(FaceGroupMakeActivity faceGroupMakeActivity) {
             Interceptable interceptable = $ic;
@@ -232,14 +232,14 @@ public class FaceGroupMakeActivity extends BaseActivity implements d.c, BarInfor
                     return;
                 }
             }
-            this.f54341e = faceGroupMakeActivity;
+            this.f54484e = faceGroupMakeActivity;
         }
 
         @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
         public void onGlobalLayout() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f54341e.mChooseBarTv.setMaxWidth(((this.f54341e.mBazhuTitleLayout.getWidth() - this.f54341e.mPublishTxtTv.getWidth()) - this.f54341e.ivArrow.getWidth()) - l.g(this.f54341e.getPageContext().getPageActivity(), R.dimen.ds3));
+                this.f54484e.mChooseBarTv.setMaxWidth(((this.f54484e.mBazhuTitleLayout.getWidth() - this.f54484e.mPublishTxtTv.getWidth()) - this.f54484e.ivArrow.getWidth()) - l.g(this.f54484e.getPageContext().getPageActivity(), R.dimen.ds3));
             }
         }
     }
@@ -250,7 +250,7 @@ public class FaceGroupMakeActivity extends BaseActivity implements d.c, BarInfor
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ FaceGroupMakeActivity f54342e;
+        public final /* synthetic */ FaceGroupMakeActivity f54485e;
 
         public e(FaceGroupMakeActivity faceGroupMakeActivity) {
             Interceptable interceptable = $ic;
@@ -267,16 +267,16 @@ public class FaceGroupMakeActivity extends BaseActivity implements d.c, BarInfor
                     return;
                 }
             }
-            this.f54342e = faceGroupMakeActivity;
+            this.f54485e = faceGroupMakeActivity;
         }
 
-        @Override // c.a.o0.s.s.a.e
-        public void onClick(c.a.o0.s.s.a aVar) {
+        @Override // c.a.p0.s.s.a.e
+        public void onClick(c.a.p0.s.s.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
                 aVar.dismiss();
-                c.a.p0.d2.g.e.l().i();
-                this.f54342e.finish();
+                c.a.q0.d2.g.e.l().i();
+                this.f54485e.finish();
             }
         }
     }
@@ -287,7 +287,7 @@ public class FaceGroupMakeActivity extends BaseActivity implements d.c, BarInfor
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ FaceGroupMakeActivity f54343e;
+        public final /* synthetic */ FaceGroupMakeActivity f54486e;
 
         public f(FaceGroupMakeActivity faceGroupMakeActivity) {
             Interceptable interceptable = $ic;
@@ -304,11 +304,11 @@ public class FaceGroupMakeActivity extends BaseActivity implements d.c, BarInfor
                     return;
                 }
             }
-            this.f54343e = faceGroupMakeActivity;
+            this.f54486e = faceGroupMakeActivity;
         }
 
-        @Override // c.a.o0.s.s.a.e
-        public void onClick(c.a.o0.s.s.a aVar) {
+        @Override // c.a.p0.s.s.a.e
+        public void onClick(c.a.p0.s.s.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
                 aVar.dismiss();
@@ -322,10 +322,10 @@ public class FaceGroupMakeActivity extends BaseActivity implements d.c, BarInfor
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f54344e;
+        public int f54487e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ FaceGroupMakeActivity f54345f;
+        public final /* synthetic */ FaceGroupMakeActivity f54488f;
 
         public g(FaceGroupMakeActivity faceGroupMakeActivity, int i2) {
             Interceptable interceptable = $ic;
@@ -342,8 +342,8 @@ public class FaceGroupMakeActivity extends BaseActivity implements d.c, BarInfor
                     return;
                 }
             }
-            this.f54345f = faceGroupMakeActivity;
-            this.f54344e = i2;
+            this.f54488f = faceGroupMakeActivity;
+            this.f54487e = i2;
         }
 
         @Override // android.text.InputFilter
@@ -351,10 +351,10 @@ public class FaceGroupMakeActivity extends BaseActivity implements d.c, BarInfor
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{charSequence, Integer.valueOf(i2), Integer.valueOf(i3), spanned, Integer.valueOf(i4), Integer.valueOf(i5)})) == null) {
-                if (spanned == null || charSequence == null || (l0.b(spanned.toString()) - (i5 - i4)) + l0.b(charSequence.toString()) <= this.f54344e) {
+                if (spanned == null || charSequence == null || (l0.b(spanned.toString()) - (i5 - i4)) + l0.b(charSequence.toString()) <= this.f54487e) {
                     return charSequence;
                 }
-                this.f54345f.showToast(R.string.package_add_name_max);
+                this.f54488f.showToast(R.string.package_add_name_max);
                 return "";
             }
             return (CharSequence) invokeCommon.objValue;
@@ -430,7 +430,7 @@ public class FaceGroupMakeActivity extends BaseActivity implements d.c, BarInfor
             this.mTvAddPicTip = (TextView) findViewById(R.id.tv_add_pic_tip);
             updateAddPicTip();
             this.mGridView = (GridView) findViewById(R.id.grid_view);
-            c.a.p0.d2.g.d dVar = new c.a.p0.d2.g.d(this.mChoosedImageList);
+            c.a.q0.d2.g.d dVar = new c.a.q0.d2.g.d(this.mChoosedImageList);
             this.mEmotionAdapter = dVar;
             dVar.f(this);
             this.mGridView.setAdapter((ListAdapter) this.mEmotionAdapter);
@@ -466,7 +466,7 @@ public class FaceGroupMakeActivity extends BaseActivity implements d.c, BarInfor
     private void loadDraft() {
         FaceGroupDraft k;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65552, this) == null) || (k = c.a.p0.d2.g.e.l().k()) == null) {
+        if (!(interceptable == null || interceptable.invokeV(65552, this) == null) || (k = c.a.q0.d2.g.e.l().k()) == null) {
             return;
         }
         if (!TextUtils.isEmpty(k.getName())) {
@@ -486,7 +486,7 @@ public class FaceGroupMakeActivity extends BaseActivity implements d.c, BarInfor
         if (interceptable == null || interceptable.invokeV(65553, this) == null) {
             ArrayList<FaceData> arrayList = this.mChoosedImageList;
             if ((arrayList != null && arrayList.size() > 1) || !TextUtils.isEmpty(this.mEditName.getText())) {
-                c.a.o0.s.s.a aVar = new c.a.o0.s.s.a(this.mActivity);
+                c.a.p0.s.s.a aVar = new c.a.p0.s.s.a(this.mActivity);
                 aVar.setMessage(getResources().getString(R.string.face_group_make_back_tip));
                 aVar.setPositiveButton(R.string.confirm, new e(this));
                 aVar.setNegativeButton(R.string.cancel, new f(this));
@@ -553,7 +553,7 @@ public class FaceGroupMakeActivity extends BaseActivity implements d.c, BarInfor
         }
     }
 
-    @Override // c.a.p0.d2.g.d.c
+    @Override // c.a.q0.d2.g.d.c
     public void onAdd() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
@@ -630,7 +630,7 @@ public class FaceGroupMakeActivity extends BaseActivity implements d.c, BarInfor
             this.mAddIconData = faceData;
             faceData.type = 4;
             this.mChoosedImageList.add(faceData);
-            if (this.isFromBazhu && ((k = c.a.p0.d2.g.e.l().k()) == null || k.getForumId() != 0)) {
+            if (this.isFromBazhu && ((k = c.a.q0.d2.g.e.l().k()) == null || k.getForumId() != 0)) {
                 this.isBarEmotion = true;
             }
             initView();
@@ -641,7 +641,7 @@ public class FaceGroupMakeActivity extends BaseActivity implements d.c, BarInfor
         }
     }
 
-    @Override // c.a.p0.d2.g.d.c
+    @Override // c.a.q0.d2.g.d.c
     public void onDel(FaceData faceData) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048585, this, faceData) == null) || faceData == null) {
@@ -674,7 +674,7 @@ public class FaceGroupMakeActivity extends BaseActivity implements d.c, BarInfor
             this.mChooseBarTv.setClickable(true);
             this.mChooseBarTv.setText(R.string.face_make_choose_forum);
             SkinManager.setViewTextColor(this.mChooseBarTv, R.color.CAM_X0304);
-            FaceGroupDraft k = c.a.p0.d2.g.e.l().k();
+            FaceGroupDraft k = c.a.q0.d2.g.e.l().k();
             if (k == null || k.getForumId() == 0) {
                 return;
             }

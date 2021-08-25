@@ -1,6 +1,6 @@
 package com.baidu.tieba.memberCenter.memberExchange;
 
-import c.a.p0.w1.d.b;
+import c.a.q0.w1.d.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;

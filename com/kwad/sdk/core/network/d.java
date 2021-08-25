@@ -1,6 +1,7 @@
 package com.kwad.sdk.core.network;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.datacollector.growth.utils.GrowthConstant;
 import com.baidu.searchbox.live.interfaces.DI;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -49,7 +50,7 @@ public abstract class d extends b {
                 return;
             }
         }
-        a("deviceInfo", com.kwad.sdk.core.g.a.d.a(i(), i2));
+        a(GrowthConstant.UBC_VALUE_TYPE_DEVICE_INFO, com.kwad.sdk.core.g.a.d.a(i(), i2));
     }
 
     @Override // com.kwad.sdk.core.network.b
@@ -57,7 +58,7 @@ public abstract class d extends b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             String a2 = a();
-            if (!com.kwad.sdk.b.f70787b.booleanValue() || a2 == null || a2.contains(com.kwad.sdk.d.c())) {
+            if (!com.kwad.sdk.b.f70987b.booleanValue() || a2 == null || a2.contains(com.kwad.sdk.d.c())) {
                 return;
             }
             DevelopMangerPlugin.DevelopValue a3 = ((DevelopMangerPlugin) com.kwad.sdk.plugin.f.a(DevelopMangerPlugin.class)).a("KEY_AD_UNIVERSE");
@@ -84,7 +85,7 @@ public abstract class d extends b {
             a("SDKVersionCode", 3031100);
             b("sdkApiVersion", KsAdSDKImpl.get().getApiVersion());
             a("sdkApiVersionCode", KsAdSDKImpl.get().getApiVersionCode());
-            a("sdkType", com.kwad.sdk.d.f72343a);
+            a("sdkType", com.kwad.sdk.d.f72543a);
             a(DI.APP_INFO_NAME, com.kwad.sdk.core.g.a.b.a());
             a("networkInfo", com.kwad.sdk.core.g.a.i.a());
             a("geoInfo", com.kwad.sdk.core.g.a.e.a());

@@ -16,10 +16,10 @@ public class e extends com.sdk.base.framework.f.a {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f75219a = "com.sdk.base.framework.f.i.e";
+    public static final String f75420a = "com.sdk.base.framework.f.i.e";
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f75220b;
+    public static boolean f75421b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -35,7 +35,7 @@ public class e extends com.sdk.base.framework.f.a {
                 return;
             }
         }
-        f75220b = f.f75169b;
+        f75421b = f.f75370b;
     }
 
     public e() {
@@ -73,7 +73,7 @@ public class e extends com.sdk.base.framework.f.a {
                 }
                 return sb.toString();
             } catch (Exception e2) {
-                com.sdk.base.framework.f.a.a(f75219a, LightappBusinessClient.MTD_ENCRYPT, e2.getMessage(), f75220b);
+                com.sdk.base.framework.f.a.a(f75420a, LightappBusinessClient.MTD_ENCRYPT, e2.getMessage(), f75421b);
                 return null;
             }
         }

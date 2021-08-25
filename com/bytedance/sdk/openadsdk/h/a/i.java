@@ -18,7 +18,7 @@ public class i extends com.bytedance.sdk.component.a.e<JSONObject, JSONObject> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public WeakReference<SSWebView> f67530a;
+    public WeakReference<SSWebView> f67730a;
 
     public i(SSWebView sSWebView) {
         Interceptable interceptable = $ic;
@@ -35,7 +35,7 @@ public class i extends com.bytedance.sdk.component.a.e<JSONObject, JSONObject> {
                 return;
             }
         }
-        this.f67530a = new WeakReference<>(sSWebView);
+        this.f67730a = new WeakReference<>(sSWebView);
     }
 
     public static void a(r rVar, SSWebView sSWebView) {
@@ -55,7 +55,7 @@ public class i extends com.bytedance.sdk.component.a.e<JSONObject, JSONObject> {
             JSONObject jSONObject2 = new JSONObject();
             try {
                 boolean optBoolean = jSONObject.optBoolean("isPrevent", false);
-                SSWebView sSWebView = this.f67530a.get();
+                SSWebView sSWebView = this.f67730a.get();
                 if (sSWebView != null) {
                     sSWebView.setIsPreventTouchEvent(optBoolean);
                     jSONObject2.put("success", true);

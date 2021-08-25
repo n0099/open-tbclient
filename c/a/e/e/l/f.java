@@ -10,34 +10,34 @@ public class f {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f2340a;
+    public int f2398a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f2341b;
+    public int f2399b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f2342c;
+    public long f2400c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f2343d;
+    public int f2401d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f2344e;
+    public int f2402e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f2345f;
+    public long f2403f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f2346g;
+    public int f2404g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f2347h;
+    public int f2405h;
 
     /* renamed from: i  reason: collision with root package name */
-    public long f2348i;
+    public long f2406i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f2349j;
+    public int f2407j;
     public long k;
     public int l;
     public long m;
@@ -72,16 +72,16 @@ public class f {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f2340a = 0;
-            this.f2341b = 0;
-            this.f2342c = 0L;
-            this.f2343d = 0;
-            this.f2344e = 0;
-            this.f2345f = 0L;
-            this.f2346g = 0;
-            this.f2347h = 0;
-            this.f2348i = 0L;
-            this.f2349j = 0;
+            this.f2398a = 0;
+            this.f2399b = 0;
+            this.f2400c = 0L;
+            this.f2401d = 0;
+            this.f2402e = 0;
+            this.f2403f = 0L;
+            this.f2404g = 0;
+            this.f2405h = 0;
+            this.f2406i = 0L;
+            this.f2407j = 0;
             this.k = 0L;
             this.l = 0;
             this.m = 0L;

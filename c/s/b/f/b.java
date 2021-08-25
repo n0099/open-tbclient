@@ -10,7 +10,7 @@ public final class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f35379a;
+    public static String f35485a;
     public transient /* synthetic */ FieldHolder $fh;
 
     public static String a(Context context) {
@@ -18,10 +18,10 @@ public final class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
             try {
-                if (f35379a == null) {
-                    f35379a = new VirtualDevice().getDeviceID(context);
+                if (f35485a == null) {
+                    f35485a = new VirtualDevice().getDeviceID(context);
                 }
-                return f35379a;
+                return f35485a;
             } catch (Throwable th) {
                 th.printStackTrace();
                 return null;

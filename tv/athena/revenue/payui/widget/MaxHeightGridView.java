@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
 import j.a.a.e.h;
-import j.a.a.e.n.b;
+import j.a.a.e.n.c;
 import kotlin.Metadata;
 import kotlin.jvm.JvmOverloads;
 import kotlin.jvm.internal.DefaultConstructorMarker;
@@ -26,7 +26,7 @@ public final class MaxHeightGridView extends GridView {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f79569e;
+    public int f79771e;
 
     /* loaded from: classes2.dex */
     public static final class a {
@@ -112,7 +112,6 @@ public final class MaxHeightGridView extends GridView {
         }
     }
 
-    @JvmOverloads
     public /* synthetic */ MaxHeightGridView(Context context, AttributeSet attributeSet, int i2, int i3, DefaultConstructorMarker defaultConstructorMarker) {
         this(context, (i3 & 2) != 0 ? null : attributeSet, (i3 & 4) != 0 ? 0 : i2);
     }
@@ -124,8 +123,8 @@ public final class MaxHeightGridView extends GridView {
             try {
                 try {
                     int size = View.MeasureSpec.getSize(i3);
-                    if (this.f79569e != -1) {
-                        size = this.f79569e;
+                    if (this.f79771e != -1) {
+                        size = this.f79771e;
                         i3 = View.MeasureSpec.makeMeasureSpec(size, Integer.MIN_VALUE);
                     } else {
                         i3 = View.MeasureSpec.makeMeasureSpec(size, 0);
@@ -160,12 +159,12 @@ public final class MaxHeightGridView extends GridView {
                 return;
             }
         }
-        this.f79569e = -1;
+        this.f79771e = -1;
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, h.PayUi_NoScrollGridView);
         int integer = obtainStyledAttributes.getInteger(h.PayUi_NoScrollGridView_pay_ui_gv_max_height_dp, 536870911);
-        this.f79569e = integer;
+        this.f79771e = integer;
         if (integer != 536870911) {
-            this.f79569e = b.a(integer);
+            this.f79771e = c.a(integer);
         }
         obtainStyledAttributes.recycle();
     }

@@ -15,7 +15,6 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.tencent.open.log.SLog;
-import com.yy.hiidostatis.inner.util.cipher.RsaCipher;
 import java.math.BigInteger;
 import java.security.KeyPairGenerator;
 import java.security.KeyStore;
@@ -34,10 +33,10 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public KeyStore f76038a;
+    public KeyStore f76239a;
 
     /* renamed from: b  reason: collision with root package name */
-    public SharedPreferences f76039b;
+    public SharedPreferences f76240b;
 
     public a(Context context) {
         Interceptable interceptable = $ic;
@@ -55,11 +54,11 @@ public class a {
             }
         }
         try {
-            this.f76039b = context.getSharedPreferences("KEYSTORE_SETTING", 0);
+            this.f76240b = context.getSharedPreferences("KEYSTORE_SETTING", 0);
             KeyStore keyStore = KeyStore.getInstance("AndroidKeyStore");
-            this.f76038a = keyStore;
+            this.f76239a = keyStore;
             keyStore.load(null);
-            if (this.f76038a.containsAlias("KEYSTORE_AES")) {
+            if (this.f76239a.containsAlias("KEYSTORE_AES")) {
                 return;
             }
             c("");
@@ -93,14 +92,14 @@ public class a {
     private void c(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, str) == null) {
-            this.f76039b.edit().putString("PREF_KEY_IV", str).apply();
+            this.f76240b.edit().putString("PREF_KEY_IV", str).apply();
         }
     }
 
     private void d(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, this, str) == null) {
-            this.f76039b.edit().putString("PREF_KEY_AES", str).apply();
+            this.f76240b.edit().putString("PREF_KEY_AES", str).apply();
         }
     }
 
@@ -125,10 +124,10 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
-            String string = this.f76039b.getString("PREF_KEY_AES", "");
+            String string = this.f76240b.getString("PREF_KEY_AES", "");
             if (Build.VERSION.SDK_INT >= 18) {
-                Cipher cipher = Cipher.getInstance(RsaCipher.RSA_PADDING);
-                cipher.init(2, (PrivateKey) this.f76038a.getKey("KEYSTORE_AES", null));
+                Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
+                cipher.init(2, (PrivateKey) this.f76239a.getKey("KEYSTORE_AES", null));
                 return new SecretKeySpec(cipher.doFinal(Base64.decode(string, 0)), "AES/GCM/NoPadding");
             }
             return new SecretKeySpec(Base64.decode(string, 0), "AES/GCM/NoPadding");
@@ -139,7 +138,7 @@ public class a {
     private byte[] b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) ? Base64.decode(this.f76039b.getString("PREF_KEY_IV", ""), 0) : (byte[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) ? Base64.decode(this.f76240b.getString("PREF_KEY_IV", ""), 0) : (byte[]) invokeV.objValue;
     }
 
     public String a(String str) {
@@ -166,8 +165,8 @@ public class a {
             secureRandom.nextBytes(bArr);
             c(Base64.encodeToString(secureRandom.generateSeed(12), 0));
             if (Build.VERSION.SDK_INT >= 18) {
-                PublicKey publicKey = this.f76038a.getCertificate("KEYSTORE_AES").getPublicKey();
-                Cipher cipher = Cipher.getInstance(RsaCipher.RSA_PADDING);
+                PublicKey publicKey = this.f76239a.getCertificate("KEYSTORE_AES").getPublicKey();
+                Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
                 cipher.init(1, publicKey);
                 d(Base64.encodeToString(cipher.doFinal(bArr), 0));
                 return;

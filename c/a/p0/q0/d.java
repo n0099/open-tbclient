@@ -1,463 +1,355 @@
 package c.a.p0.q0;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.ImageView;
-import android.widget.RelativeLayout;
-import androidx.core.view.InputDeviceCompat;
+import android.text.TextUtils;
+import c.a.e.e.d.l;
+import c.a.e.e.p.f;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.lib.cache.BdCacheService;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.plugin.packageManager.pluginServerConfig.PluginNetConfigInfos;
+import com.baidu.adp.plugin.packageManager.pluginSettings.PluginSettings;
+import com.baidu.adp.plugin.util.Util;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.task.item.StrictModeTask;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.img.ImageFileInfo;
-import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.R;
-import com.baidu.tieba.faceshop.CollectEmotionData;
+import com.baidu.tbadk.core.util.NetWork;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
+import java.io.File;
+import java.io.IOException;
+import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes3.dex */
-public class d extends BaseAdapter {
+public class d implements c.a.e.h.j.f.b {
     public static /* synthetic */ Interceptable $ic;
+
+    /* renamed from: c  reason: collision with root package name */
+    public static final String f13767c;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* renamed from: e  reason: collision with root package name */
-    public List<CollectEmotionData> f23314e;
+    /* renamed from: a  reason: collision with root package name */
+    public c.a.e.h.j.f.a f13768a;
 
-    /* renamed from: f  reason: collision with root package name */
-    public List<CollectEmotionData> f23315f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public int f23316g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public c.a.o0.c0.b f23317h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public boolean f23318i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public int f23319j;
-    public e k;
-    public InterfaceC1087d l;
+    /* renamed from: b  reason: collision with root package name */
+    public boolean f13769b;
 
     /* loaded from: classes3.dex */
-    public class a implements c.a.o0.b0.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ViewGroup f23320e;
-
-        public a(d dVar, ViewGroup viewGroup) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {dVar, viewGroup};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f23320e = viewGroup;
-        }
-
-        @Override // c.a.o0.b0.b
-        public void imageLoaded(c.a.e.k.d.a aVar, String str, boolean z) {
-            TbImageView tbImageView;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLLZ(1048576, this, aVar, str, z) == null) || (tbImageView = (TbImageView) this.f23320e.findViewWithTag(str)) == null || aVar == null) {
-                return;
-            }
-            tbImageView.invalidate();
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class b implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f23321e;
-
-        /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ d f23322f;
-
-        public b(d dVar, int i2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {dVar, Integer.valueOf(i2)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f23322f = dVar;
-            this.f23321e = i2;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
-            CollectEmotionData item;
-            ImageView imageView;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && this.f23322f.f23318i && (item = this.f23322f.getItem(this.f23321e)) != null) {
-                if (!this.f23322f.f23315f.contains(item)) {
-                    item.selectIndex = this.f23322f.f23315f.size() + 1;
-                    item.isSelect = true;
-                    this.f23322f.f23315f.add(item);
-                } else {
-                    item.selectIndex = -1;
-                    int i2 = 0;
-                    item.isSelect = false;
-                    this.f23322f.f23315f.remove(item);
-                    while (i2 < this.f23322f.f23315f.size()) {
-                        i2++;
-                        this.f23322f.getItem(this.f23321e).selectIndex = i2;
-                    }
-                }
-                if (view.getId() == R.id.collect_select_icon) {
-                    imageView = (ImageView) view;
-                } else {
-                    imageView = (ImageView) ((RelativeLayout) view.getParent()).findViewById(R.id.collect_select_icon);
-                }
-                if (imageView != null) {
-                    if (item.isSelect) {
-                        SkinManager.setBackgroundResource(imageView, R.drawable.ic_post_image_selected_s);
-                    } else {
-                        SkinManager.setBackgroundResource(imageView, R.drawable.ic_post_image_selected_n);
-                    }
-                }
-                if (this.f23322f.k != null) {
-                    this.f23322f.k.b(this.f23322f.f23315f);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class c implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d f23323e;
-
-        public c(d dVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {dVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f23323e = dVar;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f23323e.l == null) {
-                return;
-            }
-            this.f23323e.l.e();
-        }
-    }
-
-    /* renamed from: c.a.p0.q0.d$d  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    public interface InterfaceC1087d {
-        void e();
-    }
-
-    /* loaded from: classes3.dex */
-    public interface e {
-        void b(List<CollectEmotionData> list);
-    }
-
-    /* loaded from: classes3.dex */
-    public class f {
+    public class a extends BdAsyncTask<Void, Void, Void> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public View f23324a;
+        public File f13770a;
 
-        /* renamed from: b  reason: collision with root package name */
-        public TbImageView f23325b;
-
-        /* renamed from: c  reason: collision with root package name */
-        public ImageView f23326c;
-
-        public f(d dVar) {
+        public a(d dVar, File file) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {dVar};
+                Object[] objArr = {dVar, file};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
                     int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
+            }
+            this.f13770a = null;
+            this.f13770a = file;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: b */
+        public void onPostExecute(Void r5) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, r5) == null) {
             }
         }
 
-        public /* synthetic */ f(d dVar, a aVar) {
-            this(dVar);
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public void cancel() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                super.cancel();
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public Void doInBackground(Void... voidArr) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, voidArr)) == null) {
+                File file = this.f13770a;
+                if (file == null || !file.exists()) {
+                    return null;
+                }
+                Util.a(this.f13770a);
+                return null;
+            }
+            return (Void) invokeL.objValue;
         }
     }
 
-    public d(InterfaceC1087d interfaceC1087d) {
+    /* loaded from: classes3.dex */
+    public class b extends BdAsyncTask<Void, PluginNetConfigInfos, Void> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public NetWork f13771a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public c.a.e.h.j.f.c f13772b;
+
+        /* renamed from: c  reason: collision with root package name */
+        public boolean f13773c;
+
+        /* renamed from: d  reason: collision with root package name */
+        public final /* synthetic */ d f13774d;
+
+        public b(d dVar, c.a.e.h.j.f.c cVar, boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {dVar, cVar, Boolean.valueOf(z)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f13774d = dVar;
+            this.f13773c = false;
+            this.f13772b = cVar;
+            this.f13773c = z;
+        }
+
+        public final String b(l<String> lVar, String str) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, lVar, str)) == null) ? lVar.get(str) : (String) invokeLL.objValue;
+        }
+
+        public final String c(l<String> lVar, String str) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, lVar, str)) == null) {
+                boolean checkNewUser = TbadkCoreApplication.getInst().checkNewUser();
+                if (TbadkCoreApplication.getInst().checkInterrupt() && checkNewUser) {
+                    return null;
+                }
+                NetWork netWork = new NetWork(d.f13767c);
+                this.f13771a = netWork;
+                netWork.addPostData("plugin_upload_config", str);
+                return this.f13771a.postNetData();
+            }
+            return (String) invokeLL.objValue;
+        }
+
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public void cancel() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                super.cancel();
+                this.f13774d.f13769b = false;
+                this.f13771a.cancelNetConnect();
+                this.f13771a = null;
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: d */
+        public void onProgressUpdate(PluginNetConfigInfos... pluginNetConfigInfosArr) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, pluginNetConfigInfosArr) == null) {
+                super.onProgressUpdate(pluginNetConfigInfosArr);
+                this.f13774d.f13769b = false;
+                boolean z = pluginNetConfigInfosArr[0] != null;
+                String str = null;
+                NetWork netWork = this.f13771a;
+                if (netWork != null && !netWork.isNetSuccess()) {
+                    str = this.f13771a.getNetException();
+                    if (this.f13771a.getServerErrorCode() != 0) {
+                        str = str + "-" + this.f13771a.getErrorString();
+                    }
+                }
+                this.f13774d.f13768a.a(z, this.f13772b, pluginNetConfigInfosArr[0], str);
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001224));
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        /* JADX WARN: Removed duplicated region for block: B:37:0x00c1  */
+        /* JADX WARN: Removed duplicated region for block: B:38:0x00c6  */
+        /* JADX WARN: Removed duplicated region for block: B:41:0x00f1  */
+        /* JADX WARN: Removed duplicated region for block: B:42:0x00fa  */
+        /* JADX WARN: Removed duplicated region for block: B:48:0x0119  */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /*
+            Code decompiled incorrectly, please refer to instructions dump.
+        */
+        public Void doInBackground(Void... voidArr) {
+            InterceptResult invokeL;
+            String str;
+            boolean z;
+            String str2;
+            PluginNetConfigInfos pluginNetConfigInfos;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, voidArr)) == null) {
+                c.a.e.h.j.f.c cVar = this.f13772b;
+                if (cVar == null) {
+                    publishProgress(null);
+                    return null;
+                }
+                if (cVar.a() == null || this.f13772b.a().size() <= 0) {
+                    str = "";
+                } else {
+                    StringBuilder sb = new StringBuilder(50);
+                    int size = this.f13772b.a().size();
+                    for (int i2 = 0; i2 < size; i2++) {
+                        if (i2 != 0) {
+                            sb.append(",");
+                        }
+                        BasicNameValuePair basicNameValuePair = this.f13772b.a().get(i2);
+                        if (basicNameValuePair != null && !TextUtils.isEmpty(basicNameValuePair.getName()) && !TextUtils.isEmpty(basicNameValuePair.getValue())) {
+                            sb.append(basicNameValuePair.getName());
+                            sb.append(":");
+                            sb.append(basicNameValuePair.getValue());
+                        }
+                    }
+                    str = sb.toString();
+                }
+                BdCacheService j2 = BdCacheService.j("baidu_plugin.db");
+                l<String> c2 = j2.c("plugin.serverconfig", BdCacheService.CacheStorage.SQLite_CACHE_All_IN_ONE_TABLE, BdCacheService.CacheEvictPolicy.LRU_ON_INSERT, 2);
+                String str3 = c2.get("time");
+                if (!this.f13773c && str3 != null) {
+                    long f2 = c.a.e.e.m.b.f(str3, -1L);
+                    if (f2 != -1 && System.currentTimeMillis() - f2 < 86400000) {
+                        z = false;
+                        PluginSettings l = c.a.e.h.j.g.d.k().l();
+                        String str4 = TbConfig.getVersion() + "." + TbConfig.BUILD_NUMBER + "_" + (l == null ? l.getContainerVersion() : null) + "_" + str;
+                        if (!z) {
+                            str2 = c(c2, str);
+                            pluginNetConfigInfos = PluginNetConfigInfos.parse(str2);
+                        } else {
+                            String b2 = b(c2, str4);
+                            PluginNetConfigInfos parse = PluginNetConfigInfos.parse(b2);
+                            if (parse == null) {
+                                str2 = c(c2, str);
+                                pluginNetConfigInfos = PluginNetConfigInfos.parse(str2);
+                                z = true;
+                            } else {
+                                str2 = b2;
+                                pluginNetConfigInfos = parse;
+                            }
+                        }
+                        publishProgress(pluginNetConfigInfos);
+                        if (z) {
+                            j2.k(c2);
+                            l<String> c3 = j2.c("plugin.serverconfig", BdCacheService.CacheStorage.SQLite_CACHE_All_IN_ONE_TABLE, BdCacheService.CacheEvictPolicy.LRU_ON_INSERT, 2);
+                            c3.e("time", String.valueOf(System.currentTimeMillis()), StrictModeTask.CLEAN_FILE_INTERVAL);
+                            c3.e(str4, str2, StrictModeTask.CLEAN_FILE_INTERVAL);
+                        }
+                        return null;
+                    }
+                }
+                z = true;
+                PluginSettings l2 = c.a.e.h.j.g.d.k().l();
+                if (l2 == null) {
+                }
+                String str42 = TbConfig.getVersion() + "." + TbConfig.BUILD_NUMBER + "_" + (l2 == null ? l2.getContainerVersion() : null) + "_" + str;
+                if (!z) {
+                }
+                publishProgress(pluginNetConfigInfos);
+                if (z) {
+                }
+                return null;
+            }
+            return (Void) invokeL.objValue;
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1691655458, "Lc/a/p0/q0/d;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-1691655458, "Lc/a/p0/q0/d;");
+                return;
+            }
+        }
+        f13767c = TbConfig.SERVER_ADDRESS + TbConfig.PLUGIN_NET_CONFIGS_MIS;
+    }
+
+    public d() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {interfaceC1087d};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
+    @Override // c.a.e.h.j.f.b
+    public void a(boolean z, c.a.e.h.j.f.c cVar, c.a.e.h.j.f.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), cVar, aVar}) == null) {
+            if (!TbadkCoreApplication.getInst().isMainProcess(true)) {
+                if (aVar != null) {
+                    aVar.a(false, cVar, null, null);
+                    return;
+                }
                 return;
             }
-        }
-        this.f23314e = new ArrayList();
-        this.f23315f = new ArrayList();
-        this.l = interfaceC1087d;
-        this.f23316g = c.a.e.e.p.l.k(TbadkCoreApplication.getInst()) / 4;
-        this.f23317h = new c.a.o0.c0.b();
-    }
-
-    public void e() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f23318i) {
-            for (CollectEmotionData collectEmotionData : this.f23315f) {
-                collectEmotionData.isSelect = false;
-                collectEmotionData.selectIndex = -1;
+            this.f13768a = aVar;
+            if (!this.f13769b) {
+                this.f13769b = true;
+                new b(this, cVar, z).execute(new Void[0]);
             }
-            this.f23315f.clear();
-            ArrayList arrayList = new ArrayList(this.f23314e);
-            this.f23314e.clear();
-            this.f23314e.addAll(arrayList);
-            notifyDataSetChanged();
-            e eVar = this.k;
-            if (eVar != null) {
-                eVar.b(this.f23315f);
-            }
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.widget.Adapter
-    /* renamed from: f */
-    public CollectEmotionData getItem(int i2) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
-            if (i2 == 0) {
-                return null;
-            }
-            return (CollectEmotionData) ListUtils.getItem(this.f23314e, i2 - 1);
-        }
-        return (CollectEmotionData) invokeI.objValue;
-    }
-
-    public List<CollectEmotionData> g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f23315f : (List) invokeV.objValue;
-    }
-
-    @Override // android.widget.Adapter
-    public int getCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f23314e.size() + 1 : invokeV.intValue;
-    }
-
-    @Override // android.widget.Adapter
-    public long getItemId(int i2) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i2)) == null) ? i2 : invokeI.longValue;
-    }
-
-    @Override // android.widget.BaseAdapter, android.widget.Adapter
-    public int getItemViewType(int i2) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i2)) == null) ? i2 == 0 ? 0 : 1 : invokeI.intValue;
-    }
-
-    @Override // android.widget.Adapter
-    public View getView(int i2, View view, ViewGroup viewGroup) {
-        InterceptResult invokeILL;
-        f fVar;
-        View view2;
-        f fVar2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048583, this, i2, view, viewGroup)) == null) {
-            int itemViewType = getItemViewType(i2);
-            if (itemViewType == 0) {
-                if (view == null) {
-                    fVar = new f(this, null);
-                    view = LayoutInflater.from(TbadkCoreApplication.getInst()).inflate(R.layout.collect_image_item_view, viewGroup, false);
-                    fVar.f23324a = view;
-                    ViewGroup.LayoutParams layoutParams = view.getLayoutParams();
-                    layoutParams.height = this.f23316g;
-                    fVar.f23324a.setLayoutParams(layoutParams);
-                    TbImageView tbImageView = (TbImageView) view.findViewById(R.id.collect_pic);
-                    fVar.f23325b = tbImageView;
-                    ((RelativeLayout.LayoutParams) tbImageView.getLayoutParams()).setMargins(0, 0, 0, 0);
-                    fVar.f23325b.setScaleType(ImageView.ScaleType.CENTER);
-                    view.findViewById(R.id.collect_select_icon).setVisibility(8);
-                    view.setTag(fVar);
-                    SkinManager.setBackgroundColor(view, R.color.white_alpha0, this.f23319j);
-                } else {
-                    fVar = (f) view.getTag();
-                }
-                if (this.f23318i) {
-                    fVar.f23324a.setEnabled(false);
-                    SkinManager.setImageResource(fVar.f23325b, R.drawable.icon_emotion_unplusadd_n);
-                } else {
-                    fVar.f23324a.setEnabled(true);
-                    SkinManager.setImageResource(fVar.f23325b, R.drawable.icon_emotion_plusadd_n);
-                }
-                fVar.f23324a.setOnClickListener(new c(this));
-                return view;
-            } else if (itemViewType != 1) {
-                return view;
-            } else {
-                if (view == null) {
-                    fVar2 = new f(this, null);
-                    view2 = LayoutInflater.from(TbadkCoreApplication.getInst()).inflate(R.layout.collect_image_item_view, viewGroup, false);
-                    fVar2.f23324a = view2;
-                    ViewGroup.LayoutParams layoutParams2 = view2.getLayoutParams();
-                    layoutParams2.height = this.f23316g;
-                    fVar2.f23324a.setLayoutParams(layoutParams2);
-                    fVar2.f23325b = (TbImageView) view2.findViewById(R.id.collect_pic);
-                    fVar2.f23326c = (ImageView) view2.findViewById(R.id.collect_select_icon);
-                    view2.setTag(fVar2);
-                    SkinManager.setBackgroundColor(view2, R.color.CAM_X0201, this.f23319j);
-                } else {
-                    view2 = view;
-                    fVar2 = (f) view.getTag();
-                }
-                fVar2.f23325b.setTag(null);
-                fVar2.f23325b.setDefaultResource(R.drawable.img_default_100);
-                fVar2.f23325b.startLoad(null, 12, false);
-                fVar2.f23325b.invalidate();
-                SkinManager.setBackgroundResource(fVar2.f23325b, R.drawable.btn_choose_face_selector, this.f23319j);
-                ImageFileInfo imageFileInfo = getItem(i2).imageFileInfo;
-                if (imageFileInfo != null) {
-                    imageFileInfo.clearPageActions();
-                    int i3 = this.f23316g;
-                    imageFileInfo.addPageAction(c.a.o0.c0.g.d.g(i3, i3));
-                    fVar2.f23325b.setTag(imageFileInfo.toCachedKey(false));
-                    if (this.f23317h.c(imageFileInfo, false) != null) {
-                        fVar2.f23325b.invalidate();
-                    } else {
-                        this.f23317h.e(imageFileInfo, new a(this, viewGroup), false, false);
+            try {
+                TbadkCoreApplication inst = TbadkCoreApplication.getInst();
+                File filesDir = inst.getFilesDir();
+                if (filesDir == null) {
+                    filesDir = new File("/data/data/" + inst.getPackageName() + "/files/");
+                    try {
+                        if (!filesDir.exists()) {
+                            f.q(filesDir);
+                        }
+                    } catch (IOException unused) {
                     }
                 }
-                if (this.f23318i) {
-                    fVar2.f23326c.setVisibility(0);
-                } else {
-                    fVar2.f23326c.setVisibility(8);
+                File file = new File(filesDir, "pluginsEX");
+                if (file.exists()) {
+                    new a(this, file).execute(new Void[0]);
                 }
-                if (this.f23315f.contains(getItem(i2))) {
-                    SkinManager.setBackgroundResource(fVar2.f23326c, R.drawable.ic_post_image_selected_s);
-                } else {
-                    SkinManager.setBackgroundResource(fVar2.f23326c, R.drawable.ic_post_image_selected_n);
-                }
-                b bVar = new b(this, i2);
-                fVar2.f23325b.setOnClickListener(bVar);
-                fVar2.f23326c.setOnClickListener(bVar);
-                return view2;
+            } catch (Exception e2) {
+                BdLog.e(e2);
             }
-        }
-        return (View) invokeILL.objValue;
-    }
-
-    @Override // android.widget.BaseAdapter, android.widget.Adapter
-    public int getViewTypeCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return 2;
-        }
-        return invokeV.intValue;
-    }
-
-    public void h(e eVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, eVar) == null) {
-            this.k = eVar;
-        }
-    }
-
-    public void i(List<CollectEmotionData> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, list) == null) {
-            this.f23314e.clear();
-            if (list == null) {
-                return;
-            }
-            this.f23314e.addAll(list);
-            notifyDataSetChanged();
-        }
-    }
-
-    public void j(boolean z) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048587, this, z) == null) || this.f23318i == z) {
-            return;
-        }
-        for (CollectEmotionData collectEmotionData : this.f23315f) {
-            collectEmotionData.isSelect = false;
-            collectEmotionData.selectIndex = -1;
-        }
-        this.f23315f.clear();
-        this.f23318i = z;
-        ArrayList arrayList = new ArrayList(this.f23314e);
-        this.f23314e.clear();
-        this.f23314e.addAll(arrayList);
-        notifyDataSetChanged();
-    }
-
-    public void k(int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048588, this, i2) == null) {
-            this.f23319j = i2;
         }
     }
 }

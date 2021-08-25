@@ -16,10 +16,10 @@ public final class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Map<Class<?>, Class<?>> f34062a;
+    public static final Map<Class<?>, Class<?>> f34168a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Map<Class<?>, Class<?>> f34063b;
+    public static final Map<Class<?>, Class<?>> f34169b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -46,8 +46,8 @@ public final class a {
         a(linkedHashMap, linkedHashMap2, Long.TYPE, Long.class);
         a(linkedHashMap, linkedHashMap2, Short.TYPE, Short.class);
         a(linkedHashMap, linkedHashMap2, Void.TYPE, Void.class);
-        f34062a = Collections.unmodifiableMap(linkedHashMap);
-        f34063b = Collections.unmodifiableMap(linkedHashMap2);
+        f34168a = Collections.unmodifiableMap(linkedHashMap);
+        f34169b = Collections.unmodifiableMap(linkedHashMap2);
     }
 
     public static void a(Map<Class<?>, Class<?>> map, Map<Class<?>, Class<?>> map2, Class<?> cls, Class<?> cls2) {
@@ -61,7 +61,7 @@ public final class a {
     public static Set<Class<?>> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f34063b.keySet() : (Set) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f34169b.keySet() : (Set) invokeV.objValue;
     }
 
     public static <T> Class<T> c(Class<T> cls) {
@@ -69,7 +69,7 @@ public final class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, cls)) == null) {
             n.p(cls);
-            Class<T> cls2 = (Class<T>) f34063b.get(cls);
+            Class<T> cls2 = (Class<T>) f34169b.get(cls);
             return cls2 == null ? cls : cls2;
         }
         return (Class) invokeL.objValue;
@@ -80,7 +80,7 @@ public final class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, cls)) == null) {
             n.p(cls);
-            Class<T> cls2 = (Class<T>) f34062a.get(cls);
+            Class<T> cls2 = (Class<T>) f34168a.get(cls);
             return cls2 == null ? cls : cls2;
         }
         return (Class) invokeL.objValue;

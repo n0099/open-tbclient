@@ -9,7 +9,7 @@ public class OpenLogUtil {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static ModuleName f41088a;
+    public static ModuleName f41195a;
     public transient /* synthetic */ FieldHolder $fh;
 
     public OpenLogUtil() {
@@ -29,7 +29,7 @@ public class OpenLogUtil {
     public static void setModuleLogEnable(ModuleName moduleName, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(65537, null, moduleName, z) == null) {
-            f41088a = moduleName;
+            f41195a = moduleName;
             com.baidu.mapsdkplatform.comjni.tools.a.a(z, moduleName.ordinal());
         }
     }

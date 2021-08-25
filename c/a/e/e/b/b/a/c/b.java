@@ -17,13 +17,13 @@ public class b implements c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Cursor f2091a;
+    public Cursor f2149a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final ContentValues f2092b;
+    public final ContentValues f2150b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Set<String> f2093c;
+    public final Set<String> f2151c;
 
     public b(Cursor cursor) {
         Interceptable interceptable = $ic;
@@ -40,15 +40,15 @@ public class b implements c {
                 return;
             }
         }
-        this.f2091a = cursor;
-        this.f2092b = null;
-        this.f2093c = new TreeSet();
+        this.f2149a = cursor;
+        this.f2150b = null;
+        this.f2151c = new TreeSet();
         if (cursor != null) {
             int columnCount = cursor.getColumnCount();
             for (int i4 = 0; i4 < columnCount; i4++) {
                 String columnName = cursor.getColumnName(i4);
                 if (columnName != null) {
-                    this.f2093c.add(columnName);
+                    this.f2151c.add(columnName);
                 }
             }
         }
@@ -58,7 +58,7 @@ public class b implements c {
     public Set<String> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f2093c : (Set) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f2151c : (Set) invokeV.objValue;
     }
 
     @Override // c.a.e.e.b.b.a.c.c
@@ -68,11 +68,11 @@ public class b implements c {
             return;
         }
         if (obj == null) {
-            this.f2092b.putNull(str);
+            this.f2150b.putNull(str);
         } else if (obj.getClass() != Boolean.TYPE && obj.getClass() != Boolean.class) {
             if (obj.getClass() != Byte.TYPE && obj.getClass() != Byte.class) {
                 if (obj.getClass() == byte[].class) {
-                    this.f2092b.put(str, (byte[]) obj);
+                    this.f2150b.put(str, (byte[]) obj);
                     return;
                 } else if (obj.getClass() != Double.TYPE && obj.getClass() != Double.class) {
                     if (obj.getClass() != Float.TYPE && obj.getClass() != Float.class) {
@@ -80,30 +80,30 @@ public class b implements c {
                             if (obj.getClass() != Long.TYPE && obj.getClass() != Long.class) {
                                 if (obj.getClass() != Short.TYPE && obj.getClass() != Short.class) {
                                     if (obj.getClass() == String.class) {
-                                        this.f2092b.put(str, (String) obj);
+                                        this.f2150b.put(str, (String) obj);
                                         return;
                                     }
                                     return;
                                 }
-                                this.f2092b.put(str, (Short) obj);
+                                this.f2150b.put(str, (Short) obj);
                                 return;
                             }
-                            this.f2092b.put(str, (Long) obj);
+                            this.f2150b.put(str, (Long) obj);
                             return;
                         }
-                        this.f2092b.put(str, (Integer) obj);
+                        this.f2150b.put(str, (Integer) obj);
                         return;
                     }
-                    this.f2092b.put(str, (Float) obj);
+                    this.f2150b.put(str, (Float) obj);
                     return;
                 } else {
-                    this.f2092b.put(str, (Double) obj);
+                    this.f2150b.put(str, (Double) obj);
                     return;
                 }
             }
-            this.f2092b.put(str, (Byte) obj);
+            this.f2150b.put(str, (Byte) obj);
         } else {
-            this.f2092b.put(str, (Boolean) obj);
+            this.f2150b.put(str, (Boolean) obj);
         }
     }
 
@@ -127,54 +127,54 @@ public class b implements c {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            int columnIndex = this.f2091a.getColumnIndex(str);
+            int columnIndex = this.f2149a.getColumnIndex(str);
             Object obj = null;
-            if (columnIndex <= 0 || columnIndex >= this.f2091a.getColumnCount()) {
+            if (columnIndex <= 0 || columnIndex >= this.f2149a.getColumnCount()) {
                 return null;
             }
             try {
-                obj = Short.valueOf(this.f2091a.getShort(columnIndex));
+                obj = Short.valueOf(this.f2149a.getShort(columnIndex));
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
             if (obj == null) {
                 try {
-                    obj = Integer.valueOf(this.f2091a.getInt(columnIndex));
+                    obj = Integer.valueOf(this.f2149a.getInt(columnIndex));
                 } catch (Exception e3) {
                     e3.printStackTrace();
                 }
             }
             if (obj == null) {
                 try {
-                    obj = Long.valueOf(this.f2091a.getLong(columnIndex));
+                    obj = Long.valueOf(this.f2149a.getLong(columnIndex));
                 } catch (Exception e4) {
                     e4.printStackTrace();
                 }
             }
             if (obj == null) {
                 try {
-                    obj = Float.valueOf(this.f2091a.getFloat(columnIndex));
+                    obj = Float.valueOf(this.f2149a.getFloat(columnIndex));
                 } catch (Exception e5) {
                     e5.printStackTrace();
                 }
             }
             if (obj == null) {
                 try {
-                    obj = Double.valueOf(this.f2091a.getDouble(columnIndex));
+                    obj = Double.valueOf(this.f2149a.getDouble(columnIndex));
                 } catch (Exception e6) {
                     e6.printStackTrace();
                 }
             }
             if (obj == null) {
                 try {
-                    obj = this.f2091a.getString(columnIndex);
+                    obj = this.f2149a.getString(columnIndex);
                 } catch (Exception e7) {
                     e7.printStackTrace();
                 }
             }
             if (obj == null) {
                 try {
-                    return this.f2091a.getBlob(columnIndex);
+                    return this.f2149a.getBlob(columnIndex);
                 } catch (Exception e8) {
                     e8.printStackTrace();
                     return obj;
@@ -200,7 +200,7 @@ public class b implements c {
                 return;
             }
         }
-        this.f2092b = contentValues;
-        this.f2093c = new TreeSet();
+        this.f2150b = contentValues;
+        this.f2151c = new TreeSet();
     }
 }

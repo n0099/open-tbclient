@@ -24,16 +24,16 @@ public class TTRoundRectImageView extends ImageView {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Paint f66903a;
+    public Paint f67103a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f66904b;
+    public int f67104b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f66905c;
+    public int f67105c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Matrix f66906d;
+    public Matrix f67106d;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public TTRoundRectImageView(Context context) {
@@ -91,10 +91,10 @@ public class TTRoundRectImageView extends ImageView {
                     if (a2.getWidth() != getWidth() || a2.getHeight() != getHeight()) {
                         f2 = Math.max((getWidth() * 1.0f) / a2.getWidth(), (getHeight() * 1.0f) / a2.getHeight());
                     }
-                    this.f66906d.setScale(f2, f2);
-                    bitmapShader.setLocalMatrix(this.f66906d);
-                    this.f66903a.setShader(bitmapShader);
-                    canvas.drawRoundRect(new RectF(0.0f, 0.0f, getWidth(), getHeight()), this.f66904b, this.f66905c, this.f66903a);
+                    this.f67106d.setScale(f2, f2);
+                    bitmapShader.setLocalMatrix(this.f67106d);
+                    this.f67103a.setShader(bitmapShader);
+                    canvas.drawRoundRect(new RectF(0.0f, 0.0f, getWidth(), getHeight()), this.f67104b, this.f67105c, this.f67103a);
                     return;
                 }
                 super.onDraw(canvas);
@@ -107,7 +107,7 @@ public class TTRoundRectImageView extends ImageView {
     public void setXRound(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            this.f66904b = i2;
+            this.f67104b = i2;
             postInvalidate();
         }
     }
@@ -115,7 +115,7 @@ public class TTRoundRectImageView extends ImageView {
     public void setYRound(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            this.f66905c = i2;
+            this.f67105c = i2;
             postInvalidate();
         }
     }
@@ -160,12 +160,12 @@ public class TTRoundRectImageView extends ImageView {
                 return;
             }
         }
-        this.f66904b = 25;
-        this.f66905c = 25;
+        this.f67104b = 25;
+        this.f67105c = 25;
         Paint paint = new Paint();
-        this.f66903a = paint;
+        this.f67103a = paint;
         paint.setAntiAlias(true);
-        this.f66903a.setFilterBitmap(true);
-        this.f66906d = new Matrix();
+        this.f67103a.setFilterBitmap(true);
+        this.f67106d = new Matrix();
     }
 }

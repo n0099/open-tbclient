@@ -1,166 +1,174 @@
 package c.a.p0.d0;
 
+import android.app.Application;
+import android.content.Context;
+import android.content.Intent;
+import android.content.pm.PackageInfo;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.imsdk.internal.Constants;
+import c.a.e.e.p.l;
+import c.a.p0.s.f0.p.d.b;
+import c.a.q0.x2.f0.g;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.core.view.itemcard.download.ItemDownloadExtraData;
+import com.baidu.tbadk.download.DownloadData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+import tbclient.Item;
 /* loaded from: classes3.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* renamed from: a  reason: collision with root package name */
-    public String f16359a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public long f16360b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public int f16361c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public long f16362d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public long f16363e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public String f16364f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public long f16365g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public String f16366h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public String f16367i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public String f16368j;
-    public String k;
-    public String l;
-    public int m;
-    public double n;
-
-    public a() {
+    public static void a(DownloadData downloadData) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || interceptable.invokeL(65536, null, downloadData) == null) {
+            b.a(downloadData, 400);
+            g.l().g(downloadData.getUrl(), downloadData.getId());
+        }
+    }
+
+    public static boolean b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) ? g.l().p(str) : invokeL.booleanValue;
+    }
+
+    public static int c(@NonNull DownloadData downloadData) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, downloadData)) == null) {
+            if (g.l().o(downloadData.getId())) {
+                return 5;
+            }
+            if (g.l().q(downloadData.getId())) {
+                return 1;
+            }
+            return g.l().n(downloadData.getId(), downloadData.getName()) ? 7 : 6;
+        }
+        return invokeL.intValue;
+    }
+
+    public static PackageInfo d(String str) {
+        InterceptResult invokeL;
+        PackageInfo packageInfo;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            try {
+                packageInfo = TbadkApplication.getInst().getPackageManager().getPackageInfo(str, 0);
+            } catch (Exception e2) {
+                e2.printStackTrace();
+            }
+            if (str.equals(packageInfo.packageName)) {
+                return packageInfo;
+            }
+            return null;
+        }
+        return (PackageInfo) invokeL.objValue;
+    }
+
+    public static Intent e(Context context, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str)) == null) {
+            try {
+                return context.getPackageManager().getLaunchIntentForPackage(str);
+            } catch (Exception unused) {
+                return null;
             }
         }
+        return (Intent) invokeLL.objValue;
     }
 
-    public String a() {
-        InterceptResult invokeV;
+    public static String f(Intent intent) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f16368j : (String) invokeV.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, intent)) == null) {
+            String dataString = intent.getDataString();
+            if (TextUtils.isEmpty(dataString)) {
+                return null;
+            }
+            String[] split = dataString.split(":");
+            return split.length == 2 ? split[1] : dataString;
+        }
+        return (String) invokeL.objValue;
     }
 
-    public String b() {
-        InterceptResult invokeV;
+    public static int g(@NonNull DownloadData downloadData) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f16366h : (String) invokeV.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, downloadData)) == null) {
+            int i2 = g.l().i(downloadData.getId(), downloadData.getName());
+            if (i2 < 0 || i2 > 100) {
+                return 0;
+            }
+            return i2;
+        }
+        return invokeL.intValue;
     }
 
-    public String c() {
-        InterceptResult invokeV;
+    public static void h(DownloadData downloadData) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f16367i : (String) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeL(65543, null, downloadData) == null) {
+            b.a(downloadData, 800);
+            Application app = TbadkCoreApplication.getInst().getApp();
+            UtilHelper.install_apk(app, downloadData.getId().replace(".", "_") + ".apk");
+        }
     }
 
-    public long d() {
-        InterceptResult invokeV;
+    public static DownloadData i(Item item) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f16362d : invokeV.longValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, item)) == null) {
+            String str = item.apk_name + ".v" + item.apk_detail.version;
+            DownloadData downloadData = new DownloadData();
+            downloadData.setType(12);
+            downloadData.setId(str);
+            downloadData.setName(item.item_name);
+            downloadData.setUrl(item.button_link);
+            downloadData.setNotifyId(g.m(str).intValue());
+            downloadData.setNeedInvokeApk(true);
+            downloadData.setNeedNotify(false);
+            ItemDownloadExtraData itemDownloadExtraData = new ItemDownloadExtraData(item.apk_detail.pkg_source.intValue());
+            itemDownloadExtraData.appName = item.item_name;
+            itemDownloadExtraData.pkgName = item.apk_name;
+            downloadData.setExtra(itemDownloadExtraData);
+            return downloadData;
+        }
+        return (DownloadData) invokeL.objValue;
     }
 
-    public int e() {
-        InterceptResult invokeV;
+    public static void j(String str) {
+        Context context;
+        Intent e2;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.m : invokeV.intValue;
-    }
-
-    public long f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f16363e : invokeV.longValue;
-    }
-
-    public long g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f16365g : invokeV.longValue;
-    }
-
-    public String h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f16359a : (String) invokeV.objValue;
-    }
-
-    public double i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.n : invokeV.doubleValue;
-    }
-
-    public String j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? StringUtils.isNull(this.l) ? this.k : this.l : (String) invokeV.objValue;
-    }
-
-    public int k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f16361c : invokeV.intValue;
-    }
-
-    public String l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f16364f : (String) invokeV.objValue;
-    }
-
-    public long m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f16360b : invokeV.longValue;
-    }
-
-    public void n(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048589, this, jSONObject) == null) || jSONObject == null) {
+        if (!(interceptable == null || interceptable.invokeL(65545, null, str) == null) || TextUtils.isEmpty(str) || (e2 = e((context = TbadkCoreApplication.getInst().getContext()), str)) == null) {
             return;
         }
-        this.f16359a = jSONObject.optString("order_id");
-        jSONObject.optLong("scene_id");
-        this.f16360b = jSONObject.optLong("scores");
-        this.f16361c = jSONObject.optInt("status");
-        this.f16362d = jSONObject.optLong("create_time");
-        this.f16363e = jSONObject.optLong("finish_time");
-        this.f16364f = jSONObject.optString("title");
-        this.f16365g = jSONObject.optLong("money");
-        jSONObject.optString("preg_field");
-        this.k = jSONObject.optString("user_name");
-        this.l = jSONObject.optString("user_nickname");
-        this.f16366h = jSONObject.optString("activity_desc");
-        this.f16367i = jSONObject.optString("activity_url");
-        this.f16368j = jSONObject.optString("button_name");
-        this.m = jSONObject.optInt("price_type", 0);
-        this.n = jSONObject.optDouble("order_yy_amount", 0.0d);
-        jSONObject.optDouble("order_amount", 0.0d);
+        try {
+            context.startActivity(e2);
+        } catch (Exception unused) {
+        }
+    }
+
+    public static boolean k(DownloadData downloadData) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, downloadData)) == null) {
+            if (l.D()) {
+                return g.l().s(downloadData);
+            }
+            c.a.p0.w.b.b(downloadData);
+            return false;
+        }
+        return invokeL.booleanValue;
     }
 }

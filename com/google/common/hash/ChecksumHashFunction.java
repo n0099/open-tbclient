@@ -32,10 +32,10 @@ public final class ChecksumHashFunction extends c.i.d.d.b implements Serializabl
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: b  reason: collision with root package name */
-        public final Checksum f70420b;
+        public final Checksum f70620b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ ChecksumHashFunction f70421c;
+        public final /* synthetic */ ChecksumHashFunction f70621c;
 
         public /* synthetic */ b(ChecksumHashFunction checksumHashFunction, Checksum checksum, a aVar) {
             this(checksumHashFunction, checksum);
@@ -46,8 +46,8 @@ public final class ChecksumHashFunction extends c.i.d.d.b implements Serializabl
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                long value = this.f70420b.getValue();
-                if (this.f70421c.bits == 32) {
+                long value = this.f70620b.getValue();
+                if (this.f70621c.bits == 32) {
                     return HashCode.fromInt((int) value);
                 }
                 return HashCode.fromLong(value);
@@ -59,7 +59,7 @@ public final class ChecksumHashFunction extends c.i.d.d.b implements Serializabl
         public void m(byte b2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeB(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, b2) == null) {
-                this.f70420b.update(b2);
+                this.f70620b.update(b2);
             }
         }
 
@@ -67,7 +67,7 @@ public final class ChecksumHashFunction extends c.i.d.d.b implements Serializabl
         public void p(byte[] bArr, int i2, int i3) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, bArr, i2, i3) == null) {
-                this.f70420b.update(bArr, i2, i3);
+                this.f70620b.update(bArr, i2, i3);
             }
         }
 
@@ -86,9 +86,9 @@ public final class ChecksumHashFunction extends c.i.d.d.b implements Serializabl
                     return;
                 }
             }
-            this.f70421c = checksumHashFunction;
+            this.f70621c = checksumHashFunction;
             n.p(checksum);
-            this.f70420b = checksum;
+            this.f70620b = checksum;
         }
     }
 

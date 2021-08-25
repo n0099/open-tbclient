@@ -47,19 +47,19 @@ public final class a extends d {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: f  reason: collision with root package name */
-    public final l f33229f;
+    public final l f33335f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final int f33230g;
+    public final int f33336g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final int f33231h;
+    public final int f33337h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final LinkedList<C1486a> f33232i;
+    public final LinkedList<C1490a> f33338i;
 
     /* renamed from: j  reason: collision with root package name */
-    public C1486a f33233j;
+    public C1490a f33339j;
     public List<c.i.b.a.e0.b> k;
     public List<c.i.b.a.e0.b> l;
     public int m;
@@ -70,56 +70,56 @@ public final class a extends d {
 
     /* renamed from: c.i.b.a.e0.l.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public static class C1486a {
+    public static class C1490a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final List<CharacterStyle> f33234a;
+        public final List<CharacterStyle> f33340a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final List<C1487a> f33235b;
+        public final List<C1491a> f33341b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final List<SpannableString> f33236c;
+        public final List<SpannableString> f33342c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final SpannableStringBuilder f33237d;
+        public final SpannableStringBuilder f33343d;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f33238e;
+        public int f33344e;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f33239f;
+        public int f33345f;
 
         /* renamed from: g  reason: collision with root package name */
-        public int f33240g;
+        public int f33346g;
 
         /* renamed from: h  reason: collision with root package name */
-        public int f33241h;
+        public int f33347h;
 
         /* renamed from: i  reason: collision with root package name */
-        public int f33242i;
+        public int f33348i;
 
         /* renamed from: j  reason: collision with root package name */
-        public int f33243j;
+        public int f33349j;
 
         /* renamed from: c.i.b.a.e0.l.a$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public static class C1487a {
+        public static class C1491a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final CharacterStyle f33244a;
+            public final CharacterStyle f33350a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final int f33245b;
+            public final int f33351b;
 
             /* renamed from: c  reason: collision with root package name */
-            public final int f33246c;
+            public final int f33352c;
 
-            public C1487a(CharacterStyle characterStyle, int i2, int i3) {
+            public C1491a(CharacterStyle characterStyle, int i2, int i3) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -134,13 +134,13 @@ public final class a extends d {
                         return;
                     }
                 }
-                this.f33244a = characterStyle;
-                this.f33245b = i2;
-                this.f33246c = i3;
+                this.f33350a = characterStyle;
+                this.f33351b = i2;
+                this.f33352c = i3;
             }
         }
 
-        public C1486a(int i2, int i3) {
+        public C1490a(int i2, int i3) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -155,27 +155,27 @@ public final class a extends d {
                     return;
                 }
             }
-            this.f33234a = new ArrayList();
-            this.f33235b = new ArrayList();
-            this.f33236c = new LinkedList();
-            this.f33237d = new SpannableStringBuilder();
+            this.f33340a = new ArrayList();
+            this.f33341b = new ArrayList();
+            this.f33342c = new LinkedList();
+            this.f33343d = new SpannableStringBuilder();
             g(i2, i3);
         }
 
         public void a(char c2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Character.valueOf(c2)}) == null) {
-                this.f33237d.append(c2);
+                this.f33343d.append(c2);
             }
         }
 
         public void b() {
             int length;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (length = this.f33237d.length()) <= 0) {
+            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (length = this.f33343d.length()) <= 0) {
                 return;
             }
-            this.f33237d.delete(length - 1, length);
+            this.f33343d.delete(length - 1, length);
         }
 
         public c.i.b.a.e0.b c() {
@@ -188,28 +188,28 @@ public final class a extends d {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
                 SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
-                for (int i5 = 0; i5 < this.f33236c.size(); i5++) {
-                    spannableStringBuilder.append((CharSequence) this.f33236c.get(i5));
+                for (int i5 = 0; i5 < this.f33342c.size(); i5++) {
+                    spannableStringBuilder.append((CharSequence) this.f33342c.get(i5));
                     spannableStringBuilder.append('\n');
                 }
                 spannableStringBuilder.append((CharSequence) d());
                 if (spannableStringBuilder.length() == 0) {
                     return null;
                 }
-                int i6 = this.f33239f + this.f33240g;
+                int i6 = this.f33345f + this.f33346g;
                 int length2 = i6 - ((32 - i6) - spannableStringBuilder.length());
-                if (this.f33241h == 2 && Math.abs(length2) < 3) {
+                if (this.f33347h == 2 && Math.abs(length2) < 3) {
                     f2 = 0.5f;
                     i2 = 1;
-                } else if (this.f33241h != 2 || length2 <= 0) {
+                } else if (this.f33347h != 2 || length2 <= 0) {
                     f2 = ((i6 / 32.0f) * 0.8f) + 0.1f;
                     i2 = 0;
                 } else {
                     f2 = (((32 - length) / 32.0f) * 0.8f) + 0.1f;
                     i2 = 2;
                 }
-                if (this.f33241h == 1 || (i3 = this.f33238e) > 7) {
-                    i3 = (this.f33238e - 15) - 2;
+                if (this.f33347h == 1 || (i3 = this.f33344e) > 7) {
+                    i3 = (this.f33344e - 15) - 2;
                     i4 = 2;
                 } else {
                     i4 = 0;
@@ -223,22 +223,22 @@ public final class a extends d {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                int length = this.f33237d.length();
+                int length = this.f33343d.length();
                 int i2 = 0;
-                for (int i3 = 0; i3 < this.f33234a.size(); i3++) {
-                    this.f33237d.setSpan(this.f33234a.get(i3), 0, length, 33);
+                for (int i3 = 0; i3 < this.f33340a.size(); i3++) {
+                    this.f33343d.setSpan(this.f33340a.get(i3), 0, length, 33);
                 }
-                while (i2 < this.f33235b.size()) {
-                    C1487a c1487a = this.f33235b.get(i2);
-                    int size = this.f33235b.size();
-                    int i4 = c1487a.f33246c;
-                    this.f33237d.setSpan(c1487a.f33244a, c1487a.f33245b, i2 < size - i4 ? this.f33235b.get(i4 + i2).f33245b : length, 33);
+                while (i2 < this.f33341b.size()) {
+                    C1491a c1491a = this.f33341b.get(i2);
+                    int size = this.f33341b.size();
+                    int i4 = c1491a.f33352c;
+                    this.f33343d.setSpan(c1491a.f33350a, c1491a.f33351b, i2 < size - i4 ? this.f33341b.get(i4 + i2).f33351b : length, 33);
                     i2++;
                 }
-                if (this.f33243j != -1) {
-                    this.f33237d.setSpan(new UnderlineSpan(), this.f33243j, length, 33);
+                if (this.f33349j != -1) {
+                    this.f33343d.setSpan(new UnderlineSpan(), this.f33349j, length, 33);
                 }
-                return new SpannableString(this.f33237d);
+                return new SpannableString(this.f33343d);
             }
             return (SpannableString) invokeV.objValue;
         }
@@ -246,42 +246,42 @@ public final class a extends d {
         public int e() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f33238e : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f33344e : invokeV.intValue;
         }
 
         public boolean f() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f33234a.isEmpty() && this.f33235b.isEmpty() && this.f33236c.isEmpty() && this.f33237d.length() == 0 : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f33340a.isEmpty() && this.f33341b.isEmpty() && this.f33342c.isEmpty() && this.f33343d.length() == 0 : invokeV.booleanValue;
         }
 
         public void g(int i2, int i3) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeII(1048582, this, i2, i3) == null) {
-                this.f33234a.clear();
-                this.f33235b.clear();
-                this.f33236c.clear();
-                this.f33237d.clear();
-                this.f33238e = 15;
-                this.f33239f = 0;
-                this.f33240g = 0;
-                this.f33241h = i2;
-                this.f33242i = i3;
-                this.f33243j = -1;
+                this.f33340a.clear();
+                this.f33341b.clear();
+                this.f33342c.clear();
+                this.f33343d.clear();
+                this.f33344e = 15;
+                this.f33345f = 0;
+                this.f33346g = 0;
+                this.f33347h = i2;
+                this.f33348i = i3;
+                this.f33349j = -1;
             }
         }
 
         public void h() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-                this.f33236c.add(d());
-                this.f33237d.clear();
-                this.f33234a.clear();
-                this.f33235b.clear();
-                this.f33243j = -1;
-                int min = Math.min(this.f33242i, this.f33238e);
-                while (this.f33236c.size() >= min) {
-                    this.f33236c.remove(0);
+                this.f33342c.add(d());
+                this.f33343d.clear();
+                this.f33340a.clear();
+                this.f33341b.clear();
+                this.f33349j = -1;
+                int min = Math.min(this.f33348i, this.f33344e);
+                while (this.f33342c.size() >= min) {
+                    this.f33342c.remove(0);
                 }
             }
         }
@@ -289,35 +289,35 @@ public final class a extends d {
         public void i(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
-                this.f33239f = i2;
+                this.f33345f = i2;
             }
         }
 
         public void j(CharacterStyle characterStyle, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048585, this, characterStyle, i2) == null) {
-                this.f33235b.add(new C1487a(characterStyle, this.f33237d.length(), i2));
+                this.f33341b.add(new C1491a(characterStyle, this.f33343d.length(), i2));
             }
         }
 
         public void k(CharacterStyle characterStyle) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048586, this, characterStyle) == null) {
-                this.f33234a.add(characterStyle);
+                this.f33340a.add(characterStyle);
             }
         }
 
         public void l(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048587, this, i2) == null) {
-                this.f33238e = i2;
+                this.f33344e = i2;
             }
         }
 
         public void m(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048588, this, i2) == null) {
-                this.f33240g = i2;
+                this.f33346g = i2;
             }
         }
 
@@ -325,10 +325,10 @@ public final class a extends d {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048589, this, z) == null) {
                 if (z) {
-                    this.f33243j = this.f33237d.length();
-                } else if (this.f33243j != -1) {
-                    this.f33237d.setSpan(new UnderlineSpan(), this.f33243j, this.f33237d.length(), 33);
-                    this.f33243j = -1;
+                    this.f33349j = this.f33343d.length();
+                } else if (this.f33349j != -1) {
+                    this.f33343d.setSpan(new UnderlineSpan(), this.f33349j, this.f33343d.length(), 33);
+                    this.f33349j = -1;
                 }
             }
         }
@@ -336,7 +336,7 @@ public final class a extends d {
         public String toString() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.f33237d.toString() : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.f33343d.toString() : (String) invokeV.objValue;
         }
     }
 
@@ -377,14 +377,14 @@ public final class a extends d {
                 return;
             }
         }
-        this.f33229f = new l();
-        this.f33232i = new LinkedList<>();
-        this.f33233j = new C1486a(0, 4);
-        this.f33230g = "application/x-mp4-cea-608".equals(str) ? 2 : 3;
+        this.f33335f = new l();
+        this.f33338i = new LinkedList<>();
+        this.f33339j = new C1490a(0, 4);
+        this.f33336g = "application/x-mp4-cea-608".equals(str) ? 2 : 3;
         if (i2 != 3 && i2 != 4) {
-            this.f33231h = 1;
+            this.f33337h = 1;
         } else {
-            this.f33231h = 2;
+            this.f33337h = 2;
         }
         B(0);
         A();
@@ -447,9 +447,9 @@ public final class a extends d {
     public final void A() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f33233j.g(this.m, this.n);
-            this.f33232i.clear();
-            this.f33232i.add(this.f33233j);
+            this.f33339j.g(this.m, this.n);
+            this.f33338i.clear();
+            this.f33338i.add(this.f33339j);
         }
     }
 
@@ -482,36 +482,36 @@ public final class a extends d {
     public void f(h hVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, hVar) == null) {
-            this.f33229f.H(hVar.f33874g.array(), hVar.f33874g.limit());
+            this.f33335f.H(hVar.f33980g.array(), hVar.f33980g.limit());
             boolean z = false;
             boolean z2 = false;
             while (true) {
-                int a2 = this.f33229f.a();
-                int i2 = this.f33230g;
+                int a2 = this.f33335f.a();
+                int i2 = this.f33336g;
                 if (a2 < i2) {
                     break;
                 }
-                byte x2 = i2 == 2 ? (byte) -4 : (byte) this.f33229f.x();
-                byte x3 = (byte) (this.f33229f.x() & 127);
-                byte x4 = (byte) (this.f33229f.x() & 127);
-                if ((x2 & 6) == 4 && (this.f33231h != 1 || (x2 & 1) == 0)) {
-                    if (this.f33231h != 2 || (x2 & 1) == 1) {
+                byte x2 = i2 == 2 ? (byte) -4 : (byte) this.f33335f.x();
+                byte x3 = (byte) (this.f33335f.x() & 127);
+                byte x4 = (byte) (this.f33335f.x() & 127);
+                if ((x2 & 6) == 4 && (this.f33337h != 1 || (x2 & 1) == 0)) {
+                    if (this.f33337h != 2 || (x2 & 1) == 1) {
                         if (x3 != 0 || x4 != 0) {
                             if ((x3 & 247) == 17 && (x4 & 240) == 48) {
-                                this.f33233j.a(q(x4));
+                                this.f33339j.a(q(x4));
                             } else if ((x3 & 246) == 18 && (x4 & 224) == 32) {
-                                this.f33233j.b();
+                                this.f33339j.b();
                                 if ((x3 & 1) == 0) {
-                                    this.f33233j.a(o(x4));
+                                    this.f33339j.a(o(x4));
                                 } else {
-                                    this.f33233j.a(p(x4));
+                                    this.f33339j.a(p(x4));
                                 }
                             } else if ((x3 & 224) == 0) {
                                 z2 = r(x3, x4);
                             } else {
-                                this.f33233j.a(m(x3));
+                                this.f33339j.a(m(x3));
                                 if ((x4 & 224) != 0) {
-                                    this.f33233j.a(m(x4));
+                                    this.f33339j.a(m(x4));
                                 }
                             }
                             z = true;
@@ -559,8 +559,8 @@ public final class a extends d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             ArrayList arrayList = new ArrayList();
-            for (int i2 = 0; i2 < this.f33232i.size(); i2++) {
-                c.i.b.a.e0.b c2 = this.f33232i.get(i2).c();
+            for (int i2 = 0; i2 < this.f33338i.size(); i2++) {
+                c.i.b.a.e0.b c2 = this.f33338i.get(i2).c();
                 if (c2 != null) {
                     arrayList.add(c2);
                 }
@@ -589,7 +589,7 @@ public final class a extends d {
             } else if (x(b2, b3)) {
                 u(b2, b3);
             } else if (z(b2, b3)) {
-                this.f33233j.m(b3 - 32);
+                this.f33339j.m(b3 - 32);
             } else if (w(b2, b3)) {
                 t(b3);
             }
@@ -608,14 +608,14 @@ public final class a extends d {
     public final void s(byte b2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeB(1048585, this, b2) == null) {
-            this.f33233j.n((b2 & 1) == 1);
+            this.f33339j.n((b2 & 1) == 1);
             int i2 = (b2 >> 1) & 15;
             if (i2 == 7) {
-                this.f33233j.j(new StyleSpan(2), 2);
-                this.f33233j.j(new ForegroundColorSpan(-1), 1);
+                this.f33339j.j(new StyleSpan(2), 2);
+                this.f33339j.j(new ForegroundColorSpan(-1), 1);
                 return;
             }
-            this.f33233j.j(new ForegroundColorSpan(t[i2]), 1);
+            this.f33339j.j(new ForegroundColorSpan(t[i2]), 1);
         }
     }
 
@@ -653,10 +653,10 @@ public final class a extends d {
                                     }
                                     return;
                                 case 45:
-                                    if (i2 != 1 || this.f33233j.f()) {
+                                    if (i2 != 1 || this.f33339j.f()) {
                                         return;
                                     }
-                                    this.f33233j.h();
+                                    this.f33339j.h();
                                     return;
                                 case 46:
                                     A();
@@ -669,7 +669,7 @@ public final class a extends d {
                                     return;
                             }
                         }
-                        this.f33233j.b();
+                        this.f33339j.b();
                         return;
                 }
             } else {
@@ -685,25 +685,25 @@ public final class a extends d {
             if ((b3 & 32) != 0) {
                 i2++;
             }
-            if (i2 != this.f33233j.e()) {
-                if (this.m != 1 && !this.f33233j.f()) {
-                    C1486a c1486a = new C1486a(this.m, this.n);
-                    this.f33233j = c1486a;
-                    this.f33232i.add(c1486a);
+            if (i2 != this.f33339j.e()) {
+                if (this.m != 1 && !this.f33339j.f()) {
+                    C1490a c1490a = new C1490a(this.m, this.n);
+                    this.f33339j = c1490a;
+                    this.f33338i.add(c1490a);
                 }
-                this.f33233j.l(i2);
+                this.f33339j.l(i2);
             }
             if ((b3 & 1) == 1) {
-                this.f33233j.k(new UnderlineSpan());
+                this.f33339j.k(new UnderlineSpan());
             }
             int i3 = (b3 >> 1) & 15;
             if (i3 > 7) {
-                this.f33233j.i(s[i3 & 7]);
+                this.f33339j.i(s[i3 & 7]);
             } else if (i3 == 7) {
-                this.f33233j.k(new StyleSpan(2));
-                this.f33233j.k(new ForegroundColorSpan(-1));
+                this.f33339j.k(new StyleSpan(2));
+                this.f33339j.k(new ForegroundColorSpan(-1));
             } else {
-                this.f33233j.k(new ForegroundColorSpan(t[i3]));
+                this.f33339j.k(new ForegroundColorSpan(t[i3]));
             }
         }
     }

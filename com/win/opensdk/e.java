@@ -14,10 +14,10 @@ public class e implements g {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public d0 f76633a;
+    public d0 f76834a;
 
     /* renamed from: b  reason: collision with root package name */
-    public f f76634b;
+    public f f76835b;
 
     public e(Context context, String str) {
         Interceptable interceptable = $ic;
@@ -35,20 +35,20 @@ public class e implements g {
             }
         }
         d0 d0Var = new d0(context, str);
-        this.f76633a = d0Var;
-        d0Var.f76622f = new d(this);
+        this.f76834a = d0Var;
+        d0Var.f76823f = new d(this);
     }
 
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             try {
-                if (this.f76633a != null) {
-                    this.f76633a.a();
-                    this.f76633a = null;
+                if (this.f76834a != null) {
+                    this.f76834a.a();
+                    this.f76834a = null;
                 }
-                if (this.f76634b != null) {
-                    this.f76634b = null;
+                if (this.f76835b != null) {
+                    this.f76835b = null;
                 }
             } catch (Exception unused) {
             }
@@ -59,11 +59,11 @@ public class e implements g {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            d0 d0Var = this.f76633a;
+            d0 d0Var = this.f76834a;
             if (d0Var == null || !d0Var.b()) {
                 return null;
             }
-            return d0Var.f76619c;
+            return d0Var.f76820c;
         }
         return (Info) invokeV.objValue;
     }

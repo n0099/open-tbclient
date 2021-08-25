@@ -1,0 +1,19 @@
+package c.a.o0.h.j0;
+
+import com.baidu.searchbox.v8engine.event.JSEvent;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
+/* loaded from: classes3.dex */
+public class a {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    public static void a(c.a.o0.a.l0.a aVar, String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65536, null, aVar, str) == null) && aVar != null && aVar.o().hasEventListener("deviceOrientationChange")) {
+            JSEvent jSEvent = new JSEvent("deviceOrientationChange");
+            jSEvent.data = new c.a.o0.h.j0.c.a(str);
+            aVar.S(jSEvent);
+        }
+    }
+}

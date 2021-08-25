@@ -19,10 +19,10 @@ public class a {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f75208a = "a";
+    public static final String f75409a = "a";
 
     /* renamed from: b  reason: collision with root package name */
-    public static Boolean f75209b;
+    public static Boolean f75410b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -38,7 +38,7 @@ public class a {
                 return;
             }
         }
-        f75209b = Boolean.valueOf(f.f75169b);
+        f75410b = Boolean.valueOf(f.f75370b);
     }
 
     public a() {
@@ -68,7 +68,7 @@ public class a {
                 aVar.a(byteArrayInputStream, byteArrayOutputStream);
                 return KeyFactory.getInstance("RSA").generatePublic(new X509EncodedKeySpec(byteArrayOutputStream.toByteArray()));
             } catch (Exception e2) {
-                c.b(f75208a, e2.toString(), f75209b);
+                c.b(f75409a, e2.toString(), f75410b);
                 return null;
             }
         }

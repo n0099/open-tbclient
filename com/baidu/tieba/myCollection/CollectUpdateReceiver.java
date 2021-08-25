@@ -4,7 +4,7 @@ import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
-import c.a.p0.b2.b;
+import c.a.q0.b2.b;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.NotificationHelper;
@@ -39,7 +39,7 @@ public class CollectUpdateReceiver extends BroadcastReceiver {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) && ACTION_NAME.equals(intent.getAction())) {
             b.b().g();
-            if (c.a.o0.s.d0.b.j().g("collect_update_flag_key" + TbadkCoreApplication.getCurrentAccount(), false)) {
+            if (c.a.p0.s.d0.b.j().g("collect_update_flag_key" + TbadkCoreApplication.getCurrentAccount(), false)) {
                 try {
                     Intent intent2 = new Intent(context, DealIntentService.class);
                     intent2.putExtra(DealIntentService.KEY_CLASS, 33);

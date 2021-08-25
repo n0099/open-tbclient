@@ -15,13 +15,13 @@ public final class g implements c.r.a.a.a.b.b, com.yxcorp.kuaishou.addfp.a.b.b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f77901a;
+    public Context f78102a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c.r.a.a.a.a.a f77902b;
+    public c.r.a.a.a.a.a f78103b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f77903c;
+    public String f78104c;
 
     public g(Context context, c.r.a.a.a.a.a aVar) {
         Interceptable interceptable = $ic;
@@ -38,8 +38,8 @@ public final class g implements c.r.a.a.a.b.b, com.yxcorp.kuaishou.addfp.a.b.b {
                 return;
             }
         }
-        this.f77901a = context;
-        this.f77902b = aVar;
+        this.f78102a = context;
+        this.f78103b = aVar;
     }
 
     @Override // c.r.a.a.a.b.b
@@ -47,23 +47,23 @@ public final class g implements c.r.a.a.a.b.b, com.yxcorp.kuaishou.addfp.a.b.b {
         c.r.a.a.a.b.k.a aVar2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-            aVar2 = c.r.a.a.a.b.k.c.f35312a;
-            aVar2.c(this.f77901a, this);
+            aVar2 = c.r.a.a.a.b.k.c.f35418a;
+            aVar2.c(this.f78102a, this);
         }
     }
 
     @Override // com.yxcorp.kuaishou.addfp.a.b.b
     public final void a(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || this.f77902b == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || this.f78103b == null) {
             return;
         }
         if (TextUtils.isEmpty(str)) {
-            this.f77902b.a(false, null);
+            this.f78103b.a(false, null);
             return;
         }
-        this.f77903c = str;
-        this.f77902b.a(true, this);
+        this.f78104c = str;
+        this.f78103b.a(true, this);
     }
 
     @Override // c.r.a.a.a.b.b
@@ -90,7 +90,7 @@ public final class g implements c.r.a.a.a.b.b, com.yxcorp.kuaishou.addfp.a.b.b {
     public final String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f77903c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f78104c : (String) invokeV.objValue;
     }
 
     @Override // c.r.a.a.a.b.b
@@ -99,7 +99,7 @@ public final class g implements c.r.a.a.a.b.b, com.yxcorp.kuaishou.addfp.a.b.b {
         c.r.a.a.a.b.k.a aVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            aVar = c.r.a.a.a.b.k.c.f35312a;
+            aVar = c.r.a.a.a.b.k.c.f35418a;
             return aVar.e();
         }
         return invokeV.booleanValue;
@@ -110,8 +110,8 @@ public final class g implements c.r.a.a.a.b.b, com.yxcorp.kuaishou.addfp.a.b.b {
         c.r.a.a.a.b.k.a aVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            aVar = c.r.a.a.a.b.k.c.f35312a;
-            aVar.b(this.f77901a);
+            aVar = c.r.a.a.a.b.k.c.f35418a;
+            aVar.b(this.f78102a);
         }
     }
 
@@ -119,7 +119,7 @@ public final class g implements c.r.a.a.a.b.b, com.yxcorp.kuaishou.addfp.a.b.b {
     public final void e() {
         c.r.a.a.a.a.a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || (aVar = this.f77902b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || (aVar = this.f78103b) == null) {
             return;
         }
         aVar.a(false, this);

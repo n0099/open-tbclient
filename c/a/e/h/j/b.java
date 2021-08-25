@@ -26,17 +26,17 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static volatile b f2775d;
+    public static volatile b f2833d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public HashMap<String, String> f2776a;
+    public HashMap<String, String> f2834a;
 
     /* renamed from: b  reason: collision with root package name */
-    public a f2777b;
+    public a f2835b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f2778c;
+    public boolean f2836c;
 
     /* loaded from: classes.dex */
     public class a extends BdAsyncTask<Void, Integer, Boolean> {
@@ -44,7 +44,7 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ b f2779a;
+        public final /* synthetic */ b f2837a;
 
         public a(b bVar) {
             Interceptable interceptable = $ic;
@@ -61,7 +61,7 @@ public class b {
                     return;
                 }
             }
-            this.f2779a = bVar;
+            this.f2837a = bVar;
         }
 
         public final void b(ArrayList<File> arrayList) {
@@ -74,7 +74,7 @@ public class b {
                 File next = it.next();
                 if (next != null) {
                     try {
-                        f.q(next);
+                        f.p(next);
                         c.a.e.h.h.a.b().o("plugin_del_redundance", "delete_redundance", null, next.getAbsolutePath());
                     } catch (IOException e2) {
                         c.a.e.h.h.a b2 = c.a.e.h.h.a.b();
@@ -112,7 +112,7 @@ public class b {
                 StringBuilder sb2 = new StringBuilder();
                 StringBuilder sb3 = new StringBuilder();
                 try {
-                    for (Map.Entry entry : this.f2779a.f2776a.entrySet()) {
+                    for (Map.Entry entry : this.f2837a.f2834a.entrySet()) {
                         if (sb.length() > 0) {
                             sb.append("-");
                         }
@@ -172,7 +172,7 @@ public class b {
                                                             } else {
                                                                 i5 = length3;
                                                             }
-                                                            HashMap hashMap = this.f2779a.f2776a;
+                                                            HashMap hashMap = this.f2837a.f2834a;
                                                             if (hashMap.get(name3 + ".apk") == null) {
                                                                 arrayList.add(file3);
                                                                 if (sb3.length() < 10000) {
@@ -198,7 +198,7 @@ public class b {
                                                     if (name4.endsWith(".apk.cur.prof")) {
                                                         name4 = name4.substring(0, name4.length() - 13);
                                                     }
-                                                    HashMap hashMap2 = this.f2779a.f2776a;
+                                                    HashMap hashMap2 = this.f2837a.f2834a;
                                                     if (hashMap2.get(name4 + ".apk") == null) {
                                                         arrayList.add(file2);
                                                         if (sb3.length() < 10000) {
@@ -224,7 +224,7 @@ public class b {
                                         str = c2;
                                         i2 = length;
                                         if (!name.endsWith(".apk")) {
-                                            HashMap hashMap3 = this.f2779a.f2776a;
+                                            HashMap hashMap3 = this.f2837a.f2834a;
                                             if (hashMap3.get(name + ".apk") == null) {
                                                 arrayList.add(file);
                                                 if (sb3.length() < 10000) {
@@ -248,7 +248,7 @@ public class b {
                                     str = c2;
                                     i2 = length;
                                     if (name.endsWith(".apk")) {
-                                        if (this.f2779a.f2776a.get(name) == null) {
+                                        if (this.f2837a.f2834a.get(name) == null) {
                                             arrayList.add(file);
                                             if (sb3.length() < 10000) {
                                                 if (sb3.length() > 0) {
@@ -265,7 +265,7 @@ public class b {
                                             sb2.append(absolutePath);
                                         }
                                     } else if (System.currentTimeMillis() - file.lastModified() > 259200000) {
-                                        if (name.contains(".apk_") && this.f2779a.f2776a.get(name) != null) {
+                                        if (name.contains(".apk_") && this.f2837a.f2834a.get(name) != null) {
                                             if (sb2.length() < 10000) {
                                                 if (sb2.length() > 0) {
                                                     sb2.append("-");
@@ -383,7 +383,7 @@ public class b {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048580, this, bool) == null) {
                 super.onPostExecute((a) bool);
-                this.f2779a.f2777b = null;
+                this.f2837a.f2835b = null;
             }
         }
     }
@@ -401,34 +401,34 @@ public class b {
                 return;
             }
         }
-        this.f2776a = new HashMap<>();
-        this.f2777b = null;
-        this.f2778c = false;
+        this.f2834a = new HashMap<>();
+        this.f2835b = null;
+        this.f2836c = false;
     }
 
     public static b d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (f2775d == null) {
+            if (f2833d == null) {
                 synchronized (b.class) {
-                    if (f2775d == null) {
-                        f2775d = new b();
+                    if (f2833d == null) {
+                        f2833d = new b();
                     }
                 }
             }
-            return f2775d;
+            return f2833d;
         }
         return (b) invokeV.objValue;
     }
 
     public void c(boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048576, this, z) == null) && z && !this.f2778c && this.f2777b == null && e()) {
+        if ((interceptable == null || interceptable.invokeZ(1048576, this, z) == null) && z && !this.f2836c && this.f2835b == null && e()) {
             a aVar = new a(this);
-            this.f2777b = aVar;
+            this.f2835b = aVar;
             aVar.execute(new Void[0]);
-            this.f2778c = true;
+            this.f2836c = true;
         }
     }
 
@@ -437,7 +437,7 @@ public class b {
         String[] split;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            this.f2776a.clear();
+            this.f2834a.clear();
             PluginSettings l = c.a.e.h.j.g.d.k().l();
             if (l == null) {
                 return false;
@@ -449,26 +449,26 @@ public class b {
             for (Map.Entry<String, PluginSetting> entry : plugins.entrySet()) {
                 PluginSetting value = entry.getValue();
                 if (!TextUtils.isEmpty(value.apkPath)) {
-                    this.f2776a.put(new File(value.apkPath).getName(), "");
+                    this.f2834a.put(new File(value.apkPath).getName(), "");
                 }
                 if (!TextUtils.isEmpty(value.getAbandon_apk_path()) && (split = value.getAbandon_apk_path().split(",")) != null && split.length > 0) {
                     for (String str : split) {
                         if (!TextUtils.isEmpty(str)) {
-                            this.f2776a.put(new File(str).getName(), "");
+                            this.f2834a.put(new File(str).getName(), "");
                         }
                     }
                 }
                 try {
                     if (value.tempVersionCode > 0 && value.installStatus > 0) {
-                        if (value.installStatus == c.a.e.h.j.g.b.f2795a) {
+                        if (value.installStatus == c.a.e.h.j.g.b.f2853a) {
                             String l2 = Util.l(value);
                             if (!TextUtils.isEmpty(l2) && new File(l2).exists()) {
-                                this.f2776a.put(new File(l2).getName(), "");
+                                this.f2834a.put(new File(l2).getName(), "");
                             }
-                        } else if (value.installStatus == c.a.e.h.j.g.b.f2798d || value.installStatus == c.a.e.h.j.g.b.f2797c) {
+                        } else if (value.installStatus == c.a.e.h.j.g.b.f2856d || value.installStatus == c.a.e.h.j.g.b.f2855c) {
                             String str2 = Util.l(value) + ".tmp";
                             if (!TextUtils.isEmpty(str2) && new File(str2).exists()) {
-                                this.f2776a.put(new File(str2).getName(), "");
+                                this.f2834a.put(new File(str2).getName(), "");
                             }
                         }
                     }

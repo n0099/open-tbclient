@@ -51,34 +51,34 @@ public class NativeExpressView extends FrameLayout implements n, p {
     public com.bytedance.sdk.openadsdk.core.nativeexpress.a.g J;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f66424a;
+    public boolean f66624a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f66425b;
+    public int f66625b;
 
     /* renamed from: c  reason: collision with root package name */
-    public com.bytedance.sdk.openadsdk.dislike.ui.a f66426c;
+    public com.bytedance.sdk.openadsdk.dislike.ui.a f66626c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TTDislikeDialogAbstract f66427d;
+    public TTDislikeDialogAbstract f66627d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TTNativeExpressAd.ExpressAdInteractionListener f66428e;
+    public TTNativeExpressAd.ExpressAdInteractionListener f66628e;
 
     /* renamed from: f  reason: collision with root package name */
-    public d f66429f;
+    public d f66629f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final Context f66430g;
+    public final Context f66630g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f66431h;
+    public String f66631h;
 
     /* renamed from: i  reason: collision with root package name */
-    public AdSlot f66432i;
+    public AdSlot f66632i;
 
     /* renamed from: j  reason: collision with root package name */
-    public com.bytedance.sdk.openadsdk.core.e.m f66433j;
+    public com.bytedance.sdk.openadsdk.core.e.m f66633j;
     public TTNativeExpressAd.ExpressVideoAdListener k;
     public FrameLayout l;
     public boolean m;
@@ -128,9 +128,9 @@ public class NativeExpressView extends FrameLayout implements n, p {
                 return;
             }
         }
-        this.f66424a = true;
-        this.f66425b = 0;
-        this.f66431h = "embeded_ad";
+        this.f66624a = true;
+        this.f66625b = 0;
+        this.f66631h = "embeded_ad";
         this.s = new AtomicBoolean(false);
         this.t = null;
         this.n = false;
@@ -140,7 +140,7 @@ public class NativeExpressView extends FrameLayout implements n, p {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ NativeExpressView f66434a;
+            public final /* synthetic */ NativeExpressView f66634a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -157,16 +157,16 @@ public class NativeExpressView extends FrameLayout implements n, p {
                         return;
                     }
                 }
-                this.f66434a = this;
+                this.f66634a = this;
             }
 
             @Override // android.view.ViewTreeObserver.OnScrollChangedListener
             public void onScrollChanged() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    NativeExpressView nativeExpressView = this.f66434a;
+                    NativeExpressView nativeExpressView = this.f66634a;
                     nativeExpressView.removeCallbacks(nativeExpressView.y);
-                    NativeExpressView nativeExpressView2 = this.f66434a;
+                    NativeExpressView nativeExpressView2 = this.f66634a;
                     nativeExpressView2.postDelayed(nativeExpressView2.y, 500L);
                 }
             }
@@ -176,7 +176,7 @@ public class NativeExpressView extends FrameLayout implements n, p {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ NativeExpressView f66435a;
+            public final /* synthetic */ NativeExpressView f66635a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -193,19 +193,19 @@ public class NativeExpressView extends FrameLayout implements n, p {
                         return;
                     }
                 }
-                this.f66435a = this;
+                this.f66635a = this;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    if (y.a(this.f66435a, 0, 5)) {
-                        NativeExpressView nativeExpressView = this.f66435a;
+                    if (y.a(this.f66635a, 0, 5)) {
+                        NativeExpressView nativeExpressView = this.f66635a;
                         nativeExpressView.c(nativeExpressView.getVisibility());
                         return;
                     }
-                    this.f66435a.c(8);
+                    this.f66635a.c(8);
                 }
             }
         };
@@ -214,7 +214,7 @@ public class NativeExpressView extends FrameLayout implements n, p {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ NativeExpressView f66436a;
+            public final /* synthetic */ NativeExpressView f66636a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -231,14 +231,14 @@ public class NativeExpressView extends FrameLayout implements n, p {
                         return;
                     }
                 }
-                this.f66436a = this;
+                this.f66636a = this;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    this.f66436a.c(0);
+                    this.f66636a.c(0);
                 }
             }
         };
@@ -247,7 +247,7 @@ public class NativeExpressView extends FrameLayout implements n, p {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ NativeExpressView f66437a;
+            public final /* synthetic */ NativeExpressView f66637a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -264,21 +264,21 @@ public class NativeExpressView extends FrameLayout implements n, p {
                         return;
                     }
                 }
-                this.f66437a = this;
+                this.f66637a = this;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    this.f66437a.c(8);
+                    this.f66637a.c(8);
                 }
             }
         };
-        this.f66431h = str;
-        this.f66430g = context;
-        this.f66433j = mVar;
-        this.f66432i = adSlot;
+        this.f66631h = str;
+        this.f66630g = context;
+        this.f66633j = mVar;
+        this.f66632i = adSlot;
         g();
     }
 
@@ -286,15 +286,15 @@ public class NativeExpressView extends FrameLayout implements n, p {
         JSONObject a2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this) == null) {
-            if ("feed_video_middle_page".equals(this.f66431h)) {
-                a2 = com.bytedance.sdk.openadsdk.core.nativeexpress.b.a.b(this.u, this.v, this.n, this.f66433j);
+            if ("feed_video_middle_page".equals(this.f66631h)) {
+                a2 = com.bytedance.sdk.openadsdk.core.nativeexpress.b.a.b(this.u, this.v, this.n, this.f66633j);
             } else {
-                a2 = com.bytedance.sdk.openadsdk.core.nativeexpress.b.a.a(this.u, this.v, this.n, this.f66433j);
+                a2 = com.bytedance.sdk.openadsdk.core.nativeexpress.b.a.a(this.u, this.v, this.n, this.f66633j);
             }
-            com.bytedance.sdk.openadsdk.e.q qVar = new com.bytedance.sdk.openadsdk.e.q(1, this.f66431h, this.f66433j);
+            com.bytedance.sdk.openadsdk.e.q qVar = new com.bytedance.sdk.openadsdk.e.q(1, this.f66631h, this.f66633j);
             this.w = qVar;
-            this.H = new h(qVar, this.f66431h, this.f66433j, this.t);
-            this.J = new g.a().a(this.f66432i).a(this.f66431h).a(this.f66433j).a(a2).a(this.H).a(com.bytedance.sdk.openadsdk.core.o.h().G()).a();
+            this.H = new h(qVar, this.f66631h, this.f66633j, this.t);
+            this.J = new g.a().a(this.f66632i).a(this.f66631h).a(this.f66633j).a(a2).a(this.H).a(com.bytedance.sdk.openadsdk.core.o.h().G()).a();
         }
     }
 
@@ -305,8 +305,8 @@ public class NativeExpressView extends FrameLayout implements n, p {
                 d();
                 return;
             }
-            this.F = new com.bytedance.sdk.openadsdk.core.nativeexpress.a.h(this.f66430g, this.J, this.B, this.w, this);
-            this.G = new com.bytedance.sdk.openadsdk.core.nativeexpress.a.c(this.f66430g, this, this.J, this.B);
+            this.F = new com.bytedance.sdk.openadsdk.core.nativeexpress.a.h(this.f66630g, this.J, this.B, this.w, this);
+            this.G = new com.bytedance.sdk.openadsdk.core.nativeexpress.a.c(this.f66630g, this, this.J, this.B);
             this.E.add(this.F);
             this.E.add(this.G);
             this.D = new com.bytedance.sdk.openadsdk.core.nativeexpress.a.f(this.E, this.H);
@@ -316,24 +316,24 @@ public class NativeExpressView extends FrameLayout implements n, p {
     private void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65544, this) == null) {
-            int aE = this.f66433j.aE();
-            this.f66425b = aE;
+            int aE = this.f66633j.aE();
+            this.f66625b = aE;
             if (aE == 1) {
-                this.E.add(new com.bytedance.sdk.openadsdk.core.nativeexpress.a.a(this.f66430g, this.J, this.B, this));
+                this.E.add(new com.bytedance.sdk.openadsdk.core.nativeexpress.a.a(this.f66630g, this.J, this.B, this));
             } else if (aE != 2) {
-                com.bytedance.sdk.openadsdk.core.nativeexpress.a.h hVar = new com.bytedance.sdk.openadsdk.core.nativeexpress.a.h(this.f66430g, this.J, this.B, this.w, this);
+                com.bytedance.sdk.openadsdk.core.nativeexpress.a.h hVar = new com.bytedance.sdk.openadsdk.core.nativeexpress.a.h(this.f66630g, this.J, this.B, this.w, this);
                 this.F = hVar;
                 this.E.add(hVar);
             } else {
-                this.F = new com.bytedance.sdk.openadsdk.core.nativeexpress.a.h(this.f66430g, this.J, this.B, this.w, this);
-                com.bytedance.sdk.openadsdk.core.nativeexpress.a.a aVar = new com.bytedance.sdk.openadsdk.core.nativeexpress.a.a(this.f66430g, this.J, this.B, this);
+                this.F = new com.bytedance.sdk.openadsdk.core.nativeexpress.a.h(this.f66630g, this.J, this.B, this.w, this);
+                com.bytedance.sdk.openadsdk.core.nativeexpress.a.a aVar = new com.bytedance.sdk.openadsdk.core.nativeexpress.a.a(this.f66630g, this.J, this.B, this);
                 this.E.add(this.F);
                 this.E.add(aVar);
             }
-            boolean z = this.f66433j.aF() == 1;
-            this.f66424a = z;
+            boolean z = this.f66633j.aF() == 1;
+            this.f66624a = z;
             if (z) {
-                com.bytedance.sdk.openadsdk.core.nativeexpress.a.c cVar = new com.bytedance.sdk.openadsdk.core.nativeexpress.a.c(this.f66430g, this, this.J, this.B);
+                com.bytedance.sdk.openadsdk.core.nativeexpress.a.c cVar = new com.bytedance.sdk.openadsdk.core.nativeexpress.a.c(this.f66630g, this, this.J, this.B);
                 this.G = cVar;
                 this.E.add(cVar);
             }
@@ -344,16 +344,16 @@ public class NativeExpressView extends FrameLayout implements n, p {
     private void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65545, this) == null) {
-            TTDislikeDialogAbstract tTDislikeDialogAbstract = this.f66427d;
+            TTDislikeDialogAbstract tTDislikeDialogAbstract = this.f66627d;
             if (tTDislikeDialogAbstract != null) {
                 tTDislikeDialogAbstract.show();
                 return;
             }
-            com.bytedance.sdk.openadsdk.dislike.ui.a aVar = this.f66426c;
+            com.bytedance.sdk.openadsdk.dislike.ui.a aVar = this.f66626c;
             if (aVar != null) {
                 aVar.showDislikeDialog();
             } else {
-                TTDelegateActivity.a(getContext(), this.f66433j);
+                TTDelegateActivity.a(getContext(), this.f66633j);
             }
         }
     }
@@ -362,8 +362,8 @@ public class NativeExpressView extends FrameLayout implements n, p {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65546, this)) == null) {
-            com.bytedance.sdk.openadsdk.core.e.m mVar = this.f66433j;
-            return mVar != null && mVar.h() == 1 && com.bytedance.sdk.openadsdk.core.e.m.b(this.f66433j);
+            com.bytedance.sdk.openadsdk.core.e.m mVar = this.f66633j;
+            return mVar != null && mVar.h() == 1 && com.bytedance.sdk.openadsdk.core.e.m.b(this.f66633j);
         }
         return invokeV.booleanValue;
     }
@@ -371,17 +371,17 @@ public class NativeExpressView extends FrameLayout implements n, p {
     private boolean h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65547, this)) == null) ? TextUtils.equals(this.f66431h, "embeded_ad") || TextUtils.equals(this.f66431h, "splash_ad") : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65547, this)) == null) ? TextUtils.equals(this.f66631h, "embeded_ad") || TextUtils.equals(this.f66631h, "splash_ad") : invokeV.booleanValue;
     }
 
     public void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            AdSlot adSlot = this.f66432i;
+            AdSlot adSlot = this.f66632i;
             if (adSlot != null) {
                 this.u = adSlot.getExpressViewAcceptedWidth();
-                this.v = this.f66432i.getExpressViewAcceptedHeight();
-                this.t = this.f66432i.getCodeId();
+                this.v = this.f66632i.getExpressViewAcceptedHeight();
+                this.t = this.f66632i.getCodeId();
             }
             setBackgroundColor(0);
             setBackgroundResource(17170445);
@@ -399,7 +399,7 @@ public class NativeExpressView extends FrameLayout implements n, p {
     public d getClickCreativeListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f66429f : (d) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f66629f : (d) invokeV.objValue;
     }
 
     public e getClickListener() {
@@ -499,17 +499,17 @@ public class NativeExpressView extends FrameLayout implements n, p {
                 for (com.bytedance.sdk.openadsdk.core.nativeexpress.a.e eVar : this.E) {
                     eVar.a();
                 }
-                this.f66426c = null;
-                this.f66427d = null;
-                this.f66432i = null;
-                this.f66433j = null;
-                this.f66428e = null;
-                this.f66429f = null;
+                this.f66626c = null;
+                this.f66627d = null;
+                this.f66632i = null;
+                this.f66633j = null;
+                this.f66628e = null;
+                this.f66629f = null;
                 this.o = null;
                 this.r = null;
                 this.k = null;
-                if (this.f66430g != null) {
-                    this.f66430g.unregisterReceiver(this.B);
+                if (this.f66630g != null) {
+                    this.f66630g.unregisterReceiver(this.B);
                 }
             } catch (Throwable th) {
                 com.bytedance.sdk.component.utils.k.c("NativeExpressView", "detach error", th);
@@ -622,7 +622,7 @@ public class NativeExpressView extends FrameLayout implements n, p {
     public void setClickCreativeListener(d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048602, this, dVar) == null) {
-            this.f66429f = dVar;
+            this.f66629f = dVar;
         }
     }
 
@@ -641,14 +641,14 @@ public class NativeExpressView extends FrameLayout implements n, p {
             if (bVar != null && (bVar instanceof l) && (backupView = (BackupView) bVar.d()) != null) {
                 backupView.setDislikeInner(aVar);
             }
-            this.f66426c = aVar;
+            this.f66626c = aVar;
         }
     }
 
     public void setExpressInteractionListener(TTNativeExpressAd.ExpressAdInteractionListener expressAdInteractionListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048605, this, expressAdInteractionListener) == null) {
-            this.f66428e = expressAdInteractionListener;
+            this.f66628e = expressAdInteractionListener;
         }
     }
 
@@ -660,7 +660,7 @@ public class NativeExpressView extends FrameLayout implements n, p {
             if (bVar != null && (bVar instanceof l) && (backupView = (BackupView) bVar.d()) != null) {
                 backupView.setDislikeOuter(tTDislikeDialogAbstract);
             }
-            this.f66427d = tTDislikeDialogAbstract;
+            this.f66627d = tTDislikeDialogAbstract;
         }
     }
 
@@ -679,7 +679,7 @@ public class NativeExpressView extends FrameLayout implements n, p {
                 intentFilter.addAction("com.bytedance.openadsdk.themeTypeChangeReceiver");
                 ThemeStatusBroadcastReceiver themeStatusBroadcastReceiver = new ThemeStatusBroadcastReceiver();
                 this.B = themeStatusBroadcastReceiver;
-                this.f66430g.registerReceiver(themeStatusBroadcastReceiver, intentFilter);
+                this.f66630g.registerReceiver(themeStatusBroadcastReceiver, intentFilter);
             } catch (Throwable th) {
                 th.printStackTrace();
             }
@@ -691,12 +691,12 @@ public class NativeExpressView extends FrameLayout implements n, p {
         if (!(interceptable == null || interceptable.invokeIL(1048576, this, i2, kVar) == null) || i2 == -1 || kVar == null) {
             return;
         }
-        int i3 = kVar.f66066a;
-        int i4 = kVar.f66067b;
-        int i5 = kVar.f66068c;
-        int i6 = kVar.f66069d;
+        int i3 = kVar.f66266a;
+        int i4 = kVar.f66267b;
+        int i5 = kVar.f66268c;
+        int i6 = kVar.f66269d;
         String str = kVar.k;
-        a(this.f66431h);
+        a(this.f66631h);
         if (i2 == 1) {
             FrameLayout frameLayout = this.l;
             if (frameLayout != null) {
@@ -708,20 +708,20 @@ public class NativeExpressView extends FrameLayout implements n, p {
                 this.r.a(str);
                 this.r.a(this, i3, i4, i5, i6);
             }
-            TTNativeExpressAd.ExpressAdInteractionListener expressAdInteractionListener = this.f66428e;
+            TTNativeExpressAd.ExpressAdInteractionListener expressAdInteractionListener = this.f66628e;
             if (expressAdInteractionListener != null) {
-                expressAdInteractionListener.onAdClicked(this, this.f66433j.X());
+                expressAdInteractionListener.onAdClicked(this, this.f66633j.X());
             }
         } else if (i2 == 2) {
-            d dVar = this.f66429f;
+            d dVar = this.f66629f;
             if (dVar != null) {
                 dVar.a(kVar);
-                this.f66429f.a(str);
-                this.f66429f.a(this, i3, i4, i5, i6);
+                this.f66629f.a(str);
+                this.f66629f.a(this, i3, i4, i5, i6);
             }
-            TTNativeExpressAd.ExpressAdInteractionListener expressAdInteractionListener2 = this.f66428e;
+            TTNativeExpressAd.ExpressAdInteractionListener expressAdInteractionListener2 = this.f66628e;
             if (expressAdInteractionListener2 != null) {
-                expressAdInteractionListener2.onAdClicked(this, this.f66433j.X());
+                expressAdInteractionListener2.onAdClicked(this, this.f66633j.X());
             }
         } else if (i2 == 3) {
             e();
@@ -731,14 +731,14 @@ public class NativeExpressView extends FrameLayout implements n, p {
             if (frameLayout2 != null) {
                 frameLayout2.dispatchTouchEvent(MotionEvent.obtain(0L, 0L, 0, 0.0f, 0.0f, 0));
             }
-            com.bytedance.sdk.component.utils.k.b("ClickCreativeListener", "创意....mAdType=" + this.f66431h + ",!mVideoPause=" + (true ^ this.m) + "，isAutoPlay=" + com.bytedance.sdk.openadsdk.q.q.j(this.f66433j));
-            if ("embeded_ad".equals(this.f66431h) && f() && !this.m && com.bytedance.sdk.openadsdk.q.q.j(this.f66433j)) {
+            com.bytedance.sdk.component.utils.k.b("ClickCreativeListener", "创意....mAdType=" + this.f66631h + ",!mVideoPause=" + (true ^ this.m) + "，isAutoPlay=" + com.bytedance.sdk.openadsdk.q.q.j(this.f66633j));
+            if ("embeded_ad".equals(this.f66631h) && f() && !this.m && com.bytedance.sdk.openadsdk.q.q.j(this.f66633j)) {
                 com.bytedance.sdk.component.utils.k.b("ClickCreativeListener", "创意....");
-                d dVar2 = this.f66429f;
+                d dVar2 = this.f66629f;
                 if (dVar2 != null) {
                     dVar2.a(kVar);
-                    this.f66429f.a(str);
-                    this.f66429f.a(this, i3, i4, i5, i6);
+                    this.f66629f.a(str);
+                    this.f66629f.a(this, i3, i4, i5, i6);
                 }
             } else {
                 com.bytedance.sdk.component.utils.k.b("ClickCreativeListener", "普通....");
@@ -749,9 +749,9 @@ public class NativeExpressView extends FrameLayout implements n, p {
                     this.r.a(this, i3, i4, i5, i6);
                 }
             }
-            TTNativeExpressAd.ExpressAdInteractionListener expressAdInteractionListener3 = this.f66428e;
+            TTNativeExpressAd.ExpressAdInteractionListener expressAdInteractionListener3 = this.f66628e;
             if (expressAdInteractionListener3 != null) {
-                expressAdInteractionListener3.onAdClicked(this, this.f66433j.X());
+                expressAdInteractionListener3.onAdClicked(this, this.f66633j.X());
             }
         }
     }
@@ -768,12 +768,12 @@ public class NativeExpressView extends FrameLayout implements n, p {
     public void d(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            if (!this.f66424a) {
+            if (!this.f66624a) {
                 this.H.i();
             }
             this.H.j();
             ((h) this.H).l();
-            TTNativeExpressAd.ExpressAdInteractionListener expressAdInteractionListener = this.f66428e;
+            TTNativeExpressAd.ExpressAdInteractionListener expressAdInteractionListener = this.f66628e;
             if (expressAdInteractionListener != null) {
                 expressAdInteractionListener.onRenderFail(this, com.bytedance.sdk.openadsdk.core.g.a(i2), i2);
             }
@@ -785,10 +785,10 @@ public class NativeExpressView extends FrameLayout implements n, p {
         if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), kVar, Boolean.valueOf(z)}) == null) || i2 == -1 || kVar == null) {
             return;
         }
-        int i3 = kVar.f66066a;
-        int i4 = kVar.f66067b;
-        int i5 = kVar.f66068c;
-        int i6 = kVar.f66069d;
+        int i3 = kVar.f66266a;
+        int i4 = kVar.f66267b;
+        int i5 = kVar.f66268c;
+        int i6 = kVar.f66269d;
         if (i2 == 1) {
             FrameLayout frameLayout = this.l;
             if (frameLayout != null) {
@@ -800,20 +800,20 @@ public class NativeExpressView extends FrameLayout implements n, p {
                 this.r.a(kVar);
                 this.r.a(this, i3, i4, i5, i6);
             }
-            TTNativeExpressAd.ExpressAdInteractionListener expressAdInteractionListener = this.f66428e;
+            TTNativeExpressAd.ExpressAdInteractionListener expressAdInteractionListener = this.f66628e;
             if (expressAdInteractionListener != null) {
-                expressAdInteractionListener.onAdClicked(this, this.f66433j.X());
+                expressAdInteractionListener.onAdClicked(this, this.f66633j.X());
             }
         } else if (i2 == 2) {
-            d dVar = this.f66429f;
+            d dVar = this.f66629f;
             if (dVar != null) {
                 a(dVar.d(), z);
-                this.f66429f.a(kVar);
-                this.f66429f.a(this, i3, i4, i5, i6);
+                this.f66629f.a(kVar);
+                this.f66629f.a(this, i3, i4, i5, i6);
             }
-            TTNativeExpressAd.ExpressAdInteractionListener expressAdInteractionListener2 = this.f66428e;
+            TTNativeExpressAd.ExpressAdInteractionListener expressAdInteractionListener2 = this.f66628e;
             if (expressAdInteractionListener2 != null) {
-                expressAdInteractionListener2.onAdClicked(this, this.f66433j.X());
+                expressAdInteractionListener2.onAdClicked(this, this.f66633j.X());
             }
         } else if (i2 == 3) {
             e();
@@ -823,26 +823,26 @@ public class NativeExpressView extends FrameLayout implements n, p {
             if (frameLayout2 != null) {
                 frameLayout2.dispatchTouchEvent(MotionEvent.obtain(0L, 0L, 0, 0.0f, 0.0f, 0));
             }
-            com.bytedance.sdk.component.utils.k.b("ClickCreativeListener", "创意....mAdType=" + this.f66431h + ",!mVideoPause=" + (true ^ this.m) + "，isAutoPlay=" + com.bytedance.sdk.openadsdk.q.q.j(this.f66433j));
-            if ("embeded_ad".equals(this.f66431h) && f() && !this.m && com.bytedance.sdk.openadsdk.q.q.j(this.f66433j)) {
+            com.bytedance.sdk.component.utils.k.b("ClickCreativeListener", "创意....mAdType=" + this.f66631h + ",!mVideoPause=" + (true ^ this.m) + "，isAutoPlay=" + com.bytedance.sdk.openadsdk.q.q.j(this.f66633j));
+            if ("embeded_ad".equals(this.f66631h) && f() && !this.m && com.bytedance.sdk.openadsdk.q.q.j(this.f66633j)) {
                 com.bytedance.sdk.component.utils.k.b("ClickCreativeListener", "创意....");
-                d dVar2 = this.f66429f;
+                d dVar2 = this.f66629f;
                 if (dVar2 != null) {
                     a(dVar2.d(), z);
-                    this.f66429f.a(kVar);
-                    this.f66429f.a(this, i3, i4, i5, i6);
+                    this.f66629f.a(kVar);
+                    this.f66629f.a(this, i3, i4, i5, i6);
                 }
             } else {
                 com.bytedance.sdk.component.utils.k.b("ClickCreativeListener", "普通....");
                 if (this.r != null) {
-                    a(this.f66429f.d(), z);
+                    a(this.f66629f.d(), z);
                     this.r.a(kVar);
                     this.r.a(this, i3, i4, i5, i6);
                 }
             }
-            TTNativeExpressAd.ExpressAdInteractionListener expressAdInteractionListener3 = this.f66428e;
+            TTNativeExpressAd.ExpressAdInteractionListener expressAdInteractionListener3 = this.f66628e;
             if (expressAdInteractionListener3 != null) {
-                expressAdInteractionListener3.onAdClicked(this, this.f66433j.X());
+                expressAdInteractionListener3.onAdClicked(this, this.f66633j.X());
             }
         }
     }
@@ -858,10 +858,10 @@ public class NativeExpressView extends FrameLayout implements n, p {
 
     private void a(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, str) == null) || this.f66433j == null || TextUtils.isEmpty(str) || !str.equals("feed_video_middle_page")) {
+        if (!(interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, str) == null) || this.f66633j == null || TextUtils.isEmpty(str) || !str.equals("feed_video_middle_page")) {
             return;
         }
-        com.bytedance.sdk.openadsdk.e.d.b(com.bytedance.sdk.openadsdk.core.o.a(), this.f66433j, "feed_video_middle_page", "middle_page_click");
+        com.bytedance.sdk.openadsdk.e.d.b(com.bytedance.sdk.openadsdk.core.o.a(), this.f66633j, "feed_video_middle_page", "middle_page_click");
     }
 
     public void a(com.bytedance.sdk.openadsdk.core.nativeexpress.a.b<? extends View> bVar, com.bytedance.sdk.openadsdk.core.e.p pVar) {
@@ -876,7 +876,7 @@ public class NativeExpressView extends FrameLayout implements n, p {
                 addView(bVar.d());
             }
             ((h) this.H).l();
-            TTNativeExpressAd.ExpressAdInteractionListener expressAdInteractionListener = this.f66428e;
+            TTNativeExpressAd.ExpressAdInteractionListener expressAdInteractionListener = this.f66628e;
             if (expressAdInteractionListener != null) {
                 expressAdInteractionListener.onRenderSuccess(this, (float) pVar.c(), (float) pVar.d());
             }

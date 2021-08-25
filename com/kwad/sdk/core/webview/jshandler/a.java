@@ -21,36 +21,36 @@ public class a implements com.kwad.sdk.core.webview.a.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final com.kwad.sdk.core.webview.a f72088a;
+    public final com.kwad.sdk.core.webview.a f72288a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Handler f72089b;
+    public Handler f72289b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f72090c;
+    public boolean f72290c;
     @Nullable
 
     /* renamed from: d  reason: collision with root package name */
-    public final com.kwad.sdk.core.download.b.b f72091d;
+    public final com.kwad.sdk.core.download.b.b f72291d;
     @Nullable
 
     /* renamed from: e  reason: collision with root package name */
-    public b f72092e;
+    public b f72292e;
     @Nullable
 
     /* renamed from: f  reason: collision with root package name */
-    public c f72093f;
+    public c f72293f;
 
     /* renamed from: com.kwad.sdk.core.webview.jshandler.a$a  reason: collision with other inner class name */
     /* loaded from: classes10.dex */
-    public static final class C1996a extends com.kwad.sdk.core.response.a.a implements com.kwad.sdk.core.b {
+    public static final class C2000a extends com.kwad.sdk.core.response.a.a implements com.kwad.sdk.core.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public boolean f72099a;
+        public boolean f72299a;
 
-        public C1996a() {
+        public C2000a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -68,7 +68,7 @@ public class a implements com.kwad.sdk.core.webview.a.a {
     /* loaded from: classes10.dex */
     public interface b {
         @WorkerThread
-        void a(@Nullable C1996a c1996a);
+        void a(@Nullable C2000a c2000a);
     }
 
     /* loaded from: classes10.dex */
@@ -113,15 +113,15 @@ public class a implements com.kwad.sdk.core.webview.a.a {
                 return;
             }
         }
-        this.f72090c = false;
-        this.f72090c = z;
-        this.f72089b = new Handler(Looper.getMainLooper());
-        this.f72088a = aVar;
-        this.f72091d = bVar;
+        this.f72290c = false;
+        this.f72290c = z;
+        this.f72289b = new Handler(Looper.getMainLooper());
+        this.f72288a = aVar;
+        this.f72291d = bVar;
         if (bVar != null) {
             bVar.a(1);
         }
-        this.f72092e = bVar2;
+        this.f72292e = bVar2;
     }
 
     @Override // com.kwad.sdk.core.webview.a.a
@@ -138,35 +138,35 @@ public class a implements com.kwad.sdk.core.webview.a.a {
         Runnable runnable;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, cVar) == null) {
-            if (this.f72088a.f72043b == null) {
+            if (this.f72288a.f72243b == null) {
                 cVar.a(-1, "native adTemplate is null");
                 return;
             }
-            C1996a c1996a = new C1996a();
+            C2000a c2000a = new C2000a();
             try {
-                c1996a.parseJson(new JSONObject(str));
+                c2000a.parseJson(new JSONObject(str));
             } catch (JSONException e2) {
                 com.kwad.sdk.core.d.a.a(e2);
             }
-            if (!this.f72088a.f72049h) {
-                if (this.f72092e != null) {
-                    handler = this.f72089b;
-                    runnable = new Runnable(this, c1996a) { // from class: com.kwad.sdk.core.webview.jshandler.a.2
+            if (!this.f72288a.f72249h) {
+                if (this.f72292e != null) {
+                    handler = this.f72289b;
+                    runnable = new Runnable(this, c2000a) { // from class: com.kwad.sdk.core.webview.jshandler.a.2
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
 
                         /* renamed from: a  reason: collision with root package name */
-                        public final /* synthetic */ C1996a f72097a;
+                        public final /* synthetic */ C2000a f72297a;
 
                         /* renamed from: b  reason: collision with root package name */
-                        public final /* synthetic */ a f72098b;
+                        public final /* synthetic */ a f72298b;
 
                         {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 != null) {
                                 InitContext newInitContext = TitanRuntime.newInitContext();
                                 newInitContext.initArgs = r2;
-                                Object[] objArr = {this, c1996a};
+                                Object[] objArr = {this, c2000a};
                                 interceptable2.invokeUnInit(65536, newInitContext);
                                 int i2 = newInitContext.flag;
                                 if ((i2 & 1) != 0) {
@@ -176,39 +176,39 @@ public class a implements com.kwad.sdk.core.webview.a.a {
                                     return;
                                 }
                             }
-                            this.f72098b = this;
-                            this.f72097a = c1996a;
+                            this.f72298b = this;
+                            this.f72297a = c2000a;
                         }
 
                         @Override // java.lang.Runnable
                         public void run() {
                             Interceptable interceptable2 = $ic;
-                            if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.f72098b.f72092e == null) {
+                            if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.f72298b.f72292e == null) {
                                 return;
                             }
-                            this.f72098b.f72092e.a(this.f72097a);
+                            this.f72298b.f72292e.a(this.f72297a);
                         }
                     };
                 }
                 cVar.a(null);
             }
-            handler = this.f72089b;
-            runnable = new Runnable(this, c1996a) { // from class: com.kwad.sdk.core.webview.jshandler.a.1
+            handler = this.f72289b;
+            runnable = new Runnable(this, c2000a) { // from class: com.kwad.sdk.core.webview.jshandler.a.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ C1996a f72094a;
+                public final /* synthetic */ C2000a f72294a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ a f72095b;
+                public final /* synthetic */ a f72295b;
 
                 {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {this, c1996a};
+                        Object[] objArr = {this, c2000a};
                         interceptable2.invokeUnInit(65536, newInitContext);
                         int i2 = newInitContext.flag;
                         if ((i2 & 1) != 0) {
@@ -218,21 +218,21 @@ public class a implements com.kwad.sdk.core.webview.a.a {
                             return;
                         }
                     }
-                    this.f72095b = this;
-                    this.f72094a = c1996a;
+                    this.f72295b = this;
+                    this.f72294a = c2000a;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        if (this.f72095b.f72088a.f72050i || this.f72094a.f72099a) {
-                            int a2 = com.kwad.sdk.core.download.b.a.a(this.f72095b.f72088a.f72046e.getContext(), this.f72095b.f72088a.f72043b, new a.InterfaceC1982a(this) { // from class: com.kwad.sdk.core.webview.jshandler.a.1.1
+                        if (this.f72295b.f72288a.f72250i || this.f72294a.f72299a) {
+                            int a2 = com.kwad.sdk.core.download.b.a.a(this.f72295b.f72288a.f72246e.getContext(), this.f72295b.f72288a.f72243b, new a.InterfaceC1986a(this) { // from class: com.kwad.sdk.core.webview.jshandler.a.1.1
                                 public static /* synthetic */ Interceptable $ic;
                                 public transient /* synthetic */ FieldHolder $fh;
 
                                 /* renamed from: a  reason: collision with root package name */
-                                public final /* synthetic */ AnonymousClass1 f72096a;
+                                public final /* synthetic */ AnonymousClass1 f72296a;
 
                                 {
                                     Interceptable interceptable3 = $ic;
@@ -249,20 +249,20 @@ public class a implements com.kwad.sdk.core.webview.a.a {
                                             return;
                                         }
                                     }
-                                    this.f72096a = this;
+                                    this.f72296a = this;
                                 }
 
-                                @Override // com.kwad.sdk.core.download.b.a.InterfaceC1982a
+                                @Override // com.kwad.sdk.core.download.b.a.InterfaceC1986a
                                 public void a() {
                                     Interceptable interceptable3 = $ic;
-                                    if (!(interceptable3 == null || interceptable3.invokeV(1048576, this) == null) || this.f72096a.f72095b.f72092e == null) {
+                                    if (!(interceptable3 == null || interceptable3.invokeV(1048576, this) == null) || this.f72296a.f72295b.f72292e == null) {
                                         return;
                                     }
-                                    this.f72096a.f72095b.f72092e.a(this.f72096a.f72094a);
+                                    this.f72296a.f72295b.f72292e.a(this.f72296a.f72294a);
                                 }
-                            }, this.f72095b.f72091d, this.f72094a.f72099a, this.f72095b.f72090c);
-                            if (this.f72095b.f72093f != null) {
-                                this.f72095b.f72093f.a(a2);
+                            }, this.f72295b.f72291d, this.f72294a.f72299a, this.f72295b.f72290c);
+                            if (this.f72295b.f72293f != null) {
+                                this.f72295b.f72293f.a(a2);
                             }
                         }
                     }
@@ -277,8 +277,8 @@ public class a implements com.kwad.sdk.core.webview.a.a {
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f72089b.removeCallbacksAndMessages(null);
-            this.f72092e = null;
+            this.f72289b.removeCallbacksAndMessages(null);
+            this.f72292e = null;
         }
     }
 }

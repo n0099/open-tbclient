@@ -32,7 +32,7 @@ public class RealTimeEventHelper {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.f.b.g.b.a f69558e;
+        public final /* synthetic */ c.f.b.g.b.a f69758e;
 
         public a(c.f.b.g.b.a aVar) {
             Interceptable interceptable = $ic;
@@ -49,14 +49,14 @@ public class RealTimeEventHelper {
                     return;
                 }
             }
-            this.f69558e = aVar;
+            this.f69758e = aVar;
         }
 
         @Override // com.dxmpay.apollon.beans.IBeanResponseCallback
         public void onBeanExecFailure(int i2, int i3, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIIL(1048576, this, i2, i3, str) == null) {
-                this.f69558e.destroyBean();
+                this.f69758e.destroyBean();
             }
         }
 
@@ -64,7 +64,7 @@ public class RealTimeEventHelper {
         public void onBeanExecSuccess(int i2, Object obj, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, obj, str) == null) {
-                this.f69558e.destroyBean();
+                this.f69758e.destroyBean();
             }
         }
     }

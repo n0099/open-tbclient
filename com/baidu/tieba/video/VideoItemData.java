@@ -7,8 +7,8 @@ import android.util.SparseArray;
 import androidx.core.app.NotificationCompat;
 import androidx.core.view.InputDeviceCompat;
 import c.a.e.e.m.b;
-import c.a.o0.s.q.c2;
-import c.a.o0.s.q.x0;
+import c.a.p0.s.q.c2;
+import c.a.p0.s.q.x0;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.atomData.AddFriendActivityConfig;
@@ -251,7 +251,7 @@ public class VideoItemData implements Serializable, Parcelable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, originalThreadInfo)) == null) {
             if (originalThreadInfo != null) {
-                this.thread_id = originalThreadInfo.f47200f;
+                this.thread_id = originalThreadInfo.f47306f;
                 this.post_id = originalThreadInfo.n;
                 VideoInfo videoInfo = originalThreadInfo.r;
                 if (videoInfo != null) {
@@ -268,14 +268,14 @@ public class VideoItemData implements Serializable, Parcelable {
                 this.comment_num = String.valueOf(originalThreadInfo.z);
                 this.agree_num = String.valueOf(originalThreadInfo.y.agree_num);
                 this.share_num = String.valueOf(originalThreadInfo.A);
-                String str = originalThreadInfo.f47201g;
+                String str = originalThreadInfo.f47307g;
                 this.title = str;
                 if (TextUtils.isEmpty(str)) {
-                    this.title = originalThreadInfo.f47196b;
+                    this.title = originalThreadInfo.f47302b;
                 }
-                this.forum_id = String.valueOf(originalThreadInfo.f47199e);
+                this.forum_id = String.valueOf(originalThreadInfo.f47305e);
                 this.baijiahaoData = originalThreadInfo.p;
-                this.forum_name = originalThreadInfo.f47198d;
+                this.forum_name = originalThreadInfo.f47304d;
                 this.is_agreed = String.valueOf(originalThreadInfo.y.has_agree);
                 if (originalThreadInfo.x != null) {
                     UserItemData userItemData = new UserItemData();
@@ -399,7 +399,7 @@ public class VideoItemData implements Serializable, Parcelable {
             x0Var.p(this.thread_id);
             x0Var.m(this.forum_id);
             x0Var.k(this.feedBackReasonMap);
-            x0Var.f14081g = this.feedBackExtraMap;
+            x0Var.f14387g = this.feedBackExtraMap;
             x0Var.p = this.mRecomAbTag;
             x0Var.k = this.mRecomWeight;
             x0Var.m = this.mRecomExtra;

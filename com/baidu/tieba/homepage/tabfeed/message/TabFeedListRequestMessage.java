@@ -1,8 +1,8 @@
 package com.baidu.tieba.homepage.tabfeed.message;
 
 import c.a.e.e.p.l;
-import c.a.o0.b1.w;
-import c.a.o0.s.k;
+import c.a.p0.b1.w;
+import c.a.p0.s.k;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;

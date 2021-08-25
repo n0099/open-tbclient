@@ -15,16 +15,16 @@ public class j implements i.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final h f3460a;
+    public final h f3662a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final BDHttpDns f3461b;
+    public final BDHttpDns f3663b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final BDHttpDns.CachePolicy f3462c;
+    public final BDHttpDns.CachePolicy f3664c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final com.baidu.bdhttpdns.i f3463d;
+    public final com.baidu.bdhttpdns.i f3665d;
 
     public j(Context context) {
         Interceptable interceptable = $ic;
@@ -42,10 +42,10 @@ public class j implements i.a {
             }
         }
         BDHttpDns j2 = BDHttpDns.j(context);
-        this.f3461b = j2;
-        this.f3460a = j2.a();
-        this.f3462c = this.f3461b.f();
-        this.f3463d = this.f3461b.g();
+        this.f3663b = j2;
+        this.f3662a = j2.a();
+        this.f3664c = this.f3663b.f();
+        this.f3665d = this.f3663b.g();
     }
 
     @Override // com.baidu.bdhttpdns.i.a
@@ -64,21 +64,21 @@ public class j implements i.a {
                             aVar.a(value.b());
                             aVar.e(System.currentTimeMillis() / 1000);
                             aVar.b(value.a());
-                            this.f3460a.c(key, aVar);
-                        } else if (this.f3462c == BDHttpDns.CachePolicy.POLICY_TOLERANT) {
-                            this.f3460a.f(key);
+                            this.f3662a.c(key, aVar);
+                        } else if (this.f3664c == BDHttpDns.CachePolicy.POLICY_TOLERANT) {
+                            this.f3662a.f(key);
                         }
                     }
                 }
-            } else if (dVar.equals(i.d.f38279a) && this.f3462c == BDHttpDns.CachePolicy.POLICY_TOLERANT) {
+            } else if (dVar.equals(i.d.f38385a) && this.f3664c == BDHttpDns.CachePolicy.POLICY_TOLERANT) {
                 for (String str2 : str.split(",")) {
-                    this.f3460a.f(str2);
+                    this.f3662a.f(str2);
                 }
             }
-            if (this.f3461b.h() <= 0 || this.f3463d.C()) {
+            if (this.f3663b.h() <= 0 || this.f3665d.C()) {
                 return;
             }
-            this.f3463d.s(true);
+            this.f3665d.s(true);
             k.a("preResolve has finished", new Object[0]);
         }
     }

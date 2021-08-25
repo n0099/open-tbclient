@@ -1,7 +1,7 @@
 package com.baidu.tieba.frs.commontab;
 
-import c.a.o0.i0.b.g;
-import c.a.p0.v0.k1.d;
+import c.a.p0.i0.b.g;
+import c.a.q0.v0.k1.d;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;

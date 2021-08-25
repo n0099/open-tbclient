@@ -6,7 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import c.a.e.a.f;
-import c.a.o0.s.s.a;
+import c.a.p0.s.s.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tbadk.core.util.SkinManager;
@@ -79,7 +79,7 @@ public class PermissionRequestDialog extends a {
         }
     }
 
-    @Override // c.a.o0.s.s.a
+    @Override // c.a.p0.s.s.a
     public a create(f<?> fVar) {
         InterceptResult invokeL;
         char c2;

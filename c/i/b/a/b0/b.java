@@ -11,7 +11,7 @@ import com.google.android.exoplayer2.mediacodec.MediaCodecUtil;
 public interface b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final b f32765a = new a();
+    public static final b f32871a = new a();
 
     /* loaded from: classes4.dex */
     public static class a implements b {

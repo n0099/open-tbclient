@@ -13,34 +13,34 @@ public class as {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public volatile boolean f73529a;
+    public volatile boolean f73729a;
 
     /* renamed from: b  reason: collision with root package name */
-    public volatile boolean f73530b;
+    public volatile boolean f73730b;
 
     /* renamed from: c  reason: collision with root package name */
-    public volatile boolean f73531c;
+    public volatile boolean f73731c;
 
     /* renamed from: d  reason: collision with root package name */
-    public volatile boolean f73532d;
+    public volatile boolean f73732d;
 
     /* renamed from: e  reason: collision with root package name */
-    public volatile boolean f73533e;
+    public volatile boolean f73733e;
 
     /* renamed from: f  reason: collision with root package name */
-    public volatile boolean f73534f;
+    public volatile boolean f73734f;
 
     /* renamed from: g  reason: collision with root package name */
-    public volatile long f73535g;
+    public volatile long f73735g;
 
     /* renamed from: h  reason: collision with root package name */
-    public volatile long f73536h;
+    public volatile long f73736h;
 
     /* renamed from: i  reason: collision with root package name */
-    public volatile long f73537i;
+    public volatile long f73737i;
 
     /* renamed from: j  reason: collision with root package name */
-    public volatile long f73538j;
+    public volatile long f73738j;
     public volatile boolean k;
 
     public as() {
@@ -56,16 +56,16 @@ public class as {
                 return;
             }
         }
-        this.f73529a = false;
-        this.f73530b = false;
-        this.f73531c = false;
-        this.f73532d = false;
-        this.f73533e = false;
-        this.f73534f = false;
-        this.f73535g = 0L;
-        this.f73536h = 0L;
-        this.f73537i = 0L;
-        this.f73538j = -1L;
+        this.f73729a = false;
+        this.f73730b = false;
+        this.f73731c = false;
+        this.f73732d = false;
+        this.f73733e = false;
+        this.f73734f = false;
+        this.f73735g = 0L;
+        this.f73736h = 0L;
+        this.f73737i = 0L;
+        this.f73738j = -1L;
         this.k = false;
     }
 
@@ -88,13 +88,13 @@ public class as {
     public void a(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048576, this, j2) == null) {
-            this.f73538j = j2;
+            this.f73738j = j2;
         }
     }
 
     public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f73534f : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f73734f : invokeV.booleanValue;
     }
 }

@@ -2,7 +2,7 @@ package com.baidu.tieba.livesdk.scheme;
 
 import android.net.Uri;
 import android.os.Bundle;
-import c.a.o0.a.g;
+import c.a.p0.a.g;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
@@ -46,7 +46,7 @@ public class AlaSchemeEmptyActivity extends BaseActivity {
             if (!"video".equals(host) || path == null || !path.startsWith("/live") || (uri = data.toString()) == null) {
                 return;
             }
-            String replace = uri.replace(g.f12331a + "://", UrlSchemaHelper.SCHEMA_LIVE_SDK);
+            String replace = uri.replace(g.f12598a + "://", UrlSchemaHelper.SCHEMA_LIVE_SDK);
             if (StringUtils.isNull(replace)) {
                 return;
             }

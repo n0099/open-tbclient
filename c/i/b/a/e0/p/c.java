@@ -10,22 +10,22 @@ public final class c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f33341a;
+    public final String f33447a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final float f33342b;
+    public final float f33448b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final float f33343c;
+    public final float f33449c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final int f33344d;
+    public final int f33450d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final int f33345e;
+    public final int f33451e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final float f33346f;
+    public final float f33452f;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public c(String str) {
@@ -63,11 +63,11 @@ public final class c {
                 return;
             }
         }
-        this.f33341a = str;
-        this.f33342b = f2;
-        this.f33343c = f3;
-        this.f33344d = i2;
-        this.f33345e = i3;
-        this.f33346f = f4;
+        this.f33447a = str;
+        this.f33448b = f2;
+        this.f33449c = f3;
+        this.f33450d = i2;
+        this.f33451e = i3;
+        this.f33452f = f4;
     }
 }

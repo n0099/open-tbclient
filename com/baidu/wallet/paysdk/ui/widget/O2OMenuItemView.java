@@ -17,10 +17,10 @@ public class O2OMenuItemView extends RelativeLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public TextView f62893a;
+    public TextView f63093a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f62894b;
+    public String f63094b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public O2OMenuItemView(Context context) {
@@ -47,14 +47,14 @@ public class O2OMenuItemView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, this) == null) {
             LayoutInflater.from(getContext()).inflate(ResUtils.layout(getContext(), "wallet_base_o2o_menu_item_view"), this);
-            this.f62893a = (TextView) findViewById(ResUtils.id(getContext(), "wallet_o2o_menu_item_text"));
+            this.f63093a = (TextView) findViewById(ResUtils.id(getContext(), "wallet_o2o_menu_item_text"));
         }
     }
 
     public String getString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f62894b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f63094b : (String) invokeV.objValue;
     }
 
     public void updateItem(String str) {
@@ -62,7 +62,7 @@ public class O2OMenuItemView extends RelativeLayout {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || str == null) {
             return;
         }
-        this.f62894b = str;
-        this.f62893a.setText(str);
+        this.f63094b = str;
+        this.f63093a.setText(str);
     }
 }

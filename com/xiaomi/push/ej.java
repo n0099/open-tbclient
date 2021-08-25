@@ -35,7 +35,7 @@ public class ej extends com.xiaomi.clientreport.processor.b {
     public void a(List<String> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
-            ek.a(((com.xiaomi.clientreport.processor.b) this).f76870a, list);
+            ek.a(((com.xiaomi.clientreport.processor.b) this).f77071a, list);
         }
     }
 }

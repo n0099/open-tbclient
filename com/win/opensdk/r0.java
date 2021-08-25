@@ -16,16 +16,16 @@ public class r0 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final byte[] f76771a;
+    public final byte[] f76972a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ByteBuffer f76772b;
+    public ByteBuffer f76973b;
 
     /* renamed from: c  reason: collision with root package name */
-    public q0 f76773c;
+    public q0 f76974c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f76774d;
+    public int f76975d;
 
     public r0() {
         Interceptable interceptable = $ic;
@@ -40,8 +40,8 @@ public class r0 {
                 return;
             }
         }
-        this.f76771a = new byte[256];
-        this.f76774d = 0;
+        this.f76972a = new byte[256];
+        this.f76975d = 0;
     }
 
     public r0 a(byte[] bArr) {
@@ -50,17 +50,17 @@ public class r0 {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bArr)) == null) {
             if (bArr != null) {
                 ByteBuffer wrap = ByteBuffer.wrap(bArr);
-                this.f76772b = null;
-                Arrays.fill(this.f76771a, (byte) 0);
-                this.f76773c = new q0();
-                this.f76774d = 0;
+                this.f76973b = null;
+                Arrays.fill(this.f76972a, (byte) 0);
+                this.f76974c = new q0();
+                this.f76975d = 0;
                 ByteBuffer asReadOnlyBuffer = wrap.asReadOnlyBuffer();
-                this.f76772b = asReadOnlyBuffer;
+                this.f76973b = asReadOnlyBuffer;
                 asReadOnlyBuffer.position(0);
-                this.f76772b.order(ByteOrder.LITTLE_ENDIAN);
+                this.f76973b.order(ByteOrder.LITTLE_ENDIAN);
             } else {
-                this.f76772b = null;
-                this.f76773c.f76761b = 2;
+                this.f76973b = null;
+                this.f76974c.f76962b = 2;
             }
             return this;
         }
@@ -70,7 +70,7 @@ public class r0 {
     public final boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f76773c.f76761b != 0 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f76974c.f76962b != 0 : invokeV.booleanValue;
     }
 
     public final int[] a(int i2) {
@@ -80,7 +80,7 @@ public class r0 {
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) {
             byte[] bArr = new byte[i2 * 3];
             try {
-                this.f76772b.get(bArr);
+                this.f76973b.get(bArr);
                 iArr = new int[256];
                 int i3 = 0;
                 int i4 = 0;
@@ -94,7 +94,7 @@ public class r0 {
                         i4 = i7;
                         i3 = i8;
                     } catch (BufferUnderflowException unused) {
-                        this.f76773c.f76761b = 1;
+                        this.f76974c.f76962b = 1;
                         return iArr;
                     }
                 }
@@ -111,9 +111,9 @@ public class r0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             try {
-                return this.f76772b.get() & 255;
+                return this.f76973b.get() & 255;
             } catch (Exception unused) {
-                this.f76773c.f76761b = 1;
+                this.f76974c.f76962b = 1;
                 return 0;
             }
         }
@@ -125,16 +125,16 @@ public class r0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             int b2 = b();
-            this.f76774d = b2;
+            this.f76975d = b2;
             int i2 = 0;
             if (b2 > 0) {
-                while (i2 < this.f76774d) {
+                while (i2 < this.f76975d) {
                     try {
-                        int i3 = this.f76774d - i2;
-                        this.f76772b.get(this.f76771a, i2, i3);
+                        int i3 = this.f76975d - i2;
+                        this.f76973b.get(this.f76972a, i2, i3);
                         i2 += i3;
                     } catch (Exception unused) {
-                        this.f76773c.f76761b = 1;
+                        this.f76974c.f76962b = 1;
                     }
                 }
             }
@@ -150,7 +150,7 @@ public class r0 {
             do {
                 try {
                     b2 = b();
-                    this.f76772b.position(this.f76772b.position() + b2);
+                    this.f76973b.position(this.f76973b.position() + b2);
                 } catch (IllegalArgumentException unused) {
                     return;
                 }

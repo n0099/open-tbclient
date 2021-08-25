@@ -33,19 +33,19 @@ public class b {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ String f62819a;
+            public final /* synthetic */ String f63019a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ Context f62820b;
+            public final /* synthetic */ Context f63020b;
 
             /* renamed from: c  reason: collision with root package name */
-            public final /* synthetic */ String f62821c;
+            public final /* synthetic */ String f63021c;
 
             /* renamed from: d  reason: collision with root package name */
-            public final /* synthetic */ String f62822d;
+            public final /* synthetic */ String f63022d;
 
             /* renamed from: e  reason: collision with root package name */
-            public LoginBackListenerProxy f62823e;
+            public LoginBackListenerProxy f63023e;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -62,10 +62,10 @@ public class b {
                         return;
                     }
                 }
-                this.f62819a = str4;
-                this.f62820b = context;
-                this.f62821c = str;
-                this.f62822d = str3;
+                this.f63019a = str4;
+                this.f63020b = context;
+                this.f63021c = str;
+                this.f63022d = str3;
             }
 
             @Override // android.view.View.OnClickListener
@@ -74,15 +74,15 @@ public class b {
                 if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) || CheckUtils.isFastDoubleClick()) {
                     return;
                 }
-                if (!TextUtils.isEmpty(this.f62819a)) {
-                    StatisticManager.onEvent(this.f62819a);
+                if (!TextUtils.isEmpty(this.f63019a)) {
+                    StatisticManager.onEvent(this.f63019a);
                 }
-                this.f62823e = new LoginBackListenerProxy(this.f62820b, new ILoginBackListener(this) { // from class: com.baidu.wallet.paysdk.ui.b.1.1
+                this.f63023e = new LoginBackListenerProxy(this.f63020b, new ILoginBackListener(this) { // from class: com.baidu.wallet.paysdk.ui.b.1.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ AnonymousClass1 f62824a;
+                    public final /* synthetic */ AnonymousClass1 f63024a;
 
                     {
                         Interceptable interceptable3 = $ic;
@@ -99,29 +99,29 @@ public class b {
                                 return;
                             }
                         }
-                        this.f62824a = this;
+                        this.f63024a = this;
                     }
 
                     @Override // com.baidu.wallet.api.ILoginBackListener
                     public void onFail(int i2, String str5) {
                         Interceptable interceptable3 = $ic;
                         if ((interceptable3 == null || interceptable3.invokeIL(1048576, this, i2, str5) == null) && i2 == 603) {
-                            WalletLoginHelper.getInstance().onlyLogin(this.f62824a.f62823e);
+                            WalletLoginHelper.getInstance().onlyLogin(this.f63024a.f63023e);
                         }
                     }
 
                     @Override // com.baidu.wallet.api.ILoginBackListener
                     public void onSuccess(int i2, String str5) {
                         Interceptable interceptable3 = $ic;
-                        if (!(interceptable3 == null || interceptable3.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str5) == null) || TextUtils.isEmpty(this.f62824a.f62821c)) {
+                        if (!(interceptable3 == null || interceptable3.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str5) == null) || TextUtils.isEmpty(this.f63024a.f63021c)) {
                             return;
                         }
                         BaiduWalletDelegate baiduWalletDelegate = BaiduWalletDelegate.getInstance();
-                        AnonymousClass1 anonymousClass1 = this.f62824a;
-                        baiduWalletDelegate.openH5Module(anonymousClass1.f62820b, anonymousClass1.f62821c, anonymousClass1.f62822d, true, false);
+                        AnonymousClass1 anonymousClass1 = this.f63024a;
+                        baiduWalletDelegate.openH5Module(anonymousClass1.f63020b, anonymousClass1.f63021c, anonymousClass1.f63022d, true, false);
                     }
                 });
-                WalletLoginHelper.getInstance().login(this.f62823e);
+                WalletLoginHelper.getInstance().login(this.f63023e);
             }
         });
     }

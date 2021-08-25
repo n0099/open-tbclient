@@ -18,7 +18,7 @@ public class g extends a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public HttpResponse f67859c;
+    public HttpResponse f68059c;
 
     public g(HttpResponse httpResponse, f fVar) {
         Interceptable interceptable = $ic;
@@ -35,43 +35,43 @@ public class g extends a {
                 return;
             }
         }
-        this.f67859c = httpResponse;
-        this.f67850a = new ArrayList();
-        for (int i4 = 0; i4 < this.f67859c.getHeaders().size(); i4++) {
-            Header header = this.f67859c.getHeaders().get(i4);
+        this.f68059c = httpResponse;
+        this.f68050a = new ArrayList();
+        for (int i4 = 0; i4 < this.f68059c.getHeaders().size(); i4++) {
+            Header header = this.f68059c.getHeaders().get(i4);
             if (header != null) {
-                this.f67850a.add(new i.b(header.getName(), header.getValue()));
+                this.f68050a.add(new i.b(header.getName(), header.getValue()));
             }
         }
-        this.f67851b = fVar;
+        this.f68051b = fVar;
     }
 
     @Override // com.bytedance.sdk.openadsdk.n.e.a
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f67859c.getStatusCode() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f68059c.getStatusCode() : invokeV.intValue;
     }
 
     @Override // com.bytedance.sdk.openadsdk.n.e.a
     public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f67859c.getStatusCode() >= 200 && this.f67859c.getStatusCode() < 300 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f68059c.getStatusCode() >= 200 && this.f68059c.getStatusCode() < 300 : invokeV.booleanValue;
     }
 
     @Override // com.bytedance.sdk.openadsdk.n.e.a
     public List<i.b> c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f67850a : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f68050a : (List) invokeV.objValue;
     }
 
     @Override // com.bytedance.sdk.openadsdk.n.e.a
     public InputStream d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f67859c.getContent() : (InputStream) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f68059c.getContent() : (InputStream) invokeV.objValue;
     }
 
     @Override // com.bytedance.sdk.openadsdk.n.e.a
@@ -85,13 +85,13 @@ public class g extends a {
     public String f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? a(this.f67859c.getStatusCode()) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? a(this.f68059c.getStatusCode()) : (String) invokeV.objValue;
     }
 
     @Override // com.bytedance.sdk.openadsdk.n.e.a
     public String a(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) ? a(str) != null ? a(str).f67937b : str2 : (String) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) ? a(str) != null ? a(str).f68137b : str2 : (String) invokeLL.objValue;
     }
 }

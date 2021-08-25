@@ -11,7 +11,7 @@ public class ab {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f76950a;
+    public static int f77151a;
 
     /* renamed from: a  reason: collision with other field name */
     public static final String f107a;
@@ -20,22 +20,22 @@ public class ab {
     public static final boolean f108a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f76951b;
+    public static final boolean f77152b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final boolean f76952c;
+    public static final boolean f77153c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final boolean f76953d;
+    public static final boolean f77154d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static boolean f76954e;
+    public static boolean f77155e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final boolean f76955f;
+    public static final boolean f77156f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final boolean f76956g;
+    public static final boolean f77157g;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -57,38 +57,38 @@ public class ab {
         boolean contains = str.contains("2A2FE0D7");
         f108a = contains;
         boolean z = false;
-        f76951b = contains || "DEBUG".equalsIgnoreCase(f107a);
-        f76952c = "LOGABLE".equalsIgnoreCase(f107a);
-        f76953d = f107a.contains("YY");
-        f76954e = f107a.equalsIgnoreCase("TEST");
-        f76955f = "BETA".equalsIgnoreCase(f107a);
+        f77152b = contains || "DEBUG".equalsIgnoreCase(f107a);
+        f77153c = "LOGABLE".equalsIgnoreCase(f107a);
+        f77154d = f107a.contains("YY");
+        f77155e = f107a.equalsIgnoreCase("TEST");
+        f77156f = "BETA".equalsIgnoreCase(f107a);
         String str2 = f107a;
         if (str2 != null && str2.startsWith("RC")) {
             z = true;
         }
-        f76956g = z;
-        f76950a = 1;
+        f77157g = z;
+        f77151a = 1;
         if (f107a.equalsIgnoreCase("SANDBOX")) {
             i2 = 2;
         } else if (!f107a.equalsIgnoreCase("ONEBOX")) {
-            f76950a = 1;
+            f77151a = 1;
             return;
         } else {
             i2 = 3;
         }
-        f76950a = i2;
+        f77151a = i2;
     }
 
     public static int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? f76950a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? f77151a : invokeV.intValue;
     }
 
     public static void a(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(65538, null, i2) == null) {
-            f76950a = i2;
+            f77151a = i2;
         }
     }
 
@@ -96,12 +96,12 @@ public class ab {
     public static boolean m142a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? f76950a == 2 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? f77151a == 2 : invokeV.booleanValue;
     }
 
     public static boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? f76950a == 3 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? f77151a == 3 : invokeV.booleanValue;
     }
 }

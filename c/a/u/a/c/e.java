@@ -13,19 +13,19 @@ public class e {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Boolean f29840a;
+    public Boolean f30091a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Boolean f29841b;
+    public Boolean f30092b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Socket f29842c;
+    public Socket f30093c;
 
     /* renamed from: d  reason: collision with root package name */
-    public InputStream f29843d;
+    public InputStream f30094d;
 
     /* renamed from: e  reason: collision with root package name */
-    public OutputStream f29844e;
+    public OutputStream f30095e;
 
     public e() {
         Interceptable interceptable = $ic;
@@ -41,10 +41,10 @@ public class e {
             }
         }
         Boolean bool = Boolean.FALSE;
-        this.f29840a = bool;
-        this.f29841b = bool;
-        this.f29842c = null;
-        this.f29843d = null;
-        this.f29844e = null;
+        this.f30091a = bool;
+        this.f30092b = bool;
+        this.f30093c = null;
+        this.f30094d = null;
+        this.f30095e = null;
     }
 }

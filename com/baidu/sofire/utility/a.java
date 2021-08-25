@@ -9,7 +9,6 @@ import com.baidu.sofire.MyService;
 import com.baidu.sofire.ac.U;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.bytedance.sdk.openadsdk.TTAdConstant;
 /* loaded from: classes6.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic;
@@ -30,7 +29,7 @@ public final class a {
                 intent.putExtra("target_method", "handleWork");
                 intent.putExtra("from", 2);
                 PendingIntent service = PendingIntent.getService(context, 1001, intent, 134217728);
-                long j2 = TTAdConstant.AD_MAX_EVENT_TIME;
+                long j2 = 600000;
                 if (i2 == 0) {
                     j2 = 30000;
                 } else if (i2 == 1) {

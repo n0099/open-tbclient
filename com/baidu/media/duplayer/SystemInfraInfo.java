@@ -14,7 +14,7 @@ public class SystemInfraInfo {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f42396a;
+    public boolean f42503a;
     @Keep
     public long mBuildDateUTC;
     @Keep
@@ -56,7 +56,7 @@ public class SystemInfraInfo {
         this.mMaxCpuFreq = 0L;
         this.mBuildDateUTC = 0L;
         this.mPmSizeAvailable = 0L;
-        this.f42396a = false;
+        this.f42503a = false;
         this.mVmSize = -1L;
         this.mVmPeak = -1L;
         this.mVmSizeInSmaps = -1L;
@@ -142,11 +142,11 @@ public class SystemInfraInfo {
 
     public final void i() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || this.f42396a) {
+        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || this.f42503a) {
             return;
         }
         nativeGetConstInfo();
         CyberLog.i("", "SystemInfraInfo mNumProcessors:" + this.mNumProcessors + " \nmMaxCpuFreq:" + this.mMaxCpuFreq + " \nmBuildDateUTC" + this.mBuildDateUTC);
-        this.f42396a = true;
+        this.f42503a = true;
     }
 }

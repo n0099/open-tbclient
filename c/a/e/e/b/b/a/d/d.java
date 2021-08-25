@@ -12,7 +12,7 @@ public class d implements h {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Byte f2104a;
+    public Byte f2162a;
 
     public d(byte b2) {
         Interceptable interceptable = $ic;
@@ -29,7 +29,7 @@ public class d implements h {
                 return;
             }
         }
-        this.f2104a = Byte.valueOf(b2);
+        this.f2162a = Byte.valueOf(b2);
     }
 
     @Override // c.a.e.e.b.b.a.d.h
@@ -46,16 +46,16 @@ public class d implements h {
                                 if (a2 != Double.class && a2 != Double.TYPE) {
                                     if (a2 != Character.class && a2 != Character.TYPE) {
                                         if (a2 == Boolean.class || a2 == Boolean.TYPE) {
-                                            return Boolean.valueOf(this.f2104a.byteValue() == 0);
+                                            return Boolean.valueOf(this.f2162a.byteValue() == 0);
                                         } else if (a2 == String.class) {
-                                            return String.valueOf(this.f2104a);
+                                            return String.valueOf(this.f2162a);
                                         } else {
                                             if (a2 == char[].class) {
-                                                return String.valueOf(this.f2104a).toCharArray();
+                                                return String.valueOf(this.f2162a).toCharArray();
                                             }
                                             if (a2 == byte[].class) {
                                                 try {
-                                                    return c.a.e.e.p.c.e(String.valueOf(this.f2104a), 0);
+                                                    return c.a.e.e.p.c.e(String.valueOf(this.f2162a), 0);
                                                 } catch (IOException e2) {
                                                     e2.printStackTrace();
                                                     return null;
@@ -64,19 +64,19 @@ public class d implements h {
                                             return null;
                                         }
                                     }
-                                    return Character.valueOf((char) this.f2104a.intValue());
+                                    return Character.valueOf((char) this.f2162a.intValue());
                                 }
-                                return Double.valueOf(this.f2104a.doubleValue());
+                                return Double.valueOf(this.f2162a.doubleValue());
                             }
-                            return Float.valueOf(this.f2104a.floatValue());
+                            return Float.valueOf(this.f2162a.floatValue());
                         }
-                        return Long.valueOf(this.f2104a.longValue());
+                        return Long.valueOf(this.f2162a.longValue());
                     }
-                    return Integer.valueOf(this.f2104a.intValue());
+                    return Integer.valueOf(this.f2162a.intValue());
                 }
-                return Short.valueOf(this.f2104a.shortValue());
+                return Short.valueOf(this.f2162a.shortValue());
             }
-            return Byte.valueOf(this.f2104a.byteValue());
+            return Byte.valueOf(this.f2162a.byteValue());
         }
         return invokeL.objValue;
     }

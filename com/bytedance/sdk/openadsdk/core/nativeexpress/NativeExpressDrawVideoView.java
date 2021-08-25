@@ -53,7 +53,7 @@ public class NativeExpressDrawVideoView extends NativeExpressVideoView {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ NativeExpressDrawVideoView f66414a;
+            public final /* synthetic */ NativeExpressDrawVideoView f66614a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -70,26 +70,26 @@ public class NativeExpressDrawVideoView extends NativeExpressVideoView {
                         return;
                     }
                 }
-                this.f66414a = this;
+                this.f66614a = this;
             }
 
             @Override // com.bytedance.sdk.openadsdk.q.s.a
             public void a(View view) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                    int width = this.f66414a.getWidth();
-                    int height = this.f66414a.getHeight();
-                    NativeExpressDrawVideoView nativeExpressDrawVideoView = this.f66414a;
+                    int width = this.f66614a.getWidth();
+                    int height = this.f66614a.getHeight();
+                    NativeExpressDrawVideoView nativeExpressDrawVideoView = this.f66614a;
                     nativeExpressDrawVideoView.a(nativeExpressDrawVideoView.l, width, height);
-                    NativeExpressDrawVideoView nativeExpressDrawVideoView2 = this.f66414a;
-                    View findViewById = nativeExpressDrawVideoView2.l.findViewById(com.bytedance.sdk.component.utils.t.e(nativeExpressDrawVideoView2.f66430g, "tt_root_view"));
-                    this.f66414a.a(findViewById, width, height);
+                    NativeExpressDrawVideoView nativeExpressDrawVideoView2 = this.f66614a;
+                    View findViewById = nativeExpressDrawVideoView2.l.findViewById(com.bytedance.sdk.component.utils.t.e(nativeExpressDrawVideoView2.f66630g, "tt_root_view"));
+                    this.f66614a.a(findViewById, width, height);
                     if (findViewById != null) {
                         findViewById.requestLayout();
                     }
-                    NativeExpressDrawVideoView nativeExpressDrawVideoView3 = this.f66414a;
+                    NativeExpressDrawVideoView nativeExpressDrawVideoView3 = this.f66614a;
                     nativeExpressDrawVideoView3.a(nativeExpressDrawVideoView3.getWebView(), width, height);
-                    ExpressVideoView expressVideoView = ((NativeExpressVideoView) this.f66414a).f66415a;
+                    ExpressVideoView expressVideoView = ((NativeExpressVideoView) this.f66614a).f66615a;
                     if (expressVideoView != null) {
                         expressVideoView.a(width, height);
                     }

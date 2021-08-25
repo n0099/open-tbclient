@@ -82,7 +82,7 @@ public class FileVideoCapturer implements VideoCapturer {
                     return;
                 }
             }
-            RandomAccessFile randomAccessFile = new RandomAccessFile(str, r.f42062a);
+            RandomAccessFile randomAccessFile = new RandomAccessFile(str, r.f42169a);
             this.mediaFile = randomAccessFile;
             this.mediaFileChannel = randomAccessFile.getChannel();
             StringBuilder sb = new StringBuilder();

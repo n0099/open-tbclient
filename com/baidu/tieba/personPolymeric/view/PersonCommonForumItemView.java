@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import c.a.e.e.p.k;
-import c.a.p0.n2.e.f;
+import c.a.q0.n2.e.f;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -30,17 +30,17 @@ public class PersonCommonForumItemView extends RelativeLayout {
     public BarImageView avatar;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f55742e;
+    public int f55907e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Context f55743f;
+    public Context f55908f;
     public TextView forumName;
 
     /* renamed from: g  reason: collision with root package name */
-    public f f55744g;
+    public f f55909g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View.OnClickListener f55745h;
+    public View.OnClickListener f55910h;
     public TextView postThread;
     public TextView threadNumber;
     public TextView threadStr;
@@ -51,7 +51,7 @@ public class PersonCommonForumItemView extends RelativeLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PersonCommonForumItemView f55746e;
+        public final /* synthetic */ PersonCommonForumItemView f55911e;
 
         public a(PersonCommonForumItemView personCommonForumItemView) {
             Interceptable interceptable = $ic;
@@ -68,20 +68,20 @@ public class PersonCommonForumItemView extends RelativeLayout {
                     return;
                 }
             }
-            this.f55746e = personCommonForumItemView;
+            this.f55911e = personCommonForumItemView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || view == null || this.f55746e.f55744g == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || view == null || this.f55911e.f55909g == null) {
                 return;
             }
             TiebaStatic.log(new StatisticItem("c12503").param("obj_locate", "6"));
             TiebaStatic.log(new StatisticItem("c11594"));
-            String str = this.f55746e.f55744g.f22293f;
+            String str = this.f55911e.f55909g.f22623f;
             if (k.isForumName(str)) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.f55746e.f55743f).createNormalCfg(str, FrsActivityConfig.FRS_FROM_ENTERFORUM_RECOMMEND).setCallFrom(8)));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.f55911e.f55908f).createNormalCfg(str, FrsActivityConfig.FRS_FROM_ENTERFORUM_RECOMMEND).setCallFrom(8)));
             }
         }
     }
@@ -104,8 +104,8 @@ public class PersonCommonForumItemView extends RelativeLayout {
                 return;
             }
         }
-        this.f55742e = 3;
-        this.f55743f = context;
+        this.f55907e = 3;
+        this.f55908f = context;
         LayoutInflater.from(getContext()).inflate(R.layout.person_info_common_forum_item, (ViewGroup) this, true);
         c();
         d();
@@ -125,35 +125,35 @@ public class PersonCommonForumItemView extends RelativeLayout {
     public final void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f55745h = new a(this);
+            this.f55910h = new a(this);
         }
     }
 
     public void onChangeSkinType() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            if (this.f55742e != TbadkCoreApplication.getInst().getSkinType()) {
+            if (this.f55907e != TbadkCoreApplication.getInst().getSkinType()) {
                 SkinManager.setViewTextColor(this.forumName, R.color.CAM_X0105);
                 SkinManager.setViewTextColor(this.postThread, R.color.CAM_X0109);
                 SkinManager.setViewTextColor(this.threadStr, R.color.CAM_X0109);
                 SkinManager.setViewTextColor(this.threadNumber, R.color.CAM_X0302);
                 SkinManager.setBackgroundResource(this, R.drawable.person_common_forum_item_bg);
             }
-            this.f55742e = TbadkCoreApplication.getInst().getSkinType();
+            this.f55907e = TbadkCoreApplication.getInst().getSkinType();
         }
     }
 
     public void setData(f fVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, fVar) == null) {
-            this.f55744g = fVar;
-            this.avatar.startLoad(fVar.f22294g, 10, false);
+            this.f55909g = fVar;
+            this.avatar.startLoad(fVar.f22624g, 10, false);
             TextView textView = this.forumName;
-            textView.setText(StringHelper.cutForumNameWithSuffix(fVar.f22293f, 7, "...") + this.f55743f.getString(R.string.forum));
-            this.threadNumber.setText(StringHelper.numberUniformFormat((long) fVar.f22295h));
-            this.postThread.setText(String.format(this.f55743f.getString(R.string.person_has_posted), StringHelper.getUserDescByGender(fVar.f22296i)));
+            textView.setText(StringHelper.cutForumNameWithSuffix(fVar.f22623f, 7, "...") + this.f55908f.getString(R.string.forum));
+            this.threadNumber.setText(StringHelper.numberUniformFormat((long) fVar.f22625h));
+            this.postThread.setText(String.format(this.f55908f.getString(R.string.person_has_posted), StringHelper.getUserDescByGender(fVar.f22626i)));
             if (getRootView() != null) {
-                getRootView().setOnClickListener(this.f55745h);
+                getRootView().setOnClickListener(this.f55910h);
             }
             onChangeSkinType();
         }

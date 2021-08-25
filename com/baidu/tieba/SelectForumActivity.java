@@ -3,7 +3,7 @@ package com.baidu.tieba;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.widget.LinearLayout;
-import c.a.p0.l;
+import c.a.q0.l;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -28,7 +28,7 @@ public class SelectForumActivity extends SuspendedActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ SelectForumActivity f48829a;
+        public final /* synthetic */ SelectForumActivity f48937a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(SelectForumActivity selectForumActivity, int i2) {
@@ -48,7 +48,7 @@ public class SelectForumActivity extends SuspendedActivity {
                     return;
                 }
             }
-            this.f48829a = selectForumActivity;
+            this.f48937a = selectForumActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -58,7 +58,7 @@ public class SelectForumActivity extends SuspendedActivity {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null) {
                 return;
             }
-            this.f48829a.finish();
+            this.f48937a.finish();
         }
     }
 
@@ -68,7 +68,7 @@ public class SelectForumActivity extends SuspendedActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ SelectForumActivity f48830a;
+        public final /* synthetic */ SelectForumActivity f48938a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(SelectForumActivity selectForumActivity, int i2) {
@@ -88,7 +88,7 @@ public class SelectForumActivity extends SuspendedActivity {
                     return;
                 }
             }
-            this.f48830a = selectForumActivity;
+            this.f48938a = selectForumActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -98,9 +98,9 @@ public class SelectForumActivity extends SuspendedActivity {
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof String)) {
                 String str = (String) customResponsedMessage.getData();
                 if (TextUtils.isEmpty(str)) {
-                    str = this.f48830a.getString(R.string.activity_select_forum_error);
+                    str = this.f48938a.getString(R.string.activity_select_forum_error);
                 }
-                c.a.e.e.p.l.M(this.f48830a, str);
+                c.a.e.e.p.l.M(this.f48938a, str);
             }
         }
     }
@@ -123,7 +123,7 @@ public class SelectForumActivity extends SuspendedActivity {
     }
 
     @Override // com.baidu.tbadk.suspended.SuspendedActivity
-    public c.a.o0.v0.a getSuspendedContentView(LinearLayout linearLayout, NavigationBar navigationBar) {
+    public c.a.p0.v0.a getSuspendedContentView(LinearLayout linearLayout, NavigationBar navigationBar) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, linearLayout, navigationBar)) == null) {
@@ -132,7 +132,7 @@ public class SelectForumActivity extends SuspendedActivity {
             }
             return this.selectForumView;
         }
-        return (c.a.o0.v0.a) invokeLL.objValue;
+        return (c.a.p0.v0.a) invokeLL.objValue;
     }
 
     @Override // com.baidu.tbadk.suspended.SuspendedActivity, com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity

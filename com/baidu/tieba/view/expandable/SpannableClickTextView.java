@@ -22,14 +22,14 @@ public class SpannableClickTextView extends TextView {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f58066e;
+    public boolean f58262e;
 
     /* loaded from: classes7.dex */
     public static class a extends LinkMovementMethod {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static a f58067a;
+        public static a f58263a;
         public transient /* synthetic */ FieldHolder $fh;
 
         public a() {
@@ -50,10 +50,10 @@ public class SpannableClickTextView extends TextView {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-                if (f58067a == null) {
-                    f58067a = new a();
+                if (f58263a == null) {
+                    f58263a = new a();
                 }
-                return f58067a;
+                return f58263a;
             }
             return (a) invokeV.objValue;
         }
@@ -81,7 +81,7 @@ public class SpannableClickTextView extends TextView {
                         Selection.setSelection(spannable, spannable.getSpanStart(objArr[0]), spannable.getSpanEnd(objArr[0]));
                     }
                     if (textView instanceof SpannableClickTextView) {
-                        ((SpannableClickTextView) textView).f58066e = true;
+                        ((SpannableClickTextView) textView).f58262e = true;
                     }
                     return true;
                 }
@@ -118,7 +118,7 @@ public class SpannableClickTextView extends TextView {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, motionEvent)) == null) {
-            this.f58066e = false;
+            this.f58262e = false;
             return super.onTouchEvent(motionEvent);
         }
         return invokeL.booleanValue;
@@ -129,7 +129,7 @@ public class SpannableClickTextView extends TextView {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.f58066e) {
+            if (this.f58262e) {
                 return true;
             }
             return super.performClick();

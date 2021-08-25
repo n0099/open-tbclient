@@ -5,9 +5,9 @@ import UserPost.UserPostResIdl;
 import androidx.core.view.InputDeviceCompat;
 import c.a.e.a.f;
 import c.a.e.e.p.l;
-import c.a.e.k.e.n;
-import c.a.p0.n2.e.i;
-import c.a.p0.n2.e.j;
+import c.a.e.l.e.n;
+import c.a.q0.n2.e.i;
+import c.a.q0.n2.e.j;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.listener.HttpMessageListener;
@@ -459,7 +459,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
             return (ArrayList) invokeV.objValue;
         }
 
-        @Override // c.a.e.k.e.n
+        @Override // c.a.e.l.e.n
         public BdUniqueId getType() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -747,7 +747,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PersonPostModel f55695a;
+        public final /* synthetic */ PersonPostModel f55860a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(PersonPostModel personPostModel, int i2) {
@@ -767,7 +767,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
                     return;
                 }
             }
-            this.f55695a = personPostModel;
+            this.f55860a = personPostModel;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -777,7 +777,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
             if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, socketResponsedMessage) == null) && (socketResponsedMessage instanceof UserPostPageSocketResponsedMessage)) {
                 UserPostPageSocketResponsedMessage userPostPageSocketResponsedMessage = (UserPostPageSocketResponsedMessage) socketResponsedMessage;
                 if (userPostPageSocketResponsedMessage.getOrginalMessage() == null || userPostPageSocketResponsedMessage.hasError()) {
-                    this.f55695a.mOnResult.on(null, this.f55695a.mIsReset);
+                    this.f55860a.mOnResult.on(null, this.f55860a.mIsReset);
                     return;
                 }
                 if (userPostPageSocketResponsedMessage.getPersonPostModel() != null) {
@@ -798,7 +798,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PersonPostModel f55696a;
+        public final /* synthetic */ PersonPostModel f55861a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(PersonPostModel personPostModel, int i2) {
@@ -818,7 +818,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
                     return;
                 }
             }
-            this.f55696a = personPostModel;
+            this.f55861a = personPostModel;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -828,7 +828,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
             if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && (httpResponsedMessage instanceof UserPostPageHttpResponseMessage)) {
                 UserPostPageHttpResponseMessage userPostPageHttpResponseMessage = (UserPostPageHttpResponseMessage) httpResponsedMessage;
                 if (userPostPageHttpResponseMessage.getOrginalMessage() == null || userPostPageHttpResponseMessage.hasError()) {
-                    this.f55696a.mOnResult.on(null, this.f55696a.mIsReset);
+                    this.f55861a.mOnResult.on(null, this.f55861a.mIsReset);
                     return;
                 }
                 if (userPostPageHttpResponseMessage.getPersonPostModel() != null) {
@@ -938,7 +938,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
                     CardPersonDynamicThreadData cardPersonDynamicThreadData = (CardPersonDynamicThreadData) next;
                     cardPersonDynamicThreadData.F = true;
                     cardPersonDynamicThreadData.E = true;
-                    long j2 = cardPersonDynamicThreadData.f49770i * 1000;
+                    long j2 = cardPersonDynamicThreadData.f49878i * 1000;
                     String yearBytime2 = StringHelper.getYearBytime(j2);
                     String chineseMonthBytime = StringHelper.getChineseMonthBytime(j2);
                     String dateBytime = StringHelper.getDateBytime(j2);

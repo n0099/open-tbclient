@@ -22,19 +22,19 @@ public class ShareGridLayout extends ViewGroup {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f57190e;
+    public Context f57356e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f57191f;
+    public int f57357f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f57192g;
+    public int f57358g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f57193h;
+    public int f57359h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f57194i;
+    public int f57360i;
 
     static {
         InterceptResult invokeClinit;
@@ -76,7 +76,7 @@ public class ShareGridLayout extends ViewGroup {
     public final void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            this.f57190e = context;
+            this.f57356e = context;
             b(0, l.k(context) - (DEFAULT_MARGIN_LEFT_RIGHT * 2));
         }
     }
@@ -85,20 +85,20 @@ public class ShareGridLayout extends ViewGroup {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3) == null) {
             int i4 = i3 - i2;
-            if (l.k(TbadkCoreApplication.getInst()) > 800 && this.f57191f * 5 <= i4) {
-                this.f57193h = 5;
+            if (l.k(TbadkCoreApplication.getInst()) > 800 && this.f57357f * 5 <= i4) {
+                this.f57359h = 5;
             } else {
-                this.f57193h = 4;
+                this.f57359h = 4;
             }
-            int i5 = this.f57191f;
-            int i6 = this.f57193h;
+            int i5 = this.f57357f;
+            int i6 = this.f57359h;
             double d2 = i4 - (i5 * i6);
             if (d2 <= 0.0d) {
-                this.f57194i = 0;
+                this.f57360i = 0;
             } else if (i6 == 5) {
-                this.f57194i = (int) Math.floor(d2 / 10.0d);
+                this.f57360i = (int) Math.floor(d2 / 10.0d);
             } else {
-                this.f57194i = (int) Math.floor(d2 / 8.0d);
+                this.f57360i = (int) Math.floor(d2 / 8.0d);
             }
         }
     }
@@ -108,23 +108,23 @@ public class ShareGridLayout extends ViewGroup {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
             b(i2, i4);
-            int i6 = this.f57194i;
+            int i6 = this.f57360i;
             int childCount = getChildCount();
             int i7 = 0;
             int i8 = 0;
             int i9 = 0;
             while (i7 < childCount) {
-                getChildAt(i7).layout(i6, i8, this.f57191f + i6, this.f57192g + i8);
+                getChildAt(i7).layout(i6, i8, this.f57357f + i6, this.f57358g + i8);
                 i9++;
-                int i10 = i6 + this.f57191f;
-                int i11 = this.f57194i;
+                int i10 = i6 + this.f57357f;
+                int i11 = this.f57360i;
                 i6 = i10 + (i11 * 2);
-                if (i9 >= this.f57193h) {
+                if (i9 >= this.f57359h) {
                     i6 = i11;
                     i9 = 0;
                 }
                 i7++;
-                i8 = (i7 / this.f57193h) * this.f57192g;
+                i8 = (i7 / this.f57359h) * this.f57358g;
             }
         }
     }
@@ -133,32 +133,32 @@ public class ShareGridLayout extends ViewGroup {
     public void onMeasure(int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048579, this, i2, i3) == null) {
-            int makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(this.f57191f, Integer.MIN_VALUE);
-            int makeMeasureSpec2 = View.MeasureSpec.makeMeasureSpec(this.f57192g, Integer.MIN_VALUE);
+            int makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(this.f57357f, Integer.MIN_VALUE);
+            int makeMeasureSpec2 = View.MeasureSpec.makeMeasureSpec(this.f57358g, Integer.MIN_VALUE);
             int childCount = getChildCount();
             for (int i4 = 0; i4 < childCount; i4++) {
                 getChildAt(i4).measure(makeMeasureSpec, makeMeasureSpec2);
             }
-            int i5 = this.f57193h;
+            int i5 = this.f57359h;
             if (childCount <= i5) {
-                setMeasuredDimension(ViewGroup.resolveSize((this.f57191f * i5) + (this.f57194i * 2 * i5), i2), ViewGroup.resolveSize(this.f57192g, i3));
+                setMeasuredDimension(ViewGroup.resolveSize((this.f57357f * i5) + (this.f57360i * 2 * i5), i2), ViewGroup.resolveSize(this.f57358g, i3));
                 return;
             }
             int i6 = childCount / i5;
             if (childCount % i5 > 0) {
                 i6++;
             }
-            int i7 = this.f57191f;
-            int i8 = this.f57193h;
-            setMeasuredDimension(ViewGroup.resolveSize((i7 * i8) + (this.f57194i * 2 * i8), i2), ViewGroup.resolveSize(this.f57192g * i6, i3));
+            int i7 = this.f57357f;
+            int i8 = this.f57359h;
+            setMeasuredDimension(ViewGroup.resolveSize((i7 * i8) + (this.f57360i * 2 * i8), i2), ViewGroup.resolveSize(this.f57358g * i6, i3));
         }
     }
 
     public void setItemParams(int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048580, this, i2, i3) == null) {
-            this.f57191f = i2;
-            this.f57192g = i3;
+            this.f57357f = i2;
+            this.f57358g = i3;
             requestLayout();
         }
     }

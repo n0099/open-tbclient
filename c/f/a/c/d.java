@@ -12,10 +12,10 @@ public final class d {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public EventBus.Event f32038a;
+    public EventBus.Event f32144a;
 
     /* renamed from: b  reason: collision with root package name */
-    public g f32039b;
+    public g f32145b;
 
     public d(EventBus.Event event, g gVar) {
         Interceptable interceptable = $ic;
@@ -32,8 +32,8 @@ public final class d {
                 return;
             }
         }
-        this.f32038a = event;
-        this.f32039b = gVar;
+        this.f32144a = event;
+        this.f32145b = gVar;
     }
 
     public static d a(g gVar, EventBus.Event event) {

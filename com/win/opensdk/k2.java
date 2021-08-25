@@ -16,34 +16,34 @@ public class k2 implements G1 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f76702a;
+    public String f76903a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f76703b;
+    public Context f76904b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f76704c;
+    public boolean f76905c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f76705d;
+    public boolean f76906d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f76706e;
+    public boolean f76907e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Info f76707f;
+    public Info f76908f;
 
     /* renamed from: g  reason: collision with root package name */
-    public h0 f76708g;
+    public h0 f76909g;
 
     /* renamed from: h  reason: collision with root package name */
-    public PBVideoListener f76709h;
+    public PBVideoListener f76910h;
 
     /* renamed from: i  reason: collision with root package name */
-    public m1 f76710i;
+    public m1 f76911i;
 
     /* renamed from: j  reason: collision with root package name */
-    public long f76711j;
+    public long f76912j;
     public Handler k;
 
     public k2(Context context, String str) {
@@ -62,33 +62,33 @@ public class k2 implements G1 {
             }
         }
         this.k = new h2(this);
-        this.f76703b = context;
-        this.f76702a = str;
+        this.f76904b = context;
+        this.f76903a = str;
     }
 
     public final void a(Info info) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, info) == null) {
             boolean z = false;
-            this.f76706e = false;
-            this.f76707f = info;
-            this.f76711j = System.currentTimeMillis();
-            if (b() && this.f76707f.getType() == 41) {
+            this.f76907e = false;
+            this.f76908f = info;
+            this.f76912j = System.currentTimeMillis();
+            if (b() && this.f76908f.getType() == 41) {
                 z = true;
             }
             if (z) {
                 if (a()) {
-                    this.f76709h.onLoaded();
+                    this.f76910h.onLoaded();
                     return;
                 }
-                h0 h0Var = new h0(this.f76703b);
-                this.f76708g = h0Var;
-                h0Var.f76655a = new j2(this);
-                this.f76708g.a(this.f76707f.getLoad(), this.f76707f);
-                this.k.sendEmptyMessageDelayed(11, this.f76707f.getWt() * 1000);
+                h0 h0Var = new h0(this.f76904b);
+                this.f76909g = h0Var;
+                h0Var.f76856a = new j2(this);
+                this.f76909g.a(this.f76908f.getLoad(), this.f76908f);
+                this.k.sendEmptyMessageDelayed(11, this.f76908f.getWt() * 1000);
                 return;
             }
-            this.f76709h.onFail(PBError.PID_TYPE_ERROR);
+            this.f76910h.onFail(PBError.PID_TYPE_ERROR);
         }
     }
 
@@ -99,7 +99,7 @@ public class k2 implements G1 {
         PBError pBError;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, obj) == null) {
-            if (TextUtils.equals(str, this.f76707f.getId() + this.f76702a)) {
+            if (TextUtils.equals(str, this.f76908f.getId() + this.f76903a)) {
                 char c2 = 65535;
                 switch (str2.hashCode()) {
                     case -1398725913:
@@ -134,28 +134,28 @@ public class k2 implements G1 {
                         break;
                 }
                 if (c2 == 0) {
-                    this.f76709h.onClicked();
+                    this.f76910h.onClicked();
                 } else if (c2 == 1) {
-                    this.f76709h.onRewardedAdClosed();
+                    this.f76910h.onRewardedAdClosed();
                 } else if (c2 == 2) {
-                    this.f76709h.onRewardedAdOpened();
+                    this.f76910h.onRewardedAdOpened();
                 } else if (c2 != 3) {
                     if (c2 != 4) {
                         return;
                     }
-                    if (!N.e(this.f76703b)) {
-                        pBVideoListener = this.f76709h;
+                    if (!N.e(this.f76904b)) {
+                        pBVideoListener = this.f76910h;
                         pBError = PBError.NO_NETWORK;
                     } else if (obj != null) {
-                        this.f76709h.onRewardedShowFail((String) obj);
+                        this.f76910h.onRewardedShowFail((String) obj);
                         return;
                     } else {
-                        pBVideoListener = this.f76709h;
+                        pBVideoListener = this.f76910h;
                         pBError = PBError.UNKNOWN;
                     }
                     pBVideoListener.onRewardedShowFail(pBError.getMsg());
-                } else if (!N.e(this.f76703b) || obj == null) {
-                    this.f76709h.onUserEarnedReward(false, 0L);
+                } else if (!N.e(this.f76904b) || obj == null) {
+                    this.f76910h.onUserEarnedReward(false, 0L);
                 } else {
                     try {
                         j2 = ((Long) obj).longValue();
@@ -164,9 +164,9 @@ public class k2 implements G1 {
                         j2 = 0;
                     }
                     if (j2 <= 0) {
-                        this.f76709h.onUserEarnedReward(false, j2);
+                        this.f76910h.onUserEarnedReward(false, j2);
                     } else {
-                        this.f76709h.onUserEarnedReward(true, j2);
+                        this.f76910h.onUserEarnedReward(true, j2);
                     }
                 }
             }
@@ -176,18 +176,18 @@ public class k2 implements G1 {
     public final boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f76704c && !this.f76706e && b() && !this.f76707f.isShown() && this.f76707f.isEffective() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f76905c && !this.f76907e && b() && !this.f76908f.isShown() && this.f76908f.isEffective() : invokeV.booleanValue;
     }
 
     public final boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f76707f != null : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f76908f != null : invokeV.booleanValue;
     }
 
     public final boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? b() && this.f76707f.getType() == 41 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? b() && this.f76908f.getType() == 41 : invokeV.booleanValue;
     }
 }

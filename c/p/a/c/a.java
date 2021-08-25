@@ -17,7 +17,7 @@ public class a implements b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final RandomAccessFile f34320a;
+    public final RandomAccessFile f34426a;
 
     public a(File file) throws FileNotFoundException {
         Interceptable interceptable = $ic;
@@ -34,21 +34,21 @@ public class a implements b {
                 return;
             }
         }
-        this.f34320a = new RandomAccessFile(file, r.f42062a);
+        this.f34426a = new RandomAccessFile(file, r.f42169a);
     }
 
     @Override // c.p.a.c.b
     public long a() throws IOException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f34320a.length() : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f34426a.length() : invokeV.longValue;
     }
 
     @Override // c.p.a.c.b
     public void b() throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f34320a.close();
+            this.f34426a.close();
         }
     }
 
@@ -56,14 +56,14 @@ public class a implements b {
     public int a(byte[] bArr, int i2, int i3) throws IOException {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLII = interceptable.invokeLII(1048576, this, bArr, i2, i3)) == null) ? this.f34320a.read(bArr, i2, i3) : invokeLII.intValue;
+        return (interceptable == null || (invokeLII = interceptable.invokeLII(1048576, this, bArr, i2, i3)) == null) ? this.f34426a.read(bArr, i2, i3) : invokeLII.intValue;
     }
 
     @Override // c.p.a.c.b
     public void a(long j2, long j3) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)}) == null) {
-            this.f34320a.seek(j2);
+            this.f34426a.seek(j2);
         }
     }
 }

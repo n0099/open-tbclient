@@ -16,7 +16,7 @@ public final class MiniGzip {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f36472a = "MiniGzip";
+    public static final String f36578a = "MiniGzip";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -54,14 +54,14 @@ public final class MiniGzip {
         if (interceptable == null || interceptable.invokeLL(65538, null, str, str2) == null) {
             long elapsedRealtime = SystemClock.elapsedRealtime();
             if (str == null || str2 == null || str.equals("") || str2.equals("")) {
-                String str3 = f36472a;
+                String str3 = f36578a;
                 LogUtil.logD(str3, "parameters invalid : srcFile=" + str + "//destFile=" + str2);
             } else if (!new File(str).exists()) {
-                String str4 = f36472a;
+                String str4 = f36578a;
                 LogUtil.logD(str4, str + "  not exists.");
             } else if (new a(new File(str)).a()) {
                 uncompressFile(str, str2);
-                String str5 = f36472a;
+                String str5 = f36578a;
                 LogUtil.logD(str5, "native ungzip use time : " + (SystemClock.elapsedRealtime() - elapsedRealtime));
             }
         }

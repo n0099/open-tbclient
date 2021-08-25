@@ -15,7 +15,7 @@ public abstract class w {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final w f33744a;
+    public static final w f33850a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes4.dex */
@@ -94,34 +94,34 @@ public abstract class w {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public Object f33745a;
+        public Object f33851a;
 
         /* renamed from: b  reason: collision with root package name */
-        public Object f33746b;
+        public Object f33852b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f33747c;
+        public int f33853c;
 
         /* renamed from: d  reason: collision with root package name */
-        public long f33748d;
+        public long f33854d;
 
         /* renamed from: e  reason: collision with root package name */
-        public long f33749e;
+        public long f33855e;
 
         /* renamed from: f  reason: collision with root package name */
-        public long[] f33750f;
+        public long[] f33856f;
 
         /* renamed from: g  reason: collision with root package name */
-        public int[] f33751g;
+        public int[] f33857g;
 
         /* renamed from: h  reason: collision with root package name */
-        public int[] f33752h;
+        public int[] f33858h;
 
         /* renamed from: i  reason: collision with root package name */
-        public int[] f33753i;
+        public int[] f33859i;
 
         /* renamed from: j  reason: collision with root package name */
-        public long[][] f33754j;
+        public long[][] f33860j;
         public long k;
 
         public b() {
@@ -141,14 +141,14 @@ public abstract class w {
         public int a(int i2) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? this.f33751g[i2] : invokeI.intValue;
+            return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? this.f33857g[i2] : invokeI.intValue;
         }
 
         public long b(int i2, int i3) {
             InterceptResult invokeII;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeII = interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3)) == null) {
-                long[][] jArr = this.f33754j;
+                long[][] jArr = this.f33860j;
                 if (i3 >= jArr[i2].length) {
                     return -9223372036854775807L;
                 }
@@ -161,7 +161,7 @@ public abstract class w {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                long[] jArr = this.f33750f;
+                long[] jArr = this.f33856f;
                 if (jArr == null) {
                     return 0;
                 }
@@ -174,18 +174,18 @@ public abstract class w {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeJ = interceptable.invokeJ(1048579, this, j2)) == null) {
-                if (this.f33750f == null) {
+                if (this.f33856f == null) {
                     return -1;
                 }
                 int i2 = 0;
                 while (true) {
-                    long[] jArr = this.f33750f;
+                    long[] jArr = this.f33856f;
                     if (i2 >= jArr.length || jArr[i2] == Long.MIN_VALUE || (j2 < jArr[i2] && !l(i2))) {
                         break;
                     }
                     i2++;
                 }
-                if (i2 < this.f33750f.length) {
+                if (i2 < this.f33856f.length) {
                     return i2;
                 }
                 return -1;
@@ -197,13 +197,13 @@ public abstract class w {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeJ = interceptable.invokeJ(1048580, this, j2)) == null) {
-                long[] jArr = this.f33750f;
+                long[] jArr = this.f33856f;
                 if (jArr == null) {
                     return -1;
                 }
                 int length = jArr.length - 1;
                 while (length >= 0) {
-                    long[] jArr2 = this.f33750f;
+                    long[] jArr2 = this.f33856f;
                     if (jArr2[length] != Long.MIN_VALUE && jArr2[length] <= j2) {
                         break;
                     }
@@ -220,7 +220,7 @@ public abstract class w {
         public long f(int i2) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i2)) == null) ? this.f33750f[i2] : invokeI.longValue;
+            return (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i2)) == null) ? this.f33856f[i2] : invokeI.longValue;
         }
 
         public long g() {
@@ -232,33 +232,33 @@ public abstract class w {
         public long h() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f33748d : invokeV.longValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f33854d : invokeV.longValue;
         }
 
         public int i(int i2) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2)) == null) ? this.f33753i[i2] : invokeI.intValue;
+            return (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2)) == null) ? this.f33859i[i2] : invokeI.intValue;
         }
 
         public long j() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? c.i.b.a.b.b(this.f33749e) : invokeV.longValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? c.i.b.a.b.b(this.f33855e) : invokeV.longValue;
         }
 
         public long k() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f33749e : invokeV.longValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f33855e : invokeV.longValue;
         }
 
         public boolean l(int i2) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048587, this, i2)) == null) {
-                int[] iArr = this.f33751g;
-                return iArr[i2] != -1 && this.f33753i[i2] == iArr[i2];
+                int[] iArr = this.f33857g;
+                return iArr[i2] != -1 && this.f33859i[i2] == iArr[i2];
             }
             return invokeI.booleanValue;
         }
@@ -266,7 +266,7 @@ public abstract class w {
         public boolean m(int i2, int i3) {
             InterceptResult invokeII;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeII = interceptable.invokeII(1048588, this, i2, i3)) == null) ? i3 < this.f33752h[i2] : invokeII.booleanValue;
+            return (interceptable == null || (invokeII = interceptable.invokeII(1048588, this, i2, i3)) == null) ? i3 < this.f33858h[i2] : invokeII.booleanValue;
         }
 
         public b n(Object obj, Object obj2, int i2, long j2, long j3) {
@@ -283,16 +283,16 @@ public abstract class w {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048590, this, new Object[]{obj, obj2, Integer.valueOf(i2), Long.valueOf(j2), Long.valueOf(j3), jArr, iArr, iArr2, iArr3, jArr2, Long.valueOf(j4)})) == null) {
-                this.f33745a = obj;
-                this.f33746b = obj2;
-                this.f33747c = i2;
-                this.f33748d = j2;
-                this.f33749e = j3;
-                this.f33750f = jArr;
-                this.f33751g = iArr;
-                this.f33752h = iArr2;
-                this.f33753i = iArr3;
-                this.f33754j = jArr2;
+                this.f33851a = obj;
+                this.f33852b = obj2;
+                this.f33853c = i2;
+                this.f33854d = j2;
+                this.f33855e = j3;
+                this.f33856f = jArr;
+                this.f33857g = iArr;
+                this.f33858h = iArr2;
+                this.f33859i = iArr3;
+                this.f33860j = jArr2;
                 this.k = j4;
                 return this;
             }
@@ -306,34 +306,34 @@ public abstract class w {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public Object f33755a;
+        public Object f33861a;
 
         /* renamed from: b  reason: collision with root package name */
-        public long f33756b;
+        public long f33862b;
 
         /* renamed from: c  reason: collision with root package name */
-        public long f33757c;
+        public long f33863c;
 
         /* renamed from: d  reason: collision with root package name */
-        public boolean f33758d;
+        public boolean f33864d;
 
         /* renamed from: e  reason: collision with root package name */
-        public boolean f33759e;
+        public boolean f33865e;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f33760f;
+        public int f33866f;
 
         /* renamed from: g  reason: collision with root package name */
-        public int f33761g;
+        public int f33867g;
 
         /* renamed from: h  reason: collision with root package name */
-        public long f33762h;
+        public long f33868h;
 
         /* renamed from: i  reason: collision with root package name */
-        public long f33763i;
+        public long f33869i;
 
         /* renamed from: j  reason: collision with root package name */
-        public long f33764j;
+        public long f33870j;
 
         public c() {
             Interceptable interceptable = $ic;
@@ -352,35 +352,35 @@ public abstract class w {
         public long a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f33762h : invokeV.longValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f33868h : invokeV.longValue;
         }
 
         public long b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? c.i.b.a.b.b(this.f33763i) : invokeV.longValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? c.i.b.a.b.b(this.f33869i) : invokeV.longValue;
         }
 
         public long c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f33764j : invokeV.longValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f33870j : invokeV.longValue;
         }
 
         public c d(Object obj, long j2, long j3, boolean z, boolean z2, long j4, long j5, int i2, int i3, long j6) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{obj, Long.valueOf(j2), Long.valueOf(j3), Boolean.valueOf(z), Boolean.valueOf(z2), Long.valueOf(j4), Long.valueOf(j5), Integer.valueOf(i2), Integer.valueOf(i3), Long.valueOf(j6)})) == null) {
-                this.f33755a = obj;
-                this.f33756b = j2;
-                this.f33757c = j3;
-                this.f33758d = z;
-                this.f33759e = z2;
-                this.f33762h = j4;
-                this.f33763i = j5;
-                this.f33760f = i2;
-                this.f33761g = i3;
-                this.f33764j = j6;
+                this.f33861a = obj;
+                this.f33862b = j2;
+                this.f33863c = j3;
+                this.f33864d = z;
+                this.f33865e = z2;
+                this.f33868h = j4;
+                this.f33869i = j5;
+                this.f33866f = i2;
+                this.f33867g = i3;
+                this.f33870j = j6;
                 return this;
             }
             return (c) invokeCommon.objValue;
@@ -400,7 +400,7 @@ public abstract class w {
                 return;
             }
         }
-        f33744a = new a();
+        f33850a = new a();
     }
 
     public w() {
@@ -441,13 +441,13 @@ public abstract class w {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i2), bVar, cVar, Integer.valueOf(i3), Boolean.valueOf(z)})) == null) {
-            int i4 = f(i2, bVar).f33747c;
-            if (l(i4, cVar).f33761g == i2) {
+            int i4 = f(i2, bVar).f33853c;
+            if (l(i4, cVar).f33867g == i2) {
                 int e2 = e(i4, i3, z);
                 if (e2 == -1) {
                     return -1;
                 }
-                return l(e2, cVar).f33760f;
+                return l(e2, cVar).f33866f;
             }
             return i2 + 1;
         }
@@ -503,10 +503,10 @@ public abstract class w {
                     return null;
                 }
             }
-            int i3 = cVar.f33760f;
+            int i3 = cVar.f33866f;
             long c2 = cVar.c() + j2;
             long h2 = f(i3, bVar).h();
-            while (h2 != -9223372036854775807L && c2 >= h2 && i3 < cVar.f33761g) {
+            while (h2 != -9223372036854775807L && c2 >= h2 && i3 < cVar.f33867g) {
                 c2 -= h2;
                 i3++;
                 h2 = f(i3, bVar).h();

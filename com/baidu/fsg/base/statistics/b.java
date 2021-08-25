@@ -9,34 +9,34 @@ public class b {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f39249a = "wallet_stastics";
+    public static final String f39356a = "wallet_stastics";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f39250b = 204800;
+    public static final int f39357b = 204800;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f39251c = 51200;
+    public static final int f39358c = 51200;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int f39252d = 200;
+    public static final int f39359d = 200;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final long f39253e = 604800000;
+    public static final long f39360e = 604800000;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final long f39254f = 86400000;
+    public static final long f39361f = 86400000;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f39255g = "publish_data";
+    public static final String f39362g = "publish_data";
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f39256h = "sign";
+    public static final String f39363h = "sign";
 
     /* renamed from: i  reason: collision with root package name */
-    public static final String f39257i = "mk";
+    public static final String f39364i = "mk";
 
     /* renamed from: j  reason: collision with root package name */
-    public static final String f39258j = "array";
+    public static final String f39365j = "array";
     public static final String k = "exception";
     public static final String l = "https://www.baifubao.com/chanpin_stat";
     public static final String m = "http://yf-wallet-rd-red-dc00.epc.baidu.com:8090/chanpin_stat";

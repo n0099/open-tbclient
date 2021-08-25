@@ -29,15 +29,15 @@ public class x extends t.c {
             }
         }
         ByteBuffer allocate = ByteBuffer.allocate(4);
-        allocate.order(bVar.f78886a ? ByteOrder.BIG_ENDIAN : ByteOrder.LITTLE_ENDIAN);
-        long j3 = bVar.f78887b + (j2 * bVar.f78889d);
+        allocate.order(bVar.f79087a ? ByteOrder.BIG_ENDIAN : ByteOrder.LITTLE_ENDIAN);
+        long j3 = bVar.f79088b + (j2 * bVar.f79090d);
         wVar.h(allocate, j3, 4);
-        this.f78892a = allocate.getInt() & 4294967295L;
+        this.f79093a = allocate.getInt() & 4294967295L;
         wVar.h(allocate, 4 + j3, 4);
-        this.f78893b = allocate.getInt() & 4294967295L;
+        this.f79094b = allocate.getInt() & 4294967295L;
         wVar.h(allocate, 8 + j3, 4);
-        this.f78894c = allocate.getInt() & 4294967295L;
+        this.f79095c = allocate.getInt() & 4294967295L;
         wVar.h(allocate, j3 + 20, 4);
-        this.f78895d = allocate.getInt() & 4294967295L;
+        this.f79096d = allocate.getInt() & 4294967295L;
     }
 }

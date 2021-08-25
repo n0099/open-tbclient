@@ -36,11 +36,11 @@ public class WebAuthResult extends SapiResult {
         public static final LoginType SHARE_V2_CHOICE;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final /* synthetic */ LoginType[] f44688b;
+        public static final /* synthetic */ LoginType[] f44795b;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f44689a;
+        public String f44796a;
 
         static {
             InterceptResult invokeClinit;
@@ -63,7 +63,7 @@ public class WebAuthResult extends SapiResult {
             SHARE_V1_CHOICE = new LoginType("SHARE_V1_CHOICE", 5, ShareCallPacking.LOGIN_TYPE_SHARE_V1_CHOICE);
             LoginType loginType = new LoginType("SHARE_V2_CHOICE", 6, ShareCallPacking.LOGIN_TYPE_SHARE_V2_CHOICE);
             SHARE_V2_CHOICE = loginType;
-            f44688b = new LoginType[]{PHONE_REG, LOGIN, LOGIN_PROTECT, FORCE_BIND, GUIDE_BIND, SHARE_V1_CHOICE, loginType};
+            f44795b = new LoginType[]{PHONE_REG, LOGIN, LOGIN_PROTECT, FORCE_BIND, GUIDE_BIND, SHARE_V1_CHOICE, loginType};
         }
 
         public LoginType(String str, int i2, String str2) {
@@ -84,7 +84,7 @@ public class WebAuthResult extends SapiResult {
                     return;
                 }
             }
-            this.f44689a = str2;
+            this.f44796a = str2;
         }
 
         public static LoginType valueOf(String str) {
@@ -96,13 +96,13 @@ public class WebAuthResult extends SapiResult {
         public static LoginType[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (LoginType[]) f44688b.clone() : (LoginType[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (LoginType[]) f44795b.clone() : (LoginType[]) invokeV.objValue;
         }
 
         public String getLoginType() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f44689a : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f44796a : (String) invokeV.objValue;
         }
     }
 

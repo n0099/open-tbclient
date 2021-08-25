@@ -14,10 +14,10 @@ public class d extends DiskFileOperate {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f2070a;
+    public String f2128a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f2071b;
+    public String f2129b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public d(String str, String str2, DiskFileOperate.Action action) {
@@ -38,20 +38,20 @@ public class d extends DiskFileOperate {
                 return;
             }
         }
-        this.f2070a = null;
-        this.f2071b = "UTF-8";
+        this.f2128a = null;
+        this.f2129b = "UTF-8";
     }
 
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f2070a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f2128a : (String) invokeV.objValue;
     }
 
     public void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            this.f2070a = str;
+            this.f2128a = str;
         }
     }
 
@@ -60,10 +60,10 @@ public class d extends DiskFileOperate {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            String str = this.f2070a;
+            String str = this.f2128a;
             if (str != null) {
                 try {
-                    return str.getBytes(this.f2071b);
+                    return str.getBytes(this.f2129b);
                 } catch (Exception e2) {
                     BdLog.e(e2.getMessage());
                 }
@@ -82,7 +82,7 @@ public class d extends DiskFileOperate {
                 return false;
             }
             try {
-                this.f2070a = new String(bArr, this.f2071b);
+                this.f2128a = new String(bArr, this.f2129b);
                 return true;
             } catch (Exception e2) {
                 BdLog.e(e2.getMessage());

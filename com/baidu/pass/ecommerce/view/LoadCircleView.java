@@ -16,7 +16,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.DecelerateInterpolator;
 import android.view.animation.LinearInterpolator;
-import c.a.b0.a.b;
+import c.a.c0.a.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;

@@ -15,7 +15,7 @@ public class d implements c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public a f2094a;
+    public a f2152a;
 
     public d(Intent intent) {
         Interceptable interceptable = $ic;
@@ -32,21 +32,21 @@ public class d implements c {
                 return;
             }
         }
-        this.f2094a = new a(intent.getExtras());
+        this.f2152a = new a(intent.getExtras());
     }
 
     @Override // c.a.e.e.b.b.a.c.c
     public Set<String> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f2094a.a() : (Set) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f2152a.a() : (Set) invokeV.objValue;
     }
 
     @Override // c.a.e.e.b.b.a.c.c
     public void b(String str, Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, obj) == null) {
-            this.f2094a.b(str, obj);
+            this.f2152a.b(str, obj);
         }
     }
 
@@ -54,6 +54,6 @@ public class d implements c {
     public Object c(String str, Type type) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, type)) == null) ? this.f2094a.c(str, type) : invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, type)) == null) ? this.f2152a.c(str, type) : invokeLL.objValue;
     }
 }

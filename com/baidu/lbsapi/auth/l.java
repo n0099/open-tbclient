@@ -12,10 +12,10 @@ public class l implements e.a<String> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ String f40420a;
+    public final /* synthetic */ String f40527a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ LBSAuthManager f40421b;
+    public final /* synthetic */ LBSAuthManager f40528b;
 
     public l(LBSAuthManager lBSAuthManager, String str) {
         Interceptable interceptable = $ic;
@@ -32,8 +32,8 @@ public class l implements e.a<String> {
                 return;
             }
         }
-        this.f40421b = lBSAuthManager;
-        this.f40420a = str;
+        this.f40528b = lBSAuthManager;
+        this.f40527a = str;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -41,7 +41,7 @@ public class l implements e.a<String> {
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            this.f40421b.a(str, this.f40420a);
+            this.f40528b.a(str, this.f40527a);
         }
     }
 }

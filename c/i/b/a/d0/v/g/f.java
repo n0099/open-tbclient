@@ -14,16 +14,16 @@ public final class f {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final long f33045a;
+    public final long f33151a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final long f33046b;
+    public final long f33152b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final String f33047c;
+    public final String f33153c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f33048d;
+    public int f33154d;
 
     public f(String str, long j2, long j3) {
         Interceptable interceptable = $ic;
@@ -40,9 +40,9 @@ public final class f {
                 return;
             }
         }
-        this.f33047c = str == null ? "" : str;
-        this.f33045a = j2;
-        this.f33046b = j3;
+        this.f33153c = str == null ? "" : str;
+        this.f33151a = j2;
+        this.f33152b = j3;
     }
 
     public f a(f fVar, String str) {
@@ -51,19 +51,19 @@ public final class f {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, fVar, str)) == null) {
             String c2 = c(str);
             if (fVar != null && c2.equals(fVar.c(str))) {
-                long j2 = this.f33046b;
+                long j2 = this.f33152b;
                 if (j2 != -1) {
-                    long j3 = this.f33045a;
-                    if (j3 + j2 == fVar.f33045a) {
-                        long j4 = fVar.f33046b;
+                    long j3 = this.f33151a;
+                    if (j3 + j2 == fVar.f33151a) {
+                        long j4 = fVar.f33152b;
                         return new f(c2, j3, j4 != -1 ? j2 + j4 : -1L);
                     }
                 }
-                long j5 = fVar.f33046b;
+                long j5 = fVar.f33152b;
                 if (j5 != -1) {
-                    long j6 = fVar.f33045a;
-                    if (j6 + j5 == this.f33045a) {
-                        long j7 = this.f33046b;
+                    long j6 = fVar.f33151a;
+                    if (j6 + j5 == this.f33151a) {
+                        long j7 = this.f33152b;
                         return new f(c2, j6, j7 != -1 ? j5 + j7 : -1L);
                     }
                 }
@@ -76,13 +76,13 @@ public final class f {
     public Uri b(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? u.d(str, this.f33047c) : (Uri) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? u.d(str, this.f33153c) : (Uri) invokeL.objValue;
     }
 
     public String c(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) ? u.c(str, this.f33047c) : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) ? u.c(str, this.f33153c) : (String) invokeL.objValue;
     }
 
     public boolean equals(Object obj) {
@@ -96,7 +96,7 @@ public final class f {
                 return false;
             }
             f fVar = (f) obj;
-            return this.f33045a == fVar.f33045a && this.f33046b == fVar.f33046b && this.f33047c.equals(fVar.f33047c);
+            return this.f33151a == fVar.f33151a && this.f33152b == fVar.f33152b && this.f33153c.equals(fVar.f33153c);
         }
         return invokeL.booleanValue;
     }
@@ -105,10 +105,10 @@ public final class f {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (this.f33048d == 0) {
-                this.f33048d = ((((527 + ((int) this.f33045a)) * 31) + ((int) this.f33046b)) * 31) + this.f33047c.hashCode();
+            if (this.f33154d == 0) {
+                this.f33154d = ((((527 + ((int) this.f33151a)) * 31) + ((int) this.f33152b)) * 31) + this.f33153c.hashCode();
             }
-            return this.f33048d;
+            return this.f33154d;
         }
         return invokeV.intValue;
     }

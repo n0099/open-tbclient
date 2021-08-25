@@ -12,10 +12,10 @@ public class c {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f64928a = false;
+    public static boolean f65128a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f64929b = 4;
+    public static int f65129b = 4;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -36,13 +36,13 @@ public class c {
     public static void a(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(65539, null, i2) == null) {
-            f64929b = i2;
+            f65129b = i2;
         }
     }
 
     public static void b(String str, Object... objArr) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65543, null, str, objArr) == null) || !f64928a || objArr == null || f64929b > 4) {
+        if (!(interceptable == null || interceptable.invokeLL(65543, null, str, objArr) == null) || !f65128a || objArr == null || f65129b > 4) {
             return;
         }
         a(objArr);
@@ -51,14 +51,14 @@ public class c {
     public static void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, null) == null) {
-            f64928a = true;
+            f65128a = true;
             a(3);
         }
     }
 
     public static void a(String str, Object... objArr) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, str, objArr) == null) || !f64928a || objArr == null || f64929b > 3) {
+        if (!(interceptable == null || interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, str, objArr) == null) || !f65128a || objArr == null || f65129b > 3) {
             return;
         }
         a(objArr);
@@ -66,15 +66,15 @@ public class c {
 
     public static void a(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) && f64928a) {
+        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) && f65128a) {
             a("VideoLog", str);
         }
     }
 
     public static void a(String str, String str2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, str, str2) == null) && f64928a && str2 != null) {
-            int i2 = f64929b;
+        if ((interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, str, str2) == null) && f65128a && str2 != null) {
+            int i2 = f65129b;
         }
     }
 

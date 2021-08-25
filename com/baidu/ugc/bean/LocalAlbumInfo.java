@@ -2,7 +2,7 @@ package com.baidu.ugc.bean;
 
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import c.a.v0.j.b;
+import c.a.w0.j.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;

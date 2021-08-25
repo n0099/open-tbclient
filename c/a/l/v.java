@@ -23,15 +23,15 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
-public class v extends c.a.l.a<c.a.o0.s.q.a> {
+public class v extends c.a.l.a<c.a.p0.s.q.a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: j  reason: collision with root package name */
-    public MutiImgMutiPicLayout f3640j;
+    public MutiImgMutiPicLayout f3882j;
     public NewGridImageLayout k;
     public MutiImgAbLayout l;
-    public c.a.o0.s.q.a m;
+    public c.a.p0.s.q.a m;
     public int n;
     public String o;
     public Context p;
@@ -44,7 +44,7 @@ public class v extends c.a.l.a<c.a.o0.s.q.a> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ v f3641a;
+        public final /* synthetic */ v f3883a;
 
         public a(v vVar) {
             Interceptable interceptable = $ic;
@@ -61,7 +61,7 @@ public class v extends c.a.l.a<c.a.o0.s.q.a> {
                     return;
                 }
             }
-            this.f3641a = vVar;
+            this.f3883a = vVar;
         }
 
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
@@ -89,7 +89,7 @@ public class v extends c.a.l.a<c.a.o0.s.q.a> {
                 if (imageView instanceof TbImageView) {
                     TbImageView tbImageView = (TbImageView) imageView;
                     tbImageView.setTag(null);
-                    if (c.a.o0.s.k.c().g()) {
+                    if (c.a.p0.s.k.c().g()) {
                         tbImageView.setAdjustViewBounds(false);
                         tbImageView.setInterceptOnClick(false);
                     } else {
@@ -129,8 +129,8 @@ public class v extends c.a.l.a<c.a.o0.s.q.a> {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-                ForeDrawableImageView foreDrawableImageView = new ForeDrawableImageView(this.f3641a.p);
-                boolean g2 = c.a.o0.s.k.c().g();
+                ForeDrawableImageView foreDrawableImageView = new ForeDrawableImageView(this.f3883a.p);
+                boolean g2 = c.a.p0.s.k.c().g();
                 foreDrawableImageView.setDefaultBg(SkinManager.getDrawable(R.color.common_color_10220));
                 if (g2) {
                     foreDrawableImageView.setAdjustViewBounds(false);
@@ -172,7 +172,7 @@ public class v extends c.a.l.a<c.a.o0.s.q.a> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ v f3642a;
+        public final /* synthetic */ v f3884a;
 
         public b(v vVar) {
             Interceptable interceptable = $ic;
@@ -189,7 +189,7 @@ public class v extends c.a.l.a<c.a.o0.s.q.a> {
                     return;
                 }
             }
-            this.f3642a = vVar;
+            this.f3884a = vVar;
         }
 
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
@@ -215,7 +215,7 @@ public class v extends c.a.l.a<c.a.o0.s.q.a> {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, gifView)) == null) {
                 gifView.setTag(null);
-                if (c.a.o0.s.k.c().g()) {
+                if (c.a.p0.s.k.c().g()) {
                     gifView.setAdjustViewBounds(false);
                     gifView.setInterceptOnClick(false);
                 } else {
@@ -250,8 +250,8 @@ public class v extends c.a.l.a<c.a.o0.s.q.a> {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-                GifView gifView = new GifView(this.f3642a.p);
-                boolean g2 = c.a.o0.s.k.c().g();
+                GifView gifView = new GifView(this.f3884a.p);
+                boolean g2 = c.a.p0.s.k.c().g();
                 gifView.setDefaultBg(SkinManager.getDrawable(R.color.common_color_10220));
                 if (g2) {
                     gifView.setAdjustViewBounds(false);
@@ -290,7 +290,7 @@ public class v extends c.a.l.a<c.a.o0.s.q.a> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ v f3643e;
+        public final /* synthetic */ v f3885e;
 
         public c(v vVar) {
             Interceptable interceptable = $ic;
@@ -307,18 +307,18 @@ public class v extends c.a.l.a<c.a.o0.s.q.a> {
                     return;
                 }
             }
-            this.f3643e = vVar;
+            this.f3885e = vVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             v vVar;
-            a.InterfaceC0086a interfaceC0086a;
+            a.InterfaceC0094a interfaceC0094a;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (interfaceC0086a = (vVar = this.f3643e).f3550i) == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (interfaceC0094a = (vVar = this.f3885e).f3792i) == null) {
                 return;
             }
-            interfaceC0086a.a(vVar.m);
+            interfaceC0094a.a(vVar.m);
         }
     }
 
@@ -328,7 +328,7 @@ public class v extends c.a.l.a<c.a.o0.s.q.a> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ v f3644a;
+        public final /* synthetic */ v f3886a;
 
         public d(v vVar) {
             Interceptable interceptable = $ic;
@@ -345,27 +345,27 @@ public class v extends c.a.l.a<c.a.o0.s.q.a> {
                     return;
                 }
             }
-            this.f3644a = vVar;
+            this.f3886a = vVar;
         }
 
         @Override // c.a.l.v0.a.b
-        public boolean a(a.C0088a c0088a) {
+        public boolean a(a.C0096a c0096a) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, c0088a)) == null) {
-                if (this.f3644a.m != null && this.f3644a.m.getThreadData() != null) {
-                    c.a.p0.a0.m.a(this.f3644a.m.getThreadData().f0());
-                    TextView textView = this.f3644a.f3640j.mTitle;
-                    TextView textView2 = this.f3644a.f3640j.mAbstract;
-                    if (c.a.o0.b.d.r()) {
-                        textView = this.f3644a.k.mTitle;
-                        textView2 = this.f3644a.k.mAbstract;
-                    } else if (c.a.o0.b.d.s()) {
-                        textView = this.f3644a.l.mTitle;
-                        textView2 = this.f3644a.l.mAbstract;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, c0096a)) == null) {
+                if (this.f3886a.m != null && this.f3886a.m.getThreadData() != null) {
+                    c.a.q0.a0.m.a(this.f3886a.m.getThreadData().f0());
+                    TextView textView = this.f3886a.f3882j.mTitle;
+                    TextView textView2 = this.f3886a.f3882j.mAbstract;
+                    if (c.a.p0.b.d.r()) {
+                        textView = this.f3886a.k.mTitle;
+                        textView2 = this.f3886a.k.mAbstract;
+                    } else if (c.a.p0.b.d.s()) {
+                        textView = this.f3886a.l.mTitle;
+                        textView2 = this.f3886a.l.mAbstract;
                     }
-                    c.a.p0.a0.m.l(textView, this.f3644a.m.getThreadData().f0(), R.color.CAM_X0105, R.color.CAM_X0109);
-                    c.a.p0.a0.m.l(textView2, this.f3644a.m.getThreadData().f0(), R.color.CAM_X0105, R.color.CAM_X0109);
+                    c.a.q0.a0.m.l(textView, this.f3886a.m.getThreadData().f0(), R.color.CAM_X0105, R.color.CAM_X0109);
+                    c.a.q0.a0.m.l(textView2, this.f3886a.m.getThreadData().f0(), R.color.CAM_X0105, R.color.CAM_X0109);
                 }
                 return false;
             }
@@ -395,7 +395,7 @@ public class v extends c.a.l.a<c.a.o0.s.q.a> {
         this.q = new c.a.e.e.k.b<>(new a(this), 12, 0);
         this.r = new c.a.e.e.k.b<>(new b(this), 20, 0);
         this.p = context;
-        this.f3640j = new MutiImgMutiPicLayout(context);
+        this.f3882j = new MutiImgMutiPicLayout(context);
         this.k = new NewGridImageLayout(context);
         this.l = new MutiImgAbLayout(context);
     }
@@ -405,13 +405,13 @@ public class v extends c.a.l.a<c.a.o0.s.q.a> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (c.a.o0.b.d.r()) {
+            if (c.a.p0.b.d.r()) {
                 return this.k;
             }
-            if (c.a.o0.b.d.s()) {
+            if (c.a.p0.b.d.s()) {
                 return this.l;
             }
-            return this.f3640j;
+            return this.f3882j;
         }
         return (View) invokeV.objValue;
     }
@@ -425,10 +425,10 @@ public class v extends c.a.l.a<c.a.o0.s.q.a> {
     }
 
     @Override // c.a.l.a
-    public void k(c.a.p0.a0.b0<c.a.o0.s.q.a> b0Var) {
+    public void k(c.a.q0.a0.b0<c.a.p0.s.q.a> b0Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, b0Var) == null) {
-            this.f3640j.setSubClickListener(b0Var);
+            this.f3882j.setSubClickListener(b0Var);
             this.k.setSubClickListener(b0Var);
             this.l.setSubClickListener(b0Var);
         }
@@ -452,11 +452,11 @@ public class v extends c.a.l.a<c.a.o0.s.q.a> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // c.a.l.p
     /* renamed from: t */
-    public void onBindDataToView(c.a.o0.s.q.a aVar) {
+    public void onBindDataToView(c.a.p0.s.q.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, aVar) == null) {
             this.m = aVar;
-            if (c.a.o0.b.d.r()) {
+            if (c.a.p0.b.d.r()) {
                 this.k.setFrom(this.o);
                 this.k.setObjectPool(this.q, this.r);
                 this.k.setFromForPb(s(this.o));
@@ -464,12 +464,12 @@ public class v extends c.a.l.a<c.a.o0.s.q.a> {
                 this.k.setDynamicCard(false);
                 this.k.onBindDataToView(aVar);
                 this.k.setJumpToPbListener(new c(this));
-            } else if (c.a.o0.b.d.s()) {
+            } else if (c.a.p0.b.d.s()) {
                 this.l.setFrom(this.o);
                 this.l.onBindDataToView(aVar);
             } else {
-                this.f3640j.setFrom(this.o);
-                this.f3640j.onBindDataToView(aVar);
+                this.f3882j.setFrom(this.o);
+                this.f3882j.onBindDataToView(aVar);
             }
         }
     }
@@ -484,7 +484,7 @@ public class v extends c.a.l.a<c.a.o0.s.q.a> {
     public void v(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
-            this.f3640j.setFromCDN(z);
+            this.f3882j.setFromCDN(z);
             this.k.setFromCDN(z);
             this.l.setFromCDN(z);
         }
@@ -493,7 +493,7 @@ public class v extends c.a.l.a<c.a.o0.s.q.a> {
     public void w(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
-            this.f3640j.setNeedFrsTabName(z);
+            this.f3882j.setNeedFrsTabName(z);
             this.k.setNeedFrsTabName(z);
             this.l.setNeedFrsTabName(z);
         }

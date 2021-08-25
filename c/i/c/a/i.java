@@ -12,7 +12,7 @@ public final class i implements View.OnClickListener {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final /* synthetic */ InstallActivity f33907e;
+    public final /* synthetic */ InstallActivity f34013e;
 
     public i(InstallActivity installActivity) {
         Interceptable interceptable = $ic;
@@ -29,15 +29,15 @@ public final class i implements View.OnClickListener {
                 return;
             }
         }
-        this.f33907e = installActivity;
+        this.f34013e = installActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public final void onClick(View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-            this.f33907e.animateToSpinner();
-            this.f33907e.startInstaller();
+            this.f34013e.animateToSpinner();
+            this.f34013e.startInstaller();
         }
     }
 }

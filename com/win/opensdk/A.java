@@ -13,7 +13,7 @@ public class A extends Handler {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ PBSplash f76370a;
+    public final /* synthetic */ PBSplash f76571a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public A(PBSplash pBSplash, Looper looper) {
@@ -33,7 +33,7 @@ public class A extends Handler {
                 return;
             }
         }
-        this.f76370a = pBSplash;
+        this.f76571a = pBSplash;
     }
 
     @Override // android.os.Handler
@@ -41,10 +41,10 @@ public class A extends Handler {
         PBSplash pBSplash;
         PBSplashListener pBSplashListener;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, message) == null) || message.what != 0 || (pBSplashListener = (pBSplash = this.f76370a).f76476e) == null || pBSplash.f76480i) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, message) == null) || message.what != 0 || (pBSplashListener = (pBSplash = this.f76571a).f76677e) == null || pBSplash.f76681i) {
             return;
         }
         pBSplashListener.onFail(PBError.LOAD_TIME_OUT);
-        this.f76370a.f76481j = true;
+        this.f76571a.f76682j = true;
     }
 }

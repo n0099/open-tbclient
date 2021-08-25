@@ -2,9 +2,9 @@ package com.baidu.swan.apps.view;
 
 import android.os.Bundle;
 import android.widget.TextView;
-import c.a.n0.a.f;
-import c.a.n0.a.k;
-import c.a.n0.a.v2.q0;
+import c.a.o0.a.f;
+import c.a.o0.a.k;
+import c.a.o0.a.v2.q0;
 import com.baidu.swan.apps.res.widget.dialog.BaseActivityDialog;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -34,7 +34,7 @@ public class SwanAppErrorDialog extends BaseActivityDialog {
                 return;
             }
         }
-        DEBUG = k.f6803a;
+        DEBUG = k.f7049a;
     }
 
     public SwanAppErrorDialog() {

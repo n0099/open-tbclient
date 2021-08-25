@@ -22,17 +22,17 @@ public interface ai extends IInterface {
 
         /* renamed from: com.ss.android.socialbase.downloader.depend.ai$a$a  reason: collision with other inner class name */
         /* loaded from: classes10.dex */
-        public static class C2054a implements ai {
+        public static class C2058a implements ai {
             public static /* synthetic */ Interceptable $ic;
 
             /* renamed from: a  reason: collision with root package name */
-            public static ai f75480a;
+            public static ai f75681a;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: b  reason: collision with root package name */
-            public IBinder f75481b;
+            public IBinder f75682b;
 
-            public C2054a(IBinder iBinder) {
+            public C2058a(IBinder iBinder) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -47,7 +47,7 @@ public interface ai extends IInterface {
                         return;
                     }
                 }
-                this.f75481b = iBinder;
+                this.f75682b = iBinder;
             }
 
             @Override // com.ss.android.socialbase.downloader.depend.ai
@@ -61,7 +61,7 @@ public interface ai extends IInterface {
                         obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.depend.IRetryDelayTimeAidlCalculator");
                         obtain.writeInt(i2);
                         obtain.writeInt(i3);
-                        if (!this.f75481b.transact(1, obtain, obtain2, 0) && a.a() != null) {
+                        if (!this.f75682b.transact(1, obtain, obtain2, 0) && a.a() != null) {
                             return a.a().a(i2, i3);
                         }
                         obtain2.readException();
@@ -78,7 +78,7 @@ public interface ai extends IInterface {
             public IBinder asBinder() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f75481b : (IBinder) invokeV.objValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f75682b : (IBinder) invokeV.objValue;
             }
         }
 
@@ -109,7 +109,7 @@ public interface ai extends IInterface {
                 if (queryLocalInterface != null && (queryLocalInterface instanceof ai)) {
                     return (ai) queryLocalInterface;
                 }
-                return new C2054a(iBinder);
+                return new C2058a(iBinder);
             }
             return (ai) invokeL.objValue;
         }
@@ -145,7 +145,7 @@ public interface ai extends IInterface {
         public static ai a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? C2054a.f75480a : (ai) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? C2058a.f75681a : (ai) invokeV.objValue;
         }
     }
 }

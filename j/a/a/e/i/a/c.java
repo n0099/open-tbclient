@@ -20,16 +20,16 @@ public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Method f78626a;
+    public static Method f78827a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Method f78627b;
+    public static Method f78828b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static Field f78628c;
+    public static Field f78829c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static int f78629d;
+    public static int f78830d;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -46,19 +46,19 @@ public class c {
             }
         }
         try {
-            f78626a = Activity.class.getMethod("setStatusBarDarkIcon", Integer.TYPE);
+            f78827a = Activity.class.getMethod("setStatusBarDarkIcon", Integer.TYPE);
         } catch (NoSuchMethodException unused) {
         }
         try {
-            f78627b = Activity.class.getMethod("setStatusBarDarkIcon", Boolean.TYPE);
+            f78828b = Activity.class.getMethod("setStatusBarDarkIcon", Boolean.TYPE);
         } catch (NoSuchMethodException unused2) {
         }
         try {
-            f78628c = WindowManager.LayoutParams.class.getField("statusBarColor");
+            f78829c = WindowManager.LayoutParams.class.getField("statusBarColor");
         } catch (NoSuchFieldException unused3) {
         }
         try {
-            f78629d = View.class.getField("SYSTEM_UI_FLAG_LIGHT_STATUS_BAR").getInt(null);
+            f78830d = View.class.getField("SYSTEM_UI_FLAG_LIGHT_STATUS_BAR").getInt(null);
         } catch (IllegalAccessException | NoSuchFieldException unused4) {
         }
     }
@@ -107,11 +107,11 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(65539, null, window, i2) == null) {
             WindowManager.LayoutParams attributes = window.getAttributes();
-            Field field = f78628c;
+            Field field = f78829c;
             if (field != null) {
                 try {
                     if (field.getInt(attributes) != i2) {
-                        f78628c.set(attributes, Integer.valueOf(i2));
+                        f78829c.set(attributes, Integer.valueOf(i2));
                         window.setAttributes(attributes);
                     }
                 } catch (IllegalAccessException e2) {
@@ -124,7 +124,7 @@ public class c {
     public static void d(Activity activity, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, activity, i2) == null) {
-            Method method = f78626a;
+            Method method = f78827a;
             if (method != null) {
                 try {
                     method.invoke(activity, Integer.valueOf(i2));
@@ -138,7 +138,7 @@ public class c {
                 }
             }
             boolean b2 = b(i2, 50);
-            if (f78628c != null) {
+            if (f78829c != null) {
                 f(activity, b2, b2);
                 h(activity.getWindow(), i2);
                 return;
@@ -157,7 +157,7 @@ public class c {
     public static void f(Activity activity, boolean z, boolean z2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(AdIconUtil.BAIDU_LOGO_ID, null, new Object[]{activity, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
-            Method method = f78627b;
+            Method method = f78828b;
             if (method == null) {
                 if (z2) {
                     i(activity.getWindow(), z);
@@ -181,9 +181,9 @@ public class c {
         if (interceptable == null || interceptable.invokeLZ(65543, null, view, z) == null) {
             int systemUiVisibility = view.getSystemUiVisibility();
             if (z) {
-                i2 = f78629d | systemUiVisibility;
+                i2 = f78830d | systemUiVisibility;
             } else {
-                i2 = (~f78629d) & systemUiVisibility;
+                i2 = (~f78830d) & systemUiVisibility;
             }
             if (i2 != systemUiVisibility) {
                 view.setSystemUiVisibility(i2);

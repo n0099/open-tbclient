@@ -237,7 +237,7 @@ public abstract class JSONLexerBase implements JSONLexer, Closeable {
         return (String) invokeLI.objValue;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:78:0x014f, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:78:0x014e, code lost:
         throw new com.alibaba.fastjson.JSONException("invalid escape character \\x" + r1 + r2);
      */
     /*
@@ -3434,83 +3434,83 @@ public abstract class JSONLexerBase implements JSONLexer, Closeable {
         return (String) invokeL.objValue;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:48:0x00f3, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:48:0x00f2, code lost:
         if (r13.size() != 0) goto L77;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:49:0x00f5, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:49:0x00f4, code lost:
         r12 = charAt(r11.bp + r1);
         r1 = r1 + 1;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:50:0x00ff, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:50:0x00fe, code lost:
         if (r12 != ',') goto L40;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:51:0x0101, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:51:0x0100, code lost:
         r12 = r11.bp + r1;
         r11.bp = r12;
         r11.ch = charAt(r12);
         r11.matchStat = 3;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:52:0x010f, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:52:0x010e, code lost:
         return r13;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:54:0x0112, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:54:0x0111, code lost:
         if (r12 != '}') goto L56;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:55:0x0114, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:55:0x0113, code lost:
         r6 = r1 + 1;
         r12 = charAt(r11.bp + r1);
      */
-    /* JADX WARN: Code restructure failed: missing block: B:56:0x011d, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:56:0x011c, code lost:
         if (r12 != ',') goto L47;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:57:0x011f, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:57:0x011e, code lost:
         r11.token = 16;
         r12 = r11.bp + r6;
         r11.bp = r12;
         r11.ch = charAt(r12);
      */
-    /* JADX WARN: Code restructure failed: missing block: B:58:0x012f, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:58:0x012e, code lost:
         if (r12 != ']') goto L49;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:59:0x0131, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:59:0x0130, code lost:
         r11.token = 15;
         r12 = r11.bp + r6;
         r11.bp = r12;
         r11.ch = charAt(r12);
      */
-    /* JADX WARN: Code restructure failed: missing block: B:60:0x0141, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:60:0x0140, code lost:
         if (r12 != '}') goto L51;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:61:0x0143, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:61:0x0142, code lost:
         r11.token = 13;
         r12 = r11.bp + r6;
         r11.bp = r12;
         r11.ch = charAt(r12);
      */
-    /* JADX WARN: Code restructure failed: missing block: B:63:0x0155, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:63:0x0154, code lost:
         if (r12 != 26) goto L54;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:64:0x0157, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:64:0x0156, code lost:
         r11.bp += r6 - 1;
         r11.token = 20;
         r11.ch = com.alibaba.fastjson.parser.JSONLexer.EOI;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:65:0x0164, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:65:0x0163, code lost:
         r11.matchStat = 4;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:66:0x0167, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:66:0x0166, code lost:
         return r13;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:67:0x0168, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:67:0x0167, code lost:
         r11.matchStat = -1;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:68:0x016a, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:68:0x0169, code lost:
         return null;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:69:0x016b, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:69:0x016a, code lost:
         r11.matchStat = -1;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:70:0x016d, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:70:0x016c, code lost:
         return null;
      */
     /*
@@ -4462,7 +4462,7 @@ public abstract class JSONLexerBase implements JSONLexer, Closeable {
         }
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:83:0x0177, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:83:0x0176, code lost:
         throw new com.alibaba.fastjson.JSONException("invalid escape character \\x" + r1 + r2);
      */
     @Override // com.alibaba.fastjson.parser.JSONLexer

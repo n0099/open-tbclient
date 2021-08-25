@@ -15,16 +15,16 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f4091a;
+    public String f4331a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f4092b;
+    public String f4332b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f4093c;
+    public String f4333c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f4094d;
+    public String f4334d;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -45,34 +45,34 @@ public class b {
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f4094d : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f4334d : (String) invokeV.objValue;
     }
 
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             String str = Build.MODEL;
-            this.f4091a = str;
+            this.f4331a = str;
             if (TextUtils.isEmpty(str)) {
-                this.f4091a = "NUL";
+                this.f4331a = "NUL";
             } else {
-                this.f4091a = this.f4091a.replace("_", "-");
+                this.f4331a = this.f4331a.replace("_", "-");
             }
             String str2 = Build.MANUFACTURER;
-            this.f4092b = str2;
+            this.f4332b = str2;
             if (TextUtils.isEmpty(str2)) {
-                this.f4092b = "NUL";
+                this.f4332b = "NUL";
             } else {
-                this.f4092b = this.f4092b.replace("_", "-");
+                this.f4332b = this.f4332b.replace("_", "-");
             }
             String str3 = Build.VERSION.RELEASE;
-            this.f4093c = str3;
+            this.f4333c = str3;
             if (TextUtils.isEmpty(str3)) {
-                this.f4093c = XAdSDKPorxyConfig.REMOTE_VERSION_DEFAULT;
+                this.f4333c = XAdSDKPorxyConfig.REMOTE_VERSION_DEFAULT;
             } else {
-                this.f4093c = this.f4093c.replace("_", "-");
+                this.f4333c = this.f4333c.replace("_", "-");
             }
-            this.f4094d = c();
+            this.f4334d = c();
         }
     }
 
@@ -80,10 +80,10 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            String str = this.f4091a;
-            String str2 = this.f4093c;
+            String str = this.f4331a;
+            String str2 = this.f4333c;
             int i2 = Build.VERSION.SDK_INT;
-            String str3 = this.f4092b;
+            String str3 = this.f4332b;
             return str + "_" + str2 + "_" + i2 + "_" + str3;
         }
         return (String) invokeV.objValue;

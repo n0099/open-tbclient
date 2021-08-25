@@ -20,10 +20,10 @@ public class o {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f63980a = false;
+    public static boolean f64180a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f63981b = "VNetLog";
+    public static String f64181b = "VNetLog";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -39,12 +39,12 @@ public class o {
                 return;
             }
         }
-        f63980a = Log.isLoggable("VNetLog", 2);
+        f64180a = Log.isLoggable("VNetLog", 2);
     }
 
     public static void a(String str, Object... objArr) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65537, null, str, objArr) == null) && f63980a) {
+        if ((interceptable == null || interceptable.invokeLL(65537, null, str, objArr) == null) && f64180a) {
             e(str, objArr);
         }
     }
@@ -66,7 +66,7 @@ public class o {
     public static void d(String str, Object... objArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, str, objArr) == null) {
-            Log.wtf(f63981b, e(str, objArr));
+            Log.wtf(f64181b, e(str, objArr));
         }
     }
 
@@ -110,31 +110,31 @@ public class o {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final boolean f63982a;
+        public static final boolean f64182a;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: b  reason: collision with root package name */
-        public final List<C1876a> f63983b;
+        public final List<C1880a> f64183b;
 
         /* renamed from: c  reason: collision with root package name */
-        public boolean f63984c;
+        public boolean f64184c;
 
         /* renamed from: com.bytedance.sdk.component.adnet.core.o$a$a  reason: collision with other inner class name */
         /* loaded from: classes9.dex */
-        public static class C1876a {
+        public static class C1880a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final String f63985a;
+            public final String f64185a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final long f63986b;
+            public final long f64186b;
 
             /* renamed from: c  reason: collision with root package name */
-            public final long f63987c;
+            public final long f64187c;
 
-            public C1876a(String str, long j2, long j3) {
+            public C1880a(String str, long j2, long j3) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -149,9 +149,9 @@ public class o {
                         return;
                     }
                 }
-                this.f63985a = str;
-                this.f63986b = j2;
-                this.f63987c = j3;
+                this.f64185a = str;
+                this.f64186b = j2;
+                this.f64187c = j3;
             }
         }
 
@@ -168,7 +168,7 @@ public class o {
                     return;
                 }
             }
-            f63982a = o.f63980a;
+            f64182a = o.f64180a;
         }
 
         public a() {
@@ -184,16 +184,16 @@ public class o {
                     return;
                 }
             }
-            this.f63983b = new ArrayList();
-            this.f63984c = false;
+            this.f64183b = new ArrayList();
+            this.f64184c = false;
         }
 
         public synchronized void a(String str, long j2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, j2) == null) {
                 synchronized (this) {
-                    if (!this.f63984c) {
-                        this.f63983b.add(new C1876a(str, j2, SystemClock.elapsedRealtime()));
+                    if (!this.f64184c) {
+                        this.f64183b.add(new C1880a(str, j2, SystemClock.elapsedRealtime()));
                     } else {
                         throw new IllegalStateException("Marker added to finished log");
                     }
@@ -203,7 +203,7 @@ public class o {
 
         public void finalize() throws Throwable {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.f63984c) {
+            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.f64184c) {
                 return;
             }
             a("Request on the loose");
@@ -214,16 +214,16 @@ public class o {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
                 synchronized (this) {
-                    this.f63984c = true;
+                    this.f64184c = true;
                     long a2 = a();
                     if (a2 <= 0) {
                         return;
                     }
-                    long j2 = this.f63983b.get(0).f63987c;
+                    long j2 = this.f64183b.get(0).f64187c;
                     o.b("(%-4d ms) %s", Long.valueOf(a2), str);
-                    for (C1876a c1876a : this.f63983b) {
-                        long j3 = c1876a.f63987c;
-                        o.b("(+%-4d) [%2d] %s", Long.valueOf(j3 - j2), Long.valueOf(c1876a.f63986b), c1876a.f63985a);
+                    for (C1880a c1880a : this.f64183b) {
+                        long j3 = c1880a.f64187c;
+                        o.b("(+%-4d) [%2d] %s", Long.valueOf(j3 - j2), Long.valueOf(c1880a.f64186b), c1880a.f64185a);
                         j2 = j3;
                     }
                 }
@@ -234,12 +234,12 @@ public class o {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
-                if (this.f63983b.size() == 0) {
+                if (this.f64183b.size() == 0) {
                     return 0L;
                 }
-                long j2 = this.f63983b.get(0).f63987c;
-                List<C1876a> list = this.f63983b;
-                return list.get(list.size() - 1).f63987c - j2;
+                long j2 = this.f64183b.get(0).f64187c;
+                List<C1880a> list = this.f64183b;
+                return list.get(list.size() - 1).f64187c - j2;
             }
             return invokeV.longValue;
         }

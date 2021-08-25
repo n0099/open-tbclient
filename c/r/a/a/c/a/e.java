@@ -14,10 +14,10 @@ public final class e {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public SharedPreferences f35330a;
+    public SharedPreferences f35436a;
 
     /* renamed from: b  reason: collision with root package name */
-    public SharedPreferences.Editor f35331b;
+    public SharedPreferences.Editor f35437b;
 
     public e(Context context) {
         Interceptable interceptable = $ic;
@@ -36,8 +36,8 @@ public final class e {
         }
         try {
             SharedPreferences sharedPreferences = context.getSharedPreferences("kscfg_outdfp", 0);
-            this.f35330a = sharedPreferences;
-            this.f35331b = sharedPreferences.edit();
+            this.f35436a = sharedPreferences;
+            this.f35437b = sharedPreferences.edit();
         } catch (Throwable th) {
             c.r.a.a.c.b.c.c(th);
         }
@@ -46,34 +46,34 @@ public final class e {
     public final void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            this.f35331b.putString("kwtk", str);
-            this.f35331b.commit();
+            this.f35437b.putString("kwtk", str);
+            this.f35437b.commit();
         }
     }
 
     public final boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f35330a.getBoolean("xytk", true) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f35436a.getBoolean("xytk", true) : invokeV.booleanValue;
     }
 
     public final String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f35330a.getString("kwtk", "") : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f35436a.getString("kwtk", "") : (String) invokeV.objValue;
     }
 
     public final void d(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.f35331b.putString("oai_ll_sn_d", str);
-            this.f35331b.commit();
+            this.f35437b.putString("oai_ll_sn_d", str);
+            this.f35437b.commit();
         }
     }
 
     public final String e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f35330a.getString("oai_ll_sn_d", "") : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f35436a.getString("oai_ll_sn_d", "") : (String) invokeV.objValue;
     }
 }

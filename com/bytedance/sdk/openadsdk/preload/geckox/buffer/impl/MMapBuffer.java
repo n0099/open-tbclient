@@ -19,19 +19,19 @@ public class MMapBuffer implements com.bytedance.sdk.openadsdk.preload.geckox.bu
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f68322a;
+    public long f68522a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f68323b;
+    public long f68523b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f68324c;
+    public long f68524c;
 
     /* renamed from: d  reason: collision with root package name */
-    public AtomicBoolean f68325d;
+    public AtomicBoolean f68525d;
 
     /* renamed from: e  reason: collision with root package name */
-    public File f68326e;
+    public File f68526e;
 
     static {
         InterceptResult invokeClinit;
@@ -64,9 +64,9 @@ public class MMapBuffer implements com.bytedance.sdk.openadsdk.preload.geckox.bu
                 return;
             }
         }
-        this.f68325d = new AtomicBoolean(false);
+        this.f68525d = new AtomicBoolean(false);
         d(j2);
-        this.f68326e = file;
+        this.f68526e = file;
         file.getParentFile().mkdirs();
         c(nCreate(file.getAbsolutePath(), j2));
     }
@@ -85,8 +85,8 @@ public class MMapBuffer implements com.bytedance.sdk.openadsdk.preload.geckox.bu
     public void a() throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            if (!this.f68325d.get()) {
-                nFlush(this.f68323b, this.f68322a);
+            if (!this.f68525d.get()) {
+                nFlush(this.f68523b, this.f68522a);
                 return;
             }
             throw new IOException("released!");
@@ -97,38 +97,38 @@ public class MMapBuffer implements com.bytedance.sdk.openadsdk.preload.geckox.bu
     public long b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f68322a : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f68522a : invokeV.longValue;
     }
 
     public void c(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048586, this, j2) == null) {
-            this.f68323b = j2;
+            this.f68523b = j2;
         }
     }
 
     public void d(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048588, this, j2) == null) {
-            this.f68322a = j2;
+            this.f68522a = j2;
         }
     }
 
     @Override // com.bytedance.sdk.openadsdk.preload.geckox.buffer.a
     public void e() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048589, this) == null) || this.f68325d.getAndSet(true)) {
+        if (!(interceptable == null || interceptable.invokeV(1048589, this) == null) || this.f68525d.getAndSet(true)) {
             return;
         }
-        nRelease(this.f68323b, this.f68322a);
-        this.f68323b = 0L;
+        nRelease(this.f68523b, this.f68522a);
+        this.f68523b = 0L;
     }
 
     @Override // com.bytedance.sdk.openadsdk.preload.geckox.buffer.a
     public File f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.f68326e : (File) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.f68526e : (File) invokeV.objValue;
     }
 
     public void finalize() throws Throwable {
@@ -153,13 +153,13 @@ public class MMapBuffer implements com.bytedance.sdk.openadsdk.preload.geckox.bu
     public void b(long j2) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j2) == null) {
-            if (!this.f68325d.get()) {
+            if (!this.f68525d.get()) {
                 long j3 = 0;
                 if (j2 >= 0) {
-                    j3 = this.f68322a;
+                    j3 = this.f68522a;
                 }
                 j2 = j3;
-                this.f68324c = j2;
+                this.f68524c = j2;
                 return;
             }
             throw new IOException("released!");
@@ -171,8 +171,8 @@ public class MMapBuffer implements com.bytedance.sdk.openadsdk.preload.geckox.bu
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            if (!this.f68325d.get()) {
-                return this.f68324c;
+            if (!this.f68525d.get()) {
+                return this.f68524c;
             }
             throw new IOException("released!");
         }
@@ -215,21 +215,21 @@ public class MMapBuffer implements com.bytedance.sdk.openadsdk.preload.geckox.bu
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2)) == null) {
             synchronized (this) {
-                if (this.f68325d.get()) {
+                if (this.f68525d.get()) {
                     throw new IOException("released!");
                 }
                 if (j2 <= 0) {
                     return 0L;
                 }
-                long j3 = this.f68324c;
-                long j4 = this.f68324c + j2;
-                this.f68324c = j4;
+                long j3 = this.f68524c;
+                long j4 = this.f68524c + j2;
+                this.f68524c = j4;
                 if (j4 < 0) {
-                    this.f68324c = 0L;
-                } else if (j4 > this.f68322a) {
-                    this.f68324c = this.f68322a;
+                    this.f68524c = 0L;
+                } else if (j4 > this.f68522a) {
+                    this.f68524c = this.f68522a;
                 }
-                return this.f68324c - j3;
+                return this.f68524c - j3;
             }
         }
         return invokeJ.longValue;
@@ -247,7 +247,7 @@ public class MMapBuffer implements com.bytedance.sdk.openadsdk.preload.geckox.bu
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLII = interceptable.invokeLII(1048582, this, bArr, i2, i3)) == null) {
-            if (!this.f68325d.get()) {
+            if (!this.f68525d.get()) {
                 if (bArr == null || i3 < 1 || i2 < 0 || i2 >= bArr.length) {
                     return 0;
                 }
@@ -255,14 +255,14 @@ public class MMapBuffer implements com.bytedance.sdk.openadsdk.preload.geckox.bu
                     i3 = bArr.length - i2;
                 }
                 synchronized (this) {
-                    if (this.f68324c == this.f68322a) {
+                    if (this.f68524c == this.f68522a) {
                         return -1;
                     }
-                    if (this.f68324c + i3 > this.f68322a) {
-                        i3 = (int) (this.f68322a - this.f68324c);
+                    if (this.f68524c + i3 > this.f68522a) {
+                        i3 = (int) (this.f68522a - this.f68524c);
                     }
-                    nRead(this.f68323b, this.f68324c, bArr, i2, i3);
-                    this.f68324c += i3;
+                    nRead(this.f68523b, this.f68524c, bArr, i2, i3);
+                    this.f68524c += i3;
                     return i3;
                 }
             }
@@ -276,7 +276,7 @@ public class MMapBuffer implements com.bytedance.sdk.openadsdk.preload.geckox.bu
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLII = interceptable.invokeLII(1048576, this, bArr, i2, i3)) == null) {
-            if (!this.f68325d.get()) {
+            if (!this.f68525d.get()) {
                 if (bArr == null || bArr.length == 0 || i3 < 1 || i2 < 0 || i2 >= bArr.length) {
                     return 0;
                 }
@@ -284,14 +284,14 @@ public class MMapBuffer implements com.bytedance.sdk.openadsdk.preload.geckox.bu
                     i3 = bArr.length - i2;
                 }
                 synchronized (this) {
-                    if (this.f68324c == this.f68322a) {
+                    if (this.f68524c == this.f68522a) {
                         return 0;
                     }
-                    if (this.f68324c + i3 > this.f68322a) {
-                        i3 = (int) (this.f68322a - this.f68324c);
+                    if (this.f68524c + i3 > this.f68522a) {
+                        i3 = (int) (this.f68522a - this.f68524c);
                     }
-                    nWrite(this.f68323b, this.f68324c, bArr, i2, i3);
-                    this.f68324c += i3;
+                    nWrite(this.f68523b, this.f68524c, bArr, i2, i3);
+                    this.f68524c += i3;
                     return i3;
                 }
             }

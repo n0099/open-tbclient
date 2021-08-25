@@ -11,10 +11,10 @@ public class e {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f67751a = "com.bytedance.openadsdk";
+    public static String f67951a = "com.bytedance.openadsdk";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f67752b;
+    public static String f67952b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -30,7 +30,7 @@ public class e {
                 return;
             }
         }
-        f67752b = "content://" + f67751a + ".TTMultiProvider";
+        f67952b = "content://" + f67951a + ".TTMultiProvider";
         a();
     }
 
@@ -39,7 +39,7 @@ public class e {
         if (!(interceptable == null || interceptable.invokeV(65537, null) == null) || o.a() == null) {
             return;
         }
-        f67751a = o.a().getPackageName();
-        f67752b = "content://" + f67751a + ".TTMultiProvider";
+        f67951a = o.a().getPackageName();
+        f67952b = "content://" + f67951a + ".TTMultiProvider";
     }
 }

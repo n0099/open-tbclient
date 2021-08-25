@@ -42,35 +42,35 @@ public class a extends DialogFragment implements b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f62189a;
+    public static final String f62389a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public LayoutInflater f62190b;
+    public LayoutInflater f62390b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Activity f62191c;
+    public Activity f62391c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ViewGroup f62192d;
+    public ViewGroup f62392d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f62193e;
+    public TextView f62393e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Button f62194f;
+    public Button f62394f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Button f62195g;
+    public Button f62395g;
 
     /* renamed from: h  reason: collision with root package name */
-    public com.baidu.wallet.paysdk.fingerprint.a.a f62196h;
+    public com.baidu.wallet.paysdk.fingerprint.a.a f62396h;
 
     /* renamed from: i  reason: collision with root package name */
-    public FingerprintCallback f62197i;
+    public FingerprintCallback f62397i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f62198j;
+    public int f62398j;
     public IFingerprintPay.Action k;
     public String l;
 
@@ -87,7 +87,7 @@ public class a extends DialogFragment implements b {
                 return;
             }
         }
-        f62189a = a.class.getSimpleName();
+        f62389a = a.class.getSimpleName();
     }
 
     public a() {
@@ -108,7 +108,7 @@ public class a extends DialogFragment implements b {
     public void onAttach(Activity activity) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) {
-            this.f62191c = activity;
+            this.f62391c = activity;
             super.onAttach(activity);
         }
     }
@@ -118,7 +118,7 @@ public class a extends DialogFragment implements b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
             super.onCreate(bundle);
-            setStyle(0, ResUtils.style(this.f62191c, "EbpayPromptDialog"));
+            setStyle(0, ResUtils.style(this.f62391c, "EbpayPromptDialog"));
         }
     }
 
@@ -129,24 +129,24 @@ public class a extends DialogFragment implements b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, layoutInflater, viewGroup, bundle)) == null) {
             getDialog().requestWindowFeature(1);
-            LayoutInflater from = LayoutInflater.from(this.f62191c);
-            this.f62190b = from;
-            ViewGroup viewGroup2 = (ViewGroup) from.inflate(ResUtils.layout(this.f62191c, "wallet_cashdesk_fingerprint_dialog"), (ViewGroup) null);
-            this.f62192d = viewGroup2;
-            this.f62194f = (Button) viewGroup2.findViewById(ResUtils.id(this.f62191c, "negative_btn"));
-            this.f62195g = (Button) this.f62192d.findViewById(ResUtils.id(this.f62191c, "positive_btn"));
-            this.f62193e = (TextView) this.f62192d.findViewById(ResUtils.id(this.f62191c, "fingerprint_title"));
+            LayoutInflater from = LayoutInflater.from(this.f62391c);
+            this.f62390b = from;
+            ViewGroup viewGroup2 = (ViewGroup) from.inflate(ResUtils.layout(this.f62391c, "wallet_cashdesk_fingerprint_dialog"), (ViewGroup) null);
+            this.f62392d = viewGroup2;
+            this.f62394f = (Button) viewGroup2.findViewById(ResUtils.id(this.f62391c, "negative_btn"));
+            this.f62395g = (Button) this.f62392d.findViewById(ResUtils.id(this.f62391c, "positive_btn"));
+            this.f62393e = (TextView) this.f62392d.findViewById(ResUtils.id(this.f62391c, "fingerprint_title"));
             getDialog().setCanceledOnTouchOutside(false);
             setCancelable(false);
-            this.f62194f.setVisibility(8);
-            this.f62195g.setVisibility(0);
-            a(this.f62195g);
-            this.f62195g.setOnClickListener(new View.OnClickListener(this) { // from class: com.baidu.wallet.paysdk.fingerprint.ui.a.1
+            this.f62394f.setVisibility(8);
+            this.f62395g.setVisibility(0);
+            a(this.f62395g);
+            this.f62395g.setOnClickListener(new View.OnClickListener(this) { // from class: com.baidu.wallet.paysdk.fingerprint.ui.a.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ a f62199a;
+                public final /* synthetic */ a f62399a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -163,7 +163,7 @@ public class a extends DialogFragment implements b {
                             return;
                         }
                     }
-                    this.f62199a = this;
+                    this.f62399a = this;
                 }
 
                 @Override // android.view.View.OnClickListener
@@ -171,30 +171,30 @@ public class a extends DialogFragment implements b {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
                         StatHelper.cachePayWay(1);
-                        this.f62199a.b();
-                        this.f62199a.f62196h.a();
-                        if (this.f62199a.f62197i != null) {
-                            this.f62199a.f62197i.onAuthorizeResult(this.f62199a.k, 1, "cancle");
+                        this.f62399a.b();
+                        this.f62399a.f62396h.a();
+                        if (this.f62399a.f62397i != null) {
+                            this.f62399a.f62397i.onAuthorizeResult(this.f62399a.k, 1, "cancle");
                         }
-                        this.f62199a.dismissAllowingStateLoss();
+                        this.f62399a.dismissAllowingStateLoss();
                     }
                 }
             });
             PayRequest payRequest = (PayRequest) PayRequestCache.getInstance().getBeanRequestFromCache(BeanConstants.REQUEST_ID_PAY);
             if (PayDataCache.getInstance().isPaySettingOpenFingerprintPay()) {
                 PayDataCache.getInstance().setPaySettingOpenFingerprintPay(false);
-                string = ResUtils.getString(this.f62191c, "wallet_fp_open_content");
+                string = ResUtils.getString(this.f62391c, "wallet_fp_open_content");
             } else if (payRequest != null && payRequest.FP_Guide_Strategy == 3) {
-                string = ResUtils.getString(this.f62191c, "wallet_fp_upgrade_content");
+                string = ResUtils.getString(this.f62391c, "wallet_fp_upgrade_content");
             } else if (payRequest != null && payRequest.FP_Guide_Strategy == 2) {
-                string = ResUtils.getString(this.f62191c, "wallet_fp_reopen_content");
+                string = ResUtils.getString(this.f62391c, "wallet_fp_reopen_content");
             } else if (payRequest != null && payRequest.FP_Guide_Strategy == 1) {
-                string = ResUtils.getString(this.f62191c, "wallet_fp_open_content");
+                string = ResUtils.getString(this.f62391c, "wallet_fp_open_content");
             } else {
-                string = ResUtils.getString(this.f62191c, "wallet_fp_bdwallet_fingerprintpay");
+                string = ResUtils.getString(this.f62391c, "wallet_fp_bdwallet_fingerprintpay");
             }
-            this.f62193e.setText(string);
-            return this.f62192d;
+            this.f62393e.setText(string);
+            return this.f62392d;
         }
         return (View) invokeLLL.objValue;
     }
@@ -204,15 +204,15 @@ public class a extends DialogFragment implements b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.onDestroy();
-            this.f62191c = null;
-            com.baidu.wallet.paysdk.fingerprint.a.a aVar = this.f62196h;
+            this.f62391c = null;
+            com.baidu.wallet.paysdk.fingerprint.a.a aVar = this.f62396h;
             if (aVar != null) {
                 aVar.d();
-                this.f62196h = null;
+                this.f62396h = null;
             }
-            this.f62192d = null;
-            this.f62197i = null;
-            this.f62190b = null;
+            this.f62392d = null;
+            this.f62397i = null;
+            this.f62390b = null;
         }
     }
 
@@ -221,7 +221,7 @@ public class a extends DialogFragment implements b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             super.onPause();
-            this.f62196h.a();
+            this.f62396h.a();
         }
     }
 
@@ -230,25 +230,25 @@ public class a extends DialogFragment implements b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             super.onResume();
-            this.f62196h.a(this.f62198j);
+            this.f62396h.a(this.f62398j);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65543, this) == null) && this.f62198j == 1) {
-            com.baidu.wallet.paysdk.fingerprint.bean.a aVar = (com.baidu.wallet.paysdk.fingerprint.bean.a) FingerprintBeanFactory.getInstance().getBean((Context) this.f62191c, FingerprintBeanFactory.BEAN_ID_SYS_FINGERPRINT_CLOSE, f62189a);
+        if ((interceptable == null || interceptable.invokeV(65543, this) == null) && this.f62398j == 1) {
+            com.baidu.wallet.paysdk.fingerprint.bean.a aVar = (com.baidu.wallet.paysdk.fingerprint.bean.a) FingerprintBeanFactory.getInstance().getBean((Context) this.f62391c, FingerprintBeanFactory.BEAN_ID_SYS_FINGERPRINT_CLOSE, f62389a);
             aVar.a(this.l);
             aVar.setResponseCallback(new IBeanResponseCallback(this, aVar) { // from class: com.baidu.wallet.paysdk.fingerprint.ui.a.4
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ com.baidu.wallet.paysdk.fingerprint.bean.a f62202a;
+                public final /* synthetic */ com.baidu.wallet.paysdk.fingerprint.bean.a f62402a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ a f62203b;
+                public final /* synthetic */ a f62403b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -265,16 +265,16 @@ public class a extends DialogFragment implements b {
                             return;
                         }
                     }
-                    this.f62203b = this;
-                    this.f62202a = aVar;
+                    this.f62403b = this;
+                    this.f62402a = aVar;
                 }
 
                 @Override // com.dxmpay.apollon.beans.IBeanResponseCallback
                 public void onBeanExecFailure(int i2, int i3, String str) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeIIL(1048576, this, i2, i3, str) == null) {
-                        String unused = a.f62189a;
-                        this.f62202a.destroyBean();
+                        String unused = a.f62389a;
+                        this.f62402a.destroyBean();
                         StatisticManager.onEvent("fp_close_system_failed_after_get_otptoken");
                     }
                 }
@@ -283,8 +283,8 @@ public class a extends DialogFragment implements b {
                 public void onBeanExecSuccess(int i2, Object obj, String str) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, obj, str) == null) {
-                        String unused = a.f62189a;
-                        this.f62202a.destroyBean();
+                        String unused = a.f62389a;
+                        this.f62402a.destroyBean();
                     }
                 }
             });
@@ -307,12 +307,12 @@ public class a extends DialogFragment implements b {
                 aVar.k = IFingerprintPay.Action.VERIFY;
             }
             com.baidu.wallet.paysdk.fingerprint.a.a aVar2 = new com.baidu.wallet.paysdk.fingerprint.a.a(activity.getApplicationContext());
-            aVar.f62196h = aVar2;
+            aVar.f62396h = aVar2;
             aVar2.a(aVar);
-            aVar.f62196h.a(str);
-            aVar.f62198j = i2;
-            aVar.f62197i = fingerprintCallback;
-            aVar.f62191c = activity;
+            aVar.f62396h.a(str);
+            aVar.f62398j = i2;
+            aVar.f62397i = fingerprintCallback;
+            aVar.f62391c = activity;
             return aVar;
         }
         return (a) invokeLILL.objValue;
@@ -321,7 +321,7 @@ public class a extends DialogFragment implements b {
     private void a(Button button) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, button) == null) {
-            View findViewById = this.f62192d.findViewById(ResUtils.id(button.getContext(), "btn_line"));
+            View findViewById = this.f62392d.findViewById(ResUtils.id(button.getContext(), "btn_line"));
             if (findViewById != null) {
                 findViewById.setVisibility(8);
             }
@@ -339,7 +339,7 @@ public class a extends DialogFragment implements b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048576, this, i2, str) == null) {
             if (i2 == 0) {
-                FingerprintCallback fingerprintCallback = this.f62197i;
+                FingerprintCallback fingerprintCallback = this.f62397i;
                 if (fingerprintCallback != null) {
                     fingerprintCallback.onAuthorizeResult(this.k, 0, str);
                 }
@@ -347,8 +347,8 @@ public class a extends DialogFragment implements b {
             } else if (i2 == -3) {
                 StatisticManager.onEvent("fp_fingerprint_changed");
                 b();
-                this.f62196h.a();
-                FingerprintCallback fingerprintCallback2 = this.f62197i;
+                this.f62396h.a();
+                FingerprintCallback fingerprintCallback2 = this.f62397i;
                 if (fingerprintCallback2 != null) {
                     fingerprintCallback2.onAuthorizeResult(this.k, 2, str);
                 }
@@ -360,37 +360,37 @@ public class a extends DialogFragment implements b {
                     StatisticManager.onEvent("fp_verify_error_fingerprint_setdisable_fp_serval_seconds");
                 }
                 b();
-                this.f62196h.a();
-                FingerprintCallback fingerprintCallback3 = this.f62197i;
+                this.f62396h.a();
+                FingerprintCallback fingerprintCallback3 = this.f62397i;
                 if (fingerprintCallback3 != null) {
                     fingerprintCallback3.onAuthorizeResult(this.k, 2, str);
                 }
                 dismissAllowingStateLoss();
             } else if (i2 == -1) {
-                if (this.f62197i != null) {
+                if (this.f62397i != null) {
                     b();
-                    this.f62197i.onAuthorizeResult(this.k, 2, "");
+                    this.f62397i.onAuthorizeResult(this.k, 2, "");
                 }
-                this.f62196h.a();
+                this.f62396h.a();
                 dismissAllowingStateLoss();
             } else if (i2 == -5) {
-                if (this.f62198j == 1) {
-                    this.f62195g.setVisibility(8);
+                if (this.f62398j == 1) {
+                    this.f62395g.setVisibility(8);
                 } else {
-                    this.f62195g.setVisibility(0);
-                    this.f62195g.setText(ResUtils.getString(this.f62191c, "wallet_cashdesk_pwd_pay"));
+                    this.f62395g.setVisibility(0);
+                    this.f62395g.setText(ResUtils.getString(this.f62391c, "wallet_cashdesk_pwd_pay"));
                 }
-                this.f62194f.setVisibility(0);
-                a(this.f62194f);
-                this.f62193e.setVisibility(0);
-                this.f62193e.setText(str);
-                AnimUtils.startSharkAnim(this.f62193e);
-                this.f62195g.setOnClickListener(new View.OnClickListener(this) { // from class: com.baidu.wallet.paysdk.fingerprint.ui.a.2
+                this.f62394f.setVisibility(0);
+                a(this.f62394f);
+                this.f62393e.setVisibility(0);
+                this.f62393e.setText(str);
+                AnimUtils.startSharkAnim(this.f62393e);
+                this.f62395g.setOnClickListener(new View.OnClickListener(this) { // from class: com.baidu.wallet.paysdk.fingerprint.ui.a.2
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ a f62200a;
+                    public final /* synthetic */ a f62400a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -407,7 +407,7 @@ public class a extends DialogFragment implements b {
                                 return;
                             }
                         }
-                        this.f62200a = this;
+                        this.f62400a = this;
                     }
 
                     @Override // android.view.View.OnClickListener
@@ -415,20 +415,20 @@ public class a extends DialogFragment implements b {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
                             StatisticManager.onEvent("fp_error_fingerprint_click_pwdpay");
-                            this.f62200a.f62196h.a();
-                            if (this.f62200a.f62197i != null) {
-                                this.f62200a.f62197i.onAuthorizeResult(this.f62200a.k, 3, "");
+                            this.f62400a.f62396h.a();
+                            if (this.f62400a.f62397i != null) {
+                                this.f62400a.f62397i.onAuthorizeResult(this.f62400a.k, 3, "");
                             }
-                            this.f62200a.dismissAllowingStateLoss();
+                            this.f62400a.dismissAllowingStateLoss();
                         }
                     }
                 });
-                this.f62194f.setOnClickListener(new View.OnClickListener(this) { // from class: com.baidu.wallet.paysdk.fingerprint.ui.a.3
+                this.f62394f.setOnClickListener(new View.OnClickListener(this) { // from class: com.baidu.wallet.paysdk.fingerprint.ui.a.3
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ a f62201a;
+                    public final /* synthetic */ a f62401a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -445,29 +445,29 @@ public class a extends DialogFragment implements b {
                                 return;
                             }
                         }
-                        this.f62201a = this;
+                        this.f62401a = this;
                     }
 
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                            this.f62201a.b();
-                            this.f62201a.f62196h.a();
-                            if (this.f62201a.f62197i != null) {
-                                this.f62201a.f62197i.onAuthorizeResult(this.f62201a.k, 1, "");
+                            this.f62401a.b();
+                            this.f62401a.f62396h.a();
+                            if (this.f62401a.f62397i != null) {
+                                this.f62401a.f62397i.onAuthorizeResult(this.f62401a.k, 1, "");
                             }
-                            this.f62201a.dismissAllowingStateLoss();
+                            this.f62401a.dismissAllowingStateLoss();
                         }
                     }
                 });
             } else {
                 b();
-                FingerprintCallback fingerprintCallback4 = this.f62197i;
+                FingerprintCallback fingerprintCallback4 = this.f62397i;
                 if (fingerprintCallback4 != null) {
                     fingerprintCallback4.onAuthorizeResult(this.k, 2, "");
                 }
-                this.f62196h.a();
+                this.f62396h.a();
                 dismissAllowingStateLoss();
             }
         }

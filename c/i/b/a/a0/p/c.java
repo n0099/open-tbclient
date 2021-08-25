@@ -17,13 +17,13 @@ public final class c implements b.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final long[] f32328a;
+    public final long[] f32434a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final long[] f32329b;
+    public final long[] f32435b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final long f32330c;
+    public final long f32436c;
 
     public c(long[] jArr, long[] jArr2, long j2) {
         Interceptable interceptable = $ic;
@@ -40,9 +40,9 @@ public final class c implements b.a {
                 return;
             }
         }
-        this.f32328a = jArr;
-        this.f32329b = jArr2;
-        this.f32330c = j2;
+        this.f32434a = jArr;
+        this.f32435b = jArr2;
+        this.f32436c = j2;
     }
 
     public static c a(j jVar, l lVar, long j2, long j3) {
@@ -55,14 +55,14 @@ public final class c implements b.a {
             if (i2 <= 0) {
                 return null;
             }
-            int i3 = jVar.f32249d;
+            int i3 = jVar.f32355d;
             long F = v.F(i2, 1000000 * (i3 >= 32000 ? MP3TrackImpl.SAMPLES_PER_FRAME : 576), i3);
             int D = lVar.D();
             int D2 = lVar.D();
             int D3 = lVar.D();
             int i4 = 2;
             lVar.K(2);
-            long j4 = j2 + jVar.f32248c;
+            long j4 = j2 + jVar.f32354c;
             int i5 = D + 1;
             long[] jArr = new long[i5];
             long[] jArr2 = new long[i5];
@@ -112,20 +112,20 @@ public final class c implements b.a {
     public long c(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2)) == null) ? this.f32329b[v.e(this.f32328a, j2, true, true)] : invokeJ.longValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2)) == null) ? this.f32435b[v.e(this.f32434a, j2, true, true)] : invokeJ.longValue;
     }
 
     @Override // c.i.b.a.a0.p.b.a
     public long g(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2)) == null) ? this.f32328a[v.e(this.f32329b, j2, true, true)] : invokeJ.longValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2)) == null) ? this.f32434a[v.e(this.f32435b, j2, true, true)] : invokeJ.longValue;
     }
 
     @Override // c.i.b.a.a0.l
     public long h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f32330c : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f32436c : invokeV.longValue;
     }
 }

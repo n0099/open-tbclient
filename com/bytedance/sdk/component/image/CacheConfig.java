@@ -17,19 +17,19 @@ public class CacheConfig {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f64690a;
+    public long f64890a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f64691b;
+    public int f64891b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f64692c;
+    public boolean f64892c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f64693d;
+    public boolean f64893d;
 
     /* renamed from: e  reason: collision with root package name */
-    public File f64694e;
+    public File f64894e;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public CacheConfig(int i2, long j2, File file) {
@@ -71,65 +71,65 @@ public class CacheConfig {
     public File getCacheDir() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f64694e : (File) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f64894e : (File) invokeV.objValue;
     }
 
     public long getFileCacheSize() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f64690a : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f64890a : invokeV.longValue;
     }
 
     public int getMemoryCacheSize() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f64691b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f64891b : invokeV.intValue;
     }
 
     public boolean isDiskCache() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f64693d : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f64893d : invokeV.booleanValue;
     }
 
     public boolean isMemoryCache() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f64692c : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f64892c : invokeV.booleanValue;
     }
 
     public void setCacheDir(File file) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, file) == null) {
-            this.f64694e = file;
+            this.f64894e = file;
         }
     }
 
     public void setDiskCache(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            this.f64693d = z;
+            this.f64893d = z;
         }
     }
 
     public void setFileCacheSize(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048583, this, j2) == null) {
-            this.f64690a = j2;
+            this.f64890a = j2;
         }
     }
 
     public void setMemoryCache(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
-            this.f64692c = z;
+            this.f64892c = z;
         }
     }
 
     public void setMemoryCacheSize(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048585, this, i2) == null) {
-            this.f64691b = i2;
+            this.f64891b = i2;
         }
     }
 
@@ -148,10 +148,10 @@ public class CacheConfig {
                 return;
             }
         }
-        this.f64690a = j2;
-        this.f64691b = i2;
-        this.f64692c = z;
-        this.f64693d = z2;
-        this.f64694e = file;
+        this.f64890a = j2;
+        this.f64891b = i2;
+        this.f64892c = z;
+        this.f64893d = z2;
+        this.f64894e = file;
     }
 }

@@ -32,17 +32,17 @@ public class SwanKV {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final a f45283d;
+    public static final a f45390d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f45284a;
+    public String f45391a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f45285b;
+    public int f45392b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f45286c;
+    public String f45393c;
     public long nativeHandle;
 
     /* loaded from: classes6.dex */
@@ -144,7 +144,7 @@ public class SwanKV {
                 return;
             }
         }
-        f45283d = new a(null);
+        f45390d = new a(null);
     }
 
     public SwanKV(Context context, String str, int i2, String str2) {
@@ -162,18 +162,18 @@ public class SwanKV {
                 return;
             }
         }
-        this.f45284a = str;
-        this.f45285b = i2;
-        this.f45286c = str2;
+        this.f45391a = str;
+        this.f45392b = i2;
+        this.f45393c = str2;
         if (i2 != 4) {
             if (!TextUtils.isEmpty(str2)) {
-                File file = new File(this.f45286c);
+                File file = new File(this.f45393c);
                 if ((!file.exists() || !file.isDirectory()) && !file.mkdirs() && !file.exists()) {
-                    String str3 = "mkdirs fail: " + this.f45286c;
-                    this.f45286c = "";
+                    String str3 = "mkdirs fail: " + this.f45393c;
+                    this.f45393c = "";
                 }
             }
-            this.nativeHandle = nGetHandle(f45283d.b(this.f45284a), this.f45285b, this.f45286c);
+            this.nativeHandle = nGetHandle(f45390d.b(this.f45391a), this.f45392b, this.f45393c);
         }
     }
 
@@ -184,7 +184,7 @@ public class SwanKV {
     public static final boolean n(Context context, b bVar, boolean z) {
         InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(AdIconUtil.AD_TEXT_ID, null, context, bVar, z)) == null) ? f45283d.c(context, bVar, z) : invokeLLZ.booleanValue;
+        return (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(AdIconUtil.AD_TEXT_ID, null, context, bVar, z)) == null) ? f45390d.c(context, bVar, z) : invokeLLZ.booleanValue;
     }
 
     private final native boolean nClean(long j2);
@@ -327,7 +327,7 @@ public class SwanKV {
     public int k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f45285b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f45392b : invokeV.intValue;
     }
 
     public String[] l(String str) {
@@ -482,6 +482,6 @@ public class SwanKV {
                 return;
             }
         }
-        this.nativeHandle = nGetAshmemHandle(f45283d.b(this.f45284a), ashmemFileDescriptor.getAshmemFD(), ashmemFileDescriptor.getSize());
+        this.nativeHandle = nGetAshmemHandle(f45390d.b(this.f45391a), ashmemFileDescriptor.getAshmemFD(), ashmemFileDescriptor.getSize());
     }
 }

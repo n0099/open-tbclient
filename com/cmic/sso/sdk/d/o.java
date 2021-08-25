@@ -20,7 +20,7 @@ public class o {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final ExecutorService f68819a;
+    public static final ExecutorService f69019a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -36,16 +36,16 @@ public class o {
                 return;
             }
         }
-        f68819a = new ThreadPoolExecutor(0, 30, 60L, TimeUnit.SECONDS, new SynchronousQueue());
+        f69019a = new ThreadPoolExecutor(0, 30, 60L, TimeUnit.SECONDS, new SynchronousQueue());
     }
 
     public static void a(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, null, aVar) == null) {
             try {
-                f68819a.execute(aVar);
+                f69019a.execute(aVar);
             } catch (Exception e2) {
-                aVar.f68820a.uncaughtException(Thread.currentThread(), e2);
+                aVar.f69020a.uncaughtException(Thread.currentThread(), e2);
             }
         }
     }
@@ -56,7 +56,7 @@ public class o {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final Thread.UncaughtExceptionHandler f68820a;
+        public final Thread.UncaughtExceptionHandler f69020a;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -71,12 +71,12 @@ public class o {
                     return;
                 }
             }
-            this.f68820a = new Thread.UncaughtExceptionHandler(this) { // from class: com.cmic.sso.sdk.d.o.a.1
+            this.f69020a = new Thread.UncaughtExceptionHandler(this) { // from class: com.cmic.sso.sdk.d.o.a.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ a f68821a;
+                public final /* synthetic */ a f69021a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -93,7 +93,7 @@ public class o {
                             return;
                         }
                     }
-                    this.f68821a = this;
+                    this.f69021a = this;
                 }
 
                 @Override // java.lang.Thread.UncaughtExceptionHandler
@@ -112,7 +112,7 @@ public class o {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                Thread.currentThread().setUncaughtExceptionHandler(this.f68820a);
+                Thread.currentThread().setUncaughtExceptionHandler(this.f69020a);
                 a();
                 Thread.currentThread().setUncaughtExceptionHandler(null);
             }
@@ -133,18 +133,18 @@ public class o {
                     return;
                 }
             }
-            this.f68820a = new Thread.UncaughtExceptionHandler(this, aVar, context) { // from class: com.cmic.sso.sdk.d.o.a.2
+            this.f69020a = new Thread.UncaughtExceptionHandler(this, aVar, context) { // from class: com.cmic.sso.sdk.d.o.a.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ com.cmic.sso.sdk.a f68822a;
+                public final /* synthetic */ com.cmic.sso.sdk.a f69022a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ Context f68823b;
+                public final /* synthetic */ Context f69023b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ a f68824c;
+                public final /* synthetic */ a f69024c;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -161,17 +161,17 @@ public class o {
                             return;
                         }
                     }
-                    this.f68824c = this;
-                    this.f68822a = aVar;
-                    this.f68823b = context;
+                    this.f69024c = this;
+                    this.f69022a = aVar;
+                    this.f69023b = context;
                 }
 
                 @Override // java.lang.Thread.UncaughtExceptionHandler
                 public void uncaughtException(Thread thread, Throwable th) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLL(1048576, this, thread, th) == null) {
-                        this.f68822a.a().f68789a.add(th);
-                        AuthnHelper.getInstance(this.f68823b).callBackResult("200025", "发生未知错误", this.f68822a, null);
+                        this.f69022a.a().f68989a.add(th);
+                        AuthnHelper.getInstance(this.f69023b).callBackResult("200025", "发生未知错误", this.f69022a, null);
                     }
                 }
             };

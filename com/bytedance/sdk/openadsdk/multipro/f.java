@@ -26,13 +26,13 @@ public class f implements a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile f f67753a;
+    public static volatile f f67953a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static WeakReference<Context> f67754b;
+    public static WeakReference<Context> f67954b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static List<a> f67755c;
+    public static List<a> f67955c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -49,12 +49,12 @@ public class f implements a {
             }
         }
         List<a> synchronizedList = Collections.synchronizedList(new ArrayList());
-        f67755c = synchronizedList;
+        f67955c = synchronizedList;
         synchronizedList.add(new com.bytedance.sdk.openadsdk.multipro.d.c());
-        f67755c.add(new com.bytedance.sdk.openadsdk.multipro.a.b());
-        f67755c.add(new com.bytedance.sdk.openadsdk.multipro.c.b());
-        f67755c.add(new com.bytedance.sdk.openadsdk.multipro.c.a());
-        for (a aVar : f67755c) {
+        f67955c.add(new com.bytedance.sdk.openadsdk.multipro.a.b());
+        f67955c.add(new com.bytedance.sdk.openadsdk.multipro.c.b());
+        f67955c.add(new com.bytedance.sdk.openadsdk.multipro.c.a());
+        for (a aVar : f67955c) {
             aVar.b();
         }
     }
@@ -78,16 +78,16 @@ public class f implements a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
             if (context != null) {
-                f67754b = new WeakReference<>(context.getApplicationContext());
+                f67954b = new WeakReference<>(context.getApplicationContext());
             }
-            if (f67753a == null) {
+            if (f67953a == null) {
                 synchronized (f.class) {
-                    if (f67753a == null) {
-                        f67753a = new f();
+                    if (f67953a == null) {
+                        f67953a = new f();
                     }
                 }
             }
-            return f67753a;
+            return f67953a;
         }
         return (f) invokeL.objValue;
     }
@@ -113,7 +113,7 @@ public class f implements a {
     public void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, context) == null) {
-            for (a aVar : f67755c) {
+            for (a aVar : f67955c) {
                 aVar.a(context);
             }
         }
@@ -185,7 +185,7 @@ public class f implements a {
                 k.b("TTProviderManager", "uri is error3");
                 return null;
             }
-            for (a aVar : f67755c) {
+            for (a aVar : f67955c) {
                 if (str.equals(aVar.a())) {
                     return aVar;
                 }

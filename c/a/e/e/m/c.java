@@ -24,14 +24,14 @@ public class c extends Resources {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final ColorStateList f2350c;
+    public static final ColorStateList f2408c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Resources f2351a;
+    public Resources f2409a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f2352b;
+    public boolean f2410b;
 
     static {
         InterceptResult invokeClinit;
@@ -46,7 +46,7 @@ public class c extends Resources {
                 return;
             }
         }
-        f2350c = ColorStateList.valueOf(-16777216);
+        f2408c = ColorStateList.valueOf(-16777216);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -68,8 +68,8 @@ public class c extends Resources {
                 return;
             }
         }
-        this.f2351a = resources;
-        this.f2352b = false;
+        this.f2409a = resources;
+        this.f2410b = false;
     }
 
     public final void a(String str, int i2) {
@@ -77,7 +77,7 @@ public class c extends Resources {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048576, this, str, i2) == null) {
             try {
-                str2 = this.f2351a.getResourceEntryName(i2);
+                str2 = this.f2409a.getResourceEntryName(i2);
             } catch (Exception unused) {
                 str2 = null;
             }
@@ -99,14 +99,14 @@ public class c extends Resources {
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
             for (int i3 = 0; i3 < 3; i3++) {
                 try {
-                    return this.f2351a.getColor(i2);
+                    return this.f2409a.getColor(i2);
                 } catch (OutOfMemoryError e2) {
-                    if (i3 == 2 && (BdBaseApplication.getInst().isDebugMode() || this.f2352b)) {
+                    if (i3 == 2 && (BdBaseApplication.getInst().isDebugMode() || this.f2410b)) {
                         throw e2;
                     }
                     BdBaseApplication.getInst().onAppMemoryLow();
                 } catch (RuntimeException e3) {
-                    if (i3 == 2 && (BdBaseApplication.getInst().isDebugMode() || this.f2352b)) {
+                    if (i3 == 2 && (BdBaseApplication.getInst().isDebugMode() || this.f2410b)) {
                         throw e3;
                     }
                     BdBaseApplication.getInst().onAppMemoryLow();
@@ -125,21 +125,21 @@ public class c extends Resources {
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) {
             for (int i3 = 0; i3 < 3; i3++) {
                 try {
-                    return this.f2351a.getColorStateList(i2);
+                    return this.f2409a.getColorStateList(i2);
                 } catch (OutOfMemoryError e2) {
-                    if (i3 == 2 && (BdBaseApplication.getInst().isDebugMode() || this.f2352b)) {
+                    if (i3 == 2 && (BdBaseApplication.getInst().isDebugMode() || this.f2410b)) {
                         throw e2;
                     }
                     BdBaseApplication.getInst().onAppMemoryLow();
                 } catch (RuntimeException e3) {
-                    if (i3 == 2 && (BdBaseApplication.getInst().isDebugMode() || this.f2352b)) {
+                    if (i3 == 2 && (BdBaseApplication.getInst().isDebugMode() || this.f2410b)) {
                         throw e3;
                     }
                     BdBaseApplication.getInst().onAppMemoryLow();
                 }
             }
             a("colorstatelist", i2);
-            return f2350c;
+            return f2408c;
         }
         return (ColorStateList) invokeI.objValue;
     }
@@ -151,14 +151,14 @@ public class c extends Resources {
         if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) {
             for (int i3 = 0; i3 < 3; i3++) {
                 try {
-                    return this.f2351a.getDrawable(i2);
+                    return this.f2409a.getDrawable(i2);
                 } catch (OutOfMemoryError e2) {
-                    if (i3 == 2 && (BdBaseApplication.getInst().isDebugMode() || this.f2352b)) {
+                    if (i3 == 2 && (BdBaseApplication.getInst().isDebugMode() || this.f2410b)) {
                         throw e2;
                     }
                     BdBaseApplication.getInst().onAppMemoryLow();
                 } catch (RuntimeException e3) {
-                    if (i3 == 2 && (BdBaseApplication.getInst().isDebugMode() || this.f2352b)) {
+                    if (i3 == 2 && (BdBaseApplication.getInst().isDebugMode() || this.f2410b)) {
                         throw e3;
                     }
                     BdBaseApplication.getInst().onAppMemoryLow();
@@ -177,14 +177,14 @@ public class c extends Resources {
         if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) {
             for (int i3 = 0; i3 < 3; i3++) {
                 try {
-                    return this.f2351a.getString(i2);
+                    return this.f2409a.getString(i2);
                 } catch (OutOfMemoryError e2) {
-                    if (i3 == 2 && (BdBaseApplication.getInst().isDebugMode() || this.f2352b)) {
+                    if (i3 == 2 && (BdBaseApplication.getInst().isDebugMode() || this.f2410b)) {
                         throw e2;
                     }
                     BdBaseApplication.getInst().onAppMemoryLow();
                 } catch (RuntimeException e3) {
-                    if (i3 == 2 && (BdBaseApplication.getInst().isDebugMode() || this.f2352b)) {
+                    if (i3 == 2 && (BdBaseApplication.getInst().isDebugMode() || this.f2410b)) {
                         throw e3;
                     }
                     BdBaseApplication.getInst().onAppMemoryLow();
@@ -200,13 +200,13 @@ public class c extends Resources {
     public InputStream openRawResource(int i2) throws Resources.NotFoundException {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i2)) == null) ? this.f2351a.openRawResource(i2) : (InputStream) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i2)) == null) ? this.f2409a.openRawResource(i2) : (InputStream) invokeI.objValue;
     }
 
     @Override // android.content.res.Resources
     public InputStream openRawResource(int i2, TypedValue typedValue) throws Resources.NotFoundException {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIL = interceptable.invokeIL(1048582, this, i2, typedValue)) == null) ? this.f2351a.openRawResource(i2, typedValue) : (InputStream) invokeIL.objValue;
+        return (interceptable == null || (invokeIL = interceptable.invokeIL(1048582, this, i2, typedValue)) == null) ? this.f2409a.openRawResource(i2, typedValue) : (InputStream) invokeIL.objValue;
     }
 }

@@ -12,7 +12,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.sdk.openadsdk.TTAdConstant;
 import com.yy.hiidostatis.api.HiidoSDK;
 import com.yy.hiidostatis.api.StatisContent;
 import com.yy.hiidostatis.api.StatisOption;
@@ -172,7 +171,7 @@ public final class DataTrack {
     private void reportTotalInterval() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65545, this) == null) {
-            if (this.reportTime == 0 || System.currentTimeMillis() - this.reportTime >= TTAdConstant.AD_MAX_EVENT_TIME) {
+            if (this.reportTime == 0 || System.currentTimeMillis() - this.reportTime >= 600000) {
                 this.reportTime = System.currentTimeMillis();
                 reportTotalForce();
             }

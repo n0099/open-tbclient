@@ -37,7 +37,7 @@ public class PluginInstallerService extends HighPriorityIntentService {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PluginInstallerService f36097a;
+        public final /* synthetic */ PluginInstallerService f36203a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(PluginInstallerService pluginInstallerService, Looper looper) {
@@ -57,7 +57,7 @@ public class PluginInstallerService extends HighPriorityIntentService {
                     return;
                 }
             }
-            this.f36097a = pluginInstallerService;
+            this.f36203a = pluginInstallerService;
         }
 
         @Override // android.os.Handler

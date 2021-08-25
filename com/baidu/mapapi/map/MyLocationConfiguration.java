@@ -27,7 +27,7 @@ public class MyLocationConfiguration {
         public static final LocationMode NORMAL;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ LocationMode[] f41323a;
+        public static final /* synthetic */ LocationMode[] f41430a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -47,7 +47,7 @@ public class MyLocationConfiguration {
             FOLLOWING = new LocationMode("FOLLOWING", 1);
             LocationMode locationMode = new LocationMode("COMPASS", 2);
             COMPASS = locationMode;
-            f41323a = new LocationMode[]{NORMAL, FOLLOWING, locationMode};
+            f41430a = new LocationMode[]{NORMAL, FOLLOWING, locationMode};
         }
 
         public LocationMode(String str, int i2) {
@@ -78,7 +78,7 @@ public class MyLocationConfiguration {
         public static LocationMode[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (LocationMode[]) f41323a.clone() : (LocationMode[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (LocationMode[]) f41430a.clone() : (LocationMode[]) invokeV.objValue;
         }
     }
 

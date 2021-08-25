@@ -14,21 +14,21 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public AdTemplate f72425a;
+    public AdTemplate f72625a;
 
     /* renamed from: b  reason: collision with root package name */
-    public InterfaceC2003a f72426b;
+    public InterfaceC2007a f72626b;
     @Nullable
 
     /* renamed from: c  reason: collision with root package name */
-    public b f72427c;
+    public b f72627c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f72428d;
+    public boolean f72628d;
 
     /* renamed from: com.kwad.sdk.draw.b.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes10.dex */
-    public interface InterfaceC2003a {
+    public interface InterfaceC2007a {
         void a();
     }
 
@@ -52,31 +52,31 @@ public class a {
                 return;
             }
         }
-        this.f72425a = adTemplate;
-        this.f72428d = false;
+        this.f72625a = adTemplate;
+        this.f72628d = false;
     }
 
     public void a() {
-        InterfaceC2003a interfaceC2003a;
+        InterfaceC2007a interfaceC2007a;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f72428d) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f72628d) {
             return;
         }
-        this.f72428d = true;
-        if (com.kwad.sdk.core.response.b.c.i(this.f72425a).status == 1 || com.kwad.sdk.core.response.b.c.i(this.f72425a).status == 2 || com.kwad.sdk.core.response.b.c.i(this.f72425a).status == 3) {
+        this.f72628d = true;
+        if (com.kwad.sdk.core.response.b.c.i(this.f72625a).status == 1 || com.kwad.sdk.core.response.b.c.i(this.f72625a).status == 2 || com.kwad.sdk.core.response.b.c.i(this.f72625a).status == 3) {
             return;
         }
-        b bVar = this.f72427c;
-        if ((bVar == null || !bVar.a()) && (interfaceC2003a = this.f72426b) != null) {
-            interfaceC2003a.a();
+        b bVar = this.f72627c;
+        if ((bVar == null || !bVar.a()) && (interfaceC2007a = this.f72626b) != null) {
+            interfaceC2007a.a();
         }
     }
 
     @MainThread
-    public void a(InterfaceC2003a interfaceC2003a) {
+    public void a(InterfaceC2007a interfaceC2007a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, interfaceC2003a) == null) {
-            this.f72426b = interfaceC2003a;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, interfaceC2007a) == null) {
+            this.f72626b = interfaceC2007a;
         }
     }
 
@@ -84,7 +84,7 @@ public class a {
     public void a(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
-            this.f72427c = bVar;
+            this.f72627c = bVar;
         }
     }
 }

@@ -12,10 +12,10 @@ public class k implements c.a<String> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ String f40418a;
+    public final /* synthetic */ String f40525a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ LBSAuthManager f40419b;
+    public final /* synthetic */ LBSAuthManager f40526b;
 
     public k(LBSAuthManager lBSAuthManager, String str) {
         Interceptable interceptable = $ic;
@@ -32,8 +32,8 @@ public class k implements c.a<String> {
                 return;
             }
         }
-        this.f40419b = lBSAuthManager;
-        this.f40418a = str;
+        this.f40526b = lBSAuthManager;
+        this.f40525a = str;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -41,7 +41,7 @@ public class k implements c.a<String> {
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            this.f40419b.a(str, this.f40418a);
+            this.f40526b.a(str, this.f40525a);
         }
     }
 }

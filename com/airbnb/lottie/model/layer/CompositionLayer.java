@@ -18,20 +18,10 @@ import com.airbnb.lottie.model.animatable.AnimatableFloatValue;
 import com.airbnb.lottie.model.layer.Layer;
 import com.airbnb.lottie.utils.Utils;
 import com.airbnb.lottie.value.LottieValueCallback;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class CompositionLayer extends BaseLayer {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
     @Nullable
     public Boolean hasMasks;
     @Nullable
@@ -47,22 +37,8 @@ public class CompositionLayer extends BaseLayer {
     /* loaded from: classes4.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$airbnb$lottie$model$layer$Layer$MatteType;
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
 
         static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(188378876, "Lcom/airbnb/lottie/model/layer/CompositionLayer$1;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(188378876, "Lcom/airbnb/lottie/model/layer/CompositionLayer$1;");
-                    return;
-                }
-            }
             int[] iArr = new int[Layer.MatteType.values().length];
             $SwitchMap$com$airbnb$lottie$model$layer$Layer$MatteType = iArr;
             try {
@@ -76,27 +52,10 @@ public class CompositionLayer extends BaseLayer {
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public CompositionLayer(LottieDrawable lottieDrawable, Layer layer, List<Layer> list, LottieComposition lottieComposition) {
         super(lottieDrawable, layer);
         int i2;
         BaseLayer baseLayer;
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {lottieDrawable, layer, list, lottieComposition};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((LottieDrawable) objArr2[0], (Layer) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
         this.layers = new ArrayList();
         this.rect = new RectF();
         this.newClipRect = new RectF();
@@ -126,8 +85,8 @@ public class CompositionLayer extends BaseLayer {
                     baseLayer2 = null;
                 } else {
                     this.layers.add(0, forModel);
-                    int i5 = AnonymousClass1.$SwitchMap$com$airbnb$lottie$model$layer$Layer$MatteType[layer2.getMatteType().ordinal()];
-                    if (i5 == 1 || i5 == 2) {
+                    int i3 = AnonymousClass1.$SwitchMap$com$airbnb$lottie$model$layer$Layer$MatteType[layer2.getMatteType().ordinal()];
+                    if (i3 == 1 || i3 == 2) {
                         baseLayer2 = forModel;
                     }
                 }
@@ -144,139 +103,114 @@ public class CompositionLayer extends BaseLayer {
 
     @Override // com.airbnb.lottie.model.layer.BaseLayer, com.airbnb.lottie.model.KeyPathElement
     public <T> void addValueCallback(T t, @Nullable LottieValueCallback<T> lottieValueCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, t, lottieValueCallback) == null) {
-            super.addValueCallback(t, lottieValueCallback);
-            if (t == LottieProperty.TIME_REMAP) {
-                if (lottieValueCallback == null) {
-                    BaseKeyframeAnimation<Float, Float> baseKeyframeAnimation = this.timeRemapping;
-                    if (baseKeyframeAnimation != null) {
-                        baseKeyframeAnimation.setValueCallback(null);
-                        return;
-                    }
+        super.addValueCallback(t, lottieValueCallback);
+        if (t == LottieProperty.TIME_REMAP) {
+            if (lottieValueCallback == null) {
+                BaseKeyframeAnimation<Float, Float> baseKeyframeAnimation = this.timeRemapping;
+                if (baseKeyframeAnimation != null) {
+                    baseKeyframeAnimation.setValueCallback(null);
                     return;
                 }
-                ValueCallbackKeyframeAnimation valueCallbackKeyframeAnimation = new ValueCallbackKeyframeAnimation(lottieValueCallback);
-                this.timeRemapping = valueCallbackKeyframeAnimation;
-                valueCallbackKeyframeAnimation.addUpdateListener(this);
-                addAnimation(this.timeRemapping);
+                return;
             }
+            ValueCallbackKeyframeAnimation valueCallbackKeyframeAnimation = new ValueCallbackKeyframeAnimation(lottieValueCallback);
+            this.timeRemapping = valueCallbackKeyframeAnimation;
+            valueCallbackKeyframeAnimation.addUpdateListener(this);
+            addAnimation(this.timeRemapping);
         }
     }
 
     @Override // com.airbnb.lottie.model.layer.BaseLayer
     public void drawLayer(Canvas canvas, Matrix matrix, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas, matrix, i2) == null) {
-            L.beginSection("CompositionLayer#draw");
-            this.newClipRect.set(0.0f, 0.0f, this.layerModel.getPreCompWidth(), this.layerModel.getPreCompHeight());
-            matrix.mapRect(this.newClipRect);
-            boolean z = this.lottieDrawable.isApplyingOpacityToLayersEnabled() && this.layers.size() > 1 && i2 != 255;
-            if (z) {
-                this.layerPaint.setAlpha(i2);
-                Utils.saveLayerCompat(canvas, this.newClipRect, this.layerPaint);
-            } else {
-                canvas.save();
-            }
-            if (z) {
-                i2 = 255;
-            }
-            for (int size = this.layers.size() - 1; size >= 0; size--) {
-                if (!this.newClipRect.isEmpty() ? canvas.clipRect(this.newClipRect) : true) {
-                    this.layers.get(size).draw(canvas, matrix, i2);
-                }
-            }
-            canvas.restore();
-            L.endSection("CompositionLayer#draw");
+        L.beginSection("CompositionLayer#draw");
+        this.newClipRect.set(0.0f, 0.0f, this.layerModel.getPreCompWidth(), this.layerModel.getPreCompHeight());
+        matrix.mapRect(this.newClipRect);
+        boolean z = this.lottieDrawable.isApplyingOpacityToLayersEnabled() && this.layers.size() > 1 && i2 != 255;
+        if (z) {
+            this.layerPaint.setAlpha(i2);
+            Utils.saveLayerCompat(canvas, this.newClipRect, this.layerPaint);
+        } else {
+            canvas.save();
         }
+        if (z) {
+            i2 = 255;
+        }
+        for (int size = this.layers.size() - 1; size >= 0; size--) {
+            if (!this.newClipRect.isEmpty() ? canvas.clipRect(this.newClipRect) : true) {
+                this.layers.get(size).draw(canvas, matrix, i2);
+            }
+        }
+        canvas.restore();
+        L.endSection("CompositionLayer#draw");
     }
 
     @Override // com.airbnb.lottie.model.layer.BaseLayer, com.airbnb.lottie.animation.content.DrawingContent
     public void getBounds(RectF rectF, Matrix matrix, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(Constants.METHOD_SEND_USER_MSG, this, rectF, matrix, z) == null) {
-            super.getBounds(rectF, matrix, z);
-            for (int size = this.layers.size() - 1; size >= 0; size--) {
-                this.rect.set(0.0f, 0.0f, 0.0f, 0.0f);
-                this.layers.get(size).getBounds(this.rect, this.boundsMatrix, true);
-                rectF.union(this.rect);
-            }
+        super.getBounds(rectF, matrix, z);
+        for (int size = this.layers.size() - 1; size >= 0; size--) {
+            this.rect.set(0.0f, 0.0f, 0.0f, 0.0f);
+            this.layers.get(size).getBounds(this.rect, this.boundsMatrix, true);
+            rectF.union(this.rect);
         }
     }
 
     public boolean hasMasks() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (this.hasMasks == null) {
-                for (int size = this.layers.size() - 1; size >= 0; size--) {
-                    BaseLayer baseLayer = this.layers.get(size);
-                    if (baseLayer instanceof ShapeLayer) {
-                        if (baseLayer.hasMasksOnThisLayer()) {
-                            this.hasMasks = Boolean.TRUE;
-                            return true;
-                        }
-                    } else if ((baseLayer instanceof CompositionLayer) && ((CompositionLayer) baseLayer).hasMasks()) {
+        if (this.hasMasks == null) {
+            for (int size = this.layers.size() - 1; size >= 0; size--) {
+                BaseLayer baseLayer = this.layers.get(size);
+                if (baseLayer instanceof ShapeLayer) {
+                    if (baseLayer.hasMasksOnThisLayer()) {
                         this.hasMasks = Boolean.TRUE;
                         return true;
                     }
+                } else if ((baseLayer instanceof CompositionLayer) && ((CompositionLayer) baseLayer).hasMasks()) {
+                    this.hasMasks = Boolean.TRUE;
+                    return true;
                 }
-                this.hasMasks = Boolean.FALSE;
             }
-            return this.hasMasks.booleanValue();
+            this.hasMasks = Boolean.FALSE;
         }
-        return invokeV.booleanValue;
+        return this.hasMasks.booleanValue();
     }
 
     public boolean hasMatte() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (this.hasMatte == null) {
-                if (hasMatteOnThisLayer()) {
+        if (this.hasMatte == null) {
+            if (hasMatteOnThisLayer()) {
+                this.hasMatte = Boolean.TRUE;
+                return true;
+            }
+            for (int size = this.layers.size() - 1; size >= 0; size--) {
+                if (this.layers.get(size).hasMatteOnThisLayer()) {
                     this.hasMatte = Boolean.TRUE;
                     return true;
                 }
-                for (int size = this.layers.size() - 1; size >= 0; size--) {
-                    if (this.layers.get(size).hasMatteOnThisLayer()) {
-                        this.hasMatte = Boolean.TRUE;
-                        return true;
-                    }
-                }
-                this.hasMatte = Boolean.FALSE;
             }
-            return this.hasMatte.booleanValue();
+            this.hasMatte = Boolean.FALSE;
         }
-        return invokeV.booleanValue;
+        return this.hasMatte.booleanValue();
     }
 
     @Override // com.airbnb.lottie.model.layer.BaseLayer
     public void resolveChildKeyPath(KeyPath keyPath, int i2, List<KeyPath> list, KeyPath keyPath2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLILL(1048581, this, keyPath, i2, list, keyPath2) == null) {
-            for (int i3 = 0; i3 < this.layers.size(); i3++) {
-                this.layers.get(i3).resolveKeyPath(keyPath, i2, list, keyPath2);
-            }
+        for (int i3 = 0; i3 < this.layers.size(); i3++) {
+            this.layers.get(i3).resolveKeyPath(keyPath, i2, list, keyPath2);
         }
     }
 
     @Override // com.airbnb.lottie.model.layer.BaseLayer
     public void setProgress(@FloatRange(from = 0.0d, to = 1.0d) float f2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048582, this, f2) == null) {
-            super.setProgress(f2);
-            if (this.timeRemapping != null) {
-                f2 = ((this.timeRemapping.getValue().floatValue() * this.layerModel.getComposition().getFrameRate()) - this.layerModel.getComposition().getStartFrame()) / (this.lottieDrawable.getComposition().getDurationFrames() + 0.01f);
-            }
-            if (this.timeRemapping == null) {
-                f2 -= this.layerModel.getStartProgress();
-            }
-            if (this.layerModel.getTimeStretch() != 0.0f) {
-                f2 /= this.layerModel.getTimeStretch();
-            }
-            for (int size = this.layers.size() - 1; size >= 0; size--) {
-                this.layers.get(size).setProgress(f2);
-            }
+        super.setProgress(f2);
+        if (this.timeRemapping != null) {
+            f2 = ((this.timeRemapping.getValue().floatValue() * this.layerModel.getComposition().getFrameRate()) - this.layerModel.getComposition().getStartFrame()) / (this.lottieDrawable.getComposition().getDurationFrames() + 0.01f);
+        }
+        if (this.timeRemapping == null) {
+            f2 -= this.layerModel.getStartProgress();
+        }
+        if (this.layerModel.getTimeStretch() != 0.0f) {
+            f2 /= this.layerModel.getTimeStretch();
+        }
+        for (int size = this.layers.size() - 1; size >= 0; size--) {
+            this.layers.get(size).setProgress(f2);
         }
     }
 }

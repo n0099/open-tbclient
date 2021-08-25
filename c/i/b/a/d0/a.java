@@ -14,10 +14,10 @@ public abstract class a extends w {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f32776b;
+    public final int f32882b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final q f32777c;
+    public final q f32883c;
 
     public a(q qVar) {
         Interceptable interceptable = $ic;
@@ -34,8 +34,8 @@ public abstract class a extends w {
                 return;
             }
         }
-        this.f32777c = qVar;
-        this.f32776b = qVar.getLength();
+        this.f32883c = qVar;
+        this.f32882b = qVar.getLength();
     }
 
     @Override // c.i.b.a.w
@@ -43,10 +43,10 @@ public abstract class a extends w {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
-            if (this.f32776b == 0) {
+            if (this.f32882b == 0) {
                 return -1;
             }
-            int d2 = z ? this.f32777c.d() : 0;
+            int d2 = z ? this.f32883c.d() : 0;
             while (z(d2).p()) {
                 d2 = x(d2, z);
                 if (d2 == -1) {
@@ -84,11 +84,11 @@ public abstract class a extends w {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z)) == null) {
-            int i2 = this.f32776b;
+            int i2 = this.f32882b;
             if (i2 == 0) {
                 return -1;
             }
-            int c2 = z ? this.f32777c.c() : i2 - 1;
+            int c2 = z ? this.f32883c.c() : i2 - 1;
             while (z(c2).p()) {
                 c2 = y(c2, z);
                 if (c2 == -1) {
@@ -134,9 +134,9 @@ public abstract class a extends w {
             int s = s(i2);
             int w = w(s);
             z(s).g(i2 - v(s), bVar, z);
-            bVar.f33747c += w;
+            bVar.f33853c += w;
             if (z) {
-                bVar.f33746b = Pair.create(u(s), bVar.f33746b);
+                bVar.f33852b = Pair.create(u(s), bVar.f33852b);
             }
             return bVar;
         }
@@ -178,8 +178,8 @@ public abstract class a extends w {
             int w = w(t);
             int v = v(t);
             z(t).n(i2 - w, cVar, z, j2);
-            cVar.f33760f += v;
-            cVar.f33761g += v;
+            cVar.f33866f += v;
+            cVar.f33867g += v;
             return cVar;
         }
         return (w.c) invokeCommon.objValue;
@@ -202,9 +202,9 @@ public abstract class a extends w {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048589, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
             if (z) {
-                return this.f32777c.b(i2);
+                return this.f32883c.b(i2);
             }
-            if (i2 < this.f32776b - 1) {
+            if (i2 < this.f32882b - 1) {
                 return i2 + 1;
             }
             return -1;
@@ -217,7 +217,7 @@ public abstract class a extends w {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048590, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
             if (z) {
-                return this.f32777c.a(i2);
+                return this.f32883c.a(i2);
             }
             if (i2 > 0) {
                 return i2 - 1;

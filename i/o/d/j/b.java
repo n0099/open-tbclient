@@ -14,7 +14,7 @@ public abstract class b<E> extends d<E> {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final long f78436f;
+    public static final long f78637f;
     public transient /* synthetic */ FieldHolder $fh;
     public LinkedQueueNode<E> consumerNode;
 
@@ -31,7 +31,7 @@ public abstract class b<E> extends d<E> {
                 return;
             }
         }
-        f78436f = f0.a(b.class, "consumerNode");
+        f78637f = f0.a(b.class, "consumerNode");
     }
 
     public b() {
@@ -51,7 +51,7 @@ public abstract class b<E> extends d<E> {
     public final LinkedQueueNode<E> d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (LinkedQueueNode) f0.f78447a.f(this, f78436f) : (LinkedQueueNode) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (LinkedQueueNode) f0.f78648a.f(this, f78637f) : (LinkedQueueNode) invokeV.objValue;
     }
 
     public final void e(LinkedQueueNode<E> linkedQueueNode) {

@@ -20,10 +20,10 @@ public class BaseViewPager extends TbViewPager implements GestureDetector.OnGest
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: i  reason: collision with root package name */
-    public GestureDetector f47385i;
+    public GestureDetector f47491i;
 
     /* renamed from: j  reason: collision with root package name */
-    public a f47386j;
+    public a f47492j;
     public a k;
     public boolean l;
 
@@ -50,8 +50,8 @@ public class BaseViewPager extends TbViewPager implements GestureDetector.OnGest
                 return;
             }
         }
-        this.f47385i = null;
-        this.f47386j = null;
+        this.f47491i = null;
+        this.f47492j = null;
         this.k = null;
         this.l = false;
         b();
@@ -60,7 +60,7 @@ public class BaseViewPager extends TbViewPager implements GestureDetector.OnGest
     private void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
-            this.f47385i = new GestureDetector(this);
+            this.f47491i = new GestureDetector(this);
         }
     }
 
@@ -79,12 +79,12 @@ public class BaseViewPager extends TbViewPager implements GestureDetector.OnGest
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{motionEvent, motionEvent2, Float.valueOf(f2), Float.valueOf(f3)})) == null) {
-            if (this.f47386j != null) {
+            if (this.f47492j != null) {
                 if (f2 < 0.0f && getAdapter().getCount() == getCurrentItem() + 1) {
-                    this.f47386j.a(0);
+                    this.f47492j.a(0);
                     return true;
                 } else if (f2 > 0.0f && getCurrentItem() == 0) {
-                    this.f47386j.a(1);
+                    this.f47492j.a(1);
                     return true;
                 }
             }
@@ -147,8 +147,8 @@ public class BaseViewPager extends TbViewPager implements GestureDetector.OnGest
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, motionEvent)) == null) {
-            if (this.f47385i != null && getAdapter() != null && getAdapter().getCount() != 0 && (getCurrentItem() == 0 || getAdapter().getCount() == getCurrentItem() + 1)) {
-                this.f47385i.onTouchEvent(motionEvent);
+            if (this.f47491i != null && getAdapter() != null && getAdapter().getCount() != 0 && (getCurrentItem() == 0 || getAdapter().getCount() == getCurrentItem() + 1)) {
+                this.f47491i.onTouchEvent(motionEvent);
                 return super.onTouchEvent(motionEvent);
             }
             return super.onTouchEvent(motionEvent);
@@ -159,7 +159,7 @@ public class BaseViewPager extends TbViewPager implements GestureDetector.OnGest
     public void setOnFlipOutListener(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, aVar) == null) {
-            this.f47386j = aVar;
+            this.f47492j = aVar;
         }
     }
 
@@ -189,8 +189,8 @@ public class BaseViewPager extends TbViewPager implements GestureDetector.OnGest
                 return;
             }
         }
-        this.f47385i = null;
-        this.f47386j = null;
+        this.f47491i = null;
+        this.f47492j = null;
         this.k = null;
         this.l = false;
         b();

@@ -15,23 +15,23 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final ImageView.ScaleType f64832a;
+    public static final ImageView.ScaleType f65032a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Bitmap.Config f64833b;
+    public static final Bitmap.Config f65033b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Bitmap.Config f64834c;
+    public final Bitmap.Config f65034c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final int f64835d;
+    public final int f65035d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final int f64836e;
+    public final int f65036e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final ImageView.ScaleType f64837f;
+    public final ImageView.ScaleType f65037f;
 
     static {
         InterceptResult invokeClinit;
@@ -46,8 +46,8 @@ public class a {
                 return;
             }
         }
-        f64832a = ImageView.ScaleType.CENTER_INSIDE;
-        f64833b = Bitmap.Config.ARGB_4444;
+        f65032a = ImageView.ScaleType.CENTER_INSIDE;
+        f65033b = Bitmap.Config.ARGB_4444;
     }
 
     public a(int i2, int i3, ImageView.ScaleType scaleType, Bitmap.Config config) {
@@ -65,10 +65,10 @@ public class a {
                 return;
             }
         }
-        this.f64834c = config;
-        this.f64835d = i2;
-        this.f64836e = i3;
-        this.f64837f = scaleType;
+        this.f65034c = config;
+        this.f65035d = i2;
+        this.f65036e = i3;
+        this.f65037f = scaleType;
     }
 
     public static int a(int i2, int i3, int i4, int i5) {
@@ -120,16 +120,16 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bArr)) == null) {
             BitmapFactory.Options options = new BitmapFactory.Options();
-            if (this.f64835d == 0 && this.f64836e == 0) {
-                options.inPreferredConfig = this.f64834c;
+            if (this.f65035d == 0 && this.f65036e == 0) {
+                options.inPreferredConfig = this.f65034c;
                 return BitmapFactory.decodeByteArray(bArr, 0, bArr.length, options);
             }
             options.inJustDecodeBounds = true;
             BitmapFactory.decodeByteArray(bArr, 0, bArr.length, options);
             int i2 = options.outWidth;
             int i3 = options.outHeight;
-            int a2 = a(this.f64835d, this.f64836e, i2, i3, this.f64837f);
-            int a3 = a(this.f64836e, this.f64835d, i3, i2, this.f64837f);
+            int a2 = a(this.f65035d, this.f65036e, i2, i3, this.f65037f);
+            int a3 = a(this.f65036e, this.f65035d, i3, i2, this.f65037f);
             options.inJustDecodeBounds = false;
             options.inSampleSize = a(i2, i3, a2, a3);
             Bitmap decodeByteArray = BitmapFactory.decodeByteArray(bArr, 0, bArr.length, options);

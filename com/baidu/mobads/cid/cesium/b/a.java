@@ -20,34 +20,34 @@ public abstract class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static Comparator<a> f42529c;
+    public static Comparator<a> f42636c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public C1671a f42530a;
+    public C1675a f42637a;
 
     /* renamed from: b  reason: collision with root package name */
-    public a.C1673a f42531b;
+    public a.C1677a f42638b;
 
     /* renamed from: d  reason: collision with root package name */
-    public final String f42532d;
+    public final String f42639d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f42533e;
+    public long f42640e;
 
     /* renamed from: com.baidu.mobads.cid.cesium.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public static class C1671a {
+    public static class C1675a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public Context f42534a;
+        public Context f42641a;
 
         /* renamed from: b  reason: collision with root package name */
-        public com.baidu.mobads.cid.cesium.e.a f42535b;
+        public com.baidu.mobads.cid.cesium.e.a f42642b;
 
-        public C1671a() {
+        public C1675a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -68,23 +68,23 @@ public abstract class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public a.C1673a f42536a;
+        public a.C1677a f42643a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f42537b;
+        public String f42644b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f42538c;
+        public String f42645c;
 
         /* renamed from: d  reason: collision with root package name */
-        public boolean f42539d;
+        public boolean f42646d;
 
-        public b(a.C1673a c1673a, String str) {
+        public b(a.C1677a c1677a, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {c1673a, str};
+                Object[] objArr = {c1677a, str};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -94,10 +94,10 @@ public abstract class a {
                     return;
                 }
             }
-            this.f42539d = true;
-            this.f42536a = c1673a;
-            this.f42537b = str;
-            this.f42538c = "target-pkg-" + Base64.encodeToString(str.getBytes(), 3);
+            this.f42646d = true;
+            this.f42643a = c1677a;
+            this.f42644b = str;
+            this.f42645c = "target-pkg-" + Base64.encodeToString(str.getBytes(), 3);
         }
 
         public abstract void a(JSONObject jSONObject);
@@ -105,7 +105,7 @@ public abstract class a {
         public void a(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-                this.f42539d = z;
+                this.f42646d = z;
             }
         }
 
@@ -113,7 +113,7 @@ public abstract class a {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                String a2 = this.f42536a.a(this.f42538c, true);
+                String a2 = this.f42643a.a(this.f42645c, true);
                 if (!TextUtils.isEmpty(a2)) {
                     try {
                         a(new JSONObject(a2));
@@ -133,11 +133,11 @@ public abstract class a {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-                if (this.f42539d) {
+                if (this.f42646d) {
                     try {
                         JSONObject jSONObject = new JSONObject();
                         b(jSONObject);
-                        this.f42536a.a(this.f42538c, jSONObject.toString(), true);
+                        this.f42643a.a(this.f42645c, jSONObject.toString(), true);
                         a(false);
                         return true;
                     } catch (Exception unused) {
@@ -175,7 +175,7 @@ public abstract class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public boolean f42540a;
+        public boolean f42647a;
 
         public d() {
             Interceptable interceptable = $ic;
@@ -198,13 +198,13 @@ public abstract class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public g.a f42541a;
+        public g.a f42648a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f42542b;
+        public int f42649b;
 
         /* renamed from: c  reason: collision with root package name */
-        public Exception f42543c;
+        public Exception f42650c;
 
         public e(int i2, g.a aVar, Exception exc) {
             Interceptable interceptable = $ic;
@@ -221,9 +221,9 @@ public abstract class a {
                     return;
                 }
             }
-            this.f42542b = i2;
-            this.f42541a = aVar;
-            this.f42543c = exc;
+            this.f42649b = i2;
+            this.f42648a = aVar;
+            this.f42650c = exc;
         }
 
         public static e a(int i2) {
@@ -247,7 +247,7 @@ public abstract class a {
         public boolean a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f42542b == 0 : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f42649b == 0 : invokeV.booleanValue;
         }
     }
 
@@ -264,7 +264,7 @@ public abstract class a {
                 return;
             }
         }
-        f42529c = new Comparator<a>() { // from class: com.baidu.mobads.cid.cesium.b.a.1
+        f42636c = new Comparator<a>() { // from class: com.baidu.mobads.cid.cesium.b.a.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -312,8 +312,8 @@ public abstract class a {
                 return;
             }
         }
-        this.f42532d = str;
-        this.f42533e = j2;
+        this.f42639d = str;
+        this.f42640e = j2;
     }
 
     public abstract e a(String str, d dVar);
@@ -321,14 +321,14 @@ public abstract class a {
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f42532d : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f42639d : (String) invokeV.objValue;
     }
 
-    public final void a(C1671a c1671a) {
+    public final void a(C1675a c1675a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, c1671a) == null) {
-            this.f42530a = c1671a;
-            this.f42531b = c1671a.f42535b.b().a("cs");
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, c1675a) == null) {
+            this.f42637a = c1675a;
+            this.f42638b = c1675a.f42642b.b().a("cs");
         }
     }
 
@@ -337,6 +337,6 @@ public abstract class a {
     public long b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f42533e : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f42640e : invokeV.longValue;
     }
 }

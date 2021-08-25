@@ -12,7 +12,7 @@ import androidx.core.view.InputDeviceCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import c.a.e.e.m.e;
-import c.a.o0.k0.c;
+import c.a.p0.k0.c;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tbadk.BaseActivity;
@@ -38,10 +38,10 @@ public class TbPageExtraHelper {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f48207a;
+    public static String f48314a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static HashMap<String, String> f48208b;
+    public static HashMap<String, String> f48315b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes6.dex */
@@ -50,7 +50,7 @@ public class TbPageExtraHelper {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f48209e;
+        public final /* synthetic */ String f48316e;
 
         public a(String str) {
             Interceptable interceptable = $ic;
@@ -67,14 +67,14 @@ public class TbPageExtraHelper {
                     return;
                 }
             }
-            this.f48209e = str;
+            this.f48316e = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                String unused = TbPageExtraHelper.f48207a = (String) TbPageExtraHelper.f48208b.get(this.f48209e);
+                String unused = TbPageExtraHelper.f48314a = (String) TbPageExtraHelper.f48315b.get(this.f48316e);
             }
         }
     }
@@ -92,7 +92,7 @@ public class TbPageExtraHelper {
                 return;
             }
         }
-        f48208b = new HashMap<String, String>() { // from class: com.baidu.tbadk.pageExtra.TbPageExtraHelper.1
+        f48315b = new HashMap<String, String>() { // from class: com.baidu.tbadk.pageExtra.TbPageExtraHelper.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -142,7 +142,7 @@ public class TbPageExtraHelper {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, view)) == null) {
-            c.a.o0.k0.a e2 = e(view);
+            c.a.p0.k0.a e2 = e(view);
             if (e2 == null || e2.getTbFragmentExtra() == null) {
                 return null;
             }
@@ -151,22 +151,22 @@ public class TbPageExtraHelper {
         return (BaseFragment) invokeL.objValue;
     }
 
-    public static c.a.o0.k0.a e(View view) {
+    public static c.a.p0.k0.a e(View view) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, view)) == null) {
             ViewParent parent = view.getParent();
-            c.a.o0.k0.a aVar = null;
+            c.a.p0.k0.a aVar = null;
             if (parent instanceof ViewGroup) {
                 ViewGroup viewGroup = (ViewGroup) parent;
-                if (viewGroup instanceof c.a.o0.k0.a) {
-                    aVar = (c.a.o0.k0.a) parent;
+                if (viewGroup instanceof c.a.p0.k0.a) {
+                    aVar = (c.a.p0.k0.a) parent;
                     r(viewGroup, "ITbFragmentExtraSupport From Implements Interface------->");
                 }
                 if (aVar == null) {
                     Object tag = viewGroup.getTag(R.id.tag_tb_fragment_extra);
-                    if (tag instanceof c.a.o0.k0.a) {
-                        aVar = (c.a.o0.k0.a) tag;
+                    if (tag instanceof c.a.p0.k0.a) {
+                        aVar = (c.a.p0.k0.a) tag;
                         r(viewGroup, "ITbFragmentExtraSupport From View.getTag()------->");
                     }
                 }
@@ -182,7 +182,7 @@ public class TbPageExtraHelper {
             }
             return null;
         }
-        return (c.a.o0.k0.a) invokeL.objValue;
+        return (c.a.p0.k0.a) invokeL.objValue;
     }
 
     public static c f(View view) {
@@ -323,7 +323,7 @@ public class TbPageExtraHelper {
     public static String m() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) ? f48207a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) ? f48314a : (String) invokeV.objValue;
     }
 
     public static boolean n() {
@@ -341,7 +341,7 @@ public class TbPageExtraHelper {
     public static boolean p(@NonNull String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65552, null, str)) == null) ? f48208b.get(str) == "a028" : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65552, null, str)) == null) ? f48315b.get(str) == "a028" : invokeL.booleanValue;
     }
 
     public static final void q(FragmentManager fragmentManager) {
@@ -413,13 +413,13 @@ public class TbPageExtraHelper {
     public static void v(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65558, null, str) == null) {
-            f48207a = str;
+            f48314a = str;
         }
     }
 
     public static void w(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65559, null, str) == null) && !StringUtil.isEmpty(str) && f48208b.containsKey(str)) {
+        if ((interceptable == null || interceptable.invokeL(65559, null, str) == null) && !StringUtil.isEmpty(str) && f48315b.containsKey(str)) {
             e.a().postDelayed(new a(str), 100L);
         }
     }

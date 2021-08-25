@@ -19,7 +19,7 @@ public class ContentDialogAdapter extends WalletDialog.Adapter<BaseHolder> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ContentDialogModel f69376a;
+    public ContentDialogModel f69576a;
 
     /* loaded from: classes9.dex */
     public class BaseHolder extends WalletDialog.ViewHolder {
@@ -64,7 +64,7 @@ public class ContentDialogAdapter extends WalletDialog.Adapter<BaseHolder> {
                 return;
             }
         }
-        this.f69376a = contentDialogModel;
+        this.f69576a = contentDialogModel;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -72,7 +72,7 @@ public class ContentDialogAdapter extends WalletDialog.Adapter<BaseHolder> {
     public void onBindViewHolder(BaseHolder baseHolder) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, baseHolder) == null) {
-            baseHolder.binding.setViewModel(this.f69376a);
+            baseHolder.binding.setViewModel(this.f69576a);
         }
     }
 

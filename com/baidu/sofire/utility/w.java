@@ -13,14 +13,14 @@ public final class w {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static w f45251c;
+    public static w f45358c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public SharedPreferences f45252a;
+    public SharedPreferences f45359a;
 
     /* renamed from: b  reason: collision with root package name */
-    public SharedPreferences.Editor f45253b;
+    public SharedPreferences.Editor f45360b;
 
     public w(Context context) {
         Interceptable interceptable = $ic;
@@ -37,9 +37,9 @@ public final class w {
                 return;
             }
         }
-        SharedPreferences sharedPreferences = com.baidu.sofire.h.a.a(context).f45117a;
-        this.f45252a = sharedPreferences;
-        this.f45253b = sharedPreferences.edit();
+        SharedPreferences sharedPreferences = com.baidu.sofire.h.a.a(context).f45224a;
+        this.f45359a = sharedPreferences;
+        this.f45360b = sharedPreferences.edit();
     }
 
     public static synchronized w a(Context context) {
@@ -48,12 +48,12 @@ public final class w {
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
             synchronized (w.class) {
                 if (context == null) {
-                    return f45251c;
+                    return f45358c;
                 }
-                if (f45251c == null) {
-                    f45251c = new w(context);
+                if (f45358c == null) {
+                    f45358c = new w(context);
                 }
-                return f45251c;
+                return f45358c;
             }
         }
         return (w) invokeL.objValue;
@@ -62,14 +62,14 @@ public final class w {
     public final boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f45252a.getBoolean("lt_sdcf", true) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f45359a.getBoolean("lt_sdcf", true) : invokeV.booleanValue;
     }
 
     public final void a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            this.f45253b.putBoolean("lt_sssf", z);
-            this.f45253b.commit();
+            this.f45360b.putBoolean("lt_sssf", z);
+            this.f45360b.commit();
         }
     }
 }

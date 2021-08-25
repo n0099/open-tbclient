@@ -22,9 +22,9 @@ public class aj extends ag {
                 return;
             }
         }
-        this.f42002c = 6;
-        this.f42001b = "sdktile";
-        this.f42003d = 10;
-        this.f41989g = 23;
+        this.f42109c = 6;
+        this.f42108b = "sdktile";
+        this.f42110d = 10;
+        this.f42096g = 23;
     }
 }

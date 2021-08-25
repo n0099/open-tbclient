@@ -29,16 +29,16 @@ public class LangBridgeMenuDialog extends Dialog {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public BdMenuItem.OnItemClickListener f61836a;
+    public BdMenuItem.OnItemClickListener f62036a;
 
     /* renamed from: b  reason: collision with root package name */
-    public GridLayout f61837b;
+    public GridLayout f62037b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f61838c;
+    public TextView f62038c;
 
     /* renamed from: d  reason: collision with root package name */
-    public List<BdMenuItem> f61839d;
+    public List<BdMenuItem> f62039d;
     public boolean mMenuLoaded;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -73,7 +73,7 @@ public class LangBridgeMenuDialog extends Dialog {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ LangBridgeMenuDialog f61841a;
+                public final /* synthetic */ LangBridgeMenuDialog f62041a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -90,21 +90,21 @@ public class LangBridgeMenuDialog extends Dialog {
                             return;
                         }
                     }
-                    this.f61841a = this;
+                    this.f62041a = this;
                 }
 
                 @Override // com.baidu.wallet.base.widget.BdMenuItem.OnItemClickListener
                 public void onClick(BdMenuItem bdMenuItem2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, bdMenuItem2) == null) {
-                        this.f61841a.dismiss();
-                        if (this.f61841a.f61836a != null) {
-                            this.f61841a.f61836a.onClick(bdMenuItem2);
+                        this.f62041a.dismiss();
+                        if (this.f62041a.f62036a != null) {
+                            this.f62041a.f62036a.onClick(bdMenuItem2);
                         }
                     }
                 }
             });
-            this.f61839d.add(bdMenuItem);
+            this.f62039d.add(bdMenuItem);
         }
     }
 
@@ -124,12 +124,12 @@ public class LangBridgeMenuDialog extends Dialog {
         if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || this.mMenuLoaded) {
             return;
         }
-        this.f61837b.removeAllViews();
-        if (this.f61839d.size() <= 0) {
+        this.f62037b.removeAllViews();
+        if (this.f62039d.size() <= 0) {
             return;
         }
-        for (BdMenuItem bdMenuItem : this.f61839d) {
-            this.f61837b.addView(a(bdMenuItem));
+        for (BdMenuItem bdMenuItem : this.f62039d) {
+            this.f62037b.addView(a(bdMenuItem));
         }
         this.mMenuLoaded = true;
     }
@@ -137,7 +137,7 @@ public class LangBridgeMenuDialog extends Dialog {
     public void setMenuItemClickListener(BdMenuItem.OnItemClickListener onItemClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, onItemClickListener) == null) {
-            this.f61836a = onItemClickListener;
+            this.f62036a = onItemClickListener;
         }
     }
 
@@ -155,7 +155,7 @@ public class LangBridgeMenuDialog extends Dialog {
     private void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            this.f61839d = new ArrayList();
+            this.f62039d = new ArrayList();
             requestWindowFeature(1);
             setContentView(ResUtils.layout(getContext(), "wallet_langbridge_menu"));
             Window window = getWindow();
@@ -168,18 +168,18 @@ public class LangBridgeMenuDialog extends Dialog {
             onWindowAttributesChanged(attributes);
             setCanceledOnTouchOutside(true);
             setCancelable(true);
-            this.f61837b = (GridLayout) findViewById(ResUtils.id(getContext(), "menu_grid_layout"));
-            this.f61838c = (TextView) findViewById(ResUtils.id(getContext(), "menu_cancel"));
-            this.f61837b.setColumnCount(5);
-            this.f61837b.setHorizontalSpacing(0);
-            this.f61837b.setVerticalSpacing(DisplayUtils.dip2px(getContext(), 0.5f));
-            this.f61837b.setSeparateLine(ResUtils.getColor(getContext(), "wallet_base_color_D8D8D8"), DisplayUtils.dip2px(getContext(), 18.0f), 0);
-            this.f61838c.setOnClickListener(new View.OnClickListener(this) { // from class: com.baidu.wallet.lightapp.widget.LangBridgeMenuDialog.1
+            this.f62037b = (GridLayout) findViewById(ResUtils.id(getContext(), "menu_grid_layout"));
+            this.f62038c = (TextView) findViewById(ResUtils.id(getContext(), "menu_cancel"));
+            this.f62037b.setColumnCount(5);
+            this.f62037b.setHorizontalSpacing(0);
+            this.f62037b.setVerticalSpacing(DisplayUtils.dip2px(getContext(), 0.5f));
+            this.f62037b.setSeparateLine(ResUtils.getColor(getContext(), "wallet_base_color_D8D8D8"), DisplayUtils.dip2px(getContext(), 18.0f), 0);
+            this.f62038c.setOnClickListener(new View.OnClickListener(this) { // from class: com.baidu.wallet.lightapp.widget.LangBridgeMenuDialog.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ LangBridgeMenuDialog f61840a;
+                public final /* synthetic */ LangBridgeMenuDialog f62040a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -196,14 +196,14 @@ public class LangBridgeMenuDialog extends Dialog {
                             return;
                         }
                     }
-                    this.f61840a = this;
+                    this.f62040a = this;
                 }
 
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                        this.f61840a.dismiss();
+                        this.f62040a.dismiss();
                     }
                 }
             });
@@ -220,7 +220,7 @@ public class LangBridgeMenuDialog extends Dialog {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ LangBridgeMenuDialog f61842a;
+                public final /* synthetic */ LangBridgeMenuDialog f62042a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -237,21 +237,21 @@ public class LangBridgeMenuDialog extends Dialog {
                             return;
                         }
                     }
-                    this.f61842a = this;
+                    this.f62042a = this;
                 }
 
                 @Override // com.baidu.wallet.base.widget.BdMenuItem.OnItemClickListener
                 public void onClick(BdMenuItem bdMenuItem2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, bdMenuItem2) == null) {
-                        this.f61842a.dismiss();
-                        if (this.f61842a.f61836a != null) {
-                            this.f61842a.f61836a.onClick(bdMenuItem2);
+                        this.f62042a.dismiss();
+                        if (this.f62042a.f62036a != null) {
+                            this.f62042a.f62036a.onClick(bdMenuItem2);
                         }
                     }
                 }
             });
-            this.f61839d.add(bdMenuItem);
+            this.f62039d.add(bdMenuItem);
         }
     }
 
@@ -276,10 +276,10 @@ public class LangBridgeMenuDialog extends Dialog {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ BdMenuItem f61843a;
+                public final /* synthetic */ BdMenuItem f62043a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ LangBridgeMenuDialog f61844b;
+                public final /* synthetic */ LangBridgeMenuDialog f62044b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -296,18 +296,18 @@ public class LangBridgeMenuDialog extends Dialog {
                             return;
                         }
                     }
-                    this.f61844b = this;
-                    this.f61843a = bdMenuItem;
+                    this.f62044b = this;
+                    this.f62043a = bdMenuItem;
                 }
 
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     BdMenuItem.OnItemClickListener onClickListener;
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) || (onClickListener = this.f61843a.getOnClickListener()) == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) || (onClickListener = this.f62043a.getOnClickListener()) == null) {
                         return;
                     }
-                    onClickListener.onClick(this.f61843a);
+                    onClickListener.onClick(this.f62043a);
                 }
             });
             return inflate;

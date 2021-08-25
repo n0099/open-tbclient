@@ -19,19 +19,19 @@ public final class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public com.yxcorp.kuaishou.addfp.a.b.g.a f35292a;
+    public com.yxcorp.kuaishou.addfp.a.b.g.a f35398a;
 
     /* renamed from: b  reason: collision with root package name */
-    public com.yxcorp.kuaishou.addfp.a.b.b f35293b;
+    public com.yxcorp.kuaishou.addfp.a.b.b f35399b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Context f35294c;
+    public Context f35400c;
 
     /* renamed from: d  reason: collision with root package name */
-    public CountDownLatch f35295d;
+    public CountDownLatch f35401d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ServiceConnection f35296e;
+    public ServiceConnection f35402e;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -46,15 +46,15 @@ public final class a {
                 return;
             }
         }
-        this.f35292a = null;
-        this.f35295d = new CountDownLatch(1);
-        this.f35296e = new b(this);
+        this.f35398a = null;
+        this.f35401d = new CountDownLatch(1);
+        this.f35402e = new b(this);
     }
 
     public final void c(Context context) {
         ServiceConnection serviceConnection;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, context) == null) || (serviceConnection = this.f35296e) == null || context == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, context) == null) || (serviceConnection = this.f35402e) == null || context == null) {
             return;
         }
         context.unbindService(serviceConnection);
@@ -64,16 +64,16 @@ public final class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, bVar) == null) {
             try {
-                this.f35293b = bVar;
-                this.f35294c = context;
+                this.f35399b = bVar;
+                this.f35400c = context;
                 Intent intent = new Intent();
                 intent.setClassName("com.samsung.android.deviceidservice", "com.samsung.android.deviceidservice.DeviceIdService");
-                if (!context.bindService(intent, this.f35296e, 1)) {
+                if (!context.bindService(intent, this.f35402e, 1)) {
                     e(false);
                     return;
                 }
-                this.f35295d.await(10L, TimeUnit.SECONDS);
-                if (this.f35292a != null) {
+                this.f35401d.await(10L, TimeUnit.SECONDS);
+                if (this.f35398a != null) {
                     e(true);
                 } else {
                     e(false);
@@ -92,7 +92,7 @@ public final class a {
                 try {
                     String g2 = g();
                     if (!TextUtils.isEmpty(g2)) {
-                        this.f35293b.a(g2);
+                        this.f35399b.a(g2);
                         return;
                     }
                 } catch (Throwable th) {
@@ -100,14 +100,14 @@ public final class a {
                     return;
                 }
             }
-            this.f35293b.e();
+            this.f35399b.e();
         }
     }
 
     public final boolean f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f35292a != null : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f35398a != null : invokeV.booleanValue;
     }
 
     public final String g() {
@@ -115,8 +115,8 @@ public final class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             try {
-                if (this.f35292a != null) {
-                    return this.f35292a.a();
+                if (this.f35398a != null) {
+                    return this.f35398a.a();
                 }
                 return null;
             } catch (RemoteException unused) {

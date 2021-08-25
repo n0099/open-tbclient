@@ -23,7 +23,7 @@ public class PrecashierDefaultPayTypeBean extends OtherBean<String> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f62259a;
+    public String f62459a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PrecashierDefaultPayTypeBean(Context context) {
@@ -89,11 +89,11 @@ public class PrecashierDefaultPayTypeBean extends OtherBean<String> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             ArrayList arrayList = new ArrayList();
-            if (this.f62259a == null) {
+            if (this.f62459a == null) {
                 return arrayList;
             }
             try {
-                a(arrayList, new JSONObject(this.f62259a));
+                a(arrayList, new JSONObject(this.f62459a));
             } catch (JSONException e2) {
                 e2.printStackTrace();
             }
@@ -137,6 +137,6 @@ public class PrecashierDefaultPayTypeBean extends OtherBean<String> {
         if (!(interceptable == null || interceptable.invokeL(1048581, this, str) == null) || TextUtils.isEmpty(str)) {
             return;
         }
-        this.f62259a = str;
+        this.f62459a = str;
     }
 }

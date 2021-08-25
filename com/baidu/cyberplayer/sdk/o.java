@@ -58,25 +58,25 @@ public class o {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f38935a = ".video_cache";
+    public static String f39042a = ".video_cache";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f38936b = "last_file_cache_time";
+    public static String f39043b = "last_file_cache_time";
 
     /* renamed from: c  reason: collision with root package name */
-    public static long f38937c = 86400000;
+    public static long f39044c = 86400000;
 
     /* renamed from: d  reason: collision with root package name */
-    public static long f38938d = 104857600;
+    public static long f39045d = 104857600;
 
     /* renamed from: e  reason: collision with root package name */
-    public static volatile int f38939e = -1;
+    public static volatile int f39046e = -1;
 
     /* renamed from: f  reason: collision with root package name */
-    public static volatile int f38940f = -1;
+    public static volatile int f39047f = -1;
 
     /* renamed from: g  reason: collision with root package name */
-    public static volatile String f38941g;
+    public static volatile String f39048g;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -102,7 +102,7 @@ public class o {
                 long i2 = d.i();
                 d.a(bool.booleanValue() ? 0L : CyberCfgManager.getInstance().getCfgLongValue("file_lru_expired_duration", 600L));
                 long i3 = d.i();
-                CyberCfgManager.getInstance().setPrefLong(f38936b, System.currentTimeMillis());
+                CyberCfgManager.getInstance().setPrefLong(f39043b, System.currentTimeMillis());
                 StringBuilder sb = new StringBuilder();
                 sb.append("delete file success,  beforeSpace = ");
                 sb.append(i2);
@@ -725,14 +725,14 @@ public class o {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65567, null)) == null) {
-            if (TextUtils.isEmpty(f38941g)) {
-                f38941g = t();
-                if (TextUtils.isEmpty(f38941g)) {
-                    f38941g = u();
+            if (TextUtils.isEmpty(f39048g)) {
+                f39048g = t();
+                if (TextUtils.isEmpty(f39048g)) {
+                    f39048g = u();
                 }
-                return f38941g;
+                return f39048g;
             }
-            return f38941g;
+            return f39048g;
         }
         return (String) invokeV.objValue;
     }
@@ -741,15 +741,15 @@ public class o {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65568, null)) == null) {
-            if (f38939e < 0) {
+            if (f39046e < 0) {
                 Context applicationContext = CyberPlayerManager.getApplicationContext();
                 if (applicationContext == null || applicationContext.getPackageName().equals(l())) {
-                    f38939e = 1;
+                    f39046e = 1;
                 } else {
-                    f38939e = 0;
+                    f39046e = 0;
                 }
             }
-            return f38939e == 1;
+            return f39046e == 1;
         }
         return invokeV.booleanValue;
     }
@@ -786,10 +786,10 @@ public class o {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65570, null)) == null) {
-            if (f38940f < 0) {
-                f38940f = Build.VERSION.SDK_INT >= 23 ? Process.is64Bit() : ((BaseDexClassLoader) CyberPlayerManager.getApplicationContext().getClassLoader()).findLibrary("c").contains("lib64");
+            if (f39047f < 0) {
+                f39047f = Build.VERSION.SDK_INT >= 23 ? Process.is64Bit() : ((BaseDexClassLoader) CyberPlayerManager.getApplicationContext().getClassLoader()).findLibrary("c").contains("lib64");
             }
-            return f38940f == 1 ? "arm64-v8a" : "armeabi-v7a";
+            return f39047f == 1 ? "arm64-v8a" : "armeabi-v7a";
         }
         return (String) invokeV.objValue;
     }
@@ -804,7 +804,7 @@ public class o {
             String str = "";
             try {
                 byte[] bArr = new byte[1024];
-                RandomAccessFile randomAccessFile = new RandomAccessFile("/proc/cpuinfo", r.f42062a);
+                RandomAccessFile randomAccessFile = new RandomAccessFile("/proc/cpuinfo", r.f42169a);
                 randomAccessFile.read(bArr);
                 String str2 = new String(bArr);
                 int indexOf = str2.indexOf(0);
@@ -821,7 +821,7 @@ public class o {
     public static long q() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65572, null)) == null) ? CyberCfgManager.getInstance().getCfgLongValue("file_cache_max_size", f38938d) : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65572, null)) == null) ? CyberCfgManager.getInstance().getCfgLongValue("file_cache_max_size", f39045d) : invokeV.longValue;
     }
 
     public static boolean r() {
@@ -829,12 +829,12 @@ public class o {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65573, null)) == null) {
             try {
-                long prefLong = CyberCfgManager.getInstance().getPrefLong(f38936b, 0L);
+                long prefLong = CyberCfgManager.getInstance().getPrefLong(f39043b, 0L);
                 long currentTimeMillis = System.currentTimeMillis();
                 if (prefLong > 0) {
                     return (((currentTimeMillis - prefLong) > s() ? 1 : ((currentTimeMillis - prefLong) == s() ? 0 : -1)) > 0) || ((d.i() > q() ? 1 : (d.i() == q() ? 0 : -1)) > 0);
                 }
-                CyberCfgManager.getInstance().setPrefLong(f38936b, currentTimeMillis);
+                CyberCfgManager.getInstance().setPrefLong(f39043b, currentTimeMillis);
                 return false;
             } catch (Exception | OutOfMemoryError unused) {
                 return true;
@@ -846,7 +846,7 @@ public class o {
     public static long s() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65574, null)) == null) ? CyberCfgManager.getInstance().getCfgLongValue("file_cache_delete_interval", f38937c) : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65574, null)) == null) ? CyberCfgManager.getInstance().getCfgLongValue("file_cache_delete_interval", f39044c) : invokeV.longValue;
     }
 
     public static String t() {

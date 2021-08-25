@@ -30,7 +30,7 @@ public final class PayRequestCache implements NoProguard {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final HashMap<String, BeanRequestBase> f62393a;
+    public final HashMap<String, BeanRequestBase> f62593a;
 
     /* renamed from: com.baidu.wallet.paysdk.storage.PayRequestCache$1  reason: invalid class name */
     /* loaded from: classes8.dex */
@@ -130,7 +130,7 @@ public final class PayRequestCache implements NoProguard {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static PayRequestCache f62394a;
+        public static PayRequestCache f62594a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -146,7 +146,7 @@ public final class PayRequestCache implements NoProguard {
                     return;
                 }
             }
-            f62394a = new PayRequestCache(null);
+            f62594a = new PayRequestCache(null);
         }
     }
 
@@ -170,7 +170,7 @@ public final class PayRequestCache implements NoProguard {
     public static PayRequestCache getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? a.f62394a : (PayRequestCache) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? a.f62594a : (PayRequestCache) invokeV.objValue;
     }
 
     public void addBeanRequestToCache(String str, BeanRequestBase beanRequestBase) {
@@ -178,17 +178,17 @@ public final class PayRequestCache implements NoProguard {
         if (!(interceptable == null || interceptable.invokeLL(1048576, this, str, beanRequestBase) == null) || str == null || str.equals("") || beanRequestBase == null) {
             return;
         }
-        this.f62393a.put(str, beanRequestBase);
+        this.f62593a.put(str, beanRequestBase);
     }
 
     public void clearPaySdkRequestCache() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             LogUtil.e(PayRequestCache.class.getSimpleName(), "clearPaySdkRequestCache", null);
-            Set<String> keySet = this.f62393a.keySet();
+            Set<String> keySet = this.f62593a.keySet();
             HashSet<String> hashSet = new HashSet();
             for (String str : keySet) {
-                if (this.f62393a.get(str) != null && this.f62393a.get(str).mBelongPaySdk) {
+                if (this.f62593a.get(str) != null && this.f62593a.get(str).mBelongPaySdk) {
                     hashSet.add(str);
                 }
             }
@@ -201,7 +201,7 @@ public final class PayRequestCache implements NoProguard {
     public void clearRequestCache() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f62393a.clear();
+            this.f62593a.clear();
         }
     }
 
@@ -212,7 +212,7 @@ public final class PayRequestCache implements NoProguard {
             if (str == null || str.equals("")) {
                 return null;
             }
-            return this.f62393a.get(str);
+            return this.f62593a.get(str);
         }
         return (BeanRequestBase) invokeL.objValue;
     }
@@ -320,7 +320,7 @@ public final class PayRequestCache implements NoProguard {
         if (!(interceptable == null || interceptable.invokeL(1048587, this, str) == null) || TextUtils.isEmpty(str)) {
             return;
         }
-        this.f62393a.remove(str);
+        this.f62593a.remove(str);
     }
 
     public PayRequestCache() {
@@ -336,6 +336,6 @@ public final class PayRequestCache implements NoProguard {
                 return;
             }
         }
-        this.f62393a = new HashMap<>();
+        this.f62593a = new HashMap<>();
     }
 }

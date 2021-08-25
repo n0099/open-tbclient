@@ -37,6 +37,7 @@ import com.baidu.rtc.logreport.HUDStatistics;
 import com.baidu.rtc.logreport.RtcLogReport;
 import com.baidu.rtc.logreport.SLIReportInterface;
 import com.baidu.sapi2.activity.BaseActivity;
+import com.baidu.searchbox.datacollector.growth.utils.GrowthConstant;
 import com.baidu.searchbox.live.interfaces.ILiveNPSPlugin;
 import com.baidu.tbadk.core.util.TbEnum;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -1274,7 +1275,7 @@ public class BaiduRtcRoomImp extends BaiduRtcRoom implements JanusRTCInterface, 
             jSONObject2.put("networkType", RtcLogReport.getNetworkType(this.mContext.get()));
             jSONObject2.put("device", RtcLogReport.getDeviceModel());
             JSONObject jSONObject3 = new JSONObject();
-            jSONObject3.put("deviceInfo", jSONObject2);
+            jSONObject3.put(GrowthConstant.UBC_VALUE_TYPE_DEVICE_INFO, jSONObject2);
             jSONObject.put("env", this.mQualityMonitorEnv);
             jSONObject.put(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, this.mAppId);
             if (this.mWebSocketChannel != null) {

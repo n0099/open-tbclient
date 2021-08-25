@@ -32,7 +32,7 @@ public class BdSocketDaemonService extends BdBaseService {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BdSocketDaemonService f36022e;
+        public final /* synthetic */ BdSocketDaemonService f36128e;
 
         public a(BdSocketDaemonService bdSocketDaemonService) {
             Interceptable interceptable = $ic;
@@ -49,7 +49,7 @@ public class BdSocketDaemonService extends BdBaseService {
                     return;
                 }
             }
-            this.f36022e = bdSocketDaemonService;
+            this.f36128e = bdSocketDaemonService;
         }
 
         @Override // android.content.ServiceConnection
@@ -78,7 +78,7 @@ public class BdSocketDaemonService extends BdBaseService {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BdSocketDaemonService f36023e;
+        public final /* synthetic */ BdSocketDaemonService f36129e;
 
         public b(BdSocketDaemonService bdSocketDaemonService) {
             Interceptable interceptable = $ic;
@@ -95,7 +95,7 @@ public class BdSocketDaemonService extends BdBaseService {
                     return;
                 }
             }
-            this.f36023e = bdSocketDaemonService;
+            this.f36129e = bdSocketDaemonService;
         }
     }
 

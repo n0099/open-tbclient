@@ -3,7 +3,7 @@ package com.baidu.searchbox.live.interfaces.defaultimpl.service;
 import android.app.Application;
 import android.content.res.Resources;
 import android.util.SparseArray;
-import c.a.a0.d.a.a;
+import c.a.b0.d.a.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nps.main.install.IInstallCallback;
 import com.baidu.nps.pm.BundleInfo;
@@ -117,7 +117,7 @@ public final class YYPluginManageServiceImpl implements YYPluginManageService {
                     this.$pluginPackageName = str;
                 }
 
-                @Override // c.a.a0.d.a.a
+                @Override // c.a.b0.d.a.a
                 public void onProgress(long j2, long j3) {
                     YYPluginDownloadCallback yYPluginDownloadCallback2;
                     Interceptable interceptable2 = $ic;
@@ -127,7 +127,7 @@ public final class YYPluginManageServiceImpl implements YYPluginManageService {
                     yYPluginDownloadCallback2.onProgress(this.$pluginPackageName, j2, j3);
                 }
 
-                @Override // c.a.a0.d.a.a
+                @Override // c.a.b0.d.a.a
                 public void onResult(int i2, String str2) {
                     YYPluginDownloadCallback yYPluginDownloadCallback2;
                     Interceptable interceptable2 = $ic;

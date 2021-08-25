@@ -28,7 +28,7 @@ public final class MaybeFlatten<T, R> extends AbstractMaybeWithUpstream<T, R> {
         public final MaybeObserver<? super R> actual;
 
         /* renamed from: d  reason: collision with root package name */
-        public Disposable f78530d;
+        public Disposable f78731d;
         public final Function<? super T, ? extends MaybeSource<? extends R>> mapper;
 
         /* loaded from: classes2.dex */
@@ -112,7 +112,7 @@ public final class MaybeFlatten<T, R> extends AbstractMaybeWithUpstream<T, R> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 DisposableHelper.dispose(this);
-                this.f78530d.dispose();
+                this.f78731d.dispose();
             }
         }
 
@@ -142,8 +142,8 @@ public final class MaybeFlatten<T, R> extends AbstractMaybeWithUpstream<T, R> {
         @Override // io.reactivex.MaybeObserver
         public void onSubscribe(Disposable disposable) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048580, this, disposable) == null) && DisposableHelper.validate(this.f78530d, disposable)) {
-                this.f78530d = disposable;
+            if ((interceptable == null || interceptable.invokeL(1048580, this, disposable) == null) && DisposableHelper.validate(this.f78731d, disposable)) {
+                this.f78731d = disposable;
                 this.actual.onSubscribe(this);
             }
         }

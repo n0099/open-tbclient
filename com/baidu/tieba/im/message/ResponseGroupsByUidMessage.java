@@ -1,7 +1,7 @@
 package com.baidu.tieba.im.message;
 
 import androidx.core.view.InputDeviceCompat;
-import c.a.o0.s.r.a;
+import c.a.p0.s.r.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.message.websockt.TbSocketReponsedMessage;
@@ -107,7 +107,8 @@ public class ResponseGroupsByUidMessage extends TbSocketReponsedMessage {
             if (groupsByUidMessage == null || groupsByUidMessage.getFriendUid() != 0) {
                 return;
             }
-            TbSocketReponsedMessage.saveProtocolBufferDataToCache(a.f().d("tb.im_entergroup"), CACHE_KEY_PREFIX + id, bArr);
+            a.f();
+            TbSocketReponsedMessage.saveProtocolBufferDataToCache(a.d("tb.im_entergroup"), CACHE_KEY_PREFIX + id, bArr);
         }
     }
 

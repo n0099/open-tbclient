@@ -21,10 +21,10 @@ public final class d extends g {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Method f31827c;
+    public final Method f31933c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final Method f31828d;
+    public final Method f31934d;
 
     public d(Method method, Method method2) {
         Interceptable interceptable = $ic;
@@ -41,8 +41,8 @@ public final class d extends g {
                 return;
             }
         }
-        this.f31827c = method;
-        this.f31828d = method2;
+        this.f31933c = method;
+        this.f31934d = method2;
     }
 
     public static d y() {
@@ -65,7 +65,7 @@ public final class d extends g {
             try {
                 SSLParameters sSLParameters = sSLSocket.getSSLParameters();
                 List<String> b2 = g.b(list);
-                this.f31827c.invoke(sSLParameters, b2.toArray(new String[b2.size()]));
+                this.f31933c.invoke(sSLParameters, b2.toArray(new String[b2.size()]));
                 sSLSocket.setSSLParameters(sSLParameters);
             } catch (IllegalAccessException | InvocationTargetException e2) {
                 throw c.d.b.e0.e.b("unable to set ssl parameters", e2);
@@ -80,7 +80,7 @@ public final class d extends g {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sSLSocket)) == null) {
             try {
-                String str = (String) this.f31828d.invoke(sSLSocket, new Object[0]);
+                String str = (String) this.f31934d.invoke(sSLSocket, new Object[0]);
                 if (str != null) {
                     if (!str.equals("")) {
                         return str;

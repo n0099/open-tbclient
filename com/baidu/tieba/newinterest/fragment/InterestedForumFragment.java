@@ -8,11 +8,10 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import c.a.p0.e2.b.a;
-import c.a.p0.e2.c.b;
+import c.a.q0.e2.b.a;
+import c.a.q0.e2.g.b;
 import com.baidu.adp.widget.ListView.BdRecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tieba.R;
@@ -21,34 +20,30 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
 /* loaded from: classes7.dex */
-public class InterestedForumFragment extends BaseFragment {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final String SCENE = "scene";
+public class InterestedForumFragment extends BaseInterestedForumFragment {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public View f54482e;
+    public View f54636e;
 
     /* renamed from: f  reason: collision with root package name */
-    public BdRecyclerView f54483f;
+    public BdRecyclerView f54637f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TBSpecificationBtn f54484g;
+    public TBSpecificationBtn f54638g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f54485h;
+    public TextView f54639h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f54486i;
+    public TextView f54640i;
 
     /* renamed from: j  reason: collision with root package name */
-    public a f54487j;
-    public List<b> k;
-    public FrameLayout l;
-    public TBSpecificationBtn m;
-    public int n;
+    public a f54641j;
+    public FrameLayout k;
+    public TBSpecificationBtn l;
 
     public InterestedForumFragment() {
         Interceptable interceptable = $ic;
@@ -77,77 +72,71 @@ public class InterestedForumFragment extends BaseFragment {
         return (InterestedForumFragment) invokeI.objValue;
     }
 
-    public final void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f54484g.setOnClickListener(this);
-        }
-    }
-
-    public int getScene() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.n : invokeV.intValue;
-    }
-
     public final void initData() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f54487j.e(this.k);
-            showLoadingView(this.f54482e);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.f54641j.f(this.mSelectedInterest);
+            showLoadingView(this.f54636e);
         }
     }
 
     public final void initUI() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f54486i = (TextView) this.f54482e.findViewById(R.id.interested_desc);
-            TextView textView = (TextView) this.f54482e.findViewById(R.id.interested_title);
-            this.f54485h = textView;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.f54640i = (TextView) this.f54636e.findViewById(R.id.interested_desc);
+            TextView textView = (TextView) this.f54636e.findViewById(R.id.interested_title);
+            this.f54639h = textView;
             textView.setTypeface(Typeface.DEFAULT_BOLD);
-            SkinManager.setViewTextColor(this.f54485h, R.color.CAM_X0105);
-            SkinManager.setViewTextColor(this.f54486i, R.color.CAM_X0107);
-            this.f54483f = (BdRecyclerView) this.f54482e.findViewById(R.id.interested_forum_list_view);
-            this.l = (FrameLayout) this.f54482e.findViewById(R.id.bottom_select_layout);
-            c.a.o0.s.f0.n.a aVar = new c.a.o0.s.f0.n.a();
-            TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) this.f54482e.findViewById(R.id.interest_forum_selected_btn);
-            this.m = tBSpecificationBtn;
+            SkinManager.setViewTextColor(this.f54639h, R.color.CAM_X0105);
+            SkinManager.setViewTextColor(this.f54640i, R.color.CAM_X0107);
+            this.f54637f = (BdRecyclerView) this.f54636e.findViewById(R.id.interested_forum_list_view);
+            this.k = (FrameLayout) this.f54636e.findViewById(R.id.bottom_select_layout);
+            c.a.p0.s.f0.n.a aVar = new c.a.p0.s.f0.n.a();
+            TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) this.f54636e.findViewById(R.id.interest_forum_selected_btn);
+            this.l = tBSpecificationBtn;
             tBSpecificationBtn.setTextSize(R.dimen.tbds42);
-            this.m.setConfig(aVar);
-            this.m.setText(getResources().getString(R.string.try_to_select));
-            this.m.setEnabled(false);
-            this.m.setOnClickListener(this);
-            TBSpecificationBtn tBSpecificationBtn2 = (TBSpecificationBtn) this.f54482e.findViewById(R.id.select_all_btn);
-            this.f54484g = tBSpecificationBtn2;
+            this.l.setConfig(aVar);
+            this.l.setText(getResources().getString(R.string.try_to_select));
+            this.l.setEnabled(false);
+            this.l.setOnClickListener(this);
+            TBSpecificationBtn tBSpecificationBtn2 = (TBSpecificationBtn) this.f54636e.findViewById(R.id.select_all_btn);
+            this.f54638g = tBSpecificationBtn2;
             tBSpecificationBtn2.setText(getString(R.string.select_all));
-            this.f54487j = new a(this, this.f54483f, this.m, this.f54484g, getPageContext(), new c.a.p0.e2.e.b(getUniqueId()));
+            this.f54641j = new a(this, this.f54637f, this.l, this.f54638g, getPageContext(), new b(getUniqueId()));
+        }
+    }
+
+    public final void initUIListener() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.f54638g.setOnClickListener(this);
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
             super.onChangeSkinType(i2);
-            SkinManager.setBackgroundColor(this.f54482e, R.color.CAM_X0201);
-            SkinManager.setBackgroundColor(this.l, R.color.CAM_X0201);
-            SkinManager.setViewTextColor(this.f54485h, R.color.CAM_X0105);
-            SkinManager.setViewTextColor(this.f54486i, R.color.CAM_X0107);
+            SkinManager.setBackgroundColor(this.f54636e, R.color.CAM_X0201);
+            SkinManager.setBackgroundColor(this.k, R.color.CAM_X0201);
+            SkinManager.setViewTextColor(this.f54639h, R.color.CAM_X0105);
+            SkinManager.setViewTextColor(this.f54640i, R.color.CAM_X0107);
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.view.View.OnClickListener
     public void onClick(View view) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048581, this, view) == null) && view == this.f54484g) {
-            this.f54487j.h();
+        if ((interceptable == null || interceptable.invokeL(1048580, this, view) == null) && view == this.f54638g) {
+            this.f54641j.j();
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048581, this, bundle) == null) {
             super.onCreate(bundle);
         }
     }
@@ -156,59 +145,43 @@ public class InterestedForumFragment extends BaseFragment {
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048583, this, layoutInflater, viewGroup, bundle)) == null) {
-            this.f54482e = LayoutInflater.from(getContext()).inflate(R.layout.fragment_interested_forum_layout, viewGroup, false);
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048582, this, layoutInflater, viewGroup, bundle)) == null) {
+            this.f54636e = LayoutInflater.from(getContext()).inflate(R.layout.fragment_interested_forum_layout, viewGroup, false);
             initUI();
-            g();
+            initUIListener();
             initData();
             if (getArguments() != null) {
-                this.n = getArguments().getInt("scene");
+                this.mScene = getArguments().getInt("scene");
             }
-            return this.f54482e;
+            return this.f54636e;
         }
         return (View) invokeLLL.objValue;
     }
 
+    @Override // com.baidu.tieba.newinterest.fragment.BaseInterestedForumFragment
     public void onDataRes() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            hideLoadingView(this.f54482e);
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            hideLoadingView(this.f54636e);
         }
     }
 
+    @Override // com.baidu.tieba.newinterest.fragment.BaseInterestedForumFragment
     public void onError(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
-            hideLoadingView(this.f54482e);
-            showNetRefreshView(this.f54482e, str, false);
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
+            hideLoadingView(this.f54636e);
+            showNetRefreshView(this.f54636e, str, false);
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onNetRefreshButtonClicked() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            hideNetRefreshView(this.f54482e);
-            this.f54487j.e(this.k);
-            showLoadingView(this.f54482e);
-        }
-    }
-
-    @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
-    public void onResume() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            super.onResume();
-            if (getFragmentManager().getFragments().size() == 2) {
-                c.a.p0.e2.d.a.b(2, this.n);
-            }
-        }
-    }
-
-    public void setSelectedInterest(List<b> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, list) == null) {
-            this.k = list;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            hideNetRefreshView(this.f54636e);
+            this.f54641j.f(this.mSelectedInterest);
+            showLoadingView(this.f54636e);
         }
     }
 }

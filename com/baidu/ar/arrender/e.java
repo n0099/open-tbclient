@@ -127,13 +127,13 @@ public abstract class e extends f implements View.OnTouchListener, OnRenderFinis
         this.hd = new com.baidu.ar.arplay.core.engine.a(Looper.getMainLooper());
         com.baidu.ar.f.c cVar = new com.baidu.ar.f.c(context);
         this.hf = cVar;
-        cVar.b(this.f38163f);
+        cVar.b(this.f38269f);
         com.baidu.ar.lua.a aVar = new com.baidu.ar.lua.a();
         this.hh = aVar;
-        aVar.b(this.f38163f);
+        aVar.b(this.f38269f);
         com.baidu.ar.steploading.d dVar = new com.baidu.ar.steploading.d(context);
         this.hg = dVar;
-        dVar.b(this.f38163f);
+        dVar.b(this.f38269f);
         this.hi = new ConcurrentHashMap<>();
         boolean A = com.baidu.ar.h.p.A(this.mContext);
         this.hl = A;

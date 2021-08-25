@@ -22,16 +22,16 @@ public final class q {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final TlsVersion f31912a;
+    public final TlsVersion f32018a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final h f31913b;
+    public final h f32019b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final List<Certificate> f31914c;
+    public final List<Certificate> f32020c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final List<Certificate> f31915d;
+    public final List<Certificate> f32021d;
 
     public q(TlsVersion tlsVersion, h hVar, List<Certificate> list, List<Certificate> list2) {
         Interceptable interceptable = $ic;
@@ -48,10 +48,10 @@ public final class q {
                 return;
             }
         }
-        this.f31912a = tlsVersion;
-        this.f31913b = hVar;
-        this.f31914c = list;
-        this.f31915d = list2;
+        this.f32018a = tlsVersion;
+        this.f32019b = hVar;
+        this.f32020c = list;
+        this.f32021d = list2;
     }
 
     public static q b(SSLSession sSLSession) throws IOException {
@@ -101,13 +101,13 @@ public final class q {
     public h a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f31913b : (h) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f32019b : (h) invokeV.objValue;
     }
 
     public List<Certificate> c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f31915d : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f32021d : (List) invokeV.objValue;
     }
 
     @Nullable
@@ -115,10 +115,10 @@ public final class q {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.f31915d.isEmpty()) {
+            if (this.f32021d.isEmpty()) {
                 return null;
             }
-            return ((X509Certificate) this.f31915d.get(0)).getSubjectX500Principal();
+            return ((X509Certificate) this.f32021d.get(0)).getSubjectX500Principal();
         }
         return (Principal) invokeV.objValue;
     }
@@ -126,7 +126,7 @@ public final class q {
     public List<Certificate> e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f31914c : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f32020c : (List) invokeV.objValue;
     }
 
     public boolean equals(@Nullable Object obj) {
@@ -135,7 +135,7 @@ public final class q {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, obj)) == null) {
             if (obj instanceof q) {
                 q qVar = (q) obj;
-                return this.f31912a.equals(qVar.f31912a) && this.f31913b.equals(qVar.f31913b) && this.f31914c.equals(qVar.f31914c) && this.f31915d.equals(qVar.f31915d);
+                return this.f32018a.equals(qVar.f32018a) && this.f32019b.equals(qVar.f32019b) && this.f32020c.equals(qVar.f32020c) && this.f32021d.equals(qVar.f32021d);
             }
             return false;
         }
@@ -147,10 +147,10 @@ public final class q {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            if (this.f31914c.isEmpty()) {
+            if (this.f32020c.isEmpty()) {
                 return null;
             }
-            return ((X509Certificate) this.f31914c.get(0)).getSubjectX500Principal();
+            return ((X509Certificate) this.f32020c.get(0)).getSubjectX500Principal();
         }
         return (Principal) invokeV.objValue;
     }
@@ -158,6 +158,6 @@ public final class q {
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? ((((((527 + this.f31912a.hashCode()) * 31) + this.f31913b.hashCode()) * 31) + this.f31914c.hashCode()) * 31) + this.f31915d.hashCode() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? ((((((527 + this.f32018a.hashCode()) * 31) + this.f32019b.hashCode()) * 31) + this.f32020c.hashCode()) * 31) + this.f32021d.hashCode() : invokeV.intValue;
     }
 }

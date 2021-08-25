@@ -15,7 +15,7 @@ public class Config {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f69851a;
+    public long f70051a;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes9.dex */
@@ -520,7 +520,7 @@ public class Config {
                 return;
             }
         }
-        this.f69851a = 0L;
+        this.f70051a = 0L;
     }
 
     public static native long nativeCreate(long j2);
@@ -558,7 +558,7 @@ public class Config {
     public void finalize() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            long j2 = this.f69851a;
+            long j2 = this.f70051a;
             if (j2 != 0) {
                 nativeDestroy(j2);
             }

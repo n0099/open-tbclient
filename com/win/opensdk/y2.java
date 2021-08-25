@@ -12,11 +12,11 @@ public class y2 {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static y2 f76843b;
+    public static y2 f77044b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ConcurrentHashMap f76844a;
+    public ConcurrentHashMap f77045a;
 
     public y2() {
         Interceptable interceptable = $ic;
@@ -31,21 +31,21 @@ public class y2 {
                 return;
             }
         }
-        this.f76844a = new ConcurrentHashMap();
+        this.f77045a = new ConcurrentHashMap();
     }
 
     public static y2 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f76843b == null) {
+            if (f77044b == null) {
                 synchronized (y2.class) {
-                    if (f76843b == null) {
-                        f76843b = new y2();
+                    if (f77044b == null) {
+                        f77044b = new y2();
                     }
                 }
             }
-            return f76843b;
+            return f77044b;
         }
         return (y2) invokeV.objValue;
     }
@@ -68,7 +68,7 @@ public class y2 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
             synchronized (y2.class) {
-                w2Var = (w2) this.f76844a.remove(str);
+                w2Var = (w2) this.f77045a.remove(str);
             }
             return w2Var;
         }
@@ -79,7 +79,7 @@ public class y2 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, w2Var) == null) {
             synchronized (y2.class) {
-                this.f76844a.put(str, w2Var);
+                this.f77045a.put(str, w2Var);
             }
         }
     }

@@ -33,34 +33,34 @@ public class h implements com.kwad.sdk.core.b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f71407a;
+    public int f71607a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f71408b;
+    public String f71608b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f71409c;
+    public int f71609c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Long f71410d;
+    public Long f71610d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Long f71411e;
+    public Long f71611e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Long f71412f;
+    public Long f71612f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Long f71413g;
+    public Long f71613g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f71414h;
+    public String f71614h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f71415i;
+    public String f71615i;
 
     /* renamed from: j  reason: collision with root package name */
-    public List<com.kwad.sdk.core.g.a.a> f71416j;
+    public List<com.kwad.sdk.core.g.a.a> f71616j;
     public long k;
     public String l;
     public String m;
@@ -83,16 +83,16 @@ public class h implements com.kwad.sdk.core.b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f71417a;
+        public int f71617a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f71418b;
+        public int f71618b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f71419c;
+        public int f71619c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f71420d;
+        public int f71620d;
 
         public a(int i2) {
             Interceptable interceptable = $ic;
@@ -109,11 +109,11 @@ public class h implements com.kwad.sdk.core.b {
                     return;
                 }
             }
-            this.f71417a = -1;
-            this.f71418b = -1;
-            this.f71419c = -1;
-            this.f71420d = -1;
-            this.f71417a = i2;
+            this.f71617a = -1;
+            this.f71618b = -1;
+            this.f71619c = -1;
+            this.f71620d = -1;
+            this.f71617a = i2;
         }
 
         private int a(int i2) {
@@ -167,12 +167,12 @@ public class h implements com.kwad.sdk.core.b {
                 if (context == null) {
                     return null;
                 }
-                int a2 = a(this.f71417a);
+                int a2 = a(this.f71617a);
                 AudioManager audioManager = (AudioManager) context.getSystemService(MediaStreamTrack.AUDIO_TRACK_KIND);
-                this.f71420d = audioManager.getStreamVolume(a2);
-                this.f71418b = audioManager.getStreamMaxVolume(a2);
+                this.f71620d = audioManager.getStreamVolume(a2);
+                this.f71618b = audioManager.getStreamMaxVolume(a2);
                 if (Build.VERSION.SDK_INT >= 28) {
-                    this.f71419c = audioManager.getStreamMinVolume(a2);
+                    this.f71619c = audioManager.getStreamMinVolume(a2);
                 }
                 return this;
             }
@@ -193,7 +193,7 @@ public class h implements com.kwad.sdk.core.b {
                 return;
             }
         }
-        this.f71416j = new ArrayList();
+        this.f71616j = new ArrayList();
         this.o = -1;
         this.r = -1.0f;
         this.t = -1;
@@ -205,16 +205,16 @@ public class h implements com.kwad.sdk.core.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
             h hVar = new h();
-            hVar.f71407a = ap.c();
-            hVar.f71408b = AbiUtil.a();
-            hVar.f71409c = ap.a(KsAdSDKImpl.get().getContext());
-            hVar.f71410d = Long.valueOf(ap.b(KsAdSDKImpl.get().getContext()));
-            hVar.f71411e = Long.valueOf(ap.c(KsAdSDKImpl.get().getContext()));
-            hVar.f71412f = Long.valueOf(ap.a());
-            hVar.f71413g = Long.valueOf(ap.b());
-            hVar.f71414h = ap.h(KsAdSDKImpl.get().getContext());
-            hVar.f71415i = ap.j(KsAdSDKImpl.get().getContext());
-            hVar.f71416j = ba.a(KsAdSDKImpl.get().getContext(), 15);
+            hVar.f71607a = ap.c();
+            hVar.f71608b = AbiUtil.a();
+            hVar.f71609c = ap.a(KsAdSDKImpl.get().getContext());
+            hVar.f71610d = Long.valueOf(ap.b(KsAdSDKImpl.get().getContext()));
+            hVar.f71611e = Long.valueOf(ap.c(KsAdSDKImpl.get().getContext()));
+            hVar.f71612f = Long.valueOf(ap.a());
+            hVar.f71613g = Long.valueOf(ap.b());
+            hVar.f71614h = ap.h(KsAdSDKImpl.get().getContext());
+            hVar.f71615i = ap.j(KsAdSDKImpl.get().getContext());
+            hVar.f71616j = ba.a(KsAdSDKImpl.get().getContext(), 15);
             hVar.k = SystemClock.elapsedRealtime() / 1000;
             hVar.n = Build.TIME;
             hVar.q = Build.FINGERPRINT;
@@ -276,16 +276,16 @@ public class h implements com.kwad.sdk.core.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             JSONObject jSONObject = new JSONObject();
-            q.a(jSONObject, "cpuCount", this.f71407a);
-            q.a(jSONObject, "cpuAbi", this.f71408b);
-            q.a(jSONObject, "batteryPercent", this.f71409c);
-            q.a(jSONObject, "totalMemorySize", this.f71410d.longValue());
-            q.a(jSONObject, "availableMemorySize", this.f71411e.longValue());
-            q.a(jSONObject, "totalDiskSize", this.f71412f.longValue());
-            q.a(jSONObject, "availableDiskSize", this.f71413g.longValue());
-            q.a(jSONObject, BaseStatisContent.IMSI, this.f71414h);
-            q.a(jSONObject, "iccid", this.f71415i);
-            q.a(jSONObject, "wifiList", this.f71416j);
+            q.a(jSONObject, "cpuCount", this.f71607a);
+            q.a(jSONObject, "cpuAbi", this.f71608b);
+            q.a(jSONObject, "batteryPercent", this.f71609c);
+            q.a(jSONObject, "totalMemorySize", this.f71610d.longValue());
+            q.a(jSONObject, "availableMemorySize", this.f71611e.longValue());
+            q.a(jSONObject, "totalDiskSize", this.f71612f.longValue());
+            q.a(jSONObject, "availableDiskSize", this.f71613g.longValue());
+            q.a(jSONObject, BaseStatisContent.IMSI, this.f71614h);
+            q.a(jSONObject, "iccid", this.f71615i);
+            q.a(jSONObject, "wifiList", this.f71616j);
             q.a(jSONObject, "bootTime", this.k);
             q.a(jSONObject, "romName", this.l);
             q.a(jSONObject, "romVersion", this.m);

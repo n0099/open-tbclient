@@ -16,28 +16,28 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f2534a;
+    public static int f2592a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static b f2535b;
+    public static b f2593b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f2536c;
+    public static String f2594c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static c f2537d;
+    public static c f2595d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static Handler f2538e;
+    public static Handler f2596e;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c.a.e.e.q.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0049a implements Handler.Callback {
+    public static class C0039a implements Handler.Callback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public C0049a() {
+        public C0039a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -60,23 +60,23 @@ public class a {
                 if (i2 != 0) {
                     if (i2 != 1) {
                         if (i2 != 6) {
-                            if (a.f2537d != null) {
-                                a.f2537d.error(message.what, h.a(R.string.voice_err_play));
+                            if (a.f2595d != null) {
+                                a.f2595d.error(message.what, h.a(R.string.voice_err_play));
                             }
                         } else {
-                            if (a.f2537d != null) {
-                                a.f2537d.d(message.arg1);
+                            if (a.f2595d != null) {
+                                a.f2595d.d(message.arg1);
                             }
                             return true;
                         }
-                    } else if (a.f2537d != null) {
-                        a.f2537d.error(message.what, h.a(R.string.voice_err_no_file));
+                    } else if (a.f2595d != null) {
+                        a.f2595d.error(message.what, h.a(R.string.voice_err_no_file));
                     }
-                } else if (a.f2537d != null) {
-                    a.f2537d.c(a.f2536c, message.arg1);
+                } else if (a.f2595d != null) {
+                    a.f2595d.c(a.f2594c, message.arg1);
                 }
-                int unused = a.f2534a = 0;
-                c unused2 = a.f2537d = null;
+                int unused = a.f2592a = 0;
+                c unused2 = a.f2595d = null;
                 return false;
             }
             return invokeL.booleanValue;
@@ -96,25 +96,25 @@ public class a {
                 return;
             }
         }
-        f2538e = new Handler(new C0049a());
+        f2596e = new Handler(new C0039a());
     }
 
     public static boolean e(String str, c cVar, int i2) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLI = interceptable.invokeLLI(AdIconUtil.AD_TEXT_ID, null, str, cVar, i2)) == null) {
-            if (f2534a == 0) {
-                b bVar = f2535b;
+            if (f2592a == 0) {
+                b bVar = f2593b;
                 if (bVar == null) {
-                    f2535b = new b(f2538e, i2);
+                    f2593b = new b(f2596e, i2);
                 } else {
                     bVar.k(i2);
                 }
-                f2536c = str;
-                f2537d = cVar;
-                f2535b.j(str);
-                f2534a = 2;
-                new Thread(f2535b).start();
+                f2594c = str;
+                f2595d = cVar;
+                f2593b.j(str);
+                f2592a = 2;
+                new Thread(f2593b).start();
                 return true;
             }
             return false;
@@ -125,11 +125,11 @@ public class a {
     public static void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null) == null) {
-            b bVar = f2535b;
+            b bVar = f2593b;
             if (bVar != null) {
                 bVar.l();
             } else {
-                f2534a = 0;
+                f2592a = 0;
             }
         }
     }

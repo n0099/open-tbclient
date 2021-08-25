@@ -193,13 +193,15 @@ public class CmdConfigHttp {
     public static final int CMD_HTTP_GET_BIG_TBEAN_URL = 1003410;
     public static final int CMD_HTTP_GET_HOTFORUM = 1001534;
     public static final int CMD_HTTP_GET_HOTTOPIC_SELECT = 1003186;
-    public static final int CMD_HTTP_GET_MSG_REC_FORUM_LIST = 1003510;
+    public static final int CMD_HTTP_GET_MSG_REC_FORUM_LIST = 1003507;
     public static final int CMD_HTTP_GET_YINJI = 1001533;
     public static final int CMD_HTTP_SMART_APP = 1003420;
     public static final int CMD_HTTP_TIEBA_UID_CHECK = 1003493;
     public static final int CMD_HTTP_VIDEO_ATTENTION_FEED = 1003501;
     public static final int CMD_HTTP_VIDEO_CHANNEL_FEED = 1003498;
     public static final int CMD_INCREASE_FORUM_ACCESS_COUNT = 1003150;
+    public static final int CMD_INTERESTED_GET_CLASS_LIST = 1003509;
+    public static final int CMD_ITEM_FETCH_URL = 1003508;
     public static final int CMD_JUMP_YY_LIVE_IN_VIDEO_LIST = 1003504;
     public static final int CMD_LCS_STATISTICS = 1003422;
     public static final int CMD_LOW_FLOWS_PAGE = 1003486;

@@ -19,7 +19,7 @@ public class v1 {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f78901a;
+    public static final String f79102a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -35,7 +35,7 @@ public class v1 {
                 return;
             }
         }
-        f78901a = (String) h.a(16777217, 0, 0L, "ac2d00", new byte[]{126, 96, 15, 19, 21, 43});
+        f79102a = (String) h.a(16777217, 0, 0L, "ac2d00", new byte[]{126, 96, 15, 19, 21, 43});
     }
 
     /* JADX WARN: Removed duplicated region for block: B:35:0x00c5  */
@@ -55,7 +55,7 @@ public class v1 {
         int i3 = 3;
         ByteArrayOutputStream byteArrayOutputStream = null;
         try {
-            String str = context.getFilesDir().getAbsolutePath() + ((String) h.a(16777217, 0, 0L, "eacb92", new byte[]{59})) + f78901a;
+            String str = context.getFilesDir().getAbsolutePath() + ((String) h.a(16777217, 0, 0L, "eacb92", new byte[]{59})) + f79102a;
             File file = new File(str);
             if (file.exists()) {
                 try {
@@ -82,7 +82,7 @@ public class v1 {
                     }
                 }
             }
-            inputStream = context.getResources().getAssets().open(f78901a);
+            inputStream = context.getResources().getAssets().open(f79102a);
             try {
                 ByteArrayOutputStream byteArrayOutputStream2 = new ByteArrayOutputStream();
                 try {

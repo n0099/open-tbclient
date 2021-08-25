@@ -42,34 +42,34 @@ public class c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public View f65610a;
+    public View f65810a;
 
     /* renamed from: b  reason: collision with root package name */
-    public RelativeLayout f65611b;
+    public RelativeLayout f65811b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TTRoundRectImageView f65612c;
+    public TTRoundRectImageView f65812c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TextView f65613d;
+    public TextView f65813d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f65614e;
+    public TextView f65814e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f65615f;
+    public TextView f65815f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TTRatingBar f65616g;
+    public TTRatingBar f65816g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f65617h;
+    public TextView f65817h;
 
     /* renamed from: i  reason: collision with root package name */
-    public FrameLayout f65618i;
+    public FrameLayout f65818i;
 
     /* renamed from: j  reason: collision with root package name */
-    public FrameLayout f65619j;
+    public FrameLayout f65819j;
     public FrameLayout k;
     public boolean l;
     public int m;
@@ -109,37 +109,37 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
             Activity activity = this.o;
-            this.f65610a = activity.findViewById(t.e(activity, "tt_reward_root"));
+            this.f65810a = activity.findViewById(t.e(activity, "tt_reward_root"));
             Activity activity2 = this.o;
-            this.f65611b = (RelativeLayout) activity2.findViewById(t.e(activity2, "tt_video_reward_bar"));
+            this.f65811b = (RelativeLayout) activity2.findViewById(t.e(activity2, "tt_video_reward_bar"));
             Activity activity3 = this.o;
-            this.f65612c = (TTRoundRectImageView) activity3.findViewById(t.e(activity3, "tt_reward_ad_icon"));
+            this.f65812c = (TTRoundRectImageView) activity3.findViewById(t.e(activity3, "tt_reward_ad_icon"));
             Activity activity4 = this.o;
-            this.f65613d = (TextView) activity4.findViewById(t.e(activity4, "tt_reward_ad_appname"));
+            this.f65813d = (TextView) activity4.findViewById(t.e(activity4, "tt_reward_ad_appname"));
             Activity activity5 = this.o;
-            this.f65614e = (TextView) activity5.findViewById(t.e(activity5, "tt_comment_vertical"));
+            this.f65814e = (TextView) activity5.findViewById(t.e(activity5, "tt_comment_vertical"));
             Activity activity6 = this.o;
-            this.f65615f = (TextView) activity6.findViewById(t.e(activity6, "tt_reward_ad_download"));
+            this.f65815f = (TextView) activity6.findViewById(t.e(activity6, "tt_reward_ad_download"));
             Activity activity7 = this.o;
             TTRatingBar tTRatingBar = (TTRatingBar) activity7.findViewById(t.e(activity7, "tt_rb_score"));
-            this.f65616g = tTRatingBar;
+            this.f65816g = tTRatingBar;
             if (tTRatingBar != null) {
                 tTRatingBar.setStarEmptyNum(1);
-                this.f65616g.setStarFillNum(4);
-                this.f65616g.setStarImageWidth(s.d(this.o, 15.0f));
-                this.f65616g.setStarImageHeight(s.d(this.o, 14.0f));
-                this.f65616g.setStarImagePadding(s.d(this.o, 4.0f));
-                this.f65616g.a();
+                this.f65816g.setStarFillNum(4);
+                this.f65816g.setStarImageWidth(s.d(this.o, 15.0f));
+                this.f65816g.setStarImageHeight(s.d(this.o, 14.0f));
+                this.f65816g.setStarImagePadding(s.d(this.o, 4.0f));
+                this.f65816g.a();
             }
             Activity activity8 = this.o;
-            this.f65617h = (TextView) activity8.findViewById(t.e(activity8, "tt_ad_logo"));
+            this.f65817h = (TextView) activity8.findViewById(t.e(activity8, "tt_ad_logo"));
             Activity activity9 = this.o;
-            this.f65618i = (FrameLayout) activity9.findViewById(t.e(activity9, "tt_video_reward_container"));
+            this.f65818i = (FrameLayout) activity9.findViewById(t.e(activity9, "tt_video_reward_container"));
             Activity activity10 = this.o;
-            this.f65619j = (FrameLayout) activity10.findViewById(t.e(activity10, "tt_click_upper_non_content_layout"));
+            this.f65819j = (FrameLayout) activity10.findViewById(t.e(activity10, "tt_click_upper_non_content_layout"));
             Activity activity11 = this.o;
             this.k = (FrameLayout) activity11.findViewById(t.e(activity11, "tt_click_lower_non_content_layout"));
-            s.a(this.f65617h, this.p);
+            s.a(this.f65817h, this.p);
         }
     }
 
@@ -160,7 +160,7 @@ public class c {
 
     private void i() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) || this.f65611b == null) {
+        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) || this.f65811b == null) {
             return;
         }
         Keyframe ofFloat = Keyframe.ofFloat(0.0f, 0.0f);
@@ -169,7 +169,7 @@ public class c {
         Keyframe ofFloat4 = Keyframe.ofFloat(0.88f, 1.0f);
         Keyframe ofFloat5 = Keyframe.ofFloat(0.95f, 0.95f);
         Keyframe ofFloat6 = Keyframe.ofFloat(1.0f, 1.0f);
-        ObjectAnimator ofPropertyValuesHolder = ObjectAnimator.ofPropertyValuesHolder(this.f65611b, PropertyValuesHolder.ofKeyframe("scaleX", ofFloat, ofFloat2, ofFloat3, ofFloat4, ofFloat5, ofFloat6), PropertyValuesHolder.ofKeyframe("scaleY", ofFloat, ofFloat2, ofFloat3, ofFloat4, ofFloat5, ofFloat6));
+        ObjectAnimator ofPropertyValuesHolder = ObjectAnimator.ofPropertyValuesHolder(this.f65811b, PropertyValuesHolder.ofKeyframe("scaleX", ofFloat, ofFloat2, ofFloat3, ofFloat4, ofFloat5, ofFloat6), PropertyValuesHolder.ofKeyframe("scaleY", ofFloat, ofFloat2, ofFloat3, ofFloat4, ofFloat5, ofFloat6));
         ofPropertyValuesHolder.setDuration(1000L);
         ofPropertyValuesHolder.start();
     }
@@ -178,9 +178,9 @@ public class c {
     /* JADX WARN: Code restructure failed: missing block: B:20:0x0044, code lost:
         r0 = false;
      */
-    /* JADX WARN: Removed duplicated region for block: B:24:0x004b A[ADDED_TO_REGION] */
-    /* JADX WARN: Removed duplicated region for block: B:28:0x0053 A[RETURN] */
-    /* JADX WARN: Removed duplicated region for block: B:29:0x0054  */
+    /* JADX WARN: Removed duplicated region for block: B:24:0x004a A[ADDED_TO_REGION] */
+    /* JADX WARN: Removed duplicated region for block: B:28:0x0052 A[RETURN] */
+    /* JADX WARN: Removed duplicated region for block: B:29:0x0053  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -240,9 +240,9 @@ public class c {
                     }
                 }
                 if (z2 && !q.k(str)) {
-                    LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f65615f.getLayoutParams();
+                    LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f65815f.getLayoutParams();
                     layoutParams.bottomMargin = s.d(this.o, 4.0f);
-                    this.f65615f.setLayoutParams(layoutParams);
+                    this.f65815f.setLayoutParams(layoutParams);
                 }
                 return str;
             }
@@ -268,25 +268,25 @@ public class c {
         }
         try {
             if (this.r == 2 && this.p.k() == 1) {
-                RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.f65615f.getLayoutParams();
+                RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.f65815f.getLayoutParams();
                 layoutParams.height = (int) s.b(this.o, 55.0f);
                 layoutParams.topMargin = (int) s.b(this.o, 20.0f);
-                this.f65615f.setLayoutParams(layoutParams);
-                RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.f65611b.getLayoutParams();
+                this.f65815f.setLayoutParams(layoutParams);
+                RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.f65811b.getLayoutParams();
                 layoutParams2.bottomMargin = (int) s.b(this.o, 12.0f);
-                this.f65611b.setLayoutParams(layoutParams2);
+                this.f65811b.setLayoutParams(layoutParams2);
             }
         } catch (Throwable unused) {
         }
-        if (this.p.k() != 1 || this.f65618i == null) {
+        if (this.p.k() != 1 || this.f65818i == null) {
             return;
         }
         int c2 = s.c((Context) this.o);
-        RelativeLayout.LayoutParams layoutParams3 = (RelativeLayout.LayoutParams) this.f65618i.getLayoutParams();
+        RelativeLayout.LayoutParams layoutParams3 = (RelativeLayout.LayoutParams) this.f65818i.getLayoutParams();
         layoutParams3.width = c2;
         int i2 = (c2 * 9) / 16;
         layoutParams3.height = i2;
-        this.f65618i.setLayoutParams(layoutParams3);
+        this.f65818i.setLayoutParams(layoutParams3);
         this.m = (s.d((Context) this.o) - i2) / 2;
         k.f("RewardFullVideoLayout", "NonContentAreaHeight:" + this.m);
     }
@@ -309,19 +309,19 @@ public class c {
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            if (this.f65612c != null) {
+            if (this.f65812c != null) {
                 l Y = this.p.Y();
                 if (Y != null && !TextUtils.isEmpty(Y.a())) {
-                    ImageLoaderWrapper.from(Y).to(this.f65612c);
+                    ImageLoaderWrapper.from(Y).to(this.f65812c);
                 } else {
-                    this.f65612c.setImageResource(t.d(this.o, "tt_ad_logo_small"));
+                    this.f65812c.setImageResource(t.d(this.o, "tt_ad_logo_small"));
                 }
             }
-            if (this.f65613d != null) {
+            if (this.f65813d != null) {
                 if (this.r == 1 && this.p.al() != null && !TextUtils.isEmpty(this.p.al().c())) {
-                    this.f65613d.setText(this.p.al().c());
+                    this.f65813d.setText(this.p.al().c());
                 } else {
-                    this.f65613d.setText(this.p.ah());
+                    this.f65813d.setText(this.p.ah());
                 }
             }
         }
@@ -330,7 +330,7 @@ public class c {
     public void c() {
         String str;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048591, this) == null) || this.f65614e == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048591, this) == null) || this.f65814e == null) {
             return;
         }
         int f2 = this.p.al() != null ? this.p.al().f() : 6870;
@@ -340,20 +340,20 @@ public class c {
         } else {
             str = f2 + "";
         }
-        this.f65614e.setText(String.format(a2, str));
+        this.f65814e.setText(String.format(a2, str));
     }
 
     public void d(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048596, this, onClickListener) == null) {
-            s.a(this.f65618i, onClickListener, "TTBaseVideoActivity#mVideoNativeFrame");
+            s.a(this.f65818i, onClickListener, "TTBaseVideoActivity#mVideoNativeFrame");
         }
     }
 
     public FrameLayout e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? this.f65618i : (FrameLayout) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? this.f65818i : (FrameLayout) invokeV.objValue;
     }
 
     public void f() {
@@ -369,23 +369,23 @@ public class c {
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
-            s.a((View) this.f65618i, 8);
-            s.a((View) this.f65619j, 8);
+            s.a((View) this.f65818i, 8);
+            s.a((View) this.f65819j, 8);
             s.a((View) this.k, 8);
-            s.a((View) this.f65611b, 8);
-            s.a((View) this.f65613d, 8);
-            s.a((View) this.f65612c, 8);
-            s.a((View) this.f65614e, 8);
-            s.a((View) this.f65616g, 8);
-            s.a((View) this.f65615f, 8);
-            s.a((View) this.f65617h, 8);
+            s.a((View) this.f65811b, 8);
+            s.a((View) this.f65813d, 8);
+            s.a((View) this.f65812c, 8);
+            s.a((View) this.f65814e, 8);
+            s.a((View) this.f65816g, 8);
+            s.a((View) this.f65815f, 8);
+            s.a((View) this.f65817h, 8);
         }
     }
 
     public void c(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048593, this, onClickListener) == null) {
-            s.a(this.f65611b, onClickListener, "TTBaseVideoActivity#mRlDownloadBar");
+            s.a(this.f65811b, onClickListener, "TTBaseVideoActivity#mRlDownloadBar");
         }
     }
 
@@ -393,7 +393,7 @@ public class c {
     public void c(View.OnTouchListener onTouchListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048594, this, onTouchListener) == null) {
-            s.a(this.f65611b, onTouchListener, "TTBaseVideoActivity#mRlDownloadBar");
+            s.a(this.f65811b, onTouchListener, "TTBaseVideoActivity#mRlDownloadBar");
         }
     }
 
@@ -409,14 +409,14 @@ public class c {
             if (this.s) {
                 h();
             }
-            r.a(this.f65617h, this.p.aH());
+            r.a(this.f65817h, this.p.aH());
         }
     }
 
     public void b(String str) {
         TextView textView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048590, this, str) == null) || (textView = this.f65615f) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048590, this, str) == null) || (textView = this.f65815f) == null) {
             return;
         }
         if (this.p.k() == 3) {
@@ -439,7 +439,7 @@ public class c {
     public void b(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, onClickListener) == null) {
-            s.a(this.f65615f, onClickListener, (String) null);
+            s.a(this.f65815f, onClickListener, (String) null);
         }
     }
 
@@ -447,14 +447,14 @@ public class c {
     public void b(View.OnTouchListener onTouchListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, onTouchListener) == null) {
-            s.a(this.f65615f, onTouchListener, (String) null);
+            s.a(this.f65815f, onTouchListener, (String) null);
         }
     }
 
     public void b(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048587, this, i2) == null) {
-            s.a((View) this.f65611b, i2);
+            s.a((View) this.f65811b, i2);
         }
     }
 
@@ -474,19 +474,19 @@ public class c {
     public RelativeLayout a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f65611b : (RelativeLayout) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f65811b : (RelativeLayout) invokeV.objValue;
     }
 
     public void a(int i2, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
             if (i2 == 1) {
-                TextView textView = this.f65613d;
+                TextView textView = this.f65813d;
                 if (textView != null) {
                     textView.setMaxWidth((int) s.b(this.o, 153.0f));
                 }
             } else {
-                TextView textView2 = this.f65613d;
+                TextView textView2 = this.f65813d;
                 if (textView2 != null) {
                     textView2.setMaxWidth((int) s.b(this.o, 404.0f));
                 }
@@ -501,18 +501,18 @@ public class c {
     public void a(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            s.a((View) this.f65617h, i2);
+            s.a((View) this.f65817h, i2);
         }
     }
 
     public void a(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, onClickListener) == null) {
-            s.a(this.f65611b, onClickListener, "TTBaseVideoActivity#mRlDownloadBar");
-            s.a(this.f65613d, onClickListener, (String) null);
-            s.a(this.f65612c, onClickListener, (String) null);
-            s.a(this.f65614e, onClickListener, (String) null);
-            s.a(this.f65616g, onClickListener, (String) null);
+            s.a(this.f65811b, onClickListener, "TTBaseVideoActivity#mRlDownloadBar");
+            s.a(this.f65813d, onClickListener, (String) null);
+            s.a(this.f65812c, onClickListener, (String) null);
+            s.a(this.f65814e, onClickListener, (String) null);
+            s.a(this.f65816g, onClickListener, (String) null);
         }
     }
 
@@ -520,11 +520,11 @@ public class c {
     public void a(View.OnTouchListener onTouchListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, onTouchListener) == null) {
-            s.a(this.f65611b, onTouchListener, "TTBaseVideoActivity#mRlDownloadBar");
-            s.a(this.f65613d, onTouchListener, (String) null);
-            s.a(this.f65612c, onTouchListener, (String) null);
-            s.a(this.f65614e, onTouchListener, (String) null);
-            s.a(this.f65616g, onTouchListener, (String) null);
+            s.a(this.f65811b, onTouchListener, "TTBaseVideoActivity#mRlDownloadBar");
+            s.a(this.f65813d, onTouchListener, (String) null);
+            s.a(this.f65812c, onTouchListener, (String) null);
+            s.a(this.f65814e, onTouchListener, (String) null);
+            s.a(this.f65816g, onTouchListener, (String) null);
         }
     }
 
@@ -542,20 +542,20 @@ public class c {
         if (interceptable == null || interceptable.invokeLLL(1048581, this, onClickListener, onTouchListener, onClickListener2) == null) {
             m mVar = this.p;
             if (mVar != null && mVar.l() != null) {
-                if (this.p.l().f66027e) {
+                if (this.p.l().f66227e) {
                     b(onClickListener);
                     b(onTouchListener);
                 } else {
                     b(onClickListener2);
                 }
                 if (this.p.k() == 1) {
-                    if (this.p.l().f66023a) {
+                    if (this.p.l().f66223a) {
                         a(onClickListener);
                         a(onTouchListener);
                     } else {
                         a(onClickListener2);
                     }
-                } else if (this.p.l().f66025c) {
+                } else if (this.p.l().f66225c) {
                     c(onClickListener);
                     c(onTouchListener);
                 } else {
@@ -564,7 +564,7 @@ public class c {
             }
             m mVar2 = this.p;
             if (mVar2 != null && mVar2.l() != null) {
-                if (this.p.l().f66028f) {
+                if (this.p.l().f66228f) {
                     d(onClickListener);
                 } else {
                     d(onClickListener2);
@@ -574,16 +574,16 @@ public class c {
             if (mVar3 == null || mVar3.k() != 1) {
                 return;
             }
-            if (this.p.l() != null && (frameLayout2 = this.f65619j) != null) {
+            if (this.p.l() != null && (frameLayout2 = this.f65819j) != null) {
                 s.a((View) frameLayout2, 0);
-                RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.f65619j.getLayoutParams();
+                RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.f65819j.getLayoutParams();
                 layoutParams.height = this.m;
-                this.f65619j.setLayoutParams(layoutParams);
-                if (this.p.l().f66024b) {
-                    this.f65619j.setOnClickListener(onClickListener);
-                    this.f65619j.setOnTouchListener(onTouchListener);
+                this.f65819j.setLayoutParams(layoutParams);
+                if (this.p.l().f66224b) {
+                    this.f65819j.setOnClickListener(onClickListener);
+                    this.f65819j.setOnTouchListener(onTouchListener);
                 } else {
-                    this.f65619j.setOnClickListener(onClickListener2);
+                    this.f65819j.setOnClickListener(onClickListener2);
                 }
             }
             if (this.p.l() == null || (frameLayout = this.k) == null) {
@@ -593,7 +593,7 @@ public class c {
             RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.k.getLayoutParams();
             layoutParams2.height = this.m;
             this.k.setLayoutParams(layoutParams2);
-            if (this.p.l().f66026d) {
+            if (this.p.l().f66226d) {
                 this.k.setOnClickListener(onClickListener);
                 this.k.setOnTouchListener(onTouchListener);
                 return;

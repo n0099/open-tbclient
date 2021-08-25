@@ -13,10 +13,10 @@ public class a implements Runnable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final e f37636a;
+    public final e f37742a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final b f37637b;
+    public final b f37743b;
 
     public a(b bVar) {
         Interceptable interceptable = $ic;
@@ -33,14 +33,14 @@ public class a implements Runnable {
                 return;
             }
         }
-        this.f37637b = bVar;
-        this.f37636a = new e();
+        this.f37743b = bVar;
+        this.f37742a = new e();
     }
 
     public void a(g gVar, EventBus.Event event) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, gVar, event) == null) {
-            this.f37636a.a(d.a(gVar, event));
+            this.f37742a.a(d.a(gVar, event));
             TaskManager taskManager = TaskManager.getInstance("EBTaskManager");
             taskManager.getClass();
             taskManager.addTask(new TaskManager.Task(taskManager, 0L, 0L, false, "AsyncPost_" + System.currentTimeMillis(), this), "AsyncPost");
@@ -51,9 +51,9 @@ public class a implements Runnable {
     public void run() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            d a2 = this.f37636a.a();
+            d a2 = this.f37742a.a();
             if (a2 != null) {
-                this.f37637b.a(a2);
+                this.f37743b.a(a2);
                 return;
             }
             throw new IllegalStateException("No pending post available");

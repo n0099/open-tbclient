@@ -10,7 +10,7 @@ public class d {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f2547a = 300000;
+    public static int f2605a = 300000;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {

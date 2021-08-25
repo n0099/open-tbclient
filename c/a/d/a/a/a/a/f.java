@@ -12,7 +12,7 @@ public class f {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public b f1719a;
+    public b f1944a;
 
     public f(byte[] bArr) {
         Interceptable interceptable = $ic;
@@ -29,7 +29,7 @@ public class f {
                 return;
             }
         }
-        this.f1719a = a.b(bArr);
+        this.f1944a = a.b(bArr);
     }
 
     public static byte a(int i2) {
@@ -53,6 +53,6 @@ public class f {
     public byte[] b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f1719a.a() : (byte[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f1944a.a() : (byte[]) invokeV.objValue;
     }
 }

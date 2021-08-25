@@ -1,341 +1,110 @@
 package c.a.l0;
 
-import android.content.Context;
-import android.text.TextUtils;
-import c.a.l0.l.k;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.sapi2.outsdk.OneKeyLoginSdkCall;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
-public class a {
-    public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static volatile a f3655a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static String f3656b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public static String f3657c;
+public final class a {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final int abc_ab_share_pack_mtrl_alpha = 2131230821;
+    public static final int abc_action_bar_item_background_material = 2131230822;
+    public static final int abc_btn_borderless_material = 2131230823;
+    public static final int abc_btn_check_material = 2131230824;
+    public static final int abc_btn_check_to_on_mtrl_000 = 2131230826;
+    public static final int abc_btn_check_to_on_mtrl_015 = 2131230827;
+    public static final int abc_btn_colored_material = 2131230828;
+    public static final int abc_btn_default_mtrl_shape = 2131230829;
+    public static final int abc_btn_radio_material = 2131230830;
+    public static final int abc_btn_radio_to_on_mtrl_000 = 2131230832;
+    public static final int abc_btn_radio_to_on_mtrl_015 = 2131230833;
+    public static final int abc_btn_switch_to_on_mtrl_00001 = 2131230834;
+    public static final int abc_btn_switch_to_on_mtrl_00012 = 2131230835;
+    public static final int abc_cab_background_internal_bg = 2131230836;
+    public static final int abc_cab_background_top_material = 2131230837;
+    public static final int abc_cab_background_top_mtrl_alpha = 2131230838;
+    public static final int abc_control_background_material = 2131230839;
+    public static final int abc_dialog_material_background = 2131230840;
+    public static final int abc_edit_text_material = 2131230841;
+    public static final int abc_ic_ab_back_material = 2131230842;
+    public static final int abc_ic_arrow_drop_right_black_24dp = 2131230843;
+    public static final int abc_ic_clear_material = 2131230844;
+    public static final int abc_ic_commit_search_api_mtrl_alpha = 2131230845;
+    public static final int abc_ic_go_search_api_material = 2131230846;
+    public static final int abc_ic_menu_copy_mtrl_am_alpha = 2131230847;
+    public static final int abc_ic_menu_cut_mtrl_alpha = 2131230848;
+    public static final int abc_ic_menu_overflow_material = 2131230849;
+    public static final int abc_ic_menu_paste_mtrl_am_alpha = 2131230850;
+    public static final int abc_ic_menu_selectall_mtrl_alpha = 2131230851;
+    public static final int abc_ic_menu_share_mtrl_alpha = 2131230852;
+    public static final int abc_ic_search_api_material = 2131230853;
+    public static final int abc_ic_star_black_16dp = 2131230854;
+    public static final int abc_ic_star_black_36dp = 2131230855;
+    public static final int abc_ic_star_black_48dp = 2131230856;
+    public static final int abc_ic_star_half_black_16dp = 2131230857;
+    public static final int abc_ic_star_half_black_36dp = 2131230858;
+    public static final int abc_ic_star_half_black_48dp = 2131230859;
+    public static final int abc_ic_voice_search_api_material = 2131230860;
+    public static final int abc_item_background_holo_dark = 2131230861;
+    public static final int abc_item_background_holo_light = 2131230862;
+    public static final int abc_list_divider_material = 2131230863;
+    public static final int abc_list_divider_mtrl_alpha = 2131230864;
+    public static final int abc_list_focused_holo = 2131230865;
+    public static final int abc_list_longpressed_holo = 2131230866;
+    public static final int abc_list_pressed_holo_dark = 2131230867;
+    public static final int abc_list_pressed_holo_light = 2131230868;
+    public static final int abc_list_selector_background_transition_holo_dark = 2131230869;
+    public static final int abc_list_selector_background_transition_holo_light = 2131230870;
+    public static final int abc_list_selector_disabled_holo_dark = 2131230871;
+    public static final int abc_list_selector_disabled_holo_light = 2131230872;
+    public static final int abc_list_selector_holo_dark = 2131230873;
+    public static final int abc_list_selector_holo_light = 2131230874;
+    public static final int abc_menu_hardkey_panel_mtrl_mult = 2131230875;
+    public static final int abc_popup_background_mtrl_mult = 2131230876;
+    public static final int abc_ratingbar_indicator_material = 2131230877;
+    public static final int abc_ratingbar_material = 2131230878;
+    public static final int abc_ratingbar_small_material = 2131230879;
+    public static final int abc_scrubber_control_off_mtrl_alpha = 2131230880;
+    public static final int abc_scrubber_control_to_pressed_mtrl_000 = 2131230881;
+    public static final int abc_scrubber_control_to_pressed_mtrl_005 = 2131230882;
+    public static final int abc_scrubber_primary_mtrl_alpha = 2131230883;
+    public static final int abc_scrubber_track_mtrl_alpha = 2131230884;
+    public static final int abc_seekbar_thumb_material = 2131230885;
+    public static final int abc_seekbar_tick_mark_material = 2131230886;
+    public static final int abc_seekbar_track_material = 2131230887;
+    public static final int abc_spinner_mtrl_am_alpha = 2131230888;
+    public static final int abc_spinner_textfield_background_material = 2131230889;
+    public static final int abc_switch_thumb_material = 2131230890;
+    public static final int abc_switch_track_mtrl_alpha = 2131230891;
+    public static final int abc_tab_indicator_material = 2131230892;
+    public static final int abc_tab_indicator_mtrl_alpha = 2131230893;
+    public static final int abc_text_cursor_material = 2131230894;
+    public static final int abc_text_select_handle_left_mtrl_dark = 2131230895;
+    public static final int abc_text_select_handle_left_mtrl_light = 2131230896;
+    public static final int abc_text_select_handle_middle_mtrl_dark = 2131230897;
+    public static final int abc_text_select_handle_middle_mtrl_light = 2131230898;
+    public static final int abc_text_select_handle_right_mtrl_dark = 2131230899;
+    public static final int abc_text_select_handle_right_mtrl_light = 2131230900;
+    public static final int abc_textfield_activated_mtrl_alpha = 2131230901;
+    public static final int abc_textfield_default_mtrl_alpha = 2131230902;
+    public static final int abc_textfield_search_activated_mtrl_alpha = 2131230903;
+    public static final int abc_textfield_search_default_mtrl_alpha = 2131230904;
+    public static final int abc_textfield_search_material = 2131230905;
+    public static final int abc_vector_test = 2131230906;
+    public static final int bd_bg_square_round_corner_blue = 2131231249;
+    public static final int bd_progress_bar_horizontal_blue = 2131231263;
+    public static final int ic_stat_bd_notif_download = 2131232543;
+    public static final int notification_action_background = 2131234207;
+    public static final int notification_bg = 2131234208;
+    public static final int notification_bg_low = 2131234209;
+    public static final int notification_bg_low_normal = 2131234210;
+    public static final int notification_bg_low_pressed = 2131234211;
+    public static final int notification_bg_normal = 2131234212;
+    public static final int notification_bg_normal_pressed = 2131234213;
+    public static final int notification_icon_background = 2131234214;
+    public static final int notification_template_icon_bg = 2131234215;
+    public static final int notification_template_icon_low_bg = 2131234216;
+    public static final int notification_tile_bg = 2131234217;
+    public static final int notify_panel_notification_icon_bg = 2131234219;
+    public static final int tooltip_frame_dark = 2131235169;
+    public static final int tooltip_frame_light = 2131235170;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: c.a.l0.a$a  reason: collision with other inner class name */
-    /* loaded from: classes.dex */
-    public interface InterfaceC0089a {
-        void onFinish(String str);
-    }
-
-    /* loaded from: classes.dex */
-    public class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f3658e;
-
-        /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ a f3659f;
-
-        public b(a aVar, Context context) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {aVar, context};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f3659f = aVar;
-            this.f3658e = context;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                try {
-                    this.f3659f.e(this.f3658e);
-                    c.a.l0.e.c.j().d(this.f3658e);
-                } catch (Throwable th) {
-                    c.a.l0.l.c.d(th);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes.dex */
-    public class c implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f3660e;
-
-        /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ long f3661f;
-
-        /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ InterfaceC0089a f3662g;
-
-        public c(a aVar, Context context, long j2, InterfaceC0089a interfaceC0089a) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {aVar, context, Long.valueOf(j2), interfaceC0089a};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f3660e = context;
-            this.f3661f = j2;
-            this.f3662g = interfaceC0089a;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                try {
-                    c.a.l0.e.c.j().e(this.f3660e, 0, null, this.f3661f, this.f3662g);
-                } catch (Throwable th) {
-                    c.a.l0.l.c.d(th);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes.dex */
-    public class d implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f3663e;
-
-        /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ long f3664f;
-
-        /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ InterfaceC0089a f3665g;
-
-        public d(a aVar, Context context, long j2, InterfaceC0089a interfaceC0089a) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {aVar, context, Long.valueOf(j2), interfaceC0089a};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f3663e = context;
-            this.f3664f = j2;
-            this.f3665g = interfaceC0089a;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                try {
-                    c.a.l0.e.c.j().f(this.f3663e, this.f3664f, this.f3665g);
-                } catch (Throwable th) {
-                    c.a.l0.l.c.d(th);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes.dex */
-    public class e implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f3666e;
-
-        /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ long f3667f;
-
-        /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ InterfaceC0089a f3668g;
-
-        public e(a aVar, Context context, long j2, InterfaceC0089a interfaceC0089a) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {aVar, context, Long.valueOf(j2), interfaceC0089a};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f3666e = context;
-            this.f3667f = j2;
-            this.f3668g = interfaceC0089a;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                try {
-                    c.a.l0.e.c.j().l(this.f3666e, this.f3667f, this.f3668g);
-                } catch (Throwable th) {
-                    c.a.l0.l.c.d(th);
-                }
-            }
-        }
-    }
-
-    public a() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    public static a c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f3655a == null) {
-                synchronized (a.class) {
-                    if (f3655a == null) {
-                        f3655a = new a();
-                    }
-                }
-            }
-            return f3655a;
-        }
-        return (a) invokeV.objValue;
-    }
-
-    public String b(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-            int intValue = ((Integer) k.d(context).second).intValue();
-            if (intValue == 1) {
-                return OneKeyLoginSdkCall.OPERATOR_CHINA_MOBILE;
-            }
-            if (intValue == 3) {
-                return OneKeyLoginSdkCall.OPERATOR_CHINA_TELECOM;
-            }
-            if (intValue == 2) {
-                return OneKeyLoginSdkCall.OPERATOR_CHINA_UNICOM;
-            }
-            return null;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public synchronized void d(Context context, String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str, str2) == null) {
-            synchronized (this) {
-                try {
-                    f3656b = str;
-                    f3657c = str2;
-                    c.a.l0.k.b.a().post(new b(this, context));
-                } catch (Throwable th) {
-                    c.a.l0.l.c.d(th);
-                }
-            }
-        }
-    }
-
-    public final void e(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
-            String l0 = c.a.l0.b.a.h(context).l0();
-            if (TextUtils.isEmpty(l0)) {
-                return;
-            }
-            String[] split = l0.split("_");
-            if (split.length != 2) {
-                c.a.l0.b.a.h(context).j();
-            }
-            f3656b = split[0];
-            f3657c = split[1];
-        }
-    }
-
-    public void f(Context context, long j2, InterfaceC0089a interfaceC0089a) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{context, Long.valueOf(j2), interfaceC0089a}) == null) {
-            try {
-                c.a.l0.k.b.a().post(new d(this, context, j2, interfaceC0089a));
-            } catch (Throwable th) {
-                c.a.l0.l.c.d(th);
-            }
-        }
-    }
-
-    public void g(Context context, long j2, InterfaceC0089a interfaceC0089a) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{context, Long.valueOf(j2), interfaceC0089a}) == null) {
-            try {
-                c.a.l0.k.b.a().post(new c(this, context, j2, interfaceC0089a));
-            } catch (Throwable th) {
-                c.a.l0.l.c.d(th);
-            }
-        }
-    }
-
-    public void h(Context context, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048581, this, context, z) == null) {
-            try {
-                c.a.l0.b.a.h(context).R(z);
-            } catch (Throwable th) {
-                c.a.l0.l.c.d(th);
-            }
-        }
-    }
-
-    public void i(Context context, long j2, InterfaceC0089a interfaceC0089a) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{context, Long.valueOf(j2), interfaceC0089a}) == null) {
-            try {
-                c.a.l0.k.b.a().post(new e(this, context, j2, interfaceC0089a));
-            } catch (Throwable th) {
-                c.a.l0.l.c.d(th);
-            }
-        }
-    }
 }

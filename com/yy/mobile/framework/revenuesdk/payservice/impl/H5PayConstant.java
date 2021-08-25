@@ -17,6 +17,7 @@ public class H5PayConstant {
     public static final String EXTRA_URL = "EXTRA_URL";
     public static final String EXTRA_USER_CHANNEL = "EXTRA_USER_CHANNEL";
     public static final int MockTestPageType = 3;
+    public static final int UnionPayPageType = 4;
     public static final int WalletLocalPageType = 1;
     public transient /* synthetic */ FieldHolder $fh;
 

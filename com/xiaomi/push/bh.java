@@ -17,7 +17,7 @@ public class bh {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Map<Class<?>, Class<?>> f77019a;
+    public static final Map<Class<?>, Class<?>> f77220a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes10.dex */
@@ -26,7 +26,7 @@ public class bh {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final Class<? extends T> f77020a;
+        public final Class<? extends T> f77221a;
 
         /* renamed from: a  reason: collision with other field name */
         public final T f156a;
@@ -46,37 +46,37 @@ public class bh {
             }
         }
         HashMap hashMap = new HashMap();
-        f77019a = hashMap;
+        f77220a = hashMap;
         hashMap.put(Boolean.class, Boolean.TYPE);
-        f77019a.put(Byte.class, Byte.TYPE);
-        f77019a.put(Character.class, Character.TYPE);
-        f77019a.put(Short.class, Short.TYPE);
-        f77019a.put(Integer.class, Integer.TYPE);
-        f77019a.put(Float.class, Float.TYPE);
-        f77019a.put(Long.class, Long.TYPE);
-        f77019a.put(Double.class, Double.TYPE);
-        Map<Class<?>, Class<?>> map = f77019a;
+        f77220a.put(Byte.class, Byte.TYPE);
+        f77220a.put(Character.class, Character.TYPE);
+        f77220a.put(Short.class, Short.TYPE);
+        f77220a.put(Integer.class, Integer.TYPE);
+        f77220a.put(Float.class, Float.TYPE);
+        f77220a.put(Long.class, Long.TYPE);
+        f77220a.put(Double.class, Double.TYPE);
+        Map<Class<?>, Class<?>> map = f77220a;
         Class<?> cls = Boolean.TYPE;
         map.put(cls, cls);
-        Map<Class<?>, Class<?>> map2 = f77019a;
+        Map<Class<?>, Class<?>> map2 = f77220a;
         Class<?> cls2 = Byte.TYPE;
         map2.put(cls2, cls2);
-        Map<Class<?>, Class<?>> map3 = f77019a;
+        Map<Class<?>, Class<?>> map3 = f77220a;
         Class<?> cls3 = Character.TYPE;
         map3.put(cls3, cls3);
-        Map<Class<?>, Class<?>> map4 = f77019a;
+        Map<Class<?>, Class<?>> map4 = f77220a;
         Class<?> cls4 = Short.TYPE;
         map4.put(cls4, cls4);
-        Map<Class<?>, Class<?>> map5 = f77019a;
+        Map<Class<?>, Class<?>> map5 = f77220a;
         Class<?> cls5 = Integer.TYPE;
         map5.put(cls5, cls5);
-        Map<Class<?>, Class<?>> map6 = f77019a;
+        Map<Class<?>, Class<?>> map6 = f77220a;
         Class<?> cls6 = Float.TYPE;
         map6.put(cls6, cls6);
-        Map<Class<?>, Class<?>> map7 = f77019a;
+        Map<Class<?>, Class<?>> map7 = f77220a;
         Class<?> cls7 = Long.TYPE;
         map7.put(cls7, cls7);
-        Map<Class<?>, Class<?>> map8 = f77019a;
+        Map<Class<?>, Class<?>> map8 = f77220a;
         Class<?> cls8 = Double.TYPE;
         map8.put(cls8, cls8);
     }
@@ -252,7 +252,7 @@ public class bh {
                 return false;
             } else {
                 for (int i2 = 0; i2 < clsArr.length; i2++) {
-                    if (clsArr2[i2] != null && !clsArr[i2].isAssignableFrom(clsArr2[i2]) && (!f77019a.containsKey(clsArr[i2]) || !f77019a.get(clsArr[i2]).equals(f77019a.get(clsArr2[i2])))) {
+                    if (clsArr2[i2] != null && !clsArr[i2].isAssignableFrom(clsArr2[i2]) && (!f77220a.containsKey(clsArr[i2]) || !f77220a.get(clsArr[i2]).equals(f77220a.get(clsArr2[i2])))) {
                         return false;
                     }
                 }
@@ -275,7 +275,7 @@ public class bh {
                 if (obj == null || !(obj instanceof a)) {
                     clsArr[i2] = obj == null ? null : obj.getClass();
                 } else {
-                    clsArr[i2] = ((a) obj).f77020a;
+                    clsArr[i2] = ((a) obj).f77221a;
                 }
             }
             return clsArr;

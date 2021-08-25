@@ -15,13 +15,13 @@ public class LaunchInfo {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f42874a;
+    public String f42981a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f42875b;
+    public String f42982b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f42876c;
+    public String f42983c;
 
     public LaunchInfo() {
         Interceptable interceptable = $ic;
@@ -81,13 +81,13 @@ public class LaunchInfo {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-            if (TextUtils.isEmpty(this.f42874a)) {
+            if (TextUtils.isEmpty(this.f42981a)) {
                 String packageName = context != null ? context.getPackageName() : "";
-                if (TextUtils.isEmpty(this.f42876c) || this.f42876c.equals(packageName)) {
+                if (TextUtils.isEmpty(this.f42983c) || this.f42983c.equals(packageName)) {
                     return 0;
                 }
                 String a2 = bj.a(context);
-                return !TextUtils.isEmpty(a2) ? !this.f42876c.equals(a2) ? 1 : 0 : !bj.a(context, this.f42876c) ? 1 : 0;
+                return !TextUtils.isEmpty(a2) ? !this.f42983c.equals(a2) ? 1 : 0 : !bj.a(context, this.f42983c) ? 1 : 0;
             }
             return 2;
         }
@@ -97,33 +97,33 @@ public class LaunchInfo {
     public String getPushContent() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? !TextUtils.isEmpty(this.f42875b) ? this.f42875b : "" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? !TextUtils.isEmpty(this.f42982b) ? this.f42982b : "" : (String) invokeV.objValue;
     }
 
     public String getPushLandingPage() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? !TextUtils.isEmpty(this.f42874a) ? this.f42874a : "" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? !TextUtils.isEmpty(this.f42981a) ? this.f42981a : "" : (String) invokeV.objValue;
     }
 
     public String getRefererPkgName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? !TextUtils.isEmpty(this.f42876c) ? this.f42876c : "" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? !TextUtils.isEmpty(this.f42983c) ? this.f42983c : "" : (String) invokeV.objValue;
     }
 
     public void setPushInfo(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, str, str2) == null) {
-            this.f42874a = str;
-            this.f42875b = bx.a(str2, 1024);
+            this.f42981a = str;
+            this.f42982b = bx.a(str2, 1024);
         }
     }
 
     public void setRefererPkgName(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.f42876c = str;
+            this.f42983c = str;
         }
     }
 }

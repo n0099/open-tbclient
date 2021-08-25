@@ -12,7 +12,7 @@ public class q implements h {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Queue<Object> f2114a;
+    public Queue<Object> f2172a;
 
     public q(Queue<Object> queue) {
         Interceptable interceptable = $ic;
@@ -29,13 +29,13 @@ public class q implements h {
                 return;
             }
         }
-        this.f2114a = queue;
+        this.f2172a = queue;
     }
 
     @Override // c.a.e.e.b.b.a.d.h
     public Object a(c.a.e.e.b.b.a.e.c cVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cVar)) == null) ? c.a.e.e.b.b.a.e.b.d(this.f2114a, cVar) : invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cVar)) == null) ? c.a.e.e.b.b.a.e.b.d(this.f2172a, cVar) : invokeL.objValue;
     }
 }

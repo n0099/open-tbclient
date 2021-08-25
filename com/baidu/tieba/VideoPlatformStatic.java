@@ -4,9 +4,9 @@ import android.os.Build;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import c.a.e.e.p.j;
-import c.a.p0.r3.e;
-import c.a.p0.y1.k;
-import c.a.p0.y1.l;
+import c.a.q0.r3.e;
+import c.a.q0.y1.k;
+import c.a.q0.y1.l;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -36,7 +36,7 @@ public class VideoPlatformStatic {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static CustomMessageListener f48852a;
+    public static CustomMessageListener f48960a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes6.dex */
@@ -70,7 +70,7 @@ public class VideoPlatformStatic {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
                 e.h().o();
-                c.a.p0.r3.b.d().k();
+                c.a.q0.r3.b.d().k();
             }
         }
     }
@@ -116,9 +116,9 @@ public class VideoPlatformStatic {
                 return;
             }
         }
-        f48852a = new a(2007015);
+        f48960a = new a(2007015);
         f();
-        MessageManager.getInstance().registerListener(f48852a);
+        MessageManager.getInstance().registerListener(f48960a);
         e();
     }
 

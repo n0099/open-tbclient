@@ -10,7 +10,6 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.core.NoProguard;
-import com.yy.hiidostatis.inner.util.cipher.RsaCipher;
 import java.security.InvalidKeyException;
 import java.security.KeyFactory;
 import java.security.KeyPair;
@@ -55,7 +54,7 @@ public class RsaUtils implements NoProguard {
                 return "";
             }
             try {
-                Cipher cipher = Cipher.getInstance(RsaCipher.RSA_PADDING);
+                Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
                 cipher.init(2, rSAPrivateKey);
                 return new String(cipher.doFinal(Base64.decode(str, 2)), "UTF-8");
             } catch (InvalidKeyException unused) {
@@ -82,7 +81,7 @@ public class RsaUtils implements NoProguard {
                 return "";
             }
             try {
-                Cipher cipher = Cipher.getInstance(RsaCipher.RSA_PADDING);
+                Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
                 cipher.init(1, rSAPublicKey);
                 return Base64.encodeToString(cipher.doFinal(str.getBytes("UTF-8")), 2);
             } catch (InvalidKeyException unused) {

@@ -32,7 +32,7 @@ public final class CompletableDoFinally extends Completable {
         public final CompletableObserver actual;
 
         /* renamed from: d  reason: collision with root package name */
-        public Disposable f78513d;
+        public Disposable f78714d;
         public final Action onFinally;
 
         public DoFinallyObserver(CompletableObserver completableObserver, Action action) {
@@ -58,7 +58,7 @@ public final class CompletableDoFinally extends Completable {
         public void dispose() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f78513d.dispose();
+                this.f78714d.dispose();
                 runFinally();
             }
         }
@@ -67,7 +67,7 @@ public final class CompletableDoFinally extends Completable {
         public boolean isDisposed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f78513d.isDisposed() : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f78714d.isDisposed() : invokeV.booleanValue;
         }
 
         @Override // io.reactivex.CompletableObserver, io.reactivex.MaybeObserver
@@ -91,8 +91,8 @@ public final class CompletableDoFinally extends Completable {
         @Override // io.reactivex.CompletableObserver
         public void onSubscribe(Disposable disposable) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048580, this, disposable) == null) && DisposableHelper.validate(this.f78513d, disposable)) {
-                this.f78513d = disposable;
+            if ((interceptable == null || interceptable.invokeL(1048580, this, disposable) == null) && DisposableHelper.validate(this.f78714d, disposable)) {
+                this.f78714d = disposable;
                 this.actual.onSubscribe(this);
             }
         }

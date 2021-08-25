@@ -41,35 +41,35 @@ public class BdActionBar extends RelativeLayout {
     public static final int TEXT_ALIGN_RIGHT = 2;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final float f59979a = 0.5f;
+    public static final float f60179a = 0.5f;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final float f59980b = 1.0f;
+    public static final float f60180b = 1.0f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f59981c;
+    public String f60181c;
 
     /* renamed from: d  reason: collision with root package name */
-    public View f59982d;
+    public View f60182d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ImageView f59983e;
+    public ImageView f60183e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f59984f;
+    public TextView f60184f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f59985g;
+    public TextView f60185g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f59986h;
+    public TextView f60186h;
 
     /* renamed from: i  reason: collision with root package name */
-    public View f59987i;
+    public View f60187i;
 
     /* renamed from: j  reason: collision with root package name */
-    public View f59988j;
+    public View f60188j;
     public NetImageView k;
     public View l;
     public NetImageView m;
@@ -106,7 +106,7 @@ public class BdActionBar extends RelativeLayout {
                 return;
             }
         }
-        this.f59981c = "";
+        this.f60181c = "";
         this.x = false;
         a();
     }
@@ -115,21 +115,21 @@ public class BdActionBar extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
             LayoutInflater.from(getContext()).inflate(ResUtils.layout(getContext(), getLayoutId()), this);
-            this.f59987i = findViewById(ResUtils.id(getContext(), "actionbar_statusbar_top"));
+            this.f60187i = findViewById(ResUtils.id(getContext(), "actionbar_statusbar_top"));
             setTop((Activity) null);
-            this.f59982d = findViewById(ResUtils.id(getContext(), "title"));
+            this.f60182d = findViewById(ResUtils.id(getContext(), "title"));
             this.mLeftImgZone2 = findViewById(ResUtils.id(getContext(), "title_left_imgzone2"));
-            this.f59983e = (ImageView) findViewById(ResUtils.id(getContext(), "title_left_imgzone2_img"));
-            this.f59985g = (TextView) findViewById(ResUtils.id(getContext(), "wallet_titlebar_left_imgzone2_close"));
+            this.f60183e = (ImageView) findViewById(ResUtils.id(getContext(), "title_left_imgzone2_img"));
+            this.f60185g = (TextView) findViewById(ResUtils.id(getContext(), "wallet_titlebar_left_imgzone2_close"));
             this.s = (ImageView) findViewById(ResUtils.id(getContext(), "bd_ab_ic_close"));
-            this.f59986h = (TextView) findViewById(ResUtils.id(getContext(), "title_left_imgzone2_notify"));
-            this.f59984f = (TextView) findViewById(ResUtils.id(getContext(), "title_left_imgzone2_notify"));
+            this.f60186h = (TextView) findViewById(ResUtils.id(getContext(), "title_left_imgzone2_notify"));
+            this.f60184f = (TextView) findViewById(ResUtils.id(getContext(), "title_left_imgzone2_notify"));
             this.mLeftImgZone2.setOnTouchListener(new View.OnTouchListener(this) { // from class: com.baidu.wallet.base.widget.BdActionBar.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ BdActionBar f59989a;
+                public final /* synthetic */ BdActionBar f60189a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -146,7 +146,7 @@ public class BdActionBar extends RelativeLayout {
                             return;
                         }
                     }
-                    this.f59989a = this;
+                    this.f60189a = this;
                 }
 
                 @Override // android.view.View.OnTouchListener
@@ -155,10 +155,10 @@ public class BdActionBar extends RelativeLayout {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, view, motionEvent)) == null) {
                         if (motionEvent.getAction() != 0 && motionEvent.getAction() != 2) {
-                            ViewHelper.setAlpha(this.f59989a.mLeftImgZone2, 1.0f);
+                            ViewHelper.setAlpha(this.f60189a.mLeftImgZone2, 1.0f);
                             return false;
                         }
-                        ViewHelper.setAlpha(this.f59989a.mLeftImgZone2, 0.5f);
+                        ViewHelper.setAlpha(this.f60189a.mLeftImgZone2, 0.5f);
                         return false;
                     }
                     return invokeLL.booleanValue;
@@ -171,7 +171,7 @@ public class BdActionBar extends RelativeLayout {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ BdActionBar f59990a;
+                public final /* synthetic */ BdActionBar f60190a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -188,7 +188,7 @@ public class BdActionBar extends RelativeLayout {
                             return;
                         }
                     }
-                    this.f59990a = this;
+                    this.f60190a = this;
                 }
 
                 @Override // android.view.View.OnTouchListener
@@ -197,10 +197,10 @@ public class BdActionBar extends RelativeLayout {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, view, motionEvent)) == null) {
                         if (motionEvent.getAction() != 0 && motionEvent.getAction() != 2) {
-                            ViewHelper.setAlpha(this.f59990a.mClose, 1.0f);
+                            ViewHelper.setAlpha(this.f60190a.mClose, 1.0f);
                             return false;
                         }
-                        ViewHelper.setAlpha(this.f59990a.mClose, 0.5f);
+                        ViewHelper.setAlpha(this.f60190a.mClose, 0.5f);
                         return false;
                     }
                     return invokeLL.booleanValue;
@@ -210,7 +210,7 @@ public class BdActionBar extends RelativeLayout {
             this.o = findViewById(ResUtils.id(getContext(), "title_center_safe_layout"));
             this.p = (TextView) findViewById(ResUtils.id(getContext(), "title_center_safe_tip"));
             this.q = (ImageView) findViewById(ResUtils.id(getContext(), "safe_icon"));
-            this.f59988j = findViewById(ResUtils.id(getContext(), "title_right_imgzone1"));
+            this.f60188j = findViewById(ResUtils.id(getContext(), "title_right_imgzone1"));
             this.k = (NetImageView) findViewById(ResUtils.id(getContext(), "title_right_imgzone2_img1"));
             this.l = findViewById(ResUtils.id(getContext(), "title_right_imgzone2"));
             this.m = (NetImageView) findViewById(ResUtils.id(getContext(), "title_right_imgzone2_img"));
@@ -218,8 +218,8 @@ public class BdActionBar extends RelativeLayout {
             this.t = findViewById(ResUtils.id(getContext(), "title_right_imgzone2_notify_zone"));
             this.u = (TextView) findViewById(ResUtils.id(getContext(), "title_right_imgzone2_notify1"));
             this.v = (ImageView) findViewById(ResUtils.id(getContext(), "title_right_imgzone2_notify_triangle"));
-            if (!TextUtils.isEmpty(this.f59981c)) {
-                setTitle(this.f59981c);
+            if (!TextUtils.isEmpty(this.f60181c)) {
+                setTitle(this.f60181c);
             }
             this.r = (ImageView) findViewById(ResUtils.id(getContext(), "title_bottom_seperator"));
         }
@@ -231,7 +231,7 @@ public class BdActionBar extends RelativeLayout {
         if (interceptable == null || (invokeI = interceptable.invokeI(AdIconUtil.BAIDU_LOGO_ID, this, i2)) == null) {
             if (i2 == 0 || 8 == i2) {
                 if (this.s.getVisibility() != i2) {
-                    a(this.f59985g);
+                    a(this.f60185g);
                 }
                 this.s.setVisibility(i2);
             }
@@ -243,7 +243,7 @@ public class BdActionBar extends RelativeLayout {
     public int getActionBarHeight() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f59982d.getHeight() - this.f59987i.getHeight() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f60182d.getHeight() - this.f60187i.getHeight() : invokeV.intValue;
     }
 
     public String getLayoutId() {
@@ -295,7 +295,7 @@ public class BdActionBar extends RelativeLayout {
     public View getRightZone1View() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f59988j : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f60188j : (View) invokeV.objValue;
     }
 
     public View getRightZoneView() {
@@ -307,19 +307,19 @@ public class BdActionBar extends RelativeLayout {
     public int getStatusBarHeight() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f59987i.getHeight() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f60187i.getHeight() : invokeV.intValue;
     }
 
     public String getTitle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f59981c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f60181c : (String) invokeV.objValue;
     }
 
     public int[] getTitleSizeRange() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? new int[]{DisplayUtils.dip2px(getContext(), 18.0f), Math.round(this.f59986h.getTextSize())} : (int[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? new int[]{DisplayUtils.dip2px(getContext(), 18.0f), Math.round(this.f60186h.getTextSize())} : (int[]) invokeV.objValue;
     }
 
     @RequiresApi(api = 11)
@@ -357,15 +357,15 @@ public class BdActionBar extends RelativeLayout {
     public void resetFullScreenTextColor() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
-            TextView textView = this.f59984f;
+            TextView textView = this.f60184f;
             if (textView != null) {
                 textView.setTextColor(ResUtils.getColor(getContext(), "wallet_base_click_text1_color_selector"));
             }
-            TextView textView2 = this.f59985g;
+            TextView textView2 = this.f60185g;
             if (textView2 != null) {
                 textView2.setTextColor(ResUtils.getColor(getContext(), "wallet_base_click_text1_color_selector"));
             }
-            TextView textView3 = this.f59986h;
+            TextView textView3 = this.f60186h;
             if (textView3 != null) {
                 textView3.setTextColor(ResUtils.getColor(getContext(), "wallet_base_click_text1_color_selector"));
             }
@@ -419,15 +419,15 @@ public class BdActionBar extends RelativeLayout {
     public void setFullScreenTextColor(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048597, this, i2) == null) {
-            TextView textView = this.f59984f;
+            TextView textView = this.f60184f;
             if (textView != null) {
                 textView.setTextColor(i2);
             }
-            TextView textView2 = this.f59985g;
+            TextView textView2 = this.f60185g;
             if (textView2 != null) {
                 textView2.setTextColor(i2);
             }
-            TextView textView3 = this.f59986h;
+            TextView textView3 = this.f60186h;
             if (textView3 != null) {
                 textView3.setTextColor(i2);
             }
@@ -477,7 +477,7 @@ public class BdActionBar extends RelativeLayout {
     public void setImgZoneBackgroundResource(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048599, this, i2) == null) {
-            this.f59988j.setBackgroundResource(i2);
+            this.f60188j.setBackgroundResource(i2);
             this.l.setBackgroundResource(i2);
         }
     }
@@ -485,26 +485,26 @@ public class BdActionBar extends RelativeLayout {
     public void setLeftImgZone2NotifyText(String str, float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLF(1048600, this, str, f2) == null) {
-            this.f59984f.setVisibility(8);
+            this.f60184f.setVisibility(8);
             if (f2 < 0.0f) {
                 return;
             }
-            this.f59984f.setText(str);
-            this.f59984f.setTextSize(1, f2);
+            this.f60184f.setText(str);
+            this.f60184f.setTextSize(1, f2);
         }
     }
 
     public void setLeftImgZone2NotifyTextColor(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048601, this, i2) == null) {
-            this.f59984f.setTextColor(i2);
+            this.f60184f.setTextColor(i2);
         }
     }
 
     public void setLeftImgZone2NotifyTextColorStateList(ColorStateList colorStateList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048602, this, colorStateList) == null) {
-            this.f59984f.setTextColor(colorStateList);
+            this.f60184f.setTextColor(colorStateList);
         }
     }
 
@@ -521,7 +521,7 @@ public class BdActionBar extends RelativeLayout {
             if (drawable != null) {
                 drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
             }
-            this.f59983e.setImageDrawable(drawable);
+            this.f60183e.setImageDrawable(drawable);
         }
     }
 
@@ -545,21 +545,21 @@ public class BdActionBar extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048608, this, z) == null) {
             this.k.setEnabled(z);
-            this.f59988j.setEnabled(z);
+            this.f60188j.setEnabled(z);
         }
     }
 
     public void setRightImgZone1OnClickListener(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048609, this, onClickListener) == null) {
-            this.f59988j.setOnClickListener(onClickListener);
+            this.f60188j.setOnClickListener(onClickListener);
         }
     }
 
     public void setRightImgZone1Src(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048610, this, i2) == null) {
-            this.f59988j.setVisibility(0);
+            this.f60188j.setVisibility(0);
             this.k.setVisibility(0);
             this.k.setImageResource(i2);
         }
@@ -568,7 +568,7 @@ public class BdActionBar extends RelativeLayout {
     public void setRightImgZone1Visibility(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048612, this, i2) == null) {
-            this.f59988j.setVisibility(i2);
+            this.f60188j.setVisibility(i2);
         }
     }
 
@@ -724,7 +724,7 @@ public class BdActionBar extends RelativeLayout {
     public void setTitle(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048635, this, str) == null) {
-            this.f59981c = str;
+            this.f60181c = str;
             this.mTitleCenterText.setText(str);
             setTitleSize(getTitleSizeRange()[0]);
         }
@@ -795,7 +795,7 @@ public class BdActionBar extends RelativeLayout {
     public void setTitlebgColor(int i2) {
         View view;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048643, this, i2) == null) || (view = this.f59982d) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048643, this, i2) == null) || (view = this.f60182d) == null) {
             return;
         }
         view.setBackgroundColor(i2);
@@ -812,8 +812,8 @@ public class BdActionBar extends RelativeLayout {
         if (activity == null) {
             return;
         }
-        this.f59987i.setLayoutParams(new RelativeLayout.LayoutParams(-1, StatusBarUtils.getStatusBarHeight(activity)));
-        ImmersiveStatusBarManager.setTopBar(activity, this.f59987i, true);
+        this.f60187i.setLayoutParams(new RelativeLayout.LayoutParams(-1, StatusBarUtils.getStatusBarHeight(activity)));
+        ImmersiveStatusBarManager.setTopBar(activity, this.f60187i, true);
     }
 
     public void setTopStatusWhite(boolean z) {
@@ -823,7 +823,7 @@ public class BdActionBar extends RelativeLayout {
             return;
         }
         Activity activity = getContext() instanceof Activity ? (Activity) getContext() : null;
-        if (activity == null || (view = this.f59987i) == null) {
+        if (activity == null || (view = this.f60187i) == null) {
             return;
         }
         ImmersiveStatusBarManager.setTopBar(activity, view, !z);
@@ -866,14 +866,14 @@ public class BdActionBar extends RelativeLayout {
             if (drawable != null) {
                 drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
             }
-            this.f59983e.setImageDrawable(drawable);
+            this.f60183e.setImageDrawable(drawable);
         }
     }
 
     public void setRightImgZone1Src(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048611, this, str) == null) {
-            this.f59988j.setVisibility(0);
+            this.f60188j.setVisibility(0);
             this.k.setVisibility(0);
             this.k.setImageUrl(str);
         }
@@ -905,7 +905,7 @@ public class BdActionBar extends RelativeLayout {
                 return;
             }
         }
-        this.f59981c = "";
+        this.f60181c = "";
         this.x = false;
         a();
     }
@@ -937,7 +937,7 @@ public class BdActionBar extends RelativeLayout {
                 return;
             }
         }
-        this.f59981c = "";
+        this.f60181c = "";
         this.x = false;
         a();
     }
@@ -947,7 +947,7 @@ public class BdActionBar extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(65539, this, i2)) == null) {
             if (i2 == 0 || 8 == i2) {
-                this.f59984f.setVisibility(8);
+                this.f60184f.setVisibility(8);
             }
             return this;
         }

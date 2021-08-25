@@ -32,31 +32,31 @@ public class DrawCardH5 extends FrameLayout implements View.OnClickListener {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f72491a;
+    public Context f72691a;
 
     /* renamed from: b  reason: collision with root package name */
-    public AdTemplate f72492b;
+    public AdTemplate f72692b;
 
     /* renamed from: c  reason: collision with root package name */
-    public a f72493c;
+    public a f72693c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f72494d;
+    public int f72694d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ImageView f72495e;
+    public ImageView f72695e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f72496f;
+    public TextView f72696f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f72497g;
+    public TextView f72697g;
 
     /* renamed from: h  reason: collision with root package name */
-    public KsLogoView f72498h;
+    public KsLogoView f72698h;
 
     /* renamed from: i  reason: collision with root package name */
-    public ValueAnimator f72499i;
+    public ValueAnimator f72699i;
 
     /* loaded from: classes10.dex */
     public interface a {
@@ -135,33 +135,33 @@ public class DrawCardH5 extends FrameLayout implements View.OnClickListener {
         if (interceptable == null || interceptable.invokeII(InputDeviceCompat.SOURCE_TRACKBALL, this, i2, i3) == null) {
             d();
             ValueAnimator a2 = at.a(this, i2, i3);
-            this.f72499i = a2;
+            this.f72699i = a2;
             a2.setInterpolator(new DecelerateInterpolator(2.0f));
-            this.f72499i.setDuration(300L);
-            this.f72499i.start();
+            this.f72699i.setDuration(300L);
+            this.f72699i.start();
         }
     }
 
     private void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, context) == null) {
-            this.f72491a = context;
+            this.f72691a = context;
             FrameLayout.inflate(context, R.layout.ksad_draw_card_h5, this);
-            this.f72495e = (ImageView) findViewById(R.id.ksad_card_close);
-            this.f72496f = (TextView) findViewById(R.id.ksad_card_ad_desc);
-            this.f72497g = (TextView) findViewById(R.id.ksad_card_h5_open_btn);
-            this.f72498h = (KsLogoView) findViewById(R.id.ksad_draw_h5_logo);
+            this.f72695e = (ImageView) findViewById(R.id.ksad_card_close);
+            this.f72696f = (TextView) findViewById(R.id.ksad_card_ad_desc);
+            this.f72697g = (TextView) findViewById(R.id.ksad_card_h5_open_btn);
+            this.f72698h = (KsLogoView) findViewById(R.id.ksad_draw_h5_logo);
         }
     }
 
     private void d() {
         ValueAnimator valueAnimator;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this) == null) || (valueAnimator = this.f72499i) == null) {
+        if (!(interceptable == null || interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this) == null) || (valueAnimator = this.f72699i) == null) {
             return;
         }
         valueAnimator.removeAllListeners();
-        this.f72499i.cancel();
+        this.f72699i.cancel();
     }
 
     public void a() {
@@ -174,31 +174,31 @@ public class DrawCardH5 extends FrameLayout implements View.OnClickListener {
     public void a(@NonNull AdTemplate adTemplate, a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, adTemplate, aVar) == null) {
-            this.f72492b = adTemplate;
+            this.f72692b = adTemplate;
             AdInfo i2 = c.i(adTemplate);
-            this.f72493c = aVar;
-            this.f72496f.setText(com.kwad.sdk.core.response.b.a.m(i2));
-            this.f72497g.setText(com.kwad.sdk.core.response.b.a.u(i2));
-            this.f72495e.setOnClickListener(this);
-            this.f72497g.setOnClickListener(this);
-            this.f72498h.a(adTemplate);
+            this.f72693c = aVar;
+            this.f72696f.setText(com.kwad.sdk.core.response.b.a.m(i2));
+            this.f72697g.setText(com.kwad.sdk.core.response.b.a.u(i2));
+            this.f72695e.setOnClickListener(this);
+            this.f72697g.setOnClickListener(this);
+            this.f72698h.a(adTemplate);
             setOnClickListener(this);
-            this.f72496f.measure(View.MeasureSpec.makeMeasureSpec((ap.k(this.f72491a) - (av.a(this.f72491a, 16.0f) * 2)) - (av.a(this.f72491a, 10.0f) * 2), Integer.MIN_VALUE), View.MeasureSpec.makeMeasureSpec(0, 0));
-            this.f72494d = av.a(this.f72491a, 100.0f) + this.f72496f.getMeasuredHeight();
+            this.f72696f.measure(View.MeasureSpec.makeMeasureSpec((ap.k(this.f72691a) - (av.a(this.f72691a, 16.0f) * 2)) - (av.a(this.f72691a, 10.0f) * 2), Integer.MIN_VALUE), View.MeasureSpec.makeMeasureSpec(0, 0));
+            this.f72694d = av.a(this.f72691a, 100.0f) + this.f72696f.getMeasuredHeight();
         }
     }
 
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            a(0, this.f72494d);
+            a(0, this.f72694d);
         }
     }
 
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            a(this.f72494d, 0);
+            a(this.f72694d, 0);
         }
     }
 
@@ -206,13 +206,13 @@ public class DrawCardH5 extends FrameLayout implements View.OnClickListener {
     public void onClick(View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, view) == null) {
-            if (view != this.f72495e) {
-                com.kwad.sdk.core.download.b.a.a(getContext(), this.f72492b, new a.InterfaceC1982a(this) { // from class: com.kwad.sdk.draw.view.playcard.DrawCardH5.1
+            if (view != this.f72695e) {
+                com.kwad.sdk.core.download.b.a.a(getContext(), this.f72692b, new a.InterfaceC1986a(this) { // from class: com.kwad.sdk.draw.view.playcard.DrawCardH5.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ DrawCardH5 f72500a;
+                    public final /* synthetic */ DrawCardH5 f72700a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -229,22 +229,22 @@ public class DrawCardH5 extends FrameLayout implements View.OnClickListener {
                                 return;
                             }
                         }
-                        this.f72500a = this;
+                        this.f72700a = this;
                     }
 
-                    @Override // com.kwad.sdk.core.download.b.a.InterfaceC1982a
+                    @Override // com.kwad.sdk.core.download.b.a.InterfaceC1986a
                     public void a() {
                         Interceptable interceptable2 = $ic;
-                        if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.f72500a.f72493c == null) {
+                        if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.f72700a.f72693c == null) {
                             return;
                         }
-                        this.f72500a.f72493c.b();
+                        this.f72700a.f72693c.b();
                     }
-                }, null, view == this.f72497g);
+                }, null, view == this.f72697g);
                 return;
             }
             c();
-            a aVar = this.f72493c;
+            a aVar = this.f72693c;
             if (aVar != null) {
                 aVar.a();
             }

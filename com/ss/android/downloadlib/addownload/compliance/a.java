@@ -29,39 +29,39 @@ public class a extends Dialog {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f75315e;
+    public TextView f75516e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f75316f;
+    public TextView f75517f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f75317g;
+    public TextView f75518g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f75318h;
+    public TextView f75519h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f75319i;
+    public TextView f75520i;
 
     /* renamed from: j  reason: collision with root package name */
-    public TextView f75320j;
+    public TextView f75521j;
     public ClipImageView k;
     public LinearLayout l;
     public Activity m;
     public final long n;
     public long o;
-    public final c.C1520c p;
+    public final c.C1524c p;
 
     /* renamed from: com.ss.android.downloadlib.addownload.compliance.a$a  reason: collision with other inner class name */
     /* loaded from: classes10.dex */
-    public class DialogInterface$OnCancelListenerC2046a implements DialogInterface.OnCancelListener {
+    public class DialogInterface$OnCancelListenerC2050a implements DialogInterface.OnCancelListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f75321e;
+        public final /* synthetic */ a f75522e;
 
-        public DialogInterface$OnCancelListenerC2046a(a aVar) {
+        public DialogInterface$OnCancelListenerC2050a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -76,14 +76,14 @@ public class a extends Dialog {
                     return;
                 }
             }
-            this.f75321e = aVar;
+            this.f75522e = aVar;
         }
 
         @Override // android.content.DialogInterface.OnCancelListener
         public void onCancel(DialogInterface dialogInterface) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
-                c.p.a.d.b.e.b.c("lp_app_dialog_cancel", this.f75321e.o);
+                c.p.a.d.b.e.b.c("lp_app_dialog_cancel", this.f75522e.o);
             }
         }
     }
@@ -94,7 +94,7 @@ public class a extends Dialog {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f75322a;
+        public final /* synthetic */ a f75523a;
 
         public b(a aVar) {
             Interceptable interceptable = $ic;
@@ -111,7 +111,7 @@ public class a extends Dialog {
                     return;
                 }
             }
-            this.f75322a = aVar;
+            this.f75523a = aVar;
         }
 
         @Override // com.ss.android.downloadlib.addownload.compliance.d.c
@@ -119,9 +119,9 @@ public class a extends Dialog {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, bitmap) == null) {
                 if (bitmap != null) {
-                    this.f75322a.k.setImageBitmap(bitmap);
+                    this.f75523a.k.setImageBitmap(bitmap);
                 } else {
-                    c.p.a.d.b.e.b.a(8, this.f75322a.o);
+                    c.p.a.d.b.e.b.a(8, this.f75523a.o);
                 }
             }
         }
@@ -133,7 +133,7 @@ public class a extends Dialog {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f75323e;
+        public final /* synthetic */ a f75524e;
 
         public c(a aVar) {
             Interceptable interceptable = $ic;
@@ -150,16 +150,16 @@ public class a extends Dialog {
                     return;
                 }
             }
-            this.f75323e = aVar;
+            this.f75524e = aVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                c.p.a.d.b.e.a.a().c(this.f75323e.m);
-                AppDetailInfoActivity.a(this.f75323e.m, this.f75323e.n);
-                c.p.a.d.b.e.b.c("lp_app_dialog_click_detail", this.f75323e.o);
+                c.p.a.d.b.e.a.a().c(this.f75524e.m);
+                AppDetailInfoActivity.a(this.f75524e.m, this.f75524e.n);
+                c.p.a.d.b.e.b.c("lp_app_dialog_click_detail", this.f75524e.o);
             }
         }
     }
@@ -170,7 +170,7 @@ public class a extends Dialog {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f75324e;
+        public final /* synthetic */ a f75525e;
 
         public d(a aVar) {
             Interceptable interceptable = $ic;
@@ -187,16 +187,16 @@ public class a extends Dialog {
                     return;
                 }
             }
-            this.f75324e = aVar;
+            this.f75525e = aVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                c.p.a.d.b.e.a.a().c(this.f75324e.m);
-                AppPrivacyPolicyActivity.a(this.f75324e.m, this.f75324e.n);
-                c.p.a.d.b.e.b.c("lp_app_dialog_click_privacy", this.f75324e.o);
+                c.p.a.d.b.e.a.a().c(this.f75525e.m);
+                AppPrivacyPolicyActivity.a(this.f75525e.m, this.f75525e.n);
+                c.p.a.d.b.e.b.c("lp_app_dialog_click_privacy", this.f75525e.o);
             }
         }
     }
@@ -207,7 +207,7 @@ public class a extends Dialog {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f75325e;
+        public final /* synthetic */ a f75526e;
 
         public e(a aVar) {
             Interceptable interceptable = $ic;
@@ -224,15 +224,15 @@ public class a extends Dialog {
                     return;
                 }
             }
-            this.f75325e = aVar;
+            this.f75526e = aVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f75325e.dismiss();
-                c.p.a.d.b.e.b.c("lp_app_dialog_click_giveup", this.f75325e.o);
+                this.f75526e.dismiss();
+                c.p.a.d.b.e.b.c("lp_app_dialog_click_giveup", this.f75526e.o);
             }
         }
     }
@@ -243,7 +243,7 @@ public class a extends Dialog {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f75326e;
+        public final /* synthetic */ a f75527e;
 
         public f(a aVar) {
             Interceptable interceptable = $ic;
@@ -260,16 +260,16 @@ public class a extends Dialog {
                     return;
                 }
             }
-            this.f75326e = aVar;
+            this.f75527e = aVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                c.p.a.d.b.e.b.c("lp_app_dialog_click_download", this.f75326e.o);
-                c.p.a.d.b.e.a.a().i(this.f75326e.o);
-                this.f75326e.dismiss();
+                c.p.a.d.b.e.b.c("lp_app_dialog_click_download", this.f75527e.o);
+                c.p.a.d.b.e.a.a().i(this.f75527e.o);
+                this.f75527e.dismiss();
             }
         }
     }
@@ -300,25 +300,25 @@ public class a extends Dialog {
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f75315e = (TextView) findViewById(R.id.tv_app_name);
-            this.f75316f = (TextView) findViewById(R.id.tv_app_version);
-            this.f75317g = (TextView) findViewById(R.id.tv_app_developer);
-            this.f75318h = (TextView) findViewById(R.id.tv_app_detail);
-            this.f75319i = (TextView) findViewById(R.id.tv_app_privacy);
-            this.f75320j = (TextView) findViewById(R.id.tv_give_up);
+            this.f75516e = (TextView) findViewById(R.id.tv_app_name);
+            this.f75517f = (TextView) findViewById(R.id.tv_app_version);
+            this.f75518g = (TextView) findViewById(R.id.tv_app_developer);
+            this.f75519h = (TextView) findViewById(R.id.tv_app_detail);
+            this.f75520i = (TextView) findViewById(R.id.tv_app_privacy);
+            this.f75521j = (TextView) findViewById(R.id.tv_give_up);
             this.k = (ClipImageView) findViewById(R.id.iv_app_icon);
             this.l = (LinearLayout) findViewById(R.id.ll_download);
-            this.f75315e.setText(h.r.m(this.p.f34387d, "--"));
-            TextView textView = this.f75316f;
-            textView.setText("版本号：" + h.r.m(this.p.f34388e, "--"));
-            TextView textView2 = this.f75317g;
-            textView2.setText("开发者：" + h.r.m(this.p.f34389f, "应用信息正在完善中"));
+            this.f75516e.setText(h.r.m(this.p.f34493d, "--"));
+            TextView textView = this.f75517f;
+            textView.setText("版本号：" + h.r.m(this.p.f34494e, "--"));
+            TextView textView2 = this.f75518g;
+            textView2.setText("开发者：" + h.r.m(this.p.f34495f, "应用信息正在完善中"));
             this.k.setRoundRadius(h.r.b(l.a(), 8.0f));
             this.k.setBackgroundColor(Color.parseColor("#EBEBEB"));
             com.ss.android.downloadlib.addownload.compliance.d.a().a(this.n, new b(this));
-            this.f75318h.setOnClickListener(new c(this));
-            this.f75319i.setOnClickListener(new d(this));
-            this.f75320j.setOnClickListener(new e(this));
+            this.f75519h.setOnClickListener(new c(this));
+            this.f75520i.setOnClickListener(new d(this));
+            this.f75521j.setOnClickListener(new e(this));
             this.l.setOnClickListener(new f(this));
         }
     }
@@ -349,10 +349,10 @@ public class a extends Dialog {
             }
             setCancelable(true);
             setCanceledOnTouchOutside(true);
-            this.o = this.p.f34385b;
+            this.o = this.p.f34491b;
             b();
             c.p.a.d.b.e.b.f("lp_app_dialog_show", this.o);
-            setOnCancelListener(new DialogInterface$OnCancelListenerC2046a(this));
+            setOnCancelListener(new DialogInterface$OnCancelListenerC2050a(this));
         }
     }
 }

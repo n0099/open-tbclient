@@ -16,11 +16,11 @@ public class c extends a {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f59944c = "c";
+    public static final String f60144c = "c";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f59945d;
+    public int f60145d;
 
     static {
         InterceptResult invokeClinit;
@@ -56,14 +56,14 @@ public class c extends a {
                 return;
             }
         }
-        this.f59945d = i2;
+        this.f60145d = i2;
     }
 
     @Override // com.baidu.wallet.base.nopassauth.a, com.baidu.wallet.base.nopassauth.b
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f59945d : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f60145d : invokeV.intValue;
     }
 
     @Override // com.baidu.wallet.base.nopassauth.a, com.baidu.wallet.base.nopassauth.b
@@ -81,7 +81,7 @@ public class c extends a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-            super.b(((Calendar.getInstance(TimeZone.getTimeZone("GMT")).getTimeInMillis() / 1000) - OtpTokenUtils.getmSyncWithServerTime(context)) / this.f59945d);
+            super.b(((Calendar.getInstance(TimeZone.getTimeZone("GMT")).getTimeInMillis() / 1000) - OtpTokenUtils.getmSyncWithServerTime(context)) / this.f60145d);
             return super.a(context);
         }
         return (String) invokeL.objValue;

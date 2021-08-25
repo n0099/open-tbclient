@@ -15,7 +15,7 @@ public class a extends OrientationEventListener {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f32125a;
+    public Context f32231a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a(Context context) {
@@ -35,14 +35,14 @@ public class a extends OrientationEventListener {
                 return;
             }
         }
-        this.f32125a = context;
+        this.f32231a = context;
     }
 
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             disable();
-            this.f32125a = null;
+            this.f32231a = null;
         }
     }
 
@@ -50,10 +50,10 @@ public class a extends OrientationEventListener {
     public void onOrientationChanged(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            Context context = this.f32125a;
+            Context context = this.f32231a;
             if (context instanceof Activity) {
                 if (Build.VERSION.SDK_INT != 26 || context.getApplicationInfo().targetSdkVersion <= 26) {
-                    ((Activity) this.f32125a).setRequestedOrientation(1);
+                    ((Activity) this.f32231a).setRequestedOrientation(1);
                 }
             }
         }

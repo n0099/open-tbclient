@@ -26,7 +26,7 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Object f67039a;
+    public static Object f67239a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -42,7 +42,7 @@ public class a {
                 return;
             }
         }
-        f67039a = new Object();
+        f67239a = new Object();
     }
 
     public static void a() {
@@ -151,7 +151,7 @@ public class a {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ v f67040a;
+                public final /* synthetic */ v f67240a;
 
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                 {
@@ -171,15 +171,15 @@ public class a {
                             return;
                         }
                     }
-                    this.f67040a = vVar;
+                    this.f67240a = vVar;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        synchronized (a.f67039a) {
-                            c.a().a(this.f67040a);
+                        synchronized (a.f67239a) {
+                            c.a().a(this.f67240a);
                         }
                     }
                 }

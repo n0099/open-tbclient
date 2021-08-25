@@ -23,22 +23,22 @@ public class d extends Dialog {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f75284e;
+    public TextView f75485e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f75285f;
+    public TextView f75486f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f75286g;
+    public TextView f75487g;
 
     /* renamed from: h  reason: collision with root package name */
-    public c.p.a.d.b.a.c f75287h;
+    public c.p.a.d.b.a.c f75488h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f75288i;
+    public boolean f75489i;
 
     /* renamed from: j  reason: collision with root package name */
-    public Activity f75289j;
+    public Activity f75490j;
     public String k;
     public String l;
     public String m;
@@ -49,7 +49,7 @@ public class d extends Dialog {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d f75290e;
+        public final /* synthetic */ d f75491e;
 
         public a(d dVar) {
             Interceptable interceptable = $ic;
@@ -66,14 +66,14 @@ public class d extends Dialog {
                     return;
                 }
             }
-            this.f75290e = dVar;
+            this.f75491e = dVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f75290e.e();
+                this.f75491e.e();
             }
         }
     }
@@ -84,7 +84,7 @@ public class d extends Dialog {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d f75291e;
+        public final /* synthetic */ d f75492e;
 
         public b(d dVar) {
             Interceptable interceptable = $ic;
@@ -101,14 +101,14 @@ public class d extends Dialog {
                     return;
                 }
             }
-            this.f75291e = dVar;
+            this.f75492e = dVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f75291e.f();
+                this.f75492e.f();
             }
         }
     }
@@ -119,22 +119,22 @@ public class d extends Dialog {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public Activity f75292a;
+        public Activity f75493a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f75293b;
+        public String f75494b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f75294c;
+        public String f75495c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f75295d;
+        public String f75496d;
 
         /* renamed from: e  reason: collision with root package name */
-        public boolean f75296e;
+        public boolean f75497e;
 
         /* renamed from: f  reason: collision with root package name */
-        public c.p.a.d.b.a.c f75297f;
+        public c.p.a.d.b.a.c f75498f;
 
         public c(Activity activity) {
             Interceptable interceptable = $ic;
@@ -151,14 +151,14 @@ public class d extends Dialog {
                     return;
                 }
             }
-            this.f75292a = activity;
+            this.f75493a = activity;
         }
 
         public c a(c.p.a.d.b.a.c cVar) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cVar)) == null) {
-                this.f75297f = cVar;
+                this.f75498f = cVar;
                 return this;
             }
             return (c) invokeL.objValue;
@@ -168,7 +168,7 @@ public class d extends Dialog {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-                this.f75293b = str;
+                this.f75494b = str;
                 return this;
             }
             return (c) invokeL.objValue;
@@ -178,7 +178,7 @@ public class d extends Dialog {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z)) == null) {
-                this.f75296e = z;
+                this.f75497e = z;
                 return this;
             }
             return (c) invokeZ.objValue;
@@ -187,14 +187,14 @@ public class d extends Dialog {
         public d d() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? new d(this.f75292a, this.f75293b, this.f75294c, this.f75295d, this.f75296e, this.f75297f) : (d) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? new d(this.f75493a, this.f75494b, this.f75495c, this.f75496d, this.f75497e, this.f75498f) : (d) invokeV.objValue;
         }
 
         public c e(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-                this.f75294c = str;
+                this.f75495c = str;
                 return this;
             }
             return (c) invokeL.objValue;
@@ -204,7 +204,7 @@ public class d extends Dialog {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-                this.f75295d = str;
+                this.f75496d = str;
                 return this;
             }
             return (c) invokeL.objValue;
@@ -230,8 +230,8 @@ public class d extends Dialog {
                 return;
             }
         }
-        this.f75289j = activity;
-        this.f75287h = cVar;
+        this.f75490j = activity;
+        this.f75488h = cVar;
         this.k = str;
         this.l = str2;
         this.m = str3;
@@ -248,21 +248,21 @@ public class d extends Dialog {
     public final void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            setContentView(LayoutInflater.from(this.f75289j.getApplicationContext()).inflate(a(), (ViewGroup) null));
-            this.f75284e = (TextView) findViewById(b());
-            this.f75285f = (TextView) findViewById(c());
-            this.f75286g = (TextView) findViewById(R.id.message_tv);
+            setContentView(LayoutInflater.from(this.f75490j.getApplicationContext()).inflate(a(), (ViewGroup) null));
+            this.f75485e = (TextView) findViewById(b());
+            this.f75486f = (TextView) findViewById(c());
+            this.f75487g = (TextView) findViewById(R.id.message_tv);
             if (!TextUtils.isEmpty(this.l)) {
-                this.f75284e.setText(this.l);
+                this.f75485e.setText(this.l);
             }
             if (!TextUtils.isEmpty(this.m)) {
-                this.f75285f.setText(this.m);
+                this.f75486f.setText(this.m);
             }
             if (!TextUtils.isEmpty(this.k)) {
-                this.f75286g.setText(this.k);
+                this.f75487g.setText(this.k);
             }
-            this.f75284e.setOnClickListener(new a(this));
-            this.f75285f.setOnClickListener(new b(this));
+            this.f75485e.setOnClickListener(new a(this));
+            this.f75486f.setOnClickListener(new b(this));
         }
     }
 
@@ -271,13 +271,13 @@ public class d extends Dialog {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.dismiss();
-            if (!this.f75289j.isFinishing()) {
-                this.f75289j.finish();
+            if (!this.f75490j.isFinishing()) {
+                this.f75490j.finish();
             }
-            if (this.f75288i) {
-                this.f75287h.a();
+            if (this.f75489i) {
+                this.f75488h.a();
             } else {
-                this.f75287h.b();
+                this.f75488h.b();
             }
         }
     }
@@ -298,7 +298,7 @@ public class d extends Dialog {
     public final void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.f75288i = true;
+            this.f75489i = true;
             dismiss();
         }
     }

@@ -33,38 +33,38 @@ public class LivenessXfordView extends FrameLayout {
     public static final String PROGRESS_PROPERTY = "progress";
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f40171a = 12;
+    public static final int f40278a = 12;
     public transient /* synthetic */ FieldHolder $fh;
     public AnimatorSet A;
     public float B;
     public float C;
 
     /* renamed from: b  reason: collision with root package name */
-    public float f40172b;
+    public float f40279b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Xfermode f40173c;
+    public Xfermode f40280c;
 
     /* renamed from: d  reason: collision with root package name */
-    public RectF f40174d;
+    public RectF f40281d;
 
     /* renamed from: e  reason: collision with root package name */
-    public RectF f40175e;
+    public RectF f40282e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f40176f;
+    public int f40283f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f40177g;
+    public int f40284g;
 
     /* renamed from: h  reason: collision with root package name */
-    public float f40178h;
+    public float f40285h;
 
     /* renamed from: i  reason: collision with root package name */
-    public float f40179i;
+    public float f40286i;
 
     /* renamed from: j  reason: collision with root package name */
-    public Handler f40180j;
+    public Handler f40287j;
     public Runnable k;
     public float l;
     public boolean m;
@@ -101,7 +101,7 @@ public class LivenessXfordView extends FrameLayout {
                 return;
             }
         }
-        this.f40172b = -90.0f;
+        this.f40279b = -90.0f;
         this.m = true;
         this.z = true;
         a();
@@ -136,19 +136,19 @@ public class LivenessXfordView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, canvas) == null) {
             super.onDraw(canvas);
-            RectF rectF = this.f40174d;
+            RectF rectF = this.f40281d;
             if (rectF == null || rectF.width() == 0.0f) {
                 return;
             }
             if (this.z) {
-                RectF rectF2 = this.f40175e;
+                RectF rectF2 = this.f40282e;
                 float f2 = rectF2.left;
                 float f3 = this.l;
                 canvas.drawRect(f2, f3, rectF2.right, f3 + rectF2.height(), this.u);
-                RectF rectF3 = this.f40175e;
+                RectF rectF3 = this.f40282e;
                 float f4 = rectF3.left;
                 float height = this.l + rectF3.height();
-                RectF rectF4 = this.f40175e;
+                RectF rectF4 = this.f40282e;
                 canvas.drawLine(f4, height, rectF4.right, this.l + rectF4.height(), this.v);
             }
             if (this.y) {
@@ -156,10 +156,10 @@ public class LivenessXfordView extends FrameLayout {
             }
             int saveLayer = canvas.saveLayer(0.0f, 0.0f, getWidth(), getHeight(), null, 31);
             canvas.drawRect(0.0f, 0.0f, getWidth(), getHeight(), this.q);
-            canvas.drawCircle(this.f40178h, this.f40179i, this.f40176f, this.w);
+            canvas.drawCircle(this.f40285h, this.f40286i, this.f40283f, this.w);
             canvas.restoreToCount(saveLayer);
-            canvas.drawCircle(this.f40178h, this.f40179i, this.f40177g, this.s);
-            canvas.drawArc(this.f40175e, this.f40172b, this.progress, false, this.r);
+            canvas.drawCircle(this.f40285h, this.f40286i, this.f40284g, this.s);
+            canvas.drawArc(this.f40282e, this.f40279b, this.progress, false, this.r);
             if (this.n != null) {
                 this.x.setColor(-16776961);
                 canvas.drawRect(this.n, this.x);
@@ -178,11 +178,11 @@ public class LivenessXfordView extends FrameLayout {
     public void release() {
         Handler handler;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (handler = this.f40180j) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (handler = this.f40287j) == null) {
             return;
         }
         handler.removeCallbacksAndMessages(null);
-        this.f40180j = null;
+        this.f40287j = null;
     }
 
     public void setFocusViewRect(Rect rect, Rect rect2) {
@@ -190,18 +190,18 @@ public class LivenessXfordView extends FrameLayout {
         if (!(interceptable == null || interceptable.invokeLL(1048581, this, rect, rect2) == null) || rect == null || rect2 == null) {
             return;
         }
-        this.f40174d = new RectF(rect);
+        this.f40281d = new RectF(rect);
         RectF rectF = new RectF(rect2);
-        this.f40175e = rectF;
+        this.f40282e = rectF;
         this.B = rectF.top - rectF.height();
-        RectF rectF2 = this.f40175e;
+        RectF rectF2 = this.f40282e;
         this.C = rectF2.bottom - rectF2.height();
         this.l = this.B;
-        RectF rectF3 = this.f40174d;
-        this.f40178h = (rectF3.left + rectF3.right) / 2.0f;
-        this.f40179i = (rectF3.top + rectF3.bottom) / 2.0f;
-        this.f40176f = rect.width() / 2;
-        this.f40177g = (rect.width() / 2) + ((rect2.width() - rect.width()) / 2);
+        RectF rectF3 = this.f40281d;
+        this.f40285h = (rectF3.left + rectF3.right) / 2.0f;
+        this.f40286i = (rectF3.top + rectF3.bottom) / 2.0f;
+        this.f40283f = rect.width() / 2;
+        this.f40284g = (rect.width() / 2) + ((rect2.width() - rect.width()) / 2);
         invalidate();
     }
 
@@ -213,7 +213,7 @@ public class LivenessXfordView extends FrameLayout {
                 this.l = this.B;
                 startAnimForCircleProgress();
             } else {
-                this.f40180j.removeCallbacksAndMessages(null);
+                this.f40287j.removeCallbacksAndMessages(null);
             }
             invalidate();
         }
@@ -238,8 +238,8 @@ public class LivenessXfordView extends FrameLayout {
     public void startAnimForCircleProgress() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            this.f40180j.removeCallbacksAndMessages(null);
-            this.f40180j.post(this.k);
+            this.f40287j.removeCallbacksAndMessages(null);
+            this.f40287j.post(this.k);
         }
     }
 
@@ -315,15 +315,15 @@ public class LivenessXfordView extends FrameLayout {
             paint8.setColor(0);
             this.r.setAntiAlias(true);
             PorterDuffXfermode porterDuffXfermode = new PorterDuffXfermode(PorterDuff.Mode.CLEAR);
-            this.f40173c = porterDuffXfermode;
+            this.f40280c = porterDuffXfermode;
             this.w.setXfermode(porterDuffXfermode);
-            this.f40180j = new Handler(Looper.getMainLooper());
+            this.f40287j = new Handler(Looper.getMainLooper());
             this.k = new Runnable(this) { // from class: com.baidu.fsg.face.liveness.view.LivenessXfordView.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ LivenessXfordView f40181a;
+                public final /* synthetic */ LivenessXfordView f40288a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -340,31 +340,31 @@ public class LivenessXfordView extends FrameLayout {
                             return;
                         }
                     }
-                    this.f40181a = this;
+                    this.f40288a = this;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        if (this.f40181a.f40174d == null) {
-                            this.f40181a.f40180j.postDelayed(this.f40181a.k, 6L);
+                        if (this.f40288a.f40281d == null) {
+                            this.f40288a.f40287j.postDelayed(this.f40288a.k, 6L);
                             return;
                         }
-                        LivenessXfordView livenessXfordView = this.f40181a;
-                        livenessXfordView.l = livenessXfordView.m ? this.f40181a.l + 3.0f : this.f40181a.l - 3.0f;
-                        if (this.f40181a.l <= this.f40181a.B) {
-                            LivenessXfordView livenessXfordView2 = this.f40181a;
+                        LivenessXfordView livenessXfordView = this.f40288a;
+                        livenessXfordView.l = livenessXfordView.m ? this.f40288a.l + 3.0f : this.f40288a.l - 3.0f;
+                        if (this.f40288a.l <= this.f40288a.B) {
+                            LivenessXfordView livenessXfordView2 = this.f40288a;
                             livenessXfordView2.l = livenessXfordView2.B;
-                            this.f40181a.m = true;
+                            this.f40288a.m = true;
                         }
-                        if (this.f40181a.l >= this.f40181a.C) {
-                            LivenessXfordView livenessXfordView3 = this.f40181a;
+                        if (this.f40288a.l >= this.f40288a.C) {
+                            LivenessXfordView livenessXfordView3 = this.f40288a;
                             livenessXfordView3.l = livenessXfordView3.C;
-                            this.f40181a.m = false;
+                            this.f40288a.m = false;
                         }
-                        this.f40181a.f40180j.postDelayed(this.f40181a.k, 6L);
-                        this.f40181a.invalidate();
+                        this.f40288a.f40287j.postDelayed(this.f40288a.k, 6L);
+                        this.f40288a.invalidate();
                     }
                 }
             };
@@ -391,7 +391,7 @@ public class LivenessXfordView extends FrameLayout {
                 return;
             }
         }
-        this.f40172b = -90.0f;
+        this.f40279b = -90.0f;
         this.m = true;
         this.z = true;
         a();

@@ -1,11 +1,11 @@
 package com.baidu.tieba.ala.alasquare.live_tab.message;
 
 import c.a.e.e.p.k;
-import c.a.p0.v.d.c.e.a;
-import c.a.p0.v.d.c.e.d;
-import c.a.p0.v.d.c.e.g;
-import c.a.p0.v.d.c.e.h;
-import c.a.p0.v.d.c.e.j;
+import c.a.q0.v.d.c.e.a;
+import c.a.q0.v.d.c.e.d;
+import c.a.q0.v.d.c.e.g;
+import c.a.q0.v.d.c.e.h;
+import c.a.q0.v.d.c.e.j;
 import com.baidu.ala.AlaCmdConfigHttp;
 import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;

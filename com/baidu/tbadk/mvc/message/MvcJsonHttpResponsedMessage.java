@@ -3,9 +3,9 @@ package com.baidu.tbadk.mvc.message;
 import android.text.TextUtils;
 import c.a.e.e.d.l;
 import c.a.e.e.j.a.e;
-import c.a.o0.i0.b.d;
-import c.a.o0.i0.b.h;
-import c.a.o0.s.r.a;
+import c.a.p0.i0.b.d;
+import c.a.p0.i0.b.h;
+import c.a.p0.s.r.a;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -104,7 +104,6 @@ public class MvcJsonHttpResponsedMessage<D extends h> extends MvcHttpResponsedMe
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.ResponsedMessage
     public void afterDispatchInBackGround(int i2, byte[] bArr) {
-        l<String> h2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, bArr) == null) {
             super.afterDispatchInBackGround(i2, (int) bArr);
@@ -119,13 +118,18 @@ public class MvcJsonHttpResponsedMessage<D extends h> extends MvcHttpResponsedMe
                         return;
                     }
                     if (dVar.l()) {
-                        l<byte[]> e2 = a.f().e(v, currentAccount);
+                        a.f();
+                        l<byte[]> e2 = a.e(v, currentAccount);
                         if (e2 == null) {
                             return;
                         }
                         e2.g(cacheKey, bArr);
-                    } else if (!(mvcHttpMessage.getRequestData() instanceof c.a.o0.i0.b.e) || (h2 = a.f().h(v, currentAccount)) == null) {
-                    } else {
+                    } else if (mvcHttpMessage.getRequestData() instanceof c.a.p0.i0.b.e) {
+                        a.f();
+                        l<String> h2 = a.h(v, currentAccount);
+                        if (h2 == null) {
+                            return;
+                        }
                         try {
                             h2.g(cacheKey, new String(bArr, "UTF-8"));
                         } catch (UnsupportedEncodingException e3) {

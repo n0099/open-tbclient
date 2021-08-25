@@ -7,8 +7,8 @@ import android.widget.LinearLayout;
 import androidx.core.view.InputDeviceCompat;
 import c.a.e.e.m.e;
 import c.a.e.e.m.h;
-import c.a.o0.b.d;
-import c.a.o0.s.l.a;
+import c.a.p0.b.d;
+import c.a.p0.s.l.a;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
@@ -34,16 +34,16 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 /* loaded from: classes7.dex */
-public class LoginDialogActivity extends SuspendedActivity implements c.a.o0.v0.a {
+public class LoginDialogActivity extends SuspendedActivity implements c.a.p0.v0.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ViewGroup contentView;
-    public c.a.p0.g2.c.a dialogControl;
+    public c.a.q0.g2.c.a dialogControl;
     public String dialogType;
     public String locate;
     public ILoginListener loginListener;
     public BdAsyncTask<?, ?, ?> mAccountLoginTask;
-    public final a.InterfaceC0678a mReLoginCallback;
+    public final a.InterfaceC0689a mReLoginCallback;
     public String operator;
     public String phoneNum;
     public String searchUrl;
@@ -51,12 +51,12 @@ public class LoginDialogActivity extends SuspendedActivity implements c.a.o0.v0.
     public String sign;
 
     /* loaded from: classes7.dex */
-    public class a implements a.InterfaceC0678a {
+    public class a implements a.InterfaceC0689a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ LoginDialogActivity f54520a;
+        public final /* synthetic */ LoginDialogActivity f54685a;
 
         public a(LoginDialogActivity loginDialogActivity) {
             Interceptable interceptable = $ic;
@@ -73,32 +73,32 @@ public class LoginDialogActivity extends SuspendedActivity implements c.a.o0.v0.
                     return;
                 }
             }
-            this.f54520a = loginDialogActivity;
+            this.f54685a = loginDialogActivity;
         }
 
-        @Override // c.a.o0.s.l.a.InterfaceC0678a
+        @Override // c.a.p0.s.l.a.InterfaceC0689a
         public void a(String str, int i2, String str2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLIL(1048576, this, str, i2, str2) == null) {
-                this.f54520a.closeLoadingDialog();
-                this.f54520a.showToast(str2);
+                this.f54685a.closeLoadingDialog();
+                this.f54685a.showToast(str2);
             }
         }
 
-        @Override // c.a.o0.s.l.a.InterfaceC0678a
+        @Override // c.a.p0.s.l.a.InterfaceC0689a
         public void b(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-                this.f54520a.showLoading();
+                this.f54685a.showLoading();
             }
         }
 
-        @Override // c.a.o0.s.l.a.InterfaceC0678a
+        @Override // c.a.p0.s.l.a.InterfaceC0689a
         public void c(AccountData accountData) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, accountData) == null) {
-                this.f54520a.closeLoadingDialog();
-                this.f54520a.onLoginSuccess(accountData);
+                this.f54685a.closeLoadingDialog();
+                this.f54685a.onLoginSuccess(accountData);
             }
         }
     }
@@ -109,7 +109,7 @@ public class LoginDialogActivity extends SuspendedActivity implements c.a.o0.v0.
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ LoginDialogActivity f54521e;
+        public final /* synthetic */ LoginDialogActivity f54686e;
 
         public b(LoginDialogActivity loginDialogActivity) {
             Interceptable interceptable = $ic;
@@ -126,16 +126,16 @@ public class LoginDialogActivity extends SuspendedActivity implements c.a.o0.v0.
                     return;
                 }
             }
-            this.f54521e = loginDialogActivity;
+            this.f54686e = loginDialogActivity;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || StringUtils.isNull(this.f54521e.searchUrl)) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || StringUtils.isNull(this.f54686e.searchUrl)) {
                 return;
             }
-            UrlManager.getInstance().dealOneLinkWithOutJumpWebView(this.f54521e.getPageContext(), new String[]{this.f54521e.searchUrl});
+            UrlManager.getInstance().dealOneLinkWithOutJumpWebView(this.f54686e.getPageContext(), new String[]{this.f54686e.searchUrl});
         }
     }
 
@@ -145,10 +145,10 @@ public class LoginDialogActivity extends SuspendedActivity implements c.a.o0.v0.
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AccountData f54522e;
+        public final /* synthetic */ AccountData f54687e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ LoginDialogActivity f54523f;
+        public final /* synthetic */ LoginDialogActivity f54688f;
 
         public c(LoginDialogActivity loginDialogActivity, AccountData accountData) {
             Interceptable interceptable = $ic;
@@ -165,16 +165,16 @@ public class LoginDialogActivity extends SuspendedActivity implements c.a.o0.v0.
                     return;
                 }
             }
-            this.f54523f = loginDialogActivity;
-            this.f54522e = accountData;
+            this.f54688f = loginDialogActivity;
+            this.f54687e = accountData;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                c.a.o0.s.l.c.g(this.f54522e);
-                c.a.o0.s.z.a.a("account", -1L, 0, "login_activity_save_account_to_db", 0, "", new Object[0]);
+                c.a.p0.s.l.c.g(this.f54687e);
+                c.a.p0.s.z.a.a("account", -1L, 0, "login_activity_save_account_to_db", 0, "", new Object[0]);
             }
         }
     }
@@ -224,11 +224,11 @@ public class LoginDialogActivity extends SuspendedActivity implements c.a.o0.v0.
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, accountData) == null) {
             saveAccountInfo(accountData);
-            c.a.o0.s.z.a.a("account", -1L, 0, "login_pass_cslogin_goMainTab", 0, "", new Object[0]);
+            c.a.p0.s.z.a.a("account", -1L, 0, "login_pass_cslogin_goMainTab", 0, "", new Object[0]);
             TbadkCoreApplication.getInst().onUserChanged(getIntent());
             finishForResult(-1);
             if (d.f()) {
-                c.a.o0.a.d.y().r();
+                c.a.p0.a.d.y().r();
             }
             continueDoSearchProcess();
         }
@@ -238,9 +238,9 @@ public class LoginDialogActivity extends SuspendedActivity implements c.a.o0.v0.
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, this, accountData) == null) {
             h.a().c(new c(this, accountData));
-            c.a.o0.s.z.a.a("account", -1L, 0, "login_activity_save_account_to_application", 0, "", new Object[0]);
+            c.a.p0.s.z.a.a("account", -1L, 0, "login_activity_save_account_to_application", 0, "", new Object[0]);
             TbadkCoreApplication.setCurrentAccount(accountData, getPageContext().getPageActivity());
-            c.a.o0.m.a.f(TbadkCoreApplication.getInst());
+            c.a.p0.m.a.g(TbadkCoreApplication.getInst());
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921024, Boolean.TRUE));
         }
     }
@@ -280,12 +280,12 @@ public class LoginDialogActivity extends SuspendedActivity implements c.a.o0.v0.
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.loginListener : (ILoginListener) invokeV.objValue;
     }
 
-    @Override // c.a.o0.v0.a
+    @Override // c.a.p0.v0.a
     public Intent getResultIntent() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            c.a.p0.g2.c.a aVar = this.dialogControl;
+            c.a.q0.g2.c.a aVar = this.dialogControl;
             if (aVar != null) {
                 return aVar.getResultIntent();
             }
@@ -295,7 +295,7 @@ public class LoginDialogActivity extends SuspendedActivity implements c.a.o0.v0.
     }
 
     @Override // com.baidu.tbadk.suspended.SuspendedActivity
-    public c.a.o0.v0.a getSuspendedContentView(LinearLayout linearLayout, NavigationBar navigationBar) {
+    public c.a.p0.v0.a getSuspendedContentView(LinearLayout linearLayout, NavigationBar navigationBar) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, linearLayout, navigationBar)) == null) {
@@ -307,17 +307,17 @@ public class LoginDialogActivity extends SuspendedActivity implements c.a.o0.v0.
             }
             initData();
             if (TextUtils.isEmpty(this.shareModelJSONStr)) {
-                this.dialogControl = new c.a.p0.g2.c.b(this.phoneNum, this.operator, this.sign);
+                this.dialogControl = new c.a.q0.g2.c.b(this.phoneNum, this.operator, this.sign);
             } else {
-                this.dialogControl = new c.a.p0.g2.c.c(this.shareModelJSONStr);
+                this.dialogControl = new c.a.q0.g2.c.c(this.shareModelJSONStr);
             }
             this.dialogControl.a(this, linearLayout);
             return this;
         }
-        return (c.a.o0.v0.a) invokeLL.objValue;
+        return (c.a.p0.v0.a) invokeLL.objValue;
     }
 
-    @Override // c.a.o0.v0.a
+    @Override // c.a.p0.v0.a
     public boolean isOnViewCancel() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -327,7 +327,7 @@ public class LoginDialogActivity extends SuspendedActivity implements c.a.o0.v0.
         return invokeV.booleanValue;
     }
 
-    @Override // c.a.o0.v0.a
+    @Override // c.a.p0.v0.a
     public boolean isOnViewTop() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -345,12 +345,12 @@ public class LoginDialogActivity extends SuspendedActivity implements c.a.o0.v0.
         }
     }
 
-    @Override // c.a.o0.v0.a
+    @Override // c.a.p0.v0.a
     public void onViewChangeSkinType(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
             this.contentView.setBackgroundResource(R.color.transparent);
-            c.a.p0.g2.c.a aVar = this.dialogControl;
+            c.a.q0.g2.c.a aVar = this.dialogControl;
             if (aVar != null) {
                 aVar.onViewChangeSkinType(i2);
             }
@@ -384,7 +384,7 @@ public class LoginDialogActivity extends SuspendedActivity implements c.a.o0.v0.
                 if (bdAsyncTask != null) {
                     bdAsyncTask.cancel();
                 }
-                this.mAccountLoginTask = c.a.o0.s.l.a.b().a(session.username, session.bduss, "", null, this.mReLoginCallback);
+                this.mAccountLoginTask = c.a.p0.s.l.a.b().a(session.username, session.bduss, "", null, this.mReLoginCallback);
                 return;
             }
             closeLoadingDialog();

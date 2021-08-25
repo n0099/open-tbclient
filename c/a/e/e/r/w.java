@@ -10,7 +10,7 @@ public class w extends r {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public byte[] f2642a;
+    public byte[] f2700a;
 
     public w(byte[] bArr) {
         Interceptable interceptable = $ic;
@@ -27,6 +27,6 @@ public class w extends r {
                 return;
             }
         }
-        this.f2642a = bArr;
+        this.f2700a = bArr;
     }
 }

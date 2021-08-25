@@ -210,35 +210,35 @@ public class CyberPlayerManager {
     public static final int VIDEO_SCALING_MODE_SCALE_TO_FIT_WITH_CROPPING = 2;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f38723a = false;
+    public static boolean f38830a = false;
     public static int appID = -1;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f38724b;
+    public static boolean f38831b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static OnDeleteListener f38725c;
+    public static OnDeleteListener f38832c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static OnUpdateDiskQuotaComplete f38726d;
+    public static OnUpdateDiskQuotaComplete f38833d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static OnVideoFlowListener f38727e;
+    public static OnVideoFlowListener f38834e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static HttpDNS2 f38728f;
+    public static HttpDNS2 f38835f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static GetNetHandleListener f38729g;
+    public static GetNetHandleListener f38836g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final Object f38730h;
+    public static final Object f38837h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final Object f38731i;
+    public static final Object f38838i;
 
     /* renamed from: j  reason: collision with root package name */
-    public static Context f38732j;
+    public static Context f38839j;
     public static String k;
     public static int l;
     public static String m;
@@ -356,8 +356,8 @@ public class CyberPlayerManager {
                 return;
             }
         }
-        f38730h = new Object();
-        f38731i = new Object();
+        f38837h = new Object();
+        f38838i = new Object();
         p = new HashMap();
         PlayerPolicyManager.getInstance().register(new CyberPlayerConfig());
     }
@@ -453,15 +453,15 @@ public class CyberPlayerManager {
     public static void deleteVideoCache(OnDeleteListener onDeleteListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65552, null, onDeleteListener) == null) {
-            if (f38723a) {
+            if (f38830a) {
                 if (onDeleteListener != null) {
                     onDeleteListener.onDeleteComplete(-2, 0L);
                     return;
                 }
                 return;
             }
-            f38723a = true;
-            f38725c = onDeleteListener;
+            f38830a = true;
+            f38832c = onDeleteListener;
             CyberTaskExcutor.getInstance().executeSingleThread(new Runnable() { // from class: com.baidu.cyberplayer.sdk.CyberPlayerManager.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -484,17 +484,17 @@ public class CyberPlayerManager {
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        synchronized (CyberPlayerManager.f38730h) {
+                        synchronized (CyberPlayerManager.f38837h) {
                             long a2 = o.a(Boolean.TRUE);
-                            if (CyberPlayerManager.f38725c != null) {
+                            if (CyberPlayerManager.f38832c != null) {
                                 if (a2 < 0) {
-                                    CyberPlayerManager.f38725c.onDeleteComplete((int) a2, 0L);
+                                    CyberPlayerManager.f38832c.onDeleteComplete((int) a2, 0L);
                                 } else {
-                                    CyberPlayerManager.f38725c.onDeleteComplete(0, a2);
+                                    CyberPlayerManager.f38832c.onDeleteComplete(0, a2);
                                 }
                             }
-                            boolean unused = CyberPlayerManager.f38723a = false;
-                            OnDeleteListener unused2 = CyberPlayerManager.f38725c = null;
+                            boolean unused = CyberPlayerManager.f38830a = false;
+                            OnDeleteListener unused2 = CyberPlayerManager.f38832c = null;
                         }
                     }
                 }
@@ -523,7 +523,7 @@ public class CyberPlayerManager {
     public static Context getApplicationContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65556, null)) == null) ? f38732j : (Context) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65556, null)) == null) ? f38839j : (Context) invokeV.objValue;
     }
 
     public static String getClientID() {
@@ -552,7 +552,7 @@ public class CyberPlayerManager {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65560, null, str)) == null) {
-            HttpDNS2 httpDNS2 = f38728f;
+            HttpDNS2 httpDNS2 = f38835f;
             if (httpDNS2 == null) {
                 return null;
             }
@@ -576,7 +576,7 @@ public class CyberPlayerManager {
     public static GetNetHandleListener getNetHandleListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65563, null)) == null) ? f38729g : (GetNetHandleListener) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65563, null)) == null) ? f38836g : (GetNetHandleListener) invokeV.objValue;
     }
 
     public static int getNetworkStatus() {
@@ -650,7 +650,7 @@ public class CyberPlayerManager {
                     if (TextUtils.isEmpty(str)) {
                         throw new NullPointerException("clienID is null");
                     }
-                    f38732j = context.getApplicationContext();
+                    f38839j = context.getApplicationContext();
                     k = str;
                     l |= i2;
                     o = cls;
@@ -682,21 +682,21 @@ public class CyberPlayerManager {
     public static void onDiskUsageLevelChangedCallback(int i2, int i3, OnUpdateDiskQuotaComplete onUpdateDiskQuotaComplete) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIL(65575, null, i2, i3, onUpdateDiskQuotaComplete) == null) {
-            if (f38724b) {
+            if (f38831b) {
                 if (onUpdateDiskQuotaComplete != null) {
                     onUpdateDiskQuotaComplete.notifyCompletion();
                     return;
                 }
                 return;
             }
-            f38724b = true;
-            f38726d = onUpdateDiskQuotaComplete;
+            f38831b = true;
+            f38833d = onUpdateDiskQuotaComplete;
             CyberTaskExcutor.getInstance().executeSingleThread(new Runnable(i3) { // from class: com.baidu.cyberplayer.sdk.CyberPlayerManager.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ int f38733a;
+                public final /* synthetic */ int f38840a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -713,20 +713,20 @@ public class CyberPlayerManager {
                             return;
                         }
                     }
-                    this.f38733a = i3;
+                    this.f38840a = i3;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        synchronized (CyberPlayerManager.f38731i) {
-                            o.a(CyberPlayerManager.b(this.f38733a));
-                            if (CyberPlayerManager.f38726d != null) {
-                                CyberPlayerManager.f38726d.notifyCompletion();
+                        synchronized (CyberPlayerManager.f38838i) {
+                            o.a(CyberPlayerManager.b(this.f38840a));
+                            if (CyberPlayerManager.f38833d != null) {
+                                CyberPlayerManager.f38833d.notifyCompletion();
                             }
-                            boolean unused = CyberPlayerManager.f38724b = false;
-                            OnUpdateDiskQuotaComplete unused2 = CyberPlayerManager.f38726d = null;
+                            boolean unused = CyberPlayerManager.f38831b = false;
+                            OnUpdateDiskQuotaComplete unused2 = CyberPlayerManager.f38833d = null;
                         }
                     }
                 }
@@ -745,9 +745,9 @@ public class CyberPlayerManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65577, null, list) == null) {
             CyberLog.d("CyberPlayer", "preResolveHosts hosts: " + list);
-            if (f38728f != null) {
+            if (f38835f != null) {
                 for (String str : list) {
-                    f38728f.getIpList2(str, false);
+                    f38835f.getIpList2(str, false);
                 }
             }
         }
@@ -826,21 +826,21 @@ public class CyberPlayerManager {
     public static void setCollectVideoFlow(OnVideoFlowListener onVideoFlowListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65586, null, onVideoFlowListener) == null) {
-            f38727e = onVideoFlowListener;
+            f38834e = onVideoFlowListener;
         }
     }
 
     public static void setHttpDNS2(HttpDNS2 httpDNS2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65587, null, httpDNS2) == null) {
-            f38728f = httpDNS2;
+            f38835f = httpDNS2;
         }
     }
 
     public static void setNetHandleListener(GetNetHandleListener getNetHandleListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65588, null, getNetHandleListener) == null) {
-            f38729g = getNetHandleListener;
+            f38836g = getNetHandleListener;
         }
     }
 
@@ -854,7 +854,7 @@ public class CyberPlayerManager {
     public static void videoFlowCallback(HashMap<String, String> hashMap) {
         OnVideoFlowListener onVideoFlowListener;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65590, null, hashMap) == null) || (onVideoFlowListener = f38727e) == null) {
+        if (!(interceptable == null || interceptable.invokeL(65590, null, hashMap) == null) || (onVideoFlowListener = f38834e) == null) {
             return;
         }
         onVideoFlowListener.onRecordFlow(hashMap);

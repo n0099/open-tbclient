@@ -21,19 +21,19 @@ public class GDTApkManager {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public DFA f74761a;
+    public DFA f74962a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f74762b;
+    public boolean f74963b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f74763c;
+    public boolean f74964c;
 
     /* renamed from: d  reason: collision with root package name */
-    public AtomicInteger f74764d;
+    public AtomicInteger f74965d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f74765e;
+    public Context f74966e;
 
     public GDTApkManager(Context context, IGDTApkListener iGDTApkListener) {
         String str;
@@ -51,24 +51,24 @@ public class GDTApkManager {
                 return;
             }
         }
-        this.f74762b = false;
-        this.f74763c = false;
-        this.f74764d = new AtomicInteger(0);
+        this.f74963b = false;
+        this.f74964c = false;
+        this.f74965d = new AtomicInteger(0);
         if (GDTADManager.getInstance().isInitialized()) {
             if (TextUtils.isEmpty(GDTADManager.getInstance().getAppStatus().getAPPID()) || context == null) {
                 str = "初始化错误：GDTApkManager 构造失败，Context和appID不能为空";
             } else if (a.a(context)) {
-                this.f74762b = true;
-                this.f74765e = context;
+                this.f74963b = true;
+                this.f74966e = context;
                 GDTADManager.INIT_EXECUTOR.execute(new Runnable(this, iGDTApkListener) { // from class: com.qq.e.ads.dfa.GDTApkManager.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ IGDTApkListener f74766a;
+                    public final /* synthetic */ IGDTApkListener f74967a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ GDTApkManager f74767b;
+                    public final /* synthetic */ GDTApkManager f74968b;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -85,8 +85,8 @@ public class GDTApkManager {
                                 return;
                             }
                         }
-                        this.f74767b = this;
-                        this.f74766a = iGDTApkListener;
+                        this.f74968b = this;
+                        this.f74967a = iGDTApkListener;
                     }
 
                     @Override // java.lang.Runnable
@@ -99,10 +99,10 @@ public class GDTApkManager {
                                     public transient /* synthetic */ FieldHolder $fh;
 
                                     /* renamed from: a  reason: collision with root package name */
-                                    public /* synthetic */ POFactory f74768a;
+                                    public /* synthetic */ POFactory f74969a;
 
                                     /* renamed from: b  reason: collision with root package name */
-                                    public /* synthetic */ AnonymousClass1 f74769b;
+                                    public /* synthetic */ AnonymousClass1 f74970b;
 
                                     {
                                         Interceptable interceptable3 = $ic;
@@ -119,8 +119,8 @@ public class GDTApkManager {
                                                 return;
                                             }
                                         }
-                                        this.f74769b = this;
-                                        this.f74768a = r7;
+                                        this.f74970b = this;
+                                        this.f74969a = r7;
                                     }
 
                                     /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[IGET, IGET, INVOKE, MOVE_EXCEPTION, CONST_STR, INVOKE, IGET, IGET, INVOKE, MOVE_EXCEPTION] complete} */
@@ -129,11 +129,11 @@ public class GDTApkManager {
                                         Interceptable interceptable3 = $ic;
                                         if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
                                             try {
-                                                if (this.f74768a != null) {
-                                                    this.f74769b.f74767b.f74761a = GDTADManager.getInstance().getPM().getPOFactory().getGDTApkDelegate(this.f74769b.f74766a);
-                                                    this.f74769b.f74767b.f74763c = true;
-                                                    while (this.f74769b.f74767b.f74764d.getAndDecrement() > 0) {
-                                                        this.f74769b.f74767b.loadGDTApk();
+                                                if (this.f74969a != null) {
+                                                    this.f74970b.f74968b.f74962a = GDTADManager.getInstance().getPM().getPOFactory().getGDTApkDelegate(this.f74970b.f74967a);
+                                                    this.f74970b.f74968b.f74964c = true;
+                                                    while (this.f74970b.f74968b.f74965d.getAndDecrement() > 0) {
+                                                        this.f74970b.f74968b.loadGDTApk();
                                                     }
                                                 }
                                             } finally {
@@ -160,12 +160,12 @@ public class GDTApkManager {
 
     public final void loadGDTApk() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f74762b) {
-            if (!this.f74763c) {
-                this.f74764d.incrementAndGet();
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f74963b) {
+            if (!this.f74964c) {
+                this.f74965d.incrementAndGet();
                 return;
             }
-            DFA dfa = this.f74761a;
+            DFA dfa = this.f74962a;
             if (dfa != null) {
                 dfa.loadGDTApk();
             } else {
@@ -177,9 +177,9 @@ public class GDTApkManager {
     public final void startInstall(GDTApk gDTApk) {
         DFA dfa;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, gDTApk) == null) || (dfa = this.f74761a) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, gDTApk) == null) || (dfa = this.f74962a) == null) {
             return;
         }
-        dfa.startInstall(this.f74765e, gDTApk);
+        dfa.startInstall(this.f74966e, gDTApk);
     }
 }

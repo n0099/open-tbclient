@@ -13,7 +13,6 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.base.widget.banner.BannerFocusImageViewGroup;
-import com.bytedance.sdk.openadsdk.TTAdConstant;
 import com.yy.gslbsdk.DnsResultInfo;
 import com.yy.gslbsdk.cache.DataCacheMgr;
 import com.yy.gslbsdk.cache.ExternalCache;
@@ -583,7 +582,7 @@ public class DnsResolveFlow {
                                         this.val$rsInfo.httpErrMsg = requestHttpDnsV2[1];
                                     } else {
                                         StatisticInfo statisticInfo3 = this.val$rsInfo;
-                                        statisticInfo3.httpErrCode = BannerFocusImageViewGroup.f60295f;
+                                        statisticInfo3.httpErrCode = BannerFocusImageViewGroup.f60495f;
                                         statisticInfo3.httpErrMsg = "result is null";
                                     }
                                     if (this.val$requestFailedCount.decrementAndGet() == 0) {
@@ -684,7 +683,7 @@ public class DnsResolveFlow {
                             if (IpVersionController.getInstance().getHttpDNSFromCache(GlobalTools.APP_CONTEXT, networkInfo, this.val$host, dnsInfo) == 0) {
                                 requestProtocol.setUip(dnsInfo.getUip());
                             }
-                            requestProtocol.setEndTime(System.currentTimeMillis() + TTAdConstant.AD_MAX_EVENT_TIME);
+                            requestProtocol.setEndTime(System.currentTimeMillis() + 600000);
                             IpVersionController.getInstance().putLocalDNSIntoCache(requestProtocol);
                             return;
                         }

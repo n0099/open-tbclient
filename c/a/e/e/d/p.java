@@ -16,7 +16,7 @@ public class p {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final c.a.e.a.k.b f2180a;
+    public final c.a.e.a.k.b f2238a;
 
     public p(Context context, c.a.e.a.k.b bVar) {
         Interceptable interceptable = $ic;
@@ -33,7 +33,7 @@ public class p {
                 return;
             }
         }
-        this.f2180a = bVar;
+        this.f2238a = bVar;
     }
 
     public void a(h hVar) {
@@ -41,19 +41,19 @@ public class p {
         if (interceptable == null || interceptable.invokeL(1048576, this, hVar) == null) {
             try {
                 ContentValues contentValues = new ContentValues();
-                contentValues.put("nameSpace", hVar.f2154a);
-                contentValues.put("tableName", hVar.f2155b);
-                contentValues.put("maxSize", Integer.valueOf(hVar.f2156c));
-                contentValues.put("cacheVersion", Integer.valueOf(hVar.f2158e));
-                contentValues.put("cacheType", hVar.f2157d);
-                contentValues.put("lastActiveTime", Long.valueOf(hVar.f2159f));
-                SQLiteDatabase f2 = this.f2180a.f();
-                if (f2 == null || f2.update("cache_meta_info", contentValues, "nameSpace = ?", new String[]{hVar.f2154a}) != 0) {
+                contentValues.put("nameSpace", hVar.f2212a);
+                contentValues.put("tableName", hVar.f2213b);
+                contentValues.put("maxSize", Integer.valueOf(hVar.f2214c));
+                contentValues.put("cacheVersion", Integer.valueOf(hVar.f2216e));
+                contentValues.put("cacheType", hVar.f2215d);
+                contentValues.put("lastActiveTime", Long.valueOf(hVar.f2217f));
+                SQLiteDatabase f2 = this.f2238a.f();
+                if (f2 == null || f2.update("cache_meta_info", contentValues, "nameSpace = ?", new String[]{hVar.f2212a}) != 0) {
                     return;
                 }
                 f2.insert("cache_meta_info", null, contentValues);
             } catch (Throwable th) {
-                this.f2180a.i(th, "addOrUpdate");
+                this.f2238a.i(th, "addOrUpdate");
             }
         }
     }
@@ -66,9 +66,9 @@ public class p {
                 if (c(str) == null) {
                     return 0;
                 }
-                return this.f2180a.f().delete("cache_meta_info", "nameSpace = ?", new String[]{str});
+                return this.f2238a.f().delete("cache_meta_info", "nameSpace = ?", new String[]{str});
             } catch (Throwable th) {
-                this.f2180a.i(th, "delete");
+                this.f2238a.i(th, "delete");
                 return 0;
             }
         }
@@ -81,7 +81,7 @@ public class p {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
             try {
-                cursor = this.f2180a.f().rawQuery("SELECT nameSpace, tableName, maxSize, cacheType, cacheVersion, lastActiveTime FROM cache_meta_info where nameSpace = ?", new String[]{str});
+                cursor = this.f2238a.f().rawQuery("SELECT nameSpace, tableName, maxSize, cacheType, cacheVersion, lastActiveTime FROM cache_meta_info where nameSpace = ?", new String[]{str});
             } catch (Throwable th) {
                 th = th;
                 cursor = null;
@@ -89,18 +89,18 @@ public class p {
             try {
                 if (cursor.moveToNext()) {
                     h hVar = new h();
-                    hVar.f2154a = cursor.getString(0);
-                    hVar.f2155b = cursor.getString(1);
-                    hVar.f2156c = cursor.getInt(2);
-                    hVar.f2157d = cursor.getString(3);
-                    hVar.f2158e = cursor.getInt(4);
-                    hVar.f2159f = cursor.getLong(5);
+                    hVar.f2212a = cursor.getString(0);
+                    hVar.f2213b = cursor.getString(1);
+                    hVar.f2214c = cursor.getInt(2);
+                    hVar.f2215d = cursor.getString(3);
+                    hVar.f2216e = cursor.getInt(4);
+                    hVar.f2217f = cursor.getLong(5);
                     return hVar;
                 }
             } catch (Throwable th2) {
                 th = th2;
                 try {
-                    this.f2180a.i(th, "get");
+                    this.f2238a.i(th, "get");
                     return null;
                 } finally {
                     c.a.e.e.m.a.a(cursor);

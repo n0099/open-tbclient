@@ -22,7 +22,7 @@ public class a {
 
     /* renamed from: com.baidu.ar.face.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class C1626a {
+    public class C1630a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String pN;
@@ -34,7 +34,7 @@ public class a {
         public String pT;
         public final /* synthetic */ a pU;
 
-        public C1626a(a aVar) {
+        public C1630a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -67,9 +67,9 @@ public class a {
         public String qa;
         public String qb;
         public String qc;
-        public C1626a qd;
-        public C1626a qe;
-        public C1626a qf;
+        public C1630a qd;
+        public C1630a qe;
+        public C1630a qf;
         public int qg;
 
         public b(a aVar) {
@@ -193,51 +193,51 @@ public class a {
         return (b) invokeLL.objValue;
     }
 
-    private C1626a f(JSONObject jSONObject) {
+    private C1630a f(JSONObject jSONObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, jSONObject)) == null) {
-            C1626a c1626a = new C1626a(this);
+            C1630a c1630a = new C1630a(this);
             try {
                 String string = jSONObject.getString("track_param_0");
-                c1626a.pN = string;
+                c1630a.pN = string;
                 if (TextUtils.isEmpty(string)) {
-                    c1626a.pN = "";
+                    c1630a.pN = "";
                 } else {
-                    c1626a.pN = this.pL + c1626a.pN;
+                    c1630a.pN = this.pL + c1630a.pN;
                 }
                 String string2 = jSONObject.getString("track_param_1");
-                c1626a.pO = string2;
+                c1630a.pO = string2;
                 if (TextUtils.isEmpty(string2)) {
-                    c1626a.pO = "";
+                    c1630a.pO = "";
                 } else {
-                    c1626a.pO = this.pL + c1626a.pO;
+                    c1630a.pO = this.pL + c1630a.pO;
                 }
                 String string3 = jSONObject.getString("track_param_2");
-                c1626a.pP = string3;
+                c1630a.pP = string3;
                 if (TextUtils.isEmpty(string3)) {
-                    c1626a.pP = "";
+                    c1630a.pP = "";
                 } else {
-                    c1626a.pP = this.pL + c1626a.pP;
+                    c1630a.pP = this.pL + c1630a.pP;
                 }
                 String string4 = jSONObject.getString("track_param_3");
-                c1626a.pQ = string4;
+                c1630a.pQ = string4;
                 if (TextUtils.isEmpty(string4)) {
-                    c1626a.pQ = "";
+                    c1630a.pQ = "";
                 } else {
-                    c1626a.pQ = this.pL + c1626a.pQ;
+                    c1630a.pQ = this.pL + c1630a.pQ;
                 }
-                c1626a.pR = jSONObject.getString("trackingSmoothAlpha");
-                c1626a.pS = jSONObject.getString("trackingSmoothThreshold");
-                c1626a.pT = jSONObject.getString("trackingMouthThreshold");
-                return c1626a;
+                c1630a.pR = jSONObject.getString("trackingSmoothAlpha");
+                c1630a.pS = jSONObject.getString("trackingSmoothThreshold");
+                c1630a.pT = jSONObject.getString("trackingMouthThreshold");
+                return c1630a;
             } catch (JSONException e2) {
                 com.baidu.ar.h.b.b("FaceModelConfig", "parse DeviceModel error");
                 e2.printStackTrace();
                 return null;
             }
         }
-        return (C1626a) invokeL.objValue;
+        return (C1630a) invokeL.objValue;
     }
 
     public b a(String str, JSONObject jSONObject) {

@@ -1,6 +1,6 @@
 package com.baidu.tieba.barselect.model;
 
-import c.a.p0.x.b.a;
+import c.a.q0.x.b.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.websockt.TbSocketReponsedMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -54,7 +54,7 @@ public class CandidateSearchSocketResMsg extends TbSocketReponsedMessage {
             if (getOrginalMessage() == null || !(getOrginalMessage().getExtra() instanceof CandidateSearchReqMsg)) {
                 return;
             }
-            this.candidateData.f28186a = ((CandidateSearchReqMsg) getOrginalMessage().getExtra()).fid;
+            this.candidateData.f28525a = ((CandidateSearchReqMsg) getOrginalMessage().getExtra()).fid;
         }
     }
 }

@@ -22,13 +22,13 @@ public class MistView extends FrameLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Paint f69271e;
+    public final Paint f69471e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f69272f;
+    public int f69472f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final Rect f69273g;
+    public final Rect f69473g;
 
     static {
         InterceptResult invokeClinit;
@@ -65,15 +65,15 @@ public class MistView extends FrameLayout {
                 return;
             }
         }
-        this.f69273g = new Rect();
-        this.f69271e = new Paint();
-        this.f69272f = MASK_COLOR_DEFAULT_TRANSPARENT;
+        this.f69473g = new Rect();
+        this.f69471e = new Paint();
+        this.f69472f = MASK_COLOR_DEFAULT_TRANSPARENT;
     }
 
     public Rect getFocusFrame() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f69273g : (Rect) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f69473g : (Rect) invokeV.objValue;
     }
 
     @Override // android.view.View
@@ -83,18 +83,18 @@ public class MistView extends FrameLayout {
             super.onDraw(canvas);
             int width = canvas.getWidth();
             int height = canvas.getHeight();
-            this.f69271e.setColor(this.f69272f);
-            if (this.f69273g.width() == 0) {
+            this.f69471e.setColor(this.f69472f);
+            if (this.f69473g.width() == 0) {
                 return;
             }
             float f2 = width;
-            canvas.drawRect(0.0f, 0.0f, f2, this.f69273g.top, this.f69271e);
-            Rect rect = this.f69273g;
-            canvas.drawRect(0.0f, rect.top, rect.left, rect.bottom, this.f69271e);
-            Rect rect2 = this.f69273g;
-            canvas.drawRect(rect2.right, rect2.top, f2, rect2.bottom, this.f69271e);
-            canvas.drawRect(0.0f, this.f69273g.bottom, f2, height, this.f69271e);
-            Rect rect3 = this.f69273g;
+            canvas.drawRect(0.0f, 0.0f, f2, this.f69473g.top, this.f69471e);
+            Rect rect = this.f69473g;
+            canvas.drawRect(0.0f, rect.top, rect.left, rect.bottom, this.f69471e);
+            Rect rect2 = this.f69473g;
+            canvas.drawRect(rect2.right, rect2.top, f2, rect2.bottom, this.f69471e);
+            canvas.drawRect(0.0f, this.f69473g.bottom, f2, height, this.f69471e);
+            Rect rect3 = this.f69473g;
             postInvalidateDelayed(100L, rect3.left, rect3.top, rect3.right, rect3.bottom);
         }
     }
@@ -102,7 +102,7 @@ public class MistView extends FrameLayout {
     public void setMistColor(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            this.f69272f = i2;
+            this.f69472f = i2;
             postInvalidate();
         }
     }

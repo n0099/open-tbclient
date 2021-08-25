@@ -74,14 +74,14 @@ public abstract class Striped64 extends Number {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final Unsafe f69986b;
+        public static final Unsafe f70186b;
 
         /* renamed from: c  reason: collision with root package name */
-        public static final long f69987c;
+        public static final long f70187c;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public volatile long f69988a;
+        public volatile long f70188a;
 
         static {
             InterceptResult invokeClinit;
@@ -98,8 +98,8 @@ public abstract class Striped64 extends Number {
             }
             try {
                 Unsafe unsafe = Striped64.getUnsafe();
-                f69986b = unsafe;
-                f69987c = unsafe.objectFieldOffset(b.class.getDeclaredField("a"));
+                f70186b = unsafe;
+                f70187c = unsafe.objectFieldOffset(b.class.getDeclaredField("a"));
             } catch (Exception e2) {
                 throw new Error(e2);
             }
@@ -120,13 +120,13 @@ public abstract class Striped64 extends Number {
                     return;
                 }
             }
-            this.f69988a = j2;
+            this.f70188a = j2;
         }
 
         public final boolean a(long j2, long j3) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)})) == null) ? f69986b.compareAndSwapLong(this, f69987c, j2, j3) : invokeCommon.booleanValue;
+            return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)})) == null) ? f70186b.compareAndSwapLong(this, f70187c, j2, j3) : invokeCommon.booleanValue;
         }
     }
 
@@ -209,7 +209,7 @@ public abstract class Striped64 extends Number {
             if (bVarArr != null) {
                 for (b bVar : bVarArr) {
                     if (bVar != null) {
-                        bVar.f69988a = j2;
+                        bVar.f70188a = j2;
                     }
                 }
             }
@@ -276,7 +276,7 @@ public abstract class Striped64 extends Number {
                     }
                     z4 = false;
                 } else if (z5) {
-                    long j3 = bVar.f69988a;
+                    long j3 = bVar.f70188a;
                     if (bVar.a(j3, fn(j3, j2))) {
                         return;
                     }

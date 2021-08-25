@@ -2,10 +2,10 @@ package com.baidu.ugc.editvideo.record.processor;
 
 import android.graphics.Bitmap;
 import android.opengl.GLES20;
-import c.a.v0.t.h;
-import c.a.v0.t.u;
-import c.a.z.b.a.e;
-import c.a.z.b.a.k.c;
+import c.a.a0.b.a.e;
+import c.a.a0.b.a.k.c;
+import c.a.w0.t.h;
+import c.a.w0.t.u;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.minivideo.arface.utils.ThreadPool;
 import com.baidu.minivideo.effect.core.vlogedit.MediaTrack;

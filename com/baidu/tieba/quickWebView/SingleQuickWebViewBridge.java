@@ -2,7 +2,7 @@ package com.baidu.tieba.quickWebView;
 
 import android.content.Context;
 import android.webkit.JsPromptResult;
-import c.a.p0.v2.a;
+import c.a.q0.v2.a;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.tbadk.browser.CommonTbJsBridge;
 import com.baidu.tieba.quickWebView.data.QuickWebViewBridgeData;
@@ -40,7 +40,7 @@ public class SingleQuickWebViewBridge extends CommonTbJsBridge {
         this.mProxy = aVar;
     }
 
-    @Override // com.baidu.tbadk.browser.CommonTbJsBridge, c.a.p0.i3.l0.b
+    @Override // com.baidu.tbadk.browser.CommonTbJsBridge, c.a.q0.i3.m0.b
     public boolean dealJsInterface(String str, String str2, String str3, JsPromptResult jsPromptResult) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;

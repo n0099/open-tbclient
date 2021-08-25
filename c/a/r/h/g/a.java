@@ -21,36 +21,36 @@ public class a extends c.a.r.h.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d  reason: collision with root package name */
-    public a.C1372a f29402d;
+    public a.C1379a f29684d;
 
     /* renamed from: e  reason: collision with root package name */
-    public C1381a f29403e;
+    public C1388a f29685e;
 
     /* renamed from: c.a.r.h.g.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C1381a {
+    public class C1388a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public long f29404a;
+        public long f29686a;
 
         /* renamed from: b  reason: collision with root package name */
-        public boolean f29405b;
+        public boolean f29687b;
 
         /* renamed from: c  reason: collision with root package name */
-        public e f29406c;
+        public e f29688c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f29407d;
+        public String f29689d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f29408e;
+        public String f29690e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ a f29409f;
+        public final /* synthetic */ a f29691f;
 
-        public C1381a(a aVar) {
+        public C1388a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -65,53 +65,53 @@ public class a extends c.a.r.h.a {
                     return;
                 }
             }
-            this.f29409f = aVar;
-            this.f29405b = true;
-            this.f29406c = new e();
+            this.f29691f = aVar;
+            this.f29687b = true;
+            this.f29688c = new e();
         }
 
         public String a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f29407d : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f29689d : (String) invokeV.objValue;
         }
 
         public void b(String str) {
             String str2;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || (str2 = this.f29407d) == str) {
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || (str2 = this.f29689d) == str) {
                 return;
             }
             if (str == null || !str.equals(str2)) {
-                this.f29407d = str;
-                this.f29405b = true;
+                this.f29689d = str;
+                this.f29687b = true;
             }
         }
 
         public String c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f29408e : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f29690e : (String) invokeV.objValue;
         }
 
         public void d(long j2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeJ(1048579, this, j2) == null) || this.f29404a == j2) {
+            if (!(interceptable == null || interceptable.invokeJ(1048579, this, j2) == null) || this.f29686a == j2) {
                 return;
             }
-            this.f29404a = j2;
-            this.f29405b = true;
+            this.f29686a = j2;
+            this.f29687b = true;
         }
 
         public void e(String str) {
             String str2;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048580, this, str) == null) || (str2 = this.f29408e) == str) {
+            if (!(interceptable == null || interceptable.invokeL(1048580, this, str) == null) || (str2 = this.f29690e) == str) {
                 return;
             }
             if (str == null || !str.equals(str2)) {
-                this.f29408e = str;
-                this.f29405b = true;
+                this.f29690e = str;
+                this.f29687b = true;
             }
         }
 
@@ -119,17 +119,17 @@ public class a extends c.a.r.h.a {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-                String g2 = this.f29409f.f29402d.g("cache.dat", true);
+                String g2 = this.f29691f.f29684d.g("cache.dat", true);
                 if (TextUtils.isEmpty(g2)) {
                     return false;
                 }
                 try {
                     JSONObject jSONObject = new JSONObject(g2);
-                    this.f29407d = jSONObject.optString("form_id");
-                    this.f29404a = jSONObject.getLong("lst_fe_ts");
+                    this.f29689d = jSONObject.optString("form_id");
+                    this.f29686a = jSONObject.getLong("lst_fe_ts");
                     jSONObject.getInt("c_form_ver");
-                    this.f29408e = jSONObject.getString(Config.SSAID);
-                    this.f29406c.b(jSONObject.getLong("flags"));
+                    this.f29690e = jSONObject.getString(Config.SSAID);
+                    this.f29688c.b(jSONObject.getLong("flags"));
                     return true;
                 } catch (Exception unused) {
                     return false;
@@ -142,16 +142,16 @@ public class a extends c.a.r.h.a {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-                if (this.f29405b) {
+                if (this.f29687b) {
                     try {
                         JSONObject jSONObject = new JSONObject();
-                        jSONObject.put("form_id", this.f29407d);
-                        jSONObject.put("lst_fe_ts", this.f29404a);
+                        jSONObject.put("form_id", this.f29689d);
+                        jSONObject.put("lst_fe_ts", this.f29686a);
                         jSONObject.put("c_form_ver", 1);
-                        jSONObject.put("flags", this.f29406c.d());
-                        jSONObject.put(Config.SSAID, this.f29408e);
-                        this.f29409f.f29402d.i("cache.dat", jSONObject.toString(), true);
-                        this.f29405b = false;
+                        jSONObject.put("flags", this.f29688c.d());
+                        jSONObject.put(Config.SSAID, this.f29690e);
+                        this.f29691f.f29684d.i("cache.dat", jSONObject.toString(), true);
+                        this.f29687b = false;
                         return true;
                     } catch (Exception unused) {
                     }
@@ -178,35 +178,35 @@ public class a extends c.a.r.h.a {
                 return;
             }
         }
-        this.f29403e = new C1381a(this);
+        this.f29685e = new C1388a(this);
     }
 
     @Override // c.a.r.h.a
     public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f29403e.a() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f29685e.a() : (String) invokeV.objValue;
     }
 
     @Override // c.a.r.h.a
     public void f(a.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar) == null) {
-            this.f29402d = this.f29333a.f(e());
-            String string = Settings.Secure.getString(this.f29334b.f29338a.getContentResolver(), IAdRequestParam.ANDROID_ID);
+            this.f29684d = this.f29615a.f(e());
+            String string = Settings.Secure.getString(this.f29616b.f29620a.getContentResolver(), IAdRequestParam.ANDROID_ID);
             if (string == null) {
                 string = "0";
             }
-            this.f29403e.f();
-            if (TextUtils.isEmpty(this.f29403e.a()) || !TextUtils.equals(string, this.f29403e.c())) {
-                this.f29403e.e(string);
+            this.f29685e.f();
+            if (TextUtils.isEmpty(this.f29685e.a()) || !TextUtils.equals(string, this.f29685e.c())) {
+                this.f29685e.e(string);
                 try {
-                    this.f29403e.b(c.a.r.h.a.b("A30", new b("ABCDEFGHIJKLMNOPQRSTUVWXYZ234567=", false, false).b(string.getBytes("UTF-8"))));
+                    this.f29685e.b(c.a.r.h.a.b("A30", new b("ABCDEFGHIJKLMNOPQRSTUVWXYZ234567=", false, false).b(string.getBytes("UTF-8"))));
                 } catch (Exception unused) {
                 }
-                this.f29403e.d(System.currentTimeMillis());
+                this.f29685e.d(System.currentTimeMillis());
             }
-            this.f29403e.g();
+            this.f29685e.g();
         }
     }
 }

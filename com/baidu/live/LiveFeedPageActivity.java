@@ -3,9 +3,9 @@ package com.baidu.live;
 import android.os.Bundle;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import c.a.v.b.a;
-import c.a.v.e.g.b;
-import c.a.v.e.g.c;
+import c.a.w.b.a;
+import c.a.w.e.g.b;
+import c.a.w.e.g.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -46,7 +46,7 @@ public class LiveFeedPageActivity extends AppCompatActivity {
             this.mBaiduLiveTabContainer = aVar;
             setContentView(aVar.v());
             this.mBaiduLiveTabContainer.E();
-            c.a.v.b.c.a.r(this, stringExtra, "chenjinshi");
+            c.a.w.b.c.a.r(this, stringExtra, "chenjinshi");
         }
     }
 

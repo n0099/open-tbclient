@@ -32,22 +32,22 @@ public class FrsLotteryCountDownView extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f50822e;
+    public Context f50930e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f50823f;
+    public View f50931f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f50824g;
+    public TextView f50932g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f50825h;
+    public TextView f50933h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f50826i;
+    public TextView f50934i;
 
     /* renamed from: j  reason: collision with root package name */
-    public TextView f50827j;
+    public TextView f50935j;
     public TextView k;
     public TextView l;
     public TextView m;
@@ -66,7 +66,7 @@ public class FrsLotteryCountDownView extends LinearLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final WeakReference<CountDownTimer> f50828e;
+        public final WeakReference<CountDownTimer> f50936e;
 
         public /* synthetic */ b(WeakReference weakReference, a aVar) {
             this(weakReference);
@@ -76,7 +76,7 @@ public class FrsLotteryCountDownView extends LinearLayout {
         public void run() {
             CountDownTimer countDownTimer;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (countDownTimer = this.f50828e.get()) == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (countDownTimer = this.f50936e.get()) == null) {
                 return;
             }
             countDownTimer.cancel();
@@ -97,7 +97,7 @@ public class FrsLotteryCountDownView extends LinearLayout {
                     return;
                 }
             }
-            this.f50828e = weakReference;
+            this.f50936e = weakReference;
         }
     }
 
@@ -107,7 +107,7 @@ public class FrsLotteryCountDownView extends LinearLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final WeakReference<FrsLotteryCountDownView> f50829a;
+        public final WeakReference<FrsLotteryCountDownView> f50937a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public c(WeakReference<FrsLotteryCountDownView> weakReference, long j2, long j3) {
@@ -128,14 +128,14 @@ public class FrsLotteryCountDownView extends LinearLayout {
                     return;
                 }
             }
-            this.f50829a = weakReference;
+            this.f50937a = weakReference;
         }
 
         @Override // android.os.CountDownTimer
         public void onFinish() {
             FrsLotteryCountDownView frsLotteryCountDownView;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (frsLotteryCountDownView = this.f50829a.get()) == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (frsLotteryCountDownView = this.f50937a.get()) == null) {
                 return;
             }
             frsLotteryCountDownView.m.setText("0");
@@ -145,10 +145,10 @@ public class FrsLotteryCountDownView extends LinearLayout {
         public void onTick(long j2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2) == null) {
-                FrsLotteryCountDownView frsLotteryCountDownView = this.f50829a.get();
+                FrsLotteryCountDownView frsLotteryCountDownView = this.f50937a.get();
                 if (frsLotteryCountDownView != null) {
-                    frsLotteryCountDownView.f50824g.setText(StringUtils.string(Long.valueOf(j2 / FrsLotteryCountDownView.p)));
-                    frsLotteryCountDownView.f50826i.setText(StringUtils.string(Long.valueOf((j2 % FrsLotteryCountDownView.p) / FrsLotteryCountDownView.q)));
+                    frsLotteryCountDownView.f50932g.setText(StringUtils.string(Long.valueOf(j2 / FrsLotteryCountDownView.p)));
+                    frsLotteryCountDownView.f50934i.setText(StringUtils.string(Long.valueOf((j2 % FrsLotteryCountDownView.p) / FrsLotteryCountDownView.q)));
                     frsLotteryCountDownView.k.setText(StringUtils.string(Long.valueOf(((j2 % FrsLotteryCountDownView.p) % FrsLotteryCountDownView.q) / FrsLotteryCountDownView.r)));
                     frsLotteryCountDownView.m.setText(StringUtils.string(Long.valueOf((((j2 % FrsLotteryCountDownView.p) % FrsLotteryCountDownView.q) % FrsLotteryCountDownView.r) / FrsLotteryCountDownView.s)));
                     return;
@@ -195,37 +195,37 @@ public class FrsLotteryCountDownView extends LinearLayout {
                 return;
             }
         }
-        this.f50822e = null;
+        this.f50930e = null;
         this.o = null;
-        this.f50822e = context;
+        this.f50930e = context;
         init();
     }
 
     public void init() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            View inflate = LayoutInflater.from(this.f50822e).inflate(R.layout.frs_lottery_count_down, (ViewGroup) this, true);
-            this.f50823f = inflate;
-            this.f50824g = (TextView) inflate.findViewById(R.id.lottery_count_day);
-            this.f50825h = (TextView) this.f50823f.findViewById(R.id.lottery_count_day_txt);
-            this.f50826i = (TextView) this.f50823f.findViewById(R.id.lottery_count_hour);
-            this.f50827j = (TextView) this.f50823f.findViewById(R.id.lottery_count_hour_txt);
-            this.k = (TextView) this.f50823f.findViewById(R.id.lottery_count_minute);
-            this.l = (TextView) this.f50823f.findViewById(R.id.lottery_count_minute_txt);
-            this.m = (TextView) this.f50823f.findViewById(R.id.lottery_count_second);
-            this.n = (TextView) this.f50823f.findViewById(R.id.lottery_count_second_txt);
+            View inflate = LayoutInflater.from(this.f50930e).inflate(R.layout.frs_lottery_count_down, (ViewGroup) this, true);
+            this.f50931f = inflate;
+            this.f50932g = (TextView) inflate.findViewById(R.id.lottery_count_day);
+            this.f50933h = (TextView) this.f50931f.findViewById(R.id.lottery_count_day_txt);
+            this.f50934i = (TextView) this.f50931f.findViewById(R.id.lottery_count_hour);
+            this.f50935j = (TextView) this.f50931f.findViewById(R.id.lottery_count_hour_txt);
+            this.k = (TextView) this.f50931f.findViewById(R.id.lottery_count_minute);
+            this.l = (TextView) this.f50931f.findViewById(R.id.lottery_count_minute_txt);
+            this.m = (TextView) this.f50931f.findViewById(R.id.lottery_count_second);
+            this.n = (TextView) this.f50931f.findViewById(R.id.lottery_count_second_txt);
         }
     }
 
     public void setData(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2) == null) {
-            SkinManager.setViewTextColor(this.f50824g, R.color.CAM_X0111);
-            SkinManager.setViewTextColor(this.f50825h, R.color.CAM_X0108);
-            SkinManager.setBackgroundColor(this.f50824g, R.color.common_color_10060);
-            SkinManager.setViewTextColor(this.f50826i, R.color.CAM_X0111);
-            SkinManager.setViewTextColor(this.f50827j, R.color.CAM_X0108);
-            SkinManager.setBackgroundColor(this.f50826i, R.color.common_color_10060);
+            SkinManager.setViewTextColor(this.f50932g, R.color.CAM_X0111);
+            SkinManager.setViewTextColor(this.f50933h, R.color.CAM_X0108);
+            SkinManager.setBackgroundColor(this.f50932g, R.color.common_color_10060);
+            SkinManager.setViewTextColor(this.f50934i, R.color.CAM_X0111);
+            SkinManager.setViewTextColor(this.f50935j, R.color.CAM_X0108);
+            SkinManager.setBackgroundColor(this.f50934i, R.color.common_color_10060);
             SkinManager.setViewTextColor(this.k, R.color.CAM_X0111);
             SkinManager.setViewTextColor(this.l, R.color.CAM_X0108);
             SkinManager.setBackgroundColor(this.k, R.color.common_color_10060);
@@ -233,18 +233,18 @@ public class FrsLotteryCountDownView extends LinearLayout {
             SkinManager.setViewTextColor(this.n, R.color.CAM_X0108);
             SkinManager.setBackgroundColor(this.m, R.color.common_color_10060);
             if (j2 <= s) {
-                this.f50824g.setText("0");
-                this.f50826i.setText("0");
+                this.f50932g.setText("0");
+                this.f50934i.setText("0");
                 this.k.setText("0");
                 this.m.setText("0");
                 return;
             }
             if (j2 / p <= 0) {
-                this.f50824g.setVisibility(8);
-                this.f50825h.setVisibility(8);
+                this.f50932g.setVisibility(8);
+                this.f50933h.setVisibility(8);
             } else {
-                this.f50824g.setVisibility(0);
-                this.f50825h.setVisibility(0);
+                this.f50932g.setVisibility(0);
+                this.f50933h.setVisibility(0);
             }
             CountDownTimer countDownTimer = this.o;
             if (countDownTimer != null) {
@@ -273,9 +273,9 @@ public class FrsLotteryCountDownView extends LinearLayout {
                 return;
             }
         }
-        this.f50822e = null;
+        this.f50930e = null;
         this.o = null;
-        this.f50822e = context;
+        this.f50930e = context;
         init();
     }
 
@@ -298,9 +298,9 @@ public class FrsLotteryCountDownView extends LinearLayout {
                 return;
             }
         }
-        this.f50822e = null;
+        this.f50930e = null;
         this.o = null;
-        this.f50822e = context;
+        this.f50930e = context;
         init();
     }
 }

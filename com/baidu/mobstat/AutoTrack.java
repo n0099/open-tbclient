@@ -22,7 +22,7 @@ public class AutoTrack {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f42692a;
+        public int f42799a;
 
         public MyActivityLifeCallback(int i2) {
             Interceptable interceptable = $ic;
@@ -39,7 +39,7 @@ public class AutoTrack {
                     return;
                 }
             }
-            this.f42692a = i2;
+            this.f42799a = i2;
         }
 
         @Override // com.baidu.mobstat.ActivityLifeObserver.IActivityLifeCallback
@@ -61,7 +61,7 @@ public class AutoTrack {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity) == null) {
                 Context applicationContext = activity.getApplicationContext();
-                int i2 = this.f42692a;
+                int i2 = this.f42799a;
                 if (i2 == 1) {
                     BDStatCore.instance().autoTrackSessionEndTime(applicationContext);
                 } else if (i2 == 2) {
@@ -75,7 +75,7 @@ public class AutoTrack {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, activity) == null) {
                 Context applicationContext = activity.getApplicationContext();
-                int i2 = this.f42692a;
+                int i2 = this.f42799a;
                 if (i2 == 1) {
                     BDStatCore.instance().autoTrackSessionStartTime(applicationContext);
                 } else if (i2 == 2) {

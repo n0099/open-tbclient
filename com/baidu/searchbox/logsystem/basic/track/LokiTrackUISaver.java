@@ -2,7 +2,7 @@ package com.baidu.searchbox.logsystem.basic.track;
 
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import c.a.g0.b.a.a;
+import c.a.h0.b.a.a;
 import com.baidu.android.util.io.FileUtils;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.config.AppConfig;

@@ -14,10 +14,10 @@ public final class b implements d.b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final int[] f32926a;
+    public final int[] f33032a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final n[] f32927b;
+    public final n[] f33033b;
 
     public b(int[] iArr, n[] nVarArr) {
         Interceptable interceptable = $ic;
@@ -34,8 +34,8 @@ public final class b implements d.b {
                 return;
             }
         }
-        this.f32926a = iArr;
-        this.f32927b = nVarArr;
+        this.f33032a = iArr;
+        this.f33033b = nVarArr;
     }
 
     @Override // c.i.b.a.d0.u.d.b
@@ -47,10 +47,10 @@ public final class b implements d.b {
         }
         int i4 = 0;
         while (true) {
-            int[] iArr = this.f32926a;
+            int[] iArr = this.f33032a;
             if (i4 < iArr.length) {
                 if (i3 == iArr[i4]) {
-                    return this.f32927b[i4];
+                    return this.f33033b[i4];
                 }
                 i4++;
             } else {
@@ -66,10 +66,10 @@ public final class b implements d.b {
         if (interceptable != null && (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) != null) {
             return (int[]) invokeV.objValue;
         }
-        int[] iArr = new int[this.f32927b.length];
+        int[] iArr = new int[this.f33033b.length];
         int i2 = 0;
         while (true) {
-            n[] nVarArr = this.f32927b;
+            n[] nVarArr = this.f33033b;
             if (i2 >= nVarArr.length) {
                 return iArr;
             }
@@ -84,7 +84,7 @@ public final class b implements d.b {
         n[] nVarArr;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2) == null) {
-            for (n nVar : this.f32927b) {
+            for (n nVar : this.f33033b) {
                 if (nVar != null) {
                     nVar.D(j2);
                 }

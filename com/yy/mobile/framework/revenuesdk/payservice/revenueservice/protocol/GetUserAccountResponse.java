@@ -20,6 +20,7 @@ public class GetUserAccountResponse implements IBaseJsonResponse {
     public transient /* synthetic */ FieldHolder $fh;
     public Map<Integer, MyBalanceInfo.Account> accountList;
     public Map<Integer, MyBalanceInfo.AccountPeriod> accountPeriodList;
+    public long imid;
     public String message;
     public long minAmountLimit;
     public int result;
@@ -54,6 +55,7 @@ public class GetUserAccountResponse implements IBaseJsonResponse {
                 this.uid = jSONObject.optLong("uid", 0L);
                 this.result = jSONObject.optInt("result", 0);
                 this.message = jSONObject.optString("message", "");
+                this.imid = jSONObject.optLong("imid", 0L);
                 this.minAmountLimit = jSONObject.optLong("minAmountLimit", 0L);
                 JSONArray optJSONArray = jSONObject.optJSONArray("accountList");
                 this.accountList = new HashMap();

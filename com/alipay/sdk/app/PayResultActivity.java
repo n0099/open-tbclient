@@ -24,42 +24,42 @@ public final class PayResultActivity extends Activity {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f35644a = "{\"isLogin\":\"false\"}";
+    public static final String f35750a = "{\"isLogin\":\"false\"}";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final HashMap<String, Object> f35645b;
+    public static final HashMap<String, Object> f35751b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f35646c = "hk.alipay.wallet";
+    public static final String f35752c = "hk.alipay.wallet";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f35647d = "phonecashier.pay.hash";
+    public static final String f35753d = "phonecashier.pay.hash";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f35648e = "orderSuffix";
+    public static final String f35754e = "orderSuffix";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f35649f = "externalPkgName";
+    public static final String f35755f = "externalPkgName";
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f35650g = "phonecashier.pay.result";
+    public static final String f35756g = "phonecashier.pay.result";
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f35651h = "phonecashier.pay.resultOrderHash";
+    public static final String f35757h = "phonecashier.pay.resultOrderHash";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: i  reason: collision with root package name */
-    public com.alipay.sdk.sys.a f35652i;
+    public com.alipay.sdk.sys.a f35758i;
 
     /* loaded from: classes4.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static volatile String f35654a;
+        public static volatile String f35760a;
 
         /* renamed from: b  reason: collision with root package name */
-        public static volatile String f35655b;
+        public static volatile String f35761b;
         public transient /* synthetic */ FieldHolder $fh;
 
         public a() {
@@ -90,7 +90,7 @@ public final class PayResultActivity extends Activity {
                 return;
             }
         }
-        f35645b = new HashMap<>();
+        f35751b = new HashMap<>();
     }
 
     public PayResultActivity() {
@@ -106,7 +106,7 @@ public final class PayResultActivity extends Activity {
                 return;
             }
         }
-        this.f35652i = null;
+        this.f35758i = null;
     }
 
     public static void a(Activity activity, String str, String str2, String str3) {
@@ -116,7 +116,7 @@ public final class PayResultActivity extends Activity {
         }
         Intent intent = new Intent();
         try {
-            intent.setPackage(f35646c);
+            intent.setPackage(f35752c);
             intent.setData(Uri.parse("alipayhk://platformapi/startApp?appId=20000125&schemePaySession=" + URLEncoder.encode(str, "UTF-8") + "&orderSuffix=" + URLEncoder.encode(str2, "UTF-8") + "&packageName=" + URLEncoder.encode(str3, "UTF-8") + "&externalPkgName=" + URLEncoder.encode(str3, "UTF-8")));
         } catch (UnsupportedEncodingException e2) {
             com.alipay.sdk.util.c.a(e2);
@@ -137,37 +137,37 @@ public final class PayResultActivity extends Activity {
             super.onCreate(bundle);
             try {
                 Intent intent = getIntent();
-                if (!TextUtils.isEmpty(intent.getStringExtra(f35648e))) {
-                    a.f35654a = intent.getStringExtra(f35647d);
-                    String stringExtra = intent.getStringExtra(f35648e);
-                    String stringExtra2 = intent.getStringExtra(f35649f);
-                    com.alipay.sdk.sys.a a2 = a.C1561a.a(intent);
-                    this.f35652i = a2;
+                if (!TextUtils.isEmpty(intent.getStringExtra(f35754e))) {
+                    a.f35760a = intent.getStringExtra(f35753d);
+                    String stringExtra = intent.getStringExtra(f35754e);
+                    String stringExtra2 = intent.getStringExtra(f35755f);
+                    com.alipay.sdk.sys.a a2 = a.C1565a.a(intent);
+                    this.f35758i = a2;
                     if (a2 == null) {
                         finish();
                     }
-                    a(this, a.f35654a, stringExtra, stringExtra2);
+                    a(this, a.f35760a, stringExtra, stringExtra2);
                     a(this, 300);
                     return;
                 }
-                if (this.f35652i == null) {
+                if (this.f35758i == null) {
                     finish();
                 }
-                String stringExtra3 = intent.getStringExtra(f35650g);
-                int intExtra = intent.getIntExtra(f35651h, 0);
-                if (intExtra != 0 && TextUtils.equals(a.f35654a, String.valueOf(intExtra))) {
+                String stringExtra3 = intent.getStringExtra(f35756g);
+                int intExtra = intent.getIntExtra(f35757h, 0);
+                if (intExtra != 0 && TextUtils.equals(a.f35760a, String.valueOf(intExtra))) {
                     if (!TextUtils.isEmpty(stringExtra3)) {
-                        a(stringExtra3, a.f35654a);
+                        a(stringExtra3, a.f35760a);
                     } else {
-                        a(a.f35654a);
+                        a(a.f35760a);
                     }
-                    a.f35654a = "";
+                    a.f35760a = "";
                     a(this, 300);
                     return;
                 }
-                com.alipay.sdk.sys.a aVar = this.f35652i;
-                com.alipay.sdk.app.statistic.a.a(aVar, "biz", com.alipay.sdk.app.statistic.b.af, "Expected " + a.f35654a + ", got " + intExtra);
-                a(a.f35654a);
+                com.alipay.sdk.sys.a aVar = this.f35758i;
+                com.alipay.sdk.app.statistic.a.a(aVar, "biz", com.alipay.sdk.app.statistic.b.af, "Expected " + a.f35760a + ", got " + intExtra);
+                a(a.f35760a);
                 a(this, 300);
             } catch (Throwable unused) {
                 finish();
@@ -178,16 +178,16 @@ public final class PayResultActivity extends Activity {
     public static void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) {
-            a.f35655b = b.c();
-            a(f35645b, str);
+            a.f35761b = b.c();
+            a(f35751b, str);
         }
     }
 
     public static void a(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, str, str2) == null) {
-            a.f35655b = str;
-            a(f35645b, str2);
+            a.f35761b = str;
+            a(f35751b, str2);
         }
     }
 
@@ -199,7 +199,7 @@ public final class PayResultActivity extends Activity {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ Activity f35653a;
+                public final /* synthetic */ Activity f35759a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -216,14 +216,14 @@ public final class PayResultActivity extends Activity {
                             return;
                         }
                     }
-                    this.f35653a = activity;
+                    this.f35759a = activity;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f35653a.finish();
+                        this.f35759a.finish();
                     }
                 }
             }, i2);

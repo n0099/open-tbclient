@@ -43,34 +43,34 @@ public class f {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f36997a = -1;
+    public static int f37103a = -1;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f36998b;
+    public static String f37104b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f36999c;
+    public static String f37105c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f37000d;
+    public static String f37106d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f37001e;
+    public static String f37107e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static String f37002f;
+    public static String f37108f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static String f37003g;
+    public static String f37109g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static String f37004h;
+    public static String f37110h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static Handler f37005i;
+    public static Handler f37111i;
 
     /* renamed from: j  reason: collision with root package name */
-    public static final ConcurrentLinkedQueue<Runnable> f37006j;
+    public static final ConcurrentLinkedQueue<Runnable> f37112j;
     public static int k;
     public static long l;
     public static ConnectivityManager.NetworkCallback m;
@@ -104,10 +104,10 @@ public class f {
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, message) == null) || message.what != 65553 || f.f37005i == null || f.f37006j == null || f.f37006j.isEmpty()) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, message) == null) || message.what != 65553 || f.f37111i == null || f.f37112j == null || f.f37112j.isEmpty()) {
                 return;
             }
-            f.f37005i.removeCallbacks((b) f.f37006j.poll());
+            f.f37111i.removeCallbacks((b) f.f37112j.poll());
         }
     }
 
@@ -117,7 +117,7 @@ public class f {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public Context f37017a;
+        public Context f37123a;
 
         public b(Context context) {
             Interceptable interceptable = $ic;
@@ -134,7 +134,7 @@ public class f {
                     return;
                 }
             }
-            this.f37017a = context;
+            this.f37123a = context;
         }
 
         /* JADX WARN: Code restructure failed: missing block: B:13:0x003c, code lost:
@@ -159,26 +159,26 @@ public class f {
             if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
                 return;
             }
-            long currentTimeMillis = System.currentTimeMillis() - com.baidu.android.pushservice.j.j.a(this.f37017a);
+            long currentTimeMillis = System.currentTimeMillis() - com.baidu.android.pushservice.j.j.a(this.f37123a);
             String str = "";
-            if (com.baidu.android.pushservice.b.d.k(this.f37017a)) {
-                d2 = com.baidu.android.pushservice.j.j.c(this.f37017a);
-            } else if (!com.baidu.android.pushservice.b.d.l(this.f37017a)) {
-                if (com.baidu.android.pushservice.b.d.j(this.f37017a)) {
-                    d2 = com.baidu.android.pushservice.j.j.d(this.f37017a);
+            if (com.baidu.android.pushservice.b.d.k(this.f37123a)) {
+                d2 = com.baidu.android.pushservice.j.j.c(this.f37123a);
+            } else if (!com.baidu.android.pushservice.b.d.l(this.f37123a)) {
+                if (com.baidu.android.pushservice.b.d.j(this.f37123a)) {
+                    d2 = com.baidu.android.pushservice.j.j.d(this.f37123a);
                 } else {
                     str = null;
                 }
                 if (!TextUtils.isEmpty(str)) {
-                    f.a(this.f37017a, str);
+                    f.a(this.f37123a, str);
                     return;
                 }
-                if (!f.f37006j.isEmpty()) {
-                    f.f37006j.poll();
+                if (!f.f37112j.isEmpty()) {
+                    f.f37112j.poll();
                 }
-                f.k(this.f37017a);
+                f.k(this.f37123a);
             } else {
-                d2 = com.baidu.android.pushservice.j.j.b(this.f37017a);
+                d2 = com.baidu.android.pushservice.j.j.b(this.f37123a);
             }
         }
     }
@@ -196,7 +196,7 @@ public class f {
                 return;
             }
         }
-        f37006j = new ConcurrentLinkedQueue<>();
+        f37112j = new ConcurrentLinkedQueue<>();
         k = 0;
         l = 0L;
     }
@@ -267,24 +267,24 @@ public class f {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(AdIconUtil.BAIDU_LOGO_ID, null, new Object[]{context, Integer.valueOf(i2), str, Boolean.valueOf(z)}) == null) {
             int f2 = com.baidu.android.pushservice.b.d.g() ? com.baidu.android.pushservice.b.d.f() : 0;
-            if (f37005i == null) {
-                f37005i = new a(context);
+            if (f37111i == null) {
+                f37111i = new a(context);
             }
-            f37005i.postDelayed(new Runnable(context, str, i2, z) { // from class: com.baidu.android.pushservice.f.2
+            f37111i.postDelayed(new Runnable(context, str, i2, z) { // from class: com.baidu.android.pushservice.f.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ Context f37009a;
+                public final /* synthetic */ Context f37115a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ String f37010b;
+                public final /* synthetic */ String f37116b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ int f37011c;
+                public final /* synthetic */ int f37117c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ boolean f37012d;
+                public final /* synthetic */ boolean f37118d;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -301,22 +301,22 @@ public class f {
                             return;
                         }
                     }
-                    this.f37009a = context;
-                    this.f37010b = str;
-                    this.f37011c = i2;
-                    this.f37012d = z;
+                    this.f37115a = context;
+                    this.f37116b = str;
+                    this.f37117c = i2;
+                    this.f37118d = z;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        com.baidu.android.pushservice.b.d.a(this.f37009a.getApplicationContext()).a(this.f37010b, new d.a(this) { // from class: com.baidu.android.pushservice.f.2.1
+                        com.baidu.android.pushservice.b.d.a(this.f37115a.getApplicationContext()).a(this.f37116b, new d.a(this) { // from class: com.baidu.android.pushservice.f.2.1
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
 
                             /* renamed from: a  reason: collision with root package name */
-                            public final /* synthetic */ AnonymousClass2 f37013a;
+                            public final /* synthetic */ AnonymousClass2 f37119a;
 
                             {
                                 Interceptable interceptable3 = $ic;
@@ -333,23 +333,23 @@ public class f {
                                         return;
                                     }
                                 }
-                                this.f37013a = this;
+                                this.f37119a = this;
                             }
 
                             @Override // com.baidu.android.pushservice.b.d.a
                             public void a() {
                                 Interceptable interceptable3 = $ic;
                                 if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
-                                    AnonymousClass2 anonymousClass2 = this.f37013a;
-                                    if (anonymousClass2.f37011c == 0) {
-                                        com.baidu.android.pushservice.j.i.a(anonymousClass2.f37009a, "com.baidu.android.pushservice.PushManager.LOGIN_TYPE", 0);
-                                        AnonymousClass2 anonymousClass22 = this.f37013a;
-                                        com.baidu.android.pushservice.j.i.a(anonymousClass22.f37009a, "com.baidu.android.pushservice.PushManager.LONGIN_VALUE", anonymousClass22.f37010b);
+                                    AnonymousClass2 anonymousClass2 = this.f37119a;
+                                    if (anonymousClass2.f37117c == 0) {
+                                        com.baidu.android.pushservice.j.i.a(anonymousClass2.f37115a, "com.baidu.android.pushservice.PushManager.LOGIN_TYPE", 0);
+                                        AnonymousClass2 anonymousClass22 = this.f37119a;
+                                        com.baidu.android.pushservice.j.i.a(anonymousClass22.f37115a, "com.baidu.android.pushservice.PushManager.LONGIN_VALUE", anonymousClass22.f37116b);
                                     }
                                     int unused = f.k = 0;
-                                    j.f37394a = false;
-                                    AnonymousClass2 anonymousClass23 = this.f37013a;
-                                    f.b(anonymousClass23.f37009a, anonymousClass23.f37012d, anonymousClass23.f37011c);
+                                    j.f37500a = false;
+                                    AnonymousClass2 anonymousClass23 = this.f37119a;
+                                    f.b(anonymousClass23.f37115a, anonymousClass23.f37118d, anonymousClass23.f37117c);
                                 }
                             }
                         });
@@ -363,8 +363,8 @@ public class f {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65543, null, context, str) == null) {
             try {
-                if (f37005i != null && !f37006j.isEmpty()) {
-                    f37005i.sendEmptyMessage(65553);
+                if (f37111i != null && !f37112j.isEmpty()) {
+                    f37111i.sendEmptyMessage(65553);
                 } else if (!com.baidu.android.pushservice.b.d.m(context) && !com.baidu.android.pushservice.b.d.n(context)) {
                     return;
                 }
@@ -400,7 +400,7 @@ public class f {
                     com.baidu.android.pushservice.j.j.a(context, b2, str);
                 }
                 a2.putExtra("push_proxy", jSONObject.toString());
-                if (j.f37394a) {
+                if (j.f37500a) {
                     j.a(context).a(jSONObject.toString());
                 } else {
                     a(context, a2);
@@ -418,22 +418,22 @@ public class f {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(65544, null, context, z) == null) {
             Context applicationContext = context.getApplicationContext();
-            if (TextUtils.isEmpty(f37003g)) {
-                f37003g = com.baidu.android.pushservice.j.i.a(applicationContext, "BD_OPPO_PROXY_APPKEY_KEY");
+            if (TextUtils.isEmpty(f37109g)) {
+                f37109g = com.baidu.android.pushservice.j.i.a(applicationContext, "BD_OPPO_PROXY_APPKEY_KEY");
             }
-            if (TextUtils.isEmpty(f37004h)) {
-                f37004h = com.baidu.android.pushservice.j.i.a(applicationContext, "BD_OPPO_PROXY_APPSECRET_KEY");
+            if (TextUtils.isEmpty(f37110h)) {
+                f37110h = com.baidu.android.pushservice.j.i.a(applicationContext, "BD_OPPO_PROXY_APPSECRET_KEY");
             }
-            if (!TextUtils.isEmpty(f37003g) && !TextUtils.isEmpty(f37004h)) {
-                m.a(applicationContext, f37003g, f37004h, new PushCallback(z, applicationContext) { // from class: com.baidu.android.pushservice.f.1
+            if (!TextUtils.isEmpty(f37109g) && !TextUtils.isEmpty(f37110h)) {
+                m.a(applicationContext, f37109g, f37110h, new PushCallback(z, applicationContext) { // from class: com.baidu.android.pushservice.f.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ boolean f37007a;
+                    public final /* synthetic */ boolean f37113a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ Context f37008b;
+                    public final /* synthetic */ Context f37114b;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -450,8 +450,8 @@ public class f {
                                 return;
                             }
                         }
-                        this.f37007a = z;
-                        this.f37008b = applicationContext;
+                        this.f37113a = z;
+                        this.f37114b = applicationContext;
                     }
 
                     @Override // com.heytap.mcssdk.callback.PushCallback
@@ -492,11 +492,11 @@ public class f {
                     @Override // com.heytap.mcssdk.callback.PushCallback
                     public void onRegister(int i2, String str) {
                         Interceptable interceptable2 = $ic;
-                        if ((interceptable2 == null || interceptable2.invokeIL(1048581, this, i2, str) == null) && this.f37007a) {
+                        if ((interceptable2 == null || interceptable2.invokeIL(1048581, this, i2, str) == null) && this.f37113a) {
                             if (i2 != 0 || TextUtils.isEmpty(str)) {
-                                f.k(this.f37008b);
+                                f.k(this.f37114b);
                             } else {
-                                f.a(this.f37008b, str);
+                                f.a(this.f37114b, str);
                             }
                         }
                     }
@@ -638,7 +638,7 @@ public class f {
     public static void b(Context context, int i2, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIL(65551, null, context, i2, str) == null) {
-            j.f37394a = true;
+            j.f37500a = true;
             if (i2 == 0) {
                 com.baidu.android.pushservice.j.i.a(context, "com.baidu.android.pushservice.PushManager.LOGIN_TYPE", 0);
                 com.baidu.android.pushservice.j.i.a(context, "com.baidu.android.pushservice.PushManager.LONGIN_VALUE", str);
@@ -690,7 +690,7 @@ public class f {
                     return;
                 }
                 m.a("startWork at time of " + System.currentTimeMillis(), context);
-                if (j.f37394a) {
+                if (j.f37500a) {
                     j.a(context).a("");
                 } else {
                     b(context, 0);
@@ -706,7 +706,7 @@ public class f {
             if (m(context)) {
                 return null;
             }
-            int i2 = f36997a;
+            int i2 = f37103a;
             if (i2 == -1) {
                 i2 = com.baidu.android.pushservice.j.i.b(context, "com.baidu.android.pushservice.PushManager.LOGIN_TYPE", 0);
             }
@@ -874,17 +874,17 @@ public class f {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65558, null, context) == null) {
             Context applicationContext = context.getApplicationContext();
-            if (TextUtils.isEmpty(f36999c)) {
-                f36999c = com.baidu.android.pushservice.j.i.a(applicationContext, "BD_PROXY_APPID_KEY");
+            if (TextUtils.isEmpty(f37105c)) {
+                f37105c = com.baidu.android.pushservice.j.i.a(applicationContext, "BD_PROXY_APPID_KEY");
             }
-            if (TextUtils.isEmpty(f37000d)) {
-                f37000d = com.baidu.android.pushservice.j.i.a(applicationContext, "BD_PROXY_APPKEY_KEY");
+            if (TextUtils.isEmpty(f37106d)) {
+                f37106d = com.baidu.android.pushservice.j.i.a(applicationContext, "BD_PROXY_APPKEY_KEY");
             }
-            if (TextUtils.isEmpty(f36999c) || TextUtils.isEmpty(f37000d)) {
+            if (TextUtils.isEmpty(f37105c) || TextUtils.isEmpty(f37106d)) {
                 l(applicationContext);
                 return;
             }
-            m.c(applicationContext, f36999c, f37000d);
+            m.c(applicationContext, f37105c, f37106d);
             r(applicationContext);
         }
     }
@@ -893,17 +893,17 @@ public class f {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65559, null, context) == null) {
             Context applicationContext = context.getApplicationContext();
-            if (TextUtils.isEmpty(f37001e)) {
-                f37001e = com.baidu.android.pushservice.j.i.a(applicationContext, "BD_MEIZU_PROXY_APPID_KEY");
+            if (TextUtils.isEmpty(f37107e)) {
+                f37107e = com.baidu.android.pushservice.j.i.a(applicationContext, "BD_MEIZU_PROXY_APPID_KEY");
             }
-            if (TextUtils.isEmpty(f37002f)) {
-                f37002f = com.baidu.android.pushservice.j.i.a(applicationContext, "BD_MEIZU_PROXY_APPKEY_KEY");
+            if (TextUtils.isEmpty(f37108f)) {
+                f37108f = com.baidu.android.pushservice.j.i.a(applicationContext, "BD_MEIZU_PROXY_APPKEY_KEY");
             }
-            if (TextUtils.isEmpty(f37001e) || TextUtils.isEmpty(f37002f)) {
+            if (TextUtils.isEmpty(f37107e) || TextUtils.isEmpty(f37108f)) {
                 l(applicationContext);
                 return;
             }
-            m.d(applicationContext, f37001e, f37002f);
+            m.d(applicationContext, f37107e, f37108f);
             r(applicationContext);
         }
     }
@@ -940,10 +940,10 @@ public class f {
 
     public static void i(Context context) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65563, null, context) == null) || f37005i == null || f37006j.isEmpty()) {
+        if (!(interceptable == null || interceptable.invokeL(65563, null, context) == null) || f37111i == null || f37112j.isEmpty()) {
             return;
         }
-        f37005i.sendEmptyMessage(65553);
+        f37111i.sendEmptyMessage(65553);
         l(context);
     }
 
@@ -964,7 +964,7 @@ public class f {
         if (interceptable == null || interceptable.invokeL(65565, null, context) == null) {
             try {
                 boolean z = false;
-                if (!j.f37394a) {
+                if (!j.f37500a) {
                     if (s(context) || (a2 = a(context, 0)) == null) {
                         return;
                     }
@@ -1094,22 +1094,22 @@ public class f {
     public static String q(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65571, null, context)) == null) ? !TextUtils.isEmpty(f36998b) ? f36998b : com.baidu.android.pushservice.j.i.a(context, "com.baidu.android.pushservice.PushManager.LONGIN_VALUE") : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65571, null, context)) == null) ? !TextUtils.isEmpty(f37104b) ? f37104b : com.baidu.android.pushservice.j.i.a(context, "com.baidu.android.pushservice.PushManager.LONGIN_VALUE") : (String) invokeL.objValue;
     }
 
     public static void r(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65572, null, context) == null) {
             Context applicationContext = context.getApplicationContext();
-            if (f37006j.size() > 100) {
+            if (f37112j.size() > 100) {
                 return;
             }
             b bVar = new b(applicationContext);
-            f37006j.add(bVar);
-            if (f37005i == null) {
-                f37005i = new a(applicationContext);
+            f37112j.add(bVar);
+            if (f37111i == null) {
+                f37111i = new a(applicationContext);
             }
-            f37005i.postDelayed(bVar, 6000L);
+            f37111i.postDelayed(bVar, 6000L);
         }
     }
 
@@ -1117,11 +1117,11 @@ public class f {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65573, null, context)) == null) {
-            if (k >= 2 || TextUtils.isEmpty(f36998b)) {
+            if (k >= 2 || TextUtils.isEmpty(f37104b)) {
                 return false;
             }
             k++;
-            b(context, true, f36997a);
+            b(context, true, f37103a);
             return true;
         }
         return invokeL.booleanValue;
@@ -1141,7 +1141,7 @@ public class f {
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ Context f37014a;
+                    public final /* synthetic */ Context f37120a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -1158,7 +1158,7 @@ public class f {
                                 return;
                             }
                         }
-                        this.f37014a = context;
+                        this.f37120a = context;
                     }
 
                     @Override // android.net.ConnectivityManager.NetworkCallback
@@ -1166,7 +1166,7 @@ public class f {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, network) == null) {
                             super.onAvailable(network);
-                            l.b(this.f37014a);
+                            l.b(this.f37120a);
                         }
                     }
                 };
@@ -1193,10 +1193,10 @@ public class f {
                         public transient /* synthetic */ FieldHolder $fh;
 
                         /* renamed from: a  reason: collision with root package name */
-                        public final /* synthetic */ String f37015a;
+                        public final /* synthetic */ String f37121a;
 
                         /* renamed from: b  reason: collision with root package name */
-                        public final /* synthetic */ Context f37016b;
+                        public final /* synthetic */ Context f37122b;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -1213,8 +1213,8 @@ public class f {
                                     return;
                                 }
                             }
-                            this.f37015a = str;
-                            this.f37016b = context;
+                            this.f37121a = str;
+                            this.f37122b = context;
                         }
 
                         @Override // java.lang.Runnable
@@ -1223,11 +1223,11 @@ public class f {
                             if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                                 try {
                                     Intent intent = new Intent();
-                                    intent.setPackage(this.f37015a);
-                                    intent.setClassName(this.f37015a, "com.baidu.android.pushservice.PushService");
-                                    intent.putExtra("source", this.f37016b.getPackageName());
-                                    this.f37016b.startService(intent);
-                                    new b.d(this.f37016b).d(501010L).a(System.currentTimeMillis()).c(this.f37015a).a();
+                                    intent.setPackage(this.f37121a);
+                                    intent.setClassName(this.f37121a, "com.baidu.android.pushservice.PushService");
+                                    intent.putExtra("source", this.f37122b.getPackageName());
+                                    this.f37122b.startService(intent);
+                                    new b.d(this.f37122b).d(501010L).a(System.currentTimeMillis()).c(this.f37121a).a();
                                 } catch (Exception unused) {
                                 }
                             }

@@ -7,8 +7,8 @@ import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import c.a.e.e.p.l;
-import c.a.o0.s.q.c2;
-import c.a.o0.s.q.y1;
+import c.a.p0.s.q.c2;
+import c.a.p0.s.q.y1;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -33,22 +33,22 @@ public class PbBusinessPromotionContainer extends RelativeLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public RelativeLayout f55354e;
+    public RelativeLayout f55519e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TbImageView f55355f;
+    public TbImageView f55520f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f55356g;
+    public TextView f55521g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f55357h;
+    public TextView f55522h;
 
     /* renamed from: i  reason: collision with root package name */
-    public c2 f55358i;
+    public c2 f55523i;
 
     /* renamed from: j  reason: collision with root package name */
-    public View.OnClickListener f55359j;
+    public View.OnClickListener f55524j;
     public boolean k;
     public boolean l;
     public boolean m;
@@ -62,7 +62,7 @@ public class PbBusinessPromotionContainer extends RelativeLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PbBusinessPromotionContainer f55360e;
+        public final /* synthetic */ PbBusinessPromotionContainer f55525e;
 
         public a(PbBusinessPromotionContainer pbBusinessPromotionContainer) {
             Interceptable interceptable = $ic;
@@ -79,16 +79,16 @@ public class PbBusinessPromotionContainer extends RelativeLayout {
                     return;
                 }
             }
-            this.f55360e = pbBusinessPromotionContainer;
+            this.f55525e = pbBusinessPromotionContainer;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                view.setTag(this.f55360e.f55358i);
-                if (this.f55360e.f55359j != null) {
-                    this.f55360e.f55359j.onClick(view);
+                view.setTag(this.f55525e.f55523i);
+                if (this.f55525e.f55524j != null) {
+                    this.f55525e.f55524j.onClick(view);
                 }
             }
         }
@@ -100,7 +100,7 @@ public class PbBusinessPromotionContainer extends RelativeLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PbBusinessPromotionContainer f55361a;
+        public final /* synthetic */ PbBusinessPromotionContainer f55526a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(PbBusinessPromotionContainer pbBusinessPromotionContainer, int i2) {
@@ -120,7 +120,7 @@ public class PbBusinessPromotionContainer extends RelativeLayout {
                     return;
                 }
             }
-            this.f55361a = pbBusinessPromotionContainer;
+            this.f55526a = pbBusinessPromotionContainer;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -129,9 +129,9 @@ public class PbBusinessPromotionContainer extends RelativeLayout {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof Long)) {
                 long longValue = ((Long) customResponsedMessage.getData()).longValue();
-                if (this.f55361a.f55358i != null && this.f55361a.f55358i.T() == longValue && this.f55361a.m) {
-                    this.f55361a.l = false;
-                    this.f55361a.g();
+                if (this.f55526a.f55523i != null && this.f55526a.f55523i.T() == longValue && this.f55526a.m) {
+                    this.f55526a.l = false;
+                    this.f55526a.g();
                 }
             }
         }
@@ -143,7 +143,7 @@ public class PbBusinessPromotionContainer extends RelativeLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PbBusinessPromotionContainer f55362a;
+        public final /* synthetic */ PbBusinessPromotionContainer f55527a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public c(PbBusinessPromotionContainer pbBusinessPromotionContainer, int i2) {
@@ -163,7 +163,7 @@ public class PbBusinessPromotionContainer extends RelativeLayout {
                     return;
                 }
             }
-            this.f55362a = pbBusinessPromotionContainer;
+            this.f55527a = pbBusinessPromotionContainer;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -172,9 +172,9 @@ public class PbBusinessPromotionContainer extends RelativeLayout {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof Long)) {
                 long longValue = ((Long) customResponsedMessage.getData()).longValue();
-                if (this.f55362a.f55358i != null && this.f55362a.f55358i.T() == longValue && this.f55362a.m) {
-                    this.f55362a.l = true;
-                    this.f55362a.g();
+                if (this.f55527a.f55523i != null && this.f55527a.f55523i.T() == longValue && this.f55527a.m) {
+                    this.f55527a.l = true;
+                    this.f55527a.g();
                 }
             }
         }
@@ -222,12 +222,12 @@ public class PbBusinessPromotionContainer extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLZ(1048576, this, c2Var, y1Var, z) == null) {
             if (c2Var != null && y1Var != null && !StringUtils.isNull(y1Var.getForumName())) {
-                this.f55358i = c2Var;
+                this.f55523i = c2Var;
                 f(z);
                 this.m = true;
                 setVisibility(0);
-                this.f55355f.startLoad(y1Var.b(), 10, false);
-                this.f55356g.setText(y1Var.getForumName());
+                this.f55520f.startLoad(y1Var.b(), 10, false);
+                this.f55521g.setText(y1Var.getForumName());
                 if (this.k) {
                     return;
                 }
@@ -271,38 +271,38 @@ public class PbBusinessPromotionContainer extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             if (this.l) {
-                this.f55357h.setText(getResources().getString(R.string.followed));
-                SkinManager.setViewTextColor(this.f55357h, R.color.CAM_X0109);
-                SkinManager.setBackgroundResource(this.f55357h, 17170445);
-                this.f55357h.setOnClickListener(null);
+                this.f55522h.setText(getResources().getString(R.string.followed));
+                SkinManager.setViewTextColor(this.f55522h, R.color.CAM_X0109);
+                SkinManager.setBackgroundResource(this.f55522h, 17170445);
+                this.f55522h.setOnClickListener(null);
                 return;
             }
-            this.f55357h.setText(getResources().getString(R.string.attention));
-            SkinManager.setViewTextColor(this.f55357h, R.color.CAM_X0101);
-            SkinManager.setBackgroundResource(this.f55357h, R.drawable.pb_business_promotion_attention_bg);
-            this.f55357h.setOnClickListener(this.n);
+            this.f55522h.setText(getResources().getString(R.string.attention));
+            SkinManager.setViewTextColor(this.f55522h, R.color.CAM_X0101);
+            SkinManager.setBackgroundResource(this.f55522h, R.drawable.pb_business_promotion_attention_bg);
+            this.f55522h.setOnClickListener(this.n);
         }
     }
 
     public void onChangeSkinType() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            SkinManager.setViewTextColor(this.f55356g, R.color.CAM_X0105);
-            SkinManager.setBackgroundResource(this.f55354e, R.drawable.pb_business_promotion_bg);
+            SkinManager.setViewTextColor(this.f55521g, R.color.CAM_X0105);
+            SkinManager.setBackgroundResource(this.f55519e, R.drawable.pb_business_promotion_bg);
             if (this.l) {
-                SkinManager.setViewTextColor(this.f55357h, R.color.CAM_X0109);
-                SkinManager.setBackgroundResource(this.f55357h, 17170445);
+                SkinManager.setViewTextColor(this.f55522h, R.color.CAM_X0109);
+                SkinManager.setBackgroundResource(this.f55522h, 17170445);
                 return;
             }
-            SkinManager.setViewTextColor(this.f55357h, R.color.CAM_X0101);
-            SkinManager.setBackgroundResource(this.f55357h, R.drawable.pb_business_promotion_attention_bg);
+            SkinManager.setViewTextColor(this.f55522h, R.color.CAM_X0101);
+            SkinManager.setBackgroundResource(this.f55522h, R.drawable.pb_business_promotion_attention_bg);
         }
     }
 
     public void setAfterItemClickListener(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, onClickListener) == null) {
-            this.f55359j = onClickListener;
+            this.f55524j = onClickListener;
         }
     }
 
@@ -353,15 +353,15 @@ public class PbBusinessPromotionContainer extends RelativeLayout {
         this.o = new b(this, 2001336);
         this.p = new c(this, 2001335);
         LayoutInflater.from(context).inflate(R.layout.layout_pb_business_promotion, this);
-        this.f55354e = (RelativeLayout) findViewById(R.id.id_pb_business_promotion_wrapper);
-        this.f55355f = (TbImageView) findViewById(R.id.id_pb_business_promotion_avatar);
-        this.f55356g = (TextView) findViewById(R.id.id_pb_business_promotion_forum_name);
-        this.f55357h = (TextView) findViewById(R.id.id_pb_business_promotion_attention);
-        this.f55355f.setRadius(l.g(context, R.dimen.tbds24));
-        this.f55355f.setConrers(5);
-        this.f55355f.setDefaultResource(17170445);
-        this.f55355f.setDefaultBgResource(17170445);
-        this.f55354e.setOnClickListener(this.n);
+        this.f55519e = (RelativeLayout) findViewById(R.id.id_pb_business_promotion_wrapper);
+        this.f55520f = (TbImageView) findViewById(R.id.id_pb_business_promotion_avatar);
+        this.f55521g = (TextView) findViewById(R.id.id_pb_business_promotion_forum_name);
+        this.f55522h = (TextView) findViewById(R.id.id_pb_business_promotion_attention);
+        this.f55520f.setRadius(l.g(context, R.dimen.tbds24));
+        this.f55520f.setConrers(5);
+        this.f55520f.setDefaultResource(17170445);
+        this.f55520f.setDefaultBgResource(17170445);
+        this.f55519e.setOnClickListener(this.n);
         MessageManager.getInstance().registerListener(this.p);
         MessageManager.getInstance().registerListener(this.o);
     }

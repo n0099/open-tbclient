@@ -12,7 +12,7 @@ public class s extends Handler {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ r f42067a;
+    public final /* synthetic */ r f42174a;
 
     public s(r rVar) {
         Interceptable interceptable = $ic;
@@ -29,7 +29,7 @@ public class s extends Handler {
                 return;
             }
         }
-        this.f42067a = rVar;
+        this.f42174a = rVar;
     }
 
     @Override // android.os.Handler
@@ -39,9 +39,9 @@ public class s extends Handler {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
             super.handleMessage(message);
-            rVar = r.f42063c;
+            rVar = r.f42170c;
             if (rVar != null) {
-                wVar = this.f42067a.f42065d;
+                wVar = this.f42174a.f42172d;
                 wVar.a(message);
             }
         }

@@ -31,14 +31,14 @@ public class NetworkClientImpl implements NetworkClient {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final NetworkClient f75010a;
+    public static final NetworkClient f75211a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public final ExecutorService f75011b;
+    public final ExecutorService f75212b;
 
     /* renamed from: c  reason: collision with root package name */
-    public PriorityBlockingQueue<Runnable> f75012c;
+    public PriorityBlockingQueue<Runnable> f75213c;
 
     /* renamed from: com.qq.e.comm.net.NetworkClientImpl$1  reason: invalid class name */
     /* loaded from: classes10.dex */
@@ -46,7 +46,7 @@ public class NetworkClientImpl implements NetworkClient {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f75013a;
+        public static final /* synthetic */ int[] f75214a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -63,13 +63,13 @@ public class NetworkClientImpl implements NetworkClient {
                 }
             }
             int[] iArr = new int[Request.Method.values().length];
-            f75013a = iArr;
+            f75214a = iArr;
             try {
                 iArr[Request.Method.POST.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f75013a[Request.Method.GET.ordinal()] = 2;
+                f75214a[Request.Method.GET.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
         }
@@ -81,7 +81,7 @@ public class NetworkClientImpl implements NetworkClient {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final NetworkClient.Priority f75014a;
+        public final NetworkClient.Priority f75215a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public NetFutureTask(Callable<T> callable, NetworkClient.Priority priority) {
@@ -101,7 +101,7 @@ public class NetworkClientImpl implements NetworkClient {
                     return;
                 }
             }
-            this.f75014a = priority;
+            this.f75215a = priority;
         }
 
         public int compareTo(NetFutureTask<T> netFutureTask) {
@@ -111,7 +111,7 @@ public class NetworkClientImpl implements NetworkClient {
                 if (netFutureTask == null) {
                     return 1;
                 }
-                return this.f75014a.value() - netFutureTask.f75014a.value();
+                return this.f75215a.value() - netFutureTask.f75215a.value();
             }
             return invokeL.intValue;
         }
@@ -130,7 +130,7 @@ public class NetworkClientImpl implements NetworkClient {
         public int hashCode() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f75014a.value() : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f75215a.value() : invokeV.intValue;
         }
     }
 
@@ -140,10 +140,10 @@ public class NetworkClientImpl implements NetworkClient {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public Request f75015a;
+        public Request f75216a;
 
         /* renamed from: b  reason: collision with root package name */
-        public NetworkCallBack f75016b;
+        public NetworkCallBack f75217b;
 
         /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
         public TaskCallable(Request request) {
@@ -181,20 +181,20 @@ public class NetworkClientImpl implements NetworkClient {
                     return;
                 }
             }
-            this.f75015a = request;
-            this.f75016b = networkCallBack;
+            this.f75216a = request;
+            this.f75217b = networkCallBack;
         }
 
         private Response a() throws Exception {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
-                HttpURLConnection httpURLConnection = (HttpURLConnection) new URL(this.f75015a.getUrlWithParas()).openConnection();
+                HttpURLConnection httpURLConnection = (HttpURLConnection) new URL(this.f75216a.getUrlWithParas()).openConnection();
                 a(httpURLConnection);
-                if (AnonymousClass1.f75013a[this.f75015a.getMethod().ordinal()] == 1) {
+                if (AnonymousClass1.f75214a[this.f75216a.getMethod().ordinal()] == 1) {
                     httpURLConnection.setDoOutput(true);
                     httpURLConnection.setChunkedStreamingMode(0);
-                    byte[] postData = this.f75015a.getPostData();
+                    byte[] postData = this.f75216a.getPostData();
                     if (postData != null && postData.length > 0) {
                         BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(httpURLConnection.getOutputStream());
                         try {
@@ -205,7 +205,7 @@ public class NetworkClientImpl implements NetworkClient {
                         }
                     }
                 }
-                return this.f75015a.initResponse(NetworkClientImpl.followRedirect(httpURLConnection));
+                return this.f75216a.initResponse(NetworkClientImpl.followRedirect(httpURLConnection));
             }
             return (Response) invokeV.objValue;
         }
@@ -213,17 +213,17 @@ public class NetworkClientImpl implements NetworkClient {
         private void a(HttpURLConnection httpURLConnection) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(65539, this, httpURLConnection) == null) {
-                for (Map.Entry<String, String> entry : this.f75015a.getHeaders().entrySet()) {
+                for (Map.Entry<String, String> entry : this.f75216a.getHeaders().entrySet()) {
                     httpURLConnection.setRequestProperty(entry.getKey(), entry.getValue());
                 }
                 httpURLConnection.setRequestProperty("User-Agent", "GDTADNetClient-[" + System.getProperty("http.agent") + PreferencesUtil.RIGHT_MOUNT);
-                if (this.f75015a.getConnectionTimeOut() > 0) {
-                    httpURLConnection.setConnectTimeout(this.f75015a.getConnectionTimeOut());
+                if (this.f75216a.getConnectionTimeOut() > 0) {
+                    httpURLConnection.setConnectTimeout(this.f75216a.getConnectionTimeOut());
                 } else {
                     httpURLConnection.setConnectTimeout(30000);
                 }
-                if (this.f75015a.getSocketTimeOut() > 0) {
-                    httpURLConnection.setReadTimeout(this.f75015a.getSocketTimeOut());
+                if (this.f75216a.getSocketTimeOut() > 0) {
+                    httpURLConnection.setReadTimeout(this.f75216a.getSocketTimeOut());
                 } else {
                     httpURLConnection.setReadTimeout(30000);
                 }
@@ -233,7 +233,7 @@ public class NetworkClientImpl implements NetworkClient {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
         /* JADX WARN: Code restructure failed: missing block: B:14:0x001f, code lost:
-            if (r4.f75015a.isAutoClose() != false) goto L12;
+            if (r4.f75216a.isAutoClose() != false) goto L12;
          */
         /* JADX WARN: Code restructure failed: missing block: B:15:0x0021, code lost:
             r1.close();
@@ -263,15 +263,15 @@ public class NetworkClientImpl implements NetworkClient {
                 exc = e2;
             }
             if (exc == null) {
-                NetworkCallBack networkCallBack = this.f75016b;
+                NetworkCallBack networkCallBack = this.f75217b;
                 if (networkCallBack != null) {
-                    networkCallBack.onResponse(this.f75015a, response);
+                    networkCallBack.onResponse(this.f75216a, response);
                 }
-            } else if (this.f75016b == null) {
+            } else if (this.f75217b == null) {
                 throw exc;
             } else {
                 GDTLogger.w("网络异常", exc);
-                this.f75016b.onException(exc);
+                this.f75217b.onException(exc);
             }
         }
     }
@@ -289,7 +289,7 @@ public class NetworkClientImpl implements NetworkClient {
                 return;
             }
         }
-        f75010a = new NetworkClientImpl();
+        f75211a = new NetworkClientImpl();
     }
 
     public NetworkClientImpl() {
@@ -305,8 +305,8 @@ public class NetworkClientImpl implements NetworkClient {
                 return;
             }
         }
-        this.f75012c = new PriorityBlockingQueue<>(15);
-        this.f75011b = new ThreadPoolExecutor(5, 10, 180L, TimeUnit.SECONDS, this.f75012c);
+        this.f75213c = new PriorityBlockingQueue<>(15);
+        this.f75212b = new ThreadPoolExecutor(5, 10, 180L, TimeUnit.SECONDS, this.f75213c);
     }
 
     public static HttpURLConnection followRedirect(HttpURLConnection httpURLConnection) throws IOException {
@@ -351,7 +351,7 @@ public class NetworkClientImpl implements NetworkClient {
     public static NetworkClient getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? f75010a : (NetworkClient) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? f75211a : (NetworkClient) invokeV.objValue;
     }
 
     @Override // com.qq.e.comm.net.NetworkClient
@@ -367,8 +367,8 @@ public class NetworkClientImpl implements NetworkClient {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, request, priority)) == null) {
             NetFutureTask netFutureTask = new NetFutureTask(new TaskCallable(request), priority);
-            this.f75011b.execute(netFutureTask);
-            GDTLogger.d("QueueSize:" + this.f75012c.size());
+            this.f75212b.execute(netFutureTask);
+            GDTLogger.d("QueueSize:" + this.f75213c.size());
             return netFutureTask;
         }
         return (Future) invokeLL.objValue;
@@ -386,7 +386,7 @@ public class NetworkClientImpl implements NetworkClient {
     public void submit(Request request, NetworkClient.Priority priority, NetworkCallBack networkCallBack) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048579, this, request, priority, networkCallBack) == null) {
-            submit(request, priority, networkCallBack, this.f75011b);
+            submit(request, priority, networkCallBack, this.f75212b);
         }
     }
 
@@ -399,7 +399,7 @@ public class NetworkClientImpl implements NetworkClient {
                 str = "Submit failed for no executor";
             } else {
                 executor.execute(new NetFutureTask(new TaskCallable(request, networkCallBack), priority));
-                str = "QueueSize:" + this.f75012c.size();
+                str = "QueueSize:" + this.f75213c.size();
             }
             GDTLogger.d(str);
         }

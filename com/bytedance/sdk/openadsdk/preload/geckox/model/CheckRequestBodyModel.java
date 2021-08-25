@@ -23,7 +23,7 @@ public class CheckRequestBodyModel {
     @c(a = "common")
 
     /* renamed from: common  reason: collision with root package name */
-    public Common f68402common;
+    public Common f68602common;
     @c(a = SchedulerSupport.CUSTOM)
     public Map<String, Map<String, Object>> custom;
     @c(a = "deployment")
@@ -347,7 +347,7 @@ public class CheckRequestBodyModel {
     public void setCommon(Common common2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, common2) == null) {
-            this.f68402common = common2;
+            this.f68602common = common2;
         }
     }
 

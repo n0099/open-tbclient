@@ -1,6 +1,6 @@
 package com.baidu.tieba.homepage.tabfeed.message;
 
-import c.a.p0.f1.j.h.a;
+import c.a.q0.f1.j.h.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.websockt.TbSocketReponsedMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;

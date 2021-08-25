@@ -11,7 +11,6 @@ import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.yy.hiidostatis.inner.util.cipher.RsaCipher;
 import java.math.BigInteger;
 import java.security.KeyPairGenerator;
 import java.security.KeyStore;
@@ -62,7 +61,7 @@ public class b {
                         }
                         byte[] a2 = a();
                         PublicKey publicKey = keyStore.getCertificate("CMCC_SDK").getPublicKey();
-                        Cipher cipher = Cipher.getInstance(RsaCipher.RSA_PADDING);
+                        Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
                         cipher.init(1, publicKey);
                         a(Base64.encodeToString(cipher.doFinal(a2), 0));
                         bArr = a2;
@@ -74,7 +73,7 @@ public class b {
                             if (privateKey == null) {
                                 return null;
                             }
-                            Cipher cipher2 = Cipher.getInstance(RsaCipher.RSA_PADDING);
+                            Cipher cipher2 = Cipher.getInstance("RSA/ECB/PKCS1Padding");
                             cipher2.init(2, privateKey);
                             bArr = cipher2.doFinal(decode);
                         }

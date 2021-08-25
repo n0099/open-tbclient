@@ -47,6 +47,7 @@ public class TbErrInfo {
     public static final int ERR_LOTTERY_UNLIKE_FORUM = 3110004;
     public static final int ERR_NO_LOTTERY_CHANCE = 2390003;
     public static final int ERR_REUPLOAD_FILE = 320033;
+    public static final int ERR_SEND_CANCEL = -54;
     public static final int ERR_SEND_FAIL = -53;
     public static final int ERR_SERVER_UNKNOW = -51;
     public static final int ERR_SOKCET_SWITCH_HTTP = 110005;
@@ -192,10 +193,10 @@ public class TbErrInfo {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            int A = f.A();
-            if (A != 1) {
-                if (A != 2) {
-                    return A != 3 ? 0 : -25;
+            int z = f.z();
+            if (z != 1) {
+                if (z != 2) {
+                    return z != 3 ? 0 : -25;
                 }
                 return -24;
             }

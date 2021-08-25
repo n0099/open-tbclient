@@ -18,7 +18,7 @@ public class k {
     @SuppressLint({"StaticFieldLeak"})
 
     /* renamed from: a  reason: collision with root package name */
-    public static Context f68817a;
+    public static Context f69017a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes9.dex */
@@ -27,7 +27,7 @@ public class k {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final SharedPreferences.Editor f68818a;
+        public final SharedPreferences.Editor f69018a;
 
         public a(SharedPreferences.Editor editor) {
             Interceptable interceptable = $ic;
@@ -44,48 +44,48 @@ public class k {
                     return;
                 }
             }
-            this.f68818a = editor;
+            this.f69018a = editor;
         }
 
         public void a(String str, String str2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048580, this, str, str2) == null) {
-                this.f68818a.putString(d.a(str), str2);
+                this.f69018a.putString(d.a(str), str2);
             }
         }
 
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-                this.f68818a.commit();
+                this.f69018a.commit();
             }
         }
 
         public void a(String str, long j2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLJ(1048579, this, str, j2) == null) {
-                this.f68818a.putLong(d.a(str), j2);
+                this.f69018a.putLong(d.a(str), j2);
             }
         }
 
         public void a(String str, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, str, i2) == null) {
-                this.f68818a.putInt(d.a(str), i2);
+                this.f69018a.putInt(d.a(str), i2);
             }
         }
 
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f68818a.apply();
+                this.f69018a.apply();
             }
         }
 
         public void a(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-                this.f68818a.remove(d.a(str));
+                this.f69018a.remove(d.a(str));
             }
         }
     }
@@ -93,32 +93,32 @@ public class k {
     public static void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, null, context) == null) {
-            f68817a = context.getApplicationContext();
+            f69017a = context.getApplicationContext();
         }
     }
 
     public static String b(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, str, str2)) == null) ? f68817a.getSharedPreferences("ssoconfigs", 0).getString(d.a(str), str2) : (String) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, str, str2)) == null) ? f69017a.getSharedPreferences("ssoconfigs", 0).getString(d.a(str), str2) : (String) invokeLL.objValue;
     }
 
     public static int a(String str, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(65536, null, str, i2)) == null) ? f68817a.getSharedPreferences("ssoconfigs", 0).getInt(d.a(str), i2) : invokeLI.intValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(65536, null, str, i2)) == null) ? f69017a.getSharedPreferences("ssoconfigs", 0).getInt(d.a(str), i2) : invokeLI.intValue;
     }
 
     public static long a(String str, long j2) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(65537, null, str, j2)) == null) ? f68817a.getSharedPreferences("ssoconfigs", 0).getLong(d.a(str), j2) : invokeLJ.longValue;
+        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(65537, null, str, j2)) == null) ? f69017a.getSharedPreferences("ssoconfigs", 0).getLong(d.a(str), j2) : invokeLJ.longValue;
     }
 
     public static void a(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2) == null) {
-            SharedPreferences sharedPreferences = f68817a.getSharedPreferences("ssoconfigs", 0);
+            SharedPreferences sharedPreferences = f69017a.getSharedPreferences("ssoconfigs", 0);
             sharedPreferences.edit().putString(d.a(str), str2).commit();
         }
     }
@@ -126,6 +126,6 @@ public class k {
     public static a a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? new a(f68817a.getSharedPreferences("ssoconfigs", 0).edit()) : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? new a(f69017a.getSharedPreferences("ssoconfigs", 0).edit()) : (a) invokeV.objValue;
     }
 }

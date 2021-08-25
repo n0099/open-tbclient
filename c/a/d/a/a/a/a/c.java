@@ -16,17 +16,17 @@ public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int f1713d;
+    public static final int f1938d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public h f1714a;
+    public h f1939a;
 
     /* renamed from: b  reason: collision with root package name */
-    public e f1715b;
+    public e f1940b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Context f1716c;
+    public Context f1941c;
 
     static {
         InterceptResult invokeClinit;
@@ -41,7 +41,7 @@ public class c {
                 return;
             }
         }
-        f1713d = a.a(24);
+        f1938d = a.a(24);
     }
 
     public c(Context context) {
@@ -59,9 +59,9 @@ public class c {
                 return;
             }
         }
-        this.f1716c = context;
-        this.f1714a = new h(context);
-        this.f1715b = new e(null);
+        this.f1941c = context;
+        this.f1939a = new h(context);
+        this.f1940b = new e(null);
     }
 
     public final int b(Object obj, Object obj2) {
@@ -69,7 +69,7 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, obj, obj2)) == null) {
             try {
-                return this.f1714a.a(obj, obj2);
+                return this.f1939a.a(obj, obj2);
             } catch (q e2) {
                 throw e2;
             } catch (Throwable th) {
@@ -85,7 +85,7 @@ public class c {
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
             int i2 = -103;
             try {
-                Object b2 = this.f1714a.b(this.f1716c);
+                Object b2 = this.f1939a.b(this.f1941c);
                 if (b2 == null) {
                     e = new NullPointerException("gpm null error");
                 } else {
@@ -132,8 +132,8 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048579, this, str, i2)) == null) {
             try {
-                Class cls = this.f1714a.f1725c;
-                return k.b(cls, new Object[]{str, this.f1715b.f1717a + i2});
+                Class cls = this.f1939a.f1950c;
+                return k.b(cls, new Object[]{str, this.f1940b.f1942a + i2});
             } catch (Exception e2) {
                 e2.printStackTrace();
                 throw new com.baidu.ad.magic.flute.a.a.g("");
@@ -147,7 +147,7 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, obj, str)) == null) {
             g gVar = new g();
-            for (int i2 = 0; i2 < f1713d; i2++) {
+            for (int i2 = 0; i2 < f1938d; i2++) {
                 gVar.b(f.a(b(obj, e(str, i2))));
             }
             return gVar.a().b();
@@ -170,7 +170,7 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
             try {
-                return k.b(this.f1714a.f1725c, new Object[]{str, this.f1715b.f1718b});
+                return k.b(this.f1939a.f1950c, new Object[]{str, this.f1940b.f1943b});
             } catch (Exception e2) {
                 e2.printStackTrace();
                 throw new com.baidu.ad.magic.flute.a.a.g("");

@@ -16,7 +16,7 @@ public class i {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f33941a;
+    public final String f34047a;
 
     /* loaded from: classes4.dex */
     public class a extends i {
@@ -24,10 +24,10 @@ public class i {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f33942b;
+        public final /* synthetic */ String f34048b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ i f33943c;
+        public final /* synthetic */ i f34049c;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(i iVar, i iVar2, String str) {
@@ -48,15 +48,15 @@ public class i {
                     return;
                 }
             }
-            this.f33943c = iVar;
-            this.f33942b = str;
+            this.f34049c = iVar;
+            this.f34048b = str;
         }
 
         @Override // c.i.d.a.i
         public CharSequence h(Object obj) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) ? obj == null ? this.f33942b : this.f33943c.h(obj) : (CharSequence) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) ? obj == null ? this.f34048b : this.f34049c.h(obj) : (CharSequence) invokeL.objValue;
         }
 
         @Override // c.i.d.a.i
@@ -94,7 +94,7 @@ public class i {
             if (it.hasNext()) {
                 a2.append(h(it.next()));
                 while (it.hasNext()) {
-                    a2.append(this.f33941a);
+                    a2.append(this.f34047a);
                     a2.append(h(it.next()));
                 }
             }
@@ -176,7 +176,7 @@ public class i {
             }
         }
         n.p(str);
-        this.f33941a = str;
+        this.f34047a = str;
     }
 
     public i(i iVar) {
@@ -194,6 +194,6 @@ public class i {
                 return;
             }
         }
-        this.f33941a = iVar.f33941a;
+        this.f34047a = iVar.f34047a;
     }
 }

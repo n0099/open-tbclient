@@ -14,7 +14,7 @@ public class FragmentResultReceiver extends ResultReceiver {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public a f60536a;
+    public a f60736a;
 
     /* loaded from: classes8.dex */
     public interface a {
@@ -44,7 +44,7 @@ public class FragmentResultReceiver extends ResultReceiver {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f60536a = null;
+            this.f60736a = null;
         }
     }
 
@@ -52,7 +52,7 @@ public class FragmentResultReceiver extends ResultReceiver {
     public void onReceiveResult(int i2, Bundle bundle) {
         a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i2, bundle) == null) || (aVar = this.f60536a) == null) {
+        if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i2, bundle) == null) || (aVar = this.f60736a) == null) {
             return;
         }
         aVar.onReceiveResult(i2, bundle);
@@ -61,7 +61,7 @@ public class FragmentResultReceiver extends ResultReceiver {
     public void a(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-            this.f60536a = aVar;
+            this.f60736a = aVar;
         }
     }
 }

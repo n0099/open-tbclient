@@ -212,7 +212,7 @@ public class AccountManagerImpl {
                 Utility.writeLoginFlag(context, "5N", "startLoginServiceRunnable begin, loginType = " + i2 + "，needLogout :" + z);
                 if (!z) {
                     LogUtils.d(TAG, "need logout before login");
-                    if (a.f29659e) {
+                    if (a.f30000e) {
                         BIMManager.imLogoutByLcp(mContext);
                         startLoginService(i2, str, str2, str3, str4, iLoginListener);
                         return;
@@ -374,7 +374,7 @@ public class AccountManagerImpl {
                 Utility.clearCache(mContext);
                 this.mToken = null;
             }
-            if (!a.f29659e) {
+            if (!a.f30000e) {
                 clearLoginParam(mContext);
                 clearUid(mContext);
                 disconnect(str);
@@ -885,7 +885,7 @@ public class AccountManagerImpl {
                 ConversationStudioManImpl.getInstance(mContext).clearAckCastList();
                 noticeStateChanged(3);
                 BIMManager.connectStatusNotify(0);
-                if (!a.f29659e) {
+                if (!a.f30000e) {
                     Utility.sendConnectionStateBroadCast(mContext, 0);
                 }
             } else {

@@ -5,6 +5,7 @@ import android.text.ClipboardManager;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.searchbox.datacollector.growth.utils.GrowthConstant;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -44,7 +45,7 @@ public class EditTextPasteFilterUtils {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, list)) == null) {
-            ClipboardManager clipboardManager = (ClipboardManager) context.getSystemService("clipboard");
+            ClipboardManager clipboardManager = (ClipboardManager) context.getSystemService(GrowthConstant.UBC_VALUE_TYPE_CLIP_BOARD);
             if (clipboardManager == null) {
                 return "";
             }

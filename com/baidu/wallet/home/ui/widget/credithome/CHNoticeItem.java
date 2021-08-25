@@ -22,13 +22,13 @@ public class CHNoticeItem extends BaseItemView {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public MaskTextView f61036a;
+    public MaskTextView f61236a;
 
     /* renamed from: b  reason: collision with root package name */
-    public MaskTextView f61037b;
+    public MaskTextView f61237b;
 
     /* renamed from: c  reason: collision with root package name */
-    public NetImageView f61038c;
+    public NetImageView f61238c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public CHNoticeItem(Context context, AttributeSet attributeSet) {
@@ -55,9 +55,9 @@ public class CHNoticeItem extends BaseItemView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
             LayoutInflater.from(getContext()).inflate(ResUtils.layout(getContext(), "wallet_home_ch_credit_card_notice_item"), this);
-            this.f61036a = (MaskTextView) findViewById(ResUtils.id(getContext(), "ch_credit_card_notice_content"));
-            this.f61037b = (MaskTextView) findViewById(ResUtils.id(getContext(), "ch_credit_card_notice_class"));
-            this.f61038c = (NetImageView) findViewById(ResUtils.id(getContext(), "ch_credit_card_notice_img"));
+            this.f61236a = (MaskTextView) findViewById(ResUtils.id(getContext(), "ch_credit_card_notice_content"));
+            this.f61237b = (MaskTextView) findViewById(ResUtils.id(getContext(), "ch_credit_card_notice_class"));
+            this.f61238c = (NetImageView) findViewById(ResUtils.id(getContext(), "ch_credit_card_notice_img"));
         }
     }
 
@@ -65,15 +65,15 @@ public class CHNoticeItem extends BaseItemView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
             if (!TextUtils.isEmpty(getData().label)) {
-                this.f61037b.setMaskText(getData().label);
+                this.f61237b.setMaskText(getData().label);
             } else {
-                this.f61037b.setVisibility(8);
+                this.f61237b.setVisibility(8);
             }
-            this.f61036a.setMaskText(getData().name);
+            this.f61236a.setMaskText(getData().name);
             if (!TextUtils.isEmpty(getData().type) && !TextUtils.isEmpty(getData().link_addr)) {
-                this.f61038c.setVisibility(0);
+                this.f61238c.setVisibility(0);
             } else {
-                this.f61038c.setVisibility(8);
+                this.f61238c.setVisibility(8);
             }
         }
     }

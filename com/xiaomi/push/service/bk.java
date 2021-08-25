@@ -14,7 +14,7 @@ public final class bk implements ai {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile bk f77796a;
+    public static volatile bk f77997a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
@@ -38,7 +38,7 @@ public final class bk implements ai {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public long f77797a;
+        public long f77998a;
 
         /* renamed from: a  reason: collision with other field name */
         public String f943a;
@@ -59,7 +59,7 @@ public final class bk implements ai {
                 }
             }
             this.f943a = str;
-            this.f77797a = j2;
+            this.f77998a = j2;
         }
 
         public abstract void a(bk bkVar);
@@ -67,17 +67,17 @@ public final class bk implements ai {
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || bk.f77796a == null) {
+            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || bk.f77997a == null) {
                 return;
             }
-            Context context = bk.f77796a.f939a;
+            Context context = bk.f77997a.f939a;
             if (com.xiaomi.push.bg.d(context)) {
                 long currentTimeMillis = System.currentTimeMillis();
-                SharedPreferences sharedPreferences = bk.f77796a.f940a;
-                if (currentTimeMillis - sharedPreferences.getLong(":ts-" + this.f943a, 0L) > this.f77797a || com.xiaomi.push.af.a(context)) {
-                    SharedPreferences.Editor edit = bk.f77796a.f940a.edit();
+                SharedPreferences sharedPreferences = bk.f77997a.f940a;
+                if (currentTimeMillis - sharedPreferences.getLong(":ts-" + this.f943a, 0L) > this.f77998a || com.xiaomi.push.af.a(context)) {
+                    SharedPreferences.Editor edit = bk.f77997a.f940a.edit();
                     com.xiaomi.push.r.a(edit.putLong(":ts-" + this.f943a, System.currentTimeMillis()));
-                    a(bk.f77796a);
+                    a(bk.f77997a);
                 }
             }
         }
@@ -108,14 +108,14 @@ public final class bk implements ai {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
-            if (f77796a == null) {
+            if (f77997a == null) {
                 synchronized (bk.class) {
-                    if (f77796a == null) {
-                        f77796a = new bk(context);
+                    if (f77997a == null) {
+                        f77997a = new bk(context);
                     }
                 }
             }
-            return f77796a;
+            return f77997a;
         }
         return (bk) invokeL.objValue;
     }
@@ -156,7 +156,7 @@ public final class bk implements ai {
     public void a(String str, String str2, String str3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048579, this, str, str2, str3) == null) {
-            SharedPreferences.Editor edit = f77796a.f940a.edit();
+            SharedPreferences.Editor edit = f77997a.f940a.edit();
             com.xiaomi.push.r.a(edit.putString(str + ":" + str2, str3));
         }
     }

@@ -1,6 +1,6 @@
 package com.baidu.tbadk.coreExtra.data;
 
-import c.a.o0.s.q.p;
+import c.a.p0.s.q.p;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.setting.PrivacyMarkActivityConfig;
@@ -52,7 +52,7 @@ public class PrivSetsData extends p implements Serializable {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.bazhuShowOutside : invokeV.intValue;
     }
 
-    @Override // c.a.o0.s.q.p
+    @Override // c.a.p0.s.q.p
     public void parserJson(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) || jSONObject == null) {

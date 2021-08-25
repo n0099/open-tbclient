@@ -18,16 +18,16 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public List<String> f2281a;
+    public List<String> f2339a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f2282b;
+    public String f2340b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f2283c;
+    public long f2341c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f2284d;
+    public long f2342d;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -42,13 +42,13 @@ public class a {
                 return;
             }
         }
-        this.f2284d = System.currentTimeMillis();
+        this.f2342d = System.currentTimeMillis();
     }
 
     public List<String> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f2281a : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f2339a : (List) invokeV.objValue;
     }
 
     public a b(String str) {
@@ -61,18 +61,18 @@ public class a {
             }
             try {
                 JSONObject jSONObject = new JSONObject(str);
-                this.f2283c = jSONObject.optLong(ResultTB.TTL);
+                this.f2341c = jSONObject.optLong(ResultTB.TTL);
                 JSONObject optJSONObject = jSONObject.optJSONObject("data");
                 if (optJSONObject == null) {
                     return null;
                 }
                 String next = optJSONObject.keys().next();
-                this.f2282b = next;
+                this.f2340b = next;
                 JSONObject optJSONObject2 = optJSONObject.optJSONObject(next);
                 if (optJSONObject2 != null && (optJSONArray = optJSONObject2.optJSONArray("ip")) != null && optJSONArray.length() > 0) {
-                    this.f2281a = new ArrayList();
+                    this.f2339a = new ArrayList();
                     for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
-                        this.f2281a.add((String) optJSONArray.get(i2));
+                        this.f2339a.add((String) optJSONArray.get(i2));
                     }
                 }
                 return this;
@@ -87,20 +87,20 @@ public class a {
     public boolean c(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2)) == null) ? j2 - this.f2284d > this.f2283c * 1000 : invokeJ.booleanValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2)) == null) ? j2 - this.f2342d > this.f2341c * 1000 : invokeJ.booleanValue;
     }
 
     public void d(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048579, this, j2) == null) {
-            this.f2283c = j2;
+            this.f2341c = j2;
         }
     }
 
     public void e(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048580, this, j2) == null) {
-            this.f2284d = j2;
+            this.f2342d = j2;
         }
     }
 }

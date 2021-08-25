@@ -16,7 +16,7 @@ public class i {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static ExecutorService f35471a;
+    public static ExecutorService f35577a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes4.dex */
@@ -25,7 +25,7 @@ public class i {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public boolean f35472a;
+        public boolean f35578a;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -40,20 +40,20 @@ public class i {
                     return;
                 }
             }
-            this.f35472a = false;
+            this.f35578a = false;
         }
 
         public void a(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-                this.f35472a = z;
+                this.f35578a = z;
             }
         }
 
         public boolean a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f35472a : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f35578a : invokeV.booleanValue;
         }
     }
 
@@ -70,19 +70,19 @@ public class i {
                 return;
             }
         }
-        f35471a = Executors.newFixedThreadPool(3);
+        f35577a = Executors.newFixedThreadPool(3);
     }
 
     public static void a(Runnable runnable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, null, runnable) == null) {
-            f35471a.execute(runnable);
+            f35577a.execute(runnable);
         }
     }
 
     public static Future b(Runnable runnable) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, runnable)) == null) ? f35471a.submit(runnable) : (Future) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, runnable)) == null) ? f35577a.submit(runnable) : (Future) invokeL.objValue;
     }
 }

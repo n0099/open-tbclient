@@ -19,10 +19,10 @@ public class d {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f34891a;
+    public String f34997a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f34892b;
+    public String f34998b;
 
     public d() {
         Interceptable interceptable = $ic;
@@ -67,7 +67,7 @@ public class d {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) || TextUtils.isEmpty(str)) {
             return;
         }
-        this.f34891a = str;
+        this.f34997a = str;
     }
 
     @Deprecated
@@ -76,7 +76,7 @@ public class d {
         if (!(interceptable == null || interceptable.invokeIL(1048579, this, i2, cVar) == null) || cVar == null) {
             return;
         }
-        f.c().q(i2, cVar, com.ss.android.socialbase.downloader.constants.f.f75459a, true);
+        f.c().q(i2, cVar, com.ss.android.socialbase.downloader.constants.f.f75660a, true);
     }
 
     @Deprecated
@@ -85,7 +85,7 @@ public class d {
         if (!(interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i2), cVar, Boolean.valueOf(z)}) == null) || cVar == null) {
             return;
         }
-        f.c().g(i2, cVar, com.ss.android.socialbase.downloader.constants.f.f75459a, true, z);
+        f.c().g(i2, cVar, com.ss.android.socialbase.downloader.constants.f.f75660a, true, z);
     }
 
     public void F(r rVar) {
@@ -161,7 +161,7 @@ public class d {
     public File k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? l(this.f34891a, true) : (File) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? l(this.f34997a, true) : (File) invokeV.objValue;
     }
 
     public final File l(String str, boolean z) {
@@ -198,7 +198,7 @@ public class d {
     public File m() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? l(this.f34892b, false) : (File) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? l(this.f34998b, false) : (File) invokeV.objValue;
     }
 
     public r n() {
@@ -278,7 +278,7 @@ public class d {
     public void x(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048605, this, i2) == null) {
-            f.c().f(i2, null, com.ss.android.socialbase.downloader.constants.f.f75459a, true);
+            f.c().f(i2, null, com.ss.android.socialbase.downloader.constants.f.f75660a, true);
         }
     }
 

@@ -3,7 +3,6 @@ package com.baidu.mobstat.dxmpay;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.yy.hiidostatis.inner.util.cipher.RsaCipher;
 import java.io.ByteArrayOutputStream;
 import java.security.Key;
 import java.security.KeyFactory;
@@ -58,7 +57,7 @@ public class v {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Integer.valueOf(i2), key, Integer.valueOf(i3), bArr})) == null) {
-            Cipher cipher = Cipher.getInstance(RsaCipher.RSA_PADDING);
+            Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
             cipher.init(i2, key);
             ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
             int i4 = 0;

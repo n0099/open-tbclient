@@ -1,6 +1,6 @@
 package com.baidu.tbadk.ala;
 
-import c.a.o0.s.q.p;
+import c.a.p0.s.q.p;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.AlaUserInfoData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -79,7 +79,7 @@ public class AlaLiveUserInfoData extends p implements Serializable {
         this.greatAnchorDescRole = alaUserInfoData.great_anchor_desc_role;
     }
 
-    @Override // c.a.o0.s.q.p
+    @Override // c.a.p0.s.q.p
     public void parserJson(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) {

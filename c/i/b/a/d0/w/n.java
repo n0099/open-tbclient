@@ -24,29 +24,29 @@ public final class n implements c.i.b.a.a0.e {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final Pattern f33121g;
+    public static final Pattern f33227g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final Pattern f33122h;
+    public static final Pattern f33228h;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f33123a;
+    public final String f33229a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final s f33124b;
+    public final s f33230b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final c.i.b.a.i0.l f33125c;
+    public final c.i.b.a.i0.l f33231c;
 
     /* renamed from: d  reason: collision with root package name */
-    public c.i.b.a.a0.g f33126d;
+    public c.i.b.a.a0.g f33232d;
 
     /* renamed from: e  reason: collision with root package name */
-    public byte[] f33127e;
+    public byte[] f33233e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f33128f;
+    public int f33234f;
 
     static {
         InterceptResult invokeClinit;
@@ -61,8 +61,8 @@ public final class n implements c.i.b.a.a0.e {
                 return;
             }
         }
-        f33121g = Pattern.compile("LOCAL:([^,]+)");
-        f33122h = Pattern.compile("MPEGTS:(\\d+)");
+        f33227g = Pattern.compile("LOCAL:([^,]+)");
+        f33228h = Pattern.compile("MPEGTS:(\\d+)");
     }
 
     public n(String str, s sVar) {
@@ -80,10 +80,10 @@ public final class n implements c.i.b.a.a0.e {
                 return;
             }
         }
-        this.f33123a = str;
-        this.f33124b = sVar;
-        this.f33125c = new c.i.b.a.i0.l();
-        this.f33127e = new byte[1024];
+        this.f33229a = str;
+        this.f33230b = sVar;
+        this.f33231c = new c.i.b.a.i0.l();
+        this.f33233e = new byte[1024];
     }
 
     @Override // c.i.b.a.a0.e
@@ -98,9 +98,9 @@ public final class n implements c.i.b.a.a0.e {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2)) == null) {
-            c.i.b.a.a0.m a2 = this.f33126d.a(0, 3);
-            a2.b(Format.createTextSampleFormat((String) null, "text/vtt", (String) null, -1, 0, this.f33123a, (DrmInitData) null, j2));
-            this.f33126d.j();
+            c.i.b.a.a0.m a2 = this.f33232d.a(0, 3);
+            a2.b(Format.createTextSampleFormat((String) null, "text/vtt", (String) null, -1, 0, this.f33229a, (DrmInitData) null, j2));
+            this.f33232d.j();
             return a2;
         }
         return (c.i.b.a.a0.m) invokeJ.objValue;
@@ -111,7 +111,7 @@ public final class n implements c.i.b.a.a0.e {
         if (interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) {
             return;
         }
-        c.i.b.a.i0.l lVar = new c.i.b.a.i0.l(this.f33127e);
+        c.i.b.a.i0.l lVar = new c.i.b.a.i0.l(this.f33233e);
         try {
             c.i.b.a.e0.r.h.d(lVar);
             long j2 = 0;
@@ -120,9 +120,9 @@ public final class n implements c.i.b.a.a0.e {
                 String k = lVar.k();
                 if (!TextUtils.isEmpty(k)) {
                     if (k.startsWith("X-TIMESTAMP-MAP")) {
-                        Matcher matcher = f33121g.matcher(k);
+                        Matcher matcher = f33227g.matcher(k);
                         if (matcher.find()) {
-                            Matcher matcher2 = f33122h.matcher(k);
+                            Matcher matcher2 = f33228h.matcher(k);
                             if (matcher2.find()) {
                                 j3 = c.i.b.a.e0.r.h.c(matcher.group(1));
                                 j2 = s.f(Long.parseLong(matcher2.group(1)));
@@ -140,11 +140,11 @@ public final class n implements c.i.b.a.a0.e {
                         return;
                     }
                     long c2 = c.i.b.a.e0.r.h.c(a2.group(1));
-                    long b2 = this.f33124b.b(s.i((j2 + c2) - j3));
+                    long b2 = this.f33230b.b(s.i((j2 + c2) - j3));
                     c.i.b.a.a0.m b3 = b(b2 - c2);
-                    this.f33125c.H(this.f33127e, this.f33128f);
-                    b3.a(this.f33125c, this.f33128f);
-                    b3.c(b2, 1, this.f33128f, 0, null);
+                    this.f33231c.H(this.f33233e, this.f33234f);
+                    b3.a(this.f33231c, this.f33234f);
+                    b3.c(b2, 1, this.f33234f, 0, null);
                     return;
                 }
             }
@@ -169,17 +169,17 @@ public final class n implements c.i.b.a.a0.e {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, fVar, kVar)) == null) {
             int length = (int) fVar.getLength();
-            int i2 = this.f33128f;
-            byte[] bArr = this.f33127e;
+            int i2 = this.f33234f;
+            byte[] bArr = this.f33233e;
             if (i2 == bArr.length) {
-                this.f33127e = Arrays.copyOf(bArr, ((length != -1 ? length : bArr.length) * 3) / 2);
+                this.f33233e = Arrays.copyOf(bArr, ((length != -1 ? length : bArr.length) * 3) / 2);
             }
-            byte[] bArr2 = this.f33127e;
-            int i3 = this.f33128f;
+            byte[] bArr2 = this.f33233e;
+            int i3 = this.f33234f;
             int read = fVar.read(bArr2, i3, bArr2.length - i3);
             if (read != -1) {
-                int i4 = this.f33128f + read;
-                this.f33128f = i4;
+                int i4 = this.f33234f + read;
+                this.f33234f = i4;
                 if (length == -1 || i4 != length) {
                     return 0;
                 }
@@ -194,7 +194,7 @@ public final class n implements c.i.b.a.a0.e {
     public void f(c.i.b.a.a0.g gVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, gVar) == null) {
-            this.f33126d = gVar;
+            this.f33232d = gVar;
             gVar.p(new l.a(-9223372036854775807L));
         }
     }

@@ -19,13 +19,13 @@ public class ShadowTextView extends TextView {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Paint f66878a;
+    public Paint f67078a;
 
     /* renamed from: b  reason: collision with root package name */
-    public RectF f66879b;
+    public RectF f67079b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f66880c;
+    public int f67080c;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public ShadowTextView(Context context) {
@@ -53,12 +53,12 @@ public class ShadowTextView extends TextView {
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
             setTextColor(-1);
             Paint paint = new Paint();
-            this.f66878a = paint;
+            this.f67078a = paint;
             paint.setStyle(Paint.Style.FILL_AND_STROKE);
-            this.f66878a.setColor(Color.parseColor("#99333333"));
-            this.f66878a.setAntiAlias(true);
-            this.f66878a.setStrokeWidth(0.0f);
-            this.f66879b = new RectF();
+            this.f67078a.setColor(Color.parseColor("#99333333"));
+            this.f67078a.setAntiAlias(true);
+            this.f67078a.setStrokeWidth(0.0f);
+            this.f67079b = new RectF();
         }
     }
 
@@ -66,10 +66,10 @@ public class ShadowTextView extends TextView {
     public void onDraw(Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) {
-            RectF rectF = this.f66879b;
+            RectF rectF = this.f67079b;
             float f2 = rectF.bottom;
-            canvas.drawRoundRect(rectF, f2 / 2.0f, f2 / 2.0f, this.f66878a);
-            canvas.translate((this.f66879b.right / 2.0f) - (getPaint().measureText(getText().toString()) / 2.0f), 0.0f);
+            canvas.drawRoundRect(rectF, f2 / 2.0f, f2 / 2.0f, this.f67078a);
+            canvas.translate((this.f67079b.right / 2.0f) - (getPaint().measureText(getText().toString()) / 2.0f), 0.0f);
             super.onDraw(canvas);
         }
     }
@@ -83,16 +83,16 @@ public class ShadowTextView extends TextView {
             int measuredHeight = getMeasuredHeight();
             if (measuredWidth > 0 && measuredHeight > 0) {
                 int measureText = (int) getPaint().measureText("00");
-                this.f66880c = measureText;
+                this.f67080c = measureText;
                 if (measuredWidth < measureText) {
                     measuredWidth = measureText;
                 }
                 int i4 = measuredWidth + ((measuredHeight / 2) * 2);
                 setMeasuredDimension(i4, measuredHeight);
-                this.f66879b.set(0.0f, 0.0f, i4, measuredHeight);
+                this.f67079b.set(0.0f, 0.0f, i4, measuredHeight);
                 return;
             }
-            this.f66879b.set(0.0f, 0.0f, 0.0f, 0.0f);
+            this.f67079b.set(0.0f, 0.0f, 0.0f, 0.0f);
         }
     }
 
@@ -136,7 +136,7 @@ public class ShadowTextView extends TextView {
                 return;
             }
         }
-        this.f66880c = 0;
+        this.f67080c = 0;
         a();
     }
 }

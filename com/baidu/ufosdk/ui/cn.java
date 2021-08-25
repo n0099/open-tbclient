@@ -11,7 +11,7 @@ public final class cn implements Runnable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ cm f59407a;
+    public final /* synthetic */ cm f59607a;
 
     public cn(cm cmVar) {
         Interceptable interceptable = $ic;
@@ -28,7 +28,7 @@ public final class cn implements Runnable {
                 return;
             }
         }
-        this.f59407a = cmVar;
+        this.f59607a = cmVar;
     }
 
     @Override // java.lang.Runnable
@@ -36,7 +36,7 @@ public final class cn implements Runnable {
         Handler handler;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            handler = this.f59407a.f59406a.f59397a.aK;
+            handler = this.f59607a.f59606a.f59597a.aK;
             com.baidu.ufosdk.e.a.a(handler);
         }
     }

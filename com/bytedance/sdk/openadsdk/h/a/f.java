@@ -63,7 +63,7 @@ public class f extends com.bytedance.sdk.component.a.e<JSONObject, JSONObject> {
                     return jSONObject2;
                 }
                 com.bytedance.sdk.component.utils.k.b("GetDownloadStatusMethod", "GetDownloadStatusMethod analysisJson downloadId " + optString);
-                JSONObject a2 = a.C1915a.a(optString);
+                JSONObject a2 = a.C1919a.a(optString);
                 com.bytedance.sdk.component.utils.k.b("GetDownloadStatusMethod", "GetDownloadStatusMethod analysisJson downloadJson " + a2.toString());
                 return a2;
             } catch (Throwable unused) {

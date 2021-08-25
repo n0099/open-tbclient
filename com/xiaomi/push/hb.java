@@ -23,7 +23,7 @@ public class hb {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f77378a;
+    public static boolean f77579a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes10.dex */
@@ -32,7 +32,7 @@ public class hb {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public Context f77379a;
+        public Context f77580a;
 
         /* renamed from: a  reason: collision with other field name */
         public he f472a;
@@ -53,14 +53,14 @@ public class hb {
                 }
             }
             this.f472a = heVar;
-            this.f77379a = context;
+            this.f77580a = context;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                hb.c(this.f77379a, this.f472a);
+                hb.c(this.f77580a, this.f472a);
             }
         }
     }
@@ -200,11 +200,11 @@ public class hb {
         File file;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, context, heVar) == null) {
-            if (f77378a) {
+            if (f77579a) {
                 com.xiaomi.channel.commonutils.logger.b.m73a("TinyData extractTinyData is running");
                 return;
             }
-            f77378a = true;
+            f77579a = true;
             File file2 = new File(context.getFilesDir(), "tiny_data.data");
             if (!file2.exists()) {
                 com.xiaomi.channel.commonutils.logger.b.m73a("TinyData no ready file to get data.");
@@ -286,7 +286,7 @@ public class hb {
             a(context, heVar, file, a2);
             ha.a(false);
             b(context);
-            f77378a = false;
+            f77579a = false;
         }
     }
 }

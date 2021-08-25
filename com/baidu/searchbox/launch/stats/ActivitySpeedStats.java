@@ -261,88 +261,112 @@ public final class ActivitySpeedStats extends AbstractSpeedStats {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mMainActivityCreateStartTimeStamp : invokeV.longValue;
     }
 
+    public long getMainActivityOnResumeEndTimeStamp() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mMainActivityOnResumeEndTimeStamp : invokeV.longValue;
+    }
+
     public long getSplashActivityConstTimeStamp() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mSplashActivityEndTimeStamp - this.mSplashActivityStartTimeStamp : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            long j2 = this.mSplashAdShowEndTimeStamp - this.mSplashAdShowStartTimeStamp;
+            if (j2 > 0) {
+                return j2;
+            }
+            return 0L;
+        }
+        return invokeV.longValue;
     }
 
     @Override // com.baidu.searchbox.launch.stats.AbstractSpeedStats
     public long getStatsEndTimeStamp() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mMainActivityOnResumeEndTimeStamp : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mMainActivityOnResumeEndTimeStamp : invokeV.longValue;
     }
 
     @Override // com.baidu.searchbox.launch.stats.AbstractSpeedStats
     public long getStatsStartTimeStamp() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mSplashActivityStartTimeStamp : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mSplashActivityStartTimeStamp : invokeV.longValue;
     }
 
     @Override // com.baidu.searchbox.launch.stats.AbstractSpeedStats
     public boolean packData(JSONObject jSONObject) {
         InterceptResult invokeL;
+        long j2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, jSONObject)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, jSONObject)) == null) {
             super.packData(jSONObject);
             if (jSONObject == null) {
                 return false;
             }
-            long j2 = this.mMainActivityOnResumeEndTimeStamp;
-            long j3 = this.mSplashActivityStartTimeStamp;
-            long j4 = j2 - j3;
-            long j5 = this.mSplashActivityEndTimeStamp;
-            long j6 = j5 - j3;
-            long j7 = this.mSplashOnCreateEndTimeStamp - j3;
-            long j8 = this.mSplashAdloadEndTimeStamp - this.mSplashAdloadStartTimeStamp;
-            long j9 = this.mSplashAdShowEndTimeStamp - this.mSplashAdShowStartTimeStamp;
-            long j10 = this.mMainActivityCreateStartTimeStamp;
-            long j11 = j10 - j5;
-            long j12 = this.mMainActivityCreateEndTimeStamp - j10;
-            long j13 = this.mMainActivitySuperCreateEndTimeStamp - j10;
-            long j14 = this.mInitHomeFragmentControllerEndTimeStamp - this.mInitHomeFragmentControllerStartTimeStamp;
-            long j15 = this.mCheckPluginEntranceStateEndTimeStamp - this.mCheckPluginEntranceStateStartTimeStamp;
-            long j16 = this.mRegReceiverEndTimeStamp - this.mRegReceiverStartTimeStamp;
-            long j17 = this.mCheckClientConfigMessageEndTimeStamp - this.mCheckClientConfigMessageStartTimeStamp;
-            long j18 = this.mCheckAndSendActiveConfigMessageEndTimeStamp - this.mCheckAndSendActiveConfigMessageStartTimeStamp;
-            long j19 = this.mInitTabsOnActivityCreatedEndTimeStamp - this.mInitTabsOnActivityCreatedStartTimeStamp;
-            long j20 = this.mInitCookieEndTimeStamp - this.mInitCookieStartTimeStamp;
-            long j21 = this.mStartTrackConfigRequestEndTimeStamp - this.mStartTrackConfigRequestStartTimeStamp;
-            long j22 = this.mCheckRealNameEndTimeStamp - this.mCheckRealNameStartTimeStamp;
-            long j23 = this.mClearConcernCacheWhenVersionUpdateEndTimeStamp - this.mClearConcernCacheWhenVersionUpdateStartTimeStamp;
-            long j24 = this.mUpdateProfileInfoEndTimeStamp - this.mUpdateProfileInfoStartTimeStamp;
-            long j25 = this.mTryLoadNativeFunAdEndTimeStamp - this.mTryLoadNativeFunAdStartTimeStamp;
-            long j26 = this.mMainActivityOnstartEndTimeStamp - this.mMainActivityOnstartStartTimeStamp;
-            long j27 = j2 - this.mMainActivityOnResumeStartTimeStamp;
-            if (j4 < 0 || j4 > 60000 || j6 < 0 || j6 > 60000 || j7 < 0 || j7 > 60000 || j11 < 0 || j11 > 60000 || j12 < 0 || j12 > 60000 || j13 < 0 || j13 > 60000 || j14 < 0 || j14 > 60000 || j15 < 0 || j15 > 60000 || j16 < 0 || j16 > 60000 || j17 < 0 || j17 > 60000 || j18 < 0 || j18 > 60000 || j19 < 0 || j19 > 60000 || j20 < 0 || j20 > 60000 || j21 < 0 || j21 > 60000 || j22 < 0 || j22 > 60000 || j23 < 0 || j23 > 60000 || j24 < 0 || j24 > 60000 || j25 < 0 || j25 > 60000 || j26 < 0 || j26 > 60000 || j27 < 0 || j27 > 60000) {
+            long j3 = this.mMainActivityOnResumeEndTimeStamp;
+            long j4 = this.mSplashActivityStartTimeStamp;
+            long j5 = j3 - j4;
+            long j6 = this.mSplashActivityEndTimeStamp;
+            long j7 = j6 - j4;
+            long j8 = this.mSplashOnCreateEndTimeStamp - j4;
+            long j9 = this.mSplashAdShowStartTimeStamp;
+            if (j9 > 0) {
+                j2 = j9 - this.mSplashAdloadStartTimeStamp;
+            } else {
+                j2 = j6 - this.mSplashAdloadStartTimeStamp;
+            }
+            long j10 = this.mSplashAdShowEndTimeStamp - this.mSplashAdShowStartTimeStamp;
+            if (j10 < 0) {
+                j10 = 0;
+            }
+            long j11 = this.mMainActivityCreateStartTimeStamp;
+            long j12 = j11 - this.mSplashActivityEndTimeStamp;
+            long j13 = j10;
+            long j14 = this.mMainActivityCreateEndTimeStamp - j11;
+            long j15 = j2;
+            long j16 = this.mMainActivitySuperCreateEndTimeStamp - j11;
+            long j17 = this.mInitHomeFragmentControllerEndTimeStamp - this.mInitHomeFragmentControllerStartTimeStamp;
+            long j18 = this.mCheckPluginEntranceStateEndTimeStamp - this.mCheckPluginEntranceStateStartTimeStamp;
+            long j19 = this.mRegReceiverEndTimeStamp - this.mRegReceiverStartTimeStamp;
+            long j20 = this.mCheckClientConfigMessageEndTimeStamp - this.mCheckClientConfigMessageStartTimeStamp;
+            long j21 = this.mCheckAndSendActiveConfigMessageEndTimeStamp - this.mCheckAndSendActiveConfigMessageStartTimeStamp;
+            long j22 = this.mInitTabsOnActivityCreatedEndTimeStamp - this.mInitTabsOnActivityCreatedStartTimeStamp;
+            long j23 = this.mInitCookieEndTimeStamp - this.mInitCookieStartTimeStamp;
+            long j24 = this.mStartTrackConfigRequestEndTimeStamp - this.mStartTrackConfigRequestStartTimeStamp;
+            long j25 = this.mCheckRealNameEndTimeStamp - this.mCheckRealNameStartTimeStamp;
+            long j26 = this.mClearConcernCacheWhenVersionUpdateEndTimeStamp - this.mClearConcernCacheWhenVersionUpdateStartTimeStamp;
+            long j27 = this.mUpdateProfileInfoEndTimeStamp - this.mUpdateProfileInfoStartTimeStamp;
+            long j28 = this.mTryLoadNativeFunAdEndTimeStamp - this.mTryLoadNativeFunAdStartTimeStamp;
+            long j29 = this.mMainActivityOnstartEndTimeStamp - this.mMainActivityOnstartStartTimeStamp;
+            long j30 = this.mMainActivityOnResumeEndTimeStamp - this.mMainActivityOnResumeStartTimeStamp;
+            if (j5 < 0 || j5 > 60000 || j7 < 0 || j7 > 60000 || j8 < 0 || j8 > 60000 || j12 < 0 || j12 > 60000 || j14 < 0 || j14 > 60000 || j16 < 0 || j16 > 60000 || j17 < 0 || j17 > 60000 || j18 < 0 || j18 > 60000 || j19 < 0 || j19 > 60000 || j20 < 0 || j20 > 60000 || j21 < 0 || j21 > 60000 || j22 < 0 || j22 > 60000 || j23 < 0 || j23 > 60000 || j24 < 0 || j24 > 60000 || j25 < 0 || j25 > 60000 || j26 < 0 || j26 > 60000 || j27 < 0 || j27 > 60000 || j28 < 0 || j28 > 60000 || j29 < 0 || j29 > 60000 || j30 < 0 || j30 > 60000) {
                 return false;
             }
             HashMap hashMap = new HashMap();
-            hashMap.put(MAIN_ACTIVITY_TOTAL_DURATION, String.valueOf(j4));
-            hashMap.put("splash", String.valueOf(j6));
-            hashMap.put(SPLASH_ONCREATE_DURATION, String.valueOf(j7));
-            hashMap.put(SPLASH_LOADAD_DURATION, String.valueOf(j8));
-            hashMap.put(SPLASH_SHOW_DURATION, String.valueOf(j9));
-            hashMap.put(SPLASH_ACTIVITY2MAINACTIVITY_GAP, String.valueOf(j11));
-            hashMap.put("onCreate", String.valueOf(j12));
-            hashMap.put(MAINACTIVITY_SUPER_ONCREATE_DURAION, String.valueOf(j13));
-            hashMap.put(INIT_HOME_FRAGMENT_CONTROLLER_DURATION, String.valueOf(j14));
-            hashMap.put(CHECK_PLUGIN_ENTRANCE_STATE_DURATION, String.valueOf(j15));
-            hashMap.put(REG_RECEIVER_DURATION, String.valueOf(j16));
-            hashMap.put(CHECK_CLIENT_CONFIG_MESSAGE_DURATION, String.valueOf(j17));
-            hashMap.put(CHECK_AND_SEND_ACTIVE_CONFIG_DURATION, String.valueOf(j18));
-            hashMap.put(INIT_TABS_ON_ACTIVITY_CREATED_DURATION, String.valueOf(j19));
-            hashMap.put(INIT_COOKIE_DURATION, String.valueOf(j20));
-            hashMap.put(START_TRACK_CONFIG_REQUEST_DURATION, String.valueOf(j21));
-            hashMap.put(CHECK_REAL_NAME_DURATION, String.valueOf(j22));
-            hashMap.put(CLEAR_CONCERN_CACHE_WHEN_VERSION_UPDATE_DURATION, String.valueOf(j23));
-            hashMap.put(UPDATE_PROFILE_INFO_DURATION, String.valueOf(j24));
-            hashMap.put(TRY_LOAD_NATIVE_FUN_AD_DURATION, String.valueOf(j25));
-            hashMap.put("onStart", String.valueOf(j26));
-            hashMap.put("onResume", String.valueOf(j27));
-            JSONObject jsonData = SpeedStatsUtils.getJsonData(j4, hashMap);
+            hashMap.put(MAIN_ACTIVITY_TOTAL_DURATION, String.valueOf(j5));
+            hashMap.put("splash", String.valueOf(j7));
+            hashMap.put(SPLASH_ONCREATE_DURATION, String.valueOf(j8));
+            hashMap.put(SPLASH_LOADAD_DURATION, String.valueOf(j15));
+            hashMap.put(SPLASH_SHOW_DURATION, String.valueOf(j13));
+            hashMap.put(SPLASH_ACTIVITY2MAINACTIVITY_GAP, String.valueOf(j12));
+            hashMap.put("onCreate", String.valueOf(j14));
+            hashMap.put(MAINACTIVITY_SUPER_ONCREATE_DURAION, String.valueOf(j16));
+            hashMap.put(INIT_HOME_FRAGMENT_CONTROLLER_DURATION, String.valueOf(j17));
+            hashMap.put(CHECK_PLUGIN_ENTRANCE_STATE_DURATION, String.valueOf(j18));
+            hashMap.put(REG_RECEIVER_DURATION, String.valueOf(j19));
+            hashMap.put(CHECK_CLIENT_CONFIG_MESSAGE_DURATION, String.valueOf(j20));
+            hashMap.put(CHECK_AND_SEND_ACTIVE_CONFIG_DURATION, String.valueOf(j21));
+            hashMap.put(INIT_TABS_ON_ACTIVITY_CREATED_DURATION, String.valueOf(j22));
+            hashMap.put(INIT_COOKIE_DURATION, String.valueOf(j23));
+            hashMap.put(START_TRACK_CONFIG_REQUEST_DURATION, String.valueOf(j24));
+            hashMap.put(CHECK_REAL_NAME_DURATION, String.valueOf(j25));
+            hashMap.put(CLEAR_CONCERN_CACHE_WHEN_VERSION_UPDATE_DURATION, String.valueOf(j26));
+            hashMap.put(UPDATE_PROFILE_INFO_DURATION, String.valueOf(j27));
+            hashMap.put(TRY_LOAD_NATIVE_FUN_AD_DURATION, String.valueOf(j28));
+            hashMap.put("onStart", String.valueOf(j29));
+            hashMap.put("onResume", String.valueOf(j30));
+            JSONObject jsonData = SpeedStatsUtils.getJsonData(j5, hashMap);
             if (jsonData != null) {
                 try {
                     jSONObject.put("activity", jsonData);
@@ -363,7 +387,7 @@ public final class ActivitySpeedStats extends AbstractSpeedStats {
     @Override // com.baidu.searchbox.launch.stats.AbstractSpeedStats
     public void reset() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             this.mSplashActivityStartTimeStamp = -1L;
             this.mSplashActivityEndTimeStamp = -1L;
             this.mMainActivityCreateStartTimeStamp = -1L;

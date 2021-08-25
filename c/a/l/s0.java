@@ -1,6 +1,7 @@
 package c.a.l;
 
 import android.content.Context;
+import android.graphics.Rect;
 import android.view.View;
 import android.view.ViewGroup;
 import androidx.core.view.InputDeviceCompat;
@@ -9,6 +10,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.card.view.VideoImageNoPlayerLayout;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.ThreadCardUtils;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -29,7 +31,7 @@ public class s0 extends h {
     public int m;
     public int n;
     public Context o;
-    public c.a.o0.s.q.a p;
+    public c.a.p0.s.q.a p;
     public VideoImageNoPlayerLayout q;
     public int r;
     public String s;
@@ -42,7 +44,7 @@ public class s0 extends h {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ s0 f3624e;
+        public final /* synthetic */ s0 f3866e;
 
         public a(s0 s0Var) {
             Interceptable interceptable = $ic;
@@ -59,18 +61,18 @@ public class s0 extends h {
                     return;
                 }
             }
-            this.f3624e = s0Var;
+            this.f3866e = s0Var;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             s0 s0Var;
-            a.InterfaceC0086a interfaceC0086a;
+            a.InterfaceC0094a interfaceC0094a;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (interfaceC0086a = (s0Var = this.f3624e).f3550i) == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (interfaceC0094a = (s0Var = this.f3866e).f3792i) == null) {
                 return;
             }
-            interfaceC0086a.a(s0Var.p);
+            interfaceC0094a.a(s0Var.p);
         }
     }
 
@@ -80,7 +82,7 @@ public class s0 extends h {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ s0 f3625a;
+        public final /* synthetic */ s0 f3867a;
 
         public b(s0 s0Var) {
             Interceptable interceptable = $ic;
@@ -97,16 +99,16 @@ public class s0 extends h {
                     return;
                 }
             }
-            this.f3625a = s0Var;
+            this.f3867a = s0Var;
         }
 
         @Override // c.a.l.w0.a
-        public void a(c.a.o0.s.q.a aVar) {
+        public void a(c.a.p0.s.q.a aVar) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) || this.f3625a.u == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) || this.f3867a.u == null) {
                 return;
             }
-            this.f3625a.u.a(this.f3625a.p);
+            this.f3867a.u.a(this.f3867a.p);
         }
     }
 
@@ -164,7 +166,7 @@ public class s0 extends h {
     }
 
     @Override // c.a.l.a
-    public void k(c.a.p0.a0.b0<c.a.o0.s.q.a> b0Var) {
+    public void k(c.a.q0.a0.b0<c.a.p0.s.q.a> b0Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, b0Var) == null) {
             super.k(b0Var);
@@ -183,6 +185,12 @@ public class s0 extends h {
         }
     }
 
+    public Rect t() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? ThreadCardUtils.computeViewArea(this.q.mVideoThumbnail) : (Rect) invokeV.objValue;
+    }
+
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Code restructure failed: missing block: B:38:0x00dc, code lost:
         if (r3 != r11.height) goto L35;
@@ -194,16 +202,16 @@ public class s0 extends h {
         r5 = r1;
      */
     /* JADX WARN: Code restructure failed: missing block: B:44:0x00e9, code lost:
-        r1 = c.a.o0.b.g.b.n(r11, r0, r2, r3, r5);
+        r1 = c.a.p0.b.g.b.n(r11, r0, r2, r3, r5);
      */
     @Override // c.a.l.p
-    /* renamed from: t */
+    /* renamed from: u */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void onBindDataToView(c.a.o0.s.q.a aVar) {
+    public void onBindDataToView(c.a.p0.s.q.a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048581, this, aVar) == null) {
             int k = c.a.e.e.p.l.k(TbadkCoreApplication.getInst());
             if (k != this.r) {
                 w = c.a.e.e.p.l.k(TbadkCoreApplication.getInst());
@@ -274,34 +282,34 @@ public class s0 extends h {
         }
     }
 
-    public void u(String str) {
+    public void v(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
             this.s = str;
         }
     }
 
-    public void v(a.InterfaceC0086a interfaceC0086a) {
+    public void w(a.InterfaceC0094a interfaceC0094a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, interfaceC0086a) == null) {
-            this.f3550i = interfaceC0086a;
+        if (interceptable == null || interceptable.invokeL(1048583, this, interfaceC0094a) == null) {
+            this.f3792i = interfaceC0094a;
         }
     }
 
-    public void w(c.a.l.w0.a aVar) {
+    public void x(c.a.l.w0.a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, aVar) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, aVar) == null) {
             this.u = aVar;
             if (aVar != null) {
-                x();
+                y();
             }
         }
     }
 
-    public final void x() {
+    public final void y() {
         VideoImageNoPlayerLayout videoImageNoPlayerLayout;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || (videoImageNoPlayerLayout = this.q) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || (videoImageNoPlayerLayout = this.q) == null) {
             return;
         }
         videoImageNoPlayerLayout.setVideoAreaClickListener(new b(this));

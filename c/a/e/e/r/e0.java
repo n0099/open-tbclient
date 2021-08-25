@@ -30,22 +30,22 @@ public class e0 extends Thread {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Handler f2582e;
+    public final Handler f2640e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final e.a f2583f;
+    public final e.a f2641f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final d0 f2584g;
+    public final d0 f2642g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final ByteBuffer f2585h;
+    public final ByteBuffer f2643h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final d f2586i;
+    public final d f2644i;
 
     /* renamed from: j  reason: collision with root package name */
-    public boolean f2587j;
+    public boolean f2645j;
     public int k;
     public boolean l;
     public int m;
@@ -68,19 +68,19 @@ public class e0 extends Thread {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f2588a;
+        public int f2646a;
 
         /* renamed from: b  reason: collision with root package name */
-        public boolean f2589b;
+        public boolean f2647b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f2590c;
+        public int f2648c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f2591d;
+        public int f2649d;
 
         /* renamed from: e  reason: collision with root package name */
-        public byte[] f2592e;
+        public byte[] f2650e;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -134,17 +134,17 @@ public class e0 extends Thread {
                 return;
             }
         }
-        this.f2587j = false;
+        this.f2645j = false;
         this.l = false;
         this.p = new f();
         this.q = 0;
         this.r = 0L;
         this.s = 0L;
-        this.f2582e = handler;
-        this.f2583f = aVar;
-        this.f2584g = d0Var;
-        this.f2585h = ByteBuffer.allocateDirect(d0Var.b() + 14);
-        this.f2586i = new d(d0Var.c());
+        this.f2640e = handler;
+        this.f2641f = aVar;
+        this.f2642g = d0Var;
+        this.f2643h = ByteBuffer.allocateDirect(d0Var.b() + 14);
+        this.f2644i = new d(d0Var.c());
         this.n = null;
         this.k = 1;
     }
@@ -194,9 +194,9 @@ public class e0 extends Thread {
         if (interceptable == null || interceptable.invokeL(1048579, this, obj) == null) {
             this.r = 0L;
             this.s = 0L;
-            Message obtainMessage = this.f2582e.obtainMessage();
+            Message obtainMessage = this.f2640e.obtainMessage();
             obtainMessage.obj = obj;
-            this.f2582e.sendMessage(obtainMessage);
+            this.f2640e.sendMessage(obtainMessage);
         }
     }
 
@@ -276,12 +276,12 @@ public class e0 extends Thread {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
             int i2 = 4;
-            while (i2 < this.f2585h.position() && this.f2585h.get(i2) != 32) {
+            while (i2 < this.f2643h.position() && this.f2643h.get(i2) != 32) {
                 i2++;
             }
             int i3 = i2 + 1;
             int i4 = i3;
-            while (i4 < this.f2585h.position() && this.f2585h.get(i4) != 32) {
+            while (i4 < this.f2643h.position() && this.f2643h.get(i4) != 32) {
                 i4++;
             }
             int i5 = 0;
@@ -291,18 +291,18 @@ public class e0 extends Thread {
                 if (i7 >= i4) {
                     break;
                 }
-                i6 = (i6 * 10) + (this.f2585h.get(i7) - 48);
+                i6 = (i6 * 10) + (this.f2643h.get(i7) - 48);
                 i5++;
             }
             int i8 = i4 + 1;
             int i9 = i8;
-            while (i9 < this.f2585h.position() && this.f2585h.get(i9) != 13) {
+            while (i9 < this.f2643h.position() && this.f2643h.get(i9) != 13) {
                 i9++;
             }
             int i10 = i9 - i8;
             byte[] bArr = new byte[i10];
-            this.f2585h.position(i8);
-            this.f2585h.get(bArr, 0, i10);
+            this.f2643h.position(i8);
+            this.f2643h.get(bArr, 0, i10);
             return new Pair<>(Integer.valueOf(i6), new String(bArr, "UTF-8"));
         }
         return (Pair) invokeV.objValue;
@@ -327,12 +327,12 @@ public class e0 extends Thread {
         int i4 = 10;
         byte[] bArr = null;
         if (bVar == null) {
-            if (this.f2585h.position() >= 2) {
-                byte b2 = this.f2585h.get(0);
+            if (this.f2643h.position() >= 2) {
+                byte b2 = this.f2643h.get(0);
                 boolean z = (b2 & ByteCompanionObject.MIN_VALUE) != 0;
                 int i5 = (b2 & 112) >> 4;
                 int i6 = b2 & 15;
-                byte b3 = this.f2585h.get(1);
+                byte b3 = this.f2643h.get(1);
                 boolean z2 = (b3 & ByteCompanionObject.MIN_VALUE) != 0;
                 int i7 = b3 & ByteCompanionObject.MAX_VALUE;
                 if (i5 == 0) {
@@ -365,16 +365,16 @@ public class e0 extends Thread {
                         } else if (i7 != 127) {
                             throw new Exception("BdLogic error");
                         }
-                        if (this.f2585h.position() >= i4) {
+                        if (this.f2643h.position() >= i4) {
                             if (i7 == 126) {
-                                j2 = ((this.f2585h.get(2) & 255) << 8) | (this.f2585h.get(3) & 255);
+                                j2 = ((this.f2643h.get(2) & 255) << 8) | (this.f2643h.get(3) & 255);
                                 if (j2 < 126) {
                                     throw new WebSocketException("invalid data frame length (not using minimal length encoding)");
                                 }
                             } else if (i7 != 127) {
                                 j2 = i7;
-                            } else if ((this.f2585h.get(2) & ByteCompanionObject.MIN_VALUE) == 0) {
-                                j2 = (this.f2585h.get(9) & 255) | ((this.f2585h.get(2) & 255) << 56) | ((this.f2585h.get(3) & 255) << 48) | ((this.f2585h.get(4) & 255) << 40) | ((this.f2585h.get(5) & 255) << 32) | ((this.f2585h.get(6) & 255) << 24) | ((this.f2585h.get(7) & 255) << 16) | ((this.f2585h.get(8) & 255) << 8);
+                            } else if ((this.f2643h.get(2) & ByteCompanionObject.MIN_VALUE) == 0) {
+                                j2 = (this.f2643h.get(9) & 255) | ((this.f2643h.get(2) & 255) << 56) | ((this.f2643h.get(3) & 255) << 48) | ((this.f2643h.get(4) & 255) << 40) | ((this.f2643h.get(5) & 255) << 32) | ((this.f2643h.get(6) & 255) << 24) | ((this.f2643h.get(7) & 255) << 16) | ((this.f2643h.get(8) & 255) << 8);
                                 if (j2 < 65536) {
                                     throw new WebSocketException("invalid data frame length (not using minimal length encoding)");
                                 }
@@ -383,21 +383,21 @@ public class e0 extends Thread {
                             }
                             b bVar2 = new b(null);
                             this.n = bVar2;
-                            bVar2.f2588a = i6;
-                            bVar2.f2589b = z;
-                            bVar2.f2591d = (int) j2;
-                            bVar2.f2590c = i4;
-                            int position = this.f2585h.position();
+                            bVar2.f2646a = i6;
+                            bVar2.f2647b = z;
+                            bVar2.f2649d = (int) j2;
+                            bVar2.f2648c = i4;
+                            int position = this.f2643h.position();
                             b bVar3 = this.n;
-                            bVar3.f2592e = new byte[bVar3.f2590c];
-                            this.f2585h.position(0);
-                            ByteBuffer byteBuffer = this.f2585h;
+                            bVar3.f2650e = new byte[bVar3.f2648c];
+                            this.f2643h.position(0);
+                            ByteBuffer byteBuffer = this.f2643h;
                             b bVar4 = this.n;
-                            byteBuffer.get(bVar4.f2592e, 0, bVar4.f2590c);
-                            this.f2585h.position(this.n.f2590c);
-                            this.f2585h.limit(position);
-                            this.f2585h.compact();
-                            return this.n.f2591d == 0 || this.f2585h.position() >= this.n.f2591d;
+                            byteBuffer.get(bVar4.f2650e, 0, bVar4.f2648c);
+                            this.f2643h.position(this.n.f2648c);
+                            this.f2643h.limit(position);
+                            this.f2643h.compact();
+                            return this.n.f2649d == 0 || this.f2643h.position() >= this.n.f2649d;
                         }
                         return false;
                     }
@@ -408,9 +408,9 @@ public class e0 extends Thread {
             return false;
         }
         int i8 = this.o;
-        int i9 = bVar.f2591d;
+        int i9 = bVar.f2649d;
         if (i8 >= i9) {
-            int i10 = bVar.f2588a;
+            int i10 = bVar.f2646a;
             if (i10 <= 7) {
                 if (this.l) {
                     i2 = 1;
@@ -418,47 +418,47 @@ public class e0 extends Thread {
                     i2 = 1;
                     this.l = true;
                     this.m = i10;
-                    if (i10 == 1 && this.f2584g.h()) {
+                    if (i10 == 1 && this.f2642g.h()) {
                         this.p.b();
                     }
                 }
-                if (this.m == i2 && this.f2584g.h() && !this.p.c(this.f2586i.toByteArray())) {
+                if (this.m == i2 && this.f2642g.h() && !this.p.c(this.f2644i.toByteArray())) {
                     throw new WebSocketException("invalid UTF-8 in text message payload");
                 }
-                if (this.n.f2589b) {
+                if (this.n.f2647b) {
                     int i11 = this.m;
                     if (i11 == 1) {
-                        if (this.f2584g.h() && !this.p.a()) {
+                        if (this.f2642g.h() && !this.p.a()) {
                             throw new WebSocketException("UTF-8 text message payload ended within Unicode code point");
                         }
-                        if (this.f2584g.d()) {
-                            j(this.f2586i.toByteArray());
+                        if (this.f2642g.d()) {
+                            j(this.f2644i.toByteArray());
                         } else {
-                            k(new String(this.f2586i.toByteArray(), "UTF-8"));
+                            k(new String(this.f2644i.toByteArray(), "UTF-8"));
                         }
                     } else if (i11 == 2) {
-                        e(this.f2586i.toByteArray());
+                        e(this.f2644i.toByteArray());
                     } else {
                         throw new Exception("BdLogic error");
                     }
                     i3 = 0;
                     this.l = false;
-                    this.f2586i.reset();
+                    this.f2644i.reset();
                     this.n = null;
                     this.o = i3;
-                    return this.f2585h.position() <= 0;
+                    return this.f2643h.position() <= 0;
                 }
             } else if (i10 == 8) {
                 int i12 = 1005;
                 if (i9 >= 2) {
-                    byte[] bArr2 = bVar.f2592e;
+                    byte[] bArr2 = bVar.f2650e;
                     i12 = ((bArr2[0] & 255) * 256) + (bArr2[1] & 255);
                     if (i12 >= 1000 && ((i12 < 1000 || i12 > 2999 || i12 == 1000 || i12 == 1001 || i12 == 1002 || i12 == 1003 || i12 == 1007 || i12 == 1008 || i12 == 1009 || i12 == 1010 || i12 == 1011) && i12 < 5000)) {
                         b bVar5 = this.n;
-                        int i13 = bVar5.f2591d;
+                        int i13 = bVar5.f2649d;
                         if (i13 > 2) {
                             byte[] bArr3 = new byte[i13 - 2];
-                            System.arraycopy(bVar5.f2592e, 2, bArr3, 0, i13 - 2);
+                            System.arraycopy(bVar5.f2650e, 2, bArr3, 0, i13 - 2);
                             f fVar = new f();
                             fVar.c(bArr3);
                             if (fVar.a()) {
@@ -475,39 +475,39 @@ public class e0 extends Thread {
                 str = null;
                 f(i12, str);
             } else if (i10 == 9) {
-                h(this.f2586i.toByteArray());
+                h(this.f2644i.toByteArray());
             } else if (i10 == 10) {
-                i(this.f2586i.toByteArray());
+                i(this.f2644i.toByteArray());
             } else {
                 throw new Exception("BdLogic error");
             }
             i3 = 0;
             this.n = null;
             this.o = i3;
-            if (this.f2585h.position() <= 0) {
+            if (this.f2643h.position() <= 0) {
             }
         } else {
-            int position2 = this.f2585h.position();
-            int i14 = this.n.f2591d;
+            int position2 = this.f2643h.position();
+            int i14 = this.n.f2649d;
             int i15 = this.o;
             if (i14 - i15 < position2) {
                 position2 = i14 - i15;
             }
-            int position3 = this.f2585h.position();
-            if (this.n.f2591d > 0) {
+            int position3 = this.f2643h.position();
+            if (this.n.f2649d > 0) {
                 bArr = new byte[position2];
-                this.f2585h.position(0);
-                this.f2585h.get(bArr, 0, position2);
+                this.f2643h.position(0);
+                this.f2643h.get(bArr, 0, position2);
             }
-            this.f2585h.position(position2);
-            this.f2585h.limit(position3);
-            this.f2585h.compact();
+            this.f2643h.position(position2);
+            this.f2643h.limit(position3);
+            this.f2643h.compact();
             if (bArr != null) {
-                this.f2586i.write(bArr);
+                this.f2644i.write(bArr);
             }
             int i16 = this.o + position2;
             this.o = i16;
-            return i16 >= this.n.f2591d;
+            return i16 >= this.n.f2649d;
         }
     }
 
@@ -517,14 +517,14 @@ public class e0 extends Thread {
         boolean z2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            int position = this.f2585h.position() - 4;
+            int position = this.f2643h.position() - 4;
             while (true) {
                 if (position < 0) {
                     break;
-                } else if (this.f2585h.get(position + 0) == 13 && this.f2585h.get(position + 1) == 10 && this.f2585h.get(position + 2) == 13 && this.f2585h.get(position + 3) == 10) {
-                    int position2 = this.f2585h.position();
+                } else if (this.f2643h.get(position + 0) == 13 && this.f2643h.get(position + 1) == 10 && this.f2643h.get(position + 2) == 13 && this.f2643h.get(position + 3) == 10) {
+                    int position2 = this.f2643h.position();
                     Map<String, String> map = null;
-                    if (this.f2585h.get(0) == 72 && this.f2585h.get(1) == 84 && this.f2585h.get(2) == 84 && this.f2585h.get(3) == 80) {
+                    if (this.f2643h.get(0) == 72 && this.f2643h.get(1) == 84 && this.f2643h.get(2) == 84 && this.f2643h.get(3) == 80) {
                         Pair<Integer, String> m = m();
                         if (((Integer) m.first).intValue() >= 300) {
                             d(new z(((Integer) m.first).intValue(), (String) m.second));
@@ -533,28 +533,28 @@ public class e0 extends Thread {
                             z2 = false;
                         }
                         if (position > 0) {
-                            this.f2585h.position(0);
+                            this.f2643h.position(0);
                             byte[] bArr = new byte[position];
-                            this.f2585h.get(bArr);
+                            this.f2643h.get(bArr);
                             map = l(bArr);
                         }
                     } else {
                         z2 = false;
                     }
-                    this.f2585h.position(position + 4);
-                    this.f2585h.limit(position2);
-                    this.f2585h.compact();
-                    if (this.q < this.f2583f.a() && map.size() == 0) {
+                    this.f2643h.position(position + 4);
+                    this.f2643h.limit(position2);
+                    this.f2643h.compact();
+                    if (this.q < this.f2641f.a() && map.size() == 0) {
                         this.q++;
                         return true;
                     }
                     this.q = 0;
                     if (!z2) {
-                        z = this.f2585h.position() > 0;
+                        z = this.f2643h.position() > 0;
                         this.k = 3;
                     } else {
                         this.k = 0;
-                        this.f2587j = true;
+                        this.f2645j = true;
                         z = true;
                     }
                     g(!z2, map);
@@ -570,9 +570,9 @@ public class e0 extends Thread {
     public void p() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            this.f2587j = true;
+            this.f2645j = true;
             try {
-                this.f2583f.close();
+                this.f2641f.close();
             } catch (Throwable th) {
                 BdLog.e(th);
             }
@@ -585,10 +585,10 @@ public class e0 extends Thread {
         if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
             try {
                 try {
-                    this.f2585h.clear();
+                    this.f2643h.clear();
                     do {
                         try {
-                            int read = this.f2583f.read(this.f2585h);
+                            int read = this.f2641f.read(this.f2643h);
                             if (read > 0) {
                                 if (this.r <= 0) {
                                     this.r = System.currentTimeMillis();
@@ -602,16 +602,16 @@ public class e0 extends Thread {
                                 }
                             } else if (read < 0) {
                                 d(new n(new SocketException("len < 0")));
-                                this.f2587j = true;
+                                this.f2645j = true;
                             }
                         } catch (SocketTimeoutException unused) {
                             if (!c.a.e.e.p.j.z()) {
-                                this.f2587j = true;
+                                this.f2645j = true;
                                 d(new n(new SocketException("not net")));
                                 return;
                             }
                         }
-                    } while (!this.f2587j);
+                    } while (!this.f2645j);
                 } catch (WebSocketException e2) {
                     d(new v(e2));
                 } catch (SocketException e3) {
@@ -620,7 +620,7 @@ public class e0 extends Thread {
                     d(new p(e4));
                 }
             } finally {
-                this.f2587j = true;
+                this.f2645j = true;
             }
         }
     }

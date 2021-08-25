@@ -9,8 +9,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.viewpager.widget.PagerAdapter;
 import c.a.e.e.p.l;
-import c.a.p0.n2.e.c;
-import c.a.p0.n2.e.f;
+import c.a.q0.n2.e.c;
+import c.a.q0.n2.e.f;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ListUtils;
@@ -30,22 +30,22 @@ public class PersonCenterAttentionBarListView extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f55732e;
+    public Context f55897e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f55733f;
+    public int f55898f;
 
     /* renamed from: g  reason: collision with root package name */
-    public c f55734g;
+    public c f55899g;
 
     /* renamed from: h  reason: collision with root package name */
-    public b f55735h;
+    public b f55900h;
 
     /* renamed from: i  reason: collision with root package name */
-    public View f55736i;
+    public View f55901i;
 
     /* renamed from: j  reason: collision with root package name */
-    public View f55737j;
+    public View f55902j;
     public c.a.e.e.k.b<PersonCommonForumItemView> k;
     public TextView mTitle;
     public ListViewPager mViewPager;
@@ -56,7 +56,7 @@ public class PersonCenterAttentionBarListView extends LinearLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PersonCenterAttentionBarListView f55738a;
+        public final /* synthetic */ PersonCenterAttentionBarListView f55903a;
 
         public a(PersonCenterAttentionBarListView personCenterAttentionBarListView) {
             Interceptable interceptable = $ic;
@@ -73,7 +73,7 @@ public class PersonCenterAttentionBarListView extends LinearLayout {
                     return;
                 }
             }
-            this.f55738a = personCenterAttentionBarListView;
+            this.f55903a = personCenterAttentionBarListView;
         }
 
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
@@ -117,7 +117,7 @@ public class PersonCenterAttentionBarListView extends LinearLayout {
         public PersonCommonForumItemView d() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? new PersonCommonForumItemView(this.f55738a.f55732e) : (PersonCommonForumItemView) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? new PersonCommonForumItemView(this.f55903a.f55897e) : (PersonCommonForumItemView) invokeV.objValue;
         }
 
         public PersonCommonForumItemView h(PersonCommonForumItemView personCommonForumItemView) {
@@ -133,7 +133,7 @@ public class PersonCenterAttentionBarListView extends LinearLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PersonCenterAttentionBarListView f55739a;
+        public final /* synthetic */ PersonCenterAttentionBarListView f55904a;
 
         public b(PersonCenterAttentionBarListView personCenterAttentionBarListView) {
             Interceptable interceptable = $ic;
@@ -150,7 +150,7 @@ public class PersonCenterAttentionBarListView extends LinearLayout {
                     return;
                 }
             }
-            this.f55739a = personCenterAttentionBarListView;
+            this.f55904a = personCenterAttentionBarListView;
         }
 
         @Override // androidx.viewpager.widget.PagerAdapter
@@ -168,10 +168,10 @@ public class PersonCenterAttentionBarListView extends LinearLayout {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                if (this.f55739a.f55734g == null || ListUtils.isEmpty(this.f55739a.f55734g.f22280e)) {
+                if (this.f55904a.f55899g == null || ListUtils.isEmpty(this.f55904a.f55899g.f22610e)) {
                     return 0;
                 }
-                return this.f55739a.f55734g.f22280e.size() % 4 == 0 ? this.f55739a.f55734g.f22280e.size() / 4 : (this.f55739a.f55734g.f22280e.size() / 4) + 1;
+                return this.f55904a.f55899g.f22610e.size() % 4 == 0 ? this.f55904a.f55899g.f22610e.size() / 4 : (this.f55904a.f55899g.f22610e.size() / 4) + 1;
             }
             return invokeV.intValue;
         }
@@ -181,12 +181,12 @@ public class PersonCenterAttentionBarListView extends LinearLayout {
             InterceptResult invokeLI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, viewGroup, i2)) == null) {
-                List<f> e2 = this.f55739a.e(i2);
+                List<f> e2 = this.f55904a.e(i2);
                 if (ListUtils.isEmpty(e2)) {
                     return null;
                 }
-                PersonCommonForumCardView personCommonForumCardView = new PersonCommonForumCardView(this.f55739a.f55732e);
-                personCommonForumCardView.setForumItemViewBdObjectPool(this.f55739a.k);
+                PersonCommonForumCardView personCommonForumCardView = new PersonCommonForumCardView(this.f55904a.f55897e);
+                personCommonForumCardView.setForumItemViewBdObjectPool(this.f55904a.k);
                 personCommonForumCardView.setData(e2);
                 personCommonForumCardView.setVerticalSpacing(TbadkCoreApplication.getInst().getContext().getResources().getDimensionPixelSize(R.dimen.tbds42));
                 personCommonForumCardView.setHorizontalSpacing(TbadkCoreApplication.getInst().getContext().getResources().getDimensionPixelSize(R.dimen.tbds48));
@@ -226,8 +226,8 @@ public class PersonCenterAttentionBarListView extends LinearLayout {
                 return;
             }
         }
-        this.f55733f = 3;
-        this.f55735h = new b(this, null);
+        this.f55898f = 3;
+        this.f55900h = new b(this, null);
         this.k = new c.a.e.e.k.b<>(new a(this), 12, 0);
         f(context);
     }
@@ -236,14 +236,14 @@ public class PersonCenterAttentionBarListView extends LinearLayout {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
-            c cVar = this.f55734g;
-            if (cVar == null || ListUtils.isEmpty(cVar.f22280e)) {
+            c cVar = this.f55899g;
+            if (cVar == null || ListUtils.isEmpty(cVar.f22610e)) {
                 return null;
             }
             ArrayList arrayList = new ArrayList();
             int i3 = i2 * 4;
             for (int i4 = i3; i4 < i3 + 4; i4++) {
-                f fVar = (f) ListUtils.getItem(this.f55734g.f22280e, i4);
+                f fVar = (f) ListUtils.getItem(this.f55899g.f22610e, i4);
                 if (fVar != null) {
                     arrayList.add(fVar);
                 }
@@ -256,12 +256,12 @@ public class PersonCenterAttentionBarListView extends LinearLayout {
     public final void f(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            this.f55732e = context;
+            this.f55897e = context;
             View inflate = LayoutInflater.from(context).inflate(R.layout.person_info_common_forum_layout, this);
-            this.f55736i = inflate;
+            this.f55901i = inflate;
             this.mTitle = (TextView) inflate.findViewById(R.id.common_forum_title);
-            this.mViewPager = (ListViewPager) this.f55736i.findViewById(R.id.common_forum_viewpager);
-            this.f55737j = this.f55736i.findViewById(R.id.divider_line);
+            this.mViewPager = (ListViewPager) this.f55901i.findViewById(R.id.common_forum_viewpager);
+            this.f55902j = this.f55901i.findViewById(R.id.divider_line);
             this.mViewPager.setOffscreenPageLimit(1);
         }
     }
@@ -271,18 +271,18 @@ public class PersonCenterAttentionBarListView extends LinearLayout {
         c cVar2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cVar)) == null) {
-            if (cVar == null || ListUtils.isEmpty(cVar.f22280e) || cVar == (cVar2 = this.f55734g)) {
+            if (cVar == null || ListUtils.isEmpty(cVar.f22610e) || cVar == (cVar2 = this.f55899g)) {
                 return false;
             }
-            if (cVar2 == null || ListUtils.isEmpty(cVar2.f22280e)) {
+            if (cVar2 == null || ListUtils.isEmpty(cVar2.f22610e)) {
                 return true;
             }
-            if (!ListUtils.isEmpty(cVar.f22280e)) {
-                if (cVar.f22280e.size() != this.f55734g.f22280e.size()) {
+            if (!ListUtils.isEmpty(cVar.f22610e)) {
+                if (cVar.f22610e.size() != this.f55899g.f22610e.size()) {
                     return true;
                 }
-                for (int i2 = 0; i2 < cVar.f22280e.size(); i2++) {
-                    if (this.f55734g.f22280e.get(i2) == null || cVar.f22280e.get(i2).f22292e != this.f55734g.f22280e.get(i2).f22292e) {
+                for (int i2 = 0; i2 < cVar.f22610e.size(); i2++) {
+                    if (this.f55899g.f22610e.get(i2) == null || cVar.f22610e.get(i2).f22622e != this.f55899g.f22610e.get(i2).f22622e) {
                         return true;
                     }
                 }
@@ -304,13 +304,13 @@ public class PersonCenterAttentionBarListView extends LinearLayout {
             return;
         }
         if (g(cVar)) {
-            this.f55734g = cVar;
-            if (ListUtils.getCount(cVar.f22280e) <= 2) {
-                this.mViewPager.getLayoutParams().height = l.g(this.f55732e, R.dimen.tbds172);
+            this.f55899g = cVar;
+            if (ListUtils.getCount(cVar.f22610e) <= 2) {
+                this.mViewPager.getLayoutParams().height = l.g(this.f55897e, R.dimen.tbds172);
             } else {
-                this.mViewPager.getLayoutParams().height = l.g(this.f55732e, R.dimen.tbds344);
+                this.mViewPager.getLayoutParams().height = l.g(this.f55897e, R.dimen.tbds344);
             }
-            this.mViewPager.setAdapter(this.f55735h);
+            this.mViewPager.setAdapter(this.f55900h);
         }
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
@@ -318,10 +318,10 @@ public class PersonCenterAttentionBarListView extends LinearLayout {
     public void onChangeSkinType(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-            if (this.f55733f != i2) {
-                SkinManager.setBackgroundResource(this.f55736i, R.color.CAM_X0201);
+            if (this.f55898f != i2) {
+                SkinManager.setBackgroundResource(this.f55901i, R.color.CAM_X0201);
                 SkinManager.setViewTextColor(this.mTitle, R.color.CAM_X0105);
-                SkinManager.setBackgroundColor(this.f55737j, R.color.CAM_X0204);
+                SkinManager.setBackgroundColor(this.f55902j, R.color.CAM_X0204);
                 int childCount = this.mViewPager.getChildCount();
                 for (int i3 = 0; i3 < childCount; i3++) {
                     View childAt = this.mViewPager.getChildAt(i3);
@@ -330,7 +330,7 @@ public class PersonCenterAttentionBarListView extends LinearLayout {
                     }
                 }
             }
-            this.f55733f = i2;
+            this.f55898f = i2;
         }
     }
 
@@ -353,8 +353,8 @@ public class PersonCenterAttentionBarListView extends LinearLayout {
                 return;
             }
         }
-        this.f55733f = 3;
-        this.f55735h = new b(this, null);
+        this.f55898f = 3;
+        this.f55900h = new b(this, null);
         this.k = new c.a.e.e.k.b<>(new a(this), 12, 0);
         f(context);
     }
@@ -378,8 +378,8 @@ public class PersonCenterAttentionBarListView extends LinearLayout {
                 return;
             }
         }
-        this.f55733f = 3;
-        this.f55735h = new b(this, null);
+        this.f55898f = 3;
+        this.f55900h = new b(this, null);
         this.k = new c.a.e.e.k.b<>(new a(this), 12, 0);
         f(context);
     }

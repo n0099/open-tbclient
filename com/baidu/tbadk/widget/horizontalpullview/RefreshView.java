@@ -10,7 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import c.a.o0.d1.h.a;
+import c.a.p0.d1.h.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
@@ -29,16 +29,16 @@ public class RefreshView extends FrameLayout implements a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public ImageView f48442e;
+    public ImageView f48549e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f48443f;
+    public TextView f48550f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f48444g;
+    public int f48551g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f48445h;
+    public int f48552h;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public RefreshView(@NonNull Context context) {
@@ -65,12 +65,12 @@ public class RefreshView extends FrameLayout implements a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             LayoutInflater.from(context).inflate(R.layout.pull_left_item_view, (ViewGroup) this, true);
-            this.f48442e = (ImageView) findViewById(R.id.arrow_icon);
-            this.f48443f = (TextView) findViewById(R.id.text);
+            this.f48549e = (ImageView) findViewById(R.id.arrow_icon);
+            this.f48550f = (TextView) findViewById(R.id.text);
         }
     }
 
-    @Override // c.a.o0.d1.h.a
+    @Override // c.a.p0.d1.h.a
     public View getView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -80,34 +80,34 @@ public class RefreshView extends FrameLayout implements a {
     public void onChangeSkinType() {
         int skinType;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (skinType = TbadkCoreApplication.getInst().getSkinType()) == this.f48444g) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (skinType = TbadkCoreApplication.getInst().getSkinType()) == this.f48551g) {
             return;
         }
-        this.f48445h = 0;
-        this.f48444g = skinType;
-        SkinManager.setViewTextColor(this.f48443f, R.color.CAM_X0109);
+        this.f48552h = 0;
+        this.f48551g = skinType;
+        SkinManager.setViewTextColor(this.f48550f, R.color.CAM_X0109);
     }
 
-    @Override // c.a.o0.d1.h.a
+    @Override // c.a.p0.d1.h.a
     public void onNormal(View view) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, view) == null) || this.f48445h == 1) {
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, view) == null) || this.f48552h == 1) {
             return;
         }
-        this.f48445h = 1;
-        this.f48443f.setText("查看更多");
-        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f48442e, R.drawable.ic_icon_pure_jump_more24, R.color.CAM_X0109, null);
+        this.f48552h = 1;
+        this.f48550f.setText("查看更多");
+        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f48549e, R.drawable.ic_icon_pure_jump_more24, R.color.CAM_X0109, null);
     }
 
-    @Override // c.a.o0.d1.h.a
+    @Override // c.a.p0.d1.h.a
     public void onRedayToRelease(View view) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, view) == null) || this.f48445h == 2) {
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, view) == null) || this.f48552h == 2) {
             return;
         }
-        this.f48445h = 2;
-        this.f48443f.setText("释放跳转");
-        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f48442e, R.drawable.ic_icon_pure_jump24, R.color.CAM_X0109, null);
+        this.f48552h = 2;
+        this.f48550f.setText("释放跳转");
+        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f48549e, R.drawable.ic_icon_pure_jump24, R.color.CAM_X0109, null);
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -150,7 +150,7 @@ public class RefreshView extends FrameLayout implements a {
                 return;
             }
         }
-        this.f48444g = 3;
+        this.f48551g = 3;
         a(context);
     }
 }

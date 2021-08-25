@@ -13,11 +13,11 @@ public class L {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static L f76429b;
+    public static L f76630b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ConcurrentHashMap f76430a;
+    public ConcurrentHashMap f76631a;
 
     public L() {
         Interceptable interceptable = $ic;
@@ -32,21 +32,21 @@ public class L {
                 return;
             }
         }
-        this.f76430a = new ConcurrentHashMap();
+        this.f76631a = new ConcurrentHashMap();
     }
 
     public static L a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f76429b == null) {
+            if (f76630b == null) {
                 synchronized (L.class) {
-                    if (f76429b == null) {
-                        f76429b = new L();
+                    if (f76630b == null) {
+                        f76630b = new L();
                     }
                 }
             }
-            return f76429b;
+            return f76630b;
         }
         return (L) invokeV.objValue;
     }
@@ -57,7 +57,7 @@ public class L {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
             synchronized (L.class) {
-                info = (Info) this.f76430a.remove(str);
+                info = (Info) this.f76631a.remove(str);
             }
             return info;
         }
@@ -68,7 +68,7 @@ public class L {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, info) == null) {
             synchronized (L.class) {
-                this.f76430a.put(str, info);
+                this.f76631a.put(str, info);
             }
         }
     }

@@ -13,7 +13,7 @@ public abstract class j extends b.a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static j f78843a;
+    public static j f79044a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes2.dex */
@@ -22,16 +22,16 @@ public abstract class j extends b.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public long f78844a;
+        public long f79045a;
 
         /* renamed from: b  reason: collision with root package name */
-        public long f78845b;
+        public long f79046b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f78846c;
+        public String f79047c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f78847d;
+        public String f79048d;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -50,9 +50,9 @@ public abstract class j extends b.a {
         public void a(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                this.f78846c = str;
-                this.f78847d = null;
-                this.f78844a = System.currentTimeMillis();
+                this.f79047c = str;
+                this.f79048d = null;
+                this.f79045a = System.currentTimeMillis();
             }
         }
 
@@ -63,10 +63,10 @@ public abstract class j extends b.a {
                 return;
             }
             long currentTimeMillis = System.currentTimeMillis();
-            long j2 = this.f78844a;
+            long j2 = this.f79045a;
             long j3 = currentTimeMillis - j2;
-            this.f78845b = j3;
-            c2.d(j3, j2, this.f78846c, this.f78847d, str, i2, null);
+            this.f79046b = j3;
+            c2.d(j3, j2, this.f79047c, this.f79048d, str, i2, null);
         }
 
         public void c(String str, int i2) {
@@ -76,10 +76,10 @@ public abstract class j extends b.a {
                 return;
             }
             long currentTimeMillis = System.currentTimeMillis();
-            long j2 = this.f78844a;
+            long j2 = this.f79045a;
             long j3 = currentTimeMillis - j2;
-            this.f78845b = j3;
-            c2.h(j3, j2, this.f78846c, this.f78847d, str, i2, null);
+            this.f79046b = j3;
+            c2.h(j3, j2, this.f79047c, this.f79048d, str, i2, null);
         }
     }
 
@@ -103,7 +103,7 @@ public abstract class j extends b.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
             synchronized (j.class) {
-                jVar = f78843a;
+                jVar = f79044a;
             }
             return jVar;
         }
@@ -114,7 +114,7 @@ public abstract class j extends b.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, null, jVar) == null) {
             synchronized (j.class) {
-                f78843a = jVar;
+                f79044a = jVar;
             }
         }
     }

@@ -37,34 +37,34 @@ public class BankUserInfoView extends LinearLayout implements View.OnClickListen
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public TextView f62858a;
+    public TextView f63058a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f62859b;
+    public TextView f63059b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f62860c;
+    public TextView f63060c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ImageView f62861d;
+    public ImageView f63061d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ImageView f62862e;
+    public ImageView f63062e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ImageView f62863f;
+    public ImageView f63063f;
 
     /* renamed from: g  reason: collision with root package name */
-    public BankCardErrorMsgView f62864g;
+    public BankCardErrorMsgView f63064g;
 
     /* renamed from: h  reason: collision with root package name */
-    public BankCardErrorMsgView f62865h;
+    public BankCardErrorMsgView f63065h;
 
     /* renamed from: i  reason: collision with root package name */
-    public BankCardErrorMsgView f62866i;
+    public BankCardErrorMsgView f63066i;
 
     /* renamed from: j  reason: collision with root package name */
-    public boolean f62867j;
+    public boolean f63067j;
     public boolean k;
     public View mIdArea;
     public SafeKeyBoardEditText mIdCard;
@@ -101,30 +101,30 @@ public class BankUserInfoView extends LinearLayout implements View.OnClickListen
             this.mNameArea = findViewById(ResUtils.id(getContext(), "true_name_area"));
             this.mIdArea = findViewById(ResUtils.id(getContext(), "id_card_area"));
             this.mMobileArea = findViewById(ResUtils.id(getContext(), "mobile_phone_area"));
-            this.f62858a = (TextView) findViewById(ResUtils.id(getContext(), "ebpay_true_name_tip"));
+            this.f63058a = (TextView) findViewById(ResUtils.id(getContext(), "ebpay_true_name_tip"));
             SafeKeyBoardEditText safeKeyBoardEditText = (SafeKeyBoardEditText) findViewById(ResUtils.id(getContext(), "ebpay_true_name_id"));
             this.mTrueName = safeKeyBoardEditText;
             safeKeyBoardEditText.setUseSafeKeyBoard(false);
             this.mTrueName.setUseKeyX(false);
             String string = ResUtils.getString(getContext(), "wallet_base_string_bindcard_item_line_tag");
             this.mTrueName.setTag(this.mNameArea.findViewWithTag(string));
-            this.f62859b = (TextView) findViewById(ResUtils.id(getContext(), "ebpay_phone_tip"));
+            this.f63059b = (TextView) findViewById(ResUtils.id(getContext(), "ebpay_phone_tip"));
             this.mMobilePhone = (DivisionEditText) findViewById(ResUtils.id(getContext(), "ebpay_mobile_phone_id"));
             this.mMobilePhone.setTag(this.mMobileArea.findViewWithTag(string));
-            this.f62860c = (TextView) findViewById(ResUtils.id(getContext(), "ebpay_id_card_tip"));
+            this.f63060c = (TextView) findViewById(ResUtils.id(getContext(), "ebpay_id_card_tip"));
             this.mIdCard = (SafeKeyBoardEditText) findViewById(ResUtils.id(getContext(), UrlOcrConfig.IdCardKey.IDCARD_NO));
             this.mIdCard.setTag(this.mIdArea.findViewWithTag(string));
-            this.f62861d = (ImageView) findViewById(ResUtils.id(getContext(), "name_tip_img"));
-            this.f62862e = (ImageView) findViewById(ResUtils.id(getContext(), "id_tip_img"));
+            this.f63061d = (ImageView) findViewById(ResUtils.id(getContext(), "name_tip_img"));
+            this.f63062e = (ImageView) findViewById(ResUtils.id(getContext(), "id_tip_img"));
             this.mMobilePhone.setUseSafeKeyBoard(true);
             this.mMobilePhone.setViewType(13);
             this.mIdCard.setFilters(new InputFilter[]{new InputFilter.LengthFilter(20)});
             this.mIdCard.setUseSafeKeyBoard(false);
             this.mIdCard.setUseKeyX(false);
-            this.f62863f = (ImageView) findViewById(ResUtils.id(getContext(), "phone_tip_img"));
-            this.f62864g = (BankCardErrorMsgView) findViewById(ResUtils.id(getContext(), "wallet_bindcard_userinfo_error_name"));
-            this.f62865h = (BankCardErrorMsgView) findViewById(ResUtils.id(getContext(), "wallet_bindcard_userinfo_error_idcard"));
-            this.f62866i = (BankCardErrorMsgView) findViewById(ResUtils.id(getContext(), "wallet_bindcard_userinfo_error_mobile"));
+            this.f63063f = (ImageView) findViewById(ResUtils.id(getContext(), "phone_tip_img"));
+            this.f63064g = (BankCardErrorMsgView) findViewById(ResUtils.id(getContext(), "wallet_bindcard_userinfo_error_name"));
+            this.f63065h = (BankCardErrorMsgView) findViewById(ResUtils.id(getContext(), "wallet_bindcard_userinfo_error_idcard"));
+            this.f63066i = (BankCardErrorMsgView) findViewById(ResUtils.id(getContext(), "wallet_bindcard_userinfo_error_mobile"));
             this.mIdCard.setMyHintTextSize("ebpay_bind_card_edittext_hint_txt_size");
             this.mMobilePhone.setMyHintTextSize("ebpay_bind_card_edittext_hint_txt_size");
             this.mTrueName.setMyHintTextSize("ebpay_bind_card_edittext_hint_txt_size");
@@ -164,7 +164,7 @@ public class BankUserInfoView extends LinearLayout implements View.OnClickListen
     public ImageView getIdTip() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f62862e : (ImageView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f63062e : (ImageView) invokeV.objValue;
     }
 
     public DivisionEditText getMobileEditText() {
@@ -176,19 +176,19 @@ public class BankUserInfoView extends LinearLayout implements View.OnClickListen
     public boolean getMobileFromNet() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f62867j : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f63067j : invokeV.booleanValue;
     }
 
     public ImageView getMobileTip() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f62863f : (ImageView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f63063f : (ImageView) invokeV.objValue;
     }
 
     public ImageView getNameTip() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f62861d : (ImageView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f63061d : (ImageView) invokeV.objValue;
     }
 
     public SafeKeyBoardEditText getTrueNameText() {
@@ -209,17 +209,17 @@ public class BankUserInfoView extends LinearLayout implements View.OnClickListen
     public void hideErrorLayout() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            BankCardErrorMsgView bankCardErrorMsgView = this.f62864g;
+            BankCardErrorMsgView bankCardErrorMsgView = this.f63064g;
             if (bankCardErrorMsgView != null) {
                 bankCardErrorMsgView.showErrorLayout("", "");
                 a.a(this.mTrueName, false, false);
             }
-            BankCardErrorMsgView bankCardErrorMsgView2 = this.f62865h;
+            BankCardErrorMsgView bankCardErrorMsgView2 = this.f63065h;
             if (bankCardErrorMsgView2 != null) {
                 bankCardErrorMsgView2.showErrorLayout("", "");
                 a.a(this.mIdCard, false, false);
             }
-            BankCardErrorMsgView bankCardErrorMsgView3 = this.f62866i;
+            BankCardErrorMsgView bankCardErrorMsgView3 = this.f63066i;
             if (bankCardErrorMsgView3 != null) {
                 bankCardErrorMsgView3.showErrorLayout("", "");
                 a.a(this.mMobilePhone, false, false);
@@ -232,11 +232,11 @@ public class BankUserInfoView extends LinearLayout implements View.OnClickListen
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(1048588, this, view, z) == null) {
             if (view == this.mTrueName) {
-                bankCardErrorMsgView = this.f62864g;
+                bankCardErrorMsgView = this.f63064g;
             } else if (view == this.mIdCard) {
-                bankCardErrorMsgView = this.f62865h;
+                bankCardErrorMsgView = this.f63065h;
             } else {
-                bankCardErrorMsgView = view == this.mMobilePhone ? this.f62866i : null;
+                bankCardErrorMsgView = view == this.mMobilePhone ? this.f63066i : null;
             }
             if (bankCardErrorMsgView != null) {
                 bankCardErrorMsgView.showErrorLayout("", "");
@@ -263,16 +263,16 @@ public class BankUserInfoView extends LinearLayout implements View.OnClickListen
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048591, this, z) == null) {
             if (!this.mIdCard.isEnabled()) {
-                this.f62860c.setBackgroundDrawable(null);
-                this.f62860c.setEnabled(false);
+                this.f63060c.setBackgroundDrawable(null);
+                this.f63060c.setEnabled(false);
             } else if (z) {
                 Drawable drawable = ResUtils.getDrawable(getContext(), "dxm_right_arrow");
                 drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
-                this.f62860c.setCompoundDrawables(null, null, drawable, null);
-                this.f62860c.setEnabled(true);
+                this.f63060c.setCompoundDrawables(null, null, drawable, null);
+                this.f63060c.setEnabled(true);
             } else {
-                this.f62860c.setBackgroundDrawable(null);
-                this.f62860c.setEnabled(false);
+                this.f63060c.setBackgroundDrawable(null);
+                this.f63060c.setEnabled(false);
             }
         }
     }
@@ -316,7 +316,7 @@ public class BankUserInfoView extends LinearLayout implements View.OnClickListen
     public void setIdTipRedColor(boolean z) {
         TextView textView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048595, this, z) == null) || (textView = this.f62860c) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048595, this, z) == null) || (textView = this.f63060c) == null) {
             return;
         }
         if (z) {
@@ -330,21 +330,21 @@ public class BankUserInfoView extends LinearLayout implements View.OnClickListen
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048596, this, aVar) == null) && getVisibility() == 0 && this.mMobileArea.getVisibility() == 0 && aVar != null) {
             if ("2".equals(aVar.b())) {
-                this.f62867j = false;
+                this.f63067j = false;
                 this.mMobilePhone.setEnabled(false);
                 this.mMobilePhone.setFilters(new InputFilter[]{new InputFilter.LengthFilter(13)});
                 this.mMobilePhone.setText(StringUtils.maskingPhoneNumber(aVar.a()));
-                this.f62867j = true;
+                this.f63067j = true;
             }
             if ("3".equals(aVar.b())) {
-                this.f62867j = false;
+                this.f63067j = false;
                 this.mMobilePhone.setEnabled(true);
                 this.mMobilePhone.setFilters(new InputFilter[]{new InputFilter.LengthFilter(13)});
                 this.mMobilePhone.setText(StringUtils.maskingPhoneNumber(aVar.a()));
                 if (TextUtils.isEmpty(aVar.a())) {
                     return;
                 }
-                this.f62867j = true;
+                this.f63067j = true;
             }
         }
     }
@@ -352,7 +352,7 @@ public class BankUserInfoView extends LinearLayout implements View.OnClickListen
     public void setMobileRedColor(boolean z) {
         TextView textView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048597, this, z) == null) || (textView = this.f62859b) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048597, this, z) == null) || (textView = this.f63059b) == null) {
             return;
         }
         if (z) {
@@ -365,30 +365,30 @@ public class BankUserInfoView extends LinearLayout implements View.OnClickListen
     public void setMoblieFromNet(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048598, this, z) == null) {
-            this.f62867j = z;
+            this.f63067j = z;
         }
     }
 
     public void setOnCodeTypeClickListener(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048599, this, onClickListener) == null) {
-            this.f62860c.setOnClickListener(onClickListener);
+            this.f63060c.setOnClickListener(onClickListener);
         }
     }
 
     public void setTipClick(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048600, this, onClickListener) == null) {
-            this.f62863f.setOnClickListener(onClickListener);
-            this.f62861d.setOnClickListener(onClickListener);
-            this.f62862e.setOnClickListener(onClickListener);
+            this.f63063f.setOnClickListener(onClickListener);
+            this.f63061d.setOnClickListener(onClickListener);
+            this.f63062e.setOnClickListener(onClickListener);
         }
     }
 
     public void setTrueNameRedColor(boolean z) {
         TextView textView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048601, this, z) == null) || (textView = this.f62858a) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048601, this, z) == null) || (textView = this.f63058a) == null) {
             return;
         }
         if (z) {
@@ -403,11 +403,11 @@ public class BankUserInfoView extends LinearLayout implements View.OnClickListen
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048602, this, str, str2, view) == null) {
             if (view == this.mTrueName) {
-                bankCardErrorMsgView = this.f62864g;
+                bankCardErrorMsgView = this.f63064g;
             } else if (view == this.mIdCard) {
-                bankCardErrorMsgView = this.f62865h;
+                bankCardErrorMsgView = this.f63065h;
             } else {
-                bankCardErrorMsgView = view == this.mMobilePhone ? this.f62866i : null;
+                bankCardErrorMsgView = view == this.mMobilePhone ? this.f63066i : null;
             }
             if (bankCardErrorMsgView != null) {
                 bankCardErrorMsgView.showErrorLayout(str, str2);
@@ -422,7 +422,7 @@ public class BankUserInfoView extends LinearLayout implements View.OnClickListen
         if (!(interceptable == null || interceptable.invokeL(1048603, this, certificateTypeInfo) == null) || certificateTypeInfo == null) {
             return;
         }
-        this.f62860c.setText(certificateTypeInfo.description);
+        this.f63060c.setText(certificateTypeInfo.description);
         if ("1".equals(certificateTypeInfo.type)) {
             List<IEditTextPasteFilter> editTextPasteFilters = this.mIdCard.getEditTextPasteFilters();
             if (editTextPasteFilters != null) {

@@ -13,7 +13,7 @@ public class c extends b<a> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public AtomicBoolean f67372a;
+    public AtomicBoolean f67572a;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -28,7 +28,7 @@ public class c extends b<a> {
                 return;
             }
         }
-        this.f67372a = new AtomicBoolean(false);
+        this.f67572a = new AtomicBoolean(false);
     }
 
     @Override // com.bytedance.sdk.openadsdk.e.b
@@ -41,7 +41,7 @@ public class c extends b<a> {
     @Override // com.bytedance.sdk.openadsdk.e.b
     public void a() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f67372a.getAndSet(true)) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f67572a.getAndSet(true)) {
             return;
         }
         com.bytedance.sdk.openadsdk.multipro.c.a.c();
@@ -52,10 +52,10 @@ public class c extends b<a> {
     public void a(@NonNull a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-            if (!this.f67372a.get()) {
+            if (!this.f67572a.get()) {
                 a();
             }
-            if (this.f67372a.get()) {
+            if (this.f67572a.get()) {
                 com.bytedance.sdk.openadsdk.multipro.c.a.a(aVar.a());
             }
         }

@@ -28,34 +28,34 @@ public class i {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Handler f2612a;
+    public Handler f2670a;
 
     /* renamed from: b  reason: collision with root package name */
-    public volatile e0 f2613b;
+    public volatile e0 f2671b;
 
     /* renamed from: c  reason: collision with root package name */
-    public volatile g0 f2614c;
+    public volatile g0 f2672c;
 
     /* renamed from: d  reason: collision with root package name */
-    public e.a f2615d;
+    public e.a f2673d;
 
     /* renamed from: e  reason: collision with root package name */
-    public URI f2616e;
+    public URI f2674e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f2617f;
+    public String f2675f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f2618g;
+    public String f2676g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f2619h;
+    public int f2677h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f2620i;
+    public String f2678i;
 
     /* renamed from: j  reason: collision with root package name */
-    public String f2621j;
+    public String f2679j;
     public String[] k;
     public List<BasicNameValuePair> l;
     public g m;
@@ -72,7 +72,7 @@ public class i {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ i f2622a;
+        public final /* synthetic */ i f2680a;
 
         public a(i iVar) {
             Interceptable interceptable = $ic;
@@ -89,7 +89,7 @@ public class i {
                     return;
                 }
             }
-            this.f2622a = iVar;
+            this.f2680a = iVar;
         }
 
         @Override // android.os.Handler
@@ -100,94 +100,94 @@ public class i {
                 Object obj = message.obj;
                 if (obj instanceof c0) {
                     c0 c0Var = (c0) obj;
-                    if (this.f2622a.m != null) {
-                        this.f2622a.m.a(c0Var.f2558a);
+                    if (this.f2680a.m != null) {
+                        this.f2680a.m.a(c0Var.f2616a);
                     }
                 } else if (obj instanceof w) {
                     w wVar = (w) obj;
-                    if (this.f2622a.m != null) {
-                        this.f2622a.m.d(wVar.f2642a);
-                    } else if (this.f2622a.D()) {
+                    if (this.f2680a.m != null) {
+                        this.f2680a.m.d(wVar.f2700a);
+                    } else if (this.f2680a.D()) {
                         BdLog.d("could not call onRawTextMessage() .. handler already NULL");
                     }
                 } else if (obj instanceof k) {
                     k kVar = (k) obj;
-                    if (this.f2622a.m != null) {
-                        this.f2622a.m.f(kVar);
-                    } else if (this.f2622a.D()) {
+                    if (this.f2680a.m != null) {
+                        this.f2680a.m.f(kVar);
+                    } else if (this.f2680a.D()) {
                         BdLog.d("could not call onBinaryMessage() .. handler already NULL");
                     }
                 } else if (obj instanceof t) {
                     u uVar = new u();
-                    uVar.f2640a = ((t) obj).f2639a;
-                    this.f2622a.f2614c.b(uVar);
+                    uVar.f2698a = ((t) obj).f2697a;
+                    this.f2680a.f2672c.b(uVar);
                 } else if (obj instanceof u) {
                     u uVar2 = (u) obj;
-                    if (this.f2622a.m != null) {
-                        this.f2622a.m.e();
+                    if (this.f2680a.m != null) {
+                        this.f2680a.m.e();
                     }
                 } else {
                     if (obj instanceof m) {
-                        this.f2622a.q(1, null);
+                        this.f2680a.q(1, null);
                     } else if (obj instanceof a0) {
                         a0 a0Var = (a0) obj;
-                        if (a0Var.f2554a) {
-                            if (this.f2622a.m != null) {
-                                this.f2622a.m.onOpen(a0Var.f2555b);
-                                this.f2622a.o = true;
-                                this.f2622a.p = false;
-                                if (this.f2622a.m != null) {
-                                    this.f2622a.m.c(null);
+                        if (a0Var.f2612a) {
+                            if (this.f2680a.m != null) {
+                                this.f2680a.m.onOpen(a0Var.f2613b);
+                                this.f2680a.o = true;
+                                this.f2680a.p = false;
+                                if (this.f2680a.m != null) {
+                                    this.f2680a.m.c(null);
                                     return;
                                 }
                                 return;
                             }
-                            this.f2622a.q(6, "handler already NULL");
+                            this.f2680a.q(6, "handler already NULL");
                         }
                     } else if (obj instanceof n) {
-                        SocketException socketException = ((n) obj).f2635a;
+                        SocketException socketException = ((n) obj).f2693a;
                         message2 = socketException != null ? socketException.getMessage() : null;
-                        i iVar = this.f2622a;
+                        i iVar = this.f2680a;
                         iVar.q(3, "WebSockets connection lost = " + message2);
                     } else if (obj instanceof v) {
-                        WebSocketException webSocketException = ((v) obj).f2641a;
+                        WebSocketException webSocketException = ((v) obj).f2699a;
                         message2 = webSocketException != null ? webSocketException.getMessage() : null;
-                        i iVar2 = this.f2622a;
+                        i iVar2 = this.f2680a;
                         iVar2.q(4, "WebSockets protocol violation error = " + message2);
                     } else if (obj instanceof p) {
-                        i iVar3 = this.f2622a;
-                        iVar3.q(5, "WebSockets internal error (" + ((p) obj).f2637a.toString() + SmallTailInfo.EMOTION_SUFFIX);
+                        i iVar3 = this.f2680a;
+                        iVar3.q(5, "WebSockets internal error (" + ((p) obj).f2695a.toString() + SmallTailInfo.EMOTION_SUFFIX);
                     } else if (obj instanceof z) {
                         z zVar = (z) obj;
-                        i iVar4 = this.f2622a;
-                        iVar4.q(6, "Server error " + zVar.f2644a + " (" + zVar.f2645b + SmallTailInfo.EMOTION_SUFFIX);
+                        i iVar4 = this.f2680a;
+                        iVar4.q(6, "Server error " + zVar.f2702a + " (" + zVar.f2703b + SmallTailInfo.EMOTION_SUFFIX);
                     } else if (obj instanceof o) {
-                        i iVar5 = this.f2622a;
-                        iVar5.q(2, "WebSockets connot connect:" + ((o) obj).f2636a);
+                        i iVar5 = this.f2680a;
+                        iVar5.q(2, "WebSockets connot connect:" + ((o) obj).f2694a);
                     } else if (obj instanceof b0) {
-                        if (this.f2622a.m != null) {
-                            this.f2622a.m.i(((b0) message.obj).f2643a);
+                        if (this.f2680a.m != null) {
+                            this.f2680a.m.i(((b0) message.obj).f2701a);
                         }
                     } else if (obj instanceof q) {
-                        this.f2622a.s = null;
-                        c cVar = ((q) message.obj).f2643a;
-                        if (this.f2622a.m != null) {
-                            this.f2622a.m.h(cVar);
+                        this.f2680a.s = null;
+                        c cVar = ((q) message.obj).f2701a;
+                        if (this.f2680a.m != null) {
+                            this.f2680a.m.h(cVar);
                         }
-                        if (this.f2622a.m != null) {
-                            this.f2622a.m.c(cVar);
+                        if (this.f2680a.m != null) {
+                            this.f2680a.m.c(cVar);
                         }
                     } else if (obj instanceof x) {
-                        this.f2622a.s = null;
-                        c cVar2 = ((x) message.obj).f2643a;
-                        if (this.f2622a.m != null) {
-                            this.f2622a.m.g(2, cVar2);
+                        this.f2680a.s = null;
+                        c cVar2 = ((x) message.obj).f2701a;
+                        if (this.f2680a.m != null) {
+                            this.f2680a.m.g(2, cVar2);
                         }
-                        if (this.f2622a.m != null) {
-                            this.f2622a.m.c(cVar2);
+                        if (this.f2680a.m != null) {
+                            this.f2680a.m.c(cVar2);
                         }
                     } else {
-                        this.f2622a.G(obj);
+                        this.f2680a.G(obj);
                     }
                 }
             }
@@ -200,7 +200,7 @@ public class i {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ i f2623e;
+        public final /* synthetic */ i f2681e;
 
         public b(i iVar) {
             Interceptable interceptable = $ic;
@@ -217,7 +217,7 @@ public class i {
                     return;
                 }
             }
-            this.f2623e = iVar;
+            this.f2681e = iVar;
         }
 
         @Override // java.lang.Thread, java.lang.Runnable
@@ -228,36 +228,36 @@ public class i {
                 long currentTimeMillis = System.currentTimeMillis();
                 try {
                     e eVar = new e();
-                    this.f2623e.f2615d = eVar.a(this.f2623e.f2618g, this.f2623e.f2619h, this.f2623e.n, false);
-                    if (this.f2623e.q) {
-                        this.f2623e.H(new m());
+                    this.f2681e.f2673d = eVar.a(this.f2681e.f2676g, this.f2681e.f2677h, this.f2681e.n, false);
+                    if (this.f2681e.q) {
+                        this.f2681e.H(new m());
                         return;
                     }
                     try {
-                        if (!this.f2623e.f2615d.isConnected()) {
-                            this.f2623e.H(new o(2, "cannot connect"));
+                        if (!this.f2681e.f2673d.isConnected()) {
+                            this.f2681e.H(new o(2, "cannot connect"));
                             return;
                         }
-                        this.f2623e.r = System.currentTimeMillis() - currentTimeMillis;
-                        this.f2623e.t();
-                        this.f2623e.u();
-                        l lVar = new l(this.f2623e.f2618g + ":" + this.f2623e.f2619h);
-                        lVar.f2628b = this.f2623e.f2620i;
-                        lVar.f2629c = this.f2623e.f2621j;
-                        lVar.f2631e = this.f2623e.k;
-                        lVar.f2632f = this.f2623e.l;
-                        this.f2623e.f2614c.b(lVar);
-                        if (this.f2623e.q) {
-                            this.f2623e.H(new m());
+                        this.f2681e.r = System.currentTimeMillis() - currentTimeMillis;
+                        this.f2681e.t();
+                        this.f2681e.u();
+                        l lVar = new l(this.f2681e.f2676g + ":" + this.f2681e.f2677h);
+                        lVar.f2686b = this.f2681e.f2678i;
+                        lVar.f2687c = this.f2681e.f2679j;
+                        lVar.f2689e = this.f2681e.k;
+                        lVar.f2690f = this.f2681e.l;
+                        this.f2681e.f2672c.b(lVar);
+                        if (this.f2681e.q) {
+                            this.f2681e.H(new m());
                         }
                     } catch (Throwable th) {
-                        if (this.f2623e.D()) {
+                        if (this.f2681e.D()) {
                             BdLog.e("----WebSocketConnector error. e:" + th.getMessage());
                         }
-                        this.f2623e.H(new p(new Exception(th)));
+                        this.f2681e.H(new p(new Exception(th)));
                     }
                 } catch (Throwable th2) {
-                    this.f2623e.H(new o(2, th2.getMessage()));
+                    this.f2681e.H(new o(2, th2.getMessage()));
                 }
             }
         }
@@ -292,7 +292,7 @@ public class i {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            e.a aVar = this.f2615d;
+            e.a aVar = this.f2673d;
             if (aVar != null) {
                 return aVar.c();
             }
@@ -305,7 +305,7 @@ public class i {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            e.a aVar = this.f2615d;
+            e.a aVar = this.f2673d;
             if (aVar != null) {
                 return aVar.d();
             }
@@ -347,9 +347,9 @@ public class i {
     public final void H(Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, obj) == null) {
-            Message obtainMessage = this.f2612a.obtainMessage();
+            Message obtainMessage = this.f2670a.obtainMessage();
             obtainMessage.obj = obj;
-            this.f2612a.sendMessage(obtainMessage);
+            this.f2670a.sendMessage(obtainMessage);
         }
     }
 
@@ -377,29 +377,29 @@ public class i {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, cVar)) == null) {
-            if (this.f2614c == null) {
+            if (this.f2672c == null) {
                 H(new p(new Exception("mWriter = null")));
                 return false;
             }
-            return this.f2614c.b(new s(cVar));
+            return this.f2672c.b(new s(cVar));
         }
         return invokeL.booleanValue;
     }
 
     public void o() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || this.f2613b == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || this.f2671b == null) {
             return;
         }
-        this.f2613b.a();
+        this.f2671b.a();
     }
 
     public void p() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048587, this) == null) || this.f2614c == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048587, this) == null) || this.f2672c == null) {
             return;
         }
-        this.f2614c.a();
+        this.f2672c.a();
     }
 
     public void q(int i2, String str) {
@@ -410,15 +410,15 @@ public class i {
             }
             this.o = false;
             this.q = true;
-            if (this.f2613b != null) {
-                this.f2613b.p();
-                this.f2613b = null;
+            if (this.f2671b != null) {
+                this.f2671b.p();
+                this.f2671b = null;
             }
-            if (this.f2614c != null) {
-                this.f2614c.i();
-                this.f2614c = null;
+            if (this.f2672c != null) {
+                this.f2672c.i();
+                this.f2672c = null;
             }
-            e.a aVar = this.f2615d;
+            e.a aVar = this.f2673d;
             if (aVar != null) {
                 try {
                     aVar.close();
@@ -427,7 +427,7 @@ public class i {
                         th.printStackTrace();
                     }
                 }
-                this.f2615d = null;
+                this.f2673d = null;
             }
             g gVar = this.m;
             this.m = null;
@@ -447,33 +447,33 @@ public class i {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLLL(1048589, this, str, strArr, gVar, d0Var, list) == null) {
             this.p = true;
-            e.a aVar = this.f2615d;
+            e.a aVar = this.f2673d;
             if (aVar != null && aVar.isConnected()) {
                 throw new WebSocketException("already connected");
             }
             try {
                 URI uri = new URI(str);
-                this.f2616e = uri;
-                if (!uri.getScheme().equals("ws") && !this.f2616e.getScheme().equals("wss")) {
+                this.f2674e = uri;
+                if (!uri.getScheme().equals("ws") && !this.f2674e.getScheme().equals("wss")) {
                     throw new WebSocketException("unsupported scheme for WebSockets URI");
                 }
-                if (!this.f2616e.getScheme().equals("wss")) {
-                    this.f2617f = this.f2616e.getScheme();
-                    if (this.f2616e.getPort() == -1) {
-                        if (this.f2617f.equals("ws")) {
-                            this.f2619h = 80;
+                if (!this.f2674e.getScheme().equals("wss")) {
+                    this.f2675f = this.f2674e.getScheme();
+                    if (this.f2674e.getPort() == -1) {
+                        if (this.f2675f.equals("ws")) {
+                            this.f2677h = 80;
                         } else {
-                            this.f2619h = Constants.SOCKET_PORT_SSL;
+                            this.f2677h = Constants.SOCKET_PORT_SSL;
                         }
                     } else {
-                        this.f2619h = this.f2616e.getPort();
+                        this.f2677h = this.f2674e.getPort();
                     }
-                    if (this.f2616e.getHost() != null) {
-                        this.f2618g = this.f2616e.getHost();
-                        if (this.f2616e.getPath() != null && !this.f2616e.getPath().equals("")) {
-                            this.f2620i = this.f2616e.getPath();
-                            if (this.f2616e.getQuery() != null && !this.f2616e.getQuery().equals("")) {
-                                this.f2621j = this.f2616e.getQuery();
+                    if (this.f2674e.getHost() != null) {
+                        this.f2676g = this.f2674e.getHost();
+                        if (this.f2674e.getPath() != null && !this.f2674e.getPath().equals("")) {
+                            this.f2678i = this.f2674e.getPath();
+                            if (this.f2674e.getQuery() != null && !this.f2674e.getQuery().equals("")) {
+                                this.f2679j = this.f2674e.getQuery();
                                 this.k = strArr;
                                 this.l = list;
                                 this.m = gVar;
@@ -481,7 +481,7 @@ public class i {
                                 new b(this, null).start();
                                 return;
                             }
-                            this.f2621j = null;
+                            this.f2679j = null;
                             this.k = strArr;
                             this.l = list;
                             this.m = gVar;
@@ -489,9 +489,9 @@ public class i {
                             new b(this, null).start();
                             return;
                         }
-                        this.f2620i = "/";
-                        if (this.f2616e.getQuery() != null) {
-                            this.f2621j = this.f2616e.getQuery();
+                        this.f2678i = "/";
+                        if (this.f2674e.getQuery() != null) {
+                            this.f2679j = this.f2674e.getQuery();
                             this.k = strArr;
                             this.l = list;
                             this.m = gVar;
@@ -499,7 +499,7 @@ public class i {
                             new b(this, null).start();
                             return;
                         }
-                        this.f2621j = null;
+                        this.f2679j = null;
                         this.k = strArr;
                         this.l = list;
                         this.m = gVar;
@@ -519,15 +519,15 @@ public class i {
     public void s() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            this.f2612a = new a(this);
+            this.f2670a = new a(this);
         }
     }
 
     public void t() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            this.f2613b = new e0(this.f2612a, this.f2615d, this.n, "WebSocketReader");
-            this.f2613b.start();
+            this.f2671b = new e0(this.f2670a, this.f2673d, this.n, "WebSocketReader");
+            this.f2671b.start();
         }
     }
 
@@ -536,7 +536,7 @@ public class i {
         if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
             HandlerThread handlerThread = new HandlerThread("WebSocketWriter");
             handlerThread.start();
-            this.f2614c = new g0(handlerThread.getLooper(), this.f2612a, this.f2615d, this.n);
+            this.f2672c = new g0(handlerThread.getLooper(), this.f2670a, this.f2673d, this.n);
         }
     }
 
@@ -544,8 +544,8 @@ public class i {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
-            if (this.f2613b != null) {
-                return this.f2613b.c();
+            if (this.f2671b != null) {
+                return this.f2671b.c();
             }
             return 0L;
         }
@@ -556,7 +556,7 @@ public class i {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
-            e.a aVar = this.f2615d;
+            e.a aVar = this.f2673d;
             if (aVar != null) {
                 return aVar.getLocalDns();
             }
@@ -569,7 +569,7 @@ public class i {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
-            e.a aVar = this.f2615d;
+            e.a aVar = this.f2673d;
             if (aVar != null) {
                 return aVar.b();
             }
@@ -582,8 +582,8 @@ public class i {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
-            if (this.f2614c != null) {
-                return this.f2614c.c();
+            if (this.f2672c != null) {
+                return this.f2672c.c();
             }
             return 0L;
         }

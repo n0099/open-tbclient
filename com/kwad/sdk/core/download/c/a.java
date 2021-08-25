@@ -50,26 +50,26 @@ public class a implements f {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static HashMap<String, WeakReference<Bitmap>> f71296a;
+    public static HashMap<String, WeakReference<Bitmap>> f71496a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static c f71297b;
+    public static c f71497b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final Handler f71298c;
+    public static final Handler f71498c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.kwad.sdk.core.download.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes10.dex */
-    public static class HandlerC1983a extends Handler {
+    public static class HandlerC1987a extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final SparseArray<Long> f71299a;
+        public final SparseArray<Long> f71499a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public HandlerC1983a() {
+        public HandlerC1987a() {
             super(Looper.getMainLooper());
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -84,7 +84,7 @@ public class a implements f {
                     return;
                 }
             }
-            this.f71299a = new SparseArray<>();
+            this.f71499a = new SparseArray<>();
         }
 
         @Override // android.os.Handler
@@ -94,7 +94,7 @@ public class a implements f {
                 boolean z = message.arg1 == 1;
                 boolean z2 = message.arg2 == 1;
                 boolean z3 = message.arg2 == 2;
-                Long l = this.f71299a.get(message.what);
+                Long l = this.f71499a.get(message.what);
                 NotificationManager notificationManager = (NotificationManager) com.ksad.download.b.a().getSystemService(ActionJsonData.TAG_NOTIFICATION);
                 if (notificationManager == null) {
                     return;
@@ -109,7 +109,7 @@ public class a implements f {
                         notificationManager.cancel(message.what);
                     }
                     a.b(message.what, (Notification) message.obj);
-                    this.f71299a.put(message.what, Long.valueOf(System.currentTimeMillis()));
+                    this.f71499a.put(message.what, Long.valueOf(System.currentTimeMillis()));
                 }
             }
         }
@@ -120,32 +120,32 @@ public class a implements f {
         public static /* synthetic */ Interceptable $ic = null;
 
         /* renamed from: a  reason: collision with root package name */
-        public static String f71300a = "ksad_notification_default_icon";
+        public static String f71500a = "ksad_notification_default_icon";
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f71301b;
+        public String f71501b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f71302c;
+        public String f71502c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f71303d;
+        public String f71503d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f71304e;
+        public String f71504e;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f71305f;
+        public int f71505f;
 
         /* renamed from: g  reason: collision with root package name */
-        public File f71306g;
+        public File f71506g;
 
         /* renamed from: h  reason: collision with root package name */
-        public String f71307h;
+        public String f71507h;
 
         /* renamed from: i  reason: collision with root package name */
-        public boolean f71308i;
+        public boolean f71508i;
 
         static {
             InterceptResult invokeClinit;
@@ -175,14 +175,14 @@ public class a implements f {
                     return;
                 }
             }
-            this.f71306g = null;
-            this.f71308i = false;
+            this.f71506g = null;
+            this.f71508i = false;
         }
 
         public static String a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? f71300a : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? f71500a : (String) invokeV.objValue;
         }
 
         public static b b(DownloadTask downloadTask, String str, String str2) {
@@ -195,16 +195,16 @@ public class a implements f {
                     DownloadParams downloadParams = (DownloadParams) tag;
                     File b2 = com.kwad.sdk.core.diskcache.b.a.a().b(downloadParams.mAppIcon);
                     if (b2 != null && b2.exists()) {
-                        bVar.f71306g = b2;
+                        bVar.f71506g = b2;
                     }
-                    bVar.f71301b = downloadParams.mAppName;
+                    bVar.f71501b = downloadParams.mAppName;
                 }
-                bVar.f71308i = downloadTask.isPaused();
-                bVar.f71302c = str;
-                bVar.f71307h = str2;
-                bVar.f71303d = a.b(downloadTask.getSmallFileSoFarBytes()) + " / " + a.b(downloadTask.getSmallFileTotalBytes());
-                bVar.f71304e = a.b((long) downloadTask.getSmallFileTotalBytes());
-                bVar.f71305f = (int) ((((float) downloadTask.getSmallFileSoFarBytes()) * 100.0f) / ((float) downloadTask.getSmallFileTotalBytes()));
+                bVar.f71508i = downloadTask.isPaused();
+                bVar.f71502c = str;
+                bVar.f71507h = str2;
+                bVar.f71503d = a.b(downloadTask.getSmallFileSoFarBytes()) + " / " + a.b(downloadTask.getSmallFileTotalBytes());
+                bVar.f71504e = a.b((long) downloadTask.getSmallFileTotalBytes());
+                bVar.f71505f = (int) ((((float) downloadTask.getSmallFileSoFarBytes()) * 100.0f) / ((float) downloadTask.getSmallFileTotalBytes()));
                 return bVar;
             }
             return (b) invokeLLL.objValue;
@@ -216,13 +216,13 @@ public class a implements f {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLLL = interceptable.invokeLLL(AdIconUtil.BAIDU_LOGO_ID, null, downloadParams, str, str2)) == null) {
                 b bVar = new b();
-                bVar.f71301b = downloadParams.mAppName;
+                bVar.f71501b = downloadParams.mAppName;
                 if (!TextUtils.isEmpty(downloadParams.mAppIcon) && (b2 = com.kwad.sdk.core.diskcache.b.a.a().b(downloadParams.mAppIcon)) != null && b2.exists()) {
-                    bVar.f71306g = b2;
+                    bVar.f71506g = b2;
                 }
-                bVar.f71302c = str;
-                bVar.f71304e = a.b(downloadParams.mAppSize);
-                bVar.f71307h = str2;
+                bVar.f71502c = str;
+                bVar.f71504e = a.b(downloadParams.mAppSize);
+                bVar.f71507h = str2;
                 return bVar;
             }
             return (b) invokeLLL.objValue;
@@ -232,7 +232,7 @@ public class a implements f {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                String str = this.f71301b;
+                String str = this.f71501b;
                 return str == null ? "" : str;
             }
             return (String) invokeV.objValue;
@@ -241,32 +241,32 @@ public class a implements f {
         public String c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f71303d : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f71503d : (String) invokeV.objValue;
         }
 
         public String d() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f71304e : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f71504e : (String) invokeV.objValue;
         }
 
         public String e() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f71302c : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f71502c : (String) invokeV.objValue;
         }
 
         public File f() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f71306g : (File) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f71506g : (File) invokeV.objValue;
         }
 
         public String g() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-                return "正在下载 " + this.f71305f + "%";
+                return "正在下载 " + this.f71505f + "%";
             }
             return (String) invokeV.objValue;
         }
@@ -274,19 +274,19 @@ public class a implements f {
         public int h() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f71305f : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f71505f : invokeV.intValue;
         }
 
         public String i() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f71307h : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f71507h : (String) invokeV.objValue;
         }
 
         public boolean j() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f71308i : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f71508i : invokeV.booleanValue;
         }
     }
 
@@ -369,8 +369,8 @@ public class a implements f {
                 return;
             }
         }
-        f71296a = new HashMap<>();
-        f71298c = new HandlerC1983a();
+        f71496a = new HashMap<>();
+        f71498c = new HandlerC1987a();
     }
 
     public a(Context context) {
@@ -406,11 +406,11 @@ public class a implements f {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, this, context, str)) == null) {
-            WeakReference<Bitmap> weakReference = f71296a.get(str);
+            WeakReference<Bitmap> weakReference = f71496a.get(str);
             Bitmap bitmap = weakReference != null ? weakReference.get() : null;
             if (bitmap == null || bitmap.isRecycled()) {
                 Bitmap decodeResource = BitmapFactory.decodeResource(ai.a(context), ai.a(context, str));
-                f71296a.put(str, new WeakReference<>(decodeResource));
+                f71496a.put(str, new WeakReference<>(decodeResource));
                 return decodeResource;
             }
             return bitmap;
@@ -420,12 +420,12 @@ public class a implements f {
 
     private void a(Context context) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, this, context) == null) && f71297b == null && context != null) {
-            f71297b = new c();
+        if ((interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, this, context) == null) && f71497b == null && context != null) {
+            f71497b = new c();
             IntentFilter intentFilter = new IntentFilter();
             intentFilter.addAction(RemoteViewBuilder.ProgressRemoteViewImpl.ACTION_CLICK_CONTROL_BTN);
             intentFilter.addAction("com.ksad.action.ACTION_NOTIFICATION_REMOVED");
-            context.registerReceiver(f71297b, intentFilter);
+            context.registerReceiver(f71497b, intentFilter);
         }
     }
 
@@ -437,8 +437,8 @@ public class a implements f {
             if (z2) {
                 builder.setDeleteIntent(a(context, "com.ksad.action.ACTION_NOTIFICATION_REMOVED", i2));
             }
-            f71298c.removeMessages(i2);
-            f71298c.obtainMessage(i2, i3, i4, builder.build()).sendToTarget();
+            f71498c.removeMessages(i2);
+            f71498c.obtainMessage(i2, i3, i4, builder.build()).sendToTarget();
         }
     }
 
@@ -511,11 +511,11 @@ public class a implements f {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65548, this, file)) == null) {
             String absolutePath = file.getAbsolutePath();
-            WeakReference<Bitmap> weakReference = f71296a.get(absolutePath);
+            WeakReference<Bitmap> weakReference = f71496a.get(absolutePath);
             Bitmap bitmap = weakReference != null ? weakReference.get() : null;
             if (bitmap == null || bitmap.isRecycled()) {
                 Bitmap decodeFile = BitmapFactory.decodeFile(absolutePath);
-                f71296a.put(absolutePath, new WeakReference<>(decodeFile));
+                f71496a.put(absolutePath, new WeakReference<>(decodeFile));
                 return decodeFile;
             }
             return bitmap;

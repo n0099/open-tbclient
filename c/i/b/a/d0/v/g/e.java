@@ -13,13 +13,13 @@ public class e {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f33042a;
+    public final String f33148a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final long f33043b;
+    public final long f33149b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final List<a> f33044c;
+    public final List<a> f33150c;
 
     public e(String str, long j2, List<a> list) {
         Interceptable interceptable = $ic;
@@ -36,18 +36,18 @@ public class e {
                 return;
             }
         }
-        this.f33042a = str;
-        this.f33043b = j2;
-        this.f33044c = Collections.unmodifiableList(list);
+        this.f33148a = str;
+        this.f33149b = j2;
+        this.f33150c = Collections.unmodifiableList(list);
     }
 
     public int a(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
-            int size = this.f33044c.size();
+            int size = this.f33150c.size();
             for (int i3 = 0; i3 < size; i3++) {
-                if (this.f33044c.get(i3).f33015b == i2) {
+                if (this.f33150c.get(i3).f33121b == i2) {
                     return i3;
                 }
             }

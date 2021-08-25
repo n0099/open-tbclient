@@ -14,7 +14,7 @@ public class d implements Runnable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ c f41909a;
+    public final /* synthetic */ c f42016a;
 
     public d(c cVar) {
         Interceptable interceptable = $ic;
@@ -31,7 +31,7 @@ public class d implements Runnable {
                 return;
             }
         }
-        this.f41909a = cVar;
+        this.f42016a = cVar;
     }
 
     @Override // java.lang.Runnable
@@ -43,7 +43,7 @@ public class d implements Runnable {
         if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || h.a().b() == null) {
             return;
         }
-        str = c.f41904a;
+        str = c.f42011a;
         File file = new File(str);
         if (!file.exists() || (listFiles = file.listFiles()) == null || listFiles.length == 0) {
             return;
@@ -60,14 +60,14 @@ public class d implements Runnable {
             File file2 = listFiles[i2];
             if (!file2.isDirectory() && file2.exists() && file2.isFile()) {
                 String name = file2.getName();
-                str2 = c.f41905b;
+                str2 = c.f42012b;
                 if (name.contains(str2) && (file2.getName().endsWith(DownloadDataConstants.DEFAULT_DL_TEXT_EXTENSION) || (file2.getName().endsWith(".zip") && file2.exists()))) {
-                    this.f41909a.a(file2);
+                    this.f42016a.a(file2);
                 }
             }
         }
         if (listFiles.length > 10) {
-            this.f41909a.a(listFiles);
+            this.f42016a.a(listFiles);
         }
     }
 }

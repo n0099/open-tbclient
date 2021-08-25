@@ -26,11 +26,11 @@ public class DownloadReceiver extends BroadcastReceiver {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f75346a;
+    public static final String f75547a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public Handler f75347b;
+    public Handler f75548b;
 
     /* loaded from: classes10.dex */
     public class a implements Runnable {
@@ -38,38 +38,38 @@ public class DownloadReceiver extends BroadcastReceiver {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Intent f75348e;
+        public final /* synthetic */ Intent f75549e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Context f75349f;
+        public final /* synthetic */ Context f75550f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ DownloadReceiver f75350g;
+        public final /* synthetic */ DownloadReceiver f75551g;
 
         /* renamed from: com.ss.android.socialbase.appdownloader.DownloadReceiver$a$a  reason: collision with other inner class name */
         /* loaded from: classes10.dex */
-        public class RunnableC2048a implements Runnable {
+        public class RunnableC2052a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ DownloadInfo f75351e;
+            public final /* synthetic */ DownloadInfo f75552e;
 
             /* renamed from: com.ss.android.socialbase.appdownloader.DownloadReceiver$a$a$a  reason: collision with other inner class name */
             /* loaded from: classes10.dex */
-            public class RunnableC2049a implements Runnable {
+            public class RunnableC2053a implements Runnable {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ RunnableC2048a f75352e;
+                public final /* synthetic */ RunnableC2052a f75553e;
 
-                public RunnableC2049a(RunnableC2048a runnableC2048a) {
+                public RunnableC2053a(RunnableC2052a runnableC2052a) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {runnableC2048a};
+                        Object[] objArr = {runnableC2052a};
                         interceptable.invokeUnInit(65536, newInitContext);
                         int i2 = newInitContext.flag;
                         if ((i2 & 1) != 0) {
@@ -79,7 +79,7 @@ public class DownloadReceiver extends BroadcastReceiver {
                             return;
                         }
                     }
-                    this.f75352e = runnableC2048a;
+                    this.f75553e = runnableC2052a;
                 }
 
                 @Override // java.lang.Runnable
@@ -87,8 +87,8 @@ public class DownloadReceiver extends BroadcastReceiver {
                     Interceptable interceptable = $ic;
                     if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                         try {
-                            if (this.f75352e.f75351e.isSavePathRedirected()) {
-                                f.b0(this.f75352e.f75351e);
+                            if (this.f75553e.f75552e.isSavePathRedirected()) {
+                                f.b0(this.f75553e.f75552e);
                             }
                         } catch (Throwable th) {
                             th.printStackTrace();
@@ -97,7 +97,7 @@ public class DownloadReceiver extends BroadcastReceiver {
                 }
             }
 
-            public RunnableC2048a(a aVar, DownloadInfo downloadInfo) {
+            public RunnableC2052a(a aVar, DownloadInfo downloadInfo) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -112,14 +112,14 @@ public class DownloadReceiver extends BroadcastReceiver {
                         return;
                     }
                 }
-                this.f75351e = downloadInfo;
+                this.f75552e = downloadInfo;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    e.A0().execute(new RunnableC2049a(this));
+                    e.A0().execute(new RunnableC2053a(this));
                 }
             }
         }
@@ -139,28 +139,28 @@ public class DownloadReceiver extends BroadcastReceiver {
                     return;
                 }
             }
-            this.f75350g = downloadReceiver;
-            this.f75348e = intent;
-            this.f75349f = context;
+            this.f75551g = downloadReceiver;
+            this.f75549e = intent;
+            this.f75550f = context;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Uri data;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (data = this.f75348e.getData()) == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (data = this.f75549e.getData()) == null) {
                 return;
             }
             String schemeSpecificPart = data.getSchemeSpecificPart();
             d.f u = c.p.a.e.a.e.G().u();
             if (u != null) {
-                u.a(this.f75349f, schemeSpecificPart);
+                u.a(this.f75550f, schemeSpecificPart);
             }
-            List<DownloadInfo> p = c.p.a.e.b.g.a.H(this.f75349f).p("application/vnd.android.package-archive");
+            List<DownloadInfo> p = c.p.a.e.b.g.a.H(this.f75550f).p("application/vnd.android.package-archive");
             if (p != null) {
                 for (DownloadInfo downloadInfo : p) {
                     if (downloadInfo != null && d.A(downloadInfo, schemeSpecificPart)) {
-                        c.p.a.e.b.f.e i2 = c.p.a.e.b.g.a.H(this.f75349f).i(downloadInfo.getId());
+                        c.p.a.e.b.f.e i2 = c.p.a.e.b.g.a.H(this.f75550f).i(downloadInfo.getId());
                         if (i2 != null && f.O0(i2.a())) {
                             i2.a(9, downloadInfo, schemeSpecificPart, "");
                         }
@@ -171,7 +171,7 @@ public class DownloadReceiver extends BroadcastReceiver {
                         if (c.p.a.e.b.j.a.d(downloadInfo.getId()).b("install_queue_enable", 0) == 1) {
                             k.d().g(downloadInfo, schemeSpecificPart);
                         }
-                        this.f75350g.f75347b.postDelayed(new RunnableC2048a(this, downloadInfo), 1000L);
+                        this.f75551g.f75548b.postDelayed(new RunnableC2052a(this, downloadInfo), 1000L);
                         return;
                     }
                 }
@@ -185,10 +185,10 @@ public class DownloadReceiver extends BroadcastReceiver {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f75353e;
+        public final /* synthetic */ Context f75554e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f75354f;
+        public final /* synthetic */ String f75555f;
 
         public b(DownloadReceiver downloadReceiver, Context context, String str) {
             Interceptable interceptable = $ic;
@@ -205,8 +205,8 @@ public class DownloadReceiver extends BroadcastReceiver {
                     return;
                 }
             }
-            this.f75353e = context;
-            this.f75354f = str;
+            this.f75554e = context;
+            this.f75555f = str;
         }
 
         @Override // java.lang.Runnable
@@ -214,9 +214,9 @@ public class DownloadReceiver extends BroadcastReceiver {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 try {
-                    Intent intent = new Intent(this.f75353e, DownloadHandlerService.class);
-                    intent.setAction(this.f75354f);
-                    this.f75353e.startService(intent);
+                    Intent intent = new Intent(this.f75554e, DownloadHandlerService.class);
+                    intent.setAction(this.f75555f);
+                    this.f75554e.startService(intent);
                 } catch (Throwable th) {
                     th.printStackTrace();
                 }
@@ -237,7 +237,7 @@ public class DownloadReceiver extends BroadcastReceiver {
                 return;
             }
         }
-        f75346a = DownloadReceiver.class.getSimpleName();
+        f75547a = DownloadReceiver.class.getSimpleName();
     }
 
     public DownloadReceiver() {
@@ -253,7 +253,7 @@ public class DownloadReceiver extends BroadcastReceiver {
                 return;
             }
         }
-        this.f75347b = new Handler(Looper.getMainLooper());
+        this.f75548b = new Handler(Looper.getMainLooper());
     }
 
     @Override // android.content.BroadcastReceiver
@@ -269,12 +269,12 @@ public class DownloadReceiver extends BroadcastReceiver {
         d.e b2 = c.p.a.e.a.e.G().b();
         if (action.equals("android.intent.action.BOOT_COMPLETED") && (b2 == null || b2.a())) {
             if (c.p.a.e.b.c.a.e()) {
-                c.p.a.e.b.c.a.c(f75346a, "Received broadcast intent for android.intent.action.BOOT_COMPLETED");
+                c.p.a.e.b.c.a.c(f75547a, "Received broadcast intent for android.intent.action.BOOT_COMPLETED");
             }
             a(context, action);
         } else if (action.equals("android.intent.action.MEDIA_MOUNTED")) {
             if (c.p.a.e.b.c.a.e()) {
-                c.p.a.e.b.c.a.c(f75346a, "Received broadcast intent for android.intent.action.MEDIA_MOUNTED");
+                c.p.a.e.b.c.a.c(f75547a, "Received broadcast intent for android.intent.action.MEDIA_MOUNTED");
             }
             a(context, action);
         } else if (action.equals(PackageChangedReceiver.ACTION_INSTALL) || action.equals("android.intent.action.PACKAGE_REPLACED")) {
@@ -285,7 +285,7 @@ public class DownloadReceiver extends BroadcastReceiver {
     private void a(Context context, String str) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(65539, this, context, str) == null) && e.g()) {
-            this.f75347b.postDelayed(new b(this, context, str), 2000L);
+            this.f75548b.postDelayed(new b(this, context, str), 2000L);
         }
     }
 }

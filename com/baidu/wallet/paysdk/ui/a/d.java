@@ -21,10 +21,10 @@ public class d extends com.baidu.wallet.paysdk.ui.a implements a.b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: h  reason: collision with root package name */
-    public final Context f62813h;
+    public final Context f63013h;
 
     /* renamed from: i  reason: collision with root package name */
-    public SafeKeyBoardEditText.CheckFunc f62814i;
+    public SafeKeyBoardEditText.CheckFunc f63014i;
 
     public d(Context context) {
         Interceptable interceptable = $ic;
@@ -41,16 +41,16 @@ public class d extends com.baidu.wallet.paysdk.ui.a implements a.b {
                 return;
             }
         }
-        this.f62813h = context;
-        this.f62814i = new SafeKeyBoardEditText.CheckFunc(this, new com.baidu.wallet.paysdk.a()) { // from class: com.baidu.wallet.paysdk.ui.a.d.1
+        this.f63013h = context;
+        this.f63014i = new SafeKeyBoardEditText.CheckFunc(this, new com.baidu.wallet.paysdk.a()) { // from class: com.baidu.wallet.paysdk.ui.a.d.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ com.baidu.wallet.paysdk.a f62815a;
+            public final /* synthetic */ com.baidu.wallet.paysdk.a f63015a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ d f62816b;
+            public final /* synthetic */ d f63016b;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -67,15 +67,15 @@ public class d extends com.baidu.wallet.paysdk.ui.a implements a.b {
                         return;
                     }
                 }
-                this.f62816b = this;
-                this.f62815a = r7;
+                this.f63016b = this;
+                this.f63015a = r7;
             }
 
             @Override // com.dxmpay.wallet.base.widget.SafeKeyBoardEditText.CheckFunc
             public boolean check(String str) {
                 InterceptResult invokeL;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, str)) == null) ? this.f62815a.a(str) : invokeL.booleanValue;
+                return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, str)) == null) ? this.f63015a.a(str) : invokeL.booleanValue;
             }
         };
     }
@@ -85,8 +85,8 @@ public class d extends com.baidu.wallet.paysdk.ui.a implements a.b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            a(this.f62813h, 0);
-            return this.f62797b;
+            a(this.f63013h, 0);
+            return this.f62997b;
         }
         return (View) invokeV.objValue;
     }
@@ -102,14 +102,14 @@ public class d extends com.baidu.wallet.paysdk.ui.a implements a.b {
     public SafeKeyBoardEditText b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f62800e : (SafeKeyBoardEditText) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f63000e : (SafeKeyBoardEditText) invokeV.objValue;
     }
 
     @Override // com.baidu.wallet.paysdk.contract.a.b
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            a((CharSequence) ResUtils.getString(this.f62813h, "wallet_cashdesk_card_info_id_error_msg"));
+            a((CharSequence) ResUtils.getString(this.f63013h, "wallet_cashdesk_card_info_id_error_msg"));
         }
     }
 
@@ -117,29 +117,29 @@ public class d extends com.baidu.wallet.paysdk.ui.a implements a.b {
     public CharSequence d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? ResUtils.getString(this.f62813h, "wallet_cashdesk_card_info_id_title") : (CharSequence) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? ResUtils.getString(this.f63013h, "wallet_cashdesk_card_info_id_title") : (CharSequence) invokeV.objValue;
     }
 
     @Override // com.baidu.wallet.paysdk.ui.a
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            PromptDialog promptDialog = new PromptDialog(this.f62813h);
-            Context context = this.f62813h;
+            PromptDialog promptDialog = new PromptDialog(this.f63013h);
+            Context context = this.f63013h;
             promptDialog.setMessage(context.getString(ResUtils.string(context, "wallet_cashdesk_card_info_id_hint_msg")));
             promptDialog.setCanceledOnTouchOutside(false);
-            Context context2 = this.f62813h;
+            Context context2 = this.f63013h;
             promptDialog.setTitleText(context2.getString(ResUtils.string(context2, "wallet_cashdesk_card_info_id_hint_title")));
             promptDialog.hideNegativeButton();
-            promptDialog.setPositiveBtn(ResUtils.string(this.f62813h, "dxm_ebpay_know"), new View.OnClickListener(this, promptDialog) { // from class: com.baidu.wallet.paysdk.ui.a.d.2
+            promptDialog.setPositiveBtn(ResUtils.string(this.f63013h, "dxm_ebpay_know"), new View.OnClickListener(this, promptDialog) { // from class: com.baidu.wallet.paysdk.ui.a.d.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ PromptDialog f62817a;
+                public final /* synthetic */ PromptDialog f63017a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ d f62818b;
+                public final /* synthetic */ d f63018b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -156,15 +156,15 @@ public class d extends com.baidu.wallet.paysdk.ui.a implements a.b {
                             return;
                         }
                     }
-                    this.f62818b = this;
-                    this.f62817a = promptDialog;
+                    this.f63018b = this;
+                    this.f63017a = promptDialog;
                 }
 
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                        this.f62817a.dismiss();
+                        this.f63017a.dismiss();
                     }
                 }
             });
@@ -176,14 +176,14 @@ public class d extends com.baidu.wallet.paysdk.ui.a implements a.b {
     public SafeKeyBoardEditText.CheckFunc f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f62814i : (SafeKeyBoardEditText.CheckFunc) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f63014i : (SafeKeyBoardEditText.CheckFunc) invokeV.objValue;
     }
 
     @Override // com.baidu.wallet.paysdk.ui.a
     public void a(SafeKeyBoardEditText safeKeyBoardEditText) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, safeKeyBoardEditText) == null) {
-            safeKeyBoardEditText.setHint(ResUtils.string(this.f62813h, "wallet_cashdesk_card_info_id_input_hint"));
+            safeKeyBoardEditText.setHint(ResUtils.string(this.f63013h, "wallet_cashdesk_card_info_id_input_hint"));
             safeKeyBoardEditText.setUseSafeKeyBoard(true);
             safeKeyBoardEditText.setUseKeyX(true);
             safeKeyBoardEditText.setFilters(new InputFilter[]{new InputFilter.LengthFilter(20)});

@@ -9,9 +9,9 @@ import androidx.core.view.InputDeviceCompat;
 import c.a.e.e.l.c;
 import c.a.e.e.l.d;
 import c.a.e.e.m.e;
-import c.a.e.k.d.a;
-import c.a.o0.s.f0.l;
-import c.a.o0.s.q.c2;
+import c.a.e.l.d.a;
+import c.a.p0.s.f0.l;
+import c.a.p0.s.q.c2;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -71,7 +71,7 @@ public class SpecHotTopicHelper {
                 if (interceptable2 == null || interceptable2.invokeLLI(1048576, this, aVar, str, i2) == null) {
                     super.onLoaded((AnonymousClass2) aVar, str, i2);
                     if (aVar != null) {
-                        c.a.o0.b0.c.k().a(str, aVar.p());
+                        c.a.p0.b0.c.k().a(str, aVar.p());
                     }
                 }
             }
@@ -105,15 +105,15 @@ public class SpecHotTopicHelper {
         if (StringUtils.isNull(v0) || StringUtils.isNull(V0)) {
             return;
         }
-        Bitmap j2 = c.a.o0.b0.c.k().j(v0);
+        Bitmap j2 = c.a.p0.b0.c.k().j(v0);
         if ((j2 == null || !AbstractImageLoaderProc.isImageFileExist(v0, 10)) && (loadBdImageFromLocal = AbstractImageLoaderProc.loadBdImageFromLocal(v0, 10)) != null) {
             j2 = loadBdImageFromLocal.p();
-            c.a.o0.b0.c.k().a(v0, j2);
+            c.a.p0.b0.c.k().a(v0, j2);
         }
-        Bitmap j3 = c.a.o0.b0.c.k().j(V0);
+        Bitmap j3 = c.a.p0.b0.c.k().j(V0);
         if ((j3 == null || !AbstractImageLoaderProc.isImageFileExist(V0, 10)) && (loadBdImageFromLocal2 = AbstractImageLoaderProc.loadBdImageFromLocal(V0, 10)) != null) {
             j3 = loadBdImageFromLocal2.p();
-            c.a.o0.b0.c.k().a(V0, j3);
+            c.a.p0.b0.c.k().a(V0, j3);
         }
         if (j2 != null && !j2.isRecycled() && j3 != null && !j3.isRecycled()) {
             int i3 = 0;
@@ -141,8 +141,8 @@ public class SpecHotTopicHelper {
     public static void loadSpecTopicIconIfNeed(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2) == null) {
-            Bitmap j2 = c.a.o0.b0.c.k().j(str);
-            Bitmap j3 = c.a.o0.b0.c.k().j(str2);
+            Bitmap j2 = c.a.p0.b0.c.k().j(str);
+            Bitmap j3 = c.a.p0.b0.c.k().j(str2);
             if (j2 == null || j3 == null) {
                 if (!c.a.e.e.p.l.C()) {
                     e.a().post(new Runnable(str, str2) { // from class: com.baidu.tbadk.core.util.SpecHotTopicHelper.1

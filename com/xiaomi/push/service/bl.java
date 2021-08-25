@@ -12,7 +12,7 @@ public class bl implements Runnable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ bk f77798a;
+    public final /* synthetic */ bk f77999a;
 
     public bl(bk bkVar) {
         Interceptable interceptable = $ic;
@@ -29,7 +29,7 @@ public class bl implements Runnable {
                 return;
             }
         }
-        this.f77798a = bkVar;
+        this.f77999a = bkVar;
     }
 
     @Override // java.lang.Runnable
@@ -38,14 +38,14 @@ public class bl implements Runnable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             try {
-                concurrentHashMap = this.f77798a.f941a;
+                concurrentHashMap = this.f77999a.f941a;
                 for (bk.a aVar : concurrentHashMap.values()) {
                     aVar.run();
                 }
             } catch (Exception e2) {
                 com.xiaomi.channel.commonutils.logger.b.m73a("Sync job exception :" + e2.getMessage());
             }
-            this.f77798a.f942a = false;
+            this.f77999a.f942a = false;
         }
     }
 }

@@ -48,7 +48,7 @@ public class LBSPayAli implements NoProguard {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static LBSPayAli f36563a;
+        public static LBSPayAli f36669a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -64,7 +64,7 @@ public class LBSPayAli implements NoProguard {
                     return;
                 }
             }
-            f36563a = new LBSPayAli(null);
+            f36669a = new LBSPayAli(null);
         }
     }
 
@@ -75,7 +75,7 @@ public class LBSPayAli implements NoProguard {
     public static LBSPayAli getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f36563a : (LBSPayAli) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f36669a : (LBSPayAli) invokeV.objValue;
     }
 
     private void handleError() {

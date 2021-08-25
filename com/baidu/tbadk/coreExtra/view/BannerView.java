@@ -10,8 +10,8 @@ import android.widget.Button;
 import android.widget.RelativeLayout;
 import androidx.core.view.InputDeviceCompat;
 import c.a.e.e.p.l;
-import c.a.o0.s.q.g0;
-import c.a.p0.x2.z;
+import c.a.p0.s.q.g0;
+import c.a.q0.x2.z;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
 import com.baidu.tbadk.TbPageContext;
@@ -35,22 +35,22 @@ public class BannerView extends RelativeLayout {
     public TbImageView bannerView;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f47897e;
+    public String f48004e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f47898f;
+    public String f48005f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TbPageContext<?> f47899g;
+    public TbPageContext<?> f48006g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TbImageView f47900h;
+    public TbImageView f48007h;
 
     /* renamed from: i  reason: collision with root package name */
-    public View f47901i;
+    public View f48008i;
 
     /* renamed from: j  reason: collision with root package name */
-    public boolean f47902j;
+    public boolean f48009j;
     public float k;
     public String l;
     public boolean m;
@@ -66,7 +66,7 @@ public class BannerView extends RelativeLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BannerView f47903e;
+        public final /* synthetic */ BannerView f48010e;
 
         public a(BannerView bannerView) {
             Interceptable interceptable = $ic;
@@ -83,45 +83,45 @@ public class BannerView extends RelativeLayout {
                     return;
                 }
             }
-            this.f47903e = bannerView;
+            this.f48010e = bannerView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                BannerView bannerView = this.f47903e;
+                BannerView bannerView = this.f48010e;
                 if (view == bannerView.mClose) {
-                    if (!TextUtils.isEmpty(bannerView.f47898f)) {
-                        TiebaStatic.log(this.f47903e.f47898f);
+                    if (!TextUtils.isEmpty(bannerView.f48005f)) {
+                        TiebaStatic.log(this.f48010e.f48005f);
                     }
-                    this.f47903e.f47902j = true;
-                    this.f47903e.setVisibility(8);
-                    if (this.f47903e.p != null) {
-                        this.f47903e.p.a();
+                    this.f48010e.f48009j = true;
+                    this.f48010e.setVisibility(8);
+                    if (this.f48010e.p != null) {
+                        this.f48010e.p.a();
                         return;
                     }
                     return;
                 }
-                if (!TextUtils.isEmpty(bannerView.f47897e)) {
-                    TiebaStatic.log(this.f47903e.f47897e);
+                if (!TextUtils.isEmpty(bannerView.f48004e)) {
+                    TiebaStatic.log(this.f48010e.f48004e);
                 }
-                if (this.f47903e.p == null) {
-                    if (TextUtils.isEmpty(this.f47903e.l)) {
+                if (this.f48010e.p == null) {
+                    if (TextUtils.isEmpty(this.f48010e.l)) {
                         return;
                     }
-                    UrlManager.getInstance().dealOneLink(this.f47903e.f47899g, new String[]{this.f47903e.l});
-                    if (!this.f47903e.l.startsWith(UrlSchemaHelper.SCHEMA_TYPE_GAME_DETAIL) || !BannerView.FRS_BANNER.equals(this.f47903e.o)) {
-                        if (this.f47903e.l.startsWith(UrlSchemaHelper.SCHEMA_TYPE_GAME_DETAIL) && BannerView.ENTERFORUM_BANNER.equals(this.f47903e.o)) {
-                            TiebaStatic.eventStat(this.f47903e.f47899g.getPageActivity(), BannerView.ENTERFORUM_BANNER, PrefetchEvent.STATE_CLICK, 1, "ref_id", "4000401", "ref_type", "603");
+                    UrlManager.getInstance().dealOneLink(this.f48010e.f48006g, new String[]{this.f48010e.l});
+                    if (!this.f48010e.l.startsWith(UrlSchemaHelper.SCHEMA_TYPE_GAME_DETAIL) || !BannerView.FRS_BANNER.equals(this.f48010e.o)) {
+                        if (this.f48010e.l.startsWith(UrlSchemaHelper.SCHEMA_TYPE_GAME_DETAIL) && BannerView.ENTERFORUM_BANNER.equals(this.f48010e.o)) {
+                            TiebaStatic.eventStat(this.f48010e.f48006g.getPageActivity(), BannerView.ENTERFORUM_BANNER, PrefetchEvent.STATE_CLICK, 1, "ref_id", "4000401", "ref_type", "603");
                             return;
                         }
                         return;
                     }
-                    TiebaStatic.eventStat(this.f47903e.f47899g.getPageActivity(), BannerView.FRS_BANNER, PrefetchEvent.STATE_CLICK, 1, "ref_id", "4000601", "ref_type", "603");
+                    TiebaStatic.eventStat(this.f48010e.f48006g.getPageActivity(), BannerView.FRS_BANNER, PrefetchEvent.STATE_CLICK, 1, "ref_id", "4000601", "ref_type", "603");
                     return;
                 }
-                this.f47903e.p.b();
+                this.f48010e.p.b();
             }
         }
     }
@@ -152,9 +152,9 @@ public class BannerView extends RelativeLayout {
                 return;
             }
         }
-        this.f47897e = "";
-        this.f47898f = "";
-        this.f47902j = false;
+        this.f48004e = "";
+        this.f48005f = "";
+        this.f48009j = false;
         this.k = 0.16875f;
         this.m = false;
         this.q = new a(this);
@@ -178,9 +178,9 @@ public class BannerView extends RelativeLayout {
             this.bannerView = tbImageView;
             tbImageView.setAutoChangeStyle(true);
             this.bannerView.setOnClickListener(this.q);
-            this.f47900h = (TbImageView) findViewById(R.id.tv_advert);
+            this.f48007h = (TbImageView) findViewById(R.id.tv_advert);
             View findViewById = findViewById(R.id.banner_mask);
-            this.f47901i = findViewById;
+            this.f48008i = findViewById;
             SkinManager.setBackgroundColor(findViewById, R.color.black_alpha0);
         }
     }
@@ -201,7 +201,7 @@ public class BannerView extends RelativeLayout {
     public void reset() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.f47902j = false;
+            this.f48009j = false;
             this.m = false;
         }
     }
@@ -210,14 +210,14 @@ public class BannerView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, g0Var) == null) {
             this.n = g0Var;
-            z.k(g0Var.f13933g, this.f47900h, g0Var.f13934h, l.g(getContext(), R.dimen.ds26));
+            z.k(g0Var.f14239g, this.f48007h, g0Var.f14240h, l.g(getContext(), R.dimen.ds26));
         }
     }
 
     public void setBannerMaskColor(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-            this.f47901i.setBackgroundColor(i2);
+            this.f48008i.setBackgroundColor(i2);
         }
     }
 
@@ -247,11 +247,11 @@ public class BannerView extends RelativeLayout {
     public void setData(TbPageContext<?> tbPageContext, String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048587, this, tbPageContext, str, str2) == null) {
-            this.f47899g = tbPageContext;
+            this.f48006g = tbPageContext;
             this.l = str2;
             this.m = (TextUtils.isEmpty(str) || TextUtils.isEmpty(str.trim())) ? false : true;
             setVisibility(8);
-            if (!this.f47902j && this.m) {
+            if (!this.f48009j && this.m) {
                 ViewGroup.LayoutParams layoutParams = this.bannerView.getLayoutParams();
                 layoutParams.width = l.k(getContext());
                 layoutParams.height = (int) ((l.k(getContext()) * this.k) + 0.5d);
@@ -272,17 +272,17 @@ public class BannerView extends RelativeLayout {
         if (!(interceptable == null || interceptable.invokeLL(1048588, this, str, str2) == null) || str == null || str2 == null) {
             return;
         }
-        this.f47897e = str;
-        this.f47898f = str2;
+        this.f48004e = str;
+        this.f48005f = str2;
     }
 
     public void setTagViewVisible(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048589, this, z) == null) {
             if (z) {
-                this.f47900h.setVisibility(0);
+                this.f48007h.setVisibility(0);
             } else {
-                this.f47900h.setVisibility(8);
+                this.f48007h.setVisibility(8);
             }
         }
     }

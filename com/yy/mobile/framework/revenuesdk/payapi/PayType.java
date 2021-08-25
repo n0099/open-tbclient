@@ -20,6 +20,8 @@ public final class PayType {
     public static final PayType DXM_PAY_KJ;
     public static final PayType MOCK_TEST_PAY;
     public static final PayType PAYTM_PAY;
+    public static final PayType QQ_PAY;
+    public static final PayType UNION_PAY;
     public static final PayType WECHAT_PAY;
     public transient /* synthetic */ FieldHolder $fh;
     public final String channel;
@@ -43,9 +45,11 @@ public final class PayType {
         PAYTM_PAY = new PayType("PAYTM_PAY", 2, "Dokypay", "Gate");
         DXM_PAY = new PayType("DXM_PAY", 3, "Dxm", "WapApp");
         DXM_PAY_KJ = new PayType("DXM_PAY_KJ", 4, "Dxm", "WapKj");
-        PayType payType = new PayType("MOCK_TEST_PAY", 5, "Mock", "Balance");
-        MOCK_TEST_PAY = payType;
-        $VALUES = new PayType[]{WECHAT_PAY, ALI_PAY, PAYTM_PAY, DXM_PAY, DXM_PAY_KJ, payType};
+        MOCK_TEST_PAY = new PayType("MOCK_TEST_PAY", 5, "Mock", "Balance");
+        QQ_PAY = new PayType("QQ_PAY", 6, "Qq", "WapApp");
+        PayType payType = new PayType("UNION_PAY", 7, "Unionpay", "WapAdvance");
+        UNION_PAY = payType;
+        $VALUES = new PayType[]{WECHAT_PAY, ALI_PAY, PAYTM_PAY, DXM_PAY, DXM_PAY_KJ, MOCK_TEST_PAY, QQ_PAY, payType};
     }
 
     public PayType(String str, int i2, String str2, String str3) {

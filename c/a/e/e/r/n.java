@@ -11,7 +11,7 @@ public class n extends r {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public SocketException f2635a;
+    public SocketException f2693a;
 
     public n(SocketException socketException) {
         Interceptable interceptable = $ic;
@@ -28,6 +28,6 @@ public class n extends r {
                 return;
             }
         }
-        this.f2635a = socketException;
+        this.f2693a = socketException;
     }
 }

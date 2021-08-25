@@ -12,13 +12,13 @@ public class n {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Object f69658a;
+    public static Object f69858a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Class<?> f69659b;
+    public static Class<?> f69859b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static Method f69660c;
+    public static Method f69860c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -36,12 +36,12 @@ public class n {
         }
         try {
             Class<?> cls = Class.forName("com.android.id.impl.IdProviderImpl");
-            f69659b = cls;
-            f69658a = cls.newInstance();
-            f69659b.getMethod("getUDID", Context.class);
-            f69660c = f69659b.getMethod("getOAID", Context.class);
-            f69659b.getMethod("getVAID", Context.class);
-            f69659b.getMethod("getAAID", Context.class);
+            f69859b = cls;
+            f69858a = cls.newInstance();
+            f69859b.getMethod("getUDID", Context.class);
+            f69860c = f69859b.getMethod("getOAID", Context.class);
+            f69859b.getMethod("getVAID", Context.class);
+            f69859b.getMethod("getAAID", Context.class);
         } catch (Exception unused) {
         }
     }

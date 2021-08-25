@@ -1,185 +1,105 @@
 package c.a.p0.q0;
 
-import android.graphics.Bitmap;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
-import com.baidu.spswitch.emotion.resource.EmotionResourceProvider;
-import com.baidu.tbadk.browser.newshare.ThreadAchievementShareDialogView;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.SmallTailInfo;
-import com.baidu.tbadk.core.util.FileHelper;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.BufferedInputStream;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.InputStream;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.zip.ZipEntry;
-import java.util.zip.ZipInputStream;
-import org.apache.commons.lang3.StringUtils;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static List<String> a(String str, InputStream inputStream) throws Exception {
-        InterceptResult invokeLL;
+    /* renamed from: a  reason: collision with root package name */
+    public int f13744a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public int f13745b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public String f13746c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public String f13747d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public String f13748e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public long f13749f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public long f13750g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public long f13751h;
+
+    public b() {
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeLL = interceptable.invokeLL(65536, null, str, inputStream)) != null) {
-            return (List) invokeLL.objValue;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
-        ZipInputStream zipInputStream = null;
-        try {
-            ZipInputStream zipInputStream2 = new ZipInputStream(new BufferedInputStream(inputStream));
-            while (true) {
-                try {
-                    ZipEntry nextEntry = zipInputStream2.getNextEntry();
-                    if (nextEntry == null) {
-                        break;
-                    } else if (!nextEntry.isDirectory()) {
-                        h(str, nextEntry.getName(), zipInputStream2);
-                    }
-                } catch (Throwable th) {
-                    th = th;
-                    zipInputStream = zipInputStream2;
-                    c.a.e.e.p.m.e(zipInputStream);
-                    throw th;
-                }
-            }
-            zipInputStream2.close();
-            c.a.e.e.p.m.e(zipInputStream2);
-            byte[] e2 = e(str, "map.txt");
-            if (e2 != null) {
-                String str2 = new String(e2, "UTF-8");
-                LinkedList linkedList = new LinkedList();
-                for (String str3 : str2.split(StringUtils.LF)) {
-                    String trim = str3.trim();
-                    if (trim.startsWith(SmallTailInfo.EMOTION_PREFIX)) {
-                        String[] split = trim.split("=");
-                        if (split.length == 2) {
-                            String trim2 = split[0].trim();
-                            String trim3 = split[1].trim();
-                            g(str, "s_" + trim3 + EmotionResourceProvider.EMOTION_RES_NAME_SUFFIX, b(trim2, false));
-                            g(str, "d_" + trim3 + ".gif", b(trim2, true));
-                            linkedList.add(trim2);
-                        }
-                    }
-                }
-                return linkedList;
-            }
-            throw new FileNotFoundException("map.txt file not exsit!");
-        } catch (Throwable th2) {
-            th = th2;
+        this.f13749f = -1L;
+        this.f13750g = -1L;
+        this.f13751h = -1L;
+    }
+
+    public String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f13748e : (String) invokeV.objValue;
+    }
+
+    public void b(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            this.f13747d = str;
         }
     }
 
-    public static String b(String str, boolean z) {
-        InterceptResult invokeLZ;
+    public void c(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65537, null, str, z)) == null) {
-            long hashCode = str.hashCode();
-            if (hashCode < 0) {
-                hashCode *= -1;
-            }
-            StringBuilder sb = new StringBuilder();
-            sb.append(z ? "d_" : "s_");
-            sb.append(hashCode);
-            return sb.toString();
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
+            this.f13744a = i2;
         }
-        return (String) invokeLZ.objValue;
     }
 
-    public static String c(String str, boolean z, boolean z2) {
-        InterceptResult invokeCommon;
+    public void d(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{str, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
-            long hashCode = str.hashCode();
-            if (hashCode < 0) {
-                hashCode *= -1;
-            }
-            StringBuilder sb = new StringBuilder();
-            sb.append(z ? "s_" : "d_");
-            sb.append(hashCode);
-            String sb2 = sb.toString();
-            if (z2 && !z) {
-                return sb2 + ".gif";
-            }
-            return sb2 + ThreadAchievementShareDialogView.THREAD_IMG_SUFFIX;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            this.f13746c = str;
         }
-        return (String) invokeCommon.objValue;
     }
 
-    public static boolean d(String str) {
-        InterceptResult invokeL;
+    public void e(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            Bitmap f2 = f(str, "panel.png");
-            if (f2 == null) {
-                return false;
-            }
-            f2.recycle();
-            return true;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
+            this.f13745b = i2;
         }
-        return invokeL.booleanValue;
     }
 
-    public static byte[] e(String str, String str2) {
-        InterceptResult invokeLL;
+    public void f(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2)) == null) {
-            return FileHelper.GetFileData(TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/" + (".emotions/" + str) + "/" + str2);
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+            this.f13748e = str;
         }
-        return (byte[]) invokeLL.objValue;
     }
 
-    public static Bitmap f(String str, String str2) {
-        InterceptResult invokeLL;
+    public String g() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, str, str2)) == null) {
-            return FileHelper.getImage(TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/" + (".emotions/" + str) + "/" + str2);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return "-netErrorCode-" + this.f13744a + "-serverCode-" + this.f13745b + "-dnsStatus-" + this.f13747d + "-exception-" + this.f13746c + "-url-" + this.f13748e + "-dataLenth-" + this.f13749f + "-fileLength-" + this.f13750g + "-contentLen-" + this.f13751h;
         }
-        return (Bitmap) invokeLL.objValue;
-    }
-
-    public static boolean g(String str, String str2, String str3) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(AdIconUtil.BAIDU_LOGO_ID, null, str, str2, str3)) == null) {
-            String str4 = TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/.emotions/" + str + "/";
-            File file = new File(str4, str2);
-            if (file.exists()) {
-                File file2 = new File(str4, str3);
-                if (file2.exists()) {
-                    if (file2.delete() && file.renameTo(file2)) {
-                        return true;
-                    }
-                    return FileHelper.CopyFile(file.getAbsolutePath(), file2.getAbsolutePath());
-                } else if (file.renameTo(file2)) {
-                    return true;
-                } else {
-                    return FileHelper.CopyFile(file.getAbsolutePath(), file2.getAbsolutePath());
-                }
-            }
-            return false;
-        }
-        return invokeLLL.booleanValue;
-    }
-
-    public static boolean h(String str, String str2, InputStream inputStream) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65543, null, str, str2, inputStream)) == null) {
-            StringBuilder sb = new StringBuilder();
-            sb.append(TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath());
-            sb.append("/");
-            sb.append(".emotions/" + str);
-            sb.append("/");
-            sb.append(str2);
-            return FileHelper.saveFile(sb.toString(), inputStream) != null;
-        }
-        return invokeLLL.booleanValue;
+        return (String) invokeV.objValue;
     }
 }

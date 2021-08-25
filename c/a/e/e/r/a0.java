@@ -11,10 +11,10 @@ public class a0 extends r {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f2554a;
+    public boolean f2612a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Map<String, String> f2555b;
+    public Map<String, String> f2613b;
 
     public a0(boolean z, Map<String, String> map) {
         Interceptable interceptable = $ic;
@@ -31,7 +31,7 @@ public class a0 extends r {
                 return;
             }
         }
-        this.f2554a = z;
-        this.f2555b = map;
+        this.f2612a = z;
+        this.f2613b = map;
     }
 }

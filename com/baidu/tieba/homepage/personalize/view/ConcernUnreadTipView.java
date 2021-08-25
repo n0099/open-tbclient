@@ -11,8 +11,8 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import c.a.e.e.p.l;
-import c.a.o0.s.d0.b;
-import c.a.p0.f1.h.j.e;
+import c.a.p0.s.d0.b;
+import c.a.q0.f1.h.j.e;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
@@ -31,22 +31,22 @@ public class ConcernUnreadTipView extends RelativeLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f52068e;
+    public TextView f52218e;
 
     /* renamed from: f  reason: collision with root package name */
-    public LinearLayout f52069f;
+    public LinearLayout f52219f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f52070g;
+    public TextView f52220g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f52071h;
+    public TextView f52221h;
 
     /* renamed from: i  reason: collision with root package name */
-    public ImageView f52072i;
+    public ImageView f52222i;
 
     /* renamed from: j  reason: collision with root package name */
-    public BdUniqueId f52073j;
+    public BdUniqueId f52223j;
     public int k;
     public int l;
     public ImageView mClose;
@@ -78,12 +78,12 @@ public class ConcernUnreadTipView extends RelativeLayout {
             this.k = l.g(getContext(), R.dimen.tbds94);
             this.l = 0 - l.g(getContext(), R.dimen.tbds18);
             LayoutInflater.from(context).inflate(R.layout.concern_unread_tip_view_layout, (ViewGroup) this, true);
-            this.f52068e = (TextView) findViewById(R.id.concern_unread_tip_title);
+            this.f52218e = (TextView) findViewById(R.id.concern_unread_tip_title);
             this.mClose = (ImageView) findViewById(R.id.concern_unread_tip_close);
-            this.f52069f = (LinearLayout) findViewById(R.id.concern_unread_tip_header_box);
-            this.f52070g = (TextView) findViewById(R.id.concern_unread_tip_info);
-            this.f52071h = (TextView) findViewById(R.id.concern_unread_tip_show);
-            this.f52072i = (ImageView) findViewById(R.id.concern_unread_tip_show_arrow);
+            this.f52219f = (LinearLayout) findViewById(R.id.concern_unread_tip_header_box);
+            this.f52220g = (TextView) findViewById(R.id.concern_unread_tip_info);
+            this.f52221h = (TextView) findViewById(R.id.concern_unread_tip_show);
+            this.f52222i = (ImageView) findViewById(R.id.concern_unread_tip_show_arrow);
             setPadding(0, 0, 0, l.g(context, R.dimen.tbds44));
             onChangeSkinType();
         }
@@ -93,18 +93,18 @@ public class ConcernUnreadTipView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             SkinManager.setBackgroundColor(this, R.color.CAM_X0201);
-            SkinManager.setViewTextColor(this.f52068e, R.color.CAM_X0105);
+            SkinManager.setViewTextColor(this.f52218e, R.color.CAM_X0105);
             SkinManager.setImageResource(this.mClose, R.drawable.icon_home_card_delete);
-            SkinManager.setViewTextColor(this.f52070g, R.color.CAM_X0105);
-            SkinManager.setViewTextColor(this.f52071h, R.color.CAM_X0109);
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f52072i, R.drawable.icon_pure_list_arrow16_right_svg, R.color.CAM_X0109, SvgManager.SvgResourceStateType.NORMAL);
+            SkinManager.setViewTextColor(this.f52220g, R.color.CAM_X0105);
+            SkinManager.setViewTextColor(this.f52221h, R.color.CAM_X0109);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f52222i, R.drawable.icon_pure_list_arrow16_right_svg, R.color.CAM_X0109, SvgManager.SvgResourceStateType.NORMAL);
         }
     }
 
     public void setBdUniqueId(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bdUniqueId) == null) {
-            this.f52073j = bdUniqueId;
+            this.f52223j = bdUniqueId;
         }
     }
 
@@ -125,18 +125,18 @@ public class ConcernUnreadTipView extends RelativeLayout {
             setVisibility(8);
             return;
         }
-        if (eVar.f17469c > 0) {
-            b.j().w(b.n("concern_unread_tip_next_show_time"), System.currentTimeMillis() + eVar.f17469c);
+        if (eVar.f17817c > 0) {
+            b.j().w(b.n("concern_unread_tip_next_show_time"), System.currentTimeMillis() + eVar.f17817c);
         }
-        if (this.f52070g != null && !StringUtils.isNull(eVar.f17470d)) {
-            this.f52070g.setText(eVar.f17470d);
+        if (this.f52220g != null && !StringUtils.isNull(eVar.f17818d)) {
+            this.f52220g.setText(eVar.f17818d);
         }
-        LinearLayout linearLayout = this.f52069f;
-        if (linearLayout == null || eVar.f17468b == null) {
+        LinearLayout linearLayout = this.f52219f;
+        if (linearLayout == null || eVar.f17816b == null) {
             return;
         }
         linearLayout.removeAllViews();
-        List<String> list = eVar.f17468b;
+        List<String> list = eVar.f17816b;
         for (int i2 = 0; i2 < list.size(); i2++) {
             String str = list.get(i2);
             if (!StringUtils.isNull(str)) {
@@ -151,8 +151,8 @@ public class ConcernUnreadTipView extends RelativeLayout {
                 headImageView.setIsRound(true);
                 headImageView.setDrawBorder(false);
                 SkinManager.setImageResource((ImageView) frameLayout.findViewById(R.id.out_img), R.drawable.bg_unread_tip_head_border);
-                this.f52069f.addView(frameLayout);
-                headImageView.setPageId(this.f52073j);
+                this.f52219f.addView(frameLayout);
+                headImageView.setPageId(this.f52223j);
                 headImageView.startLoad(str, 12, false);
             }
         }

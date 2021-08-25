@@ -11,7 +11,7 @@ import android.graphics.Xfermode;
 import android.util.AttributeSet;
 import android.view.View;
 import androidx.annotation.NonNull;
-import c.a.o0.s.u.a;
+import c.a.p0.s.u.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -25,22 +25,22 @@ public class ClipCoverView extends View {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Paint f58022e;
+    public Paint f58218e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Paint f58023f;
+    public Paint f58219f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Path f58024g;
+    public Path f58220g;
 
     /* renamed from: h  reason: collision with root package name */
-    public float f58025h;
+    public float f58221h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Xfermode f58026i;
+    public Xfermode f58222i;
 
     /* renamed from: j  reason: collision with root package name */
-    public Context f58027j;
+    public Context f58223j;
     public int k;
     public int l;
 
@@ -68,7 +68,7 @@ public class ClipCoverView extends View {
     public final void a(@NonNull Canvas canvas, Path path) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, canvas, path) == null) {
-            canvas.drawPath(path, this.f58023f);
+            canvas.drawPath(path, this.f58219f);
         }
     }
 
@@ -76,11 +76,11 @@ public class ClipCoverView extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             Paint paint = new Paint();
-            this.f58023f = paint;
+            this.f58219f = paint;
             paint.setAntiAlias(true);
-            this.f58023f.setStyle(Paint.Style.STROKE);
-            this.f58023f.setStrokeWidth(this.f58025h);
-            this.f58023f.setColor(getResources().getColor(R.color.CAM_X0402));
+            this.f58219f.setStyle(Paint.Style.STROKE);
+            this.f58219f.setStrokeWidth(this.f58221h);
+            this.f58219f.setColor(getResources().getColor(R.color.CAM_X0402));
         }
     }
 
@@ -105,15 +105,15 @@ public class ClipCoverView extends View {
             super.onDraw(canvas);
             canvas.saveLayer(0.0f, 0.0f, getWidth(), getHeight(), null, 31);
             canvas.drawColor(getResources().getColor(R.color.CAM_X0608));
-            this.f58022e.setXfermode(this.f58026i);
+            this.f58218e.setXfermode(this.f58222i);
             RectF clipCoverRect = getClipCoverRect();
-            if (this.f58024g == null) {
-                this.f58024g = new Path();
+            if (this.f58220g == null) {
+                this.f58220g = new Path();
             }
-            this.f58024g.reset();
-            this.f58024g.addRoundRect(clipCoverRect, a.x(R.string.J_X05), Path.Direction.CW);
-            canvas.drawPath(this.f58024g, this.f58022e);
-            a(canvas, this.f58024g);
+            this.f58220g.reset();
+            this.f58220g.addRoundRect(clipCoverRect, a.y(R.string.J_X05), Path.Direction.CW);
+            canvas.drawPath(this.f58220g, this.f58218e);
+            a(canvas, this.f58220g);
             canvas.restore();
         }
     }
@@ -121,8 +121,8 @@ public class ClipCoverView extends View {
     public void setClipBorderWidth(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048580, this, f2) == null) {
-            this.f58025h = f2;
-            this.f58023f.setStrokeWidth(f2);
+            this.f58221h = f2;
+            this.f58219f.setStrokeWidth(f2);
             invalidate();
         }
     }
@@ -182,11 +182,11 @@ public class ClipCoverView extends View {
             }
         }
         Paint paint = new Paint();
-        this.f58022e = paint;
+        this.f58218e = paint;
         paint.setAntiAlias(true);
-        this.f58022e.setStyle(Paint.Style.FILL);
-        this.f58026i = new PorterDuffXfermode(PorterDuff.Mode.DST_OUT);
-        this.f58027j = context;
+        this.f58218e.setStyle(Paint.Style.FILL);
+        this.f58222i = new PorterDuffXfermode(PorterDuff.Mode.DST_OUT);
+        this.f58223j = context;
         b();
     }
 }

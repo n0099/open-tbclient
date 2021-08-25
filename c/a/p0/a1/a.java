@@ -1,60 +1,83 @@
 package c.a.p0.a1;
 
-import android.view.View;
-import androidx.core.view.InputDeviceCompat;
-import c.a.e.k.e.n;
-import c.a.o0.s.f0.f;
-import c.a.o0.s.f0.g;
-import com.baidu.adp.widget.ListView.BdListView;
-import com.baidu.adp.widget.ListView.BdTypeListView;
+import c.a.e.e.n.g;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.HttpMessageListener;
+import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.view.NavigationBar;
-import com.baidu.tbadk.core.view.NoNetworkView;
-import com.baidu.tbadk.core.view.PbListView;
-import com.baidu.tieba.R;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.tbadk.trackConfig.TrackConfigResponseMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
 /* loaded from: classes3.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public PbListView f15095a;
+    public b f12693a;
 
     /* renamed from: b  reason: collision with root package name */
-    public BaseActivity f15096b;
+    public HttpMessageListener f12694b;
 
-    /* renamed from: c  reason: collision with root package name */
-    public View f15097c;
+    /* renamed from: c.a.p0.a1.a$a  reason: collision with other inner class name */
+    /* loaded from: classes3.dex */
+    public class C0644a extends HttpMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
-    /* renamed from: d  reason: collision with root package name */
-    public NavigationBar f15098d;
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ a f12695a;
 
-    /* renamed from: e  reason: collision with root package name */
-    public BdTypeListView f15099e;
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public C0644a(a aVar, int i2) {
+            super(i2);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {aVar, Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f12695a = aVar;
+        }
 
-    /* renamed from: f  reason: collision with root package name */
-    public g f15100f;
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && (httpResponsedMessage instanceof TrackConfigResponseMessage)) {
+                TrackConfigResponseMessage trackConfigResponseMessage = (TrackConfigResponseMessage) httpResponsedMessage;
+                if (this.f12695a.f12693a != null) {
+                    this.f12695a.f12693a.a(trackConfigResponseMessage.isSuccess(), trackConfigResponseMessage.getData());
+                }
+            }
+        }
+    }
 
-    /* renamed from: g  reason: collision with root package name */
-    public c.a.p0.a1.b.a f15101g;
+    /* loaded from: classes3.dex */
+    public interface b {
+        void a(boolean z, boolean z2);
+    }
 
-    /* renamed from: h  reason: collision with root package name */
-    public NoNetworkView f15102h;
-
-    public a(BaseActivity baseActivity) {
+    public a() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {baseActivity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -64,135 +87,25 @@ public class a {
                 return;
             }
         }
-        this.f15096b = baseActivity;
-        baseActivity.setContentView(R.layout.god_square_activity);
-        this.f15097c = this.f15096b.findViewById(R.id.activity_root_view);
-        NavigationBar navigationBar = (NavigationBar) this.f15096b.findViewById(R.id.view_navigation_bar);
-        this.f15098d = navigationBar;
-        navigationBar.setTitleText(R.string.god_square);
-        this.f15098d.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.f15102h = (NoNetworkView) this.f15096b.findViewById(R.id.view_no_network);
-        PbListView pbListView = new PbListView(this.f15096b.getPageContext().getPageActivity());
-        this.f15095a = pbListView;
-        pbListView.a();
-        this.f15095a.O();
-        this.f15099e = (BdTypeListView) this.f15096b.findViewById(R.id.god_square_list_view);
-        g gVar = new g(this.f15096b.getPageContext());
-        this.f15100f = gVar;
-        BaseActivity baseActivity2 = this.f15096b;
-        if (baseActivity2 instanceof f.g) {
-            gVar.a((f.g) baseActivity2);
-        }
-        BaseActivity baseActivity3 = this.f15096b;
-        if (baseActivity3 instanceof BdListView.p) {
-            this.f15099e.setOnSrollToBottomListener((BdListView.p) baseActivity3);
-        }
-        this.f15099e.setPullRefresh(this.f15100f);
-        c.a.p0.a1.b.a aVar = new c.a.p0.a1.b.a(this.f15096b.getPageContext(), this.f15099e);
-        this.f15101g = aVar;
-        this.f15099e.addAdapters(aVar.a());
-        this.f15099e.setNextPage(this.f15095a);
+        this.f12694b = new C0644a(this, CmdConfigHttp.CMD_TRACK_CONFIG);
+        MessageManager.getInstance().registerListener(this.f12694b);
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_TRACK_CONFIG, TbConfig.SERVER_ADDRESS + TbConfig.GET_TRACK_CONFIG);
+        tbHttpMessageTask.setResponsedClass(TrackConfigResponseMessage.class);
+        MessageManager.getInstance().registerTask(tbHttpMessageTask);
+        g.h(TbSingleton.getInstance().isIsOpenTrack());
     }
 
-    public BdTypeListView a() {
-        InterceptResult invokeV;
+    public void b(b bVar) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f15099e : (BdTypeListView) invokeV.objValue;
-    }
-
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f15099e.setVisibility(0);
-            this.f15096b.hideLoadingView(this.f15097c);
+        if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
+            this.f12693a = bVar;
         }
     }
 
     public void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f15099e.setVisibility(0);
-            this.f15096b.hideNetRefreshView(this.f15097c);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            MessageManager.getInstance().sendMessage(new HttpMessage(CmdConfigHttp.CMD_TRACK_CONFIG));
         }
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f15095a.A(this.f15096b.getResources().getString(R.string.network_ungeilivable));
-            this.f15095a.f();
-        }
-    }
-
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.f15095a.A(this.f15096b.getResources().getString(R.string.list_no_more));
-            this.f15095a.f();
-        }
-    }
-
-    public void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.f15095a.O();
-        }
-    }
-
-    public void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.f15101g.b();
-        }
-    }
-
-    public void h(int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-            this.f15098d.onChangeSkinType(this.f15096b.getPageContext(), i2);
-            this.f15095a.o(R.color.CAM_X0204);
-            this.f15095a.C(SkinManager.getColor(R.color.CAM_X0109));
-            this.f15095a.d(i2);
-            this.f15102h.onChangeSkinType(this.f15096b.getPageContext(), i2);
-        }
-    }
-
-    public void i(NoNetworkView.b bVar) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bVar) == null) || bVar == null) {
-            return;
-        }
-        this.f15102h.addNetworkChangeListener(bVar);
-    }
-
-    public void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            this.f15099e.setVisibility(8);
-            this.f15096b.showLoadingView(this.f15097c, true);
-        }
-    }
-
-    public void k(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
-            this.f15099e.setVisibility(8);
-            this.f15096b.showNetRefreshView(this.f15097c, str, true);
-        }
-    }
-
-    public void l() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            this.f15099e.startPullRefresh();
-        }
-    }
-
-    public void m(List<n> list) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048588, this, list) == null) || list == null) {
-            return;
-        }
-        this.f15099e.setData(list);
     }
 }

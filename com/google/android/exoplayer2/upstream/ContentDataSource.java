@@ -25,25 +25,25 @@ public final class ContentDataSource implements e {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final ContentResolver f69810a;
+    public final ContentResolver f70010a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final p<? super ContentDataSource> f69811b;
+    public final p<? super ContentDataSource> f70011b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Uri f69812c;
+    public Uri f70012c;
 
     /* renamed from: d  reason: collision with root package name */
-    public AssetFileDescriptor f69813d;
+    public AssetFileDescriptor f70013d;
 
     /* renamed from: e  reason: collision with root package name */
-    public FileInputStream f69814e;
+    public FileInputStream f70014e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f69815f;
+    public long f70015f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f69816g;
+    public boolean f70016g;
 
     /* loaded from: classes9.dex */
     public static class ContentDataSourceException extends IOException {
@@ -86,8 +86,8 @@ public final class ContentDataSource implements e {
                 return;
             }
         }
-        this.f69810a = context.getContentResolver();
-        this.f69811b = pVar;
+        this.f70010a = context.getContentResolver();
+        this.f70011b = pVar;
     }
 
     @Override // c.i.b.a.h0.e
@@ -96,41 +96,41 @@ public final class ContentDataSource implements e {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, gVar)) == null) {
             try {
-                Uri uri = gVar.f33487a;
-                this.f69812c = uri;
-                AssetFileDescriptor openAssetFileDescriptor = this.f69810a.openAssetFileDescriptor(uri, r.f42062a);
-                this.f69813d = openAssetFileDescriptor;
+                Uri uri = gVar.f33593a;
+                this.f70012c = uri;
+                AssetFileDescriptor openAssetFileDescriptor = this.f70010a.openAssetFileDescriptor(uri, r.f42169a);
+                this.f70013d = openAssetFileDescriptor;
                 if (openAssetFileDescriptor != null) {
-                    this.f69814e = new FileInputStream(this.f69813d.getFileDescriptor());
-                    long startOffset = this.f69813d.getStartOffset();
-                    long skip = this.f69814e.skip(gVar.f33490d + startOffset) - startOffset;
-                    if (skip == gVar.f33490d) {
+                    this.f70014e = new FileInputStream(this.f70013d.getFileDescriptor());
+                    long startOffset = this.f70013d.getStartOffset();
+                    long skip = this.f70014e.skip(gVar.f33596d + startOffset) - startOffset;
+                    if (skip == gVar.f33596d) {
                         long j2 = -1;
-                        if (gVar.f33491e != -1) {
-                            this.f69815f = gVar.f33491e;
+                        if (gVar.f33597e != -1) {
+                            this.f70015f = gVar.f33597e;
                         } else {
-                            long length = this.f69813d.getLength();
+                            long length = this.f70013d.getLength();
                             if (length == -1) {
-                                FileChannel channel = this.f69814e.getChannel();
+                                FileChannel channel = this.f70014e.getChannel();
                                 long size = channel.size();
                                 if (size != 0) {
                                     j2 = size - channel.position();
                                 }
-                                this.f69815f = j2;
+                                this.f70015f = j2;
                             } else {
-                                this.f69815f = length - skip;
+                                this.f70015f = length - skip;
                             }
                         }
-                        this.f69816g = true;
-                        p<? super ContentDataSource> pVar = this.f69811b;
+                        this.f70016g = true;
+                        p<? super ContentDataSource> pVar = this.f70011b;
                         if (pVar != null) {
                             pVar.d(this, gVar);
                         }
-                        return this.f69815f;
+                        return this.f70015f;
                     }
                     throw new EOFException();
                 }
-                throw new FileNotFoundException("Could not open file descriptor for: " + this.f69812c);
+                throw new FileNotFoundException("Could not open file descriptor for: " + this.f70012c);
             } catch (IOException e2) {
                 throw new ContentDataSourceException(e2);
             }
@@ -144,26 +144,26 @@ public final class ContentDataSource implements e {
     public void close() throws ContentDataSourceException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f69812c = null;
+            this.f70012c = null;
             try {
                 try {
-                    if (this.f69814e != null) {
-                        this.f69814e.close();
+                    if (this.f70014e != null) {
+                        this.f70014e.close();
                     }
-                    this.f69814e = null;
+                    this.f70014e = null;
                     try {
                         try {
-                            if (this.f69813d != null) {
-                                this.f69813d.close();
+                            if (this.f70013d != null) {
+                                this.f70013d.close();
                             }
                         } catch (IOException e2) {
                             throw new ContentDataSourceException(e2);
                         }
                     } finally {
-                        this.f69813d = null;
-                        if (this.f69816g) {
-                            this.f69816g = false;
-                            p<? super ContentDataSource> pVar = this.f69811b;
+                        this.f70013d = null;
+                        if (this.f70016g) {
+                            this.f70016g = false;
+                            p<? super ContentDataSource> pVar = this.f70011b;
                             if (pVar != null) {
                                 pVar.b(this);
                             }
@@ -173,16 +173,16 @@ public final class ContentDataSource implements e {
                     throw new ContentDataSourceException(e3);
                 }
             } catch (Throwable th) {
-                this.f69814e = null;
+                this.f70014e = null;
                 try {
                     try {
-                        if (this.f69813d != null) {
-                            this.f69813d.close();
+                        if (this.f70013d != null) {
+                            this.f70013d.close();
                         }
-                        this.f69813d = null;
-                        if (this.f69816g) {
-                            this.f69816g = false;
-                            p<? super ContentDataSource> pVar2 = this.f69811b;
+                        this.f70013d = null;
+                        if (this.f70016g) {
+                            this.f70016g = false;
+                            p<? super ContentDataSource> pVar2 = this.f70011b;
                             if (pVar2 != null) {
                                 pVar2.b(this);
                             }
@@ -192,10 +192,10 @@ public final class ContentDataSource implements e {
                         throw new ContentDataSourceException(e4);
                     }
                 } finally {
-                    this.f69813d = null;
-                    if (this.f69816g) {
-                        this.f69816g = false;
-                        p<? super ContentDataSource> pVar3 = this.f69811b;
+                    this.f70013d = null;
+                    if (this.f70016g) {
+                        this.f70016g = false;
+                        p<? super ContentDataSource> pVar3 = this.f70011b;
                         if (pVar3 != null) {
                             pVar3.b(this);
                         }
@@ -209,7 +209,7 @@ public final class ContentDataSource implements e {
     public Uri getUri() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f69812c : (Uri) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f70012c : (Uri) invokeV.objValue;
     }
 
     @Override // c.i.b.a.h0.e
@@ -220,7 +220,7 @@ public final class ContentDataSource implements e {
             if (i3 == 0) {
                 return 0;
             }
-            long j2 = this.f69815f;
+            long j2 = this.f70015f;
             if (j2 == 0) {
                 return -1;
             }
@@ -231,18 +231,18 @@ public final class ContentDataSource implements e {
                     throw new ContentDataSourceException(e2);
                 }
             }
-            int read = this.f69814e.read(bArr, i2, i3);
+            int read = this.f70014e.read(bArr, i2, i3);
             if (read == -1) {
-                if (this.f69815f == -1) {
+                if (this.f70015f == -1) {
                     return -1;
                 }
                 throw new ContentDataSourceException(new EOFException());
             }
-            long j3 = this.f69815f;
+            long j3 = this.f70015f;
             if (j3 != -1) {
-                this.f69815f = j3 - read;
+                this.f70015f = j3 - read;
             }
-            p<? super ContentDataSource> pVar = this.f69811b;
+            p<? super ContentDataSource> pVar = this.f70011b;
             if (pVar != null) {
                 pVar.a(this, read);
             }

@@ -20,11 +20,11 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int[] f1731b;
+    public static final int[] f1956b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final int f1732a;
+    public final int f1957a;
 
     static {
         InterceptResult invokeClinit;
@@ -39,7 +39,7 @@ public class b {
                 return;
             }
         }
-        f1731b = k(new byte[]{Constants.SHORT_PING_CMD_TYPE, 120, 112, 97, 110, 100, 32, 51, 50, UtilsBlink.VER_TYPE_SEPARATOR, 98, 121, 116, Constants.SHORT_PING_CMD_TYPE, 32, 107});
+        f1956b = k(new byte[]{Constants.SHORT_PING_CMD_TYPE, 120, 112, 97, 110, 100, 32, 51, 50, UtilsBlink.VER_TYPE_SEPARATOR, 98, 121, 116, Constants.SHORT_PING_CMD_TYPE, 32, 107});
     }
 
     public b(int i2) {
@@ -57,7 +57,7 @@ public class b {
                 return;
             }
         }
-        this.f1732a = i2;
+        this.f1957a = i2;
     }
 
     public static int b(int i2, int i3) {
@@ -99,9 +99,9 @@ public class b {
     public static void g(int[] iArr, int[] iArr2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, iArr, iArr2) == null) {
-            int[] iArr3 = f1731b;
+            int[] iArr3 = f1956b;
             System.arraycopy(iArr3, 0, iArr, 0, iArr3.length);
-            System.arraycopy(iArr2, 0, iArr, f1731b.length, 8);
+            System.arraycopy(iArr2, 0, iArr, f1956b.length, 8);
         }
     }
 
@@ -149,7 +149,7 @@ public class b {
             int remaining = byteBuffer2.remaining();
             int i2 = (remaining / 64) + 1;
             for (int i3 = 0; i3 < i2; i3++) {
-                ByteBuffer c2 = c(bArr, bArr2, this.f1732a + i3);
+                ByteBuffer c2 = c(bArr, bArr2, this.f1957a + i3);
                 if (i3 == i2 - 1) {
                     a.a(byteBuffer, byteBuffer2, c2, remaining % 64);
                 } else {

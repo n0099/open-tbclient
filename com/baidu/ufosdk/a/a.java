@@ -16,25 +16,25 @@ public final class a extends Thread {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f59155a;
+    public Context f59355a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f59156b;
+    public String f59356b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f59157c;
+    public String f59357c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f59158d;
+    public boolean f59358d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f59159e;
+    public boolean f59359e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f59160f;
+    public boolean f59360f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final long f59161g;
+    public final long f59361g;
 
     public a(Context context, String str, String str2) {
         Interceptable interceptable = $ic;
@@ -51,35 +51,35 @@ public final class a extends Thread {
                 return;
             }
         }
-        this.f59156b = "";
-        this.f59157c = "";
-        this.f59158d = false;
-        this.f59159e = false;
-        this.f59160f = false;
-        this.f59161g = 300L;
-        this.f59155a = context;
-        this.f59156b = str;
-        this.f59157c = str2;
+        this.f59356b = "";
+        this.f59357c = "";
+        this.f59358d = false;
+        this.f59359e = false;
+        this.f59360f = false;
+        this.f59361g = 300L;
+        this.f59355a = context;
+        this.f59356b = str;
+        this.f59357c = str2;
     }
 
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f59158d = true;
+            this.f59358d = true;
         }
     }
 
     public final void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            this.f59156b = str;
+            this.f59356b = str;
         }
     }
 
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f59158d = false;
+            this.f59358d = false;
         }
     }
 
@@ -90,25 +90,25 @@ public final class a extends Thread {
         if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || UfoSDK.clientid.length() == 0) {
             return;
         }
-        while (!this.f59158d) {
+        while (!this.f59358d) {
             c.b("###################");
             try {
                 Thread.sleep(300L);
             } catch (InterruptedException e2) {
                 c.a("Interrupted!", e2);
             }
-            if (!this.f59159e && (str = this.f59156b) != null && !str.equals("newMessage")) {
-                if (d.c(this.f59155a)) {
-                    Context context = this.f59155a;
+            if (!this.f59359e && (str = this.f59356b) != null && !str.equals("newMessage")) {
+                if (d.c(this.f59355a)) {
+                    Context context = this.f59355a;
                     String str2 = UfoSDK.clientid;
-                    com.baidu.ufosdk.e.a.a(context, this.f59156b, this.f59157c);
+                    com.baidu.ufosdk.e.a.a(context, this.f59356b, this.f59357c);
                 } else {
-                    this.f59155a.sendBroadcast(new Intent("com.baidu.ufosdk.reload"));
-                    this.f59155a.sendBroadcast(new Intent("com.baidu.ufosdk.deletemsg_dialogdismiss"));
+                    this.f59355a.sendBroadcast(new Intent("com.baidu.ufosdk.reload"));
+                    this.f59355a.sendBroadcast(new Intent("com.baidu.ufosdk.deletemsg_dialogdismiss"));
                 }
             }
             try {
-                if (!this.f59160f) {
+                if (!this.f59360f) {
                     Thread.sleep(com.baidu.ufosdk.b.ah * 1000);
                 }
             } catch (InterruptedException unused) {

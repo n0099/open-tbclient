@@ -31,7 +31,7 @@ public class a extends c.p.a.e.b.p.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: j  reason: collision with root package name */
-    public final Context f34760j;
+    public final Context f34866j;
     public final Resources k;
     public String l;
 
@@ -56,19 +56,19 @@ public class a extends c.p.a.e.b.p.a {
         }
         this.l = str4;
         Context applicationContext = context.getApplicationContext();
-        this.f34760j = applicationContext;
+        this.f34866j = applicationContext;
         this.k = applicationContext.getResources();
     }
 
     @Override // c.p.a.e.b.p.a
     public void g(BaseException baseException, boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLZ(1048576, this, baseException, z) == null) || this.f34760j == null) {
+        if (!(interceptable == null || interceptable.invokeLZ(1048576, this, baseException, z) == null) || this.f34866j == null) {
             return;
         }
         try {
             Notification w = w(baseException, z);
-            this.f35235i = w;
+            this.f35341i = w;
             f(w);
         } catch (Exception e2) {
             e2.printStackTrace();
@@ -123,12 +123,12 @@ public class a extends c.p.a.e.b.p.a {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLII = interceptable.invokeLII(1048580, this, str, i2, i3)) == null) {
-            Intent intent = new Intent(this.f34760j, DownloadHandlerService.class);
+            Intent intent = new Intent(this.f34866j, DownloadHandlerService.class);
             intent.setAction(str);
             intent.putExtra("extra_click_download_ids", i3);
             intent.putExtra("extra_click_download_type", i2);
             intent.putExtra("extra_from_notification", true);
-            return PendingIntent.getService(this.f34760j, i3, intent, 134217728);
+            return PendingIntent.getService(this.f34866j, i3, intent, 134217728);
         }
         return (PendingIntent) invokeLII.objValue;
     }
@@ -261,8 +261,8 @@ public class a extends c.p.a.e.b.p.a {
                                 } else {
                                     d2 = l.d("tt_appdownloader_notification_prepare");
                                 }
-                                String string = this.f34760j.getResources().getString(d2);
-                                String string2 = this.f34760j.getResources().getString(l.d("tt_appdownloader_notification_download_pause"));
+                                String string = this.f34866j.getResources().getString(d2);
+                                String string2 = this.f34866j.getResources().getString(l.d("tt_appdownloader_notification_download_pause"));
                                 x.setViewVisibility(s(a2), 0);
                                 x.setViewVisibility(g.i(), 8);
                                 x.setViewVisibility(g.j(), 0);
@@ -279,8 +279,8 @@ public class a extends c.p.a.e.b.p.a {
                                 str3 = string2;
                             } else if (b2 == 2) {
                                 String str6 = d.k(j()) + "/" + d.k(l());
-                                String string3 = this.f34760j.getResources().getString(l.d("tt_appdownloader_notification_pausing"));
-                                String string4 = this.f34760j.getResources().getString(l.d("tt_appdownloader_notification_download_resume"));
+                                String string3 = this.f34866j.getResources().getString(l.d("tt_appdownloader_notification_pausing"));
+                                String string4 = this.f34866j.getResources().getString(l.d("tt_appdownloader_notification_download_resume"));
                                 if (d5.m("notification_opt_2") == 1) {
                                     if (i4 >= d5.b("noti_progress_show_th", 70)) {
                                         x.setViewVisibility(s(a2), 0);
@@ -321,7 +321,7 @@ public class a extends c.p.a.e.b.p.a {
                                     if (n() == -3) {
                                         String k4 = d.k(l());
                                         if (f2 != null && !TextUtils.isEmpty(f2.getMimeType()) && f2.getMimeType().equals("application/vnd.android.package-archive")) {
-                                            if (d.z(this.f34760j, f2, !d5.q("fix_ui_thread_parser_apk_file", true))) {
+                                            if (d.z(this.f34866j, f2, !d5.q("fix_ui_thread_parser_apk_file", true))) {
                                                 d4 = l.d("tt_appdownloader_notification_install_finished_open");
                                                 i3 = l.d("tt_appdownloader_notification_download_open");
                                             } else {
@@ -357,31 +357,31 @@ public class a extends c.p.a.e.b.p.a {
                                     }
                                     x.setViewVisibility(g.o(), 8);
                                     if (baseException != null && baseException.getErrorCode() == 1006) {
-                                        str2 = this.f34760j.getResources().getString(l.d("tt_appdownloader_notification_download_space_failed"));
+                                        str2 = this.f34866j.getResources().getString(l.d("tt_appdownloader_notification_download_space_failed"));
                                     } else if (v(baseException, d5, f2)) {
                                         if (f2 != null && f2.isOnlyWifi()) {
                                             d3 = l.d("tt_appdownloader_notification_download_waiting_wifi");
                                         } else {
                                             d3 = l.d("tt_appdownloader_notification_download_waiting_net");
                                         }
-                                        str2 = this.f34760j.getResources().getString(d3);
+                                        str2 = this.f34866j.getResources().getString(d3);
                                     } else {
-                                        str2 = this.f34760j.getResources().getString(l.d("tt_appdownloader_notification_download_failed"));
+                                        str2 = this.f34866j.getResources().getString(l.d("tt_appdownloader_notification_download_failed"));
                                     }
-                                    str3 = this.f34760j.getResources().getString(l.d("tt_appdownloader_notification_download_restart"));
+                                    str3 = this.f34866j.getResources().getString(l.d("tt_appdownloader_notification_download_restart"));
                                     x.setViewVisibility(g.k(), 8);
                                     if (d5.m("enable_notification_ui") >= 2 && n() == -1) {
                                         if (c.p.a.e.b.l.f.Y0(baseException)) {
                                             if (c.p.a.e.b.l.f.i0(baseException, f2)) {
-                                                str2 = this.f34760j.getResources().getString(l.d("tt_appdownloader_notification_no_wifi_and_in_net"));
-                                                str3 = this.f34760j.getResources().getString(l.d("tt_appdownloader_notification_download_resume"));
+                                                str2 = this.f34866j.getResources().getString(l.d("tt_appdownloader_notification_no_wifi_and_in_net"));
+                                                str3 = this.f34866j.getResources().getString(l.d("tt_appdownloader_notification_download_resume"));
                                             } else {
-                                                str2 = this.f34760j.getResources().getString(l.d("tt_appdownloader_notification_no_internet_error"));
+                                                str2 = this.f34866j.getResources().getString(l.d("tt_appdownloader_notification_no_internet_error"));
                                             }
                                         } else if (c.p.a.e.b.l.f.V0(baseException)) {
                                             str4 = str;
                                             i2 = 0;
-                                            str2 = this.f34760j.getResources().getString(l.d("tt_appdownloader_notification_insufficient_space_error"), d.G(l() - j()));
+                                            str2 = this.f34866j.getResources().getString(l.d("tt_appdownloader_notification_insufficient_space_error"), d.G(l() - j()));
                                             x.setViewVisibility(s(a2), 8);
                                             x.setViewVisibility(g.i(), i2);
                                             x.setViewVisibility(g.j(), 8);
@@ -488,8 +488,8 @@ public class a extends c.p.a.e.b.p.a {
                 str = d.k(j()) + "/" + d.k(l());
                 if (b2 == 1) {
                 }
-                String string5 = this.f34760j.getResources().getString(d2);
-                String string22 = this.f34760j.getResources().getString(l.d("tt_appdownloader_notification_download_pause"));
+                String string5 = this.f34866j.getResources().getString(d2);
+                String string22 = this.f34866j.getResources().getString(l.d("tt_appdownloader_notification_download_pause"));
                 x.setViewVisibility(s(a2), 0);
                 x.setViewVisibility(g.i(), 8);
                 x.setViewVisibility(g.j(), 0);
@@ -545,8 +545,8 @@ public class a extends c.p.a.e.b.p.a {
             str = d.k(j()) + "/" + d.k(l());
             if (b2 == 1) {
             }
-            String string52 = this.f34760j.getResources().getString(d2);
-            String string222 = this.f34760j.getResources().getString(l.d("tt_appdownloader_notification_download_pause"));
+            String string52 = this.f34866j.getResources().getString(d2);
+            String string222 = this.f34866j.getResources().getString(l.d("tt_appdownloader_notification_download_pause"));
             x.setViewVisibility(s(a2), 0);
             x.setViewVisibility(g.i(), 8);
             x.setViewVisibility(g.j(), 0);
@@ -579,11 +579,11 @@ public class a extends c.p.a.e.b.p.a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            RemoteViews remoteViews = new RemoteViews(this.f34760j.getPackageName(), g.a());
+            RemoteViews remoteViews = new RemoteViews(this.f34866j.getPackageName(), g.a());
             if (Build.VERSION.SDK_INT > 20) {
                 try {
-                    if (d.t(this.f34760j)) {
-                        remoteViews.setInt(g.f(), "setBackgroundColor", this.f34760j.getResources().getColor(g.r()));
+                    if (d.t(this.f34866j)) {
+                        remoteViews.setInt(g.f(), "setBackgroundColor", this.f34866j.getResources().getColor(g.r()));
                     }
                 } catch (Throwable unused) {
                 }
@@ -601,19 +601,19 @@ public class a extends c.p.a.e.b.p.a {
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             String F = c.p.a.e.a.e.G().F();
             if (Build.VERSION.SDK_INT < 26) {
-                return new NotificationCompat.Builder(this.f34760j);
+                return new NotificationCompat.Builder(this.f34866j);
             }
             if (TextUtils.isEmpty(F)) {
-                F = d.H(this.f34760j);
+                F = d.H(this.f34866j);
             }
             try {
                 if (c.p.a.e.a.e.G().H() != null) {
-                    builder = c.p.a.e.a.e.G().H().a(this.f34760j, F);
+                    builder = c.p.a.e.a.e.G().H().a(this.f34866j, F);
                 } else {
-                    builder = new NotificationCompat.Builder(this.f34760j, F);
+                    builder = new NotificationCompat.Builder(this.f34866j, F);
                 }
             } catch (NoSuchMethodError unused) {
-                builder = new NotificationCompat.Builder(this.f34760j);
+                builder = new NotificationCompat.Builder(this.f34866j);
             }
             return builder;
         }

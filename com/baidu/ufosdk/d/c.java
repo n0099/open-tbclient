@@ -12,16 +12,16 @@ public class c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f59201a;
+    public int f59401a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f59202b;
+    public boolean f59402b;
 
     /* renamed from: c  reason: collision with root package name */
-    public WeakReference f59203c;
+    public WeakReference f59403c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f59204d;
+    public String f59404d;
 
     public c(WebView webView, String str, int i2) {
         Interceptable interceptable = $ic;
@@ -38,9 +38,9 @@ public class c {
                 return;
             }
         }
-        this.f59202b = true;
-        this.f59203c = new WeakReference(webView);
-        this.f59204d = str;
-        this.f59201a = i2;
+        this.f59402b = true;
+        this.f59403c = new WeakReference(webView);
+        this.f59404d = str;
+        this.f59401a = i2;
     }
 }

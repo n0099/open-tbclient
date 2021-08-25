@@ -15,39 +15,39 @@ public final class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public C1864a f63433a;
+    public C1868a f63633a;
 
     /* renamed from: com.baidu.webkit.internal.monitor.a$a  reason: collision with other inner class name */
     /* loaded from: classes9.dex */
-    public class C1864a {
+    public class C1868a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public boolean f63434a;
+        public boolean f63634a;
 
         /* renamed from: b  reason: collision with root package name */
-        public boolean f63435b;
+        public boolean f63635b;
 
         /* renamed from: c  reason: collision with root package name */
-        public long f63436c;
+        public long f63636c;
 
         /* renamed from: d  reason: collision with root package name */
-        public long f63437d;
+        public long f63637d;
 
         /* renamed from: e  reason: collision with root package name */
-        public boolean f63438e;
+        public boolean f63638e;
 
         /* renamed from: f  reason: collision with root package name */
-        public boolean f63439f;
+        public boolean f63639f;
 
         /* renamed from: g  reason: collision with root package name */
-        public Map<String, Long> f63440g;
+        public Map<String, Long> f63640g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ a f63441h;
+        public final /* synthetic */ a f63641h;
 
-        public C1864a(a aVar) {
+        public C1868a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -62,27 +62,27 @@ public final class a {
                     return;
                 }
             }
-            this.f63441h = aVar;
-            this.f63435b = true;
-            this.f63436c = -1L;
-            this.f63437d = -1L;
-            this.f63440g = new HashMap();
+            this.f63641h = aVar;
+            this.f63635b = true;
+            this.f63636c = -1L;
+            this.f63637d = -1L;
+            this.f63640g = new HashMap();
         }
 
-        public /* synthetic */ C1864a(a aVar, byte b2) {
+        public /* synthetic */ C1868a(a aVar, byte b2) {
             this(aVar);
         }
 
         public final void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f63434a = false;
-                this.f63435b = true;
-                this.f63436c = -1L;
-                this.f63437d = -1L;
-                this.f63438e = false;
-                this.f63439f = false;
-                this.f63440g.clear();
+                this.f63634a = false;
+                this.f63635b = true;
+                this.f63636c = -1L;
+                this.f63637d = -1L;
+                this.f63638e = false;
+                this.f63639f = false;
+                this.f63640g.clear();
             }
         }
     }
@@ -106,23 +106,23 @@ public final class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             try {
-                if (this.f63433a != null && this.f63433a.f63439f) {
+                if (this.f63633a != null && this.f63633a.f63639f) {
                     JSONObject jSONObject = new JSONObject();
-                    jSONObject.put("coldbootfirst", this.f63433a.f63434a);
-                    jSONObject.put("loadasycsearch", this.f63433a.f63435b);
-                    jSONObject.put("starttosearch", this.f63433a.f63436c);
-                    jSONObject.put("starttofragment", this.f63433a.f63437d);
-                    jSONObject.put("state50", this.f63433a.f63438e);
-                    for (String str : this.f63433a.f63440g.keySet()) {
-                        jSONObject.put(str, this.f63433a.f63440g.get(str));
+                    jSONObject.put("coldbootfirst", this.f63633a.f63634a);
+                    jSONObject.put("loadasycsearch", this.f63633a.f63635b);
+                    jSONObject.put("starttosearch", this.f63633a.f63636c);
+                    jSONObject.put("starttofragment", this.f63633a.f63637d);
+                    jSONObject.put("state50", this.f63633a.f63638e);
+                    for (String str : this.f63633a.f63640g.keySet()) {
+                        jSONObject.put(str, this.f63633a.f63640g.get(str));
                     }
-                    this.f63433a.a();
+                    this.f63633a.a();
                     return jSONObject;
                 }
                 return null;
             } catch (Throwable th) {
                 Log.printStackTrace(th);
-                this.f63433a.a();
+                this.f63633a.a();
                 return null;
             }
         }

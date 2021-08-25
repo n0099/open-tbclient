@@ -1,7 +1,7 @@
 package com.baidu.tbadk.getUserInfo;
 
-import c.a.o0.a0.a;
-import c.a.o0.a0.b;
+import c.a.p0.a0.a;
+import c.a.p0.a0.b;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;

@@ -3,9 +3,9 @@ package com.baidu.sapi2.activity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
-import c.a.b0.a.c;
-import c.a.b0.a.e;
-import c.a.b0.a.f;
+import c.a.c0.a.c;
+import c.a.c0.a.e;
+import c.a.c0.a.f;
 import com.baidu.sapi2.SapiWebView;
 import com.baidu.sapi2.views.RoundWebview;
 import com.baidu.sapi2.views.swipeback.SwipeBackLayout;
@@ -54,7 +54,7 @@ public class YouthStyleLoginActivity extends LoginActivity {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ YouthStyleLoginActivity f44581a;
+                public final /* synthetic */ YouthStyleLoginActivity f44688a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -71,14 +71,14 @@ public class YouthStyleLoginActivity extends LoginActivity {
                             return;
                         }
                     }
-                    this.f44581a = this;
+                    this.f44688a = this;
                 }
 
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                        this.f44581a.onClose();
+                        this.f44688a.onClose();
                     }
                 }
             });

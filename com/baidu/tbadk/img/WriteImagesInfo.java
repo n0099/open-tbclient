@@ -3,7 +3,7 @@ package com.baidu.tbadk.img;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import c.a.e.e.p.k;
-import c.a.o0.c0.g.d;
+import c.a.p0.c0.i.d;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
@@ -25,13 +25,18 @@ import org.json.JSONObject;
 public class WriteImagesInfo extends OrmObject implements Serializable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int allImageFileSize;
     public LinkedList<ImageFileInfo> chosedFiles;
+    public int hasUploadFileSize;
+    public int imageChunkSize;
+    public int imageUploadConcurrency;
     public boolean isEnableChooseOriginalImg;
     public boolean isFromQRCode;
     public boolean isOriginalImg;
     public String lastAlbumId;
     public boolean mIsFromIm;
     public int maxImagesAllowed;
+    public boolean needImageParallel;
 
     public WriteImagesInfo() {
         Interceptable interceptable = $ic;

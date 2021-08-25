@@ -17,7 +17,7 @@ public class CommonRangerSliderHolder extends RecyclerView.ViewHolder {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final View f58227a;
+    public final View f58424a;
     public ImageView mItemView;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -38,7 +38,7 @@ public class CommonRangerSliderHolder extends RecyclerView.ViewHolder {
                 return;
             }
         }
-        this.f58227a = view;
+        this.f58424a = view;
         this.mItemView = (ImageView) view.findViewById(R.id.video_range_slider_image);
     }
 
@@ -53,6 +53,6 @@ public class CommonRangerSliderHolder extends RecyclerView.ViewHolder {
     public View getView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f58227a : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f58424a : (View) invokeV.objValue;
     }
 }

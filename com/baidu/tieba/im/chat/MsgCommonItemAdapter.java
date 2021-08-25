@@ -5,7 +5,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import androidx.core.view.InputDeviceCompat;
 import c.a.e.e.h.b;
-import c.a.e.k.e.a;
+import c.a.e.l.e.a;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
@@ -35,7 +35,7 @@ public abstract class MsgCommonItemAdapter<T> extends a<ChatMessage, MsgViewHold
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public T f52572a;
+        public T f52733a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public MsgViewHolder(View view, T t) {
@@ -55,13 +55,13 @@ public abstract class MsgCommonItemAdapter<T> extends a<ChatMessage, MsgViewHold
                     return;
                 }
             }
-            this.f52572a = t;
+            this.f52733a = t;
         }
 
         public T getMsgItemView() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f52572a : (T) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f52733a : (T) invokeV.objValue;
         }
     }
 
@@ -112,7 +112,7 @@ public abstract class MsgCommonItemAdapter<T> extends a<ChatMessage, MsgViewHold
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // c.a.e.k.e.a
+    @Override // c.a.e.l.e.a
     /* renamed from: k0 */
     public View a0(int i2, View view, ViewGroup viewGroup, ChatMessage chatMessage, MsgViewHolder<T> msgViewHolder) {
         InterceptResult invokeCommon;

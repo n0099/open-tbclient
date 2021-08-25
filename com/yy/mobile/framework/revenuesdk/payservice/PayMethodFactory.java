@@ -22,7 +22,7 @@ public final class PayMethodFactory {
     public static /* synthetic */ Interceptable $ic;
     public static final PayMethodFactory ALIPAY_PAY;
     public static final PayMethodFactory DXM_PAY;
-    public static final PayMethodFactory GOOGLE_PLAY;
+    public static final PayMethodFactory QQ_PAY;
     public static final PayMethodFactory WECHAT_PAY;
     public transient /* synthetic */ FieldHolder $fh;
     public final String clazz;
@@ -63,16 +63,24 @@ public final class PayMethodFactory {
             } catch (NoSuchFieldError unused3) {
             }
             try {
-                $SwitchMap$com$yy$mobile$framework$revenuesdk$payapi$PayType[PayType.MOCK_TEST_PAY.ordinal()] = 4;
+                $SwitchMap$com$yy$mobile$framework$revenuesdk$payapi$PayType[PayType.QQ_PAY.ordinal()] = 4;
             } catch (NoSuchFieldError unused4) {
             }
             try {
-                $SwitchMap$com$yy$mobile$framework$revenuesdk$payapi$PayType[PayType.DXM_PAY_KJ.ordinal()] = 5;
+                $SwitchMap$com$yy$mobile$framework$revenuesdk$payapi$PayType[PayType.UNION_PAY.ordinal()] = 5;
             } catch (NoSuchFieldError unused5) {
             }
             try {
-                $SwitchMap$com$yy$mobile$framework$revenuesdk$payapi$PayType[PayType.PAYTM_PAY.ordinal()] = 6;
+                $SwitchMap$com$yy$mobile$framework$revenuesdk$payapi$PayType[PayType.MOCK_TEST_PAY.ordinal()] = 6;
             } catch (NoSuchFieldError unused6) {
+            }
+            try {
+                $SwitchMap$com$yy$mobile$framework$revenuesdk$payapi$PayType[PayType.DXM_PAY_KJ.ordinal()] = 7;
+            } catch (NoSuchFieldError unused7) {
+            }
+            try {
+                $SwitchMap$com$yy$mobile$framework$revenuesdk$payapi$PayType[PayType.PAYTM_PAY.ordinal()] = 8;
+            } catch (NoSuchFieldError unused8) {
             }
         }
     }
@@ -90,12 +98,12 @@ public final class PayMethodFactory {
                 return;
             }
         }
-        GOOGLE_PLAY = new PayMethodFactory("GOOGLE_PLAY", 0, "com.yy.mobile.framework.revenue.gppay.PayMethodImpl");
-        WECHAT_PAY = new PayMethodFactory("WECHAT_PAY", 1, "com.yy.mobile.framework.revenue.wxpay.RevenueWechatPayImpl");
-        ALIPAY_PAY = new PayMethodFactory("ALIPAY_PAY", 2, "com.yy.mobile.framework.revenue.alipay.RevenueAlipayImpl");
-        PayMethodFactory payMethodFactory = new PayMethodFactory("DXM_PAY", 3, "com.yy.mobile.framework.revenue.dxmpay.RevenueDxmpayImpl");
-        DXM_PAY = payMethodFactory;
-        $VALUES = new PayMethodFactory[]{GOOGLE_PLAY, WECHAT_PAY, ALIPAY_PAY, payMethodFactory};
+        WECHAT_PAY = new PayMethodFactory("WECHAT_PAY", 0, "com.yy.mobile.framework.revenue.wxpay.RevenueWechatPayImpl");
+        ALIPAY_PAY = new PayMethodFactory("ALIPAY_PAY", 1, "com.yy.mobile.framework.revenue.alipay.RevenueAlipayImpl");
+        DXM_PAY = new PayMethodFactory("DXM_PAY", 2, "com.yy.mobile.framework.revenue.dxmpay.RevenueDxmpayImpl");
+        PayMethodFactory payMethodFactory = new PayMethodFactory("QQ_PAY", 3, "com.yy.mobile.framework.revenue.qqpay.RevenueQQpayImpl");
+        QQ_PAY = payMethodFactory;
+        $VALUES = new PayMethodFactory[]{WECHAT_PAY, ALIPAY_PAY, DXM_PAY, payMethodFactory};
     }
 
     public PayMethodFactory(String str, int i2, String str2) {
@@ -174,8 +182,11 @@ public final class PayMethodFactory {
                 case 3:
                     return DXM_PAY.getPayMethodImpl();
                 case 4:
+                    return QQ_PAY.getPayMethodImpl();
                 case 5:
                 case 6:
+                case 7:
+                case 8:
                     return new H5PayMethod();
                 default:
                     return new DefaultPayMethod();

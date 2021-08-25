@@ -11,6 +11,7 @@ import com.baidu.rtc.JanusConnection;
 import com.baidu.rtc.PeerConnectionClient;
 import com.baidu.rtc.config.Constraints;
 import com.baidu.sapi2.activity.BaseActivity;
+import com.baidu.searchbox.datacollector.growth.utils.GrowthConstant;
 import com.baidu.searchbox.live.interfaces.ILiveNPSPlugin;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -338,7 +339,7 @@ public class RtcReportHandle {
                 jSONObject2.put("networkType", RtcLogReport.getNetworkType(this.mContext.get()));
                 jSONObject2.put("device", RtcLogReport.getDeviceModel());
                 JSONObject jSONObject3 = new JSONObject();
-                jSONObject3.put("deviceInfo", jSONObject2);
+                jSONObject3.put(GrowthConstant.UBC_VALUE_TYPE_DEVICE_INFO, jSONObject2);
                 jSONObject.put("env", this.mQualityMonitorEnv);
                 jSONObject.put(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, this.mAppId);
                 jSONObject.put(ILiveNPSPlugin.PARAMS_ROOM_ID, this.mRoomId);

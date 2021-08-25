@@ -34,24 +34,24 @@ public class d extends com.baidu.mobads.cid.cesium.b.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d  reason: collision with root package name */
-    public Context f42562d;
+    public Context f42669d;
 
     /* renamed from: e  reason: collision with root package name */
-    public f f42563e;
+    public f f42670e;
 
     /* renamed from: f  reason: collision with root package name */
-    public a.C1673a f42564f;
+    public a.C1677a f42671f;
 
     /* loaded from: classes5.dex */
     public static final class a implements Comparable<a> {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final String[] f42565a;
+        public static final String[] f42672a;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: b  reason: collision with root package name */
-        public final int f42566b;
+        public final int f42673b;
 
         static {
             InterceptResult invokeClinit;
@@ -66,7 +66,7 @@ public class d extends com.baidu.mobads.cid.cesium.b.a {
                     return;
                 }
             }
-            f42565a = new String[]{"read0", "read1", "read2", "read3", "access0", "access1", "access2", "access3", "sync0", "sync1", "sync2", "sync3", "open0", "open1", "open2", "open3"};
+            f42672a = new String[]{"read0", "read1", "read2", "read3", "access0", "access1", "access2", "access3", "sync0", "sync1", "sync2", "sync3", "open0", "open1", "open2", "open3"};
         }
 
         public a(int i2) {
@@ -84,7 +84,7 @@ public class d extends com.baidu.mobads.cid.cesium.b.a {
                     return;
                 }
             }
-            this.f42566b = i2;
+            this.f42673b = i2;
         }
 
         public static a a(byte b2, boolean z) {
@@ -115,19 +115,19 @@ public class d extends com.baidu.mobads.cid.cesium.b.a {
         public int compareTo(a aVar) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) ? this.f42566b - aVar.f42566b : invokeL.intValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) ? this.f42673b - aVar.f42673b : invokeL.intValue;
         }
 
         public String a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? f42565a[this.f42566b] : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? f42672a[this.f42673b] : (String) invokeV.objValue;
         }
 
         public byte b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? (byte) this.f42566b : invokeV.byteValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? (byte) this.f42673b : invokeV.byteValue;
         }
 
         public boolean equals(Object obj) {
@@ -137,7 +137,7 @@ public class d extends com.baidu.mobads.cid.cesium.b.a {
                 if (this == obj) {
                     return true;
                 }
-                return obj != null && a.class == obj.getClass() && this.f42566b == ((a) obj).f42566b;
+                return obj != null && a.class == obj.getClass() && this.f42673b == ((a) obj).f42673b;
             }
             return invokeL.booleanValue;
         }
@@ -145,7 +145,7 @@ public class d extends com.baidu.mobads.cid.cesium.b.a {
         public int hashCode() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f42566b : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f42673b : invokeV.intValue;
         }
     }
 
@@ -155,16 +155,16 @@ public class d extends com.baidu.mobads.cid.cesium.b.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d f42567a;
+        public final /* synthetic */ d f42674a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f42568b;
+        public int f42675b;
 
         /* renamed from: c  reason: collision with root package name */
-        public a[] f42569c;
+        public a[] f42676c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f42570d;
+        public int f42677d;
 
         public b(d dVar) {
             Interceptable interceptable = $ic;
@@ -181,22 +181,22 @@ public class d extends com.baidu.mobads.cid.cesium.b.a {
                     return;
                 }
             }
-            this.f42567a = dVar;
-            this.f42568b = 33;
-            this.f42569c = new a[33];
+            this.f42674a = dVar;
+            this.f42675b = 33;
+            this.f42676c = new a[33];
         }
 
         private void b(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(65537, this, i2) == null) {
-                a[] aVarArr = this.f42569c;
+                a[] aVarArr = this.f42676c;
                 if (i2 - aVarArr.length > 0) {
                     int length = aVarArr.length;
                     int i3 = length + (length >> 1);
                     if (i3 - i2 >= 0) {
                         i2 = i3;
                     }
-                    this.f42569c = (a[]) Arrays.copyOf(this.f42569c, i2);
+                    this.f42676c = (a[]) Arrays.copyOf(this.f42676c, i2);
                 }
             }
         }
@@ -204,17 +204,17 @@ public class d extends com.baidu.mobads.cid.cesium.b.a {
         public int a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f42570d : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f42677d : invokeV.intValue;
         }
 
         public a a(int i2) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
-                if (i2 < this.f42570d) {
-                    return this.f42569c[i2];
+                if (i2 < this.f42677d) {
+                    return this.f42676c[i2];
                 }
-                throw new IndexOutOfBoundsException("idx " + i2 + " size " + this.f42570d);
+                throw new IndexOutOfBoundsException("idx " + i2 + " size " + this.f42677d);
             }
             return (a) invokeI.objValue;
         }
@@ -222,10 +222,10 @@ public class d extends com.baidu.mobads.cid.cesium.b.a {
         public void a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
-                b(this.f42570d + 1);
-                a[] aVarArr = this.f42569c;
-                int i2 = this.f42570d;
-                this.f42570d = i2 + 1;
+                b(this.f42677d + 1);
+                a[] aVarArr = this.f42676c;
+                int i2 = this.f42677d;
+                this.f42677d = i2 + 1;
                 aVarArr[i2] = aVar;
             }
         }
@@ -238,7 +238,7 @@ public class d extends com.baidu.mobads.cid.cesium.b.a {
                 ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
                 int i3 = 0;
                 while (true) {
-                    i2 = this.f42570d;
+                    i2 = this.f42677d;
                     if (i3 >= i2 / 2) {
                         break;
                     }
@@ -261,7 +261,7 @@ public class d extends com.baidu.mobads.cid.cesium.b.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public List<a> f42571a;
+        public List<a> f42678a;
 
         /* loaded from: classes5.dex */
         public static class a {
@@ -269,10 +269,10 @@ public class d extends com.baidu.mobads.cid.cesium.b.a {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public int f42573a;
+            public int f42680a;
 
             /* renamed from: b  reason: collision with root package name */
-            public a f42574b;
+            public a f42681b;
 
             public a(a aVar) {
                 Interceptable interceptable = $ic;
@@ -289,13 +289,13 @@ public class d extends com.baidu.mobads.cid.cesium.b.a {
                         return;
                     }
                 }
-                this.f42574b = aVar;
+                this.f42681b = aVar;
             }
 
             public void a() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.f42573a++;
+                    this.f42680a++;
                 }
             }
         }
@@ -313,20 +313,20 @@ public class d extends com.baidu.mobads.cid.cesium.b.a {
                     return;
                 }
             }
-            this.f42571a = new ArrayList();
+            this.f42678a = new ArrayList();
         }
 
         public List<a> a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                ArrayList arrayList = new ArrayList(this.f42571a);
+                ArrayList arrayList = new ArrayList(this.f42678a);
                 Collections.sort(arrayList, new Comparator<a>(this) { // from class: com.baidu.mobads.cid.cesium.b.d.c.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ c f42572a;
+                    public final /* synthetic */ c f42679a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -343,7 +343,7 @@ public class d extends com.baidu.mobads.cid.cesium.b.a {
                                 return;
                             }
                         }
-                        this.f42572a = this;
+                        this.f42679a = this;
                     }
 
                     /* JADX DEBUG: Method merged with bridge method */
@@ -352,7 +352,7 @@ public class d extends com.baidu.mobads.cid.cesium.b.a {
                     public int compare(a aVar, a aVar2) {
                         InterceptResult invokeLL;
                         Interceptable interceptable2 = $ic;
-                        return (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, aVar, aVar2)) == null) ? aVar.f42573a - aVar2.f42573a : invokeLL.intValue;
+                        return (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, aVar, aVar2)) == null) ? aVar.f42680a - aVar2.f42680a : invokeLL.intValue;
                     }
                 });
                 return arrayList;
@@ -363,27 +363,27 @@ public class d extends com.baidu.mobads.cid.cesium.b.a {
         public void a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-                this.f42571a.add(new a(aVar));
+                this.f42678a.add(new a(aVar));
             }
         }
     }
 
     /* renamed from: com.baidu.mobads.cid.cesium.b.d$d  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public static class C1672d {
+    public static class C1676d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public byte[] f42575a;
+        public byte[] f42682a;
 
         /* renamed from: b  reason: collision with root package name */
-        public byte f42576b;
+        public byte f42683b;
 
         /* renamed from: c  reason: collision with root package name */
-        public byte[] f42577c;
+        public byte[] f42684c;
 
-        public C1672d(byte[] bArr, byte b2, byte[] bArr2) {
+        public C1676d(byte[] bArr, byte b2, byte[] bArr2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -398,9 +398,9 @@ public class d extends com.baidu.mobads.cid.cesium.b.a {
                     return;
                 }
             }
-            this.f42575a = bArr;
-            this.f42576b = b2;
-            this.f42577c = bArr2;
+            this.f42682a = bArr;
+            this.f42683b = b2;
+            this.f42684c = bArr2;
         }
 
         public g.a a() {
@@ -408,7 +408,7 @@ public class d extends com.baidu.mobads.cid.cesium.b.a {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 try {
-                    return com.baidu.mobads.cid.cesium.g.a(com.baidu.mobads.cid.cesium.d.b.a(this.f42575a, "", true), new String(new byte[]{this.f42576b}, "UTF-8"), this.f42577c != null ? new String(this.f42577c, "UTF-8") : null);
+                    return com.baidu.mobads.cid.cesium.g.a(com.baidu.mobads.cid.cesium.d.b.a(this.f42682a, "", true), new String(new byte[]{this.f42683b}, "UTF-8"), this.f42684c != null ? new String(this.f42684c, "UTF-8") : null);
                 } catch (Exception unused) {
                     return null;
                 }
@@ -423,13 +423,13 @@ public class d extends com.baidu.mobads.cid.cesium.b.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f42578a;
+        public int f42685a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f42579b;
+        public int f42686b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f42580c;
+        public int f42687c;
 
         public e() {
             Interceptable interceptable = $ic;
@@ -444,7 +444,7 @@ public class d extends com.baidu.mobads.cid.cesium.b.a {
                     return;
                 }
             }
-            this.f42580c = 16;
+            this.f42687c = 16;
         }
 
         public String toString() {
@@ -460,19 +460,19 @@ public class d extends com.baidu.mobads.cid.cesium.b.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public Method f42581a;
+        public Method f42688a;
 
         /* renamed from: b  reason: collision with root package name */
-        public Method f42582b;
+        public Method f42689b;
 
         /* renamed from: c  reason: collision with root package name */
-        public Method f42583c;
+        public Method f42690c;
 
         /* renamed from: d  reason: collision with root package name */
-        public Method f42584d;
+        public Method f42691d;
 
         /* renamed from: e  reason: collision with root package name */
-        public Method f42585e;
+        public Method f42692e;
 
         public f() {
             Interceptable interceptable = $ic;
@@ -493,7 +493,7 @@ public class d extends com.baidu.mobads.cid.cesium.b.a {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{context, uri, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)})) == null) {
                 try {
-                    return ((Integer) this.f42581a.invoke(context, uri, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4))).intValue();
+                    return ((Integer) this.f42688a.invoke(context, uri, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4))).intValue();
                 } catch (Exception e2) {
                     throw new e.a(e2);
                 }
@@ -505,11 +505,11 @@ public class d extends com.baidu.mobads.cid.cesium.b.a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
                 try {
-                    this.f42581a = com.baidu.mobads.cid.cesium.a.e.a(Context.class, com.baidu.mobads.cid.cesium.a.e.a(com.baidu.mobads.cid.cesium.a.d.d()), new Class[]{Uri.class, Integer.TYPE, Integer.TYPE, Integer.TYPE});
-                    this.f42582b = com.baidu.mobads.cid.cesium.a.e.a(Context.class, com.baidu.mobads.cid.cesium.a.e.a(com.baidu.mobads.cid.cesium.a.d.e()), new Class[]{String.class, Uri.class, Integer.TYPE});
-                    this.f42583c = com.baidu.mobads.cid.cesium.a.e.a(ContentResolver.class, com.baidu.mobads.cid.cesium.a.e.a(com.baidu.mobads.cid.cesium.a.d.f()), new Class[]{Uri.class, Integer.TYPE});
-                    this.f42584d = com.baidu.mobads.cid.cesium.a.e.a(Context.class, com.baidu.mobads.cid.cesium.a.e.a(com.baidu.mobads.cid.cesium.a.d.g()), new Class[]{Uri.class, Integer.TYPE});
-                    this.f42585e = com.baidu.mobads.cid.cesium.a.e.a(ContentResolver.class, com.baidu.mobads.cid.cesium.a.e.a(com.baidu.mobads.cid.cesium.a.d.h()), new Class[]{Uri.class, Integer.TYPE});
+                    this.f42688a = com.baidu.mobads.cid.cesium.a.e.a(Context.class, com.baidu.mobads.cid.cesium.a.e.a(com.baidu.mobads.cid.cesium.a.d.d()), new Class[]{Uri.class, Integer.TYPE, Integer.TYPE, Integer.TYPE});
+                    this.f42689b = com.baidu.mobads.cid.cesium.a.e.a(Context.class, com.baidu.mobads.cid.cesium.a.e.a(com.baidu.mobads.cid.cesium.a.d.e()), new Class[]{String.class, Uri.class, Integer.TYPE});
+                    this.f42690c = com.baidu.mobads.cid.cesium.a.e.a(ContentResolver.class, com.baidu.mobads.cid.cesium.a.e.a(com.baidu.mobads.cid.cesium.a.d.f()), new Class[]{Uri.class, Integer.TYPE});
+                    this.f42691d = com.baidu.mobads.cid.cesium.a.e.a(Context.class, com.baidu.mobads.cid.cesium.a.e.a(com.baidu.mobads.cid.cesium.a.d.g()), new Class[]{Uri.class, Integer.TYPE});
+                    this.f42692e = com.baidu.mobads.cid.cesium.a.e.a(ContentResolver.class, com.baidu.mobads.cid.cesium.a.e.a(com.baidu.mobads.cid.cesium.a.d.h()), new Class[]{Uri.class, Integer.TYPE});
                 } catch (Exception unused) {
                 }
             }
@@ -522,26 +522,26 @@ public class d extends com.baidu.mobads.cid.cesium.b.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d f42586a;
+        public final /* synthetic */ d f42693a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f42587b;
+        public int f42694b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f42588c;
+        public String f42695c;
 
         /* renamed from: d  reason: collision with root package name */
-        public long f42589d;
+        public long f42696d;
 
         /* renamed from: e  reason: collision with root package name */
-        public long f42590e;
+        public long f42697e;
 
         /* renamed from: f  reason: collision with root package name */
-        public g.a f42591f;
+        public g.a f42698f;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public g(d dVar, String str) {
-            super(dVar.f42564f, str);
+            super(dVar.f42671f, str);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -552,24 +552,24 @@ public class d extends com.baidu.mobads.cid.cesium.b.a {
                 if ((i2 & 1) != 0) {
                     int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
-                    super((a.C1673a) objArr2[0], (String) objArr2[1]);
+                    super((a.C1677a) objArr2[0], (String) objArr2[1]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f42586a = dVar;
+            this.f42693a = dVar;
         }
 
         @Override // com.baidu.mobads.cid.cesium.b.a.b
         public void a(JSONObject jSONObject) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
-                this.f42588c = jSONObject.getString("pkg");
-                this.f42589d = jSONObject.getLong("last_fe_ts");
-                this.f42591f = com.baidu.mobads.cid.cesium.g.a(jSONObject.getString("info"));
-                this.f42590e = jSONObject.getLong("tar_pkg_lst_up_ts");
-                this.f42587b = jSONObject.getInt("d_form_ver");
+                this.f42695c = jSONObject.getString("pkg");
+                this.f42696d = jSONObject.getLong("last_fe_ts");
+                this.f42698f = com.baidu.mobads.cid.cesium.g.a(jSONObject.getString("info"));
+                this.f42697e = jSONObject.getLong("tar_pkg_lst_up_ts");
+                this.f42694b = jSONObject.getInt("d_form_ver");
             }
         }
 
@@ -577,8 +577,8 @@ public class d extends com.baidu.mobads.cid.cesium.b.a {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2)) == null) {
-                if (this.f42589d != j2) {
-                    this.f42589d = j2;
+                if (this.f42696d != j2) {
+                    this.f42696d = j2;
                     a(true);
                     return true;
                 }
@@ -591,10 +591,10 @@ public class d extends com.baidu.mobads.cid.cesium.b.a {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar)) == null) {
-                if (aVar.equals(this.f42591f)) {
+                if (aVar.equals(this.f42698f)) {
                     return false;
                 }
-                this.f42591f = aVar;
+                this.f42698f = aVar;
                 a(true);
                 return true;
             }
@@ -605,10 +605,10 @@ public class d extends com.baidu.mobads.cid.cesium.b.a {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-                if (str.equals(this.f42588c)) {
+                if (str.equals(this.f42695c)) {
                     return false;
                 }
-                this.f42588c = str;
+                this.f42695c = str;
                 a(true);
                 return true;
             }
@@ -619,10 +619,10 @@ public class d extends com.baidu.mobads.cid.cesium.b.a {
         public void b(JSONObject jSONObject) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048580, this, jSONObject) == null) {
-                jSONObject.put("pkg", this.f42588c);
-                jSONObject.put("last_fe_ts", this.f42589d);
-                jSONObject.put("info", this.f42591f.b());
-                jSONObject.put("tar_pkg_lst_up_ts", this.f42590e);
+                jSONObject.put("pkg", this.f42695c);
+                jSONObject.put("last_fe_ts", this.f42696d);
+                jSONObject.put("info", this.f42698f.b());
+                jSONObject.put("tar_pkg_lst_up_ts", this.f42697e);
                 jSONObject.put("d_form_ver", 1);
             }
         }
@@ -631,8 +631,8 @@ public class d extends com.baidu.mobads.cid.cesium.b.a {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeJ = interceptable.invokeJ(1048581, this, j2)) == null) {
-                if (this.f42590e != j2) {
-                    this.f42590e = j2;
+                if (this.f42697e != j2) {
+                    this.f42697e = j2;
                     a(true);
                     return true;
                 }
@@ -644,19 +644,19 @@ public class d extends com.baidu.mobads.cid.cesium.b.a {
         public String c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f42588c : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f42695c : (String) invokeV.objValue;
         }
 
         public g.a d() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f42591f : (g.a) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f42698f : (g.a) invokeV.objValue;
         }
 
         public long e() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f42590e : invokeV.longValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f42697e : invokeV.longValue;
         }
     }
 
@@ -678,7 +678,7 @@ public class d extends com.baidu.mobads.cid.cesium.b.a {
             }
         }
         f fVar = new f();
-        this.f42563e = fVar;
+        this.f42670e = fVar;
         fVar.a();
     }
 
@@ -687,9 +687,9 @@ public class d extends com.baidu.mobads.cid.cesium.b.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, this, new Object[]{str, Integer.valueOf(i2), list, Integer.valueOf(i3), eVar})) == null) {
             for (c.a aVar : list) {
-                if (a(str, i2, aVar.f42574b, i3, eVar)) {
+                if (a(str, i2, aVar.f42681b, i3, eVar)) {
                     aVar.a();
-                    return aVar.f42574b;
+                    return aVar.f42681b;
                 }
             }
             return null;
@@ -732,7 +732,7 @@ public class d extends com.baidu.mobads.cid.cesium.b.a {
                 }
                 if (eVar != null) {
                     try {
-                        eVar.f42578a++;
+                        eVar.f42685a++;
                     } catch (Throwable unused) {
                         try {
                             Thread.sleep(5L);
@@ -741,14 +741,14 @@ public class d extends com.baidu.mobads.cid.cesium.b.a {
                         i5++;
                     }
                 }
-                i4 = this.f42563e.a(this.f42562d, parse, 0, i3, 1);
+                i4 = this.f42670e.a(this.f42669d, parse, 0, i3, 1);
                 break;
             }
             if (i4 == 0) {
                 return true;
             }
             if (eVar != null) {
-                eVar.f42579b++;
+                eVar.f42686b++;
             }
             return false;
         }
@@ -768,7 +768,7 @@ public class d extends com.baidu.mobads.cid.cesium.b.a {
                     break;
                 }
                 try {
-                    i3 = this.f42563e.a(this.f42562d, parse, 0, i2, 1);
+                    i3 = this.f42670e.a(this.f42669d, parse, 0, i2, 1);
                     break;
                 } catch (Throwable unused) {
                     try {
@@ -802,14 +802,14 @@ public class d extends com.baidu.mobads.cid.cesium.b.a {
             }
             boolean z2 = false;
             try {
-                packageInfo = this.f42562d.getPackageManager().getPackageInfo(str, 0);
+                packageInfo = this.f42669d.getPackageManager().getPackageInfo(str, 0);
             } catch (PackageManager.NameNotFoundException unused) {
                 packageInfo = null;
             }
             if (packageInfo == null) {
                 return a.e.b();
             }
-            if (dVar.f42540a) {
+            if (dVar.f42647a) {
                 g gVar2 = new g(this, str);
                 gVar2.a();
                 if (str.equals(gVar2.c()) && packageInfo.lastUpdateTime == gVar2.e() && (d2 = gVar2.d()) != null) {
@@ -922,8 +922,8 @@ public class d extends com.baidu.mobads.cid.cesium.b.a {
                 }
                 if (bVar.a() > 0) {
                     bArr = bVar.b();
-                    a2 = new C1672d(b4, b3.byteValue(), bArr).a();
-                    if (dVar.f42540a && gVar != null) {
+                    a2 = new C1676d(b4, b3.byteValue(), bArr).a();
+                    if (dVar.f42647a && gVar != null) {
                         gVar.a(System.currentTimeMillis());
                         gVar.b(packageInfo.lastUpdateTime);
                         gVar.a(str);
@@ -934,8 +934,8 @@ public class d extends com.baidu.mobads.cid.cesium.b.a {
                 }
             }
             bArr = null;
-            a2 = new C1672d(b4, b3.byteValue(), bArr).a();
-            if (dVar.f42540a) {
+            a2 = new C1676d(b4, b3.byteValue(), bArr).a();
+            if (dVar.f42647a) {
                 gVar.a(System.currentTimeMillis());
                 gVar.b(packageInfo.lastUpdateTime);
                 gVar.a(str);
@@ -951,8 +951,8 @@ public class d extends com.baidu.mobads.cid.cesium.b.a {
     public void a(a.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar) == null) {
-            this.f42562d = this.f42530a.f42534a;
-            this.f42564f = this.f42531b.a("upc");
+            this.f42669d = this.f42637a.f42641a;
+            this.f42671f = this.f42638b.a("upc");
         }
     }
 }

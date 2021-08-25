@@ -24,11 +24,11 @@ public class z extends BaseBean<VerifyByBankResponse> {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String[] f62065a;
+    public static final String[] f62265a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public final List f62066b;
+    public final List f62266b;
 
     static {
         InterceptResult invokeClinit;
@@ -43,7 +43,7 @@ public class z extends BaseBean<VerifyByBankResponse> {
                 return;
             }
         }
-        f62065a = new String[]{"coupon_id", "activity_id", "stage_number", "need_bind_card", "sms_vcode", "seed", "mobile_pwd", "confirm_mobile_pwd", "mobile_pwd_psp", "open_passfree", "fp_code", "fp_num", "need_open_passfree", "need_open_authorize", "message_vcode", "is_pay_sms"};
+        f62265a = new String[]{"coupon_id", "activity_id", "stage_number", "need_bind_card", "sms_vcode", "seed", "mobile_pwd", "confirm_mobile_pwd", "mobile_pwd_psp", "open_passfree", "fp_code", "fp_num", "need_open_passfree", "need_open_authorize", "message_vcode", "is_pay_sms"};
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -64,7 +64,7 @@ public class z extends BaseBean<VerifyByBankResponse> {
                 return;
             }
         }
-        this.f62066b = Arrays.asList(f62065a);
+        this.f62266b = Arrays.asList(f62265a);
     }
 
     @Override // com.dxmpay.apollon.beans.ApollonBean
@@ -83,7 +83,7 @@ public class z extends BaseBean<VerifyByBankResponse> {
             ArrayList arrayList = new ArrayList(PayDataCache.getInstance().getPrePayRequestParams());
             Iterator it = arrayList.iterator();
             while (it.hasNext()) {
-                if (this.f62066b.indexOf(((RestNameValuePair) it.next()).getName()) != -1) {
+                if (this.f62266b.indexOf(((RestNameValuePair) it.next()).getName()) != -1) {
                     it.remove();
                 }
             }

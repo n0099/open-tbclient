@@ -31,31 +31,31 @@ public class HeaderLoadingLayout extends LoadingLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ImageView f60391a;
+    public ImageView f60591a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ProgressBar f60392b;
+    public ProgressBar f60592b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f60393c;
+    public TextView f60593c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TextView f60394d;
+    public TextView f60594d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Animation f60395e;
+    public Animation f60595e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Animation f60396f;
+    public Animation f60596f;
 
     /* renamed from: g  reason: collision with root package name */
-    public CharSequence f60397g;
+    public CharSequence f60597g;
 
     /* renamed from: h  reason: collision with root package name */
-    public LoadingLayout.AnimationStyle f60398h;
+    public LoadingLayout.AnimationStyle f60598h;
 
     /* renamed from: i  reason: collision with root package name */
-    public ObjectAnimator f60399i;
+    public ObjectAnimator f60599i;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public HeaderLoadingLayout(Context context) {
@@ -75,7 +75,7 @@ public class HeaderLoadingLayout extends LoadingLayout {
                 return;
             }
         }
-        this.f60398h = LoadingLayout.AnimationStyle.FLIP;
+        this.f60598h = LoadingLayout.AnimationStyle.FLIP;
         a(context);
     }
 
@@ -83,19 +83,19 @@ public class HeaderLoadingLayout extends LoadingLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, this, context) == null) {
             setLayerType(1, null);
-            this.f60391a = (ImageView) findViewById(ResUtils.id(context, "bd_wallet_tip_img"));
-            this.f60393c = (TextView) findViewById(ResUtils.id(context, "bd_wallet_tip_title"));
-            this.f60392b = (ProgressBar) findViewById(ResUtils.id(context, "bd_wallet_progress_bar"));
-            this.f60394d = (TextView) findViewById(ResUtils.id(context, "bd_wallet_tip_time"));
+            this.f60591a = (ImageView) findViewById(ResUtils.id(context, "bd_wallet_tip_img"));
+            this.f60593c = (TextView) findViewById(ResUtils.id(context, "bd_wallet_tip_title"));
+            this.f60592b = (ProgressBar) findViewById(ResUtils.id(context, "bd_wallet_progress_bar"));
+            this.f60594d = (TextView) findViewById(ResUtils.id(context, "bd_wallet_tip_time"));
             Animation loadAnimation = AnimationUtils.loadAnimation(getContext(), ResUtils.anim(context, "wallet_base_rotate_up"));
-            this.f60395e = loadAnimation;
+            this.f60595e = loadAnimation;
             loadAnimation.setFillAfter(true);
             Animation loadAnimation2 = AnimationUtils.loadAnimation(getContext(), ResUtils.anim(context, "wallet_base_rotate_down"));
-            this.f60396f = loadAnimation2;
+            this.f60596f = loadAnimation2;
             loadAnimation2.setFillAfter(true);
-            this.f60399i = RotateLoadingLayout.getRotateYAnim(this.f60391a);
-            if (this.f60398h == LoadingLayout.AnimationStyle.ROTATE) {
-                this.f60391a.setImageDrawable(RefreshLoadingDrawable.newInstanceRed(context));
+            this.f60599i = RotateLoadingLayout.getRotateYAnim(this.f60591a);
+            if (this.f60598h == LoadingLayout.AnimationStyle.ROTATE) {
+                this.f60591a.setImageDrawable(RefreshLoadingDrawable.newInstanceRed(context));
             }
         }
     }
@@ -118,11 +118,11 @@ public class HeaderLoadingLayout extends LoadingLayout {
     @Override // com.baidu.wallet.base.widget.pulltorefresh.LoadingLayout
     public void onPull(float f2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeF(1048579, this, f2) == null) && this.f60398h == LoadingLayout.AnimationStyle.ROTATE) {
-            Drawable drawable = this.f60391a.getDrawable();
+        if ((interceptable == null || interceptable.invokeF(1048579, this, f2) == null) && this.f60598h == LoadingLayout.AnimationStyle.ROTATE) {
+            Drawable drawable = this.f60591a.getDrawable();
             if (drawable instanceof RefreshLoadingDrawable) {
                 ((RefreshLoadingDrawable) drawable).setProgress(RotateLoadingLayout.getProgress(f2));
-                this.f60391a.invalidate();
+                this.f60591a.invalidate();
             }
         }
     }
@@ -131,11 +131,11 @@ public class HeaderLoadingLayout extends LoadingLayout {
     public void onPullToRefresh() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            if (this.f60398h == LoadingLayout.AnimationStyle.FLIP && LoadingLayout.State.RELEASE_TO_REFRESH == getPreState()) {
-                this.f60391a.clearAnimation();
-                this.f60391a.startAnimation(this.f60396f);
+            if (this.f60598h == LoadingLayout.AnimationStyle.FLIP && LoadingLayout.State.RELEASE_TO_REFRESH == getPreState()) {
+                this.f60591a.clearAnimation();
+                this.f60591a.startAnimation(this.f60596f);
             }
-            this.f60393c.setText(ResUtils.getString(getContext(), "wallet_refresh_pull_down"));
+            this.f60593c.setText(ResUtils.getString(getContext(), "wallet_refresh_pull_down"));
         }
     }
 
@@ -143,19 +143,19 @@ public class HeaderLoadingLayout extends LoadingLayout {
     public void onRefreshing() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            if (this.f60398h == LoadingLayout.AnimationStyle.FLIP) {
-                this.f60391a.clearAnimation();
-                this.f60391a.setVisibility(4);
-                this.f60392b.setVisibility(0);
+            if (this.f60598h == LoadingLayout.AnimationStyle.FLIP) {
+                this.f60591a.clearAnimation();
+                this.f60591a.setVisibility(4);
+                this.f60592b.setVisibility(0);
             } else {
-                this.f60399i.start();
-                this.f60391a.setVisibility(0);
-                this.f60392b.setVisibility(8);
+                this.f60599i.start();
+                this.f60591a.setVisibility(0);
+                this.f60592b.setVisibility(8);
             }
-            if (TextUtils.isEmpty(this.f60397g)) {
-                this.f60393c.setText(ResUtils.getString(getContext(), "wallet_refresh_loading"));
+            if (TextUtils.isEmpty(this.f60597g)) {
+                this.f60593c.setText(ResUtils.getString(getContext(), "wallet_refresh_loading"));
             } else {
-                this.f60393c.setText(this.f60397g);
+                this.f60593c.setText(this.f60597g);
             }
         }
     }
@@ -164,11 +164,11 @@ public class HeaderLoadingLayout extends LoadingLayout {
     public void onReleaseToRefresh() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            if (this.f60398h == LoadingLayout.AnimationStyle.FLIP) {
-                this.f60391a.clearAnimation();
-                this.f60391a.startAnimation(this.f60395e);
+            if (this.f60598h == LoadingLayout.AnimationStyle.FLIP) {
+                this.f60591a.clearAnimation();
+                this.f60591a.startAnimation(this.f60595e);
             }
-            this.f60393c.setText(ResUtils.getString(getContext(), "wallet_refresh_release"));
+            this.f60593c.setText(ResUtils.getString(getContext(), "wallet_refresh_release"));
         }
     }
 
@@ -176,13 +176,13 @@ public class HeaderLoadingLayout extends LoadingLayout {
     public void onReset() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            if (this.f60398h == LoadingLayout.AnimationStyle.FLIP) {
-                this.f60391a.clearAnimation();
+            if (this.f60598h == LoadingLayout.AnimationStyle.FLIP) {
+                this.f60591a.clearAnimation();
             } else {
-                this.f60399i.cancel();
-                this.f60391a.setRotationY(0.0f);
+                this.f60599i.cancel();
+                this.f60591a.setRotationY(0.0f);
             }
-            this.f60393c.setText(ResUtils.getString(getContext(), "wallet_refresh_pull_down"));
+            this.f60593c.setText(ResUtils.getString(getContext(), "wallet_refresh_pull_down"));
         }
     }
 
@@ -190,12 +190,12 @@ public class HeaderLoadingLayout extends LoadingLayout {
     public void onStateChanged(LoadingLayout.State state, LoadingLayout.State state2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, state, state2) == null) {
-            if (this.f60398h == LoadingLayout.AnimationStyle.FLIP) {
-                this.f60391a.setVisibility(0);
-                this.f60392b.setVisibility(4);
+            if (this.f60598h == LoadingLayout.AnimationStyle.FLIP) {
+                this.f60591a.setVisibility(0);
+                this.f60592b.setVisibility(4);
             } else {
-                this.f60391a.setVisibility(0);
-                this.f60392b.setVisibility(8);
+                this.f60591a.setVisibility(0);
+                this.f60592b.setVisibility(8);
             }
             super.onStateChanged(state, state2);
         }
@@ -205,7 +205,7 @@ public class HeaderLoadingLayout extends LoadingLayout {
     public void setLastUpdatedLabel(CharSequence charSequence) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, charSequence) == null) {
-            this.f60394d.setText(charSequence);
+            this.f60594d.setText(charSequence);
         }
     }
 
@@ -215,8 +215,8 @@ public class HeaderLoadingLayout extends LoadingLayout {
         if (!(interceptable == null || interceptable.invokeL(1048586, this, charSequence) == null) || TextUtils.isEmpty(charSequence)) {
             return;
         }
-        this.f60397g = charSequence;
-        TextView textView = this.f60393c;
+        this.f60597g = charSequence;
+        TextView textView = this.f60593c;
         if (textView != null) {
             textView.setText(charSequence);
         }
@@ -241,18 +241,18 @@ public class HeaderLoadingLayout extends LoadingLayout {
                 return;
             }
         }
-        this.f60398h = LoadingLayout.AnimationStyle.FLIP;
+        this.f60598h = LoadingLayout.AnimationStyle.FLIP;
         a(context);
     }
 
     public void a(LoadingLayout.AnimationStyle animationStyle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, animationStyle) == null) {
-            this.f60398h = animationStyle;
+            this.f60598h = animationStyle;
             if (animationStyle == LoadingLayout.AnimationStyle.ROTATE) {
-                this.f60391a.setImageDrawable(RefreshLoadingDrawable.newInstanceRed(getContext()));
+                this.f60591a.setImageDrawable(RefreshLoadingDrawable.newInstanceRed(getContext()));
             } else {
-                this.f60391a.setImageDrawable(ResUtils.getDrawable(getContext(), "wallet_base_refresh_arrow"));
+                this.f60591a.setImageDrawable(ResUtils.getDrawable(getContext(), "wallet_base_refresh_arrow"));
             }
         }
     }

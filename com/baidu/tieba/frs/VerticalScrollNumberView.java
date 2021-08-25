@@ -21,19 +21,19 @@ public class VerticalScrollNumberView extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f50688e;
+    public Context f50796e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f50689f;
+    public int f50797f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f50690g;
+    public int f50798g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f50691h;
+    public int f50799h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f50692i;
+    public int f50800i;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public VerticalScrollNumberView(Context context) {
@@ -53,14 +53,14 @@ public class VerticalScrollNumberView extends LinearLayout {
                 return;
             }
         }
-        this.f50688e = null;
+        this.f50796e = null;
         b(context);
     }
 
     public final void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            ScrollTextView scrollTextView = new ScrollTextView(this.f50688e);
+            ScrollTextView scrollTextView = new ScrollTextView(this.f50796e);
             scrollTextView.setText(str);
             scrollTextView.setGravity(17);
             SkinManager.setBackgroundResource(scrollTextView, R.drawable.lottery_number_bg);
@@ -71,8 +71,8 @@ public class VerticalScrollNumberView extends LinearLayout {
             scrollTextView.setMaxLines(1);
             scrollTextView.setContinuousScrolling(false);
             scrollTextView.setSpeed((float) ((Math.random() * 5.0d) + 10.0d));
-            scrollTextView.setWidth(this.f50689f);
-            scrollTextView.setHeight(this.f50690g);
+            scrollTextView.setWidth(this.f50797f);
+            scrollTextView.setHeight(this.f50798g);
             addView(scrollTextView);
         }
     }
@@ -80,11 +80,11 @@ public class VerticalScrollNumberView extends LinearLayout {
     public final void b(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            this.f50688e = context;
-            this.f50689f = l.g(context, R.dimen.ds30);
-            this.f50690g = l.g(this.f50688e, R.dimen.ds40);
-            this.f50691h = l.g(this.f50688e, R.dimen.ds2);
-            this.f50692i = l.g(this.f50688e, R.dimen.ds8);
+            this.f50796e = context;
+            this.f50797f = l.g(context, R.dimen.ds30);
+            this.f50798g = l.g(this.f50796e, R.dimen.ds40);
+            this.f50799h = l.g(this.f50796e, R.dimen.ds2);
+            this.f50800i = l.g(this.f50796e, R.dimen.ds8);
         }
     }
 
@@ -109,10 +109,10 @@ public class VerticalScrollNumberView extends LinearLayout {
                 if (getChildAt(childCount) instanceof ScrollTextView) {
                     LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
                     if (i4 == 2) {
-                        layoutParams.setMargins(this.f50692i, 0, 0, 0);
+                        layoutParams.setMargins(this.f50800i, 0, 0, 0);
                         i4 = 0;
                     } else {
-                        layoutParams.setMargins(this.f50691h, 0, 0, 0);
+                        layoutParams.setMargins(this.f50799h, 0, 0, 0);
                         i4++;
                     }
                     getChildAt(childCount).setLayoutParams(layoutParams);
@@ -140,7 +140,7 @@ public class VerticalScrollNumberView extends LinearLayout {
                 return;
             }
         }
-        this.f50688e = null;
+        this.f50796e = null;
         b(context);
     }
 
@@ -163,7 +163,7 @@ public class VerticalScrollNumberView extends LinearLayout {
                 return;
             }
         }
-        this.f50688e = null;
+        this.f50796e = null;
         b(context);
     }
 }

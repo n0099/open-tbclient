@@ -23,13 +23,13 @@ public class i extends SSLSocketFactory {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f2278a;
+    public final String f2336a;
 
     /* renamed from: b  reason: collision with root package name */
-    public HostnameVerifier f2279b;
+    public HostnameVerifier f2337b;
 
     /* renamed from: c  reason: collision with root package name */
-    public HttpsURLConnection f2280c;
+    public HttpsURLConnection f2338c;
 
     public i(HttpsURLConnection httpsURLConnection) {
         Interceptable interceptable = $ic;
@@ -46,9 +46,9 @@ public class i extends SSLSocketFactory {
                 return;
             }
         }
-        this.f2278a = i.class.getSimpleName();
-        this.f2279b = HttpsURLConnection.getDefaultHostnameVerifier();
-        this.f2280c = httpsURLConnection;
+        this.f2336a = i.class.getSimpleName();
+        this.f2337b = HttpsURLConnection.getDefaultHostnameVerifier();
+        this.f2338c = httpsURLConnection;
     }
 
     @Override // javax.net.SocketFactory
@@ -106,7 +106,7 @@ public class i extends SSLSocketFactory {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{socket, str, Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
-            String requestProperty = this.f2280c.getRequestProperty("Host");
+            String requestProperty = this.f2338c.getRequestProperty("Host");
             if (requestProperty != null) {
                 str = requestProperty;
             }
@@ -125,7 +125,7 @@ public class i extends SSLSocketFactory {
                 } catch (Exception unused) {
                 }
             }
-            if (this.f2279b.verify(str, sSLSocket.getSession())) {
+            if (this.f2337b.verify(str, sSLSocket.getSession())) {
                 return sSLSocket;
             }
             throw new SSLPeerUnverifiedException("Verify hostname(" + str + ") failed.");

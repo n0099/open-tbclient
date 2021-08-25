@@ -15,22 +15,22 @@ public class a<T extends c> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f67310a;
+    public Context f67510a;
 
     /* renamed from: b  reason: collision with root package name */
-    public com.bytedance.sdk.openadsdk.core.e.m f67311b;
+    public com.bytedance.sdk.openadsdk.core.e.m f67511b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f67312c;
+    public String f67512c;
 
     /* renamed from: d  reason: collision with root package name */
-    public JSONObject f67313d;
+    public JSONObject f67513d;
 
     /* renamed from: e  reason: collision with root package name */
-    public T f67314e;
+    public T f67514e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f67315f;
+    public boolean f67515f;
 
     public a(Context context, com.bytedance.sdk.openadsdk.core.e.m mVar, String str, JSONObject jSONObject, T t) {
         Interceptable interceptable = $ic;
@@ -47,41 +47,41 @@ public class a<T extends c> {
                 return;
             }
         }
-        this.f67314e = null;
-        this.f67315f = false;
-        this.f67310a = context;
-        this.f67311b = mVar;
-        this.f67312c = str;
-        this.f67313d = jSONObject;
-        this.f67314e = t;
+        this.f67514e = null;
+        this.f67515f = false;
+        this.f67510a = context;
+        this.f67511b = mVar;
+        this.f67512c = str;
+        this.f67513d = jSONObject;
+        this.f67514e = t;
     }
 
     public Context a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f67310a : (Context) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f67510a : (Context) invokeV.objValue;
     }
 
     public com.bytedance.sdk.openadsdk.core.e.m b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f67311b : (com.bytedance.sdk.openadsdk.core.e.m) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f67511b : (com.bytedance.sdk.openadsdk.core.e.m) invokeV.objValue;
     }
 
     public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f67312c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f67512c : (String) invokeV.objValue;
     }
 
     public JSONObject d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (this.f67313d == null) {
-                this.f67313d = new JSONObject();
+            if (this.f67513d == null) {
+                this.f67513d = new JSONObject();
             }
-            return this.f67313d;
+            return this.f67513d;
         }
         return (JSONObject) invokeV.objValue;
     }
@@ -89,19 +89,19 @@ public class a<T extends c> {
     public T e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f67314e : (T) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f67514e : (T) invokeV.objValue;
     }
 
     public boolean f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f67315f : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f67515f : invokeV.booleanValue;
     }
 
     public void a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            this.f67315f = z;
+            this.f67515f = z;
         }
     }
 }

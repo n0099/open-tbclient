@@ -12,7 +12,7 @@ public final class ca implements View.OnClickListener {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ FeedbackInputActivity f59391a;
+    public final /* synthetic */ FeedbackInputActivity f59591a;
 
     public ca(FeedbackInputActivity feedbackInputActivity) {
         Interceptable interceptable = $ic;
@@ -29,7 +29,7 @@ public final class ca implements View.OnClickListener {
                 return;
             }
         }
-        this.f59391a = feedbackInputActivity;
+        this.f59591a = feedbackInputActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -38,22 +38,22 @@ public final class ca implements View.OnClickListener {
         int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-            FeedbackInputActivity feedbackInputActivity = this.f59391a;
+            FeedbackInputActivity feedbackInputActivity = this.f59591a;
             if (feedbackInputActivity.D) {
                 return;
             }
             if (feedbackInputActivity.p.getVisibility() == 0) {
-                linearLayout = this.f59391a.p;
+                linearLayout = this.f59591a.p;
                 i2 = 8;
             } else {
-                if (this.f59391a.p.getChildCount() <= 0) {
-                    this.f59391a.a(true);
+                if (this.f59591a.p.getChildCount() <= 0) {
+                    this.f59591a.a(true);
                 }
-                linearLayout = this.f59391a.p;
+                linearLayout = this.f59591a.p;
                 i2 = 0;
             }
             linearLayout.setVisibility(i2);
-            this.f59391a.C.setVisibility(i2);
+            this.f59591a.C.setVisibility(i2);
         }
     }
 }

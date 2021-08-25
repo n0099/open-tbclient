@@ -15,36 +15,36 @@ public final class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final ByteString f31661d;
+    public static final ByteString f31767d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final ByteString f31662e;
+    public static final ByteString f31768e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final ByteString f31663f;
+    public static final ByteString f31769f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final ByteString f31664g;
+    public static final ByteString f31770g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final ByteString f31665h;
+    public static final ByteString f31771h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final ByteString f31666i;
+    public static final ByteString f31772i;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final ByteString f31667a;
+    public final ByteString f31773a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final ByteString f31668b;
+    public final ByteString f31774b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final int f31669c;
+    public final int f31775c;
 
     /* renamed from: c.d.b.e0.k.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public interface InterfaceC1451a {
+    public interface InterfaceC1455a {
         void a(r rVar);
     }
 
@@ -61,12 +61,12 @@ public final class a {
                 return;
             }
         }
-        f31661d = ByteString.encodeUtf8(":");
-        f31662e = ByteString.encodeUtf8(":status");
-        f31663f = ByteString.encodeUtf8(":method");
-        f31664g = ByteString.encodeUtf8(":path");
-        f31665h = ByteString.encodeUtf8(":scheme");
-        f31666i = ByteString.encodeUtf8(":authority");
+        f31767d = ByteString.encodeUtf8(":");
+        f31768e = ByteString.encodeUtf8(":status");
+        f31769f = ByteString.encodeUtf8(":method");
+        f31770g = ByteString.encodeUtf8(":path");
+        f31771h = ByteString.encodeUtf8(":scheme");
+        f31772i = ByteString.encodeUtf8(":authority");
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -96,7 +96,7 @@ public final class a {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
             if (obj instanceof a) {
                 a aVar = (a) obj;
-                return this.f31667a.equals(aVar.f31667a) && this.f31668b.equals(aVar.f31668b);
+                return this.f31773a.equals(aVar.f31773a) && this.f31774b.equals(aVar.f31774b);
             }
             return false;
         }
@@ -106,13 +106,13 @@ public final class a {
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? ((527 + this.f31667a.hashCode()) * 31) + this.f31668b.hashCode() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? ((527 + this.f31773a.hashCode()) * 31) + this.f31774b.hashCode() : invokeV.intValue;
     }
 
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? c.d.b.e0.e.q("%s: %s", this.f31667a.utf8(), this.f31668b.utf8()) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? c.d.b.e0.e.q("%s: %s", this.f31773a.utf8(), this.f31774b.utf8()) : (String) invokeV.objValue;
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -151,8 +151,8 @@ public final class a {
                 return;
             }
         }
-        this.f31667a = byteString;
-        this.f31668b = byteString2;
-        this.f31669c = byteString.size() + 32 + byteString2.size();
+        this.f31773a = byteString;
+        this.f31774b = byteString2;
+        this.f31775c = byteString.size() + 32 + byteString2.size();
     }
 }

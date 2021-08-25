@@ -13,13 +13,13 @@ public class h {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f2548a = 0;
+    public static int f2606a = 0;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f2549b = 3;
+    public static int f2607b = 3;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String[] f2550c;
+    public static final String[] f2608c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -35,7 +35,7 @@ public class h {
                 return;
             }
         }
-        f2550c = new String[]{"meizu"};
+        f2608c = new String[]{"meizu"};
     }
 
     public static String a(int i2) {
@@ -61,7 +61,7 @@ public class h {
         String lowerCase = str.toLowerCase();
         int i2 = 0;
         while (true) {
-            String[] strArr = f2550c;
+            String[] strArr = f2608c;
             if (i2 >= strArr.length) {
                 return false;
             }

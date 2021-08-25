@@ -19,10 +19,10 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import c.a.e.a.d;
 import c.a.e.e.p.l;
-import c.a.o0.b1.h0;
-import c.a.o0.b1.k0;
-import c.a.p0.j1.f.j.f;
-import c.a.p0.j1.l.c.a;
+import c.a.p0.b1.h0;
+import c.a.p0.b1.k0;
+import c.a.q0.j1.f.j.f;
+import c.a.q0.j1.l.c.a;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.StringUtils;
@@ -66,22 +66,22 @@ public class OfficialBarFeedMsglistView extends d<OfficialBarFeedActivity> imple
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public BaseActivity<OfficialBarFeedActivity> f52651e;
+    public BaseActivity<OfficialBarFeedActivity> f52812e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TbPageContext<OfficialBarFeedActivity> f52652f;
+    public TbPageContext<OfficialBarFeedActivity> f52813f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ImageView f52653g;
+    public ImageView f52814g;
 
     /* renamed from: h  reason: collision with root package name */
-    public OfficialBarFeedMsglistAdapter f52654h;
+    public OfficialBarFeedMsglistAdapter f52815h;
 
     /* renamed from: i  reason: collision with root package name */
-    public RecyclerView f52655i;
+    public RecyclerView f52816i;
 
     /* renamed from: j  reason: collision with root package name */
-    public TextView f52656j;
+    public TextView f52817j;
     public View k;
     public NavigationBar l;
     public View m;
@@ -103,7 +103,7 @@ public class OfficialBarFeedMsglistView extends d<OfficialBarFeedActivity> imple
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ OfficialBarFeedMsglistView f52657a;
+        public final /* synthetic */ OfficialBarFeedMsglistView f52818a;
 
         public a(OfficialBarFeedMsglistView officialBarFeedMsglistView) {
             Interceptable interceptable = $ic;
@@ -120,7 +120,7 @@ public class OfficialBarFeedMsglistView extends d<OfficialBarFeedActivity> imple
                     return;
                 }
             }
-            this.f52657a = officialBarFeedMsglistView;
+            this.f52818a = officialBarFeedMsglistView;
         }
 
         @Override // androidx.recyclerview.widget.RecyclerView.ItemDecoration
@@ -129,7 +129,7 @@ public class OfficialBarFeedMsglistView extends d<OfficialBarFeedActivity> imple
             if (interceptable == null || interceptable.invokeLLLL(1048576, this, rect, view, recyclerView, state) == null) {
                 super.getItemOffsets(rect, view, recyclerView, state);
                 if (recyclerView.getChildLayoutPosition(view) == 0) {
-                    rect.left = l.g(this.f52657a.mContext.getPageActivity(), R.dimen.tbds19);
+                    rect.left = l.g(this.f52818a.mContext.getPageActivity(), R.dimen.tbds19);
                 }
             }
         }
@@ -141,10 +141,10 @@ public class OfficialBarFeedMsglistView extends d<OfficialBarFeedActivity> imple
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f52658a;
+        public final /* synthetic */ String f52819a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ long f52659b;
+        public final /* synthetic */ long f52820b;
 
         public b(OfficialBarFeedMsglistView officialBarFeedMsglistView, String str, long j2) {
             Interceptable interceptable = $ic;
@@ -161,21 +161,21 @@ public class OfficialBarFeedMsglistView extends d<OfficialBarFeedActivity> imple
                     return;
                 }
             }
-            this.f52658a = str;
-            this.f52659b = j2;
+            this.f52819a = str;
+            this.f52820b = j2;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // c.a.o0.b1.h0
+        @Override // c.a.p0.b1.h0
         /* renamed from: a */
         public Void doInBackground() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (StringUtils.isNull(this.f52658a)) {
+                if (StringUtils.isNull(this.f52819a)) {
                     return null;
                 }
-                c.a.p0.j1.h.l.t().w(Long.parseLong(this.f52658a), this.f52659b);
+                c.a.q0.j1.h.l.t().w(Long.parseLong(this.f52819a), this.f52820b);
                 return null;
             }
             return (Void) invokeV.objValue;
@@ -188,7 +188,7 @@ public class OfficialBarFeedMsglistView extends d<OfficialBarFeedActivity> imple
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ OfficialBarFeedMsglistView f52660e;
+        public final /* synthetic */ OfficialBarFeedMsglistView f52821e;
 
         public c(OfficialBarFeedMsglistView officialBarFeedMsglistView) {
             Interceptable interceptable = $ic;
@@ -205,15 +205,15 @@ public class OfficialBarFeedMsglistView extends d<OfficialBarFeedActivity> imple
                     return;
                 }
             }
-            this.f52660e = officialBarFeedMsglistView;
+            this.f52821e = officialBarFeedMsglistView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                OfficialBarFeedMsglistView officialBarFeedMsglistView = this.f52660e;
-                officialBarFeedMsglistView.f(view, officialBarFeedMsglistView.f52652f.getPageActivity());
+                OfficialBarFeedMsglistView officialBarFeedMsglistView = this.f52821e;
+                officialBarFeedMsglistView.f(view, officialBarFeedMsglistView.f52813f.getPageActivity());
             }
         }
     }
@@ -245,55 +245,55 @@ public class OfficialBarFeedMsglistView extends d<OfficialBarFeedActivity> imple
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view, obj, Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
             if (obj instanceof OfficialBarFeedMsglistAdapter.a) {
                 OfficialBarFeedMsglistAdapter.a aVar = (OfficialBarFeedMsglistAdapter.a) obj;
-                SingleForumBroadcastFeedActivityConfig singleForumBroadcastFeedActivityConfig = new SingleForumBroadcastFeedActivityConfig(this.f52652f.getPageActivity(), String.valueOf(aVar.d()), aVar.b());
+                SingleForumBroadcastFeedActivityConfig singleForumBroadcastFeedActivityConfig = new SingleForumBroadcastFeedActivityConfig(this.f52813f.getPageActivity(), String.valueOf(aVar.d()), aVar.b());
                 singleForumBroadcastFeedActivityConfig.setSource((byte) 1);
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, singleForumBroadcastFeedActivityConfig));
                 StatisticItem statisticItem = new StatisticItem("c13862");
                 statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
                 statisticItem.param("fid", aVar.d());
                 TiebaStatic.log(statisticItem);
-            } else if (obj instanceof a.C0959a) {
-                e((a.C0959a) obj, this.f52652f.getPageActivity());
+            } else if (obj instanceof a.C0970a) {
+                e((a.C0970a) obj, this.f52813f.getPageActivity());
             }
         }
     }
 
-    public final void e(a.C0959a c0959a, Context context) {
+    public final void e(a.C0970a c0970a, Context context) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, c0959a, context) == null) || c0959a == null) {
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, c0970a, context) == null) || c0970a == null) {
             return;
         }
-        n(c0959a.f20582e, System.currentTimeMillis());
-        if (StringUtils.isNull(c0959a.f20581d)) {
+        n(c0970a.f20912e, System.currentTimeMillis());
+        if (StringUtils.isNull(c0970a.f20911d)) {
             return;
         }
-        if (c0959a.f20581d.startsWith("web:http")) {
-            c0959a.f20581d = c0959a.f20581d.replaceFirst(UrlSchemaHelper.SCHEMA_TYPE_WEB, "");
+        if (c0970a.f20911d.startsWith("web:http")) {
+            c0970a.f20911d = c0970a.f20911d.replaceFirst(UrlSchemaHelper.SCHEMA_TYPE_WEB, "");
         }
-        if (c0959a.f20581d.contains("?")) {
-            c0959a.f20581d = String.format(Locale.US, "%s&broadcast_id=%d", c0959a.f20581d, Long.valueOf(c0959a.f20585h));
+        if (c0970a.f20911d.contains("?")) {
+            c0970a.f20911d = String.format(Locale.US, "%s&broadcast_id=%d", c0970a.f20911d, Long.valueOf(c0970a.f20915h));
         } else {
-            c0959a.f20581d = String.format(Locale.US, "%s?broadcast_id=%d", c0959a.f20581d, Long.valueOf(c0959a.f20585h));
+            c0970a.f20911d = String.format(Locale.US, "%s?broadcast_id=%d", c0970a.f20911d, Long.valueOf(c0970a.f20915h));
         }
-        if (c0959a.f20581d.contains(UrlSchemaHelper.SCHEMA_TYPE_DEEPLINK_TOPIC)) {
+        if (c0970a.f20911d.contains(UrlSchemaHelper.SCHEMA_TYPE_DEEPLINK_TOPIC)) {
             try {
-                context.startActivity(Intent.parseUri(c0959a.f20581d, 1));
+                context.startActivity(Intent.parseUri(c0970a.f20911d, 1));
             } catch (URISyntaxException e2) {
                 e2.printStackTrace();
             }
         }
-        if (!URLUtil.isHttpUrl(c0959a.f20581d) && !URLUtil.isHttpsUrl(c0959a.f20581d) && !c0959a.f20581d.startsWith(UrlSchemaHelper.SCHEMA_TB_FLUTTER)) {
-            Uri parse = Uri.parse(c0959a.f20581d);
+        if (!URLUtil.isHttpUrl(c0970a.f20911d) && !URLUtil.isHttpsUrl(c0970a.f20911d) && !c0970a.f20911d.startsWith(UrlSchemaHelper.SCHEMA_TB_FLUTTER)) {
+            Uri parse = Uri.parse(c0970a.f20911d);
             if (parse != null) {
                 UtilHelper.dealOneScheme(context, parse.toString());
             }
         } else {
-            UrlManager.getInstance().dealOneLink(this.f52652f, new String[]{c0959a.f20581d});
+            UrlManager.getInstance().dealOneLink(this.f52813f, new String[]{c0970a.f20911d});
         }
         StatisticItem statisticItem = new StatisticItem(this.s ? "c13866" : "c13864");
         statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-        statisticItem.param("fid", c0959a.f20582e);
-        String str = c0959a.n;
+        statisticItem.param("fid", c0970a.f20912e);
+        String str = c0970a.n;
         statisticItem.param("tid", str != null ? str : "");
         TiebaStatic.log(statisticItem);
     }
@@ -301,7 +301,7 @@ public class OfficialBarFeedMsglistView extends d<OfficialBarFeedActivity> imple
     public void f(View view, Activity activity) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, view, activity) == null) {
-            if (view == this.f52653g) {
+            if (view == this.f52814g) {
                 MessageManager.getInstance().sendMessage(new CustomMessage(2008022, new OfficialBarTipActivityConfig(getPageContext().getPageActivity())));
             } else if (view == this.n) {
                 activity.finish();
@@ -351,9 +351,9 @@ public class OfficialBarFeedMsglistView extends d<OfficialBarFeedActivity> imple
             View addCustomView = this.l.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.official_bar_feed_natigation_icon, this.x);
             this.m = addCustomView;
             ImageView imageView = (ImageView) addCustomView.findViewById(R.id.feed_header_icon);
-            this.f52653g = imageView;
+            this.f52814g = imageView;
             imageView.setClickable(true);
-            this.f52653g.setOnClickListener(this.x);
+            this.f52814g.setOnClickListener(this.x);
         }
     }
 
@@ -368,7 +368,7 @@ public class OfficialBarFeedMsglistView extends d<OfficialBarFeedActivity> imple
                 layoutParams.topMargin = l.g(this.mContext.getPageActivity(), R.dimen.tbds_7);
                 this.r.setLayoutParams(layoutParams);
             }
-            f fVar = new f(this.f52652f, this.r, this);
+            f fVar = new f(this.f52813f, this.r, this);
             this.q = fVar;
             fVar.d(this.s);
             ((ProgressBar) baseActivity.findViewById(R.id.msg_progress)).setVisibility(8);
@@ -380,21 +380,21 @@ public class OfficialBarFeedMsglistView extends d<OfficialBarFeedActivity> imple
                 View inflate = View.inflate(baseActivity, R.layout.official_bar_feed_header, null);
                 this.o = inflate;
                 this.k = inflate.findViewById(R.id.official_bar_feed_header_view);
-                this.f52656j = (TextView) this.o.findViewById(R.id.official_feed_recent);
+                this.f52817j = (TextView) this.o.findViewById(R.id.official_feed_recent);
                 RecyclerView recyclerView = (RecyclerView) this.o.findViewById(R.id.official_feed_recent_recyclerview);
-                this.f52655i = recyclerView;
+                this.f52816i = recyclerView;
                 recyclerView.setLayoutManager(new LinearLayoutManager(baseActivity, 0, false));
                 OfficialBarFeedMsglistAdapter officialBarFeedMsglistAdapter = new OfficialBarFeedMsglistAdapter(baseActivity.getPageContext(), this);
-                this.f52654h = officialBarFeedMsglistAdapter;
-                this.f52655i.setAdapter(officialBarFeedMsglistAdapter);
-                this.f52655i.setClipChildren(false);
-                this.f52655i.addItemDecoration(new a(this), 0);
+                this.f52815h = officialBarFeedMsglistAdapter;
+                this.f52816i.setAdapter(officialBarFeedMsglistAdapter);
+                this.f52816i.setClipChildren(false);
+                this.f52816i.addItemDecoration(new a(this), 0);
             }
             this.r.setAdapter((ListAdapter) this.q);
         }
     }
 
-    public void j(List<c.a.p0.j1.l.c.b> list, List<c.a.p0.j1.h.o.a> list2) {
+    public void j(List<c.a.q0.j1.l.c.b> list, List<c.a.q0.j1.h.o.a> list2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048582, this, list, list2) == null) {
             this.q.c(list);
@@ -402,7 +402,7 @@ public class OfficialBarFeedMsglistView extends d<OfficialBarFeedActivity> imple
                 BdTypeListView bdTypeListView = this.r;
                 bdTypeListView.setSelection(bdTypeListView.getBottom());
             }
-            this.f52651e.hideLoadingView(this.p);
+            this.f52812e.hideLoadingView(this.p);
             if (!ListUtils.isEmpty(list)) {
                 g();
             } else if (ListUtils.isEmpty(list2)) {
@@ -413,9 +413,9 @@ public class OfficialBarFeedMsglistView extends d<OfficialBarFeedActivity> imple
             if (ListUtils.isEmpty(list2)) {
                 return;
             }
-            ArrayList<? extends c.a.o0.i0.b.a> arrayList = new ArrayList<>(10);
+            ArrayList<? extends c.a.p0.i0.b.a> arrayList = new ArrayList<>(10);
             for (int i2 = 0; i2 < 10 && i2 < list2.size(); i2++) {
-                c.a.p0.j1.h.o.a aVar = list2.get(i2);
+                c.a.q0.j1.h.o.a aVar = list2.get(i2);
                 OfficialBarFeedMsglistAdapter.a aVar2 = new OfficialBarFeedMsglistAdapter.a();
                 aVar2.g(aVar.c());
                 aVar2.i(aVar.a());
@@ -425,7 +425,7 @@ public class OfficialBarFeedMsglistView extends d<OfficialBarFeedActivity> imple
                 aVar2.o(aVar.f());
                 arrayList.add(aVar2);
             }
-            this.f52654h.setData(arrayList);
+            this.f52815h.setData(arrayList);
             if (this.o == null || this.r.getHeaderViewsCount() > 0) {
                 return;
             }
@@ -433,7 +433,7 @@ public class OfficialBarFeedMsglistView extends d<OfficialBarFeedActivity> imple
         }
     }
 
-    public void k(LongSparseArray<c.a.p0.j1.i.a.b.b> longSparseArray) {
+    public void k(LongSparseArray<c.a.q0.j1.i.a.b.b> longSparseArray) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048583, this, longSparseArray) == null) || longSparseArray == null || longSparseArray.size() <= 0) {
             return;
@@ -445,7 +445,7 @@ public class OfficialBarFeedMsglistView extends d<OfficialBarFeedActivity> imple
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
             if (this.v == null) {
-                this.v = NoDataViewFactory.a(this.f52652f.getPageActivity(), this.p, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, i2), NoDataViewFactory.e.a(R.string.official_feed_no_data), null);
+                this.v = NoDataViewFactory.a(this.f52813f.getPageActivity(), this.p, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, i2), NoDataViewFactory.e.a(R.string.official_feed_no_data), null);
                 NoDataViewFactory.d.a aVar = new NoDataViewFactory.d.a();
                 aVar.i(NoDataViewFactory.ImgType.CREATE);
                 this.v.setImgOption(aVar.f());
@@ -453,7 +453,7 @@ public class OfficialBarFeedMsglistView extends d<OfficialBarFeedActivity> imple
             if (this.v.getVisibility() == 0) {
                 return;
             }
-            this.v.onChangeSkinType(this.f52652f, TbadkApplication.getInst().getSkinType());
+            this.v.onChangeSkinType(this.f52813f, TbadkApplication.getInst().getSkinType());
             this.v.setVisibility(0);
         }
     }
@@ -461,7 +461,7 @@ public class OfficialBarFeedMsglistView extends d<OfficialBarFeedActivity> imple
     public void m(boolean z, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZL(1048585, this, z, str) == null) {
-            new BdTopToast(this.f52651e).setIcon(z).setContent(str).show(this.p);
+            new BdTopToast(this.f52812e).setIcon(z).setContent(str).show(this.p);
         }
     }
 
@@ -477,19 +477,19 @@ public class OfficialBarFeedMsglistView extends d<OfficialBarFeedActivity> imple
         if (interceptable == null || interceptable.invokeI(1048587, this, i2) == null) {
             this.l.onChangeSkinType(getPageContext(), i2);
             this.l.onBackBtnOnChangeSkin();
-            SkinManager.setViewTextColor(this.f52653g, R.color.CAM_X0302, 1);
-            SkinManager.setViewTextColor(this.f52656j, R.color.CAM_X0105);
+            SkinManager.setViewTextColor(this.f52814g, R.color.CAM_X0302, 1);
+            SkinManager.setViewTextColor(this.f52817j, R.color.CAM_X0105);
             SkinManager.setViewTextColor(this.u, R.color.CAM_X0105);
             SkinManager.setBackgroundColor(this.w, R.color.CAM_X0204);
             if (this.k != null) {
-                TBSelector.makeShadowDrawable().setBgColor(R.color.CAM_X0205).setShapeRadius(l.g(this.f52652f.getPageActivity(), R.dimen.tbds31)).setShadowColor(R.color.CAM_X0804).setShadowSide(ShadowDrawable.ALL).setShadowRadius(l.g(this.f52652f.getPageActivity(), R.dimen.tbds10)).setOffsetX(0).setOffsetY(l.g(this.f52652f.getPageActivity(), R.dimen.tbds5)).into(this.k);
+                TBSelector.makeShadowDrawable().setBgColor(R.color.CAM_X0205).setShapeRadius(l.g(this.f52813f.getPageActivity(), R.dimen.tbds31)).setShadowColor(R.color.CAM_X0804).setShadowSide(ShadowDrawable.ALL).setShadowRadius(l.g(this.f52813f.getPageActivity(), R.dimen.tbds10)).setOffsetX(0).setOffsetY(l.g(this.f52813f.getPageActivity(), R.dimen.tbds5)).into(this.k);
             }
             NoDataView noDataView = this.v;
             if (noDataView != null) {
-                noDataView.onChangeSkinType(this.f52652f, i2);
+                noDataView.onChangeSkinType(this.f52813f, i2);
             }
-            if (this.f52653g != null) {
-                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f52653g, R.drawable.icon_pure_more_administration44_svg, R.color.CAM_X0105, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+            if (this.f52814g != null) {
+                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f52814g, R.drawable.icon_pure_more_administration44_svg, R.color.CAM_X0105, SvgManager.SvgResourceStateType.NORMAL_PRESS);
             }
             f fVar = this.q;
             if (fVar != null) {
@@ -524,9 +524,9 @@ public class OfficialBarFeedMsglistView extends d<OfficialBarFeedActivity> imple
         this.q = null;
         this.r = null;
         this.x = new c(this);
-        this.f52651e = baseActivity;
+        this.f52812e = baseActivity;
         this.s = z;
-        this.f52652f = baseActivity.getPageContext();
+        this.f52813f = baseActivity.getPageContext();
         baseActivity.setContentView(R.layout.msg_msglist_activity);
         ViewGroup viewGroup = (ViewGroup) baseActivity.findViewById(R.id.msg_root_view);
         this.p = viewGroup;

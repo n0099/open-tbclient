@@ -11,8 +11,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
 import c.a.e.e.p.l;
-import c.a.o0.s.u.c;
-import c.a.p0.v0.m;
+import c.a.p0.s.u.c;
+import c.a.q0.v0.m;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tbadk.BaseActivity;
@@ -37,22 +37,22 @@ public class ForumTabSelectedView extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public FrsTabItemData f58494e;
+    public FrsTabItemData f58691e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ImageView f58495f;
+    public ImageView f58692f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f58496g;
+    public TextView f58693g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TabLayout f58497h;
+    public TabLayout f58694h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f58498i;
+    public int f58695i;
 
     /* renamed from: j  reason: collision with root package name */
-    public TabLayout.OnTabSelectedListener f58499j;
+    public TabLayout.OnTabSelectedListener f58696j;
     public BaseActivity k;
     public View.OnClickListener l;
 
@@ -62,7 +62,7 @@ public class ForumTabSelectedView extends LinearLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ForumTabSelectedView f58500a;
+        public final /* synthetic */ ForumTabSelectedView f58697a;
 
         public a(ForumTabSelectedView forumTabSelectedView) {
             Interceptable interceptable = $ic;
@@ -79,7 +79,7 @@ public class ForumTabSelectedView extends LinearLayout {
                     return;
                 }
             }
-            this.f58500a = forumTabSelectedView;
+            this.f58697a = forumTabSelectedView;
         }
 
         @Override // com.google.android.material.tabs.TabLayout.BaseOnTabSelectedListener
@@ -89,13 +89,13 @@ public class ForumTabSelectedView extends LinearLayout {
                 FrsTabItemData frsTabItemData = (FrsTabItemData) tab.getTag();
                 if (frsTabItemData.isSelected) {
                     frsTabItemData.isSelected = false;
-                    this.f58500a.f58494e = null;
-                    this.f58500a.setTabColorUnSelected(tab);
+                    this.f58697a.f58691e = null;
+                    this.f58697a.setTabColorUnSelected(tab);
                     return;
                 }
                 frsTabItemData.isSelected = true;
-                this.f58500a.f58494e = frsTabItemData;
-                this.f58500a.setTabColorSelected(tab);
+                this.f58697a.f58691e = frsTabItemData;
+                this.f58697a.setTabColorSelected(tab);
             }
         }
 
@@ -105,8 +105,8 @@ public class ForumTabSelectedView extends LinearLayout {
             if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tab) == null) && tab != null && (tab.getTag() instanceof FrsTabItemData)) {
                 FrsTabItemData frsTabItemData = (FrsTabItemData) tab.getTag();
                 frsTabItemData.isSelected = true;
-                this.f58500a.f58494e = frsTabItemData;
-                this.f58500a.setTabColorSelected(tab);
+                this.f58697a.f58691e = frsTabItemData;
+                this.f58697a.setTabColorSelected(tab);
             }
         }
 
@@ -115,7 +115,7 @@ public class ForumTabSelectedView extends LinearLayout {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, tab) == null) && tab != null && (tab.getTag() instanceof FrsTabItemData)) {
                 ((FrsTabItemData) tab.getTag()).isSelected = false;
-                this.f58500a.setTabColorUnSelected(tab);
+                this.f58697a.setTabColorUnSelected(tab);
             }
         }
     }
@@ -126,7 +126,7 @@ public class ForumTabSelectedView extends LinearLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ForumTabSelectedView f58501e;
+        public final /* synthetic */ ForumTabSelectedView f58698e;
 
         public b(ForumTabSelectedView forumTabSelectedView) {
             Interceptable interceptable = $ic;
@@ -143,17 +143,17 @@ public class ForumTabSelectedView extends LinearLayout {
                     return;
                 }
             }
-            this.f58501e = forumTabSelectedView;
+            this.f58698e = forumTabSelectedView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f58501e.k == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f58698e.k == null) {
                 return;
             }
-            l.x(this.f58501e.getContext(), this.f58501e);
-            m.b(this.f58501e.k, this.f58501e.k.getPageContext());
+            l.x(this.f58698e.getContext(), this.f58698e);
+            m.b(this.f58698e.k, this.f58698e.k.getPageContext());
         }
     }
 
@@ -176,8 +176,8 @@ public class ForumTabSelectedView extends LinearLayout {
                 return;
             }
         }
-        this.f58498i = R.color.CAM_X0202;
-        this.f58499j = new a(this);
+        this.f58695i = R.color.CAM_X0202;
+        this.f58696j = new a(this);
         this.l = new b(this);
         i();
     }
@@ -188,7 +188,7 @@ public class ForumTabSelectedView extends LinearLayout {
         if (!(interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, this, tab) == null) || tab == null || tab.getCustomView() == null) {
             return;
         }
-        ((c.a.o0.s.f0.n.b) ((TBSpecificationBtn) tab.getCustomView()).getStyleConfig()).q(R.color.CAM_X0302);
+        ((c.a.p0.s.f0.n.b) ((TBSpecificationBtn) tab.getCustomView()).getStyleConfig()).q(R.color.CAM_X0302);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -197,7 +197,7 @@ public class ForumTabSelectedView extends LinearLayout {
         if (!(interceptable == null || interceptable.invokeL(65543, this, tab) == null) || tab == null || tab.getCustomView() == null) {
             return;
         }
-        c.a.o0.s.f0.n.b bVar = (c.a.o0.s.f0.n.b) ((TBSpecificationBtn) tab.getCustomView()).getStyleConfig();
+        c.a.p0.s.f0.n.b bVar = (c.a.p0.s.f0.n.b) ((TBSpecificationBtn) tab.getCustomView()).getStyleConfig();
         if (j(tab)) {
             return;
         }
@@ -207,27 +207,27 @@ public class ForumTabSelectedView extends LinearLayout {
     public final void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f58495f = new ImageView(getContext());
+            this.f58692f = new ImageView(getContext());
             int g2 = l.g(getContext(), R.dimen.tbds31);
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(g2, g2);
             layoutParams.setMargins(l.g(getContext(), R.dimen.M_W_X002), 0, 0, 0);
-            this.f58495f.setLayoutParams(layoutParams);
-            this.f58495f.setOnClickListener(this.l);
-            addView(this.f58495f);
+            this.f58692f.setLayoutParams(layoutParams);
+            this.f58692f.setOnClickListener(this.l);
+            addView(this.f58692f);
         }
     }
 
     public final void f(TabLayout tabLayout) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tabLayout) == null) {
-            SkinManager.setBackgroundColor(tabLayout, this.f58498i);
+            SkinManager.setBackgroundColor(tabLayout, this.f58695i);
             if (tabLayout != null) {
                 for (int i2 = 0; i2 < tabLayout.getTabCount(); i2++) {
                     TabLayout.Tab tabAt = tabLayout.getTabAt(i2);
                     if (tabAt != null && (tabAt.getCustomView() instanceof TBSpecificationBtn)) {
                         TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) tabAt.getCustomView();
                         tBSpecificationBtn.changeSkinType();
-                        c.a.o0.s.f0.n.b bVar = (c.a.o0.s.f0.n.b) tBSpecificationBtn.getStyleConfig();
+                        c.a.p0.s.f0.n.b bVar = (c.a.p0.s.f0.n.b) tBSpecificationBtn.getStyleConfig();
                         if (tabAt.isSelected()) {
                             bVar.q(R.color.CAM_X0302);
                         } else if (j(tabAt)) {
@@ -244,12 +244,12 @@ public class ForumTabSelectedView extends LinearLayout {
     public final void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f58497h = (TabLayout) LayoutInflater.from(getContext()).inflate(R.layout.forum_tab_select_layout, (ViewGroup) null);
+            this.f58694h = (TabLayout) LayoutInflater.from(getContext()).inflate(R.layout.forum_tab_select_layout, (ViewGroup) null);
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
             layoutParams.setMargins(l.g(getContext(), R.dimen.M_W_X002), 0, 0, 0);
-            this.f58497h.setLayoutParams(layoutParams);
-            addView(this.f58497h);
-            this.f58497h.setOnTabSelectedListener(this.f58499j);
+            this.f58694h.setLayoutParams(layoutParams);
+            addView(this.f58694h);
+            this.f58694h.setOnTabSelectedListener(this.f58696j);
         }
     }
 
@@ -257,7 +257,7 @@ public class ForumTabSelectedView extends LinearLayout {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            FrsTabItemData frsTabItemData = this.f58494e;
+            FrsTabItemData frsTabItemData = this.f58691e;
             if (frsTabItemData == null || !frsTabItemData.isSelected) {
                 return null;
             }
@@ -269,12 +269,12 @@ public class ForumTabSelectedView extends LinearLayout {
     public final void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.f58496g = new EMTextView(getContext());
-            this.f58496g.setLayoutParams(new LinearLayout.LayoutParams(-2, -2));
-            c.d(this.f58496g).x(R.dimen.T_X08);
-            this.f58496g.setText(R.string.forum_tab_select_title);
-            this.f58496g.setOnClickListener(this.l);
-            addView(this.f58496g);
+            this.f58693g = new EMTextView(getContext());
+            this.f58693g.setLayoutParams(new LinearLayout.LayoutParams(-2, -2));
+            c.d(this.f58693g).y(R.dimen.T_X08);
+            this.f58693g.setText(R.string.forum_tab_select_title);
+            this.f58693g.setOnClickListener(this.l);
+            addView(this.f58693g);
         }
     }
 
@@ -298,7 +298,7 @@ public class ForumTabSelectedView extends LinearLayout {
     /* JADX DEBUG: Multi-variable search result rejected for r18v0, resolved type: com.google.android.material.tabs.TabLayout */
     /* JADX WARN: Multi-variable type inference failed */
     /* JADX WARN: Type inference failed for: r3v0 */
-    /* JADX WARN: Type inference failed for: r3v1, types: [boolean, int] */
+    /* JADX WARN: Type inference failed for: r3v1, types: [int, boolean] */
     /* JADX WARN: Type inference failed for: r3v3 */
     public final void k(List<FrsTabItemData> list, TabLayout tabLayout, int i2) {
         Interceptable interceptable = $ic;
@@ -340,7 +340,7 @@ public class ForumTabSelectedView extends LinearLayout {
                         TBSpecificationBtn tBSpecificationBtn = null;
                         if (!(tabAt.getCustomView() instanceof TBSpecificationBtn)) {
                             tBSpecificationBtn = new TBSpecificationBtn(getContext());
-                            c.a.o0.s.f0.n.b bVar = new c.a.o0.s.f0.n.b();
+                            c.a.p0.s.f0.n.b bVar = new c.a.p0.s.f0.n.b();
                             bVar.k(g3);
                             bVar.m(g4);
                             if (frsTabItemData.tabId == 505) {
@@ -378,9 +378,9 @@ public class ForumTabSelectedView extends LinearLayout {
     public void onChangeSkinType(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
-            f(this.f58497h);
-            SkinManager.setViewTextColor(this.f58496g, R.color.CAM_X0107);
-            this.f58495f.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_post_section12, SkinManager.getColor(R.color.CAM_X0111), WebPManager.ResourceStateType.NORMAL));
+            f(this.f58694h);
+            SkinManager.setViewTextColor(this.f58693g, R.color.CAM_X0107);
+            this.f58692f.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_post_section12, SkinManager.getColor(R.color.CAM_X0111), WebPManager.ResourceStateType.NORMAL));
         }
     }
 
@@ -396,7 +396,7 @@ public class ForumTabSelectedView extends LinearLayout {
         if (!(interceptable == null || interceptable.invokeI(1048586, this, i2) == null) || i2 == 0) {
             return;
         }
-        this.f58498i = i2;
+        this.f58695i = i2;
     }
 
     public void setData(FrsTabInfoData frsTabInfoData) {
@@ -404,7 +404,7 @@ public class ForumTabSelectedView extends LinearLayout {
         if (interceptable == null || interceptable.invokeL(1048587, this, frsTabInfoData) == null) {
             if (frsTabInfoData != null && !ListUtils.isEmpty(frsTabInfoData.tabList)) {
                 setVisibility(0);
-                k(frsTabInfoData.tabList, this.f58497h, frsTabInfoData.selectedTabId);
+                k(frsTabInfoData.tabList, this.f58694h, frsTabInfoData.selectedTabId);
                 return;
             }
             setVisibility(8);
@@ -429,8 +429,8 @@ public class ForumTabSelectedView extends LinearLayout {
                 return;
             }
         }
-        this.f58498i = R.color.CAM_X0202;
-        this.f58499j = new a(this);
+        this.f58695i = R.color.CAM_X0202;
+        this.f58696j = new a(this);
         this.l = new b(this);
         i();
     }

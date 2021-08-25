@@ -25,7 +25,7 @@ public class NHHeadGroup extends BaseItemLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public List<BaseItemView> f61101a;
+    public List<BaseItemView> f61301a;
     public NetImageView mBackground;
     public LinearLayout mPanel;
 
@@ -47,7 +47,7 @@ public class NHHeadGroup extends BaseItemLayout {
                 return;
             }
         }
-        this.f61101a = new ArrayList();
+        this.f61301a = new ArrayList();
     }
 
     private void a() {
@@ -59,14 +59,14 @@ public class NHHeadGroup extends BaseItemLayout {
         NHHeadItem nHHeadItem = new NHHeadItem(getContext());
         nHHeadItem.setData(dataItemArr[0], getWalletInterface());
         this.mPanel.addView(nHHeadItem);
-        this.f61101a.add(nHHeadItem);
+        this.f61301a.add(nHHeadItem);
     }
 
     @Override // com.baidu.wallet.home.ui.widget.BaseItemLayout
     public List<BaseItemView> getChildren() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f61101a : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f61301a : (List) invokeV.objValue;
     }
 
     @Override // com.baidu.wallet.home.ui.widget.BaseItemLayout
@@ -125,6 +125,6 @@ public class NHHeadGroup extends BaseItemLayout {
                 return;
             }
         }
-        this.f61101a = new ArrayList();
+        this.f61301a = new ArrayList();
     }
 }

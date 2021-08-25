@@ -17,13 +17,13 @@ public class a extends InputConnectionWrapper {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f76091a;
+    public static String f76292a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f76092b;
+    public static boolean f76293b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static boolean f76093c;
+    public static boolean f76294c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -67,8 +67,8 @@ public class a extends InputConnectionWrapper {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, charSequence, i2)) == null) {
-            f76093c = true;
-            f76091a = charSequence.toString();
+            f76294c = true;
+            f76292a = charSequence.toString();
             SLog.v("openSDK_LOG.CaptureInputConnection", "-->commitText: " + charSequence.toString());
             return super.commitText(charSequence, i2);
         }
@@ -82,11 +82,11 @@ public class a extends InputConnectionWrapper {
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, keyEvent)) == null) {
             if (keyEvent.getAction() == 0) {
                 SLog.i("openSDK_LOG.CaptureInputConnection", "sendKeyEvent");
-                f76091a = String.valueOf((char) keyEvent.getUnicodeChar());
-                f76093c = true;
-                SLog.d("openSDK_LOG.CaptureInputConnection", "s: " + f76091a);
+                f76292a = String.valueOf((char) keyEvent.getUnicodeChar());
+                f76294c = true;
+                SLog.d("openSDK_LOG.CaptureInputConnection", "s: " + f76292a);
             }
-            SLog.d("openSDK_LOG.CaptureInputConnection", "-->sendKeyEvent: " + f76091a);
+            SLog.d("openSDK_LOG.CaptureInputConnection", "-->sendKeyEvent: " + f76292a);
             return super.sendKeyEvent(keyEvent);
         }
         return invokeL.booleanValue;
@@ -97,8 +97,8 @@ public class a extends InputConnectionWrapper {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, charSequence, i2)) == null) {
-            f76093c = true;
-            f76091a = charSequence.toString();
+            f76294c = true;
+            f76292a = charSequence.toString();
             SLog.v("openSDK_LOG.CaptureInputConnection", "-->setComposingText: " + charSequence.toString());
             return super.setComposingText(charSequence, i2);
         }

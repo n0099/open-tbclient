@@ -2,7 +2,7 @@ package c.a.l;
 
 import android.widget.RelativeLayout;
 import androidx.core.view.InputDeviceCompat;
-import c.a.o0.s.q.c2;
+import c.a.p0.s.q.c2;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.card.view.FollowUserDecorView;
@@ -21,10 +21,10 @@ public class j extends c implements p<c2>, q {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: i  reason: collision with root package name */
-    public FollowUserDecorView f3575i;
+    public FollowUserDecorView f3817i;
 
     /* renamed from: j  reason: collision with root package name */
-    public boolean f3576j;
+    public boolean f3818j;
     public int k;
     public int l;
 
@@ -43,20 +43,20 @@ public class j extends c implements p<c2>, q {
                 return;
             }
         }
-        this.f3576j = true;
+        this.f3818j = true;
         this.k = c.a.e.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds166);
         this.l = c.a.e.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds78);
         FollowUserDecorView followUserDecorView = new FollowUserDecorView(tbPageContext.getPageActivity());
-        this.f3575i = followUserDecorView;
+        this.f3817i = followUserDecorView;
         followUserDecorView.setUseNewStyle(z);
         g(-1);
         l(z);
     }
 
-    public void j(c.a.o0.s.q.a aVar, boolean z) {
+    public void j(c.a.p0.s.q.a aVar, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(1048576, this, aVar, z) == null) {
-            this.f3576j = z;
+            this.f3818j = z;
             r(0);
             n(true);
         }
@@ -83,7 +83,7 @@ public class j extends c implements p<c2>, q {
                 layoutParams.topMargin = k(R.dimen.tbds52);
             }
             h(layoutParams);
-            f(this.f3575i);
+            f(this.f3817i);
         }
     }
 
@@ -94,20 +94,20 @@ public class j extends c implements p<c2>, q {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, c2Var) == null) {
             if (c2Var != null && c2Var.J() != null) {
-                o(k(this.f3576j ? R.dimen.tbds120 : R.dimen.tbds44));
-                this.f3575i.setVisibility(0);
-                this.f3575i.setData(c2Var);
-                this.f3575i.setTag(c2Var);
+                o(k(this.f3818j ? R.dimen.tbds120 : R.dimen.tbds44));
+                this.f3817i.setVisibility(0);
+                this.f3817i.setData(c2Var);
+                this.f3817i.setTag(c2Var);
                 return;
             }
-            this.f3575i.setVisibility(8);
+            this.f3817i.setVisibility(8);
         }
     }
 
     public void n(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            this.f3575i.setClickableUnLike(z);
+            this.f3817i.setClickableUnLike(z);
         }
     }
 
@@ -117,7 +117,7 @@ public class j extends c implements p<c2>, q {
             if (c() != null) {
                 c().rightMargin = i2;
             }
-            this.f3575i.setLayoutParams(c());
+            this.f3817i.setLayoutParams(c());
         }
     }
 
@@ -125,28 +125,28 @@ public class j extends c implements p<c2>, q {
     public void onChangeSkinType(TbPageContext tbPageContext, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048583, this, tbPageContext, i2) == null) {
-            this.f3575i.onChangeSkinType(i2);
+            this.f3817i.onChangeSkinType(i2);
         }
     }
 
     public void p(FollowUserButton.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, aVar) == null) {
-            this.f3575i.setOnClickEvent(aVar);
+            this.f3817i.setOnClickEvent(aVar);
         }
     }
 
     public void q(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, bdUniqueId) == null) {
-            this.f3575i.setPageUniqueId(bdUniqueId);
+            this.f3817i.setPageUniqueId(bdUniqueId);
         }
     }
 
     public void r(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048586, this, i2) == null) {
-            this.f3575i.setSvgIconResId(i2);
+            this.f3817i.setSvgIconResId(i2);
         }
     }
 }

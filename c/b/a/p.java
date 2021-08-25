@@ -26,22 +26,22 @@ public abstract class p implements Cloneable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f31176e;
+    public long f31282e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f31177f;
+    public long f31283f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f31178g;
+    public String f31284g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f31179h;
+    public String f31285h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f31180i;
+    public String f31286i;
 
     /* renamed from: j  reason: collision with root package name */
-    public String f31181j;
+    public String f31287j;
     public String k;
 
     static {
@@ -73,7 +73,7 @@ public abstract class p implements Cloneable {
                 return;
             }
         }
-        this.f31176e = System.currentTimeMillis();
+        this.f31282e = System.currentTimeMillis();
     }
 
     public static p c(String str) {
@@ -82,7 +82,7 @@ public abstract class p implements Cloneable {
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
             try {
                 JSONObject jSONObject = new JSONObject(str);
-                return q.f31196e.get(jSONObject.optString("k_cls", "")).clone().i(jSONObject);
+                return q.f31302e.get(jSONObject.optString("k_cls", "")).clone().i(jSONObject);
             } catch (Throwable th) {
                 h0.b(th);
                 return null;
@@ -176,7 +176,7 @@ public abstract class p implements Cloneable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
             try {
-                this.k = d(this.f31176e);
+                this.k = d(this.f31282e);
                 return j();
             } catch (JSONException e2) {
                 h0.b(e2);
@@ -206,7 +206,7 @@ public abstract class p implements Cloneable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            return "sid:" + this.f31178g;
+            return "sid:" + this.f31284g;
         }
         return (String) invokeV.objValue;
     }
@@ -216,12 +216,12 @@ public abstract class p implements Cloneable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            if (h0.f31132b) {
+            if (h0.f31238b) {
                 String l2 = l();
                 if (!getClass().getSimpleName().equalsIgnoreCase(l2)) {
                     l2 = l2 + StringUtil.ARRAY_ELEMENT_SEPARATOR + getClass().getSimpleName();
                 }
-                String str = this.f31178g;
+                String str = this.f31284g;
                 String str2 = "-";
                 if (str != null) {
                     int indexOf = str.indexOf("-");
@@ -230,7 +230,7 @@ public abstract class p implements Cloneable {
                     }
                     str2 = str;
                 }
-                return StringUtil.ARRAY_START + l2 + StringUtil.ARRAY_ELEMENT_SEPARATOR + p() + StringUtil.ARRAY_ELEMENT_SEPARATOR + str2 + StringUtil.ARRAY_ELEMENT_SEPARATOR + this.f31176e + "}";
+                return StringUtil.ARRAY_START + l2 + StringUtil.ARRAY_ELEMENT_SEPARATOR + p() + StringUtil.ARRAY_ELEMENT_SEPARATOR + str2 + StringUtil.ARRAY_ELEMENT_SEPARATOR + this.f31282e + "}";
             }
             return super.toString();
         }

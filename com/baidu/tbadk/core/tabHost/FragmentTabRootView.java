@@ -18,13 +18,13 @@ public class FragmentTabRootView extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Matrix f47345e;
+    public Matrix f47451e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Paint f47346f;
+    public Paint f47452f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Rect f47347g;
+    public Rect f47453g;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public FragmentTabRootView(Context context) {
@@ -44,9 +44,9 @@ public class FragmentTabRootView extends LinearLayout {
                 return;
             }
         }
-        this.f47345e = new Matrix();
-        this.f47346f = new Paint(6);
-        this.f47347g = new Rect();
+        this.f47451e = new Matrix();
+        this.f47452f = new Paint(6);
+        this.f47453g = new Rect();
         a();
     }
 
@@ -54,10 +54,10 @@ public class FragmentTabRootView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             setDrawingCacheEnabled(false);
-            this.f47346f.setAntiAlias(true);
-            this.f47346f.setStyle(Paint.Style.FILL);
-            this.f47346f.setColor(-16777216);
-            this.f47346f.setAlpha(0);
+            this.f47452f.setAntiAlias(true);
+            this.f47452f.setStyle(Paint.Style.FILL);
+            this.f47452f.setColor(-16777216);
+            this.f47452f.setAlpha(0);
             setWillNotDraw(false);
         }
     }
@@ -68,8 +68,8 @@ public class FragmentTabRootView extends LinearLayout {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas) == null) {
             super.draw(canvas);
             canvas.save();
-            canvas.concat(this.f47345e);
-            canvas.drawRect(this.f47347g, this.f47346f);
+            canvas.concat(this.f47451e);
+            canvas.drawRect(this.f47453g, this.f47452f);
             canvas.restore();
         }
     }
@@ -79,17 +79,17 @@ public class FragmentTabRootView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIII(Constants.METHOD_SEND_USER_MSG, this, i2, i3, i4, i5) == null) {
             super.onSizeChanged(i2, i3, i4, i5);
-            this.f47347g.set(0, 0, i2, i3);
+            this.f47453g.set(0, 0, i2, i3);
         }
     }
 
     public void refreshMatrix(float f2, float f3, float f4, float f5, float f6, float f7, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5), Float.valueOf(f6), Float.valueOf(f7), Integer.valueOf(i2)}) == null) {
-            this.f47345e.reset();
-            this.f47345e.postTranslate(f2, f3);
-            this.f47345e.postScale(f4, f5, f6, f7);
-            this.f47346f.setAlpha(i2);
+            this.f47451e.reset();
+            this.f47451e.postTranslate(f2, f3);
+            this.f47451e.postScale(f4, f5, f6, f7);
+            this.f47452f.setAlpha(i2);
             postInvalidateDelayed(16L);
         }
     }
@@ -113,9 +113,9 @@ public class FragmentTabRootView extends LinearLayout {
                 return;
             }
         }
-        this.f47345e = new Matrix();
-        this.f47346f = new Paint(6);
-        this.f47347g = new Rect();
+        this.f47451e = new Matrix();
+        this.f47452f = new Paint(6);
+        this.f47453g = new Rect();
         a();
     }
 }

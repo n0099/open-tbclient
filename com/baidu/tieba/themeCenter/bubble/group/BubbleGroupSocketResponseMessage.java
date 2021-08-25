@@ -1,7 +1,7 @@
 package com.baidu.tieba.themeCenter.bubble.group;
 
-import c.a.p0.o3.f.b.b;
-import c.a.p0.o3.h.e;
+import c.a.q0.o3.f.b.b;
+import c.a.q0.o3.h.e;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;

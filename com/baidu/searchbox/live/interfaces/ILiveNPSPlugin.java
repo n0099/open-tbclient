@@ -9,6 +9,7 @@ import com.baidu.searchbox.live.interfaces.entry.ILiveBjhEntry;
 import com.baidu.searchbox.live.interfaces.entry.ILiveMediaEntry;
 import com.baidu.searchbox.live.interfaces.entry.ILiveShowEntry;
 import com.baidu.searchbox.live.interfaces.entry.ILiveShowMasterEntry;
+import com.baidu.searchbox.live.interfaces.entry.ILiveYYCashierEntry;
 import com.baidu.searchbox.live.interfaces.entry.ILiveYuYinEntry;
 import com.baidu.searchbox.live.interfaces.yy.IYYLiveNPSPlugin;
 import java.util.Map;
@@ -41,6 +42,8 @@ public interface ILiveNPSPlugin {
 
     @Deprecated
     ILiveYuYinEntry getLiveYuYinEntry();
+
+    ILiveYYCashierEntry getYYCashierEntry();
 
     IYYLiveNPSPlugin getYYLiveEntry();
 

@@ -10,7 +10,7 @@ public final class cl implements Runnable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ ck f59405a;
+    public final /* synthetic */ ck f59605a;
 
     public cl(ck ckVar) {
         Interceptable interceptable = $ic;
@@ -27,7 +27,7 @@ public final class cl implements Runnable {
                 return;
             }
         }
-        this.f59405a = ckVar;
+        this.f59605a = ckVar;
     }
 
     @Override // java.lang.Runnable
@@ -35,10 +35,10 @@ public final class cl implements Runnable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             try {
-                if (this.f59405a.f59404b.f59397a.B) {
-                    this.f59405a.f59404b.f59397a.a(this.f59405a.f59404b.f59397a, this.f59405a.f59404b.f59397a.f59296f, this.f59405a.f59404b.f59397a.A);
+                if (this.f59605a.f59604b.f59597a.B) {
+                    this.f59605a.f59604b.f59597a.a(this.f59605a.f59604b.f59597a, this.f59605a.f59604b.f59597a.f59496f, this.f59605a.f59604b.f59597a.A);
                 }
-                com.baidu.ufosdk.e.a.a(this.f59405a.f59404b.f59397a.f59296f, 9);
+                com.baidu.ufosdk.e.a.a(this.f59605a.f59604b.f59597a.f59496f, 9);
             } catch (Exception e2) {
                 e2.printStackTrace();
             }

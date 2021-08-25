@@ -10,7 +10,7 @@ public class CameraIntrinsics {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f69850a;
+    public long f70050a;
 
     public CameraIntrinsics() {
         Interceptable interceptable = $ic;
@@ -25,8 +25,8 @@ public class CameraIntrinsics {
                 return;
             }
         }
-        this.f69850a = 0L;
-        this.f69850a = 0L;
+        this.f70050a = 0L;
+        this.f70050a = 0L;
     }
 
     private native long nativeCreateIntrinsics(long j2, float f2, float f3, float f4, float f5, int i2, int i3);
@@ -42,7 +42,7 @@ public class CameraIntrinsics {
     public void finalize() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            long j2 = this.f69850a;
+            long j2 = this.f70050a;
             if (j2 != 0) {
                 nativeDestroyCameraIntrinsics(j2);
             }

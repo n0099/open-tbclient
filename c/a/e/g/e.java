@@ -15,7 +15,7 @@ public class e implements IThreadManager {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Executor f2688a;
+    public Executor f2746a;
 
     public e() {
         Interceptable interceptable = $ic;
@@ -30,14 +30,14 @@ public class e implements IThreadManager {
                 return;
             }
         }
-        this.f2688a = ExecutorUtilsExt.getElasticExecutor("NPS", 3);
+        this.f2746a = ExecutorUtilsExt.getElasticExecutor("NPS", 3);
     }
 
     @Override // com.baidu.nps.interfa.IThreadManager
     public void run(Runnable runnable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, runnable) == null) {
-            this.f2688a.execute(runnable);
+            this.f2746a.execute(runnable);
         }
     }
 }

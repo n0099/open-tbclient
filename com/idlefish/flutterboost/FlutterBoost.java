@@ -8,7 +8,7 @@ import android.os.Bundle;
 import androidx.core.app.NotificationCompat;
 import androidx.core.view.InputDeviceCompat;
 import c.a.e.h.j.g.d;
-import c.a.p0.n3.a;
+import c.a.q0.n3.a;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.BdLog;
@@ -310,7 +310,7 @@ public class FlutterBoost {
                 a.getInstance().setFlutterPath("createEngine1");
             }
             if (this.mEngine == null) {
-                synchronized (c.a.e.h.k.a.f2822a) {
+                synchronized (c.a.e.h.k.a.f2880a) {
                     PluginSetting h2 = d.k().h("com.baidu.tieba.pluginFlutter");
                     try {
                         if (FlutterCrashRepairEnableSwitch.isOn() && h2 != null && h2.apkPath != null) {

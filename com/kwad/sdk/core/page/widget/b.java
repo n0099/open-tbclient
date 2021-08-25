@@ -23,7 +23,7 @@ public class b extends Dialog {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public a f71746a;
+    public a f71946a;
 
     /* loaded from: classes10.dex */
     public interface a {
@@ -55,7 +55,7 @@ public class b extends Dialog {
         if (context instanceof Activity) {
             setOwnerActivity((Activity) context);
         }
-        this.f71746a = aVar;
+        this.f71946a = aVar;
     }
 
     private View a() {
@@ -68,7 +68,7 @@ public class b extends Dialog {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ b f71747a;
+                public final /* synthetic */ b f71947a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -85,14 +85,14 @@ public class b extends Dialog {
                             return;
                         }
                     }
-                    this.f71747a = this;
+                    this.f71947a = this;
                 }
 
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                        this.f71747a.f71746a.c(this.f71747a);
+                        this.f71947a.f71946a.c(this.f71947a);
                     }
                 }
             });
@@ -101,7 +101,7 @@ public class b extends Dialog {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ b f71748a;
+                public final /* synthetic */ b f71948a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -118,7 +118,7 @@ public class b extends Dialog {
                             return;
                         }
                     }
-                    this.f71748a = this;
+                    this.f71948a = this;
                 }
 
                 @Override // android.view.View.OnClickListener
@@ -133,7 +133,7 @@ public class b extends Dialog {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ b f71749a;
+                public final /* synthetic */ b f71949a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -150,14 +150,14 @@ public class b extends Dialog {
                             return;
                         }
                     }
-                    this.f71749a = this;
+                    this.f71949a = this;
                 }
 
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                        this.f71749a.f71746a.a(this.f71749a);
+                        this.f71949a.f71946a.a(this.f71949a);
                     }
                 }
             });
@@ -166,7 +166,7 @@ public class b extends Dialog {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ b f71750a;
+                public final /* synthetic */ b f71950a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -183,14 +183,14 @@ public class b extends Dialog {
                             return;
                         }
                     }
-                    this.f71750a = this;
+                    this.f71950a = this;
                 }
 
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                        this.f71750a.f71746a.b(this.f71750a);
+                        this.f71950a.f71946a.b(this.f71950a);
                     }
                 }
             });

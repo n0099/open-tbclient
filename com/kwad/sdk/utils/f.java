@@ -53,22 +53,22 @@ public class f {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Handler f73564a;
+    public static Handler f73764a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Messenger f73565b;
+    public static Messenger f73765b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static ServiceConnection f73566c;
+    public static ServiceConnection f73766c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static volatile ExecutorService f73567d;
+    public static volatile ExecutorService f73767d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static volatile AppStatusRules f73568e;
+    public static volatile AppStatusRules f73768e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static WeakReference<Context> f73569f;
+    public static WeakReference<Context> f73769f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.kwad.sdk.utils.f$2  reason: invalid class name */
@@ -78,7 +78,7 @@ public class f {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Context f73570a;
+        public final /* synthetic */ Context f73770a;
 
         public AnonymousClass2(Context context) {
             Interceptable interceptable = $ic;
@@ -95,19 +95,19 @@ public class f {
                     return;
                 }
             }
-            this.f73570a = context;
+            this.f73770a = context;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                com.kwad.sdk.collector.c.a(this.f73570a, new c.a(this) { // from class: com.kwad.sdk.utils.f.2.1
+                com.kwad.sdk.collector.c.a(this.f73770a, new c.a(this) { // from class: com.kwad.sdk.utils.f.2.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ AnonymousClass2 f73571a;
+                    public final /* synthetic */ AnonymousClass2 f73771a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -124,7 +124,7 @@ public class f {
                                 return;
                             }
                         }
-                        this.f73571a = this;
+                        this.f73771a = this;
                     }
 
                     @Override // com.kwad.sdk.collector.c.a
@@ -139,32 +139,32 @@ public class f {
                     public void a(AppStatusRules appStatusRules) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, appStatusRules) == null) {
-                            appStatusRules.initStatus(this.f73571a.f73570a);
-                            AppStatusRules unused = f.f73568e = appStatusRules;
-                            f.b(this.f73571a.f73570a, f.f73568e);
-                            f.a(this.f73571a.f73570a);
-                            boolean l = f.l(this.f73571a.f73570a);
-                            boolean isAppStatusTargetNotEmpty = AppStatusRules.isAppStatusTargetNotEmpty(f.f73568e);
+                            appStatusRules.initStatus(this.f73771a.f73770a);
+                            AppStatusRules unused = f.f73768e = appStatusRules;
+                            f.b(this.f73771a.f73770a, f.f73768e);
+                            f.a(this.f73771a.f73770a);
+                            boolean l = f.l(this.f73771a.f73770a);
+                            boolean isAppStatusTargetNotEmpty = AppStatusRules.isAppStatusTargetNotEmpty(f.f73768e);
                             com.kwad.sdk.core.d.a.a("AppStatusHelper", "appStatusTargetNotEmpty: " + isAppStatusTargetNotEmpty + ", permissionGranted: " + l);
                             if (l && isAppStatusTargetNotEmpty) {
-                                long obtainDefaultScanInterval = f.f73568e.obtainDefaultScanInterval();
+                                long obtainDefaultScanInterval = f.f73768e.obtainDefaultScanInterval();
                                 if (obtainDefaultScanInterval > 0) {
-                                    f.b(this.f73571a.f73570a, obtainDefaultScanInterval);
+                                    f.b(this.f73771a.f73770a, obtainDefaultScanInterval);
                                 } else {
-                                    f.i(this.f73571a.f73570a);
+                                    f.i(this.f73771a.f73770a);
                                 }
                             }
-                            boolean isUploadTargetNotEmpty = AppStatusRules.isUploadTargetNotEmpty(f.f73568e);
-                            boolean z = f.f73568e.obtainUploadConfigFileMaxSize() > 0;
+                            boolean isUploadTargetNotEmpty = AppStatusRules.isUploadTargetNotEmpty(f.f73768e);
+                            boolean z = f.f73768e.obtainUploadConfigFileMaxSize() > 0;
                             com.kwad.sdk.core.d.a.a("AppStatusHelper", "uploadTargetNotEmpty: " + isUploadTargetNotEmpty + ", enableUpload: " + z);
                             if (isUploadTargetNotEmpty && z && l) {
                                 f.k();
-                                f.f73567d.submit(new Runnable(this) { // from class: com.kwad.sdk.utils.f.2.1.1
+                                f.f73767d.submit(new Runnable(this) { // from class: com.kwad.sdk.utils.f.2.1.1
                                     public static /* synthetic */ Interceptable $ic;
                                     public transient /* synthetic */ FieldHolder $fh;
 
                                     /* renamed from: a  reason: collision with root package name */
-                                    public final /* synthetic */ AnonymousClass1 f73572a;
+                                    public final /* synthetic */ AnonymousClass1 f73772a;
 
                                     {
                                         Interceptable interceptable3 = $ic;
@@ -181,7 +181,7 @@ public class f {
                                                 return;
                                             }
                                         }
-                                        this.f73572a = this;
+                                        this.f73772a = this;
                                     }
 
                                     @Override // java.lang.Runnable
@@ -189,7 +189,7 @@ public class f {
                                         Interceptable interceptable3 = $ic;
                                         if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
                                             try {
-                                                com.kwad.sdk.collector.j.a(this.f73572a.f73571a.f73570a, f.f73568e);
+                                                com.kwad.sdk.collector.j.a(this.f73772a.f73771a.f73770a, f.f73768e);
                                             } catch (Throwable th) {
                                                 com.kwad.sdk.crash.a.a(th);
                                                 com.kwad.sdk.core.d.a.b(th);
@@ -211,13 +211,13 @@ public class f {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f73577a;
+        public String f73777a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f73578b;
+        public String f73778b;
 
         /* renamed from: c  reason: collision with root package name */
-        public List<Long> f73579c;
+        public List<Long> f73779c;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -232,7 +232,7 @@ public class f {
                     return;
                 }
             }
-            this.f73579c = new ArrayList();
+            this.f73779c = new ArrayList();
         }
 
         public a(String str, String str2) {
@@ -250,9 +250,9 @@ public class f {
                     return;
                 }
             }
-            this.f73579c = new ArrayList();
-            this.f73577a = str;
-            this.f73578b = str2;
+            this.f73779c = new ArrayList();
+            this.f73777a = str;
+            this.f73778b = str2;
         }
 
         @Nullable
@@ -305,7 +305,7 @@ public class f {
         public void a(long j2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeJ(1048576, this, j2) == null) {
-                this.f73579c.add(Long.valueOf(j2));
+                this.f73779c.add(Long.valueOf(j2));
             }
         }
 
@@ -315,15 +315,15 @@ public class f {
             if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) || jSONObject == null) {
                 return;
             }
-            this.f73577a = jSONObject.optString("appName");
-            this.f73578b = jSONObject.optString("packageName");
+            this.f73777a = jSONObject.optString("appName");
+            this.f73778b = jSONObject.optString("packageName");
             JSONArray optJSONArray = jSONObject.optJSONArray("runningTimes");
             if (optJSONArray != null) {
-                this.f73579c.clear();
+                this.f73779c.clear();
                 int length = optJSONArray.length();
                 for (int i2 = 0; i2 < length; i2++) {
                     try {
-                        this.f73579c.add(Long.valueOf(optJSONArray.getLong(i2)));
+                        this.f73779c.add(Long.valueOf(optJSONArray.getLong(i2)));
                     } catch (JSONException e2) {
                         com.kwad.sdk.core.d.a.b(e2);
                     }
@@ -337,10 +337,10 @@ public class f {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
                 JSONObject jSONObject = new JSONObject();
-                q.a(jSONObject, "appName", this.f73577a);
-                q.a(jSONObject, "packageName", this.f73578b);
+                q.a(jSONObject, "appName", this.f73777a);
+                q.a(jSONObject, "packageName", this.f73778b);
                 JSONArray jSONArray = new JSONArray();
-                for (Long l : this.f73579c) {
+                for (Long l : this.f73779c) {
                     jSONArray.put(l.longValue());
                 }
                 q.a(jSONObject, "runningTimes", jSONArray);
@@ -395,7 +395,7 @@ public class f {
                                 public transient /* synthetic */ FieldHolder $fh;
 
                                 /* renamed from: a  reason: collision with root package name */
-                                public final /* synthetic */ c f73580a;
+                                public final /* synthetic */ c f73780a;
 
                                 {
                                     Interceptable interceptable2 = $ic;
@@ -412,7 +412,7 @@ public class f {
                                             return;
                                         }
                                     }
-                                    this.f73580a = this;
+                                    this.f73780a = this;
                                 }
 
                                 /* JADX DEBUG: Method merged with bridge method */
@@ -441,10 +441,10 @@ public class f {
                         a(list);
                     }
                 }
-                if (f.f73569f == null || f.f73569f.get() == null || data == null) {
+                if (f.f73769f == null || f.f73769f.get() == null || data == null) {
                     return;
                 }
-                com.kwad.sdk.collector.c.a.b((Context) f.f73569f.get(), f.f73566c);
+                com.kwad.sdk.collector.c.a.b((Context) f.f73769f.get(), f.f73766c);
                 if (data.containsKey("allStrategyJson")) {
                     String string = data.getString("allStrategyJson");
                     if (string != null) {
@@ -453,7 +453,7 @@ public class f {
                             public transient /* synthetic */ FieldHolder $fh;
 
                             /* renamed from: a  reason: collision with root package name */
-                            public final /* synthetic */ c f73581a;
+                            public final /* synthetic */ c f73781a;
 
                             {
                                 Interceptable interceptable2 = $ic;
@@ -470,7 +470,7 @@ public class f {
                                         return;
                                     }
                                 }
-                                this.f73581a = this;
+                                this.f73781a = this;
                             }
 
                             /* JADX DEBUG: Method merged with bridge method */
@@ -490,7 +490,7 @@ public class f {
                     for (AppStatusRules.Strategy strategy : list2) {
                         long needSaveLaunchTime = strategy.getNeedSaveLaunchTime();
                         if (needSaveLaunchTime >= 0) {
-                            com.kwad.sdk.collector.h.a((Context) f.f73569f.get(), strategy, needSaveLaunchTime);
+                            com.kwad.sdk.collector.h.a((Context) f.f73769f.get(), strategy, needSaveLaunchTime);
                         }
                     }
                 }
@@ -538,7 +538,7 @@ public class f {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public b f73582a;
+        public b f73782a;
 
         public d(b bVar) {
             Interceptable interceptable = $ic;
@@ -555,7 +555,7 @@ public class f {
                     return;
                 }
             }
-            this.f73582a = bVar;
+            this.f73782a = bVar;
         }
 
         @Override // com.kwad.sdk.utils.f.b
@@ -566,7 +566,7 @@ public class f {
                 if (a2 != null) {
                     com.kwad.sdk.core.report.d.a(a2);
                 }
-                b bVar = this.f73582a;
+                b bVar = this.f73782a;
                 if (bVar != null) {
                     bVar.a(list);
                 }
@@ -587,7 +587,7 @@ public class f {
                 return;
             }
         }
-        f73566c = new ServiceConnection() { // from class: com.kwad.sdk.utils.f.1
+        f73766c = new ServiceConnection() { // from class: com.kwad.sdk.utils.f.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -616,7 +616,7 @@ public class f {
                         com.kwad.sdk.core.d.a.d("AppStatusHelper", "clientMessenger init error");
                         return;
                     }
-                    obtain.replyTo = f.f73565b;
+                    obtain.replyTo = f.f73765b;
                     try {
                         messenger.send(obtain);
                     } catch (RemoteException unused) {
@@ -636,7 +636,7 @@ public class f {
     public static AppStatusRules a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? f73568e : (AppStatusRules) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? f73768e : (AppStatusRules) invokeV.objValue;
     }
 
     @NonNull
@@ -660,8 +660,8 @@ public class f {
     @WorkerThread
     public static void a(Context context) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, context) == null) && f73568e == null) {
-            f73568e = h(context);
+        if ((interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, context) == null) && f73768e == null) {
+            f73768e = h(context);
         }
     }
 
@@ -673,14 +673,14 @@ public class f {
         boolean b2 = SystemUtil.b(context);
         com.kwad.sdk.core.d.a.a("AppStatusHelper", "isMainProcess: " + b2);
         if (b2) {
-            f73569f = new WeakReference<>(context);
+            f73769f = new WeakReference<>(context);
             if (j2 <= 0) {
                 j2 = 30000;
             }
-            if (f73564a == null) {
-                f73564a = new Handler(Looper.getMainLooper());
+            if (f73764a == null) {
+                f73764a = new Handler(Looper.getMainLooper());
             }
-            f73564a.postDelayed(new AnonymousClass2(context), j2);
+            f73764a.postDelayed(new AnonymousClass2(context), j2);
         }
     }
 
@@ -690,15 +690,15 @@ public class f {
             return;
         }
         k();
-        f73567d.submit(new Runnable(context, bVar) { // from class: com.kwad.sdk.utils.f.4
+        f73767d.submit(new Runnable(context, bVar) { // from class: com.kwad.sdk.utils.f.4
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ Context f73575a;
+            public final /* synthetic */ Context f73775a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ b f73576b;
+            public final /* synthetic */ b f73776b;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -715,8 +715,8 @@ public class f {
                         return;
                     }
                 }
-                this.f73575a = context;
-                this.f73576b = bVar;
+                this.f73775a = context;
+                this.f73776b = bVar;
             }
 
             @Override // java.lang.Runnable
@@ -727,10 +727,10 @@ public class f {
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                     try {
                         HashSet hashSet = new HashSet();
-                        if (Build.VERSION.SDK_INT < 21 && (j2 = f.j(this.f73575a)) != null) {
+                        if (Build.VERSION.SDK_INT < 21 && (j2 = f.j(this.f73775a)) != null) {
                             hashSet.addAll(j2);
                         }
-                        if (!f.l(this.f73575a) || (k = f.k(this.f73575a)) == null) {
+                        if (!f.l(this.f73775a) || (k = f.k(this.f73775a)) == null) {
                             return;
                         }
                         Iterator it = k.iterator();
@@ -738,8 +738,8 @@ public class f {
                             com.kwad.sdk.core.d.a.a("AppStatusHelper", "AppRunningInfo: " + ((com.kwad.sdk.collector.model.b) it.next()));
                         }
                         hashSet.addAll(k);
-                        if (this.f73576b != null) {
-                            this.f73576b.a(new ArrayList(hashSet));
+                        if (this.f73776b != null) {
+                            this.f73776b.a(new ArrayList(hashSet));
                         }
                     } catch (Throwable th) {
                         com.kwad.sdk.core.d.a.b(th);
@@ -777,18 +777,18 @@ public class f {
     public static void b(Context context, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLJ(65546, null, context, j2) == null) {
-            if (f73564a == null) {
-                f73564a = new Handler(Looper.getMainLooper());
+            if (f73764a == null) {
+                f73764a = new Handler(Looper.getMainLooper());
             }
-            f73564a.post(new Runnable(context, j2) { // from class: com.kwad.sdk.utils.f.3
+            f73764a.post(new Runnable(context, j2) { // from class: com.kwad.sdk.utils.f.3
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ Context f73573a;
+                public final /* synthetic */ Context f73773a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ long f73574b;
+                public final /* synthetic */ long f73774b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -805,16 +805,16 @@ public class f {
                             return;
                         }
                     }
-                    this.f73573a = context;
-                    this.f73574b = j2;
+                    this.f73773a = context;
+                    this.f73774b = j2;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        f.i(this.f73573a);
-                        f.f73564a.postDelayed(this, this.f73574b);
+                        f.i(this.f73773a);
+                        f.f73764a.postDelayed(this, this.f73774b);
                     }
                 }
             });
@@ -880,7 +880,7 @@ public class f {
         boolean l = l();
         com.kwad.sdk.core.d.a.a("AppStatusHelper", "isServiceAvailable: " + l);
         if (l) {
-            com.kwad.sdk.collector.c.a.a(context, f73566c);
+            com.kwad.sdk.collector.c.a.a(context, f73766c);
         } else {
             a(context, new d(null));
         }
@@ -913,13 +913,13 @@ public class f {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65564, null)) == null) {
-            if (f73565b == null) {
+            if (f73765b == null) {
                 try {
-                    f73565b = new Messenger(new c(Looper.getMainLooper()));
+                    f73765b = new Messenger(new c(Looper.getMainLooper()));
                 } catch (Throwable unused) {
                 }
             }
-            return f73565b != null;
+            return f73765b != null;
         }
         return invokeV.booleanValue;
     }
@@ -930,8 +930,8 @@ public class f {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65565, null, context)) == null) {
             if (l(context)) {
-                if (f73568e == null) {
-                    f73568e = h(context);
+                if (f73768e == null) {
+                    f73768e = h(context);
                 }
                 return c(context);
             }
@@ -944,10 +944,10 @@ public class f {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65566, null) == null) {
             synchronized (f.class) {
-                if (f73567d != null) {
+                if (f73767d != null) {
                     return;
                 }
-                f73567d = com.kwad.sdk.core.i.b.m();
+                f73767d = com.kwad.sdk.core.i.b.m();
             }
         }
     }

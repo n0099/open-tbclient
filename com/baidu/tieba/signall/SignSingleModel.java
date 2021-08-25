@@ -21,19 +21,19 @@ public class SignSingleModel extends BdBaseModel<SignAllForumActivity> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f56540e;
+    public String f56705e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f56541f;
+    public String f56706f;
 
     /* renamed from: g  reason: collision with root package name */
-    public c f56542g;
+    public c f56707g;
 
     /* renamed from: h  reason: collision with root package name */
-    public b f56543h;
+    public b f56708h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f56544i;
+    public String f56709i;
 
     /* loaded from: classes7.dex */
     public static /* synthetic */ class a {
@@ -66,39 +66,39 @@ public class SignSingleModel extends BdBaseModel<SignAllForumActivity> {
                 return;
             }
         }
-        this.f56540e = null;
-        this.f56541f = null;
-        this.f56542g = null;
+        this.f56705e = null;
+        this.f56706f = null;
+        this.f56707g = null;
     }
 
     public void E() {
         c cVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (cVar = this.f56542g) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (cVar = this.f56707g) == null) {
             return;
         }
         cVar.cancel();
-        this.f56542g = null;
+        this.f56707g = null;
     }
 
     public void F(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
-            this.f56543h = bVar;
+            this.f56708h = bVar;
         }
     }
 
     public void G(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) == null) || str == null || str.length() <= 0 || str2 == null || str2.length() <= 0 || this.f56542g != null) {
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) == null) || str == null || str.length() <= 0 || str2 == null || str2.length() <= 0 || this.f56707g != null) {
             return;
         }
-        this.f56540e = str;
-        this.f56541f = str2;
+        this.f56705e = str;
+        this.f56706f = str2;
         c cVar = new c(this, null);
-        this.f56542g = cVar;
+        this.f56707g = cVar;
         cVar.setPriority(2);
-        this.f56542g.execute(new Object[0]);
+        this.f56707g.execute(new Object[0]);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -127,10 +127,10 @@ public class SignSingleModel extends BdBaseModel<SignAllForumActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public volatile NetWork f56545a;
+        public volatile NetWork f56710a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ SignSingleModel f56546b;
+        public final /* synthetic */ SignSingleModel f56711b;
 
         public c(SignSingleModel signSingleModel) {
             Interceptable interceptable = $ic;
@@ -147,8 +147,8 @@ public class SignSingleModel extends BdBaseModel<SignAllForumActivity> {
                     return;
                 }
             }
-            this.f56546b = signSingleModel;
-            this.f56545a = null;
+            this.f56711b = signSingleModel;
+            this.f56710a = null;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -164,19 +164,19 @@ public class SignSingleModel extends BdBaseModel<SignAllForumActivity> {
             }
             SignData signData2 = null;
             try {
-                this.f56545a = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.SIGN_ADDRESS);
-                this.f56545a.addPostData(TiebaStatic.Params.H5_FORUM_NAME, this.f56546b.f56540e);
-                this.f56545a.addPostData("fid", this.f56546b.f56541f);
-                this.f56545a.addPostData("authsid", this.f56546b.f56544i);
-                this.f56545a.getNetContext().getRequest().mIsNeedTbs = true;
-                this.f56545a.setNeedSig(true);
-                String postNetData = this.f56545a.postNetData();
-                if (this.f56545a.isNetSuccess() && this.f56545a.getNetContext().getResponse().isRequestSuccess()) {
+                this.f56710a = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.SIGN_ADDRESS);
+                this.f56710a.addPostData(TiebaStatic.Params.H5_FORUM_NAME, this.f56711b.f56705e);
+                this.f56710a.addPostData("fid", this.f56711b.f56706f);
+                this.f56710a.addPostData("authsid", this.f56711b.f56709i);
+                this.f56710a.getNetContext().getRequest().mIsNeedTbs = true;
+                this.f56710a.setNeedSig(true);
+                String postNetData = this.f56710a.postNetData();
+                if (this.f56710a.isNetSuccess() && this.f56710a.getNetContext().getResponse().isRequestSuccess()) {
                     signData = new SignData();
                     try {
                         signData.parserJson(postNetData);
-                        signData.forumId = this.f56546b.f56541f;
-                        signData.forumName = this.f56546b.f56540e;
+                        signData.forumId = this.f56711b.f56706f;
+                        signData.forumName = this.f56711b.f56705e;
                         signData2 = signData;
                     } catch (Exception e3) {
                         e2 = e3;
@@ -198,14 +198,14 @@ public class SignSingleModel extends BdBaseModel<SignAllForumActivity> {
         public void onPostExecute(SignData signData) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, signData) == null) {
-                this.f56546b.f56542g = null;
-                if (signData != null || this.f56545a == null) {
-                    this.f56546b.f56543h.a(signData);
+                this.f56711b.f56707g = null;
+                if (signData != null || this.f56710a == null) {
+                    this.f56711b.f56708h.a(signData);
                     return;
                 }
-                this.f56546b.mErrorCode = this.f56545a.getServerErrorCode();
-                this.f56546b.mErrorString = this.f56545a.getErrorString();
-                this.f56546b.f56543h.onError(this.f56546b.f56541f, this.f56546b.mErrorString);
+                this.f56711b.mErrorCode = this.f56710a.getServerErrorCode();
+                this.f56711b.mErrorString = this.f56710a.getErrorString();
+                this.f56711b.f56708h.onError(this.f56711b.f56706f, this.f56711b.mErrorString);
             }
         }
 
@@ -213,12 +213,12 @@ public class SignSingleModel extends BdBaseModel<SignAllForumActivity> {
         public void cancel() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                if (this.f56545a != null) {
-                    this.f56545a.cancelNetConnect();
+                if (this.f56710a != null) {
+                    this.f56710a.cancelNetConnect();
                 }
-                this.f56546b.f56542g = null;
+                this.f56711b.f56707g = null;
                 super.cancel(true);
-                this.f56546b.f56543h.onError(this.f56546b.f56541f, null);
+                this.f56711b.f56708h.onError(this.f56711b.f56706f, null);
             }
         }
 

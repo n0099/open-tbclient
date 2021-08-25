@@ -30,7 +30,7 @@ public class h {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static h f2495a;
+    public static h f2553a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
@@ -39,22 +39,22 @@ public class h {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f2496a;
+        public String f2554a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f2497b;
+        public String f2555b;
 
         /* renamed from: c  reason: collision with root package name */
-        public StringBuilder f2498c;
+        public StringBuilder f2556c;
 
         /* renamed from: d  reason: collision with root package name */
-        public i f2499d;
+        public i f2557d;
 
         /* renamed from: e  reason: collision with root package name */
-        public boolean f2500e;
+        public boolean f2558e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ h f2501f;
+        public final /* synthetic */ h f2559f;
 
         public a(h hVar, String str, String str2, StringBuilder sb, i iVar) {
             Interceptable interceptable = $ic;
@@ -71,12 +71,12 @@ public class h {
                     return;
                 }
             }
-            this.f2501f = hVar;
-            this.f2496a = str;
-            this.f2497b = str2;
-            this.f2498c = sb;
-            this.f2499d = iVar;
-            this.f2500e = false;
+            this.f2559f = hVar;
+            this.f2554a = str;
+            this.f2555b = str2;
+            this.f2556c = sb;
+            this.f2557d = iVar;
+            this.f2558e = false;
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
@@ -84,12 +84,12 @@ public class h {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, objArr)) == null) {
-                boolean i2 = this.f2501f.i(BdBaseApplication.getInst().getApp().getApplicationInfo().sourceDir, this.f2496a, this.f2498c);
-                this.f2500e = i2;
+                boolean i2 = this.f2559f.i(BdBaseApplication.getInst().getApp().getApplicationInfo().sourceDir, this.f2554a, this.f2556c);
+                this.f2558e = i2;
                 if (i2) {
                     return null;
                 }
-                this.f2501f.d(this.f2497b, "".getBytes(), this.f2498c);
+                this.f2559f.d(this.f2555b, "".getBytes(), this.f2556c);
                 return null;
             }
             return invokeL.objValue;
@@ -100,13 +100,13 @@ public class h {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
                 super.onPostExecute(obj);
-                if (this.f2498c.length() > 0) {
+                if (this.f2556c.length() > 0) {
                     BdStatisticsManager bdStatisticsManager = BdStatisticsManager.getInstance();
-                    bdStatisticsManager.error("so", "load_" + this.f2496a + ".so", "", -9101, this.f2498c.toString(), new Object[0]);
+                    bdStatisticsManager.error("so", "load_" + this.f2554a + ".so", "", -9101, this.f2556c.toString(), new Object[0]);
                 }
-                i iVar = this.f2499d;
+                i iVar = this.f2557d;
                 if (iVar != null) {
-                    iVar.a(this.f2500e);
+                    iVar.a(this.f2558e);
                 }
             }
         }
@@ -146,13 +146,13 @@ public class h {
         h hVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            h hVar2 = f2495a;
+            h hVar2 = f2553a;
             if (hVar2 == null) {
                 synchronized (h.class) {
-                    if (f2495a == null) {
-                        f2495a = new h();
+                    if (f2553a == null) {
+                        f2553a = new h();
                     }
-                    hVar = f2495a;
+                    hVar = f2553a;
                 }
                 return hVar;
             }
@@ -295,7 +295,7 @@ public class h {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            return BdBaseApplication.getInst().getApp().getApplicationInfo().dataDir + File.separator + com.baidu.fsg.face.base.b.c.f39569g + File.separator + "lib" + str + ".so";
+            return BdBaseApplication.getInst().getApp().getApplicationInfo().dataDir + File.separator + com.baidu.fsg.face.base.b.c.f39676g + File.separator + "lib" + str + ".so";
         }
         return (String) invokeL.objValue;
     }
@@ -511,7 +511,7 @@ public class h {
         return invokeLL.booleanValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:19:0x00a3  */
+    /* JADX WARN: Removed duplicated region for block: B:19:0x00a2  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */

@@ -25,19 +25,19 @@ public class CardFrsGameRecommendGameLayout extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public b<CardFrsGameRecommendGameItemView> f49717e;
+    public b<CardFrsGameRecommendGameItemView> f49825e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f49718f;
+    public int f49826f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f49719g;
+    public int f49827g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f49720h;
+    public int f49828h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final ViewGroup.OnHierarchyChangeListener f49721i;
+    public final ViewGroup.OnHierarchyChangeListener f49829i;
 
     /* loaded from: classes7.dex */
     public class a implements ViewGroup.OnHierarchyChangeListener {
@@ -45,7 +45,7 @@ public class CardFrsGameRecommendGameLayout extends LinearLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CardFrsGameRecommendGameLayout f49722e;
+        public final /* synthetic */ CardFrsGameRecommendGameLayout f49830e;
 
         public a(CardFrsGameRecommendGameLayout cardFrsGameRecommendGameLayout) {
             Interceptable interceptable = $ic;
@@ -62,7 +62,7 @@ public class CardFrsGameRecommendGameLayout extends LinearLayout {
                     return;
                 }
             }
-            this.f49722e = cardFrsGameRecommendGameLayout;
+            this.f49830e = cardFrsGameRecommendGameLayout;
         }
 
         @Override // android.view.ViewGroup.OnHierarchyChangeListener
@@ -75,8 +75,8 @@ public class CardFrsGameRecommendGameLayout extends LinearLayout {
         @Override // android.view.ViewGroup.OnHierarchyChangeListener
         public void onChildViewRemoved(View view, View view2) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, view2) == null) && (view2 instanceof CardFrsGameRecommendGameItemView) && this.f49722e.f49717e != null) {
-                this.f49722e.f49717e.e((CardFrsGameRecommendGameItemView) view2);
+            if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, view2) == null) && (view2 instanceof CardFrsGameRecommendGameItemView) && this.f49830e.f49825e != null) {
+                this.f49830e.f49825e.e((CardFrsGameRecommendGameItemView) view2);
             }
         }
     }
@@ -99,8 +99,8 @@ public class CardFrsGameRecommendGameLayout extends LinearLayout {
                 return;
             }
         }
-        this.f49717e = null;
-        this.f49721i = new a(this);
+        this.f49825e = null;
+        this.f49829i = new a(this);
         b();
     }
 
@@ -124,7 +124,7 @@ public class CardFrsGameRecommendGameLayout extends LinearLayout {
             if (i2 == 0) {
                 layoutParams.leftMargin = 0;
             } else {
-                layoutParams.leftMargin = this.f49718f;
+                layoutParams.leftMargin = this.f49826f;
             }
             cardFrsGameRecommendGameItemView.setLayoutParams(layoutParams);
         }
@@ -145,7 +145,7 @@ public class CardFrsGameRecommendGameLayout extends LinearLayout {
     public int getChildItemWidth() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f49720h : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f49828h : invokeV.intValue;
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -153,7 +153,7 @@ public class CardFrsGameRecommendGameLayout extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.onAttachedToWindow();
-            setOnHierarchyChangeListener(this.f49721i);
+            setOnHierarchyChangeListener(this.f49829i);
         }
     }
 
@@ -171,13 +171,13 @@ public class CardFrsGameRecommendGameLayout extends LinearLayout {
         if (!(interceptable == null || interceptable.invokeL(1048582, this, list) == null) || ListUtils.isEmpty(list)) {
             return;
         }
-        this.f49720h = this.f49719g + this.f49718f;
+        this.f49828h = this.f49827g + this.f49826f;
         int i2 = 0;
         int childCount = getChildCount();
         while (i2 < childCount && i2 < list.size()) {
             if (getChildAt(i2) instanceof CardFrsGameRecommendGameItemView) {
                 CardFrsGameRecommendGameItemView cardFrsGameRecommendGameItemView = (CardFrsGameRecommendGameItemView) getChildAt(i2);
-                c(cardFrsGameRecommendGameItemView, i2, this.f49719g);
+                c(cardFrsGameRecommendGameItemView, i2, this.f49827g);
                 d(cardFrsGameRecommendGameItemView, list.get(i2));
             }
             i2++;
@@ -187,11 +187,11 @@ public class CardFrsGameRecommendGameLayout extends LinearLayout {
             i2++;
         }
         while (i2 < list.size()) {
-            CardFrsGameRecommendGameItemView b2 = this.f49717e.b();
+            CardFrsGameRecommendGameItemView b2 = this.f49825e.b();
             if (b2.getParent() != null) {
                 ((ViewGroup) b2.getParent()).removeView(b2);
             }
-            c(b2, i2, this.f49719g);
+            c(b2, i2, this.f49827g);
             d(b2, list.get(i2));
             addView(b2);
             i2++;
@@ -201,14 +201,14 @@ public class CardFrsGameRecommendGameLayout extends LinearLayout {
     public void setItemSpace(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-            this.f49718f = i2;
+            this.f49826f = i2;
         }
     }
 
     public void setItemWidth(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
-            this.f49719g = i2;
+            this.f49827g = i2;
         }
     }
 
@@ -221,7 +221,7 @@ public class CardFrsGameRecommendGameLayout extends LinearLayout {
     public void setViewPool(b<CardFrsGameRecommendGameItemView> bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, bVar) == null) {
-            this.f49717e = bVar;
+            this.f49825e = bVar;
         }
     }
 
@@ -244,8 +244,8 @@ public class CardFrsGameRecommendGameLayout extends LinearLayout {
                 return;
             }
         }
-        this.f49717e = null;
-        this.f49721i = new a(this);
+        this.f49825e = null;
+        this.f49829i = new a(this);
         b();
     }
 
@@ -268,8 +268,8 @@ public class CardFrsGameRecommendGameLayout extends LinearLayout {
                 return;
             }
         }
-        this.f49717e = null;
-        this.f49721i = new a(this);
+        this.f49825e = null;
+        this.f49829i = new a(this);
         b();
     }
 }

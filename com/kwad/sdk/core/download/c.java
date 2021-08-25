@@ -16,7 +16,7 @@ public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f71295a;
+    public static final boolean f71495a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -32,16 +32,16 @@ public class c {
                 return;
             }
         }
-        f71295a = KsAdSDKImpl.get().isDebugLogEnable();
+        f71495a = KsAdSDKImpl.get().isDebugLogEnable();
     }
 
     public static void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
-            if (f71295a) {
+            if (f71495a) {
                 com.kwad.sdk.core.d.a.a("DownloadMonitor", "onDownloadStart(), id=" + str);
             }
-            Intent intent = new Intent(a.f71232b);
+            Intent intent = new Intent(a.f71432b);
             Bundle bundle = new Bundle();
             bundle.putString("RESULT_DOWNLOAD_ID", str);
             intent.putExtras(bundle);
@@ -55,10 +55,10 @@ public class c {
     public static void a(String str, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIII(65538, null, str, i2, i3, i4) == null) {
-            if (f71295a) {
+            if (f71495a) {
                 com.kwad.sdk.core.d.a.a("DownloadMonitor", "onProgressUpdate(), id=" + str + " progress=" + i2);
             }
-            Intent intent = new Intent(a.f71233c);
+            Intent intent = new Intent(a.f71433c);
             Bundle bundle = new Bundle();
             bundle.putString("RESULT_DOWNLOAD_ID", str);
             bundle.putInt("KEY_RESULT_PROGRESS", i2);
@@ -75,10 +75,10 @@ public class c {
     public static void a(String str, int i2, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIL(65539, null, str, i2, str2) == null) {
-            if (f71295a) {
+            if (f71495a) {
                 com.kwad.sdk.core.d.a.a("DownloadMonitor", "onDownloadFail(), id=" + str + " error=" + i2);
             }
-            Intent intent = new Intent(a.f71235e);
+            Intent intent = new Intent(a.f71435e);
             Bundle bundle = new Bundle();
             bundle.putString("RESULT_DOWNLOAD_ID", str);
             bundle.putInt("KEY_RESULT_ERROR_CODE", i2);
@@ -94,10 +94,10 @@ public class c {
     public static void a(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2) == null) {
-            if (f71295a) {
+            if (f71495a) {
                 com.kwad.sdk.core.d.a.a("DownloadMonitor", "onDownloadFinished(), id=" + str);
             }
-            Intent intent = new Intent(a.f71234d);
+            Intent intent = new Intent(a.f71434d);
             Bundle bundle = new Bundle();
             bundle.putString("RESULT_DOWNLOAD_ID", str);
             bundle.putString("KEY_REUSLT_FILEPATH", str2);
@@ -112,10 +112,10 @@ public class c {
     public static void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, str) == null) {
-            if (f71295a) {
+            if (f71495a) {
                 com.kwad.sdk.core.d.a.a("DownloadMonitor", "onDownloadPaused(), id=" + str);
             }
-            Intent intent = new Intent(a.f71236f);
+            Intent intent = new Intent(a.f71436f);
             Bundle bundle = new Bundle();
             bundle.putString("RESULT_DOWNLOAD_ID", str);
             intent.putExtras(bundle);
@@ -129,10 +129,10 @@ public class c {
     public static void c(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, str) == null) {
-            if (f71295a) {
+            if (f71495a) {
                 com.kwad.sdk.core.d.a.a("DownloadMonitor", "onDownloadResumed(), id=" + str);
             }
-            Intent intent = new Intent(a.f71237g);
+            Intent intent = new Intent(a.f71437g);
             Bundle bundle = new Bundle();
             bundle.putString("RESULT_DOWNLOAD_ID", str);
             intent.putExtras(bundle);
@@ -146,10 +146,10 @@ public class c {
     public static void d(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65543, null, str) == null) {
-            if (f71295a) {
+            if (f71495a) {
                 com.kwad.sdk.core.d.a.a("DownloadMonitor", "onDownloadCanceled(), id=" + str);
             }
-            Intent intent = new Intent(a.f71238h);
+            Intent intent = new Intent(a.f71438h);
             Bundle bundle = new Bundle();
             bundle.putString("RESULT_DOWNLOAD_ID", str);
             intent.putExtras(bundle);
@@ -163,7 +163,7 @@ public class c {
     public static void e(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65544, null, str) == null) {
-            if (f71295a) {
+            if (f71495a) {
                 com.kwad.sdk.core.d.a.a("DownloadMonitor", "onDownloadCanceled(), id=" + str);
             }
             Intent intent = new Intent(a.m);

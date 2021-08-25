@@ -10,7 +10,7 @@ public abstract class c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f70557a;
+    public int f70757a;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -29,7 +29,7 @@ public abstract class c {
     public final void a(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-            this.f70557a = i2;
+            this.f70757a = i2;
         }
     }
 

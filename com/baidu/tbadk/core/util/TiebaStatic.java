@@ -15,11 +15,11 @@ import c.a.e.e.n.d;
 import c.a.e.e.p.k;
 import c.a.e.e.p.l;
 import c.a.e.e.p.q;
-import c.a.o0.b1.a;
-import c.a.o0.b1.g;
-import c.a.o0.k0.e;
-import c.a.o0.o0.i;
-import c.a.o0.s.d0.b;
+import c.a.p0.b1.a;
+import c.a.p0.b1.g;
+import c.a.p0.k0.e;
+import c.a.p0.o0.i;
+import c.a.p0.s.d0.b;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.adp.lib.util.BdLog;
@@ -337,6 +337,7 @@ public class TiebaStatic {
         public static final String POST_ID = "post_id";
         public static final String POST_TYPE = "post_type";
         public static final String POST_TYPE_MERGE = "post_types";
+        public static final String QD = "qd";
         public static final String QUERY = "query";
         public static final String RECOM_AB_TAG = "recom_ab_tag";
         public static final String RECOM_EXTRA = "recom_extra";
@@ -655,17 +656,17 @@ public class TiebaStatic {
             try {
                 try {
                     d dVar = new d();
-                    dVar.f2366a = "tieba";
-                    dVar.f2367b = SUB_PRODUCT;
-                    dVar.f2368c = TbConfig.getVersion();
-                    dVar.f2369d = TbConfig.getFrom();
-                    dVar.f2370e = TbConfig.getCurrentFrom();
-                    dVar.f2371f = TbadkCoreApplication.getClientId();
-                    dVar.f2372g = TbadkCoreApplication.getInst().getCuid();
-                    dVar.f2373h = TbadkCoreApplication.getInst().getCuidGalaxy2();
+                    dVar.f2424a = "tieba";
+                    dVar.f2425b = SUB_PRODUCT;
+                    dVar.f2426c = TbConfig.getVersion();
+                    dVar.f2427d = TbConfig.getFrom();
+                    dVar.f2428e = TbConfig.getCurrentFrom();
+                    dVar.f2429f = TbadkCoreApplication.getClientId();
+                    dVar.f2430g = TbadkCoreApplication.getInst().getCuid();
+                    dVar.f2431h = TbadkCoreApplication.getInst().getCuidGalaxy2();
                     TbadkCoreApplication.getInst().getCuidGid();
-                    dVar.f2374i = TbadkCoreApplication.getInst().getImei();
-                    dVar.f2375j = TbConfig.getSubappType();
+                    dVar.f2432i = TbadkCoreApplication.getInst().getImei();
+                    dVar.f2433j = TbConfig.getSubappType();
                     dVar.r = g.c().f(context) + "_" + g.c().e(context);
                     dVar.v = TbadkCoreApplication.getInst().getAndroidId();
                     dVar.s = getCua(context);
@@ -761,11 +762,11 @@ public class TiebaStatic {
 
     public static void net(HttpNetContext httpNetContext) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65562, null, httpNetContext) == null) || httpNetContext == null || httpNetContext.getStat().stat.f2253f > 180000) {
+        if (!(interceptable == null || interceptable.invokeL(65562, null, httpNetContext) == null) || httpNetContext == null || httpNetContext.getStat().stat.f2311f > 180000) {
             return;
         }
         try {
-            if (httpNetContext.getStat().stat.f2253f < 0 || httpNetContext.getStat().stat.f2250c < 0 || httpNetContext.getStat().stat.f2251d < 0) {
+            if (httpNetContext.getStat().stat.f2311f < 0 || httpNetContext.getStat().stat.f2308c < 0 || httpNetContext.getStat().stat.f2309d < 0) {
                 return;
             }
             int i2 = httpNetContext.getResponse().mServerErrorCode;
@@ -781,10 +782,10 @@ public class TiebaStatic {
                 if (i3 != 0) {
                     str = httpNetContext.getRequest().getApiName();
                 }
-                bdStatisticsManager.imgNet(str, currentActivity, httpNetContext.getStat().stat.f2249b, httpNetContext.getStat().stat.f2248a, httpNetContext.getStat().stat.f2253f, httpNetContext.getStat().stat.f2250c, httpNetContext.getStat().stat.f2251d, httpNetContext.getStat().stat.f2252e, i3, str2, new Object[0]);
+                bdStatisticsManager.imgNet(str, currentActivity, httpNetContext.getStat().stat.f2307b, httpNetContext.getStat().stat.f2306a, httpNetContext.getStat().stat.f2311f, httpNetContext.getStat().stat.f2308c, httpNetContext.getStat().stat.f2309d, httpNetContext.getStat().stat.f2310e, i3, str2, new Object[0]);
                 return;
             }
-            BdStatisticsManager.getInstance().net(httpNetContext.getRequest().getApiName(), currentActivity, httpNetContext.getStat().stat.f2249b, httpNetContext.getStat().stat.f2248a, httpNetContext.getStat().stat.f2253f, httpNetContext.getStat().stat.f2250c, httpNetContext.getStat().stat.f2251d, httpNetContext.getStat().stat.f2252e, i3, str2, new Object[0]);
+            BdStatisticsManager.getInstance().net(httpNetContext.getRequest().getApiName(), currentActivity, httpNetContext.getStat().stat.f2307b, httpNetContext.getStat().stat.f2306a, httpNetContext.getStat().stat.f2311f, httpNetContext.getStat().stat.f2308c, httpNetContext.getStat().stat.f2309d, httpNetContext.getStat().stat.f2310e, i3, str2, new Object[0]);
         } catch (Exception e2) {
             BdLog.e(e2.toString());
         }
@@ -1028,16 +1029,16 @@ public class TiebaStatic {
         if (interceptable == null || interceptable.invokeLL(65564, null, str, dVar) == null) {
             synchronized (TiebaStatic.class) {
                 if (dVar != null) {
-                    if (dVar.f2253f <= 180000) {
+                    if (dVar.f2311f <= 180000) {
                         try {
-                            if (dVar.f2253f >= 0 && dVar.f2250c >= 0 && dVar.f2251d >= 0) {
-                                int i2 = dVar.f2256i;
+                            if (dVar.f2311f >= 0 && dVar.f2308c >= 0 && dVar.f2309d >= 0) {
+                                int i2 = dVar.f2314i;
                                 String str2 = null;
                                 String currentActivity = TiebaStaticHelper.getCurrentActivity();
                                 if (i2 != 0 && i2 != 200) {
-                                    str2 = dVar.f2255h;
+                                    str2 = dVar.f2313h;
                                 }
-                                BdStatisticsManager.getInstance().imgNet(str, currentActivity, dVar.f2249b, dVar.f2248a, dVar.f2253f, dVar.f2250c, dVar.f2251d, dVar.f2252e, i2, str2, new Object[0]);
+                                BdStatisticsManager.getInstance().imgNet(str, currentActivity, dVar.f2307b, dVar.f2306a, dVar.f2311f, dVar.f2308c, dVar.f2309d, dVar.f2310e, i2, str2, new Object[0]);
                             }
                         } catch (Exception e2) {
                             BdLog.e(e2.toString());
@@ -1089,28 +1090,28 @@ public class TiebaStatic {
         if (interceptable == null || interceptable.invokeCommon(65566, null, new Object[]{str, str2, dVar, Integer.valueOf(i2), str3}) == null) {
             synchronized (TiebaStatic.class) {
                 if (dVar != null) {
-                    if (dVar.f2253f <= 180000) {
+                    if (dVar.f2311f <= 180000) {
                         try {
-                            if (dVar.f2253f >= 0 && dVar.f2250c >= 0 && dVar.f2251d >= 0) {
-                                int i4 = dVar.f2256i;
+                            if (dVar.f2311f >= 0 && dVar.f2308c >= 0 && dVar.f2309d >= 0) {
+                                int i4 = dVar.f2314i;
                                 if (i4 != 200 && i4 / 100 != 3) {
                                     i3 = i4;
                                     String str4 = new String();
                                     String currentActivity = TiebaStaticHelper.getCurrentActivity();
                                     if (i3 != 0) {
-                                        str4 = str4 + dVar.f2255h;
+                                        str4 = str4 + dVar.f2313h;
                                         if (!TextUtils.isEmpty(str3)) {
                                             str4 = str4 + str3;
                                         }
                                     }
-                                    BdStatisticsManager.getInstance().net(getApiName(str2), str, currentActivity, dVar.f2249b, dVar.f2248a, dVar.f2253f, dVar.f2250c, dVar.f2251d, dVar.f2252e, i3, str4, new Object[0]);
+                                    BdStatisticsManager.getInstance().net(getApiName(str2), str, currentActivity, dVar.f2307b, dVar.f2306a, dVar.f2311f, dVar.f2308c, dVar.f2309d, dVar.f2310e, i3, str4, new Object[0]);
                                 }
                                 i3 = 0;
                                 String str42 = new String();
                                 String currentActivity2 = TiebaStaticHelper.getCurrentActivity();
                                 if (i3 != 0) {
                                 }
-                                BdStatisticsManager.getInstance().net(getApiName(str2), str, currentActivity2, dVar.f2249b, dVar.f2248a, dVar.f2253f, dVar.f2250c, dVar.f2251d, dVar.f2252e, i3, str42, new Object[0]);
+                                BdStatisticsManager.getInstance().net(getApiName(str2), str, currentActivity2, dVar.f2307b, dVar.f2306a, dVar.f2311f, dVar.f2308c, dVar.f2309d, dVar.f2310e, i3, str42, new Object[0]);
                             }
                         } catch (Exception e2) {
                             BdLog.e(e2.toString());

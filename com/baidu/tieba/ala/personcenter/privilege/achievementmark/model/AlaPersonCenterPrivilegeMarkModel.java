@@ -24,10 +24,10 @@ public class AlaPersonCenterPrivilegeMarkModel extends BdBaseModel {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public b f49486e;
+    public b f49594e;
 
     /* renamed from: f  reason: collision with root package name */
-    public HttpMessageListener f49487f;
+    public HttpMessageListener f49595f;
 
     /* loaded from: classes7.dex */
     public class a extends HttpMessageListener {
@@ -35,7 +35,7 @@ public class AlaPersonCenterPrivilegeMarkModel extends BdBaseModel {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ AlaPersonCenterPrivilegeMarkModel f49488a;
+        public final /* synthetic */ AlaPersonCenterPrivilegeMarkModel f49596a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(AlaPersonCenterPrivilegeMarkModel alaPersonCenterPrivilegeMarkModel, int i2) {
@@ -55,15 +55,15 @@ public class AlaPersonCenterPrivilegeMarkModel extends BdBaseModel {
                     return;
                 }
             }
-            this.f49488a = alaPersonCenterPrivilegeMarkModel;
+            this.f49596a = alaPersonCenterPrivilegeMarkModel;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && (httpResponsedMessage instanceof AlaAchievementMarkResponsedMessage) && httpResponsedMessage.getOrginalMessage() != null && httpResponsedMessage.getOrginalMessage().getTag() == this.f49488a.unique_id) {
-                this.f49488a.f49486e.a(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), httpResponsedMessage);
+            if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && (httpResponsedMessage instanceof AlaAchievementMarkResponsedMessage) && httpResponsedMessage.getOrginalMessage() != null && httpResponsedMessage.getOrginalMessage().getTag() == this.f49596a.unique_id) {
+                this.f49596a.f49594e.a(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), httpResponsedMessage);
             }
         }
     }
@@ -88,11 +88,11 @@ public class AlaPersonCenterPrivilegeMarkModel extends BdBaseModel {
                 return;
             }
         }
-        this.f49487f = new a(this, AlaCmdConfigHttp.CMD_ALA_GET_PRIVILEGE_MARK_LIST);
+        this.f49595f = new a(this, AlaCmdConfigHttp.CMD_ALA_GET_PRIVILEGE_MARK_LIST);
         this.unique_id = bdUniqueId;
-        this.f49486e = bVar;
+        this.f49594e = bVar;
         registerTask();
-        registerListener(this.f49487f);
+        registerListener(this.f49595f);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel

@@ -139,6 +139,8 @@ public interface IPayMethod {
 
     boolean isSupported(Activity activity);
 
+    void onQQPayResult(int i2, String str);
+
     void onWxPayResult(int i2, String str);
 
     boolean queryHistoryPurchaseByProductId(String str, IResult<PurchaseInfo> iResult);

@@ -2,7 +2,7 @@ package com.baidu.swan.apps.media.chooser.listener;
 
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.RecyclerView;
-import c.a.n0.a.i1.d.d.f;
+import c.a.o0.a.i1.d.d.f;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.apps.media.chooser.adapter.SwanAppThumbnailAdapter;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,10 +17,10 @@ public class SwanAppThumbnailTouchCallback extends ItemTouchHelper.Callback {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public f f45879a;
+    public f f45986a;
 
     /* renamed from: b  reason: collision with root package name */
-    public SwanAppThumbnailAdapter f45880b;
+    public SwanAppThumbnailAdapter f45987b;
 
     public SwanAppThumbnailTouchCallback(f fVar, SwanAppThumbnailAdapter swanAppThumbnailAdapter) {
         Interceptable interceptable = $ic;
@@ -37,8 +37,8 @@ public class SwanAppThumbnailTouchCallback extends ItemTouchHelper.Callback {
                 return;
             }
         }
-        this.f45879a = fVar;
-        this.f45880b = swanAppThumbnailAdapter;
+        this.f45986a = fVar;
+        this.f45987b = swanAppThumbnailAdapter;
     }
 
     @Override // androidx.recyclerview.widget.ItemTouchHelper.Callback
@@ -86,17 +86,17 @@ public class SwanAppThumbnailTouchCallback extends ItemTouchHelper.Callback {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048580, this, recyclerView, viewHolder, viewHolder2)) == null) {
-            if (this.f45880b.getMediaModels() == null) {
+            if (this.f45987b.getMediaModels() == null) {
                 return false;
             }
             int adapterPosition = viewHolder.getAdapterPosition();
             int adapterPosition2 = viewHolder2.getAdapterPosition();
-            SwanAppThumbnailAdapter swanAppThumbnailAdapter = this.f45880b;
+            SwanAppThumbnailAdapter swanAppThumbnailAdapter = this.f45987b;
             if (swanAppThumbnailAdapter != null) {
                 Collections.swap(swanAppThumbnailAdapter.getMediaModels(), adapterPosition, adapterPosition2);
-                this.f45880b.notifyItemMoved(adapterPosition, adapterPosition2);
+                this.f45987b.notifyItemMoved(adapterPosition, adapterPosition2);
             }
-            f fVar = this.f45879a;
+            f fVar = this.f45986a;
             if (fVar != null) {
                 fVar.onMove(adapterPosition, adapterPosition2);
                 return true;

@@ -7,7 +7,7 @@ import android.graphics.Color;
 import android.graphics.drawable.GradientDrawable;
 import android.util.AttributeSet;
 import androidx.annotation.Nullable;
-import c.a.h0.a.k.h;
+import c.a.i0.a.k.h;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.sdk.container.widget.AbsCountDownView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -22,13 +22,13 @@ public class RectangleCountDownView extends AbsCountDownView {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f44891f;
+    public long f44998f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f44892g;
+    public long f44999g;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f44893h;
+    public long f45000h;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public RectangleCountDownView(Context context) {
@@ -62,7 +62,7 @@ public class RectangleCountDownView extends AbsCountDownView {
             gradientDrawable.setCornerRadius(h.a(context, 15.0f));
             gradientDrawable.setColor(Color.parseColor("#33000000"));
             setBackground(gradientDrawable);
-            setText(String.format("跳过 %02d", Long.valueOf(this.f44892g / 1000)));
+            setText(String.format("跳过 %02d", Long.valueOf(this.f44999g / 1000)));
         }
     }
 
@@ -71,7 +71,7 @@ public class RectangleCountDownView extends AbsCountDownView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas) == null) {
             super.onDraw(canvas);
-            setText(String.format("跳过 %02d", Integer.valueOf(Math.round(((float) this.f44893h) / 1000.0f))));
+            setText(String.format("跳过 %02d", Integer.valueOf(Math.round(((float) this.f45000h) / 1000.0f))));
         }
     }
 
@@ -79,8 +79,8 @@ public class RectangleCountDownView extends AbsCountDownView {
     public void setTimeMillis(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2) == null) {
-            this.f44892g = j2;
-            this.f44893h = j2;
+            this.f44999g = j2;
+            this.f45000h = j2;
         }
     }
 
@@ -89,8 +89,8 @@ public class RectangleCountDownView extends AbsCountDownView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             setTaskPeriod(250L);
-            this.f44891f = System.currentTimeMillis();
-            setText(String.format("跳过 %02d", Long.valueOf(this.f44892g / 1000)));
+            this.f44998f = System.currentTimeMillis();
+            setText(String.format("跳过 %02d", Long.valueOf(this.f44999g / 1000)));
             super.start();
         }
     }
@@ -107,8 +107,8 @@ public class RectangleCountDownView extends AbsCountDownView {
     public void updateProTask() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            long currentTimeMillis = this.f44892g - (System.currentTimeMillis() - this.f44891f);
-            this.f44893h = currentTimeMillis;
+            long currentTimeMillis = this.f44999g - (System.currentTimeMillis() - this.f44998f);
+            this.f45000h = currentTimeMillis;
             if (currentTimeMillis > 0) {
                 postInvalidate();
                 return;
@@ -125,7 +125,7 @@ public class RectangleCountDownView extends AbsCountDownView {
     public void updateProgres(int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048582, this, i2, i3) == null) {
-            this.f44893h = i3;
+            this.f45000h = i3;
             postInvalidate();
         }
     }
@@ -170,7 +170,7 @@ public class RectangleCountDownView extends AbsCountDownView {
                 return;
             }
         }
-        this.f44891f = 0L;
+        this.f44998f = 0L;
         initialize(context, attributeSet);
     }
 }

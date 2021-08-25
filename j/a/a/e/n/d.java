@@ -1,48 +1,31 @@
 package j.a.a.e.n;
 
-import android.animation.ObjectAnimator;
+import android.app.Activity;
+import android.content.Context;
 import android.view.View;
-import android.view.animation.LinearInterpolator;
-import android.widget.ImageView;
+import android.view.inputmethod.InputMethodManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
 /* loaded from: classes2.dex */
 public class d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(View view, ImageView imageView) {
+    public static void a(Context context, View view) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65536, null, view, imageView) == null) || view == null || imageView == null) {
+        if (!(interceptable == null || interceptable.invokeLL(65536, null, context, view) == null) || context == null || view == null) {
             return;
         }
-        view.setVisibility(8);
-        ObjectAnimator objectAnimator = imageView.getTag() != null ? (ObjectAnimator) imageView.getTag() : null;
-        if (objectAnimator != null) {
-            objectAnimator.cancel();
-            imageView.setTag(null);
-            RLog.debug("ObjectAnimatorUtils", "hideDialogLoading->oldRotateAnimator.cancel()");
-        }
+        ((InputMethodManager) context.getSystemService("input_method")).hideSoftInputFromWindow(view.getWindowToken(), 0);
     }
 
-    public static void b(View view, ImageView imageView) {
+    public static void b(Activity activity, View view) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65537, null, view, imageView) == null) || view == null || imageView == null) {
-            return;
+        if (interceptable == null || interceptable.invokeLL(65537, null, activity, view) == null) {
+            if (view == null && (view = activity.getCurrentFocus()) == null) {
+                return;
+            }
+            ((InputMethodManager) activity.getSystemService("input_method")).showSoftInput(view, 1);
         }
-        ObjectAnimator objectAnimator = imageView.getTag() != null ? (ObjectAnimator) imageView.getTag() : null;
-        if (objectAnimator != null) {
-            objectAnimator.cancel();
-            imageView.setTag(null);
-            RLog.debug("ObjectAnimatorUtils", "showDialogLoading->oldRotateAnimator.cancel()");
-        }
-        view.setVisibility(0);
-        ObjectAnimator ofFloat = ObjectAnimator.ofFloat(imageView, "rotation", 0.0f, 360.0f);
-        ofFloat.setDuration(1000L);
-        ofFloat.setInterpolator(new LinearInterpolator());
-        ofFloat.setRepeatCount(-1);
-        ofFloat.start();
-        imageView.setTag(ofFloat);
     }
 }

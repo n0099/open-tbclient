@@ -5,12 +5,14 @@ import android.annotation.TargetApi;
 import android.graphics.Bitmap;
 import android.os.Build;
 import android.view.KeyEvent;
+import android.webkit.RenderProcessGoneDetail;
 import android.webkit.WebResourceError;
 import android.webkit.WebResourceRequest;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import androidx.webkit.WebResourceErrorCompat;
 import androidx.webkit.WebViewClientCompat;
+import c.a.p0.m.f;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -208,9 +210,20 @@ public class FlutterWebViewClient {
             }
 
             @Override // android.webkit.WebViewClient
+            public boolean onRenderProcessGone(WebView webView, RenderProcessGoneDetail renderProcessGoneDetail) {
+                InterceptResult invokeLL;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048580, this, webView, renderProcessGoneDetail)) == null) {
+                    f.a(FlutterWebViewClient.TAG, webView);
+                    return true;
+                }
+                return invokeLL.booleanValue;
+            }
+
+            @Override // android.webkit.WebViewClient
             public void onUnhandledKeyEvent(WebView webView, KeyEvent keyEvent) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeLL(1048580, this, webView, keyEvent) == null) {
+                if (interceptable2 == null || interceptable2.invokeLL(1048581, this, webView, keyEvent) == null) {
                 }
             }
 
@@ -219,7 +232,7 @@ public class FlutterWebViewClient {
             public boolean shouldOverrideUrlLoading(WebView webView, WebResourceRequest webResourceRequest) {
                 InterceptResult invokeLL;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048581, this, webView, webResourceRequest)) == null) ? this.this$0.shouldOverrideUrlLoading(webView, webResourceRequest) : invokeLL.booleanValue;
+                return (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048582, this, webView, webResourceRequest)) == null) ? this.this$0.shouldOverrideUrlLoading(webView, webResourceRequest) : invokeLL.booleanValue;
             }
 
             @Override // android.webkit.WebViewClient
@@ -284,9 +297,20 @@ public class FlutterWebViewClient {
             }
 
             @Override // android.webkit.WebViewClient
+            public boolean onRenderProcessGone(WebView webView, RenderProcessGoneDetail renderProcessGoneDetail) {
+                InterceptResult invokeLL;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048580, this, webView, renderProcessGoneDetail)) == null) {
+                    f.a(FlutterWebViewClient.TAG, webView);
+                    return true;
+                }
+                return invokeLL.booleanValue;
+            }
+
+            @Override // android.webkit.WebViewClient
             public void onUnhandledKeyEvent(WebView webView, KeyEvent keyEvent) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeLL(1048580, this, webView, keyEvent) == null) {
+                if (interceptable2 == null || interceptable2.invokeLL(1048581, this, webView, keyEvent) == null) {
                 }
             }
 
@@ -294,14 +318,14 @@ public class FlutterWebViewClient {
             public boolean shouldOverrideUrlLoading(WebView webView, WebResourceRequest webResourceRequest) {
                 InterceptResult invokeLL;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048581, this, webView, webResourceRequest)) == null) ? this.this$0.shouldOverrideUrlLoading(webView, webResourceRequest) : invokeLL.booleanValue;
+                return (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048582, this, webView, webResourceRequest)) == null) ? this.this$0.shouldOverrideUrlLoading(webView, webResourceRequest) : invokeLL.booleanValue;
             }
 
             @Override // android.webkit.WebViewClient
             public boolean shouldOverrideUrlLoading(WebView webView, String str) {
                 InterceptResult invokeLL;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048582, this, webView, str)) == null) ? this.this$0.shouldOverrideUrlLoading(webView, str) : invokeLL.booleanValue;
+                return (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048583, this, webView, str)) == null) ? this.this$0.shouldOverrideUrlLoading(webView, str) : invokeLL.booleanValue;
             }
 
             @Override // android.webkit.WebViewClient

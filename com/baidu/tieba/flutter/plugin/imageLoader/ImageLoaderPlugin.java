@@ -12,7 +12,7 @@ import c.a.e.e.l.c;
 import c.a.e.e.l.d;
 import c.a.e.e.p.j;
 import c.a.e.e.p.k;
-import c.a.e.k.d.a;
+import c.a.e.l.d.a;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.util.BdLog;
@@ -241,7 +241,7 @@ public class ImageLoaderPlugin implements FlutterPlugin, ImageLoaderAuto.HostIma
     private boolean shouldMonitorPerformance(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65545, this, i2)) == null) ? c.a.o0.o0.k.d().g() && i2 % 100 == 0 : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65545, this, i2)) == null) ? c.a.p0.o0.k.d().g() && i2 % 100 == 0 : invokeI.booleanValue;
     }
 
     @Override // com.baidu.tieba.flutter.plugin.imageLoader.ImageLoaderAuto.HostImageLoader
@@ -428,7 +428,7 @@ public class ImageLoaderPlugin implements FlutterPlugin, ImageLoaderAuto.HostIma
     public void onAttachedToEngine(@NonNull FlutterPlugin.FlutterPluginBinding flutterPluginBinding) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, flutterPluginBinding) == null) {
-            c.a.p0.r0.a.c.d.d(flutterPluginBinding.getBinaryMessenger(), this);
+            c.a.q0.r0.a.c.d.d(flutterPluginBinding.getBinaryMessenger(), this);
         }
     }
 
@@ -436,7 +436,7 @@ public class ImageLoaderPlugin implements FlutterPlugin, ImageLoaderAuto.HostIma
     public void onDetachedFromEngine(@NonNull FlutterPlugin.FlutterPluginBinding flutterPluginBinding) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, flutterPluginBinding) == null) {
-            c.a.p0.r0.a.c.d.d(flutterPluginBinding.getBinaryMessenger(), null);
+            c.a.q0.r0.a.c.d.d(flutterPluginBinding.getBinaryMessenger(), null);
         }
     }
 }

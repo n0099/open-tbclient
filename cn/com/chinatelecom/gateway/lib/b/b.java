@@ -25,34 +25,34 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f35405a;
+    public String f35511a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f35406b;
+    public String f35512b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f35407c;
+    public String f35513c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f35408d;
+    public String f35514d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f35409e;
+    public String f35515e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f35410f;
+    public String f35516f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f35411g;
+    public String f35517g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f35412h;
+    public String f35518h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f35413i;
+    public String f35519i;
 
     /* renamed from: j  reason: collision with root package name */
-    public String f35414j;
+    public String f35520j;
     public String k;
     public String l;
     public String m;
@@ -82,21 +82,21 @@ public class b {
             }
         }
         this.t = new StringBuffer();
-        this.f35407c = "";
-        this.f35409e = "";
+        this.f35513c = "";
+        this.f35515e = "";
         this.n = "";
         this.m = "";
         this.p = "";
-        this.f35405a = "1.1";
+        this.f35511a = "1.1";
         long currentTimeMillis = System.currentTimeMillis();
         this.u = currentTimeMillis;
-        this.f35406b = a(currentTimeMillis);
-        this.f35408d = "";
-        this.f35410f = "";
-        this.f35411g = Build.BRAND;
-        this.f35412h = Build.MODEL;
-        this.f35413i = "Android";
-        this.f35414j = Build.VERSION.RELEASE;
+        this.f35512b = a(currentTimeMillis);
+        this.f35514d = "";
+        this.f35516f = "";
+        this.f35517g = Build.BRAND;
+        this.f35518h = Build.MODEL;
+        this.f35519i = "Android";
+        this.f35520j = Build.VERSION.RELEASE;
         this.k = "SDK-JJ-v3.6.2";
         this.l = str;
         this.s = "0";
@@ -130,7 +130,7 @@ public class b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            this.f35408d = str;
+            this.f35514d = str;
             return this;
         }
         return (b) invokeL.objValue;
@@ -150,7 +150,7 @@ public class b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            this.f35409e = str;
+            this.f35515e = str;
             return this;
         }
         return (b) invokeL.objValue;
@@ -160,7 +160,7 @@ public class b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            this.f35410f = str;
+            this.f35516f = str;
             return this;
         }
         return (b) invokeL.objValue;
@@ -229,16 +229,16 @@ public class b {
                 this.v = currentTimeMillis;
                 this.r = currentTimeMillis - this.u;
                 JSONObject jSONObject = new JSONObject();
-                jSONObject.put("v", this.f35405a);
-                jSONObject.put("t", this.f35406b);
-                jSONObject.put("tag", this.f35407c);
-                jSONObject.put("ai", this.f35408d);
-                jSONObject.put(AppIconSetting.DEFAULT_LARGE_ICON, this.f35409e);
-                jSONObject.put(NotificationStyle.NOTIFICATION_STYLE, this.f35410f);
-                jSONObject.put("br", this.f35411g);
-                jSONObject.put("ml", this.f35412h);
-                jSONObject.put("os", this.f35413i);
-                jSONObject.put(SearchJsBridge.COOKIE_OV, this.f35414j);
+                jSONObject.put("v", this.f35511a);
+                jSONObject.put("t", this.f35512b);
+                jSONObject.put("tag", this.f35513c);
+                jSONObject.put("ai", this.f35514d);
+                jSONObject.put(AppIconSetting.DEFAULT_LARGE_ICON, this.f35515e);
+                jSONObject.put(NotificationStyle.NOTIFICATION_STYLE, this.f35516f);
+                jSONObject.put("br", this.f35517g);
+                jSONObject.put("ml", this.f35518h);
+                jSONObject.put("os", this.f35519i);
+                jSONObject.put(SearchJsBridge.COOKIE_OV, this.f35520j);
                 jSONObject.put("sv", this.k);
                 jSONObject.put("ri", this.l);
                 jSONObject.put(RetrieveTaskManager.KEY, this.m);

@@ -28,10 +28,11 @@ import com.yy.mobile.framework.revenuesdk.payapi.payproxy.IDxmSdkServiceProxy;
 import com.yy.mobile.framework.revenuesdk.payapi.payproxy.IWechatSdkServiceProxy;
 import com.yy.mobile.framework.revenuesdk.payapi.payservice.PayMethodProxyFactory;
 import com.yy.mobile.framework.revenuesdk.payservice.impl.H5PayManager;
-import j.a.a.e.k.b;
 import j.a.a.e.k.c;
 import j.a.a.e.k.d;
-import j.a.a.e.k.g;
+import j.a.a.e.k.e;
+import j.a.a.e.k.h;
+import j.a.a.e.l.b;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -41,12 +42,13 @@ import tv.athena.revenue.api.MiddleRevenueConfig;
 import tv.athena.revenue.payui.activity.PayCommonWebActivity;
 import tv.athena.revenue.payui.controller.IYYPayListener;
 import tv.athena.revenue.payui.model.H5PayFlowModel;
+import tv.athena.revenue.payui.model.PayFlowType;
 import tv.athena.revenue.payui.model.PayUIKitConfig;
 import tv.athena.revenue.payui.view.IYYPayAmountView;
 import tv.athena.revenue.payui.view.IYYPayWayView;
 @Keep
 /* loaded from: classes2.dex */
-public class YYPayUIKit implements c {
+public class YYPayUIKit implements d {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "YYPayUiKit";
     public static Map<String, YYPayUIKit> mPayUIKitMap;
@@ -54,7 +56,7 @@ public class YYPayUIKit implements c {
     public Context mAppContext;
     public int mAppId;
     public AppPayServiceListener mAppPayServiceListener;
-    public b mIYYPayController;
+    public c mIYYPayController;
     public j.a.a.e.k.a mModelProvider;
     public PayUIKitConfig mPayUIKitConfig;
     public int mUserChannel;
@@ -66,7 +68,7 @@ public class YYPayUIKit implements c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ YYPayUIKit f79489a;
+        public final /* synthetic */ YYPayUIKit f79691a;
 
         public a(YYPayUIKit yYPayUIKit) {
             Interceptable interceptable = $ic;
@@ -83,7 +85,7 @@ public class YYPayUIKit implements c {
                     return;
                 }
             }
-            this.f79489a = yYPayUIKit;
+            this.f79691a = yYPayUIKit;
         }
 
         @Override // com.yy.mobile.framework.revenuesdk.payapi.AppPayServiceListener, com.yy.mobile.framework.revenuesdk.payapi.IAppPayServiceListener
@@ -91,7 +93,7 @@ public class YYPayUIKit implements c {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, currencyChargeMessage) == null) {
                 super.onCurrencyChargeMessage(currencyChargeMessage);
-                this.f79489a.notifyYYPayListener(currencyChargeMessage);
+                this.f79691a.notifyYYPayListener(currencyChargeMessage);
             }
         }
     }
@@ -152,10 +154,10 @@ public class YYPayUIKit implements c {
                     return mPayUIKitMap.get(uIKitMapKey);
                 }
                 if (payUIKitConfig != null && payUIKitConfig.revenueConfig != null) {
-                    j.a.a.e.l.b.e(payUIKitConfig.revenueConfig.isTestEnv());
+                    b.e(payUIKitConfig.revenueConfig.isTestEnv());
                     YYPayUIKit yYPayUIKit = new YYPayUIKit(uIKitMapKey);
                     yYPayUIKit.initYYPayUIKit(i2, i3, payUIKitConfig.revenueConfig);
-                    yYPayUIKit.mModelProvider = new d(payUIKitConfig.revenueConfig);
+                    yYPayUIKit.mModelProvider = new e(payUIKitConfig.revenueConfig);
                     yYPayUIKit.mPayUIKitConfig = payUIKitConfig;
                     yYPayUIKit.mAppContext = payUIKitConfig.revenueConfig.getAppContext();
                     mPayUIKitMap.put(uIKitMapKey, yYPayUIKit);
@@ -170,16 +172,16 @@ public class YYPayUIKit implements c {
         return (YYPayUIKit) invokeIIL.objValue;
     }
 
-    private b getPayController() {
+    private c getPayController() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
             if (this.mIYYPayController == null) {
-                this.mIYYPayController = new g(this.mAppId, this.mUserChannel, this.mModelProvider, this);
+                this.mIYYPayController = new h(this.mAppId, this.mUserChannel, this.mModelProvider, this);
             }
             return this.mIYYPayController;
         }
-        return (b) invokeV.objValue;
+        return (c) invokeV.objValue;
     }
 
     public static YYPayUIKit getUIKit(int i2, int i3) {
@@ -213,7 +215,7 @@ public class YYPayUIKit implements c {
             this.mAppId = i2;
             this.mUserChannel = i3;
             RevenueManager.instance().addRevenueConfig(middleRevenueConfig);
-            IAppPayService a2 = j.a.a.e.n.a.a(i2, i3);
+            IAppPayService a2 = j.a.a.e.n.b.a(i2, i3);
             if (a2 != null) {
                 a aVar = new a(this);
                 this.mAppPayServiceListener = aVar;
@@ -259,9 +261,22 @@ public class YYPayUIKit implements c {
         }
     }
 
-    public synchronized void destroy() {
+    public synchronized void clear() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            synchronized (this) {
+                RLog.info(TAG, "clear mAppId:" + this.mAppId + " userChannel:" + this.mUserChannel);
+                if (this.mIYYPayController != null) {
+                    this.mIYYPayController.clear();
+                    this.mIYYPayController = null;
+                }
+            }
+        }
+    }
+
+    public synchronized void destroy() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             synchronized (this) {
                 RLog.info(TAG, "destroy()");
                 String uIKitMapKey = getUIKitMapKey(this.mAppId, this.mUserChannel);
@@ -271,7 +286,7 @@ public class YYPayUIKit implements c {
                 }
                 release();
                 if (this.mAppPayServiceListener != null) {
-                    IAppPayService a2 = j.a.a.e.n.a.a(this.mAppId, this.mUserChannel);
+                    IAppPayService a2 = j.a.a.e.n.b.a(this.mAppId, this.mUserChannel);
                     if (a2 != null) {
                         a2.removePayListener(this.mAppPayServiceListener);
                     }
@@ -287,27 +302,27 @@ public class YYPayUIKit implements c {
     public H5PayFlowModel getH5PayFlowModel() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            b bVar = this.mIYYPayController;
-            if (bVar != null) {
-                return bVar.k();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            c cVar = this.mIYYPayController;
+            if (cVar != null) {
+                return cVar.k();
             }
             return null;
         }
         return (H5PayFlowModel) invokeV.objValue;
     }
 
-    @Override // j.a.a.e.k.c
+    @Override // j.a.a.e.k.d
     public PayUIKitConfig getPayUIKitConfig() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mPayUIKitConfig : (PayUIKitConfig) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mPayUIKitConfig : (PayUIKitConfig) invokeV.objValue;
     }
 
-    @Override // j.a.a.e.k.c
+    @Override // j.a.a.e.k.d
     public void notifyYYPayFailListener(int i2, String str, PayCallBackBean payCallBackBean) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(1048580, this, i2, str, payCallBackBean) == null) {
+        if (interceptable == null || interceptable.invokeILL(1048581, this, i2, str, payCallBackBean) == null) {
             for (int i3 = 0; i3 < this.mYYPayListener.size(); i3++) {
                 this.mYYPayListener.get(i3).onFail(i2, str, payCallBackBean);
                 RLog.debug(TAG, "notifyGlobalPayListener onFail reason:" + str + " code:" + i2);
@@ -317,7 +332,7 @@ public class YYPayUIKit implements c {
 
     public void notifyYYPayListener(CurrencyChargeMessage currencyChargeMessage) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, currencyChargeMessage) == null) {
+        if (interceptable == null || interceptable.invokeL(1048582, this, currencyChargeMessage) == null) {
             if (currencyChargeMessage.status == 1) {
                 for (int i2 = 0; i2 < this.mYYPayListener.size(); i2++) {
                     this.mYYPayListener.get(i2).onSuccess(currencyChargeMessage);
@@ -333,15 +348,47 @@ public class YYPayUIKit implements c {
         }
     }
 
+    @Override // j.a.a.e.k.b
+    public void onPayFlowFinish(PayFlowType payFlowType) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, payFlowType) == null) {
+            RLog.info(TAG, "onPayFlowFinish payFlowType:" + payFlowType.name());
+            clear();
+            IAppPayService a2 = j.a.a.e.n.b.a(this.mAppId, this.mUserChannel);
+            if (a2 != null) {
+                RLog.info(TAG, "cancelAllRequest");
+                a2.cancelAllRequest();
+            }
+        }
+    }
+
+    public void onQQPayResult(int i2, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2, str) == null) {
+            RLog.info(TAG, "onQQPayResult code:" + i2);
+            int i3 = this.mAppId;
+            if (i3 == 0) {
+                RLog.error(TAG, "onQQPayResult error appid is 0", new Object[0]);
+                return;
+            }
+            IAppPayService a2 = j.a.a.e.n.b.a(i3, this.mUserChannel);
+            if (a2 == null) {
+                RLog.error(TAG, "onQQPayResult error payService is null", new Object[0]);
+            } else {
+                a2.onQQPayResult(i2, str);
+            }
+        }
+    }
+
     public void onWxPayResult(int i2, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048582, this, i2, str) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048585, this, i2, str) == null) {
             int i3 = this.mAppId;
             if (i3 == 0) {
                 RLog.error(TAG, "onWxPayResult error appid is 0", new Object[0]);
                 return;
             }
-            IAppPayService a2 = j.a.a.e.n.a.a(i3, this.mUserChannel);
+            IAppPayService a2 = j.a.a.e.n.b.a(i3, this.mUserChannel);
             if (a2 == null) {
                 RLog.error(TAG, "onWxPayResult error payService is null", new Object[0]);
             } else {
@@ -352,21 +399,18 @@ public class YYPayUIKit implements c {
 
     public synchronized void release() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             synchronized (this) {
                 RLog.info(TAG, "release mAppId:" + this.mAppId + " userChannel:" + this.mUserChannel);
                 sendLoginOutBroadcast();
-                if (this.mIYYPayController != null) {
-                    this.mIYYPayController.clear();
-                    this.mIYYPayController = null;
-                }
+                clear();
             }
         }
     }
 
     public void removeYYPayListener(IYYPayListener iYYPayListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, iYYPayListener) == null) {
+        if (interceptable == null || interceptable.invokeL(1048587, this, iYYPayListener) == null) {
             if (iYYPayListener == null) {
                 RLog.error(TAG, "removeGlobalPayListener error listener null", new Object[0]);
             } else {
@@ -377,7 +421,7 @@ public class YYPayUIKit implements c {
 
     public synchronized void sendLoginOutBroadcast() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
             synchronized (this) {
                 RLog.info(TAG, "sendLoginOutBroadcast() mAppId:" + this.mAppId + " userChannel:" + this.mUserChannel);
                 if (this.mAppContext != null) {
@@ -391,28 +435,28 @@ public class YYPayUIKit implements c {
 
     public void startPayChannelDialog(Activity activity, IYYPayWayView.b bVar, IPayCallback<CurrencyChargeMessage> iPayCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048586, this, activity, bVar, iPayCallback) == null) {
+        if (interceptable == null || interceptable.invokeLLL(1048589, this, activity, bVar, iPayCallback) == null) {
             getPayController().e(activity, bVar, iPayCallback);
         }
     }
 
     public void startPayDialog(Activity activity, IYYPayAmountView.ViewParams viewParams, IPayCallback<CurrencyChargeMessage> iPayCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048587, this, activity, viewParams, iPayCallback) == null) {
+        if (interceptable == null || interceptable.invokeLLL(1048590, this, activity, viewParams, iPayCallback) == null) {
             getPayController().f(activity, viewParams, iPayCallback);
         }
     }
 
     public void startWalletActivity(Activity activity) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, activity) == null) {
+        if (interceptable == null || interceptable.invokeL(1048591, this, activity) == null) {
             getPayController().d(activity);
         }
     }
 
     public void startWalletActivity(Activity activity, IYYPayAmountView.ViewParams viewParams) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048589, this, activity, viewParams) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048592, this, activity, viewParams) == null) {
             getPayController().g(activity, viewParams);
         }
     }

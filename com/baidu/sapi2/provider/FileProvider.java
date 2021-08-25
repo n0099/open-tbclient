@@ -34,36 +34,36 @@ public class FileProvider extends ContentProvider {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String[] f44669b;
+    public static final String[] f44776b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f44670c = "android.support.FILE_PROVIDER_PATHS";
+    public static final String f44777c = "android.support.FILE_PROVIDER_PATHS";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f44671d = "root-path";
+    public static final String f44778d = "root-path";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f44672e = "files-path";
+    public static final String f44779e = "files-path";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f44673f = "cache-path";
+    public static final String f44780f = "cache-path";
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f44674g = "external-path";
+    public static final String f44781g = "external-path";
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f44675h = "name";
+    public static final String f44782h = "name";
 
     /* renamed from: i  reason: collision with root package name */
-    public static final String f44676i = "path";
+    public static final String f44783i = "path";
 
     /* renamed from: j  reason: collision with root package name */
-    public static final File f44677j;
+    public static final File f44784j;
     public static HashMap<String, a> k;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public a f44678a;
+    public a f44785a;
 
     /* loaded from: classes5.dex */
     public interface a {
@@ -85,8 +85,8 @@ public class FileProvider extends ContentProvider {
                 return;
             }
         }
-        f44669b = new String[]{"_display_name", "_size"};
-        f44677j = new File("/");
+        f44776b = new String[]{"_display_name", "_size"};
+        f44784j = new File("/");
         k = new HashMap<>();
     }
 
@@ -149,7 +149,7 @@ public class FileProvider extends ContentProvider {
                 String attributeValue = loadXmlMetaData.getAttributeValue(null, "name");
                 String attributeValue2 = loadXmlMetaData.getAttributeValue(null, "path");
                 if ("root-path".equals(name)) {
-                    file = a(f44677j, attributeValue2);
+                    file = a(f44784j, attributeValue2);
                 } else if ("files-path".equals(name)) {
                     file = a(context.getFilesDir(), attributeValue2);
                 } else if ("cache-path".equals(name)) {
@@ -177,7 +177,7 @@ public class FileProvider extends ContentProvider {
             super.attachInfo(context, providerInfo);
             if (!providerInfo.exported) {
                 if (providerInfo.grantUriPermissions) {
-                    this.f44678a = a(context, providerInfo.authority);
+                    this.f44785a = a(context, providerInfo.authority);
                     return;
                 }
                 throw new SecurityException("Provider must grant uri permissions");
@@ -190,7 +190,7 @@ public class FileProvider extends ContentProvider {
     public int delete(Uri uri, String str, String[] strArr) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, uri, str, strArr)) == null) ? this.f44678a.a(uri).delete() ? 1 : 0 : invokeLLL.intValue;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, uri, str, strArr)) == null) ? this.f44785a.a(uri).delete() ? 1 : 0 : invokeLLL.intValue;
     }
 
     @Override // android.content.ContentProvider
@@ -198,7 +198,7 @@ public class FileProvider extends ContentProvider {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, uri)) == null) {
-            File a2 = this.f44678a.a(uri);
+            File a2 = this.f44785a.a(uri);
             int lastIndexOf = a2.getName().lastIndexOf(46);
             if (lastIndexOf >= 0) {
                 String mimeTypeFromExtension = MimeTypeMap.getSingleton().getMimeTypeFromExtension(a2.getName().substring(lastIndexOf + 1));
@@ -233,7 +233,7 @@ public class FileProvider extends ContentProvider {
     public ParcelFileDescriptor openFile(Uri uri, String str) throws FileNotFoundException {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, uri, str)) == null) ? ParcelFileDescriptor.open(this.f44678a.a(uri), a(str)) : (ParcelFileDescriptor) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, uri, str)) == null) ? ParcelFileDescriptor.open(this.f44785a.a(uri), a(str)) : (ParcelFileDescriptor) invokeLL.objValue;
     }
 
     @Override // android.content.ContentProvider
@@ -242,9 +242,9 @@ public class FileProvider extends ContentProvider {
         int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048582, this, uri, strArr, str, strArr2, str2)) == null) {
-            File a2 = this.f44678a.a(uri);
+            File a2 = this.f44785a.a(uri);
             if (strArr == null) {
-                strArr = f44669b;
+                strArr = f44776b;
             }
             String[] strArr3 = new String[strArr.length];
             Object[] objArr = new Object[strArr.length];
@@ -286,10 +286,10 @@ public class FileProvider extends ContentProvider {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final String f44679a;
+        public final String f44786a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final HashMap<String, File> f44680b;
+        public final HashMap<String, File> f44787b;
 
         public b(String str) {
             Interceptable interceptable = $ic;
@@ -306,8 +306,8 @@ public class FileProvider extends ContentProvider {
                     return;
                 }
             }
-            this.f44680b = new HashMap<>();
-            this.f44679a = str;
+            this.f44787b = new HashMap<>();
+            this.f44786a = str;
         }
 
         public void a(String str, File file) {
@@ -315,7 +315,7 @@ public class FileProvider extends ContentProvider {
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, file) == null) {
                 if (!TextUtils.isEmpty(str)) {
                     try {
-                        this.f44680b.put(str, file.getCanonicalFile());
+                        this.f44787b.put(str, file.getCanonicalFile());
                         return;
                     } catch (IOException e2) {
                         throw new IllegalArgumentException("Failed to resolve canonical path for " + file, e2);
@@ -334,7 +334,7 @@ public class FileProvider extends ContentProvider {
                 try {
                     String canonicalPath = file.getCanonicalPath();
                     Map.Entry<String, File> entry = null;
-                    for (Map.Entry<String, File> entry2 : this.f44680b.entrySet()) {
+                    for (Map.Entry<String, File> entry2 : this.f44787b.entrySet()) {
                         String path = entry2.getValue().getPath();
                         if (canonicalPath.startsWith(path) && (entry == null || path.length() > entry.getValue().getPath().length())) {
                             entry = entry2;
@@ -347,7 +347,7 @@ public class FileProvider extends ContentProvider {
                         } else {
                             substring = canonicalPath.substring(path2.length() + 1);
                         }
-                        return new Uri.Builder().scheme("content").authority(this.f44679a).encodedPath(Uri.encode(entry.getKey()) + '/' + Uri.encode(substring, "/")).build();
+                        return new Uri.Builder().scheme("content").authority(this.f44786a).encodedPath(Uri.encode(entry.getKey()) + '/' + Uri.encode(substring, "/")).build();
                     }
                     throw new IllegalArgumentException("Failed to find configured root that contains " + canonicalPath);
                 } catch (IOException unused) {
@@ -366,7 +366,7 @@ public class FileProvider extends ContentProvider {
                 int indexOf = encodedPath.indexOf(47, 1);
                 String decode = Uri.decode(encodedPath.substring(1, indexOf));
                 String decode2 = Uri.decode(encodedPath.substring(indexOf + 1));
-                File file = this.f44680b.get(decode);
+                File file = this.f44787b.get(decode);
                 if (file != null) {
                     File file2 = new File(file, decode2);
                     try {
@@ -389,7 +389,7 @@ public class FileProvider extends ContentProvider {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if (r.f42062a.equals(str)) {
+            if (r.f42169a.equals(str)) {
                 return 268435456;
             }
             if ("w".equals(str) || "wt".equals(str)) {

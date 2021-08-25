@@ -20,14 +20,14 @@ public class d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static d f2489c;
+    public static d f2547c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public volatile SparseArray<Bitmap> f2490a;
+    public volatile SparseArray<Bitmap> f2548a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f2491b;
+    public Context f2549b;
 
     static {
         InterceptResult invokeClinit;
@@ -57,7 +57,7 @@ public class d {
                 return;
             }
         }
-        this.f2490a = new SparseArray<>();
+        this.f2548a = new SparseArray<>();
         Bitmap.Config config = Bitmap.Config.RGB_565;
     }
 
@@ -67,10 +67,10 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             synchronized (d.class) {
-                if (f2489c == null) {
-                    f2489c = new d();
+                if (f2547c == null) {
+                    f2547c = new d();
                 }
-                dVar = f2489c;
+                dVar = f2547c;
             }
             return dVar;
         }
@@ -92,7 +92,7 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             synchronized (this) {
-                this.f2490a.clear();
+                this.f2548a.clear();
             }
         }
     }
@@ -120,7 +120,7 @@ public class d {
     public void f(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, context) == null) {
-            this.f2491b = context;
+            this.f2549b = context;
         }
     }
 

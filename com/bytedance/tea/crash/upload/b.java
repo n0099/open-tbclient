@@ -38,10 +38,10 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f68537a;
+    public static boolean f68737a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static c.b.c.b.n.b f68538b;
+    public static c.b.c.b.n.b f68738b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
@@ -50,20 +50,20 @@ public class b {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final a f68539a;
+        public static final a f68739a;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final a f68540b;
+        public static final a f68740b;
 
         /* renamed from: c  reason: collision with root package name */
-        public static final a f68541c;
+        public static final a f68741c;
 
         /* renamed from: e  reason: collision with root package name */
-        public static final /* synthetic */ a[] f68542e;
+        public static final /* synthetic */ a[] f68742e;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: d  reason: collision with root package name */
-        public final int f68543d;
+        public final int f68743d;
 
         static {
             InterceptResult invokeClinit;
@@ -78,11 +78,11 @@ public class b {
                     return;
                 }
             }
-            f68539a = new a("NONE", 0, 0);
-            f68540b = new a("GZIP", 1, 1);
+            f68739a = new a("NONE", 0, 0);
+            f68740b = new a("GZIP", 1, 1);
             a aVar = new a("DEFLATER", 2, 2);
-            f68541c = aVar;
-            f68542e = new a[]{f68539a, f68540b, aVar};
+            f68741c = aVar;
+            f68742e = new a[]{f68739a, f68740b, aVar};
         }
 
         public a(String str, int i2, int i3) {
@@ -103,7 +103,7 @@ public class b {
                     return;
                 }
             }
-            this.f68543d = i3;
+            this.f68743d = i3;
         }
 
         public static a valueOf(String str) {
@@ -115,40 +115,40 @@ public class b {
         public static a[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (a[]) f68542e.clone() : (a[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (a[]) f68742e.clone() : (a[]) invokeV.objValue;
         }
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* renamed from: com.bytedance.tea.crash.upload.b$b  reason: collision with other inner class name */
     /* loaded from: classes9.dex */
-    public static final class EnumC1931b {
+    public static final class EnumC1935b {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final EnumC1931b f68544a;
+        public static final EnumC1935b f68744a;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final EnumC1931b f68545b;
+        public static final EnumC1935b f68745b;
 
         /* renamed from: c  reason: collision with root package name */
-        public static final EnumC1931b f68546c;
+        public static final EnumC1935b f68746c;
 
         /* renamed from: d  reason: collision with root package name */
-        public static final EnumC1931b f68547d;
+        public static final EnumC1935b f68747d;
 
         /* renamed from: e  reason: collision with root package name */
-        public static final EnumC1931b f68548e;
+        public static final EnumC1935b f68748e;
 
         /* renamed from: f  reason: collision with root package name */
-        public static final EnumC1931b f68549f;
+        public static final EnumC1935b f68749f;
 
         /* renamed from: h  reason: collision with root package name */
-        public static final /* synthetic */ EnumC1931b[] f68550h;
+        public static final /* synthetic */ EnumC1935b[] f68750h;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: g  reason: collision with root package name */
-        public final int f68551g;
+        public final int f68751g;
 
         static {
             InterceptResult invokeClinit;
@@ -163,17 +163,17 @@ public class b {
                     return;
                 }
             }
-            f68544a = new EnumC1931b("NONE", 0, 0);
-            f68545b = new EnumC1931b("MOBILE", 1, 1);
-            f68546c = new EnumC1931b("MOBILE_2G", 2, 2);
-            f68547d = new EnumC1931b("MOBILE_3G", 3, 3);
-            f68548e = new EnumC1931b(CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING, 4, 4);
-            EnumC1931b enumC1931b = new EnumC1931b("MOBILE_4G", 5, 5);
-            f68549f = enumC1931b;
-            f68550h = new EnumC1931b[]{f68544a, f68545b, f68546c, f68547d, f68548e, enumC1931b};
+            f68744a = new EnumC1935b("NONE", 0, 0);
+            f68745b = new EnumC1935b("MOBILE", 1, 1);
+            f68746c = new EnumC1935b("MOBILE_2G", 2, 2);
+            f68747d = new EnumC1935b("MOBILE_3G", 3, 3);
+            f68748e = new EnumC1935b(CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING, 4, 4);
+            EnumC1935b enumC1935b = new EnumC1935b("MOBILE_4G", 5, 5);
+            f68749f = enumC1935b;
+            f68750h = new EnumC1935b[]{f68744a, f68745b, f68746c, f68747d, f68748e, enumC1935b};
         }
 
-        public EnumC1931b(String str, int i2, int i3) {
+        public EnumC1935b(String str, int i2, int i3) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -191,19 +191,19 @@ public class b {
                     return;
                 }
             }
-            this.f68551g = i3;
+            this.f68751g = i3;
         }
 
-        public static EnumC1931b valueOf(String str) {
+        public static EnumC1935b valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (EnumC1931b) Enum.valueOf(EnumC1931b.class, str) : (EnumC1931b) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (EnumC1935b) Enum.valueOf(EnumC1935b.class, str) : (EnumC1935b) invokeL.objValue;
         }
 
-        public static EnumC1931b[] values() {
+        public static EnumC1935b[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (EnumC1931b[]) f68550h.clone() : (EnumC1931b[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (EnumC1935b[]) f68750h.clone() : (EnumC1935b[]) invokeV.objValue;
         }
     }
 
@@ -234,10 +234,10 @@ public class b {
             }
             int length = bArr.length;
             String str3 = null;
-            if (a.f68540b == aVar && length > 128) {
+            if (a.f68740b == aVar && length > 128) {
                 bArr = l(bArr);
                 str3 = AsyncHttpClient.ENCODING_GZIP;
-            } else if (a.f68541c == aVar && length > 128) {
+            } else if (a.f68741c == aVar && length > 128) {
                 bArr = i(bArr);
                 str3 = "deflate";
             }
@@ -305,7 +305,7 @@ public class b {
         if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2, z)) == null) {
             try {
                 if (!TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str)) {
-                    return a(2097152L, str, str2.getBytes(), a.f68540b, "application/json; charset=utf-8", z);
+                    return a(2097152L, str, str2.getBytes(), a.f68740b, "application/json; charset=utf-8", z);
                 }
                 return new e(201);
             } catch (Throwable th) {
@@ -333,8 +333,8 @@ public class b {
         HttpURLConnection httpURLConnection = null;
         GZIPInputStream gZIPInputStream = null;
         try {
-            if (f68538b != null) {
-                str = f68538b.a(str, bArr);
+            if (f68738b != null) {
+                str = f68738b.a(str, bArr);
             }
             LinkedList<Pair> linkedList = new LinkedList();
             if (z2) {

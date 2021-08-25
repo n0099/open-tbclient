@@ -10,7 +10,7 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public a f2324a;
+    public a f2382a;
 
     /* loaded from: classes.dex */
     public interface a {

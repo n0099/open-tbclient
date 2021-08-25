@@ -16,7 +16,7 @@ public class AdVideoPlayerViewCache {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public HashMap<String, WeakReference<b>> f71912a;
+    public HashMap<String, WeakReference<b>> f72112a;
 
     /* renamed from: com.kwad.sdk.core.video.videoview.AdVideoPlayerViewCache$1  reason: invalid class name */
     /* loaded from: classes10.dex */
@@ -105,7 +105,7 @@ public class AdVideoPlayerViewCache {
                 return;
             }
         }
-        this.f71912a = new HashMap<>(1);
+        this.f72112a = new HashMap<>(1);
     }
 
     public /* synthetic */ AdVideoPlayerViewCache(AnonymousClass1 anonymousClass1) {
@@ -121,14 +121,14 @@ public class AdVideoPlayerViewCache {
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            this.f71912a.remove(str);
+            this.f72112a.remove(str);
         }
     }
 
     public void a(String str, b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, bVar) == null) {
-            this.f71912a.put(str, new WeakReference<>(bVar));
+            this.f72112a.put(str, new WeakReference<>(bVar));
         }
     }
 
@@ -136,13 +136,13 @@ public class AdVideoPlayerViewCache {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            WeakReference<b> weakReference = this.f71912a.get(str);
+            WeakReference<b> weakReference = this.f72112a.get(str);
             if (weakReference != null) {
                 b bVar = weakReference.get();
                 if (bVar != null) {
                     return bVar;
                 }
-                this.f71912a.remove(str);
+                this.f72112a.remove(str);
             }
             return null;
         }

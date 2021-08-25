@@ -30,43 +30,43 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: i  reason: collision with root package name */
-    public static volatile a f2416i;
+    public static volatile a f2474i;
 
     /* renamed from: j  reason: collision with root package name */
-    public static final Handler f2417j;
+    public static final Handler f2475j;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f2418a;
+    public boolean f2476a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f2419b;
+    public boolean f2477b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f2420c;
+    public String f2478c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Context f2421d;
+    public Context f2479d;
 
     /* renamed from: e  reason: collision with root package name */
-    public c f2422e;
+    public c f2480e;
 
     /* renamed from: f  reason: collision with root package name */
-    public BdStatSwitchData f2423f;
+    public BdStatSwitchData f2481f;
 
     /* renamed from: g  reason: collision with root package name */
-    public c.a.e.e.n.m.b f2424g;
+    public c.a.e.e.n.m.b f2482g;
 
     /* renamed from: h  reason: collision with root package name */
-    public b f2425h;
+    public b f2483h;
 
     /* renamed from: c.a.e.e.n.m.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class HandlerC0047a extends Handler {
+    public static class HandlerC0037a extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public HandlerC0047a() {
+        public HandlerC0037a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -131,16 +131,16 @@ public class a {
             String action = intent.getAction();
             if ("com.baidu.adp.stats.background".equals(action)) {
                 BdStatisticsManager.getInstance().save();
-                if (this.this$0.f2418a) {
+                if (this.this$0.f2476a) {
                     g.h().f();
                 }
             } else if ("com.baidu.adp.stats.switch".equals(action)) {
-                if (this.this$0.f2418a) {
+                if (this.this$0.f2476a) {
                     return;
                 }
                 this.this$0.p();
                 g.h().r();
-            } else if (!"com.baidu.adp.stats.updatecmd".equals(action) || this.this$0.f2418a || (serializableExtra = intent.getSerializableExtra("switchsCmdBrdMsg")) == null || !(serializableExtra instanceof BdUploadStatMsgData)) {
+            } else if (!"com.baidu.adp.stats.updatecmd".equals(action) || this.this$0.f2476a || (serializableExtra = intent.getSerializableExtra("switchsCmdBrdMsg")) == null || !(serializableExtra instanceof BdUploadStatMsgData)) {
             } else {
                 BdUploadStatMsgData bdUploadStatMsgData = (BdUploadStatMsgData) serializableExtra;
                 if (bdUploadStatMsgData.parentType == null && bdUploadStatMsgData.childType == null) {
@@ -150,12 +150,12 @@ public class a {
                 if (TextUtils.isEmpty(str)) {
                     return;
                 }
-                this.this$0.f2423f.putTmpSwitchConfData(str, bdUploadStatMsgData);
+                this.this$0.f2481f.putTmpSwitchConfData(str, bdUploadStatMsgData);
                 this.this$0.l(bdUploadStatMsgData);
             }
         }
 
-        public /* synthetic */ c(a aVar, HandlerC0047a handlerC0047a) {
+        public /* synthetic */ c(a aVar, HandlerC0037a handlerC0037a) {
             this(aVar);
         }
     }
@@ -166,7 +166,7 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f2426a;
+        public final /* synthetic */ a f2484a;
 
         public d(a aVar) {
             Interceptable interceptable = $ic;
@@ -183,7 +183,7 @@ public class a {
                     return;
                 }
             }
-            this.f2426a = aVar;
+            this.f2484a = aVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -194,18 +194,18 @@ public class a {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, objArr)) == null) {
                 BdStatSwitchData bdStatSwitchData = new BdStatSwitchData();
-                if (this.f2426a.f2424g.a()) {
-                    bdStatSwitchData.parserJson(this.f2426a.f2424g.f2428b);
+                if (this.f2484a.f2482g.a()) {
+                    bdStatSwitchData.parserJson(this.f2484a.f2482g.f2486b);
                 }
-                this.f2426a.f2419b = false;
-                if (this.f2426a.f2418a) {
-                    a aVar = this.f2426a;
-                    if (aVar.t(aVar.f2424g.f2428b)) {
-                        String w = this.f2426a.w();
-                        if (!TextUtils.isEmpty(w) && !w.equals(this.f2426a.f2424g.f2428b)) {
-                            this.f2426a.f2419b = true;
+                this.f2484a.f2477b = false;
+                if (this.f2484a.f2476a) {
+                    a aVar = this.f2484a;
+                    if (aVar.t(aVar.f2482g.f2486b)) {
+                        String w = this.f2484a.w();
+                        if (!TextUtils.isEmpty(w) && !w.equals(this.f2484a.f2482g.f2486b)) {
+                            this.f2484a.f2477b = true;
                             bdStatSwitchData.parserJson(w);
-                            this.f2426a.f2424g.b(w);
+                            this.f2484a.f2482g.b(w);
                         }
                     }
                 }
@@ -224,19 +224,19 @@ public class a {
                 if (bdStatSwitchData == null) {
                     return;
                 }
-                this.f2426a.f2423f = bdStatSwitchData;
-                if (this.f2426a.f2418a && this.f2426a.f2419b && !BdBaseApplication.getInst().checkInterrupt()) {
-                    this.f2426a.z();
+                this.f2484a.f2481f = bdStatSwitchData;
+                if (this.f2484a.f2476a && this.f2484a.f2477b && !BdBaseApplication.getInst().checkInterrupt()) {
+                    this.f2484a.z();
                     g.h().r();
                 }
-                b bVar = this.f2426a.f2425h;
+                b bVar = this.f2484a.f2483h;
                 if (bVar != null) {
                     bVar.a();
                 }
             }
         }
 
-        public /* synthetic */ d(a aVar, HandlerC0047a handlerC0047a) {
+        public /* synthetic */ d(a aVar, HandlerC0037a handlerC0037a) {
             this(aVar);
         }
     }
@@ -254,7 +254,7 @@ public class a {
                 return;
             }
         }
-        f2417j = new HandlerC0047a();
+        f2475j = new HandlerC0037a();
     }
 
     public a() {
@@ -270,25 +270,25 @@ public class a {
                 return;
             }
         }
-        this.f2419b = false;
-        this.f2420c = null;
-        this.f2423f = new BdStatSwitchData();
-        this.f2424g = new c.a.e.e.n.m.b();
-        this.f2425h = null;
+        this.f2477b = false;
+        this.f2478c = null;
+        this.f2481f = new BdStatSwitchData();
+        this.f2482g = new c.a.e.e.n.m.b();
+        this.f2483h = null;
     }
 
     public static a o() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
-            if (f2416i == null) {
+            if (f2474i == null) {
                 synchronized (a.class) {
-                    if (f2416i == null) {
-                        f2416i = new a();
+                    if (f2474i == null) {
+                        f2474i = new a();
                     }
                 }
             }
-            return f2416i;
+            return f2474i;
         }
         return (a) invokeV.objValue;
     }
@@ -300,7 +300,7 @@ public class a {
             if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
                 return true;
             }
-            return this.f2423f.smallFlowUpload(c.a.e.e.n.j.a.g(str), str2);
+            return this.f2481f.smallFlowUpload(c.a.e.e.n.j.a.g(str), str2);
         }
         return invokeLL.booleanValue;
     }
@@ -315,18 +315,18 @@ public class a {
             if (!TextUtils.isEmpty(str2)) {
                 str = str2;
             }
-            if (this.f2423f.getTmpSwitchConfData(str) == null) {
-                this.f2423f.putTmpSwitchConfData(str, bdUploadStatMsgData);
+            if (this.f2481f.getTmpSwitchConfData(str) == null) {
+                this.f2481f.putTmpSwitchConfData(str, bdUploadStatMsgData);
                 y(bdUploadStatMsgData);
                 l(bdUploadStatMsgData);
                 return true;
             }
             long j2 = bdUploadStatMsgData.deadLineTime;
             if (0 == j2) {
-                this.f2423f.rmTmpSwitchConfData(str);
+                this.f2481f.rmTmpSwitchConfData(str);
                 return false;
             } else if (0 < j2) {
-                this.f2423f.putTmpSwitchConfData(str, bdUploadStatMsgData);
+                this.f2481f.putTmpSwitchConfData(str, bdUploadStatMsgData);
                 y(bdUploadStatMsgData);
                 l(bdUploadStatMsgData);
                 return true;
@@ -348,24 +348,24 @@ public class a {
             if (j2 > 0) {
                 currentTimeMillis = j2;
             }
-            Message obtainMessage = f2417j.obtainMessage();
+            Message obtainMessage = f2475j.obtainMessage();
             obtainMessage.what = 1;
             obtainMessage.obj = bdUploadStatMsgData;
-            f2417j.removeMessages(1);
-            f2417j.sendMessageDelayed(obtainMessage, currentTimeMillis);
+            f2475j.removeMessages(1);
+            f2475j.sendMessageDelayed(obtainMessage, currentTimeMillis);
         }
     }
 
     public int m(String str, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048579, this, str, i2)) == null) ? TextUtils.isEmpty(str) ? i2 : this.f2423f.geUploadCycle(str, i2) : invokeLI.intValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048579, this, str, i2)) == null) ? TextUtils.isEmpty(str) ? i2 : this.f2481f.geUploadCycle(str, i2) : invokeLI.intValue;
     }
 
     public ArrayList<String> n(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) ? this.f2423f.getChiledTypes(str) : (ArrayList) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) ? this.f2481f.getChiledTypes(str) : (ArrayList) invokeL.objValue;
     }
 
     public void p() {
@@ -380,29 +380,29 @@ public class a {
     public int q(String str, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048582, this, str, i2)) == null) ? TextUtils.isEmpty(str) ? i2 : this.f2423f.getMaxAlertCount(str, i2) : invokeLI.intValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048582, this, str, i2)) == null) ? TextUtils.isEmpty(str) ? i2 : this.f2481f.getMaxAlertCount(str, i2) : invokeLI.intValue;
     }
 
     public void r(boolean z, String str, Context context, b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Boolean.valueOf(z), str, context, bVar}) == null) {
-            this.f2418a = z;
-            this.f2420c = str;
-            this.f2421d = context;
+            this.f2476a = z;
+            this.f2478c = str;
+            this.f2479d = context;
             try {
-                if (this.f2422e == null && context != null && !BdBaseApplication.getInst().checkInterrupt()) {
-                    this.f2422e = new c(this, null);
+                if (this.f2480e == null && context != null && !BdBaseApplication.getInst().checkInterrupt()) {
+                    this.f2480e = new c(this, null);
                     IntentFilter intentFilter = new IntentFilter();
                     intentFilter.addAction("com.baidu.adp.stats.background");
                     intentFilter.addAction("com.baidu.adp.stats.switch");
                     intentFilter.addAction("com.baidu.adp.stats.updatecmd");
                     intentFilter.addAction("com.baidu.adp.stats.uploadallfile");
-                    this.f2421d.registerReceiver(this.f2422e, intentFilter);
+                    this.f2479d.registerReceiver(this.f2480e, intentFilter);
                 }
             } catch (Exception e2) {
                 BdLog.e(e2);
             }
-            this.f2425h = bVar;
+            this.f2483h = bVar;
             p();
         }
     }
@@ -414,7 +414,7 @@ public class a {
             if (TextUtils.isEmpty(str)) {
                 return false;
             }
-            return this.f2423f.isExactWriteFile(c.a.e.e.n.j.a.g(str));
+            return this.f2481f.isExactWriteFile(c.a.e.e.n.j.a.g(str));
         }
         return invokeL.booleanValue;
     }
@@ -422,7 +422,7 @@ public class a {
     public final boolean t(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) ? TextUtils.isEmpty(str) || System.currentTimeMillis() - this.f2424g.f2427a >= 86400000 : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) ? TextUtils.isEmpty(str) || System.currentTimeMillis() - this.f2482g.f2485a >= 86400000 : invokeL.booleanValue;
     }
 
     public boolean u(String str, String str2) {
@@ -432,7 +432,7 @@ public class a {
             if (TextUtils.isEmpty(str) && TextUtils.isEmpty(str2)) {
                 return false;
             }
-            return this.f2423f.isUpload(c.a.e.e.n.j.a.g(str), str2);
+            return this.f2481f.isUpload(c.a.e.e.n.j.a.g(str), str2);
         }
         return invokeLL.booleanValue;
     }
@@ -444,7 +444,7 @@ public class a {
             if (TextUtils.isEmpty(str) && TextUtils.isEmpty(str2)) {
                 return false;
             }
-            return this.f2423f.isWrite(c.a.e.e.n.j.a.g(str), str2);
+            return this.f2481f.isWrite(c.a.e.e.n.j.a.g(str), str2);
         }
         return invokeLL.booleanValue;
     }
@@ -453,13 +453,13 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            if (TextUtils.isEmpty(this.f2420c)) {
+            if (TextUtils.isEmpty(this.f2478c)) {
                 return null;
             }
             try {
-                c.a.e.e.j.a.g g2 = new c.a.e.e.j.b.a().g(this.f2420c, 3, -1, 30000, -1, null);
+                c.a.e.e.j.a.g g2 = new c.a.e.e.j.b.a().g(this.f2478c, 3, -1, 30000, -1, null);
                 if (g2 != null) {
-                    return new String(g2.f2276h, "utf-8");
+                    return new String(g2.f2334h, "utf-8");
                 }
             } catch (Exception e2) {
                 BdLog.e(e2);
@@ -476,26 +476,26 @@ public class a {
             if (TextUtils.isEmpty(str) && TextUtils.isEmpty(str2)) {
                 return false;
             }
-            return this.f2423f.onlyWifiUpload(c.a.e.e.n.j.a.g(str), str2);
+            return this.f2481f.onlyWifiUpload(c.a.e.e.n.j.a.g(str), str2);
         }
         return invokeLL.booleanValue;
     }
 
     public final void y(BdUploadStatMsgData bdUploadStatMsgData) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048590, this, bdUploadStatMsgData) == null) && this.f2418a) {
+        if ((interceptable == null || interceptable.invokeL(1048590, this, bdUploadStatMsgData) == null) && this.f2476a) {
             Intent intent = new Intent("com.baidu.adp.stats.updatecmd");
             intent.setPackage(BdBaseApplication.getInst().getPackageName());
-            this.f2421d.sendBroadcast(intent);
+            this.f2479d.sendBroadcast(intent);
         }
     }
 
     public final void z() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048591, this) == null) && this.f2418a) {
+        if ((interceptable == null || interceptable.invokeV(1048591, this) == null) && this.f2476a) {
             Intent intent = new Intent("com.baidu.adp.stats.switch");
             intent.setPackage(BdBaseApplication.getInst().getPackageName());
-            this.f2421d.sendBroadcast(intent);
+            this.f2479d.sendBroadcast(intent);
         }
     }
 }

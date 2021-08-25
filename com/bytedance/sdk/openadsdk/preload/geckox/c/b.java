@@ -14,11 +14,11 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static b f68336a;
+    public static b f68536a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public f f68337b;
+    public f f68537b;
 
     static {
         InterceptResult invokeClinit;
@@ -33,7 +33,7 @@ public class b {
                 return;
             }
         }
-        f68336a = new b();
+        f68536a = new b();
     }
 
     public b() {
@@ -49,13 +49,13 @@ public class b {
                 return;
             }
         }
-        this.f68337b = c();
+        this.f68537b = c();
     }
 
     public static b a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f68336a : (b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f68536a : (b) invokeV.objValue;
     }
 
     public static f c() {
@@ -73,6 +73,6 @@ public class b {
     public f b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f68337b : (f) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f68537b : (f) invokeV.objValue;
     }
 }

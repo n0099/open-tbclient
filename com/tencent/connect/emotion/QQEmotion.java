@@ -27,7 +27,7 @@ public class QQEmotion extends BaseApi {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public IUiListener f75836a;
+    public IUiListener f76037a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public QQEmotion(QQToken qQToken) {
@@ -83,11 +83,11 @@ public class QQEmotion extends BaseApi {
     public void setEmotions(Activity activity, ArrayList<Uri> arrayList, IUiListener iUiListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048576, this, activity, arrayList, iUiListener) == null) {
-            IUiListener iUiListener2 = this.f75836a;
+            IUiListener iUiListener2 = this.f76037a;
             if (iUiListener2 != null) {
                 iUiListener2.onCancel();
             }
-            this.f75836a = iUiListener;
+            this.f76037a = iUiListener;
             if (!i.b(activity)) {
                 Toast.makeText(activity.getApplicationContext(), "当前手机未安装QQ，请安装最新版QQ后再试。", 1).show();
             } else if (i.c(activity, "8.0.0") < 0) {
@@ -103,8 +103,8 @@ public class QQEmotion extends BaseApi {
                     }
                     stringBuffer.append("&app_name=" + Base64.encodeToString(l.i(a2), 2));
                 }
-                String appId = this.f75827c.getAppId();
-                String openId = this.f75827c.getOpenId();
+                String appId = this.f76028c.getAppId();
+                String openId = this.f76028c.getOpenId();
                 if (!TextUtils.isEmpty(appId)) {
                     stringBuffer.append("&share_id=" + appId);
                 }

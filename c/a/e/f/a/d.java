@@ -13,13 +13,13 @@ public class d {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public BitmapDrawable f2659a;
+    public BitmapDrawable f2717a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c.a.e.k.d.a f2660b;
+    public c.a.e.l.d.a f2718b;
 
     /* renamed from: c  reason: collision with root package name */
-    public volatile boolean f2661c;
+    public volatile boolean f2719c;
 
     public d() {
         Interceptable interceptable = $ic;
@@ -34,7 +34,7 @@ public class d {
                 return;
             }
         }
-        this.f2661c = true;
+        this.f2719c = true;
     }
 
     public int a() {
@@ -42,10 +42,10 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             if (e()) {
-                return this.f2659a.getIntrinsicHeight();
+                return this.f2717a.getIntrinsicHeight();
             }
             if (d()) {
-                return this.f2660b.m();
+                return this.f2718b.m();
             }
             return 0;
         }
@@ -57,10 +57,10 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             if (e()) {
-                return this.f2659a.getIntrinsicWidth();
+                return this.f2717a.getIntrinsicWidth();
             }
             if (d()) {
-                return this.f2660b.r();
+                return this.f2718b.r();
             }
             return 0;
         }
@@ -77,7 +77,7 @@ public class d {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            c.a.e.k.d.a aVar = this.f2660b;
+            c.a.e.l.d.a aVar = this.f2718b;
             return aVar != null && aVar.w();
         }
         return invokeV.booleanValue;
@@ -87,8 +87,8 @@ public class d {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            BitmapDrawable bitmapDrawable = this.f2659a;
-            return (bitmapDrawable == null || bitmapDrawable.getBitmap() == null || this.f2659a.getBitmap().isRecycled()) ? false : true;
+            BitmapDrawable bitmapDrawable = this.f2717a;
+            return (bitmapDrawable == null || bitmapDrawable.getBitmap() == null || this.f2717a.getBitmap().isRecycled()) ? false : true;
         }
         return invokeV.booleanValue;
     }
@@ -96,8 +96,8 @@ public class d {
     public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.f2660b = null;
-            this.f2659a = null;
+            this.f2718b = null;
+            this.f2717a = null;
         }
     }
 }

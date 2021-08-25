@@ -12,7 +12,7 @@ public final class bq implements View.OnClickListener {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ FeedbackInputActivity f59377a;
+    public final /* synthetic */ FeedbackInputActivity f59577a;
 
     public bq(FeedbackInputActivity feedbackInputActivity) {
         Interceptable interceptable = $ic;
@@ -29,7 +29,7 @@ public final class bq implements View.OnClickListener {
                 return;
             }
         }
-        this.f59377a = feedbackInputActivity;
+        this.f59577a = feedbackInputActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -39,22 +39,22 @@ public final class bq implements View.OnClickListener {
         List list3;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-            FeedbackInputActivity feedbackInputActivity = this.f59377a;
+            FeedbackInputActivity feedbackInputActivity = this.f59577a;
             if (feedbackInputActivity.D) {
                 return;
             }
             list = feedbackInputActivity.at;
             list.remove(((Integer) view.getTag()).intValue());
-            list2 = this.f59377a.at;
+            list2 = this.f59577a.at;
             if (list2.size() == 1) {
-                byte[] a2 = com.baidu.ufosdk.f.m.a(this.f59377a.getApplicationContext());
+                byte[] a2 = com.baidu.ufosdk.f.m.a(this.f59577a.getApplicationContext());
                 if (a2 == null) {
                     return;
                 }
-                list3 = this.f59377a.at;
+                list3 = this.f59577a.at;
                 list3.set(0, a2);
             }
-            this.f59377a.a(false);
+            this.f59577a.a(false);
         }
     }
 }

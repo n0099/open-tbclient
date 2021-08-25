@@ -12,7 +12,7 @@ public class cb implements m.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ XMPushService.i f77814a;
+    public final /* synthetic */ XMPushService.i f78015a;
 
     /* renamed from: a  reason: collision with other field name */
     public final /* synthetic */ XMPushService f950a;
@@ -33,14 +33,14 @@ public class cb implements m.a {
             }
         }
         this.f950a = xMPushService;
-        this.f77814a = iVar;
+        this.f78015a = iVar;
     }
 
     @Override // com.xiaomi.push.service.m.a
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f950a.a(this.f77814a);
+            this.f950a.a(this.f78015a);
         }
     }
 }

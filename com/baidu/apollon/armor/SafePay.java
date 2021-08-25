@@ -26,16 +26,16 @@ public final class SafePay {
     public static final int SIG_RSA_SHA512 = 13;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f37535a = false;
+    public static final boolean f37641a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f37536b = "SafePay";
+    public static final String f37642b = "SafePay";
 
     /* renamed from: c  reason: collision with root package name */
-    public static SafePay f37537c = null;
+    public static SafePay f37643c = null;
 
     /* renamed from: d  reason: collision with root package name */
-    public static boolean f37538d = true;
+    public static boolean f37644d = true;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -54,7 +54,7 @@ public final class SafePay {
         try {
             System.loadLibrary("bd_wsp_v1_1");
         } catch (UnsatisfiedLinkError e2) {
-            f37538d = false;
+            f37644d = false;
             String str = "load library failed, " + e2.getMessage();
         }
     }
@@ -79,15 +79,15 @@ public final class SafePay {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             synchronized (SafePay.class) {
-                if (f37537c == null) {
+                if (f37643c == null) {
                     SafePay safePay2 = new SafePay();
-                    f37537c = safePay2;
+                    f37643c = safePay2;
                     try {
                         safePay2.init();
                     } catch (Throwable unused) {
                     }
                 }
-                safePay = f37537c;
+                safePay = f37643c;
             }
             return safePay;
         }
@@ -223,7 +223,7 @@ public final class SafePay {
     public boolean prepareCompleted() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? f37538d : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? f37644d : invokeV.booleanValue;
     }
 
     public native String rsaDecrypt(String str);

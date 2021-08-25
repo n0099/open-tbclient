@@ -13,15 +13,15 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static a f14932b;
+    public static a f12487b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public InterfaceC0714a f14933a;
+    public InterfaceC0639a f12488a;
 
     /* renamed from: c.a.p.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public interface InterfaceC0714a {
+    public interface InterfaceC0639a {
         void a(String str, HashMap<String, Object> hashMap);
     }
 
@@ -58,21 +58,21 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f14932b == null) {
+            if (f12487b == null) {
                 synchronized (a.class) {
-                    if (f14932b == null) {
-                        f14932b = new a();
+                    if (f12487b == null) {
+                        f12487b = new a();
                     }
                 }
             }
-            return f14932b;
+            return f12487b;
         }
         return (a) invokeV.objValue;
     }
 
-    public InterfaceC0714a a() {
+    public InterfaceC0639a a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f14933a : (InterfaceC0714a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f12488a : (InterfaceC0639a) invokeV.objValue;
     }
 }

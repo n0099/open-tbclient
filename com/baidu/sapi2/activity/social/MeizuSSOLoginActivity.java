@@ -26,7 +26,7 @@ public class MeizuSSOLoginActivity extends BaseSSOLoginActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ MeizuSSOLoginActivity f44604a;
+        public final /* synthetic */ MeizuSSOLoginActivity f44711a;
 
         public a(MeizuSSOLoginActivity meizuSSOLoginActivity) {
             Interceptable interceptable = $ic;
@@ -43,14 +43,14 @@ public class MeizuSSOLoginActivity extends BaseSSOLoginActivity {
                     return;
                 }
             }
-            this.f44604a = meizuSSOLoginActivity;
+            this.f44711a = meizuSSOLoginActivity;
         }
 
         public void onError(OAuthError oAuthError) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, oAuthError) == null) {
-                MeizuSSOLoginActivity meizuSSOLoginActivity = this.f44604a;
-                meizuSSOLoginActivity.a(((BaseSSOLoginActivity) meizuSSOLoginActivity).f44588g);
+                MeizuSSOLoginActivity meizuSSOLoginActivity = this.f44711a;
+                meizuSSOLoginActivity.a(((BaseSSOLoginActivity) meizuSSOLoginActivity).f44695g);
             }
         }
 
@@ -60,11 +60,11 @@ public class MeizuSSOLoginActivity extends BaseSSOLoginActivity {
                 String accessToken = oAuthToken.getAccessToken();
                 String openId = oAuthToken.getOpenId();
                 if (!TextUtils.isEmpty(accessToken) && !TextUtils.isEmpty(openId)) {
-                    this.f44604a.a(ParamsUtil.getUrlBind(this.f44604a.configuration, SocialType.MEIZU, accessToken, openId, null), "授权魅族帐号登录中");
+                    this.f44711a.a(ParamsUtil.getUrlBind(this.f44711a.configuration, SocialType.MEIZU, accessToken, openId, null), "授权魅族帐号登录中");
                     return;
                 }
-                MeizuSSOLoginActivity meizuSSOLoginActivity = this.f44604a;
-                meizuSSOLoginActivity.a(((BaseSSOLoginActivity) meizuSSOLoginActivity).f44588g);
+                MeizuSSOLoginActivity meizuSSOLoginActivity = this.f44711a;
+                meizuSSOLoginActivity.a(((BaseSSOLoginActivity) meizuSSOLoginActivity).f44695g);
             }
         }
     }
@@ -97,7 +97,7 @@ public class MeizuSSOLoginActivity extends BaseSSOLoginActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.setupViews();
-            setTitleText(c.a.b0.a.j.a.sapi_sdk_title_login_mz);
+            setTitleText(c.a.c0.a.j.a.sapi_sdk_title_login_mz);
             RelativeLayout relativeLayout = this.rootView;
             if (relativeLayout != null) {
                 relativeLayout.setVisibility(4);

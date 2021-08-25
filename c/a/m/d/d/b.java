@@ -15,7 +15,7 @@ public final class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final SecureRandom f4026a;
+    public static final SecureRandom f4001a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -31,7 +31,7 @@ public final class b {
                 return;
             }
         }
-        f4026a = new SecureRandom();
+        f4001a = new SecureRandom();
     }
 
     public static int a(BigInteger bigInteger) {

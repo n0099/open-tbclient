@@ -12,7 +12,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import c.a.b0.a.b;
+import c.a.c0.a.b;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.sapi2.NoProguard;
 import com.baidu.sapi2.SapiAccountManager;
@@ -36,7 +36,7 @@ public class ViewUtility implements NoProguard {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ float f44766a;
+        public final /* synthetic */ float f44873a;
 
         public a(float f2) {
             Interceptable interceptable = $ic;
@@ -53,7 +53,7 @@ public class ViewUtility implements NoProguard {
                     return;
                 }
             }
-            this.f44766a = f2;
+            this.f44873a = f2;
         }
 
         @Override // android.view.View.OnTouchListener
@@ -69,7 +69,7 @@ public class ViewUtility implements NoProguard {
                     }
                     return false;
                 } else if (Build.VERSION.SDK_INT >= 11) {
-                    view.setAlpha(this.f44766a);
+                    view.setAlpha(this.f44873a);
                     return false;
                 } else {
                     return false;

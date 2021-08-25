@@ -6,13 +6,12 @@ import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.bytedance.sdk.openadsdk.TTAdConstant;
 /* loaded from: classes10.dex */
 public final class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f75214a;
+    public static boolean f75415a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -39,7 +38,7 @@ public final class b {
             if (c2 == null) {
                 com.sdk.base.framework.f.b.a.a(context, "access_limit_time", Long.valueOf(currentTimeMillis));
                 return true;
-            } else if (currentTimeMillis - c2.longValue() > TTAdConstant.AD_MAX_EVENT_TIME) {
+            } else if (currentTimeMillis - c2.longValue() > 600000) {
                 com.sdk.base.framework.f.b.a.a(context, "access_limit_time", Long.valueOf(currentTimeMillis));
                 com.sdk.base.framework.f.b.a.a(context, "access_limit_count", (Long) 0L);
                 return true;

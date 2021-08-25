@@ -70,6 +70,7 @@ import androidx.core.view.InputDeviceCompat;
 import androidx.multidex.MultiDex;
 import com.baidu.android.util.io.ActionJsonData;
 import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.searchbox.datacollector.growth.utils.GrowthConstant;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -149,7 +150,7 @@ public class ContextCompat {
             SERVICES.put(ActivityManager.class, "activity");
             SERVICES.put(AlarmManager.class, NotificationCompat.CATEGORY_ALARM);
             SERVICES.put(AudioManager.class, MediaStreamTrack.AUDIO_TRACK_KIND);
-            SERVICES.put(ClipboardManager.class, "clipboard");
+            SERVICES.put(ClipboardManager.class, GrowthConstant.UBC_VALUE_TYPE_CLIP_BOARD);
             SERVICES.put(ConnectivityManager.class, "connectivity");
             SERVICES.put(DevicePolicyManager.class, "device_policy");
             SERVICES.put(DownloadManager.class, "download");

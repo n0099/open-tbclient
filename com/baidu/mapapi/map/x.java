@@ -21,7 +21,7 @@ public class x implements com.baidu.mapsdkplatform.comapi.map.l {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ WearMapView f41488a;
+    public final /* synthetic */ WearMapView f41595a;
 
     public x(WearMapView wearMapView) {
         Interceptable interceptable = $ic;
@@ -38,7 +38,7 @@ public class x implements com.baidu.mapsdkplatform.comapi.map.l {
                 return;
             }
         }
-        this.f41488a = wearMapView;
+        this.f41595a = wearMapView;
     }
 
     @Override // com.baidu.mapsdkplatform.comapi.map.l
@@ -55,20 +55,20 @@ public class x implements com.baidu.mapsdkplatform.comapi.map.l {
         TextView textView2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            jVar = this.f41488a.f41433f;
+            jVar = this.f41595a.f41540f;
             if (jVar != null) {
-                jVar2 = this.f41488a.f41433f;
+                jVar2 = this.f41595a.f41540f;
                 if (jVar2.a() == null) {
                     return;
                 }
-                jVar3 = this.f41488a.f41433f;
-                float f3 = jVar3.a().E().f41956a;
-                f2 = this.f41488a.A;
+                jVar3 = this.f41595a.f41540f;
+                float f3 = jVar3.a().E().f42063a;
+                f2 = this.f41595a.A;
                 if (f2 != f3) {
                     sparseArray = WearMapView.x;
                     int intValue = ((Integer) sparseArray.get((int) f3)).intValue();
-                    jVar4 = this.f41488a.f41433f;
-                    imageView = this.f41488a.r;
+                    jVar4 = this.f41595a.f41540f;
+                    imageView = this.f41595a.r;
                     int i2 = ((int) (intValue / jVar4.a().E().m)) / 2;
                     imageView.setPadding(i2, 0, i2, 0);
                     Object[] objArr = new Object[1];
@@ -79,13 +79,13 @@ public class x implements com.baidu.mapsdkplatform.comapi.map.l {
                         objArr[0] = Integer.valueOf(intValue);
                         format = String.format(" %d米 ", objArr);
                     }
-                    textView = this.f41488a.p;
+                    textView = this.f41595a.p;
                     textView.setText(format);
-                    textView2 = this.f41488a.q;
+                    textView2 = this.f41595a.q;
                     textView2.setText(format);
-                    this.f41488a.A = f3;
+                    this.f41595a.A = f3;
                 }
-                this.f41488a.requestLayout();
+                this.f41595a.requestLayout();
             }
         }
     }

@@ -15,11 +15,11 @@ public final class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ConcurrentHashMap<String, Object> f32151a;
+    public ConcurrentHashMap<String, Object> f32257a;
 
     /* renamed from: c.f.b.g.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public static /* synthetic */ class C1471a {
+    public static /* synthetic */ class C1475a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
@@ -29,7 +29,7 @@ public final class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static a f32152a;
+        public static a f32258a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -45,18 +45,18 @@ public final class a {
                     return;
                 }
             }
-            f32152a = new a(null);
+            f32258a = new a(null);
         }
     }
 
-    public /* synthetic */ a(C1471a c1471a) {
+    public /* synthetic */ a(C1475a c1475a) {
         this();
     }
 
     public static a a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.f32152a : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.f32258a : (a) invokeV.objValue;
     }
 
     public static Object b(String str) {
@@ -66,7 +66,7 @@ public final class a {
             if (str == null) {
                 return null;
             }
-            return a().f32151a.get(str);
+            return a().f32257a.get(str);
         }
         return invokeL.objValue;
     }
@@ -78,9 +78,9 @@ public final class a {
         }
         a a2 = a();
         if (obj == null) {
-            a2.f32151a.remove(str);
+            a2.f32257a.remove(str);
         } else {
-            a2.f32151a.put(str, obj);
+            a2.f32257a.put(str, obj);
         }
     }
 
@@ -97,6 +97,6 @@ public final class a {
                 return;
             }
         }
-        this.f32151a = new ConcurrentHashMap<>();
+        this.f32257a = new ConcurrentHashMap<>();
     }
 }

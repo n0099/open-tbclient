@@ -1,241 +1,262 @@
 package c.a.w.b.d;
 
-import android.graphics.SurfaceTexture;
-import android.opengl.EGL14;
-import android.opengl.EGLConfig;
-import android.opengl.EGLContext;
-import android.opengl.EGLDisplay;
-import android.opengl.EGLExt;
-import android.opengl.EGLSurface;
-import android.view.Surface;
-import androidx.core.view.InputDeviceCompat;
+import android.content.Context;
+import android.text.TextUtils;
+import c.a.w.b.d.c.c;
+import c.a.w.b.d.c.g;
+import c.a.w.c.a.e;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.live.LiveFeedPageSdk;
+import com.baidu.live.business.model.data.LiveTabEntity;
+import com.baidu.searchbox.launch.SmartLaunchStats;
+import com.baidu.searchbox.live.interfaces.net.NetResponse;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.internal.monitor.ZeusMonitorType;
-import org.webrtc.EglBase10;
+import java.net.URLEncoder;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public final class a {
+public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public EGLDisplay f30618a;
+    public final String f30313a;
 
     /* renamed from: b  reason: collision with root package name */
-    public EGLContext f30619b;
+    public final boolean f30314b;
 
     /* renamed from: c  reason: collision with root package name */
-    public EGLConfig f30620c;
+    public String f30315c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-1863705328, "Lc/a/w/b/d/a;")) == null) {
-            return;
+    /* renamed from: d  reason: collision with root package name */
+    public b f30316d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public Context f30317e;
+
+    /* renamed from: c.a.w.b.d.a$a  reason: collision with other inner class name */
+    /* loaded from: classes4.dex */
+    public class C1408a implements c.a.w.e.d.a<c> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ String f30318a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public final /* synthetic */ int f30319b;
+
+        /* renamed from: c  reason: collision with root package name */
+        public final /* synthetic */ a f30320c;
+
+        public C1408a(a aVar, String str, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {aVar, str, Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f30320c = aVar;
+            this.f30318a = str;
+            this.f30319b = i2;
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
+
+        /* JADX DEBUG: Method merged with bridge method */
+        /* JADX WARN: Can't wrap try/catch for region: R(13:3|(2:5|(1:45)(1:8))(1:46)|9|(1:11)(1:44)|12|(3:14|(9:38|39|40|18|(2:(1:36)(1:27)|28)(1:37)|29|30|31|32)|16)(1:43)|17|18|(0)(0)|29|30|31|32) */
+        /* JADX WARN: Removed duplicated region for block: B:27:0x00ca  */
+        /* JADX WARN: Removed duplicated region for block: B:37:0x00e2  */
+        @Override // c.a.w.e.d.a
+        /* renamed from: b */
+        /*
+            Code decompiled incorrectly, please refer to instructions dump.
+        */
+        public void a(NetResponse netResponse, c cVar, Map<String, String> map, List<String> list) {
+            String str;
+            String str2;
+            int i2;
+            String str3;
+            String str4;
+            String str5;
+            String str6;
+            long j2;
+            String str7;
+            g gVar;
+            List<LiveTabEntity> list2;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, netResponse, cVar, map, list) == null) {
+                long currentTimeMillis = System.currentTimeMillis();
+                String str8 = "";
+                if (netResponse == null) {
+                    String string = this.f30320c.f30317e.getResources().getString(e.live_feed_net_error);
+                    this.f30320c.f30316d.b(-100, string, map);
+                    str = "";
+                    str2 = string;
+                    i2 = -100;
+                } else if (!netResponse.isSuccessful() || cVar == null) {
+                    this.f30320c.f30316d.b(netResponse.responseCode, netResponse.exception, map);
+                    int i3 = netResponse.responseCode;
+                    str2 = netResponse.exception;
+                    str = "";
+                    i2 = i3;
+                } else {
+                    this.f30320c.f30316d.a(cVar, map);
+                    c.a.w.b.f.b.a(list);
+                    i2 = cVar.f30325a;
+                    str2 = cVar.f30326b;
+                    str = cVar.f30327c;
+                }
+                String str9 = this.f30320c.f30314b ? "chenjinshi" : "zhibopindao";
+                if (map != null) {
+                    String str10 = map.get("tab");
+                    String str11 = map.get("subtab");
+                    str4 = map.get("resource");
+                    String str12 = map.get("session_id");
+                    if (map.containsKey(SmartLaunchStats.UBC_BUSINESS_START_TIME_KEY)) {
+                        try {
+                            j2 = currentTimeMillis - Long.parseLong(map.get(SmartLaunchStats.UBC_BUSINESS_START_TIME_KEY));
+                            str3 = str10;
+                            str5 = str11;
+                            str6 = str12;
+                        } catch (NumberFormatException unused) {
+                        }
+                        if (str4.contains("tab")) {
+                            str7 = "";
+                        } else {
+                            str7 = (cVar == null || (gVar = cVar.f30331g) == null || (list2 = gVar.f30349c) == null || list2.isEmpty()) ? "1" : "0";
+                        }
+                        str8 = URLEncoder.encode(str4, "UTF-8");
+                        c.a.w.b.c.a.q(this.f30320c.f30317e, this.f30320c.f30313a, str9, j2, i2, str2, str, str8, str3, str5, str6, str7);
+                    }
+                    str3 = str10;
+                    str5 = str11;
+                    str6 = str12;
+                } else {
+                    str3 = "";
+                    str4 = str3;
+                    str5 = str4;
+                    str6 = str5;
+                }
+                j2 = 0;
+                if (str4.contains("tab")) {
+                }
+                str8 = URLEncoder.encode(str4, "UTF-8");
+                c.a.w.b.c.a.q(this.f30320c.f30317e, this.f30320c.f30313a, str9, j2, i2, str2, str, str8, str3, str5, str6, str7);
+            }
         }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-1863705328, "Lc/a/w/b/d/a;");
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // c.a.w.e.d.a
+        /* renamed from: c */
+        public c onParseResponseInBackground(NetResponse netResponse) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, netResponse)) == null) {
+                c cVar = new c();
+                if (netResponse != null && !TextUtils.isEmpty(netResponse.decodedResponseStr)) {
+                    try {
+                        cVar.c(new JSONObject(netResponse.decodedResponseStr), this.f30318a, this.f30319b);
+                    } catch (JSONException e2) {
+                        LiveFeedPageSdk.l(e2.getMessage());
+                        if (TextUtils.equals("banner,tab,feed,follow,config", this.f30318a)) {
+                            cVar.a("banner,tab,feed,follow,config", -101, e2.getMessage());
+                        }
+                    }
+                }
+                return cVar;
+            }
+            return (c) invokeL.objValue;
         }
     }
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public a(EGLContext eGLContext, int i2) {
-        this(eGLContext, i2, false);
+    /* loaded from: classes4.dex */
+    public interface b {
+        void a(c cVar, Map<String, String> map);
+
+        void b(int i2, String str, Map<String, String> map);
+    }
+
+    public a(Context context, boolean z, String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {eGLContext, Integer.valueOf(i2)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((EGLContext) objArr2[0], ((Integer) objArr2[1]).intValue(), ((Boolean) objArr2[2]).booleanValue());
+            Object[] objArr = {context, Boolean.valueOf(z), str};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.f30317e = context;
+        this.f30313a = str;
+        this.f30314b = z;
+        this.f30315c = z ? "immer" : "tab";
     }
 
-    public final void a(String str) {
-        int eglGetError;
+    public final void e(String str, String str2, int i2, String str3, String str4, String str5, int i3, String str6, List<String> list) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || (eglGetError = EGL14.eglGetError()) == 12288) {
-            return;
-        }
-        throw new RuntimeException(str + ": EGL error: 0x" + Integer.toHexString(eglGetError));
-    }
-
-    public EGLSurface b(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
-            if (!(obj instanceof Surface) && !(obj instanceof SurfaceTexture)) {
-                throw new RuntimeException("invalid surface: " + obj);
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{str, str2, Integer.valueOf(i2), str3, str4, str5, Integer.valueOf(i3), str6, list}) == null) {
+            HashMap hashMap = new HashMap();
+            hashMap.put("resource", str);
+            hashMap.put("scene", this.f30315c);
+            if (str2 == null) {
+                str2 = "";
             }
-            EGLSurface eglCreateWindowSurface = EGL14.eglCreateWindowSurface(this.f30618a, this.f30620c, obj, new int[]{ZeusMonitorType.MONITOR_TYPE_AD_FILTER}, 0);
-            a("eglCreateWindowSurface");
-            if (eglCreateWindowSurface != null) {
-                return eglCreateWindowSurface;
-            }
-            throw new RuntimeException("surface was null");
-        }
-        return (EGLSurface) invokeL.objValue;
-    }
-
-    public final EGLConfig c(int i2, int i3, boolean z) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z)})) == null) {
-            int[] iArr = {ZeusMonitorType.MONITOR_TYPE_DOWNLOAD_WEBKIT, 8, ZeusMonitorType.MONITOR_TYPE_INIT_WEBKIT, 8, ZeusMonitorType.MONITOR_TYPE_BACK_FORWARD_HIJACK, 8, ZeusMonitorType.MONITOR_TYPE_MAGICFILTER_ABORT_RESOURCE_COUNT, 8, ZeusMonitorType.MONITOR_TYPE_SUB_RESOURCE_SAFE, z ? 16 : 0, ZeusMonitorType.MONITOR_TYPE_NET_INJECT, 0, 12352, i3 >= 3 ? 68 : 4, ZeusMonitorType.MONITOR_TYPE_AD_FILTER, 0, ZeusMonitorType.MONITOR_TYPE_AD_FILTER};
-            if ((i2 & 1) != 0) {
-                iArr[14] = 12610;
-                iArr[15] = 1;
-            }
-            EGLConfig[] eGLConfigArr = new EGLConfig[1];
-            if (!EGL14.eglChooseConfig(this.f30618a, iArr, 0, eGLConfigArr, 0, 1, new int[1], 0)) {
-                String str = "unable to find RGB8888 / " + i3 + " EGLConfig";
-                return null;
-            }
-            return eGLConfigArr[0];
-        }
-        return (EGLConfig) invokeCommon.objValue;
-    }
-
-    public boolean d(EGLSurface eGLSurface) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, eGLSurface)) == null) ? this.f30619b.equals(EGL14.eglGetCurrentContext()) && eGLSurface.equals(EGL14.eglGetCurrentSurface(12377)) : invokeL.booleanValue;
-    }
-
-    public void e(EGLSurface eGLSurface) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, eGLSurface) == null) {
-            EGLDisplay eGLDisplay = this.f30618a;
-            EGLDisplay eGLDisplay2 = EGL14.EGL_NO_DISPLAY;
-            if (!EGL14.eglMakeCurrent(this.f30618a, eGLSurface, eGLSurface, this.f30619b)) {
-                throw new RuntimeException("eglMakeCurrent failed");
-            }
+            hashMap.put("session_id", str2);
+            hashMap.put("refresh_type", String.valueOf(i2));
+            hashMap.put("tab", str3);
+            hashMap.put("channel_id", str4);
+            hashMap.put("subtab", str5);
+            hashMap.put("upload_ids", str6);
+            hashMap.put("refresh_index", String.valueOf(i3));
+            hashMap.put(SmartLaunchStats.UBC_BUSINESS_START_TIME_KEY, System.currentTimeMillis() + "");
+            c.a.w.e.d.b.d("https://tiebac.baidu.com/livefeed/feed", hashMap, new C1408a(this, str, i2), 0, 0, null, list);
         }
     }
 
     public void f() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            EGLDisplay eGLDisplay = this.f30618a;
-            if (eGLDisplay != EGL14.EGL_NO_DISPLAY) {
-                EGLSurface eGLSurface = EGL14.EGL_NO_SURFACE;
-                EGL14.eglMakeCurrent(eGLDisplay, eGLSurface, eGLSurface, EGL14.EGL_NO_CONTEXT);
-                EGL14.eglDestroyContext(this.f30618a, this.f30619b);
-                EGL14.eglReleaseThread();
-                EGL14.eglTerminate(this.f30618a);
-            }
-            this.f30618a = EGL14.EGL_NO_DISPLAY;
-            this.f30619b = EGL14.EGL_NO_CONTEXT;
-            this.f30620c = null;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            e("follow", "", 0, "", "", "", 1, "", null);
         }
     }
 
-    public void finalize() {
+    public void g() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            try {
-                if (this.f30618a != EGL14.EGL_NO_DISPLAY) {
-                    f();
-                }
-            } finally {
-                super.finalize();
-            }
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            e("banner,tab,feed,follow,config", "", 0, "", "", "", 1, c.a.w.b.f.b.b(), c.a.w.b.f.b.f30376b);
         }
     }
 
-    public void g(EGLSurface eGLSurface) {
+    public void h(String str, String str2, int i2, String str3, String str4, String str5, int i3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, eGLSurface) == null) {
-            EGL14.eglDestroySurface(this.f30618a, eGLSurface);
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{str, str2, Integer.valueOf(i2), str3, str4, str5, Integer.valueOf(i3)}) == null) {
+            e(str, str2, i2, str3, str4, str5, i3, c.a.w.b.f.b.b(), c.a.w.b.f.b.f30376b);
         }
     }
 
-    public void h(EGLSurface eGLSurface, long j2) {
+    public void i(b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, eGLSurface, j2) == null) {
-            EGLExt.eglPresentationTimeANDROID(this.f30618a, eGLSurface, j2);
+        if (interceptable == null || interceptable.invokeL(1048580, this, bVar) == null) {
+            this.f30316d = bVar;
         }
-    }
-
-    public boolean i(EGLSurface eGLSurface) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, eGLSurface)) == null) ? EGL14.eglSwapBuffers(this.f30618a, eGLSurface) : invokeL.booleanValue;
-    }
-
-    public a(EGLContext eGLContext, int i2, boolean z) {
-        int[] iArr;
-        EGLConfig c2;
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {eGLContext, Integer.valueOf(i2), Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        EGLDisplay eGLDisplay = EGL14.EGL_NO_DISPLAY;
-        this.f30618a = eGLDisplay;
-        this.f30619b = EGL14.EGL_NO_CONTEXT;
-        this.f30620c = null;
-        if (eGLDisplay == EGL14.EGL_NO_DISPLAY) {
-            eGLContext = eGLContext == null ? EGL14.EGL_NO_CONTEXT : eGLContext;
-            EGLDisplay eglGetDisplay = EGL14.eglGetDisplay(0);
-            this.f30618a = eglGetDisplay;
-            if (eglGetDisplay != EGL14.EGL_NO_DISPLAY) {
-                int[] iArr2 = new int[2];
-                if (EGL14.eglInitialize(eglGetDisplay, iArr2, 0, iArr2, 1)) {
-                    if ((i2 & 2) != 0 && (c2 = c(i2, 3, z)) != null) {
-                        EGLContext eglCreateContext = EGL14.eglCreateContext(this.f30618a, c2, eGLContext, new int[]{EglBase10.EGL_CONTEXT_CLIENT_VERSION, 3, ZeusMonitorType.MONITOR_TYPE_AD_FILTER}, 0);
-                        if (EGL14.eglGetError() == 12288) {
-                            this.f30620c = c2;
-                            this.f30619b = eglCreateContext;
-                        }
-                    }
-                    if (this.f30619b == EGL14.EGL_NO_CONTEXT) {
-                        EGLConfig c3 = c(i2, 2, z);
-                        if (c3 != null) {
-                            EGLContext eglCreateContext2 = EGL14.eglCreateContext(this.f30618a, c3, eGLContext, new int[]{EglBase10.EGL_CONTEXT_CLIENT_VERSION, 2, ZeusMonitorType.MONITOR_TYPE_AD_FILTER}, 0);
-                            a("eglCreateContext");
-                            this.f30620c = c3;
-                            this.f30619b = eglCreateContext2;
-                        } else {
-                            throw new RuntimeException("Unable to find a suitable EGLConfig");
-                        }
-                    }
-                    EGL14.eglQueryContext(this.f30618a, this.f30619b, EglBase10.EGL_CONTEXT_CLIENT_VERSION, new int[1], 0);
-                    String str = "EGLContext created, client version " + iArr[0];
-                    return;
-                }
-                this.f30618a = null;
-                throw new RuntimeException("unable to initialize EGL14");
-            }
-            throw new RuntimeException("unable to get EGL14 display");
-        }
-        throw new RuntimeException("EGL already set up");
     }
 }

@@ -64,7 +64,7 @@ public final class l {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f31371a;
+    public static boolean f31477a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes4.dex */
@@ -73,10 +73,10 @@ public final class l {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f31372e;
+        public final /* synthetic */ Context f31478e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ boolean f31373f;
+        public final /* synthetic */ boolean f31479f;
 
         public a(Context context, boolean z) {
             Interceptable interceptable = $ic;
@@ -93,18 +93,18 @@ public final class l {
                     return;
                 }
             }
-            this.f31372e = context;
-            this.f31373f = z;
+            this.f31478e = context;
+            this.f31479f = z;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                c.b.c.b.c.b.a().b(this.f31372e);
-                c.b.c.b.n.c.a(this.f31372e);
-                if (this.f31373f) {
-                    c.b.c.b.a.f.a(this.f31372e).b();
+                c.b.c.b.c.b.a().b(this.f31478e);
+                c.b.c.b.n.c.a(this.f31478e);
+                if (this.f31479f) {
+                    c.b.c.b.a.f.a(this.f31478e).b();
                 }
             }
         }
@@ -115,22 +115,22 @@ public final class l {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static String f31374a;
+        public static String f31480a;
 
         /* renamed from: b  reason: collision with root package name */
-        public static String f31375b;
+        public static String f31481b;
 
         /* renamed from: c  reason: collision with root package name */
-        public static Class<?> f31376c;
+        public static Class<?> f31482c;
 
         /* renamed from: d  reason: collision with root package name */
-        public static Field f31377d;
+        public static Field f31483d;
 
         /* renamed from: e  reason: collision with root package name */
-        public static Field f31378e;
+        public static Field f31484e;
 
         /* renamed from: f  reason: collision with root package name */
-        public static boolean f31379f;
+        public static boolean f31485f;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -348,17 +348,17 @@ public final class l {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, context)) == null) {
                 String k = k(context);
-                if (f31375b == null) {
+                if (f31481b == null) {
                     try {
                         String str = context.getPackageManager().getServiceInfo(new ComponentName(context, CrashUploadService.class), 65536).processName;
-                        f31375b = str;
-                        f31375b = str.substring(str.lastIndexOf(":"));
+                        f31481b = str;
+                        f31481b = str.substring(str.lastIndexOf(":"));
                     } catch (Throwable th) {
                         th.printStackTrace();
-                        f31375b = ":npth";
+                        f31481b = ":npth";
                     }
                 }
-                return k != null && k.endsWith(f31375b);
+                return k != null && k.endsWith(f31481b);
             }
             return invokeL.booleanValue;
         }
@@ -368,7 +368,7 @@ public final class l {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, context)) == null) {
-                String str = f31374a;
+                String str = f31480a;
                 if (TextUtils.isEmpty(str)) {
                     try {
                         int myPid = Process.myPid();
@@ -377,7 +377,7 @@ public final class l {
                             for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : activityManager.getRunningAppProcesses()) {
                                 if (runningAppProcessInfo.pid == myPid) {
                                     String str2 = runningAppProcessInfo.processName;
-                                    f31374a = str2;
+                                    f31480a = str2;
                                     return str2;
                                 }
                             }
@@ -386,7 +386,7 @@ public final class l {
                         k.c(th);
                     }
                     String c2 = c();
-                    f31374a = c2;
+                    f31480a = c2;
                     return c2 == null ? "" : c2;
                 }
                 return str;
@@ -400,13 +400,13 @@ public final class l {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, context)) == null) {
                 Class<?> n = n(context);
-                if (f31377d == null && n != null) {
+                if (f31483d == null && n != null) {
                     try {
-                        f31377d = n.getDeclaredField("VERSION_NAME");
+                        f31483d = n.getDeclaredField("VERSION_NAME");
                     } catch (NoSuchFieldException unused) {
                     }
                 }
-                Field field = f31377d;
+                Field field = f31483d;
                 if (field != null) {
                     try {
                         return (String) field.get(null);
@@ -424,13 +424,13 @@ public final class l {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, context)) == null) {
                 Class<?> n = n(context);
-                if (f31378e == null && n != null) {
+                if (f31484e == null && n != null) {
                     try {
-                        f31378e = n.getDeclaredField("VERSION_CODE");
+                        f31484e = n.getDeclaredField("VERSION_CODE");
                     } catch (NoSuchFieldException unused) {
                     }
                 }
-                Field field = f31378e;
+                Field field = f31484e;
                 if (field != null) {
                     try {
                         return ((Integer) field.get(null)).intValue();
@@ -448,14 +448,14 @@ public final class l {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65550, null, context)) == null) {
-                if (f31376c == null && !f31379f) {
+                if (f31482c == null && !f31485f) {
                     try {
-                        f31376c = Class.forName(context.getPackageName() + ".BuildConfig");
+                        f31482c = Class.forName(context.getPackageName() + ".BuildConfig");
                     } catch (ClassNotFoundException unused) {
                     }
-                    f31379f = true;
+                    f31485f = true;
                 }
-                return f31376c;
+                return f31482c;
             }
             return (Class) invokeL.objValue;
         }
@@ -466,7 +466,7 @@ public final class l {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final b f31380a;
+        public static final b f31486a;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* loaded from: classes4.dex */
@@ -529,12 +529,12 @@ public final class l {
         @TargetApi(19)
         /* renamed from: c.b.c.b.l$c$c  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public static class C1445c extends b {
+        public static class C1449c extends b {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-            public C1445c() {
+            public C1449c() {
                 super(null);
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
@@ -572,7 +572,7 @@ public final class l {
                 return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, memoryInfo)) == null) ? memoryInfo.getTotalSwappablePss() : invokeL.intValue;
             }
 
-            public /* synthetic */ C1445c(a aVar) {
+            public /* synthetic */ C1449c(a aVar) {
                 this();
             }
         }
@@ -591,28 +591,28 @@ public final class l {
                 }
             }
             if (Build.VERSION.SDK_INT >= 19) {
-                f31380a = new C1445c(null);
+                f31486a = new C1449c(null);
             } else {
-                f31380a = new b(null);
+                f31486a = new b(null);
             }
         }
 
         public static int a(Debug.MemoryInfo memoryInfo) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, memoryInfo)) == null) ? f31380a.a(memoryInfo) : invokeL.intValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, memoryInfo)) == null) ? f31486a.a(memoryInfo) : invokeL.intValue;
         }
 
         public static int b(Debug.MemoryInfo memoryInfo) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, memoryInfo)) == null) ? f31380a.b(memoryInfo) : invokeL.intValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, memoryInfo)) == null) ? f31486a.b(memoryInfo) : invokeL.intValue;
         }
 
         public static int c(Debug.MemoryInfo memoryInfo) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, memoryInfo)) == null) ? f31380a.c(memoryInfo) : invokeL.intValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, memoryInfo)) == null) ? f31486a.c(memoryInfo) : invokeL.intValue;
         }
     }
 
@@ -621,7 +621,7 @@ public final class l {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static boolean f31381a;
+        public static boolean f31487a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -709,18 +709,18 @@ public final class l {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) {
-                if (!f31381a) {
+                if (!f31487a) {
                     try {
                         if (Class.forName("miui.os.Build") != null) {
-                            com.bytedance.tea.crash.upload.b.f68537a = true;
-                            f31381a = true;
+                            com.bytedance.tea.crash.upload.b.f68737a = true;
+                            f31487a = true;
                             return true;
                         }
                     } catch (Exception unused) {
                     }
-                    f31381a = true;
+                    f31487a = true;
                 }
-                return com.bytedance.tea.crash.upload.b.f68537a;
+                return com.bytedance.tea.crash.upload.b.f68737a;
             }
             return invokeV.booleanValue;
         }
@@ -976,7 +976,7 @@ public final class l {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final Set<String> f31382a;
+        public static final Set<String> f31488a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -993,46 +993,46 @@ public final class l {
                 }
             }
             HashSet hashSet = new HashSet();
-            f31382a = hashSet;
+            f31488a = hashSet;
             hashSet.add("HeapTaskDaemon");
-            f31382a.add("ThreadPlus");
-            f31382a.add("ApiDispatcher");
-            f31382a.add("ApiLocalDispatcher");
-            f31382a.add("AsyncLoader");
-            f31382a.add(ModernAsyncTask.LOG_TAG);
-            f31382a.add("Binder");
-            f31382a.add("PackageProcessor");
-            f31382a.add("SettingsObserver");
-            f31382a.add("WifiManager");
-            f31382a.add("JavaBridge");
-            f31382a.add("Compiler");
-            f31382a.add("Signal Catcher");
-            f31382a.add("GC");
-            f31382a.add("ReferenceQueueDaemon");
-            f31382a.add("FinalizerDaemon");
-            f31382a.add("FinalizerWatchdogDaemon");
-            f31382a.add("CookieSyncManager");
-            f31382a.add("RefQueueWorker");
-            f31382a.add("CleanupReference");
-            f31382a.add("VideoManager");
-            f31382a.add("DBHelper-AsyncOp");
-            f31382a.add("InstalledAppTracker2");
-            f31382a.add("AppData-AsyncOp");
-            f31382a.add("IdleConnectionMonitor");
-            f31382a.add("LogReaper");
-            f31382a.add("ActionReaper");
-            f31382a.add("Okio Watchdog");
-            f31382a.add("CheckWaitingQueue");
-            f31382a.add("NPTH-CrashTimer");
-            f31382a.add("NPTH-JavaCallback");
-            f31382a.add("NPTH-LocalParser");
-            f31382a.add("ANR_FILE_MODIFY");
+            f31488a.add("ThreadPlus");
+            f31488a.add("ApiDispatcher");
+            f31488a.add("ApiLocalDispatcher");
+            f31488a.add("AsyncLoader");
+            f31488a.add(ModernAsyncTask.LOG_TAG);
+            f31488a.add("Binder");
+            f31488a.add("PackageProcessor");
+            f31488a.add("SettingsObserver");
+            f31488a.add("WifiManager");
+            f31488a.add("JavaBridge");
+            f31488a.add("Compiler");
+            f31488a.add("Signal Catcher");
+            f31488a.add("GC");
+            f31488a.add("ReferenceQueueDaemon");
+            f31488a.add("FinalizerDaemon");
+            f31488a.add("FinalizerWatchdogDaemon");
+            f31488a.add("CookieSyncManager");
+            f31488a.add("RefQueueWorker");
+            f31488a.add("CleanupReference");
+            f31488a.add("VideoManager");
+            f31488a.add("DBHelper-AsyncOp");
+            f31488a.add("InstalledAppTracker2");
+            f31488a.add("AppData-AsyncOp");
+            f31488a.add("IdleConnectionMonitor");
+            f31488a.add("LogReaper");
+            f31488a.add("ActionReaper");
+            f31488a.add("Okio Watchdog");
+            f31488a.add("CheckWaitingQueue");
+            f31488a.add("NPTH-CrashTimer");
+            f31488a.add("NPTH-JavaCallback");
+            f31488a.add("NPTH-LocalParser");
+            f31488a.add("ANR_FILE_MODIFY");
         }
 
         public static Set<String> a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? f31382a : (Set) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? f31488a : (Set) invokeV.objValue;
         }
     }
 
@@ -1058,7 +1058,7 @@ public final class l {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final b f31383a;
+        public static final b f31489a;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* loaded from: classes4.dex */
@@ -1150,16 +1150,16 @@ public final class l {
                 }
             }
             if (Build.VERSION.SDK_INT >= 16) {
-                f31383a = new c(null);
+                f31489a = new c(null);
             } else {
-                f31383a = new b(null);
+                f31489a = new b(null);
             }
         }
 
         public static long a(ActivityManager.MemoryInfo memoryInfo) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, memoryInfo)) == null) ? f31383a.a(memoryInfo) : invokeL.longValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, memoryInfo)) == null) ? f31489a.a(memoryInfo) : invokeL.longValue;
         }
     }
 
@@ -1225,7 +1225,7 @@ public final class l {
             public static /* synthetic */ Interceptable $ic;
 
             /* renamed from: a  reason: collision with root package name */
-            public static final /* synthetic */ int[] f31384a;
+            public static final /* synthetic */ int[] f31490a;
             public transient /* synthetic */ FieldHolder $fh;
 
             static {
@@ -1241,26 +1241,26 @@ public final class l {
                         return;
                     }
                 }
-                int[] iArr = new int[b.EnumC1931b.values().length];
-                f31384a = iArr;
+                int[] iArr = new int[b.EnumC1935b.values().length];
+                f31490a = iArr;
                 try {
-                    iArr[b.EnumC1931b.f68548e.ordinal()] = 1;
+                    iArr[b.EnumC1935b.f68748e.ordinal()] = 1;
                 } catch (NoSuchFieldError unused) {
                 }
                 try {
-                    f31384a[b.EnumC1931b.f68546c.ordinal()] = 2;
+                    f31490a[b.EnumC1935b.f68746c.ordinal()] = 2;
                 } catch (NoSuchFieldError unused2) {
                 }
                 try {
-                    f31384a[b.EnumC1931b.f68547d.ordinal()] = 3;
+                    f31490a[b.EnumC1935b.f68747d.ordinal()] = 3;
                 } catch (NoSuchFieldError unused3) {
                 }
                 try {
-                    f31384a[b.EnumC1931b.f68549f.ordinal()] = 4;
+                    f31490a[b.EnumC1935b.f68749f.ordinal()] = 4;
                 } catch (NoSuchFieldError unused4) {
                 }
                 try {
-                    f31384a[b.EnumC1931b.f68545b.ordinal()] = 5;
+                    f31490a[b.EnumC1935b.f68745b.ordinal()] = 5;
                 } catch (NoSuchFieldError unused5) {
                 }
             }
@@ -1272,13 +1272,13 @@ public final class l {
             return (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) ? b(d(context)) : (String) invokeL.objValue;
         }
 
-        public static String b(b.EnumC1931b enumC1931b) {
+        public static String b(b.EnumC1935b enumC1935b) {
             InterceptResult invokeL;
             String str;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, enumC1931b)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, enumC1935b)) == null) {
                 try {
-                    int i2 = a.f31384a[enumC1931b.ordinal()];
+                    int i2 = a.f31490a[enumC1935b.ordinal()];
                     if (i2 == 1) {
                         str = "wifi";
                     } else if (i2 == 2) {
@@ -1318,20 +1318,20 @@ public final class l {
             return invokeL.booleanValue;
         }
 
-        public static b.EnumC1931b d(Context context) {
+        public static b.EnumC1935b d(Context context) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
                 try {
                     ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService("connectivity");
                     if (connectivityManager == null) {
-                        return b.EnumC1931b.f68544a;
+                        return b.EnumC1935b.f68744a;
                     }
                     NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
                     if (activeNetworkInfo != null && activeNetworkInfo.isAvailable()) {
                         int type = activeNetworkInfo.getType();
                         if (1 == type) {
-                            return b.EnumC1931b.f68548e;
+                            return b.EnumC1935b.f68748e;
                         }
                         if (type == 0) {
                             switch (((TelephonyManager) context.getSystemService("phone")).getNetworkType()) {
@@ -1344,24 +1344,24 @@ public final class l {
                                 case 12:
                                 case 14:
                                 case 15:
-                                    return b.EnumC1931b.f68547d;
+                                    return b.EnumC1935b.f68747d;
                                 case 4:
                                 case 7:
                                 case 11:
                                 default:
-                                    return b.EnumC1931b.f68545b;
+                                    return b.EnumC1935b.f68745b;
                                 case 13:
-                                    return b.EnumC1931b.f68549f;
+                                    return b.EnumC1935b.f68749f;
                             }
                         }
-                        return b.EnumC1931b.f68545b;
+                        return b.EnumC1935b.f68745b;
                     }
-                    return b.EnumC1931b.f68544a;
+                    return b.EnumC1935b.f68744a;
                 } catch (Throwable unused) {
-                    return b.EnumC1931b.f68545b;
+                    return b.EnumC1935b.f68745b;
                 }
             }
-            return (b.EnumC1931b) invokeL.objValue;
+            return (b.EnumC1935b) invokeL.objValue;
         }
     }
 
@@ -1394,7 +1394,7 @@ public final class l {
 
     /* renamed from: c.b.c.b.l$l  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public final class C1446l {
+    public final class C1450l {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -1465,10 +1465,10 @@ public final class l {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final CharSequence f31385a;
+        public static final CharSequence f31491a;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final CharSequence f31386b;
+        public static final CharSequence f31492b;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -1484,8 +1484,8 @@ public final class l {
                     return;
                 }
             }
-            f31385a = "amigo";
-            f31386b = "funtouch";
+            f31491a = "amigo";
+            f31492b = "funtouch";
         }
 
         public static String a() {
@@ -1583,7 +1583,7 @@ public final class l {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) {
                 String b2 = b("ro.vivo.os.build.display.id");
-                return !TextUtils.isEmpty(b2) && b2.toLowerCase(Locale.getDefault()).contains(f31386b);
+                return !TextUtils.isEmpty(b2) && b2.toLowerCase(Locale.getDefault()).contains(f31492b);
             }
             return invokeV.booleanValue;
         }
@@ -1591,7 +1591,7 @@ public final class l {
         public static boolean g() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? !TextUtils.isEmpty(Build.DISPLAY) && Build.DISPLAY.toLowerCase(Locale.getDefault()).contains(f31385a) : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? !TextUtils.isEmpty(Build.DISPLAY) && Build.DISPLAY.toLowerCase(Locale.getDefault()).contains(f31491a) : invokeV.booleanValue;
         }
 
         public static String h() {
@@ -1693,7 +1693,7 @@ public final class l {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final PrintWriter f31387a;
+            public final PrintWriter f31493a;
 
             public a(PrintWriter printWriter) {
                 Interceptable interceptable = $ic;
@@ -1710,19 +1710,19 @@ public final class l {
                         return;
                     }
                 }
-                this.f31387a = printWriter;
+                this.f31493a = printWriter;
             }
 
             public Object a() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f31387a : invokeV.objValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f31493a : invokeV.objValue;
             }
 
             public void b(Object obj) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
-                    this.f31387a.println(obj);
+                    this.f31493a.println(obj);
                 }
             }
         }
@@ -2192,7 +2192,7 @@ public final class l {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{context, gVar, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), Boolean.valueOf(z4)}) == null) {
             synchronized (l.class) {
-                if (f31371a) {
+                if (f31477a) {
                     return;
                 }
                 if (context == null) {
@@ -2213,7 +2213,7 @@ public final class l {
                             a2.c(new c.b.c.b.f.c(context));
                         }
                     }
-                    f31371a = true;
+                    f31477a = true;
                     c.b.c.b.h.i.b().post(new a(context, z4));
                     return;
                 }

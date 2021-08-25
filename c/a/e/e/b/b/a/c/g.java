@@ -18,10 +18,10 @@ public class g implements c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Message f2097a;
+    public Message f2155a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Set<String> f2098b;
+    public Set<String> f2156b;
 
     public g(Message message) {
         Interceptable interceptable = $ic;
@@ -38,15 +38,15 @@ public class g implements c {
                 return;
             }
         }
-        this.f2097a = message;
+        this.f2155a = message;
         List<Field> b2 = c.a.e.e.b.a.a.b(message.getClass());
-        this.f2098b = new HashSet();
+        this.f2156b = new HashSet();
         if (b2 == null || b2.size() <= 0) {
             return;
         }
         for (Field field : b2) {
             if (field != null) {
-                this.f2098b.add(field.getName());
+                this.f2156b.add(field.getName());
             }
         }
     }
@@ -55,14 +55,14 @@ public class g implements c {
     public Set<String> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f2098b : (Set) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f2156b : (Set) invokeV.objValue;
     }
 
     @Override // c.a.e.e.b.b.a.c.c
     public void b(String str, Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, obj) == null) {
-            c.a.e.e.b.a.a.h(this.f2097a, str, obj);
+            c.a.e.e.b.a.a.h(this.f2155a, str, obj);
         }
     }
 
@@ -85,6 +85,6 @@ public class g implements c {
     public Object d(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) ? c.a.e.e.b.a.a.d(this.f2097a, str) : invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) ? c.a.e.e.b.a.a.d(this.f2155a, str) : invokeL.objValue;
     }
 }

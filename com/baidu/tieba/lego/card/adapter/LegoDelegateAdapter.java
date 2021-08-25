@@ -3,9 +3,9 @@ package com.baidu.tieba.lego.card.adapter;
 import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
-import c.a.p0.o1.o.b;
-import c.a.p0.o1.o.g.a;
-import c.a.p0.o1.o.l.e;
+import c.a.q0.o1.o.b;
+import c.a.q0.o1.o.g.a;
+import c.a.q0.o1.o.l.e;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.tbadk.TbPageContext;
@@ -73,7 +73,7 @@ public class LegoDelegateAdapter extends a<LegoDelegateViewHolder> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // c.a.e.k.e.a
+    @Override // c.a.e.l.e.a
     /* renamed from: i0 */
     public View L(int i2, View view, ViewGroup viewGroup, ICardInfo iCardInfo) {
         InterceptResult invokeCommon;
@@ -86,7 +86,7 @@ public class LegoDelegateAdapter extends a<LegoDelegateViewHolder> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // c.a.e.k.e.a
+    @Override // c.a.e.l.e.a
     /* renamed from: j0 */
     public LegoDelegateViewHolder U(ViewGroup viewGroup) {
         InterceptResult invokeL;
@@ -103,7 +103,7 @@ public class LegoDelegateAdapter extends a<LegoDelegateViewHolder> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // c.a.e.k.e.a
+    @Override // c.a.e.l.e.a
     /* renamed from: k0 */
     public View a0(int i2, View view, ViewGroup viewGroup, ICardInfo iCardInfo, LegoDelegateViewHolder legoDelegateViewHolder) {
         InterceptResult invokeCommon;
@@ -120,7 +120,7 @@ public class LegoDelegateAdapter extends a<LegoDelegateViewHolder> {
         return (View) invokeCommon.objValue;
     }
 
-    @Override // c.a.p0.o1.f
+    @Override // c.a.q0.o1.f
     public final void setUniqueId(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, bdUniqueId) == null) {

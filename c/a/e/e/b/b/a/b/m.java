@@ -15,7 +15,7 @@ public class m implements h {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public OrmObject f2084a;
+    public OrmObject f2142a;
 
     public m(OrmObject ormObject) {
         Interceptable interceptable = $ic;
@@ -32,7 +32,7 @@ public class m implements h {
                 return;
             }
         }
-        this.f2084a = ormObject;
+        this.f2142a = ormObject;
     }
 
     @Override // c.a.e.e.b.b.a.b.h
@@ -56,14 +56,14 @@ public class m implements h {
     public Object b(c.a.e.e.b.b.a.e.c cVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar)) == null) ? this.f2084a : invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar)) == null) ? this.f2142a : invokeL.objValue;
     }
 
     @Override // c.a.e.e.b.b.a.b.h
     public Object c(c.a.e.e.b.b.a.e.c cVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cVar)) == null) ? this.f2084a : invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cVar)) == null) ? this.f2142a : invokeL.objValue;
     }
 
     @Override // c.a.e.e.b.b.a.b.h
@@ -91,6 +91,6 @@ public class m implements h {
     public Object f(c.a.e.e.b.b.a.e.c cVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, cVar)) == null) ? OrmObject.jsonWithObject(this.f2084a) : invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, cVar)) == null) ? OrmObject.jsonWithObject(this.f2142a) : invokeL.objValue;
     }
 }

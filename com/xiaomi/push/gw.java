@@ -18,7 +18,7 @@ public class gw implements fo {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f77364a;
+    public int f77565a;
 
     /* renamed from: a  reason: collision with other field name */
     public long f460a;
@@ -36,19 +36,19 @@ public class gw implements fo {
     public String f464a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f77365b;
+    public long f77566b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f77366c;
+    public long f77567c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f77367d;
+    public long f77568d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f77368e;
+    public long f77569e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f77369f;
+    public long f77570f;
 
     public gw(XMPushService xMPushService) {
         Interceptable interceptable = $ic;
@@ -66,38 +66,38 @@ public class gw implements fo {
             }
         }
         this.f460a = 0L;
-        this.f77365b = 0L;
-        this.f77366c = 0L;
-        this.f77367d = 0L;
-        this.f77368e = 0L;
-        this.f77369f = 0L;
+        this.f77566b = 0L;
+        this.f77567c = 0L;
+        this.f77568d = 0L;
+        this.f77569e = 0L;
+        this.f77570f = 0L;
         this.f462a = xMPushService;
         this.f464a = "";
         b();
         int myUid = Process.myUid();
         try {
-            this.f77369f = TrafficStats.getUidRxBytes(myUid);
-            this.f77368e = TrafficStats.getUidTxBytes(myUid);
+            this.f77570f = TrafficStats.getUidRxBytes(myUid);
+            this.f77569e = TrafficStats.getUidTxBytes(myUid);
         } catch (Exception e2) {
             com.xiaomi.channel.commonutils.logger.b.m73a("Failed to obtain traffic data during initialization: " + e2);
-            this.f77369f = -1L;
-            this.f77368e = -1L;
+            this.f77570f = -1L;
+            this.f77569e = -1L;
         }
     }
 
     private void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, this) == null) {
-            this.f77365b = 0L;
-            this.f77367d = 0L;
+            this.f77566b = 0L;
+            this.f77568d = 0L;
             this.f460a = 0L;
-            this.f77366c = 0L;
+            this.f77567c = 0L;
             long elapsedRealtime = SystemClock.elapsedRealtime();
             if (bg.b(this.f462a)) {
                 this.f460a = elapsedRealtime;
             }
             if (this.f462a.m570c()) {
-                this.f77366c = elapsedRealtime;
+                this.f77567c = elapsedRealtime;
             }
         }
     }
@@ -106,14 +106,14 @@ public class gw implements fo {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
             synchronized (this) {
-                com.xiaomi.channel.commonutils.logger.b.c("stat connpt = " + this.f464a + " netDuration = " + this.f77365b + " ChannelDuration = " + this.f77367d + " channelConnectedTime = " + this.f77366c);
+                com.xiaomi.channel.commonutils.logger.b.c("stat connpt = " + this.f464a + " netDuration = " + this.f77566b + " ChannelDuration = " + this.f77568d + " channelConnectedTime = " + this.f77567c);
                 ex exVar = new ex();
                 exVar.f348a = (byte) 0;
-                exVar.a(ew.f77219h.a());
+                exVar.a(ew.f77420h.a());
                 exVar.a(this.f464a);
                 exVar.d((int) (System.currentTimeMillis() / 1000));
-                exVar.b((int) (this.f77365b / 1000));
-                exVar.c((int) (this.f77367d / 1000));
+                exVar.b((int) (this.f77566b / 1000));
+                exVar.c((int) (this.f77568d / 1000));
                 gx.m366a().a(exVar);
                 b();
             }
@@ -138,15 +138,15 @@ public class gw implements fo {
                 boolean b2 = bg.b(this.f462a);
                 long elapsedRealtime = SystemClock.elapsedRealtime();
                 if (this.f460a > 0) {
-                    this.f77365b += elapsedRealtime - this.f460a;
+                    this.f77566b += elapsedRealtime - this.f460a;
                     this.f460a = 0L;
                 }
-                if (this.f77366c != 0) {
-                    this.f77367d += elapsedRealtime - this.f77366c;
-                    this.f77366c = 0L;
+                if (this.f77567c != 0) {
+                    this.f77568d += elapsedRealtime - this.f77567c;
+                    this.f77567c = 0L;
                 }
                 if (b2) {
-                    if ((!TextUtils.equals(this.f464a, m175a) && this.f77365b > 30000) || this.f77365b > 5400000) {
+                    if ((!TextUtils.equals(this.f464a, m175a) && this.f77566b > 30000) || this.f77566b > 5400000) {
                         c();
                     }
                     this.f464a = m175a;
@@ -154,7 +154,7 @@ public class gw implements fo {
                         this.f460a = elapsedRealtime;
                     }
                     if (this.f462a.m570c()) {
-                        this.f77366c = elapsedRealtime;
+                        this.f77567c = elapsedRealtime;
                     }
                 }
             }
@@ -165,7 +165,7 @@ public class gw implements fo {
     public void a(fl flVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, flVar) == null) {
-            this.f77364a = 0;
+            this.f77565a = 0;
             this.f463a = null;
             this.f461a = flVar;
             this.f464a = bg.m175a((Context) this.f462a);
@@ -178,18 +178,18 @@ public class gw implements fo {
         long j2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIL(1048579, this, flVar, i2, exc) == null) {
-            if (this.f77364a == 0 && this.f463a == null) {
-                this.f77364a = i2;
+            if (this.f77565a == 0 && this.f463a == null) {
+                this.f77565a = i2;
                 this.f463a = exc;
                 gz.b(flVar.m324a(), exc);
             }
-            if (i2 == 22 && this.f77366c != 0) {
-                long m322a = flVar.m322a() - this.f77366c;
+            if (i2 == 22 && this.f77567c != 0) {
+                long m322a = flVar.m322a() - this.f77567c;
                 if (m322a < 0) {
                     m322a = 0;
                 }
-                this.f77367d += m322a + (fr.b() / 2);
-                this.f77366c = 0L;
+                this.f77568d += m322a + (fr.b() / 2);
+                this.f77567c = 0L;
             }
             m365a();
             int myUid = Process.myUid();
@@ -201,9 +201,9 @@ public class gw implements fo {
                 com.xiaomi.channel.commonutils.logger.b.m73a("Failed to obtain traffic data: " + e2);
                 j2 = -1L;
             }
-            com.xiaomi.channel.commonutils.logger.b.c("Stats rx=" + (j3 - this.f77369f) + ", tx=" + (j2 - this.f77368e));
-            this.f77369f = j3;
-            this.f77368e = j2;
+            com.xiaomi.channel.commonutils.logger.b.c("Stats rx=" + (j3 - this.f77570f) + ", tx=" + (j2 - this.f77569e));
+            this.f77570f = j3;
+            this.f77569e = j2;
         }
     }
 
@@ -211,7 +211,7 @@ public class gw implements fo {
     public void a(fl flVar, Exception exc) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, flVar, exc) == null) {
-            gz.a(0, ew.f77215d.a(), 1, flVar.m324a(), bg.c(this.f462a) ? 1 : 0);
+            gz.a(0, ew.f77416d.a(), 1, flVar.m324a(), bg.c(this.f462a) ? 1 : 0);
             m365a();
         }
     }
@@ -221,7 +221,7 @@ public class gw implements fo {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, flVar) == null) {
             m365a();
-            this.f77366c = SystemClock.elapsedRealtime();
+            this.f77567c = SystemClock.elapsedRealtime();
             gz.a(0, ew.v.a(), flVar.m324a(), flVar.a());
         }
     }

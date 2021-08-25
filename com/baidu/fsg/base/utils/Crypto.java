@@ -4,6 +4,7 @@ import android.os.Build;
 import android.util.Base64;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.searchbox.datacollector.growth.utils.UBCEncryptor;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -27,25 +28,25 @@ public class Crypto {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f39341a = 16;
+    public static final int f39448a = 16;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f39342b = 8;
+    public static final int f39449b = 8;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f39343c = 128;
+    public static final int f39450c = 128;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int f39344d = 64;
+    public static final int f39451d = 64;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int f39345e = 8;
+    public static final int f39452e = 8;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final int f39346f = 1000;
+    public static final int f39453f = 1000;
 
     /* renamed from: g  reason: collision with root package name */
-    public static SecureRandom f39347g;
+    public static SecureRandom f39454g;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -61,7 +62,7 @@ public class Crypto {
                 return;
             }
         }
-        f39347g = new SecureRandom();
+        f39454g = new SecureRandom();
     }
 
     public Crypto() {
@@ -106,7 +107,7 @@ public class Crypto {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i2)) == null) {
             byte[] bArr = new byte[i2];
-            f39347g.nextBytes(bArr);
+            f39454g.nextBytes(bArr);
             return bArr;
         }
         return (byte[]) invokeI.objValue;
@@ -166,7 +167,7 @@ public class Crypto {
                 return null;
             }
             try {
-                Cipher cipher = Cipher.getInstance("AES/CTR/NoPadding");
+                Cipher cipher = Cipher.getInstance(UBCEncryptor.TRANSFORMATION);
                 cipher.init(2, a2, new IvParameterSpec(copyOfRange));
                 int length = copyOf.length + copyOfRange.length;
                 return cipher.doFinal(bArr, length, bArr.length - length);
@@ -188,7 +189,7 @@ public class Crypto {
                 return null;
             }
             try {
-                Cipher cipher = Cipher.getInstance("AES/CTR/NoPadding");
+                Cipher cipher = Cipher.getInstance(UBCEncryptor.TRANSFORMATION);
                 cipher.init(1, a3);
                 return a(a2, cipher.getIV(), cipher.doFinal(bArr));
             } catch (Exception e2) {

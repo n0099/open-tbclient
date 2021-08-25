@@ -16,10 +16,10 @@ public interface q {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final int[] f32907a;
+        public final int[] f33013a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final int[] f32908b;
+        public final int[] f33014b;
 
         /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
         public a(int i2) {
@@ -65,9 +65,9 @@ public interface q {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
-                int i3 = this.f32908b[i2] - 1;
+                int i3 = this.f33014b[i2] - 1;
                 if (i3 >= 0) {
-                    return this.f32907a[i3];
+                    return this.f33013a[i3];
                 }
                 return -1;
             }
@@ -79,8 +79,8 @@ public interface q {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
-                int i3 = this.f32908b[i2] + 1;
-                int[] iArr = this.f32907a;
+                int i3 = this.f33014b[i2] + 1;
+                int[] iArr = this.f33013a;
                 if (i3 < iArr.length) {
                     return iArr[i3];
                 }
@@ -94,7 +94,7 @@ public interface q {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                int[] iArr = this.f32907a;
+                int[] iArr = this.f33013a;
                 if (iArr.length > 0) {
                     return iArr[iArr.length - 1];
                 }
@@ -108,7 +108,7 @@ public interface q {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                int[] iArr = this.f32907a;
+                int[] iArr = this.f33013a;
                 if (iArr.length > 0) {
                     return iArr[0];
                 }
@@ -121,7 +121,7 @@ public interface q {
         public int getLength() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f32907a.length : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f33013a.length : invokeV.intValue;
         }
 
         /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -160,10 +160,10 @@ public interface q {
                     return;
                 }
             }
-            this.f32907a = iArr;
-            this.f32908b = new int[iArr.length];
+            this.f33013a = iArr;
+            this.f33014b = new int[iArr.length];
             for (int i4 = 0; i4 < iArr.length; i4++) {
-                this.f32908b[iArr[i4]] = i4;
+                this.f33014b[iArr[i4]] = i4;
             }
         }
     }

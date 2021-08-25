@@ -1,7 +1,7 @@
 package com.baidu.tieba.ala.alasquare.live_tab.my_concern.data;
 
-import c.a.o0.s.q.c2;
-import c.a.p0.v.d.c.f.b.b;
+import c.a.p0.s.q.c2;
+import c.a.q0.v.d.c.f.b.b;
 import com.baidu.ala.AlaCmdConfigHttp;
 import com.baidu.searchbox.live.interfaces.DI;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;

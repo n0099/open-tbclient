@@ -68,7 +68,7 @@ public class MsgMultiImageTextViewItemAdapter extends MsgCommonItemAdapter<MsgMu
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
-    @Override // com.baidu.tieba.im.chat.MsgCommonItemAdapter, c.a.e.k.e.a
+    @Override // com.baidu.tieba.im.chat.MsgCommonItemAdapter, c.a.e.l.e.a
     public /* bridge */ /* synthetic */ View a0(int i2, View view, ViewGroup viewGroup, ChatMessage chatMessage, TypeAdapter.ViewHolder viewHolder) {
         k0(i2, view, viewGroup, chatMessage, (MsgCommonItemAdapter.MsgViewHolder) viewHolder);
         return view;
@@ -88,15 +88,15 @@ public class MsgMultiImageTextViewItemAdapter extends MsgCommonItemAdapter<MsgMu
             msgItemView.A(this.m, chatMessage, viewGroup);
             this.m.getLayoutMode().k(false);
             this.m.getLayoutMode().j(view);
-            c.a.p0.j1.u.a.c().d(chatMessage, this.m.getPageActivity());
-            c.a.p0.j1.u.a.c().e(chatMessage, this.m.getPageActivity());
+            c.a.q0.j1.u.a.c().d(chatMessage, this.m.getPageActivity());
+            c.a.q0.j1.u.a.c().e(chatMessage, this.m.getPageActivity());
             return view;
         }
         return (View) invokeCommon.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // c.a.e.k.e.a
+    @Override // c.a.e.l.e.a
     /* renamed from: q0 */
     public MsgCommonItemAdapter.MsgViewHolder<MsgMultiImageTextView> U(ViewGroup viewGroup) {
         InterceptResult invokeL;

@@ -13,28 +13,28 @@ public class b implements Comparable<b> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f73999a;
+    public String f74199a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f74000b;
+    public String f74200b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f74001c;
+    public String f74201c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f74002d;
+    public long f74202d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f74003e;
+    public boolean f74203e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f74004f;
+    public String f74204f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f74005g;
+    public boolean f74205g;
 
     /* renamed from: h  reason: collision with root package name */
-    public HashMap<String, String> f74006h;
+    public HashMap<String, String> f74206h;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -49,8 +49,8 @@ public class b implements Comparable<b> {
                 return;
             }
         }
-        this.f74005g = false;
-        this.f74006h = new HashMap<>(10);
+        this.f74205g = false;
+        this.f74206h = new HashMap<>(10);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -59,6 +59,6 @@ public class b implements Comparable<b> {
     public int compareTo(@NonNull b bVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bVar)) == null) ? -this.f74000b.compareTo(bVar.f74000b) : invokeL.intValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bVar)) == null) ? -this.f74200b.compareTo(bVar.f74200b) : invokeL.intValue;
     }
 }

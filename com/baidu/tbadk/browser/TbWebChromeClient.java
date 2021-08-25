@@ -15,8 +15,8 @@ import android.widget.FrameLayout;
 import androidx.core.view.InputDeviceCompat;
 import c.a.e.e.m.g;
 import c.a.e.e.p.k;
-import c.a.o0.t.c.a0;
-import c.a.p0.i3.l0.c;
+import c.a.p0.t.c.a0;
+import c.a.q0.i3.m0.c;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.browser.sailor.feature.upload.BdUploadHandler;
@@ -134,8 +134,8 @@ public class TbWebChromeClient extends WebChromeClient {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048581, this, webView, str, str2, str3, jsPromptResult)) == null) {
             if (!a0.a(str) && str2.startsWith("tiebaapp")) {
-                c.a.p0.i3.l0.d.c cVar2 = new c.a.p0.i3.l0.d.c();
-                cVar2.s(c.a.p0.i3.l0.d.g.b(str2));
+                c.a.q0.i3.m0.d.c cVar2 = new c.a.q0.i3.m0.d.c();
+                cVar2.s(c.a.q0.i3.m0.d.g.b(str2));
                 cVar2.t(301);
                 callJsMethod(webView, cVar2.c(), cVar2.d());
             }

@@ -1,6 +1,6 @@
 package com.baidu.tieba.ala.alasquare.subtablist.message;
 
-import c.a.o0.s.q.c2;
+import c.a.p0.s.q.c2;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.ala.AlaCmdConfigHttp;
 import com.baidu.android.imsdk.internal.Constants;

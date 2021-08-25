@@ -7,7 +7,7 @@ import android.graphics.drawable.StateListDrawable;
 import android.util.AttributeSet;
 import android.widget.CheckBox;
 import c.a.e.e.p.l;
-import c.a.p0.i3.c;
+import c.a.q0.i3.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
@@ -22,16 +22,16 @@ public class AdCloseReasonCheckBox extends CheckBox {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f56047e;
+    public Context f56212e;
 
     /* renamed from: f  reason: collision with root package name */
-    public GradientDrawable f56048f;
+    public GradientDrawable f56213f;
 
     /* renamed from: g  reason: collision with root package name */
-    public GradientDrawable f56049g;
+    public GradientDrawable f56214g;
 
     /* renamed from: h  reason: collision with root package name */
-    public StateListDrawable f56050h;
+    public StateListDrawable f56215h;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AdCloseReasonCheckBox(Context context) {
@@ -51,7 +51,7 @@ public class AdCloseReasonCheckBox extends CheckBox {
                 return;
             }
         }
-        this.f56047e = context;
+        this.f56212e = context;
         a(context);
     }
 
@@ -72,21 +72,21 @@ public class AdCloseReasonCheckBox extends CheckBox {
         if (interceptable == null || interceptable.invokeIIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3, i4, i5) == null) {
             int parseInt = Integer.parseInt(TbadkCoreApplication.getInst().getResources().getString(i2).split(",")[0]);
             GradientDrawable gradientDrawable = new GradientDrawable();
-            this.f56048f = gradientDrawable;
+            this.f56213f = gradientDrawable;
             gradientDrawable.setShape(0);
             float f2 = parseInt;
-            this.f56048f.setCornerRadius(f2);
-            this.f56048f.setStroke(i3, SkinManager.getColor(i4));
+            this.f56213f.setCornerRadius(f2);
+            this.f56213f.setStroke(i3, SkinManager.getColor(i4));
             GradientDrawable gradientDrawable2 = new GradientDrawable();
-            this.f56049g = gradientDrawable2;
+            this.f56214g = gradientDrawable2;
             gradientDrawable2.setShape(0);
-            this.f56049g.setCornerRadius(f2);
-            this.f56049g.setStroke(i3, c.a(SkinManager.getColor(i5), 0.5f));
+            this.f56214g.setCornerRadius(f2);
+            this.f56214g.setStroke(i3, c.a(SkinManager.getColor(i5), 0.5f));
             StateListDrawable stateListDrawable = new StateListDrawable();
-            this.f56050h = stateListDrawable;
-            stateListDrawable.addState(new int[]{-16842912}, this.f56048f);
-            this.f56050h.addState(new int[]{16842912}, this.f56049g);
-            setBackgroundDrawable(this.f56050h);
+            this.f56215h = stateListDrawable;
+            stateListDrawable.addState(new int[]{-16842912}, this.f56213f);
+            this.f56215h.addState(new int[]{16842912}, this.f56214g);
+            setBackgroundDrawable(this.f56215h);
         }
     }
 
@@ -109,7 +109,7 @@ public class AdCloseReasonCheckBox extends CheckBox {
                 return;
             }
         }
-        this.f56047e = context;
+        this.f56212e = context;
         a(context);
     }
 
@@ -132,7 +132,7 @@ public class AdCloseReasonCheckBox extends CheckBox {
                 return;
             }
         }
-        this.f56047e = context;
+        this.f56212e = context;
         a(context);
     }
 }

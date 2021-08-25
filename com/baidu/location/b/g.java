@@ -14,34 +14,34 @@ public class g {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static g f40825a = null;
+    public static g f40932a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f40826b = "Temp_in.dat";
+    public static String f40933b = "Temp_in.dat";
 
     /* renamed from: c  reason: collision with root package name */
-    public static File f40827c;
+    public static File f40934c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static StringBuffer f40828d;
+    public static StringBuffer f40935d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static boolean f40829e;
+    public static boolean f40936e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static int f40830f;
+    public static int f40937f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static int f40831g;
+    public static int f40938g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static long f40832h;
+    public static long f40939h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static long f40833i;
+    public static long f40940i;
 
     /* renamed from: j  reason: collision with root package name */
-    public static long f40834j;
+    public static long f40941j;
     public static double k;
     public static double l;
     public static int m;
@@ -62,14 +62,14 @@ public class g {
                 return;
             }
         }
-        f40827c = new File(com.baidu.location.e.j.f41072a, f40826b);
-        f40828d = null;
-        f40829e = true;
-        f40830f = 0;
-        f40831g = 0;
-        f40832h = 0L;
-        f40833i = 0L;
-        f40834j = 0L;
+        f40934c = new File(com.baidu.location.e.j.f41179a, f40933b);
+        f40935d = null;
+        f40936e = true;
+        f40937f = 0;
+        f40938g = 0;
+        f40939h = 0L;
+        f40940i = 0L;
+        f40941j = 0L;
         k = 0.0d;
         l = 0.0d;
         m = 0;
@@ -86,10 +86,10 @@ public class g {
         int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            File file = f40827c;
+            File file = f40934c;
             if (file != null && file.exists()) {
                 try {
-                    randomAccessFile = new RandomAccessFile(f40827c, "rw");
+                    randomAccessFile = new RandomAccessFile(f40934c, "rw");
                     randomAccessFile.seek(0L);
                     readInt = randomAccessFile.readInt();
                     readInt2 = randomAccessFile.readInt();
@@ -144,13 +144,13 @@ public class g {
     public static void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, null) == null) {
-            f40829e = true;
-            f40828d = null;
-            f40830f = 0;
-            f40831g = 0;
-            f40832h = 0L;
-            f40833i = 0L;
-            f40834j = 0L;
+            f40936e = true;
+            f40935d = null;
+            f40937f = 0;
+            f40938g = 0;
+            f40939h = 0L;
+            f40940i = 0L;
+            f40941j = 0L;
             k = 0.0d;
             l = 0.0d;
             m = 0;
@@ -163,22 +163,22 @@ public class g {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (f40827c.exists()) {
-                f40827c.delete();
+            if (f40934c.exists()) {
+                f40934c.delete();
             }
-            if (!f40827c.getParentFile().exists()) {
-                f40827c.getParentFile().mkdirs();
+            if (!f40934c.getParentFile().exists()) {
+                f40934c.getParentFile().mkdirs();
             }
             try {
-                f40827c.createNewFile();
-                RandomAccessFile randomAccessFile = new RandomAccessFile(f40827c, "rw");
+                f40934c.createNewFile();
+                RandomAccessFile randomAccessFile = new RandomAccessFile(f40934c, "rw");
                 randomAccessFile.seek(0L);
                 randomAccessFile.writeInt(0);
                 randomAccessFile.writeInt(0);
                 randomAccessFile.writeInt(1);
                 randomAccessFile.close();
                 b();
-                return f40827c.exists();
+                return f40934c.exists();
             } catch (IOException unused) {
                 return false;
             }

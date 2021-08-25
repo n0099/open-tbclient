@@ -11,8 +11,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import c.a.e.e.m.b;
 import c.a.e.e.p.l;
-import c.a.p0.x.b.d;
-import c.a.p0.x.b.f;
+import c.a.q0.x.b.d;
+import c.a.q0.x.b.f;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -33,22 +33,22 @@ public class CandidateInfoLayout extends CardBasicLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f49636e;
+    public Context f49744e;
 
     /* renamed from: f  reason: collision with root package name */
-    public BazhuHeadView f49637f;
+    public BazhuHeadView f49745f;
 
     /* renamed from: g  reason: collision with root package name */
-    public LinearLayout f49638g;
+    public LinearLayout f49746g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f49639h;
+    public TextView f49747h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f49640i;
+    public TextView f49748i;
 
     /* renamed from: j  reason: collision with root package name */
-    public ImageView f49641j;
+    public ImageView f49749j;
     public TextView k;
     public View.OnClickListener l;
 
@@ -58,7 +58,7 @@ public class CandidateInfoLayout extends CardBasicLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CandidateInfoLayout f49642e;
+        public final /* synthetic */ CandidateInfoLayout f49750e;
 
         public a(CandidateInfoLayout candidateInfoLayout) {
             Interceptable interceptable = $ic;
@@ -75,22 +75,22 @@ public class CandidateInfoLayout extends CardBasicLayout {
                     return;
                 }
             }
-            this.f49642e = candidateInfoLayout;
+            this.f49750e = candidateInfoLayout;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             d dVar;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (dVar = this.f49642e.mElectionData) == null || dVar.l() == 0) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (dVar = this.f49750e.mElectionData) == null || dVar.l() == 0) {
                 return;
             }
             long f2 = b.f(TbadkCoreApplication.getCurrentAccount(), 0L);
-            long l = this.f49642e.mElectionData.l();
-            if (!(this.f49642e.getContext() instanceof Activity) || this.f49642e.mElectionData.f() == 2) {
+            long l = this.f49750e.mElectionData.l();
+            if (!(this.f49750e.getContext() instanceof Activity) || this.f49750e.mElectionData.f() == 2) {
                 return;
             }
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonPolymericActivityConfig(this.f49642e.getContext()).createNormalConfig(l, l == f2, false)));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonPolymericActivityConfig(this.f49750e.getContext()).createNormalConfig(l, l == f2, false)));
         }
     }
 
@@ -119,22 +119,22 @@ public class CandidateInfoLayout extends CardBasicLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             BazhuHeadView bazhuHeadView = (BazhuHeadView) findViewById(R.id.user_avatar);
-            this.f49637f = bazhuHeadView;
+            this.f49745f = bazhuHeadView;
             if (bazhuHeadView.getHeadView() != null) {
-                this.f49637f.getHeadView().setIsRound(true);
+                this.f49745f.getHeadView().setIsRound(true);
             }
-            this.f49638g = (LinearLayout) findViewById(R.id.user_name_and_active_status);
-            this.f49639h = (TextView) findViewById(R.id.user_name);
-            this.f49640i = (TextView) findViewById(R.id.vote_id);
+            this.f49746g = (LinearLayout) findViewById(R.id.user_name_and_active_status);
+            this.f49747h = (TextView) findViewById(R.id.user_name);
+            this.f49748i = (TextView) findViewById(R.id.vote_id);
             this.k = (TextView) findViewById(R.id.agree_post_reply_num);
-            this.f49641j = (ImageView) findViewById(R.id.grade);
+            this.f49749j = (ImageView) findViewById(R.id.grade);
         }
     }
 
     public void initUI() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f49636e = getContext();
+            this.f49744e = getContext();
             setClipChildren(false);
             setClipToPadding(false);
             setOrientation(0);
@@ -149,8 +149,8 @@ public class CandidateInfoLayout extends CardBasicLayout {
     public void onSkinChange(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            SkinManager.setViewTextColor(this.f49639h, R.color.CAM_X0105, 1, i2);
-            SkinManager.setViewTextColor(this.f49640i, R.color.CAM_X0109, 1, i2);
+            SkinManager.setViewTextColor(this.f49747h, R.color.CAM_X0105, 1, i2);
+            SkinManager.setViewTextColor(this.f49748i, R.color.CAM_X0109, 1, i2);
             SkinManager.setViewTextColor(this.k, R.color.CAM_X0109, 1, i2);
             d dVar = this.mElectionData;
             if (dVar != null) {
@@ -167,42 +167,42 @@ public class CandidateInfoLayout extends CardBasicLayout {
         if (interceptable == null || interceptable.invokeIL(1048579, this, i2, fVar) == null) {
             super.setData(i2, fVar);
             if (this.mData != null && this.mElectionData != null && (i3 = this.status) >= 0) {
-                if (i3 == c.a.p0.x.e.a.f28253c) {
-                    int g2 = l.g(this.f49636e, R.dimen.tbds191);
-                    int g3 = l.g(this.f49636e, R.dimen.tbds157);
-                    int g4 = l.g(this.f49636e, R.dimen.tbds6);
-                    int g5 = l.g(this.f49636e, R.dimen.tbds24);
-                    int g6 = l.g(this.f49636e, R.dimen.tbds30);
+                if (i3 == c.a.q0.x.e.a.f28592c) {
+                    int g2 = l.g(this.f49744e, R.dimen.tbds191);
+                    int g3 = l.g(this.f49744e, R.dimen.tbds157);
+                    int g4 = l.g(this.f49744e, R.dimen.tbds6);
+                    int g5 = l.g(this.f49744e, R.dimen.tbds24);
+                    int g6 = l.g(this.f49744e, R.dimen.tbds30);
                     LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(g3, g2);
                     layoutParams.setMargins(layoutParams.leftMargin - g4, layoutParams.topMargin, layoutParams.rightMargin, layoutParams.bottomMargin);
-                    this.f49637f.setLayoutParams(layoutParams);
-                    this.f49637f.resizeView(true);
-                    this.f49637f.setBawuLogoView(R.drawable.pic_election_bazhu);
-                    this.f49637f.setPendantView(R.drawable.icon_crown);
-                    this.f49639h.setTextSize(0, l.g(this.f49636e, R.dimen.tbfontsize46));
+                    this.f49745f.setLayoutParams(layoutParams);
+                    this.f49745f.resizeView(true);
+                    this.f49745f.setBawuLogoView(R.drawable.pic_election_bazhu);
+                    this.f49745f.setPendantView(R.drawable.icon_crown);
+                    this.f49747h.setTextSize(0, l.g(this.f49744e, R.dimen.tbfontsize46));
                     setGravity(16);
                     LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-2, -2);
                     layoutParams2.setMargins(g6, g5, layoutParams2.rightMargin, g4);
-                    this.f49637f.setLayoutParams(layoutParams);
-                    this.f49638g.setLayoutParams(layoutParams2);
+                    this.f49745f.setLayoutParams(layoutParams);
+                    this.f49746g.setLayoutParams(layoutParams2);
                 } else {
-                    this.f49637f.resizeView(false);
+                    this.f49745f.resizeView(false);
                 }
-                this.f49637f.startLoadOnlyHeadUrl(this.mElectionData.g());
-                this.f49637f.setOnClickListener(this.l);
-                this.f49639h.setText(StringHelper.cutChineseAndEnglishWithSuffix(this.mElectionData.e(), 14, "..."));
+                this.f49745f.startLoadOnlyHeadUrl(this.mElectionData.g());
+                this.f49745f.setOnClickListener(this.l);
+                this.f49747h.setText(StringHelper.cutChineseAndEnglishWithSuffix(this.mElectionData.e(), 14, "..."));
                 setGrade(this.mElectionData.d());
                 if (this.mElectionData.f() == 2) {
-                    this.f49640i.setVisibility(8);
+                    this.f49748i.setVisibility(8);
                 } else {
-                    this.f49640i.setVisibility(0);
+                    this.f49748i.setVisibility(0);
                     if (this.mElectionData.c() < 1000) {
                         String str2 = "0000" + this.mElectionData.c();
                         str = str2.substring(str2.length() - 4, str2.length());
                     } else {
                         str = "" + this.mElectionData.c();
                     }
-                    this.f49640i.setText("NO." + str);
+                    this.f49748i.setText("NO." + str);
                 }
                 this.k.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.agree_post_reply), StringHelper.numFormatOverWanWithNegative(this.mElectionData.a()), StringHelper.numFormatOverWanWithNegative(this.mElectionData.j()), StringHelper.numFormatOverWanWithNegative(this.mElectionData.h())));
                 return;
@@ -214,7 +214,7 @@ public class CandidateInfoLayout extends CardBasicLayout {
     public void setGrade(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            SkinManager.setImageResource(this.f49641j, BitmapHelper.getGradeResourceIdInEnterForum(i2));
+            SkinManager.setImageResource(this.f49749j, BitmapHelper.getGradeResourceIdInEnterForum(i2));
         }
     }
 

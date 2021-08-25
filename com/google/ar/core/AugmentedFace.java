@@ -115,10 +115,10 @@ public class AugmentedFace extends TrackableBase {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            Session.a(nativeGetMeshVerticesByteBuffer(this.f69882b.f69857a, this.f69881a)).asFloatBuffer().asReadOnlyBuffer();
-            Session.a(nativeGetMeshNormalsByteBuffer(this.f69882b.f69857a, this.f69881a)).asFloatBuffer().asReadOnlyBuffer();
-            Session.a(nativeGetMeshTextureCoordinatesByteBuffer(this.f69882b.f69857a, this.f69881a)).asFloatBuffer().asReadOnlyBuffer();
-            Session.a(nativeGetMeshTriangleIndicesByteBuffer(this.f69882b.f69857a, this.f69881a)).asCharBuffer().asReadOnlyBuffer();
+            Session.a(nativeGetMeshVerticesByteBuffer(this.f70082b.f70057a, this.f70081a)).asFloatBuffer().asReadOnlyBuffer();
+            Session.a(nativeGetMeshNormalsByteBuffer(this.f70082b.f70057a, this.f70081a)).asFloatBuffer().asReadOnlyBuffer();
+            Session.a(nativeGetMeshTextureCoordinatesByteBuffer(this.f70082b.f70057a, this.f70081a)).asFloatBuffer().asReadOnlyBuffer();
+            Session.a(nativeGetMeshTriangleIndicesByteBuffer(this.f70082b.f70057a, this.f70081a)).asCharBuffer().asReadOnlyBuffer();
         }
     }
 

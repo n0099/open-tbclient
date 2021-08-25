@@ -1,6 +1,6 @@
 package com.baidu.tbadk.core.data;
 
-import c.a.p0.a0.d0.c;
+import c.a.q0.a0.d0.c;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.config.QuickPersistConfigConst;
@@ -69,7 +69,7 @@ public class PbLinkData extends c implements Serializable {
         this.urlType = pbLinkInfo.url_type.intValue();
     }
 
-    @Override // c.a.p0.a0.d0.c
+    @Override // c.a.q0.a0.d0.c
     public int sort() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

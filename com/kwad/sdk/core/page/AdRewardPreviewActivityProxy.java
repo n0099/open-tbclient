@@ -107,7 +107,7 @@ public class AdRewardPreviewActivityProxy extends com.kwad.sdk.c.a {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ AdRewardPreviewActivityProxy f71625a;
+                public final /* synthetic */ AdRewardPreviewActivityProxy f71825a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -124,15 +124,15 @@ public class AdRewardPreviewActivityProxy extends com.kwad.sdk.c.a {
                             return;
                         }
                     }
-                    this.f71625a = this;
+                    this.f71825a = this;
                 }
 
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                        com.kwad.sdk.core.report.a.a(this.f71625a.mAdTemplate, 1, (JSONObject) null);
-                        this.f71625a.finish();
+                        com.kwad.sdk.core.report.a.a(this.f71825a.mAdTemplate, 1, (JSONObject) null);
+                        this.f71825a.finish();
                     }
                 }
             });
@@ -143,7 +143,7 @@ public class AdRewardPreviewActivityProxy extends com.kwad.sdk.c.a {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ AdRewardPreviewActivityProxy f71626a;
+                public final /* synthetic */ AdRewardPreviewActivityProxy f71826a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -160,14 +160,14 @@ public class AdRewardPreviewActivityProxy extends com.kwad.sdk.c.a {
                             return;
                         }
                     }
-                    this.f71626a = this;
+                    this.f71826a = this;
                 }
 
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                        this.f71626a.showCloseDialog();
+                        this.f71826a.showCloseDialog();
                     }
                 }
             });
@@ -178,7 +178,7 @@ public class AdRewardPreviewActivityProxy extends com.kwad.sdk.c.a {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ AdRewardPreviewActivityProxy f71627a;
+                public final /* synthetic */ AdRewardPreviewActivityProxy f71827a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -195,7 +195,7 @@ public class AdRewardPreviewActivityProxy extends com.kwad.sdk.c.a {
                             return;
                         }
                     }
-                    this.f71627a = this;
+                    this.f71827a = this;
                 }
 
                 @Override // java.lang.Runnable
@@ -203,19 +203,19 @@ public class AdRewardPreviewActivityProxy extends com.kwad.sdk.c.a {
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        if (this.f71627a.counterPaused) {
-                            this.f71627a.mHandler.postDelayed(this, 400L);
+                        if (this.f71827a.counterPaused) {
+                            this.f71827a.mHandler.postDelayed(this, 400L);
                             return;
                         }
-                        if (this.f71627a.mCount <= 0) {
-                            this.f71627a.mEnableSkip = true;
-                            this.f71627a.skipToEnd();
+                        if (this.f71827a.mCount <= 0) {
+                            this.f71827a.mEnableSkip = true;
+                            this.f71827a.skipToEnd();
                         } else {
-                            TextView textView3 = this.f71627a.mCountDownTips;
-                            textView3.setText("激励领取视频还有" + this.f71627a.mCount + "秒");
-                            this.f71627a.mHandler.postDelayed(this, 1000L);
+                            TextView textView3 = this.f71827a.mCountDownTips;
+                            textView3.setText("激励领取视频还有" + this.f71827a.mCount + "秒");
+                            this.f71827a.mHandler.postDelayed(this, 1000L);
                         }
-                        AdRewardPreviewActivityProxy.access$410(this.f71627a);
+                        AdRewardPreviewActivityProxy.access$410(this.f71827a);
                     }
                 }
             }, 1000L);
@@ -237,7 +237,7 @@ public class AdRewardPreviewActivityProxy extends com.kwad.sdk.c.a {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ AdRewardPreviewActivityProxy f71628a;
+                public final /* synthetic */ AdRewardPreviewActivityProxy f71828a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -254,14 +254,14 @@ public class AdRewardPreviewActivityProxy extends com.kwad.sdk.c.a {
                             return;
                         }
                     }
-                    this.f71628a = this;
+                    this.f71828a = this;
                 }
 
                 @Override // com.kwad.sdk.core.page.widget.webview.KsAdWebView.d
                 public void a() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        com.kwad.sdk.core.report.a.a(this.f71628a.mAdTemplate, (JSONObject) null);
+                        com.kwad.sdk.core.report.a.a(this.f71828a.mAdTemplate, (JSONObject) null);
                     }
                 }
 
@@ -284,7 +284,7 @@ public class AdRewardPreviewActivityProxy extends com.kwad.sdk.c.a {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ AdRewardPreviewActivityProxy f71629a;
+                public final /* synthetic */ AdRewardPreviewActivityProxy f71829a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -301,7 +301,7 @@ public class AdRewardPreviewActivityProxy extends com.kwad.sdk.c.a {
                             return;
                         }
                     }
-                    this.f71629a = this;
+                    this.f71829a = this;
                 }
 
                 @Override // android.view.View.OnTouchListener
@@ -310,22 +310,22 @@ public class AdRewardPreviewActivityProxy extends com.kwad.sdk.c.a {
                     InterceptResult invokeLL;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, view, motionEvent)) == null) {
-                        if (motionEvent.getX() > this.f71629a.mWebCloseBtn.getX() && motionEvent.getX() - this.f71629a.mWebCloseBtn.getX() < this.f71629a.mWebCloseBtn.getWidth() && motionEvent.getY() > this.f71629a.mWebCloseBtn.getY() && motionEvent.getY() - this.f71629a.mWebCloseBtn.getY() < this.f71629a.mWebCloseBtn.getHeight()) {
+                        if (motionEvent.getX() > this.f71829a.mWebCloseBtn.getX() && motionEvent.getX() - this.f71829a.mWebCloseBtn.getX() < this.f71829a.mWebCloseBtn.getWidth() && motionEvent.getY() > this.f71829a.mWebCloseBtn.getY() && motionEvent.getY() - this.f71829a.mWebCloseBtn.getY() < this.f71829a.mWebCloseBtn.getHeight()) {
                             com.kwad.sdk.core.d.a.a(AdRewardPreviewActivityProxy.TAG, "onClick backIcon");
                             return false;
                         }
                         if (motionEvent.getAction() == 0) {
-                            this.f71629a.mLastDown = SystemClock.elapsedRealtime();
+                            this.f71829a.mLastDown = SystemClock.elapsedRealtime();
                         } else if (motionEvent.getAction() == 1) {
-                            long elapsedRealtime = SystemClock.elapsedRealtime() - this.f71629a.mLastDown;
-                            if (this.f71629a.mLastDown > 0 && elapsedRealtime > 60 && elapsedRealtime < 500) {
-                                com.kwad.sdk.core.report.a.a(this.f71629a.mAdTemplate, 72, this.f71629a.mWebContainer.getTouchCoords());
+                            long elapsedRealtime = SystemClock.elapsedRealtime() - this.f71829a.mLastDown;
+                            if (this.f71829a.mLastDown > 0 && elapsedRealtime > 60 && elapsedRealtime < 500) {
+                                com.kwad.sdk.core.report.a.a(this.f71829a.mAdTemplate, 72, this.f71829a.mWebContainer.getTouchCoords());
                                 KsRewardVideoAd.RewardAdInteractionListener rewardAdInteractionListener = AdRewardPreviewActivityProxy.mInteractionListener;
                                 if (rewardAdInteractionListener != null) {
                                     rewardAdInteractionListener.onAdClicked();
                                 }
                             }
-                            this.f71629a.mLastDown = 0L;
+                            this.f71829a.mLastDown = 0L;
                         }
                         return false;
                     }
@@ -364,7 +364,7 @@ public class AdRewardPreviewActivityProxy extends com.kwad.sdk.c.a {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ AdRewardPreviewActivityProxy f71630a;
+                public final /* synthetic */ AdRewardPreviewActivityProxy f71830a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -381,14 +381,14 @@ public class AdRewardPreviewActivityProxy extends com.kwad.sdk.c.a {
                             return;
                         }
                     }
-                    this.f71630a = this;
+                    this.f71830a = this;
                 }
 
                 @Override // com.kwad.sdk.reward.e.a
                 public void a() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f71630a.counterPaused = true;
+                        this.f71830a.counterPaused = true;
                     }
                 }
 
@@ -396,8 +396,8 @@ public class AdRewardPreviewActivityProxy extends com.kwad.sdk.c.a {
                 public void b() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                        this.f71630a.counterPaused = false;
-                        this.f71630a.finish();
+                        this.f71830a.counterPaused = false;
+                        this.f71830a.finish();
                     }
                 }
 
@@ -405,7 +405,7 @@ public class AdRewardPreviewActivityProxy extends com.kwad.sdk.c.a {
                 public void c() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                        this.f71630a.counterPaused = false;
+                        this.f71830a.counterPaused = false;
                     }
                 }
             }, "奖励不要了", "返回");

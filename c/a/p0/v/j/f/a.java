@@ -1,7 +1,0 @@
-package c.a.p0.v.j.f;
-/* loaded from: classes3.dex */
-public interface a {
-    void b(int i2, String str, Object obj);
-
-    void c(Object obj, int i2);
-}

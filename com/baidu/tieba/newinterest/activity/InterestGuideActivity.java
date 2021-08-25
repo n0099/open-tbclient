@@ -1,13 +1,17 @@
 package com.baidu.tieba.newinterest.activity;
 
 import android.os.Bundle;
-import c.a.o0.s.d0.b;
-import c.a.p0.e2.f.a;
+import c.a.p0.b.d;
+import c.a.p0.s.d0.b;
+import c.a.q0.e2.h.a;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.atomData.InterestGuideActivityConfig;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -60,7 +64,7 @@ public class InterestGuideActivity extends BaseFragmentActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             super.onBackPressed();
-            this.mGuideView.g();
+            this.mGuideView.h();
         }
     }
 
@@ -68,7 +72,12 @@ public class InterestGuideActivity extends BaseFragmentActivity {
     public void onChangeSkinType(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            this.mGuideView.h();
+            if (d.L()) {
+                UtilHelper.setNavigationBarBg(getActivity(), SkinManager.getColor(R.color.CAM_X0206));
+            } else {
+                UtilHelper.setNavigationBarBg(getActivity(), SkinManager.getColor(R.color.CAM_X0201));
+            }
+            this.mGuideView.i();
         }
     }
 
@@ -81,7 +90,7 @@ public class InterestGuideActivity extends BaseFragmentActivity {
             initData();
             a aVar = new a(this, this.mScene);
             this.mGuideView = aVar;
-            setContentView(aVar.c());
+            setContentView(aVar.d());
             setInterestGuideConf();
         }
     }

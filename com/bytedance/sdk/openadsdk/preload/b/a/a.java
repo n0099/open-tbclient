@@ -12,7 +12,7 @@ public class a extends Exception {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public List<Throwable> f68229a;
+    public List<Throwable> f68429a;
 
     public a(List<Throwable> list) {
         Interceptable interceptable = $ic;
@@ -29,7 +29,7 @@ public class a extends Exception {
                 return;
             }
         }
-        this.f68229a = list;
+        this.f68429a = list;
         if (list == null || list.isEmpty()) {
             return;
         }

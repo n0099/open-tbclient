@@ -12,7 +12,7 @@ import java.util.logging.Logger;
 public final class g {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Logger f74286a = Logger.getLogger(g.class.getName());
+    public static final Logger f74486a = Logger.getLogger(g.class.getName());
 
     public static c a(l lVar) {
         if (lVar != null) {
@@ -38,19 +38,19 @@ public final class g {
                 return new l() { // from class: com.meizu.cloud.pushsdk.b.g.g.1
                     @Override // com.meizu.cloud.pushsdk.b.g.l
                     public void a(b bVar, long j2) throws IOException {
-                        o.a(bVar.f74278b, 0L, j2);
+                        o.a(bVar.f74478b, 0L, j2);
                         while (j2 > 0) {
                             n.this.a();
-                            j jVar = bVar.f74277a;
-                            int min = (int) Math.min(j2, jVar.f74300c - jVar.f74299b);
-                            outputStream.write(jVar.f74298a, jVar.f74299b, min);
-                            int i2 = jVar.f74299b + min;
-                            jVar.f74299b = i2;
+                            j jVar = bVar.f74477a;
+                            int min = (int) Math.min(j2, jVar.f74500c - jVar.f74499b);
+                            outputStream.write(jVar.f74498a, jVar.f74499b, min);
+                            int i2 = jVar.f74499b + min;
+                            jVar.f74499b = i2;
                             long j3 = min;
                             j2 -= j3;
-                            bVar.f74278b -= j3;
-                            if (i2 == jVar.f74300c) {
-                                bVar.f74277a = jVar.a();
+                            bVar.f74478b -= j3;
+                            if (i2 == jVar.f74500c) {
+                                bVar.f74477a = jVar.a();
                                 k.a(jVar);
                             }
                         }
@@ -101,13 +101,13 @@ public final class g {
                         } else {
                             n.this.a();
                             j c2 = bVar.c(1);
-                            int read = inputStream.read(c2.f74298a, c2.f74300c, (int) Math.min(j2, 2048 - c2.f74300c));
+                            int read = inputStream.read(c2.f74498a, c2.f74500c, (int) Math.min(j2, 2048 - c2.f74500c));
                             if (read == -1) {
                                 return -1L;
                             }
-                            c2.f74300c += read;
+                            c2.f74500c += read;
                             long j3 = read;
-                            bVar.f74278b += j3;
+                            bVar.f74478b += j3;
                             return j3;
                         }
                     }

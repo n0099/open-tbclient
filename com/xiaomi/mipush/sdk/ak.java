@@ -12,7 +12,7 @@ public final class ak implements Runnable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ Context f76896a;
+    public final /* synthetic */ Context f77097a;
 
     /* renamed from: a  reason: collision with other field name */
     public final /* synthetic */ Intent f66a;
@@ -32,7 +32,7 @@ public final class ak implements Runnable {
                 return;
             }
         }
-        this.f76896a = context;
+        this.f77097a = context;
         this.f66a = intent;
     }
 
@@ -40,7 +40,7 @@ public final class ak implements Runnable {
     public void run() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            PushMessageHandler.b(this.f76896a, this.f66a);
+            PushMessageHandler.b(this.f77097a, this.f66a);
         }
     }
 }

@@ -17,7 +17,7 @@ public class SecureJsInterface extends a.b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f76090a;
+    public String f76291a;
 
     static {
         InterceptResult invokeClinit;
@@ -73,19 +73,19 @@ public class SecureJsInterface extends a.b {
                 i2 = -1;
             }
             if (i2 >= 0) {
-                boolean z = a.f76093c;
-                boolean z2 = a.f76092b;
+                boolean z = a.f76294c;
+                boolean z2 = a.f76293b;
                 if (z2) {
                     if (Boolean.valueOf(JniInterface.BackSpaceChar(z2, i2)).booleanValue()) {
-                        a.f76092b = false;
+                        a.f76293b = false;
                         return;
                     }
                     return;
                 }
-                String str2 = a.f76091a;
-                this.f76090a = str2;
+                String str2 = a.f76292a;
+                this.f76291a = str2;
                 JniInterface.insetTextToArray(i2, str2, str2.length());
-                SLog.v("openSDK_LOG.SecureJsInterface", "curPosFromJS mKey: " + this.f76090a);
+                SLog.v("openSDK_LOG.SecureJsInterface", "curPosFromJS mKey: " + this.f76291a);
                 return;
             }
             throw new RuntimeException("position is illegal.");

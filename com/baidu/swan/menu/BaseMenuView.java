@@ -9,11 +9,11 @@ import android.widget.TextView;
 import androidx.annotation.AttrRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import c.a.n0.k.f;
-import c.a.n0.k.g;
-import c.a.n0.k.h;
-import c.a.n0.k.i;
-import c.a.n0.k.j;
+import c.a.o0.k.f;
+import c.a.o0.k.g;
+import c.a.o0.k.h;
+import c.a.o0.k.i;
+import c.a.o0.k.j;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -26,13 +26,13 @@ public abstract class BaseMenuView extends FrameLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public View f46954e;
+    public View f47061e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f46955f;
+    public View f47062f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final int f46956g;
+    public final int f47063g;
     public TextView mCancelView;
     public Context mContext;
 
@@ -60,21 +60,21 @@ public abstract class BaseMenuView extends FrameLayout {
     public void adjustBgHeight(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-            this.f46954e.getLayoutParams().height = i2 + this.f46956g;
-            this.f46954e.requestLayout();
+            this.f47061e.getLayoutParams().height = i2 + this.f47063g;
+            this.f47061e.requestLayout();
         }
     }
 
     public View getBgView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f46954e : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f47061e : (View) invokeV.objValue;
     }
 
     public View getContentView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f46955f : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f47062f : (View) invokeV.objValue;
     }
 
     public abstract boolean isHighMenu();
@@ -93,10 +93,10 @@ public abstract class BaseMenuView extends FrameLayout {
         }
         int height = view.getHeight();
         if (height != 0) {
-            this.f46954e.getLayoutParams().height = height + this.f46956g;
+            this.f47061e.getLayoutParams().height = height + this.f47063g;
         }
-        this.f46955f = view;
-        layoutParams.bottomMargin = this.f46956g;
+        this.f47062f = view;
+        layoutParams.bottomMargin = this.f47063g;
         addView(view, layoutParams);
     }
 
@@ -104,7 +104,7 @@ public abstract class BaseMenuView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             Resources resources = getResources();
-            this.f46954e.setBackground(resources.getDrawable(h.swan_app_menu_content_bg));
+            this.f47061e.setBackground(resources.getDrawable(h.swan_app_menu_content_bg));
             this.mCancelView.setBackgroundColor(resources.getColor(f.aiapp_menu_cancel_text_color_bg));
             this.mCancelView.setTextColor(resources.getColorStateList(f.aiapp_menu_cancel_text_color_day));
             this.mCancelView.setAlpha(1.0f);
@@ -153,8 +153,8 @@ public abstract class BaseMenuView extends FrameLayout {
         }
         this.mContext = context;
         View inflate = FrameLayout.inflate(context, j.aiapp_menu_base_view_layout, this);
-        this.f46954e = inflate.findViewById(i.background);
+        this.f47061e = inflate.findViewById(i.background);
         this.mCancelView = (TextView) inflate.findViewById(i.cancel);
-        this.f46956g = (int) context.getResources().getDimension(g.aiapp_menu_cancel_btn_height);
+        this.f47063g = (int) context.getResources().getDimension(g.aiapp_menu_cancel_btn_height);
     }
 }

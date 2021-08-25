@@ -21,7 +21,7 @@ public class DlnaProviderImpl extends DlnaProvider {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f42371a;
+    public boolean f42478a;
 
     static {
         InterceptResult invokeClinit;
@@ -51,8 +51,8 @@ public class DlnaProviderImpl extends DlnaProvider {
                 return;
             }
         }
-        this.f42371a = false;
-        this.f42371a = CyberCfgManager.getInstance().getCfgBoolValue(CyberCfgManager.KEY_INT_ENABLE_DLNA, false);
+        this.f42478a = false;
+        this.f42478a = CyberCfgManager.getInstance().getCfgBoolValue(CyberCfgManager.KEY_INT_ENABLE_DLNA, false);
     }
 
     public static DlnaProvider create() {
@@ -66,7 +66,7 @@ public class DlnaProviderImpl extends DlnaProvider {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if (this.f42371a) {
+            if (this.f42478a) {
                 return DlnaApi.ctrlPoint(str);
             }
             CyberLog.d(TAG, "ctrlPoint() DLNA not enable");
@@ -79,7 +79,7 @@ public class DlnaProviderImpl extends DlnaProvider {
     public void search(DlnaProvider.DlnaSearchListener dlnaSearchListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dlnaSearchListener) == null) {
-            if (this.f42371a) {
+            if (this.f42478a) {
                 DlnaApi.search(dlnaSearchListener);
             } else {
                 CyberLog.d(TAG, "search() DLNA not enable");
@@ -91,7 +91,7 @@ public class DlnaProviderImpl extends DlnaProvider {
     public void stop() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            if (this.f42371a) {
+            if (this.f42478a) {
                 DlnaApi.stop();
             } else {
                 CyberLog.d(TAG, "stop() DLNA not enable");

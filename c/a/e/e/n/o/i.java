@@ -50,7 +50,7 @@ public class i {
             int i2 = 0;
             Iterator<c.a.e.e.n.j.d> it = c2.iterator();
             while (it.hasNext()) {
-                i2 = (int) (i2 + it.next().f2411a);
+                i2 = (int) (i2 + it.next().f2469a);
             }
             int i3 = i2 - IMConstants.MAX_IMAGE_CACHE_DISC_SIZE;
             ArrayList arrayList = new ArrayList();
@@ -59,8 +59,8 @@ public class i {
                 Iterator<c.a.e.e.n.j.d> it2 = c2.iterator();
                 while (it2.hasNext()) {
                     c.a.e.e.n.j.d next = it2.next();
-                    arrayList.add(next.f2412b);
-                    i3 = (int) (i3 - next.f2411a);
+                    arrayList.add(next.f2470b);
+                    i3 = (int) (i3 - next.f2469a);
                     if (i3 <= 0) {
                         break;
                     }
@@ -71,9 +71,9 @@ public class i {
             while (it3.hasNext()) {
                 c.a.e.e.n.j.d next2 = it3.next();
                 if (next2 != null) {
-                    long j2 = next2.f2413c;
-                    if (j2 != 0 && j2 + 604800000 < currentTimeMillis && !arrayList.contains(next2.f2412b)) {
-                        arrayList.add(next2.f2412b);
+                    long j2 = next2.f2471c;
+                    if (j2 != 0 && j2 + 604800000 < currentTimeMillis && !arrayList.contains(next2.f2470b)) {
+                        arrayList.add(next2.f2470b);
                     }
                 }
             }

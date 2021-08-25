@@ -22,7 +22,7 @@ public final class CheckUtils {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static long f69054a;
+    public static long f69254a;
     public transient /* synthetic */ FieldHolder $fh;
 
     public CheckUtils() {
@@ -259,13 +259,13 @@ public final class CheckUtils {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) {
             long currentTimeMillis = System.currentTimeMillis();
-            long j2 = currentTimeMillis - f69054a;
+            long j2 = currentTimeMillis - f69254a;
             LogUtil.logd("timeD=" + j2);
             if (0 < j2 && j2 < 800) {
                 LogUtil.logd("点的太快了 timeD=" + j2);
                 return true;
             }
-            f69054a = currentTimeMillis;
+            f69254a = currentTimeMillis;
             return false;
         }
         return invokeV.booleanValue;

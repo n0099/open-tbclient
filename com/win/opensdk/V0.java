@@ -11,10 +11,10 @@ public class V0 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f76537a;
+    public int f76738a;
 
     /* renamed from: b  reason: collision with root package name */
-    public byte[] f76538b;
+    public byte[] f76739b;
 
     public V0(int i2, byte[] bArr, Map map) {
         Interceptable interceptable = $ic;
@@ -31,7 +31,7 @@ public class V0 {
                 return;
             }
         }
-        this.f76537a = i2;
-        this.f76538b = bArr;
+        this.f76738a = i2;
+        this.f76739b = bArr;
     }
 }

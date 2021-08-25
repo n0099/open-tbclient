@@ -30,17 +30,17 @@ public class a {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String[] f61907a;
+    public static final String[] f62107a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f61908b = 8;
+    public static final int f62108b = 8;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public Context f61909c;
+    public Context f62109c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f61910d;
+    public String f62110d;
 
     /* renamed from: com.baidu.wallet.passport.a$1  reason: invalid class name */
     /* loaded from: classes8.dex */
@@ -51,11 +51,11 @@ public class a {
 
     /* renamed from: com.baidu.wallet.passport.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public static class C1840a {
+    public static class C1844a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final a f61911a;
+        public static final a f62111a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -71,10 +71,10 @@ public class a {
                     return;
                 }
             }
-            f61911a = new a(null);
+            f62111a = new a(null);
         }
 
-        public C1840a() {
+        public C1844a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -102,7 +102,7 @@ public class a {
                 return;
             }
         }
-        f61907a = new String[]{"dxmpay.com", "duxiaoman.com", "baifubao.com", "8.baidu.com", "wallet.baidu.com", "umoney.baidu.com", "icash.baidu.com", "yqh.baidu.com", "ibeauty.baidu.com", "front.baidu.com", "activity8.baidu.com", "qianbao.baidu.com", "dxmbaoxian.com", "oneicash.baidu.com", "twoicash.baidu.com", "threeicash.baidu.com", "onejin.baidu.com", "twojin.baidu.com", "threejin.baidu.com", "dxmcash.baidu.com", "dxmoney.baidu.com", "fincash.baidu.com", "www.baiyingfund.com", "www.duxiaomanfund.com"};
+        f62107a = new String[]{"dxmpay.com", "duxiaoman.com", "baifubao.com", "8.baidu.com", "wallet.baidu.com", "umoney.baidu.com", "icash.baidu.com", "yqh.baidu.com", "ibeauty.baidu.com", "front.baidu.com", "activity8.baidu.com", "qianbao.baidu.com", "dxmbaoxian.com", "oneicash.baidu.com", "twoicash.baidu.com", "threeicash.baidu.com", "onejin.baidu.com", "twojin.baidu.com", "threejin.baidu.com", "dxmcash.baidu.com", "dxmoney.baidu.com", "fincash.baidu.com", "www.baiyingfund.com", "www.duxiaomanfund.com"};
     }
 
     public /* synthetic */ a(AnonymousClass1 anonymousClass1) {
@@ -118,8 +118,8 @@ public class a {
             Date time = calendar.getTime();
             SimpleDateFormat simpleDateFormat = new SimpleDateFormat("EEE, dd-MMM-yyyy HH:mm:ss 'GMT'", Locale.US);
             simpleDateFormat.setTimeZone(new SimpleTimeZone(0, "GMT"));
-            this.f61910d = simpleDateFormat.format(time);
-            LogUtil.d("--DxmCookieManager---cookie----expires--->" + this.f61910d);
+            this.f62110d = simpleDateFormat.format(time);
+            LogUtil.d("--DxmCookieManager---cookie----expires--->" + this.f62110d);
         }
     }
 
@@ -143,7 +143,7 @@ public class a {
                 return;
             }
         }
-        this.f61909c = BaiduWalletDelegate.getInstance().getAppContext();
+        this.f62109c = BaiduWalletDelegate.getInstance().getAppContext();
     }
 
     private String[] b(String str) {
@@ -162,7 +162,7 @@ public class a {
     public static a a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? C1840a.f61911a : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? C1844a.f62111a : (a) invokeV.objValue;
     }
 
     public void a(String str) {
@@ -177,16 +177,16 @@ public class a {
         if (interceptable == null || interceptable.invokeIL(AdIconUtil.AD_TEXT_ID, this, i2, str) == null) {
             try {
                 a(i2);
-                String[] b2 = b(SdkInitResponse.getInstance().getCookiesSyncDomainList(this.f61909c));
+                String[] b2 = b(SdkInitResponse.getInstance().getCookiesSyncDomainList(this.f62109c));
                 if (b2 == null) {
-                    LogUtil.d("Cookie", "use default: " + Arrays.toString(f61907a));
-                    b2 = f61907a;
+                    LogUtil.d("Cookie", "use default: " + Arrays.toString(f62107a));
+                    b2 = f62107a;
                 }
-                CookieSyncManager.createInstance(this.f61909c);
+                CookieSyncManager.createInstance(this.f62109c);
                 CookieManager cookieManager = CookieManager.getInstance();
                 cookieManager.setAcceptCookie(true);
                 String str2 = "OPENBDUSS=" + str;
-                String str3 = ";expires=" + this.f61910d;
+                String str3 = ";expires=" + this.f62110d;
                 LogUtil.d("------------------DxmCookieManager start setCookie--------------");
                 for (String str4 : b2) {
                     if (!str4.startsWith(".")) {

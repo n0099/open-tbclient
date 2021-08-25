@@ -20,39 +20,39 @@ import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes5.dex */
 public abstract class BdAsyncTask<ParamsT, ProgressT, ResultT> {
     public static /* synthetic */ Interceptable $ic;
-    public static final c.a.v.a.a k;
+    public static final c.a.w.a.a k;
     public static final e l;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final f<ParamsT, ResultT> f40485a;
+    public final f<ParamsT, ResultT> f40592a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final c.a.v.a.b<ResultT> f40486b;
+    public final c.a.w.a.b<ResultT> f40593b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final AtomicBoolean f40487c;
+    public final AtomicBoolean f40594c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final AtomicBoolean f40488d;
+    public final AtomicBoolean f40595d;
 
     /* renamed from: e  reason: collision with root package name */
-    public volatile BdAsyncTaskStatus f40489e;
+    public volatile BdAsyncTaskStatus f40596e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f40490f;
+    public int f40597f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f40491g;
+    public int f40598g;
 
     /* renamed from: h  reason: collision with root package name */
-    public c.a.v.a.c f40492h;
+    public c.a.w.a.c f40599h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f40493i;
+    public boolean f40600i;
 
     /* renamed from: j  reason: collision with root package name */
-    public boolean f40494j;
+    public boolean f40601j;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes5.dex */
@@ -122,7 +122,7 @@ public abstract class BdAsyncTask<ParamsT, ProgressT, ResultT> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ BdAsyncTask f40495f;
+        public final /* synthetic */ BdAsyncTask f40602f;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(BdAsyncTask bdAsyncTask) {
@@ -142,7 +142,7 @@ public abstract class BdAsyncTask<ParamsT, ProgressT, ResultT> {
                     return;
                 }
             }
-            this.f40495f = bdAsyncTask;
+            this.f40602f = bdAsyncTask;
         }
 
         @Override // java.util.concurrent.Callable
@@ -150,23 +150,23 @@ public abstract class BdAsyncTask<ParamsT, ProgressT, ResultT> {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (this.f40495f.f40486b.isCancelled()) {
-                    return (ResultT) this.f40495f.u(null);
+                if (this.f40602f.f40593b.isCancelled()) {
+                    return (ResultT) this.f40602f.u(null);
                 }
-                BdAsyncTask bdAsyncTask = this.f40495f;
-                return (ResultT) bdAsyncTask.u(bdAsyncTask.f(this.f40500e));
+                BdAsyncTask bdAsyncTask = this.f40602f;
+                return (ResultT) bdAsyncTask.u(bdAsyncTask.f(this.f40607e));
             }
             return (ResultT) invokeV.objValue;
         }
     }
 
     /* loaded from: classes5.dex */
-    public class b extends c.a.v.a.b<ResultT> {
+    public class b extends c.a.w.a.b<ResultT> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ BdAsyncTask f40496f;
+        public final /* synthetic */ BdAsyncTask f40603f;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(BdAsyncTask bdAsyncTask, Callable callable, BdAsyncTask bdAsyncTask2) {
@@ -187,14 +187,14 @@ public abstract class BdAsyncTask<ParamsT, ProgressT, ResultT> {
                     return;
                 }
             }
-            this.f40496f = bdAsyncTask;
+            this.f40603f = bdAsyncTask;
         }
 
-        @Override // c.a.v.a.b
+        @Override // c.a.w.a.b
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f40496f.d();
+                this.f40603f.d();
             }
         }
 
@@ -203,12 +203,12 @@ public abstract class BdAsyncTask<ParamsT, ProgressT, ResultT> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
                 try {
-                    this.f40496f.u(get());
+                    this.f40603f.u(get());
                 } catch (InterruptedException unused) {
                 } catch (CancellationException unused2) {
-                    this.f40496f.u(null);
+                    this.f40603f.u(null);
                 } catch (ExecutionException e2) {
-                    this.f40496f.u(null);
+                    this.f40603f.u(null);
                     e2.printStackTrace();
                 } catch (Throwable th) {
                     th.printStackTrace();
@@ -222,7 +222,7 @@ public abstract class BdAsyncTask<ParamsT, ProgressT, ResultT> {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f40497a;
+        public static final /* synthetic */ int[] f40604a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -239,13 +239,13 @@ public abstract class BdAsyncTask<ParamsT, ProgressT, ResultT> {
                 }
             }
             int[] iArr = new int[BdAsyncTaskStatus.values().length];
-            f40497a = iArr;
+            f40604a = iArr;
             try {
                 iArr[BdAsyncTaskStatus.RUNNING.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f40497a[BdAsyncTaskStatus.FINISHED.ordinal()] = 2;
+                f40604a[BdAsyncTaskStatus.FINISHED.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
         }
@@ -257,10 +257,10 @@ public abstract class BdAsyncTask<ParamsT, ProgressT, ResultT> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final BdAsyncTask f40498a;
+        public final BdAsyncTask f40605a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final DataT[] f40499b;
+        public final DataT[] f40606b;
 
         public d(BdAsyncTask bdAsyncTask, DataT... datatArr) {
             Interceptable interceptable = $ic;
@@ -277,8 +277,8 @@ public abstract class BdAsyncTask<ParamsT, ProgressT, ResultT> {
                     return;
                 }
             }
-            this.f40498a = bdAsyncTask;
-            this.f40499b = datatArr;
+            this.f40605a = bdAsyncTask;
+            this.f40606b = datatArr;
         }
     }
 
@@ -314,10 +314,10 @@ public abstract class BdAsyncTask<ParamsT, ProgressT, ResultT> {
                 d dVar = (d) message.obj;
                 int i2 = message.what;
                 if (i2 == 1) {
-                    dVar.f40498a.i(dVar.f40499b[0]);
+                    dVar.f40605a.i(dVar.f40606b[0]);
                 } else if (i2 != 2) {
                 } else {
-                    dVar.f40498a.t(dVar.f40499b);
+                    dVar.f40605a.t(dVar.f40606b);
                 }
             }
         }
@@ -329,7 +329,7 @@ public abstract class BdAsyncTask<ParamsT, ProgressT, ResultT> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public ParamsT[] f40500e;
+        public ParamsT[] f40607e;
 
         public f() {
             Interceptable interceptable = $ic;
@@ -363,7 +363,7 @@ public abstract class BdAsyncTask<ParamsT, ProgressT, ResultT> {
                 return;
             }
         }
-        k = c.a.v.a.a.e();
+        k = c.a.w.a.a.e();
         l = new e(Looper.getMainLooper());
     }
 
@@ -380,16 +380,16 @@ public abstract class BdAsyncTask<ParamsT, ProgressT, ResultT> {
                 return;
             }
         }
-        this.f40487c = new AtomicBoolean(false);
-        this.f40488d = new AtomicBoolean(false);
-        this.f40489e = BdAsyncTaskStatus.PENDING;
-        this.f40490f = 1;
-        this.f40491g = 0;
-        this.f40492h = null;
-        this.f40493i = false;
-        this.f40494j = false;
-        this.f40485a = new a(this);
-        this.f40486b = new b(this, this.f40485a, this);
+        this.f40594c = new AtomicBoolean(false);
+        this.f40595d = new AtomicBoolean(false);
+        this.f40596e = BdAsyncTaskStatus.PENDING;
+        this.f40597f = 1;
+        this.f40598g = 0;
+        this.f40599h = null;
+        this.f40600i = false;
+        this.f40601j = false;
+        this.f40592a = new a(this);
+        this.f40593b = new b(this, this.f40592a, this);
     }
 
     public void d() {
@@ -405,11 +405,11 @@ public abstract class BdAsyncTask<ParamsT, ProgressT, ResultT> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) {
             synchronized (this) {
-                if (!this.f40493i) {
+                if (!this.f40600i) {
                     k.h(this);
                 }
-                cancel = this.f40486b.cancel(z);
-                if (this.f40488d.compareAndSet(false, true)) {
+                cancel = this.f40593b.cancel(z);
+                if (this.f40595d.compareAndSet(false, true)) {
                     r();
                 }
             }
@@ -435,8 +435,8 @@ public abstract class BdAsyncTask<ParamsT, ProgressT, ResultT> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, executor, paramstArr)) == null) {
             synchronized (this) {
-                if (this.f40489e != BdAsyncTaskStatus.PENDING) {
-                    int i2 = c.f40497a[this.f40489e.ordinal()];
+                if (this.f40596e != BdAsyncTaskStatus.PENDING) {
+                    int i2 = c.f40604a[this.f40596e.ordinal()];
                     if (i2 == 1) {
                         throw new IllegalStateException("Cannot execute task: the task is already running.");
                     }
@@ -444,10 +444,10 @@ public abstract class BdAsyncTask<ParamsT, ProgressT, ResultT> {
                         throw new IllegalStateException("Cannot execute task: the task has already been executed (a task can be executed only once)");
                     }
                 }
-                this.f40489e = BdAsyncTaskStatus.RUNNING;
+                this.f40596e = BdAsyncTaskStatus.RUNNING;
                 s();
-                this.f40485a.f40500e = paramstArr;
-                executor.execute(this.f40486b);
+                this.f40592a.f40607e = paramstArr;
+                executor.execute(this.f40593b);
             }
             return this;
         }
@@ -462,38 +462,38 @@ public abstract class BdAsyncTask<ParamsT, ProgressT, ResultT> {
             } else {
                 q(resultt);
             }
-            this.f40489e = BdAsyncTaskStatus.FINISHED;
+            this.f40596e = BdAsyncTaskStatus.FINISHED;
         }
     }
 
-    public c.a.v.a.c j() {
+    public c.a.w.a.c j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f40492h : (c.a.v.a.c) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f40599h : (c.a.w.a.c) invokeV.objValue;
     }
 
     public int k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f40490f : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f40597f : invokeV.intValue;
     }
 
     public final boolean l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f40486b.isCancelled() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f40593b.isCancelled() : invokeV.booleanValue;
     }
 
     public boolean m() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f40493i : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f40600i : invokeV.booleanValue;
     }
 
     public boolean n() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f40494j : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f40601j : invokeV.booleanValue;
     }
 
     public void o() {
@@ -533,7 +533,7 @@ public abstract class BdAsyncTask<ParamsT, ProgressT, ResultT> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, resultt)) == null) {
-            if (this.f40487c.compareAndSet(false, true)) {
+            if (this.f40594c.compareAndSet(false, true)) {
                 l.obtainMessage(1, new d(this, resultt)).sendToTarget();
                 return resultt;
             }
@@ -542,12 +542,12 @@ public abstract class BdAsyncTask<ParamsT, ProgressT, ResultT> {
         return (ResultT) invokeL.objValue;
     }
 
-    public synchronized void v(c.a.v.a.c cVar) {
+    public synchronized void v(c.a.w.a.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048594, this, cVar) == null) {
             synchronized (this) {
-                if (this.f40489e == BdAsyncTaskStatus.PENDING) {
-                    this.f40492h = cVar;
+                if (this.f40596e == BdAsyncTaskStatus.PENDING) {
+                    this.f40599h = cVar;
                 } else {
                     throw new IllegalStateException("the task is already running");
                 }
@@ -561,9 +561,9 @@ public abstract class BdAsyncTask<ParamsT, ProgressT, ResultT> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048595, this, i2)) == null) {
             synchronized (this) {
-                if (this.f40489e == BdAsyncTaskStatus.PENDING) {
-                    i3 = this.f40490f;
-                    this.f40490f = i2;
+                if (this.f40596e == BdAsyncTaskStatus.PENDING) {
+                    i3 = this.f40597f;
+                    this.f40597f = i2;
                 } else {
                     throw new IllegalStateException("the task is already running");
                 }
@@ -573,16 +573,16 @@ public abstract class BdAsyncTask<ParamsT, ProgressT, ResultT> {
         return invokeI.intValue;
     }
 
-    public synchronized int x(c.a.v.j.b bVar) {
+    public synchronized int x(c.a.w.j.b bVar) {
         InterceptResult invokeL;
         int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048596, this, bVar)) == null) {
             synchronized (this) {
-                if (this.f40489e == BdAsyncTaskStatus.PENDING) {
-                    i2 = this.f40491g;
+                if (this.f40596e == BdAsyncTaskStatus.PENDING) {
+                    i2 = this.f40598g;
                     if (bVar != null) {
-                        this.f40491g = bVar.b();
+                        this.f40598g = bVar.b();
                     }
                 } else {
                     throw new IllegalStateException("the task is already running");
@@ -597,7 +597,7 @@ public abstract class BdAsyncTask<ParamsT, ProgressT, ResultT> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048597, this, z) == null) {
             synchronized (this) {
-                this.f40494j = z;
+                this.f40601j = z;
             }
         }
     }

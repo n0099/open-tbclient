@@ -8,7 +8,7 @@ import android.util.AttributeSet;
 import android.view.View;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import c.a.p0.a4.l.a;
+import c.a.q0.a4.l.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
@@ -20,31 +20,31 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes7.dex */
-public class RecordCircleProgressBar extends View implements c.a.p0.a4.l.a, Runnable {
+public class RecordCircleProgressBar extends View implements c.a.q0.a4.l.a, Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public a.InterfaceC0736a A;
+    public a.InterfaceC0746a A;
     public float B;
     public int C;
     public Runnable D;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f58132e;
+    public int f58329e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f58133f;
+    public int f58330f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f58134g;
+    public int f58331g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f58135h;
+    public int f58332h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f58136i;
+    public int f58333i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f58137j;
+    public int f58334j;
     public int k;
     public int l;
     public int m;
@@ -68,7 +68,7 @@ public class RecordCircleProgressBar extends View implements c.a.p0.a4.l.a, Runn
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ RecordCircleProgressBar f58138e;
+        public final /* synthetic */ RecordCircleProgressBar f58335e;
 
         public a(RecordCircleProgressBar recordCircleProgressBar) {
             Interceptable interceptable = $ic;
@@ -85,27 +85,27 @@ public class RecordCircleProgressBar extends View implements c.a.p0.a4.l.a, Runn
                     return;
                 }
             }
-            this.f58138e = recordCircleProgressBar;
+            this.f58335e = recordCircleProgressBar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                RecordCircleProgressBar recordCircleProgressBar = this.f58138e;
+                RecordCircleProgressBar recordCircleProgressBar = this.f58335e;
                 int i2 = recordCircleProgressBar.x;
                 if (i2 <= 0) {
                     recordCircleProgressBar.y = true;
                 } else if (i2 >= 255) {
                     recordCircleProgressBar.y = false;
                 }
-                RecordCircleProgressBar recordCircleProgressBar2 = this.f58138e;
+                RecordCircleProgressBar recordCircleProgressBar2 = this.f58335e;
                 if (recordCircleProgressBar2.y) {
                     recordCircleProgressBar2.x += 50;
                 } else {
                     recordCircleProgressBar2.x -= 50;
                 }
-                this.f58138e.invalidate();
+                this.f58335e.invalidate();
             }
         }
     }
@@ -149,12 +149,12 @@ public class RecordCircleProgressBar extends View implements c.a.p0.a4.l.a, Runn
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            a.InterfaceC0736a interfaceC0736a = this.A;
-            postDelayed(this, (interfaceC0736a == null || !(interfaceC0736a.a() == 0.5f || this.A.a() == 0.33333334f)) ? 50L : 25L);
+            a.InterfaceC0746a interfaceC0746a = this.A;
+            postDelayed(this, (interfaceC0746a == null || !(interfaceC0746a.a() == 0.5f || this.A.a() == 0.33333334f)) ? 50L : 25L);
         }
     }
 
-    @Override // c.a.p0.a4.l.a
+    @Override // c.a.q0.a4.l.a
     public void deleteLast() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
@@ -165,21 +165,21 @@ public class RecordCircleProgressBar extends View implements c.a.p0.a4.l.a, Runn
                 this.B = getProgress();
                 invalidate();
             }
-            a.InterfaceC0736a interfaceC0736a = this.A;
-            if (interfaceC0736a != null) {
-                interfaceC0736a.b(this.B);
+            a.InterfaceC0746a interfaceC0746a = this.A;
+            if (interfaceC0746a != null) {
+                interfaceC0746a.b(this.B);
             }
         }
     }
 
-    @Override // c.a.p0.a4.l.a
+    @Override // c.a.q0.a4.l.a
     public int getMaxDuration() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.v : invokeV.intValue;
     }
 
-    @Override // c.a.p0.a4.l.a
+    @Override // c.a.q0.a4.l.a
     public float getProgress() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -193,14 +193,14 @@ public class RecordCircleProgressBar extends View implements c.a.p0.a4.l.a, Runn
         return invokeV.floatValue;
     }
 
-    @Override // c.a.p0.a4.l.a
+    @Override // c.a.q0.a4.l.a
     public int getSlideNum() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.s.size() : invokeV.intValue;
     }
 
-    @Override // c.a.p0.a4.l.a
+    @Override // c.a.q0.a4.l.a
     public boolean isShowingDeleteLastTip() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -225,12 +225,12 @@ public class RecordCircleProgressBar extends View implements c.a.p0.a4.l.a, Runn
             if (this.v <= 0) {
                 return;
             }
-            RectF rectF = new RectF(getPaddingLeft() + this.C, getPaddingTop() + this.C, (getPaddingLeft() + this.f58134g) - this.C, (getPaddingTop() + this.f58134g) - this.C);
+            RectF rectF = new RectF(getPaddingLeft() + this.C, getPaddingTop() + this.C, (getPaddingLeft() + this.f58331g) - this.C, (getPaddingTop() + this.f58331g) - this.C);
             this.r.setStyle(Paint.Style.FILL_AND_STROKE);
             canvas.drawOval(rectF, this.r);
             this.r.setStyle(Paint.Style.STROKE);
             float f3 = 360.0f / this.v;
-            float f4 = (float) ((this.f58135h * 360) / ((this.f58134g + this.C) * 3.141592653589793d));
+            float f4 = (float) ((this.f58332h * 360) / ((this.f58331g + this.C) * 3.141592653589793d));
             if (!this.z) {
                 int i2 = 1;
                 while (true) {
@@ -256,7 +256,7 @@ public class RecordCircleProgressBar extends View implements c.a.p0.a4.l.a, Runn
                 }
                 canvas.drawArc(rectF, (f5 * f3) - 90.0f, this.s.get(i3).floatValue() * f3, false, this.p);
                 f5 += this.s.get(i3).floatValue();
-                float f6 = (float) ((this.f58136i * 360) / ((this.f58134g + this.C) * 3.141592653589793d));
+                float f6 = (float) ((this.f58333i * 360) / ((this.f58331g + this.C) * 3.141592653589793d));
                 if (i3 != 0 || getProgress() < 0.2f) {
                     f2 = f6;
                 } else {
@@ -275,14 +275,14 @@ public class RecordCircleProgressBar extends View implements c.a.p0.a4.l.a, Runn
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
             super.onLayout(z, i2, i3, i4, i5);
-            this.f58132e = ((i4 - i2) - getPaddingRight()) - getPaddingLeft();
+            this.f58329e = ((i4 - i2) - getPaddingRight()) - getPaddingLeft();
             int paddingTop = ((i5 - i3) - getPaddingTop()) - getPaddingBottom();
-            this.f58133f = paddingTop;
-            this.f58134g = Math.min(this.f58132e, paddingTop);
+            this.f58330f = paddingTop;
+            this.f58331g = Math.min(this.f58329e, paddingTop);
         }
     }
 
-    @Override // c.a.p0.a4.l.a
+    @Override // c.a.q0.a4.l.a
     public void reset() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
@@ -301,14 +301,14 @@ public class RecordCircleProgressBar extends View implements c.a.p0.a4.l.a, Runn
         if (!(interceptable == null || interceptable.invokeV(1048587, this) == null) || this.t == 0 || this.s.size() == 0) {
             return;
         }
-        a.InterfaceC0736a interfaceC0736a = this.A;
-        if (interfaceC0736a != null) {
-            interfaceC0736a.onProgress(this.B);
+        a.InterfaceC0746a interfaceC0746a = this.A;
+        if (interfaceC0746a != null) {
+            interfaceC0746a.onProgress(this.B);
         }
         if (this.B >= this.v) {
-            a.InterfaceC0736a interfaceC0736a2 = this.A;
-            if (interfaceC0736a2 != null) {
-                interfaceC0736a2.onFinish();
+            a.InterfaceC0746a interfaceC0746a2 = this.A;
+            if (interfaceC0746a2 != null) {
+                interfaceC0746a2.onFinish();
                 return;
             }
             return;
@@ -323,7 +323,7 @@ public class RecordCircleProgressBar extends View implements c.a.p0.a4.l.a, Runn
         }
     }
 
-    @Override // c.a.p0.a4.l.a
+    @Override // c.a.q0.a4.l.a
     public void setMaxDuration(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048589, this, i2) == null) {
@@ -331,7 +331,7 @@ public class RecordCircleProgressBar extends View implements c.a.p0.a4.l.a, Runn
         }
     }
 
-    @Override // c.a.p0.a4.l.a
+    @Override // c.a.q0.a4.l.a
     public void setMinDuration(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048590, this, i2) == null) {
@@ -339,11 +339,11 @@ public class RecordCircleProgressBar extends View implements c.a.p0.a4.l.a, Runn
         }
     }
 
-    @Override // c.a.p0.a4.l.a
-    public void setOnProgressListener(a.InterfaceC0736a interfaceC0736a) {
+    @Override // c.a.q0.a4.l.a
+    public void setOnProgressListener(a.InterfaceC0746a interfaceC0746a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, interfaceC0736a) == null) {
-            this.A = interfaceC0736a;
+        if (interceptable == null || interceptable.invokeL(1048591, this, interfaceC0746a) == null) {
+            this.A = interfaceC0746a;
         }
     }
 
@@ -355,7 +355,7 @@ public class RecordCircleProgressBar extends View implements c.a.p0.a4.l.a, Runn
         }
     }
 
-    @Override // c.a.p0.a4.l.a
+    @Override // c.a.q0.a4.l.a
     public void setShowDeleteLastTip(boolean z) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeZ(1048594, this, z) == null) || this.w == z) {
@@ -365,7 +365,7 @@ public class RecordCircleProgressBar extends View implements c.a.p0.a4.l.a, Runn
         invalidate();
     }
 
-    @Override // c.a.p0.a4.l.a
+    @Override // c.a.q0.a4.l.a
     public void start() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
@@ -375,7 +375,7 @@ public class RecordCircleProgressBar extends View implements c.a.p0.a4.l.a, Runn
         }
     }
 
-    @Override // c.a.p0.a4.l.a
+    @Override // c.a.q0.a4.l.a
     public void stop() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
@@ -436,31 +436,31 @@ public class RecordCircleProgressBar extends View implements c.a.p0.a4.l.a, Runn
         this.n = getContext().getResources().getColor(R.color.CAM_X0313);
         this.o = getContext().getResources().getColor(R.color.CAM_X0619);
         this.m = getContext().getResources().getColor(R.color.CAM_X0302);
-        this.f58135h = UtilHelper.getDimenPixelSize(R.dimen.tbds6);
-        this.f58136i = UtilHelper.getDimenPixelSize(R.dimen.tbds6);
+        this.f58332h = UtilHelper.getDimenPixelSize(R.dimen.tbds6);
+        this.f58333i = UtilHelper.getDimenPixelSize(R.dimen.tbds6);
         int dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.tbds16);
-        this.f58137j = dimenPixelSize;
+        this.f58334j = dimenPixelSize;
         this.C = dimenPixelSize / 2;
         Paint paint = new Paint();
         this.r = paint;
         paint.setAntiAlias(true);
-        this.r.setStrokeWidth(this.f58137j);
+        this.r.setStrokeWidth(this.f58334j);
         this.r.setStyle(Paint.Style.STROKE);
         this.r.setColor(this.o);
         Paint paint2 = new Paint();
         this.p = paint2;
         paint2.setAntiAlias(true);
-        this.p.setStrokeWidth(this.f58137j);
+        this.p.setStrokeWidth(this.f58334j);
         this.p.setStyle(Paint.Style.STROKE);
         Paint paint3 = new Paint();
         this.q = paint3;
         paint3.setAntiAlias(true);
-        this.q.setStrokeWidth(this.f58137j);
+        this.q.setStrokeWidth(this.f58334j);
         this.q.setStyle(Paint.Style.STROKE);
         this.q.setColor(this.n);
     }
 
-    @Override // c.a.p0.a4.l.a
+    @Override // c.a.q0.a4.l.a
     public void setProgress(long j2) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeJ(1048592, this, j2) == null) || this.s.size() <= 0) {

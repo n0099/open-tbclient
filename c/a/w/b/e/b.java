@@ -1,8 +1,5 @@
 package c.a.w.b.e;
 
-import android.opengl.GLES20;
-import androidx.core.view.InputDeviceCompat;
-import c.a.w.b.f.d;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -11,56 +8,84 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.wallet.paysdk.banksign.beans.BankSignFactory;
-import java.nio.Buffer;
-import java.util.LinkedList;
 /* loaded from: classes4.dex */
-public class b extends a implements c {
+public class b {
     public static /* synthetic */ Interceptable $ic;
+    public static b E;
     public transient /* synthetic */ FieldHolder $fh;
+    public int A;
+    public String B;
+    public float C;
+    public float D;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f30623a;
+    public String f30356a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f30624b;
+    public String f30357b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f30625c;
+    public String f30358c;
 
     /* renamed from: d  reason: collision with root package name */
-    public d f30626d;
+    public String f30359d;
 
     /* renamed from: e  reason: collision with root package name */
-    public c.a.w.b.f.c f30627e;
+    public int f30360e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f30628f;
+    public int f30361f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f30629g;
+    public int f30362g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f30630h;
+    public int f30363h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f30631i;
+    public int f30364i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f30632j;
+    public int f30365j;
+    public int k;
+    public String l;
+    public String m;
+    public String n;
+    public String o;
+    public int p;
+    public int q;
+    public int r;
+    public int s;
+    public String t;
+    public String u;
+    public String v;
+    public String w;
+    public int x;
+    public int y;
+    public int z;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-1863675506, "Lc/a/w/b/e/b;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-1863675506, "Lc/a/w/b/e/b;");
+    /* loaded from: classes4.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+
+        /* renamed from: a  reason: collision with root package name */
+        public static final b f30366a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(9182129, "Lc/a/w/b/e/b$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(9182129, "Lc/a/w/b/e/b$a;");
+                    return;
+                }
+            }
+            f30366a = new b();
         }
     }
 
@@ -68,152 +93,61 @@ public class b extends a implements c {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.f30624b = "uniform mat4 uMVPMatrix;  // MVP 的变换矩阵（整体变形）\nuniform mat4 uTexMatrix;  // Texture 的变换矩阵 （只对texture变形）\nattribute vec4 aPosition;\nattribute vec4 aTextureCoord;\nvarying vec2 vTextureCoord;\nvoid main() {\n    gl_Position = uMVPMatrix * aPosition;\n    vTextureCoord = (uTexMatrix * aTextureCoord).xy;\n}\n";
-        this.f30625c = "#extension GL_OES_EGL_image_external : require\nprecision mediump float; // 指定默认精度\nvarying vec2 vTextureCoord;\nuniform samplerExternalOES uTexture;\nvoid main() {\n    gl_FragColor = texture2D(uTexture, vTextureCoord);\n}\n";
-        new LinkedList();
-    }
-
-    @Override // c.a.w.b.e.c
-    public void a(c.a.w.b.f.a aVar, c.a.w.b.g.b bVar) {
-        d dVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, aVar, bVar) == null) && (dVar = this.f30626d) != null && dVar.i()) {
-            l();
-            d(this.f30626d);
-            c(aVar, bVar);
-            g(aVar, bVar);
-            j();
-            k(this.f30626d);
-            f();
-        }
-    }
-
-    @Override // c.a.w.b.e.c
-    public void b(d dVar, c.a.w.b.f.c cVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dVar, cVar) == null) {
-            this.f30626d = dVar;
-            this.f30627e = cVar;
-            e(this.f30624b, this.f30625c);
-            if (this.f30623a != -1) {
-                h();
-                return;
-            }
-            throw new RuntimeException("Unable to create program");
-        }
-    }
-
-    public void c(c.a.w.b.f.a aVar, c.a.w.b.g.b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, aVar, bVar) == null) {
-            GLES20.glUniformMatrix4fv(this.f30629g, 1, false, bVar.e(), 0);
-            GLES20.glUniformMatrix4fv(this.f30630h, 1, false, bVar.f(), 0);
-            GLES20.glEnableVertexAttribArray(this.f30628f);
-            GLES20.glVertexAttribPointer(this.f30628f, aVar.a(), 5126, false, aVar.f(), (Buffer) aVar.d());
-            GLES20.glEnableVertexAttribArray(this.f30631i);
-            GLES20.glVertexAttribPointer(this.f30631i, aVar.a(), 5126, false, aVar.c(), (Buffer) aVar.b());
-        }
-    }
-
-    public void d(d dVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, dVar) == null) {
-            GLES20.glActiveTexture(33984);
-            GLES20.glBindTexture(dVar.g(), dVar.f());
-            GLES20.glUniform1i(this.f30632j, 0);
-        }
-    }
-
-    public void e(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, str, str2) == null) {
-            if (this.f30626d.g() != 36197) {
-                str2 = str2.replaceFirst("#extension GL_OES_EGL_image_external : require", "").replace("samplerExternalOES", "sampler2D");
-            }
-            this.f30623a = c.a.w.b.h.a.c(str, str2);
-        }
-    }
-
-    public void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            GLES20.glUseProgram(0);
-        }
-    }
-
-    public void g(c.a.w.b.f.a aVar, c.a.w.b.g.b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048582, this, aVar, bVar) == null) {
-            if (bVar.h()) {
-                GLES20.glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
-                GLES20.glClear(16384);
-            }
-            if (bVar.g()) {
-                GLES20.glEnable(3042);
-                GLES20.glBlendFunc(BankSignFactory.BEAN_ID_QUERY, BankSignFactory.BEAN_ID_BIND_CARD);
-            }
-            GLES20.glDrawArrays(5, 0, aVar.e());
-            if (bVar.g()) {
-                GLES20.glDisable(3042);
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public void h() {
+    public static b a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.f30632j = GLES20.glGetUniformLocation(this.f30623a, "uTexture");
-            this.f30628f = GLES20.glGetAttribLocation(this.f30623a, "aPosition");
-            this.f30629g = GLES20.glGetUniformLocation(this.f30623a, "uMVPMatrix");
-            this.f30630h = GLES20.glGetUniformLocation(this.f30623a, "uTexMatrix");
-            this.f30631i = GLES20.glGetAttribLocation(this.f30623a, "aTextureCoord");
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (E == null) {
+                E = a.f30366a;
+            }
+            return E;
+        }
+        return (b) invokeV.objValue;
+    }
+
+    public void b(String str, String str2, String str3, String str4) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(1048576, this, str, str2, str3, str4) == null) {
+            this.l = str;
+            this.m = str2;
+            this.n = str3;
+            this.o = str4;
         }
     }
 
-    public void i() {
+    public void c(int i2, int i3, int i4, int i5, String str, float f2, float f3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            GLES20.glDeleteProgram(this.f30623a);
-            this.f30623a = -1;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), str, Float.valueOf(f2), Float.valueOf(f3)}) == null) {
+            this.x = i2;
+            this.y = i3;
+            this.z = i4;
+            this.A = i5;
+            this.B = str;
+            this.C = f2;
+            this.D = f3;
         }
     }
 
-    public void j() {
+    public void d(int i2, int i3, int i4, int i5, int i6, int i7, int i8, int i9) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            GLES20.glDisableVertexAttribArray(this.f30628f);
-            GLES20.glDisableVertexAttribArray(this.f30631i);
-        }
-    }
-
-    public void k(d dVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, dVar) == null) {
-            GLES20.glBindTexture(dVar.g(), 0);
-        }
-    }
-
-    public void l() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            GLES20.glUseProgram(this.f30623a);
-        }
-    }
-
-    @Override // c.a.w.b.e.c
-    public void release() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            i();
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7), Integer.valueOf(i8), Integer.valueOf(i9)}) == null) {
+            this.f30360e = i2;
+            this.f30361f = i3;
+            this.f30362g = i4;
+            this.f30363h = i5;
+            this.f30364i = i6;
+            this.f30365j = i7;
+            this.k = i8;
         }
     }
 }

@@ -20,7 +20,7 @@ public class MyProvider extends ContentProvider {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f44946a;
+    public static boolean f45053a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -55,7 +55,7 @@ public class MyProvider extends ContentProvider {
     public static boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f44946a : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f45053a : invokeV.booleanValue;
     }
 
     @Override // android.content.ContentProvider
@@ -144,7 +144,7 @@ public class MyProvider extends ContentProvider {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            f44946a = true;
+            f45053a = true;
             return false;
         }
         return invokeV.booleanValue;

@@ -12,14 +12,14 @@ public class aa implements Runnable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ MiTinyDataClient.a.C2091a f76884a;
+    public final /* synthetic */ MiTinyDataClient.a.C2095a f77085a;
 
-    public aa(MiTinyDataClient.a.C2091a c2091a) {
+    public aa(MiTinyDataClient.a.C2095a c2095a) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {c2091a};
+            Object[] objArr = {c2095a};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -29,7 +29,7 @@ public class aa implements Runnable {
                 return;
             }
         }
-        this.f76884a = c2091a;
+        this.f77085a = c2095a;
     }
 
     @Override // java.lang.Runnable
@@ -38,15 +38,15 @@ public class aa implements Runnable {
         ScheduledFuture scheduledFuture2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (this.f76884a.f58a.size() != 0) {
-                this.f76884a.b();
+            if (this.f77085a.f58a.size() != 0) {
+                this.f77085a.b();
                 return;
             }
-            scheduledFuture = this.f76884a.f59a;
+            scheduledFuture = this.f77085a.f59a;
             if (scheduledFuture != null) {
-                scheduledFuture2 = this.f76884a.f59a;
+                scheduledFuture2 = this.f77085a.f59a;
                 scheduledFuture2.cancel(false);
-                this.f76884a.f59a = null;
+                this.f77085a.f59a = null;
             }
         }
     }
