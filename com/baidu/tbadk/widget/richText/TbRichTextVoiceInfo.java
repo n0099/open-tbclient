@@ -15,16 +15,16 @@ public class TbRichTextVoiceInfo extends OrmObject {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f48674e;
+    public String f48781e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f48675f;
+    public int f48782f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f48676g;
+    public int f48783g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Object f48677h;
+    public Object f48784h;
 
     public TbRichTextVoiceInfo() {
         Interceptable interceptable = $ic;
@@ -43,31 +43,31 @@ public class TbRichTextVoiceInfo extends OrmObject {
     public int getDuration() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f48675f : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f48782f : invokeV.intValue;
     }
 
     public int w() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f48676g : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f48783g : invokeV.intValue;
     }
 
     public String x() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f48674e : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f48781e : (String) invokeV.objValue;
     }
 
     public Object y() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f48677h : invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f48784h : invokeV.objValue;
     }
 
     public void z(Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, obj) == null) {
-            this.f48677h = obj;
+            this.f48784h = obj;
         }
     }
 
@@ -89,9 +89,9 @@ public class TbRichTextVoiceInfo extends OrmObject {
         if (pbContent == null) {
             return;
         }
-        this.f48674e = pbContent.voice_md5;
-        this.f48675f = pbContent.during_time.intValue() / 1000;
-        this.f48676g = pbContent.is_sub.intValue();
+        this.f48781e = pbContent.voice_md5;
+        this.f48782f = pbContent.during_time.intValue() / 1000;
+        this.f48783g = pbContent.is_sub.intValue();
     }
 
     public TbRichTextVoiceInfo(JSONObject jSONObject) {
@@ -112,8 +112,8 @@ public class TbRichTextVoiceInfo extends OrmObject {
         if (jSONObject == null) {
             return;
         }
-        this.f48674e = jSONObject.optString("voice_md5");
-        this.f48675f = jSONObject.optInt("during_time") / 1000;
-        this.f48676g = jSONObject.optInt("is_sub");
+        this.f48781e = jSONObject.optString("voice_md5");
+        this.f48782f = jSONObject.optInt("during_time") / 1000;
+        this.f48783g = jSONObject.optInt("is_sub");
     }
 }

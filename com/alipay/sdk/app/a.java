@@ -19,16 +19,16 @@ public class a {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static List<a.C1559a> f35676a = null;
+    public static List<a.C1563a> f35782a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f35677b = "";
+    public static String f35783b = "";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final a.C1559a f35678c;
+    public static final a.C1563a f35784c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final a.C1559a f35679d;
+    public static final a.C1563a f35785d;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -44,9 +44,9 @@ public class a {
                 return;
             }
         }
-        f35678c = new a.C1559a(k.f35883a, 73, com.alipay.sdk.cons.a.f35717j);
-        f35679d = new a.C1559a(PayResultActivity.f35646c, 40, "e6b1bdcb890370f2f2419fe06d0fdf7628ad0083d52da1ecfe991164711bbf9297e75353de96f1740695d07610567b1240549af9cbd87d06919ac31c859ad37ab6907c311b4756e1e208775989a4f691bff4bbbc58174d2a96b1d0d970a05114d7ee57dfc33b1bafaf6e0d820e838427018b6435f903df04ba7fd34d73f843df9434b164e0220baabb10c8978c3f4c6b7da79d8220a968356d15090dea07df9606f665cbec14d218dd3d691cce2866a58840971b6a57b76af88b1a65fdffd2c080281a6ab20be5879e0330eb7ff70871ce684e7174ada5dc3159c461375a0796b17ce7beca83cf34f65976d237aee993db48d34a4e344f4d8b7e99119168bdd7");
-        f35676a = Collections.singletonList(f35678c);
+        f35784c = new a.C1563a(k.f35989a, 73, com.alipay.sdk.cons.a.f35823j);
+        f35785d = new a.C1563a(PayResultActivity.f35752c, 40, "e6b1bdcb890370f2f2419fe06d0fdf7628ad0083d52da1ecfe991164711bbf9297e75353de96f1740695d07610567b1240549af9cbd87d06919ac31c859ad37ab6907c311b4756e1e208775989a4f691bff4bbbc58174d2a96b1d0d970a05114d7ee57dfc33b1bafaf6e0d820e838427018b6435f903df04ba7fd34d73f843df9434b164e0220baabb10c8978c3f4c6b7da79d8220a968356d15090dea07df9606f665cbec14d218dd3d691cce2866a58840971b6a57b76af88b1a65fdffd2c080281a6ab20be5879e0330eb7ff70871ce684e7174ada5dc3159c461375a0796b17ce7beca83cf34f65976d237aee993db48d34a4e344f4d8b7e99119168bdd7");
+        f35782a = Collections.singletonList(f35784c);
     }
 
     public a() {
@@ -66,11 +66,11 @@ public class a {
     public static void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, null, str) == null) {
-            f35677b = str;
+            f35783b = str;
             if (((str.hashCode() == 3331 && str.equals("hk")) ? (char) 0 : (char) 65535) != 0) {
-                f35676a = Collections.singletonList(f35678c);
+                f35782a = Collections.singletonList(f35784c);
             } else {
-                f35676a = Collections.singletonList(f35679d);
+                f35782a = Collections.singletonList(f35785d);
             }
         }
     }
@@ -78,12 +78,12 @@ public class a {
     public static boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? TextUtils.isEmpty(f35677b) || TextUtils.equals(AdvanceSetting.CLEAR_NOTIFICATION, f35677b) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? TextUtils.isEmpty(f35783b) || TextUtils.equals(AdvanceSetting.CLEAR_NOTIFICATION, f35783b) : invokeV.booleanValue;
     }
 
     public static String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f35677b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f35783b : (String) invokeV.objValue;
     }
 }

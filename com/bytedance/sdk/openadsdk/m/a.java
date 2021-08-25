@@ -59,9 +59,9 @@ public class a {
         if (interceptable == null || interceptable.invokeLL(65539, null, context, jSONObject) == null) {
             try {
                 float f2 = 0.0f;
-                float f3 = b.a(context) == null ? 0.0f : b.a(context).f66337a;
+                float f3 = b.a(context) == null ? 0.0f : b.a(context).f66537a;
                 if (b.a(context) != null) {
-                    f2 = b.a(context).f66338b;
+                    f2 = b.a(context).f66538b;
                 }
                 jSONObject.put("latitude", f3);
                 jSONObject.put("longitude", f2);
@@ -151,7 +151,7 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
-            if (l.f66360b == null || l.f66360b.isCanUseWifiState()) {
+            if (l.f66560b == null || l.f66560b.isCanUseWifiState()) {
                 return j.h(o.a());
             }
             return null;
@@ -173,8 +173,8 @@ public class a {
                 com.bytedance.sdk.openadsdk.core.k.a a2 = b.a(o.a());
                 JSONObject jSONObject2 = new JSONObject();
                 if (a2 != null) {
-                    jSONObject2.put("longitude", a2.f66338b);
-                    jSONObject2.put("latitude", a2.f66337a);
+                    jSONObject2.put("longitude", a2.f66538b);
+                    jSONObject2.put("latitude", a2.f66537a);
                 }
                 jSONObject.put("location", jSONObject2);
             } catch (JSONException e2) {
@@ -191,7 +191,7 @@ public class a {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ Context f67651a;
+                public final /* synthetic */ Context f67851a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -208,7 +208,7 @@ public class a {
                             return;
                         }
                     }
-                    this.f67651a = context;
+                    this.f67851a = context;
                 }
 
                 @Override // c.b.c.b.g
@@ -219,12 +219,12 @@ public class a {
                         HashMap hashMap = new HashMap();
                         String appLogDid = AppLogHelper.getInstance().getAppLogDid();
                         if (TextUtils.isEmpty(appLogDid)) {
-                            appLogDid = j.a(this.f67651a);
+                            appLogDid = j.a(this.f67851a);
                         }
                         if (!TextUtils.isEmpty(appLogDid)) {
                             hashMap.put("device_id", appLogDid);
                         }
-                        hashMap.put("ac", NetworkUtils.getNetworkTypeString(this.f67651a));
+                        hashMap.put("ac", NetworkUtils.getNetworkTypeString(this.f67851a));
                         hashMap.put("aid", 164362);
                         hashMap.put("app_name", "unionser_slardar_applog");
                         String f2 = q.f();
@@ -254,9 +254,9 @@ public class a {
                             hashMap.put(HttpConstants.OS_VERSION, str);
                         } catch (Exception unused) {
                         }
-                        hashMap.put("openudid", j.c(this.f67651a));
-                        hashMap.put("dpi", String.valueOf(com.bytedance.sdk.openadsdk.q.s.f(this.f67651a)));
-                        hashMap.put("resolution", com.bytedance.sdk.openadsdk.q.s.c(this.f67651a) + "*" + com.bytedance.sdk.openadsdk.q.s.d(this.f67651a));
+                        hashMap.put("openudid", j.c(this.f67851a));
+                        hashMap.put("dpi", String.valueOf(com.bytedance.sdk.openadsdk.q.s.f(this.f67851a)));
+                        hashMap.put("resolution", com.bytedance.sdk.openadsdk.q.s.c(this.f67851a) + "*" + com.bytedance.sdk.openadsdk.q.s.d(this.f67851a));
                         return hashMap;
                     }
                     return (Map) invokeV.objValue;
@@ -266,7 +266,7 @@ public class a {
                 public String b() {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? j.a(this.f67651a) : (String) invokeV.objValue;
+                    return (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? j.a(this.f67851a) : (String) invokeV.objValue;
                 }
 
                 @Override // c.b.c.b.g
@@ -393,8 +393,8 @@ public class a {
         }
         try {
             JSONObject jSONObject2 = new JSONObject();
-            jSONObject2.put("latitude", a2.f66337a);
-            jSONObject2.put("longitude", a2.f66338b);
+            jSONObject2.put("latitude", a2.f66537a);
+            jSONObject2.put("longitude", a2.f66538b);
             jSONObject.put("geo", jSONObject2);
         } catch (Exception unused) {
         }
@@ -418,7 +418,7 @@ public class a {
     public static String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? (l.f66360b == null || l.f66360b.isCanUsePhoneState()) ? j.f(o.a()) : "" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? (l.f66560b == null || l.f66560b.isCanUsePhoneState()) ? j.f(o.a()) : "" : (String) invokeV.objValue;
     }
 
     public static Map<String, String> b(String str, String str2) {

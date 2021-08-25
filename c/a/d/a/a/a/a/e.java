@@ -10,10 +10,10 @@ public class e {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f1717a;
+    public String f1942a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f1718b;
+    public String f1943b;
 
     public e() {
         Interceptable interceptable = $ic;
@@ -30,8 +30,8 @@ public class e {
         }
         c.a.d.a.a.c.a.a aVar = new c.a.d.a.a.c.a.a();
         try {
-            this.f1717a = new String(aVar.a(j.e()), "UTF-8");
-            this.f1718b = new String(aVar.a(j.f()), "UTF-8");
+            this.f1942a = new String(aVar.a(j.e()), "UTF-8");
+            this.f1943b = new String(aVar.a(j.f()), "UTF-8");
         } catch (Exception unused) {
             throw new IllegalStateException("");
         }

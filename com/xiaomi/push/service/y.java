@@ -61,7 +61,7 @@ public final class y {
                 String str = lVar.f966a;
                 ibVar.f637a.f562a = str.substring(0, str.indexOf(TNCManager.TNC_PROBE_HEADER_SECEPTOR));
                 ibVar.f637a.f566c = str.substring(str.indexOf("/") + 1);
-                faVar.a(ip.a(ibVar), lVar.f77837c);
+                faVar.a(ip.a(ibVar), lVar.f78038c);
                 faVar.a((short) 1);
                 com.xiaomi.channel.commonutils.logger.b.m73a("try send mi push message. packagename:" + ibVar.f642b + " action:" + ibVar.f635a);
                 return faVar;
@@ -82,7 +82,7 @@ public final class y {
             ieVar.c("package uninstalled");
             ieVar.a(gc.i());
             ieVar.a(false);
-            return a(str, str2, ieVar, hf.f77389i);
+            return a(str, str2, ieVar, hf.f77590i);
         }
         return (ib) invokeLL.objValue;
     }

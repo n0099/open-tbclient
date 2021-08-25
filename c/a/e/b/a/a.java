@@ -31,7 +31,7 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f1928a;
+    public static int f1986a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -193,9 +193,9 @@ public class a {
                 stringBuffer.append(str + " = {\n");
                 while (cls != null && g(cls)) {
                     if (cls.getSimpleName().equals("Object")) {
-                        f1928a++;
+                        f1986a++;
                         i(cls.getDeclaredFields(), obj, stringBuffer, list);
-                        f1928a--;
+                        f1986a--;
                     }
                     cls = cls.getSuperclass();
                 }
@@ -231,7 +231,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
             StringBuffer stringBuffer = new StringBuffer("");
-            for (int i2 = 0; i2 < f1928a; i2++) {
+            for (int i2 = 0; i2 < f1986a; i2++) {
                 stringBuffer.append("    ");
             }
             return stringBuffer.toString();
@@ -272,7 +272,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65544, null, str, obj) == null) {
             StringBuffer stringBuffer = new StringBuffer("");
-            if (c.f1930a) {
+            if (c.f1988a) {
                 stringBuffer.append("Message_Type: " + str + StringUtils.LF);
                 stringBuffer.append(j("", obj));
                 stringBuffer.append("----------------------------------------------------------\n");

@@ -1,7 +1,7 @@
 package com.baidu.tieba.enterForum.home;
 
 import androidx.core.view.InputDeviceCompat;
-import c.a.o0.s.r.a;
+import c.a.p0.s.r.a;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -130,7 +130,8 @@ public class forumRecommendSocketResponseMessage extends SocketResponsedMessage 
         if (!(interceptable == null || interceptable.invokeIL(1048580, this, i2, bArr) == null) || bArr == null || bArr.length <= 0 || getError() != 0) {
             return;
         }
-        a.f().e("tb_forum_recommend", TbadkCoreApplication.getCurrentAccountName()).a(EnterForumModel.FORUMRECOMMEND_CACHE_KEY, bArr);
+        a.f();
+        a.e("tb_forum_recommend", TbadkCoreApplication.getCurrentAccountName()).a(EnterForumModel.FORUMRECOMMEND_CACHE_KEY, bArr);
     }
 
     /* JADX DEBUG: Method merged with bridge method */

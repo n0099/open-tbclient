@@ -19,10 +19,10 @@ public class i implements Runnable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ String f41070a;
+    public final /* synthetic */ String f41177a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ e f41071b;
+    public final /* synthetic */ e f41178b;
 
     public i(e eVar, String str) {
         Interceptable interceptable = $ic;
@@ -39,8 +39,8 @@ public class i implements Runnable {
                 return;
             }
         }
-        this.f41071b = eVar;
-        this.f41070a = str;
+        this.f41178b = eVar;
+        this.f41177a = str;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:103:0x01ce  */
@@ -70,9 +70,9 @@ public class i implements Runnable {
         ByteArrayOutputStream byteArrayOutputStream3;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f41071b.a();
-            this.f41071b.b();
-            this.f41071b.f41061h = this.f41070a;
+            this.f41178b.a();
+            this.f41178b.b();
+            this.f41178b.f41168h = this.f41177a;
             HttpsURLConnection httpsURLConnection2 = null;
             InputStream inputStream3 = null;
             httpsURLConnection2 = null;
@@ -80,22 +80,22 @@ public class i implements Runnable {
                 try {
                     try {
                         StringBuffer stringBuffer = new StringBuffer();
-                        URL url2 = new URL(this.f41071b.f41061h);
+                        URL url2 = new URL(this.f41178b.f41168h);
                         try {
                             HttpsURLConnection httpsURLConnection3 = (HttpsURLConnection) url2.openConnection();
                             try {
                                 httpsURLConnection3.setInstanceFollowRedirects(false);
                                 httpsURLConnection3.setDoOutput(true);
                                 httpsURLConnection3.setDoInput(true);
-                                httpsURLConnection3.setConnectTimeout(a.f41020b);
-                                httpsURLConnection3.setReadTimeout(a.f41021c);
+                                httpsURLConnection3.setConnectTimeout(a.f41127b);
+                                httpsURLConnection3.setReadTimeout(a.f41128c);
                                 httpsURLConnection3.setRequestMethod("POST");
                                 httpsURLConnection3.setRequestProperty("Content-Type", "application/x-www-form-urlencoded; charset=utf-8");
                                 httpsURLConnection3.setRequestProperty("Accept-Encoding", AsyncHttpClient.ENCODING_GZIP);
                                 if (k.ax != null) {
                                     httpsURLConnection3.setRequestProperty("bd-loc-android", k.ax);
                                 }
-                                for (Map.Entry<String, Object> entry : this.f41071b.k.entrySet()) {
+                                for (Map.Entry<String, Object> entry : this.f41178b.k.entrySet()) {
                                     stringBuffer.append(entry.getKey());
                                     stringBuffer.append("=");
                                     stringBuffer.append(entry.getValue());
@@ -125,8 +125,8 @@ public class i implements Runnable {
                                                     }
                                                     byteArrayOutputStream3.write(bArr, 0, read);
                                                 }
-                                                this.f41071b.f41063j = new String(byteArrayOutputStream3.toByteArray(), "utf-8");
-                                                this.f41071b.a(true);
+                                                this.f41178b.f41170j = new String(byteArrayOutputStream3.toByteArray(), "utf-8");
+                                                this.f41178b.a(true);
                                                 inputStream3 = inputStream;
                                             } catch (Error e2) {
                                                 InputStream inputStream4 = inputStream;
@@ -136,9 +136,9 @@ public class i implements Runnable {
                                                 url = url2;
                                                 inputStream2 = inputStream4;
                                                 e.printStackTrace();
-                                                String str = a.f41019a;
-                                                this.f41071b.f41063j = null;
-                                                this.f41071b.a(false);
+                                                String str = a.f41126a;
+                                                this.f41178b.f41170j = null;
+                                                this.f41178b.a(false);
                                                 if (httpsURLConnection != null) {
                                                 }
                                                 if (outputStream != null) {
@@ -156,9 +156,9 @@ public class i implements Runnable {
                                                 url = url2;
                                                 inputStream2 = inputStream5;
                                                 e.printStackTrace();
-                                                String str2 = a.f41019a;
-                                                this.f41071b.f41063j = null;
-                                                this.f41071b.a(false);
+                                                String str2 = a.f41126a;
+                                                this.f41178b.f41170j = null;
+                                                this.f41178b.a(false);
                                                 if (httpsURLConnection != null) {
                                                 }
                                                 if (outputStream != null) {
@@ -179,21 +179,21 @@ public class i implements Runnable {
                                                     try {
                                                         outputStream.close();
                                                     } catch (Exception unused) {
-                                                        String str3 = a.f41019a;
+                                                        String str3 = a.f41126a;
                                                     }
                                                 }
                                                 if (inputStream != null) {
                                                     try {
                                                         inputStream.close();
                                                     } catch (Exception unused2) {
-                                                        String str4 = a.f41019a;
+                                                        String str4 = a.f41126a;
                                                     }
                                                 }
                                                 if (byteArrayOutputStream != null) {
                                                     try {
                                                         byteArrayOutputStream.close();
                                                     } catch (Exception unused3) {
-                                                        String str5 = a.f41019a;
+                                                        String str5 = a.f41126a;
                                                     }
                                                 }
                                                 throw th;
@@ -225,8 +225,8 @@ public class i implements Runnable {
                                             throw th;
                                         }
                                     } else {
-                                        this.f41071b.f41063j = null;
-                                        this.f41071b.a(false);
+                                        this.f41178b.f41170j = null;
+                                        this.f41178b.a(false);
                                         byteArrayOutputStream3 = null;
                                     }
                                     if (httpsURLConnection3 != null) {
@@ -236,14 +236,14 @@ public class i implements Runnable {
                                         try {
                                             outputStream.close();
                                         } catch (Exception unused4) {
-                                            String str6 = a.f41019a;
+                                            String str6 = a.f41126a;
                                         }
                                     }
                                     if (inputStream3 != null) {
                                         try {
                                             inputStream3.close();
                                         } catch (Exception unused5) {
-                                            String str7 = a.f41019a;
+                                            String str7 = a.f41126a;
                                         }
                                     }
                                 } catch (Error e6) {
@@ -271,9 +271,9 @@ public class i implements Runnable {
                                 url = url2;
                                 inputStream2 = outputStream;
                                 e.printStackTrace();
-                                String str8 = a.f41019a;
-                                this.f41071b.f41063j = null;
-                                this.f41071b.a(false);
+                                String str8 = a.f41126a;
+                                this.f41178b.f41170j = null;
+                                this.f41178b.a(false);
                                 if (httpsURLConnection != null) {
                                     httpsURLConnection.disconnect();
                                 }
@@ -281,14 +281,14 @@ public class i implements Runnable {
                                     try {
                                         outputStream.close();
                                     } catch (Exception unused6) {
-                                        String str9 = a.f41019a;
+                                        String str9 = a.f41126a;
                                     }
                                 }
                                 if (inputStream2 != null) {
                                     try {
                                         inputStream2.close();
                                     } catch (Exception unused7) {
-                                        String str10 = a.f41019a;
+                                        String str10 = a.f41126a;
                                     }
                                 }
                                 if (byteArrayOutputStream2 == null) {
@@ -303,9 +303,9 @@ public class i implements Runnable {
                                 url = url2;
                                 inputStream2 = outputStream;
                                 e.printStackTrace();
-                                String str22 = a.f41019a;
-                                this.f41071b.f41063j = null;
-                                this.f41071b.a(false);
+                                String str22 = a.f41126a;
+                                this.f41178b.f41170j = null;
+                                this.f41178b.a(false);
                                 if (httpsURLConnection != null) {
                                     httpsURLConnection.disconnect();
                                 }
@@ -313,14 +313,14 @@ public class i implements Runnable {
                                     try {
                                         outputStream.close();
                                     } catch (Exception unused8) {
-                                        String str11 = a.f41019a;
+                                        String str11 = a.f41126a;
                                     }
                                 }
                                 if (inputStream2 != null) {
                                     try {
                                         inputStream2.close();
                                     } catch (Exception unused9) {
-                                        String str12 = a.f41019a;
+                                        String str12 = a.f41126a;
                                     }
                                 }
                                 if (byteArrayOutputStream2 == null) {
@@ -379,7 +379,7 @@ public class i implements Runnable {
                     byteArrayOutputStream3.close();
                 }
             } catch (Exception unused10) {
-                String str13 = a.f41019a;
+                String str13 = a.f41126a;
             }
         }
     }

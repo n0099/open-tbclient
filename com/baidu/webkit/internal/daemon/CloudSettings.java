@@ -57,16 +57,16 @@ public class CloudSettings implements INoProGuard, INetListener {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public long f63421a;
+        public long f63621a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f63422b;
+        public int f63622b;
 
         /* renamed from: c  reason: collision with root package name */
-        public boolean f63423c;
+        public boolean f63623c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ CloudSettings f63424d;
+        public final /* synthetic */ CloudSettings f63624d;
 
         public a(CloudSettings cloudSettings) {
             Interceptable interceptable = $ic;
@@ -83,15 +83,15 @@ public class CloudSettings implements INoProGuard, INetListener {
                     return;
                 }
             }
-            this.f63424d = cloudSettings;
-            this.f63422b = -1;
+            this.f63624d = cloudSettings;
+            this.f63622b = -1;
         }
 
         public final void a(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
                 Log.w(CloudSettings.LOG_TAG, "setNetRes ".concat(String.valueOf(i2)));
-                this.f63422b = i2;
+                this.f63622b = i2;
             }
         }
 
@@ -99,7 +99,7 @@ public class CloudSettings implements INoProGuard, INetListener {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2) == null) {
                 Log.w(CloudSettings.LOG_TAG, "setNetTime ".concat(String.valueOf(j2)));
-                this.f63421a = j2;
+                this.f63621a = j2;
             }
         }
 
@@ -107,7 +107,7 @@ public class CloudSettings implements INoProGuard, INetListener {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
                 Log.w(CloudSettings.LOG_TAG, "mCronet ".concat(String.valueOf(z)));
-                this.f63423c = z;
+                this.f63623c = z;
             }
         }
     }

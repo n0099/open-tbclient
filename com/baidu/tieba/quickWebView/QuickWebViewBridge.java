@@ -17,10 +17,10 @@ public class QuickWebViewBridge extends CommonTbJsBridge {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final String REQUEST_BY_NATIVE;
-    public c.a.p0.v2.a mProxy;
+    public c.a.q0.v2.a mProxy;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public QuickWebViewBridge(Context context, c.a.p0.v2.a aVar) {
+    public QuickWebViewBridge(Context context, c.a.q0.v2.a aVar) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -41,7 +41,7 @@ public class QuickWebViewBridge extends CommonTbJsBridge {
         this.mProxy = aVar;
     }
 
-    @Override // com.baidu.tbadk.browser.CommonTbJsBridge, c.a.p0.i3.l0.b
+    @Override // com.baidu.tbadk.browser.CommonTbJsBridge, c.a.q0.i3.m0.b
     public boolean dealJsInterface(String str, String str2, String str3, JsPromptResult jsPromptResult) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;

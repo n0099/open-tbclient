@@ -15,14 +15,14 @@ public class bi {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public LinkedList<a> f77021a;
+    public LinkedList<a> f77222a;
 
     /* loaded from: classes10.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final bi f77022a;
+        public static final bi f77223a;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with other field name */
@@ -47,7 +47,7 @@ public class bi {
                     return;
                 }
             }
-            f77022a = new bi();
+            f77223a = new bi();
         }
 
         public a(int i2, Object obj) {
@@ -83,22 +83,22 @@ public class bi {
                 return;
             }
         }
-        this.f77021a = new LinkedList<>();
+        this.f77222a = new LinkedList<>();
     }
 
     public static bi a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? a.f77022a : (bi) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? a.f77223a : (bi) invokeV.objValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
     private void m180a() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65538, this) == null) || this.f77021a.size() <= 100) {
+        if (!(interceptable == null || interceptable.invokeV(65538, this) == null) || this.f77222a.size() <= 100) {
             return;
         }
-        this.f77021a.removeFirst();
+        this.f77222a.removeFirst();
     }
 
     /* renamed from: a  reason: collision with other method in class */
@@ -108,7 +108,7 @@ public class bi {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             synchronized (this) {
-                size = this.f77021a.size();
+                size = this.f77222a.size();
             }
             return size;
         }
@@ -122,8 +122,8 @@ public class bi {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             synchronized (this) {
-                linkedList = this.f77021a;
-                this.f77021a = new LinkedList<>();
+                linkedList = this.f77222a;
+                this.f77222a = new LinkedList<>();
             }
             return linkedList;
         }
@@ -134,7 +134,7 @@ public class bi {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
             synchronized (this) {
-                this.f77021a.add(new a(0, obj));
+                this.f77222a.add(new a(0, obj));
                 m180a();
             }
         }

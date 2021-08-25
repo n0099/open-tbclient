@@ -26,7 +26,7 @@ public class ShareSuccessReplyToServerModel extends BdBaseModel {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public HttpMessageListener f47867e;
+    public HttpMessageListener f47974e;
 
     /* loaded from: classes6.dex */
     public static class ShareSuccessReplySeverResponseMessage extends JsonHttpResponsedMessage {
@@ -65,7 +65,7 @@ public class ShareSuccessReplyToServerModel extends BdBaseModel {
                 if (statusCode != 200 || error < 0 || jSONObject == null || jSONObject == null || (optJSONObject = jSONObject.optJSONObject("data")) == null) {
                     return;
                 }
-                this.mActDialogData = c.a.p0.i2.b.a(optJSONObject);
+                this.mActDialogData = c.a.q0.i2.b.a(optJSONObject);
             }
         }
 
@@ -138,12 +138,12 @@ public class ShareSuccessReplyToServerModel extends BdBaseModel {
                 return;
             }
         }
-        this.f47867e = new a(this, CmdConfigHttp.CMD_SHARE_SUCCESS_REPLY_SERVER);
+        this.f47974e = new a(this, CmdConfigHttp.CMD_SHARE_SUCCESS_REPLY_SERVER);
         setUniqueId(BdUniqueId.gen());
         registerTask();
-        this.f47867e.setTag(getUniqueId());
-        this.f47867e.setSelfListener(true);
-        registerListener(this.f47867e);
+        this.f47974e.setTag(getUniqueId());
+        this.f47974e.setSelfListener(true);
+        registerListener(this.f47974e);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -161,7 +161,7 @@ public class ShareSuccessReplyToServerModel extends BdBaseModel {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            MessageManager.getInstance().unRegisterListener(this.f47867e);
+            MessageManager.getInstance().unRegisterListener(this.f47974e);
             return false;
         }
         return invokeV.booleanValue;

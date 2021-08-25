@@ -15,7 +15,7 @@ public class a implements c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public IBinder f76564a;
+    public IBinder f76765a;
 
     public a(IBinder iBinder) {
         Interceptable interceptable = $ic;
@@ -32,7 +32,7 @@ public class a implements c {
                 return;
             }
         }
-        this.f76564a = iBinder;
+        this.f76765a = iBinder;
     }
 
     public String a() {
@@ -43,7 +43,7 @@ public class a implements c {
             Parcel obtain2 = Parcel.obtain();
             try {
                 obtain.writeInterfaceToken(OpenDeviceIdentifierService.Stub.DESCRIPTOR);
-                this.f76564a.transact(1, obtain, obtain2, 0);
+                this.f76765a.transact(1, obtain, obtain2, 0);
                 obtain2.readException();
                 return obtain2.readString();
             } finally {
@@ -58,7 +58,7 @@ public class a implements c {
     public IBinder asBinder() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f76564a : (IBinder) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f76765a : (IBinder) invokeV.objValue;
     }
 
     public boolean b() {
@@ -69,7 +69,7 @@ public class a implements c {
             Parcel obtain2 = Parcel.obtain();
             try {
                 obtain.writeInterfaceToken(OpenDeviceIdentifierService.Stub.DESCRIPTOR);
-                this.f76564a.transact(2, obtain, obtain2, 0);
+                this.f76765a.transact(2, obtain, obtain2, 0);
                 obtain2.readException();
                 return obtain2.readInt() != 0;
             } finally {

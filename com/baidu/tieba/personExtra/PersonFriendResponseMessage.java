@@ -2,8 +2,8 @@ package com.baidu.tieba.personExtra;
 
 import androidx.core.view.InputDeviceCompat;
 import c.a.e.e.d.l;
-import c.a.o0.s.q.h1;
-import c.a.o0.s.r.a;
+import c.a.p0.s.q.h1;
+import c.a.p0.s.r.a;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -102,7 +102,6 @@ public class PersonFriendResponseMessage extends JsonHttpResponsedMessage {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.ResponsedMessage
     public void beforeDispatchInBackGround(int i2, byte[] bArr) {
-        l<String> g2;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, bArr) == null) && isSuccess() && this.errCode == 0) {
             HttpMessage httpMessage = (HttpMessage) getOrginalMessage();
@@ -110,10 +109,13 @@ public class PersonFriendResponseMessage extends JsonHttpResponsedMessage {
             if (httpMessage.getExtra() == null) {
                 try {
                     String parseToString = parseToString(bArr);
-                    if (parseToString == null || (g2 = a.f().g("tb.my_pages")) == null) {
-                        return;
+                    if (parseToString != null) {
+                        a.f();
+                        l<String> g2 = a.g("tb.my_pages");
+                        if (g2 != null) {
+                            g2.e("personal_myfollow_" + id, parseToString, 604800000L);
+                        }
                     }
-                    g2.e("personal_myfollow_" + id, parseToString, 604800000L);
                 } catch (Exception e2) {
                     e2.printStackTrace();
                 }

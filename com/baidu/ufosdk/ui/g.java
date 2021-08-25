@@ -11,10 +11,10 @@ public final class g implements View.OnClickListener {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ e f59561a;
+    public final /* synthetic */ e f59761a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ f f59562b;
+    public final /* synthetic */ f f59762b;
 
     public g(f fVar, e eVar) {
         Interceptable interceptable = $ic;
@@ -31,8 +31,8 @@ public final class g implements View.OnClickListener {
                 return;
             }
         }
-        this.f59562b = fVar;
-        this.f59561a = eVar;
+        this.f59762b = fVar;
+        this.f59761a = eVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -41,9 +41,9 @@ public final class g implements View.OnClickListener {
         ey eyVar2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-            String b2 = this.f59561a.b();
-            for (int i2 = 0; i2 < this.f59562b.f59546b.getChildCount(); i2++) {
-                View childAt = this.f59562b.f59546b.getChildAt(i2);
+            String b2 = this.f59761a.b();
+            for (int i2 = 0; i2 < this.f59762b.f59746b.getChildCount(); i2++) {
+                View childAt = this.f59762b.f59746b.getChildAt(i2);
                 if (childAt instanceof e) {
                     e eVar = (e) childAt;
                     if (eVar.b().equals(b2)) {
@@ -53,15 +53,15 @@ public final class g implements View.OnClickListener {
                     }
                 }
             }
-            for (int i3 = 0; i3 < this.f59562b.f59547c.getChildCount(); i3++) {
-                View childAt2 = this.f59562b.f59547c.getChildAt(i3);
+            for (int i3 = 0; i3 < this.f59762b.f59747c.getChildCount(); i3++) {
+                View childAt2 = this.f59762b.f59747c.getChildAt(i3);
                 if (childAt2 instanceof e) {
                     ((e) childAt2).a(false);
                 }
             }
-            eyVar = this.f59562b.f59551g;
+            eyVar = this.f59762b.f59751g;
             if (eyVar != null) {
-                eyVar2 = this.f59562b.f59551g;
+                eyVar2 = this.f59762b.f59751g;
                 eyVar2.a(b2);
             }
         }

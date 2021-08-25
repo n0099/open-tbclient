@@ -16,10 +16,10 @@ public abstract class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public List<i.b> f67850a;
+    public List<i.b> f68050a;
 
     /* renamed from: b  reason: collision with root package name */
-    public f f67851b;
+    public f f68051b;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -42,9 +42,9 @@ public abstract class a {
         List<i.b> list;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (str != null && (list = this.f67850a) != null && list.size() > 0) {
-                for (i.b bVar : this.f67850a) {
-                    if (str.equals(bVar.f67936a)) {
+            if (str != null && (list = this.f68050a) != null && list.size() > 0) {
+                for (i.b bVar : this.f68050a) {
+                    if (str.equals(bVar.f68136a)) {
                         return bVar;
                     }
                 }
@@ -160,6 +160,6 @@ public abstract class a {
     public f g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f67851b : (f) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f68051b : (f) invokeV.objValue;
     }
 }

@@ -114,7 +114,7 @@ public abstract class MediaCodecRenderer extends a {
                 return;
             }
         }
-        c.i.b.a.i0.a.f(v.f33623a >= 16);
+        c.i.b.a.i0.a.f(v.f33729a >= 16);
         c.i.b.a.i0.a.e(bVar);
         this.m = bVar;
         this.n = aVar;
@@ -131,33 +131,33 @@ public abstract class MediaCodecRenderer extends a {
     public static boolean H(String str, Format format) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, format)) == null) ? v.f33623a < 21 && format.initializationData.isEmpty() && "OMX.MTK.VIDEO.DECODER.AVC".equals(str) : invokeLL.booleanValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, format)) == null) ? v.f33729a < 21 && format.initializationData.isEmpty() && "OMX.MTK.VIDEO.DECODER.AVC".equals(str) : invokeLL.booleanValue;
     }
 
     public static boolean I(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? (v.f33623a <= 23 && "OMX.google.vorbis.decoder".equals(str)) || (v.f33623a <= 19 && "hb2000".equals(v.f33624b) && ("OMX.amlogic.avc.decoder.awesome".equals(str) || "OMX.amlogic.avc.decoder.awesome.secure".equals(str))) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? (v.f33729a <= 23 && "OMX.google.vorbis.decoder".equals(str)) || (v.f33729a <= 19 && "hb2000".equals(v.f33730b) && ("OMX.amlogic.avc.decoder.awesome".equals(str) || "OMX.amlogic.avc.decoder.awesome.secure".equals(str))) : invokeL.booleanValue;
     }
 
     public static boolean J(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? v.f33623a == 21 && "OMX.google.aac.decoder".equals(str) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? v.f33729a == 21 && "OMX.google.aac.decoder".equals(str) : invokeL.booleanValue;
     }
 
     public static boolean K(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, str)) == null) ? v.f33623a <= 17 && ("OMX.rk.video_decoder.avc".equals(str) || "OMX.allwinner.video.decoder.avc".equals(str)) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, str)) == null) ? v.f33729a <= 17 && ("OMX.rk.video_decoder.avc".equals(str) || "OMX.allwinner.video.decoder.avc".equals(str)) : invokeL.booleanValue;
     }
 
     public static boolean L(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, str)) == null) {
-            int i2 = v.f33623a;
-            return i2 < 18 || (i2 == 18 && ("OMX.SEC.avc.dec".equals(str) || "OMX.SEC.avc.dec.secure".equals(str))) || (v.f33623a == 19 && v.f33626d.startsWith("SM-G800") && ("OMX.Exynos.avc.dec".equals(str) || "OMX.Exynos.avc.dec.secure".equals(str)));
+            int i2 = v.f33729a;
+            return i2 < 18 || (i2 == 18 && ("OMX.SEC.avc.dec".equals(str) || "OMX.SEC.avc.dec.secure".equals(str))) || (v.f33729a == 19 && v.f33732d.startsWith("SM-G800") && ("OMX.Exynos.avc.dec".equals(str) || "OMX.Exynos.avc.dec.secure".equals(str)));
         }
         return invokeL.booleanValue;
     }
@@ -165,14 +165,14 @@ public abstract class MediaCodecRenderer extends a {
     public static boolean M(String str, Format format) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, str, format)) == null) ? v.f33623a <= 18 && format.channelCount == 1 && "OMX.MTK.AUDIO.DECODER.MP3".equals(str) : invokeLL.booleanValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, str, format)) == null) ? v.f33729a <= 18 && format.channelCount == 1 && "OMX.MTK.AUDIO.DECODER.MP3".equals(str) : invokeLL.booleanValue;
     }
 
     public static MediaCodec.CryptoInfo V(e eVar, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65544, null, eVar, i2)) == null) {
-            MediaCodec.CryptoInfo a2 = eVar.f33873f.a();
+            MediaCodec.CryptoInfo a2 = eVar.f33979f.a();
             if (i2 == 0) {
                 return a2;
             }
@@ -206,12 +206,12 @@ public abstract class MediaCodecRenderer extends a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            if (v.f33623a <= 25 && "OMX.Exynos.avc.dec.secure".equals(str) && (v.f33626d.startsWith("SM-T585") || v.f33626d.startsWith("SM-A510") || v.f33626d.startsWith("SM-A520") || v.f33626d.startsWith("SM-J700"))) {
+            if (v.f33729a <= 25 && "OMX.Exynos.avc.dec.secure".equals(str) && (v.f33732d.startsWith("SM-T585") || v.f33732d.startsWith("SM-A510") || v.f33732d.startsWith("SM-A520") || v.f33732d.startsWith("SM-J700"))) {
                 return 2;
             }
-            if (v.f33623a < 24) {
+            if (v.f33729a < 24) {
                 if ("OMX.Nvidia.h264.decode".equals(str) || "OMX.Nvidia.h264.decode.secure".equals(str)) {
-                    return ("flounder".equals(v.f33624b) || "flounder_lte".equals(v.f33624b) || "grouper".equals(v.f33624b) || "tilapia".equals(v.f33624b)) ? 1 : 0;
+                    return ("flounder".equals(v.f33730b) || "flounder_lte".equals(v.f33730b) || "grouper".equals(v.f33730b) || "tilapia".equals(v.f33730b)) ? 1 : 0;
                 }
                 return 0;
             }
@@ -321,7 +321,7 @@ public abstract class MediaCodecRenderer extends a {
                     return false;
                 }
                 e eVar = this.p;
-                eVar.f33874g = this.I[dequeueInputBuffer];
+                eVar.f33980g = this.I[dequeueInputBuffer];
                 eVar.f();
             }
             if (this.Q == 1) {
@@ -334,7 +334,7 @@ public abstract class MediaCodecRenderer extends a {
                 return false;
             } else if (this.G) {
                 this.G = false;
-                this.p.f33874g.put(Y);
+                this.p.f33980g.put(Y);
                 this.x.queueInputBuffer(this.L, 0, Y.length, 0L, 0);
                 this.L = -1;
                 this.R = true;
@@ -346,11 +346,11 @@ public abstract class MediaCodecRenderer extends a {
                 } else {
                     if (this.P == 1) {
                         for (int i2 = 0; i2 < this.u.initializationData.size(); i2++) {
-                            this.p.f33874g.put(this.u.initializationData.get(i2));
+                            this.p.f33980g.put(this.u.initializationData.get(i2));
                         }
                         this.P = 2;
                     }
-                    position = this.p.f33874g.position();
+                    position = this.p.f33980g.position();
                     C = C(this.r, this.p, false);
                 }
                 if (C == -3) {
@@ -361,7 +361,7 @@ public abstract class MediaCodecRenderer extends a {
                         this.p.f();
                         this.P = 1;
                     }
-                    Y(this.r.f33707a);
+                    Y(this.r.f33813a);
                     return true;
                 } else if (this.p.j()) {
                     if (this.P == 2) {
@@ -398,14 +398,14 @@ public abstract class MediaCodecRenderer extends a {
                         return false;
                     }
                     if (this.A && !p) {
-                        j.b(this.p.f33874g);
-                        if (this.p.f33874g.position() == 0) {
+                        j.b(this.p.f33980g);
+                        if (this.p.f33980g.position() == 0) {
                             return true;
                         }
                         this.A = false;
                     }
                     try {
-                        long j2 = this.p.f33875h;
+                        long j2 = this.p.f33981h;
                         if (this.p.i()) {
                             this.s.add(Long.valueOf(j2));
                         }
@@ -414,12 +414,12 @@ public abstract class MediaCodecRenderer extends a {
                         if (p) {
                             this.x.queueSecureInputBuffer(this.L, 0, V(this.p, position), j2, 0);
                         } else {
-                            this.x.queueInputBuffer(this.L, 0, this.p.f33874g.limit(), j2, 0);
+                            this.x.queueInputBuffer(this.L, 0, this.p.f33980g.limit(), j2, 0);
                         }
                         this.L = -1;
                         this.R = true;
                         this.P = 0;
-                        this.X.f33866c++;
+                        this.X.f33972c++;
                         return true;
                     } catch (MediaCodec.CryptoException e3) {
                         throw ExoPlaybackException.createForRenderer(e3, u());
@@ -520,7 +520,7 @@ public abstract class MediaCodecRenderer extends a {
                         c.i.b.a.b0.a T2 = T(this.m, this.u, false);
                         this.y = T2;
                         if (T2 != null) {
-                            String str2 = "Drm session requires secure decoder for " + str + ", but no secure decoder available. Trying to proceed with " + this.y.f32759a + ".";
+                            String str2 = "Drm session requires secure decoder for " + str + ", but no secure decoder available. Trying to proceed with " + this.y.f32865a + ".";
                         }
                     }
                     if (this.y == null) {
@@ -533,7 +533,7 @@ public abstract class MediaCodecRenderer extends a {
                 }
             }
             if (i0(this.y)) {
-                String str3 = this.y.f32759a;
+                String str3 = this.y.f32865a;
                 this.z = G(str3);
                 this.A = H(str3, this.u);
                 this.B = L(str3);
@@ -560,7 +560,7 @@ public abstract class MediaCodecRenderer extends a {
                     this.L = -1;
                     this.M = -1;
                     this.W = true;
-                    this.X.f33864a++;
+                    this.X.f33970a++;
                 } catch (Exception e3) {
                     m0(new DecoderInitializationException(this.u, e3, z, str3));
                     throw null;
@@ -600,7 +600,7 @@ public abstract class MediaCodecRenderer extends a {
                     this.w = null;
                 }
             }
-            if (this.w == this.v && (mediaCodec = this.x) != null && F(mediaCodec, this.y.f32760b, format2, this.u)) {
+            if (this.w == this.v && (mediaCodec = this.x) != null && F(mediaCodec, this.y.f32866b, format2, this.u)) {
                 this.O = true;
                 this.P = 1;
                 int i2 = this.z;
@@ -721,10 +721,10 @@ public abstract class MediaCodecRenderer extends a {
             this.S = false;
             this.P = 0;
             this.Q = 0;
-            this.p.f33874g = null;
+            this.p.f33980g = null;
             MediaCodec mediaCodec = this.x;
             if (mediaCodec != null) {
-                this.X.f33865b++;
+                this.X.f33971b++;
                 try {
                     mediaCodec.stop();
                     try {
@@ -835,7 +835,7 @@ public abstract class MediaCodecRenderer extends a {
                     }
                     return;
                 }
-                Y(this.r.f33707a);
+                Y(this.r.f33813a);
             }
             W();
             if (this.x != null) {
@@ -846,11 +846,11 @@ public abstract class MediaCodecRenderer extends a {
                 } while (P());
                 t.c();
             } else {
-                this.X.f33867d += D(j2);
+                this.X.f33973d += D(j2);
                 this.q.f();
                 int C2 = C(this.r, this.q, false);
                 if (C2 == -5) {
-                    Y(this.r.f33707a);
+                    Y(this.r.f33813a);
                 } else if (C2 == -4) {
                     c.i.b.a.i0.a.f(this.q.j());
                     this.T = true;
@@ -1058,7 +1058,7 @@ public abstract class MediaCodecRenderer extends a {
             this.mimeType = format.sampleMimeType;
             this.secureDecoderRequired = z;
             this.decoderName = str;
-            this.diagnosticInfo = v.f33623a >= 21 ? getDiagnosticInfoV21(th) : null;
+            this.diagnosticInfo = v.f33729a >= 21 ? getDiagnosticInfoV21(th) : null;
         }
     }
 }

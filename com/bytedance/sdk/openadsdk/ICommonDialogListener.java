@@ -75,11 +75,11 @@ public interface ICommonDialogListener extends IInterface {
             public static /* synthetic */ Interceptable $ic;
 
             /* renamed from: a  reason: collision with root package name */
-            public static ICommonDialogListener f64976a;
+            public static ICommonDialogListener f65176a;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: b  reason: collision with root package name */
-            public IBinder f64977b;
+            public IBinder f65177b;
 
             public a(IBinder iBinder) {
                 Interceptable interceptable = $ic;
@@ -96,14 +96,14 @@ public interface ICommonDialogListener extends IInterface {
                         return;
                     }
                 }
-                this.f64977b = iBinder;
+                this.f65177b = iBinder;
             }
 
             @Override // android.os.IInterface
             public IBinder asBinder() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f64977b : (IBinder) invokeV.objValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f65177b : (IBinder) invokeV.objValue;
             }
 
             @Override // com.bytedance.sdk.openadsdk.ICommonDialogListener
@@ -114,7 +114,7 @@ public interface ICommonDialogListener extends IInterface {
                     Parcel obtain2 = Parcel.obtain();
                     try {
                         obtain.writeInterfaceToken("com.bytedance.sdk.openadsdk.ICommonDialogListener");
-                        if (!this.f64977b.transact(2, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
+                        if (!this.f65177b.transact(2, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
                             Stub.getDefaultImpl().onDialogBtnNo();
                         } else {
                             obtain2.readException();
@@ -134,7 +134,7 @@ public interface ICommonDialogListener extends IInterface {
                     Parcel obtain2 = Parcel.obtain();
                     try {
                         obtain.writeInterfaceToken("com.bytedance.sdk.openadsdk.ICommonDialogListener");
-                        if (!this.f64977b.transact(1, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
+                        if (!this.f65177b.transact(1, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
                             Stub.getDefaultImpl().onDialogBtnYes();
                         } else {
                             obtain2.readException();
@@ -154,7 +154,7 @@ public interface ICommonDialogListener extends IInterface {
                     Parcel obtain2 = Parcel.obtain();
                     try {
                         obtain.writeInterfaceToken("com.bytedance.sdk.openadsdk.ICommonDialogListener");
-                        if (!this.f64977b.transact(3, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
+                        if (!this.f65177b.transact(3, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
                             Stub.getDefaultImpl().onDialogCancel();
                         } else {
                             obtain2.readException();
@@ -202,17 +202,17 @@ public interface ICommonDialogListener extends IInterface {
         public static ICommonDialogListener getDefaultImpl() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f64976a : (ICommonDialogListener) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f65176a : (ICommonDialogListener) invokeV.objValue;
         }
 
         public static boolean setDefaultImpl(ICommonDialogListener iCommonDialogListener) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, iCommonDialogListener)) == null) {
-                if (a.f64976a != null || iCommonDialogListener == null) {
+                if (a.f65176a != null || iCommonDialogListener == null) {
                     return false;
                 }
-                a.f64976a = iCommonDialogListener;
+                a.f65176a = iCommonDialogListener;
                 return true;
             }
             return invokeL.booleanValue;

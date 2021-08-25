@@ -5,6 +5,7 @@ import android.text.TextUtils;
 import androidx.annotation.Nullable;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.aperf.bosuploader.BOSTokenRequest;
+import com.baidu.searchbox.datacollector.growth.utils.GrowthConstant;
 import com.baidu.searchbox.live.interfaces.DI;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -32,13 +33,13 @@ public class e {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f70721a;
+    public String f70921a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f70722b;
+    public String f70922b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f70723c;
+    public int f70923c;
 
     /* loaded from: classes10.dex */
     public interface a {
@@ -62,8 +63,8 @@ public class e {
                 return;
             }
         }
-        this.f70722b = str;
-        this.f70721a = str;
+        this.f70922b = str;
+        this.f70921a = str;
     }
 
     private String a() {
@@ -72,7 +73,7 @@ public class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
             Context context = Loader.get().getContext();
-            int i3 = com.kwad.sdk.api.a.f70680a;
+            int i3 = com.kwad.sdk.api.a.f70880a;
             String valueOf = String.valueOf(Loader.get().a(context));
             IKsAdSDK ksAdSDKImpl = Loader.get().getKsAdSDKImpl();
             if (ksAdSDKImpl != null) {
@@ -94,7 +95,7 @@ public class e {
                 jSONObject.put("SDKVersionCode", i2);
                 jSONObject.put("sdkType", i3);
                 jSONObject.put(DI.APP_INFO_NAME, appInfo);
-                jSONObject.put("deviceInfo", deviceInfo);
+                jSONObject.put(GrowthConstant.UBC_VALUE_TYPE_DEVICE_INFO, deviceInfo);
                 jSONObject.put("networkInfo", networkInfo);
                 jSONObject.put("sdkAbi", s.b());
             } catch (JSONException e2) {
@@ -183,10 +184,10 @@ public class e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this)) == null) {
-            if (TextUtils.isEmpty(this.f70721a)) {
+            if (TextUtils.isEmpty(this.f70921a)) {
                 return null;
             }
-            HttpURLConnection httpURLConnection = (HttpURLConnection) a(this.f70721a, 10000, 30000, false);
+            HttpURLConnection httpURLConnection = (HttpURLConnection) a(this.f70921a, 10000, 30000, false);
             httpURLConnection.setRequestMethod("POST");
             httpURLConnection.setDoOutput(true);
             httpURLConnection.setInstanceFollowRedirects(true);
@@ -218,9 +219,9 @@ public class e {
                         aVar.a(bVar);
                     } else if (responseCode / 100 != 3) {
                         throw new RuntimeException("response code = " + responseCode);
-                    } else if (this.f70723c < 21) {
-                        this.f70721a = httpURLConnection.getHeaderField("Location");
-                        this.f70723c++;
+                    } else if (this.f70923c < 21) {
+                        this.f70921a = httpURLConnection.getHeaderField("Location");
+                        this.f70923c++;
                         b(aVar);
                     }
                 }
@@ -256,10 +257,10 @@ public class e {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ a f70724a;
+                public final /* synthetic */ a f70924a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ e f70725b;
+                public final /* synthetic */ e f70925b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -276,15 +277,15 @@ public class e {
                             return;
                         }
                     }
-                    this.f70725b = this;
-                    this.f70724a = aVar;
+                    this.f70925b = this;
+                    this.f70924a = aVar;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f70725b.b(this.f70724a);
+                        this.f70925b.b(this.f70924a);
                     }
                 }
             });

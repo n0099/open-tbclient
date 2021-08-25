@@ -6,12 +6,12 @@ import android.graphics.Bitmap;
 import android.text.TextUtils;
 import android.view.View;
 import androidx.core.view.InputDeviceCompat;
-import c.a.e0.b.g.e;
-import c.a.h0.a.b;
-import c.a.h0.a.d.d;
-import c.a.h0.a.g.a;
-import c.a.h0.a.g.b;
-import c.a.h0.a.g.c;
+import c.a.f0.b.g.e;
+import c.a.i0.a.b;
+import c.a.i0.a.d.d;
+import c.a.i0.a.g.a;
+import c.a.i0.a.g.b;
+import c.a.i0.a.g.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.XBaseAdContainer;
 import com.baidu.mobads.container.adrequest.IXAdInstanceInfo;
@@ -161,13 +161,13 @@ public class SplashAdContainer extends XBaseAdContainer implements c, a {
         } catch (Exception e2) {
             this.mAdLogger.d(TAG, e2);
         }
-        b a2 = new c.a.h0.a.a().a(context, getContainerParameter());
+        b a2 = new c.a.i0.a.a().a(context, getContainerParameter());
         this.mAdContainer = a2;
         a2.b(this);
         this.mAdContainer.d(this);
     }
 
-    private c.a.h0.a.b getContainerParameter() {
+    private c.a.i0.a.b getContainerParameter() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65552, this)) == null) {
@@ -187,26 +187,26 @@ public class SplashAdContainer extends XBaseAdContainer implements c, a {
                 mainPictureUrl = this.mAdInstanceInfo.getVideoUrl();
                 this.mSplashLogType = 4;
             }
-            b.C0067b c0067b = new b.C0067b(this.mAdContainerType, mainPictureUrl);
-            c0067b.t("rsplash");
-            c0067b.l(this.mIsFullScreenAd);
-            c0067b.h(this.mBottomLogoHeight);
-            c0067b.m(this.mBottomLogoResId);
-            c0067b.j(this.mLimitRegionClick);
-            c0067b.r(getMantleActionText());
-            c0067b.s(this.mIsFullScreenAd ? 47 : this.mBottomLogoHeight + 39);
-            c0067b.k(this.mBitmapDisplayMode);
-            c0067b.i(this.mAdInstanceInfo.getCloseType());
-            c0067b.v(z);
-            c0067b.f(optString);
-            c0067b.g(optString2);
-            c0067b.u(true);
-            c0067b.k(i2);
-            c0067b.z(this.mSkipType);
-            tryAddExtStyle(c0067b, originJsonObject);
-            return c0067b.a();
+            b.C0076b c0076b = new b.C0076b(this.mAdContainerType, mainPictureUrl);
+            c0076b.w("rsplash");
+            c0076b.l(this.mIsFullScreenAd);
+            c0076b.h(this.mBottomLogoHeight);
+            c0076b.p(this.mBottomLogoResId);
+            c0076b.j(this.mLimitRegionClick);
+            c0076b.u(getMantleActionText());
+            c0076b.v(this.mIsFullScreenAd ? 47 : this.mBottomLogoHeight + 39);
+            c0076b.k(this.mBitmapDisplayMode);
+            c0076b.i(this.mAdInstanceInfo.getCloseType());
+            c0076b.y(z);
+            c0076b.f(optString);
+            c0076b.g(optString2);
+            c0076b.x(true);
+            c0076b.k(i2);
+            c0076b.C(this.mSkipType);
+            tryAddExtStyle(c0076b, originJsonObject);
+            return c0076b.a();
         }
-        return (c.a.h0.a.b) invokeV.objValue;
+        return (c.a.i0.a.b) invokeV.objValue;
     }
 
     private String getMantleActionText() {
@@ -270,29 +270,29 @@ public class SplashAdContainer extends XBaseAdContainer implements c, a {
         }
     }
 
-    private void tryAddExtStyle(b.C0067b c0067b, JSONObject jSONObject) {
+    private void tryAddExtStyle(b.C0076b c0076b, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65556, this, c0067b, jSONObject) == null) {
+        if (interceptable == null || interceptable.invokeLL(65556, this, c0076b, jSONObject) == null) {
             try {
                 if (this.mSkipType == 1) {
-                    c0067b.z(1);
-                    c0067b.i(5);
-                    c0067b.A(72);
-                    c0067b.y(30);
+                    c0076b.C(1);
+                    c0076b.i(5);
+                    c0076b.D(72);
+                    c0076b.B(30);
                 }
                 if (this.mLabelType == 1) {
-                    c0067b.c("广告");
-                    c0067b.e(25);
-                    c0067b.d(13);
-                    c0067b.u(false);
+                    c0076b.c("广告");
+                    c0076b.e(25);
+                    c0076b.d(13);
+                    c0076b.x(false);
                 }
                 boolean z = this.mIsFullScreenAd;
                 if (jSONObject.has("pattern")) {
                     z = jSONObject.optInt("pattern") == 1;
-                    c0067b.l(z);
-                    c0067b.h(e.b());
-                    c0067b.m(e.c());
-                    c0067b.s(z ? 47 : this.mBottomLogoHeight + 39);
+                    c0076b.l(z);
+                    c0076b.h(e.b());
+                    c0076b.p(e.c());
+                    c0076b.v(z ? 47 : this.mBottomLogoHeight + 39);
                 }
                 String optString = jSONObject.optString("custom_ext_data");
                 if (TextUtils.isEmpty(optString)) {
@@ -300,26 +300,26 @@ public class SplashAdContainer extends XBaseAdContainer implements c, a {
                 }
                 JSONObject jSONObject2 = new JSONObject(optString);
                 if (jSONObject2.has("duration")) {
-                    c0067b.B(jSONObject2.optInt("duration") * 1000);
-                    c0067b.z(1);
-                    c0067b.i(5);
-                    c0067b.A(72);
-                    c0067b.y(30);
+                    c0076b.E(jSONObject2.optInt("duration") * 1000);
+                    c0076b.C(1);
+                    c0076b.i(5);
+                    c0076b.D(72);
+                    c0076b.B(30);
                 }
                 if (jSONObject2.has("label_name")) {
-                    c0067b.c(jSONObject2.optString("label_name"));
-                    c0067b.e(25);
-                    c0067b.d(13);
-                    c0067b.u(false);
+                    c0076b.c(jSONObject2.optString("label_name"));
+                    c0076b.e(25);
+                    c0076b.d(13);
+                    c0076b.x(false);
                 }
                 if (jSONObject2.has("logo_type")) {
-                    c0067b.n(e.d(jSONObject2.optInt("logo_type")));
-                    c0067b.D(68);
-                    c0067b.C(30);
-                    c0067b.o(z);
+                    c0076b.q(e.d(jSONObject2.optInt("logo_type")));
+                    c0076b.G(68);
+                    c0076b.F(30);
+                    c0076b.r(z);
                 }
                 if (jSONObject2.has("style")) {
-                    c0067b.E(jSONObject2.optJSONObject("style"));
+                    c0076b.H(jSONObject2.optJSONObject("style"));
                 }
             } catch (JSONException e2) {
                 this.mAdLogger.e(TAG, e2);
@@ -338,9 +338,9 @@ public class SplashAdContainer extends XBaseAdContainer implements c, a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            c.a.h0.a.g.b bVar = this.mAdContainer;
+            c.a.i0.a.g.b bVar = this.mAdContainer;
             if (bVar instanceof d) {
-                return ((d) bVar).X();
+                return ((d) bVar).b0();
             }
             return null;
         }
@@ -363,7 +363,7 @@ public class SplashAdContainer extends XBaseAdContainer implements c, a {
         }
     }
 
-    @Override // c.a.h0.a.g.a
+    @Override // c.a.i0.a.g.a
     public void onAdClick() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
@@ -378,7 +378,7 @@ public class SplashAdContainer extends XBaseAdContainer implements c, a {
         }
     }
 
-    @Override // c.a.h0.a.g.c
+    @Override // c.a.i0.a.g.c
     public void onAdError(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
@@ -387,7 +387,7 @@ public class SplashAdContainer extends XBaseAdContainer implements c, a {
         }
     }
 
-    @Override // c.a.h0.a.g.c
+    @Override // c.a.i0.a.g.c
     public void onAdLoad() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
@@ -396,7 +396,7 @@ public class SplashAdContainer extends XBaseAdContainer implements c, a {
         }
     }
 
-    @Override // c.a.h0.a.g.a
+    @Override // c.a.i0.a.g.a
     public void onAdLogoClick() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
@@ -404,7 +404,7 @@ public class SplashAdContainer extends XBaseAdContainer implements c, a {
         }
     }
 
-    @Override // c.a.h0.a.g.c
+    @Override // c.a.i0.a.g.c
     public void onAdStart() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
@@ -462,7 +462,7 @@ public class SplashAdContainer extends XBaseAdContainer implements c, a {
         }
     }
 
-    @Override // c.a.h0.a.g.c
+    @Override // c.a.i0.a.g.c
     public void onAdStop(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
@@ -474,7 +474,7 @@ public class SplashAdContainer extends XBaseAdContainer implements c, a {
         }
     }
 
-    @Override // c.a.h0.a.g.a
+    @Override // c.a.i0.a.g.a
     public void onPermissionClick() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
@@ -525,7 +525,7 @@ public class SplashAdContainer extends XBaseAdContainer implements c, a {
         }
     }
 
-    @Override // c.a.h0.a.g.a
+    @Override // c.a.i0.a.g.a
     public void onPrivacyClick() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
@@ -536,7 +536,7 @@ public class SplashAdContainer extends XBaseAdContainer implements c, a {
         }
     }
 
-    @Override // c.a.h0.a.g.a
+    @Override // c.a.i0.a.g.a
     public void onSkipClick() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {

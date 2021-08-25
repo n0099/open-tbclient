@@ -36,13 +36,13 @@ public final class PayUtils {
     public static final String KEY_VALID_DATE = "valid_date";
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f61914a = "PayUtils";
+    public static String f62114a = "PayUtils";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f61915b = "";
+    public static final String f62115b = "";
 
     /* renamed from: c  reason: collision with root package name */
-    public static ArrayList<String> f61916c;
+    public static ArrayList<String> f62116c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes8.dex */
@@ -88,12 +88,12 @@ public final class PayUtils {
             }
         }
         ArrayList<String> arrayList = new ArrayList<>();
-        f61916c = arrayList;
+        f62116c = arrayList;
         arrayList.add("card_no");
-        f61916c.add("valid_date");
-        f61916c.add("cvv2");
-        f61916c.add("identity_code");
-        f61916c.add("phone_number");
+        f62116c.add("valid_date");
+        f62116c.add("cvv2");
+        f62116c.add("identity_code");
+        f62116c.add("phone_number");
     }
 
     public PayUtils() {
@@ -132,7 +132,7 @@ public final class PayUtils {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2)) == null) {
             LogUtil.d(str + "加密=" + str2);
-            if (f61916c.contains(str)) {
+            if (f62116c.contains(str)) {
                 if (TextUtils.isEmpty(str2)) {
                     return "";
                 }
@@ -272,7 +272,7 @@ public final class PayUtils {
                         value = "";
                     }
                     sb.append(name);
-                    sb.append(com.alipay.sdk.encrypt.a.f35773h);
+                    sb.append(com.alipay.sdk.encrypt.a.f35879h);
                     sb.append(value);
                     sb.append(Typography.amp);
                 }

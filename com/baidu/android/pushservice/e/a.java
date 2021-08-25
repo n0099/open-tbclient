@@ -23,11 +23,11 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile a f36986a;
+    public static volatile a f37092a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public final OkHttpClient f36987b;
+    public final OkHttpClient f37093b;
 
     /* renamed from: com.baidu.android.pushservice.e.a$1  reason: invalid class name */
     /* loaded from: classes4.dex */
@@ -38,14 +38,14 @@ public class a {
 
     /* renamed from: com.baidu.android.pushservice.e.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C1581a implements Interceptor {
+    public class C1585a implements Interceptor {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f36989a;
+        public final /* synthetic */ a f37095a;
 
-        public C1581a(a aVar) {
+        public C1585a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -60,10 +60,10 @@ public class a {
                     return;
                 }
             }
-            this.f36989a = aVar;
+            this.f37095a = aVar;
         }
 
-        public /* synthetic */ C1581a(a aVar, AnonymousClass1 anonymousClass1) {
+        public /* synthetic */ C1585a(a aVar, AnonymousClass1 anonymousClass1) {
             this(aVar);
         }
 
@@ -99,21 +99,21 @@ public class a {
                 return;
             }
         }
-        this.f36987b = new OkHttpClient.Builder().addInterceptor(new C1581a(this, null)).connectTimeout(15L, TimeUnit.SECONDS).readTimeout(15L, TimeUnit.SECONDS).build();
+        this.f37093b = new OkHttpClient.Builder().addInterceptor(new C1585a(this, null)).connectTimeout(15L, TimeUnit.SECONDS).readTimeout(15L, TimeUnit.SECONDS).build();
     }
 
     public static a a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f36986a == null) {
+            if (f37092a == null) {
                 synchronized (a.class) {
-                    if (f36986a == null) {
-                        f36986a = new a();
+                    if (f37092a == null) {
+                        f37092a = new a();
                     }
                 }
             }
-            return f36986a;
+            return f37092a;
         }
         return (a) invokeV.objValue;
     }
@@ -173,7 +173,7 @@ public class a {
                     }
                     headers = new Request.Builder().url(str).headers(a(hashMap));
                 }
-                Response execute = this.f36987b.newCall(headers.build()).execute();
+                Response execute = this.f37093b.newCall(headers.build()).execute();
                 bVar.a(execute.code());
                 bVar.a(execute.body().byteStream());
             } catch (IOException | Exception unused) {
@@ -198,7 +198,7 @@ public class a {
                     }
                     headers = new Request.Builder().url(str).headers(a(str3, str4));
                 }
-                Response execute = this.f36987b.newCall(headers.build()).execute();
+                Response execute = this.f37093b.newCall(headers.build()).execute();
                 bVar.a(execute.code());
                 bVar.a(execute.body().byteStream());
             } catch (IOException | Exception unused) {

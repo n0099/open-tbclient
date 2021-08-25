@@ -6,9 +6,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import c.a.o0.b1.d0;
-import c.a.p0.f1.l.a;
-import c.a.p0.v0.n0;
+import c.a.p0.b1.d0;
+import c.a.q0.f1.l.a;
+import c.a.q0.v0.n0;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -30,10 +30,10 @@ public class VideoTabFragment extends BaseFragment implements n0 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public a f52276e;
+    public a f52437e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f52277f;
+    public boolean f52438f;
 
     public VideoTabFragment() {
         Interceptable interceptable = $ic;
@@ -48,10 +48,10 @@ public class VideoTabFragment extends BaseFragment implements n0 {
                 return;
             }
         }
-        this.f52277f = false;
+        this.f52438f = false;
     }
 
-    @Override // c.a.p0.v0.n0
+    @Override // c.a.q0.v0.n0
     public void changeSkinType() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -59,14 +59,14 @@ public class VideoTabFragment extends BaseFragment implements n0 {
         }
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragment, c.a.o0.m0.a
+    @Override // com.baidu.tbadk.core.BaseFragment, c.a.p0.m0.a
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "a067" : (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragment, c.a.o0.m0.a
+    @Override // com.baidu.tbadk.core.BaseFragment, c.a.p0.m0.a
     public List<String> getCurrentPageSourceKeyList() {
         InterceptResult invokeV;
         ArrayList arrayList;
@@ -90,7 +90,7 @@ public class VideoTabFragment extends BaseFragment implements n0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
             super.onChangeSkinType(i2);
-            a aVar = this.f52276e;
+            a aVar = this.f52437e;
             if (aVar != null) {
                 aVar.g();
             }
@@ -102,10 +102,10 @@ public class VideoTabFragment extends BaseFragment implements n0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
             super.onCreate(bundle);
-            if (this.f52276e == null) {
-                this.f52276e = new a(getPageContext(), getUniqueId());
+            if (this.f52437e == null) {
+                this.f52437e = new a(getPageContext(), getUniqueId());
             }
-            this.f52276e.k();
+            this.f52437e.k();
         }
     }
 
@@ -115,12 +115,12 @@ public class VideoTabFragment extends BaseFragment implements n0 {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048581, this, layoutInflater, viewGroup, bundle)) == null) {
-            a aVar = this.f52276e;
+            a aVar = this.f52437e;
             if (aVar != null && aVar.j() != null) {
-                if (this.f52276e.j().getParent() instanceof ViewGroup) {
-                    ((ViewGroup) this.f52276e.j().getParent()).removeView(this.f52276e.j());
+                if (this.f52437e.j().getParent() instanceof ViewGroup) {
+                    ((ViewGroup) this.f52437e.j().getParent()).removeView(this.f52437e.j());
                 }
-                return this.f52276e.j();
+                return this.f52437e.j();
             }
             return super.onCreateView(layoutInflater, viewGroup, bundle);
         }
@@ -132,7 +132,7 @@ public class VideoTabFragment extends BaseFragment implements n0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             super.onDestroy();
-            a aVar = this.f52276e;
+            a aVar = this.f52437e;
             if (aVar != null) {
                 aVar.m();
             }
@@ -144,21 +144,21 @@ public class VideoTabFragment extends BaseFragment implements n0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             super.onLazyLoad();
-            a aVar = this.f52276e;
+            a aVar = this.f52437e;
             if (aVar != null) {
                 aVar.l();
             }
         }
     }
 
-    @Override // c.a.p0.v0.n0
+    @Override // c.a.q0.v0.n0
     public void onPageOutEnd() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
         }
     }
 
-    @Override // c.a.p0.v0.n0
+    @Override // c.a.q0.v0.n0
     public void onPageStartIn() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
@@ -170,7 +170,7 @@ public class VideoTabFragment extends BaseFragment implements n0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             super.onPause();
-            a aVar = this.f52276e;
+            a aVar = this.f52437e;
             if (aVar != null) {
                 aVar.n();
             }
@@ -183,24 +183,24 @@ public class VideoTabFragment extends BaseFragment implements n0 {
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             super.onPrimary();
             if (isPrimary()) {
-                if (!this.f52277f) {
-                    this.f52277f = true;
+                if (!this.f52438f) {
+                    this.f52438f = true;
                     TiebaStatic.log(new StatisticItem("c13579"));
                 }
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921400, Boolean.FALSE));
             }
-            a aVar = this.f52276e;
+            a aVar = this.f52437e;
             if (aVar != null) {
                 aVar.p(isPrimary());
             }
         }
     }
 
-    @Override // c.a.p0.v0.n0
+    @Override // c.a.q0.v0.n0
     public void refreshPage() {
         a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048588, this) == null) || (aVar = this.f52276e) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048588, this) == null) || (aVar = this.f52437e) == null) {
             return;
         }
         aVar.o();
@@ -212,7 +212,7 @@ public class VideoTabFragment extends BaseFragment implements n0 {
         }
     }
 
-    @Override // c.a.p0.v0.n0
+    @Override // c.a.q0.v0.n0
     public void setRecommendFrsNavigationAnimDispatcher(d0 d0Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, d0Var) == null) {
@@ -225,7 +225,7 @@ public class VideoTabFragment extends BaseFragment implements n0 {
         }
     }
 
-    @Override // c.a.p0.v0.n0
+    @Override // c.a.q0.v0.n0
     public void showFloatingView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048592, this) == null) {

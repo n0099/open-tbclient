@@ -1,9 +1,6 @@
 package com.baidu.searchbox.task.item;
 
-import android.app.Application;
-import c.a.e.g.c;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.performance.speed.task.LaunchTask;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -34,7 +31,6 @@ public class NPSInitTask extends LaunchTask {
     public void execute() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            c.d().h((Application) AppRuntime.getAppContext());
         }
     }
 

@@ -13,10 +13,10 @@ public class w1 implements N0 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ View f76825a;
+    public final /* synthetic */ View f77026a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ A1 f76826b;
+    public final /* synthetic */ A1 f77027b;
 
     public w1(A1 a1, View view) {
         Interceptable interceptable = $ic;
@@ -33,17 +33,17 @@ public class w1 implements N0 {
                 return;
             }
         }
-        this.f76826b = a1;
-        this.f76825a = view;
+        this.f77027b = a1;
+        this.f77026a = view;
     }
 
     @Override // com.win.opensdk.N0
     public void a() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f76825a == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f77026a == null) {
             return;
         }
-        new Handler().postDelayed(new v1(this), this.f76826b.f76375c.getSpet());
+        new Handler().postDelayed(new v1(this), this.f77027b.f76576c.getSpet());
     }
 
     @Override // com.win.opensdk.N0

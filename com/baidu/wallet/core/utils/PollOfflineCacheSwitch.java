@@ -24,14 +24,14 @@ public class PollOfflineCacheSwitch implements ActLifecycleCbs.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public SdkInitResponse.OfflineCacheConfig f60637a;
+    public SdkInitResponse.OfflineCacheConfig f60837a;
 
     /* loaded from: classes8.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final PollOfflineCacheSwitch f60640a;
+        public static final PollOfflineCacheSwitch f60840a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -47,7 +47,7 @@ public class PollOfflineCacheSwitch implements ActLifecycleCbs.a {
                     return;
                 }
             }
-            f60640a = new PollOfflineCacheSwitch();
+            f60840a = new PollOfflineCacheSwitch();
         }
 
         public a() {
@@ -97,7 +97,7 @@ public class PollOfflineCacheSwitch implements ActLifecycleCbs.a {
     public static final PollOfflineCacheSwitch getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f60640a : (PollOfflineCacheSwitch) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f60840a : (PollOfflineCacheSwitch) invokeV.objValue;
     }
 
     @Override // com.baidu.wallet.core.ActLifecycleCbs.a
@@ -110,7 +110,7 @@ public class PollOfflineCacheSwitch implements ActLifecycleCbs.a {
             sb.append("pollinit-触发请求init接口，from = ");
             sb.append(from);
             sb.append("; 离线缓存开关");
-            SdkInitResponse.OfflineCacheConfig offlineCacheConfig = this.f60637a;
+            SdkInitResponse.OfflineCacheConfig offlineCacheConfig = this.f60837a;
             sb.append(offlineCacheConfig != null ? Boolean.valueOf(offlineCacheConfig.isUseOfflineCache()) : "空");
             LogUtil.d("WebViewCacheManager", sb.toString());
             LocalRouter.getInstance(context).route(context, new RouterRequest().provider("langbrige").action("langbridge_openPoll"), new RouterCallback(this, zArr) { // from class: com.baidu.wallet.core.utils.PollOfflineCacheSwitch.1
@@ -118,10 +118,10 @@ public class PollOfflineCacheSwitch implements ActLifecycleCbs.a {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ boolean[] f60638a;
+                public final /* synthetic */ boolean[] f60838a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ PollOfflineCacheSwitch f60639b;
+                public final /* synthetic */ PollOfflineCacheSwitch f60839b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -138,15 +138,15 @@ public class PollOfflineCacheSwitch implements ActLifecycleCbs.a {
                             return;
                         }
                     }
-                    this.f60639b = this;
-                    this.f60638a = zArr;
+                    this.f60839b = this;
+                    this.f60838a = zArr;
                 }
 
                 @Override // com.baidu.wallet.router.RouterCallback
                 public void onResult(int i2, HashMap hashMap) {
                     Interceptable interceptable2 = $ic;
                     if ((interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, hashMap) == null) && i2 == 0 && hashMap != null) {
-                        this.f60638a[0] = ((Boolean) hashMap.get("openPoll")).booleanValue();
+                        this.f60838a[0] = ((Boolean) hashMap.get("openPoll")).booleanValue();
                     }
                 }
             });
@@ -155,7 +155,7 @@ public class PollOfflineCacheSwitch implements ActLifecycleCbs.a {
                 BdWalletUtils.getInitForPoll(context);
                 return true;
             }
-            SdkInitResponse.OfflineCacheConfig offlineCacheConfig2 = this.f60637a;
+            SdkInitResponse.OfflineCacheConfig offlineCacheConfig2 = this.f60837a;
             if ((offlineCacheConfig2 == null || !offlineCacheConfig2.isUseOfflineCache()) && !zArr[0]) {
                 return false;
             }
@@ -180,7 +180,7 @@ public class PollOfflineCacheSwitch implements ActLifecycleCbs.a {
             sb.append("pollinit-更新缓存配置:");
             sb.append(offlineCacheConfig != null ? Boolean.valueOf(offlineCacheConfig.isUseOfflineCache()) : "配置为空");
             LogUtil.d("WebViewCacheManager", sb.toString());
-            this.f60637a = offlineCacheConfig;
+            this.f60837a = offlineCacheConfig;
         }
     }
 

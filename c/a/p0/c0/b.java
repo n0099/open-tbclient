@@ -1,78 +1,94 @@
 package c.a.p0.c0;
 
-import android.content.Context;
-import android.content.Intent;
-import android.net.Uri;
-import android.os.Bundle;
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import c.a.e.a.j;
-import c.a.p0.c0.a;
-import com.baidu.mobads.container.bridge.BaiduAppJsBridgeHandler;
-import com.baidu.mobads.container.util.AdIconUtil;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.UrlManager;
+import android.graphics.Bitmap;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.BitmapHelper;
+import com.baidu.tbadk.img.ImageFileInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.vivo.push.PushClientConstants;
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.concurrent.ConcurrentLinkedQueue;
 /* loaded from: classes3.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    /* renamed from: a  reason: collision with root package name */
+    public Queue<C0649b> f12965a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public volatile c f12966b;
+
     /* loaded from: classes3.dex */
-    public static class a implements c {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a.C0780a f16254a;
-
-        public a(a.C0780a c0780a) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {c0780a};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f16254a = c0780a;
-        }
-
-        @Override // c.a.p0.c0.c
-        public void onFailed(int i2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-                this.f16254a.a(2, i2);
-            }
-        }
     }
 
     /* renamed from: c.a.p0.c0.b$b  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class C0781b implements c {
+    public class C0649b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a.C0780a f16255a;
+        public ImageFileInfo f12967a;
 
-        public C0781b(a.C0780a c0780a) {
+        /* renamed from: b  reason: collision with root package name */
+        public c.a.p0.b0.b f12968b;
+
+        /* renamed from: c  reason: collision with root package name */
+        public boolean f12969c;
+
+        /* renamed from: d  reason: collision with root package name */
+        public c.a.e.l.d.a f12970d;
+
+        /* renamed from: e  reason: collision with root package name */
+        public boolean f12971e;
+
+        public C0649b(b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {c0780a};
+                Object[] objArr = {bVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public /* synthetic */ C0649b(b bVar, a aVar) {
+            this(bVar);
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class c extends BdAsyncTask<Void, C0649b, C0649b> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public final Queue<C0649b> f12972a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public final /* synthetic */ b f12973b;
+
+        public c(b bVar, Queue<C0649b> queue) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {bVar, queue};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -82,161 +98,228 @@ public class b {
                     return;
                 }
             }
-            this.f16255a = c0780a;
+            this.f12973b = bVar;
+            this.f12972a = queue;
+            super.setPriority(2);
         }
 
-        @Override // c.a.p0.c0.c
-        public void onFailed(int i2) {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: b */
+        public C0649b doInBackground(Void... voidArr) {
+            int i2;
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-                this.f16255a.a(2, i2);
+            if (interceptable != null && (invokeL = interceptable.invokeL(1048576, this, voidArr)) != null) {
+                return (C0649b) invokeL.objValue;
+            }
+            while (true) {
+                C0649b poll = this.f12972a.poll();
+                Bitmap bitmap = null;
+                if (poll == null) {
+                    return null;
+                }
+                if (isCancelled()) {
+                    this.f12972a.add(poll);
+                    return null;
+                }
+                c.a.e.l.d.a m = c.a.p0.b0.c.k().m(poll.f12967a.toCachedKey(poll.f12969c));
+                if (m != null) {
+                    poll.f12970d = m;
+                    poll.f12971e = true;
+                } else {
+                    Bitmap f2 = this.f12973b.f(poll.f12967a, poll.f12969c);
+                    if (f2 != null) {
+                        try {
+                            i2 = BitmapHelper.readPictureDegree(poll.f12967a.getFilePath());
+                            if (i2 != 0) {
+                                try {
+                                    Bitmap rotateBitmapBydegree = BitmapHelper.rotateBitmapBydegree(f2, i2);
+                                    if (f2 != rotateBitmapBydegree) {
+                                        try {
+                                            f2.recycle();
+                                            f2 = null;
+                                        } catch (Exception unused) {
+                                        }
+                                    }
+                                    bitmap = rotateBitmapBydegree;
+                                } catch (Exception unused2) {
+                                }
+                            }
+                        } catch (Exception unused3) {
+                            i2 = 0;
+                        }
+                        if (i2 != 0 && bitmap != null) {
+                            poll.f12970d = new c.a.e.l.d.a(bitmap, poll.f12967a.isGif(), poll.f12967a.getFilePath());
+                        } else {
+                            poll.f12970d = new c.a.e.l.d.a(f2, poll.f12967a.isGif(), poll.f12967a.getFilePath());
+                        }
+                    }
+                }
+                publishProgress(poll);
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: c */
+        public void onPostExecute(C0649b c0649b) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, c0649b) == null) {
+                super.onPostExecute(c0649b);
+                this.f12973b.f12966b = null;
+                this.f12973b.g();
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: d */
+        public void onProgressUpdate(C0649b... c0649bArr) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, c0649bArr) == null) || c0649bArr == null) {
+                return;
+            }
+            for (C0649b c0649b : c0649bArr) {
+                c.a.e.l.d.a aVar = c0649b.f12970d;
+                if (aVar != null && !c0649b.f12971e) {
+                    c.a.p0.b0.c.k().d(c0649b.f12967a.toCachedKey(c0649b.f12969c), aVar);
+                }
+                c.a.p0.b0.b bVar = c0649b.f12968b;
+                if (bVar != null) {
+                    bVar.imageLoaded(aVar, c0649b.f12967a.toCachedKey(c0649b.f12969c), c0649b.f12971e);
+                }
+            }
+        }
+
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public void onCancelled() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeV(1048580, this) != null) {
+                return;
+            }
+            super.onCancelled();
+            this.f12973b.f12966b = null;
+            while (true) {
+                C0649b poll = this.f12972a.poll();
+                if (poll == null) {
+                    return;
+                }
+                c.a.p0.b0.b bVar = poll.f12968b;
+                if (bVar != null) {
+                    bVar.imageLoaded(null, poll.f12967a.toCachedKey(poll.f12969c), false);
+                }
             }
         }
     }
 
-    public static boolean a(Context context, Uri uri, Bundle bundle, boolean z) {
-        InterceptResult invokeCommon;
+    public b() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{context, uri, bundle, Boolean.valueOf(z)})) == null) ? b(context, uri, null, bundle, z) : invokeCommon.booleanValue;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f12965a = new ConcurrentLinkedQueue();
     }
 
-    public static boolean b(Context context, Uri uri, c.a.p0.c0.a aVar, Bundle bundle, boolean z) {
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.f12965a = new ConcurrentLinkedQueue();
+            if (this.f12966b != null) {
+                this.f12966b.cancel(true);
+                this.f12966b = null;
+            }
+        }
+    }
+
+    public c.a.e.l.d.a c(ImageFileInfo imageFileInfo, boolean z) {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, imageFileInfo, z)) == null) {
+            if (imageFileInfo == null) {
+                return null;
+            }
+            return c.a.p0.b0.c.k().m(imageFileInfo.toCachedKey(z));
+        }
+        return (c.a.e.l.d.a) invokeLZ.objValue;
+    }
+
+    public c.a.e.l.d.a d(ImageFileInfo imageFileInfo, c.a.p0.b0.b bVar, boolean z) {
+        InterceptResult invokeLLZ;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(Constants.METHOD_SEND_USER_MSG, this, imageFileInfo, bVar, z)) == null) ? e(imageFileInfo, bVar, z, false) : (c.a.e.l.d.a) invokeLLZ.objValue;
+    }
+
+    public c.a.e.l.d.a e(ImageFileInfo imageFileInfo, c.a.p0.b0.b bVar, boolean z, boolean z2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{context, uri, aVar, bundle, Boolean.valueOf(z)})) == null) {
-            a.C0780a c0780a = new a.C0780a();
-            if (uri == null) {
-                if (aVar != null) {
-                    aVar.b(1, "Uri is empty.", c0780a);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{imageFileInfo, bVar, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
+            c.a.e.l.d.a c2 = c(imageFileInfo, z);
+            if (c2 != null) {
+                return c2;
+            }
+            if (z2) {
+                return null;
+            }
+            C0649b c0649b = new C0649b(this, null);
+            c0649b.f12968b = bVar;
+            c0649b.f12967a = imageFileInfo;
+            c0649b.f12969c = z;
+            this.f12965a.add(c0649b);
+            g();
+            return null;
+        }
+        return (c.a.e.l.d.a) invokeCommon.objValue;
+    }
+
+    public Bitmap f(ImageFileInfo imageFileInfo, boolean z) {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048580, this, imageFileInfo, z)) == null) {
+            if (imageFileInfo == null) {
+                return null;
+            }
+            LinkedList linkedList = new LinkedList();
+            if (z && imageFileInfo.getPersistActionsList() != null) {
+                linkedList.addAll(imageFileInfo.getPersistActionsList());
+            }
+            if (imageFileInfo.getPageActionsList() != null) {
+                linkedList.addAll(imageFileInfo.getPageActionsList());
+            }
+            if (imageFileInfo.getOrginalBitmap() != null) {
+                try {
+                    return c.a.p0.c0.i.c.d().b(imageFileInfo.getOrginalBitmap(), !imageFileInfo.isOrginalBitmapShared(), linkedList, imageFileInfo);
+                } catch (Exception e2) {
+                    e2.printStackTrace();
+                    return null;
                 }
-                return false;
-            } else if (!"deeplink".equals(uri.getHost())) {
-                if (aVar != null) {
-                    aVar.b(2, "Uri host is not deeplink.", c0780a);
+            } else if (imageFileInfo.hasActions(z)) {
+                try {
+                    return c.a.p0.c0.i.c.d().c(imageFileInfo.getFilePath(), linkedList, imageFileInfo);
+                } catch (Exception e3) {
+                    e3.printStackTrace();
+                    return null;
                 }
-                return false;
             } else {
-                String queryParameter = uri.getQueryParameter("appUrl");
-                String queryParameter2 = uri.getQueryParameter("marketUrl");
-                String queryParameter3 = uri.getQueryParameter(BaiduAppJsBridgeHandler.INPUT_PARAM_WEB_URL);
-                String queryParameter4 = uri.getQueryParameter(PushClientConstants.TAG_PKG_NAME);
-                String queryParameter5 = uri.getQueryParameter("marketPkgName");
-                boolean booleanQueryParameter = uri.getBooleanQueryParameter("isDesignatePkg", true);
-                if (e(context, queryParameter, queryParameter4, aVar, booleanQueryParameter, c0780a) || f(context, queryParameter2, queryParameter5, aVar, booleanQueryParameter, c0780a)) {
-                    return true;
-                }
-                return g(context, queryParameter3, bundle, aVar, c0780a, z);
+                return BitmapHelper.loadBitmap(imageFileInfo.getFilePath());
             }
         }
-        return invokeCommon.booleanValue;
+        return (Bitmap) invokeLZ.objValue;
     }
 
-    public static boolean c(Context context, String str, String str2, boolean z, c cVar) {
-        InterceptResult invokeCommon;
+    public void g() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{context, str, str2, Boolean.valueOf(z), cVar})) == null) {
-            try {
-                Intent b2 = d.b(context, str, str2, z, cVar);
-                if (b2 == null) {
-                    return false;
-                }
-                context.startActivity(b2);
-                return true;
-            } catch (Exception unused) {
-                if (cVar != null) {
-                    cVar.onFailed(-101);
-                }
-                return false;
-            }
+        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && this.f12966b == null && !this.f12965a.isEmpty()) {
+            this.f12966b = new c(this, this.f12965a);
+            this.f12966b.execute(new Void[0]);
         }
-        return invokeCommon.booleanValue;
-    }
-
-    public static boolean d(Context context, String str, Bundle bundle, boolean z) {
-        InterceptResult invokeCommon;
-        TbPageContext<?> tbPageContext;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{context, str, bundle, Boolean.valueOf(z)})) == null) {
-            String[] strArr = {str};
-            UrlManager urlManager = UrlManager.getInstance();
-            if (urlManager == null || (tbPageContext = (TbPageContext) j.a(context)) == null) {
-                return false;
-            }
-            if (urlManager.UrlValidated(str)) {
-                urlManager.dealOneLink(tbPageContext, strArr, true);
-                return true;
-            }
-            return urlManager.dealOneLink(tbPageContext, strArr);
-        }
-        return invokeCommon.booleanValue;
-    }
-
-    public static boolean e(Context context, String str, String str2, c.a.p0.c0.a aVar, boolean z, a.C0780a c0780a) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{context, str, str2, aVar, Boolean.valueOf(z), c0780a})) == null) {
-            if (TextUtils.isEmpty(str)) {
-                c0780a.a(1, -4);
-                return false;
-            } else if (c(context, str, str2, z, new a(c0780a))) {
-                c0780a.b(1);
-                if (aVar != null) {
-                    aVar.a(1, c0780a);
-                }
-                return true;
-            } else {
-                return false;
-            }
-        }
-        return invokeCommon.booleanValue;
-    }
-
-    public static boolean f(Context context, String str, String str2, c.a.p0.c0.a aVar, boolean z, a.C0780a c0780a) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, null, new Object[]{context, str, str2, aVar, Boolean.valueOf(z), c0780a})) == null) {
-            if (TextUtils.isEmpty(str)) {
-                c0780a.a(2, -5);
-                return false;
-            } else if (c(context, str, str2, z, new C0781b(c0780a))) {
-                c0780a.b(2);
-                if (aVar != null) {
-                    aVar.a(2, c0780a);
-                    return true;
-                }
-                return true;
-            } else {
-                return false;
-            }
-        }
-        return invokeCommon.booleanValue;
-    }
-
-    public static boolean g(Context context, String str, Bundle bundle, c.a.p0.c0.a aVar, a.C0780a c0780a, boolean z) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.BAIDU_LOGO_ID, null, new Object[]{context, str, bundle, aVar, c0780a, Boolean.valueOf(z)})) == null) {
-            if (TextUtils.isEmpty(str)) {
-                c0780a.a(3, -6);
-                if (aVar != null) {
-                    aVar.b(-6, "Uri web url is empty", c0780a);
-                }
-                return false;
-            } else if (d(context, str, bundle, z)) {
-                c0780a.b(3);
-                if (aVar != null) {
-                    aVar.a(3, c0780a);
-                    return true;
-                }
-                return true;
-            } else {
-                c0780a.a(3, -7);
-                if (aVar != null) {
-                    aVar.b(-7, "Uri web url open failed", c0780a);
-                }
-                return false;
-            }
-        }
-        return invokeCommon.booleanValue;
     }
 }

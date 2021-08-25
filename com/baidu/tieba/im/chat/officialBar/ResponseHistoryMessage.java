@@ -30,16 +30,16 @@ public class ResponseHistoryMessage extends TbSocketReponsedMessage {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f52705a;
+        public String f52866a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f52706b;
+        public int f52867b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f52707c;
+        public String f52868c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f52708d;
+        public int f52869d;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -104,10 +104,10 @@ public class ResponseHistoryMessage extends TbSocketReponsedMessage {
                     if (msgInfo != null) {
                         Date date = new Date();
                         date.setTime(msgInfo.sendTime.longValue() * 1000);
-                        aVar.f52705a = k.getDateStringMouth(date);
-                        aVar.f52706b = msgInfo.type.intValue();
-                        aVar.f52707c = msgInfo.content;
-                        aVar.f52708d = msgInfo.id.intValue();
+                        aVar.f52866a = k.getDateStringMouth(date);
+                        aVar.f52867b = msgInfo.type.intValue();
+                        aVar.f52868c = msgInfo.content;
+                        aVar.f52869d = msgInfo.id.intValue();
                         this.msg.add(aVar);
                     }
                 }
@@ -115,7 +115,8 @@ public class ResponseHistoryMessage extends TbSocketReponsedMessage {
             if (this.msg.isEmpty()) {
                 return;
             }
-            l<byte[]> d2 = c.a.o0.s.r.a.f().d("tb.im_official_history");
+            c.a.p0.s.r.a.f();
+            l<byte[]> d2 = c.a.p0.s.r.a.d("tb.im_official_history");
             RequestHistoryMessage requestHistoryMessage = (RequestHistoryMessage) getOrginalMessage();
             if (requestHistoryMessage == null || requestHistoryMessage.getRequestId() != 0) {
                 return;

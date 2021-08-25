@@ -21,11 +21,11 @@ public class c extends a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile int f67590a;
+    public static volatile int f67790a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public t f67591b;
+    public t f67791b;
 
     static {
         InterceptResult invokeClinit;
@@ -62,11 +62,11 @@ public class c extends a {
         if ((interceptable == null || interceptable.invokeL(65539, this, imageResponse) == null) && (httpTime = imageResponse.getHttpTime()) != null && d()) {
             if (imageResponse.isLocal()) {
                 k.b(ActivitySpeedStats.SPLASH_LOADAD_DURATION, " GiftLoader doTask  缓存存在，直接返回缓存数据");
-                f67590a = 1;
+                f67790a = 1;
                 a(true);
             } else {
                 k.b(ActivitySpeedStats.SPLASH_LOADAD_DURATION, " GiftLoader doTask  缓存存在，直接返回缓存数据");
-                f67590a = 2;
+                f67790a = 2;
                 a(false);
             }
             a(httpTime.a());
@@ -77,7 +77,7 @@ public class c extends a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this)) == null) {
-            t tVar = this.f67591b;
+            t tVar = this.f67791b;
             return tVar != null && tVar.z();
         }
         return invokeV.booleanValue;
@@ -87,23 +87,23 @@ public class c extends a {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this) == null) && d()) {
             long currentTimeMillis = System.currentTimeMillis();
-            t tVar = this.f67591b;
+            t tVar = this.f67791b;
             tVar.g(currentTimeMillis - tVar.t());
-            this.f67591b.l(currentTimeMillis);
+            this.f67791b.l(currentTimeMillis);
         }
     }
 
     public t c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f67591b : (t) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f67791b : (t) invokeV.objValue;
     }
 
     private void a(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(65538, this, j2) == null) {
-            this.f67591b.n(j2);
-            t tVar = this.f67591b;
+            this.f67791b.n(j2);
+            t tVar = this.f67791b;
             tVar.h(j2 - tVar.v());
         }
     }
@@ -111,14 +111,14 @@ public class c extends a {
     private void a(boolean z) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TRACKBALL, this, z) == null) && d()) {
-            this.f67591b.a(z);
+            this.f67791b.a(z);
         }
     }
 
     public void a(t tVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, tVar) == null) {
-            this.f67591b = tVar;
+            this.f67791b = tVar;
         }
     }
 

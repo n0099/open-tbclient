@@ -1,10 +1,10 @@
 package com.baidu.tieba.h5power;
 
 import c.a.e.e.p.k;
-import c.a.p0.i3.l0.d.a;
-import c.a.p0.i3.l0.d.b;
-import c.a.p0.i3.l0.d.c;
-import c.a.p0.i3.l0.d.e;
+import c.a.q0.i3.m0.d.a;
+import c.a.q0.i3.m0.d.b;
+import c.a.q0.i3.m0.d.c;
+import c.a.q0.i3.m0.d.e;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.util.io.DocumentOpenUtil;
 import com.baidu.mobads.container.adrequest.IAdRequestParam;
@@ -63,7 +63,7 @@ public class QuickWebViewBridge_Proxy extends a {
         this.mNotificationNameList.add(CommonTbJsBridge.GO_BACK_FROM_NATIVE);
     }
 
-    @Override // c.a.p0.i3.l0.d.a
+    @Override // c.a.q0.i3.m0.d.a
     public c dispatch(e eVar, c cVar) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -182,6 +182,15 @@ public class QuickWebViewBridge_Proxy extends a {
                     cVar2.t(zid.e());
                     cVar2.q(zid.b());
                     cVar2.l(zid.a());
+                }
+                cVar2.u(0);
+            } else if (b2.equals("device/getHdid")) {
+                cVar2.o(true);
+                c hdid = this.mJsBridge.getHdid();
+                if (hdid != null) {
+                    cVar2.t(hdid.e());
+                    cVar2.q(hdid.b());
+                    cVar2.l(hdid.a());
                 }
                 cVar2.u(0);
             } else if (b2.equals("share/registerShareDataNew")) {
@@ -426,7 +435,7 @@ public class QuickWebViewBridge_Proxy extends a {
         return (c) invokeLL.objValue;
     }
 
-    @Override // c.a.p0.i3.l0.d.a
+    @Override // c.a.q0.i3.m0.d.a
     public List<c> processNotification(String str, HashMap hashMap) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;

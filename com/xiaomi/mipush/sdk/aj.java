@@ -23,10 +23,10 @@ public class aj {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, eVar)) == null) {
             l.a m137a = l.m137a(eVar);
-            if (m137a == null || TextUtils.isEmpty(m137a.f76935a) || TextUtils.isEmpty(m137a.f76936b)) {
+            if (m137a == null || TextUtils.isEmpty(m137a.f77136a) || TextUtils.isEmpty(m137a.f77137b)) {
                 return null;
             }
-            return (AbstractPushManager) bh.a(m137a.f76935a, m137a.f76936b, context);
+            return (AbstractPushManager) bh.a(m137a.f77136a, m137a.f77137b, context);
         }
         return (AbstractPushManager) invokeLL.objValue;
     }

@@ -11,8 +11,8 @@ public final class BuildConfig {
     public static final String BUILD_TYPE = "release";
     public static final boolean DEBUG = false;
     public static final String FLAVOR = "";
-    public static final int VERSION_CODE = 108;
-    public static final String VERSION_NAME = "4.2.20-bdpay";
+    public static final int VERSION_CODE = 140;
+    public static final String VERSION_NAME = "4.2.31-bdpay";
     public transient /* synthetic */ FieldHolder $fh;
 
     public BuildConfig() {

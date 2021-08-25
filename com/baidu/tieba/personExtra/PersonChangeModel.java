@@ -15,7 +15,7 @@ public class PersonChangeModel extends BdBaseModel {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public PersonChangeData f55601e;
+    public PersonChangeData f55766e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PersonChangeModel(PersonChangeData personChangeData) {
@@ -35,10 +35,10 @@ public class PersonChangeModel extends BdBaseModel {
                 return;
             }
         }
-        this.f55601e = null;
-        this.f55601e = personChangeData;
+        this.f55766e = null;
+        this.f55766e = personChangeData;
         if (personChangeData == null) {
-            this.f55601e = new PersonChangeData();
+            this.f55766e = new PersonChangeData();
         }
     }
 
@@ -65,6 +65,6 @@ public class PersonChangeModel extends BdBaseModel {
     public PersonChangeData w() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f55601e : (PersonChangeData) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f55766e : (PersonChangeData) invokeV.objValue;
     }
 }

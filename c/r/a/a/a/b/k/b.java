@@ -15,7 +15,7 @@ public final class b implements ServiceConnection {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public /* synthetic */ a f35311e;
+    public /* synthetic */ a f35417e;
 
     public b(a aVar) {
         Interceptable interceptable = $ic;
@@ -32,7 +32,7 @@ public final class b implements ServiceConnection {
                 return;
             }
         }
-        this.f35311e = aVar;
+        this.f35417e = aVar;
     }
 
     @Override // android.content.ServiceConnection
@@ -43,18 +43,18 @@ public final class b implements ServiceConnection {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, componentName, iBinder) == null) {
             try {
-                this.f35311e.f35306a = com.yxcorp.kuaishou.addfp.a.b.j.b.a(iBinder);
-                countDownLatch3 = this.f35311e.f35309d;
+                this.f35417e.f35412a = com.yxcorp.kuaishou.addfp.a.b.j.b.a(iBinder);
+                countDownLatch3 = this.f35417e.f35415d;
                 if (countDownLatch3 == null) {
                     return;
                 }
             } catch (Throwable unused) {
-                countDownLatch = this.f35311e.f35309d;
+                countDownLatch = this.f35417e.f35415d;
                 if (countDownLatch == null) {
                     return;
                 }
             }
-            countDownLatch2 = this.f35311e.f35309d;
+            countDownLatch2 = this.f35417e.f35415d;
             countDownLatch2.countDown();
         }
     }
@@ -63,7 +63,7 @@ public final class b implements ServiceConnection {
     public final void onServiceDisconnected(ComponentName componentName) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, componentName) == null) {
-            this.f35311e.f35306a = null;
+            this.f35417e.f35412a = null;
         }
     }
 }

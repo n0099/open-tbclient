@@ -1,5 +1,0 @@
-package c.a.p0.v0.p2;
-/* loaded from: classes4.dex */
-public interface b {
-    c.a.f.m.e.b c(String str);
-}

@@ -1,47 +1,42 @@
 package c.a.o0.d;
 
+import c.a.o0.a.c1.c.i;
+import com.baidu.pyramid.annotation.Autowired;
+import com.baidu.pyramid.annotation.Inject;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+@Autowired
+/* loaded from: classes.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f12748a;
+    public static boolean f10356a;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* renamed from: b  reason: collision with root package name */
-    public int f12749b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public String f12750c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public String f12751d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public String f12752e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public int f12753f;
-
-    public c() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(997202763, "Lc/a/o0/d/c;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(997202763, "Lc/a/o0/d/c;");
                 return;
             }
         }
-        this.f12748a = -1;
-        this.f12749b = -1;
-        this.f12753f = -1;
+        f10356a = a().isDebug();
+    }
+
+    @Inject
+    public static a a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? i.a() : (a) invokeV.objValue;
     }
 }

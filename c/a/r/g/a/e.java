@@ -14,7 +14,7 @@ public final class e extends d {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d  reason: collision with root package name */
-    public b f29281d;
+    public b f29563d;
 
     /* loaded from: classes4.dex */
     public static /* synthetic */ class a {
@@ -28,13 +28,13 @@ public final class e extends d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public Class<?> f29282a;
+        public Class<?> f29564a;
 
         /* renamed from: b  reason: collision with root package name */
-        public Method f29283b;
+        public Method f29565b;
 
         /* renamed from: c  reason: collision with root package name */
-        public Method f29284c;
+        public Method f29566c;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -61,7 +61,7 @@ public final class e extends d {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
                 try {
-                    return ((Long) this.f29284c.invoke(obj, new Object[0])).longValue();
+                    return ((Long) this.f29566c.invoke(obj, new Object[0])).longValue();
                 } catch (Exception unused) {
                     throw new n.a("");
                 }
@@ -73,9 +73,9 @@ public final class e extends d {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
                 try {
-                    this.f29282a = Class.forName(n.a(h.a()), true, Object.class.getClassLoader());
-                    this.f29283b = n.b(this.f29282a, n.a(h.b()), new Class[]{byte[].class, Integer.TYPE, Integer.TYPE});
-                    this.f29284c = n.b(this.f29282a, n.a(h.c()), null);
+                    this.f29564a = Class.forName(n.a(h.a()), true, Object.class.getClassLoader());
+                    this.f29565b = n.b(this.f29564a, n.a(h.b()), new Class[]{byte[].class, Integer.TYPE, Integer.TYPE});
+                    this.f29566c = n.b(this.f29564a, n.a(h.c()), null);
                 } catch (Exception e2) {
                     e2.printStackTrace();
                 }
@@ -86,7 +86,7 @@ public final class e extends d {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLII(Constants.METHOD_SEND_USER_MSG, this, obj, bArr, i2, i3) == null) {
                 try {
-                    this.f29283b.invoke(obj, bArr, Integer.valueOf(i2), Integer.valueOf(i3));
+                    this.f29565b.invoke(obj, bArr, Integer.valueOf(i2), Integer.valueOf(i3));
                 } catch (Exception unused) {
                     throw new n.a("");
                 }
@@ -96,7 +96,7 @@ public final class e extends d {
         public final Object g() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f29282a.newInstance() : invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f29564a.newInstance() : invokeV.objValue;
         }
     }
 
@@ -115,10 +115,10 @@ public final class e extends d {
                 return;
             }
         }
-        this.f29278a = 32;
-        this.f29279b = i2;
-        this.f29280c = i3;
-        this.f29281d = new b(null);
+        this.f29560a = 32;
+        this.f29561b = i2;
+        this.f29562c = i3;
+        this.f29563d = new b(null);
     }
 
     @Override // c.a.r.g.a.d
@@ -128,9 +128,9 @@ public final class e extends d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLII = interceptable.invokeLII(1048576, this, bArr, i2, i3)) == null) {
             try {
-                Object g2 = this.f29281d.g();
-                this.f29281d.f(g2, bArr, i2, i3);
-                j2 = this.f29281d.b(g2);
+                Object g2 = this.f29563d.g();
+                this.f29563d.f(g2, bArr, i2, i3);
+                j2 = this.f29563d.b(g2);
             } catch (Exception unused) {
                 j2 = 4294967295L;
             }

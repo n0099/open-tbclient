@@ -12,14 +12,14 @@ public final class f {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Context f76054a;
+    public static Context f76255a;
     public transient /* synthetic */ FieldHolder $fh;
 
     public static final Context a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            Context context = f76054a;
+            Context context = f76255a;
             if (context == null) {
                 return null;
             }
@@ -68,7 +68,7 @@ public final class f {
     public static final void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, null, context) == null) {
-            f76054a = context;
+            f76255a = context;
         }
     }
 

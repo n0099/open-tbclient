@@ -31,7 +31,7 @@ public class ChannelBaiduPayForTransCashier {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static ChannelBaiduPayForTransCashier f36568a;
+        public static ChannelBaiduPayForTransCashier f36674a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -47,14 +47,14 @@ public class ChannelBaiduPayForTransCashier {
                     return;
                 }
             }
-            f36568a = new ChannelBaiduPayForTransCashier();
+            f36674a = new ChannelBaiduPayForTransCashier();
         }
     }
 
     public static ChannelBaiduPayForTransCashier getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? a.f36568a : (ChannelBaiduPayForTransCashier) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? a.f36674a : (ChannelBaiduPayForTransCashier) invokeV.objValue;
     }
 
     private String getNotify(String str) {
@@ -129,10 +129,10 @@ public class ChannelBaiduPayForTransCashier {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ Context f36566a;
+            public final /* synthetic */ Context f36672a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ ChannelBaiduPayForTransCashier f36567b;
+            public final /* synthetic */ ChannelBaiduPayForTransCashier f36673b;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -149,8 +149,8 @@ public class ChannelBaiduPayForTransCashier {
                         return;
                     }
                 }
-                this.f36567b = this;
-                this.f36566a = context;
+                this.f36673b = this;
+                this.f36672a = context;
             }
 
             @Override // com.baidu.android.pay.PayCallBack
@@ -167,7 +167,7 @@ public class ChannelBaiduPayForTransCashier {
             public void onPayResult(int i2, String str3) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str3) == null) {
-                    this.f36567b.handlepayResult(this.f36566a, i2, str3);
+                    this.f36673b.handlepayResult(this.f36672a, i2, str3);
                 }
             }
         }, new HashMap(), precashierCreateOrderResponse, null);

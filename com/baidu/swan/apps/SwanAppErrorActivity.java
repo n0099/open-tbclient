@@ -6,15 +6,15 @@ import android.text.TextUtils;
 import android.view.ViewGroup;
 import android.view.Window;
 import androidx.core.view.InputDeviceCompat;
-import c.a.n0.a.a;
-import c.a.n0.a.f;
-import c.a.n0.a.f1.e.b;
-import c.a.n0.a.g;
-import c.a.n0.a.h0.g.e;
-import c.a.n0.a.k;
-import c.a.n0.a.v1.c.f.c;
-import c.a.n0.a.v2.q0;
-import c.a.n0.o.a.a.n;
+import c.a.o0.a.a;
+import c.a.o0.a.f;
+import c.a.o0.a.f1.e.b;
+import c.a.o0.a.g;
+import c.a.o0.a.h0.g.e;
+import c.a.o0.a.k;
+import c.a.o0.a.v1.c.f.c;
+import c.a.o0.a.v2.q0;
+import c.a.o0.o.a.a.n;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.swan.apps.scheme.actions.forbidden.ForbiddenInfo;
@@ -51,7 +51,7 @@ public class SwanAppErrorActivity extends FragmentActivity {
     public b mLaunchInfo;
     public int mMenuNoticeCount;
     public int mMenuPrivateCount;
-    public c.a.n0.a.g2.b mSkinDecorator;
+    public c.a.o0.a.g2.b mSkinDecorator;
 
     static {
         InterceptResult invokeClinit;
@@ -66,7 +66,7 @@ public class SwanAppErrorActivity extends FragmentActivity {
                 return;
             }
         }
-        DEBUG = k.f6803a;
+        DEBUG = k.f7049a;
     }
 
     public SwanAppErrorActivity() {
@@ -162,7 +162,7 @@ public class SwanAppErrorActivity extends FragmentActivity {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mLaunchInfo : (b) invokeV.objValue;
     }
 
-    @Override // com.baidu.swan.support.v4.app.FragmentActivity, c.a.n0.o.a.a.f, android.app.Activity
+    @Override // com.baidu.swan.support.v4.app.FragmentActivity, c.a.o0.o.a.a.f, android.app.Activity
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
@@ -195,7 +195,7 @@ public class SwanAppErrorActivity extends FragmentActivity {
                 return;
             }
             if (this.mSkinDecorator == null) {
-                this.mSkinDecorator = new c.a.n0.a.g2.b();
+                this.mSkinDecorator = new c.a.o0.a.g2.b();
             }
             ViewGroup viewGroup = (ViewGroup) window.getDecorView();
             if (z) {
@@ -221,8 +221,8 @@ public class SwanAppErrorActivity extends FragmentActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             super.onStart();
-            if (TextUtils.equals(this.mErrorType, TYPE_APP_FORBIDDEN) && (i2 = c.a.n0.a.v1.c.f.e.k().i(this.mForbiddenInfo.appId)) != null && i2.C()) {
-                c.a.n0.a.c2.f.g0.a.g(this.mForbiddenInfo.appId);
+            if (TextUtils.equals(this.mErrorType, TYPE_APP_FORBIDDEN) && (i2 = c.a.o0.a.v1.c.f.e.k().i(this.mForbiddenInfo.appId)) != null && i2.C()) {
+                c.a.o0.a.c2.f.g0.a.g(this.mForbiddenInfo.appId);
             }
         }
     }
@@ -230,7 +230,7 @@ public class SwanAppErrorActivity extends FragmentActivity {
     public void updateCurrentNightMode() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            onNightModeCoverChanged(c.a.n0.a.c1.a.H().a());
+            onNightModeCoverChanged(c.a.o0.a.c1.a.H().a());
         }
     }
 }

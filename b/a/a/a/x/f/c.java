@@ -140,8 +140,8 @@ public class c {
             jSONObject.put("locale", cVar2.n);
             jSONObject.put("opcode", cVar2.f1498j);
             jSONObject.put("tk", cVar2.k);
-            jSONObject.put("sdkvn", "3.6.4.1-TB");
-            jSONObject.put("sdkv", 3641);
+            jSONObject.put("sdkvn", "3.6.4.4-TB");
+            jSONObject.put("sdkv", 3644);
             jSONObject.put("anid", cVar2.l);
             jSONObject.put("lic", cVar2.o);
             jSONObject.put("plat", "a");

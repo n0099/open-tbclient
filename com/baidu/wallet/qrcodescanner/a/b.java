@@ -16,16 +16,16 @@ public interface b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f63272a;
+        public String f63472a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f63273b;
+        public String f63473b;
 
         /* renamed from: c  reason: collision with root package name */
-        public JSONObject f63274c;
+        public JSONObject f63474c;
 
         /* renamed from: d  reason: collision with root package name */
-        public JSONObject f63275d;
+        public JSONObject f63475d;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -45,7 +45,7 @@ public interface b {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return "ScannerResult [type=" + this.f63272a + ", linkaddr=" + this.f63273b + ", extJson=" + this.f63274c + PreferencesUtil.RIGHT_MOUNT;
+                return "ScannerResult [type=" + this.f63472a + ", linkaddr=" + this.f63473b + ", extJson=" + this.f63474c + PreferencesUtil.RIGHT_MOUNT;
             }
             return (String) invokeV.objValue;
         }

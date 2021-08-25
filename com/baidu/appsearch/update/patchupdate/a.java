@@ -14,7 +14,7 @@ public class a implements d {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ByteBuffer f38156a;
+    public ByteBuffer f38262a;
 
     public a(ByteBuffer byteBuffer) {
         Interceptable interceptable = $ic;
@@ -34,7 +34,7 @@ public class a implements d {
         if (byteBuffer == null) {
             throw new NullPointerException("input parameter bb is null");
         }
-        this.f38156a = byteBuffer;
+        this.f38262a = byteBuffer;
         byteBuffer.rewind();
         try {
             a(0L);
@@ -68,10 +68,10 @@ public class a implements d {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, byteBuffer)) == null) {
-            if (this.f38156a.hasRemaining()) {
+            if (this.f38262a.hasRemaining()) {
                 int i2 = 0;
-                while (this.f38156a.hasRemaining() && byteBuffer.hasRemaining()) {
-                    byteBuffer.put(this.f38156a.get());
+                while (this.f38262a.hasRemaining() && byteBuffer.hasRemaining()) {
+                    byteBuffer.put(this.f38262a.get());
                     i2++;
                 }
                 return i2;
@@ -85,11 +85,11 @@ public class a implements d {
     public void a(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2) == null) {
-            if (j2 <= this.f38156a.limit()) {
-                this.f38156a.position((int) j2);
+            if (j2 <= this.f38262a.limit()) {
+                this.f38262a.position((int) j2);
                 return;
             }
-            throw new IOException("pos " + j2 + " cannot seek " + this.f38156a.limit());
+            throw new IOException("pos " + j2 + " cannot seek " + this.f38262a.limit());
         }
     }
 
@@ -97,7 +97,7 @@ public class a implements d {
     public void close() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f38156a = null;
+            this.f38262a = null;
         }
     }
 
@@ -105,7 +105,7 @@ public class a implements d {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return "BBSeekable bb=" + this.f38156a.position() + "-" + this.f38156a.limit();
+            return "BBSeekable bb=" + this.f38262a.position() + "-" + this.f38262a.limit();
         }
         return (String) invokeV.objValue;
     }

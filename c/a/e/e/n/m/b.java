@@ -17,10 +17,10 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f2427a;
+    public long f2485a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f2428b;
+    public String f2486b;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -35,8 +35,8 @@ public class b {
                 return;
             }
         }
-        this.f2427a = 0L;
-        this.f2428b = null;
+        this.f2485a = 0L;
+        this.f2486b = null;
     }
 
     public boolean a() {
@@ -53,8 +53,8 @@ public class b {
             }
             try {
                 JSONObject jSONObject = new JSONObject(a2);
-                this.f2427a = jSONObject.getLong("time");
-                this.f2428b = jSONObject.getString("data");
+                this.f2485a = jSONObject.getLong("time");
+                this.f2486b = jSONObject.getString("data");
                 return true;
             } catch (JSONException e2) {
                 e2.printStackTrace();

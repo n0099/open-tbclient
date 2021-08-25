@@ -18,37 +18,37 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final InterfaceC1464a f32058a;
+    public final InterfaceC1468a f32164a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f32059b;
+    public final String f32165b;
 
     /* renamed from: c  reason: collision with root package name */
-    public File f32060c;
+    public File f32166c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f32061d;
+    public long f32167d;
 
     /* renamed from: c.f.a.e.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public interface InterfaceC1464a {
+    public interface InterfaceC1468a {
         List<File> a(File file);
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public a(Context context, String str, InterfaceC1464a interfaceC1464a) {
-        this(context, str, "", interfaceC1464a);
+    public a(Context context, String str, InterfaceC1468a interfaceC1468a) {
+        this(context, str, "", interfaceC1468a);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, str, interfaceC1464a};
+            Object[] objArr = {context, str, interfaceC1468a};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                this((Context) objArr2[0], (String) objArr2[1], (String) objArr2[2], (InterfaceC1464a) objArr2[3]);
+                this((Context) objArr2[0], (String) objArr2[1], (String) objArr2[2], (InterfaceC1468a) objArr2[3]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -93,7 +93,7 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            File file = new File(this.f32060c, g(str));
+            File file = new File(this.f32166c, g(str));
             if (file.exists()) {
                 file.setLastModified(System.currentTimeMillis());
             }
@@ -104,14 +104,14 @@ public class a {
 
     public final void b() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f32061d >= 0) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f32167d >= 0) {
             return;
         }
-        this.f32061d = 52428800 - f();
+        this.f32167d = 52428800 - f();
     }
 
     public void d(String str, byte[] bArr) {
-        InterfaceC1464a interfaceC1464a;
+        InterfaceC1468a interfaceC1468a;
         List<File> a2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, bArr) == null) {
@@ -119,14 +119,14 @@ public class a {
             c(a3.getParentFile());
             e(bArr, a3);
             b();
-            long length = this.f32061d - a(str).length();
-            if (length < 0 && (interfaceC1464a = this.f32058a) != null && (a2 = interfaceC1464a.a(this.f32060c)) != null) {
+            long length = this.f32167d - a(str).length();
+            if (length < 0 && (interfaceC1468a = this.f32164a) != null && (a2 = interfaceC1468a.a(this.f32166c)) != null) {
                 for (File file : a2) {
                     length += file.length();
                     file.delete();
                 }
             }
-            this.f32061d = length;
+            this.f32167d = length;
         }
     }
 
@@ -134,7 +134,7 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            File[] listFiles = this.f32060c.listFiles();
+            File[] listFiles = this.f32166c.listFiles();
             long j2 = 0;
             if (listFiles != null && listFiles.length > 0) {
                 for (File file : listFiles) {
@@ -150,17 +150,17 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            return String.valueOf(str.hashCode()) + this.f32059b;
+            return String.valueOf(str.hashCode()) + this.f32165b;
         }
         return (String) invokeL.objValue;
     }
 
-    public a(Context context, String str, String str2, InterfaceC1464a interfaceC1464a) {
+    public a(Context context, String str, String str2, InterfaceC1468a interfaceC1468a) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, str, str2, interfaceC1464a};
+            Object[] objArr = {context, str, str2, interfaceC1468a};
             interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -170,21 +170,21 @@ public class a {
                 return;
             }
         }
-        this.f32061d = Long.MIN_VALUE;
-        this.f32059b = str2;
+        this.f32167d = Long.MIN_VALUE;
+        this.f32165b = str2;
         if (CheckUtils.isExternalStorageWriteable(context)) {
             File externalFilesDir = context.getExternalFilesDir(null);
             if (externalFilesDir != null) {
-                this.f32060c = new File(externalFilesDir, str);
+                this.f32166c = new File(externalFilesDir, str);
             } else {
-                this.f32060c = new File(context.getCacheDir(), str);
+                this.f32166c = new File(context.getCacheDir(), str);
             }
         } else {
-            this.f32060c = new File(context.getCacheDir(), str);
+            this.f32166c = new File(context.getCacheDir(), str);
         }
-        if (!this.f32060c.exists()) {
-            this.f32060c.mkdirs();
+        if (!this.f32166c.exists()) {
+            this.f32166c.mkdirs();
         }
-        this.f32058a = interfaceC1464a;
+        this.f32164a = interfaceC1468a;
     }
 }

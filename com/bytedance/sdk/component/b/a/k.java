@@ -16,16 +16,16 @@ public final class k implements s {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final e f64041a;
+    public final e f64241a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Inflater f64042b;
+    public final Inflater f64242b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f64043c;
+    public int f64243c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f64044d;
+    public boolean f64244d;
 
     public k(e eVar, Inflater inflater) {
         Interceptable interceptable = $ic;
@@ -46,8 +46,8 @@ public final class k implements s {
             throw new IllegalArgumentException("source == null");
         }
         if (inflater != null) {
-            this.f64041a = eVar;
-            this.f64042b = inflater;
+            this.f64241a = eVar;
+            this.f64242b = inflater;
             return;
         }
         throw new IllegalArgumentException("inflater == null");
@@ -56,22 +56,22 @@ public final class k implements s {
     private void c() throws IOException {
         int i2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65537, this) == null) || (i2 = this.f64043c) == 0) {
+        if (!(interceptable == null || interceptable.invokeV(65537, this) == null) || (i2 = this.f64243c) == 0) {
             return;
         }
-        int remaining = i2 - this.f64042b.getRemaining();
-        this.f64043c -= remaining;
-        this.f64041a.h(remaining);
+        int remaining = i2 - this.f64242b.getRemaining();
+        this.f64243c -= remaining;
+        this.f64241a.h(remaining);
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:24:0x0058, code lost:
         c();
      */
     /* JADX WARN: Code restructure failed: missing block: B:25:0x005f, code lost:
-        if (r1.f64059b != r1.f64060c) goto L29;
+        if (r1.f64259b != r1.f64260c) goto L29;
      */
     /* JADX WARN: Code restructure failed: missing block: B:26:0x0061, code lost:
-        r7.f64025a = r1.b();
+        r7.f64225a = r1.b();
         com.bytedance.sdk.component.b.a.p.a(r1);
      */
     /* JADX WARN: Code restructure failed: missing block: B:27:0x006a, code lost:
@@ -92,7 +92,7 @@ public final class k implements s {
         }
         int i2 = (j2 > 0L ? 1 : (j2 == 0L ? 0 : -1));
         if (i2 >= 0) {
-            if (this.f64044d) {
+            if (this.f64244d) {
                 throw new IllegalStateException("closed");
             }
             if (i2 == 0) {
@@ -102,13 +102,13 @@ public final class k implements s {
                 boolean b2 = b();
                 try {
                     o e2 = cVar.e(1);
-                    int inflate = this.f64042b.inflate(e2.f64058a, e2.f64060c, (int) Math.min(j2, 8192 - e2.f64060c));
+                    int inflate = this.f64242b.inflate(e2.f64258a, e2.f64260c, (int) Math.min(j2, 8192 - e2.f64260c));
                     if (inflate > 0) {
-                        e2.f64060c += inflate;
+                        e2.f64260c += inflate;
                         long j3 = inflate;
-                        cVar.f64026b += j3;
+                        cVar.f64226b += j3;
                         return j3;
-                    } else if (this.f64042b.finished() || this.f64042b.needsDictionary()) {
+                    } else if (this.f64242b.finished() || this.f64242b.needsDictionary()) {
                         break;
                     } else if (b2) {
                         throw new EOFException("source exhausted prematurely");
@@ -126,18 +126,18 @@ public final class k implements s {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.f64042b.needsInput()) {
+            if (this.f64242b.needsInput()) {
                 c();
-                if (this.f64042b.getRemaining() == 0) {
-                    if (this.f64041a.e()) {
+                if (this.f64242b.getRemaining() == 0) {
+                    if (this.f64241a.e()) {
                         return true;
                     }
-                    o oVar = this.f64041a.c().f64025a;
-                    int i2 = oVar.f64060c;
-                    int i3 = oVar.f64059b;
+                    o oVar = this.f64241a.c().f64225a;
+                    int i2 = oVar.f64260c;
+                    int i3 = oVar.f64259b;
                     int i4 = i2 - i3;
-                    this.f64043c = i4;
-                    this.f64042b.setInput(oVar.f64058a, i3, i4);
+                    this.f64243c = i4;
+                    this.f64242b.setInput(oVar.f64258a, i3, i4);
                     return false;
                 }
                 throw new IllegalStateException("?");
@@ -150,18 +150,18 @@ public final class k implements s {
     @Override // com.bytedance.sdk.component.b.a.s, java.io.Closeable, java.lang.AutoCloseable
     public void close() throws IOException {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || this.f64044d) {
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || this.f64244d) {
             return;
         }
-        this.f64042b.end();
-        this.f64044d = true;
-        this.f64041a.close();
+        this.f64242b.end();
+        this.f64244d = true;
+        this.f64241a.close();
     }
 
     @Override // com.bytedance.sdk.component.b.a.s
     public t a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f64041a.a() : (t) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f64241a.a() : (t) invokeV.objValue;
     }
 }

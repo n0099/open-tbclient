@@ -14,7 +14,7 @@ import c.a.e.a.g;
 import c.a.e.a.i;
 import c.a.e.e.l.d;
 import c.a.e.e.p.l;
-import c.a.e.k.e.q;
+import c.a.e.l.e.q;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.framework.MessageManager;
@@ -42,7 +42,7 @@ public abstract class PluginAdpBaseActivity extends PluginBaseActivity implement
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PluginAdpBaseActivity f36136e;
+        public final /* synthetic */ PluginAdpBaseActivity f36242e;
 
         public a(PluginAdpBaseActivity pluginAdpBaseActivity) {
             Interceptable interceptable = $ic;
@@ -59,14 +59,14 @@ public abstract class PluginAdpBaseActivity extends PluginBaseActivity implement
                     return;
                 }
             }
-            this.f36136e = pluginAdpBaseActivity;
+            this.f36242e = pluginAdpBaseActivity;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                PluginAdpBaseActivity pluginAdpBaseActivity = this.f36136e;
+                PluginAdpBaseActivity pluginAdpBaseActivity = this.f36242e;
                 pluginAdpBaseActivity.onPreLoad(pluginAdpBaseActivity.onGetPreLoadListView());
             }
         }

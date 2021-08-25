@@ -13,10 +13,10 @@ public final class ew implements View.OnFocusChangeListener {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ RelativeLayout f59538a;
+    public final /* synthetic */ RelativeLayout f59738a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ ev f59539b;
+    public final /* synthetic */ ev f59739b;
 
     public ew(ev evVar, RelativeLayout relativeLayout) {
         Interceptable interceptable = $ic;
@@ -33,15 +33,15 @@ public final class ew implements View.OnFocusChangeListener {
                 return;
             }
         }
-        this.f59539b = evVar;
-        this.f59538a = relativeLayout;
+        this.f59739b = evVar;
+        this.f59738a = relativeLayout;
     }
 
     @Override // android.view.View.OnFocusChangeListener
     public final void onFocusChange(View view, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(1048576, this, view, z) == null) {
-            this.f59538a.setBackgroundResource(z ? R.drawable.dialog_edit_bg_selected : R.drawable.dialog_checkbox_bg_normal);
+            this.f59738a.setBackgroundResource(z ? R.drawable.dialog_edit_bg_selected : R.drawable.dialog_checkbox_bg_normal);
         }
     }
 }

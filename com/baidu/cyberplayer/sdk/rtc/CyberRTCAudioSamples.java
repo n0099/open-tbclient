@@ -14,16 +14,16 @@ public class CyberRTCAudioSamples {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final int f38983a;
+    public final int f39090a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f38984b;
+    public final int f39091b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final int f38985c;
+    public final int f39092c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final byte[] f38986d;
+    public final byte[] f39093d;
 
     @Keep
     /* loaded from: classes5.dex */
@@ -46,33 +46,33 @@ public class CyberRTCAudioSamples {
                 return;
             }
         }
-        this.f38983a = i2;
-        this.f38984b = i3;
-        this.f38985c = i4;
-        this.f38986d = bArr;
+        this.f39090a = i2;
+        this.f39091b = i3;
+        this.f39092c = i4;
+        this.f39093d = bArr;
     }
 
     public int getAudioFormat() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f38983a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f39090a : invokeV.intValue;
     }
 
     public int getChannelCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f38984b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f39091b : invokeV.intValue;
     }
 
     public byte[] getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f38986d : (byte[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f39093d : (byte[]) invokeV.objValue;
     }
 
     public int getSampleRate() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f38985c : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f39092c : invokeV.intValue;
     }
 }

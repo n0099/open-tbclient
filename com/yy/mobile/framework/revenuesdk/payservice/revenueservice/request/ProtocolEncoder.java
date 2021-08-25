@@ -80,7 +80,7 @@ public final class ProtocolEncoder {
                 z = true;
             }
             String str3 = this.TAG;
-            RLog.debug(str3, "getParamsToken isTokenUpdate:" + z + " paramsToken:" + str2);
+            RLog.debug(str3, "getParamsToken isTokenUpdate:" + z);
             return str2;
         }
         return (String) invokeLL.objValue;

@@ -19,19 +19,19 @@ public final class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f35270a;
+    public Context f35376a;
 
     /* renamed from: b  reason: collision with root package name */
-    public com.yxcorp.kuaishou.addfp.a.b.c.a f35271b;
+    public com.yxcorp.kuaishou.addfp.a.b.c.a f35377b;
 
     /* renamed from: c  reason: collision with root package name */
-    public com.yxcorp.kuaishou.addfp.a.b.b f35272c;
+    public com.yxcorp.kuaishou.addfp.a.b.b f35378c;
 
     /* renamed from: d  reason: collision with root package name */
-    public CountDownLatch f35273d;
+    public CountDownLatch f35379d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ServiceConnection f35274e;
+    public ServiceConnection f35380e;
 
     public a(Context context, com.yxcorp.kuaishou.addfp.a.b.b bVar) {
         Interceptable interceptable = $ic;
@@ -48,21 +48,21 @@ public final class a {
                 return;
             }
         }
-        this.f35270a = null;
-        this.f35273d = new CountDownLatch(1);
-        this.f35274e = new b(this);
+        this.f35376a = null;
+        this.f35379d = new CountDownLatch(1);
+        this.f35380e = new b(this);
         try {
-            this.f35270a = context;
-            this.f35272c = bVar;
+            this.f35376a = context;
+            this.f35378c = bVar;
             Intent intent = new Intent();
             intent.setClassName("com.zui.deviceidservice", "com.zui.deviceidservice.DeviceidService");
-            if (!this.f35270a.bindService(intent, this.f35274e, 1)) {
+            if (!this.f35376a.bindService(intent, this.f35380e, 1)) {
                 c(false);
                 c.b("bindService Failed!");
                 return;
             }
-            this.f35273d.await(10L, TimeUnit.SECONDS);
-            if (this.f35271b != null) {
+            this.f35379d.await(10L, TimeUnit.SECONDS);
+            if (this.f35377b != null) {
                 c(true);
             } else {
                 c(false);
@@ -80,7 +80,7 @@ public final class a {
                 try {
                     String f2 = f();
                     if (!TextUtils.isEmpty(f2)) {
-                        this.f35272c.a(f2);
+                        this.f35378c.a(f2);
                         return;
                     }
                 } catch (Throwable th) {
@@ -88,7 +88,7 @@ public final class a {
                     return;
                 }
             }
-            this.f35272c.e();
+            this.f35378c.e();
         }
     }
 
@@ -97,7 +97,7 @@ public final class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             try {
-                return this.f35270a.getPackageManager().getPackageInfo("com.zui.deviceidservice", 0) != null;
+                return this.f35376a.getPackageManager().getPackageInfo("com.zui.deviceidservice", 0) != null;
             } catch (Throwable th) {
                 c.c(th);
                 return false;
@@ -110,12 +110,12 @@ public final class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             try {
-                this.f35270a.unbindService(this.f35274e);
+                this.f35376a.unbindService(this.f35380e);
                 c.b("unBind Service");
             } catch (Throwable th) {
                 c.c(th);
             }
-            this.f35271b = null;
+            this.f35377b = null;
         }
     }
 
@@ -124,8 +124,8 @@ public final class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             try {
-                if (this.f35271b != null) {
-                    return this.f35271b.a();
+                if (this.f35377b != null) {
+                    return this.f35377b.a();
                 }
                 return null;
             } catch (Throwable th) {

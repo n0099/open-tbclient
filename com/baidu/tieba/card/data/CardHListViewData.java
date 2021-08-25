@@ -1,7 +1,7 @@
 package com.baidu.tieba.card.data;
 
 import c.a.e.e.p.k;
-import c.a.e.k.e.n;
+import c.a.e.l.e.n;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
@@ -72,7 +72,7 @@ public class CardHListViewData extends BaseCardInfo implements Serializable {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mList : (List) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, c.a.e.k.e.n
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, c.a.e.l.e.n
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

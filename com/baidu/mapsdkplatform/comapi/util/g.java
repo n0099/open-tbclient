@@ -16,22 +16,22 @@ public final class g {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final boolean f42306a;
+    public final boolean f42413a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f42307b;
+    public final String f42414b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final String f42308c;
+    public final String f42415c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final String f42309d;
+    public final String f42416d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final String f42310e;
+    public final String f42417e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final String f42311f;
+    public final String f42418f;
 
     public g(Context context) {
         Interceptable interceptable = $ic;
@@ -48,12 +48,12 @@ public final class g {
                 return;
             }
         }
-        this.f42306a = false;
-        this.f42307b = Environment.getExternalStorageDirectory().getAbsolutePath();
-        this.f42308c = this.f42307b + File.separator + "BaiduMapSDKNew";
-        this.f42309d = context.getCacheDir().getAbsolutePath();
-        this.f42310e = "";
-        this.f42311f = "";
+        this.f42413a = false;
+        this.f42414b = Environment.getExternalStorageDirectory().getAbsolutePath();
+        this.f42415c = this.f42414b + File.separator + "BaiduMapSDKNew";
+        this.f42416d = context.getCacheDir().getAbsolutePath();
+        this.f42417e = "";
+        this.f42418f = "";
     }
 
     public g(String str, boolean z, String str2, Context context) {
@@ -71,25 +71,25 @@ public final class g {
                 return;
             }
         }
-        this.f42306a = z;
-        this.f42307b = str;
-        this.f42308c = this.f42307b + File.separator + "BaiduMapSDKNew";
-        this.f42309d = this.f42308c + File.separator + SapiOptions.KEY_CACHE;
-        this.f42310e = context.getCacheDir().getAbsolutePath();
-        this.f42311f = str2;
+        this.f42413a = z;
+        this.f42414b = str;
+        this.f42415c = this.f42414b + File.separator + "BaiduMapSDKNew";
+        this.f42416d = this.f42415c + File.separator + SapiOptions.KEY_CACHE;
+        this.f42417e = context.getCacheDir().getAbsolutePath();
+        this.f42418f = str2;
     }
 
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f42307b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f42414b : (String) invokeV.objValue;
     }
 
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.f42307b + File.separator + "BaiduMapSDKNew";
+            return this.f42414b + File.separator + "BaiduMapSDKNew";
         }
         return (String) invokeV.objValue;
     }
@@ -97,13 +97,13 @@ public final class g {
     public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f42309d : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f42416d : (String) invokeV.objValue;
     }
 
     public String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f42310e : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f42417e : (String) invokeV.objValue;
     }
 
     public boolean equals(Object obj) {
@@ -113,7 +113,7 @@ public final class g {
             if (obj == null || !g.class.isInstance(obj)) {
                 return false;
             }
-            return this.f42307b.equals(((g) obj).f42307b);
+            return this.f42414b.equals(((g) obj).f42414b);
         }
         return invokeL.booleanValue;
     }

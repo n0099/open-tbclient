@@ -1,5 +1,6 @@
 package com.baidu.tbadk.core.util;
 
+import android.net.Uri;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -7,6 +8,7 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.AlaInfoData;
 import com.baidu.tbadk.core.data.YyExtData;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -20,9 +22,11 @@ public class YYLiveUtil {
     public static final String SOURCE_BAIDU_LIVE_FOLLOW_HEAD = "baidu_live_zhibo_guanzhu_head";
     public static final String SOURCE_BAIDU_LIVE_RECOMMEND_BANNER = "baidu_live_recommend_banner";
     public static final String SOURCE_BAIDU_LIVE_TOP_PLAY = "baidu_live_top_play";
+    public static final String SOURCE_CHANNEL_BANNER = "home_page_channel_banner";
     public static final String SOURCE_FRS_LIVE_CARD_ = "frs_live_";
     public static final String SOURCE_FRS_LIVE_CARD_TAB = "frs_tab_live_card";
     public static final String SOURCE_FRS_LIVE_HEAD_ = "frs_feed_head_";
+    public static final String SOURCE_FRS_SERVICE_AREA = "frs_service_area";
     public static final String SOURCE_HOME_CONCERN_LIVE_HEAD = "home_guanzhu_live_head";
     public static final String SOURCE_HOME_CONCERN_TUWEN_HEAD = "home_guanzhu_tuwen_head";
     public static final String SOURCE_HOME_CONCERN_VIDEO_HEAD = "home_guanzhu_video_head";
@@ -63,10 +67,34 @@ public class YYLiveUtil {
         }
     }
 
+    public static void addYyExtData(StatisticItem statisticItem, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65537, null, statisticItem, str) == null) {
+            try {
+                Uri parse = Uri.parse(str);
+                String queryParameter = parse.getQueryParameter("sid");
+                String queryParameter2 = parse.getQueryParameter("ssid");
+                String queryParameter3 = parse.getQueryParameter(TiebaStatic.YYParams.YYUID);
+                String queryParameter4 = parse.getQueryParameter("templateId");
+                String queryParameter5 = parse.getQueryParameter("liveId");
+                YyExtData yyExtData = new YyExtData();
+                yyExtData.mSid = queryParameter;
+                yyExtData.mSsid = queryParameter2;
+                yyExtData.mYyUid = queryParameter3;
+                yyExtData.liveId = queryParameter5;
+                yyExtData.mTemplateId = queryParameter4;
+                TiebaStaticHelper.addYYParam(statisticItem, yyExtData);
+                statisticItem.param(TiebaStatic.Params.OBJ_PARAM2, 2);
+                statisticItem.param(TiebaStatic.Params.OBJ_PARAM3, TiebaStatic.YYValues.YY_LIVE);
+            } catch (Exception unused) {
+            }
+        }
+    }
+
     public static int calculateLiveType(AlaInfoData alaInfoData) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, alaInfoData)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, alaInfoData)) == null) {
             int i2 = 5;
             if (alaInfoData == null) {
                 return 5;
@@ -86,7 +114,7 @@ public class YYLiveUtil {
     public static void copyLiveIdToYYExtData(AlaInfoData alaInfoData) {
         YyExtData yyExtData;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65539, null, alaInfoData) == null) || alaInfoData == null || (yyExtData = alaInfoData.mYyExtData) == null || !TextUtils.isEmpty(yyExtData.liveId)) {
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, alaInfoData) == null) || alaInfoData == null || (yyExtData = alaInfoData.mYyExtData) == null || !TextUtils.isEmpty(yyExtData.liveId)) {
             return;
         }
         alaInfoData.mYyExtData.liveId = String.valueOf(alaInfoData.live_id);
@@ -95,7 +123,7 @@ public class YYLiveUtil {
     public static boolean isLiveRoom(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, str)) == null) {
             if (TextUtils.isEmpty(str)) {
                 return false;
             }
@@ -104,9 +132,15 @@ public class YYLiveUtil {
         return invokeL.booleanValue;
     }
 
+    public static boolean isYYLiveLink(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, str)) == null) ? !TextUtils.isEmpty(str) && str.contains("bdtiebalive://video/yylive") : invokeL.booleanValue;
+    }
+
     public static void jumpToYYLiveRoom(TbPageContext tbPageContext, YyExtData yyExtData, String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(AdIconUtil.AD_TEXT_ID, null, tbPageContext, yyExtData, str) == null) || yyExtData == null) {
+        if (!(interceptable == null || interceptable.invokeLLL(65543, null, tbPageContext, yyExtData, str) == null) || yyExtData == null) {
             return;
         }
         jumpToYYLiveRoom(tbPageContext, yyExtData.mSid, yyExtData.mSsid, yyExtData.mTemplateId, "", str);
@@ -114,7 +148,7 @@ public class YYLiveUtil {
 
     public static void jumpYYLiveRoom(TbPageContext tbPageContext, AlaInfoData alaInfoData) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65544, null, tbPageContext, alaInfoData) == null) && alaInfoData != null && alaInfoData.isLegalYYLiveData()) {
+        if ((interceptable == null || interceptable.invokeLL(65546, null, tbPageContext, alaInfoData) == null) && alaInfoData != null && alaInfoData.isLegalYYLiveData()) {
             YyExtData yyExtData = alaInfoData.mYyExtData;
             String str = yyExtData.mSid;
             String str2 = yyExtData.mSsid;
@@ -126,7 +160,7 @@ public class YYLiveUtil {
     public static String makeJumpToYYLiveRoomUrl(String str, String str2, String str3, String str4, String str5) {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65546, null, str, str2, str3, str4, str5)) == null) {
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65548, null, str, str2, str3, str4, str5)) == null) {
             return UrlSchemaHelper.SCHEMA_YY_LIVE_JOIN_LIVE_PREFIX + "sid=" + str + "&ssid=" + str2 + "&templateId=" + str3 + "&roomId=" + str4 + "&source=" + str5;
         }
         return (String) invokeLLLLL.objValue;
@@ -134,21 +168,21 @@ public class YYLiveUtil {
 
     public static void jumpToYYLiveRoom(TbPageContext tbPageContext, String str, String str2, String str3, String str4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(AdIconUtil.BAIDU_LOGO_ID, null, tbPageContext, str, str2, str3, str4) == null) {
+        if (interceptable == null || interceptable.invokeLLLLL(65544, null, tbPageContext, str, str2, str3, str4) == null) {
             jumpToYYLiveRoom(tbPageContext, str, str2, str3, str4, SOURCE_NOT_DEFINE);
         }
     }
 
     public static void jumpToYYLiveRoom(TbPageContext tbPageContext, String str, String str2, String str3, String str4, String str5) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65543, null, new Object[]{tbPageContext, str, str2, str3, str4, str5}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65545, null, new Object[]{tbPageContext, str, str2, str3, str4, str5}) == null) {
             UrlManager.getInstance().dealOneLink(tbPageContext, new String[]{UrlSchemaHelper.SCHEMA_YY_LIVE_JOIN_LIVE_PREFIX + "sid=" + str + "&ssid=" + str2 + "&templateId=" + str3 + "&roomId=" + str4 + "&source=" + str5});
         }
     }
 
     public static void jumpYYLiveRoom(TbPageContext tbPageContext, AlaInfoData alaInfoData, String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(65545, null, tbPageContext, alaInfoData, str) == null) && alaInfoData != null && alaInfoData.isLegalYYLiveData()) {
+        if ((interceptable == null || interceptable.invokeLLL(65547, null, tbPageContext, alaInfoData, str) == null) && alaInfoData != null && alaInfoData.isLegalYYLiveData()) {
             YyExtData yyExtData = alaInfoData.mYyExtData;
             String str2 = yyExtData.mSid;
             String str3 = yyExtData.mSsid;
@@ -160,7 +194,7 @@ public class YYLiveUtil {
     public static int calculateLiveType(YyExtData yyExtData) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, yyExtData)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, yyExtData)) == null) {
             if (yyExtData != null) {
                 return yyExtData.isYyGame ? 3 : 2;
             }

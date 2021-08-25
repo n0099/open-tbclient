@@ -1,7 +1,7 @@
 package com.baidu.tieba.mainentrance;
 
-import c.a.p0.t1.b;
-import c.a.p0.t1.c;
+import c.a.q0.t1.b;
+import c.a.q0.t1.c;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;

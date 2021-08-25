@@ -33,7 +33,7 @@ public class WorkAddTopicSwitch extends a {
         }
     }
 
-    @Modify(description = "视频中间页插入小熊广告开关")
+    @Modify(description = "作品发布器是否开启话题开关")
     public static boolean isOn() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

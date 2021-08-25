@@ -1,7 +1,7 @@
 package com.baidu.tieba.homepage.video;
 
-import c.a.o0.x0.b;
-import c.a.p0.i3.d0.a;
+import c.a.p0.x0.b;
+import c.a.q0.i3.d0.a;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;

@@ -5,7 +5,7 @@ import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
-import c.a.o0.s.q.c2;
+import c.a.p0.s.q.c2;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -30,10 +30,10 @@ public class d0 extends c implements p<c2>, q {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: i  reason: collision with root package name */
-    public RelativeLayout f3562i;
+    public RelativeLayout f3804i;
 
     /* renamed from: j  reason: collision with root package name */
-    public ImageView f3563j;
+    public ImageView f3805j;
     public FrameLayout k;
     public c2 l;
     public BdUniqueId m;
@@ -49,7 +49,7 @@ public class d0 extends c implements p<c2>, q {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d0 f3564e;
+        public final /* synthetic */ d0 f3806e;
 
         public a(d0 d0Var) {
             Interceptable interceptable = $ic;
@@ -66,17 +66,17 @@ public class d0 extends c implements p<c2>, q {
                     return;
                 }
             }
-            this.f3564e = d0Var;
+            this.f3806e = d0Var;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f3564e.l == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f3806e.l == null) {
                 return;
             }
-            CustomMessage customMessage = new CustomMessage(2921428, this.f3564e.m);
-            CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2921428, this.f3564e.l);
+            CustomMessage customMessage = new CustomMessage(2921428, this.f3806e.m);
+            CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2921428, this.f3806e.l);
             customResponsedMessage.setOrginalMessage(customMessage);
             MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage);
         }
@@ -118,17 +118,17 @@ public class d0 extends c implements p<c2>, q {
         this.p = R.color.CAM_X0111;
         this.r = new a(this);
         this.n = i2;
-        this.f3562i = new RelativeLayout(context);
-        this.f3563j = new ImageView(context);
+        this.f3804i = new RelativeLayout(context);
+        this.f3805j = new ImageView(context);
         FrameLayout frameLayout = new FrameLayout(context);
         this.k = frameLayout;
-        ImageView imageView = this.f3563j;
+        ImageView imageView = this.f3805j;
         int i5 = s;
         frameLayout.addView(imageView, new FrameLayout.LayoutParams(i5, i5));
         this.k.setOnClickListener(this.r);
         l(Align.ALIGN_RIGHT_BOTTOM);
-        this.f3562i.addView(this.k);
-        f(this.f3562i);
+        this.f3804i.addView(this.k);
+        f(this.f3804i);
         g(-1);
         h(new RelativeLayout.LayoutParams(-1, -1));
     }
@@ -167,7 +167,7 @@ public class d0 extends c implements p<c2>, q {
         this.q = align;
     }
 
-    public void m(c.a.o0.s.q.a aVar) {
+    public void m(c.a.p0.s.q.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
             l(Align.ALIGN_RIGHT_TOP);
@@ -193,7 +193,7 @@ public class d0 extends c implements p<c2>, q {
                 this.k.setVisibility(8);
             } else {
                 this.k.setVisibility(0);
-                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f3563j, this.o, this.p, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f3805j, this.o, this.p, SvgManager.SvgResourceStateType.NORMAL_PRESS);
             }
         }
     }
@@ -202,7 +202,7 @@ public class d0 extends c implements p<c2>, q {
     public void onChangeSkinType(TbPageContext tbPageContext, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048581, this, tbPageContext, i2) == null) {
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f3563j, this.o, this.p, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f3805j, this.o, this.p, SvgManager.SvgResourceStateType.NORMAL_PRESS);
         }
     }
 

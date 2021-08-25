@@ -2,7 +2,7 @@ package com.baidu.tbadk.core.util;
 
 import android.content.Context;
 import c.a.e.e.p.a;
-import c.a.p0.i3.h0.n;
+import c.a.q0.i3.i0.n;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;

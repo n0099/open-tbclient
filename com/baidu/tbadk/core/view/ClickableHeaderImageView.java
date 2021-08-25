@@ -4,8 +4,8 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
 import c.a.e.e.m.b;
-import c.a.o0.n.d;
-import c.a.o0.s.q.c2;
+import c.a.p0.n.d;
+import c.a.p0.s.q.c2;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.StringUtils;
@@ -35,7 +35,7 @@ public class ClickableHeaderImageView extends HeadImageView {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ClickableHeaderImageView f47391e;
+        public final /* synthetic */ ClickableHeaderImageView f47497e;
 
         public a(ClickableHeaderImageView clickableHeaderImageView) {
             Interceptable interceptable = $ic;
@@ -52,26 +52,26 @@ public class ClickableHeaderImageView extends HeadImageView {
                     return;
                 }
             }
-            this.f47391e = clickableHeaderImageView;
+            this.f47497e = clickableHeaderImageView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                d dVar = this.f47391e.mInterceptClickEventListener;
-                if ((dVar == null || !dVar.onClickEvent(view)) && this.f47391e.r0 != null) {
-                    MetaData t = this.f47391e.s0 ? this.f47391e.r0.t1().t() : this.f47391e.r0.J();
+                d dVar = this.f47497e.mInterceptClickEventListener;
+                if ((dVar == null || !dVar.onClickEvent(view)) && this.f47497e.r0 != null) {
+                    MetaData t = this.f47497e.s0 ? this.f47497e.r0.t1().t() : this.f47497e.r0.J();
                     if (t == null || StringUtils.isNull(t.getName_show()) || StringUtils.isNull(t.getUserId())) {
                         return;
                     }
                     long f2 = b.f(t.getUserId(), 0L);
-                    PersonPolymericActivityConfig createNormalConfig = new PersonPolymericActivityConfig(this.f47391e.getContext()).createNormalConfig(f2, f2 == b.f(TbadkCoreApplication.getCurrentAccount(), 0L), t.isBigV());
-                    createNormalConfig.setSourceTid(this.f47391e.r0.q1());
-                    createNormalConfig.setSourceNid(this.f47391e.r0.D0());
+                    PersonPolymericActivityConfig createNormalConfig = new PersonPolymericActivityConfig(this.f47497e.getContext()).createNormalConfig(f2, f2 == b.f(TbadkCoreApplication.getCurrentAccount(), 0L), t.isBigV());
+                    createNormalConfig.setSourceTid(this.f47497e.r0.q1());
+                    createNormalConfig.setSourceNid(this.f47497e.r0.D0());
                     MessageManager.getInstance().sendMessage(new CustomMessage(2002001, createNormalConfig));
-                    if (this.f47391e.t0 != null) {
-                        this.f47391e.t0.onClick(view);
+                    if (this.f47497e.t0 != null) {
+                        this.f47497e.t0.onClick(view);
                     }
                 }
             }

@@ -15,7 +15,7 @@ import androidx.core.view.InputDeviceCompat;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
-import c.a.o0.s.s.a;
+import c.a.p0.s.s.a;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -72,9 +72,9 @@ import kotlin.TuplesKt;
 import kotlin.TypeCastException;
 import kotlin.collections.MapsKt__MapsJVMKt;
 import kotlin.jvm.internal.Intrinsics;
-@Metadata(bv = {1, 0, 3}, d1 = {"\u0000Ò\u0001\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u0002\n\u0002\b\u0006\n\u0002\u0010\b\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000b\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\b\b\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\b\u000b\n\u0002\u0018\u0002\n\u0002\b\u0010\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0007\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\r\n\u0002\u0018\u0002\n\u0002\b\t\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\b\u0012\n\u0002\u0018\u0002\n\u0002\b\u000b\u0018\u00002\u00020\u00012\u00020\u0002B\b¢\u0006\u0005\bÀ\u0001\u0010\u0005J\u000f\u0010\u0004\u001a\u00020\u0003H\u0002¢\u0006\u0004\b\u0004\u0010\u0005J\r\u0010\u0006\u001a\u00020\u0003¢\u0006\u0004\b\u0006\u0010\u0005J\u000f\u0010\u0007\u001a\u00020\u0003H\u0002¢\u0006\u0004\b\u0007\u0010\u0005J\u000f\u0010\b\u001a\u00020\u0003H\u0002¢\u0006\u0004\b\b\u0010\u0005J\r\u0010\t\u001a\u00020\u0003¢\u0006\u0004\b\t\u0010\u0005J\u0017\u0010\f\u001a\u00020\u00032\u0006\u0010\u000b\u001a\u00020\nH\u0014¢\u0006\u0004\b\f\u0010\rJ\u0019\u0010\u0010\u001a\u00020\u00032\b\u0010\u000f\u001a\u0004\u0018\u00010\u000eH\u0014¢\u0006\u0004\b\u0010\u0010\u0011J\u000f\u0010\u0012\u001a\u00020\u0003H\u0014¢\u0006\u0004\b\u0012\u0010\u0005J!\u0010\u0017\u001a\u00020\u00162\u0006\u0010\u0013\u001a\u00020\n2\b\u0010\u0015\u001a\u0004\u0018\u00010\u0014H\u0016¢\u0006\u0004\b\u0017\u0010\u0018J\r\u0010\u0019\u001a\u00020\u0003¢\u0006\u0004\b\u0019\u0010\u0005J\u000f\u0010\u001a\u001a\u00020\u0003H\u0016¢\u0006\u0004\b\u001a\u0010\u0005J\u0017\u0010\u001c\u001a\u00020\u00032\u0006\u0010\u001b\u001a\u00020\nH\u0016¢\u0006\u0004\b\u001c\u0010\rJ\u0019\u0010\u001f\u001a\u00020\u00032\b\u0010\u001e\u001a\u0004\u0018\u00010\u001dH\u0014¢\u0006\u0004\b\u001f\u0010 J\r\u0010!\u001a\u00020\u0003¢\u0006\u0004\b!\u0010\u0005J\u000f\u0010\"\u001a\u00020\u0003H\u0002¢\u0006\u0004\b\"\u0010\u0005J\u000f\u0010#\u001a\u00020\u0003H\u0002¢\u0006\u0004\b#\u0010\u0005J\u000f\u0010$\u001a\u00020\u0003H\u0002¢\u0006\u0004\b$\u0010\u0005J\r\u0010%\u001a\u00020\u0003¢\u0006\u0004\b%\u0010\u0005R\"\u0010'\u001a\u00020&8\u0006@\u0006X\u0086.¢\u0006\u0012\n\u0004\b'\u0010(\u001a\u0004\b)\u0010*\"\u0004\b+\u0010,R\"\u0010.\u001a\u00020-8\u0006@\u0006X\u0086.¢\u0006\u0012\n\u0004\b.\u0010/\u001a\u0004\b0\u00101\"\u0004\b2\u00103R\"\u00104\u001a\u00020-8\u0006@\u0006X\u0086.¢\u0006\u0012\n\u0004\b4\u0010/\u001a\u0004\b5\u00101\"\u0004\b6\u00103R\u0016\u00107\u001a\u00020\n8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b7\u00108R\"\u0010:\u001a\u0002098\u0006@\u0006X\u0086.¢\u0006\u0012\n\u0004\b:\u0010;\u001a\u0004\b<\u0010=\"\u0004\b>\u0010?R\"\u0010@\u001a\u0002098\u0006@\u0006X\u0086.¢\u0006\u0012\n\u0004\b@\u0010;\u001a\u0004\bA\u0010=\"\u0004\bB\u0010?R\"\u0010C\u001a\u00020\u00168\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\bC\u0010D\u001a\u0004\bE\u0010F\"\u0004\bG\u0010HR\u0016\u0010I\u001a\u00020\u00168\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bI\u0010DR\u0016\u0010K\u001a\u00020J8\u0002@\u0002X\u0082.¢\u0006\u0006\n\u0004\bK\u0010LR\u0016\u0010N\u001a\u00020M8\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\bN\u0010OR\u0016\u0010Q\u001a\u00020P8\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\bQ\u0010RR\u0016\u0010S\u001a\u00020P8\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\bS\u0010RR\u0016\u0010T\u001a\u00020P8\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\bT\u0010RR\u0016\u0010U\u001a\u00020P8\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\bU\u0010RR\u0016\u0010V\u001a\u00020P8\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\bV\u0010RR\u0016\u0010W\u001a\u00020P8\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\bW\u0010RR\u0016\u0010Y\u001a\u00020X8\u0002@\u0002X\u0082.¢\u0006\u0006\n\u0004\bY\u0010ZR\"\u0010\\\u001a\u00020[8\u0006@\u0006X\u0086.¢\u0006\u0012\n\u0004\b\\\u0010]\u001a\u0004\b^\u0010_\"\u0004\b`\u0010aR\u0016\u0010b\u001a\u00020P8\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\bb\u0010RR\"\u0010c\u001a\u00020&8\u0006@\u0006X\u0086.¢\u0006\u0012\n\u0004\bc\u0010(\u001a\u0004\bd\u0010*\"\u0004\be\u0010,R\"\u0010f\u001a\u00020-8\u0006@\u0006X\u0086.¢\u0006\u0012\n\u0004\bf\u0010/\u001a\u0004\bg\u00101\"\u0004\bh\u00103R\"\u0010j\u001a\u00020i8\u0006@\u0006X\u0086.¢\u0006\u0012\n\u0004\bj\u0010k\u001a\u0004\bl\u0010m\"\u0004\bn\u0010oR\"\u0010p\u001a\u00020-8\u0006@\u0006X\u0086.¢\u0006\u0012\n\u0004\bp\u0010/\u001a\u0004\bq\u00101\"\u0004\br\u00103R\"\u0010t\u001a\u00020s8\u0006@\u0006X\u0086.¢\u0006\u0012\n\u0004\bt\u0010u\u001a\u0004\bv\u0010w\"\u0004\bx\u0010yR#\u0010{\u001a\u00020z8\u0006@\u0006X\u0086.¢\u0006\u0013\n\u0004\b{\u0010|\u001a\u0004\b}\u0010~\"\u0005\b\u007f\u0010\u0080\u0001R\u001c\u0010\u0082\u0001\u001a\u0005\u0018\u00010\u0081\u00018\u0002@\u0002X\u0082\u000e¢\u0006\b\n\u0006\b\u0082\u0001\u0010\u0083\u0001R\u001c\u0010\u0085\u0001\u001a\u0005\u0018\u00010\u0084\u00018\u0002@\u0002X\u0082\u000e¢\u0006\b\n\u0006\b\u0085\u0001\u0010\u0086\u0001R*\u0010\u0088\u0001\u001a\u00030\u0087\u00018\u0006@\u0006X\u0086.¢\u0006\u0018\n\u0006\b\u0088\u0001\u0010\u0089\u0001\u001a\u0006\b\u008a\u0001\u0010\u008b\u0001\"\u0006\b\u008c\u0001\u0010\u008d\u0001R*\u0010\u008f\u0001\u001a\u00030\u008e\u00018\u0006@\u0006X\u0086.¢\u0006\u0018\n\u0006\b\u008f\u0001\u0010\u0090\u0001\u001a\u0006\b\u0091\u0001\u0010\u0092\u0001\"\u0006\b\u0093\u0001\u0010\u0094\u0001R*\u0010\u0096\u0001\u001a\u00030\u0095\u00018\u0006@\u0006X\u0086.¢\u0006\u0018\n\u0006\b\u0096\u0001\u0010\u0097\u0001\u001a\u0006\b\u0098\u0001\u0010\u0099\u0001\"\u0006\b\u009a\u0001\u0010\u009b\u0001R*\u0010\u009d\u0001\u001a\u00030\u009c\u00018\u0006@\u0006X\u0086.¢\u0006\u0018\n\u0006\b\u009d\u0001\u0010\u009e\u0001\u001a\u0006\b\u009f\u0001\u0010 \u0001\"\u0006\b¡\u0001\u0010¢\u0001R*\u0010¤\u0001\u001a\u00030£\u00018\u0006@\u0006X\u0086.¢\u0006\u0018\n\u0006\b¤\u0001\u0010¥\u0001\u001a\u0006\b¦\u0001\u0010§\u0001\"\u0006\b¨\u0001\u0010©\u0001R&\u0010ª\u0001\u001a\u00020-8\u0006@\u0006X\u0086.¢\u0006\u0015\n\u0005\bª\u0001\u0010/\u001a\u0005\b«\u0001\u00101\"\u0005\b¬\u0001\u00103R&\u0010\u00ad\u0001\u001a\u00020-8\u0006@\u0006X\u0086.¢\u0006\u0015\n\u0005\b\u00ad\u0001\u0010/\u001a\u0005\b®\u0001\u00101\"\u0005\b¯\u0001\u00103R&\u0010°\u0001\u001a\u00020&8\u0006@\u0006X\u0086.¢\u0006\u0015\n\u0005\b°\u0001\u0010(\u001a\u0005\b±\u0001\u0010*\"\u0005\b²\u0001\u0010,R&\u0010³\u0001\u001a\u00020i8\u0006@\u0006X\u0086.¢\u0006\u0015\n\u0005\b³\u0001\u0010k\u001a\u0005\b´\u0001\u0010m\"\u0005\bµ\u0001\u0010oR*\u0010·\u0001\u001a\u00030¶\u00018\u0006@\u0006X\u0086.¢\u0006\u0018\n\u0006\b·\u0001\u0010¸\u0001\u001a\u0006\b¹\u0001\u0010º\u0001\"\u0006\b»\u0001\u0010¼\u0001R'\u0010½\u0001\u001a\u00020z8\u0006@\u0006X\u0086.¢\u0006\u0016\n\u0005\b½\u0001\u0010|\u001a\u0005\b¾\u0001\u0010~\"\u0006\b¿\u0001\u0010\u0080\u0001¨\u0006Á\u0001"}, d2 = {"Lcom/baidu/tieba/write/write/work/WorkPublishActivity;", "Lc/a/p0/b4/u/q/b/a;", "Lcom/baidu/tbadk/core/BaseFragmentActivity;", "", "clearDraft", "()V", "doPost", "goToSelectLocationActivity", "initNav", "initUI", "", WriteMulitImageActivityConfig.SKIN_TYPE, "onChangeSkinType", "(I)V", "Landroid/os/Bundle;", "savedInstanceState", "onCreate", "(Landroid/os/Bundle;)V", MissionEvent.MESSAGE_DESTROY, "keyCode", "Landroid/view/KeyEvent;", "event", "", "onKeyDown", "(ILandroid/view/KeyEvent;)Z", "onLocViewClickedInInitState", "onMixFail", "status", "onMixStateChanged", "Landroid/content/Intent;", "intent", "onNewIntent", "(Landroid/content/Intent;)V", "popupSaveDraftDialog", "prepareIntent", "processSaveDraft", "showLocPermissionDialog", "stopTask", "Landroid/view/View;", "contentBottomLine", "Landroid/view/View;", "getContentBottomLine", "()Landroid/view/View;", "setContentBottomLine", "(Landroid/view/View;)V", "Landroid/widget/TextView;", "counterContent", "Landroid/widget/TextView;", "getCounterContent", "()Landroid/widget/TextView;", "setCounterContent", "(Landroid/widget/TextView;)V", "counterTitle", "getCounterTitle", "setCounterTitle", "draftType", "I", "Landroid/widget/EditText;", "edtContent", "Landroid/widget/EditText;", "getEdtContent", "()Landroid/widget/EditText;", "setEdtContent", "(Landroid/widget/EditText;)V", "edtTitle", "getEdtTitle", "setEdtTitle", "hasClickedTitle", "Z", "getHasClickedTitle", "()Z", "setHasClickedTitle", "(Z)V", "isDraftData", "Lcom/baidu/tieba/tbadkCore/location/LocationModel;", "mLocationModel", "Lcom/baidu/tieba/tbadkCore/location/LocationModel;", "Lcom/baidu/tieba/tbadkCore/location/LocationModel$OnLocationCallBack;", "mOnLocationCallBack", "Lcom/baidu/tieba/tbadkCore/location/LocationModel$OnLocationCallBack;", "Lcom/baidu/adp/framework/listener/CustomMessageListener;", "mOnSelectClassListener", "Lcom/baidu/adp/framework/listener/CustomMessageListener;", "mOnSelectLocationListener", "mOnSelectTagListener", "mOnSelectTopicListener", "mSelectForumListener", "mShowCanNotSelectTagToastListener", "Lcom/baidu/tieba/tbadkCore/writeModel/AsyncWriteHelper;", "mWriteModel", "Lcom/baidu/tieba/tbadkCore/writeModel/AsyncWriteHelper;", "Lcom/baidu/tieba/write/write/work/videoview/WorkPublishMixVideoView;", "mixVideoView", "Lcom/baidu/tieba/write/write/work/videoview/WorkPublishMixVideoView;", "getMixVideoView", "()Lcom/baidu/tieba/write/write/work/videoview/WorkPublishMixVideoView;", "setMixVideoView", "(Lcom/baidu/tieba/write/write/work/videoview/WorkPublishMixVideoView;)V", "muxerSuccListener", "navBack", "getNavBack", "setNavBack", "navCenterText", "getNavCenterText", "setNavCenterText", "Landroid/widget/ImageView;", "navCenterTip", "Landroid/widget/ImageView;", "getNavCenterTip", "()Landroid/widget/ImageView;", "setNavCenterTip", "(Landroid/widget/ImageView;)V", "navPost", "getNavPost", "setNavPost", "Lcom/baidu/tbadk/core/view/NavigationBar;", "navigationBar", "Lcom/baidu/tbadk/core/view/NavigationBar;", "getNavigationBar", "()Lcom/baidu/tbadk/core/view/NavigationBar;", "setNavigationBar", "(Lcom/baidu/tbadk/core/view/NavigationBar;)V", "Landroid/view/ViewGroup;", "rootView", "Landroid/view/ViewGroup;", "getRootView", "()Landroid/view/ViewGroup;", "setRootView", "(Landroid/view/ViewGroup;)V", "Lcom/baidu/tbadk/core/dialog/PopupDialog;", "saveDraftDialog", "Lcom/baidu/tbadk/core/dialog/PopupDialog;", "Lcom/baidu/tbadk/core/view/SaveDraftDialogView;", "saveDraftDialogView", "Lcom/baidu/tbadk/core/view/SaveDraftDialogView;", "Lcom/baidu/tieba/write/write/work/selectview/SelectBarView;", "selectBarView", "Lcom/baidu/tieba/write/write/work/selectview/SelectBarView;", "getSelectBarView", "()Lcom/baidu/tieba/write/write/work/selectview/SelectBarView;", "setSelectBarView", "(Lcom/baidu/tieba/write/write/work/selectview/SelectBarView;)V", "Lcom/baidu/tieba/write/write/work/selectview/SelectClassView;", "selectClassView", "Lcom/baidu/tieba/write/write/work/selectview/SelectClassView;", "getSelectClassView", "()Lcom/baidu/tieba/write/write/work/selectview/SelectClassView;", "setSelectClassView", "(Lcom/baidu/tieba/write/write/work/selectview/SelectClassView;)V", "Lcom/baidu/tieba/write/write/work/selectview/SelectPosView;", "selectPosView", "Lcom/baidu/tieba/write/write/work/selectview/SelectPosView;", "getSelectPosView", "()Lcom/baidu/tieba/write/write/work/selectview/SelectPosView;", "setSelectPosView", "(Lcom/baidu/tieba/write/write/work/selectview/SelectPosView;)V", "Lcom/baidu/tieba/write/write/work/selectview/SelectTagView;", "selectTagView", "Lcom/baidu/tieba/write/write/work/selectview/SelectTagView;", "getSelectTagView", "()Lcom/baidu/tieba/write/write/work/selectview/SelectTagView;", "setSelectTagView", "(Lcom/baidu/tieba/write/write/work/selectview/SelectTagView;)V", "Lcom/baidu/tieba/write/write/work/selectview/SelectTopicView;", "selectTopicView", "Lcom/baidu/tieba/write/write/work/selectview/SelectTopicView;", "getSelectTopicView", "()Lcom/baidu/tieba/write/write/work/selectview/SelectTopicView;", "setSelectTopicView", "(Lcom/baidu/tieba/write/write/work/selectview/SelectTopicView;)V", "showContent", "getShowContent", "setShowContent", "showTitle", "getShowTitle", "setShowTitle", "titleBottomLine", "getTitleBottomLine", "setTitleBottomLine", "titleSign", "getTitleSign", "setTitleSign", "Lcom/baidu/tieba/write/write/work/model/WorkPublishViewModel;", "viewModel", "Lcom/baidu/tieba/write/write/work/model/WorkPublishViewModel;", "getViewModel", "()Lcom/baidu/tieba/write/write/work/model/WorkPublishViewModel;", "setViewModel", "(Lcom/baidu/tieba/write/write/work/model/WorkPublishViewModel;)V", "workPublishBg", "getWorkPublishBg", "setWorkPublishBg", "<init>", "write_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+@Metadata(bv = {1, 0, 3}, d1 = {"\u0000Ò\u0001\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u0002\n\u0002\b\u0006\n\u0002\u0010\b\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000b\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\b\b\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\b\u000b\n\u0002\u0018\u0002\n\u0002\b\u0010\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0007\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\r\n\u0002\u0018\u0002\n\u0002\b\t\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\b\u0012\n\u0002\u0018\u0002\n\u0002\b\u000b\u0018\u00002\u00020\u00012\u00020\u0002B\b¢\u0006\u0005\bÀ\u0001\u0010\u0005J\u000f\u0010\u0004\u001a\u00020\u0003H\u0002¢\u0006\u0004\b\u0004\u0010\u0005J\r\u0010\u0006\u001a\u00020\u0003¢\u0006\u0004\b\u0006\u0010\u0005J\u000f\u0010\u0007\u001a\u00020\u0003H\u0002¢\u0006\u0004\b\u0007\u0010\u0005J\u000f\u0010\b\u001a\u00020\u0003H\u0002¢\u0006\u0004\b\b\u0010\u0005J\r\u0010\t\u001a\u00020\u0003¢\u0006\u0004\b\t\u0010\u0005J\u0017\u0010\f\u001a\u00020\u00032\u0006\u0010\u000b\u001a\u00020\nH\u0014¢\u0006\u0004\b\f\u0010\rJ\u0019\u0010\u0010\u001a\u00020\u00032\b\u0010\u000f\u001a\u0004\u0018\u00010\u000eH\u0014¢\u0006\u0004\b\u0010\u0010\u0011J\u000f\u0010\u0012\u001a\u00020\u0003H\u0014¢\u0006\u0004\b\u0012\u0010\u0005J!\u0010\u0017\u001a\u00020\u00162\u0006\u0010\u0013\u001a\u00020\n2\b\u0010\u0015\u001a\u0004\u0018\u00010\u0014H\u0016¢\u0006\u0004\b\u0017\u0010\u0018J\r\u0010\u0019\u001a\u00020\u0003¢\u0006\u0004\b\u0019\u0010\u0005J\u000f\u0010\u001a\u001a\u00020\u0003H\u0016¢\u0006\u0004\b\u001a\u0010\u0005J\u0017\u0010\u001c\u001a\u00020\u00032\u0006\u0010\u001b\u001a\u00020\nH\u0016¢\u0006\u0004\b\u001c\u0010\rJ\u0019\u0010\u001f\u001a\u00020\u00032\b\u0010\u001e\u001a\u0004\u0018\u00010\u001dH\u0014¢\u0006\u0004\b\u001f\u0010 J\r\u0010!\u001a\u00020\u0003¢\u0006\u0004\b!\u0010\u0005J\u000f\u0010\"\u001a\u00020\u0003H\u0002¢\u0006\u0004\b\"\u0010\u0005J\u000f\u0010#\u001a\u00020\u0003H\u0002¢\u0006\u0004\b#\u0010\u0005J\u000f\u0010$\u001a\u00020\u0003H\u0002¢\u0006\u0004\b$\u0010\u0005J\r\u0010%\u001a\u00020\u0003¢\u0006\u0004\b%\u0010\u0005R\"\u0010'\u001a\u00020&8\u0006@\u0006X\u0086.¢\u0006\u0012\n\u0004\b'\u0010(\u001a\u0004\b)\u0010*\"\u0004\b+\u0010,R\"\u0010.\u001a\u00020-8\u0006@\u0006X\u0086.¢\u0006\u0012\n\u0004\b.\u0010/\u001a\u0004\b0\u00101\"\u0004\b2\u00103R\"\u00104\u001a\u00020-8\u0006@\u0006X\u0086.¢\u0006\u0012\n\u0004\b4\u0010/\u001a\u0004\b5\u00101\"\u0004\b6\u00103R\u0016\u00107\u001a\u00020\n8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b7\u00108R\"\u0010:\u001a\u0002098\u0006@\u0006X\u0086.¢\u0006\u0012\n\u0004\b:\u0010;\u001a\u0004\b<\u0010=\"\u0004\b>\u0010?R\"\u0010@\u001a\u0002098\u0006@\u0006X\u0086.¢\u0006\u0012\n\u0004\b@\u0010;\u001a\u0004\bA\u0010=\"\u0004\bB\u0010?R\"\u0010C\u001a\u00020\u00168\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\bC\u0010D\u001a\u0004\bE\u0010F\"\u0004\bG\u0010HR\u0016\u0010I\u001a\u00020\u00168\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bI\u0010DR\u0016\u0010K\u001a\u00020J8\u0002@\u0002X\u0082.¢\u0006\u0006\n\u0004\bK\u0010LR\u0016\u0010N\u001a\u00020M8\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\bN\u0010OR\u0016\u0010Q\u001a\u00020P8\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\bQ\u0010RR\u0016\u0010S\u001a\u00020P8\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\bS\u0010RR\u0016\u0010T\u001a\u00020P8\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\bT\u0010RR\u0016\u0010U\u001a\u00020P8\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\bU\u0010RR\u0016\u0010V\u001a\u00020P8\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\bV\u0010RR\u0016\u0010W\u001a\u00020P8\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\bW\u0010RR\u0016\u0010Y\u001a\u00020X8\u0002@\u0002X\u0082.¢\u0006\u0006\n\u0004\bY\u0010ZR\"\u0010\\\u001a\u00020[8\u0006@\u0006X\u0086.¢\u0006\u0012\n\u0004\b\\\u0010]\u001a\u0004\b^\u0010_\"\u0004\b`\u0010aR\u0016\u0010b\u001a\u00020P8\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\bb\u0010RR\"\u0010c\u001a\u00020&8\u0006@\u0006X\u0086.¢\u0006\u0012\n\u0004\bc\u0010(\u001a\u0004\bd\u0010*\"\u0004\be\u0010,R\"\u0010f\u001a\u00020-8\u0006@\u0006X\u0086.¢\u0006\u0012\n\u0004\bf\u0010/\u001a\u0004\bg\u00101\"\u0004\bh\u00103R\"\u0010j\u001a\u00020i8\u0006@\u0006X\u0086.¢\u0006\u0012\n\u0004\bj\u0010k\u001a\u0004\bl\u0010m\"\u0004\bn\u0010oR\"\u0010p\u001a\u00020-8\u0006@\u0006X\u0086.¢\u0006\u0012\n\u0004\bp\u0010/\u001a\u0004\bq\u00101\"\u0004\br\u00103R\"\u0010t\u001a\u00020s8\u0006@\u0006X\u0086.¢\u0006\u0012\n\u0004\bt\u0010u\u001a\u0004\bv\u0010w\"\u0004\bx\u0010yR#\u0010{\u001a\u00020z8\u0006@\u0006X\u0086.¢\u0006\u0013\n\u0004\b{\u0010|\u001a\u0004\b}\u0010~\"\u0005\b\u007f\u0010\u0080\u0001R\u001c\u0010\u0082\u0001\u001a\u0005\u0018\u00010\u0081\u00018\u0002@\u0002X\u0082\u000e¢\u0006\b\n\u0006\b\u0082\u0001\u0010\u0083\u0001R\u001c\u0010\u0085\u0001\u001a\u0005\u0018\u00010\u0084\u00018\u0002@\u0002X\u0082\u000e¢\u0006\b\n\u0006\b\u0085\u0001\u0010\u0086\u0001R*\u0010\u0088\u0001\u001a\u00030\u0087\u00018\u0006@\u0006X\u0086.¢\u0006\u0018\n\u0006\b\u0088\u0001\u0010\u0089\u0001\u001a\u0006\b\u008a\u0001\u0010\u008b\u0001\"\u0006\b\u008c\u0001\u0010\u008d\u0001R*\u0010\u008f\u0001\u001a\u00030\u008e\u00018\u0006@\u0006X\u0086.¢\u0006\u0018\n\u0006\b\u008f\u0001\u0010\u0090\u0001\u001a\u0006\b\u0091\u0001\u0010\u0092\u0001\"\u0006\b\u0093\u0001\u0010\u0094\u0001R*\u0010\u0096\u0001\u001a\u00030\u0095\u00018\u0006@\u0006X\u0086.¢\u0006\u0018\n\u0006\b\u0096\u0001\u0010\u0097\u0001\u001a\u0006\b\u0098\u0001\u0010\u0099\u0001\"\u0006\b\u009a\u0001\u0010\u009b\u0001R*\u0010\u009d\u0001\u001a\u00030\u009c\u00018\u0006@\u0006X\u0086.¢\u0006\u0018\n\u0006\b\u009d\u0001\u0010\u009e\u0001\u001a\u0006\b\u009f\u0001\u0010 \u0001\"\u0006\b¡\u0001\u0010¢\u0001R*\u0010¤\u0001\u001a\u00030£\u00018\u0006@\u0006X\u0086.¢\u0006\u0018\n\u0006\b¤\u0001\u0010¥\u0001\u001a\u0006\b¦\u0001\u0010§\u0001\"\u0006\b¨\u0001\u0010©\u0001R&\u0010ª\u0001\u001a\u00020-8\u0006@\u0006X\u0086.¢\u0006\u0015\n\u0005\bª\u0001\u0010/\u001a\u0005\b«\u0001\u00101\"\u0005\b¬\u0001\u00103R&\u0010\u00ad\u0001\u001a\u00020-8\u0006@\u0006X\u0086.¢\u0006\u0015\n\u0005\b\u00ad\u0001\u0010/\u001a\u0005\b®\u0001\u00101\"\u0005\b¯\u0001\u00103R&\u0010°\u0001\u001a\u00020&8\u0006@\u0006X\u0086.¢\u0006\u0015\n\u0005\b°\u0001\u0010(\u001a\u0005\b±\u0001\u0010*\"\u0005\b²\u0001\u0010,R&\u0010³\u0001\u001a\u00020i8\u0006@\u0006X\u0086.¢\u0006\u0015\n\u0005\b³\u0001\u0010k\u001a\u0005\b´\u0001\u0010m\"\u0005\bµ\u0001\u0010oR*\u0010·\u0001\u001a\u00030¶\u00018\u0006@\u0006X\u0086.¢\u0006\u0018\n\u0006\b·\u0001\u0010¸\u0001\u001a\u0006\b¹\u0001\u0010º\u0001\"\u0006\b»\u0001\u0010¼\u0001R'\u0010½\u0001\u001a\u00020z8\u0006@\u0006X\u0086.¢\u0006\u0016\n\u0005\b½\u0001\u0010|\u001a\u0005\b¾\u0001\u0010~\"\u0006\b¿\u0001\u0010\u0080\u0001¨\u0006Á\u0001"}, d2 = {"Lcom/baidu/tieba/write/write/work/WorkPublishActivity;", "Lc/a/q0/b4/u/q/b/a;", "Lcom/baidu/tbadk/core/BaseFragmentActivity;", "", "clearDraft", "()V", "doPost", "goToSelectLocationActivity", "initNav", "initUI", "", WriteMulitImageActivityConfig.SKIN_TYPE, "onChangeSkinType", "(I)V", "Landroid/os/Bundle;", "savedInstanceState", "onCreate", "(Landroid/os/Bundle;)V", MissionEvent.MESSAGE_DESTROY, "keyCode", "Landroid/view/KeyEvent;", "event", "", "onKeyDown", "(ILandroid/view/KeyEvent;)Z", "onLocViewClickedInInitState", "onMixFail", "status", "onMixStateChanged", "Landroid/content/Intent;", "intent", "onNewIntent", "(Landroid/content/Intent;)V", "popupSaveDraftDialog", "prepareIntent", "processSaveDraft", "showLocPermissionDialog", "stopTask", "Landroid/view/View;", "contentBottomLine", "Landroid/view/View;", "getContentBottomLine", "()Landroid/view/View;", "setContentBottomLine", "(Landroid/view/View;)V", "Landroid/widget/TextView;", "counterContent", "Landroid/widget/TextView;", "getCounterContent", "()Landroid/widget/TextView;", "setCounterContent", "(Landroid/widget/TextView;)V", "counterTitle", "getCounterTitle", "setCounterTitle", "draftType", "I", "Landroid/widget/EditText;", "edtContent", "Landroid/widget/EditText;", "getEdtContent", "()Landroid/widget/EditText;", "setEdtContent", "(Landroid/widget/EditText;)V", "edtTitle", "getEdtTitle", "setEdtTitle", "hasClickedTitle", "Z", "getHasClickedTitle", "()Z", "setHasClickedTitle", "(Z)V", "isDraftData", "Lcom/baidu/tieba/tbadkCore/location/LocationModel;", "mLocationModel", "Lcom/baidu/tieba/tbadkCore/location/LocationModel;", "Lcom/baidu/tieba/tbadkCore/location/LocationModel$OnLocationCallBack;", "mOnLocationCallBack", "Lcom/baidu/tieba/tbadkCore/location/LocationModel$OnLocationCallBack;", "Lcom/baidu/adp/framework/listener/CustomMessageListener;", "mOnSelectClassListener", "Lcom/baidu/adp/framework/listener/CustomMessageListener;", "mOnSelectLocationListener", "mOnSelectTagListener", "mOnSelectTopicListener", "mSelectForumListener", "mShowCanNotSelectTagToastListener", "Lcom/baidu/tieba/tbadkCore/writeModel/AsyncWriteHelper;", "mWriteModel", "Lcom/baidu/tieba/tbadkCore/writeModel/AsyncWriteHelper;", "Lcom/baidu/tieba/write/write/work/videoview/WorkPublishMixVideoView;", "mixVideoView", "Lcom/baidu/tieba/write/write/work/videoview/WorkPublishMixVideoView;", "getMixVideoView", "()Lcom/baidu/tieba/write/write/work/videoview/WorkPublishMixVideoView;", "setMixVideoView", "(Lcom/baidu/tieba/write/write/work/videoview/WorkPublishMixVideoView;)V", "muxerSuccListener", "navBack", "getNavBack", "setNavBack", "navCenterText", "getNavCenterText", "setNavCenterText", "Landroid/widget/ImageView;", "navCenterTip", "Landroid/widget/ImageView;", "getNavCenterTip", "()Landroid/widget/ImageView;", "setNavCenterTip", "(Landroid/widget/ImageView;)V", "navPost", "getNavPost", "setNavPost", "Lcom/baidu/tbadk/core/view/NavigationBar;", "navigationBar", "Lcom/baidu/tbadk/core/view/NavigationBar;", "getNavigationBar", "()Lcom/baidu/tbadk/core/view/NavigationBar;", "setNavigationBar", "(Lcom/baidu/tbadk/core/view/NavigationBar;)V", "Landroid/view/ViewGroup;", "rootView", "Landroid/view/ViewGroup;", "getRootView", "()Landroid/view/ViewGroup;", "setRootView", "(Landroid/view/ViewGroup;)V", "Lcom/baidu/tbadk/core/dialog/PopupDialog;", "saveDraftDialog", "Lcom/baidu/tbadk/core/dialog/PopupDialog;", "Lcom/baidu/tbadk/core/view/SaveDraftDialogView;", "saveDraftDialogView", "Lcom/baidu/tbadk/core/view/SaveDraftDialogView;", "Lcom/baidu/tieba/write/write/work/selectview/SelectBarView;", "selectBarView", "Lcom/baidu/tieba/write/write/work/selectview/SelectBarView;", "getSelectBarView", "()Lcom/baidu/tieba/write/write/work/selectview/SelectBarView;", "setSelectBarView", "(Lcom/baidu/tieba/write/write/work/selectview/SelectBarView;)V", "Lcom/baidu/tieba/write/write/work/selectview/SelectClassView;", "selectClassView", "Lcom/baidu/tieba/write/write/work/selectview/SelectClassView;", "getSelectClassView", "()Lcom/baidu/tieba/write/write/work/selectview/SelectClassView;", "setSelectClassView", "(Lcom/baidu/tieba/write/write/work/selectview/SelectClassView;)V", "Lcom/baidu/tieba/write/write/work/selectview/SelectPosView;", "selectPosView", "Lcom/baidu/tieba/write/write/work/selectview/SelectPosView;", "getSelectPosView", "()Lcom/baidu/tieba/write/write/work/selectview/SelectPosView;", "setSelectPosView", "(Lcom/baidu/tieba/write/write/work/selectview/SelectPosView;)V", "Lcom/baidu/tieba/write/write/work/selectview/SelectTagView;", "selectTagView", "Lcom/baidu/tieba/write/write/work/selectview/SelectTagView;", "getSelectTagView", "()Lcom/baidu/tieba/write/write/work/selectview/SelectTagView;", "setSelectTagView", "(Lcom/baidu/tieba/write/write/work/selectview/SelectTagView;)V", "Lcom/baidu/tieba/write/write/work/selectview/SelectTopicView;", "selectTopicView", "Lcom/baidu/tieba/write/write/work/selectview/SelectTopicView;", "getSelectTopicView", "()Lcom/baidu/tieba/write/write/work/selectview/SelectTopicView;", "setSelectTopicView", "(Lcom/baidu/tieba/write/write/work/selectview/SelectTopicView;)V", "showContent", "getShowContent", "setShowContent", "showTitle", "getShowTitle", "setShowTitle", "titleBottomLine", "getTitleBottomLine", "setTitleBottomLine", "titleSign", "getTitleSign", "setTitleSign", "Lcom/baidu/tieba/write/write/work/model/WorkPublishViewModel;", "viewModel", "Lcom/baidu/tieba/write/write/work/model/WorkPublishViewModel;", "getViewModel", "()Lcom/baidu/tieba/write/write/work/model/WorkPublishViewModel;", "setViewModel", "(Lcom/baidu/tieba/write/write/work/model/WorkPublishViewModel;)V", "workPublishBg", "getWorkPublishBg", "setWorkPublishBg", "<init>", "write_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
 /* loaded from: classes7.dex */
-public final class WorkPublishActivity extends BaseFragmentActivity implements c.a.p0.b4.u.q.b.a {
+public final class WorkPublishActivity extends BaseFragmentActivity implements c.a.q0.b4.u.q.b.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public View contentBottomLine;
@@ -93,7 +93,7 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements c
     public final CustomMessageListener mOnSelectTopicListener;
     public final CustomMessageListener mSelectForumListener;
     public final CustomMessageListener mShowCanNotSelectTagToastListener;
-    public c.a.p0.i3.q0.g mWriteModel;
+    public c.a.q0.i3.r0.g mWriteModel;
     public WorkPublishMixVideoView mixVideoView;
     public final CustomMessageListener muxerSuccListener;
     public View navBack;
@@ -122,7 +122,7 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements c
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ WorkPublishActivity f58779e;
+        public final /* synthetic */ WorkPublishActivity f58976e;
 
         public a(WorkPublishActivity workPublishActivity) {
             Interceptable interceptable = $ic;
@@ -139,14 +139,14 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements c
                     return;
                 }
             }
-            this.f58779e = workPublishActivity;
+            this.f58976e = workPublishActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public final void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f58779e.popupSaveDraftDialog();
+                this.f58976e.popupSaveDraftDialog();
             }
         }
     }
@@ -156,7 +156,7 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements c
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: e  reason: collision with root package name */
-        public static final a0 f58780e;
+        public static final a0 f58977e;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -172,7 +172,7 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements c
                     return;
                 }
             }
-            f58780e = new a0();
+            f58977e = new a0();
         }
 
         public a0() {
@@ -189,8 +189,8 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements c
             }
         }
 
-        @Override // c.a.o0.s.s.a.e
-        public final void onClick(c.a.o0.s.s.a aVar) {
+        @Override // c.a.p0.s.s.a.e
+        public final void onClick(c.a.p0.s.s.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
                 aVar.dismiss();
@@ -204,7 +204,7 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements c
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ WorkPublishActivity f58781e;
+        public final /* synthetic */ WorkPublishActivity f58978e;
 
         public b(WorkPublishActivity workPublishActivity) {
             Interceptable interceptable = $ic;
@@ -221,14 +221,14 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements c
                     return;
                 }
             }
-            this.f58781e = workPublishActivity;
+            this.f58978e = workPublishActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public final void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f58781e.doPost();
+                this.f58978e.doPost();
             }
         }
     }
@@ -239,7 +239,7 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements c
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ WorkPublishActivity f58782e;
+        public final /* synthetic */ WorkPublishActivity f58979e;
 
         public c(WorkPublishActivity workPublishActivity) {
             Interceptable interceptable = $ic;
@@ -256,14 +256,14 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements c
                     return;
                 }
             }
-            this.f58782e = workPublishActivity;
+            this.f58979e = workPublishActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public final void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                c.a.o0.m.a.u(true, this.f58782e.getBaseContext(), this.f58782e.getString(R.string.work_publish_webview_introduce), TbConfig.URL_WORKS_INFO);
+                c.a.p0.m.a.v(true, this.f58979e.getBaseContext(), this.f58979e.getString(R.string.work_publish_webview_introduce), TbConfig.URL_WORKS_INFO);
             }
         }
     }
@@ -274,7 +274,7 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements c
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ WorkPublishActivity f58783e;
+        public final /* synthetic */ WorkPublishActivity f58980e;
 
         public d(WorkPublishActivity workPublishActivity) {
             Interceptable interceptable = $ic;
@@ -291,7 +291,7 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements c
                     return;
                 }
             }
-            this.f58783e = workPublishActivity;
+            this.f58980e = workPublishActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -300,10 +300,10 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements c
         public final void onChanged(ArrayList<String> it) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, it) == null) {
-                SelectTagView selectTagView = this.f58783e.getSelectTagView();
+                SelectTagView selectTagView = this.f58980e.getSelectTagView();
                 Intrinsics.checkExpressionValueIsNotNull(it, "it");
                 selectTagView.bindData(it);
-                this.f58783e.getSelectClassView().setMIsSelectedTags(!it.isEmpty());
+                this.f58980e.getSelectClassView().setMIsSelectedTags(!it.isEmpty());
             }
         }
     }
@@ -314,7 +314,7 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements c
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ WorkPublishActivity f58784e;
+        public final /* synthetic */ WorkPublishActivity f58981e;
 
         public e(WorkPublishActivity workPublishActivity) {
             Interceptable interceptable = $ic;
@@ -331,7 +331,7 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements c
                     return;
                 }
             }
-            this.f58784e = workPublishActivity;
+            this.f58981e = workPublishActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -340,7 +340,7 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements c
         public final void onChanged(ArrayList<String> it) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, it) == null) {
-                SelectTopicView selectTopicView = this.f58784e.getSelectTopicView();
+                SelectTopicView selectTopicView = this.f58981e.getSelectTopicView();
                 Intrinsics.checkExpressionValueIsNotNull(it, "it");
                 selectTopicView.bindData(it);
             }
@@ -353,7 +353,7 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements c
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ WorkPublishActivity f58785e;
+        public final /* synthetic */ WorkPublishActivity f58982e;
 
         public f(WorkPublishActivity workPublishActivity) {
             Interceptable interceptable = $ic;
@@ -370,7 +370,7 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements c
                     return;
                 }
             }
-            this.f58785e = workPublishActivity;
+            this.f58982e = workPublishActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -379,7 +379,7 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements c
         public final void onChanged(ResponsedSelectLocation responsedSelectLocation) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, responsedSelectLocation) == null) {
-                this.f58785e.getSelectPosView().bindData(responsedSelectLocation);
+                this.f58982e.getSelectPosView().bindData(responsedSelectLocation);
             }
         }
     }
@@ -390,7 +390,7 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements c
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ WorkPublishActivity f58786e;
+        public final /* synthetic */ WorkPublishActivity f58983e;
 
         public g(WorkPublishActivity workPublishActivity) {
             Interceptable interceptable = $ic;
@@ -407,7 +407,7 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements c
                     return;
                 }
             }
-            this.f58786e = workPublishActivity;
+            this.f58983e = workPublishActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -418,7 +418,7 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements c
             if (!(interceptable == null || interceptable.invokeL(1048576, this, videoInfo) == null) || videoInfo == null) {
                 return;
             }
-            this.f58786e.getMixVideoView().setVideoInfo(videoInfo, false);
+            this.f58983e.getMixVideoView().setVideoInfo(videoInfo, false);
         }
     }
 
@@ -428,7 +428,7 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements c
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ WorkPublishActivity f58787e;
+        public final /* synthetic */ WorkPublishActivity f58984e;
 
         public h(WorkPublishActivity workPublishActivity) {
             Interceptable interceptable = $ic;
@@ -445,14 +445,14 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements c
                     return;
                 }
             }
-            this.f58787e = workPublishActivity;
+            this.f58984e = workPublishActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public final void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f58787e.onLocViewClickedInInitState();
+                this.f58984e.onLocViewClickedInInitState();
             }
         }
     }
@@ -463,7 +463,7 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements c
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ WorkPublishActivity f58788e;
+        public final /* synthetic */ WorkPublishActivity f58985e;
 
         /* JADX DEBUG: Incorrect args count in method signature: ()V */
         public i(WorkPublishActivity workPublishActivity) {
@@ -481,7 +481,7 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements c
                     return;
                 }
             }
-            this.f58788e = workPublishActivity;
+            this.f58985e = workPublishActivity;
         }
 
         @Override // android.text.TextWatcher
@@ -503,14 +503,14 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements c
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLIII(Constants.METHOD_SEND_USER_MSG, this, charSequence, i2, i3, i4) == null) {
                 String obj = charSequence.toString();
-                TextView counterTitle = this.f58788e.getCounterTitle();
+                TextView counterTitle = this.f58985e.getCounterTitle();
                 counterTitle.setText("(" + String.valueOf(obj.length()) + "/31)");
                 if (obj.length() == 31) {
-                    this.f58788e.getCounterTitle().setTextColor(SkinManager.getColor(R.color.CAM_X0301));
+                    this.f58985e.getCounterTitle().setTextColor(SkinManager.getColor(R.color.CAM_X0301));
                 } else {
-                    this.f58788e.getCounterTitle().setTextColor(SkinManager.getColor(R.color.CAM_X0105));
+                    this.f58985e.getCounterTitle().setTextColor(SkinManager.getColor(R.color.CAM_X0105));
                 }
-                this.f58788e.getViewModel().updateTitle(obj);
+                this.f58985e.getViewModel().updateTitle(obj);
             }
         }
     }
@@ -521,7 +521,7 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements c
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ WorkPublishActivity f58789e;
+        public final /* synthetic */ WorkPublishActivity f58986e;
 
         public j(WorkPublishActivity workPublishActivity) {
             Interceptable interceptable = $ic;
@@ -538,7 +538,7 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements c
                     return;
                 }
             }
-            this.f58789e = workPublishActivity;
+            this.f58986e = workPublishActivity;
         }
 
         @Override // android.view.View.OnFocusChangeListener
@@ -546,10 +546,10 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements c
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLZ(1048576, this, view, z) == null) {
                 if (z) {
-                    this.f58789e.setHasClickedTitle(true);
-                } else if (!this.f58789e.getHasClickedTitle() || this.f58789e.getViewModel().checkIsTitleLegal()) {
+                    this.f58986e.setHasClickedTitle(true);
+                } else if (!this.f58986e.getHasClickedTitle() || this.f58986e.getViewModel().checkIsTitleLegal()) {
                 } else {
-                    new BdTopToast(this.f58789e).setIcon(false).setContent(this.f58789e.getString(R.string.work_publish_title_too_short)).show(this.f58789e.getRootView());
+                    new BdTopToast(this.f58986e).setIcon(false).setContent(this.f58986e.getString(R.string.work_publish_title_too_short)).show(this.f58986e.getRootView());
                 }
             }
         }
@@ -561,7 +561,7 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements c
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ WorkPublishActivity f58790e;
+        public final /* synthetic */ WorkPublishActivity f58987e;
 
         /* JADX DEBUG: Incorrect args count in method signature: ()V */
         public k(WorkPublishActivity workPublishActivity) {
@@ -579,7 +579,7 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements c
                     return;
                 }
             }
-            this.f58790e = workPublishActivity;
+            this.f58987e = workPublishActivity;
         }
 
         @Override // android.text.TextWatcher
@@ -601,14 +601,14 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements c
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLIII(Constants.METHOD_SEND_USER_MSG, this, charSequence, i2, i3, i4) == null) {
                 String obj = charSequence.toString();
-                TextView counterContent = this.f58790e.getCounterContent();
+                TextView counterContent = this.f58987e.getCounterContent();
                 counterContent.setText("(" + String.valueOf(obj.length()) + "/300)");
                 if (obj.length() == 300) {
-                    this.f58790e.getCounterContent().setTextColor(SkinManager.getColor(R.color.CAM_X0301));
+                    this.f58987e.getCounterContent().setTextColor(SkinManager.getColor(R.color.CAM_X0301));
                 } else {
-                    this.f58790e.getCounterContent().setTextColor(SkinManager.getColor(R.color.CAM_X0105));
+                    this.f58987e.getCounterContent().setTextColor(SkinManager.getColor(R.color.CAM_X0105));
                 }
-                this.f58790e.getViewModel().getDesc().setValue(obj);
+                this.f58987e.getViewModel().getDesc().setValue(obj);
             }
         }
     }
@@ -619,7 +619,7 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements c
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ WorkPublishActivity f58791e;
+        public final /* synthetic */ WorkPublishActivity f58988e;
 
         public l(WorkPublishActivity workPublishActivity) {
             Interceptable interceptable = $ic;
@@ -636,7 +636,7 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements c
                     return;
                 }
             }
-            this.f58791e = workPublishActivity;
+            this.f58988e = workPublishActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -645,13 +645,13 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements c
         public final void onChanged(Boolean bool) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, bool) == null) {
-                if (Intrinsics.areEqual(this.f58791e.getViewModel().isLegal().getValue(), Boolean.FALSE)) {
-                    this.f58791e.getNavPost().setAlpha(0.33f);
-                    this.f58791e.getNavPost().setEnabled(false);
+                if (Intrinsics.areEqual(this.f58988e.getViewModel().isLegal().getValue(), Boolean.FALSE)) {
+                    this.f58988e.getNavPost().setAlpha(0.33f);
+                    this.f58988e.getNavPost().setEnabled(false);
                     return;
                 }
-                this.f58791e.getNavPost().setAlpha(1.0f);
-                this.f58791e.getNavPost().setEnabled(true);
+                this.f58988e.getNavPost().setAlpha(1.0f);
+                this.f58988e.getNavPost().setEnabled(true);
             }
         }
     }
@@ -662,7 +662,7 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements c
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ WorkPublishActivity f58792e;
+        public final /* synthetic */ WorkPublishActivity f58989e;
 
         public m(WorkPublishActivity workPublishActivity) {
             Interceptable interceptable = $ic;
@@ -679,7 +679,7 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements c
                     return;
                 }
             }
-            this.f58792e = workPublishActivity;
+            this.f58989e = workPublishActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -687,10 +687,10 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements c
         /* renamed from: a */
         public final void onChanged(String str) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || str.equals(this.f58792e.getEdtTitle().getText().toString())) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || str.equals(this.f58989e.getEdtTitle().getText().toString())) {
                 return;
             }
-            this.f58792e.getEdtTitle().setText(str);
+            this.f58989e.getEdtTitle().setText(str);
         }
     }
 
@@ -700,7 +700,7 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements c
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ WorkPublishActivity f58793e;
+        public final /* synthetic */ WorkPublishActivity f58990e;
 
         public n(WorkPublishActivity workPublishActivity) {
             Interceptable interceptable = $ic;
@@ -717,7 +717,7 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements c
                     return;
                 }
             }
-            this.f58793e = workPublishActivity;
+            this.f58990e = workPublishActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -725,20 +725,20 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements c
         /* renamed from: a */
         public final void onChanged(String str) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || str == null || str.equals(this.f58793e.getEdtContent().getText().toString())) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || str == null || str.equals(this.f58990e.getEdtContent().getText().toString())) {
                 return;
             }
-            this.f58793e.getEdtContent().setText(str);
+            this.f58990e.getEdtContent().setText(str);
         }
     }
 
     /* loaded from: classes7.dex */
-    public static final class o<T> implements Observer<c.a.o0.u.i> {
+    public static final class o<T> implements Observer<c.a.p0.u.i> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ WorkPublishActivity f58794e;
+        public final /* synthetic */ WorkPublishActivity f58991e;
 
         public o(WorkPublishActivity workPublishActivity) {
             Interceptable interceptable = $ic;
@@ -755,27 +755,27 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements c
                     return;
                 }
             }
-            this.f58794e = workPublishActivity;
+            this.f58991e = workPublishActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // androidx.lifecycle.Observer
         /* renamed from: a */
-        public final void onChanged(c.a.o0.u.i iVar) {
+        public final void onChanged(c.a.p0.u.i iVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, iVar) == null) {
-                this.f58794e.getSelectBarView().bindData(iVar);
+                this.f58991e.getSelectBarView().bindData(iVar);
             }
         }
     }
 
     /* loaded from: classes7.dex */
-    public static final class p<T> implements Observer<c.a.o0.u.n> {
+    public static final class p<T> implements Observer<c.a.p0.u.n> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ WorkPublishActivity f58795e;
+        public final /* synthetic */ WorkPublishActivity f58992e;
 
         public p(WorkPublishActivity workPublishActivity) {
             Interceptable interceptable = $ic;
@@ -792,26 +792,26 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements c
                     return;
                 }
             }
-            this.f58795e = workPublishActivity;
+            this.f58992e = workPublishActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // androidx.lifecycle.Observer
         /* renamed from: a */
-        public final void onChanged(c.a.o0.u.n it) {
+        public final void onChanged(c.a.p0.u.n it) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, it) == null) {
-                this.f58795e.getSelectClassView().bindData(it);
-                String firstClass = this.f58795e.getSelectTagView().getFirstClass();
+                this.f58992e.getSelectClassView().bindData(it);
+                String firstClass = this.f58992e.getSelectTagView().getFirstClass();
                 Intrinsics.checkExpressionValueIsNotNull(it, "it");
-                if ((!Intrinsics.areEqual(firstClass, it.a())) || (!Intrinsics.areEqual(this.f58795e.getSelectTagView().getSecondClass(), it.b()))) {
-                    SelectTagView selectTagView = this.f58795e.getSelectTagView();
+                if ((!Intrinsics.areEqual(firstClass, it.a())) || (!Intrinsics.areEqual(this.f58992e.getSelectTagView().getSecondClass(), it.b()))) {
+                    SelectTagView selectTagView = this.f58992e.getSelectTagView();
                     String a2 = it.a();
                     Intrinsics.checkExpressionValueIsNotNull(a2, "it.firstClass");
                     String b2 = it.b();
                     Intrinsics.checkExpressionValueIsNotNull(b2, "it.secondClass");
                     selectTagView.setClassData(a2, b2);
-                    this.f58795e.getViewModel().getTagInfo().setValue(new ArrayList<>());
+                    this.f58992e.getViewModel().getTagInfo().setValue(new ArrayList<>());
                 }
             }
         }
@@ -823,7 +823,7 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements c
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ WorkPublishActivity f58796a;
+        public final /* synthetic */ WorkPublishActivity f58993a;
 
         /* JADX DEBUG: Incorrect args count in method signature: ()V */
         public q(WorkPublishActivity workPublishActivity) {
@@ -841,14 +841,14 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements c
                     return;
                 }
             }
-            this.f58796a = workPublishActivity;
+            this.f58993a = workPublishActivity;
         }
 
         @Override // com.baidu.tieba.tbadkCore.location.LocationModel.e
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f58796a.showToast(R.string.no_network_guide);
+                this.f58993a.showToast(R.string.no_network_guide);
             }
         }
 
@@ -857,10 +857,10 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements c
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, locationData) == null) {
                 if (!StringUtils.isNull(locationData.getFormatted_address())) {
-                    this.f58796a.goToSelectLocationActivity();
+                    this.f58993a.goToSelectLocationActivity();
                     return;
                 }
-                WorkPublishActivity workPublishActivity = this.f58796a;
+                WorkPublishActivity workPublishActivity = this.f58993a;
                 workPublishActivity.showToast(workPublishActivity.getString(R.string.location_fail));
             }
         }
@@ -869,9 +869,9 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements c
         public void onFail(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-                WorkPublishActivity workPublishActivity = this.f58796a;
+                WorkPublishActivity workPublishActivity = this.f58993a;
                 if (StringUtils.isNull(str)) {
-                    str = this.f58796a.getString(R.string.location_fail);
+                    str = this.f58993a.getString(R.string.location_fail);
                 }
                 workPublishActivity.showToast(str);
             }
@@ -884,7 +884,7 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements c
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ WorkPublishActivity f58797a;
+        public final /* synthetic */ WorkPublishActivity f58994a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public r(WorkPublishActivity workPublishActivity, int i2) {
@@ -904,18 +904,18 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements c
                     return;
                 }
             }
-            this.f58797a = workPublishActivity;
+            this.f58994a = workPublishActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && (customResponsedMessage.getData() instanceof c.a.o0.u.n)) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && (customResponsedMessage.getData() instanceof c.a.p0.u.n)) {
                 Object data = customResponsedMessage.getData();
                 if (data != null) {
-                    this.f58797a.getViewModel().getClassInfo().setValue((c.a.o0.u.n) data);
-                    this.f58797a.getViewModel().checkIsAllLegal();
+                    this.f58994a.getViewModel().getClassInfo().setValue((c.a.p0.u.n) data);
+                    this.f58994a.getViewModel().checkIsAllLegal();
                     return;
                 }
                 throw new TypeCastException("null cannot be cast to non-null type com.baidu.tbadk.data.VideoCategoryClassData");
@@ -929,7 +929,7 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements c
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ WorkPublishActivity f58798a;
+        public final /* synthetic */ WorkPublishActivity f58995a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public s(WorkPublishActivity workPublishActivity, int i2) {
@@ -949,7 +949,7 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements c
                     return;
                 }
             }
-            this.f58798a = workPublishActivity;
+            this.f58995a = workPublishActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -959,12 +959,12 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements c
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && (customResponsedMessage instanceof ResponsedSelectLocation)) {
                 ResponsedSelectLocation responsedSelectLocation = (ResponsedSelectLocation) customResponsedMessage;
                 if (responsedSelectLocation.isShowLocation()) {
-                    WorkPublishActivity.access$getMLocationModel$p(this.f58798a).M(false);
-                    WorkPublishActivity.access$getMLocationModel$p(this.f58798a).L(responsedSelectLocation.getName(), responsedSelectLocation.getScreatString());
+                    WorkPublishActivity.access$getMLocationModel$p(this.f58995a).M(false);
+                    WorkPublishActivity.access$getMLocationModel$p(this.f58995a).L(responsedSelectLocation.getName(), responsedSelectLocation.getScreatString());
                 } else {
-                    WorkPublishActivity.access$getMLocationModel$p(this.f58798a).M(true);
+                    WorkPublishActivity.access$getMLocationModel$p(this.f58995a).M(true);
                 }
-                this.f58798a.getViewModel().getPosInfo().setValue(customResponsedMessage);
+                this.f58995a.getViewModel().getPosInfo().setValue(customResponsedMessage);
             }
         }
     }
@@ -975,7 +975,7 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements c
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ WorkPublishActivity f58799a;
+        public final /* synthetic */ WorkPublishActivity f58996a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public t(WorkPublishActivity workPublishActivity, int i2) {
@@ -995,7 +995,7 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements c
                     return;
                 }
             }
-            this.f58799a = workPublishActivity;
+            this.f58996a = workPublishActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -1005,8 +1005,8 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements c
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && (customResponsedMessage.getData() instanceof ArrayList)) {
                 Object data = customResponsedMessage.getData();
                 if (data != null) {
-                    this.f58799a.getViewModel().getTagInfo().setValue((ArrayList) data);
-                    this.f58799a.getViewModel().checkIsAllLegal();
+                    this.f58996a.getViewModel().getTagInfo().setValue((ArrayList) data);
+                    this.f58996a.getViewModel().checkIsAllLegal();
                     return;
                 }
                 throw new TypeCastException("null cannot be cast to non-null type kotlin.collections.ArrayList<kotlin.String> /* = java.util.ArrayList<kotlin.String> */");
@@ -1020,7 +1020,7 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements c
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ WorkPublishActivity f58800a;
+        public final /* synthetic */ WorkPublishActivity f58997a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public u(WorkPublishActivity workPublishActivity, int i2) {
@@ -1040,7 +1040,7 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements c
                     return;
                 }
             }
-            this.f58800a = workPublishActivity;
+            this.f58997a = workPublishActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -1050,7 +1050,7 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements c
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && (customResponsedMessage.getData() instanceof ArrayList)) {
                 Object data = customResponsedMessage.getData();
                 if (data != null) {
-                    this.f58800a.getViewModel().getTopicInfo().setValue((ArrayList) data);
+                    this.f58997a.getViewModel().getTopicInfo().setValue((ArrayList) data);
                     return;
                 }
                 throw new TypeCastException("null cannot be cast to non-null type kotlin.collections.ArrayList<kotlin.String> /* = java.util.ArrayList<kotlin.String> */");
@@ -1064,7 +1064,7 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements c
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ WorkPublishActivity f58801a;
+        public final /* synthetic */ WorkPublishActivity f58998a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public v(WorkPublishActivity workPublishActivity, int i2) {
@@ -1084,17 +1084,17 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements c
                     return;
                 }
             }
-            this.f58801a = workPublishActivity;
+            this.f58998a = workPublishActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && (customResponsedMessage.getData() instanceof c.a.o0.u.i)) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && (customResponsedMessage.getData() instanceof c.a.p0.u.i)) {
                 Object data = customResponsedMessage.getData();
                 if (data != null) {
-                    this.f58801a.getViewModel().getBarInfo().setValue((c.a.o0.u.i) data);
+                    this.f58998a.getViewModel().getBarInfo().setValue((c.a.p0.u.i) data);
                     return;
                 }
                 throw new TypeCastException("null cannot be cast to non-null type com.baidu.tbadk.data.SelectForumData");
@@ -1108,7 +1108,7 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements c
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ WorkPublishActivity f58802a;
+        public final /* synthetic */ WorkPublishActivity f58999a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public w(WorkPublishActivity workPublishActivity, int i2) {
@@ -1128,7 +1128,7 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements c
                     return;
                 }
             }
-            this.f58802a = workPublishActivity;
+            this.f58999a = workPublishActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -1141,7 +1141,7 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements c
                     throw new TypeCastException("null cannot be cast to non-null type kotlin.Boolean");
                 }
                 if (((Boolean) data).booleanValue()) {
-                    new BdTopToast(this.f58802a.getBaseContext()).setIcon(false).setContent(this.f58802a.getResources().getString(R.string.can_not_select_tag)).show(this.f58802a.getNavigationBar());
+                    new BdTopToast(this.f58999a.getBaseContext()).setIcon(false).setContent(this.f58999a.getResources().getString(R.string.can_not_select_tag)).show(this.f58999a.getNavigationBar());
                 }
             }
         }
@@ -1153,7 +1153,7 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements c
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ WorkPublishActivity f58803a;
+        public final /* synthetic */ WorkPublishActivity f59000a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public x(WorkPublishActivity workPublishActivity, int i2) {
@@ -1173,7 +1173,7 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements c
                     return;
                 }
             }
-            this.f58803a = workPublishActivity;
+            this.f59000a = workPublishActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -1183,7 +1183,7 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements c
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && (customResponsedMessage.getData() instanceof VideoInfo)) {
                 Object data = customResponsedMessage.getData();
                 if (data != null) {
-                    this.f58803a.getViewModel().updateVideo((VideoInfo) data);
+                    this.f59000a.getViewModel().updateVideo((VideoInfo) data);
                     return;
                 }
                 throw new TypeCastException("null cannot be cast to non-null type com.baidu.tbadk.coreExtra.data.VideoInfo");
@@ -1197,7 +1197,7 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements c
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ WorkPublishActivity f58804e;
+        public final /* synthetic */ WorkPublishActivity f59001e;
 
         public y(WorkPublishActivity workPublishActivity) {
             Interceptable interceptable = $ic;
@@ -1214,14 +1214,14 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements c
                     return;
                 }
             }
-            this.f58804e = workPublishActivity;
+            this.f59001e = workPublishActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public final void onClick(View v) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, v) == null) {
-                PopupDialog popupDialog = this.f58804e.saveDraftDialog;
+                PopupDialog popupDialog = this.f59001e.saveDraftDialog;
                 if (popupDialog == null) {
                     Intrinsics.throwNpe();
                 }
@@ -1235,10 +1235,10 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements c
                         if (id == R.id.save_draft_dialog_not_save) {
                             if (booleanValue) {
                                 TiebaStatic.log(new StatisticItem("c14260").param("obj_locate", 2));
-                                this.f58804e.clearDraft();
+                                this.f59001e.clearDraft();
                             }
-                            this.f58804e.setResult(100);
-                            this.f58804e.finish();
+                            this.f59001e.setResult(100);
+                            this.f59001e.finish();
                             return;
                         } else if (id != R.id.save_draft_dialog_save) {
                             if (id == R.id.save_draft_dialog_cancle && booleanValue) {
@@ -1248,9 +1248,9 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements c
                             return;
                         } else if (booleanValue) {
                             TiebaStatic.log(new StatisticItem("c14260").param("obj_locate", 1));
-                            this.f58804e.processSaveDraft();
-                            this.f58804e.setResult(100);
-                            this.f58804e.finish();
+                            this.f59001e.processSaveDraft();
+                            this.f59001e.setResult(100);
+                            this.f59001e.finish();
                             return;
                         } else {
                             return;
@@ -1268,7 +1268,7 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements c
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ WorkPublishActivity f58805e;
+        public final /* synthetic */ WorkPublishActivity f59002e;
 
         public z(WorkPublishActivity workPublishActivity) {
             Interceptable interceptable = $ic;
@@ -1285,17 +1285,17 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements c
                     return;
                 }
             }
-            this.f58805e = workPublishActivity;
+            this.f59002e = workPublishActivity;
         }
 
-        @Override // c.a.o0.s.s.a.e
-        public final void onClick(c.a.o0.s.s.a aVar) {
+        @Override // c.a.p0.s.s.a.e
+        public final void onClick(c.a.p0.s.s.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
                 if (!c.a.e.e.p.j.z()) {
-                    this.f58805e.mOnLocationCallBack.a();
+                    this.f59002e.mOnLocationCallBack.a();
                 } else {
-                    WorkPublishActivity.access$getMLocationModel$p(this.f58805e).K();
+                    WorkPublishActivity.access$getMLocationModel$p(this.f59002e).K();
                 }
                 aVar.dismiss();
             }
@@ -1402,7 +1402,7 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements c
                 if (textView3 == null) {
                     Intrinsics.throwUninitializedPropertyAccessException("navPost");
                 }
-                c.a.o0.s.u.c.d(textView3).x(R.dimen.T_X08);
+                c.a.p0.s.u.c.d(textView3).y(R.dimen.T_X08);
                 TextView textView4 = this.navPost;
                 if (textView4 == null) {
                     Intrinsics.throwUninitializedPropertyAccessException("navPost");
@@ -1472,14 +1472,14 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements c
         if (interceptable == null || interceptable.invokeV(65548, this) == null) {
             int intExtra = getIntent().getIntExtra(WorkPublishActivityConfig.PARAM_SHOW_DRAFT, 0);
             this.draftType = intExtra;
-            if (intExtra == c.a.o0.s.m.c.f13767c.a()) {
+            if (intExtra == c.a.p0.s.m.c.f14071c.a()) {
                 this.isDraftData = true;
                 WorkPublishViewModel workPublishViewModel = this.viewModel;
                 if (workPublishViewModel == null) {
                     Intrinsics.throwUninitializedPropertyAccessException("viewModel");
                 }
                 workPublishViewModel.loadDraft();
-            } else if (this.draftType == c.a.o0.s.m.c.f13767c.b()) {
+            } else if (this.draftType == c.a.p0.s.m.c.f14071c.b()) {
                 Serializable serializableExtra = getIntent().getSerializableExtra(WorkPublishActivityConfig.PARAM_WRITE_DATA);
                 if (serializableExtra instanceof WriteData) {
                     WorkPublishViewModel workPublishViewModel2 = this.viewModel;
@@ -1524,8 +1524,8 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements c
         if (interceptable == null || interceptable.invokeV(65550, this) == null) {
             TbPageContext<BaseFragmentActivity> pageContext = getPageContext();
             Intrinsics.checkExpressionValueIsNotNull(pageContext, "pageContext");
-            c.a.o0.s.s.a aVar = new c.a.o0.s.s.a(pageContext.getPageActivity());
-            aVar.setMessageId(R.string.location_app_permission_prompt).setPositiveButton(R.string.isopen, new z(this)).setNegativeButton(R.string.cancel, a0.f58780e).create(getPageContext());
+            c.a.p0.s.s.a aVar = new c.a.p0.s.s.a(pageContext.getPageActivity());
+            aVar.setMessageId(R.string.location_app_permission_prompt).setPositiveButton(R.string.isopen, new z(this)).setNegativeButton(R.string.cancel, a0.f58977e).create(getPageContext());
             aVar.show();
         }
     }
@@ -1548,8 +1548,8 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements c
         WorkPublishViewModel workPublishViewModel2;
         WorkPublishViewModel workPublishViewModel3;
         String b2;
-        c.a.p0.i3.q0.g gVar;
-        c.a.p0.i3.q0.g gVar2;
+        c.a.q0.i3.r0.g gVar;
+        c.a.q0.i3.r0.g gVar2;
         Iterator<String> it;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -1592,39 +1592,39 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements c
             if (workPublishViewModel9 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("viewModel");
             }
-            c.a.o0.u.i value3 = workPublishViewModel9.getBarInfo().getValue();
-            writeData.setForumId(value3 != null ? value3.f14713a : null);
+            c.a.p0.u.i value3 = workPublishViewModel9.getBarInfo().getValue();
+            writeData.setForumId(value3 != null ? value3.f15024a : null);
             WorkPublishViewModel workPublishViewModel10 = this.viewModel;
             if (workPublishViewModel10 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("viewModel");
             }
-            c.a.o0.u.i value4 = workPublishViewModel10.getBarInfo().getValue();
-            writeData.setForumName(value4 != null ? value4.f14715c : null);
+            c.a.p0.u.i value4 = workPublishViewModel10.getBarInfo().getValue();
+            writeData.setForumName(value4 != null ? value4.f15026c : null);
             WorkPublishViewModel workPublishViewModel11 = this.viewModel;
             if (workPublishViewModel11 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("viewModel");
             }
             boolean z3 = false;
             if (workPublishViewModel11.getPosInfo().getValue() != null) {
-                c.a.p0.i3.m0.b a2 = c.a.p0.i3.m0.b.a();
+                c.a.q0.i3.n0.b a2 = c.a.q0.i3.n0.b.a();
                 Intrinsics.checkExpressionValueIsNotNull(a2, "LocationInfo.getInstance()");
                 if (!a2.d()) {
                     z2 = true;
                     writeData.setHasLocationData(z2);
                     writeData.setWork(true);
                     writeData.setWorkDraft(this.isDraftData);
-                    c.a.o0.u.n nVar = new c.a.o0.u.n();
+                    c.a.p0.u.n nVar = new c.a.p0.u.n();
                     workPublishViewModel = this.viewModel;
                     if (workPublishViewModel == null) {
                         Intrinsics.throwUninitializedPropertyAccessException("viewModel");
                     }
-                    c.a.o0.u.n value5 = workPublishViewModel.getClassInfo().getValue();
+                    c.a.p0.u.n value5 = workPublishViewModel.getClassInfo().getValue();
                     nVar.d(value5 == null ? value5.a() : null);
                     workPublishViewModel2 = this.viewModel;
                     if (workPublishViewModel2 == null) {
                         Intrinsics.throwUninitializedPropertyAccessException("viewModel");
                     }
-                    c.a.o0.u.n value6 = workPublishViewModel2.getClassInfo().getValue();
+                    c.a.p0.u.n value6 = workPublishViewModel2.getClassInfo().getValue();
                     nVar.e(value6 != null ? value6.b() : null);
                     workPublishViewModel3 = this.viewModel;
                     if (workPublishViewModel3 == null) {
@@ -1632,9 +1632,9 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements c
                     }
                     nVar.f(workPublishViewModel3.getTagInfo().getValue());
                     writeData.setClassAndTagData(nVar);
-                    b2 = c.a.o0.s.m.b.b();
+                    b2 = c.a.p0.s.m.b.b();
                     if (!((b2 != null || b2.length() == 0) ? true : true)) {
-                        String b3 = c.a.o0.s.m.b.b();
+                        String b3 = c.a.p0.s.m.b.b();
                         Intrinsics.checkExpressionValueIsNotNull(b3, "WorkPublishManager.getObjLocate()");
                         writeData.setStatisticFrom(Integer.parseInt(b3));
                     }
@@ -1659,23 +1659,23 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements c
             writeData.setHasLocationData(z2);
             writeData.setWork(true);
             writeData.setWorkDraft(this.isDraftData);
-            c.a.o0.u.n nVar2 = new c.a.o0.u.n();
+            c.a.p0.u.n nVar2 = new c.a.p0.u.n();
             workPublishViewModel = this.viewModel;
             if (workPublishViewModel == null) {
             }
-            c.a.o0.u.n value52 = workPublishViewModel.getClassInfo().getValue();
+            c.a.p0.u.n value52 = workPublishViewModel.getClassInfo().getValue();
             nVar2.d(value52 == null ? value52.a() : null);
             workPublishViewModel2 = this.viewModel;
             if (workPublishViewModel2 == null) {
             }
-            c.a.o0.u.n value62 = workPublishViewModel2.getClassInfo().getValue();
+            c.a.p0.u.n value62 = workPublishViewModel2.getClassInfo().getValue();
             nVar2.e(value62 != null ? value62.b() : null);
             workPublishViewModel3 = this.viewModel;
             if (workPublishViewModel3 == null) {
             }
             nVar2.f(workPublishViewModel3.getTagInfo().getValue());
             writeData.setClassAndTagData(nVar2);
-            b2 = c.a.o0.s.m.b.b();
+            b2 = c.a.p0.s.m.b.b();
             if (!((b2 != null || b2.length() == 0) ? true : true)) {
             }
             gVar = this.mWriteModel;
@@ -2155,7 +2155,7 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements c
             if (viewGroup == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("workPublishBg");
             }
-            c.a.o0.s.u.c.d(viewGroup).f(R.color.CAM_X0201);
+            c.a.p0.s.u.c.d(viewGroup).f(R.color.CAM_X0201);
             NavigationBar navigationBar = this.navigationBar;
             if (navigationBar == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("navigationBar");
@@ -2170,8 +2170,8 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements c
             if (textView == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("navPost");
             }
-            c.a.o0.s.u.c d2 = c.a.o0.s.u.c.d(textView);
-            d2.t(R.color.CAM_X0101);
+            c.a.p0.s.u.c d2 = c.a.p0.s.u.c.d(textView);
+            d2.u(R.color.CAM_X0101);
             d2.n(R.string.J_X01);
             d2.f(R.color.CAM_X0302);
             WorkPublishViewModel workPublishViewModel = this.viewModel;
@@ -2317,7 +2317,7 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements c
                 Intrinsics.throwUninitializedPropertyAccessException("mLocationModel");
             }
             locationModel.N(this.mOnLocationCallBack);
-            c.a.p0.i3.q0.g g2 = c.a.p0.i3.q0.g.g();
+            c.a.q0.i3.r0.g g2 = c.a.q0.i3.r0.g.g();
             Intrinsics.checkExpressionValueIsNotNull(g2, "AsyncWriteHelper.getInstance()");
             this.mWriteModel = g2;
             if (g2 == null) {
@@ -2426,7 +2426,7 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements c
         }
     }
 
-    @Override // c.a.p0.b4.u.q.b.a
+    @Override // c.a.q0.b4.u.q.b.a
     public void onMixStateChanged(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048608, this, i2) == null) {
@@ -2679,7 +2679,7 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements c
     public final void stopTask() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048635, this) == null) {
-            c.a.p0.i3.q0.g gVar = this.mWriteModel;
+            c.a.q0.i3.r0.g gVar = this.mWriteModel;
             if (gVar == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("mWriteModel");
             }

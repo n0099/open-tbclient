@@ -19,7 +19,7 @@ import org.json.JSONObject;
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f74503a = "e";
+    public static final String f74703a = "e";
 
     public static long a(String str) {
         long j2;
@@ -99,7 +99,7 @@ public class e {
             try {
                 jSONObject.put(str, a2);
             } catch (JSONException e2) {
-                c.a(f74503a, "Could not put key '%s' and value '%s' into new JSONObject: %s", str, a2, e2);
+                c.a(f74703a, "Could not put key '%s' and value '%s' into new JSONObject: %s", str, a2, e2);
                 e2.printStackTrace();
             }
         }
@@ -112,13 +112,13 @@ public class e {
 
     public static boolean a(Context context) {
         try {
-            c.c(f74503a, "Checking tracker internet connectivity.", new Object[0]);
+            c.c(f74703a, "Checking tracker internet connectivity.", new Object[0]);
             NetworkInfo activeNetworkInfo = ((ConnectivityManager) context.getSystemService("connectivity")).getActiveNetworkInfo();
             boolean z = activeNetworkInfo != null && activeNetworkInfo.isConnected();
-            c.b(f74503a, "Tracker connection online: %s", Boolean.valueOf(z));
+            c.b(f74703a, "Tracker connection online: %s", Boolean.valueOf(z));
             return z;
         } catch (Exception e2) {
-            c.a(f74503a, "Security exception checking connection: %s", e2.toString());
+            c.a(f74703a, "Security exception checking connection: %s", e2.toString());
             return true;
         }
     }
@@ -135,7 +135,7 @@ public class e {
             }
             return null;
         } catch (Exception e2) {
-            c.a(f74503a, "getCarrier: %s", e2.toString());
+            c.a(f74703a, "getCarrier: %s", e2.toString());
             return null;
         }
     }
@@ -144,7 +144,7 @@ public class e {
         try {
             LocationManager locationManager = (LocationManager) context.getSystemService("location");
             if (locationManager == null) {
-                c.a(f74503a, "Location Manager is null.", new Object[0]);
+                c.a(f74703a, "Location Manager is null.", new Object[0]);
                 return null;
             }
             Criteria criteria = new Criteria();
@@ -152,14 +152,14 @@ public class e {
             criteria.setAccuracy(2);
             String bestProvider = locationManager.getBestProvider(criteria, true);
             if (bestProvider == null) {
-                c.a(f74503a, "Location Manager provider is null.", new Object[0]);
+                c.a(f74703a, "Location Manager provider is null.", new Object[0]);
                 return null;
             }
             Location lastKnownLocation = locationManager.getLastKnownLocation(bestProvider);
-            c.b(f74503a, "Location found: %s", lastKnownLocation);
+            c.b(f74703a, "Location found: %s", lastKnownLocation);
             return lastKnownLocation;
         } catch (Exception e2) {
-            c.a(f74503a, "Failed to retrieve location: %s", e2.toString());
+            c.a(f74703a, "Failed to retrieve location: %s", e2.toString());
             return null;
         }
     }

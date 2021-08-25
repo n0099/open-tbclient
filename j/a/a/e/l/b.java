@@ -16,16 +16,16 @@ public class b {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static PaysSettingInfo f78723a = null;
+    public static PaysSettingInfo f78924a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f78724b = "https://web.yy.com/yy_wallet/pay-protocol.html?";
+    public static String f78925b = "https://web.yy.com/yy_wallet/pay-protocol.html?";
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f78725c = "https://web.yy.com/yy_wallet/wallet.html?";
+    public static String f78926c = "https://web.yy.com/yy_wallet/wallet.html?";
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f78726d = "https://web.yy.com/yy_wallet/pay-success.html?&orderId=${orderId}";
+    public static String f78927d = "https://web.yy.com/yy_wallet/pay-success.html?&orderId=${orderId}";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -57,18 +57,13 @@ public class b {
             sb.append("&usedChannel=" + payUIKitConfig.revenueConfig.getUseChannel());
             sb.append("&authType=" + payUIKitConfig.revenueConfig.getAuthType());
             sb.append("&clientVersion=" + payUIKitConfig.revenueConfig.getVersion());
-            sb.append("&sdkVersion=4.2.20-bdpay");
+            sb.append("&sdkVersion=4.2.31-bdpay");
             int i2 = 0;
             ThemeColorConfig themeColorConfig = payUIKitConfig.themeColorConfig;
             if (themeColorConfig != null && themeColorConfig.getThemeResId().intValue() == g.PayUi_Yellow_Theme) {
                 i2 = 1;
             }
             sb.append("&theme=" + i2);
-            String token = payUIKitConfig.revenueConfig.getToken();
-            if (payUIKitConfig.revenueConfig.getTokenCallback() != null) {
-                token = payUIKitConfig.revenueConfig.getTokenCallback().onUpdateToken();
-            }
-            sb.append("&ticket=" + token);
             return sb.toString();
         }
         return (String) invokeLL.objValue;
@@ -79,9 +74,9 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, payUIKitConfig)) == null) {
             if (payUIKitConfig != null && payUIKitConfig.revenueConfig != null) {
-                return a(f78726d, payUIKitConfig);
+                return a(f78927d, payUIKitConfig);
             }
-            return f78726d;
+            return f78927d;
         }
         return (String) invokeL.objValue;
     }
@@ -91,9 +86,9 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, payUIKitConfig)) == null) {
             if (payUIKitConfig != null && payUIKitConfig.revenueConfig != null) {
-                return a(f78725c, payUIKitConfig);
+                return a(f78926c, payUIKitConfig);
             }
-            return f78725c;
+            return f78926c;
         }
         return (String) invokeL.objValue;
     }
@@ -103,9 +98,9 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, payUIKitConfig)) == null) {
             if (payUIKitConfig == null && payUIKitConfig.revenueConfig == null) {
-                return f78724b;
+                return f78925b;
             }
-            return a(f78724b, payUIKitConfig);
+            return a(f78925b, payUIKitConfig);
         }
         return (String) invokeL.objValue;
     }
@@ -114,14 +109,14 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(AdIconUtil.AD_TEXT_ID, null, z) == null) {
             if (z) {
-                f78724b = "https://webtest.yy.com/yy_wallet/pay-protocol.html?";
-                f78725c = "https://webtest.yy.com/yy_wallet/wallet.html?";
-                f78726d = "https://webtest.yy.com/yy_wallet/pay-success.html?&orderId=${orderId}";
+                f78925b = "https://webtest.yy.com/yy_wallet/pay-protocol.html?";
+                f78926c = "https://webtest.yy.com/yy_wallet/wallet.html?";
+                f78927d = "https://webtest.yy.com/yy_wallet/pay-success.html?&orderId=${orderId}";
                 return;
             }
-            f78724b = "https://web.yy.com/yy_wallet/pay-protocol.html?";
-            f78725c = "https://web.yy.com/yy_wallet/wallet.html?";
-            f78726d = "https://web.yy.com/yy_wallet/pay-success.html?&orderId=${orderId}";
+            f78925b = "https://web.yy.com/yy_wallet/pay-protocol.html?";
+            f78926c = "https://web.yy.com/yy_wallet/wallet.html?";
+            f78927d = "https://web.yy.com/yy_wallet/pay-success.html?&orderId=${orderId}";
         }
     }
 }

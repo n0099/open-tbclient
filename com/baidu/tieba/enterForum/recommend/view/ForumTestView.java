@@ -14,7 +14,7 @@ import android.view.animation.DecelerateInterpolator;
 import android.widget.FrameLayout;
 import androidx.core.view.InputDeviceCompat;
 import c.a.e.e.p.l;
-import c.a.p0.m0.k.c.f;
+import c.a.q0.m0.k.c.f;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -29,7 +29,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 /* loaded from: classes7.dex */
-public class ForumTestView extends FrameLayout implements c.a.p0.m0.k.d.a {
+public class ForumTestView extends FrameLayout implements c.a.q0.m0.k.d.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public float A;
@@ -49,22 +49,22 @@ public class ForumTestView extends FrameLayout implements c.a.p0.m0.k.d.a {
     public int O;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f50014e;
+    public int f50122e;
 
     /* renamed from: f  reason: collision with root package name */
-    public List<f> f50015f;
+    public List<f> f50123f;
 
     /* renamed from: g  reason: collision with root package name */
-    public BdUniqueId f50016g;
+    public BdUniqueId f50124g;
 
     /* renamed from: h  reason: collision with root package name */
-    public CellForumTestView f50017h;
+    public CellForumTestView f50125h;
 
     /* renamed from: i  reason: collision with root package name */
-    public CellForumTestView f50018i;
+    public CellForumTestView f50126i;
 
     /* renamed from: j  reason: collision with root package name */
-    public CellForumTestView f50019j;
+    public CellForumTestView f50127j;
     public CellForumTestView k;
     public CellForumTestView l;
     public CellForumTestView m;
@@ -88,7 +88,7 @@ public class ForumTestView extends FrameLayout implements c.a.p0.m0.k.d.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ForumTestView f50020e;
+        public final /* synthetic */ ForumTestView f50128e;
 
         public a(ForumTestView forumTestView) {
             Interceptable interceptable = $ic;
@@ -105,131 +105,131 @@ public class ForumTestView extends FrameLayout implements c.a.p0.m0.k.d.a {
                     return;
                 }
             }
-            this.f50020e = forumTestView;
+            this.f50128e = forumTestView;
         }
 
         @Override // android.animation.ValueAnimator.AnimatorUpdateListener
         public void onAnimationUpdate(ValueAnimator valueAnimator) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
-                if (this.f50020e.H != 1) {
-                    if (this.f50020e.H != 2 && this.f50020e.H != 3) {
+                if (this.f50128e.H != 1) {
+                    if (this.f50128e.H != 2 && this.f50128e.H != 3) {
                         float floatValue = ((Float) valueAnimator.getAnimatedValue()).floatValue();
-                        float abs = Math.abs(this.f50020e.A * floatValue);
-                        float abs2 = Math.abs(floatValue) * this.f50020e.B;
-                        if (Math.abs(floatValue) >= Math.abs(this.f50020e.D)) {
-                            this.f50020e.k.setAlpha(0.0f);
-                            this.f50020e.k.setVisibility(8);
-                            this.f50020e.D = 0.0f;
-                            ForumTestView forumTestView = this.f50020e;
+                        float abs = Math.abs(this.f50128e.A * floatValue);
+                        float abs2 = Math.abs(floatValue) * this.f50128e.B;
+                        if (Math.abs(floatValue) >= Math.abs(this.f50128e.D)) {
+                            this.f50128e.k.setAlpha(0.0f);
+                            this.f50128e.k.setVisibility(8);
+                            this.f50128e.D = 0.0f;
+                            ForumTestView forumTestView = this.f50128e;
                             forumTestView.Q(forumTestView.l);
-                            ForumTestView forumTestView2 = this.f50020e;
+                            ForumTestView forumTestView2 = this.f50128e;
                             forumTestView2.Q(forumTestView2.k);
-                            ForumTestView forumTestView3 = this.f50020e;
+                            ForumTestView forumTestView3 = this.f50128e;
                             forumTestView3.Q(forumTestView3.m);
-                            this.f50020e.f50015f.remove(this.f50020e.k.getData());
-                            if (this.f50020e.f50017h.getIndex() == 0) {
-                                if (this.f50020e.f50017h.getDataIndex() > this.f50020e.m.getDataIndex()) {
-                                    this.f50020e.f50017h.setDataIndex(this.f50020e.f50017h.getDataIndex() - 1);
-                                    ForumTestView forumTestView4 = this.f50020e;
-                                    forumTestView4.O(forumTestView4.f50017h);
+                            this.f50128e.f50123f.remove(this.f50128e.k.getData());
+                            if (this.f50128e.f50125h.getIndex() == 0) {
+                                if (this.f50128e.f50125h.getDataIndex() > this.f50128e.m.getDataIndex()) {
+                                    this.f50128e.f50125h.setDataIndex(this.f50128e.f50125h.getDataIndex() - 1);
+                                    ForumTestView forumTestView4 = this.f50128e;
+                                    forumTestView4.O(forumTestView4.f50125h);
                                 }
-                            } else if (this.f50020e.f50018i.getIndex() == 0) {
-                                if (this.f50020e.f50018i.getDataIndex() > this.f50020e.m.getDataIndex()) {
-                                    this.f50020e.f50018i.setDataIndex(this.f50020e.f50018i.getDataIndex() - 1);
-                                    ForumTestView forumTestView5 = this.f50020e;
-                                    forumTestView5.O(forumTestView5.f50018i);
+                            } else if (this.f50128e.f50126i.getIndex() == 0) {
+                                if (this.f50128e.f50126i.getDataIndex() > this.f50128e.m.getDataIndex()) {
+                                    this.f50128e.f50126i.setDataIndex(this.f50128e.f50126i.getDataIndex() - 1);
+                                    ForumTestView forumTestView5 = this.f50128e;
+                                    forumTestView5.O(forumTestView5.f50126i);
                                 }
-                            } else if (this.f50020e.f50019j.getDataIndex() > this.f50020e.m.getDataIndex()) {
-                                this.f50020e.f50019j.setDataIndex(this.f50020e.f50019j.getDataIndex() - 1);
-                                ForumTestView forumTestView6 = this.f50020e;
-                                forumTestView6.O(forumTestView6.f50019j);
+                            } else if (this.f50128e.f50127j.getDataIndex() > this.f50128e.m.getDataIndex()) {
+                                this.f50128e.f50127j.setDataIndex(this.f50128e.f50127j.getDataIndex() - 1);
+                                ForumTestView forumTestView6 = this.f50128e;
+                                forumTestView6.O(forumTestView6.f50127j);
                             }
-                            if (this.f50020e.l.getDataIndex() > this.f50020e.m.getDataIndex()) {
-                                this.f50020e.l.setDataIndex(this.f50020e.l.getDataIndex() - 1);
-                                ForumTestView forumTestView7 = this.f50020e;
+                            if (this.f50128e.l.getDataIndex() > this.f50128e.m.getDataIndex()) {
+                                this.f50128e.l.setDataIndex(this.f50128e.l.getDataIndex() - 1);
+                                ForumTestView forumTestView7 = this.f50128e;
                                 forumTestView7.O(forumTestView7.l);
                             }
-                            this.f50020e.m.setDataIndex(this.f50020e.m.getDataIndex() + 1);
-                            ForumTestView forumTestView8 = this.f50020e;
+                            this.f50128e.m.setDataIndex(this.f50128e.m.getDataIndex() + 1);
+                            ForumTestView forumTestView8 = this.f50128e;
                             forumTestView8.O(forumTestView8.m);
-                            this.f50020e.L(true);
-                            this.f50020e.G = false;
+                            this.f50128e.L(true);
+                            this.f50128e.G = false;
                         } else {
-                            ForumTestView forumTestView9 = this.f50020e;
+                            ForumTestView forumTestView9 = this.f50128e;
                             forumTestView9.K(forumTestView9.l, floatValue, abs);
-                            ForumTestView forumTestView10 = this.f50020e;
+                            ForumTestView forumTestView10 = this.f50128e;
                             forumTestView10.E(forumTestView10.m, floatValue);
-                            if ((this.f50020e.p * 2) / 5 >= this.f50020e.k.getViewRight() - this.f50020e.k.getViewLeft()) {
-                                this.f50020e.k.setAlpha(0.0f);
-                                this.f50020e.k.setVisibility(8);
+                            if ((this.f50128e.p * 2) / 5 >= this.f50128e.k.getViewRight() - this.f50128e.k.getViewLeft()) {
+                                this.f50128e.k.setAlpha(0.0f);
+                                this.f50128e.k.setVisibility(8);
                             } else {
-                                this.f50020e.k.setViewLeft(this.f50020e.k.getMoveLeft() + (Math.abs(floatValue) / 2.0f));
-                                this.f50020e.k.setViewRight(this.f50020e.k.getMoveRight() - (Math.abs(floatValue) / 2.0f));
+                                this.f50128e.k.setViewLeft(this.f50128e.k.getMoveLeft() + (Math.abs(floatValue) / 2.0f));
+                                this.f50128e.k.setViewRight(this.f50128e.k.getMoveRight() - (Math.abs(floatValue) / 2.0f));
                                 float f2 = abs2 / 2.0f;
-                                this.f50020e.k.setViewTop(this.f50020e.k.getMoveTop() + f2);
-                                this.f50020e.k.setViewBottom(this.f50020e.k.getMoveBottom() - f2);
-                                this.f50020e.k.setAlpha(1.0f - (Math.abs(floatValue) / ((this.f50020e.p * 3) / 5)));
+                                this.f50128e.k.setViewTop(this.f50128e.k.getMoveTop() + f2);
+                                this.f50128e.k.setViewBottom(this.f50128e.k.getMoveBottom() - f2);
+                                this.f50128e.k.setAlpha(1.0f - (Math.abs(floatValue) / ((this.f50128e.p * 3) / 5)));
                             }
                         }
-                        this.f50020e.requestLayout();
+                        this.f50128e.requestLayout();
                         return;
                     }
                     float floatValue2 = ((Float) valueAnimator.getAnimatedValue()).floatValue();
-                    float abs3 = Math.abs(this.f50020e.A * floatValue2);
-                    float abs4 = Math.abs(floatValue2) * this.f50020e.B;
-                    if (Math.abs(floatValue2) >= Math.abs(this.f50020e.D)) {
-                        this.f50020e.k.setAlpha(0.0f);
-                        this.f50020e.k.setVisibility(8);
-                        this.f50020e.D = 0.0f;
-                        ForumTestView forumTestView11 = this.f50020e;
+                    float abs3 = Math.abs(this.f50128e.A * floatValue2);
+                    float abs4 = Math.abs(floatValue2) * this.f50128e.B;
+                    if (Math.abs(floatValue2) >= Math.abs(this.f50128e.D)) {
+                        this.f50128e.k.setAlpha(0.0f);
+                        this.f50128e.k.setVisibility(8);
+                        this.f50128e.D = 0.0f;
+                        ForumTestView forumTestView11 = this.f50128e;
                         forumTestView11.Q(forumTestView11.l);
-                        ForumTestView forumTestView12 = this.f50020e;
+                        ForumTestView forumTestView12 = this.f50128e;
                         forumTestView12.Q(forumTestView12.k);
-                        this.f50020e.f50015f.remove(this.f50020e.k.getData());
-                        this.f50020e.L(true);
-                        this.f50020e.G = false;
+                        this.f50128e.f50123f.remove(this.f50128e.k.getData());
+                        this.f50128e.L(true);
+                        this.f50128e.G = false;
                     } else {
-                        ForumTestView forumTestView13 = this.f50020e;
+                        ForumTestView forumTestView13 = this.f50128e;
                         forumTestView13.K(forumTestView13.l, floatValue2, abs3);
-                        if ((this.f50020e.p * 2) / 5 >= this.f50020e.k.getViewRight() - this.f50020e.k.getViewLeft()) {
-                            this.f50020e.k.setAlpha(0.0f);
-                            this.f50020e.k.setVisibility(8);
+                        if ((this.f50128e.p * 2) / 5 >= this.f50128e.k.getViewRight() - this.f50128e.k.getViewLeft()) {
+                            this.f50128e.k.setAlpha(0.0f);
+                            this.f50128e.k.setVisibility(8);
                         } else {
-                            this.f50020e.k.setViewLeft(this.f50020e.k.getMoveLeft() + (Math.abs(floatValue2) / 2.0f));
-                            this.f50020e.k.setViewRight(this.f50020e.k.getMoveRight() - (Math.abs(floatValue2) / 2.0f));
+                            this.f50128e.k.setViewLeft(this.f50128e.k.getMoveLeft() + (Math.abs(floatValue2) / 2.0f));
+                            this.f50128e.k.setViewRight(this.f50128e.k.getMoveRight() - (Math.abs(floatValue2) / 2.0f));
                             float f3 = abs4 / 2.0f;
-                            this.f50020e.k.setViewTop(this.f50020e.k.getMoveTop() + f3);
-                            this.f50020e.k.setViewBottom(this.f50020e.k.getMoveBottom() - f3);
-                            this.f50020e.k.setAlpha(1.0f - (Math.abs(floatValue2) / ((this.f50020e.p * 3) / 5)));
+                            this.f50128e.k.setViewTop(this.f50128e.k.getMoveTop() + f3);
+                            this.f50128e.k.setViewBottom(this.f50128e.k.getMoveBottom() - f3);
+                            this.f50128e.k.setAlpha(1.0f - (Math.abs(floatValue2) / ((this.f50128e.p * 3) / 5)));
                         }
                     }
-                    this.f50020e.requestLayout();
+                    this.f50128e.requestLayout();
                     return;
                 }
                 float floatValue3 = ((Float) valueAnimator.getAnimatedValue()).floatValue() / 2.0f;
-                float f4 = this.f50020e.B * floatValue3;
-                if (Math.abs(floatValue3) >= Math.abs(this.f50020e.D / 2.0f)) {
-                    this.f50020e.k.setAlpha(0.0f);
-                    this.f50020e.k.setVisibility(8);
-                    this.f50020e.D = 0.0f;
-                    this.f50020e.f50015f.remove(this.f50020e.k.getData());
-                    this.f50020e.setVisibility(8);
-                    if (this.f50020e.L != null) {
-                        this.f50020e.L.onSelected(-1L);
+                float f4 = this.f50128e.B * floatValue3;
+                if (Math.abs(floatValue3) >= Math.abs(this.f50128e.D / 2.0f)) {
+                    this.f50128e.k.setAlpha(0.0f);
+                    this.f50128e.k.setVisibility(8);
+                    this.f50128e.D = 0.0f;
+                    this.f50128e.f50123f.remove(this.f50128e.k.getData());
+                    this.f50128e.setVisibility(8);
+                    if (this.f50128e.L != null) {
+                        this.f50128e.L.onSelected(-1L);
                     }
-                    this.f50020e.G = false;
-                    if (this.f50020e.L != null && ListUtils.isEmpty(this.f50020e.f50015f)) {
-                        this.f50020e.L.onListCleared();
+                    this.f50128e.G = false;
+                    if (this.f50128e.L != null && ListUtils.isEmpty(this.f50128e.f50123f)) {
+                        this.f50128e.L.onListCleared();
                     }
                 } else {
-                    this.f50020e.k.setViewLeft(this.f50020e.k.getMoveLeft() + floatValue3);
-                    this.f50020e.k.setViewRight(this.f50020e.k.getMoveRight() - floatValue3);
-                    this.f50020e.k.setViewTop(this.f50020e.k.getMoveTop() + f4);
-                    this.f50020e.k.setViewBottom(this.f50020e.k.getMoveBottom() - f4);
-                    this.f50020e.k.setAlpha(1.0f - (floatValue3 / this.f50020e.D));
+                    this.f50128e.k.setViewLeft(this.f50128e.k.getMoveLeft() + floatValue3);
+                    this.f50128e.k.setViewRight(this.f50128e.k.getMoveRight() - floatValue3);
+                    this.f50128e.k.setViewTop(this.f50128e.k.getMoveTop() + f4);
+                    this.f50128e.k.setViewBottom(this.f50128e.k.getMoveBottom() - f4);
+                    this.f50128e.k.setAlpha(1.0f - (floatValue3 / this.f50128e.D));
                 }
-                this.f50020e.requestLayout();
+                this.f50128e.requestLayout();
             }
         }
     }
@@ -240,7 +240,7 @@ public class ForumTestView extends FrameLayout implements c.a.p0.m0.k.d.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ForumTestView f50021e;
+        public final /* synthetic */ ForumTestView f50129e;
 
         public b(ForumTestView forumTestView) {
             Interceptable interceptable = $ic;
@@ -257,7 +257,7 @@ public class ForumTestView extends FrameLayout implements c.a.p0.m0.k.d.a {
                     return;
                 }
             }
-            this.f50021e = forumTestView;
+            this.f50129e = forumTestView;
         }
 
         @Override // android.animation.ValueAnimator.AnimatorUpdateListener
@@ -265,49 +265,49 @@ public class ForumTestView extends FrameLayout implements c.a.p0.m0.k.d.a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
                 float floatValue = ((Float) valueAnimator.getAnimatedValue()).floatValue();
-                if (Math.abs(floatValue) >= Math.abs(this.f50021e.D)) {
-                    boolean z = Math.abs(this.f50021e.D) >= ((float) this.f50021e.p) * 0.2f;
-                    if (this.f50021e.M) {
-                        if (this.f50021e.D > 0.0f) {
-                            this.f50021e.T();
+                if (Math.abs(floatValue) >= Math.abs(this.f50129e.D)) {
+                    boolean z = Math.abs(this.f50129e.D) >= ((float) this.f50129e.p) * 0.2f;
+                    if (this.f50129e.M) {
+                        if (this.f50129e.D > 0.0f) {
+                            this.f50129e.T();
                         } else {
-                            this.f50021e.U();
+                            this.f50129e.U();
                         }
-                        this.f50021e.M = false;
+                        this.f50129e.M = false;
                     }
-                    this.f50021e.N = 0.0f;
-                    this.f50021e.D = 0.0f;
-                    ForumTestView forumTestView = this.f50021e;
-                    forumTestView.Q(forumTestView.f50017h);
-                    ForumTestView forumTestView2 = this.f50021e;
-                    forumTestView2.Q(forumTestView2.f50018i);
-                    ForumTestView forumTestView3 = this.f50021e;
-                    forumTestView3.Q(forumTestView3.f50019j);
-                    this.f50021e.requestLayout();
-                    this.f50021e.L(z);
+                    this.f50129e.N = 0.0f;
+                    this.f50129e.D = 0.0f;
+                    ForumTestView forumTestView = this.f50129e;
+                    forumTestView.Q(forumTestView.f50125h);
+                    ForumTestView forumTestView2 = this.f50129e;
+                    forumTestView2.Q(forumTestView2.f50126i);
+                    ForumTestView forumTestView3 = this.f50129e;
+                    forumTestView3.Q(forumTestView3.f50127j);
+                    this.f50129e.requestLayout();
+                    this.f50129e.L(z);
                 } else {
-                    if (this.f50021e.M) {
-                        if (this.f50021e.D > 0.0f) {
-                            if (this.f50021e.G(2) != null && this.f50021e.G(2).getViewLeft() >= l.k(this.f50021e.getContext())) {
-                                this.f50021e.T();
-                                this.f50021e.M = false;
+                    if (this.f50129e.M) {
+                        if (this.f50129e.D > 0.0f) {
+                            if (this.f50129e.G(2) != null && this.f50129e.G(2).getViewLeft() >= l.k(this.f50129e.getContext())) {
+                                this.f50129e.T();
+                                this.f50129e.M = false;
                             }
-                        } else if (this.f50021e.G(0) != null && this.f50021e.G(0).getViewRight() <= 0.0f) {
-                            this.f50021e.U();
-                            this.f50021e.M = false;
+                        } else if (this.f50129e.G(0) != null && this.f50129e.G(0).getViewRight() <= 0.0f) {
+                            this.f50129e.U();
+                            this.f50129e.M = false;
                         }
                     }
-                    float f2 = this.f50021e.N - floatValue;
-                    float f3 = this.f50021e.A * f2;
-                    ForumTestView forumTestView4 = this.f50021e;
-                    forumTestView4.S(forumTestView4.f50017h, f2, f3);
-                    ForumTestView forumTestView5 = this.f50021e;
-                    forumTestView5.S(forumTestView5.f50018i, f2, f3);
-                    ForumTestView forumTestView6 = this.f50021e;
-                    forumTestView6.S(forumTestView6.f50019j, f2, f3);
-                    this.f50021e.requestLayout();
+                    float f2 = this.f50129e.N - floatValue;
+                    float f3 = this.f50129e.A * f2;
+                    ForumTestView forumTestView4 = this.f50129e;
+                    forumTestView4.S(forumTestView4.f50125h, f2, f3);
+                    ForumTestView forumTestView5 = this.f50129e;
+                    forumTestView5.S(forumTestView5.f50126i, f2, f3);
+                    ForumTestView forumTestView6 = this.f50129e;
+                    forumTestView6.S(forumTestView6.f50127j, f2, f3);
+                    this.f50129e.requestLayout();
                 }
-                this.f50021e.N = floatValue;
+                this.f50129e.N = floatValue;
             }
         }
     }
@@ -337,7 +337,7 @@ public class ForumTestView extends FrameLayout implements c.a.p0.m0.k.d.a {
                 return;
             }
         }
-        this.f50014e = 3;
+        this.f50122e = 3;
         this.w = new Rect[3];
         this.F = false;
         this.M = false;
@@ -407,7 +407,7 @@ public class ForumTestView extends FrameLayout implements c.a.p0.m0.k.d.a {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) {
-            int size = this.f50015f.size();
+            int size = this.f50123f.size();
             int i3 = i2 % size;
             return i3 < 0 ? size - Math.abs(i3) : i3;
         }
@@ -418,14 +418,14 @@ public class ForumTestView extends FrameLayout implements c.a.p0.m0.k.d.a {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) {
-            if (this.f50017h.getIndex() == i2) {
-                return this.f50017h;
+            if (this.f50125h.getIndex() == i2) {
+                return this.f50125h;
             }
-            if (this.f50018i.getIndex() == i2) {
-                return this.f50018i;
+            if (this.f50126i.getIndex() == i2) {
+                return this.f50126i;
             }
-            if (this.f50019j.getIndex() == i2) {
-                return this.f50019j;
+            if (this.f50127j.getIndex() == i2) {
+                return this.f50127j;
             }
             return null;
         }
@@ -436,17 +436,17 @@ public class ForumTestView extends FrameLayout implements c.a.p0.m0.k.d.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, context) == null) {
             LayoutInflater.from(context).inflate(R.layout.forum_test_layout, (ViewGroup) this, true);
-            this.f50017h = (CellForumTestView) findViewById(R.id.forum_test_view_one);
-            this.f50018i = (CellForumTestView) findViewById(R.id.forum_test_view_two);
-            this.f50019j = (CellForumTestView) findViewById(R.id.forum_test_view_three);
+            this.f50125h = (CellForumTestView) findViewById(R.id.forum_test_view_one);
+            this.f50126i = (CellForumTestView) findViewById(R.id.forum_test_view_two);
+            this.f50127j = (CellForumTestView) findViewById(R.id.forum_test_view_three);
             this.k = (CellForumTestView) findViewById(R.id.forum_test_view_del);
             D(context);
             N();
             ViewConfiguration.get(context);
             this.J = ViewConfiguration.getMaximumFlingVelocity();
-            this.f50017h.setForumTestDelClickListener(this);
-            this.f50018i.setForumTestDelClickListener(this);
-            this.f50019j.setForumTestDelClickListener(this);
+            this.f50125h.setForumTestDelClickListener(this);
+            this.f50126i.setForumTestDelClickListener(this);
+            this.f50127j.setForumTestDelClickListener(this);
             onChangeSkinType();
         }
     }
@@ -488,15 +488,15 @@ public class ForumTestView extends FrameLayout implements c.a.p0.m0.k.d.a {
             return;
         }
         int i2 = -1;
-        if (this.f50017h.getIndex() == 1 && this.f50017h.getData() != null) {
-            this.L.onSelected(this.f50017h.getData().f21779a);
-            i2 = this.f50017h.getDataIndex();
-        } else if (this.f50018i.getIndex() == 1 && this.f50018i.getData() != null) {
-            this.L.onSelected(this.f50018i.getData().f21779a);
-            i2 = this.f50018i.getDataIndex();
-        } else if (this.f50019j.getIndex() == 1 && this.f50019j.getData() != null) {
-            this.L.onSelected(this.f50019j.getData().f21779a);
-            i2 = this.f50019j.getDataIndex();
+        if (this.f50125h.getIndex() == 1 && this.f50125h.getData() != null) {
+            this.L.onSelected(this.f50125h.getData().f22109a);
+            i2 = this.f50125h.getDataIndex();
+        } else if (this.f50126i.getIndex() == 1 && this.f50126i.getData() != null) {
+            this.L.onSelected(this.f50126i.getData().f22109a);
+            i2 = this.f50126i.getDataIndex();
+        } else if (this.f50127j.getIndex() == 1 && this.f50127j.getData() != null) {
+            this.L.onSelected(this.f50127j.getData().f22109a);
+            i2 = this.f50127j.getDataIndex();
         } else {
             this.L.onSelected(-1L);
         }
@@ -519,13 +519,13 @@ public class ForumTestView extends FrameLayout implements c.a.p0.m0.k.d.a {
     public final void N() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            this.f50017h.setIndex(0);
-            this.f50018i.setIndex(1);
-            this.f50019j.setIndex(2);
+            this.f50125h.setIndex(0);
+            this.f50126i.setIndex(1);
+            this.f50127j.setIndex(2);
             this.k.setIndex(1);
-            Q(this.f50017h);
-            Q(this.f50018i);
-            Q(this.f50019j);
+            Q(this.f50125h);
+            Q(this.f50126i);
+            Q(this.f50127j);
             Q(this.k);
         }
     }
@@ -535,7 +535,7 @@ public class ForumTestView extends FrameLayout implements c.a.p0.m0.k.d.a {
         if (!(interceptable == null || interceptable.invokeL(1048588, this, cellForumTestView) == null) || cellForumTestView == null) {
             return;
         }
-        int size = this.f50015f.size();
+        int size = this.f50123f.size();
         int dataIndex = cellForumTestView.getDataIndex() % size;
         if (dataIndex < 0) {
             dataIndex = size - Math.abs(dataIndex);
@@ -572,29 +572,29 @@ public class ForumTestView extends FrameLayout implements c.a.p0.m0.k.d.a {
     public final void R() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            CellForumTestView cellForumTestView = this.f50017h;
+            CellForumTestView cellForumTestView = this.f50125h;
             cellForumTestView.setMoveLeft(cellForumTestView.getViewLeft());
-            CellForumTestView cellForumTestView2 = this.f50017h;
+            CellForumTestView cellForumTestView2 = this.f50125h;
             cellForumTestView2.setMoveTop(cellForumTestView2.getViewTop());
-            CellForumTestView cellForumTestView3 = this.f50017h;
+            CellForumTestView cellForumTestView3 = this.f50125h;
             cellForumTestView3.setMoveRight(cellForumTestView3.getViewRight());
-            CellForumTestView cellForumTestView4 = this.f50017h;
+            CellForumTestView cellForumTestView4 = this.f50125h;
             cellForumTestView4.setMoveBottom(cellForumTestView4.getViewBottom());
-            CellForumTestView cellForumTestView5 = this.f50018i;
+            CellForumTestView cellForumTestView5 = this.f50126i;
             cellForumTestView5.setMoveLeft(cellForumTestView5.getViewLeft());
-            CellForumTestView cellForumTestView6 = this.f50018i;
+            CellForumTestView cellForumTestView6 = this.f50126i;
             cellForumTestView6.setMoveTop(cellForumTestView6.getViewTop());
-            CellForumTestView cellForumTestView7 = this.f50018i;
+            CellForumTestView cellForumTestView7 = this.f50126i;
             cellForumTestView7.setMoveRight(cellForumTestView7.getViewRight());
-            CellForumTestView cellForumTestView8 = this.f50018i;
+            CellForumTestView cellForumTestView8 = this.f50126i;
             cellForumTestView8.setMoveBottom(cellForumTestView8.getViewBottom());
-            CellForumTestView cellForumTestView9 = this.f50019j;
+            CellForumTestView cellForumTestView9 = this.f50127j;
             cellForumTestView9.setMoveLeft(cellForumTestView9.getViewLeft());
-            CellForumTestView cellForumTestView10 = this.f50019j;
+            CellForumTestView cellForumTestView10 = this.f50127j;
             cellForumTestView10.setMoveTop(cellForumTestView10.getViewTop());
-            CellForumTestView cellForumTestView11 = this.f50019j;
+            CellForumTestView cellForumTestView11 = this.f50127j;
             cellForumTestView11.setMoveRight(cellForumTestView11.getViewRight());
-            CellForumTestView cellForumTestView12 = this.f50019j;
+            CellForumTestView cellForumTestView12 = this.f50127j;
             cellForumTestView12.setMoveBottom(cellForumTestView12.getViewBottom());
             CellForumTestView cellForumTestView13 = this.k;
             cellForumTestView13.setMoveLeft(cellForumTestView13.getViewLeft());
@@ -612,7 +612,7 @@ public class ForumTestView extends FrameLayout implements c.a.p0.m0.k.d.a {
         if (!(interceptable == null || interceptable.invokeCommon(1048592, this, new Object[]{cellForumTestView, Float.valueOf(f2), Float.valueOf(f3)}) == null) || cellForumTestView == null || cellForumTestView.getVisibility() == 8) {
             return;
         }
-        if (this.f50015f.size() > 2) {
+        if (this.f50123f.size() > 2) {
             if (cellForumTestView.getViewRight() < this.w[0].right - (this.p / 2) && f2 > 0.0f) {
                 float viewRight = cellForumTestView.getViewRight();
                 Rect[] rectArr = this.w;
@@ -624,7 +624,7 @@ public class ForumTestView extends FrameLayout implements c.a.p0.m0.k.d.a {
                 cellForumTestView.setViewBottom(this.w[2].bottom);
                 cellForumTestView.setDataIndex(cellForumTestView.getDataIndex() + 3);
                 O(cellForumTestView);
-                cellForumTestView.setData(this.f50015f.get(cellForumTestView.getDataIndex()));
+                cellForumTestView.setData(this.f50123f.get(cellForumTestView.getDataIndex()));
             } else if (cellForumTestView.getViewLeft() > this.w[2].left + (this.p / 2) && f2 < 0.0f) {
                 float viewLeft = cellForumTestView.getViewLeft();
                 Rect[] rectArr2 = this.w;
@@ -636,7 +636,7 @@ public class ForumTestView extends FrameLayout implements c.a.p0.m0.k.d.a {
                 cellForumTestView.setViewBottom(this.w[0].bottom);
                 cellForumTestView.setDataIndex(cellForumTestView.getDataIndex() - 3);
                 O(cellForumTestView);
-                cellForumTestView.setData(this.f50015f.get(cellForumTestView.getDataIndex()));
+                cellForumTestView.setData(this.f50123f.get(cellForumTestView.getDataIndex()));
             }
         }
         cellForumTestView.setViewLeft(cellForumTestView.getViewLeft() - f2);
@@ -673,30 +673,30 @@ public class ForumTestView extends FrameLayout implements c.a.p0.m0.k.d.a {
     public final void T() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
-            CellForumTestView cellForumTestView = this.f50017h;
+            CellForumTestView cellForumTestView = this.f50125h;
             cellForumTestView.setIndex(cellForumTestView.getIndex() + 1);
-            CellForumTestView cellForumTestView2 = this.f50018i;
+            CellForumTestView cellForumTestView2 = this.f50126i;
             cellForumTestView2.setIndex(cellForumTestView2.getIndex() + 1);
-            CellForumTestView cellForumTestView3 = this.f50019j;
+            CellForumTestView cellForumTestView3 = this.f50127j;
             cellForumTestView3.setIndex(cellForumTestView3.getIndex() + 1);
-            P(this.f50017h);
-            P(this.f50018i);
-            P(this.f50019j);
+            P(this.f50125h);
+            P(this.f50126i);
+            P(this.f50127j);
         }
     }
 
     public final void U() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
-            CellForumTestView cellForumTestView = this.f50017h;
+            CellForumTestView cellForumTestView = this.f50125h;
             cellForumTestView.setIndex(cellForumTestView.getIndex() - 1);
-            CellForumTestView cellForumTestView2 = this.f50018i;
+            CellForumTestView cellForumTestView2 = this.f50126i;
             cellForumTestView2.setIndex(cellForumTestView2.getIndex() - 1);
-            CellForumTestView cellForumTestView3 = this.f50019j;
+            CellForumTestView cellForumTestView3 = this.f50127j;
             cellForumTestView3.setIndex(cellForumTestView3.getIndex() - 1);
-            P(this.f50017h);
-            P(this.f50018i);
-            P(this.f50019j);
+            P(this.f50125h);
+            P(this.f50126i);
+            P(this.f50127j);
         }
     }
 
@@ -709,18 +709,18 @@ public class ForumTestView extends FrameLayout implements c.a.p0.m0.k.d.a {
             this.M = false;
             this.N = 0.0f;
             I();
-            if (this.f50015f.size() == 2) {
+            if (this.f50123f.size() == 2) {
                 CellForumTestView cellForumTestView = null;
-                CellForumTestView cellForumTestView2 = this.f50017h.getVisibility() == 0 ? this.f50017h : null;
-                if (this.f50018i.getVisibility() == 0) {
+                CellForumTestView cellForumTestView2 = this.f50125h.getVisibility() == 0 ? this.f50125h : null;
+                if (this.f50126i.getVisibility() == 0) {
                     if (cellForumTestView2 == null) {
-                        cellForumTestView2 = this.f50018i;
+                        cellForumTestView2 = this.f50126i;
                     } else {
-                        cellForumTestView = this.f50018i;
+                        cellForumTestView = this.f50126i;
                     }
                 }
-                if (this.f50019j.getVisibility() == 0) {
-                    cellForumTestView = this.f50019j;
+                if (this.f50127j.getVisibility() == 0) {
+                    cellForumTestView = this.f50127j;
                 }
                 if (cellForumTestView2.getIndex() < cellForumTestView.getIndex()) {
                     f3 = cellForumTestView2.getViewLeft();
@@ -734,7 +734,7 @@ public class ForumTestView extends FrameLayout implements c.a.p0.m0.k.d.a {
                 if (!(f3 < ((float) rectArr[0].left) || viewRight > ((float) rectArr[2].right)) && Math.abs(this.D) >= this.p * 0.2f) {
                     this.M = true;
                 }
-            } else if (this.f50015f.size() > 2 && Math.abs(this.D) >= this.p * 0.2f) {
+            } else if (this.f50123f.size() > 2 && Math.abs(this.D) >= this.p * 0.2f) {
                 this.M = true;
             }
             if (this.M && (G = G(1)) != null) {
@@ -765,12 +765,12 @@ public class ForumTestView extends FrameLayout implements c.a.p0.m0.k.d.a {
         int i3;
         StatisticItem l;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048596, this, i2) == null) || (list = this.f50015f) == null || i2 < 0 || i2 >= list.size() || (fVar = this.f50015f.get(i2)) == null || (l = c.a.p0.h3.a.l(false, "a065", "common_exp", i3, (i3 = i2 + 1), false, null, String.valueOf(fVar.f21779a), 0)) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048596, this, i2) == null) || (list = this.f50123f) == null || i2 < 0 || i2 >= list.size() || (fVar = this.f50123f.get(i2)) == null || (l = c.a.q0.h3.a.l(false, "a065", "common_exp", i3, (i3 = i2 + 1), false, null, String.valueOf(fVar.f22109a), 0)) == null) {
             return;
         }
-        c.a.p0.h3.c g2 = c.a.p0.h3.c.g();
-        BdUniqueId bdUniqueId = this.f50016g;
-        g2.d(bdUniqueId, c.a.p0.h3.a.b("" + fVar.f21779a), l);
+        c.a.q0.h3.c g2 = c.a.q0.h3.c.g();
+        BdUniqueId bdUniqueId = this.f50124g;
+        g2.d(bdUniqueId, c.a.q0.h3.a.b("" + fVar.f22109a), l);
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -810,9 +810,9 @@ public class ForumTestView extends FrameLayout implements c.a.p0.m0.k.d.a {
                     float f4 = this.z - x;
                     float f5 = this.A * f4;
                     if (this.F) {
-                        S(this.f50017h, f4, f5);
-                        S(this.f50018i, f4, f5);
-                        S(this.f50019j, f4, f5);
+                        S(this.f50125h, f4, f5);
+                        S(this.f50126i, f4, f5);
+                        S(this.f50127j, f4, f5);
                         requestLayout();
                     }
                     this.z = x;
@@ -851,17 +851,17 @@ public class ForumTestView extends FrameLayout implements c.a.p0.m0.k.d.a {
     public void onChangeSkinType() {
         int skinType;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048599, this) == null) || (skinType = TbadkCoreApplication.getInst().getSkinType()) == this.f50014e) {
+        if (!(interceptable == null || interceptable.invokeV(1048599, this) == null) || (skinType = TbadkCoreApplication.getInst().getSkinType()) == this.f50122e) {
             return;
         }
-        this.f50014e = skinType;
+        this.f50122e = skinType;
         SkinManager.setBackgroundColor(this, R.color.CAM_X0205);
-        this.f50017h.onChangeSkinType();
-        this.f50018i.onChangeSkinType();
-        this.f50019j.onChangeSkinType();
+        this.f50125h.onChangeSkinType();
+        this.f50126i.onChangeSkinType();
+        this.f50127j.onChangeSkinType();
     }
 
-    @Override // c.a.p0.m0.k.d.a
+    @Override // c.a.q0.m0.k.d.a
     public void onDelClick(int i2) {
         CellForumTestView cellForumTestView;
         Interceptable interceptable = $ic;
@@ -869,29 +869,29 @@ public class ForumTestView extends FrameLayout implements c.a.p0.m0.k.d.a {
             this.k.setVisibility(0);
             this.k.setAlpha(1.0f);
             R();
-            if (this.f50017h.getIndex() == i2 && this.f50017h.getVisibility() == 0) {
-                cellForumTestView = this.f50017h;
-            } else if (this.f50018i.getIndex() == i2 && this.f50018i.getVisibility() == 0) {
-                cellForumTestView = this.f50018i;
+            if (this.f50125h.getIndex() == i2 && this.f50125h.getVisibility() == 0) {
+                cellForumTestView = this.f50125h;
+            } else if (this.f50126i.getIndex() == i2 && this.f50126i.getVisibility() == 0) {
+                cellForumTestView = this.f50126i;
             } else {
-                cellForumTestView = this.f50019j;
+                cellForumTestView = this.f50127j;
             }
             this.k.setData(cellForumTestView.getData());
             this.k.setDataIndex(cellForumTestView.getDataIndex());
             this.m = null;
-            if (this.f50015f.size() == 1) {
+            if (this.f50123f.size() == 1) {
                 this.H = 1;
                 cellForumTestView.setVisibility(8);
                 this.D = (this.p * 3) / 5;
-            } else if (this.f50015f.size() == 2) {
+            } else if (this.f50123f.size() == 2) {
                 this.H = 2;
                 cellForumTestView.setVisibility(8);
-                if (this.f50017h.getVisibility() == 0) {
-                    this.l = this.f50017h;
-                } else if (this.f50018i.getVisibility() == 0) {
-                    this.l = this.f50018i;
+                if (this.f50125h.getVisibility() == 0) {
+                    this.l = this.f50125h;
+                } else if (this.f50126i.getVisibility() == 0) {
+                    this.l = this.f50126i;
                 } else {
-                    this.l = this.f50019j;
+                    this.l = this.f50127j;
                 }
                 if (this.l.getViewRight() < this.w[1].left) {
                     this.D = this.p + this.v;
@@ -906,15 +906,15 @@ public class ForumTestView extends FrameLayout implements c.a.p0.m0.k.d.a {
                 }
                 P(this.l);
                 P(cellForumTestView);
-            } else if (this.f50015f.size() == 3) {
+            } else if (this.f50123f.size() == 3) {
                 this.H = 3;
                 cellForumTestView.setVisibility(8);
-                if (this.f50017h.getIndex() == 2) {
-                    this.l = this.f50017h;
-                } else if (this.f50018i.getIndex() == 2) {
-                    this.l = this.f50018i;
+                if (this.f50125h.getIndex() == 2) {
+                    this.l = this.f50125h;
+                } else if (this.f50126i.getIndex() == 2) {
+                    this.l = this.f50126i;
                 } else {
-                    this.l = this.f50019j;
+                    this.l = this.f50127j;
                 }
                 this.D = (-this.p) - this.v;
                 CellForumTestView cellForumTestView4 = this.l;
@@ -925,12 +925,12 @@ public class ForumTestView extends FrameLayout implements c.a.p0.m0.k.d.a {
             } else {
                 this.H = 4;
                 this.m = cellForumTestView;
-                if (this.f50017h.getIndex() == 2) {
-                    this.l = this.f50017h;
-                } else if (this.f50018i.getIndex() == 2) {
-                    this.l = this.f50018i;
+                if (this.f50125h.getIndex() == 2) {
+                    this.l = this.f50125h;
+                } else if (this.f50126i.getIndex() == 2) {
+                    this.l = this.f50126i;
                 } else {
-                    this.l = this.f50019j;
+                    this.l = this.f50127j;
                 }
                 this.D = (-this.p) - this.v;
                 CellForumTestView cellForumTestView5 = this.l;
@@ -947,7 +947,7 @@ public class ForumTestView extends FrameLayout implements c.a.p0.m0.k.d.a {
                 this.m.setMoveTop(this.w[2].top);
                 this.m.setMoveBottom(this.w[2].bottom);
                 CellForumTestView cellForumTestView6 = this.m;
-                cellForumTestView6.setData(this.f50015f.get(F(cellForumTestView6.getDataIndex() + 2)));
+                cellForumTestView6.setData(this.f50123f.get(F(cellForumTestView6.getDataIndex() + 2)));
             }
             this.E.setFloatValues(0.0f, this.D);
             this.E.start();
@@ -980,12 +980,12 @@ public class ForumTestView extends FrameLayout implements c.a.p0.m0.k.d.a {
         if (interceptable == null || interceptable.invokeCommon(1048602, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
             super.onLayout(z, i2, i3, i4, i5);
             if (getVisibility() == 0) {
-                CellForumTestView cellForumTestView = this.f50017h;
-                cellForumTestView.layout((int) cellForumTestView.getViewLeft(), (int) this.f50017h.getViewTop(), (int) this.f50017h.getViewRight(), (int) this.f50017h.getViewBottom());
-                CellForumTestView cellForumTestView2 = this.f50018i;
-                cellForumTestView2.layout((int) cellForumTestView2.getViewLeft(), (int) this.f50018i.getViewTop(), (int) this.f50018i.getViewRight(), (int) this.f50018i.getViewBottom());
-                CellForumTestView cellForumTestView3 = this.f50019j;
-                cellForumTestView3.layout((int) cellForumTestView3.getViewLeft(), (int) this.f50019j.getViewTop(), (int) this.f50019j.getViewRight(), (int) this.f50019j.getViewBottom());
+                CellForumTestView cellForumTestView = this.f50125h;
+                cellForumTestView.layout((int) cellForumTestView.getViewLeft(), (int) this.f50125h.getViewTop(), (int) this.f50125h.getViewRight(), (int) this.f50125h.getViewBottom());
+                CellForumTestView cellForumTestView2 = this.f50126i;
+                cellForumTestView2.layout((int) cellForumTestView2.getViewLeft(), (int) this.f50126i.getViewTop(), (int) this.f50126i.getViewRight(), (int) this.f50126i.getViewBottom());
+                CellForumTestView cellForumTestView3 = this.f50127j;
+                cellForumTestView3.layout((int) cellForumTestView3.getViewLeft(), (int) this.f50127j.getViewTop(), (int) this.f50127j.getViewRight(), (int) this.f50127j.getViewBottom());
                 CellForumTestView cellForumTestView4 = this.k;
                 cellForumTestView4.layout((int) cellForumTestView4.getViewLeft(), (int) this.k.getViewTop(), (int) this.k.getViewRight(), (int) this.k.getViewBottom());
             }
@@ -1001,14 +1001,14 @@ public class ForumTestView extends FrameLayout implements c.a.p0.m0.k.d.a {
                 if (k != this.O) {
                     this.O = k;
                     D(getContext());
-                    Q(this.f50017h);
-                    Q(this.f50018i);
-                    Q(this.f50019j);
+                    Q(this.f50125h);
+                    Q(this.f50126i);
+                    Q(this.f50127j);
                     Q(this.k);
                 }
-                J(this.f50017h);
-                J(this.f50018i);
-                J(this.f50019j);
+                J(this.f50125h);
+                J(this.f50126i);
+                J(this.f50127j);
                 J(this.k);
                 super.onMeasure(View.MeasureSpec.makeMeasureSpec(this.n, 1073741824), View.MeasureSpec.makeMeasureSpec(this.o, 1073741824));
                 return;
@@ -1020,12 +1020,12 @@ public class ForumTestView extends FrameLayout implements c.a.p0.m0.k.d.a {
     public void refreshAnswer() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048604, this) == null) {
-            if (this.f50017h.getIndex() == 1) {
-                this.f50017h.refreshAnswer();
-            } else if (this.f50018i.getIndex() == 1) {
-                this.f50018i.refreshAnswer();
-            } else if (this.f50019j.getIndex() == 1) {
-                this.f50019j.refreshAnswer();
+            if (this.f50125h.getIndex() == 1) {
+                this.f50125h.refreshAnswer();
+            } else if (this.f50126i.getIndex() == 1) {
+                this.f50126i.refreshAnswer();
+            } else if (this.f50127j.getIndex() == 1) {
+                this.f50127j.refreshAnswer();
             }
         }
     }
@@ -1035,33 +1035,33 @@ public class ForumTestView extends FrameLayout implements c.a.p0.m0.k.d.a {
         if (!(interceptable == null || interceptable.invokeL(1048605, this, list) == null) || ListUtils.isEmpty(list) || this.F || this.D != 0.0f) {
             return;
         }
-        this.f50015f = list;
+        this.f50123f = list;
         N();
         int i2 = 1;
         if (ListUtils.getCount(list) > 2) {
-            this.f50017h.setVisibility(0);
-            this.f50018i.setVisibility(0);
-            this.f50019j.setVisibility(0);
-            this.f50017h.setData(list.get(0));
-            this.f50018i.setData(list.get(1));
-            this.f50019j.setData(list.get(2));
-            this.f50017h.setDataIndex(0);
-            this.f50018i.setDataIndex(1);
-            this.f50019j.setDataIndex(2);
+            this.f50125h.setVisibility(0);
+            this.f50126i.setVisibility(0);
+            this.f50127j.setVisibility(0);
+            this.f50125h.setData(list.get(0));
+            this.f50126i.setData(list.get(1));
+            this.f50127j.setData(list.get(2));
+            this.f50125h.setDataIndex(0);
+            this.f50126i.setDataIndex(1);
+            this.f50127j.setDataIndex(2);
         } else if (ListUtils.getCount(list) == 2) {
-            this.f50017h.setVisibility(8);
-            this.f50018i.setVisibility(0);
-            this.f50019j.setVisibility(0);
-            this.f50018i.setDataIndex(1);
-            this.f50019j.setDataIndex(0);
-            this.f50018i.setData(list.get(1));
-            this.f50019j.setData(list.get(0));
+            this.f50125h.setVisibility(8);
+            this.f50126i.setVisibility(0);
+            this.f50127j.setVisibility(0);
+            this.f50126i.setDataIndex(1);
+            this.f50127j.setDataIndex(0);
+            this.f50126i.setData(list.get(1));
+            this.f50127j.setData(list.get(0));
         } else {
-            this.f50017h.setVisibility(8);
-            this.f50018i.setVisibility(0);
-            this.f50019j.setVisibility(8);
-            this.f50018i.setDataIndex(0);
-            this.f50018i.setData(list.get(0));
+            this.f50125h.setVisibility(8);
+            this.f50126i.setVisibility(0);
+            this.f50127j.setVisibility(8);
+            this.f50126i.setDataIndex(0);
+            this.f50126i.setData(list.get(0));
             i2 = 0;
         }
         addShowLog(i2);
@@ -1077,16 +1077,16 @@ public class ForumTestView extends FrameLayout implements c.a.p0.m0.k.d.a {
     public void setPageId(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048607, this, bdUniqueId) == null) {
-            this.f50016g = bdUniqueId;
-            CellForumTestView cellForumTestView = this.f50017h;
+            this.f50124g = bdUniqueId;
+            CellForumTestView cellForumTestView = this.f50125h;
             if (cellForumTestView != null) {
                 cellForumTestView.setPageId(bdUniqueId);
             }
-            CellForumTestView cellForumTestView2 = this.f50018i;
+            CellForumTestView cellForumTestView2 = this.f50126i;
             if (cellForumTestView2 != null) {
                 cellForumTestView2.setPageId(bdUniqueId);
             }
-            CellForumTestView cellForumTestView3 = this.f50019j;
+            CellForumTestView cellForumTestView3 = this.f50127j;
             if (cellForumTestView3 != null) {
                 cellForumTestView3.setPageId(bdUniqueId);
             }
@@ -1112,7 +1112,7 @@ public class ForumTestView extends FrameLayout implements c.a.p0.m0.k.d.a {
                 return;
             }
         }
-        this.f50014e = 3;
+        this.f50122e = 3;
         this.w = new Rect[3];
         this.F = false;
         this.M = false;
@@ -1140,7 +1140,7 @@ public class ForumTestView extends FrameLayout implements c.a.p0.m0.k.d.a {
                 return;
             }
         }
-        this.f50014e = 3;
+        this.f50122e = 3;
         this.w = new Rect[3];
         this.F = false;
         this.M = false;

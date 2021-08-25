@@ -13,10 +13,10 @@ import android.widget.LinearLayout;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import c.a.b0.a.b;
-import c.a.b0.a.d;
-import c.a.b0.a.e;
-import c.a.b0.a.f;
+import c.a.c0.a.b;
+import c.a.c0.a.d;
+import c.a.c0.a.e;
+import c.a.c0.a.f;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.sapi2.NoProguard;
 import com.baidu.sapi2.SapiAccountManager;
@@ -30,16 +30,16 @@ public class SweepLightLoadingView extends FrameLayout implements NoProguard {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public View f44762a;
+    public View f44869a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ImageView f44763b;
+    public ImageView f44870b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ImageView f44764c;
+    public ImageView f44871c;
 
     /* renamed from: d  reason: collision with root package name */
-    public LinearLayout f44765d;
+    public LinearLayout f44872d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public SweepLightLoadingView(Context context) {
@@ -66,15 +66,15 @@ public class SweepLightLoadingView extends FrameLayout implements NoProguard {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
             View inflate = LayoutInflater.from(getContext()).inflate(f.layout_sapi_sdk_sweep_light_loading_view, (ViewGroup) this, true);
-            this.f44762a = inflate;
-            this.f44763b = (ImageView) inflate.findViewById(e.sapi_sdk_loading_logo);
-            this.f44764c = (ImageView) this.f44762a.findViewById(e.sapi_sdk_sweep_iv);
-            this.f44765d = (LinearLayout) this.f44762a.findViewById(e.sapi_sdk_sweep_light_loading_bg_layout);
+            this.f44869a = inflate;
+            this.f44870b = (ImageView) inflate.findViewById(e.sapi_sdk_loading_logo);
+            this.f44871c = (ImageView) this.f44869a.findViewById(e.sapi_sdk_sweep_iv);
+            this.f44872d = (LinearLayout) this.f44869a.findViewById(e.sapi_sdk_sweep_light_loading_bg_layout);
             if (SapiAccountManager.getInstance().getConfignation().isNightMode || SapiAccountManager.getInstance().getConfignation().isDarkMode) {
-                this.f44765d.setBackgroundColor(getResources().getColor(b.sapi_sdk_dark_mode_na_activity_color));
-                this.f44763b.setImageResource(d.sapi_sdk_sweep_light_logo_dark);
-                this.f44764c.setImageResource(d.sapi_sdk_sweep_light_dark);
-                this.f44762a.findViewById(e.sapi_sdk_sweep_bg_view).setBackgroundColor(getResources().getColor(b.sapi_sdk_sweep_loading_bg_dark));
+                this.f44872d.setBackgroundColor(getResources().getColor(b.sapi_sdk_dark_mode_na_activity_color));
+                this.f44870b.setImageResource(d.sapi_sdk_sweep_light_logo_dark);
+                this.f44871c.setImageResource(d.sapi_sdk_sweep_light_dark);
+                this.f44869a.findViewById(e.sapi_sdk_sweep_bg_view).setBackgroundColor(getResources().getColor(b.sapi_sdk_sweep_loading_bg_dark));
             }
         }
     }
@@ -82,7 +82,7 @@ public class SweepLightLoadingView extends FrameLayout implements NoProguard {
     private void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
-            this.f44764c.startAnimation(AnimationUtils.loadAnimation(getContext(), c.a.b0.a.a.sapi_sdk_sweep_light_trans));
+            this.f44871c.startAnimation(AnimationUtils.loadAnimation(getContext(), c.a.c0.a.a.sapi_sdk_sweep_light_trans));
         }
     }
 
@@ -90,7 +90,7 @@ public class SweepLightLoadingView extends FrameLayout implements NoProguard {
     private void c() {
         ImageView imageView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this) == null) || (imageView = this.f44764c) == null) {
+        if (!(interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this) == null) || (imageView = this.f44871c) == null) {
             return;
         }
         imageView.clearAnimation();

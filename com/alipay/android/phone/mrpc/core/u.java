@@ -12,10 +12,10 @@ public class u {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public byte[] f35554a;
+    public byte[] f35660a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f35555b;
+    public String f35661b;
 
     public u() {
         Interceptable interceptable = $ic;
@@ -34,13 +34,13 @@ public class u {
     public final void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            this.f35555b = str;
+            this.f35661b = str;
         }
     }
 
     public final byte[] b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f35554a : (byte[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f35660a : (byte[]) invokeV.objValue;
     }
 }

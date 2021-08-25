@@ -1,6 +1,6 @@
 package com.baidu.tieba.pbextra.praise;
 
-import c.a.p0.j2.c.a;
+import c.a.q0.j2.c.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;

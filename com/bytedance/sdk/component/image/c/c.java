@@ -9,20 +9,20 @@ public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static ILog f64838a;
+    public static ILog f65038a;
     public transient /* synthetic */ FieldHolder $fh;
 
     public static void a(ILog iLog) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65536, null, iLog) == null) {
-            f64838a = iLog;
+            f65038a = iLog;
         }
     }
 
     public static void b(String str) {
         ILog iLog;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65539, null, str) == null) || (iLog = f64838a) == null) {
+        if (!(interceptable == null || interceptable.invokeL(65539, null, str) == null) || (iLog = f65038a) == null) {
             return;
         }
         iLog.e(str);
@@ -31,7 +31,7 @@ public class c {
     public static void a(String str) {
         ILog iLog;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65537, null, str) == null) || (iLog = f64838a) == null) {
+        if (!(interceptable == null || interceptable.invokeL(65537, null, str) == null) || (iLog = f65038a) == null) {
             return;
         }
         iLog.w(str);
@@ -40,7 +40,7 @@ public class c {
     public static void b(String str, String str2) {
         ILog iLog;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2) == null) || (iLog = f64838a) == null) {
+        if (!(interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2) == null) || (iLog = f65038a) == null) {
             return;
         }
         iLog.e(str, str2);
@@ -49,7 +49,7 @@ public class c {
     public static void a(String str, String str2) {
         ILog iLog;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65538, null, str, str2) == null) || (iLog = f64838a) == null) {
+        if (!(interceptable == null || interceptable.invokeLL(65538, null, str, str2) == null) || (iLog = f65038a) == null) {
             return;
         }
         iLog.w(str, str2);

@@ -34,7 +34,7 @@ public class RevenueManager implements j.a.a.b.a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final RevenueManager f79481a;
+        public static final RevenueManager f79682a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -50,7 +50,7 @@ public class RevenueManager implements j.a.a.b.a {
                     return;
                 }
             }
-            f79481a = new RevenueManager(null);
+            f79682a = new RevenueManager(null);
         }
     }
 
@@ -61,7 +61,7 @@ public class RevenueManager implements j.a.a.b.a {
     public static RevenueManager instance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.f79481a : (RevenueManager) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.f79682a : (RevenueManager) invokeV.objValue;
     }
 
     @Override // j.a.a.b.a
@@ -109,11 +109,7 @@ public class RevenueManager implements j.a.a.b.a {
     public IRevenue getRevenue(int i2, int i3) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(1048580, this, i2, i3)) == null) {
-            RLog.debug("RevenueManager", "getRevenue");
-            return this.revenueService.getRevenue(i2, i3);
-        }
-        return (IRevenue) invokeII.objValue;
+        return (interceptable == null || (invokeII = interceptable.invokeII(1048580, this, i2, i3)) == null) ? this.revenueService.getRevenue(i2, i3) : (IRevenue) invokeII.objValue;
     }
 
     @Override // j.a.a.b.a

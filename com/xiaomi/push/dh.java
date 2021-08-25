@@ -16,13 +16,13 @@ public class dh implements Application.ActivityLifecycleCallbacks {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f77101a;
+    public Context f77302a;
 
     /* renamed from: a  reason: collision with other field name */
     public String f241a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f77102b;
+    public String f77303b;
 
     public dh(Context context, String str) {
         Interceptable interceptable = $ic;
@@ -40,7 +40,7 @@ public class dh implements Application.ActivityLifecycleCallbacks {
             }
         }
         this.f241a = "";
-        this.f77101a = context;
+        this.f77302a = context;
         this.f241a = str;
     }
 
@@ -51,7 +51,7 @@ public class dh implements Application.ActivityLifecycleCallbacks {
             hnVar.a(str);
             hnVar.a(System.currentTimeMillis());
             hnVar.a(hh.s);
-            dq.a(this.f77101a, hnVar);
+            dq.a(this.f77302a, hnVar);
         }
     }
 
@@ -77,14 +77,14 @@ public class dh implements Application.ActivityLifecycleCallbacks {
             if (TextUtils.isEmpty(this.f241a) || TextUtils.isEmpty(localClassName)) {
                 return;
             }
-            this.f77102b = "";
-            if (!TextUtils.isEmpty("") && !TextUtils.equals(this.f77102b, localClassName)) {
+            this.f77303b = "";
+            if (!TextUtils.isEmpty("") && !TextUtils.equals(this.f77303b, localClassName)) {
                 this.f241a = "";
                 return;
             }
-            a(this.f77101a.getPackageName() + "|" + localClassName + ":" + this.f241a + "," + String.valueOf(System.currentTimeMillis() / 1000));
+            a(this.f77302a.getPackageName() + "|" + localClassName + ":" + this.f241a + "," + String.valueOf(System.currentTimeMillis() / 1000));
             this.f241a = "";
-            this.f77102b = "";
+            this.f77303b = "";
         }
     }
 
@@ -92,8 +92,8 @@ public class dh implements Application.ActivityLifecycleCallbacks {
     public void onActivityResumed(Activity activity) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, activity) == null) {
-            if (TextUtils.isEmpty(this.f77102b)) {
-                this.f77102b = activity.getLocalClassName();
+            if (TextUtils.isEmpty(this.f77303b)) {
+                this.f77303b = activity.getLocalClassName();
             }
             this.f241a = String.valueOf(System.currentTimeMillis() / 1000);
         }

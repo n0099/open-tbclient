@@ -10,7 +10,7 @@ public class ab implements Runnable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ NotificationClickedActivity f76885a;
+    public final /* synthetic */ NotificationClickedActivity f77086a;
 
     public ab(NotificationClickedActivity notificationClickedActivity) {
         Interceptable interceptable = $ic;
@@ -27,7 +27,7 @@ public class ab implements Runnable {
                 return;
             }
         }
-        this.f76885a = notificationClickedActivity;
+        this.f77086a = notificationClickedActivity;
     }
 
     @Override // java.lang.Runnable
@@ -35,7 +35,7 @@ public class ab implements Runnable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             com.xiaomi.channel.commonutils.logger.b.m73a("clicked activity finish by timeout.");
-            this.f76885a.finish();
+            this.f77086a.finish();
         }
     }
 }

@@ -18,7 +18,7 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f1701a;
+    public String f1936a;
 
     public a(File file) {
         Interceptable interceptable = $ic;
@@ -35,8 +35,8 @@ public class a {
                 return;
             }
         }
-        this.f1701a = null;
-        this.f1701a = file.getAbsolutePath();
+        this.f1936a = null;
+        this.f1936a = file.getAbsolutePath();
     }
 
     public boolean a() {
@@ -59,12 +59,12 @@ public class a {
         if (interceptable != null && (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) != null) {
             return invokeV.booleanValue;
         }
-        if (TextUtils.isEmpty(this.f1701a)) {
+        if (TextUtils.isEmpty(this.f1936a)) {
             return false;
         }
         ZipInputStream zipInputStream2 = null;
         try {
-            fileInputStream = new FileInputStream(new File(this.f1701a));
+            fileInputStream = new FileInputStream(new File(this.f1936a));
         } catch (Exception e3) {
             fileInputStream = null;
             e2 = e3;

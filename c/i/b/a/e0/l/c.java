@@ -15,7 +15,6 @@ import c.i.b.a.i0.l;
 import com.alibaba.fastjson.asm.Opcodes;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.upload.action.pb.IMPushPb;
-import com.baidu.tieba.pb.pb.main.PbFullScreenEditorActivity;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -35,19 +34,19 @@ public final class c extends d {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: f  reason: collision with root package name */
-    public final l f33247f;
+    public final l f33353f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final k f33248g;
+    public final k f33354g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final int f33249h;
+    public final int f33355h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final a[] f33250i;
+    public final a[] f33356i;
 
     /* renamed from: j  reason: collision with root package name */
-    public a f33251j;
+    public a f33357j;
     public List<c.i.b.a.e0.b> k;
     public List<c.i.b.a.e0.b> l;
     public b m;
@@ -70,34 +69,34 @@ public final class c extends d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final List<SpannableString> f33252a;
+        public final List<SpannableString> f33358a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final SpannableStringBuilder f33253b;
+        public final SpannableStringBuilder f33359b;
 
         /* renamed from: c  reason: collision with root package name */
-        public boolean f33254c;
+        public boolean f33360c;
 
         /* renamed from: d  reason: collision with root package name */
-        public boolean f33255d;
+        public boolean f33361d;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f33256e;
+        public int f33362e;
 
         /* renamed from: f  reason: collision with root package name */
-        public boolean f33257f;
+        public boolean f33363f;
 
         /* renamed from: g  reason: collision with root package name */
-        public int f33258g;
+        public int f33364g;
 
         /* renamed from: h  reason: collision with root package name */
-        public int f33259h;
+        public int f33365h;
 
         /* renamed from: i  reason: collision with root package name */
-        public int f33260i;
+        public int f33366i;
 
         /* renamed from: j  reason: collision with root package name */
-        public int f33261j;
+        public int f33367j;
         public boolean k;
         public int l;
         public int m;
@@ -152,8 +151,8 @@ public final class c extends d {
                     return;
                 }
             }
-            this.f33252a = new LinkedList();
-            this.f33253b = new SpannableStringBuilder();
+            this.f33358a = new LinkedList();
+            this.f33359b = new SpannableStringBuilder();
             l();
         }
 
@@ -200,8 +199,8 @@ public final class c extends d {
                 return;
             }
             if (c2 == '\n') {
-                this.f33252a.add(d());
-                this.f33253b.clear();
+                this.f33358a.add(d());
+                this.f33359b.clear();
                 if (this.p != -1) {
                     this.p = 0;
                 }
@@ -215,23 +214,23 @@ public final class c extends d {
                     this.t = 0;
                 }
                 while (true) {
-                    if ((!this.k || this.f33252a.size() < this.f33261j) && this.f33252a.size() < 15) {
+                    if ((!this.k || this.f33358a.size() < this.f33367j) && this.f33358a.size() < 15) {
                         return;
                     }
-                    this.f33252a.remove(0);
+                    this.f33358a.remove(0);
                 }
             } else {
-                this.f33253b.append(c2);
+                this.f33359b.append(c2);
             }
         }
 
         public void b() {
             int length;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (length = this.f33253b.length()) <= 0) {
+            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (length = this.f33359b.length()) <= 0) {
                 return;
             }
-            this.f33253b.delete(length - 1, length);
+            this.f33359b.delete(length - 1, length);
         }
 
         /* JADX WARN: Removed duplicated region for block: B:25:0x0069  */
@@ -259,8 +258,8 @@ public final class c extends d {
                     return null;
                 }
                 SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
-                for (int i6 = 0; i6 < this.f33252a.size(); i6++) {
-                    spannableStringBuilder.append((CharSequence) this.f33252a.get(i6));
+                for (int i6 = 0; i6 < this.f33358a.size(); i6++) {
+                    spannableStringBuilder.append((CharSequence) this.f33358a.get(i6));
                     spannableStringBuilder.append('\n');
                 }
                 spannableStringBuilder.append((CharSequence) d());
@@ -274,42 +273,42 @@ public final class c extends d {
                         throw new IllegalArgumentException("Unexpected justification value: " + this.l);
                     }
                     Layout.Alignment alignment2 = alignment;
-                    if (!this.f33257f) {
-                        f2 = this.f33259h / 99.0f;
-                        f3 = this.f33258g / 99.0f;
+                    if (!this.f33363f) {
+                        f2 = this.f33365h / 99.0f;
+                        f3 = this.f33364g / 99.0f;
                     } else {
-                        f2 = this.f33259h / 209.0f;
-                        f3 = this.f33258g / 74.0f;
+                        f2 = this.f33365h / 209.0f;
+                        f3 = this.f33364g / 74.0f;
                     }
                     float f4 = (f2 * 0.9f) + 0.05f;
                     float f5 = (f3 * 0.9f) + 0.05f;
-                    i2 = this.f33260i;
+                    i2 = this.f33366i;
                     if (i2 % 3 != 0) {
                         i3 = 0;
                     } else {
                         i3 = i2 % 3 == 1 ? 1 : 2;
                     }
-                    i4 = this.f33260i;
+                    i4 = this.f33366i;
                     if (i4 / 3 != 0) {
                         i5 = 0;
                     } else {
                         i5 = i4 / 3 == 1 ? 1 : 2;
                     }
-                    return new c.i.b.a.e0.l.b(spannableStringBuilder, alignment2, f5, 0, i3, f4, i5, Float.MIN_VALUE, this.o != x, this.o, this.f33256e);
+                    return new c.i.b.a.e0.l.b(spannableStringBuilder, alignment2, f5, 0, i3, f4, i5, Float.MIN_VALUE, this.o != x, this.o, this.f33362e);
                 }
                 alignment = Layout.Alignment.ALIGN_NORMAL;
                 Layout.Alignment alignment22 = alignment;
-                if (!this.f33257f) {
+                if (!this.f33363f) {
                 }
                 float f42 = (f2 * 0.9f) + 0.05f;
                 float f52 = (f3 * 0.9f) + 0.05f;
-                i2 = this.f33260i;
+                i2 = this.f33366i;
                 if (i2 % 3 != 0) {
                 }
-                i4 = this.f33260i;
+                i4 = this.f33366i;
                 if (i4 / 3 != 0) {
                 }
-                return new c.i.b.a.e0.l.b(spannableStringBuilder, alignment22, f52, 0, i3, f42, i5, Float.MIN_VALUE, this.o != x, this.o, this.f33256e);
+                return new c.i.b.a.e0.l.b(spannableStringBuilder, alignment22, f52, 0, i3, f42, i5, Float.MIN_VALUE, this.o != x, this.o, this.f33362e);
             }
             return (c.i.b.a.e0.l.b) invokeV.objValue;
         }
@@ -318,7 +317,7 @@ public final class c extends d {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(this.f33253b);
+                SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(this.f33359b);
                 int length = spannableStringBuilder.length();
                 if (length > 0) {
                     if (this.p != -1) {
@@ -342,8 +341,8 @@ public final class c extends d {
         public void e() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-                this.f33252a.clear();
-                this.f33253b.clear();
+                this.f33358a.clear();
+                this.f33359b.clear();
                 this.p = -1;
                 this.q = -1;
                 this.r = -1;
@@ -355,22 +354,22 @@ public final class c extends d {
         public void f(boolean z2, boolean z3, boolean z4, int i2, boolean z5, int i3, int i4, int i5, int i6, int i7, int i8, int i9) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Boolean.valueOf(z2), Boolean.valueOf(z3), Boolean.valueOf(z4), Integer.valueOf(i2), Boolean.valueOf(z5), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7), Integer.valueOf(i8), Integer.valueOf(i9)}) == null) {
-                this.f33254c = true;
-                this.f33255d = z2;
+                this.f33360c = true;
+                this.f33361d = z2;
                 this.k = z3;
-                this.f33256e = i2;
-                this.f33257f = z5;
-                this.f33258g = i3;
-                this.f33259h = i4;
-                this.f33260i = i7;
+                this.f33362e = i2;
+                this.f33363f = z5;
+                this.f33364g = i3;
+                this.f33365h = i4;
+                this.f33366i = i7;
                 int i10 = i5 + 1;
-                if (this.f33261j != i10) {
-                    this.f33261j = i10;
+                if (this.f33367j != i10) {
+                    this.f33367j = i10;
                     while (true) {
-                        if ((!z3 || this.f33252a.size() < this.f33261j) && this.f33252a.size() < 15) {
+                        if ((!z3 || this.f33358a.size() < this.f33367j) && this.f33358a.size() < 15) {
                             break;
                         }
-                        this.f33252a.remove(0);
+                        this.f33358a.remove(0);
                     }
                 }
                 if (i8 != 0 && this.m != i8) {
@@ -391,33 +390,33 @@ public final class c extends d {
         public boolean i() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f33254c : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f33360c : invokeV.booleanValue;
         }
 
         public boolean j() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? !i() || (this.f33252a.isEmpty() && this.f33253b.length() == 0) : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? !i() || (this.f33358a.isEmpty() && this.f33359b.length() == 0) : invokeV.booleanValue;
         }
 
         public boolean k() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f33255d : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f33361d : invokeV.booleanValue;
         }
 
         public void l() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
                 e();
-                this.f33254c = false;
-                this.f33255d = false;
-                this.f33256e = 4;
-                this.f33257f = false;
-                this.f33258g = 0;
-                this.f33259h = 0;
-                this.f33260i = 0;
-                this.f33261j = 15;
+                this.f33360c = false;
+                this.f33361d = false;
+                this.f33362e = 4;
+                this.f33363f = false;
+                this.f33364g = 0;
+                this.f33365h = 0;
+                this.f33366i = 0;
+                this.f33367j = 15;
                 this.k = true;
                 this.l = 0;
                 this.m = 0;
@@ -434,19 +433,19 @@ public final class c extends d {
             if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Boolean.valueOf(z2), Boolean.valueOf(z3), Integer.valueOf(i5), Integer.valueOf(i6)}) == null) {
                 if (this.p != -1) {
                     if (!z2) {
-                        this.f33253b.setSpan(new StyleSpan(2), this.p, this.f33253b.length(), 33);
+                        this.f33359b.setSpan(new StyleSpan(2), this.p, this.f33359b.length(), 33);
                         this.p = -1;
                     }
                 } else if (z2) {
-                    this.p = this.f33253b.length();
+                    this.p = this.f33359b.length();
                 }
                 if (this.q == -1) {
                     if (z3) {
-                        this.q = this.f33253b.length();
+                        this.q = this.f33359b.length();
                     }
                 } else if (z3) {
                 } else {
-                    this.f33253b.setSpan(new UnderlineSpan(), this.q, this.f33253b.length(), 33);
+                    this.f33359b.setSpan(new UnderlineSpan(), this.q, this.f33359b.length(), 33);
                     this.q = -1;
                 }
             }
@@ -456,17 +455,17 @@ public final class c extends d {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIII(1048587, this, i2, i3, i4) == null) {
                 if (this.r != -1 && this.s != i2) {
-                    this.f33253b.setSpan(new ForegroundColorSpan(this.s), this.r, this.f33253b.length(), 33);
+                    this.f33359b.setSpan(new ForegroundColorSpan(this.s), this.r, this.f33359b.length(), 33);
                 }
                 if (i2 != w) {
-                    this.r = this.f33253b.length();
+                    this.r = this.f33359b.length();
                     this.s = i2;
                 }
                 if (this.t != -1 && this.u != i3) {
-                    this.f33253b.setSpan(new BackgroundColorSpan(this.u), this.t, this.f33253b.length(), 33);
+                    this.f33359b.setSpan(new BackgroundColorSpan(this.u), this.t, this.f33359b.length(), 33);
                 }
                 if (i3 != x) {
-                    this.t = this.f33253b.length();
+                    this.t = this.f33359b.length();
                     this.u = i3;
                 }
             }
@@ -485,7 +484,7 @@ public final class c extends d {
         public void p(boolean z2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048589, this, z2) == null) {
-                this.f33255d = z2;
+                this.f33361d = z2;
             }
         }
 
@@ -504,16 +503,16 @@ public final class c extends d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final int f33262a;
+        public final int f33368a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final int f33263b;
+        public final int f33369b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final byte[] f33264c;
+        public final byte[] f33370c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f33265d;
+        public int f33371d;
 
         public b(int i2, int i3) {
             Interceptable interceptable = $ic;
@@ -530,10 +529,10 @@ public final class c extends d {
                     return;
                 }
             }
-            this.f33262a = i2;
-            this.f33263b = i3;
-            this.f33264c = new byte[(i3 * 2) - 1];
-            this.f33265d = 0;
+            this.f33368a = i2;
+            this.f33369b = i3;
+            this.f33370c = new byte[(i3 * 2) - 1];
+            this.f33371d = 0;
         }
     }
 
@@ -552,32 +551,32 @@ public final class c extends d {
                 return;
             }
         }
-        this.f33247f = new l();
-        this.f33248g = new k();
-        this.f33249h = i2 == -1 ? 1 : i2;
-        this.f33250i = new a[8];
+        this.f33353f = new l();
+        this.f33354g = new k();
+        this.f33355h = i2 == -1 ? 1 : i2;
+        this.f33356i = new a[8];
         for (int i5 = 0; i5 < 8; i5++) {
-            this.f33250i[i5] = new a();
+            this.f33356i[i5] = new a();
         }
-        this.f33251j = this.f33250i[0];
+        this.f33357j = this.f33356i[0];
         C();
     }
 
     public final void A() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            int h2 = a.h(this.f33248g.g(2), this.f33248g.g(2), this.f33248g.g(2), this.f33248g.g(2));
-            int g2 = this.f33248g.g(2);
-            int g3 = a.g(this.f33248g.g(2), this.f33248g.g(2), this.f33248g.g(2));
-            if (this.f33248g.f()) {
+            int h2 = a.h(this.f33354g.g(2), this.f33354g.g(2), this.f33354g.g(2), this.f33354g.g(2));
+            int g2 = this.f33354g.g(2);
+            int g3 = a.g(this.f33354g.g(2), this.f33354g.g(2), this.f33354g.g(2));
+            if (this.f33354g.f()) {
                 g2 |= 4;
             }
-            boolean f2 = this.f33248g.f();
-            int g4 = this.f33248g.g(2);
-            int g5 = this.f33248g.g(2);
-            int g6 = this.f33248g.g(2);
-            this.f33248g.n(8);
-            this.f33251j.q(h2, g3, f2, g2, g4, g5, g6);
+            boolean f2 = this.f33354g.f();
+            int g4 = this.f33354g.g(2);
+            int g5 = this.f33354g.g(2);
+            int g6 = this.f33354g.g(2);
+            this.f33354g.n(8);
+            this.f33357j.q(h2, g3, f2, g2, g4, g5, g6);
         }
     }
 
@@ -585,29 +584,29 @@ public final class c extends d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             b bVar = this.m;
-            int i2 = bVar.f33265d;
-            if (i2 != (bVar.f33263b * 2) - 1) {
-                String str = "DtvCcPacket ended prematurely; size is " + ((this.m.f33263b * 2) - 1) + ", but current index is " + this.m.f33265d + " (sequence number " + this.m.f33262a + "); ignoring packet";
+            int i2 = bVar.f33371d;
+            if (i2 != (bVar.f33369b * 2) - 1) {
+                String str = "DtvCcPacket ended prematurely; size is " + ((this.m.f33369b * 2) - 1) + ", but current index is " + this.m.f33371d + " (sequence number " + this.m.f33368a + "); ignoring packet";
                 return;
             }
-            this.f33248g.k(bVar.f33264c, i2);
-            int g2 = this.f33248g.g(3);
-            int g3 = this.f33248g.g(5);
+            this.f33354g.k(bVar.f33370c, i2);
+            int g2 = this.f33354g.g(3);
+            int g3 = this.f33354g.g(5);
             if (g2 == 7) {
-                this.f33248g.n(2);
-                g2 += this.f33248g.g(6);
+                this.f33354g.n(2);
+                g2 += this.f33354g.g(6);
             }
             if (g3 == 0) {
                 if (g2 != 0) {
                     String str2 = "serviceNumber is non-zero (" + g2 + ") when blockSize is 0";
                 }
-            } else if (g2 != this.f33249h) {
+            } else if (g2 != this.f33355h) {
             } else {
                 boolean z = false;
-                while (this.f33248g.b() > 0) {
-                    int g4 = this.f33248g.g(8);
+                while (this.f33354g.b() > 0) {
+                    int g4 = this.f33354g.g(8);
                     if (g4 == 16) {
-                        int g5 = this.f33248g.g(8);
+                        int g5 = this.f33354g.g(8);
                         if (g5 <= 31) {
                             q(g5);
                         } else {
@@ -648,7 +647,7 @@ public final class c extends d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             for (int i2 = 0; i2 < 8; i2++) {
-                this.f33250i[i2].l();
+                this.f33356i[i2].l();
             }
         }
     }
@@ -669,13 +668,13 @@ public final class c extends d {
     public void f(h hVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, hVar) == null) {
-            this.f33247f.H(hVar.f33874g.array(), hVar.f33874g.limit());
-            while (this.f33247f.a() >= 3) {
-                int x = this.f33247f.x() & 7;
+            this.f33353f.H(hVar.f33980g.array(), hVar.f33980g.limit());
+            while (this.f33353f.a() >= 3) {
+                int x = this.f33353f.x() & 7;
                 int i2 = x & 3;
                 boolean z = (x & 4) == 4;
-                byte x2 = (byte) this.f33247f.x();
-                byte x3 = (byte) this.f33247f.x();
+                byte x2 = (byte) this.f33353f.x();
+                byte x3 = (byte) this.f33353f.x();
                 if (i2 == 2 || i2 == 3) {
                     if (z) {
                         if (i2 == 3) {
@@ -687,25 +686,25 @@ public final class c extends d {
                             }
                             b bVar = new b(i3, i4);
                             this.m = bVar;
-                            byte[] bArr = bVar.f33264c;
-                            int i5 = bVar.f33265d;
-                            bVar.f33265d = i5 + 1;
+                            byte[] bArr = bVar.f33370c;
+                            int i5 = bVar.f33371d;
+                            bVar.f33371d = i5 + 1;
                             bArr[i5] = x3;
                         } else {
                             c.i.b.a.i0.a.a(i2 == 2);
                             b bVar2 = this.m;
                             if (bVar2 != null) {
-                                byte[] bArr2 = bVar2.f33264c;
-                                int i6 = bVar2.f33265d;
+                                byte[] bArr2 = bVar2.f33370c;
+                                int i6 = bVar2.f33371d;
                                 int i7 = i6 + 1;
-                                bVar2.f33265d = i7;
+                                bVar2.f33371d = i7;
                                 bArr2[i6] = x2;
-                                bVar2.f33265d = i7 + 1;
+                                bVar2.f33371d = i7 + 1;
                                 bArr2[i7] = x3;
                             }
                         }
                         b bVar3 = this.m;
-                        if (bVar3.f33265d == (bVar3.f33263b * 2) - 1) {
+                        if (bVar3.f33371d == (bVar3.f33369b * 2) - 1) {
                             m();
                         }
                     }
@@ -722,7 +721,7 @@ public final class c extends d {
             this.k = null;
             this.l = null;
             this.n = 0;
-            this.f33251j = this.f33250i[0];
+            this.f33357j = this.f33356i[0];
             C();
             this.m = null;
         }
@@ -750,8 +749,8 @@ public final class c extends d {
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             ArrayList arrayList = new ArrayList();
             for (int i2 = 0; i2 < 8; i2++) {
-                if (!this.f33250i[i2].j() && this.f33250i[i2].k()) {
-                    arrayList.add(this.f33250i[i2].c());
+                if (!this.f33356i[i2].j() && this.f33356i[i2].k()) {
+                    arrayList.add(this.f33356i[i2].c());
                 }
             }
             Collections.sort(arrayList);
@@ -773,18 +772,18 @@ public final class c extends d {
                     C();
                     return;
                 case 13:
-                    this.f33251j.a('\n');
+                    this.f33357j.a('\n');
                     return;
                 case 14:
                     return;
                 default:
                     if (i2 >= 17 && i2 <= 23) {
                         String str = "Currently unsupported COMMAND_EXT1 Command: " + i2;
-                        this.f33248g.n(8);
+                        this.f33354g.n(8);
                         return;
                     } else if (i2 >= 24 && i2 <= 31) {
                         String str2 = "Currently unsupported COMMAND_P16 Command: " + i2;
-                        this.f33248g.n(16);
+                        this.f33354g.n(16);
                         return;
                     } else {
                         String str3 = "Invalid C0 command: " + i2;
@@ -792,7 +791,7 @@ public final class c extends d {
                     }
             }
         } else {
-            this.f33251j.b();
+            this.f33357j.b();
         }
     }
 
@@ -810,53 +809,53 @@ public final class c extends d {
                 case 133:
                 case 134:
                 case 135:
-                    int i4 = i2 + com.alipay.sdk.encrypt.a.f35772g;
+                    int i4 = i2 + com.alipay.sdk.encrypt.a.f35878g;
                     if (this.n != i4) {
                         this.n = i4;
-                        this.f33251j = this.f33250i[i4];
+                        this.f33357j = this.f33356i[i4];
                         return;
                     }
                     return;
                 case 136:
                     while (i3 <= 8) {
-                        if (this.f33248g.f()) {
-                            this.f33250i[8 - i3].e();
+                        if (this.f33354g.f()) {
+                            this.f33356i[8 - i3].e();
                         }
                         i3++;
                     }
                     return;
                 case ContactPermissionUtil.DIALOG_NO_PERMISSION_CONTACTS /* 137 */:
                     for (int i5 = 1; i5 <= 8; i5++) {
-                        if (this.f33248g.f()) {
-                            this.f33250i[8 - i5].p(true);
+                        if (this.f33354g.f()) {
+                            this.f33356i[8 - i5].p(true);
                         }
                     }
                     return;
                 case 138:
                     while (i3 <= 8) {
-                        if (this.f33248g.f()) {
-                            this.f33250i[8 - i3].p(false);
+                        if (this.f33354g.f()) {
+                            this.f33356i[8 - i3].p(false);
                         }
                         i3++;
                     }
                     return;
                 case 139:
                     for (int i6 = 1; i6 <= 8; i6++) {
-                        if (this.f33248g.f()) {
-                            this.f33250i[8 - i6].p(!aVar.k());
+                        if (this.f33354g.f()) {
+                            this.f33356i[8 - i6].p(!aVar.k());
                         }
                     }
                     return;
-                case PbFullScreenEditorActivity.REPLY_MAX_SIZE /* 140 */:
+                case 140:
                     while (i3 <= 8) {
-                        if (this.f33248g.f()) {
-                            this.f33250i[8 - i3].l();
+                        if (this.f33354g.f()) {
+                            this.f33356i[8 - i3].l();
                         }
                         i3++;
                     }
                     return;
                 case 141:
-                    this.f33248g.n(8);
+                    this.f33354g.n(8);
                     return;
                 case 142:
                     return;
@@ -864,24 +863,24 @@ public final class c extends d {
                     C();
                     return;
                 case 144:
-                    if (!this.f33251j.i()) {
-                        this.f33248g.n(16);
+                    if (!this.f33357j.i()) {
+                        this.f33354g.n(16);
                         return;
                     } else {
                         x();
                         return;
                     }
                 case 145:
-                    if (!this.f33251j.i()) {
-                        this.f33248g.n(24);
+                    if (!this.f33357j.i()) {
+                        this.f33354g.n(24);
                         return;
                     } else {
                         y();
                         return;
                     }
                 case 146:
-                    if (!this.f33251j.i()) {
-                        this.f33248g.n(16);
+                    if (!this.f33357j.i()) {
+                        this.f33354g.n(16);
                         return;
                     } else {
                         z();
@@ -895,14 +894,14 @@ public final class c extends d {
                     String str = "Invalid C1 command: " + i2;
                     return;
                 case Opcodes.DCMPL /* 151 */:
-                    if (!this.f33251j.i()) {
-                        this.f33248g.n(32);
+                    if (!this.f33357j.i()) {
+                        this.f33354g.n(32);
                         return;
                     } else {
                         A();
                         return;
                     }
-                case com.baidu.apollon.a.f37526e /* 152 */:
+                case com.baidu.apollon.a.f37632e /* 152 */:
                 case 153:
                 case Opcodes.IFNE /* 154 */:
                 case 155:
@@ -914,7 +913,7 @@ public final class c extends d {
                     s(i7);
                     if (this.n != i7) {
                         this.n = i7;
-                        this.f33251j = this.f33250i[i7];
+                        this.f33357j = this.f33356i[i7];
                         return;
                     }
                     return;
@@ -928,11 +927,11 @@ public final class c extends d {
             return;
         }
         if (i2 <= 15) {
-            this.f33248g.n(8);
+            this.f33354g.n(8);
         } else if (i2 <= 23) {
-            this.f33248g.n(16);
+            this.f33354g.n(16);
         } else if (i2 <= 31) {
-            this.f33248g.n(24);
+            this.f33354g.n(24);
         }
     }
 
@@ -940,12 +939,12 @@ public final class c extends d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048588, this, i2) == null) {
             if (i2 <= 135) {
-                this.f33248g.n(32);
+                this.f33354g.n(32);
             } else if (i2 <= 143) {
-                this.f33248g.n(40);
+                this.f33354g.n(40);
             } else if (i2 <= 159) {
-                this.f33248g.n(2);
-                this.f33248g.n(this.f33248g.g(6) * 8);
+                this.f33354g.n(2);
+                this.f33354g.n(this.f33354g.g(6) * 8);
             }
         }
     }
@@ -953,21 +952,21 @@ public final class c extends d {
     public final void s(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048589, this, i2) == null) {
-            a aVar = this.f33250i[i2];
-            this.f33248g.n(2);
-            boolean f2 = this.f33248g.f();
-            boolean f3 = this.f33248g.f();
-            boolean f4 = this.f33248g.f();
-            int g2 = this.f33248g.g(3);
-            boolean f5 = this.f33248g.f();
-            int g3 = this.f33248g.g(7);
-            int g4 = this.f33248g.g(8);
-            int g5 = this.f33248g.g(4);
-            int g6 = this.f33248g.g(4);
-            this.f33248g.n(2);
-            int g7 = this.f33248g.g(6);
-            this.f33248g.n(2);
-            aVar.f(f2, f3, f4, g2, f5, g3, g4, g6, g7, g5, this.f33248g.g(3), this.f33248g.g(3));
+            a aVar = this.f33356i[i2];
+            this.f33354g.n(2);
+            boolean f2 = this.f33354g.f();
+            boolean f3 = this.f33354g.f();
+            boolean f4 = this.f33354g.f();
+            int g2 = this.f33354g.g(3);
+            boolean f5 = this.f33354g.f();
+            int g3 = this.f33354g.g(7);
+            int g4 = this.f33354g.g(8);
+            int g5 = this.f33354g.g(4);
+            int g6 = this.f33354g.g(4);
+            this.f33354g.n(2);
+            int g7 = this.f33354g.g(6);
+            this.f33354g.n(2);
+            aVar.f(f2, f3, f4, g2, f5, g3, g4, g6, g7, g5, this.f33354g.g(3), this.f33354g.g(3));
         }
     }
 
@@ -975,9 +974,9 @@ public final class c extends d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048590, this, i2) == null) {
             if (i2 == 127) {
-                this.f33251j.a((char) 9835);
+                this.f33357j.a((char) 9835);
             } else {
-                this.f33251j.a((char) (i2 & 255));
+                this.f33357j.a((char) (i2 & 255));
             }
         }
     }
@@ -985,7 +984,7 @@ public final class c extends d {
     public final void u(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048591, this, i2) == null) {
-            this.f33251j.a((char) (i2 & 255));
+            this.f33357j.a((char) (i2 & 255));
         }
     }
 
@@ -993,74 +992,74 @@ public final class c extends d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048592, this, i2) == null) {
             if (i2 == 32) {
-                this.f33251j.a(' ');
+                this.f33357j.a(' ');
             } else if (i2 == 33) {
-                this.f33251j.a(Typography.nbsp);
+                this.f33357j.a(Typography.nbsp);
             } else if (i2 == 37) {
-                this.f33251j.a(Typography.ellipsis);
+                this.f33357j.a(Typography.ellipsis);
             } else if (i2 == 42) {
-                this.f33251j.a((char) 352);
+                this.f33357j.a((char) 352);
             } else if (i2 == 44) {
-                this.f33251j.a((char) 338);
+                this.f33357j.a((char) 338);
             } else if (i2 == 63) {
-                this.f33251j.a((char) 376);
+                this.f33357j.a((char) 376);
             } else if (i2 == 57) {
-                this.f33251j.a(Typography.tm);
+                this.f33357j.a(Typography.tm);
             } else if (i2 == 58) {
-                this.f33251j.a((char) 353);
+                this.f33357j.a((char) 353);
             } else if (i2 == 60) {
-                this.f33251j.a((char) 339);
+                this.f33357j.a((char) 339);
             } else if (i2 != 61) {
                 switch (i2) {
                     case 48:
-                        this.f33251j.a((char) 9608);
+                        this.f33357j.a((char) 9608);
                         return;
                     case 49:
-                        this.f33251j.a(Typography.leftSingleQuote);
+                        this.f33357j.a(Typography.leftSingleQuote);
                         return;
                     case 50:
-                        this.f33251j.a(Typography.rightSingleQuote);
+                        this.f33357j.a(Typography.rightSingleQuote);
                         return;
                     case 51:
-                        this.f33251j.a(Typography.leftDoubleQuote);
+                        this.f33357j.a(Typography.leftDoubleQuote);
                         return;
                     case 52:
-                        this.f33251j.a(Typography.rightDoubleQuote);
+                        this.f33357j.a(Typography.rightDoubleQuote);
                         return;
                     case 53:
-                        this.f33251j.a(Typography.bullet);
+                        this.f33357j.a(Typography.bullet);
                         return;
                     default:
                         switch (i2) {
                             case 118:
-                                this.f33251j.a((char) 8539);
+                                this.f33357j.a((char) 8539);
                                 return;
                             case 119:
-                                this.f33251j.a((char) 8540);
+                                this.f33357j.a((char) 8540);
                                 return;
                             case 120:
-                                this.f33251j.a((char) 8541);
+                                this.f33357j.a((char) 8541);
                                 return;
                             case 121:
-                                this.f33251j.a((char) 8542);
+                                this.f33357j.a((char) 8542);
                                 return;
                             case 122:
-                                this.f33251j.a((char) 9474);
+                                this.f33357j.a((char) 9474);
                                 return;
                             case 123:
-                                this.f33251j.a((char) 9488);
+                                this.f33357j.a((char) 9488);
                                 return;
                             case 124:
-                                this.f33251j.a((char) 9492);
+                                this.f33357j.a((char) 9492);
                                 return;
                             case 125:
-                                this.f33251j.a((char) 9472);
+                                this.f33357j.a((char) 9472);
                                 return;
                             case 126:
-                                this.f33251j.a((char) 9496);
+                                this.f33357j.a((char) 9496);
                                 return;
                             case 127:
-                                this.f33251j.a((char) 9484);
+                                this.f33357j.a((char) 9484);
                                 return;
                             default:
                                 String str = "Invalid G2 character: " + i2;
@@ -1068,7 +1067,7 @@ public final class c extends d {
                         }
                 }
             } else {
-                this.f33251j.a((char) 8480);
+                this.f33357j.a((char) 8480);
             }
         }
     }
@@ -1077,38 +1076,38 @@ public final class c extends d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048593, this, i2) == null) {
             if (i2 == 160) {
-                this.f33251j.a((char) 13252);
+                this.f33357j.a((char) 13252);
                 return;
             }
             String str = "Invalid G3 character: " + i2;
-            this.f33251j.a('_');
+            this.f33357j.a('_');
         }
     }
 
     public final void x() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
-            this.f33251j.m(this.f33248g.g(4), this.f33248g.g(2), this.f33248g.g(2), this.f33248g.f(), this.f33248g.f(), this.f33248g.g(3), this.f33248g.g(3));
+            this.f33357j.m(this.f33354g.g(4), this.f33354g.g(2), this.f33354g.g(2), this.f33354g.f(), this.f33354g.f(), this.f33354g.g(3), this.f33354g.g(3));
         }
     }
 
     public final void y() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
-            int h2 = a.h(this.f33248g.g(2), this.f33248g.g(2), this.f33248g.g(2), this.f33248g.g(2));
-            int h3 = a.h(this.f33248g.g(2), this.f33248g.g(2), this.f33248g.g(2), this.f33248g.g(2));
-            this.f33248g.n(2);
-            this.f33251j.n(h2, h3, a.g(this.f33248g.g(2), this.f33248g.g(2), this.f33248g.g(2)));
+            int h2 = a.h(this.f33354g.g(2), this.f33354g.g(2), this.f33354g.g(2), this.f33354g.g(2));
+            int h3 = a.h(this.f33354g.g(2), this.f33354g.g(2), this.f33354g.g(2), this.f33354g.g(2));
+            this.f33354g.n(2);
+            this.f33357j.n(h2, h3, a.g(this.f33354g.g(2), this.f33354g.g(2), this.f33354g.g(2)));
         }
     }
 
     public final void z() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
-            this.f33248g.n(4);
-            int g2 = this.f33248g.g(4);
-            this.f33248g.n(2);
-            this.f33251j.o(g2, this.f33248g.g(6));
+            this.f33354g.n(4);
+            int g2 = this.f33354g.g(4);
+            this.f33354g.n(2);
+            this.f33357j.o(g2, this.f33354g.g(6));
         }
     }
 }

@@ -12,7 +12,7 @@ public class t implements h {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public SparseArray<Object> f2117a;
+    public SparseArray<Object> f2175a;
 
     public t(SparseArray<Object> sparseArray) {
         Interceptable interceptable = $ic;
@@ -29,13 +29,13 @@ public class t implements h {
                 return;
             }
         }
-        this.f2117a = sparseArray;
+        this.f2175a = sparseArray;
     }
 
     @Override // c.a.e.e.b.b.a.d.h
     public Object a(c.a.e.e.b.b.a.e.c cVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cVar)) == null) ? c.a.e.e.b.b.a.e.b.f(this.f2117a, cVar) : invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cVar)) == null) ? c.a.e.e.b.b.a.e.b.f(this.f2175a, cVar) : invokeL.objValue;
     }
 }

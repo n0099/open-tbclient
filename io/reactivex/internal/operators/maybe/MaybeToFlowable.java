@@ -27,7 +27,7 @@ public final class MaybeToFlowable<T> extends Flowable<T> implements HasUpstream
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: d  reason: collision with root package name */
-        public Disposable f78543d;
+        public Disposable f78744d;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public MaybeToFlowableSubscriber(Subscriber<? super T> subscriber) {
@@ -54,7 +54,7 @@ public final class MaybeToFlowable<T> extends Flowable<T> implements HasUpstream
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 super.cancel();
-                this.f78543d.dispose();
+                this.f78744d.dispose();
             }
         }
 
@@ -77,8 +77,8 @@ public final class MaybeToFlowable<T> extends Flowable<T> implements HasUpstream
         @Override // io.reactivex.MaybeObserver
         public void onSubscribe(Disposable disposable) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048579, this, disposable) == null) && DisposableHelper.validate(this.f78543d, disposable)) {
-                this.f78543d = disposable;
+            if ((interceptable == null || interceptable.invokeL(1048579, this, disposable) == null) && DisposableHelper.validate(this.f78744d, disposable)) {
+                this.f78744d = disposable;
                 this.actual.onSubscribe(this);
             }
         }

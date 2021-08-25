@@ -37,7 +37,7 @@ public class CommentUtils {
         }
     }
 
-    /* JADX WARN: Not initialized variable reg: 1, insn: 0x005d: MOVE  (r0 I:??[OBJECT, ARRAY]) = (r1 I:??[OBJECT, ARRAY]), block:B:34:0x005d */
+    /* JADX WARN: Not initialized variable reg: 1, insn: 0x005c: MOVE  (r0 I:??[OBJECT, ARRAY]) = (r1 I:??[OBJECT, ARRAY]), block:B:34:0x005c */
     public static String readApk(File file) {
         InterceptResult invokeL;
         RandomAccessFile randomAccessFile;
@@ -54,7 +54,7 @@ public class CommentUtils {
         }
         try {
             try {
-                randomAccessFile2 = new RandomAccessFile(file, r.f42062a);
+                randomAccessFile2 = new RandomAccessFile(file, r.f42169a);
             } catch (IOException e2) {
                 e2.printStackTrace();
                 return null;

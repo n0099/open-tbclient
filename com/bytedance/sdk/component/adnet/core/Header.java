@@ -14,10 +14,10 @@ public final class Header {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f63879a;
+    public final String f64079a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f63880b;
+    public final String f64080b;
 
     public Header(String str, String str2) {
         Interceptable interceptable = $ic;
@@ -34,8 +34,8 @@ public final class Header {
                 return;
             }
         }
-        this.f63879a = str;
-        this.f63880b = str2;
+        this.f64079a = str;
+        this.f64080b = str2;
     }
 
     public boolean equals(Object obj) {
@@ -49,7 +49,7 @@ public final class Header {
                 return false;
             }
             Header header = (Header) obj;
-            return TextUtils.equals(this.f63879a, header.f63879a) && TextUtils.equals(this.f63880b, header.f63880b);
+            return TextUtils.equals(this.f64079a, header.f64079a) && TextUtils.equals(this.f64080b, header.f64080b);
         }
         return invokeL.booleanValue;
     }
@@ -57,26 +57,26 @@ public final class Header {
     public final String getName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f63879a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f64079a : (String) invokeV.objValue;
     }
 
     public final String getValue() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f63880b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f64080b : (String) invokeV.objValue;
     }
 
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? (this.f63879a.hashCode() * 31) + this.f63880b.hashCode() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? (this.f64079a.hashCode() * 31) + this.f64080b.hashCode() : invokeV.intValue;
     }
 
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return "Header[name=" + this.f63879a + ",value=" + this.f63880b + PreferencesUtil.RIGHT_MOUNT;
+            return "Header[name=" + this.f64079a + ",value=" + this.f64080b + PreferencesUtil.RIGHT_MOUNT;
         }
         return (String) invokeV.objValue;
     }

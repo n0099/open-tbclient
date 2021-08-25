@@ -28,7 +28,7 @@ public class at {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ View f73539a;
+                public final /* synthetic */ View f73739a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -45,14 +45,14 @@ public class at {
                             return;
                         }
                     }
-                    this.f73539a = view;
+                    this.f73739a = view;
                 }
 
                 @Override // android.animation.ValueAnimator.AnimatorUpdateListener
                 public void onAnimationUpdate(ValueAnimator valueAnimator) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, valueAnimator) == null) {
-                        at.b(this.f73539a, ((Integer) valueAnimator.getAnimatedValue()).intValue());
+                        at.b(this.f73739a, ((Integer) valueAnimator.getAnimatedValue()).intValue());
                     }
                 }
             });
@@ -61,10 +61,10 @@ public class at {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ View f73540a;
+                public final /* synthetic */ View f73740a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ int f73541b;
+                public final /* synthetic */ int f73741b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -81,15 +81,15 @@ public class at {
                             return;
                         }
                     }
-                    this.f73540a = view;
-                    this.f73541b = i3;
+                    this.f73740a = view;
+                    this.f73741b = i3;
                 }
 
                 @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
                 public void onAnimationCancel(Animator animator) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, animator) == null) {
-                        at.b(this.f73540a, this.f73541b);
+                        at.b(this.f73740a, this.f73741b);
                     }
                 }
 
@@ -97,7 +97,7 @@ public class at {
                 public void onAnimationEnd(Animator animator) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
-                        at.b(this.f73540a, this.f73541b);
+                        at.b(this.f73740a, this.f73741b);
                     }
                 }
             });
@@ -116,7 +116,7 @@ public class at {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ View f73542a;
+                public final /* synthetic */ View f73742a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -133,14 +133,14 @@ public class at {
                             return;
                         }
                     }
-                    this.f73542a = view;
+                    this.f73742a = view;
                 }
 
                 @Override // android.animation.ValueAnimator.AnimatorUpdateListener
                 public void onAnimationUpdate(ValueAnimator valueAnimator) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, valueAnimator) == null) {
-                        this.f73542a.setTranslationY(((Integer) valueAnimator.getAnimatedValue()).intValue());
+                        this.f73742a.setTranslationY(((Integer) valueAnimator.getAnimatedValue()).intValue());
                     }
                 }
             });

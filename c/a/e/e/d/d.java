@@ -16,10 +16,10 @@ public abstract class d<T> implements k<T> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final boolean f2142a;
+    public final boolean f2200a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final e f2143b;
+    public final e f2201b;
 
     public d(e eVar, boolean z) {
         Interceptable interceptable = $ic;
@@ -36,15 +36,15 @@ public abstract class d<T> implements k<T> {
                 return;
             }
         }
-        this.f2143b = eVar;
-        this.f2142a = z;
+        this.f2201b = eVar;
+        this.f2200a = z;
     }
 
     @Override // c.a.e.e.d.k
     public e b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f2143b : (e) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f2201b : (e) invokeV.objValue;
     }
 
     @Override // c.a.e.e.d.k
@@ -65,10 +65,10 @@ public abstract class d<T> implements k<T> {
                 return null;
             }
             l.b<T> bVar = new l.b<>();
-            bVar.f2165a = str2;
-            bVar.f2166b = k.f2149b;
-            long j2 = k.f2153f;
-            bVar.f2167c = k.f2151d;
+            bVar.f2223a = str2;
+            bVar.f2224b = k.f2207b;
+            long j2 = k.f2211f;
+            bVar.f2225c = k.f2209d;
             return bVar;
         }
         return (l.b) invokeLL.objValue;
@@ -83,7 +83,7 @@ public abstract class d<T> implements k<T> {
             if (k == null) {
                 return null;
             }
-            return k.f2149b;
+            return k.f2207b;
         }
         return (T) invokeLL.objValue;
     }
@@ -93,12 +93,12 @@ public abstract class d<T> implements k<T> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{str, str2, t, Long.valueOf(j2)}) == null) {
             g<T> gVar = new g<>();
-            gVar.f2148a = h(str, str2);
-            gVar.f2150c = str;
-            gVar.f2153f = j2;
-            gVar.f2149b = t;
-            gVar.f2152e = System.currentTimeMillis();
-            gVar.f2151d = System.currentTimeMillis();
+            gVar.f2206a = h(str, str2);
+            gVar.f2208c = str;
+            gVar.f2211f = j2;
+            gVar.f2207b = t;
+            gVar.f2210e = System.currentTimeMillis();
+            gVar.f2209d = System.currentTimeMillis();
             j(gVar);
         }
     }
@@ -107,7 +107,7 @@ public abstract class d<T> implements k<T> {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, str, str2)) == null) {
-            if (this.f2142a) {
+            if (this.f2200a) {
                 return str + TNCManager.TNC_PROBE_HEADER_SECEPTOR + str2;
             }
             return str2;
@@ -128,13 +128,13 @@ public abstract class d<T> implements k<T> {
             if (i2 == null) {
                 BdLog.isDebugMode();
                 return null;
-            } else if (i2.f2153f < System.currentTimeMillis()) {
+            } else if (i2.f2211f < System.currentTimeMillis()) {
                 m(h2);
                 BdLog.isDebugMode();
                 return null;
             } else {
-                if (this.f2143b.a()) {
-                    i2.f2152e = System.currentTimeMillis();
+                if (this.f2201b.a()) {
+                    i2.f2210e = System.currentTimeMillis();
                     j(i2);
                 }
                 BdLog.isDebugMode();

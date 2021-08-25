@@ -3,8 +3,8 @@ package com.baidu.tieba.ala.alasquare.special_forum.subtab.view;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import c.a.p0.a0.b;
-import c.a.p0.v.d.g.c.e;
+import c.a.q0.a0.b;
+import c.a.q0.v.d.g.c.e;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
@@ -77,14 +77,14 @@ public class ConcernTabEmptyView extends b<e> {
         l(tbPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
 
-    @Override // c.a.p0.a0.b
+    @Override // c.a.q0.a0.b
     public int f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.special_bar_concern_empty : invokeV.intValue;
     }
 
-    @Override // c.a.p0.a0.b
+    @Override // c.a.q0.a0.b
     public void l(TbPageContext<?> tbPageContext, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i2) == null) {
@@ -101,7 +101,7 @@ public class ConcernTabEmptyView extends b<e> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // c.a.p0.a0.b
+    @Override // c.a.q0.a0.b
     /* renamed from: p */
     public void k(e eVar) {
         Interceptable interceptable = $ic;

@@ -17,22 +17,22 @@ public final class a<T> extends d<T, T> {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final Object[] f78487g;
+    public static final Object[] f78688g;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: f  reason: collision with root package name */
-    public final SubjectSubscriptionManager<T> f78488f;
+    public final SubjectSubscriptionManager<T> f78689f;
 
     /* renamed from: i.t.a$a  reason: collision with other inner class name */
     /* loaded from: classes10.dex */
-    public static class C2131a implements i.n.b<SubjectSubscriptionManager.c<T>> {
+    public static class C2135a implements i.n.b<SubjectSubscriptionManager.c<T>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SubjectSubscriptionManager f78489e;
+        public final /* synthetic */ SubjectSubscriptionManager f78690e;
 
-        public C2131a(SubjectSubscriptionManager subjectSubscriptionManager) {
+        public C2135a(SubjectSubscriptionManager subjectSubscriptionManager) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -47,7 +47,7 @@ public final class a<T> extends d<T, T> {
                     return;
                 }
             }
-            this.f78489e = subjectSubscriptionManager;
+            this.f78690e = subjectSubscriptionManager;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -56,7 +56,7 @@ public final class a<T> extends d<T, T> {
         public void call(SubjectSubscriptionManager.c<T> cVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, cVar) == null) {
-                cVar.b(this.f78489e.getLatest());
+                cVar.b(this.f78690e.getLatest());
             }
         }
     }
@@ -74,7 +74,7 @@ public final class a<T> extends d<T, T> {
                 return;
             }
         }
-        f78487g = new Object[0];
+        f78688g = new Object[0];
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -95,7 +95,7 @@ public final class a<T> extends d<T, T> {
                 return;
             }
         }
-        this.f78488f = subjectSubscriptionManager;
+        this.f78689f = subjectSubscriptionManager;
     }
 
     public static <T> a<T> K() {
@@ -112,9 +112,9 @@ public final class a<T> extends d<T, T> {
             if (z) {
                 subjectSubscriptionManager.setLatest(NotificationLite.h(t));
             }
-            C2131a c2131a = new C2131a(subjectSubscriptionManager);
-            subjectSubscriptionManager.onAdded = c2131a;
-            subjectSubscriptionManager.onTerminated = c2131a;
+            C2135a c2135a = new C2135a(subjectSubscriptionManager);
+            subjectSubscriptionManager.onAdded = c2135a;
+            subjectSubscriptionManager.onTerminated = c2135a;
             return new a<>(subjectSubscriptionManager, subjectSubscriptionManager);
         }
         return (a) invokeLZ.objValue;
@@ -124,9 +124,9 @@ public final class a<T> extends d<T, T> {
     public void onCompleted() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (this.f78488f.getLatest() == null || this.f78488f.active) {
+            if (this.f78689f.getLatest() == null || this.f78689f.active) {
                 Object b2 = NotificationLite.b();
-                for (SubjectSubscriptionManager.c<T> cVar : this.f78488f.terminate(b2)) {
+                for (SubjectSubscriptionManager.c<T> cVar : this.f78689f.terminate(b2)) {
                     cVar.d(b2);
                 }
             }
@@ -137,10 +137,10 @@ public final class a<T> extends d<T, T> {
     public void onError(Throwable th) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
-            if (this.f78488f.getLatest() == null || this.f78488f.active) {
+            if (this.f78689f.getLatest() == null || this.f78689f.active) {
                 Object c2 = NotificationLite.c(th);
                 ArrayList arrayList = null;
-                for (SubjectSubscriptionManager.c<T> cVar : this.f78488f.terminate(c2)) {
+                for (SubjectSubscriptionManager.c<T> cVar : this.f78689f.terminate(c2)) {
                     try {
                         cVar.d(c2);
                     } catch (Throwable th2) {
@@ -159,9 +159,9 @@ public final class a<T> extends d<T, T> {
     public void onNext(T t) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) {
-            if (this.f78488f.getLatest() == null || this.f78488f.active) {
+            if (this.f78689f.getLatest() == null || this.f78689f.active) {
                 Object h2 = NotificationLite.h(t);
-                for (SubjectSubscriptionManager.c<T> cVar : this.f78488f.next(h2)) {
+                for (SubjectSubscriptionManager.c<T> cVar : this.f78689f.next(h2)) {
                     cVar.d(h2);
                 }
             }

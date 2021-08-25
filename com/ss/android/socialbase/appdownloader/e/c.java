@@ -29,14 +29,14 @@ public class c {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f75355b = 8;
+    public static int f75556b = 8;
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile c f75356c;
+    public static volatile c f75557c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public a<Integer, Bitmap> f75357a;
+    public a<Integer, Bitmap> f75558a;
 
     /* loaded from: classes10.dex */
     public static class a<K, T> extends LinkedHashMap<K, T> {
@@ -44,7 +44,7 @@ public class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final int f75358a;
+        public final int f75559a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(int i2, int i3) {
@@ -65,14 +65,14 @@ public class c {
                     return;
                 }
             }
-            this.f75358a = i2;
+            this.f75559a = i2;
         }
 
         @Override // java.util.LinkedHashMap
         public boolean removeEldestEntry(Map.Entry<K, T> entry) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, entry)) == null) ? size() > this.f75358a : invokeL.booleanValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, entry)) == null) ? size() > this.f75559a : invokeL.booleanValue;
         }
     }
 
@@ -82,13 +82,13 @@ public class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f75359e;
+        public final /* synthetic */ String f75560e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f75360f;
+        public final /* synthetic */ int f75561f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ c f75361g;
+        public final /* synthetic */ c f75562g;
 
         public b(c cVar, String str, int i2) {
             Interceptable interceptable = $ic;
@@ -105,9 +105,9 @@ public class c {
                     return;
                 }
             }
-            this.f75361g = cVar;
-            this.f75359e = str;
-            this.f75360f = i2;
+            this.f75562g = cVar;
+            this.f75560e = str;
+            this.f75561f = i2;
         }
 
         /* JADX DEBUG: Failed to insert an additional move for type inference into block B:36:0x00b8 */
@@ -140,7 +140,7 @@ public class c {
             i2 = 4;
             try {
                 try {
-                    k B = e.B(true, 0, this.f75359e, null);
+                    k B = e.B(true, 0, this.f75560e, null);
                     if (B == null) {
                         f.E(null, null, null, null);
                         return;
@@ -159,7 +159,7 @@ public class c {
                                     int c2 = d.c(e.n(), 44.0f);
                                     options.inSampleSize = c.a(c2, c2, options);
                                     options.inJustDecodeBounds = false;
-                                    this.f75361g.f75357a.put(Integer.valueOf(this.f75360f), BitmapFactory.decodeStream(byteArrayInputStream2, null, options));
+                                    this.f75562g.f75558a.put(Integer.valueOf(this.f75561f), BitmapFactory.decodeStream(byteArrayInputStream2, null, options));
                                     f.E(inputStream, byteArrayOutputStream, byteArrayInputStream, byteArrayInputStream2);
                                 } catch (Exception e3) {
                                     e2 = e3;
@@ -248,9 +248,9 @@ public class c {
                 return;
             }
         }
-        this.f75357a = null;
-        int i4 = f75355b;
-        this.f75357a = new a<>(i4, i4 / 2);
+        this.f75558a = null;
+        int i4 = f75556b;
+        this.f75558a = new a<>(i4, i4 / 2);
     }
 
     public static int a(int i2, int i3, BitmapFactory.Options options) {
@@ -269,14 +269,14 @@ public class c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (f75356c == null) {
+            if (f75557c == null) {
                 synchronized (c.class) {
-                    if (f75356c == null) {
-                        f75356c = new c();
+                    if (f75557c == null) {
+                        f75557c = new c();
                     }
                 }
             }
-            return f75356c;
+            return f75557c;
         }
         return (c) invokeV.objValue;
     }
@@ -303,7 +303,7 @@ public class c {
     public Bitmap b(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? this.f75357a.get(Integer.valueOf(i2)) : (Bitmap) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? this.f75558a.get(Integer.valueOf(i2)) : (Bitmap) invokeI.objValue;
     }
 
     public void f(int i2, String str) {

@@ -2,7 +2,7 @@ package com.baidu.tieba.homepage.topic.topictab.model;
 
 import c.a.e.a.f;
 import c.a.e.e.p.j;
-import c.a.e.k.e.n;
+import c.a.e.l.e.n;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.MessageManager;
@@ -33,19 +33,19 @@ public class TopicModel extends BdBaseModel {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public c.a.p0.f1.k.b.a f52248e;
+    public c.a.q0.f1.k.b.a f52409e;
 
     /* renamed from: f  reason: collision with root package name */
-    public c.a.e.c.g.a f52249f;
+    public c.a.e.c.g.a f52410f;
 
     /* renamed from: g  reason: collision with root package name */
-    public List<n> f52250g;
+    public List<n> f52411g;
 
     /* renamed from: h  reason: collision with root package name */
-    public c.a.e.c.g.a f52251h;
+    public c.a.e.c.g.a f52412h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f52252i;
+    public boolean f52413i;
 
     /* loaded from: classes7.dex */
     public class a extends c.a.e.c.g.a {
@@ -53,7 +53,7 @@ public class TopicModel extends BdBaseModel {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ TopicModel f52253a;
+        public final /* synthetic */ TopicModel f52414a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(TopicModel topicModel, int i2, int i3) {
@@ -74,14 +74,14 @@ public class TopicModel extends BdBaseModel {
                     return;
                 }
             }
-            this.f52253a = topicModel;
+            this.f52414a = topicModel;
         }
 
         @Override // c.a.e.c.g.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             long j2;
             long j3;
-            c.a.p0.f1.k.b.c.b bVar;
+            c.a.q0.f1.k.b.c.b bVar;
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) || responsedMessage == null) {
                 return;
@@ -101,12 +101,12 @@ public class TopicModel extends BdBaseModel {
             if (j3 == 0 && responsedMessage.getOrginalMessage() != null && (responsedMessage.getOrginalMessage().getExtra() instanceof RequestBlessMessage)) {
                 j3 = ((RequestBlessMessage) responsedMessage.getOrginalMessage().getExtra()).pk_id.longValue();
             }
-            if (j3 == 0 || this.f52253a.f52250g == null) {
+            if (j3 == 0 || this.f52414a.f52411g == null) {
                 return;
             }
-            for (n nVar : this.f52253a.f52250g) {
-                if ((nVar instanceof c.a.p0.f1.k.b.c.a) && (bVar = ((c.a.p0.f1.k.b.c.a) nVar).a0) != null && j3 == bVar.f17667b) {
-                    bVar.f17668c = j2;
+            for (n nVar : this.f52414a.f52411g) {
+                if ((nVar instanceof c.a.q0.f1.k.b.c.a) && (bVar = ((c.a.q0.f1.k.b.c.a) nVar).a0) != null && j3 == bVar.f18000b) {
+                    bVar.f18001c = j2;
                     return;
                 }
             }
@@ -119,7 +119,7 @@ public class TopicModel extends BdBaseModel {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ TopicModel f52254a;
+        public final /* synthetic */ TopicModel f52415a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(TopicModel topicModel, int i2, int i3) {
@@ -140,23 +140,23 @@ public class TopicModel extends BdBaseModel {
                     return;
                 }
             }
-            this.f52254a = topicModel;
+            this.f52415a = topicModel;
         }
 
         @Override // c.a.e.c.g.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
-                this.f52254a.f52252i = false;
-                if (responsedMessage == null || responsedMessage.getOrginalMessage() == null || this.f52254a.unique_id != responsedMessage.getOrginalMessage().getTag() || this.f52254a.f52248e == null) {
+                this.f52415a.f52413i = false;
+                if (responsedMessage == null || responsedMessage.getOrginalMessage() == null || this.f52415a.unique_id != responsedMessage.getOrginalMessage().getTag() || this.f52415a.f52409e == null) {
                     return;
                 }
                 List<n> topicDataList = responsedMessage instanceof ResponseHttpGetTopicListMessage ? ((ResponseHttpGetTopicListMessage) responsedMessage).getTopicDataList() : null;
                 if (responsedMessage instanceof ResponseSocketGetTopicListMessage) {
                     topicDataList = ((ResponseSocketGetTopicListMessage) responsedMessage).getTopicDataList();
                 }
-                this.f52254a.f52250g = topicDataList;
-                this.f52254a.f52248e.netCallback(responsedMessage.getError(), topicDataList);
+                this.f52415a.f52411g = topicDataList;
+                this.f52415a.f52409e.netCallback(responsedMessage.getError(), topicDataList);
             }
         }
     }
@@ -179,43 +179,43 @@ public class TopicModel extends BdBaseModel {
                 return;
             }
         }
-        this.f52251h = new a(this, CmdConfigHttp.CMD_TOPIC_BLESS, 309085);
-        c.a.p0.i3.d0.a.h(309628, ResponseSocketGetTopicListMessage.class, false, false);
-        c.a.p0.i3.d0.a.c(309628, CmdConfigHttp.CMD_TOPIC_LIST, TbConfig.URL_GET_TAB_TOPIC_LIST, ResponseHttpGetTopicListMessage.class, false, false, true, false);
-        c.a.p0.i3.d0.a.h(309629, ResponseSocketGetTopicDetailMessage.class, false, false);
-        c.a.p0.i3.d0.a.c(309629, CmdConfigHttp.CMD_TOPIC_DETAIL, TbConfig.URL_GET_TOPIC_DETAIL, ResponseHttpGetTopicDetailMessage.class, false, false, true, false);
-        c.a.p0.i3.d0.a.h(309631, ResponseSocketGetTopicThreadMessage.class, false, false);
-        c.a.p0.i3.d0.a.c(309631, CmdConfigHttp.CMD_TOPIC_THREAD, TbConfig.URL_GET_TOPIC_THREAD, ResponseHttpGetTopicThreadMessage.class, false, false, true, false);
-        c.a.p0.i3.d0.a.h(309085, BlessSocketResponseMessage.class, false, false);
-        c.a.p0.i3.d0.a.c(309085, CmdConfigHttp.CMD_TOPIC_BLESS, TbConfig.URL_TOPIC_USER_PK, BlessHttpResponseMessage.class, false, false, true, false);
-        this.f52249f = new b(this, CmdConfigHttp.CMD_TOPIC_LIST, 309628);
+        this.f52412h = new a(this, CmdConfigHttp.CMD_TOPIC_BLESS, 309085);
+        c.a.q0.i3.d0.a.h(309628, ResponseSocketGetTopicListMessage.class, false, false);
+        c.a.q0.i3.d0.a.c(309628, CmdConfigHttp.CMD_TOPIC_LIST, TbConfig.URL_GET_TAB_TOPIC_LIST, ResponseHttpGetTopicListMessage.class, false, false, true, false);
+        c.a.q0.i3.d0.a.h(309629, ResponseSocketGetTopicDetailMessage.class, false, false);
+        c.a.q0.i3.d0.a.c(309629, CmdConfigHttp.CMD_TOPIC_DETAIL, TbConfig.URL_GET_TOPIC_DETAIL, ResponseHttpGetTopicDetailMessage.class, false, false, true, false);
+        c.a.q0.i3.d0.a.h(309631, ResponseSocketGetTopicThreadMessage.class, false, false);
+        c.a.q0.i3.d0.a.c(309631, CmdConfigHttp.CMD_TOPIC_THREAD, TbConfig.URL_GET_TOPIC_THREAD, ResponseHttpGetTopicThreadMessage.class, false, false, true, false);
+        c.a.q0.i3.d0.a.h(309085, BlessSocketResponseMessage.class, false, false);
+        c.a.q0.i3.d0.a.c(309085, CmdConfigHttp.CMD_TOPIC_BLESS, TbConfig.URL_TOPIC_USER_PK, BlessHttpResponseMessage.class, false, false, true, false);
+        this.f52410f = new b(this, CmdConfigHttp.CMD_TOPIC_LIST, 309628);
     }
 
     public void B() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             if (!j.A()) {
-                c.a.p0.f1.k.b.a aVar = this.f52248e;
+                c.a.q0.f1.k.b.a aVar = this.f52409e;
                 if (aVar != null) {
                     aVar.netCallback(-1, null);
                 }
-            } else if (this.f52252i) {
+            } else if (this.f52413i) {
             } else {
                 cancelLoadData();
                 RequestGetTopicListMessage requestGetTopicListMessage = new RequestGetTopicListMessage();
                 requestGetTopicListMessage.setCallFrom("topic_tab");
                 requestGetTopicListMessage.setTag(this.unique_id);
                 if (MessageManager.getInstance().sendMessage(requestGetTopicListMessage)) {
-                    this.f52252i = true;
+                    this.f52413i = true;
                 }
             }
         }
     }
 
-    public void C(c.a.p0.f1.k.b.a aVar) {
+    public void C(c.a.q0.f1.k.b.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-            this.f52248e = aVar;
+            this.f52409e = aVar;
         }
     }
 
@@ -243,9 +243,9 @@ public class TopicModel extends BdBaseModel {
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            MessageManager.getInstance().unRegisterListener(this.f52249f);
-            MessageManager.getInstance().unRegisterListener(this.f52251h);
-            this.f52252i = false;
+            MessageManager.getInstance().unRegisterListener(this.f52410f);
+            MessageManager.getInstance().unRegisterListener(this.f52412h);
+            this.f52413i = false;
         }
     }
 
@@ -254,10 +254,10 @@ public class TopicModel extends BdBaseModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, bdUniqueId) == null) {
             super.setUniqueId(bdUniqueId);
-            this.f52249f.setTag(bdUniqueId);
-            registerListener(this.f52249f);
-            this.f52251h.setTag(bdUniqueId);
-            registerListener(this.f52251h);
+            this.f52410f.setTag(bdUniqueId);
+            registerListener(this.f52410f);
+            this.f52412h.setTag(bdUniqueId);
+            registerListener(this.f52412h);
         }
     }
 }

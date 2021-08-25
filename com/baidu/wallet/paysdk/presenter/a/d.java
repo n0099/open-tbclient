@@ -12,15 +12,15 @@ import com.baidu.wallet.paysdk.contract.a;
 import com.baidu.wallet.paysdk.datamodel.PayRequest;
 import com.baidu.wallet.paysdk.storage.PayRequestCache;
 /* loaded from: classes8.dex */
-public class d implements a.InterfaceC1846a {
+public class d implements a.InterfaceC1850a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public a.b f62288a;
+    public a.b f62488a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final com.baidu.wallet.paysdk.a f62289b;
+    public final com.baidu.wallet.paysdk.a f62489b;
 
     public d(a.b bVar) {
         Interceptable interceptable = $ic;
@@ -37,25 +37,25 @@ public class d implements a.InterfaceC1846a {
                 return;
             }
         }
-        this.f62288a = bVar;
-        this.f62289b = new com.baidu.wallet.paysdk.a(2L);
+        this.f62488a = bVar;
+        this.f62489b = new com.baidu.wallet.paysdk.a(2L);
     }
 
-    @Override // com.baidu.wallet.paysdk.contract.a.InterfaceC1846a
+    @Override // com.baidu.wallet.paysdk.contract.a.InterfaceC1850a
     public boolean a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? this.f62289b.a(str) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? this.f62489b.a(str) : invokeL.booleanValue;
     }
 
-    @Override // com.baidu.wallet.paysdk.contract.a.InterfaceC1846a
+    @Override // com.baidu.wallet.paysdk.contract.a.InterfaceC1850a
     public boolean b(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? !TextUtils.isEmpty(str) && str.length() >= 15 : invokeL.booleanValue;
     }
 
-    @Override // com.baidu.wallet.paysdk.contract.a.InterfaceC1846a
+    @Override // com.baidu.wallet.paysdk.contract.a.InterfaceC1850a
     public void c(String str) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) || TextUtils.isEmpty(str)) {

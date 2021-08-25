@@ -1,6 +1,6 @@
 package com.baidu.tbadk.BdToken.completeTask;
 
-import c.a.o0.a.d0.a;
+import c.a.p0.a.d0.a;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -59,23 +59,23 @@ public class CompleteTaskHTTPResMsg extends HttpResponsedMessage {
         if (completeTaskResIdl.data != null) {
             a aVar = new a();
             this.mData = aVar;
-            aVar.f12280c = completeTaskResIdl.data.show_type.intValue();
-            this.mData.f12281d = completeTaskResIdl.data.ahead_type.intValue();
+            aVar.f12547c = completeTaskResIdl.data.show_type.intValue();
+            this.mData.f12548d = completeTaskResIdl.data.ahead_type.intValue();
             a aVar2 = this.mData;
             DataRes dataRes = completeTaskResIdl.data;
-            aVar2.f12282e = dataRes.message;
-            aVar2.f12283f = dataRes.btn_text;
-            aVar2.f12284g = dataRes.btn_confirm;
-            aVar2.f12285h = dataRes.btn_cancel;
-            aVar2.f12286i = dataRes.toast_duration.intValue();
+            aVar2.f12549e = dataRes.message;
+            aVar2.f12550f = dataRes.btn_text;
+            aVar2.f12551g = dataRes.btn_confirm;
+            aVar2.f12552h = dataRes.btn_cancel;
+            aVar2.f12553i = dataRes.toast_duration.intValue();
             a aVar3 = this.mData;
             DataRes dataRes2 = completeTaskResIdl.data;
-            aVar3.f12287j = dataRes2.img_url;
+            aVar3.f12554j = dataRes2.img_url;
             aVar3.k = dataRes2.url;
             aVar3.l = dataRes2.schema;
             aVar3.m = dataRes2.token;
-            aVar3.f12278a = dataRes2.activity_id.intValue();
-            this.mData.f12279b = completeTaskResIdl.data.mission_id.intValue();
+            aVar3.f12545a = dataRes2.activity_id.intValue();
+            this.mData.f12546b = completeTaskResIdl.data.mission_id.intValue();
             a aVar4 = this.mData;
             DataRes dataRes3 = completeTaskResIdl.data;
             aVar4.o = dataRes3.btn_color;

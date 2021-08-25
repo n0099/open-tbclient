@@ -10,7 +10,7 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f42669a;
+    public long f42776a;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public b() {
@@ -45,6 +45,6 @@ public class b {
                 return;
             }
         }
-        this.f42669a = j2;
+        this.f42776a = j2;
     }
 }

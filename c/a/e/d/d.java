@@ -12,7 +12,7 @@ public class d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String[] f2040a;
+    public static final String[] f2098a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -28,7 +28,7 @@ public class d {
                 return;
             }
         }
-        f2040a = new String[]{"ZTE-T U880", "U880"};
+        f2098a = new String[]{"ZTE-T U880", "U880"};
     }
 
     public static boolean a() {
@@ -41,7 +41,7 @@ public class d {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            for (String str2 : f2040a) {
+            for (String str2 : f2098a) {
                 if (str2.equals(str)) {
                     return false;
                 }
@@ -54,6 +54,6 @@ public class d {
     public static boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? b(Build.MODEL) && a() && NSGif.f36033f : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? b(Build.MODEL) && a() && NSGif.f36139f : invokeV.booleanValue;
     }
 }

@@ -12,6 +12,7 @@ import org.apache.commons.lang3.text.ExtendedMessageFormat;
 public class MyBalanceInfo {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public long imid;
     public long minAmountLimit;
     public Map<Integer, AccountPeriod> myAccountPeriodMap;
     public Map<Integer, Account> myBalanceMap;
@@ -84,12 +85,12 @@ public class MyBalanceInfo {
         }
     }
 
-    public MyBalanceInfo(Map<Integer, Account> map, Map<Integer, AccountPeriod> map2, long j2) {
+    public MyBalanceInfo(Map<Integer, Account> map, Map<Integer, AccountPeriod> map2, long j2, long j3) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {map, map2, Long.valueOf(j2)};
+            Object[] objArr = {map, map2, Long.valueOf(j2), Long.valueOf(j3)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -102,18 +103,25 @@ public class MyBalanceInfo {
         this.myBalanceMap = map;
         this.myAccountPeriodMap = map2;
         this.minAmountLimit = j2;
+        this.imid = j3;
+    }
+
+    public long getImid() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.imid : invokeV.longValue;
     }
 
     public long getMinAmountLimit() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.minAmountLimit : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.minAmountLimit : invokeV.longValue;
     }
 
     public AccountPeriod getMyAccountPeriod(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) {
             Map<Integer, AccountPeriod> map = this.myAccountPeriodMap;
             if (map != null && map.containsKey(Integer.valueOf(i2))) {
                 return this.myAccountPeriodMap.get(Integer.valueOf(i2));
@@ -126,7 +134,7 @@ public class MyBalanceInfo {
     public Account getMyBalance(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) {
             Map<Integer, Account> map = this.myBalanceMap;
             if (map != null && map.containsKey(Integer.valueOf(i2))) {
                 return this.myBalanceMap.get(Integer.valueOf(i2));
@@ -139,8 +147,8 @@ public class MyBalanceInfo {
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return "MyBalanceInfo{myBalanceMap=" + this.myBalanceMap + "minAmountLimit=" + this.minAmountLimit + ExtendedMessageFormat.END_FE;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return "MyBalanceInfo{myBalanceMap=" + this.myBalanceMap + "minAmountLimit=" + this.minAmountLimit + "imid=" + this.imid + ExtendedMessageFormat.END_FE;
         }
         return (String) invokeV.objValue;
     }

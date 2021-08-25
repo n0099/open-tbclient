@@ -1,36 +1,21 @@
 package c.a.o0.u;
 
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
-import tbclient.Advertisement;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 /* loaded from: classes3.dex */
-public class a implements Comparable<a> {
+public class a<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* renamed from: e  reason: collision with root package name */
-    public long f14697e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public String f14698f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public String f14699g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public String f14700h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public String f14701i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public int f14702j;
+    /* renamed from: a  reason: collision with root package name */
+    public List<c.a.o0.u.c.b<T>> f12359a;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -42,80 +27,81 @@ public class a implements Comparable<a> {
                 int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.f12359a = new ArrayList(6);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // java.lang.Comparable
-    /* renamed from: a */
-    public int compareTo(a aVar) {
+    public void a(c.a.o0.u.c.b<T> bVar) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) || bVar == null || this.f12359a.contains(bVar)) {
+            return;
+        }
+        this.f12359a.add(bVar);
+    }
+
+    public T b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            ArrayList<c.a.o0.u.c.b> arrayList = new ArrayList();
+            Iterator<c.a.o0.u.c.b<T>> it = this.f12359a.iterator();
+            T t = null;
+            while (true) {
+                if (!it.hasNext()) {
+                    break;
+                }
+                c.a.o0.u.c.b<T> next = it.next();
+                T t2 = next.get();
+                if (c(t2)) {
+                    t = t2;
+                    break;
+                }
+                arrayList.add(next);
+                t = t2;
+            }
+            if (arrayList.size() > 0) {
+                for (c.a.o0.u.c.b bVar : arrayList) {
+                    bVar.put(t);
+                }
+            }
+            return t;
+        }
+        return (T) invokeV.objValue;
+    }
+
+    public final boolean c(T t) {
         InterceptResult invokeL;
+        char[] charArray;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) ? g() > aVar.g() ? -1 : 1 : invokeL.intValue;
-    }
-
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f14701i : (String) invokeV.objValue;
-    }
-
-    public int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f14702j : invokeV.intValue;
-    }
-
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f14700h : (String) invokeV.objValue;
-    }
-
-    public String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f14698f : (String) invokeV.objValue;
-    }
-
-    public String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f14699g : (String) invokeV.objValue;
-    }
-
-    public long g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f14697e : invokeV.longValue;
-    }
-
-    public void h(Advertisement advertisement) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, advertisement) == null) {
-            this.f14697e = advertisement.time.longValue();
-            this.f14698f = advertisement.pic;
-            this.f14699g = advertisement.pic_click;
-            this.f14700h = advertisement.jump_link;
-            this.f14701i = advertisement.advertisement_id;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t)) == null) {
+            if (t != null && (t instanceof String)) {
+                String str = (String) t;
+                if (str.length() != 32) {
+                    return false;
+                }
+                for (char c2 : str.toCharArray()) {
+                    if ((c2 < 'A' || c2 > 'Z') && (c2 < '0' || c2 > '9')) {
+                        return false;
+                    }
+                }
+                return true;
+            }
+            return false;
         }
+        return invokeL.booleanValue;
     }
 
-    public void i(JSONObject jSONObject) {
+    public void d(T t) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, jSONObject) == null) {
-            this.f14698f = jSONObject.optString("pic");
-            this.f14699g = jSONObject.optString("pic_click");
-            this.f14700h = jSONObject.optString("jump_link");
-            this.f14701i = jSONObject.optString("advertisement_id");
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, t) == null) || c(t)) {
+            return;
         }
-    }
-
-    public void j(int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048586, this, i2) == null) {
-            this.f14702j = i2;
+        for (c.a.o0.u.c.b<T> bVar : this.f12359a) {
+            if (bVar.a()) {
+                bVar.put(t);
+            }
         }
     }
 }

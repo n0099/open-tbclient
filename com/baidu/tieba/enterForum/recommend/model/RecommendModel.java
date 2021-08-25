@@ -23,13 +23,13 @@ public class RecommendModel extends BdBaseModel {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public c.a.p0.m0.k.a f50004e;
+    public c.a.q0.m0.k.a f50112e;
 
     /* renamed from: f  reason: collision with root package name */
-    public c.a.e.c.g.a f50005f;
+    public c.a.e.c.g.a f50113f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f50006g;
+    public boolean f50114g;
 
     /* loaded from: classes7.dex */
     public class a extends c.a.e.c.g.a {
@@ -37,7 +37,7 @@ public class RecommendModel extends BdBaseModel {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ RecommendModel f50007a;
+        public final /* synthetic */ RecommendModel f50115a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(RecommendModel recommendModel, int i2, int i3) {
@@ -58,22 +58,22 @@ public class RecommendModel extends BdBaseModel {
                     return;
                 }
             }
-            this.f50007a = recommendModel;
+            this.f50115a = recommendModel;
         }
 
         @Override // c.a.e.c.g.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
-                this.f50007a.f50006g = false;
-                if (responsedMessage == null || responsedMessage.getOrginalMessage() == null || this.f50007a.unique_id != responsedMessage.getOrginalMessage().getTag() || this.f50007a.f50004e == null) {
+                this.f50115a.f50114g = false;
+                if (responsedMessage == null || responsedMessage.getOrginalMessage() == null || this.f50115a.unique_id != responsedMessage.getOrginalMessage().getTag() || this.f50115a.f50112e == null) {
                     return;
                 }
-                c.a.p0.m0.k.c.a recommendData = responsedMessage instanceof ResponseHttpRecommendMessage ? ((ResponseHttpRecommendMessage) responsedMessage).getRecommendData() : null;
+                c.a.q0.m0.k.c.a recommendData = responsedMessage instanceof ResponseHttpRecommendMessage ? ((ResponseHttpRecommendMessage) responsedMessage).getRecommendData() : null;
                 if (responsedMessage instanceof ResponseSocketRecommendMessage) {
                     recommendData = ((ResponseSocketRecommendMessage) responsedMessage).getRecommendData();
                 }
-                this.f50007a.f50004e.netCallback(responsedMessage.getError(), recommendData);
+                this.f50115a.f50112e.netCallback(responsedMessage.getError(), recommendData);
             }
         }
     }
@@ -96,13 +96,13 @@ public class RecommendModel extends BdBaseModel {
                 return;
             }
         }
-        this.f50005f = new a(this, CmdConfigHttp.CMD_RECOMMEND_FORUM, 309630);
+        this.f50113f = new a(this, CmdConfigHttp.CMD_RECOMMEND_FORUM, 309630);
     }
 
-    public void A(c.a.p0.m0.k.a aVar) {
+    public void A(c.a.q0.m0.k.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-            this.f50004e = aVar;
+            this.f50112e = aVar;
         }
     }
 
@@ -130,8 +130,8 @@ public class RecommendModel extends BdBaseModel {
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            MessageManager.getInstance().unRegisterListener(this.f50005f);
-            this.f50006g = false;
+            MessageManager.getInstance().unRegisterListener(this.f50113f);
+            this.f50114g = false;
         }
     }
 
@@ -140,8 +140,8 @@ public class RecommendModel extends BdBaseModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, bdUniqueId) == null) {
             super.setUniqueId(bdUniqueId);
-            this.f50005f.setTag(bdUniqueId);
-            registerListener(this.f50005f);
+            this.f50113f.setTag(bdUniqueId);
+            registerListener(this.f50113f);
         }
     }
 
@@ -149,17 +149,17 @@ public class RecommendModel extends BdBaseModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             if (!j.A()) {
-                c.a.p0.m0.k.a aVar = this.f50004e;
+                c.a.q0.m0.k.a aVar = this.f50112e;
                 if (aVar != null) {
                     aVar.netCallback(-1, null);
                 }
-            } else if (this.f50006g) {
+            } else if (this.f50114g) {
             } else {
                 cancelLoadData();
                 RequestRecommendMessage requestRecommendMessage = new RequestRecommendMessage();
                 requestRecommendMessage.setTag(this.unique_id);
                 if (MessageManager.getInstance().sendMessage(requestRecommendMessage)) {
-                    this.f50006g = true;
+                    this.f50114g = true;
                 }
             }
         }

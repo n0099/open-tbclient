@@ -11,7 +11,7 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f1929a;
+    public Context f1987a;
 
     public b(Context context) {
         Interceptable interceptable = $ic;
@@ -28,6 +28,6 @@ public class b {
                 return;
             }
         }
-        this.f1929a = context;
+        this.f1987a = context;
     }
 }

@@ -1,258 +1,155 @@
 package c.a.p0.p;
 
-import android.text.TextUtils;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.ImageView;
-import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import c.a.o0.s.c;
+import c.a.p0.s.d0.b;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.AccountData;
-import com.baidu.tieba.R;
+import com.baidu.tbadk.core.util.ChunkUploadDatabaseService;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
+import java.io.File;
 /* loaded from: classes3.dex */
-public class a extends BaseAdapter {
-    public static /* synthetic */ Interceptable $ic;
+public class a {
+    public static /* synthetic */ Interceptable $ic = null;
+
+    /* renamed from: a  reason: collision with root package name */
+    public static long f13739a = 604800000;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: e  reason: collision with root package name */
-    public BaseActivity f23141e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public boolean f23142f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public List<AccountData> f23143g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public View.OnClickListener f23144h;
 
     /* renamed from: c.a.p0.p.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static /* synthetic */ class C1072a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes3.dex */
-    public class b {
+    public static class C0675a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        /* renamed from: a  reason: collision with root package name */
-        public TextView f23145a;
+        /* renamed from: c.a.p0.p.a$a$a  reason: collision with other inner class name */
+        /* loaded from: classes3.dex */
+        public class C0676a extends Thread {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
 
-        /* renamed from: b  reason: collision with root package name */
-        public TextView f23146b;
+            public C0676a(C0675a c0675a) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {c0675a};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                    }
+                }
+            }
 
-        /* renamed from: c  reason: collision with root package name */
-        public ImageView f23147c;
+            @Override // java.lang.Thread, java.lang.Runnable
+            public void run() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    super.run();
+                    try {
+                        ChunkUploadDatabaseService.delOverdueChunkUploadData();
+                        a.c(TbadkCoreApplication.getInst().getCacheDir());
+                    } catch (Exception unused) {
+                    }
+                }
+            }
+        }
 
-        /* renamed from: d  reason: collision with root package name */
-        public TextView f23148d;
-
-        public b(a aVar) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public C0675a(int i2) {
+            super(i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {aVar};
+                Object[] objArr = {Integer.valueOf(i2)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
         }
 
-        public /* synthetic */ b(a aVar, C1072a c1072a) {
-            this(aVar);
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
+                long l = b.j().l("key_clear_resource", 0L);
+                long currentTimeMillis = System.currentTimeMillis();
+                if (l == 0) {
+                    b.j().w("key_clear_resource", currentTimeMillis);
+                    l = currentTimeMillis;
+                }
+                if (currentTimeMillis - l > a.f13739a) {
+                    new C0676a(this).start();
+                    b.j().w("key_clear_resource", currentTimeMillis);
+                }
+            }
         }
     }
 
-    public a(BaseActivity baseActivity, View.OnClickListener onClickListener) {
-        Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1885063874, "Lc/a/p0/p/a;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {baseActivity, onClickListener};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+            $ic = interceptable;
         }
-        this.f23141e = baseActivity;
-        this.f23143g = null;
-        this.f23142f = false;
-        this.f23144h = onClickListener;
-    }
-
-    public boolean a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f23142f : invokeV.booleanValue;
-    }
-
-    public void b(List<AccountData> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
-            this.f23143g = list;
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1885063874, "Lc/a/p0/p/a;");
         }
     }
 
-    public void c(boolean z) {
+    public static void c(File file) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            this.f23142f = z;
-        }
-    }
-
-    @Override // android.widget.Adapter
-    public int getCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            List<AccountData> list = this.f23143g;
-            return (list != null ? list.size() : 0) + 1;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // android.widget.Adapter
-    public Object getItem(int i2) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) {
-            List<AccountData> list = this.f23143g;
-            if (list == null || i2 < 0 || i2 >= list.size()) {
-                return null;
-            }
-            return this.f23143g.get(i2);
-        }
-        return invokeI.objValue;
-    }
-
-    @Override // android.widget.Adapter
-    public long getItemId(int i2) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i2)) == null) {
-            if (getItem(i2) != null) {
-                return i2;
-            }
-            return -1L;
-        }
-        return invokeI.longValue;
-    }
-
-    @Override // android.widget.BaseAdapter, android.widget.Adapter
-    public int getItemViewType(int i2) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i2)) == null) ? getItemId(i2) >= 0 ? 0 : 1 : invokeI.intValue;
-    }
-
-    /* JADX DEBUG: Another duplicated slice has different insns count: {[IGET, INVOKE, INVOKE, INVOKE]}, finally: {[IGET, INVOKE, INVOKE, INVOKE, INVOKE, IGET, INVOKE, INVOKE, CONST, INVOKE, IGET, INVOKE, INVOKE, IF] complete} */
-    /* JADX WARN: Code restructure failed: missing block: B:22:0x00ce, code lost:
-        if (com.baidu.tbadk.core.TbadkCoreApplication.getInst().getSkinType() == 1) goto L23;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:29:0x00e5, code lost:
-        if (com.baidu.tbadk.core.TbadkCoreApplication.getInst().getSkinType() != 1) goto L22;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:31:0x00e8, code lost:
-        r0 = false;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:32:0x00e9, code lost:
-        r6.k(r0);
-        r5.f23141e.getLayoutMode().j(r7);
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:33:0x00f5, code lost:
-        return r7;
-     */
-    @Override // android.widget.Adapter
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public View getView(int i2, View view, ViewGroup viewGroup) {
-        InterceptResult invokeILL;
-        c layoutMode;
-        b bVar;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeILL = interceptable.invokeILL(1048583, this, i2, view, viewGroup)) != null) {
-            return (View) invokeILL.objValue;
+        if (!(interceptable == null || interceptable.invokeL(65539, null, file) == null) || file == null) {
+            return;
         }
         try {
-            try {
-                if (view == null) {
-                    if (getItemViewType(i2) == 0) {
-                        view = LayoutInflater.from(this.f23141e.getPageContext().getContext()).inflate(R.layout.account_item, viewGroup, false);
-                        bVar = new b(this, null);
-                        bVar.f23145a = (TextView) view.findViewById(R.id.account);
-                        bVar.f23147c = (ImageView) view.findViewById(R.id.active);
-                        TextView textView = (TextView) view.findViewById(R.id.delete);
-                        bVar.f23148d = textView;
-                        textView.setOnClickListener(this.f23144h);
-                        view.setTag(bVar);
-                    } else {
-                        view = LayoutInflater.from(this.f23141e.getPageContext().getContext()).inflate(R.layout.account_add_item, viewGroup, false);
-                        bVar = new b(this, null);
-                        bVar.f23146b = (TextView) view.findViewById(R.id.add_text);
-                        view.setTag(bVar);
-                    }
-                } else {
-                    bVar = (b) view.getTag();
-                }
-                if (getItemViewType(i2) == 0) {
-                    AccountData accountData = (AccountData) getItem(i2);
-                    bVar.f23147c.setVisibility(8);
-                    bVar.f23148d.setVisibility(8);
-                    bVar.f23148d.setTag(accountData);
-                    if (accountData != null) {
-                        bVar.f23145a.setText(accountData.getAccountNameShow());
-                        if (TextUtils.equals(accountData.getID(), TbadkCoreApplication.getCurrentAccount())) {
-                            bVar.f23147c.setVisibility(0);
-                        }
-                        if (this.f23142f) {
-                            bVar.f23148d.setVisibility(0);
+            if (file.isDirectory()) {
+                File[] listFiles = file.listFiles();
+                if (listFiles != null) {
+                    for (int i2 = 0; i2 < listFiles.length; i2++) {
+                        if (listFiles[i2].isDirectory()) {
+                            c(listFiles[i2]);
+                        } else {
+                            listFiles[i2].delete();
                         }
                     }
+                    return;
                 }
-                layoutMode = this.f23141e.getLayoutMode();
-            } catch (Exception e2) {
-                BdLog.detailException(e2);
-                layoutMode = this.f23141e.getLayoutMode();
+                return;
             }
-        } catch (Throwable th) {
-            this.f23141e.getLayoutMode().k(TbadkCoreApplication.getInst().getSkinType() == 1);
-            this.f23141e.getLayoutMode().j(view);
-            throw th;
+            file.delete();
+        } catch (Exception e2) {
+            BdLog.e(e2.getMessage());
         }
     }
 
-    @Override // android.widget.BaseAdapter, android.widget.Adapter
-    public int getViewTypeCount() {
-        InterceptResult invokeV;
+    public static void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return 2;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
+            MessageManager.getInstance().registerListener(new C0675a(2005016));
         }
-        return invokeV.intValue;
     }
 }

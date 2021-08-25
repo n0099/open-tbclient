@@ -24,7 +24,7 @@ public class PermissionManager implements NoProguard {
     public static final int REQUEST_CODE_WRITE_EXTERNAL_STORAGE = 4;
 
     /* renamed from: e  reason: collision with root package name */
-    public static int f68967e;
+    public static int f69167e;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -110,14 +110,14 @@ public class PermissionManager implements NoProguard {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
-            if (f68967e == 0) {
+            if (f69167e == 0) {
                 try {
-                    f68967e = context.getPackageManager().getPackageInfo(context.getPackageName(), 0).applicationInfo.targetSdkVersion;
+                    f69167e = context.getPackageManager().getPackageInfo(context.getPackageName(), 0).applicationInfo.targetSdkVersion;
                 } catch (PackageManager.NameNotFoundException e2) {
                     e2.printStackTrace();
                 }
             }
-            return f68967e;
+            return f69167e;
         }
         return invokeL.intValue;
     }

@@ -1,6 +1,6 @@
 package com.baidu.tieba.frs.forumRule.message;
 
-import c.a.p0.v0.p1.c.b;
+import c.a.q0.v0.p1.c.b;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;

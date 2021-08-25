@@ -42,7 +42,7 @@ public class PinnedHeaderListView extends BdListView implements AbsListView.OnSc
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PinnedHeaderListView f36296a;
+        public final /* synthetic */ PinnedHeaderListView f36402a;
 
         public a(PinnedHeaderListView pinnedHeaderListView) {
             Interceptable interceptable = $ic;
@@ -59,15 +59,15 @@ public class PinnedHeaderListView extends BdListView implements AbsListView.OnSc
                     return;
                 }
             }
-            this.f36296a = pinnedHeaderListView;
+            this.f36402a = pinnedHeaderListView;
         }
 
         @Override // android.database.DataSetObserver
         public void onChanged() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f36296a.requestLayout();
-                this.f36296a.invalidate();
+                this.f36402a.requestLayout();
+                this.f36402a.invalidate();
             }
         }
 
@@ -75,9 +75,9 @@ public class PinnedHeaderListView extends BdListView implements AbsListView.OnSc
         public void onInvalidated() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.f36296a.R = -1;
-                this.f36296a.requestLayout();
-                this.f36296a.invalidate();
+                this.f36402a.R = -1;
+                this.f36402a.requestLayout();
+                this.f36402a.invalidate();
             }
         }
     }
@@ -88,7 +88,7 @@ public class PinnedHeaderListView extends BdListView implements AbsListView.OnSc
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PinnedHeaderListView f36297a;
+        public final /* synthetic */ PinnedHeaderListView f36403a;
 
         public b(PinnedHeaderListView pinnedHeaderListView) {
             Interceptable interceptable = $ic;
@@ -105,14 +105,14 @@ public class PinnedHeaderListView extends BdListView implements AbsListView.OnSc
                     return;
                 }
             }
-            this.f36297a = pinnedHeaderListView;
+            this.f36403a = pinnedHeaderListView;
         }
 
         @Override // com.baidu.adp.widget.ListView.BdListView.r
         public void onScrollToPull(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-                this.f36297a.V = z;
+                this.f36403a.V = z;
             }
         }
     }
@@ -123,7 +123,7 @@ public class PinnedHeaderListView extends BdListView implements AbsListView.OnSc
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final DataSetObservable f36298e;
+        public final DataSetObservable f36404e;
 
         public c() {
             Interceptable interceptable = $ic;
@@ -138,7 +138,7 @@ public class PinnedHeaderListView extends BdListView implements AbsListView.OnSc
                     return;
                 }
             }
-            this.f36298e = new DataSetObservable();
+            this.f36404e = new DataSetObservable();
         }
 
         public abstract View a();
@@ -188,7 +188,7 @@ public class PinnedHeaderListView extends BdListView implements AbsListView.OnSc
         public void registerDataSetObserver(DataSetObserver dataSetObserver) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048583, this, dataSetObserver) == null) {
-                this.f36298e.registerObserver(dataSetObserver);
+                this.f36404e.registerObserver(dataSetObserver);
             }
         }
 
@@ -196,7 +196,7 @@ public class PinnedHeaderListView extends BdListView implements AbsListView.OnSc
         public void unregisterDataSetObserver(DataSetObserver dataSetObserver) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, dataSetObserver) == null) {
-                this.f36298e.unregisterObserver(dataSetObserver);
+                this.f36404e.unregisterObserver(dataSetObserver);
             }
         }
     }

@@ -18,11 +18,11 @@ public class BaiduTraffic {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f60697a = "BaiduTraffic";
+    public static final String f60897a = "BaiduTraffic";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Map<Integer, Object> f60698b;
+    public final Map<Integer, Object> f60898b;
 
     /* renamed from: com.baidu.wallet.fastpay.sdk.BaiduTraffic$1  reason: invalid class name */
     /* loaded from: classes8.dex */
@@ -65,7 +65,7 @@ public class BaiduTraffic {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static BaiduTraffic f60699a;
+        public static BaiduTraffic f60899a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -81,7 +81,7 @@ public class BaiduTraffic {
                     return;
                 }
             }
-            f60699a = new BaiduTraffic(null);
+            f60899a = new BaiduTraffic(null);
         }
     }
 
@@ -107,7 +107,7 @@ public class BaiduTraffic {
     public static BaiduTraffic a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? a.f60699a : (BaiduTraffic) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? a.f60899a : (BaiduTraffic) invokeV.objValue;
     }
 
     public BaiduTraffic() {
@@ -123,7 +123,7 @@ public class BaiduTraffic {
                 return;
             }
         }
-        this.f60698b = new HashMap();
+        this.f60898b = new HashMap();
     }
 
     public boolean a(String str) {

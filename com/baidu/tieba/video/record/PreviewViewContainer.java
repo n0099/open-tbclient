@@ -7,7 +7,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
-import c.a.p0.w3.l.b;
+import c.a.q0.w3.l.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -21,10 +21,10 @@ public class PreviewViewContainer extends FrameLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public b f57337e;
+    public b f57504e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f57338f;
+    public View f57505f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PreviewViewContainer(Context context, AttributeSet attributeSet) {
@@ -45,19 +45,19 @@ public class PreviewViewContainer extends FrameLayout {
                 return;
             }
         }
-        this.f57338f = null;
+        this.f57505f = null;
     }
 
     private void setFaceFailIdentifyLayoutVisiable(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65538, this, z) == null) {
-            if (this.f57338f == null) {
-                this.f57338f = LayoutInflater.from(getContext()).inflate(R.layout.camera_face_fail_identify, (ViewGroup) null);
+            if (this.f57505f == null) {
+                this.f57505f = LayoutInflater.from(getContext()).inflate(R.layout.camera_face_fail_identify, (ViewGroup) null);
                 FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
                 layoutParams.gravity = 17;
-                addView(this.f57338f, layoutParams);
+                addView(this.f57505f, layoutParams);
             }
-            this.f57338f.setVisibility(z ? 0 : 8);
+            this.f57505f.setVisibility(z ? 0 : 8);
         }
     }
 
@@ -73,7 +73,7 @@ public class PreviewViewContainer extends FrameLayout {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, motionEvent)) == null) {
-            b bVar = this.f57337e;
+            b bVar = this.f57504e;
             if (bVar != null) {
                 bVar.b(motionEvent);
             }
@@ -87,7 +87,7 @@ public class PreviewViewContainer extends FrameLayout {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) || bVar == null) {
             return;
         }
-        this.f57337e = bVar;
+        this.f57504e = bVar;
     }
 
     public void showFaceFailIdentifyView() {
@@ -116,6 +116,6 @@ public class PreviewViewContainer extends FrameLayout {
                 return;
             }
         }
-        this.f57338f = null;
+        this.f57505f = null;
     }
 }

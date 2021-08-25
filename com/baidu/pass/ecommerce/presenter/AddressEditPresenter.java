@@ -16,6 +16,7 @@ import com.baidu.pass.ecommerce.request.AddressRequestFactory;
 import com.baidu.sapi2.ecommerce.result.AddressSelectedBean;
 import com.baidu.sapi2.ecommerce.result.RegionList;
 import com.baidu.sapi2.utils.Log;
+import com.baidu.searchbox.datacollector.growth.utils.GrowthConstant;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -793,7 +794,7 @@ public class AddressEditPresenter extends BasePresenter<IBaseView> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, context)) == null) {
             try {
-                CharSequence text = ((ClipboardManager) context.getSystemService("clipboard")).getText();
+                CharSequence text = ((ClipboardManager) context.getSystemService(GrowthConstant.UBC_VALUE_TYPE_CLIP_BOARD)).getText();
                 if (text != null) {
                     String charSequence = text.toString();
                     if (TextUtils.isEmpty(charSequence) || charSequence.length() <= 7) {

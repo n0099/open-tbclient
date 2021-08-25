@@ -1,246 +1,308 @@
 package c.a.p0.q0;
 
-import android.database.Cursor;
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TiebaDatabase;
+import android.content.Context;
+import android.net.Proxy;
+import android.os.Build;
+import android.provider.Settings;
+import androidx.core.view.InputDeviceCompat;
+import c.a.e.e.p.k;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.plugin.proxy.ContentResolverProxy;
+import com.baidu.ar.record.EncoderParams;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.SmallTailInfo;
-import com.baidu.tbadk.core.util.EmotionUtil;
-import com.baidu.tbadk.core.util.FileHelper;
-import com.baidu.tbadk.core.util.TbEnum;
-import com.baidu.tieba.faceshop.MyEmotionGroupData;
+import com.baidu.tbadk.core.util.NetWork;
+import com.baidu.tbadk.core.util.httpNet.HttpRequest;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
-import java.io.InputStream;
-import java.util.LinkedList;
-import java.util.List;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class a {
-    public static /* synthetic */ Interceptable $ic;
+    public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static a f23308a;
+    public static boolean f13742a = false;
+
+    /* renamed from: b  reason: collision with root package name */
+    public static String f13743b = "";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1691655551, "Lc/a/p0/q0/a;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-1691655551, "Lc/a/p0/q0/a;");
-                return;
-            }
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-1691655551, "Lc/a/p0/q0/a;")) == null) {
+            return;
         }
-        f23308a = new a();
-    }
-
-    public a() {
-        Interceptable interceptable = $ic;
+        Interceptable interceptable = invokeClinit.interceptor;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-1691655551, "Lc/a/p0/q0/a;");
         }
     }
 
-    public static a c() {
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:58:0x00df */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:59:0x0047 */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r8v0, types: [java.lang.Object, java.io.File] */
+    /* JADX WARN: Type inference failed for: r8v10 */
+    /* JADX WARN: Type inference failed for: r8v11 */
+    /* JADX WARN: Type inference failed for: r8v18 */
+    /* JADX WARN: Type inference failed for: r8v24 */
+    /* JADX WARN: Type inference failed for: r8v25 */
+    /* JADX WARN: Type inference failed for: r8v4 */
+    /* JADX WARN: Type inference failed for: r8v8, types: [java.lang.String] */
+    /* JADX WARN: Type inference failed for: r8v9 */
+    public static String a(File file) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, file)) == null) {
+            if (f13742a) {
+                return "hasSend_" + f13743b;
+            }
+            String str = TbConfig.SERVER_ADDRESS + TbConfig.DEBUG_UPLOAD;
+            if (file.length() > ((long) EncoderParams.VIDEO_BIT_RATE) || !TbadkCoreApplication.isLogin()) {
+                return "notLogin";
+            }
+            FileInputStream fileInputStream = null;
+            try {
+                try {
+                    if (file.exists()) {
+                        FileInputStream fileInputStream2 = new FileInputStream((File) file);
+                        try {
+                            byte[] bArr = new byte[(int) file.length()];
+                            fileInputStream2.read(bArr);
+                            fileInputStream2.close();
+                            NetWork netWork = new NetWork(str + "?fn=" + file.getName());
+                            netWork.addPostData("debugfile", bArr);
+                            netWork.addPostData(HttpRequest.TBS, TbadkCoreApplication.getInst().getTbs());
+                            netWork.addPostData("type", "android");
+                            String postMultiNetData = netWork.postMultiNetData();
+                            if (postMultiNetData != null && !postMultiNetData.isEmpty()) {
+                                String string = new JSONObject(postMultiNetData).getString("url");
+                                f13743b = string;
+                                f13742a = true;
+                                try {
+                                    fileInputStream2.close();
+                                } catch (IOException e2) {
+                                    e2.printStackTrace();
+                                }
+                                return string;
+                            }
+                            file = postMultiNetData;
+                            fileInputStream = fileInputStream2;
+                        } catch (Throwable th) {
+                            th = th;
+                            fileInputStream = fileInputStream2;
+                            try {
+                                file = "uploadfail_" + th;
+                                if (fileInputStream != null) {
+                                    fileInputStream.close();
+                                    file = file;
+                                }
+                                return file;
+                            } catch (Throwable th2) {
+                                if (fileInputStream != null) {
+                                    try {
+                                        fileInputStream.close();
+                                    } catch (IOException e3) {
+                                        e3.printStackTrace();
+                                    }
+                                }
+                                throw th2;
+                            }
+                        }
+                    } else {
+                        file = 0;
+                    }
+                } catch (IOException e4) {
+                    e4.printStackTrace();
+                }
+            } catch (Throwable th3) {
+                th = th3;
+            }
+            if (fileInputStream != null) {
+                fileInputStream.close();
+                file = file;
+            }
+            return file;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f23308a : (a) invokeV.objValue;
-    }
-
-    public final boolean a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? new File(TbadkCoreApplication.getInst().getFilesDir(), str).exists() : invokeL.booleanValue;
-    }
-
-    public boolean b(MyEmotionGroupData myEmotionGroupData) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, myEmotionGroupData)) == null) {
-            if (myEmotionGroupData == null) {
-                return false;
-            }
-            c.a.e.a.k.b mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             try {
-                mainDBDatabaseManager.f().delete(EmotionUtil.TABLE_NAME_USER_EMOTIONS, "uid = ? and groupId = ?", new String[]{myEmotionGroupData.uid, myEmotionGroupData.groupId});
-                return true;
-            } catch (Throwable th) {
-                mainDBDatabaseManager.i(th, "EmotionsDBManager.deleteMyEmotion");
+                return Settings.Secure.getInt(ContentResolverProxy.getContentResolver(), "adb_enabled", 0) > 0;
+            } catch (Exception unused) {
                 return false;
             }
         }
-        return invokeL.booleanValue;
+        return invokeV.booleanValue;
     }
 
-    public MyEmotionGroupData d(String str, String str2) {
-        InterceptResult invokeLL;
-        Cursor cursor;
+    public static String c(Context context) {
+        InterceptResult invokeL;
+        int port;
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2)) == null) {
-            if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
+            try {
+                if (Build.VERSION.SDK_INT >= 14) {
+                    str = System.getProperty("http.proxyHost");
+                    String property = System.getProperty("http.proxyPort");
+                    if (property == null) {
+                        property = "-1";
+                    }
+                    port = Integer.parseInt(property);
+                } else {
+                    String host = Proxy.getHost(context);
+                    port = Proxy.getPort(context);
+                    str = host;
+                }
+                if (k.isEmpty(str) || port == -1) {
+                    return null;
+                }
+                return str + ":" + port;
+            } catch (Exception unused) {
                 return null;
             }
-            c.a.e.a.k.b mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
-            try {
-                cursor = mainDBDatabaseManager.f().rawQuery("SELECT * FROM user_emotions where uid = ? and groupId = ? ", new String[]{str, str2});
-                try {
-                    if (cursor.moveToNext()) {
-                        return i(cursor);
-                    }
-                } catch (Throwable th) {
-                    th = th;
-                    try {
-                        mainDBDatabaseManager.i(th, "EmotionsDBManager.getMyEmotion");
-                        return null;
-                    } finally {
-                        c.a.e.e.p.m.a(cursor);
-                    }
-                }
-            } catch (Throwable th2) {
-                th = th2;
-                cursor = null;
-            }
-            return null;
         }
-        return (MyEmotionGroupData) invokeLL.objValue;
+        return (String) invokeL.objValue;
     }
 
-    public boolean e(String str) {
-        InterceptResult invokeL;
+    /* JADX WARN: Removed duplicated region for block: B:74:0x0074 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:78:0x0092 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:80:0x0082 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:82:0x00a0 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:96:? A[RETURN, SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static boolean d(File file, File file2, byte[] bArr) {
+        InterceptResult invokeLLL;
+        FileOutputStream fileOutputStream;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
+        if (interceptable != null && (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, file, file2, bArr)) != null) {
+            return invokeLLL.booleanValue;
+        }
+        FileInputStream fileInputStream = null;
+        try {
+            if (!file.exists()) {
                 return false;
             }
-            c.a.e.a.k.b mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
-            Cursor cursor = null;
+            FileInputStream fileInputStream2 = new FileInputStream(file);
             try {
-                cursor = mainDBDatabaseManager.f().rawQuery("SELECT * FROM user_emotions where uid = ? and groupId = ? ", new String[]{TbadkCoreApplication.getCurrentAccount(), str});
-                return cursor.moveToNext();
-            } catch (Throwable th) {
+                fileOutputStream = new FileOutputStream(file2);
                 try {
-                    mainDBDatabaseManager.i(th, "EmotionsDBManager.hasEmotionByPckID");
-                    return false;
-                } finally {
-                    c.a.e.e.p.m.a(cursor);
-                }
-            }
-        }
-        return invokeL.booleanValue;
-    }
-
-    public int f(c.a.p0.d2.f.a aVar) {
-        InterceptResult invokeL;
-        List<c.a.p0.d2.f.b> list;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, aVar)) == null) {
-            if (aVar == null || (list = aVar.f16439e) == null || list.size() == 0) {
-                return 0;
-            }
-            String str = ".emotions/" + aVar.f16435a;
-            g k = g.k();
-            List<c.a.p0.d2.f.b> list2 = aVar.f16439e;
-            int i2 = 0;
-            for (int i3 = 0; i3 < list2.size(); i3++) {
-                c.a.p0.d2.f.b bVar = list2.get(i3);
-                if (a(str + "/" + bVar.f16442g)) {
-                    if (a(str + "/" + bVar.f16443h)) {
-                        StringBuilder sb = new StringBuilder(EmotionUtil.NEW_EMOTION_SHARPTEXT_PREFIX_SHORT);
-                        sb.append(aVar.f16435a + "_" + bVar.f16441f);
-                        sb.append(",");
-                        sb.append(bVar.f16445j);
-                        sb.append(",");
-                        sb.append(bVar.f16444i);
-                        sb.append(",");
-                        String str2 = SmallTailInfo.EMOTION_PREFIX + sb.toString() + c.a.e.e.p.q.c(sb.toString() + "7S6wbXjEKL9N").toLowerCase() + SmallTailInfo.EMOTION_SUFFIX;
-                        boolean isGif = FileHelper.isGif(str, bVar.f16442g);
-                        b.g(aVar.f16435a, bVar.f16443h, b.c(str2, true, false));
-                        b.g(aVar.f16435a, bVar.f16442g, b.c(str2, false, isGif));
-                        if (k.d(str2, aVar.f16435a, i3 + 1)) {
-                            i2++;
+                    byte[] bArr2 = new byte[1024];
+                    if (bArr != null && bArr.length > 0 && bArr.length < file.length()) {
+                        byte[] bArr3 = new byte[bArr.length];
+                        fileInputStream2.read(bArr3, 0, bArr.length);
+                        int i2 = 0;
+                        while (true) {
+                            if (i2 >= bArr.length) {
+                                break;
+                            } else if (bArr[i2] != bArr3[i2]) {
+                                fileOutputStream.write(bArr3, 0, bArr.length);
+                                break;
+                            } else {
+                                i2++;
+                            }
                         }
                     }
+                    while (true) {
+                        int read = fileInputStream2.read(bArr2);
+                        if (read > 0) {
+                            fileOutputStream.write(bArr2, 0, read);
+                        } else {
+                            fileOutputStream.flush();
+                            fileInputStream2.close();
+                            try {
+                                try {
+                                    fileOutputStream.close();
+                                    return true;
+                                } catch (Exception e2) {
+                                    e = e2;
+                                    BdLog.e(e.toString());
+                                    if (fileInputStream != null) {
+                                        try {
+                                            fileInputStream.close();
+                                        } catch (Exception e3) {
+                                            BdLog.e(e3.toString());
+                                        }
+                                    }
+                                    if (fileOutputStream == null) {
+                                        try {
+                                            fileOutputStream.close();
+                                            return false;
+                                        } catch (Exception e4) {
+                                            BdLog.e(e4.toString());
+                                            return false;
+                                        }
+                                    }
+                                    return false;
+                                }
+                            } catch (Throwable th) {
+                                th = th;
+                                if (fileInputStream != null) {
+                                    try {
+                                        fileInputStream.close();
+                                    } catch (Exception e5) {
+                                        BdLog.e(e5.toString());
+                                    }
+                                }
+                                if (fileOutputStream != null) {
+                                    try {
+                                        fileOutputStream.close();
+                                    } catch (Exception e6) {
+                                        BdLog.e(e6.toString());
+                                    }
+                                }
+                                throw th;
+                            }
+                        }
+                    }
+                } catch (Exception e7) {
+                    e = e7;
+                    fileInputStream = fileInputStream2;
+                    BdLog.e(e.toString());
+                    if (fileInputStream != null) {
+                    }
+                    if (fileOutputStream == null) {
+                    }
+                } catch (Throwable th2) {
+                    th = th2;
+                    fileInputStream = fileInputStream2;
+                    if (fileInputStream != null) {
+                    }
+                    if (fileOutputStream != null) {
+                    }
+                    throw th;
                 }
+            } catch (Exception e8) {
+                e = e8;
+                fileOutputStream = null;
+            } catch (Throwable th3) {
+                th = th3;
+                fileOutputStream = null;
             }
-            return i2;
+        } catch (Exception e9) {
+            e = e9;
+            fileOutputStream = null;
+        } catch (Throwable th4) {
+            th = th4;
+            fileOutputStream = null;
         }
-        return invokeL.intValue;
-    }
-
-    public int g(String str, InputStream inputStream) throws Exception {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, str, inputStream)) == null) {
-            g k = g.k();
-            List<String> a2 = b.a(str, inputStream);
-            int i2 = 0;
-            int i3 = 0;
-            while (i2 < a2.size()) {
-                i2++;
-                if (k.d(a2.get(i2), str, i2)) {
-                    i3++;
-                }
-            }
-            return i3;
-        }
-        return invokeLL.intValue;
-    }
-
-    /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[INVOKE, MOVE_EXCEPTION, CONST_STR, INVOKE, INVOKE, MOVE_EXCEPTION] complete} */
-    public List<MyEmotionGroupData> h(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
-            LinkedList linkedList = new LinkedList();
-            if (TextUtils.isEmpty(str)) {
-                return linkedList;
-            }
-            Cursor cursor = null;
-            try {
-                cursor = TiebaDatabase.getInstance().getMainDBDatabaseManager().f().rawQuery("SELECT * FROM user_emotions where uid = ? order by updateTime desc ", new String[]{str});
-                while (cursor.moveToNext()) {
-                    linkedList.add(i(cursor));
-                }
-            } finally {
-                try {
-                    return linkedList;
-                } finally {
-                }
-            }
-            return linkedList;
-        }
-        return (List) invokeL.objValue;
-    }
-
-    public MyEmotionGroupData i(Cursor cursor) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, cursor)) == null) {
-            MyEmotionGroupData myEmotionGroupData = new MyEmotionGroupData();
-            myEmotionGroupData.id = cursor.getInt(cursor.getColumnIndex("id"));
-            myEmotionGroupData.uid = cursor.getString(cursor.getColumnIndex("uid"));
-            myEmotionGroupData.groupId = cursor.getString(cursor.getColumnIndex(TbEnum.SystemMessage.KEY_GROUP_ID));
-            myEmotionGroupData.updateTime = cursor.getLong(cursor.getColumnIndex("updateTime"));
-            return myEmotionGroupData;
-        }
-        return (MyEmotionGroupData) invokeL.objValue;
     }
 }

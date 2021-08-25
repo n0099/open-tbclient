@@ -15,9 +15,9 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.RelativeLayout;
 import androidx.core.view.InputDeviceCompat;
-import c.a.o0.s.s.a;
-import c.a.p0.i3.w;
-import c.a.p0.q0.t;
+import c.a.p0.s.s.a;
+import c.a.q0.i3.w;
+import c.a.q0.q0.t;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -70,10 +70,10 @@ public class NewFaceShopActivity extends BaseActivity {
     public CustomMessageListener mFaceGroupUploadFinishListener;
     public CustomMessageListener mLikeListener;
     public boolean mLoadSuccess;
-    public c.a.o0.f0.g mLoadingView;
+    public c.a.p0.f0.g mLoadingView;
     public TbPageContext<NewFaceShopActivity> mPageContext;
     public CustomMessageListener mRefreshCurrentPageListener;
-    public c.a.o0.f0.h mRefreshView;
+    public c.a.p0.f0.h mRefreshView;
     public View mRootView;
     public String mTempShareUrl;
     public Handler mUIHandler;
@@ -88,7 +88,7 @@ public class NewFaceShopActivity extends BaseActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ NewFaceShopActivity f54298e;
+        public final /* synthetic */ NewFaceShopActivity f54441e;
 
         public a(NewFaceShopActivity newFaceShopActivity) {
             Interceptable interceptable = $ic;
@@ -105,14 +105,14 @@ public class NewFaceShopActivity extends BaseActivity {
                     return;
                 }
             }
-            this.f54298e = newFaceShopActivity;
+            this.f54441e = newFaceShopActivity;
         }
 
         @Override // android.content.DialogInterface.OnCancelListener
         public void onCancel(DialogInterface dialogInterface) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
-                this.f54298e.loadUrl("javascript:__js_bridge_emoticon_show_dialog(0)");
+                this.f54441e.loadUrl("javascript:__js_bridge_emoticon_show_dialog(0)");
             }
         }
     }
@@ -123,7 +123,7 @@ public class NewFaceShopActivity extends BaseActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ NewFaceShopActivity f54299e;
+        public final /* synthetic */ NewFaceShopActivity f54442e;
 
         public b(NewFaceShopActivity newFaceShopActivity) {
             Interceptable interceptable = $ic;
@@ -140,16 +140,16 @@ public class NewFaceShopActivity extends BaseActivity {
                     return;
                 }
             }
-            this.f54299e = newFaceShopActivity;
+            this.f54442e = newFaceShopActivity;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                List<MyEmotionGroupData> f2 = c.a.p0.d2.c.i().f();
+                List<MyEmotionGroupData> f2 = c.a.q0.d2.c.i().f();
                 if (f2 == null || f2.isEmpty()) {
-                    this.f54299e.loadUrl("javascript:__js_bridge_emoticon_has_action()");
+                    this.f54442e.loadUrl("javascript:__js_bridge_emoticon_has_action()");
                     return;
                 }
                 StringBuilder sb = new StringBuilder();
@@ -159,7 +159,7 @@ public class NewFaceShopActivity extends BaseActivity {
                         sb.append(",");
                     }
                 }
-                NewFaceShopActivity newFaceShopActivity = this.f54299e;
+                NewFaceShopActivity newFaceShopActivity = this.f54442e;
                 newFaceShopActivity.loadUrl("javascript:__js_bridge_emoticon_has_action('" + sb.toString() + "')");
             }
         }
@@ -171,10 +171,10 @@ public class NewFaceShopActivity extends BaseActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f54300e;
+        public final /* synthetic */ String f54443e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ NewFaceShopActivity f54301f;
+        public final /* synthetic */ NewFaceShopActivity f54444f;
 
         public c(NewFaceShopActivity newFaceShopActivity, String str) {
             Interceptable interceptable = $ic;
@@ -191,17 +191,17 @@ public class NewFaceShopActivity extends BaseActivity {
                     return;
                 }
             }
-            this.f54301f = newFaceShopActivity;
-            this.f54300e = str;
+            this.f54444f = newFaceShopActivity;
+            this.f54443e = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f54301f.mWebView == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f54444f.mWebView == null) {
                 return;
             }
-            this.f54301f.mWebView.loadUrl(this.f54300e);
+            this.f54444f.mWebView.loadUrl(this.f54443e);
         }
     }
 
@@ -211,10 +211,10 @@ public class NewFaceShopActivity extends BaseActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ JSONObject f54302e;
+        public final /* synthetic */ JSONObject f54445e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ NewFaceShopActivity f54303f;
+        public final /* synthetic */ NewFaceShopActivity f54446f;
 
         public d(NewFaceShopActivity newFaceShopActivity, JSONObject jSONObject) {
             Interceptable interceptable = $ic;
@@ -231,27 +231,27 @@ public class NewFaceShopActivity extends BaseActivity {
                     return;
                 }
             }
-            this.f54303f = newFaceShopActivity;
-            this.f54302e = jSONObject;
+            this.f54446f = newFaceShopActivity;
+            this.f54445e = jSONObject;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                c.a.p0.d2.c.i().j(new ArrayList(Arrays.asList(this.f54302e.optString("id").split(","))), true);
-                this.f54303f.loadUrl("javascript:__js_bridge_emoticon_sort_action()");
+                c.a.q0.d2.c.i().j(new ArrayList(Arrays.asList(this.f54445e.optString("id").split(","))), true);
+                this.f54446f.loadUrl("javascript:__js_bridge_emoticon_sort_action()");
             }
         }
     }
 
     /* loaded from: classes7.dex */
-    public class e implements c.a.p0.d2.e.b {
+    public class e implements c.a.q0.d2.e.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ NewFaceShopActivity f54304a;
+        public final /* synthetic */ NewFaceShopActivity f54447a;
 
         public e(NewFaceShopActivity newFaceShopActivity) {
             Interceptable interceptable = $ic;
@@ -268,32 +268,32 @@ public class NewFaceShopActivity extends BaseActivity {
                     return;
                 }
             }
-            this.f54304a = newFaceShopActivity;
+            this.f54447a = newFaceShopActivity;
         }
 
-        @Override // c.a.p0.d2.e.b
+        @Override // c.a.q0.d2.e.b
         public void onFail(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                this.f54304a.loadUrl("javascript:__js_bridge_emoticon_down_process_action(-1)");
+                this.f54447a.loadUrl("javascript:__js_bridge_emoticon_down_process_action(-1)");
             }
         }
 
-        @Override // c.a.p0.d2.e.b
+        @Override // c.a.q0.d2.e.b
         public void onProgress(int i2) {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) || i2 <= 0 || i2 >= 100) {
                 return;
             }
-            NewFaceShopActivity newFaceShopActivity = this.f54304a;
+            NewFaceShopActivity newFaceShopActivity = this.f54447a;
             newFaceShopActivity.loadUrl("javascript:__js_bridge_emoticon_down_process_action(" + i2 + SmallTailInfo.EMOTION_SUFFIX);
         }
 
-        @Override // c.a.p0.d2.e.b
+        @Override // c.a.q0.d2.e.b
         public void onSuccess(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-                this.f54304a.loadUrl("javascript:__js_bridge_emoticon_down_process_action(100)");
+                this.f54447a.loadUrl("javascript:__js_bridge_emoticon_down_process_action(100)");
             }
         }
     }
@@ -304,10 +304,10 @@ public class NewFaceShopActivity extends BaseActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ JSONObject f54305e;
+        public final /* synthetic */ JSONObject f54448e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ NewFaceShopActivity f54306f;
+        public final /* synthetic */ NewFaceShopActivity f54449f;
 
         public f(NewFaceShopActivity newFaceShopActivity, JSONObject jSONObject) {
             Interceptable interceptable = $ic;
@@ -324,23 +324,23 @@ public class NewFaceShopActivity extends BaseActivity {
                     return;
                 }
             }
-            this.f54306f = newFaceShopActivity;
-            this.f54305e = jSONObject;
+            this.f54449f = newFaceShopActivity;
+            this.f54448e = jSONObject;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                ArrayList<String> arrayList = new ArrayList(Arrays.asList(this.f54305e.optString("id").split(",")));
-                boolean c2 = c.a.p0.d2.c.i().c(arrayList, true);
+                ArrayList<String> arrayList = new ArrayList(Arrays.asList(this.f54448e.optString("id").split(",")));
+                boolean c2 = c.a.q0.d2.c.i().c(arrayList, true);
                 for (String str : arrayList) {
-                    c.a.p0.q0.g.k().h(str);
+                    c.a.q0.q0.g.k().h(str);
                 }
                 if (c2) {
-                    this.f54306f.loadUrl("javascript:__js_bridge_emoticon_del_action(1)");
+                    this.f54449f.loadUrl("javascript:__js_bridge_emoticon_del_action(1)");
                 } else {
-                    this.f54306f.loadUrl("javascript:__js_bridge_emoticon_del_action(0)");
+                    this.f54449f.loadUrl("javascript:__js_bridge_emoticon_del_action(0)");
                 }
             }
         }
@@ -352,10 +352,10 @@ public class NewFaceShopActivity extends BaseActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ShareItem f54307e;
+        public final /* synthetic */ ShareItem f54450e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ NewFaceShopActivity f54308f;
+        public final /* synthetic */ NewFaceShopActivity f54451f;
 
         public g(NewFaceShopActivity newFaceShopActivity, ShareItem shareItem) {
             Interceptable interceptable = $ic;
@@ -372,16 +372,16 @@ public class NewFaceShopActivity extends BaseActivity {
                     return;
                 }
             }
-            this.f54308f = newFaceShopActivity;
-            this.f54307e = shareItem;
+            this.f54451f = newFaceShopActivity;
+            this.f54450e = shareItem;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                c.a.e.e.p.a.a(this.f54307e.t);
-                c.a.e.e.p.l.M(this.f54308f.getPageContext().getPageActivity(), view.getResources().getString(R.string.copy_pb_url_success));
+                c.a.e.e.p.a.a(this.f54450e.t);
+                c.a.e.e.p.l.M(this.f54451f.getPageContext().getPageActivity(), view.getResources().getString(R.string.copy_pb_url_success));
             }
         }
     }
@@ -392,7 +392,7 @@ public class NewFaceShopActivity extends BaseActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ NewFaceShopActivity f54309a;
+        public final /* synthetic */ NewFaceShopActivity f54452a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public h(NewFaceShopActivity newFaceShopActivity, int i2) {
@@ -412,7 +412,7 @@ public class NewFaceShopActivity extends BaseActivity {
                     return;
                 }
             }
-            this.f54309a = newFaceShopActivity;
+            this.f54452a = newFaceShopActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -423,18 +423,18 @@ public class NewFaceShopActivity extends BaseActivity {
                 HashMap hashMap = (HashMap) customResponsedMessage.getData();
                 String str = null;
                 if (hashMap == null || hashMap.isEmpty()) {
-                    this.f54309a.loadUploadFinishUrl(0, null);
+                    this.f54452a.loadUploadFinishUrl(0, null);
                 } else if (!hashMap.containsKey("upload_result")) {
-                    this.f54309a.loadUploadFinishUrl(0, null);
+                    this.f54452a.loadUploadFinishUrl(0, null);
                 } else if (hashMap.get("upload_result") == null || !(hashMap.get("upload_result") instanceof Boolean)) {
-                    this.f54309a.loadUploadFinishUrl(0, null);
+                    this.f54452a.loadUploadFinishUrl(0, null);
                 } else if (((Boolean) hashMap.get("upload_result")).booleanValue()) {
-                    this.f54309a.loadUploadFinishUrl(1, null);
+                    this.f54452a.loadUploadFinishUrl(1, null);
                 } else {
                     if (hashMap.containsKey("upload_msg") && hashMap.get("upload_msg") != null && (hashMap.get("upload_msg") instanceof String)) {
                         str = (String) hashMap.get("upload_msg");
                     }
-                    this.f54309a.loadUploadFinishUrl(0, str);
+                    this.f54452a.loadUploadFinishUrl(0, str);
                 }
             }
         }
@@ -446,7 +446,7 @@ public class NewFaceShopActivity extends BaseActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ NewFaceShopActivity f54310a;
+        public final /* synthetic */ NewFaceShopActivity f54453a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public i(NewFaceShopActivity newFaceShopActivity, int i2) {
@@ -466,7 +466,7 @@ public class NewFaceShopActivity extends BaseActivity {
                     return;
                 }
             }
-            this.f54310a = newFaceShopActivity;
+            this.f54453a = newFaceShopActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -474,7 +474,7 @@ public class NewFaceShopActivity extends BaseActivity {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
-                this.f54310a.loadUrl("javascript:__js_bridge_emoticon_refresh_has_action()");
+                this.f54453a.loadUrl("javascript:__js_bridge_emoticon_refresh_has_action()");
             }
         }
     }
@@ -485,7 +485,7 @@ public class NewFaceShopActivity extends BaseActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ NewFaceShopActivity f54311a;
+        public final /* synthetic */ NewFaceShopActivity f54454a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public j(NewFaceShopActivity newFaceShopActivity, int i2) {
@@ -505,7 +505,7 @@ public class NewFaceShopActivity extends BaseActivity {
                     return;
                 }
             }
-            this.f54311a = newFaceShopActivity;
+            this.f54454a = newFaceShopActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -513,7 +513,7 @@ public class NewFaceShopActivity extends BaseActivity {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof w) && ((w) customResponsedMessage.getData()).l() == 1) {
-                this.f54311a.loadUrl("javascript:__js_bridge_emoticon_attend_action(1)");
+                this.f54454a.loadUrl("javascript:__js_bridge_emoticon_attend_action(1)");
             }
         }
     }
@@ -524,7 +524,7 @@ public class NewFaceShopActivity extends BaseActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ NewFaceShopActivity f54312a;
+        public final /* synthetic */ NewFaceShopActivity f54455a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public k(NewFaceShopActivity newFaceShopActivity, int i2) {
@@ -544,7 +544,7 @@ public class NewFaceShopActivity extends BaseActivity {
                     return;
                 }
             }
-            this.f54312a = newFaceShopActivity;
+            this.f54455a = newFaceShopActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -556,7 +556,7 @@ public class NewFaceShopActivity extends BaseActivity {
                 if (emotionPackageData.has_vote != 0 || emotionPackageData.id <= 0) {
                     return;
                 }
-                NewFaceShopActivity newFaceShopActivity = this.f54312a;
+                NewFaceShopActivity newFaceShopActivity = this.f54455a;
                 newFaceShopActivity.loadUrl("javascript:__js_bridge_emoticon_vote_action(" + emotionPackageData.id + SmallTailInfo.EMOTION_SUFFIX);
             }
         }
@@ -568,7 +568,7 @@ public class NewFaceShopActivity extends BaseActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ NewFaceShopActivity f54313e;
+        public final /* synthetic */ NewFaceShopActivity f54456e;
 
         public l(NewFaceShopActivity newFaceShopActivity) {
             Interceptable interceptable = $ic;
@@ -585,25 +585,25 @@ public class NewFaceShopActivity extends BaseActivity {
                     return;
                 }
             }
-            this.f54313e = newFaceShopActivity;
+            this.f54456e = newFaceShopActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f54313e.reloadPage();
+                this.f54456e.reloadPage();
             }
         }
     }
 
     /* loaded from: classes7.dex */
-    public class m implements c.a.p0.q0.x.d.c {
+    public class m implements c.a.q0.q0.x.d.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ NewFaceShopActivity f54314e;
+        public final /* synthetic */ NewFaceShopActivity f54457e;
 
         public m(NewFaceShopActivity newFaceShopActivity) {
             Interceptable interceptable = $ic;
@@ -620,22 +620,22 @@ public class NewFaceShopActivity extends BaseActivity {
                     return;
                 }
             }
-            this.f54314e = newFaceShopActivity;
+            this.f54457e = newFaceShopActivity;
         }
 
-        @Override // c.a.p0.q0.x.d.c
+        @Override // c.a.q0.q0.x.d.c
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new FaceGroupMakeActivityConfig(this.f54314e.getPageContext().getPageActivity(), 25021)));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new FaceGroupMakeActivityConfig(this.f54457e.getPageContext().getPageActivity(), 25021)));
             }
         }
 
-        @Override // c.a.p0.q0.x.d.c
+        @Override // c.a.q0.q0.x.d.c
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new FaceGroupMakeActivityConfig(this.f54314e.getPageContext().getPageActivity(), true, 25021)));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new FaceGroupMakeActivityConfig(this.f54457e.getPageContext().getPageActivity(), true, 25021)));
             }
         }
     }
@@ -646,13 +646,13 @@ public class NewFaceShopActivity extends BaseActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ LikeModel f54315a;
+        public final /* synthetic */ LikeModel f54458a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f54316b;
+        public final /* synthetic */ String f54459b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ NewFaceShopActivity f54317c;
+        public final /* synthetic */ NewFaceShopActivity f54460c;
 
         public n(NewFaceShopActivity newFaceShopActivity, LikeModel likeModel, String str) {
             Interceptable interceptable = $ic;
@@ -669,48 +669,48 @@ public class NewFaceShopActivity extends BaseActivity {
                     return;
                 }
             }
-            this.f54317c = newFaceShopActivity;
-            this.f54315a = likeModel;
-            this.f54316b = str;
+            this.f54460c = newFaceShopActivity;
+            this.f54458a = likeModel;
+            this.f54459b = str;
         }
 
         @Override // c.a.e.a.e
         public void c(Object obj) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
-                if (this.f54315a.getErrorCode() == 22) {
-                    this.f54317c.showToast(R.string.unfollow_title);
-                    this.f54317c.loadUrl("javascript:__js_bridge_emoticon_attend_action(0)");
-                } else if (AntiHelper.m(this.f54315a.getErrorCode(), this.f54315a.getErrorString())) {
-                    AntiHelper.u(this.f54317c.getPageContext().getPageActivity(), this.f54315a.getErrorString());
-                } else if (this.f54315a.getErrorCode() != 0) {
-                    this.f54317c.showToast(this.f54315a.getErrorString());
-                    this.f54317c.loadUrl("javascript:__js_bridge_emoticon_attend_action(0)");
+                if (this.f54458a.getErrorCode() == 22) {
+                    this.f54460c.showToast(R.string.unfollow_title);
+                    this.f54460c.loadUrl("javascript:__js_bridge_emoticon_attend_action(0)");
+                } else if (AntiHelper.m(this.f54458a.getErrorCode(), this.f54458a.getErrorString())) {
+                    AntiHelper.u(this.f54460c.getPageContext().getPageActivity(), this.f54458a.getErrorString());
+                } else if (this.f54458a.getErrorCode() != 0) {
+                    this.f54460c.showToast(this.f54458a.getErrorString());
+                    this.f54460c.loadUrl("javascript:__js_bridge_emoticon_attend_action(0)");
                 } else {
                     w wVar = (w) obj;
                     if (wVar != null) {
-                        this.f54317c.showToast(R.string.attention_success);
-                        TbadkApplication.getInst().addLikeForum(this.f54316b);
+                        this.f54460c.showToast(R.string.attention_success);
+                        TbadkApplication.getInst().addLikeForum(this.f54459b);
                         wVar.v(1);
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001266, wVar));
-                        this.f54317c.loadUrl("javascript:__js_bridge_emoticon_attend_action(1)");
+                        this.f54460c.loadUrl("javascript:__js_bridge_emoticon_attend_action(1)");
                         return;
                     }
-                    NewFaceShopActivity newFaceShopActivity = this.f54317c;
+                    NewFaceShopActivity newFaceShopActivity = this.f54460c;
                     newFaceShopActivity.showToast(newFaceShopActivity.getPageContext().getString(R.string.neterror));
-                    this.f54317c.loadUrl("javascript:__js_bridge_emoticon_attend_action(0)");
+                    this.f54460c.loadUrl("javascript:__js_bridge_emoticon_attend_action(0)");
                 }
             }
         }
     }
 
     /* loaded from: classes7.dex */
-    public class o implements c.a.p0.d2.e.b {
+    public class o implements c.a.q0.d2.e.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ NewFaceShopActivity f54318a;
+        public final /* synthetic */ NewFaceShopActivity f54461a;
 
         public o(NewFaceShopActivity newFaceShopActivity) {
             Interceptable interceptable = $ic;
@@ -727,29 +727,29 @@ public class NewFaceShopActivity extends BaseActivity {
                     return;
                 }
             }
-            this.f54318a = newFaceShopActivity;
+            this.f54461a = newFaceShopActivity;
         }
 
-        @Override // c.a.p0.d2.e.b
+        @Override // c.a.q0.d2.e.b
         public void onFail(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                this.f54318a.loadUrl("javascript:__js_bridge_emoticon_save_action(0)");
+                this.f54461a.loadUrl("javascript:__js_bridge_emoticon_save_action(0)");
             }
         }
 
-        @Override // c.a.p0.d2.e.b
+        @Override // c.a.q0.d2.e.b
         public void onProgress(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
             }
         }
 
-        @Override // c.a.p0.d2.e.b
+        @Override // c.a.q0.d2.e.b
         public void onSuccess(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-                this.f54318a.loadUrl("javascript:__js_bridge_emoticon_save_action(1)");
+                this.f54461a.loadUrl("javascript:__js_bridge_emoticon_save_action(1)");
             }
         }
     }
@@ -760,7 +760,7 @@ public class NewFaceShopActivity extends BaseActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ NewFaceShopActivity f54319e;
+        public final /* synthetic */ NewFaceShopActivity f54462e;
 
         public p(NewFaceShopActivity newFaceShopActivity) {
             Interceptable interceptable = $ic;
@@ -777,15 +777,15 @@ public class NewFaceShopActivity extends BaseActivity {
                     return;
                 }
             }
-            this.f54319e = newFaceShopActivity;
+            this.f54462e = newFaceShopActivity;
         }
 
-        @Override // c.a.o0.s.s.a.e
-        public void onClick(c.a.o0.s.s.a aVar) {
+        @Override // c.a.p0.s.s.a.e
+        public void onClick(c.a.p0.s.s.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
                 aVar.dismiss();
-                this.f54319e.loadUrl("javascript:__js_bridge_emoticon_show_dialog(1)");
+                this.f54462e.loadUrl("javascript:__js_bridge_emoticon_show_dialog(1)");
             }
         }
     }
@@ -796,7 +796,7 @@ public class NewFaceShopActivity extends BaseActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ NewFaceShopActivity f54320e;
+        public final /* synthetic */ NewFaceShopActivity f54463e;
 
         public q(NewFaceShopActivity newFaceShopActivity) {
             Interceptable interceptable = $ic;
@@ -813,15 +813,15 @@ public class NewFaceShopActivity extends BaseActivity {
                     return;
                 }
             }
-            this.f54320e = newFaceShopActivity;
+            this.f54463e = newFaceShopActivity;
         }
 
-        @Override // c.a.o0.s.s.a.e
-        public void onClick(c.a.o0.s.s.a aVar) {
+        @Override // c.a.p0.s.s.a.e
+        public void onClick(c.a.p0.s.s.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
                 aVar.dismiss();
-                this.f54320e.loadUrl("javascript:__js_bridge_emoticon_show_dialog(0)");
+                this.f54463e.loadUrl("javascript:__js_bridge_emoticon_show_dialog(0)");
             }
         }
     }
@@ -832,7 +832,7 @@ public class NewFaceShopActivity extends BaseActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ NewFaceShopActivity f54321a;
+        public final /* synthetic */ NewFaceShopActivity f54464a;
 
         public r(NewFaceShopActivity newFaceShopActivity) {
             Interceptable interceptable = $ic;
@@ -849,7 +849,7 @@ public class NewFaceShopActivity extends BaseActivity {
                     return;
                 }
             }
-            this.f54321a = newFaceShopActivity;
+            this.f54464a = newFaceShopActivity;
         }
 
         @Override // android.webkit.WebViewClient
@@ -857,10 +857,10 @@ public class NewFaceShopActivity extends BaseActivity {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, webView, str) == null) {
                 super.onPageFinished(webView, str);
-                this.f54321a.hideLoadingView();
+                this.f54464a.hideLoadingView();
                 if (c.a.e.e.p.j.z()) {
-                    this.f54321a.showNormalView();
-                    this.f54321a.mLoadSuccess = true;
+                    this.f54464a.showNormalView();
+                    this.f54464a.mLoadSuccess = true;
                 }
             }
         }
@@ -870,7 +870,7 @@ public class NewFaceShopActivity extends BaseActivity {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str, bitmap) == null) {
                 super.onPageStarted(webView, str, bitmap);
-                this.f54321a.showLoadingView();
+                this.f54464a.showLoadingView();
             }
         }
 
@@ -879,7 +879,7 @@ public class NewFaceShopActivity extends BaseActivity {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLILL(Constants.METHOD_SEND_USER_MSG, this, webView, i2, str, str2) == null) {
                 super.onReceivedError(webView, i2, str, str2);
-                this.f54321a.showNetRefreshView();
+                this.f54464a.showNetRefreshView();
             }
         }
 
@@ -888,6 +888,7 @@ public class NewFaceShopActivity extends BaseActivity {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, webView, renderProcessGoneDetail)) == null) {
+                c.a.p0.m.f.a("NewFaceShopActivity", webView);
                 return true;
             }
             return invokeLL.booleanValue;
@@ -904,10 +905,10 @@ public class NewFaceShopActivity extends BaseActivity {
                     e2.printStackTrace();
                 }
                 if (!StringUtils.isNull(str)) {
-                    if (!this.f54321a.nativeCall(str)) {
-                        int dealOneLinkWithOutJumpWebView = UrlManager.getInstance().dealOneLinkWithOutJumpWebView(this.f54321a.getPageContext(), new String[]{str});
+                    if (!this.f54464a.nativeCall(str)) {
+                        int dealOneLinkWithOutJumpWebView = UrlManager.getInstance().dealOneLinkWithOutJumpWebView(this.f54464a.getPageContext(), new String[]{str});
                         if (dealOneLinkWithOutJumpWebView == 1) {
-                            this.f54321a.finish();
+                            this.f54464a.finish();
                             return true;
                         } else if (dealOneLinkWithOutJumpWebView == 0) {
                         }
@@ -963,12 +964,12 @@ public class NewFaceShopActivity extends BaseActivity {
     private void checkIsUploadingFaceGroup() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65543, this) == null) {
-            if (c.a.p0.d2.g.e.l().r()) {
+            if (c.a.q0.d2.g.e.l().r()) {
                 loadCheckUploadStatusUrl(1, null);
-            } else if (c.a.p0.d2.g.e.l().k() == null) {
+            } else if (c.a.q0.d2.g.e.l().k() == null) {
                 loadCheckUploadStatusUrl(0, null);
             } else {
-                FaceGroupDraft k2 = c.a.p0.d2.g.e.l().k();
+                FaceGroupDraft k2 = c.a.q0.d2.g.e.l().k();
                 if (!TextUtils.isEmpty(k2.getFailMsg())) {
                     loadCheckUploadStatusUrl(2, k2.getFailMsg());
                 } else {
@@ -996,20 +997,20 @@ public class NewFaceShopActivity extends BaseActivity {
     private void deleteEmotion(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65545, this, jSONObject) == null) {
-            if (c.a.p0.d2.d.m().o()) {
+            if (c.a.q0.d2.d.m().o()) {
                 loadUrl("javascript:__js_bridge_emoticon_del_action(0)");
                 c.a.e.e.p.l.L(this.mPageContext.getPageActivity(), R.string.face_group_is_syncing);
                 return;
             }
             TiebaStatic.log(TbadkCoreStatisticKey.FACESHOP_DELETE);
-            c.a.p0.d2.a.b().a(new f(this, jSONObject));
+            c.a.q0.d2.a.b().a(new f(this, jSONObject));
         }
     }
 
     private void downloadEmotion(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(65546, this, jSONObject) == null) && ViewHelper.checkUpIsLogin(getPageContext().getPageActivity())) {
-            if (c.a.p0.d2.d.m().o()) {
+            if (c.a.q0.d2.d.m().o()) {
                 loadUrl("javascript:__js_bridge_emoticon_down_process_action(-1)");
                 c.a.e.e.p.l.L(this.mPageContext.getPageActivity(), R.string.face_group_is_syncing);
                 return;
@@ -1026,7 +1027,7 @@ public class NewFaceShopActivity extends BaseActivity {
     private void getHasDownedEmotionGroupIds() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65547, this) == null) {
-            c.a.p0.d2.a.b().a(new b(this));
+            c.a.q0.d2.a.b().a(new b(this));
         }
     }
 
@@ -1111,7 +1112,7 @@ public class NewFaceShopActivity extends BaseActivity {
     private void makeDailogForCreateEmotion() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65555, this) == null) {
-            c.a.p0.q0.x.d.a aVar = new c.a.p0.q0.x.d.a(getPageContext().getPageActivity(), 1);
+            c.a.q0.q0.x.d.a aVar = new c.a.q0.q0.x.d.a(getPageContext().getPageActivity(), 1);
             aVar.d(new m(this));
             aVar.showAtLocation(this.mRootView, 81, 0, 0);
         }
@@ -1191,13 +1192,13 @@ public class NewFaceShopActivity extends BaseActivity {
     private void reOrderGroup(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65558, this, jSONObject) == null) {
-            if (c.a.p0.d2.d.m().o()) {
+            if (c.a.q0.d2.d.m().o()) {
                 loadUrl("javascript:__js_bridge_emoticon_sort_action()");
                 c.a.e.e.p.l.L(this.mPageContext.getPageActivity(), R.string.face_group_is_syncing);
                 return;
             }
             TiebaStatic.log(TbadkCoreStatisticKey.FACESHOP_ORDER);
-            c.a.p0.d2.a.b().a(new d(this, jSONObject));
+            c.a.q0.d2.a.b().a(new d(this, jSONObject));
         }
     }
 
@@ -1208,7 +1209,7 @@ public class NewFaceShopActivity extends BaseActivity {
             if (TextUtils.isEmpty(optString)) {
                 return;
             }
-            c.a.p0.d2.c.i().d(optString, new o(this));
+            c.a.q0.d2.c.i().d(optString, new o(this));
         }
     }
 
@@ -1238,7 +1239,7 @@ public class NewFaceShopActivity extends BaseActivity {
             if (TextUtils.isEmpty(optString) || TextUtils.isEmpty(optString2) || TextUtils.isEmpty(optString3)) {
                 loadUrl("javascript:__js_bridge_emoticon_show_dialog(0)");
             }
-            c.a.o0.s.s.a aVar = new c.a.o0.s.s.a(getPageContext().getPageActivity());
+            c.a.p0.s.s.a aVar = new c.a.p0.s.s.a(getPageContext().getPageActivity());
             aVar.setMessage(optString);
             aVar.setPositiveButton(optString2, new p(this));
             aVar.setNegativeButton(optString3, new q(this));
@@ -1259,7 +1260,7 @@ public class NewFaceShopActivity extends BaseActivity {
     }
 
     public void hideLoadingView() {
-        c.a.o0.f0.g gVar;
+        c.a.p0.f0.g gVar;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (gVar = this.mLoadingView) == null) {
             return;
@@ -1313,7 +1314,7 @@ public class NewFaceShopActivity extends BaseActivity {
             }
             setContentView(R.layout.new_faceshop_activity);
             initView();
-            c.a.o0.m.a.f(getApplicationContext());
+            c.a.p0.m.a.g(getApplicationContext());
             loadUrl(this.mUrl);
             registerListener(this.mRefreshCurrentPageListener);
             registerListener(this.mLikeListener);
@@ -1389,7 +1390,7 @@ public class NewFaceShopActivity extends BaseActivity {
         if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || (tbPageContext = this.mPageContext) == null || this.mRootView == null) {
             return;
         }
-        c.a.o0.f0.g gVar = new c.a.o0.f0.g(tbPageContext.getPageActivity());
+        c.a.p0.f0.g gVar = new c.a.p0.f0.g(tbPageContext.getPageActivity());
         this.mLoadingView = gVar;
         gVar.attachView(this.mRootView, false);
         this.mLoadingView.onChangeSkinType();
@@ -1400,7 +1401,7 @@ public class NewFaceShopActivity extends BaseActivity {
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             String string = TbadkCoreApplication.getInst().getString(R.string.neterror);
             if (this.mRefreshView == null) {
-                c.a.o0.f0.h hVar = new c.a.o0.f0.h(this.mPageContext.getPageActivity(), new l(this));
+                c.a.p0.f0.h hVar = new c.a.p0.f0.h(this.mPageContext.getPageActivity(), new l(this));
                 this.mRefreshView = hVar;
                 hVar.onChangeSkinType();
             }
@@ -1418,7 +1419,7 @@ public class NewFaceShopActivity extends BaseActivity {
     public void showNormalView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            c.a.o0.f0.h hVar = this.mRefreshView;
+            c.a.p0.f0.h hVar = this.mRefreshView;
             if (hVar != null) {
                 hVar.dettachView(this.mRootView);
                 this.mRefreshView = null;

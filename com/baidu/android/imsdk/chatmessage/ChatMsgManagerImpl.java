@@ -87,7 +87,6 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bumptech.glide.load.engine.GlideException;
-import com.bytedance.sdk.openadsdk.TTAdConstant;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -419,7 +418,7 @@ public class ChatMsgManagerImpl {
                 }
                 if (Utility.readBooleanData(mContext, Constants.KEY_UPDATE_SWITCH_USER, true) && hashSet.size() > 0) {
                     ArrayList arrayList3 = new ArrayList(hashSet);
-                    List<Long> notExpiredChatUserByBduids = ChatUserDBManager.getInstance(mContext).getNotExpiredChatUserByBduids(arrayList3, System.currentTimeMillis() - TTAdConstant.AD_MAX_EVENT_TIME);
+                    List<Long> notExpiredChatUserByBduids = ChatUserDBManager.getInstance(mContext).getNotExpiredChatUserByBduids(arrayList3, System.currentTimeMillis() - 600000);
                     ArrayList arrayList4 = new ArrayList(arrayList3);
                     arrayList4.removeAll(notExpiredChatUserByBduids);
                     ChatUserManagerImpl.getInstance(mContext).updateUserIdentity(arrayList4, new IGetUserIdentityListener(this, arrayList3, arrayList2, iFetchNotificationDataListener, i2) { // from class: com.baidu.android.imsdk.chatmessage.ChatMsgManagerImpl.9
@@ -965,7 +964,7 @@ public class ChatMsgManagerImpl {
             }
             String addListener = ListenerManager.getInstance().addListener(iSendMessageListener);
             if (AccountManager.isLogin(mContext)) {
-                if (a.f29659e && chatMsg.getCategory() == 4) {
+                if (a.f30000e && chatMsg.getCategory() == 4) {
                     creatMethodIntent = Utility.createMcastMethodIntent(mContext, 55);
                 } else {
                     creatMethodIntent = Utility.creatMethodIntent(mContext, 55);
@@ -1655,7 +1654,7 @@ public class ChatMsgManagerImpl {
             LogUtils.i(str, " category: " + i2 + " contacter: " + j2 + " beginMsgid: " + j3 + " endMsgid: " + j4 + " count: " + i3 + " triggerReason: " + i4 + " jumpToRecentMsg: " + i5 + " key: " + addListener);
             if (j3 >= 0 && j4 >= 0) {
                 if (AccountManager.isLogin(context)) {
-                    if (a.f29659e && i2 == 4) {
+                    if (a.f30000e && i2 == 4) {
                         creatMethodIntent = Utility.createMcastMethodIntent(context, 93);
                     } else {
                         creatMethodIntent = Utility.creatMethodIntent(context, 93);

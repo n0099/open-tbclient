@@ -23,17 +23,17 @@ public class h {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static h f1921d;
+    public static h f1979d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Resources f1922a;
+    public Resources f1980a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ArrayList<String> f1923b;
+    public ArrayList<String> f1981b;
 
     /* renamed from: c  reason: collision with root package name */
-    public HashSet<String> f1924c;
+    public HashSet<String> f1982c;
 
     static {
         InterceptResult invokeClinit;
@@ -63,23 +63,23 @@ public class h {
                 return;
             }
         }
-        this.f1922a = null;
-        this.f1923b = null;
-        this.f1924c = null;
+        this.f1980a = null;
+        this.f1981b = null;
+        this.f1982c = null;
     }
 
     public static h a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f1921d == null) {
+            if (f1979d == null) {
                 synchronized (h.class) {
-                    if (f1921d == null) {
-                        f1921d = new h();
+                    if (f1979d == null) {
+                        f1979d = new h();
                     }
                 }
             }
-            return f1921d;
+            return f1979d;
         }
         return (h) invokeV.objValue;
     }
@@ -90,7 +90,7 @@ public class h {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             synchronized (this) {
-                resources = this.f1922a;
+                resources = this.f1980a;
             }
             return resources;
         }
@@ -102,37 +102,37 @@ public class h {
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) {
             synchronized (this) {
                 if (!TextUtils.isEmpty(str2)) {
-                    if (this.f1922a != null) {
+                    if (this.f1980a != null) {
                         if (!TextUtils.isEmpty(str)) {
-                            if (this.f1924c == null) {
-                                this.f1924c = new HashSet<>();
+                            if (this.f1982c == null) {
+                                this.f1982c = new HashSet<>();
                             }
-                            if (this.f1924c.contains(str)) {
+                            if (this.f1982c.contains(str)) {
                                 c.a.e.h.h.a.b().o("plugin_load", "repeat_inject_res", str, str2);
                             }
-                            this.f1924c.add(str);
+                            this.f1982c.add(str);
                         }
-                        if (this.f1923b == null) {
-                            this.f1923b = new ArrayList<>();
+                        if (this.f1981b == null) {
+                            this.f1981b = new ArrayList<>();
                         }
-                        if (this.f1923b.contains(str2)) {
+                        if (this.f1981b.contains(str2)) {
                             return;
                         }
                         if (Build.VERSION.SDK_INT >= 20) {
-                            c.a.e.h.k.d.a(this.f1922a.getAssets(), V8Engine.ALTERNATIVE_ADD_ASSET_PATH_METHOD, new Object[]{str2});
+                            c.a.e.h.k.d.a(this.f1980a.getAssets(), V8Engine.ALTERNATIVE_ADD_ASSET_PATH_METHOD, new Object[]{str2});
                         } else {
                             AssetManager assetManager = (AssetManager) AssetManager.class.newInstance();
-                            if (this.f1923b.size() > 0) {
-                                Iterator<String> it = this.f1923b.iterator();
+                            if (this.f1981b.size() > 0) {
+                                Iterator<String> it = this.f1981b.iterator();
                                 while (it.hasNext()) {
                                     c.a.e.h.k.d.a(assetManager, V8Engine.ALTERNATIVE_ADD_ASSET_PATH_METHOD, new Object[]{it.next()});
                                 }
                             }
                             c.a.e.h.k.d.a(assetManager, V8Engine.ALTERNATIVE_ADD_ASSET_PATH_METHOD, new Object[]{str2});
                             c.a.e.h.k.d.a(assetManager, V8Engine.ALTERNATIVE_ADD_ASSET_PATH_METHOD, new Object[]{BdBaseApplication.getInst().getApp().getPackageCodePath()});
-                            this.f1922a = new Resources(assetManager, this.f1922a.getDisplayMetrics(), this.f1922a.getConfiguration());
+                            this.f1980a = new Resources(assetManager, this.f1980a.getDisplayMetrics(), this.f1980a.getConfiguration());
                         }
-                        this.f1923b.add(str2);
+                        this.f1981b.add(str2);
                         return;
                     }
                     throw new RuntimeException("hostResources is null");
@@ -146,7 +146,7 @@ public class h {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, resources) == null) {
             synchronized (this) {
-                this.f1922a = resources;
+                this.f1980a = resources;
             }
         }
     }

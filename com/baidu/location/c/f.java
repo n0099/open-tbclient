@@ -11,7 +11,7 @@ public class f implements OnNmeaMessageListener {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ e f40986a;
+    public final /* synthetic */ e f41093a;
 
     public f(e eVar) {
         Interceptable interceptable = $ic;
@@ -28,14 +28,14 @@ public class f implements OnNmeaMessageListener {
                 return;
             }
         }
-        this.f40986a = eVar;
+        this.f41093a = eVar;
     }
 
     @Override // android.location.OnNmeaMessageListener
     public void onNmeaMessage(String str, long j2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLJ(1048576, this, str, j2) == null) && this.f40986a.b(str)) {
-            this.f40986a.a(str);
+        if ((interceptable == null || interceptable.invokeLJ(1048576, this, str, j2) == null) && this.f41093a.b(str)) {
+            this.f41093a.a(str);
         }
     }
 }

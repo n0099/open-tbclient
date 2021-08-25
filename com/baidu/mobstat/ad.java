@@ -15,14 +15,14 @@ public class ad implements Thread.UncaughtExceptionHandler {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final ad f42949a;
+    public static final ad f43056a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public Thread.UncaughtExceptionHandler f42950b;
+    public Thread.UncaughtExceptionHandler f43057b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Context f42951c;
+    public Context f43058c;
 
     static {
         InterceptResult invokeClinit;
@@ -37,7 +37,7 @@ public class ad implements Thread.UncaughtExceptionHandler {
                 return;
             }
         }
-        f42949a = new ad();
+        f43056a = new ad();
     }
 
     public ad() {
@@ -57,27 +57,27 @@ public class ad implements Thread.UncaughtExceptionHandler {
     public static ad a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f42949a : (ad) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f43056a : (ad) invokeV.objValue;
     }
 
     @Override // java.lang.Thread.UncaughtExceptionHandler
     public void uncaughtException(Thread thread, Throwable th) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, thread, th) == null) {
-            ExceptionAnalysis.getInstance().saveCrashInfo(this.f42951c, th, true);
-            if (this.f42950b.equals(this)) {
+            ExceptionAnalysis.getInstance().saveCrashInfo(this.f43058c, th, true);
+            if (this.f43057b.equals(this)) {
                 return;
             }
-            this.f42950b.uncaughtException(thread, th);
+            this.f43057b.uncaughtException(thread, th);
         }
     }
 
     public void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            this.f42951c = context;
-            if (this.f42950b == null) {
-                this.f42950b = Thread.getDefaultUncaughtExceptionHandler();
+            this.f43058c = context;
+            if (this.f43057b == null) {
+                this.f43057b = Thread.getDefaultUncaughtExceptionHandler();
                 Thread.setDefaultUncaughtExceptionHandler(this);
             }
         }

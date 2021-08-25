@@ -30,34 +30,34 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f32199a;
+    public String f32305a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f32200b;
+    public String f32306b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f32201c;
+    public String f32307c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f32202d;
+    public int f32308d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f32203e;
+    public String f32309e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f32204f;
+    public String f32310f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f32205g;
+    public String f32311g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f32206h;
+    public int f32312h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f32207i;
+    public String f32313i;
 
     /* renamed from: j  reason: collision with root package name */
-    public String f32208j;
+    public String f32314j;
     public String k;
     public long l;
     public long m;
@@ -107,9 +107,9 @@ public class a {
                 return;
             }
         }
-        this.f32201c = "";
-        this.f32202d = -1;
-        this.f32205g = "";
+        this.f32307c = "";
+        this.f32308d = -1;
+        this.f32311g = "";
         this.r = "-1";
         this.s = new ArrayList<>();
         this.t = new StringBuilder();
@@ -124,23 +124,23 @@ public class a {
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             a aVar = new a();
             Context provideContext = c.h.b.a.c.d().provideContext();
-            String str = aVar.f32205g;
+            String str = aVar.f32311g;
             if (str == null || str.length() == 0) {
                 try {
                     PackageInfo packageInfo = provideContext.getPackageManager().getPackageInfo(provideContext.getPackageName(), 0);
-                    aVar.f32206h = packageInfo.versionCode;
-                    aVar.f32205g = packageInfo.versionName;
+                    aVar.f32312h = packageInfo.versionCode;
+                    aVar.f32311g = packageInfo.versionName;
                 } catch (Throwable unused) {
                 }
             }
-            aVar.f32202d = B;
-            aVar.f32200b = z;
-            aVar.f32201c = A;
-            aVar.f32199a = y;
-            aVar.f32203e = c.h.b.a.c.d().provideUid();
-            aVar.f32204f = c.a();
-            aVar.f32207i = c.h.b.a.c.d().provideNetworkType();
-            aVar.f32208j = String.valueOf(b.a());
+            aVar.f32308d = B;
+            aVar.f32306b = z;
+            aVar.f32307c = A;
+            aVar.f32305a = y;
+            aVar.f32309e = c.h.b.a.c.d().provideUid();
+            aVar.f32310f = c.a();
+            aVar.f32313i = c.h.b.a.c.d().provideNetworkType();
+            aVar.f32314j = String.valueOf(b.a());
             aVar.k = String.valueOf(b.c());
             if (Build.VERSION.SDK_INT >= 24) {
                 aVar.r = Long.toString(SystemClock.elapsedRealtime() - Process.getStartElapsedRealtime());
@@ -157,52 +157,52 @@ public class a {
             StringBuilder sb = this.t;
             sb.append("qua");
             sb.append(" = ");
-            sb.append(this.f32199a);
+            sb.append(this.f32305a);
             sb.append(Part.CRLF);
             StringBuilder sb2 = this.t;
             sb2.append(PushManager.APP_VERSION_NAME);
             sb2.append(" = ");
-            sb2.append(this.f32205g);
+            sb2.append(this.f32311g);
             sb2.append(Part.CRLF);
             StringBuilder sb3 = this.t;
             sb3.append(PushManager.APP_VERSION_CODE);
             sb3.append(" = ");
-            sb3.append(this.f32206h);
+            sb3.append(this.f32312h);
             sb3.append(Part.CRLF);
             StringBuilder sb4 = this.t;
             sb4.append("uid");
             sb4.append(" = ");
-            sb4.append(this.f32203e);
+            sb4.append(this.f32309e);
             sb4.append(Part.CRLF);
             StringBuilder sb5 = this.t;
             sb5.append("network");
             sb5.append(" = ");
-            sb5.append(this.f32207i);
+            sb5.append(this.f32313i);
             sb5.append(Part.CRLF);
             StringBuilder sb6 = this.t;
             sb6.append("model");
             sb6.append(" = ");
-            sb6.append(this.f32200b);
+            sb6.append(this.f32306b);
             sb6.append(Part.CRLF);
             StringBuilder sb7 = this.t;
             sb7.append("api-level");
             sb7.append(" = ");
-            sb7.append(this.f32201c);
+            sb7.append(this.f32307c);
             sb7.append(Part.CRLF);
             StringBuilder sb8 = this.t;
             sb8.append("cpu-core");
             sb8.append(" = ");
-            sb8.append(this.f32202d);
+            sb8.append(this.f32308d);
             sb8.append(Part.CRLF);
             StringBuilder sb9 = this.t;
             sb9.append("process");
             sb9.append(" = ");
-            sb9.append(this.f32204f);
+            sb9.append(this.f32310f);
             sb9.append(Part.CRLF);
             StringBuilder sb10 = this.t;
             sb10.append("freeMemory");
             sb10.append(" = ");
-            sb10.append(this.f32208j);
+            sb10.append(this.f32314j);
             sb10.append(Part.CRLF);
             StringBuilder sb11 = this.t;
             sb11.append("totalMemory");

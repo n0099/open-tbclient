@@ -25,7 +25,7 @@ public class e {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public JSONObject f74985a;
+    public JSONObject f75186a;
 
     /* loaded from: classes10.dex */
     public static class a<T> {
@@ -33,10 +33,10 @@ public class e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final String f74986a;
+        public final String f75187a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final T f74987b;
+        public final T f75188b;
 
         public a(String str, T t) {
             Interceptable interceptable = $ic;
@@ -53,8 +53,8 @@ public class e {
                     return;
                 }
             }
-            this.f74986a = str;
-            this.f74987b = t;
+            this.f75187a = str;
+            this.f75188b = t;
         }
 
         public /* synthetic */ a(String str, Object obj, byte b2) {
@@ -64,13 +64,13 @@ public class e {
         public final String a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f74986a : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f75187a : (String) invokeV.objValue;
         }
 
         public final T b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f74987b : (T) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f75188b : (T) invokeV.objValue;
         }
     }
 
@@ -111,13 +111,13 @@ public class e {
         GDTLogger.d("Initialize " + simpleName + ",Json=" + str);
         if (!TextUtils.isEmpty(str)) {
             try {
-                this.f74985a = new JSONObject(str);
+                this.f75186a = new JSONObject(str);
             } catch (JSONException unused) {
                 GDTLogger.d("JsonException While build" + simpleName + " Instance from JSON");
             }
         }
-        if (this.f74985a == null) {
-            this.f74985a = new JSONObject();
+        if (this.f75186a == null) {
+            this.f75186a = new JSONObject();
         }
     }
 

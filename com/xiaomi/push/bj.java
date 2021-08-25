@@ -12,7 +12,7 @@ public class bj {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f77023a;
+    public static final String f77224a;
 
     /* renamed from: a  reason: collision with other field name */
     public static byte[] f160a;
@@ -34,7 +34,7 @@ public class bj {
                 return;
             }
         }
-        f77023a = System.getProperty("line.separator");
+        f77224a = System.getProperty("line.separator");
         f161a = new char[64];
         char c2 = 'A';
         int i2 = 0;
@@ -204,8 +204,8 @@ public class bj {
                 cArr[i9] = cArr2[i12];
                 int i17 = i16 + 1;
                 cArr[i16] = cArr2[i13];
-                char c2 = com.alipay.sdk.encrypt.a.f35773h;
-                cArr[i17] = i17 < i7 ? cArr2[i14] : com.alipay.sdk.encrypt.a.f35773h;
+                char c2 = com.alipay.sdk.encrypt.a.f35879h;
+                cArr[i17] = i17 < i7 ? cArr2[i14] : com.alipay.sdk.encrypt.a.f35879h;
                 int i18 = i17 + 1;
                 if (i18 < i7) {
                     c2 = f161a[i15];

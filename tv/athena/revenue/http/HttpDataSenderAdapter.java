@@ -49,71 +49,75 @@ public class HttpDataSenderAdapter implements IDataSenderAdapter {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ int f79482a;
+        public final /* synthetic */ int f79683a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f79483b;
+        public final /* synthetic */ String f79684b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ byte[] f79484c;
+        public final /* synthetic */ byte[] f79685c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ PSCIMessageRequest f79485d;
+        public final /* synthetic */ PSCIMessageRequest f79686d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f79486e;
+        public final /* synthetic */ String f79687e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ ArrayList f79487f;
+        public final /* synthetic */ int f79688f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ HttpDataSenderAdapter f79488g;
+        public final /* synthetic */ ArrayList f79689g;
 
-        public a(HttpDataSenderAdapter httpDataSenderAdapter, int i2, String str, byte[] bArr, PSCIMessageRequest pSCIMessageRequest, String str2, ArrayList arrayList) {
+        /* renamed from: h  reason: collision with root package name */
+        public final /* synthetic */ HttpDataSenderAdapter f79690h;
+
+        public a(HttpDataSenderAdapter httpDataSenderAdapter, int i2, String str, byte[] bArr, PSCIMessageRequest pSCIMessageRequest, String str2, int i3, ArrayList arrayList) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {httpDataSenderAdapter, Integer.valueOf(i2), str, bArr, pSCIMessageRequest, str2, arrayList};
+                Object[] objArr = {httpDataSenderAdapter, Integer.valueOf(i2), str, bArr, pSCIMessageRequest, str2, Integer.valueOf(i3), arrayList};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i4 = newInitContext.flag;
+                if ((i4 & 1) != 0) {
+                    int i5 = i4 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f79488g = httpDataSenderAdapter;
-            this.f79482a = i2;
-            this.f79483b = str;
-            this.f79484c = bArr;
-            this.f79485d = pSCIMessageRequest;
-            this.f79486e = str2;
-            this.f79487f = arrayList;
+            this.f79690h = httpDataSenderAdapter;
+            this.f79683a = i2;
+            this.f79684b = str;
+            this.f79685c = bArr;
+            this.f79686d = pSCIMessageRequest;
+            this.f79687e = str2;
+            this.f79688f = i3;
+            this.f79689g = arrayList;
         }
 
         @Override // j.a.a.c.b.a
-        public void a(Request request, Exception exc) {
+        public void a(Request request, boolean z, Exception exc) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, request, exc) == null) {
-                RLog.error("HttpDataSenderAdapter", "sendByHttpPost onFail seq:" + this.f79483b + " exception: " + exc.getMessage(), new Object[0]);
-                String retryDomain = this.f79488g.getRetryDomain(this.f79486e);
-                if (!TextUtils.isEmpty(retryDomain)) {
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{request, Boolean.valueOf(z), exc}) == null) {
+                RLog.error("HttpDataSenderAdapter", "sendByHttpPost onFail seq:" + this.f79684b + " exception: " + exc.getMessage() + " isCanceled:" + z, new Object[0]);
+                String retryDomain = this.f79690h.getRetryDomain(this.f79687e);
+                if (!z && !TextUtils.isEmpty(retryDomain)) {
                     try {
                         RLog.warn("HttpDataSenderAdapter", "Retry by next domain: " + retryDomain);
-                        this.f79488g.sendByHttpPost(retryDomain, this.f79482a, this.f79483b, this.f79487f, this.f79484c);
+                        this.f79690h.sendByHttpPost(retryDomain, this.f79683a, this.f79688f, this.f79684b, this.f79689g, this.f79685c);
                         return;
                     } catch (Exception e2) {
                         RLog.error("HttpDataSenderAdapter", "Retry error, dispatch onRequestError(), " + Log.getStackTraceString(e2), new Object[0]);
                     }
                 }
                 RevenueDataParser revenueDataParser = RevenueDataParser.INSTANCE;
-                int i2 = this.f79482a;
-                String str = this.f79483b;
-                int cmd = this.f79485d.getCmd();
+                int i2 = this.f79683a;
+                String str = this.f79684b;
+                int cmd = this.f79686d.getCmd();
                 revenueDataParser.onRequestError(i2, str, cmd, -500, "onFailure = " + exc.getMessage());
-                RLog.error("HttpDataSenderAdapter", "sendByHttpPost-----onFailure-----seq:" + this.f79483b + " exception:" + exc.getMessage(), new Object[0]);
+                RLog.error("HttpDataSenderAdapter", "sendByHttpPost-----onFailure-----seq:" + this.f79684b + " exception:" + exc.getMessage(), new Object[0]);
             }
         }
 
@@ -121,7 +125,7 @@ public class HttpDataSenderAdapter implements IDataSenderAdapter {
         public void b(Object obj) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
-                this.f79488g.onSuccess(this.f79482a, this.f79483b, this.f79484c, obj, this.f79485d);
+                this.f79690h.onSuccess(this.f79683a, this.f79684b, this.f79685c, obj, this.f79686d);
             }
         }
     }
@@ -221,9 +225,9 @@ public class HttpDataSenderAdapter implements IDataSenderAdapter {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void sendByHttpPost(String str, int i2, String str2, ArrayList<Integer> arrayList, byte[] bArr) throws Exception {
+    public void sendByHttpPost(String str, int i2, int i3, String str2, ArrayList<Integer> arrayList, byte[] bArr) throws Exception {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(AdIconUtil.BAIDU_LOGO_ID, this, new Object[]{str, Integer.valueOf(i2), str2, arrayList, bArr}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(AdIconUtil.BAIDU_LOGO_ID, this, new Object[]{str, Integer.valueOf(i2), Integer.valueOf(i3), str2, arrayList, bArr}) == null) {
             PSCIMessageRequest pSCIMessageRequest = new PSCIMessageRequest(bArr, ProtocolType.HTTP);
             JSONObject jSONObject = new JSONObject(pSCIMessageRequest.getJsonMsg());
             HashMap hashMap = new HashMap();
@@ -243,15 +247,24 @@ public class HttpDataSenderAdapter implements IDataSenderAdapter {
             hashMap2.put("sign", md5);
             hashMap2.put("data", jSONObject2.toString());
             hashMap2.put("ticket", pSCIMessageRequest.getTicket());
-            RLog.info("HttpDataSenderAdapter", "sendByHttpPost requstUrl:" + str3 + " seq:" + str2 + " sign:" + md5 + " ticket:" + pSCIMessageRequest.getTicket() + " hostId:" + this.hostId + " authType:" + this.authType + " clientVersion:" + this.version);
-            j.a.a.c.a.e().d(str3, hashMap2, i2, pSCIMessageRequest.getTraceid(), this.version, this.pakageName, this.hostId, this.authType, new a(this, i2, str2, bArr, pSCIMessageRequest, str, arrayList));
+            RLog.info("HttpDataSenderAdapter", "sendByHttpPost requstUrl:" + str3 + " seq:" + str2 + " sign:" + md5 + " hostId:" + this.hostId + " authType:" + this.authType + " clientVersion:" + this.version);
+            j.a.a.c.a.f().e(str3, hashMap2, i2, i3, pSCIMessageRequest.getTraceid(), this.version, this.pakageName, this.hostId, this.authType, new a(this, i2, str2, bArr, pSCIMessageRequest, str, i3, arrayList));
+        }
+    }
+
+    @Override // com.yy.mobile.framework.revenuesdk.baseapi.data.IRevenueDataSender
+    public void cancelAllRequest(int i2, int i3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048576, this, i2, i3) == null) {
+            RLog.info("HttpDataSenderAdapter", "cancelAllRequest appId:" + i2 + " useChannel:" + i3);
+            j.a.a.c.a.f().d(i2, i3);
         }
     }
 
     @Override // com.yy.mobile.framework.revenuesdk.baseapi.data.IDataSenderAdapter
     public void init(DataSenderConfig dataSenderConfig) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, dataSenderConfig) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dataSenderConfig) == null) {
             this.pakageName = dataSenderConfig.pakageName;
             this.version = dataSenderConfig.version;
             this.httpUrl = dataSenderConfig.httpUrl;
@@ -268,7 +281,7 @@ public class HttpDataSenderAdapter implements IDataSenderAdapter {
     @Override // com.yy.mobile.framework.revenuesdk.baseapi.data.IRevenueDataSender
     public void sendData(int i2, int i3, String str, ArrayList<Integer> arrayList, byte[] bArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), str, arrayList, bArr}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), str, arrayList, bArr}) == null) {
             if (!this.isInit) {
                 RLog.error("HttpDataSenderAdapter", "init first before sendData", new Object[0]);
                 return;
@@ -281,7 +294,7 @@ public class HttpDataSenderAdapter implements IDataSenderAdapter {
                 b2.e(dataSenderConfig2.appContext, dataSenderConfig2.gslbAppId, dataSenderConfig2.hdid);
             }
             try {
-                sendByHttpPost(this.httpUrl, i2, str, arrayList, bArr);
+                sendByHttpPost(this.httpUrl, i2, i3, str, arrayList, bArr);
             } catch (Exception e2) {
                 RLog.error("HttpDataSenderAdapter", "sendData exeception:" + e2.getLocalizedMessage(), new Object[0]);
             }

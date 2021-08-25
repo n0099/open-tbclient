@@ -463,16 +463,16 @@ public class ChatUserDBManager extends DBBase {
         return (ChatUser) invokeJ.objValue;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:25:0x0096, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:25:0x0095, code lost:
         if (r0 != null) goto L28;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:26:0x0098, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:26:0x0097, code lost:
         r0.close();
      */
-    /* JADX WARN: Code restructure failed: missing block: B:32:0x00b8, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:32:0x00b7, code lost:
         if (r0 == null) goto L29;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:35:0x00bc, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:35:0x00bb, code lost:
         return r11;
      */
     /*
@@ -536,16 +536,16 @@ public class ChatUserDBManager extends DBBase {
         return (ChatUser) invokeJ.objValue;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:25:0x00ae, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:25:0x00ad, code lost:
         if (r0 != null) goto L28;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:26:0x00b0, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:26:0x00af, code lost:
         r0.close();
      */
-    /* JADX WARN: Code restructure failed: missing block: B:32:0x00d0, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:32:0x00cf, code lost:
         if (r0 == null) goto L29;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:35:0x00d4, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:35:0x00d3, code lost:
         return r11;
      */
     /*
@@ -587,19 +587,24 @@ public class ChatUserDBManager extends DBBase {
         }
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:40:0x0147, code lost:
-        if (r4 != null) goto L37;
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:19:0x00a4 */
+    /* JADX WARN: Code restructure failed: missing block: B:40:0x0143, code lost:
+        if (r4 != null) goto L38;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:41:0x0149, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:41:0x0145, code lost:
         r4.close();
      */
-    /* JADX WARN: Code restructure failed: missing block: B:50:0x0162, code lost:
-        if (r4 != null) goto L37;
+    /* JADX WARN: Code restructure failed: missing block: B:50:0x015e, code lost:
+        if (r4 != null) goto L38;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:53:0x0166, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:53:0x0162, code lost:
         return;
      */
-    /* JADX WARN: Removed duplicated region for block: B:57:0x016b A[Catch: all -> 0x016f, TryCatch #6 {, blocks: (B:6:0x000d, B:8:0x001a, B:9:0x001f, B:41:0x0149, B:52:0x0165, B:57:0x016b, B:58:0x016e), top: B:66:0x000d }] */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r15v0 */
+    /* JADX WARN: Type inference failed for: r15v1 */
+    /* JADX WARN: Type inference failed for: r15v2, types: [android.database.Cursor] */
+    /* JADX WARN: Type inference failed for: r15v3 */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -612,39 +617,40 @@ public class ChatUserDBManager extends DBBase {
         synchronized (DBBase.mSyncLock) {
             SQLiteDatabase openDatabase = openDatabase();
             ArrayList arrayList = new ArrayList();
-            Cursor cursor2 = null;
-            if (openDatabase == null) {
-                iGetUserShieldListener.onResult(-1, "db failed", null);
-                return;
-            }
+            ?? r15 = 0;
             try {
-                ContentValues contentValues = new ContentValues();
-                contentValues.put("shield", (Integer) 0);
-                openDatabase.update(TableDefine.DB_TABLE_USERINFO, contentValues, "shield=?", new String[]{String.valueOf(1)});
-                String str = "";
-                if (list.size() > 0) {
-                    try {
-                        String str2 = "" + list.get(0).getContacter();
-                        for (int i2 = 1; i2 < list.size(); i2++) {
-                            str2 = str2 + StringUtil.ARRAY_ELEMENT_SEPARATOR + list.get(i2).getContacter();
-                        }
-                        str = "uid in (" + str2 + ") ";
-                    } catch (Exception e2) {
-                        e = e2;
-                        cursor = null;
-                        LogUtils.e(TAG, "getShieldUser:", e);
-                        iGetUserShieldListener.onResult(-1, "exception", null);
-                    } catch (Throwable th) {
-                        th = th;
-                        if (cursor2 != null) {
-                        }
-                        throw th;
-                    }
+                if (openDatabase == null) {
+                    iGetUserShieldListener.onResult(-1, "db failed", null);
+                    return;
                 }
-                String str3 = str;
-                cursor = openDatabase.query(TableDefine.DB_TABLE_USERINFO, null, str3, null, null, null, null, null);
-                while (cursor != null) {
-                    try {
+                try {
+                    ContentValues contentValues = new ContentValues();
+                    contentValues.put("shield", (Integer) 0);
+                    openDatabase.update(TableDefine.DB_TABLE_USERINFO, contentValues, "shield=?", new String[]{String.valueOf(1)});
+                    String str = "";
+                    if (list.size() > 0) {
+                        try {
+                            String str2 = "" + list.get(0).getContacter();
+                            for (int i2 = 1; i2 < list.size(); i2++) {
+                                str2 = str2 + StringUtil.ARRAY_ELEMENT_SEPARATOR + list.get(i2).getContacter();
+                            }
+                            str = "uid in (" + str2 + ") ";
+                        } catch (Exception e2) {
+                            e = e2;
+                            cursor = null;
+                            LogUtils.e(TAG, "getShieldUser:", e);
+                            iGetUserShieldListener.onResult(-1, "exception", null);
+                        } catch (Throwable th) {
+                            th = th;
+                            if (r15 != 0) {
+                                r15.close();
+                            }
+                            throw th;
+                        }
+                    }
+                    String str3 = str;
+                    cursor = openDatabase.query(TableDefine.DB_TABLE_USERINFO, null, str3, null, null, null, null, null);
+                    while (cursor != null) {
                         try {
                             if (!cursor.moveToNext()) {
                                 break;
@@ -669,33 +675,29 @@ public class ChatUserDBManager extends DBBase {
                             LogUtils.e(TAG, "getShieldUser:", e);
                             iGetUserShieldListener.onResult(-1, "exception", null);
                         }
-                    } catch (Throwable th2) {
-                        th = th2;
-                        cursor2 = cursor;
-                        if (cursor2 != null) {
-                            cursor2.close();
-                        }
-                        throw th;
                     }
+                    LogUtils.d(TAG, "getShieldUserByUids whereClause :" + str3 + ", update :" + arrayList.size() + ", user :" + list.size());
+                    updateAllShield(arrayList);
+                    if (list.size() <= 0) {
+                        iGetUserShieldListener.onResult(0, "ok", arrayList);
+                    } else {
+                        getUserInfo(list, arrayList, iGetUserShieldListener);
+                    }
+                } catch (Exception e4) {
+                    e = e4;
+                    cursor = null;
+                } catch (Throwable th2) {
+                    th = th2;
+                    r15 = 0;
                 }
-                LogUtils.d(TAG, "getShieldUserByUids whereClause :" + str3 + ", update :" + arrayList.size() + ", user :" + list.size());
-                updateAllShield(arrayList);
-                if (list.size() <= 0) {
-                    iGetUserShieldListener.onResult(0, "ok", arrayList);
-                } else {
-                    getUserInfo(list, arrayList, iGetUserShieldListener);
-                }
-            } catch (Exception e4) {
-                e = e4;
-                cursor = null;
             } catch (Throwable th3) {
                 th = th3;
-                cursor2 = null;
+                r15 = openDatabase;
             }
         }
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:22:0x006f */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:22:0x006e */
     /* JADX WARN: Multi-variable type inference failed */
     /* JADX WARN: Type inference failed for: r11v0 */
     /* JADX WARN: Type inference failed for: r11v1 */
@@ -755,16 +757,16 @@ public class ChatUserDBManager extends DBBase {
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r11v0, resolved type: long */
-    /* JADX WARN: Code restructure failed: missing block: B:21:0x004d, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:21:0x004a, code lost:
         if (r11 != null) goto L16;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:22:0x004f, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:22:0x004c, code lost:
         r11.close();
      */
-    /* JADX WARN: Code restructure failed: missing block: B:29:0x0070, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:29:0x006d, code lost:
         if (r11 == null) goto L17;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:32:0x0074, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:32:0x0071, code lost:
         return null;
      */
     /* JADX WARN: Multi-variable type inference failed */
@@ -1108,17 +1110,17 @@ public class ChatUserDBManager extends DBBase {
         return invokeL.intValue;
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:19:0x003b */
-    /* JADX WARN: Code restructure failed: missing block: B:17:0x0035, code lost:
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:19:0x0039 */
+    /* JADX WARN: Code restructure failed: missing block: B:17:0x0033, code lost:
         if (r10 != null) goto L12;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:18:0x0037, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:18:0x0035, code lost:
         r10.close();
      */
-    /* JADX WARN: Code restructure failed: missing block: B:24:0x0058, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:24:0x0056, code lost:
         if (r10 == null) goto L13;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:26:0x005b, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:26:0x0059, code lost:
         return null;
      */
     /* JADX WARN: Multi-variable type inference failed */
@@ -1173,17 +1175,17 @@ public class ChatUserDBManager extends DBBase {
         }
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:19:0x003a */
-    /* JADX WARN: Code restructure failed: missing block: B:17:0x0034, code lost:
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:19:0x0039 */
+    /* JADX WARN: Code restructure failed: missing block: B:17:0x0033, code lost:
         if (r10 != null) goto L12;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:18:0x0036, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:18:0x0035, code lost:
         r10.close();
      */
-    /* JADX WARN: Code restructure failed: missing block: B:24:0x0057, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:24:0x0056, code lost:
         if (r10 == null) goto L13;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:26:0x005a, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:26:0x0059, code lost:
         return null;
      */
     /* JADX WARN: Multi-variable type inference failed */
@@ -1238,10 +1240,11 @@ public class ChatUserDBManager extends DBBase {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:34:0x0063 A[Catch: all -> 0x0067, TryCatch #1 {, blocks: (B:6:0x0007, B:8:0x0013, B:19:0x0036, B:20:0x0039, B:28:0x005a, B:29:0x005d, B:34:0x0063, B:35:0x0066), top: B:43:0x0007 }] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:22:0x003a */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r10v1 */
+    /* JADX WARN: Type inference failed for: r10v2 */
+    /* JADX WARN: Type inference failed for: r10v3, types: [android.database.Cursor] */
     public ArrayList<ChatUser> getChatUser() {
         InterceptResult invokeV;
         Cursor cursor;
@@ -1252,14 +1255,14 @@ public class ChatUserDBManager extends DBBase {
         synchronized (DBBase.mSyncLock) {
             ArrayList<ChatUser> arrayList = new ArrayList<>();
             SQLiteDatabase openDatabase = openDatabase();
-            Cursor cursor2 = null;
-            if (openDatabase == null) {
-                return null;
-            }
+            ?? r10 = 0;
             try {
-                cursor = openDatabase.query(TableDefine.DB_TABLE_USERINFO, null, null, null, null, null, null);
-                while (cursor != null) {
-                    try {
+                if (openDatabase == null) {
+                    return null;
+                }
+                try {
+                    cursor = openDatabase.query(TableDefine.DB_TABLE_USERINFO, null, null, null, null, null, null);
+                    while (cursor != null) {
                         try {
                             if (!cursor.moveToNext()) {
                                 break;
@@ -1274,27 +1277,24 @@ public class ChatUserDBManager extends DBBase {
                             }
                             return null;
                         }
-                    } catch (Throwable th) {
-                        th = th;
-                        cursor2 = cursor;
-                        if (cursor2 != null) {
-                            cursor2.close();
-                        }
-                        throw th;
                     }
+                    if (cursor != null) {
+                        cursor.close();
+                    }
+                    return arrayList;
+                } catch (Exception e3) {
+                    e = e3;
+                    cursor = null;
+                } catch (Throwable th) {
+                    th = th;
+                    if (r10 != 0) {
+                        r10.close();
+                    }
+                    throw th;
                 }
-                if (cursor != null) {
-                    cursor.close();
-                }
-                return arrayList;
-            } catch (Exception e3) {
-                e = e3;
-                cursor = null;
             } catch (Throwable th2) {
                 th = th2;
-                if (cursor2 != null) {
-                }
-                throw th;
+                r10 = openDatabase;
             }
         }
     }

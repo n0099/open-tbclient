@@ -1,0 +1,177 @@
+package c.a.o0.o.a.a;
+
+import android.app.Activity;
+import android.app.SharedElementCallback;
+import android.content.Context;
+import android.graphics.Matrix;
+import android.graphics.RectF;
+import android.os.Parcelable;
+import android.view.View;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
+import java.util.Map;
+/* loaded from: classes3.dex */
+public class b {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    /* loaded from: classes3.dex */
+    public static abstract class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public abstract Parcelable a(View view, Matrix matrix, RectF rectF);
+
+        public abstract View b(Context context, Parcelable parcelable);
+
+        public abstract void c(List<String> list, Map<String, View> map);
+
+        public abstract void d(List<View> list);
+
+        public abstract void e(List<String> list, List<View> list2, List<View> list3);
+
+        public abstract void f(List<String> list, List<View> list2, List<View> list3);
+    }
+
+    /* renamed from: c.a.o0.o.a.a.b$b  reason: collision with other inner class name */
+    /* loaded from: classes3.dex */
+    public static class SharedElementCallbackC0623b extends SharedElementCallback {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public a f12040a;
+
+        public SharedElementCallbackC0623b(a aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {aVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f12040a = aVar;
+        }
+
+        @Override // android.app.SharedElementCallback
+        public Parcelable onCaptureSharedElementSnapshot(View view, Matrix matrix, RectF rectF) {
+            InterceptResult invokeLLL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, view, matrix, rectF)) == null) ? this.f12040a.a(view, matrix, rectF) : (Parcelable) invokeLLL.objValue;
+        }
+
+        @Override // android.app.SharedElementCallback
+        public View onCreateSnapshotView(Context context, Parcelable parcelable) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, parcelable)) == null) ? this.f12040a.b(context, parcelable) : (View) invokeLL.objValue;
+        }
+
+        @Override // android.app.SharedElementCallback
+        public void onMapSharedElements(List<String> list, Map<String, View> map) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, list, map) == null) {
+                this.f12040a.c(list, map);
+            }
+        }
+
+        @Override // android.app.SharedElementCallback
+        public void onRejectSharedElements(List<View> list) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
+                this.f12040a.d(list);
+            }
+        }
+
+        @Override // android.app.SharedElementCallback
+        public void onSharedElementEnd(List<String> list, List<View> list2, List<View> list3) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLL(1048580, this, list, list2, list3) == null) {
+                this.f12040a.e(list, list2, list3);
+            }
+        }
+
+        @Override // android.app.SharedElementCallback
+        public void onSharedElementStart(List<String> list, List<View> list2, List<View> list3) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLL(1048581, this, list, list2, list3) == null) {
+                this.f12040a.f(list, list2, list3);
+            }
+        }
+    }
+
+    public static SharedElementCallback a(a aVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, aVar)) == null) {
+            if (aVar != null) {
+                return new SharedElementCallbackC0623b(aVar);
+            }
+            return null;
+        }
+        return (SharedElementCallback) invokeL.objValue;
+    }
+
+    public static void b(Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65537, null, activity) == null) {
+            activity.finishAfterTransition();
+        }
+    }
+
+    public static void c(Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65538, null, activity) == null) {
+            activity.postponeEnterTransition();
+        }
+    }
+
+    public static void d(Activity activity, a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65539, null, activity, aVar) == null) {
+            activity.setEnterSharedElementCallback(a(aVar));
+        }
+    }
+
+    public static void e(Activity activity, a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, activity, aVar) == null) {
+            activity.setExitSharedElementCallback(a(aVar));
+        }
+    }
+
+    public static void f(Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, activity) == null) {
+            activity.startPostponedEnterTransition();
+        }
+    }
+}

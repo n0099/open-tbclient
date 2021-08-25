@@ -3,11 +3,11 @@ package com.baidu.tieba.im.model;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import c.a.e.e.p.l;
-import c.a.o0.b1.h0;
-import c.a.o0.b1.k0;
-import c.a.o0.b1.n;
-import c.a.p0.j1.h.d;
-import c.a.p0.j1.k.b;
+import c.a.p0.b1.h0;
+import c.a.p0.b1.k0;
+import c.a.p0.b1.n;
+import c.a.q0.j1.h.d;
+import c.a.q0.j1.k.b;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
@@ -141,7 +141,7 @@ public class ValidateModel {
 
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
-            @Override // c.a.o0.b1.h0
+            @Override // c.a.p0.b1.h0
             public Boolean doInBackground() {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
@@ -230,7 +230,7 @@ public class ValidateModel {
 
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX WARN: Can't rename method to resolve collision */
-                @Override // c.a.o0.b1.h0
+                @Override // c.a.p0.b1.h0
                 public Integer doInBackground() {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;
@@ -269,7 +269,7 @@ public class ValidateModel {
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
-                @Override // c.a.o0.b1.h0
+                @Override // c.a.p0.b1.h0
                 public LinkedList<GroupNewsPojo> doInBackground() {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;
@@ -319,7 +319,7 @@ public class ValidateModel {
 
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
-            @Override // c.a.o0.b1.h0
+            @Override // c.a.p0.b1.h0
             public Boolean doInBackground() {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;

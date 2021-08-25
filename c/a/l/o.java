@@ -22,7 +22,7 @@ public class o extends h {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public NewGridImageLayout l;
-    public c.a.o0.s.q.a m;
+    public c.a.p0.s.q.a m;
     public int n;
     public String o;
     public int p;
@@ -33,7 +33,7 @@ public class o extends h {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ o f3617e;
+        public final /* synthetic */ o f3859e;
 
         public a(o oVar) {
             Interceptable interceptable = $ic;
@@ -50,18 +50,18 @@ public class o extends h {
                     return;
                 }
             }
-            this.f3617e = oVar;
+            this.f3859e = oVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             o oVar;
-            a.InterfaceC0086a interfaceC0086a;
+            a.InterfaceC0094a interfaceC0094a;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (interfaceC0086a = (oVar = this.f3617e).f3550i) == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (interfaceC0094a = (oVar = this.f3859e).f3792i) == null) {
                 return;
             }
-            interfaceC0086a.a(oVar.m);
+            interfaceC0094a.a(oVar.m);
         }
     }
 
@@ -71,7 +71,7 @@ public class o extends h {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ o f3618a;
+        public final /* synthetic */ o f3860a;
 
         public b(o oVar) {
             Interceptable interceptable = $ic;
@@ -88,18 +88,18 @@ public class o extends h {
                     return;
                 }
             }
-            this.f3618a = oVar;
+            this.f3860a = oVar;
         }
 
         @Override // c.a.l.v0.a.b
-        public boolean a(a.C0088a c0088a) {
+        public boolean a(a.C0096a c0096a) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, c0088a)) == null) {
-                if (this.f3618a.m != null && this.f3618a.m.getThreadData() != null && !this.f3618a.e().booleanValue()) {
-                    c.a.p0.a0.m.a(this.f3618a.m.getThreadData().f0());
-                    c.a.p0.a0.m.l(this.f3618a.l.mTitle, this.f3618a.m.getThreadData().f0(), R.color.CAM_X0105, R.color.CAM_X0109);
-                    c.a.p0.a0.m.l(this.f3618a.l.mAbstract, this.f3618a.m.getThreadData().f0(), R.color.CAM_X0105, R.color.CAM_X0109);
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, c0096a)) == null) {
+                if (this.f3860a.m != null && this.f3860a.m.getThreadData() != null && !this.f3860a.e().booleanValue()) {
+                    c.a.q0.a0.m.a(this.f3860a.m.getThreadData().f0());
+                    c.a.q0.a0.m.l(this.f3860a.l.mTitle, this.f3860a.m.getThreadData().f0(), R.color.CAM_X0105, R.color.CAM_X0109);
+                    c.a.q0.a0.m.l(this.f3860a.l.mAbstract, this.f3860a.m.getThreadData().f0(), R.color.CAM_X0105, R.color.CAM_X0109);
                 }
                 return false;
             }
@@ -185,7 +185,7 @@ public class o extends h {
     }
 
     @Override // c.a.l.a
-    public void k(c.a.p0.a0.b0<c.a.o0.s.q.a> b0Var) {
+    public void k(c.a.q0.a0.b0<c.a.p0.s.q.a> b0Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, b0Var) == null) {
             this.l.setSubClickListener(b0Var);
@@ -210,7 +210,7 @@ public class o extends h {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // c.a.l.p
     /* renamed from: t */
-    public void onBindDataToView(c.a.o0.s.q.a aVar) {
+    public void onBindDataToView(c.a.p0.s.q.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, aVar) == null) {
             this.m = aVar;
@@ -259,10 +259,10 @@ public class o extends h {
         }
     }
 
-    public void z(a.InterfaceC0086a interfaceC0086a) {
+    public void z(a.InterfaceC0094a interfaceC0094a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, interfaceC0086a) == null) {
-            this.f3550i = interfaceC0086a;
+        if (interceptable == null || interceptable.invokeL(1048592, this, interfaceC0094a) == null) {
+            this.f3792i = interfaceC0094a;
         }
     }
 }

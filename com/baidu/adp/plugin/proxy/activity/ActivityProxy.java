@@ -44,7 +44,7 @@ import c.a.e.a.h;
 import c.a.e.a.i;
 import c.a.e.h.f.a;
 import c.a.e.h.k.d;
-import c.a.e.k.e.q;
+import c.a.e.l.e.q;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.util.BdLog;

@@ -17,11 +17,11 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Map<String, Set<c>> f32011a;
+    public final Map<String, Set<c>> f32117a;
 
     /* renamed from: c.f.a.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public static /* synthetic */ class C1460a {
+    public static /* synthetic */ class C1464a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
@@ -31,7 +31,7 @@ public class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final a f32012a;
+        public static final a f32118a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -47,25 +47,25 @@ public class a {
                     return;
                 }
             }
-            f32012a = new a(null);
+            f32118a = new a(null);
         }
     }
 
-    public /* synthetic */ a(C1460a c1460a) {
+    public /* synthetic */ a(C1464a c1464a) {
         this();
     }
 
     public static a a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.f32012a : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.f32118a : (a) invokeV.objValue;
     }
 
     public Set<c> b(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            Set<c> set = this.f32011a.get(str);
+            Set<c> set = this.f32117a.get(str);
             return set == null ? Collections.emptySet() : set;
         }
         return (Set) invokeL.objValue;
@@ -84,6 +84,6 @@ public class a {
                 return;
             }
         }
-        this.f32011a = new HashMap();
+        this.f32117a = new HashMap();
     }
 }

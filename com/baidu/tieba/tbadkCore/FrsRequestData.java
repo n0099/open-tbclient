@@ -2,11 +2,11 @@ package com.baidu.tieba.tbadkCore;
 
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.o0.b1.w;
-import c.a.o0.i0.b.d;
-import c.a.o0.i0.b.g;
-import c.a.p0.x2.j0.a;
-import c.a.p0.x2.l0.b;
+import c.a.p0.b1.w;
+import c.a.p0.i0.b.d;
+import c.a.p0.i0.b.g;
+import c.a.q0.x2.j0.a;
+import c.a.q0.x2.l0.b;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.util.AdExtParam;
@@ -52,22 +52,22 @@ public class FrsRequestData extends OrmObject implements g, d {
     public String N;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f56724e;
+    public int f56889e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f56725f;
+    public boolean f56890f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f56726g;
+    public String f56891g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f56727h;
+    public int f56892h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f56728i;
+    public int f56893i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f56729j;
+    public int f56894j;
     public int k;
     public int l;
     public int m;
@@ -98,8 +98,8 @@ public class FrsRequestData extends OrmObject implements g, d {
                 return;
             }
         }
-        this.f56728i = 90;
-        this.f56729j = 30;
+        this.f56893i = 90;
+        this.f56894j = 30;
         this.u = "";
         this.A = -1;
         this.B = 1;
@@ -198,7 +198,7 @@ public class FrsRequestData extends OrmObject implements g, d {
     public void M(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
-            this.f56726g = str;
+            this.f56891g = str;
         }
     }
 
@@ -307,16 +307,16 @@ public class FrsRequestData extends OrmObject implements g, d {
         }
     }
 
-    @Override // c.a.o0.i0.b.i
+    @Override // c.a.p0.i0.b.i
     public Object c(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048604, this, z)) == null) {
             DataReq.Builder builder = new DataReq.Builder();
-            builder.kw = this.f56726g;
-            builder.pn = Integer.valueOf(this.f56727h);
-            builder.rn = Integer.valueOf(this.f56728i);
-            builder.rn_need = Integer.valueOf(this.f56729j);
+            builder.kw = this.f56891g;
+            builder.pn = Integer.valueOf(this.f56892h);
+            builder.rn = Integer.valueOf(this.f56893i);
+            builder.rn_need = Integer.valueOf(this.f56894j);
             builder.with_group = Integer.valueOf(this.k);
             builder.is_good = Integer.valueOf(this.l);
             builder.cid = Integer.valueOf(this.m);
@@ -361,7 +361,7 @@ public class FrsRequestData extends OrmObject implements g, d {
         return invokeZ.objValue;
     }
 
-    @Override // c.a.o0.i0.b.c
+    @Override // c.a.p0.i0.b.c
     public String getCacheKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -380,22 +380,22 @@ public class FrsRequestData extends OrmObject implements g, d {
     public int getPn() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) ? this.f56727h : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) ? this.f56892h : invokeV.intValue;
     }
 
     public int getUpdateType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) ? this.f56724e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) ? this.f56889e : invokeV.intValue;
     }
 
     public boolean isNeedCache() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048609, this)) == null) ? this.f56725f : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048609, this)) == null) ? this.f56890f : invokeV.booleanValue;
     }
 
-    @Override // c.a.o0.i0.b.d
+    @Override // c.a.p0.i0.b.d
     public boolean isNeedUid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -405,7 +405,7 @@ public class FrsRequestData extends OrmObject implements g, d {
         return invokeV.booleanValue;
     }
 
-    @Override // c.a.o0.i0.b.d
+    @Override // c.a.p0.i0.b.d
     public boolean l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -415,7 +415,7 @@ public class FrsRequestData extends OrmObject implements g, d {
         return invokeV.booleanValue;
     }
 
-    @Override // c.a.o0.i0.b.f
+    @Override // c.a.p0.i0.b.f
     public HashMap<String, Object> s() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -435,14 +435,14 @@ public class FrsRequestData extends OrmObject implements g, d {
     public void setNeedCache(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048614, this, z) == null) {
-            this.f56725f = z;
+            this.f56890f = z;
         }
     }
 
     public void setPn(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048615, this, i2) == null) {
-            this.f56727h = i2;
+            this.f56892h = i2;
         }
     }
 
@@ -463,18 +463,18 @@ public class FrsRequestData extends OrmObject implements g, d {
     public void setUpdateType(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048618, this, i2) == null) {
-            this.f56724e = i2;
+            this.f56889e = i2;
         }
     }
 
-    @Override // c.a.o0.i0.b.f
+    @Override // c.a.p0.i0.b.f
     public HashMap<String, String> u() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048619, this)) == null) ? this.I : (HashMap) invokeV.objValue;
     }
 
-    @Override // c.a.o0.i0.b.d
+    @Override // c.a.p0.i0.b.d
     public String v() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -512,6 +512,6 @@ public class FrsRequestData extends OrmObject implements g, d {
     public String z() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048624, this)) == null) ? this.f56726g : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048624, this)) == null) ? this.f56891g : (String) invokeV.objValue;
     }
 }

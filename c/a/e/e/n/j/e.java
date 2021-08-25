@@ -32,7 +32,7 @@ public class e implements Comparator<d> {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, dVar, dVar2)) == null) {
-            int i2 = (dVar.f2413c > dVar2.f2413c ? 1 : (dVar.f2413c == dVar2.f2413c ? 0 : -1));
+            int i2 = (dVar.f2471c > dVar2.f2471c ? 1 : (dVar.f2471c == dVar2.f2471c ? 0 : -1));
             if (i2 > 0) {
                 return 1;
             }

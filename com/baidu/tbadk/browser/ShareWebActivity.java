@@ -2,7 +2,7 @@ package com.baidu.tbadk.browser;
 
 import android.os.Bundle;
 import android.widget.ImageView;
-import c.a.o0.m.e;
+import c.a.p0.m.e;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -33,7 +33,7 @@ public class ShareWebActivity extends TbWebViewActivity {
         if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
             super.onCreate(bundle);
             e eVar = this.mView;
-            if (eVar == null || (imageView = eVar.f13298i) == null) {
+            if (eVar == null || (imageView = eVar.f13589i) == null) {
                 return;
             }
             imageView.setVisibility(8);

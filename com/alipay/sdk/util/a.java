@@ -20,14 +20,14 @@ public class a {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f35840a = "00:00:00:00:00:00";
+    public static final String f35946a = "00:00:00:00:00:00";
 
     /* renamed from: c  reason: collision with root package name */
-    public static a f35841c;
+    public static a f35947c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f35842b;
+    public String f35948b;
 
     static {
         InterceptResult invokeClinit;
@@ -62,20 +62,20 @@ public class a {
         try {
             try {
                 String macAddress = ((WifiManager) context.getApplicationContext().getSystemService("wifi")).getConnectionInfo().getMacAddress();
-                this.f35842b = macAddress;
+                this.f35948b = macAddress;
                 if (!TextUtils.isEmpty(macAddress)) {
                     return;
                 }
             } catch (Exception e2) {
                 c.a(e2);
-                if (!TextUtils.isEmpty(this.f35842b)) {
+                if (!TextUtils.isEmpty(this.f35948b)) {
                     return;
                 }
             }
-            this.f35842b = f35840a;
+            this.f35948b = f35946a;
         } catch (Throwable th) {
-            if (TextUtils.isEmpty(this.f35842b)) {
-                this.f35842b = f35840a;
+            if (TextUtils.isEmpty(this.f35948b)) {
+                this.f35948b = f35946a;
             }
             throw th;
         }
@@ -85,10 +85,10 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            if (f35841c == null) {
-                f35841c = new a(context);
+            if (f35947c == null) {
+                f35947c = new a(context);
             }
-            return f35841c;
+            return f35947c;
         }
         return (a) invokeL.objValue;
     }
@@ -103,7 +103,7 @@ public class a {
                     return d.a(activeNetworkInfo.getSubtype());
                 }
                 if (activeNetworkInfo != null && activeNetworkInfo.getType() == 1) {
-                    return d.f35845a;
+                    return d.f35951a;
                 }
                 return d.p;
             } catch (Exception unused) {
@@ -142,7 +142,7 @@ public class a {
     public String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f35842b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f35948b : (String) invokeV.objValue;
     }
 
     public static String d(Context context) {

@@ -22,16 +22,16 @@ public class o extends b {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f39969a = "bduss";
+    public static final String f40076a = "bduss";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f39970b = "certinfo";
+    public static final String f40077b = "certinfo";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f39971c = "authtoken";
+    public static final String f40078c = "authtoken";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f39972d = "outer";
+    public static final String f40079d = "outer";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */

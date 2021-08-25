@@ -34,7 +34,7 @@ public class LivenessVideoLoadingActivity extends LivenessBaseActivity {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public LoadingDialog f39901a;
+    public LoadingDialog f40008a;
 
     public LivenessVideoLoadingActivity() {
         Interceptable interceptable = $ic;
@@ -60,13 +60,13 @@ public class LivenessVideoLoadingActivity extends LivenessBaseActivity {
 
     private void b() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65539, this) == null) || this.f39901a == null) {
+        if (!(interceptable == null || interceptable.invokeV(65539, this) == null) || this.f40008a == null) {
             return;
         }
-        if (isFinishing() && this.f39901a.isShowing()) {
+        if (isFinishing() && this.f40008a.isShowing()) {
             return;
         }
-        this.f39901a.dismiss();
+        this.f40008a.dismiss();
         finish();
     }
 
@@ -91,7 +91,7 @@ public class LivenessVideoLoadingActivity extends LivenessBaseActivity {
                 ArrayList arrayList = new ArrayList();
                 arrayList.add(this.livenessRecogDTO.getSpno() + "");
                 arrayList.add(TextUtils.isEmpty(this.livenessRecogDTO.processid) ? "" : this.livenessRecogDTO.processid);
-                RimStatisticsUtil.onEventEndWithValues(d.f40020e, i3, arrayList);
+                RimStatisticsUtil.onEventEndWithValues(d.f40127e, i3, arrayList);
             }
             b();
             LivenessRecogResult livenessRecogResult = new LivenessRecogResult();
@@ -176,16 +176,16 @@ public class LivenessVideoLoadingActivity extends LivenessBaseActivity {
         LoadingDialog loadingDialog;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, this, context) == null) {
-            if (this.f39901a == null) {
+            if (this.f40008a == null) {
                 LoadingDialog loadingDialog2 = new LoadingDialog(context);
-                this.f39901a = loadingDialog2;
+                this.f40008a = loadingDialog2;
                 loadingDialog2.setMessage(context.getString(R.string.sapi_liveness_recog_loading));
-                this.f39901a.setCancelable(false);
+                this.f40008a.setCancelable(false);
             }
-            if (((Activity) context).isFinishing() || (loadingDialog = this.f39901a) == null || loadingDialog.isShowing()) {
+            if (((Activity) context).isFinishing() || (loadingDialog = this.f40008a) == null || loadingDialog.isShowing()) {
                 return;
             }
-            this.f39901a.show();
+            this.f40008a.show();
         }
     }
 }

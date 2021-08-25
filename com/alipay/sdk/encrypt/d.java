@@ -5,7 +5,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.hiidostatis.inner.util.cipher.RsaCipher;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.security.KeyFactory;
@@ -18,7 +17,7 @@ public class d {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f35776a = "RSA";
+    public static final String f35882a = "RSA";
     public transient /* synthetic */ FieldHolder $fh;
 
     public d() {
@@ -57,7 +56,7 @@ public class d {
                 try {
                     try {
                         PublicKey b2 = b("RSA", str2);
-                        Cipher cipher = Cipher.getInstance(RsaCipher.RSA_PADDING);
+                        Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
                         cipher.init(1, b2);
                         byte[] bytes = str.getBytes("UTF-8");
                         int blockSize = cipher.getBlockSize();

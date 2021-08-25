@@ -11,10 +11,10 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-import c.a.d0.f;
-import c.a.d0.g;
-import c.a.d0.h;
-import c.a.d0.k.j.a;
+import c.a.e0.f;
+import c.a.e0.g;
+import c.a.e0.h;
+import c.a.e0.k.j.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.poly.widget.SwitchButton;
 import com.baidu.poly.widget.o;
@@ -30,30 +30,30 @@ public class HostMarketView extends FrameLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public ImageView f44172e;
+    public ImageView f44279e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f44173f;
+    public TextView f44280f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f44174g;
+    public TextView f44281g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f44175h;
+    public TextView f44282h;
 
     /* renamed from: i  reason: collision with root package name */
-    public SwitchButton f44176i;
+    public SwitchButton f44283i;
 
     /* renamed from: j  reason: collision with root package name */
-    public o f44177j;
+    public o f44284j;
     public a k;
     public boolean l;
 
     /* loaded from: classes5.dex */
     public interface a {
-        void a(boolean z, o oVar, c.a.d0.k.j.a aVar);
+        void a(boolean z, o oVar, c.a.e0.k.j.a aVar);
 
-        void b(a.C0033a c0033a);
+        void b(a.C0062a c0062a);
     }
 
     /* loaded from: classes5.dex */
@@ -62,7 +62,7 @@ public class HostMarketView extends FrameLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ HostMarketView f44178e;
+        public final /* synthetic */ HostMarketView f44285e;
 
         public b(HostMarketView hostMarketView) {
             Interceptable interceptable = $ic;
@@ -79,25 +79,25 @@ public class HostMarketView extends FrameLayout {
                     return;
                 }
             }
-            this.f44178e = hostMarketView;
+            this.f44285e = hostMarketView;
         }
 
         @Override // android.widget.CompoundButton.OnCheckedChangeListener
         public void onCheckedChanged(CompoundButton compoundButton, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLZ(1048576, this, compoundButton, z) == null) {
-                this.f44178e.g(z);
+                this.f44285e.g(z);
             }
         }
     }
 
     /* loaded from: classes5.dex */
-    public class c implements c.a.d0.k.j.a {
+    public class c implements c.a.e0.k.j.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ HostMarketView f44179a;
+        public final /* synthetic */ HostMarketView f44286a;
 
         public c(HostMarketView hostMarketView) {
             Interceptable interceptable = $ic;
@@ -114,28 +114,28 @@ public class HostMarketView extends FrameLayout {
                     return;
                 }
             }
-            this.f44179a = hostMarketView;
+            this.f44286a = hostMarketView;
         }
 
-        @Override // c.a.d0.k.j.a
-        public void a(a.C0033a c0033a) {
+        @Override // c.a.e0.k.j.a
+        public void a(a.C0062a c0062a) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, c0033a) == null) {
-                this.f44179a.k.b(c0033a);
-                if (c0033a == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, c0062a) == null) {
+                this.f44286a.k.b(c0062a);
+                if (c0062a == null) {
                     return;
                 }
-                if (c0033a.f1869a == 0) {
-                    if (this.f44179a.f44176i.isChecked()) {
-                        this.f44179a.f44175h.setVisibility(0);
+                if (c0062a.f3233a == 0) {
+                    if (this.f44286a.f44283i.isChecked()) {
+                        this.f44286a.f44282h.setVisibility(0);
                     } else {
-                        this.f44179a.f44175h.setVisibility(4);
+                        this.f44286a.f44282h.setVisibility(4);
                     }
                 } else {
-                    this.f44179a.f44176i.o();
-                    Toast.makeText(this.f44179a.getContext(), this.f44179a.getResources().getString(h.host_market_calculate_error), 0).show();
+                    this.f44286a.f44283i.o();
+                    Toast.makeText(this.f44286a.getContext(), this.f44286a.getResources().getString(h.host_market_calculate_error), 0).show();
                 }
-                this.f44179a.f44177j.i(this.f44179a.f44176i.isChecked() ? 1 : 0);
+                this.f44286a.f44284j.i(this.f44286a.f44283i.isChecked() ? 1 : 0);
             }
         }
     }
@@ -171,12 +171,12 @@ public class HostMarketView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
             LayoutInflater.from(context).inflate(g.hostmarket_item, (ViewGroup) this, true);
-            this.f44172e = (ImageView) findViewById(f.icon);
-            this.f44173f = (TextView) findViewById(f.title);
-            this.f44174g = (TextView) findViewById(f.subtitle);
-            this.f44175h = (TextView) findViewById(f.cut_text);
+            this.f44279e = (ImageView) findViewById(f.icon);
+            this.f44280f = (TextView) findViewById(f.title);
+            this.f44281g = (TextView) findViewById(f.subtitle);
+            this.f44282h = (TextView) findViewById(f.cut_text);
             SwitchButton switchButton = (SwitchButton) findViewById(f.switch_button);
-            this.f44176i = switchButton;
+            this.f44283i = switchButton;
             switchButton.setOnCheckedChangeListener(new b(this));
         }
     }
@@ -186,40 +186,40 @@ public class HostMarketView extends FrameLayout {
         if (!(interceptable == null || interceptable.invokeZ(1048579, this, z) == null) || this.k == null) {
             return;
         }
-        this.f44177j.i(this.f44176i.isChecked() ? 1 : 0);
-        this.k.a(z, this.f44177j, new c(this));
+        this.f44284j.i(this.f44283i.isChecked() ? 1 : 0);
+        this.k.a(z, this.f44284j, new c(this));
     }
 
     public final void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            if (this.f44177j == null) {
+            if (this.f44284j == null) {
                 setVisibility(8);
                 return;
             }
             setVisibility(0);
-            c.a.d0.k.d.b.c().b(this.f44172e, this.f44177j.getIcon());
-            this.f44173f.setText(this.f44177j.getDisplayName());
-            this.f44174g.setText(this.f44177j.S());
-            if (!TextUtils.isEmpty(this.f44177j.M())) {
+            c.a.e0.k.d.b.c().b(this.f44279e, this.f44284j.getIcon());
+            this.f44280f.setText(this.f44284j.getDisplayName());
+            this.f44281g.setText(this.f44284j.S());
+            if (!TextUtils.isEmpty(this.f44284j.M())) {
                 try {
-                    this.f44174g.setTextColor(Color.parseColor(this.f44177j.M()));
+                    this.f44281g.setTextColor(Color.parseColor(this.f44284j.M()));
                 } catch (Exception unused) {
                 }
             }
             if (this.l) {
-                this.f44176i.setVisibility(4);
-                this.f44175h.setVisibility(0);
-                TextView textView = this.f44175h;
-                textView.setText("-" + b(this.f44177j.L()) + "元");
+                this.f44283i.setVisibility(4);
+                this.f44282h.setVisibility(0);
+                TextView textView = this.f44282h;
+                textView.setText("-" + b(this.f44284j.L()) + "元");
                 return;
             }
-            this.f44176i.setVisibility(0);
-            this.f44175h.setVisibility(4);
-            if (this.f44177j.P() == 1) {
-                this.f44176i.setChecked(true);
+            this.f44283i.setVisibility(0);
+            this.f44282h.setVisibility(4);
+            if (this.f44284j.P() == 1) {
+                this.f44283i.setChecked(true);
             } else {
-                this.f44176i.setChecked(false);
+                this.f44283i.setChecked(false);
             }
         }
     }
@@ -255,7 +255,7 @@ public class HostMarketView extends FrameLayout {
     public void a(o oVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, oVar) == null) {
-            this.f44177j = oVar;
+            this.f44284j = oVar;
             if (oVar != null) {
                 this.l = oVar.P() == 1;
             }

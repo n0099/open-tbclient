@@ -28,13 +28,13 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public SQLiteDatabase f1925a;
+    public SQLiteDatabase f1983a;
 
     /* renamed from: b  reason: collision with root package name */
-    public a.InterfaceC0038a f1926b;
+    public a.InterfaceC0028a f1984b;
 
     /* renamed from: c  reason: collision with root package name */
-    public a f1927c;
+    public a f1985c;
 
     public b(a aVar) {
         Interceptable interceptable = $ic;
@@ -51,18 +51,18 @@ public class b {
                 return;
             }
         }
-        this.f1925a = null;
-        this.f1926b = null;
-        this.f1927c = aVar;
+        this.f1983a = null;
+        this.f1984b = null;
+        this.f1985c = aVar;
     }
 
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             try {
-                if (this.f1925a != null) {
-                    this.f1925a.close();
-                    this.f1925a = null;
+                if (this.f1983a != null) {
+                    this.f1983a.close();
+                    this.f1983a = null;
                 }
             } catch (Exception e2) {
                 BdLog.e("closeDatabase：" + e2.getMessage());
@@ -78,10 +78,10 @@ public class b {
             synchronized (b.class) {
                 a();
                 try {
-                    dropDatabase = this.f1927c.dropDatabase(BdBaseApplication.getInst().getContext());
+                    dropDatabase = this.f1985c.dropDatabase(BdBaseApplication.getInst().getContext());
                 } catch (Exception e2) {
                     BdLog.e("deleteDatabase：" + e2.getMessage());
-                    this.f1925a = null;
+                    this.f1983a = null;
                     return false;
                 }
             }
@@ -94,10 +94,10 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
             synchronized (b.class) {
-                if (this.f1925a == null || !this.f1925a.isOpen()) {
+                if (this.f1983a == null || !this.f1983a.isOpen()) {
                     try {
-                        this.f1927c.setOnCreateCallback(this.f1926b);
-                        this.f1925a = this.f1927c.getWritableDatabase();
+                        this.f1985c.setOnCreateCallback(this.f1984b);
+                        this.f1983a = this.f1985c.getWritableDatabase();
                     } catch (RuntimeException e2) {
                         if (z) {
                             i(e2, "ensureDatabaseReady");
@@ -159,7 +159,7 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048582, this, z)) == null) {
             c(z);
-            return this.f1925a;
+            return this.f1983a;
         }
         return (SQLiteDatabase) invokeZ.objValue;
     }
@@ -187,22 +187,22 @@ public class b {
                     BdLog.detailException("failed to drop database. msg:", th2);
                 }
                 i2 = -14;
-                this.f1925a = null;
+                this.f1983a = null;
             } else if (th instanceof SQLiteAbortException) {
                 i2 = -11;
             } else if (th instanceof SQLiteConstraintException) {
                 i2 = -12;
             } else if (th instanceof SQLiteDiskIOException) {
                 i2 = -15;
-                this.f1925a = null;
+                this.f1983a = null;
             } else if (th instanceof SQLiteFullException) {
                 i2 = -16;
-                this.f1925a = null;
+                this.f1983a = null;
             } else if (th instanceof SQLiteDoneException) {
                 i2 = -19;
-                this.f1925a = null;
+                this.f1983a = null;
             } else if (!(th instanceof SQLiteMisuseException)) {
-                this.f1925a = null;
+                this.f1983a = null;
             }
             h(str, i2, th.getMessage(), new Object[0]);
         }
@@ -221,10 +221,10 @@ public class b {
         return (Cursor) invokeLL.objValue;
     }
 
-    public void k(a.InterfaceC0038a interfaceC0038a) {
+    public void k(a.InterfaceC0028a interfaceC0028a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, interfaceC0038a) == null) {
-            this.f1926b = interfaceC0038a;
+        if (interceptable == null || interceptable.invokeL(1048586, this, interfaceC0028a) == null) {
+            this.f1984b = interfaceC0028a;
         }
     }
 }

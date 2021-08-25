@@ -19,10 +19,10 @@ public final class e<E extends g> extends ProtoAdapter<E> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Class<E> f34196a;
+    public final Class<E> f34302a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Method f34197b;
+    public Method f34303b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public e(Class<E> cls) {
@@ -43,7 +43,7 @@ public final class e<E extends g> extends ProtoAdapter<E> {
                 return;
             }
         }
-        this.f34196a = cls;
+        this.f34302a = cls;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -59,7 +59,7 @@ public final class e<E extends g> extends ProtoAdapter<E> {
                 if (e2 != null) {
                     return e2;
                 }
-                throw new ProtoAdapter.EnumConstantNotFoundException(l, this.f34196a);
+                throw new ProtoAdapter.EnumConstantNotFoundException(l, this.f34302a);
             } catch (IllegalAccessException | InvocationTargetException e3) {
                 throw new AssertionError(e3);
             }
@@ -90,13 +90,13 @@ public final class e<E extends g> extends ProtoAdapter<E> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            Method method = this.f34197b;
+            Method method = this.f34303b;
             if (method != null) {
                 return method;
             }
             try {
-                Method method2 = this.f34196a.getMethod("fromValue", Integer.TYPE);
-                this.f34197b = method2;
+                Method method2 = this.f34302a.getMethod("fromValue", Integer.TYPE);
+                this.f34303b = method2;
                 return method2;
             } catch (NoSuchMethodException e2) {
                 throw new AssertionError(e2);
@@ -108,12 +108,12 @@ public final class e<E extends g> extends ProtoAdapter<E> {
     public boolean equals(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, obj)) == null) ? (obj instanceof e) && ((e) obj).f34196a == this.f34196a : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, obj)) == null) ? (obj instanceof e) && ((e) obj).f34302a == this.f34302a : invokeL.booleanValue;
     }
 
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f34196a.hashCode() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f34302a.hashCode() : invokeV.intValue;
     }
 }

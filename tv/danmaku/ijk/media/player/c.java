@@ -11,10 +11,10 @@ public final class c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Rect f79599a;
+    public Rect f79801a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f79600b;
+    public String f79802b;
 
     public c(Rect rect, String str) {
         Interceptable interceptable = $ic;
@@ -31,9 +31,9 @@ public final class c {
                 return;
             }
         }
-        this.f79599a = null;
-        this.f79600b = null;
-        this.f79599a = rect;
-        this.f79600b = str;
+        this.f79801a = null;
+        this.f79802b = null;
+        this.f79801a = rect;
+        this.f79802b = str;
     }
 }

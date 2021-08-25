@@ -44,6 +44,7 @@ import com.baidu.sapi2.ecommerce.result.AddressSelectedBean;
 import com.baidu.sapi2.utils.Log;
 import com.baidu.sapi2.views.SweepLightLoadingView;
 import com.baidu.sapi2.views.ViewUtility;
+import com.baidu.searchbox.datacollector.growth.utils.GrowthConstant;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -824,7 +825,7 @@ public class AddressListActivity extends BaseAddressActivity<AddressPresenter> i
             }
             ((AddressPresenter) this.presenter).delAddress(optString);
         } else if (1003 == i2) {
-            ((ClipboardManager) getSystemService("clipboard")).setPrimaryClip(ClipData.newPlainText("address", this.optionJsonObj.optString("name") + StringUtils.LF + this.optionJsonObj.optString("mobile") + StringUtils.LF + getOptionRegionStr()));
+            ((ClipboardManager) getSystemService(GrowthConstant.UBC_VALUE_TYPE_CLIP_BOARD)).setPrimaryClip(ClipData.newPlainText("address", this.optionJsonObj.optString("name") + StringUtils.LF + this.optionJsonObj.optString("mobile") + StringUtils.LF + getOptionRegionStr()));
             ToastUtil.show(R.drawable.sapi_sdk_common_success_ic, "复制成功");
         }
     }

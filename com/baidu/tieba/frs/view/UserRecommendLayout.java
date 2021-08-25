@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import androidx.core.view.InputDeviceCompat;
 import c.a.e.e.p.e;
-import c.a.o0.s.f0.t.c;
+import c.a.p0.s.f0.t.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -28,22 +28,22 @@ public class UserRecommendLayout extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TbPageContext f51508e;
+    public TbPageContext f51658e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f51509f;
+    public int f51659f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f51510g;
+    public int f51660g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View.OnClickListener f51511h;
+    public View.OnClickListener f51661h;
 
     /* renamed from: i  reason: collision with root package name */
-    public View.OnClickListener f51512i;
+    public View.OnClickListener f51662i;
 
     /* renamed from: j  reason: collision with root package name */
-    public c.a.e.e.k.b<UserRecommendItemView> f51513j;
+    public c.a.e.e.k.b<UserRecommendItemView> f51663j;
     public final ViewGroup.OnHierarchyChangeListener k;
 
     /* loaded from: classes7.dex */
@@ -52,7 +52,7 @@ public class UserRecommendLayout extends LinearLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ UserRecommendLayout f51514e;
+        public final /* synthetic */ UserRecommendLayout f51664e;
 
         public a(UserRecommendLayout userRecommendLayout) {
             Interceptable interceptable = $ic;
@@ -69,7 +69,7 @@ public class UserRecommendLayout extends LinearLayout {
                     return;
                 }
             }
-            this.f51514e = userRecommendLayout;
+            this.f51664e = userRecommendLayout;
         }
 
         @Override // android.view.ViewGroup.OnHierarchyChangeListener
@@ -82,12 +82,12 @@ public class UserRecommendLayout extends LinearLayout {
         @Override // android.view.ViewGroup.OnHierarchyChangeListener
         public void onChildViewRemoved(View view, View view2) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, view2) == null) && (view2 instanceof UserRecommendItemView) && this.f51514e.f51513j != null) {
+            if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, view2) == null) && (view2 instanceof UserRecommendItemView) && this.f51664e.f51663j != null) {
                 UserRecommendItemView userRecommendItemView = (UserRecommendItemView) view2;
                 if (userRecommendItemView.getTag() instanceof c) {
-                    ((c) userRecommendItemView.getTag()).s(this.f51514e.f51508e.getUniqueId());
+                    ((c) userRecommendItemView.getTag()).s(this.f51664e.f51658e.getUniqueId());
                 }
-                this.f51514e.f51513j.e(userRecommendItemView);
+                this.f51664e.f51663j.e(userRecommendItemView);
             }
         }
     }
@@ -98,10 +98,10 @@ public class UserRecommendLayout extends LinearLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ UserRecommendItemView f51515a;
+        public final /* synthetic */ UserRecommendItemView f51665a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ UserRecommendLayout f51516b;
+        public final /* synthetic */ UserRecommendLayout f51666b;
 
         public b(UserRecommendLayout userRecommendLayout, UserRecommendItemView userRecommendItemView) {
             Interceptable interceptable = $ic;
@@ -118,15 +118,15 @@ public class UserRecommendLayout extends LinearLayout {
                     return;
                 }
             }
-            this.f51516b = userRecommendLayout;
-            this.f51515a = userRecommendItemView;
+            this.f51666b = userRecommendLayout;
+            this.f51665a = userRecommendItemView;
         }
 
         @Override // com.baidu.tbadk.core.view.userLike.CommonUserLikeButton.a
         public void a(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-                this.f51515a.getFansNum().setText(String.format(Locale.CHINA, "%s粉丝", StringHelper.numFormatOverWanNa(i2)));
+                this.f51665a.getFansNum().setText(String.format(Locale.CHINA, "%s粉丝", StringHelper.numFormatOverWanNa(i2)));
             }
         }
     }
@@ -149,10 +149,10 @@ public class UserRecommendLayout extends LinearLayout {
                 return;
             }
         }
-        this.f51510g = 0;
-        this.f51511h = null;
-        this.f51512i = null;
-        this.f51513j = null;
+        this.f51660g = 0;
+        this.f51661h = null;
+        this.f51662i = null;
+        this.f51663j = null;
         this.k = new a(this);
         c();
     }
@@ -176,7 +176,7 @@ public class UserRecommendLayout extends LinearLayout {
             if (i2 == 0) {
                 layoutParams.leftMargin = 0;
             } else {
-                layoutParams.leftMargin = this.f51510g;
+                layoutParams.leftMargin = this.f51660g;
             }
             userRecommendItemView.setLayoutParams(layoutParams);
         }
@@ -193,14 +193,14 @@ public class UserRecommendLayout extends LinearLayout {
             if (userRecommendItemView.getLikeBtn().getTag() instanceof c) {
                 cVar = (c) userRecommendItemView.getLikeBtn().getTag();
             } else {
-                cVar = new c(this.f51508e, userRecommendItemView.getLikeBtn());
+                cVar = new c(this.f51658e, userRecommendItemView.getLikeBtn());
             }
             cVar.m("7");
             userRecommendItemView.getLikeBtn().setTag(cVar);
             cVar.n(metaData);
-            userRecommendItemView.getLikeBtn().setAfterOnClickListener(this.f51511h);
+            userRecommendItemView.getLikeBtn().setAfterOnClickListener(this.f51661h);
             userRecommendItemView.getHeaderView().setData(metaData);
-            userRecommendItemView.getHeaderView().setAfterClickListener(this.f51512i);
+            userRecommendItemView.getHeaderView().setAfterClickListener(this.f51662i);
             userRecommendItemView.setIsGod(metaData.isGod());
             userRecommendItemView.onChangeSkinType(skinType);
         }
@@ -209,7 +209,7 @@ public class UserRecommendLayout extends LinearLayout {
     public int getChildItemWidth() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f51509f : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f51659f : invokeV.intValue;
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -233,14 +233,14 @@ public class UserRecommendLayout extends LinearLayout {
     public void setAfterHeaderLickListener(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, onClickListener) == null) {
-            this.f51512i = onClickListener;
+            this.f51662i = onClickListener;
         }
     }
 
     public void setAfterLikeBtnClickListener(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, onClickListener) == null) {
-            this.f51511h = onClickListener;
+            this.f51661h = onClickListener;
         }
     }
 
@@ -250,9 +250,9 @@ public class UserRecommendLayout extends LinearLayout {
             return;
         }
         int a2 = e.a(getContext()) - (getPaddingLeft() * 2);
-        int i2 = this.f51510g;
+        int i2 = this.f51660g;
         int i3 = (a2 - (i2 * 2)) / 3;
-        this.f51509f = i2 + i3;
+        this.f51659f = i2 + i3;
         int i4 = 0;
         int childCount = getChildCount();
         while (i4 < childCount && i4 < list.size()) {
@@ -268,7 +268,7 @@ public class UserRecommendLayout extends LinearLayout {
             i4++;
         }
         while (i4 < list.size()) {
-            UserRecommendItemView b2 = this.f51513j.b();
+            UserRecommendItemView b2 = this.f51663j.b();
             if (b2.getParent() != null) {
                 ((ViewGroup) b2.getParent()).removeView(b2);
             }
@@ -282,21 +282,21 @@ public class UserRecommendLayout extends LinearLayout {
     public void setItemSpace(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048585, this, i2) == null) {
-            this.f51510g = i2;
+            this.f51660g = i2;
         }
     }
 
     public void setPageContext(TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, tbPageContext) == null) {
-            this.f51508e = tbPageContext;
+            this.f51658e = tbPageContext;
         }
     }
 
     public void setViewPool(c.a.e.e.k.b<UserRecommendItemView> bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, bVar) == null) {
-            this.f51513j = bVar;
+            this.f51663j = bVar;
         }
     }
 
@@ -319,10 +319,10 @@ public class UserRecommendLayout extends LinearLayout {
                 return;
             }
         }
-        this.f51510g = 0;
-        this.f51511h = null;
-        this.f51512i = null;
-        this.f51513j = null;
+        this.f51660g = 0;
+        this.f51661h = null;
+        this.f51662i = null;
+        this.f51663j = null;
         this.k = new a(this);
         c();
     }

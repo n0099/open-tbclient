@@ -1,8 +1,8 @@
 package com.baidu.tieba.barselect.data;
 
-import c.a.p0.x.b.d;
-import c.a.p0.x.b.e;
-import c.a.p0.x.b.f;
+import c.a.q0.x.b.d;
+import c.a.q0.x.b.e;
+import c.a.q0.x.b.f;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;

@@ -9,12 +9,12 @@ import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import c.a.o0.s.q.c2;
-import c.a.o0.s.q.x0;
-import c.a.p0.i.f;
-import c.a.p0.i.i;
-import c.a.p0.i.j;
-import c.a.p0.v0.b;
+import c.a.p0.s.q.c2;
+import c.a.p0.s.q.x0;
+import c.a.q0.i.f;
+import c.a.q0.i.i;
+import c.a.q0.i.j;
+import c.a.q0.v0.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -43,22 +43,22 @@ public class FrsMultiDelBottomMenuView extends RelativeLayout implements View.On
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final f f51433e;
+    public final f f51583e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f51434f;
+    public TextView f51584f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f51435g;
+    public TextView f51585g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f51436h;
+    public TextView f51586h;
 
     /* renamed from: i  reason: collision with root package name */
-    public View f51437i;
+    public View f51587i;
 
     /* renamed from: j  reason: collision with root package name */
-    public View f51438j;
+    public View f51588j;
     public j k;
     public TbPageContext l;
     public boolean m;
@@ -90,19 +90,19 @@ public class FrsMultiDelBottomMenuView extends RelativeLayout implements View.On
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             LayoutInflater.from(getContext()).inflate(R.layout.frs_multi_delete_menu_layout, this);
             TextView textView = (TextView) findViewById(R.id.multi_del_cancel_btn);
-            this.f51434f = textView;
+            this.f51584f = textView;
             textView.setText(R.string.cancel);
             TextView textView2 = (TextView) findViewById(R.id.multi_del_btn);
-            this.f51435g = textView2;
+            this.f51585g = textView2;
             textView2.setText(R.string.delete);
             TextView textView3 = (TextView) findViewById(R.id.multi_del_forbidden_btn);
-            this.f51436h = textView3;
+            this.f51586h = textView3;
             textView3.setText(R.string.delete_and_forbidden_one_day);
-            this.f51437i = findViewById(R.id.divider_top_line);
-            this.f51438j = findViewById(R.id.divider);
-            this.f51434f.setOnClickListener(this);
-            this.f51435g.setOnClickListener(this);
-            this.f51436h.setOnClickListener(this);
+            this.f51587i = findViewById(R.id.divider_top_line);
+            this.f51588j = findViewById(R.id.divider);
+            this.f51584f.setOnClickListener(this);
+            this.f51585g.setOnClickListener(this);
+            this.f51586h.setOnClickListener(this);
             onChangeSkinType();
             setClickable(true);
         }
@@ -151,14 +151,14 @@ public class FrsMultiDelBottomMenuView extends RelativeLayout implements View.On
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             SkinManager.setBackgroundColor(this, R.color.CAM_X0201);
-            SkinManager.setViewTextColor(this.f51434f, R.color.CAM_X0105);
-            SkinManager.setBackgroundResource(this.f51434f, R.drawable.bg_bottom_up_list_dialog_item);
-            SkinManager.setViewTextColor(this.f51436h, R.color.CAM_X0105);
-            SkinManager.setBackgroundResource(this.f51436h, R.drawable.bg_bottom_up_list_dialog_item);
-            SkinManager.setViewTextColor(this.f51435g, R.color.CAM_X0301);
-            SkinManager.setBackgroundResource(this.f51435g, R.drawable.bg_bottom_up_list_dialog_item);
-            SkinManager.setBackgroundColor(this.f51437i, R.color.CAM_X0204);
-            SkinManager.setBackgroundColor(this.f51438j, R.color.CAM_X0204);
+            SkinManager.setViewTextColor(this.f51584f, R.color.CAM_X0105);
+            SkinManager.setBackgroundResource(this.f51584f, R.drawable.bg_bottom_up_list_dialog_item);
+            SkinManager.setViewTextColor(this.f51586h, R.color.CAM_X0105);
+            SkinManager.setBackgroundResource(this.f51586h, R.drawable.bg_bottom_up_list_dialog_item);
+            SkinManager.setViewTextColor(this.f51585g, R.color.CAM_X0301);
+            SkinManager.setBackgroundResource(this.f51585g, R.drawable.bg_bottom_up_list_dialog_item);
+            SkinManager.setBackgroundColor(this.f51587i, R.color.CAM_X0204);
+            SkinManager.setBackgroundColor(this.f51588j, R.color.CAM_X0204);
         }
     }
 
@@ -166,8 +166,8 @@ public class FrsMultiDelBottomMenuView extends RelativeLayout implements View.On
     public void onClick(View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, view) == null) {
-            this.f51433e.e();
-            if (view == this.f51434f) {
+            this.f51583e.e();
+            if (view == this.f51584f) {
                 b.f().m();
                 if (this.m) {
                     StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_FRS_MULTI_MUSK_VIEW_CANCEL_CLICK);
@@ -176,7 +176,7 @@ public class FrsMultiDelBottomMenuView extends RelativeLayout implements View.On
                     statisticItem.param("fname", b.f().e());
                     TiebaStatic.log(statisticItem);
                 }
-            } else if (view == this.f51435g) {
+            } else if (view == this.f51585g) {
                 if (ListUtils.isEmpty(b.f().g())) {
                     return;
                 }
@@ -190,7 +190,7 @@ public class FrsMultiDelBottomMenuView extends RelativeLayout implements View.On
                     statisticItem2.param("fname", b.f().e());
                     TiebaStatic.log(statisticItem2);
                 }
-            } else if (view != this.f51436h || ListUtils.isEmpty(b.f().g())) {
+            } else if (view != this.f51586h || ListUtils.isEmpty(b.f().g())) {
             } else {
                 TiebaStatic.log(new StatisticItem("c13122").param("obj_type", 2));
                 setData(2);
@@ -215,11 +215,11 @@ public class FrsMultiDelBottomMenuView extends RelativeLayout implements View.On
     public void onDestroy() {
         f fVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (fVar = this.f51433e) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (fVar = this.f51583e) == null) {
             return;
         }
         fVar.f(null);
-        this.f51433e.d();
+        this.f51583e.d();
     }
 
     public void setData(int i2) {
@@ -277,7 +277,7 @@ public class FrsMultiDelBottomMenuView extends RelativeLayout implements View.On
     public void setDeleteCallback(f.c cVar) {
         f fVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, cVar) == null) || (fVar = this.f51433e) == null) {
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, cVar) == null) || (fVar = this.f51583e) == null) {
             return;
         }
         fVar.f(cVar);
@@ -295,20 +295,20 @@ public class FrsMultiDelBottomMenuView extends RelativeLayout implements View.On
         if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
             this.m = z;
             if (z) {
-                TextView textView = this.f51435g;
+                TextView textView = this.f51585g;
                 if (textView != null) {
                     textView.setText(R.string.shield);
                 }
-                TextView textView2 = this.f51436h;
+                TextView textView2 = this.f51586h;
                 if (textView2 != null) {
                     textView2.setText(R.string.shield_and_forbidden_one_day);
                 }
             } else {
-                TextView textView3 = this.f51435g;
+                TextView textView3 = this.f51585g;
                 if (textView3 != null) {
                     textView3.setText(R.string.delete);
                 }
-                TextView textView4 = this.f51436h;
+                TextView textView4 = this.f51586h;
                 if (textView4 != null) {
                     textView4.setText(R.string.delete_and_forbidden_one_day);
                 }
@@ -337,7 +337,7 @@ public class FrsMultiDelBottomMenuView extends RelativeLayout implements View.On
             if (i2 > 0) {
                 string = string + String.format(Locale.CHINA, "(%d)", Integer.valueOf(i2));
             }
-            this.f51435g.setText(string);
+            this.f51585g.setText(string);
         }
     }
 
@@ -361,6 +361,6 @@ public class FrsMultiDelBottomMenuView extends RelativeLayout implements View.On
             }
         }
         a();
-        this.f51433e = new f("0");
+        this.f51583e = new f("0");
     }
 }

@@ -24,7 +24,7 @@ public class AlipayResultActivity extends Activity {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final ConcurrentHashMap<String, a> f35619a;
+    public static final ConcurrentHashMap<String, a> f35725a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes4.dex */
@@ -45,7 +45,7 @@ public class AlipayResultActivity extends Activity {
                 return;
             }
         }
-        f35619a = new ConcurrentHashMap<>();
+        f35725a = new ConcurrentHashMap<>();
     }
 
     public AlipayResultActivity() {
@@ -65,12 +65,12 @@ public class AlipayResultActivity extends Activity {
     private void a(String str, Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65538, this, str, bundle) == null) {
-            a remove = f35619a.remove(str);
+            a remove = f35725a.remove(str);
             if (remove == null) {
                 return;
             }
             try {
-                remove.a(bundle.getInt("endCode"), bundle.getString(i.f35880b), bundle.getString("result"));
+                remove.a(bundle.getInt("endCode"), bundle.getString(i.f35986b), bundle.getString("result"));
             } finally {
                 finish();
             }
@@ -89,7 +89,7 @@ public class AlipayResultActivity extends Activity {
                 String stringExtra = intent.getStringExtra("session");
                 Bundle bundleExtra = intent.getBundleExtra("result");
                 String stringExtra2 = intent.getStringExtra("scene");
-                com.alipay.sdk.sys.a a2 = a.C1561a.a(stringExtra);
+                com.alipay.sdk.sys.a a2 = a.C1565a.a(stringExtra);
                 if (a2 == null) {
                     finish();
                     return;
@@ -129,7 +129,7 @@ public class AlipayResultActivity extends Activity {
                 }
                 if (TextUtils.isEmpty(stringExtra) && bundleExtra != null) {
                     com.alipay.sdk.app.statistic.a.b(a2, "biz", com.alipay.sdk.app.statistic.b.P, "" + SystemClock.elapsedRealtime());
-                    com.alipay.sdk.app.statistic.a.b(a2, "biz", com.alipay.sdk.app.statistic.b.Q, bundleExtra.getInt("endCode", -1) + "|" + bundleExtra.getString(i.f35880b, "-"));
+                    com.alipay.sdk.app.statistic.a.b(a2, "biz", com.alipay.sdk.app.statistic.b.Q, bundleExtra.getInt("endCode", -1) + "|" + bundleExtra.getString(i.f35986b, "-"));
                     OpenAuthTask.a(stringExtra, 9000, StatHelper.SENSOR_OK, bundleExtra);
                     com.alipay.sdk.app.statistic.a.b(this, a2, "", a2.q);
                     finish();

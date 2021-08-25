@@ -16,7 +16,7 @@ public class l implements h {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Map<String, Object> f2083a;
+    public Map<String, Object> f2141a;
 
     public l(Map<String, Object> map) {
         Interceptable interceptable = $ic;
@@ -33,7 +33,7 @@ public class l implements h {
                 return;
             }
         }
-        this.f2083a = map;
+        this.f2141a = map;
     }
 
     @Override // c.a.e.e.b.b.a.b.h
@@ -57,14 +57,14 @@ public class l implements h {
     public Object b(c.a.e.e.b.b.a.e.c cVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar)) == null) ? this.f2083a : invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar)) == null) ? this.f2141a : invokeL.objValue;
     }
 
     @Override // c.a.e.e.b.b.a.b.h
     public Object c(c.a.e.e.b.b.a.e.c cVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cVar)) == null) ? this.f2083a : invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cVar)) == null) ? this.f2141a : invokeL.objValue;
     }
 
     @Override // c.a.e.e.b.b.a.b.h
@@ -94,12 +94,12 @@ public class l implements h {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, cVar)) == null) {
             JSONObject jSONObject = new JSONObject();
-            if (this.f2083a == null) {
+            if (this.f2141a == null) {
                 return jSONObject;
             }
             Type[] b2 = cVar.b();
-            for (String str : this.f2083a.keySet()) {
-                Object obj = this.f2083a.get(str);
+            for (String str : this.f2141a.keySet()) {
+                Object obj = this.f2141a.get(str);
                 if (b2 != null && b2.length >= 2) {
                     try {
                         jSONObject.put(str, c.a.e.e.b.b.a.e.f.a(obj).f(new c.a.e.e.b.b.a.e.c(b2[1])));

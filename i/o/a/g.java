@@ -11,10 +11,10 @@ public final class g<T, R> implements d.a<R> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final d.a<T> f78178e;
+    public final d.a<T> f78379e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final d.b<? extends R, ? super T> f78179f;
+    public final d.b<? extends R, ? super T> f78380f;
 
     public g(d.a<T> aVar, d.b<? extends R, ? super T> bVar) {
         Interceptable interceptable = $ic;
@@ -31,8 +31,8 @@ public final class g<T, R> implements d.a<R> {
                 return;
             }
         }
-        this.f78178e = aVar;
-        this.f78179f = bVar;
+        this.f78379e = aVar;
+        this.f78380f = bVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -42,9 +42,9 @@ public final class g<T, R> implements d.a<R> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, jVar) == null) {
             try {
-                i.j<? super T> call = i.r.c.n(this.f78179f).call(jVar);
+                i.j<? super T> call = i.r.c.n(this.f78380f).call(jVar);
                 call.onStart();
-                this.f78178e.call(call);
+                this.f78379e.call(call);
             } catch (Throwable th) {
                 i.m.a.e(th);
                 jVar.onError(th);

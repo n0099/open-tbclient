@@ -11,10 +11,9 @@ import android.text.TextUtils;
 import androidx.core.app.NotificationCompat;
 import androidx.core.view.InputDeviceCompat;
 import c.a.e.e.m.c;
-import c.a.e.e.p.f;
+import c.a.e.h.h.b;
 import c.a.e.h.j.g.d;
-import c.a.o0.o0.l;
-import c.a.o0.s.d0.b;
+import c.a.p0.o0.l;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
@@ -26,7 +25,6 @@ import com.baidu.adp.plugin.packageManager.pluginSettings.PluginSettings;
 import com.baidu.adp.plugin.util.Util;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.appsearchlib.NASLib;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.launch.stats.SpeedStatsManager;
 import com.baidu.searchbox.launch.stats.SpeedStatsStampTable;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -42,8 +40,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.io.FilenameFilter;
 import java.util.Calendar;
 import java.util.Iterator;
 import java.util.Map;
@@ -194,61 +190,15 @@ public class TbadkApplication extends TbadkCoreApplication {
         return invokeV.booleanValue;
     }
 
-    private void fixChromeWebViewCacheCrash() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            if (b.j().g("key_is_cleared_app_webview_directory", false)) {
-                return;
-            }
-            File[] listFiles = new File(getFilesDir().getParent()).listFiles(new FilenameFilter(this) { // from class: com.baidu.tbadk.TbadkApplication.3
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ TbadkApplication this$0;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                }
-
-                @Override // java.io.FilenameFilter
-                public boolean accept(File file, String str) {
-                    InterceptResult invokeLL;
-                    Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, file, str)) == null) ? str.startsWith("app_webview") : invokeLL.booleanValue;
-                }
-            });
-            b.j().t("key_is_cleared_app_webview_directory", true);
-            if (listFiles == null || listFiles.length == 0) {
-                return;
-            }
-            for (File file : listFiles) {
-                f.m(file);
-            }
-        }
-    }
-
     public static TbadkApplication getInst() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? sApp : (TbadkApplication) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? sApp : (TbadkApplication) invokeV.objValue;
     }
 
     private void prepareForDefaultAlertTime() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this) == null) {
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
             Calendar calendar = Calendar.getInstance();
             setSignAlertTime(calendar.get(11), calendar.get(12));
         }
@@ -333,31 +283,33 @@ public class TbadkApplication extends TbadkCoreApplication {
         switch (message.what) {
             case 6:
                 SpeedStatsManager.getInstance().addStatsTimeStamp(2047);
-                boolean isXiaomiPushSdkShouldOpen = isXiaomiPushSdkShouldOpen();
-                boolean z2 = this.mIsToLogo && isXiaomiPushSdkShouldOpen;
-                c.a.e.h.h.b.e("TbadkApplication_onCreate", z2 ? "plugin_load_delay" : "plugin_load_now");
-                long currentTimeMillis = System.currentTimeMillis();
-                c.a.e.h.h.b.e("TbadkApplication_onCreate", "load_all_plugins");
-                String str = TbConfig.getVersion() + "." + TbConfig.BUILD_NUMBER;
-                if (!((isMainProcess(false) && PluginClassChangeSwitch.isOn()) ? false : false)) {
-                    isXiaomiPushSdkShouldOpen = z2;
-                }
-                boolean z3 = Build.VERSION.SDK_INT < 28 ? isXiaomiPushSdkShouldOpen : false;
-                if (!this.isKeepLiveProcess) {
-                    if (!this.mPluginIsInited) {
-                        PluginPackageManager.O().i0(c.a.o0.q0.c.n(), new c.a.o0.q0.d(), z3, null);
+                Boolean bool = this.isCdnTachometerProcess;
+                if ((bool == null || !bool.booleanValue()) && !this.isPluginInstallProcess) {
+                    boolean isXiaomiPushSdkShouldOpen = isXiaomiPushSdkShouldOpen();
+                    boolean z2 = this.mIsToLogo && isXiaomiPushSdkShouldOpen;
+                    b.e("TbadkApplication_onCreate", z2 ? "plugin_load_delay" : "plugin_load_now");
+                    long currentTimeMillis = System.currentTimeMillis();
+                    b.e("TbadkApplication_onCreate", "load_all_plugins");
+                    String str = TbConfig.getVersion() + "." + TbConfig.BUILD_NUMBER;
+                    if (!((isMainProcess(false) && PluginClassChangeSwitch.isOn()) ? false : false)) {
+                        isXiaomiPushSdkShouldOpen = z2;
                     }
-                    PluginSettings l = d.k().l();
-                    if (l != null) {
-                        String containerVersion = l.getContainerVersion();
-                        if (!TextUtils.isEmpty(containerVersion) && Util.c(containerVersion, str) == Util.VersionCompare.EQUAL) {
-                            l.b().D(z3);
-                            l.b().C(System.currentTimeMillis() - currentTimeMillis);
+                    boolean z3 = Build.VERSION.SDK_INT < 28 ? isXiaomiPushSdkShouldOpen : false;
+                    if (!this.isKeepLiveProcess) {
+                        if (!this.mPluginIsInited) {
+                            PluginPackageManager.O().i0(c.a.p0.q0.c.n(), new c.a.p0.q0.d(), z3, null);
+                        }
+                        PluginSettings l = d.k().l();
+                        if (l != null) {
+                            String containerVersion = l.getContainerVersion();
+                            if (!TextUtils.isEmpty(containerVersion) && Util.c(containerVersion, str) == Util.VersionCompare.EQUAL) {
+                                l.b().D(z3);
+                                l.b().C(System.currentTimeMillis() - currentTimeMillis);
+                            }
                         }
                     }
                 }
                 SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.INIT_MSG_SIX_STAMP_KEY);
-                this.mAppInitHandler.sendEmptyMessage(7);
                 return;
             case 7:
                 SpeedStatsManager.getInstance().addStatsTimeStamp(2048);
@@ -368,7 +320,6 @@ public class TbadkApplication extends TbadkCoreApplication {
                     initSignedForum();
                 }
                 SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.INIT_MSG_SEVEN_STAMP_KEY);
-                this.mAppInitHandler.sendEmptyMessage(8);
                 return;
             case 8:
                 SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.INIT_MSG_EIGHT_START_STAMP_KEY);
@@ -409,7 +360,6 @@ public class TbadkApplication extends TbadkCoreApplication {
                     l.b().q(System.currentTimeMillis() - currentTimeMillis2);
                 }
                 SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.INIT_MSG_EIGHT_STAMP_KEY);
-                this.mAppInitHandler.sendEmptyMessage(9);
                 return;
             case 9:
                 SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.INIT_MSG_NINE_START_STAMP_KEY);
@@ -417,9 +367,6 @@ public class TbadkApplication extends TbadkCoreApplication {
                 ColdStartStatsUtil.startUBCStats(isMainProcess(false));
                 if (this.isRemoteProcess) {
                     l.b().g(System.currentTimeMillis() - this.processCreateTime);
-                }
-                if (isMainProcess(false)) {
-                    fixChromeWebViewCacheCrash();
                 }
                 SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.INIT_MSG_NINE_STAMP_KEY);
                 return;
@@ -469,7 +416,7 @@ public class TbadkApplication extends TbadkCoreApplication {
             return;
         }
         super.loadPatchs();
-        int k = b.j().k("plugin_patch_hook_failed_count", 0);
+        int k = c.a.p0.s.d0.b.j().k("plugin_patch_hook_failed_count", 0);
         PluginPackageManager.O().v0(k);
         if (checkSyncPatchBlacklist() && c.a.e.h.g.d.l() && k == 0 && PluginPackageManager.O().n0()) {
             long currentTimeMillis = System.currentTimeMillis();
@@ -487,7 +434,7 @@ public class TbadkApplication extends TbadkCoreApplication {
     public void loginShareRemove() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            b.j().C("account_share");
+            c.a.p0.s.d0.b.j().C("account_share");
         }
     }
 

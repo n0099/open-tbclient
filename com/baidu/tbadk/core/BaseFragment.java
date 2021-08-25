@@ -16,13 +16,13 @@ import androidx.core.view.InputDeviceCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import c.a.e.a.i;
-import c.a.e.k.e.q;
-import c.a.o0.b1.l;
-import c.a.o0.f0.g;
-import c.a.o0.f0.h;
-import c.a.o0.k0.c;
-import c.a.o0.m0.d;
-import c.a.o0.m0.e;
+import c.a.e.l.e.q;
+import c.a.p0.b1.l;
+import c.a.p0.f0.g;
+import c.a.p0.f0.h;
+import c.a.p0.k0.c;
+import c.a.p0.m0.d;
+import c.a.p0.m0.e;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.framework.MessageManager;
@@ -53,11 +53,12 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes6.dex */
-public abstract class BaseFragment extends Fragment implements View.OnClickListener, View.OnLongClickListener, AdapterView.OnItemClickListener, AdapterView.OnItemLongClickListener, DialogInterface.OnClickListener, AbsListView.OnScrollListener, c.a.o0.m0.a, i, IVideoNeedPreload, c.a.o0.k0.a {
+public abstract class BaseFragment extends Fragment implements View.OnClickListener, View.OnLongClickListener, AdapterView.OnItemClickListener, AdapterView.OnItemLongClickListener, DialogInterface.OnClickListener, AbsListView.OnScrollListener, c.a.p0.m0.a, i, IVideoNeedPreload, c.a.p0.k0.a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int PRELOAD_DELAY = 100;
     public transient /* synthetic */ FieldHolder $fh;
     public CustomToast customToast;
+    public boolean isInterceptStimeStat;
     public boolean isLazyLoaded;
     public boolean isPrepared;
     public boolean isPrimary;
@@ -85,7 +86,7 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BaseFragment f47143e;
+        public final /* synthetic */ BaseFragment f47250e;
 
         public a(BaseFragment baseFragment) {
             Interceptable interceptable = $ic;
@@ -102,14 +103,14 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
                     return;
                 }
             }
-            this.f47143e = baseFragment;
+            this.f47250e = baseFragment;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                BaseFragment baseFragment = this.f47143e;
+                BaseFragment baseFragment = this.f47250e;
                 baseFragment.onPreLoad(baseFragment.onGetPreLoadListView());
             }
         }
@@ -121,7 +122,7 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BaseFragment f47144e;
+        public final /* synthetic */ BaseFragment f47251e;
 
         public b(BaseFragment baseFragment) {
             Interceptable interceptable = $ic;
@@ -138,14 +139,14 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
                     return;
                 }
             }
-            this.f47144e = baseFragment;
+            this.f47251e = baseFragment;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f47144e.onNetRefreshButtonClicked();
+                this.f47251e.onNetRefreshButtonClicked();
             }
         }
 
@@ -176,6 +177,7 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
         this.mIsScroll = false;
         this.isLazyLoaded = false;
         this.isPrepared = false;
+        this.isInterceptStimeStat = false;
         this.preLoadRunnable = new a(this);
     }
 
@@ -245,7 +247,7 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
         return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mTag : (String) invokeV.objValue;
     }
 
-    @Override // c.a.o0.m0.a
+    @Override // c.a.p0.m0.a
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -255,13 +257,13 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
         return (String) invokeV.objValue;
     }
 
-    @Override // c.a.o0.m0.a
+    @Override // c.a.p0.m0.a
     public List<String> getCurrentPageSourceKeyList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            if (getActivity() instanceof c.a.o0.m0.a) {
-                c.a.o0.m0.a aVar = (c.a.o0.m0.a) getActivity();
+            if (getActivity() instanceof c.a.p0.m0.a) {
+                c.a.p0.m0.a aVar = (c.a.p0.m0.a) getActivity();
                 ArrayList arrayList = (ArrayList) aVar.getCurrentPageSourceKeyList();
                 if (!StringUtils.isNull(aVar.getCurrentPageKey()) && (aVar.getPageStayFilter() == null || aVar.getPageStayFilter().isCurrentPageCanBeAddToSourceTrace())) {
                     if (ListUtils.isEmpty(arrayList)) {
@@ -300,7 +302,7 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
         return (View.OnClickListener) invokeV.objValue;
     }
 
-    @Override // c.a.o0.m0.a
+    @Override // c.a.p0.m0.a
     public List<String> getNextPageSourceKeyList() {
         InterceptResult invokeV;
         ArrayList arrayList;
@@ -356,14 +358,14 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
         return (d) invokeV.objValue;
     }
 
-    @Override // c.a.o0.m0.a
-    public c.a.o0.m0.b getPageStayFilter() {
+    @Override // c.a.p0.m0.a
+    public c.a.p0.m0.b getPageStayFilter() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
             return null;
         }
-        return (c.a.o0.m0.b) invokeV.objValue;
+        return (c.a.p0.m0.b) invokeV.objValue;
     }
 
     public Context getTargetActivity() {
@@ -372,11 +374,11 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
         return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? getActivity() : (Context) invokeV.objValue;
     }
 
-    @Override // c.a.o0.k0.a
-    public c.a.o0.k0.b getTbFragmentExtra() {
+    @Override // c.a.p0.k0.a
+    public c.a.p0.k0.b getTbFragmentExtra() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? new c.a.o0.k0.b(this) : (c.a.o0.k0.b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? new c.a.p0.k0.b(this) : (c.a.p0.k0.b) invokeV.objValue;
     }
 
     public c getTbPageExtra() {
@@ -648,7 +650,7 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
         if (interceptable == null || interceptable.invokeV(1048622, this) == null) {
             this.customToast.onPause();
             super.onPause();
-            if (this.needLogStayDuration && isPrimary() && this.lastResumeTime != 0) {
+            if (this.needLogStayDuration && isPrimary() && this.lastResumeTime != 0 && !this.isInterceptStimeStat) {
                 long currentTimeMillis = System.currentTimeMillis() - this.lastResumeTime;
                 d pageStayDurationItem = getPageStayDurationItem();
                 pageStayDurationItem.w(currentTimeMillis);
@@ -673,9 +675,13 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048624, this) == null) {
             if (this.isPrimary) {
-                this.lastResumeTime = System.currentTimeMillis();
+                if (this.isInterceptStimeStat) {
+                    setInterceptStimeStat(false);
+                } else {
+                    this.lastResumeTime = System.currentTimeMillis();
+                }
                 onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
-            } else if (this.needLogStayDuration && this.lastResumeTime != 0) {
+            } else if (this.needLogStayDuration && this.lastResumeTime != 0 && !this.isInterceptStimeStat) {
                 long currentTimeMillis = System.currentTimeMillis() - this.lastResumeTime;
                 d pageStayDurationItem = getPageStayDurationItem();
                 pageStayDurationItem.w(currentTimeMillis);
@@ -758,7 +764,7 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
         }
     }
 
-    public void publishEvent(c.a.o0.h0.a aVar) {
+    public void publishEvent(c.a.p0.h0.a aVar) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048632, this, aVar) == null) || aVar == null) {
             return;
@@ -766,7 +772,7 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
         if (aVar.getTag() == 0) {
             aVar.setTag(getUniqueId());
         }
-        c.a.o0.h0.h.i(aVar);
+        c.a.p0.h0.h.i(aVar);
     }
 
     public void refreshImage(View view) {
@@ -796,10 +802,10 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
         }
     }
 
-    public void registerResponsedEventListener(Class<? extends c.a.o0.h0.a> cls, c.a.o0.h0.i iVar) {
+    public void registerResponsedEventListener(Class<? extends c.a.p0.h0.a> cls, c.a.p0.h0.i iVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048642, this, cls, iVar) == null) {
-            c.a.o0.h0.h.f().m(cls, iVar, getUniqueId());
+            c.a.p0.h0.h.f().m(cls, iVar, getUniqueId());
         }
     }
 
@@ -821,17 +827,24 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
         }
     }
 
+    public void setInterceptStimeStat(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048646, this, z) == null) {
+            this.isInterceptStimeStat = z;
+        }
+    }
+
     @Override // c.a.e.a.i
     public void setIsScroll(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048646, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048647, this, z) == null) {
             this.mIsScroll = z;
         }
     }
 
     public void setNetRefreshViewEmotionDefMarginTop() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048647, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048648, this) == null) {
             setNetRefreshViewEmotionMarginTop(c.a.e.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.ds300));
         }
     }
@@ -839,14 +852,14 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
     public void setNetRefreshViewEmotionMarginTop(int i2) {
         h hVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048648, this, i2) == null) && (hVar = this.mRefreshView) != null && hVar.isViewAttached()) {
+        if ((interceptable == null || interceptable.invokeI(1048649, this, i2) == null) && (hVar = this.mRefreshView) != null && hVar.isViewAttached()) {
             this.mRefreshView.j(i2);
         }
     }
 
     public void setNetRefreshViewTopMargin(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048649, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048650, this, i2) == null) {
             if (this.mRefreshView == null) {
                 this.mRefreshView = new h(getPageContext().getContext(), getNetRefreshListener());
             }
@@ -856,7 +869,7 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
 
     public void setPrimary(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048650, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048651, this, z) == null) {
             this.isPrimary = z;
             if (isResumed()) {
                 onPrimary();
@@ -871,7 +884,7 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
     @Override // androidx.fragment.app.Fragment
     public void setUserVisibleHint(boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048651, this, z) == null) && isAdded() && !isHidden()) {
+        if ((interceptable == null || interceptable.invokeZ(1048652, this, z) == null) && isAdded() && !isHidden()) {
             super.setUserVisibleHint(z);
             lazyLoad();
             normalLoad();
@@ -880,14 +893,14 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
 
     public void showLoadingView(View view) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048652, this, view) == null) {
+        if (interceptable == null || interceptable.invokeL(1048653, this, view) == null) {
             showLoadingView(view, false);
         }
     }
 
     public void showNetRefreshView(View view, String str, String str2, String str3, boolean z, View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048656, this, new Object[]{view, str, str2, str3, Boolean.valueOf(z), onClickListener}) == null) || getPageContext() == null || getPageContext().getContext() == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048657, this, new Object[]{view, str, str2, str3, Boolean.valueOf(z), onClickListener}) == null) || getPageContext() == null || getPageContext().getContext() == null) {
             return;
         }
         if (this.mRefreshView == null) {
@@ -903,7 +916,7 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
 
     public void showNetRefreshViewNoClick(View view, String str, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(1048658, this, view, str, z) == null) {
+        if (interceptable == null || interceptable.invokeLLZ(1048659, this, view, str, z) == null) {
             if (this.mRefreshView == null) {
                 this.mRefreshView = new h(getPageContext().getContext(), getNetRefreshListener());
             }
@@ -916,7 +929,7 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
 
     public void showNetRefreshViewNoClickWithTitle(View view, String str, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(1048659, this, view, str, z) == null) {
+        if (interceptable == null || interceptable.invokeLLZ(1048660, this, view, str, z) == null) {
             if (this.mRefreshView == null) {
                 this.mRefreshView = new h(getPageContext().getContext(), getNetRefreshListener());
             }
@@ -929,7 +942,7 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
 
     public void showNoDataNoRefreshView(View view, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048660, this, view, z) == null) {
+        if (interceptable == null || interceptable.invokeLZ(1048661, this, view, z) == null) {
             if (this.mRefreshView == null) {
                 this.mRefreshView = new h(getPageContext().getContext(), getNetRefreshListener());
             }
@@ -942,7 +955,7 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
 
     public void showNoDataRefreshView(View view, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048661, this, view, z) == null) {
+        if (interceptable == null || interceptable.invokeLZ(1048662, this, view, z) == null) {
             if (this.mRefreshView == null) {
                 this.mRefreshView = new h(getPageContext().getContext(), getNetRefreshListener());
             }
@@ -955,7 +968,7 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
 
     public void showProgressBar() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048662, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048663, this) == null) {
             try {
                 showProgressBarWithOffset(0, 0);
             } catch (OutOfMemoryError unused) {
@@ -966,14 +979,14 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
 
     public void showProgressBarWithOffset(int i2, int i3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048665, this, i2, i3) == null) {
+        if (interceptable == null || interceptable.invokeII(1048666, this, i2, i3) == null) {
             showProgressBar(false, i2, i3);
         }
     }
 
     public void showToast(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048668, this, str) == null) || getActivity() == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048669, this, str) == null) || getActivity() == null) {
             return;
         }
         String name = getClass().getName();
@@ -987,14 +1000,14 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
 
     public void unRegisterResponsedEventListener() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048670, this) == null) {
-            c.a.o0.h0.h.f().n(getUniqueId());
+        if (interceptable == null || interceptable.invokeV(1048671, this) == null) {
+            c.a.p0.h0.h.f().n(getUniqueId());
         }
     }
 
     public void unbindFragmentExtraFormView(View view) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048671, this, view) == null) || view == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048672, this, view) == null) || view == null) {
             return;
         }
         view.setTag(R.id.tag_tb_fragment_extra, null);
@@ -1004,7 +1017,7 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
     public boolean videoNeedPreload() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048672, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048673, this)) == null) {
             return false;
         }
         return invokeV.booleanValue;
@@ -1012,21 +1025,21 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
 
     public void showLoadingView(View view, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048653, this, view, z) == null) {
+        if (interceptable == null || interceptable.invokeLZ(1048654, this, view, z) == null) {
             showLoadingView(view, z, -1);
         }
     }
 
     public void showLoadingView(View view, boolean z, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048654, this, new Object[]{view, Boolean.valueOf(z), Integer.valueOf(i2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048655, this, new Object[]{view, Boolean.valueOf(z), Integer.valueOf(i2)}) == null) {
             showLoadingView(view, z, i2, TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
     public void showProgressBar(boolean z, int i2, int i3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048663, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048664, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3)}) == null) {
             showProgressBar(z, false, i2, i3);
         }
     }
@@ -1054,7 +1067,7 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
 
     public void showLoadingView(View view, boolean z, int i2, int i3) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048655, this, new Object[]{view, Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3)}) == null) || isLoadingViewAttached() || getActivity() == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048656, this, new Object[]{view, Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3)}) == null) || isLoadingViewAttached() || getActivity() == null) {
             return;
         }
         if (this.loadingView == null) {
@@ -1074,7 +1087,7 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
     public void showProgressBar(boolean z, boolean z2, int i2, int i3) {
         ContinuousAnimationView continuousAnimationView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048664, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), Integer.valueOf(i2), Integer.valueOf(i3)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048665, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), Integer.valueOf(i2), Integer.valueOf(i3)}) == null) {
             if (this.mProgressBar == null) {
                 try {
                     ContinuousAnimationView continuousAnimationView2 = new ContinuousAnimationView(getPageContext().getPageActivity());
@@ -1111,7 +1124,7 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
 
     public void showToast(int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048666, this, i2) == null) || getActivity() == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048667, this, i2) == null) || getActivity() == null) {
             return;
         }
         String name = getClass().getName();
@@ -1135,7 +1148,7 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
 
     public void showNetRefreshView(View view, String str, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(1048657, this, view, str, z) == null) {
+        if (interceptable == null || interceptable.invokeLLZ(1048658, this, view, str, z) == null) {
             showNetRefreshView(view, null, str, null, z, getNetRefreshListener());
         }
     }
@@ -1162,7 +1175,7 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
 
     public void showToast(String str, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048669, this, str, z) == null) {
+        if (interceptable == null || interceptable.invokeLZ(1048670, this, str, z) == null) {
             if (z) {
                 this.customToast.showToast(str, 2000);
             } else {
@@ -1183,7 +1196,7 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
 
     public void showToast(int i2, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048667, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048668, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
             if (z) {
                 this.customToast.showToast(i2, 2000);
             } else {

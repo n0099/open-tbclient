@@ -16,16 +16,16 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f2041a;
+    public final String f2099a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f2042b;
+    public String f2100b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f2043c;
+    public String f2101c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f2044d;
+    public String f2102d;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -40,13 +40,13 @@ public class b {
                 return;
             }
         }
-        this.f2041a = Environment.getExternalStorageDirectory().getAbsolutePath();
-        this.f2042b = this.f2041a + "/baidu/";
-        this.f2043c = null;
-        this.f2044d = null;
+        this.f2099a = Environment.getExternalStorageDirectory().getAbsolutePath();
+        this.f2100b = this.f2099a + "/baidu/";
+        this.f2101c = null;
+        this.f2102d = null;
         try {
-            this.f2043c = BdBaseApplication.getInst().getContext().getFilesDir().getAbsolutePath() + "/";
-            this.f2044d = BdBaseApplication.getInst().getContext().getCacheDir().getAbsolutePath() + "/";
+            this.f2101c = BdBaseApplication.getInst().getContext().getFilesDir().getAbsolutePath() + "/";
+            this.f2102d = BdBaseApplication.getInst().getContext().getCacheDir().getAbsolutePath() + "/";
         } catch (Exception e2) {
             BdLog.e(e2.getMessage());
         }
@@ -63,26 +63,26 @@ public class b {
                     return null;
                 }
                 if (str != null) {
-                    str3 = this.f2042b + str + "/";
+                    str3 = this.f2100b + str + "/";
                 } else {
-                    str3 = this.f2042b;
+                    str3 = this.f2100b;
                 }
             } else if (z3) {
-                str2 = this.f2044d;
+                str2 = this.f2102d;
                 if (str2 == null) {
                     return null;
                 }
                 if (str != null) {
-                    str3 = this.f2044d + str + "/";
+                    str3 = this.f2102d + str + "/";
                 }
                 str3 = str2;
             } else {
-                str2 = this.f2043c;
+                str2 = this.f2101c;
                 if (str2 == null) {
                     return null;
                 }
                 if (str != null) {
-                    str3 = this.f2043c + str + "/";
+                    str3 = this.f2101c + str + "/";
                 }
                 str3 = str2;
             }
@@ -135,6 +135,6 @@ public class b {
         if (!(interceptable == null || interceptable.invokeL(1048580, this, str) == null) || str == null) {
             return;
         }
-        this.f2042b = this.f2041a + "/" + str + "/";
+        this.f2100b = this.f2099a + "/" + str + "/";
     }
 }

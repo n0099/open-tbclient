@@ -540,7 +540,7 @@ public class NetInfo {
             if (jSONObject != null) {
                 this.mJSONObject = jSONObject;
                 this.mConnect = JSONObjectUtils.getLong(jSONObject, "connect");
-                this.mDns = JSONObjectUtils.getLong(this.mJSONObject, b.InterfaceC1611b.f37853b);
+                this.mDns = JSONObjectUtils.getLong(this.mJSONObject, b.InterfaceC1615b.f37959b);
                 this.mDurationTime = JSONObjectUtils.getLong(this.mJSONObject, "duration_time");
                 this.mHeadRecv = JSONObjectUtils.getInt(this.mJSONObject, "head_recv");
                 this.mRedirect = JSONObjectUtils.getInt(this.mJSONObject, "redirect");

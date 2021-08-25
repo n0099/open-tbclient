@@ -14,9 +14,13 @@ public class StartupCountStatsUtils {
     public static final String FOREGROUND_TIME_STAMP = "ftime";
     public static final String FROM = "from";
     public static final String LAUNCH_SAMPLE = "launch_sample";
+    public static final String MEG_STARTUP_UBC_ID = "691";
+    public static final String MEG_USE_DURATION_UBC_ID = "18";
     public static final int MIN_RECORD_DURATION = 300000;
     public static final String PERF_SAMPLE_FLAG = "pf";
     public static final String PERF_SAMPLE_SEPARATOR = ",";
+    public static final String SDK_FLAG_KEY = "lsdk";
+    public static final String SDK_FLAG_VALUE = "bls";
     public static final String SOURCE = "source";
     public static final String STARTUP_COLD_START = "cold_start";
     public static final String STARTUP_FROM_KEY = "research";

@@ -5,12 +5,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import androidx.core.view.InputDeviceCompat;
 import c.a.f.d;
-import c.a.p0.o1.o.l.f;
-import c.a.p0.o1.o.l.h;
-import c.a.p0.o1.o.l.j;
-import c.a.p0.v0.p2.c;
-import c.a.p0.x2.l0.e;
-import c.a.p0.x2.l0.g;
+import c.a.q0.o1.o.l.f;
+import c.a.q0.o1.o.l.h;
+import c.a.q0.o1.o.l.j;
+import c.a.q0.v0.o2.c;
+import c.a.q0.x2.l0.e;
+import c.a.q0.x2.l0.g;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.afd.adapter.AdCardViewHolder;
 import com.baidu.tbadk.TbPageContext;
@@ -25,13 +25,13 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes.dex */
-public class a extends c.a.e.k.e.a<d, AdCardViewHolder> implements f {
+public class a extends c.a.e.l.e.a<d, AdCardViewHolder> implements f {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ICardInfo m;
     public d n;
     public TbPageContext o;
-    public c.a.p0.v0.h1.a p;
+    public c.a.q0.v0.h1.a p;
     public c q;
     public j r;
     public List<j> s;
@@ -39,14 +39,14 @@ public class a extends c.a.e.k.e.a<d, AdCardViewHolder> implements f {
 
     /* renamed from: c.a.f.l.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0064a implements c.a.p0.o1.o.a {
+    public class C0067a implements c.a.q0.o1.o.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f3178a;
+        public final /* synthetic */ a f3298a;
 
-        public C0064a(a aVar) {
+        public C0067a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -61,21 +61,21 @@ public class a extends c.a.e.k.e.a<d, AdCardViewHolder> implements f {
                     return;
                 }
             }
-            this.f3178a = aVar;
+            this.f3298a = aVar;
         }
 
-        @Override // c.a.p0.o1.o.a
+        @Override // c.a.q0.o1.o.a
         public void a(int i2, HashMap<String, Object> hashMap) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(1048576, this, i2, hashMap) == null) {
-                a aVar = this.f3178a;
-                aVar.l0(aVar.n, this.f3178a.n.k());
+                a aVar = this.f3298a;
+                aVar.l0(aVar.n, this.f3298a.n.k());
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, c.a.p0.v0.h1.a aVar, c cVar, f fVar) {
+    public a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, c.a.q0.v0.h1.a aVar, c cVar, f fVar) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -100,7 +100,7 @@ public class a extends c.a.e.k.e.a<d, AdCardViewHolder> implements f {
         this.t = fVar;
     }
 
-    @Override // c.a.p0.o1.o.l.f
+    @Override // c.a.q0.o1.o.l.f
     public void h(j jVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, jVar) == null) {
@@ -113,7 +113,7 @@ public class a extends c.a.e.k.e.a<d, AdCardViewHolder> implements f {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // c.a.e.k.e.a
+    @Override // c.a.e.l.e.a
     /* renamed from: j0 */
     public View L(int i2, View view, ViewGroup viewGroup, d dVar) {
         InterceptResult invokeCommon;
@@ -151,31 +151,31 @@ public class a extends c.a.e.k.e.a<d, AdCardViewHolder> implements f {
             i3 = 102;
         }
         e.b().d(g.b(w, i3, i2));
-        c.a.p0.o1.o.h.c.h(dVar);
+        c.a.q0.o1.o.h.c.h(dVar);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // c.a.e.k.e.a
+    @Override // c.a.e.l.e.a
     /* renamed from: m0 */
     public AdCardViewHolder U(ViewGroup viewGroup) {
         InterceptResult invokeL;
-        c.a.p0.o1.o.l.e a2;
+        c.a.q0.o1.o.l.e a2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, viewGroup)) == null) {
-            if (this.m == null || (a2 = c.a.p0.o1.o.b.h().a(this.o, this.m, 2)) == null) {
+            if (this.m == null || (a2 = c.a.q0.o1.o.b.h().a(this.o, this.m, 2)) == null) {
                 return null;
             }
             if (a2 instanceof j) {
                 this.s.add((j) a2);
             }
-            a2.setAfterClickSchemeListener(new C0064a(this));
+            a2.setAfterClickSchemeListener(new C0067a(this));
             return new AdCardViewHolder(a2);
         }
         return (AdCardViewHolder) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // c.a.e.k.e.a
+    @Override // c.a.e.l.e.a
     /* renamed from: n0 */
     public AdCardViewHolder V(ViewGroup viewGroup, d dVar) {
         InterceptResult invokeLL;
@@ -203,7 +203,7 @@ public class a extends c.a.e.k.e.a<d, AdCardViewHolder> implements f {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // c.a.e.k.e.a
+    @Override // c.a.e.l.e.a
     /* renamed from: p0 */
     public View a0(int i2, View view, ViewGroup viewGroup, d dVar, AdCardViewHolder adCardViewHolder) {
         InterceptResult invokeCommon;

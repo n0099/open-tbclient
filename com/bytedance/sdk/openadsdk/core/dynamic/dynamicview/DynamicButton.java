@@ -46,7 +46,7 @@ public class DynamicButton extends DynamicBaseWidgetImp {
     private void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, this) == null) {
-            this.p = ((this.f65987f - ((int) s.b(this.f65990i, this.f65991j.e()))) / 2) - this.f65991j.a();
+            this.p = ((this.f66187f - ((int) s.b(this.f66190i, this.f66191j.e()))) / 2) - this.f66191j.a();
             this.q = 0;
         }
     }
@@ -58,18 +58,18 @@ public class DynamicButton extends DynamicBaseWidgetImp {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             super.b();
             if (Build.VERSION.SDK_INT >= 17) {
-                this.n.setTextAlignment(this.f65991j.h());
+                this.n.setTextAlignment(this.f66191j.h());
             }
-            ((TextView) this.n).setText(this.f65991j.i());
-            ((TextView) this.n).setTextColor(this.f65991j.g());
-            ((TextView) this.n).setTextSize(this.f65991j.e());
+            ((TextView) this.n).setText(this.f66191j.i());
+            ((TextView) this.n).setTextColor(this.f66191j.g());
+            ((TextView) this.n).setTextSize(this.f66191j.e());
             if (Build.VERSION.SDK_INT >= 16) {
                 this.n.setBackground(getBackgroundDrawable());
             }
             ((TextView) this.n).setGravity(17);
             ((TextView) this.n).setIncludeFontPadding(false);
             f();
-            this.n.setPadding(this.f65991j.c(), this.p, this.f65991j.d(), this.q);
+            this.n.setPadding(this.f66191j.c(), this.p, this.f66191j.d(), this.q);
             return true;
         }
         return invokeV.booleanValue;

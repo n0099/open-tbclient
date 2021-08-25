@@ -6,7 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import androidx.core.view.InputDeviceCompat;
-import c.a.p0.v0.q0;
+import c.a.q0.v0.q0;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
@@ -26,22 +26,22 @@ public class AlaGameFrsLiveTabVideoFragment extends BaseFragment implements q0 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f49435e;
+    public boolean f49543e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f49436f;
+    public String f49544f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f49437g;
+    public boolean f49545g;
 
     /* renamed from: h  reason: collision with root package name */
-    public c.a.p0.v.g.a.b f49438h;
+    public c.a.q0.v.g.a.b f49546h;
 
     /* renamed from: i  reason: collision with root package name */
-    public CustomMessageListener f49439i;
+    public CustomMessageListener f49547i;
 
     /* renamed from: j  reason: collision with root package name */
-    public CustomMessageListener f49440j;
+    public CustomMessageListener f49548j;
 
     /* loaded from: classes7.dex */
     public class a extends CustomMessageListener {
@@ -49,7 +49,7 @@ public class AlaGameFrsLiveTabVideoFragment extends BaseFragment implements q0 {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ AlaGameFrsLiveTabVideoFragment f49441a;
+        public final /* synthetic */ AlaGameFrsLiveTabVideoFragment f49549a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(AlaGameFrsLiveTabVideoFragment alaGameFrsLiveTabVideoFragment, int i2) {
@@ -69,7 +69,7 @@ public class AlaGameFrsLiveTabVideoFragment extends BaseFragment implements q0 {
                     return;
                 }
             }
-            this.f49441a = alaGameFrsLiveTabVideoFragment;
+            this.f49549a = alaGameFrsLiveTabVideoFragment;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -84,11 +84,11 @@ public class AlaGameFrsLiveTabVideoFragment extends BaseFragment implements q0 {
                 return;
             }
             if ("FrsGameLive".equals(split[0]) && 8 == c.a.e.e.m.b.d(split[1], 0)) {
-                if (this.f49441a.f49438h != null) {
-                    this.f49441a.f49438h.i();
+                if (this.f49549a.f49546h != null) {
+                    this.f49549a.f49546h.i();
                 }
-            } else if ("FrsGameLiveLive".equals(split[0]) && 3 == c.a.e.e.m.b.d(split[1], 0) && this.f49441a.f49438h != null) {
-                this.f49441a.f49438h.i();
+            } else if ("FrsGameLiveLive".equals(split[0]) && 3 == c.a.e.e.m.b.d(split[1], 0) && this.f49549a.f49546h != null) {
+                this.f49549a.f49546h.i();
             }
         }
     }
@@ -99,7 +99,7 @@ public class AlaGameFrsLiveTabVideoFragment extends BaseFragment implements q0 {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ AlaGameFrsLiveTabVideoFragment f49442a;
+        public final /* synthetic */ AlaGameFrsLiveTabVideoFragment f49550a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(AlaGameFrsLiveTabVideoFragment alaGameFrsLiveTabVideoFragment, int i2) {
@@ -119,7 +119,7 @@ public class AlaGameFrsLiveTabVideoFragment extends BaseFragment implements q0 {
                     return;
                 }
             }
-            this.f49442a = alaGameFrsLiveTabVideoFragment;
+            this.f49550a = alaGameFrsLiveTabVideoFragment;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -128,8 +128,8 @@ public class AlaGameFrsLiveTabVideoFragment extends BaseFragment implements q0 {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2921023 && (customResponsedMessage.getData() instanceof String)) {
                 String str = (String) customResponsedMessage.getData();
-                if (this.f49442a.getVideoUrl().contains(str) || str.contains(this.f49442a.getVideoUrl())) {
-                    this.f49442a.f49438h.l();
+                if (this.f49550a.getVideoUrl().contains(str) || str.contains(this.f49550a.getVideoUrl())) {
+                    this.f49550a.f49546h.l();
                 }
             }
         }
@@ -148,10 +148,10 @@ public class AlaGameFrsLiveTabVideoFragment extends BaseFragment implements q0 {
                 return;
             }
         }
-        this.f49435e = false;
-        this.f49437g = true;
-        this.f49439i = new a(this, 0);
-        this.f49440j = new b(this, 2921023);
+        this.f49543e = false;
+        this.f49545g = true;
+        this.f49547i = new a(this, 0);
+        this.f49548j = new b(this, 2921023);
     }
 
     public final String c(String str) {
@@ -174,7 +174,7 @@ public class AlaGameFrsLiveTabVideoFragment extends BaseFragment implements q0 {
         return (String) invokeL.objValue;
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragment, c.a.o0.m0.a
+    @Override // com.baidu.tbadk.core.BaseFragment, c.a.p0.m0.a
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -184,26 +184,26 @@ public class AlaGameFrsLiveTabVideoFragment extends BaseFragment implements q0 {
         return (String) invokeV.objValue;
     }
 
-    @Override // c.a.p0.v0.q0
+    @Override // c.a.q0.v0.q0
     public NavigationBar getNavigationBar() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f49438h.j() : (NavigationBar) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f49546h.j() : (NavigationBar) invokeV.objValue;
     }
 
     public String getVideoUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            String p = c.a.o0.s.d0.b.j().p("ala_game_frs_live_tab_video_url", "https://tieba.baidu.com/n/interact/video/game?");
+            String p = c.a.p0.s.d0.b.j().p("ala_game_frs_live_tab_video_url", "https://tieba.baidu.com/n/interact/video/game?");
             if (p != null) {
                 StringBuilder sb = new StringBuilder(p);
                 if (p.endsWith("?")) {
                     sb.append("fid=");
-                    sb.append(this.f49436f);
+                    sb.append(this.f49544f);
                 } else {
                     sb.append("?fid=");
-                    sb.append(this.f49436f);
+                    sb.append(this.f49544f);
                 }
                 return sb.toString();
             }
@@ -217,8 +217,8 @@ public class AlaGameFrsLiveTabVideoFragment extends BaseFragment implements q0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
             super.onActivityCreated(bundle);
-            this.f49438h.o(this);
-            registerListener(this.f49440j);
+            this.f49546h.o(this);
+            registerListener(this.f49548j);
         }
     }
 
@@ -227,15 +227,15 @@ public class AlaGameFrsLiveTabVideoFragment extends BaseFragment implements q0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
             super.onChangeSkinType(i2);
-            if (this.f49437g) {
+            if (this.f49545g) {
                 return;
             }
             if (i2 == 1) {
-                this.f49438h.y(c(getVideoUrl()));
+                this.f49546h.y(c(getVideoUrl()));
             } else {
-                this.f49438h.y(getVideoUrl());
+                this.f49546h.y(getVideoUrl());
             }
-            this.f49438h.A(i2);
+            this.f49546h.A(i2);
         }
     }
 
@@ -244,7 +244,7 @@ public class AlaGameFrsLiveTabVideoFragment extends BaseFragment implements q0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, bundle) == null) {
             super.onCreate(bundle);
-            registerListener(2001446, this.f49439i, getBaseFragmentActivity().getUniqueId());
+            registerListener(2001446, this.f49547i, getBaseFragmentActivity().getUniqueId());
         }
     }
 
@@ -253,8 +253,8 @@ public class AlaGameFrsLiveTabVideoFragment extends BaseFragment implements q0 {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048583, this, layoutInflater, viewGroup, bundle)) == null) {
-            c.a.p0.v.g.a.b bVar = new c.a.p0.v.g.a.b(this.f49435e);
-            this.f49438h = bVar;
+            c.a.q0.v.g.a.b bVar = new c.a.q0.v.g.a.b(this.f49543e);
+            this.f49546h = bVar;
             return bVar.B(layoutInflater, viewGroup);
         }
         return (View) invokeLLL.objValue;
@@ -265,7 +265,7 @@ public class AlaGameFrsLiveTabVideoFragment extends BaseFragment implements q0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             super.onDestroy();
-            c.a.p0.v.g.a.b bVar = this.f49438h;
+            c.a.q0.v.g.a.b bVar = this.f49546h;
             if (bVar != null) {
                 bVar.C();
             }
@@ -285,13 +285,13 @@ public class AlaGameFrsLiveTabVideoFragment extends BaseFragment implements q0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             super.onPrimary();
-            if (this.f49437g || StringUtils.isNull(this.f49438h.k().getUrl())) {
+            if (this.f49545g || StringUtils.isNull(this.f49546h.k().getUrl())) {
                 if (TbadkCoreApplication.getInst().getSkinType() == 1) {
-                    this.f49438h.y(c(getVideoUrl()));
+                    this.f49546h.y(c(getVideoUrl()));
                 } else {
-                    this.f49438h.y(getVideoUrl());
+                    this.f49546h.y(getVideoUrl());
                 }
-                this.f49437g = false;
+                this.f49545g = false;
             }
         }
     }
@@ -307,7 +307,7 @@ public class AlaGameFrsLiveTabVideoFragment extends BaseFragment implements q0 {
     public void setForumId(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
-            this.f49436f = str;
+            this.f49544f = str;
         }
     }
 
@@ -320,7 +320,7 @@ public class AlaGameFrsLiveTabVideoFragment extends BaseFragment implements q0 {
     public void setShowNavi(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048590, this, z) == null) {
-            this.f49435e = z;
+            this.f49543e = z;
         }
     }
 }

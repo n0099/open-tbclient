@@ -14,7 +14,7 @@ public class a extends DiskFileOperate {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public NSGif f2058a;
+    public NSGif f2116a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a(String str, String str2, DiskFileOperate.Action action) {
@@ -35,13 +35,13 @@ public class a extends DiskFileOperate {
                 return;
             }
         }
-        this.f2058a = null;
+        this.f2116a = null;
     }
 
     public NSGif a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f2058a : (NSGif) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f2116a : (NSGif) invokeV.objValue;
     }
 
     @Override // com.baidu.adp.lib.Disk.ops.DiskFileOperate
@@ -49,9 +49,9 @@ public class a extends DiskFileOperate {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr)) == null) {
-            if (bArr != null && NSGif.f36033f) {
+            if (bArr != null && NSGif.f36139f) {
                 NSGif f2 = NSGif.f(bArr, 0, bArr.length);
-                this.f2058a = f2;
+                this.f2116a = f2;
                 if (f2 != null) {
                     return true;
                 }

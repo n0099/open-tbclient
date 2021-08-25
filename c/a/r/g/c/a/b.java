@@ -12,13 +12,13 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f29322a;
+    public String f29604a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f29323b;
+    public boolean f29605b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f29324c;
+    public boolean f29606c;
 
     public b(String str, boolean z, boolean z2) {
         Interceptable interceptable = $ic;
@@ -35,9 +35,9 @@ public class b {
                 return;
             }
         }
-        this.f29322a = str;
-        this.f29323b = z;
-        this.f29324c = z2;
+        this.f29604a = str;
+        this.f29605b = z;
+        this.f29606c = z2;
     }
 
     public static int a(int i2) {
@@ -95,14 +95,14 @@ public class b {
                     if (i7 >= i2) {
                         break;
                     }
-                    char charAt = this.f29322a.charAt(iArr[i7]);
-                    if (this.f29324c) {
+                    char charAt = this.f29604a.charAt(iArr[i7]);
+                    if (this.f29606c) {
                         charAt = Character.toLowerCase(charAt);
                     }
                     byteArrayOutputStream.write(charAt);
                     i7++;
                 }
-                if (this.f29323b) {
+                if (this.f29605b) {
                     while (i2 < 8) {
                         byteArrayOutputStream.write(61);
                         i2++;

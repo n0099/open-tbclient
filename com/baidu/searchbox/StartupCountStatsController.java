@@ -59,4 +59,12 @@ public class StartupCountStatsController {
             }
         }
     }
+
+    public static void resetDefaultUploadID() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
+            StartupCountStats.setStartupCountUploadId(StartupCountStatsUtils.MEG_STARTUP_UBC_ID);
+            StartupCountStats.setUseDurationUploadId("18");
+        }
+    }
 }

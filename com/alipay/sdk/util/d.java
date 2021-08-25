@@ -16,34 +16,34 @@ public final class d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final d f35845a;
+    public static final d f35951a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final d f35846b;
+    public static final d f35952b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final d f35847c;
+    public static final d f35953c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final d f35848d;
+    public static final d f35954d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final d f35849e;
+    public static final d f35955e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final d f35850f;
+    public static final d f35956f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final d f35851g;
+    public static final d f35957g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final d f35852h;
+    public static final d f35958h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final d f35853i;
+    public static final d f35959i;
 
     /* renamed from: j  reason: collision with root package name */
-    public static final d f35854j;
+    public static final d f35960j;
     public static final d k;
     public static final d l;
     public static final d m;
@@ -68,16 +68,16 @@ public final class d {
                 return;
             }
         }
-        f35845a = new d(CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING, 0, 0, CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING);
-        f35846b = new d("NETWORK_TYPE_1", 1, 1, "unicom2G");
-        f35847c = new d("NETWORK_TYPE_2", 2, 2, "mobile2G");
-        f35848d = new d("NETWORK_TYPE_4", 3, 4, "telecom2G");
-        f35849e = new d("NETWORK_TYPE_5", 4, 5, "telecom3G");
-        f35850f = new d("NETWORK_TYPE_6", 5, 6, "telecom3G");
-        f35851g = new d("NETWORK_TYPE_12", 6, 12, "telecom3G");
-        f35852h = new d("NETWORK_TYPE_8", 7, 8, "unicom3G");
-        f35853i = new d("NETWORK_TYPE_3", 8, 3, "unicom3G");
-        f35854j = new d("NETWORK_TYPE_13", 9, 13, "LTE");
+        f35951a = new d(CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING, 0, 0, CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING);
+        f35952b = new d("NETWORK_TYPE_1", 1, 1, "unicom2G");
+        f35953c = new d("NETWORK_TYPE_2", 2, 2, "mobile2G");
+        f35954d = new d("NETWORK_TYPE_4", 3, 4, "telecom2G");
+        f35955e = new d("NETWORK_TYPE_5", 4, 5, "telecom3G");
+        f35956f = new d("NETWORK_TYPE_6", 5, 6, "telecom3G");
+        f35957g = new d("NETWORK_TYPE_12", 6, 12, "telecom3G");
+        f35958h = new d("NETWORK_TYPE_8", 7, 8, "unicom3G");
+        f35959i = new d("NETWORK_TYPE_3", 8, 3, "unicom3G");
+        f35960j = new d("NETWORK_TYPE_13", 9, 13, "LTE");
         k = new d("NETWORK_TYPE_11", 10, 11, "IDEN");
         l = new d("NETWORK_TYPE_9", 11, 9, "HSUPA");
         m = new d("NETWORK_TYPE_10", 12, 10, "HSPA");
@@ -85,7 +85,7 @@ public final class d {
         o = new d("NETWORK_TYPE_20", 14, 20, "5G");
         d dVar = new d("NONE", 15, -1, "none");
         p = dVar;
-        s = new d[]{f35845a, f35846b, f35847c, f35848d, f35849e, f35850f, f35851g, f35852h, f35853i, f35854j, k, l, m, n, o, dVar};
+        s = new d[]{f35951a, f35952b, f35953c, f35954d, f35955e, f35956f, f35957g, f35958h, f35959i, f35960j, k, l, m, n, o, dVar};
     }
 
     public d(String str, int i2, int i3, String str2) {

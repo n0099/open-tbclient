@@ -13,34 +13,34 @@ public class f {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f38858a;
+    public int f38965a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f38859b;
+    public int f38966b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f38860c;
+    public int f38967c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f38861d;
+    public int f38968d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f38862e;
+    public int f38969e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f38863f;
+    public int f38970f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f38864g;
+    public int f38971g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f38865h;
+    public int f38972h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f38866i;
+    public int f38973i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f38867j;
+    public int f38974j;
     public float[] k;
     public float[] l;
 
@@ -57,39 +57,39 @@ public class f {
                 return;
             }
         }
-        this.f38858a = 0;
-        this.f38859b = 0;
-        this.f38860c = 1;
-        this.f38861d = 1;
-        this.f38862e = 0;
-        this.f38863f = 0;
-        this.f38864g = 0;
-        this.f38865h = 0;
-        this.f38866i = 0;
-        this.f38867j = 0;
+        this.f38965a = 0;
+        this.f38966b = 0;
+        this.f38967c = 1;
+        this.f38968d = 1;
+        this.f38969e = 0;
+        this.f38970f = 0;
+        this.f38971g = 0;
+        this.f38972h = 0;
+        this.f38973i = 0;
+        this.f38974j = 0;
         this.k = r3;
         float[] fArr = {1.0f, 1.0f};
         this.l = r3;
         float[] fArr2 = {0.0f, 0.0f};
-        this.f38867j = 2;
+        this.f38974j = 2;
     }
 
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f38858a = 0;
-            this.f38859b = 0;
-            this.f38860c = 1;
-            this.f38861d = 1;
-            this.f38862e = 0;
-            this.f38863f = 0;
-            this.f38864g = 0;
-            this.f38865h = 0;
-            this.f38866i = 0;
+            this.f38965a = 0;
+            this.f38966b = 0;
+            this.f38967c = 1;
+            this.f38968d = 1;
+            this.f38969e = 0;
+            this.f38970f = 0;
+            this.f38971g = 0;
+            this.f38972h = 0;
+            this.f38973i = 0;
             float[] fArr = this.k;
             fArr[0] = 1.0f;
             fArr[1] = 1.0f;
-            this.f38867j = 2;
+            this.f38974j = 2;
         }
     }
 
@@ -97,9 +97,9 @@ public class f {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
-            if (this.f38863f != i2) {
-                this.f38863f = i2;
-                this.f38864g = ((this.f38862e + 360) - i2) % 360;
+            if (this.f38970f != i2) {
+                this.f38970f = i2;
+                this.f38971g = ((this.f38969e + 360) - i2) % 360;
                 return true;
             }
             return false;
@@ -111,11 +111,11 @@ public class f {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeII = interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i2, i3)) == null) {
-            if (this.f38858a == i2 && this.f38859b == i3) {
+            if (this.f38965a == i2 && this.f38966b == i3) {
                 return false;
             }
-            this.f38858a = i2;
-            this.f38859b = i3;
+            this.f38965a = i2;
+            this.f38966b = i3;
             return true;
         }
         return invokeII.booleanValue;
@@ -125,17 +125,17 @@ public class f {
         InterceptResult invokeIIII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIIII = interceptable.invokeIIII(1048579, this, i2, i3, i4, i5)) == null) {
-            if (this.f38865h == i2 && i3 == this.f38866i && this.f38860c == i4 && this.f38861d == i5) {
+            if (this.f38972h == i2 && i3 == this.f38973i && this.f38967c == i4 && this.f38968d == i5) {
                 return false;
             }
-            this.f38865h = i2;
-            this.f38866i = i3;
+            this.f38972h = i2;
+            this.f38973i = i3;
             if (i5 == 0 || i4 == 0) {
-                this.f38860c = 1;
-                this.f38861d = 1;
+                this.f38967c = 1;
+                this.f38968d = 1;
             } else {
-                this.f38860c = i4;
-                this.f38861d = i5;
+                this.f38967c = i4;
+                this.f38968d = i5;
             }
             return true;
         }
@@ -193,24 +193,24 @@ public class f {
         float f6;
         float f7;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || this.f38858a == 0 || this.f38859b == 0 || this.f38865h == 0 || this.f38866i == 0) {
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || this.f38965a == 0 || this.f38966b == 0 || this.f38972h == 0 || this.f38973i == 0) {
             return;
         }
-        int i4 = this.f38867j;
+        int i4 = this.f38974j;
         boolean z = i4 == 0 || i4 == 2;
         float f8 = 1.0f;
-        float f9 = (this.f38859b * 1.0f) / this.f38858a;
-        float f10 = (this.f38866i * 1.0f) / this.f38865h;
-        int i5 = this.f38864g;
-        if ((i5 != 90 && i5 != 270) || (i2 = this.f38866i) == 0) {
+        float f9 = (this.f38966b * 1.0f) / this.f38965a;
+        float f10 = (this.f38973i * 1.0f) / this.f38972h;
+        int i5 = this.f38971g;
+        if ((i5 != 90 && i5 != 270) || (i2 = this.f38973i) == 0) {
             if (z) {
-                f2 = this.f38861d * 1.0f;
-                i3 = this.f38860c;
+                f2 = this.f38968d * 1.0f;
+                i3 = this.f38967c;
                 f10 *= f2 / i3;
             }
-            CyberLog.d("CyberRenderSizeHelper", "updateDisplaySize called mVideoWidth:" + this.f38865h + " mVideoHeight:" + this.f38866i + " mVideoSarNum:" + this.f38860c + " mVideoSarDen:" + this.f38861d + " mSurfaceWidth:" + this.f38858a + " mSurfaceHeight:" + this.f38859b + " mDisplayMode:" + this.f38867j);
+            CyberLog.d("CyberRenderSizeHelper", "updateDisplaySize called mVideoWidth:" + this.f38972h + " mVideoHeight:" + this.f38973i + " mVideoSarNum:" + this.f38967c + " mVideoSarDen:" + this.f38968d + " mSurfaceWidth:" + this.f38965a + " mSurfaceHeight:" + this.f38966b + " mDisplayMode:" + this.f38974j);
             float f11 = 0.0f;
-            switch (this.f38867j) {
+            switch (this.f38974j) {
             }
             float[] fArr = this.k;
             fArr[0] = f8;
@@ -220,15 +220,15 @@ public class f {
             fArr2[1] = f3;
             CyberLog.d("CyberRenderSizeHelper", "updateDisplaySize called sx:" + f8 + " sy:" + f4 + " translateX:" + f11 + " translateY:" + f3);
         }
-        f10 = (this.f38865h * 1.0f) / i2;
+        f10 = (this.f38972h * 1.0f) / i2;
         if (z) {
-            f2 = this.f38860c * 1.0f;
-            i3 = this.f38861d;
+            f2 = this.f38967c * 1.0f;
+            i3 = this.f38968d;
             f10 *= f2 / i3;
         }
-        CyberLog.d("CyberRenderSizeHelper", "updateDisplaySize called mVideoWidth:" + this.f38865h + " mVideoHeight:" + this.f38866i + " mVideoSarNum:" + this.f38860c + " mVideoSarDen:" + this.f38861d + " mSurfaceWidth:" + this.f38858a + " mSurfaceHeight:" + this.f38859b + " mDisplayMode:" + this.f38867j);
+        CyberLog.d("CyberRenderSizeHelper", "updateDisplaySize called mVideoWidth:" + this.f38972h + " mVideoHeight:" + this.f38973i + " mVideoSarNum:" + this.f38967c + " mVideoSarDen:" + this.f38968d + " mSurfaceWidth:" + this.f38965a + " mSurfaceHeight:" + this.f38966b + " mDisplayMode:" + this.f38974j);
         float f112 = 0.0f;
-        switch (this.f38867j) {
+        switch (this.f38974j) {
             case 1:
                 f3 = 0.0f;
                 f4 = 1.0f;
@@ -243,8 +243,8 @@ public class f {
                 f5 = 0.5625f;
                 break;
             case 6:
-                float f12 = (this.f38865h * 1.0f) / this.f38858a;
-                f4 = (this.f38866i * 1.0f) / this.f38859b;
+                float f12 = (this.f38972h * 1.0f) / this.f38965a;
+                f4 = (this.f38973i * 1.0f) / this.f38966b;
                 f8 = f12;
                 f3 = 0.0f;
                 break;
@@ -310,9 +310,9 @@ public class f {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i2)) == null) {
-            if (this.f38862e != i2) {
-                this.f38862e = i2;
-                this.f38864g = ((360 - this.f38863f) + i2) % 360;
+            if (this.f38969e != i2) {
+                this.f38969e = i2;
+                this.f38971g = ((360 - this.f38970f) + i2) % 360;
                 return true;
             }
             return false;
@@ -324,8 +324,8 @@ public class f {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i2)) == null) {
-            if (this.f38867j != i2) {
-                this.f38867j = i2;
+            if (this.f38974j != i2) {
+                this.f38974j = i2;
                 return true;
             }
             return false;
@@ -342,7 +342,7 @@ public class f {
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f38867j : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f38974j : invokeV.intValue;
     }
 
     public float[] e() {
@@ -355,7 +355,7 @@ public class f {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            int i2 = this.f38867j;
+            int i2 = this.f38974j;
             return i2 == 7 || i2 == 8 || i2 == 9 || i2 == 10;
         }
         return invokeV.booleanValue;
@@ -364,30 +364,30 @@ public class f {
     public int g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f38864g : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f38971g : invokeV.intValue;
     }
 
     public int h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f38865h : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f38972h : invokeV.intValue;
     }
 
     public int i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f38866i : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f38973i : invokeV.intValue;
     }
 
     public int j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.f38858a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.f38965a : invokeV.intValue;
     }
 
     public int k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.f38859b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.f38966b : invokeV.intValue;
     }
 }

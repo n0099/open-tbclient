@@ -5,12 +5,12 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import c.a.e.e.p.k;
-import c.a.p0.b3.d.a;
-import c.a.p0.b3.d.c;
-import c.a.p0.b3.d.d;
-import c.a.p0.b3.d.e;
-import c.a.p0.b3.d.f;
-import c.a.p0.b3.e.b;
+import c.a.q0.b3.d.a;
+import c.a.q0.b3.d.c;
+import c.a.q0.b3.d.d;
+import c.a.q0.b3.d.e;
+import c.a.q0.b3.d.f;
+import c.a.q0.b3.e.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.ActivityPendingTransitionFactory;
 import com.baidu.tbadk.core.util.permission.PermissionJudgePolicy;
@@ -153,7 +153,7 @@ public class ShareHandlerActivity extends ShareBaseActivity implements b, WbShar
                 this.mShareByWeibo = eVar2;
                 this.mCurrentShare = eVar2;
             } else if (i2 == 8) {
-                this.mCurrentShare = new c.a.p0.b3.d.b(this);
+                this.mCurrentShare = new c.a.q0.b3.d.b(this);
             } else if (i2 == 2) {
                 this.mCurrentShare = new f(this, 2);
             } else if (i2 == 3) {
@@ -252,18 +252,18 @@ public class ShareHandlerActivity extends ShareBaseActivity implements b, WbShar
         }
     }
 
-    @Override // c.a.p0.b3.e.b
+    @Override // c.a.q0.b3.e.b
     public void onShare(int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048585, this, i2, i3) == null) {
             if (i3 == 1) {
-                c.a.p0.b3.f.b.b(i2, this.mShareEntity);
+                c.a.q0.b3.f.b.b(i2, this.mShareEntity);
             }
             if (i3 == 3) {
                 if (i2 != 8 && i2 != 6) {
-                    c.a.p0.b3.f.b.a(i2, this.mShareEntity);
+                    c.a.q0.b3.f.b.a(i2, this.mShareEntity);
                 } else {
-                    c.a.p0.b3.f.b.b(i2, this.mShareEntity);
+                    c.a.q0.b3.f.b.b(i2, this.mShareEntity);
                 }
             }
             if (this.mShareEntity.getStats() != null) {

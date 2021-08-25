@@ -18,16 +18,16 @@ public class e {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f42653a;
+    public String f42760a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f42654b;
+    public String f42761b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f42655c;
+    public int f42762c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f42656d;
+    public int f42763d;
 
     public e() {
         Interceptable interceptable = $ic;
@@ -42,8 +42,8 @@ public class e {
                 return;
             }
         }
-        this.f42655c = 2;
-        this.f42656d = 0;
+        this.f42762c = 2;
+        this.f42763d = 0;
     }
 
     public static e a(String str, String str2) {
@@ -54,14 +54,14 @@ public class e {
                 return null;
             }
             e eVar = new e();
-            eVar.f42653a = str;
+            eVar.f42760a = str;
             int length = TextUtils.isEmpty(str2) ? 0 : str2.length();
-            eVar.f42656d = length;
+            eVar.f42763d = length;
             if (length < 14) {
                 if (TextUtils.isEmpty(str2)) {
                     str2 = "0";
                 }
-                eVar.f42654b = str2;
+                eVar.f42761b = str2;
             }
             return eVar;
         }
@@ -109,14 +109,14 @@ public class e {
                 int length = TextUtils.isEmpty(str3) ? 0 : str3.length();
                 if (!TextUtils.isEmpty(string)) {
                     e eVar = new e();
-                    eVar.f42653a = string;
-                    eVar.f42655c = i2;
-                    eVar.f42656d = length;
+                    eVar.f42760a = string;
+                    eVar.f42762c = i2;
+                    eVar.f42763d = length;
                     if (length < 14) {
                         if (!TextUtils.isEmpty(str3)) {
                             str2 = str3;
                         }
-                        eVar.f42654b = str2;
+                        eVar.f42761b = str2;
                     }
                     eVar.c();
                     return eVar;
@@ -156,13 +156,13 @@ public class e {
     public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? a(this.f42654b) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? a(this.f42761b) : invokeV.booleanValue;
     }
 
     public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? a(this.f42656d) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? a(this.f42763d) : invokeV.booleanValue;
     }
 
     public boolean c() {
@@ -177,7 +177,7 @@ public class e {
             } else {
                 str = "0";
             }
-            this.f42654b = str;
+            this.f42761b = str;
             return true;
         }
         return invokeV.booleanValue;

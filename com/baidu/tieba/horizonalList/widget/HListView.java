@@ -80,10 +80,10 @@ public class HListView extends AbsHListView {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f52344a;
+        public int f52505a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f52345b;
+        public int f52506b;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -102,20 +102,20 @@ public class HListView extends AbsHListView {
         public int a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f52345b : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f52506b : invokeV.intValue;
         }
 
         public int b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f52344a : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f52505a : invokeV.intValue;
         }
 
         public void c(int i2, int i3) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i2, i3) == null) {
-                this.f52344a = i2;
-                this.f52345b = i3;
+                this.f52505a = i2;
+                this.f52506b = i3;
             }
         }
 
@@ -130,13 +130,13 @@ public class HListView extends AbsHListView {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public View f52346a;
+        public View f52507a;
 
         /* renamed from: b  reason: collision with root package name */
-        public Object f52347b;
+        public Object f52508b;
 
         /* renamed from: c  reason: collision with root package name */
-        public boolean f52348c;
+        public boolean f52509c;
 
         public c() {
             Interceptable interceptable = $ic;
@@ -159,13 +159,13 @@ public class HListView extends AbsHListView {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f52349e;
+        public int f52510e;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f52350f;
+        public int f52511f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ HListView f52351g;
+        public final /* synthetic */ HListView f52512g;
 
         public d(HListView hListView) {
             Interceptable interceptable = $ic;
@@ -182,15 +182,15 @@ public class HListView extends AbsHListView {
                     return;
                 }
             }
-            this.f52351g = hListView;
+            this.f52512g = hListView;
         }
 
         public d a(int i2, int i3) {
             InterceptResult invokeII;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeII = interceptable.invokeII(1048576, this, i2, i3)) == null) {
-                this.f52349e = i2;
-                this.f52350f = i3;
+                this.f52510e = i2;
+                this.f52511f = i3;
                 return this;
             }
             return (d) invokeII.objValue;
@@ -200,7 +200,7 @@ public class HListView extends AbsHListView {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.f52351g.setSelectionFromLeft(this.f52349e, this.f52350f);
+                this.f52512g.setSelectionFromLeft(this.f52510e, this.f52511f);
             }
         }
 
@@ -215,7 +215,7 @@ public class HListView extends AbsHListView {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ HListView f52352e;
+        public final /* synthetic */ HListView f52513e;
 
         public e(HListView hListView) {
             Interceptable interceptable = $ic;
@@ -232,7 +232,7 @@ public class HListView extends AbsHListView {
                     return;
                 }
             }
-            this.f52352e = hListView;
+            this.f52513e = hListView;
         }
 
         @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
@@ -524,9 +524,9 @@ public class HListView extends AbsHListView {
         }
         int size = arrayList.size();
         for (int i2 = 0; i2 < size; i2++) {
-            AbsHListView.LayoutParams layoutParams = (AbsHListView.LayoutParams) arrayList.get(i2).f52346a.getLayoutParams();
+            AbsHListView.LayoutParams layoutParams = (AbsHListView.LayoutParams) arrayList.get(i2).f52507a.getLayoutParams();
             if (layoutParams != null) {
-                layoutParams.f52279b = false;
+                layoutParams.f52440b = false;
             }
         }
     }
@@ -1038,14 +1038,14 @@ public class HListView extends AbsHListView {
             ArrayList<c> arrayList = this.mHeaderViewInfos;
             int size = arrayList.size();
             for (int i2 = 0; i2 < size; i2++) {
-                if (view == arrayList.get(i2).f52346a) {
+                if (view == arrayList.get(i2).f52507a) {
                     return true;
                 }
             }
             ArrayList<c> arrayList2 = this.mFooterViewInfos;
             int size2 = arrayList2.size();
             for (int i3 = 0; i3 < size2; i3++) {
-                if (view == arrayList2.get(i3).f52346a) {
+                if (view == arrayList2.get(i3).f52507a) {
                     return true;
                 }
             }
@@ -1181,8 +1181,8 @@ public class HListView extends AbsHListView {
                 layoutParams = (AbsHListView.LayoutParams) generateDefaultLayoutParams();
                 view.setLayoutParams(layoutParams);
             }
-            layoutParams.f52278a = this.mAdapter.getItemViewType(i2);
-            layoutParams.f52280c = true;
+            layoutParams.f52439a = this.mAdapter.getItemViewType(i2);
+            layoutParams.f52441c = true;
             Rect rect = this.mListPadding;
             int childMeasureSpec = ViewGroup.getChildMeasureSpec(i3, rect.top + rect.bottom, ((ViewGroup.LayoutParams) layoutParams).height);
             int i4 = ((ViewGroup.LayoutParams) layoutParams).width;
@@ -1278,7 +1278,7 @@ public class HListView extends AbsHListView {
         if (interceptable == null || interceptable.invokeLL(65574, this, view, arrayList) == null) {
             int size = arrayList.size();
             for (int i2 = 0; i2 < size; i2++) {
-                if (arrayList.get(i2).f52346a == view) {
+                if (arrayList.get(i2).f52507a == view) {
                     arrayList.remove(i2);
                     return;
                 }
@@ -1309,7 +1309,7 @@ public class HListView extends AbsHListView {
                 }
                 View childAt2 = getChildAt(0);
                 while (childAt2.getRight() < i6) {
-                    if (lVar.q(((AbsHListView.LayoutParams) childAt2.getLayoutParams()).f52278a)) {
+                    if (lVar.q(((AbsHListView.LayoutParams) childAt2.getLayoutParams()).f52439a)) {
                         detachViewFromParent(childAt2);
                         lVar.c(childAt2, this.mFirstPosition);
                     } else {
@@ -1331,7 +1331,7 @@ public class HListView extends AbsHListView {
             int childCount2 = getChildCount() - 1;
             View childAt4 = getChildAt(childCount2);
             while (childAt4.getLeft() > i5) {
-                if (lVar.q(((AbsHListView.LayoutParams) childAt4.getLayoutParams()).f52278a)) {
+                if (lVar.q(((AbsHListView.LayoutParams) childAt4.getLayoutParams()).f52439a)) {
                     detachViewFromParent(childAt4);
                     lVar.c(childAt4, this.mFirstPosition + childCount2);
                 } else {
@@ -1359,13 +1359,13 @@ public class HListView extends AbsHListView {
             if (layoutParams == null) {
                 layoutParams = (AbsHListView.LayoutParams) generateDefaultLayoutParams();
             }
-            layoutParams.f52278a = this.mAdapter.getItemViewType(i2);
-            if ((z3 && !layoutParams.f52280c) || (layoutParams.f52279b && layoutParams.f52278a == -2)) {
+            layoutParams.f52439a = this.mAdapter.getItemViewType(i2);
+            if ((z3 && !layoutParams.f52441c) || (layoutParams.f52440b && layoutParams.f52439a == -2)) {
                 attachViewToParent(view, z ? -1 : 0, layoutParams);
             } else {
-                layoutParams.f52280c = false;
-                if (layoutParams.f52278a == -2) {
-                    layoutParams.f52279b = true;
+                layoutParams.f52441c = false;
+                if (layoutParams.f52439a == -2) {
+                    layoutParams.f52440b = true;
                 }
                 addViewInLayout(view, z ? -1 : 0, layoutParams, true);
             }
@@ -1408,7 +1408,7 @@ public class HListView extends AbsHListView {
             if (this.mCachingStarted && !view.isDrawingCacheEnabled()) {
                 view.setDrawingCacheEnabled(true);
             }
-            if (Build.VERSION.SDK_INT < 11 || !z3 || ((AbsHListView.LayoutParams) view.getLayoutParams()).f52281d == i2) {
+            if (Build.VERSION.SDK_INT < 11 || !z3 || ((AbsHListView.LayoutParams) view.getLayoutParams()).f52442d == i2) {
                 return;
             }
             view.jumpDrawablesToCurrentState();
@@ -1439,9 +1439,9 @@ public class HListView extends AbsHListView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, obj, z) == null) {
             c cVar2 = new c();
-            cVar2.f52346a = view;
-            cVar2.f52347b = obj;
-            cVar2.f52348c = z;
+            cVar2.f52507a = view;
+            cVar2.f52508b = obj;
+            cVar2.f52509c = z;
             this.mFooterViewInfos.add(cVar2);
             if (this.mAdapter == null || (cVar = this.mDataSetObserver) == null) {
                 return;
@@ -1455,13 +1455,13 @@ public class HListView extends AbsHListView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLZ(1048579, this, view, obj, z) == null) {
             ListAdapter listAdapter = this.mAdapter;
-            if (listAdapter != null && !(listAdapter instanceof c.a.p0.g1.b.d)) {
+            if (listAdapter != null && !(listAdapter instanceof c.a.q0.g1.b.d)) {
                 throw new IllegalStateException("Cannot add header view to list -- setAdapter has already been called.");
             }
             c cVar2 = new c();
-            cVar2.f52346a = view;
-            cVar2.f52347b = obj;
-            cVar2.f52348c = z;
+            cVar2.f52507a = view;
+            cVar2.f52508b = obj;
+            cVar2.f52509c = z;
             this.mHeaderViewInfos.add(cVar2);
             if (this.mAdapter == null || (cVar = this.mDataSetObserver) == null) {
                 return;
@@ -2276,7 +2276,7 @@ public class HListView extends AbsHListView {
                 if (i3 > 0) {
                     i7 += i8;
                 }
-                if (recycleOnMeasure && lVar.q(((AbsHListView.LayoutParams) obtainView.getLayoutParams()).f52278a)) {
+                if (recycleOnMeasure && lVar.q(((AbsHListView.LayoutParams) obtainView.getLayoutParams()).f52439a)) {
                     lVar.c(obtainView, -1);
                 }
                 i7 += obtainView.getMeasuredWidth();
@@ -2318,7 +2318,7 @@ public class HListView extends AbsHListView {
             for (int i14 = i3; i14 <= i11; i14++) {
                 View obtainView = obtainView(i14, zArr);
                 measureScrapChildWidth(obtainView, i14, i2);
-                if (recycleOnMeasure && lVar.q(((AbsHListView.LayoutParams) obtainView.getLayoutParams()).f52278a)) {
+                if (recycleOnMeasure && lVar.q(((AbsHListView.LayoutParams) obtainView.getLayoutParams()).f52439a)) {
                     lVar.c(obtainView, -1);
                 }
                 i12 = Math.max(i12, obtainView.getMeasuredWidth() + i10);
@@ -2476,7 +2476,7 @@ public class HListView extends AbsHListView {
                 int measuredWidth = obtainView.getMeasuredWidth();
                 int measuredHeight = obtainView.getMeasuredHeight();
                 r3 = Build.VERSION.SDK_INT >= 11 ? ViewGroup.combineMeasuredStates(0, obtainView.getMeasuredState()) : 0;
-                if (recycleOnMeasure() && this.mRecycler.q(((AbsHListView.LayoutParams) obtainView.getLayoutParams()).f52278a)) {
+                if (recycleOnMeasure() && this.mRecycler.q(((AbsHListView.LayoutParams) obtainView.getLayoutParams()).f52439a)) {
                     this.mRecycler.c(obtainView, -1);
                 }
                 i4 = r3;
@@ -2591,7 +2591,7 @@ public class HListView extends AbsHListView {
             boolean z = false;
             if (this.mFooterViewInfos.size() > 0) {
                 ListAdapter listAdapter = this.mAdapter;
-                if (listAdapter != null && ((c.a.p0.g1.b.d) listAdapter).d(view)) {
+                if (listAdapter != null && ((c.a.q0.g1.b.d) listAdapter).d(view)) {
                     AbsHListView.c cVar = this.mDataSetObserver;
                     if (cVar != null) {
                         cVar.onChanged();
@@ -2612,7 +2612,7 @@ public class HListView extends AbsHListView {
             boolean z = false;
             if (this.mHeaderViewInfos.size() > 0) {
                 ListAdapter listAdapter = this.mAdapter;
-                if (listAdapter != null && ((c.a.p0.g1.b.d) listAdapter).e(view)) {
+                if (listAdapter != null && ((c.a.q0.g1.b.d) listAdapter).e(view)) {
                     AbsHListView.c cVar = this.mDataSetObserver;
                     if (cVar != null) {
                         cVar.onChanged();
@@ -2915,7 +2915,7 @@ public class HListView extends AbsHListView {
             if (this.mHeaderViewInfos.size() <= 0 && this.mFooterViewInfos.size() <= 0) {
                 this.mAdapter = listAdapter;
             } else {
-                this.mAdapter = new c.a.p0.g1.b.d(this.mHeaderViewInfos, this.mFooterViewInfos, listAdapter);
+                this.mAdapter = new c.a.q0.g1.b.d(this.mHeaderViewInfos, this.mFooterViewInfos, listAdapter);
             }
             this.mOldSelectedPosition = -1;
             this.mOldSelectedColId = Long.MIN_VALUE;

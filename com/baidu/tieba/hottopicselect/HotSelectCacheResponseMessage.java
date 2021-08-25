@@ -1,8 +1,8 @@
 package com.baidu.tieba.hottopicselect;
 
 import GetSugTopic.GetSugTopicResIdl;
-import c.a.o0.s.r.a;
-import c.a.p0.i1.c;
+import c.a.p0.s.r.a;
+import c.a.q0.i1.c;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -47,7 +47,8 @@ public class HotSelectCacheResponseMessage extends CustomResponsedMessage<Object
             if (currentAccount == null) {
                 currentAccount = "";
             }
-            byte[] bArr2 = a.f().e("topic_select_space", currentAccount).get("topic_select_user");
+            a.f();
+            byte[] bArr2 = a.e("topic_select_space", currentAccount).get("topic_select_user");
             GetSugTopicResIdl getSugTopicResIdl = null;
             if (bArr2 == null) {
                 this.resultStatus = 1;

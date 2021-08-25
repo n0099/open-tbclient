@@ -55,7 +55,7 @@ public final class ParallelFromPublisher<T> extends ParallelFlowable<T> {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: j  reason: collision with root package name */
-            public final int f78568j;
+            public final int f78769j;
             public final int m;
             public final /* synthetic */ ParallelDispatcher this$0;
 
@@ -75,7 +75,7 @@ public final class ParallelFromPublisher<T> extends ParallelFlowable<T> {
                     }
                 }
                 this.this$0 = parallelDispatcher;
-                this.f78568j = i2;
+                this.f78769j = i2;
                 this.m = i3;
             }
 
@@ -83,7 +83,7 @@ public final class ParallelFromPublisher<T> extends ParallelFlowable<T> {
             public void cancel() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    if (this.this$0.requests.compareAndSet(this.f78568j + this.m, 0L, 1L)) {
+                    if (this.this$0.requests.compareAndSet(this.f78769j + this.m, 0L, 1L)) {
                         ParallelDispatcher parallelDispatcher = this.this$0;
                         int i2 = this.m;
                         parallelDispatcher.cancel(i2 + i2);
@@ -98,11 +98,11 @@ public final class ParallelFromPublisher<T> extends ParallelFlowable<T> {
                 if ((interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2) == null) && SubscriptionHelper.validate(j2)) {
                     AtomicLongArray atomicLongArray = this.this$0.requests;
                     do {
-                        j3 = atomicLongArray.get(this.f78568j);
+                        j3 = atomicLongArray.get(this.f78769j);
                         if (j3 == Long.MAX_VALUE) {
                             return;
                         }
-                    } while (!atomicLongArray.compareAndSet(this.f78568j, j3, BackpressureHelper.addCap(j3, j2)));
+                    } while (!atomicLongArray.compareAndSet(this.f78769j, j3, BackpressureHelper.addCap(j3, j2)));
                     if (this.this$0.subscriberCount.get() == this.m) {
                         this.this$0.drain();
                     }

@@ -20,7 +20,6 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.JProtect;
 import com.bytedance.sdk.openadsdk.FilterWord;
-import com.bytedance.sdk.openadsdk.TTAdConstant;
 import com.bytedance.sdk.openadsdk.core.r;
 import com.bytedance.sdk.openadsdk.q.s;
 import com.coremedia.iso.boxes.FreeSpaceBox;
@@ -343,19 +342,19 @@ public class d {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ Context f67373a;
+                public final /* synthetic */ Context f67573a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ com.bytedance.sdk.openadsdk.core.e.m f67374b;
+                public final /* synthetic */ com.bytedance.sdk.openadsdk.core.e.m f67574b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ String f67375c;
+                public final /* synthetic */ String f67575c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ Map f67376d;
+                public final /* synthetic */ Map f67576d;
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ float f67377e;
+                public final /* synthetic */ float f67577e;
 
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                 {
@@ -375,18 +374,18 @@ public class d {
                             return;
                         }
                     }
-                    this.f67373a = context;
-                    this.f67374b = mVar;
-                    this.f67375c = str;
-                    this.f67376d = map;
-                    this.f67377e = floatValue;
+                    this.f67573a = context;
+                    this.f67574b = mVar;
+                    this.f67575c = str;
+                    this.f67576d = map;
+                    this.f67577e = floatValue;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        d.b(this.f67373a, this.f67374b, this.f67375c, this.f67376d, this.f67377e);
+                        d.b(this.f67573a, this.f67574b, this.f67575c, this.f67576d, this.f67577e);
                     }
                 }
             });
@@ -416,28 +415,28 @@ public class d {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ Context f67381a;
+                public final /* synthetic */ Context f67581a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ String f67382b;
+                public final /* synthetic */ String f67582b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ com.bytedance.sdk.openadsdk.core.e.m f67383c;
+                public final /* synthetic */ com.bytedance.sdk.openadsdk.core.e.m f67583c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ com.bytedance.sdk.openadsdk.core.e.f f67384d;
+                public final /* synthetic */ com.bytedance.sdk.openadsdk.core.e.f f67584d;
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ String f67385e;
+                public final /* synthetic */ String f67585e;
 
                 /* renamed from: f  reason: collision with root package name */
-                public final /* synthetic */ boolean f67386f;
+                public final /* synthetic */ boolean f67586f;
 
                 /* renamed from: g  reason: collision with root package name */
-                public final /* synthetic */ Map f67387g;
+                public final /* synthetic */ Map f67587g;
 
                 /* renamed from: h  reason: collision with root package name */
-                public final /* synthetic */ float f67388h;
+                public final /* synthetic */ float f67588h;
 
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                 {
@@ -457,21 +456,21 @@ public class d {
                             return;
                         }
                     }
-                    this.f67381a = context;
-                    this.f67382b = str;
-                    this.f67383c = mVar;
-                    this.f67384d = fVar;
-                    this.f67385e = str2;
-                    this.f67386f = z;
-                    this.f67387g = map;
-                    this.f67388h = floatValue;
+                    this.f67581a = context;
+                    this.f67582b = str;
+                    this.f67583c = mVar;
+                    this.f67584d = fVar;
+                    this.f67585e = str2;
+                    this.f67586f = z;
+                    this.f67587g = map;
+                    this.f67588h = floatValue;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        d.b(this.f67381a, this.f67382b, this.f67383c, this.f67384d, this.f67385e, this.f67386f, this.f67387g, this.f67388h);
+                        d.b(this.f67581a, this.f67582b, this.f67583c, this.f67584d, this.f67585e, this.f67586f, this.f67587g, this.f67588h);
                     }
                 }
             });
@@ -529,13 +528,13 @@ public class d {
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ com.bytedance.sdk.openadsdk.core.e.m f67378a;
+                    public final /* synthetic */ com.bytedance.sdk.openadsdk.core.e.m f67578a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ String f67379b;
+                    public final /* synthetic */ String f67579b;
 
                     /* renamed from: c  reason: collision with root package name */
-                    public final /* synthetic */ long f67380c;
+                    public final /* synthetic */ long f67580c;
 
                     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                     {
@@ -555,16 +554,16 @@ public class d {
                                 return;
                             }
                         }
-                        this.f67378a = mVar;
-                        this.f67379b = str;
-                        this.f67380c = j2;
+                        this.f67578a = mVar;
+                        this.f67579b = str;
+                        this.f67580c = j2;
                     }
 
                     @Override // java.lang.Runnable
                     public void run() {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            d.c(this.f67378a, this.f67379b, this.f67380c);
+                            d.c(this.f67578a, this.f67579b, this.f67580c);
                         }
                     }
                 });
@@ -623,25 +622,25 @@ public class d {
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ String f67389a;
+                    public final /* synthetic */ String f67589a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ String f67390b;
+                    public final /* synthetic */ String f67590b;
 
                     /* renamed from: c  reason: collision with root package name */
-                    public final /* synthetic */ String f67391c;
+                    public final /* synthetic */ String f67591c;
 
                     /* renamed from: d  reason: collision with root package name */
-                    public final /* synthetic */ long f67392d;
+                    public final /* synthetic */ long f67592d;
 
                     /* renamed from: e  reason: collision with root package name */
-                    public final /* synthetic */ long f67393e;
+                    public final /* synthetic */ long f67593e;
 
                     /* renamed from: f  reason: collision with root package name */
-                    public final /* synthetic */ JSONObject f67394f;
+                    public final /* synthetic */ JSONObject f67594f;
 
                     /* renamed from: g  reason: collision with root package name */
-                    public final /* synthetic */ float f67395g;
+                    public final /* synthetic */ float f67595g;
 
                     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                     {
@@ -661,20 +660,20 @@ public class d {
                                 return;
                             }
                         }
-                        this.f67389a = str;
-                        this.f67390b = str2;
-                        this.f67391c = str3;
-                        this.f67392d = j2;
-                        this.f67393e = j3;
-                        this.f67394f = jSONObject;
-                        this.f67395g = floatValue;
+                        this.f67589a = str;
+                        this.f67590b = str2;
+                        this.f67591c = str3;
+                        this.f67592d = j2;
+                        this.f67593e = j3;
+                        this.f67594f = jSONObject;
+                        this.f67595g = floatValue;
                     }
 
                     @Override // java.lang.Runnable
                     public void run() {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            d.b(this.f67389a, this.f67390b, this.f67391c, this.f67392d, this.f67393e, this.f67394f, this.f67395g);
+                            d.b(this.f67589a, this.f67590b, this.f67591c, this.f67592d, this.f67593e, this.f67594f, this.f67595g);
                         }
                     }
                 });
@@ -699,7 +698,7 @@ public class d {
                 jSONObject2.putOpt("render_type", "h5");
                 jSONObject2.putOpt("render_type_2", 0);
                 jSONObject.putOpt("ad_extra_data", jSONObject2);
-                jSONObject.put("duration", Math.min(j2, (long) TTAdConstant.AD_MAX_EVENT_TIME));
+                jSONObject.put("duration", Math.min(j2, 600000L));
             } catch (Exception unused) {
             }
             d(context, mVar, str, "load", jSONObject);

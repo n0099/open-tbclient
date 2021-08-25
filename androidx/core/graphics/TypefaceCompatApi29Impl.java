@@ -102,7 +102,7 @@ public class TypefaceCompatApi29Impl extends TypefaceCompatBaseImpl {
                 }
                 FontsContractCompat.FontInfo fontInfo = fontInfoArr[i3];
                 try {
-                    openFileDescriptor = contentResolver.openFileDescriptor(fontInfo.getUri(), r.f42062a, cancellationSignal);
+                    openFileDescriptor = contentResolver.openFileDescriptor(fontInfo.getUri(), r.f42169a, cancellationSignal);
                 } catch (IOException unused) {
                 }
                 if (openFileDescriptor == null) {

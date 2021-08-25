@@ -23,10 +23,10 @@ public class d<T> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public View f1919e;
+        public View f1977e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ d f1920f;
+        public final /* synthetic */ d f1978f;
 
         public a(d dVar, View view) {
             Interceptable interceptable = $ic;
@@ -43,19 +43,19 @@ public class d<T> {
                     return;
                 }
             }
-            this.f1920f = dVar;
-            this.f1919e = null;
-            this.f1919e = view;
+            this.f1978f = dVar;
+            this.f1977e = null;
+            this.f1977e = view;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             f<T> fVar;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (fVar = this.f1920f.mContext) == null || fVar.getPageActivity() == null || this.f1920f.mContext.getPageActivity().isFinishing()) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (fVar = this.f1978f.mContext) == null || fVar.getPageActivity() == null || this.f1978f.mContext.getPageActivity().isFinishing()) {
                 return;
             }
-            this.f1920f.ShowSoftKeyPad(this.f1919e);
+            this.f1978f.ShowSoftKeyPad(this.f1977e);
         }
     }
 

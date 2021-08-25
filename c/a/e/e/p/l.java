@@ -40,31 +40,31 @@ public class l {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f2512a;
+    public static boolean f2570a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static float f2513b;
+    public static float f2571b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static int f2514c;
+    public static int f2572c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static int f2515d;
+    public static int f2573d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static Toast f2516e;
+    public static Toast f2574e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static c f2517f;
+    public static c f2575f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static String f2518g;
+    public static String f2576g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static Handler f2519h;
+    public static Handler f2577h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static Runnable f2520i;
+    public static Runnable f2578i;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
@@ -89,10 +89,10 @@ public class l {
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || l.f2516e == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || l.f2574e == null) {
                 return;
             }
-            l.f2516e.cancel();
+            l.f2574e.cancel();
         }
     }
 
@@ -102,22 +102,22 @@ public class l {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ View f2521e;
+        public final /* synthetic */ View f2579e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f2522f;
+        public final /* synthetic */ int f2580f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ int f2523g;
+        public final /* synthetic */ int f2581g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ int f2524h;
+        public final /* synthetic */ int f2582h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ int f2525i;
+        public final /* synthetic */ int f2583i;
 
         /* renamed from: j  reason: collision with root package name */
-        public final /* synthetic */ View f2526j;
+        public final /* synthetic */ View f2584j;
 
         public b(View view, int i2, int i3, int i4, int i5, View view2) {
             Interceptable interceptable = $ic;
@@ -134,12 +134,12 @@ public class l {
                     return;
                 }
             }
-            this.f2521e = view;
-            this.f2522f = i2;
-            this.f2523g = i3;
-            this.f2524h = i4;
-            this.f2525i = i5;
-            this.f2526j = view2;
+            this.f2579e = view;
+            this.f2580f = i2;
+            this.f2581g = i3;
+            this.f2582h = i4;
+            this.f2583i = i5;
+            this.f2584j = view2;
         }
 
         @Override // java.lang.Runnable
@@ -147,12 +147,12 @@ public class l {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 Rect rect = new Rect();
-                this.f2521e.getHitRect(rect);
-                rect.right += this.f2522f;
-                rect.left -= this.f2523g;
-                rect.bottom += this.f2524h;
-                rect.top -= this.f2525i;
-                this.f2526j.setTouchDelegate(new TouchDelegate(rect, this.f2521e));
+                this.f2579e.getHitRect(rect);
+                rect.right += this.f2580f;
+                rect.left -= this.f2581g;
+                rect.bottom += this.f2582h;
+                rect.top -= this.f2583i;
+                this.f2584j.setTouchDelegate(new TouchDelegate(rect, this.f2579e));
             }
         }
     }
@@ -179,8 +179,8 @@ public class l {
                 return;
             }
         }
-        f2519h = new Handler(Looper.getMainLooper());
-        f2520i = new a();
+        f2577h = new Handler(Looper.getMainLooper());
+        f2578i = new a();
     }
 
     public static boolean A() {
@@ -251,7 +251,7 @@ public class l {
     public static void H(c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65544, null, cVar) == null) {
-            f2517f = cVar;
+            f2575f = cVar;
         }
     }
 
@@ -299,19 +299,19 @@ public class l {
         if (!(interceptable == null || interceptable.invokeLLI(65550, null, context, str, i2) == null) || TextUtils.isEmpty(str) || TextUtils.isEmpty(str)) {
             return;
         }
-        f2519h.removeCallbacks(f2520i);
-        if (f2516e != null && Build.VERSION.SDK_INT < 28) {
-            c cVar = f2517f;
+        f2577h.removeCallbacks(f2578i);
+        if (f2574e != null && Build.VERSION.SDK_INT < 28) {
+            c cVar = f2575f;
             if (cVar != null) {
                 cVar.a();
             }
-            if (!str.equals(f2518g)) {
-                c cVar2 = f2517f;
+            if (!str.equals(f2576g)) {
+                c cVar2 = f2575f;
                 if (cVar2 != null && cVar2.c() != null) {
-                    f2517f.b(str);
-                    f2516e.setView(f2517f.c());
+                    f2575f.b(str);
+                    f2574e.setView(f2575f.c());
                 } else {
-                    f2516e.setText(str);
+                    f2574e.setText(str);
                 }
             }
             int e2 = e(BdBaseApplication.getInst().getApp(), 100.0f);
@@ -319,49 +319,49 @@ public class l {
                 e2 = 0;
             }
             if (i2 == 3500) {
-                f2516e.setDuration(1);
+                f2574e.setDuration(1);
             } else {
-                f2516e.setDuration(0);
+                f2574e.setDuration(0);
             }
-            f2516e.setGravity(17, 0, e2);
+            f2574e.setGravity(17, 0, e2);
         } else {
-            Toast toast = f2516e;
+            Toast toast = f2574e;
             if (toast != null) {
                 toast.cancel();
             }
-            c cVar3 = f2517f;
+            c cVar3 = f2575f;
             if (cVar3 != null) {
                 cVar3.a();
             }
-            c cVar4 = f2517f;
+            c cVar4 = f2575f;
             if (cVar4 != null && cVar4.c() != null) {
                 Toast toast2 = new Toast(BdBaseApplication.getInst().getApp());
-                f2516e = toast2;
+                f2574e = toast2;
                 u.a(toast2);
                 if (i2 == 3500) {
-                    f2516e.setDuration(1);
+                    f2574e.setDuration(1);
                 } else {
-                    f2516e.setDuration(0);
+                    f2574e.setDuration(0);
                 }
-                f2517f.b(str);
-                f2516e.setView(f2517f.c());
+                f2575f.b(str);
+                f2574e.setView(f2575f.c());
             } else {
                 if (i2 == 3500) {
                     Toast makeText = Toast.makeText(BdBaseApplication.getInst().getApp(), str, 1);
-                    f2516e = makeText;
+                    f2574e = makeText;
                     u.a(makeText);
                 } else {
                     Toast makeText2 = Toast.makeText(BdBaseApplication.getInst().getApp(), str, 0);
-                    f2516e = makeText2;
+                    f2574e = makeText2;
                     u.a(makeText2);
                 }
-                f2516e.setText(str);
+                f2574e.setText(str);
             }
-            f2516e.setGravity(17, 0, e(BdBaseApplication.getInst().getApp(), 100.0f));
+            f2574e.setGravity(17, 0, e(BdBaseApplication.getInst().getApp(), 100.0f));
         }
-        f2518g = str;
-        f2519h.postDelayed(f2520i, i2);
-        f2516e.show();
+        f2576g = str;
+        f2577h.postDelayed(f2578i, i2);
+        f2574e.show();
     }
 
     public static double a(double d2, double d3, double d4, double d5) {
@@ -411,10 +411,10 @@ public class l {
         InterceptResult invokeLF;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLF = interceptable.invokeLF(65555, null, context, f2)) == null) {
-            if (!f2512a) {
+            if (!f2570a) {
                 y(context);
             }
-            return (int) ((f2 * f2513b) + 0.5f);
+            return (int) ((f2 * f2571b) + 0.5f);
         }
         return invokeLF.intValue;
     }
@@ -446,10 +446,10 @@ public class l {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65558, null, context)) == null) {
-            if (!f2512a) {
+            if (!f2570a) {
                 y(context);
             }
-            return f2513b;
+            return f2571b;
         }
         return invokeL.floatValue;
     }
@@ -458,10 +458,10 @@ public class l {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65559, null, context)) == null) {
-            if (!f2512a) {
+            if (!f2570a) {
                 y(context);
             }
-            return f2515d;
+            return f2573d;
         }
         return invokeL.intValue;
     }
@@ -470,10 +470,10 @@ public class l {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65560, null, context, z)) == null) {
-            if (!f2512a || z) {
+            if (!f2570a || z) {
                 y(context);
             }
-            return f2515d;
+            return f2573d;
         }
         return invokeLZ.intValue;
     }
@@ -482,10 +482,10 @@ public class l {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65561, null, context)) == null) {
-            if (!f2512a) {
+            if (!f2570a) {
                 y(context);
             }
-            return f2514c;
+            return f2572c;
         }
         return invokeL.intValue;
     }
@@ -732,7 +732,7 @@ public class l {
     public static c u() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65571, null)) == null) ? f2517f : (c) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65571, null)) == null) ? f2575f : (c) invokeV.objValue;
     }
 
     public static String v() {
@@ -798,14 +798,14 @@ public class l {
             windowManager.getDefaultDisplay().getMetrics(displayMetrics);
             int orientation = windowManager.getDefaultDisplay().getOrientation();
             if (orientation != 1 && orientation != 3) {
-                f2514c = displayMetrics.widthPixels;
-                f2515d = displayMetrics.heightPixels;
+                f2572c = displayMetrics.widthPixels;
+                f2573d = displayMetrics.heightPixels;
             } else {
-                f2514c = displayMetrics.heightPixels;
-                f2515d = displayMetrics.widthPixels;
+                f2572c = displayMetrics.heightPixels;
+                f2573d = displayMetrics.widthPixels;
             }
-            f2513b = displayMetrics.density;
-            f2512a = true;
+            f2571b = displayMetrics.density;
+            f2570a = true;
         }
     }
 
@@ -818,7 +818,7 @@ public class l {
             }
             try {
                 String str = new String(bArr, 0, 16, "UTF-8");
-                if (str.indexOf(com.baidu.wallet.base.audio.b.f59855e) == 0) {
+                if (str.indexOf(com.baidu.wallet.base.audio.b.f60055e) == 0) {
                     return 8 == str.indexOf("WEBPVP8 ");
                 }
                 return false;

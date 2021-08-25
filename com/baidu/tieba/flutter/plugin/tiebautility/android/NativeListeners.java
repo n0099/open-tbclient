@@ -3,13 +3,13 @@ package com.baidu.tieba.flutter.plugin.tiebautility.android;
 import android.text.TextUtils;
 import android.view.KeyEvent;
 import androidx.core.view.InputDeviceCompat;
-import c.a.o0.s.a0.b;
-import c.a.o0.s.q.k1;
-import c.a.o0.s.q.m2;
-import c.a.p0.i3.h0.e;
-import c.a.p0.i3.q0.k;
-import c.a.p0.i3.w;
-import c.a.p0.y2.a;
+import c.a.p0.s.a0.b;
+import c.a.p0.s.q.k1;
+import c.a.p0.s.q.m2;
+import c.a.q0.i3.i0.e;
+import c.a.q0.i3.r0.k;
+import c.a.q0.i3.w;
+import c.a.q0.y2.a;
 import com.alibaba.fastjson.parser.JSONLexer;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
@@ -617,7 +617,7 @@ public class NativeListeners {
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 AgreeData agreeData;
                 Interceptable interceptable2 = $ic;
-                if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || !(customResponsedMessage.getData() instanceof e) || (agreeData = ((e) customResponsedMessage.getData()).f19938b) == null) {
+                if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || !(customResponsedMessage.getData() instanceof e) || (agreeData = ((e) customResponsedMessage.getData()).f20277b) == null) {
                     return;
                 }
                 HashMap hashMap = new HashMap();
@@ -1046,7 +1046,7 @@ public class NativeListeners {
                 if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null) {
                     return;
                 }
-                b.f13496c = b.f13497d;
+                b.f13787c = b.f13788d;
                 this.this$0.notifyFlutter("AnimateToBarEntryForumSquare", null, null);
             }
         };
@@ -1160,9 +1160,9 @@ public class NativeListeners {
                     return;
                 }
                 HashMap hashMap = new HashMap();
-                hashMap.put("status", m2Var.f13997a);
-                hashMap.put("videoId", m2Var.f13998b);
-                hashMap.put("errorMessage", m2Var.f13999c);
+                hashMap.put("status", m2Var.f14303a);
+                hashMap.put("videoId", m2Var.f14304b);
+                hashMap.put("errorMessage", m2Var.f14305c);
                 this.this$0.notifyFlutter("SendVideoWorkStatus", null, hashMap);
             }
         };
@@ -1170,7 +1170,7 @@ public class NativeListeners {
 
     private void dealBeforeAttachNotification(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65539, this, str) == null) && "AnimateToBarEntryForumSquare".equals(str) && b.f13496c == b.f13498e) {
+        if ((interceptable == null || interceptable.invokeL(65539, this, str) == null) && "AnimateToBarEntryForumSquare".equals(str) && b.f13787c == b.f13789e) {
             c.a.e.e.m.e.a().postDelayed(new Runnable(this) { // from class: com.baidu.tieba.flutter.plugin.tiebautility.android.NativeListeners.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -1556,8 +1556,8 @@ public class NativeListeners {
                 wVar.v(1);
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001266, wVar));
                 k kVar = new k();
-                kVar.f20217a = c.a.e.e.m.b.f(str2, 0L);
-                kVar.f20218b = true;
+                kVar.f20549a = c.a.e.e.m.b.f(str2, 0L);
+                kVar.f20550b = true;
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001437, kVar));
                 return null;
             } else if (c2 == 1) {

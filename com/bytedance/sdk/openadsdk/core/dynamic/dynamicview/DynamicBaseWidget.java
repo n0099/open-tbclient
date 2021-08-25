@@ -27,34 +27,34 @@ public abstract class DynamicBaseWidget extends ViewGroup {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public float f65982a;
+    public float f66182a;
 
     /* renamed from: b  reason: collision with root package name */
-    public float f65983b;
+    public float f66183b;
 
     /* renamed from: c  reason: collision with root package name */
-    public float f65984c;
+    public float f66184c;
 
     /* renamed from: d  reason: collision with root package name */
-    public float f65985d;
+    public float f66185d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f65986e;
+    public int f66186e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f65987f;
+    public int f66187f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f65988g;
+    public int f66188g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f65989h;
+    public int f66189h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Context f65990i;
+    public Context f66190i;
 
     /* renamed from: j  reason: collision with root package name */
-    public e f65991j;
+    public e f66191j;
     public f k;
     public List<DynamicBaseWidget> l;
     public DynamicRootView m;
@@ -81,19 +81,19 @@ public abstract class DynamicBaseWidget extends ViewGroup {
             }
         }
         this.p = true;
-        this.f65990i = context;
+        this.f66190i = context;
         this.m = dynamicRootView;
         this.k = fVar;
-        this.f65982a = fVar.a();
-        this.f65983b = fVar.b();
-        this.f65984c = fVar.c();
-        this.f65985d = fVar.d();
-        this.f65988g = (int) s.b(this.f65990i, this.f65982a);
-        this.f65989h = (int) s.b(this.f65990i, this.f65983b);
-        this.f65986e = (int) s.b(this.f65990i, this.f65984c);
-        this.f65987f = (int) s.b(this.f65990i, this.f65985d);
+        this.f66182a = fVar.a();
+        this.f66183b = fVar.b();
+        this.f66184c = fVar.c();
+        this.f66185d = fVar.d();
+        this.f66188g = (int) s.b(this.f66190i, this.f66182a);
+        this.f66189h = (int) s.b(this.f66190i, this.f66183b);
+        this.f66186e = (int) s.b(this.f66190i, this.f66184c);
+        this.f66187f = (int) s.b(this.f66190i, this.f66185d);
         e eVar = new e(fVar.e());
-        this.f65991j = eVar;
+        this.f66191j = eVar;
         this.o = eVar.l() > 0;
     }
 
@@ -128,11 +128,11 @@ public abstract class DynamicBaseWidget extends ViewGroup {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             boolean b2 = b();
             try {
-                FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(this.f65986e, this.f65987f);
+                FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(this.f66186e, this.f66187f);
                 k.f("DynamicBaseWidget", "widget mDynamicView:" + this.n);
-                k.f("DynamicBaseWidget", "mDynamicView x,y,w,h:" + this.f65982a + "," + this.f65983b + "," + this.f65986e + "," + this.f65987f);
-                layoutParams.topMargin = this.f65989h;
-                layoutParams.leftMargin = this.f65988g;
+                k.f("DynamicBaseWidget", "mDynamicView x,y,w,h:" + this.f66182a + "," + this.f66183b + "," + this.f66186e + "," + this.f66187f);
+                layoutParams.topMargin = this.f66189h;
+                layoutParams.leftMargin = this.f66188g;
                 this.m.addView(this, layoutParams);
                 return b2;
             } catch (Exception unused) {
@@ -146,7 +146,7 @@ public abstract class DynamicBaseWidget extends ViewGroup {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            e eVar = this.f65991j;
+            e eVar = this.f66191j;
             return (eVar == null || eVar.q() == 0) ? false : true;
         }
         return invokeV.booleanValue;
@@ -158,9 +158,9 @@ public abstract class DynamicBaseWidget extends ViewGroup {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             GradientDrawable gradientDrawable = new GradientDrawable();
             gradientDrawable.setShape(0);
-            gradientDrawable.setCornerRadius(s.b(this.f65990i, this.f65991j.m()));
-            gradientDrawable.setColor(this.f65991j.r());
-            gradientDrawable.setStroke((int) s.b(this.f65990i, this.f65991j.o()), this.f65991j.n());
+            gradientDrawable.setCornerRadius(s.b(this.f66190i, this.f66191j.m()));
+            gradientDrawable.setColor(this.f66191j.r());
+            gradientDrawable.setStroke((int) s.b(this.f66190i, this.f66191j.o()), this.f66191j.n());
             return gradientDrawable;
         }
         return (Drawable) invokeV.objValue;
@@ -169,7 +169,7 @@ public abstract class DynamicBaseWidget extends ViewGroup {
     public int getClickArea() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f65991j.q() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f66191j.q() : invokeV.intValue;
     }
 
     public a getDynamicClickListener() {
@@ -217,7 +217,7 @@ public abstract class DynamicBaseWidget extends ViewGroup {
     public void a(int i2) {
         e eVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048576, this, i2) == null) || this.l == null || (eVar = this.f65991j) == null || !eVar.a(i2)) {
+        if (!(interceptable == null || interceptable.invokeI(1048576, this, i2) == null) || this.l == null || (eVar = this.f66191j) == null || !eVar.a(i2)) {
             return;
         }
         b();

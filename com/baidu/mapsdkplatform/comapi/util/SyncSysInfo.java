@@ -27,7 +27,7 @@ public class SyncSysInfo {
     public static String getAuthToken() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? i.f42321d : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? i.f42428d : (String) invokeV.objValue;
     }
 
     public static String getPhoneInfo() {

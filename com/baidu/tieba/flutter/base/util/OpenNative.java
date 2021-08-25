@@ -7,9 +7,9 @@ import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import c.a.e.e.p.k;
 import c.a.e.e.p.l;
-import c.a.o0.h0.h;
-import c.a.o0.m.a;
-import c.a.p0.o1.o.k.b;
+import c.a.p0.h0.h;
+import c.a.p0.m.a;
+import c.a.q0.o1.o.k.b;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -266,29 +266,52 @@ public class OpenNative {
         String str;
         String str2;
         String str3;
+        String str4;
+        String str5;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, context, map) == null) {
-            String str4 = null;
-            if (map.containsKey("sid") && map.containsKey("ssid") && map.containsKey("templateId")) {
-                String str5 = (String) map.get("sid");
-                str2 = (String) map.get("ssid");
-                str3 = (String) map.get("templateId");
-                str = str5;
-                str4 = (String) map.get("source");
-            } else {
-                str = null;
-                str2 = null;
-                str3 = null;
-            }
-            if (!k.isEmpty(str) && !k.isEmpty(str2)) {
-                YYLiveUtil.jumpToYYLiveRoom(((TbPageContextSupport) TbadkApplication.getInst().getCurrentActivity()).getPageContext(), str, str2, str3, "", TextUtils.isEmpty(str4) ? YYLiveUtil.SOURCE_PERSON_AUTHOR_HEAD : str4);
+        if (!(interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, context, map) == null) || map == null) {
+            return;
+        }
+        if (map.containsKey("yyScheme")) {
+            str = (String) map.get("yyScheme");
+            str2 = (String) map.get("yySource");
+        } else {
+            str = null;
+            str2 = null;
+        }
+        if (!k.isEmpty(str)) {
+            TbPageContextSupport tbPageContextSupport = (TbPageContextSupport) TbadkApplication.getInst().getCurrentActivity();
+            if (tbPageContextSupport == null || tbPageContextSupport.getPageContext() == null) {
                 return;
             }
-            long f2 = c.a.e.e.m.b.f((String) map.get("liveId"), 0L);
-            AlaLiveInfoCoreData alaLiveInfoCoreData = new AlaLiveInfoCoreData();
-            alaLiveInfoCoreData.liveID = f2;
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaLiveRoomActivityConfig(context, alaLiveInfoCoreData, AlaLiveRoomActivityConfig.FROM_TYPE_PHOTO_BROWSE_TOP, null, false, "")));
+            if (!k.isEmpty(str2)) {
+                str = str + "&source=" + str2;
+            }
+            UrlManager.getInstance().dealOneLink(tbPageContextSupport.getPageContext(), new String[]{str});
+            return;
         }
+        if (map.containsKey("sid") && map.containsKey("ssid") && map.containsKey("templateId")) {
+            String str6 = (String) map.get("sid");
+            str4 = (String) map.get("ssid");
+            str5 = (String) map.get("templateId");
+            str2 = (String) map.get("source");
+            str3 = str6;
+        } else {
+            str3 = null;
+            str4 = null;
+            str5 = null;
+        }
+        if (!k.isEmpty(str3) && !k.isEmpty(str4)) {
+            if (TextUtils.isEmpty(str2)) {
+                str2 = YYLiveUtil.SOURCE_PERSON_AUTHOR_HEAD;
+            }
+            YYLiveUtil.jumpToYYLiveRoom(((TbPageContextSupport) TbadkApplication.getInst().getCurrentActivity()).getPageContext(), str3, str4, str5, "", str2);
+            return;
+        }
+        long f2 = c.a.e.e.m.b.f((String) map.get("liveId"), 0L);
+        AlaLiveInfoCoreData alaLiveInfoCoreData = new AlaLiveInfoCoreData();
+        alaLiveInfoCoreData.liveID = f2;
+        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaLiveRoomActivityConfig(context, alaLiveInfoCoreData, AlaLiveRoomActivityConfig.FROM_TYPE_PHOTO_BROWSE_TOP, null, false, "")));
     }
 
     public static void openNativeAvatarPendantPage(Context context, Map<String, Object> map) {
@@ -586,7 +609,7 @@ public class OpenNative {
 
     public static void openNativeHotTopicList(Context context, Map<String, Object> map) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65562, null, context, map) == null) || TbadkApplication.getInst().getCurrentActivity() == null || c.a.o0.r0.b.b(((TbPageContextSupport) TbadkApplication.getInst().getCurrentActivity()).getPageContext())) {
+        if (!(interceptable == null || interceptable.invokeLL(65562, null, context, map) == null) || TbadkApplication.getInst().getCurrentActivity() == null || c.a.p0.r0.b.b(((TbPageContextSupport) TbadkApplication.getInst().getCurrentActivity()).getPageContext())) {
             return;
         }
         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new HotRanklistActivityConfig(context).createNormalConfig("hottopic", "all")));
@@ -942,7 +965,7 @@ public class OpenNative {
             if (k.isEmpty(str2)) {
                 BdLog.e("openNativeWKWebView param is empty.");
             } else {
-                a.u(true, context, str, str2);
+                a.v(true, context, str, str2);
             }
         }
     }

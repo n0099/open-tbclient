@@ -16,10 +16,10 @@ public abstract class a<E> extends AbstractQueue<E> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final AtomicReferenceArray<E> f78414e;
+    public final AtomicReferenceArray<E> f78615e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final int f78415f;
+    public final int f78616f;
 
     public a(int i2) {
         Interceptable interceptable = $ic;
@@ -37,14 +37,14 @@ public abstract class a<E> extends AbstractQueue<E> {
             }
         }
         int b2 = i.b(i2);
-        this.f78415f = b2 - 1;
-        this.f78414e = new AtomicReferenceArray<>(b2);
+        this.f78616f = b2 - 1;
+        this.f78615e = new AtomicReferenceArray<>(b2);
     }
 
     public final int a(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j2)) == null) ? this.f78415f & ((int) j2) : invokeJ.intValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j2)) == null) ? this.f78616f & ((int) j2) : invokeJ.intValue;
     }
 
     public final int b(long j2, int i2) {
@@ -56,7 +56,7 @@ public abstract class a<E> extends AbstractQueue<E> {
     public final E c(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? d(this.f78414e, i2) : (E) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? d(this.f78615e, i2) : (E) invokeI.objValue;
     }
 
     @Override // java.util.AbstractQueue, java.util.AbstractCollection, java.util.Collection

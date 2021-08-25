@@ -92,6 +92,7 @@ import com.baidu.mobads.container.util.SendLogUtil;
 import com.baidu.mobads.container.video.CpuLpVideoLayout;
 import com.baidu.mobads.container.video.LPVideoLayout;
 import com.baidu.mobads.sdk.api.IActivityImpl;
+import com.baidu.searchbox.datacollector.growth.utils.GrowthConstant;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -1874,7 +1875,7 @@ public class App2Activity implements IActivityImpl, View.OnTouchListener, Native
                 if (TextUtils.isEmpty(this.curWebview.getUrl())) {
                     return;
                 }
-                ((ClipboardManager) this.mProxyActivity.getSystemService("clipboard")).setPrimaryClip(ClipData.newPlainText("网页链接", this.curWebview.getUrl()));
+                ((ClipboardManager) this.mProxyActivity.getSystemService(GrowthConstant.UBC_VALUE_TYPE_CLIP_BOARD)).setPrimaryClip(ClipData.newPlainText("网页链接", this.curWebview.getUrl()));
                 Toast.makeText(this.mProxyActivity, "已复制到剪切板", 0).show();
             } catch (Exception e2) {
                 this.mAdLogger.e(e2);

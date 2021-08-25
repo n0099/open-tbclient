@@ -15,20 +15,20 @@ public final class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final b f33776e;
+    public static final b f33882e;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final int f33777a;
+    public final int f33883a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f33778b;
+    public final int f33884b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final int f33779c;
+    public final int f33885c;
 
     /* renamed from: d  reason: collision with root package name */
-    public AudioAttributes f33780d;
+    public AudioAttributes f33886d;
 
     /* loaded from: classes4.dex */
     public static /* synthetic */ class a {
@@ -38,20 +38,20 @@ public final class b {
 
     /* renamed from: c.i.b.a.x.b$b  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public static final class C1497b {
+    public static final class C1501b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f33781a;
+        public int f33887a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f33782b;
+        public int f33888b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f33783c;
+        public int f33889c;
 
-        public C1497b() {
+        public C1501b() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -64,15 +64,15 @@ public final class b {
                     return;
                 }
             }
-            this.f33781a = 0;
-            this.f33782b = 0;
-            this.f33783c = 1;
+            this.f33887a = 0;
+            this.f33888b = 0;
+            this.f33889c = 1;
         }
 
         public b a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new b(this.f33781a, this.f33782b, this.f33783c, null) : (b) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new b(this.f33887a, this.f33888b, this.f33889c, null) : (b) invokeV.objValue;
         }
     }
 
@@ -89,7 +89,7 @@ public final class b {
                 return;
             }
         }
-        f33776e = new C1497b().a();
+        f33882e = new C1501b().a();
     }
 
     public /* synthetic */ b(int i2, int i3, int i4, a aVar) {
@@ -101,10 +101,10 @@ public final class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.f33780d == null) {
-                this.f33780d = new AudioAttributes.Builder().setContentType(this.f33777a).setFlags(this.f33778b).setUsage(this.f33779c).build();
+            if (this.f33886d == null) {
+                this.f33886d = new AudioAttributes.Builder().setContentType(this.f33883a).setFlags(this.f33884b).setUsage(this.f33885c).build();
             }
-            return this.f33780d;
+            return this.f33886d;
         }
         return (AudioAttributes) invokeV.objValue;
     }
@@ -120,7 +120,7 @@ public final class b {
                 return false;
             }
             b bVar = (b) obj;
-            return this.f33777a == bVar.f33777a && this.f33778b == bVar.f33778b && this.f33779c == bVar.f33779c;
+            return this.f33883a == bVar.f33883a && this.f33884b == bVar.f33884b && this.f33885c == bVar.f33885c;
         }
         return invokeL.booleanValue;
     }
@@ -128,7 +128,7 @@ public final class b {
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? ((((527 + this.f33777a) * 31) + this.f33778b) * 31) + this.f33779c : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? ((((527 + this.f33883a) * 31) + this.f33884b) * 31) + this.f33885c : invokeV.intValue;
     }
 
     public b(int i2, int i3, int i4) {
@@ -146,8 +146,8 @@ public final class b {
                 return;
             }
         }
-        this.f33777a = i2;
-        this.f33778b = i3;
-        this.f33779c = i4;
+        this.f33883a = i2;
+        this.f33884b = i3;
+        this.f33885c = i4;
     }
 }

@@ -6,9 +6,9 @@ import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
-import c.a.o0.s.q.c2;
-import c.a.p0.i2.h.e;
-import c.a.p0.i2.o.d;
+import c.a.p0.s.q.c2;
+import c.a.q0.i2.h.e;
+import c.a.q0.i2.o.d;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.pb.pb.main.PbModel;
@@ -27,13 +27,13 @@ public class VideoPbViewModel extends ViewModel {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public d f55267a;
+    public d f55423a;
 
     /* renamed from: b  reason: collision with root package name */
-    public PbModel f55268b;
+    public PbModel f55424b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f55269c;
+    public int f55425c;
 
     public VideoPbViewModel() {
         Interceptable interceptable = $ic;
@@ -48,61 +48,61 @@ public class VideoPbViewModel extends ViewModel {
                 return;
             }
         }
-        this.f55267a = new d();
-        this.f55269c = 0;
+        this.f55423a = new d();
+        this.f55425c = 0;
     }
 
     public void bindPbModel(PbModel pbModel) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, pbModel) == null) {
-            this.f55268b = pbModel;
+            this.f55424b = pbModel;
         }
     }
 
     public MutableLiveData<Integer> getCurrentTab() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f55267a.a() : (MutableLiveData) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f55423a.a() : (MutableLiveData) invokeV.objValue;
     }
 
     public e getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f55267a.b() : (e) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f55423a.b() : (e) invokeV.objValue;
     }
 
     public e getFirstLoadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f55267a.c() : (e) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f55423a.c() : (e) invokeV.objValue;
     }
 
     public MutableLiveData<Boolean> getIsDetailTabTop() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f55267a.d() : (MutableLiveData) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f55423a.d() : (MutableLiveData) invokeV.objValue;
     }
 
     public MutableLiveData<Boolean> getIsShowNavigationBar() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f55267a.e() : (MutableLiveData) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f55423a.e() : (MutableLiveData) invokeV.objValue;
     }
 
     public MutableLiveData<c2> getNextVideoData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f55267a.f() : (MutableLiveData) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f55423a.f() : (MutableLiveData) invokeV.objValue;
     }
 
     public Rect getOriginArea() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            if (this.f55267a.g() == null || this.f55267a.g().isEmpty()) {
+            if (this.f55423a.g() == null || this.f55423a.g().isEmpty()) {
                 return null;
             }
-            return this.f55267a.g();
+            return this.f55423a.g();
         }
         return (Rect) invokeV.objValue;
     }
@@ -110,23 +110,23 @@ public class VideoPbViewModel extends ViewModel {
     public MutableLiveData<c2> getPreVideoData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f55267a.h() : (MutableLiveData) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f55423a.h() : (MutableLiveData) invokeV.objValue;
     }
 
     public MutableLiveData<c2> getVideoData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f55267a.i() : (MutableLiveData) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f55423a.i() : (MutableLiveData) invokeV.objValue;
     }
 
     public void init(Intent intent) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, intent) == null) {
-            this.f55267a.w((Rect) intent.getParcelableExtra("video_origin_area"));
+            this.f55423a.w((Rect) intent.getParcelableExtra("video_origin_area"));
             boolean booleanExtra = intent.getBooleanExtra("key_jump_to_comment_area", false);
             String stringExtra = intent.getStringExtra("high_light_post_id");
             if (booleanExtra || !TextUtils.isEmpty(stringExtra)) {
-                this.f55267a.u(true);
+                this.f55423a.u(true);
             }
         }
     }
@@ -134,19 +134,19 @@ public class VideoPbViewModel extends ViewModel {
     public boolean isFromCDN() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f55267a.k() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f55423a.k() : invokeV.booleanValue;
     }
 
     public boolean isJumpCommentTab() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f55267a.l() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f55423a.l() : invokeV.booleanValue;
     }
 
     public MutableLiveData<Boolean> isLoading() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f55267a.m() : (MutableLiveData) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f55423a.m() : (MutableLiveData) invokeV.objValue;
     }
 
     public void loadData() {
@@ -157,58 +157,58 @@ public class VideoPbViewModel extends ViewModel {
 
     public void loadNextVideo(boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048591, this, z) == null) || this.f55267a.f().getValue() == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048591, this, z) == null) || this.f55423a.f().getValue() == null) {
             return;
         }
-        e Z = this.f55268b.Z(this.f55267a.f().getValue());
+        e Z = this.f55424b.Z(this.f55423a.f().getValue());
         if (Z != null) {
-            this.f55267a.j().addLast(this.f55267a.b());
-            this.f55267a.o(Z);
-            this.f55267a.v(!ListUtils.isEmpty(Z.f()) ? Z.f().get(0) : null);
-            this.f55267a.x(this.f55267a.j().getLast() != null ? this.f55267a.j().getLast().O() : null);
-            this.f55268b.f2(z ? 21 : 22);
-            this.f55268b.y1(Z);
-            this.f55267a.s(true);
+            this.f55423a.j().addLast(this.f55423a.b());
+            this.f55423a.o(Z);
+            this.f55423a.v(!ListUtils.isEmpty(Z.f()) ? Z.f().get(0) : null);
+            this.f55423a.x(this.f55423a.j().getLast() != null ? this.f55423a.j().getLast().O() : null);
+            this.f55424b.g2(z ? 21 : 22);
+            this.f55424b.z1(Z);
+            this.f55423a.s(true);
         }
     }
 
     public void loadPreVideo() {
         e pollLast;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048592, this) == null) || (pollLast = this.f55267a.j().pollLast()) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048592, this) == null) || (pollLast = this.f55423a.j().pollLast()) == null) {
             return;
         }
-        this.f55267a.o(pollLast);
-        this.f55267a.v(!ListUtils.isEmpty(pollLast.f()) ? pollLast.f().get(0) : null);
-        this.f55267a.x(this.f55267a.j().peekLast() != null ? this.f55267a.j().peekLast().O() : null);
-        this.f55268b.y1(pollLast);
-        this.f55267a.s(true);
+        this.f55423a.o(pollLast);
+        this.f55423a.v(!ListUtils.isEmpty(pollLast.f()) ? pollLast.f().get(0) : null);
+        this.f55423a.x(this.f55423a.j().peekLast() != null ? this.f55423a.j().peekLast().O() : null);
+        this.f55424b.z1(pollLast);
+        this.f55423a.s(true);
     }
 
     public void loadTargetVideo(c2 c2Var) {
         e Z;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048593, this, c2Var) == null) || c2Var == null || (Z = this.f55268b.Z(c2Var)) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048593, this, c2Var) == null) || c2Var == null || (Z = this.f55424b.Z(c2Var)) == null) {
             return;
         }
-        this.f55267a.j().addLast(this.f55267a.b());
-        this.f55267a.o(Z);
-        this.f55267a.v(!ListUtils.isEmpty(Z.f()) ? Z.f().get(0) : null);
-        this.f55267a.x(this.f55267a.j().getLast() != null ? this.f55267a.j().getLast().O() : null);
-        this.f55268b.f2(20);
-        this.f55268b.y1(Z);
-        this.f55267a.s(true);
+        this.f55423a.j().addLast(this.f55423a.b());
+        this.f55423a.o(Z);
+        this.f55423a.v(!ListUtils.isEmpty(Z.f()) ? Z.f().get(0) : null);
+        this.f55423a.x(this.f55423a.j().getLast() != null ? this.f55423a.j().getLast().O() : null);
+        this.f55424b.g2(20);
+        this.f55424b.z1(Z);
+        this.f55423a.s(true);
     }
 
     public void saveFirstLoadData(e eVar, int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(1048594, this, eVar, i2) == null) || i2 < this.f55269c) {
+        if (!(interceptable == null || interceptable.invokeLI(1048594, this, eVar, i2) == null) || i2 < this.f55425c) {
             return;
         }
-        this.f55269c = i2;
-        this.f55267a.p(eVar);
+        this.f55425c = i2;
+        this.f55423a.p(eVar);
         if (eVar != null) {
-            d dVar = this.f55267a;
+            d dVar = this.f55423a;
             boolean z = true;
             if (eVar.t() != 1 && !eVar.f0()) {
                 z = false;
@@ -220,42 +220,42 @@ public class VideoPbViewModel extends ViewModel {
     public void setCurrentTab(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048595, this, i2) == null) {
-            this.f55267a.n(i2);
+            this.f55423a.n(i2);
         }
     }
 
     public void setData(e eVar, int i2) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLI(1048596, this, eVar, i2) == null) && i2 == 3) {
-            this.f55267a.o(eVar);
+            this.f55423a.o(eVar);
         }
     }
 
     public void setIsDetailTabTop(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048597, this, z) == null) {
-            this.f55267a.r(z);
+            this.f55423a.r(z);
         }
     }
 
     public void setIsLoading(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048598, this, z) == null) {
-            this.f55267a.s(z);
+            this.f55423a.s(z);
         }
     }
 
     public void setIsShowNavigationBar(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048599, this, z) == null) {
-            this.f55267a.t(z);
+            this.f55423a.t(z);
         }
     }
 
     public void setJumpCommentTab(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048600, this, z) == null) {
-            this.f55267a.u(z);
+            this.f55423a.u(z);
         }
     }
 }

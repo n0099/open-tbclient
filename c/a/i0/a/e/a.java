@@ -1,30 +1,13 @@
 package c.a.i0.a.e;
 
-import android.text.TextUtils;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
+import android.graphics.Bitmap;
+import android.view.View;
+import com.baidu.sdk.container.filedownloader.MaterialLoadErrorCode;
 /* loaded from: classes.dex */
-public final class a {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface a {
+    void a(String str, View view, MaterialLoadErrorCode materialLoadErrorCode);
 
-    public static boolean a(File file) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65536, null, file)) == null) ? file != null && file.exists() && file.isFile() : invokeL.booleanValue;
-    }
+    void onLoadingComplete(String str, View view, Bitmap bitmap);
 
-    public static boolean b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return false;
-            }
-            return a(new File(str));
-        }
-        return invokeL.booleanValue;
-    }
+    void onLoadingStarted(String str, View view);
 }

@@ -4,10 +4,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import androidx.core.view.InputDeviceCompat;
-import c.a.p0.o1.o.l.a;
-import c.a.p0.o1.o.l.n;
-import c.a.p0.o2.d;
-import c.a.p0.o2.e;
+import c.a.q0.o1.o.l.a;
+import c.a.q0.o1.o.l.n;
+import c.a.q0.o2.d;
+import c.a.q0.o2.e;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.R;
@@ -23,13 +23,13 @@ public class ImmersiveVideoCardViewEx extends BaseCardView<ImmersiveVideoCardEx>
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: f  reason: collision with root package name */
-    public ViewGroup f53584f;
+    public ViewGroup f53726f;
 
     /* renamed from: g  reason: collision with root package name */
-    public n f53585g;
+    public n f53727g;
 
     /* renamed from: h  reason: collision with root package name */
-    public a f53586h;
+    public a f53728h;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ImmersiveVideoCardViewEx(TbPageContext tbPageContext) {
@@ -51,32 +51,32 @@ public class ImmersiveVideoCardViewEx extends BaseCardView<ImmersiveVideoCardEx>
         }
     }
 
-    @Override // c.a.p0.o2.d
+    @Override // c.a.q0.o2.d
     public void displayAll() {
         a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (aVar = this.f53586h) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (aVar = this.f53728h) == null) {
             return;
         }
         aVar.j();
     }
 
-    @Override // c.a.p0.o2.d
+    @Override // c.a.q0.o2.d
     public void displayAllWithoutAnim() {
         a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (aVar = this.f53586h) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (aVar = this.f53728h) == null) {
             return;
         }
         aVar.k();
     }
 
-    @Override // c.a.p0.o2.e
+    @Override // c.a.q0.o2.e
     public int getCurrentPosition() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            n nVar = this.f53585g;
+            n nVar = this.f53727g;
             if (nVar != null) {
                 return nVar.k();
             }
@@ -85,12 +85,12 @@ public class ImmersiveVideoCardViewEx extends BaseCardView<ImmersiveVideoCardEx>
         return invokeV.intValue;
     }
 
-    @Override // c.a.p0.o2.e
+    @Override // c.a.q0.o2.e
     public String getPlayUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            n nVar = this.f53585g;
+            n nVar = this.f53727g;
             if (nVar != null) {
                 return nVar.m();
             }
@@ -99,12 +99,12 @@ public class ImmersiveVideoCardViewEx extends BaseCardView<ImmersiveVideoCardEx>
         return (String) invokeV.objValue;
     }
 
-    @Override // c.a.p0.o2.e
+    @Override // c.a.q0.o2.e
     public View getVideoContainer() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            n nVar = this.f53585g;
+            n nVar = this.f53727g;
             if (nVar != null) {
                 return nVar.n();
             }
@@ -113,11 +113,11 @@ public class ImmersiveVideoCardViewEx extends BaseCardView<ImmersiveVideoCardEx>
         return (View) invokeV.objValue;
     }
 
-    @Override // c.a.p0.o2.d
+    @Override // c.a.q0.o2.d
     public void hideAll() {
         a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (aVar = this.f53586h) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (aVar = this.f53728h) == null) {
             return;
         }
         aVar.m();
@@ -126,7 +126,7 @@ public class ImmersiveVideoCardViewEx extends BaseCardView<ImmersiveVideoCardEx>
     public void hideAllWithoutAnim() {
         a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (aVar = this.f53586h) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (aVar = this.f53728h) == null) {
             return;
         }
         aVar.n();
@@ -138,17 +138,17 @@ public class ImmersiveVideoCardViewEx extends BaseCardView<ImmersiveVideoCardEx>
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(getContext()).inflate(R.layout.card_item_video_thread, (ViewGroup) null);
-            this.f53584f = viewGroup;
-            this.f53585g = new n(this.mContext, viewGroup.findViewById(R.id.layout_video_container));
-            a aVar = new a(this.mContext, this.f53584f);
-            this.f53586h = aVar;
-            this.f53585g.s(aVar);
-            return this.f53584f;
+            this.f53726f = viewGroup;
+            this.f53727g = new n(this.mContext, viewGroup.findViewById(R.id.layout_video_container));
+            a aVar = new a(this.mContext, this.f53726f);
+            this.f53728h = aVar;
+            this.f53727g.s(aVar);
+            return this.f53726f;
         }
         return (View) invokeV.objValue;
     }
 
-    @Override // c.a.p0.o2.e
+    @Override // c.a.q0.o2.e
     public boolean isFullScreen() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -158,23 +158,23 @@ public class ImmersiveVideoCardViewEx extends BaseCardView<ImmersiveVideoCardEx>
         return invokeV.booleanValue;
     }
 
-    @Override // c.a.p0.o2.e
+    @Override // c.a.q0.o2.e
     public boolean isPlayStarted() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            n nVar = this.f53585g;
+            n nVar = this.f53727g;
             return nVar != null && nVar.p();
         }
         return invokeV.booleanValue;
     }
 
-    @Override // c.a.p0.o2.e
+    @Override // c.a.q0.o2.e
     public boolean isPlaying() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            n nVar = this.f53585g;
+            n nVar = this.f53727g;
             return nVar != null && nVar.q();
         }
         return invokeV.booleanValue;
@@ -191,27 +191,27 @@ public class ImmersiveVideoCardViewEx extends BaseCardView<ImmersiveVideoCardEx>
     public void postHideExceptVideo() {
         a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048592, this) == null) || (aVar = this.f53586h) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048592, this) == null) || (aVar = this.f53728h) == null) {
             return;
         }
         aVar.r();
     }
 
-    @Override // c.a.p0.o2.e
+    @Override // c.a.q0.o2.e
     public void startPlay() {
         n nVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048593, this) == null) || (nVar = this.f53585g) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048593, this) == null) || (nVar = this.f53727g) == null) {
             return;
         }
         nVar.v();
     }
 
-    @Override // c.a.p0.o2.e
+    @Override // c.a.q0.o2.e
     public void stopPlay() {
         n nVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048594, this) == null) || (nVar = this.f53585g) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048594, this) == null) || (nVar = this.f53727g) == null) {
             return;
         }
         nVar.w();
@@ -224,12 +224,12 @@ public class ImmersiveVideoCardViewEx extends BaseCardView<ImmersiveVideoCardEx>
         if (!(interceptable == null || interceptable.invokeL(1048591, this, immersiveVideoCardEx) == null) || immersiveVideoCardEx.getVideoInfo() == null) {
             return;
         }
-        this.f53585g.y(immersiveVideoCardEx.getShowExtra(), "feed");
-        this.f53585g.x(immersiveVideoCardEx.getVideoInfo(), immersiveVideoCardEx.getPage());
-        boolean z = immersiveVideoCardEx.getVideoInfo().f53538i;
-        this.f53585g.u(z);
-        this.f53585g.t(z);
-        this.f53586h.u(z);
+        this.f53727g.y(immersiveVideoCardEx.getShowExtra(), "feed");
+        this.f53727g.x(immersiveVideoCardEx.getVideoInfo(), immersiveVideoCardEx.getPage());
+        boolean z = immersiveVideoCardEx.getVideoInfo().f53680i;
+        this.f53727g.u(z);
+        this.f53727g.t(z);
+        this.f53728h.u(z);
         setTag(this);
         hideAllWithoutAnim();
     }

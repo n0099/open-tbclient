@@ -12,25 +12,25 @@ import java.util.Map;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f74470a = "b";
+    public static String f74670a = "b";
 
     /* renamed from: b  reason: collision with root package name */
-    public HashMap<String, String> f74471b;
+    public HashMap<String, String> f74671b;
 
     /* renamed from: c  reason: collision with root package name */
-    public HashMap<String, Object> f74472c;
+    public HashMap<String, Object> f74672c;
 
     /* renamed from: d  reason: collision with root package name */
-    public HashMap<String, String> f74473d;
+    public HashMap<String, String> f74673d;
 
     /* loaded from: classes10.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public Context f74474a = null;
+        public Context f74674a = null;
 
         public a a(Context context) {
-            this.f74474a = context;
+            this.f74674a = context;
             return this;
         }
 
@@ -40,31 +40,31 @@ public class b {
     }
 
     public b(a aVar) {
-        this.f74471b = new HashMap<>();
-        this.f74472c = new HashMap<>();
-        this.f74473d = new HashMap<>();
+        this.f74671b = new HashMap<>();
+        this.f74672c = new HashMap<>();
+        this.f74673d = new HashMap<>();
         d();
         e();
         f();
         g();
-        if (aVar.f74474a != null) {
-            a(aVar.f74474a);
+        if (aVar.f74674a != null) {
+            a(aVar.f74674a);
         }
-        com.meizu.cloud.pushsdk.c.f.c.c(f74470a, "Subject created successfully.", new Object[0]);
+        com.meizu.cloud.pushsdk.c.f.c.c(f74670a, "Subject created successfully.", new Object[0]);
     }
 
     private void a(String str, Object obj) {
         if ((str == null || obj == null || str.isEmpty()) && (!(obj instanceof String) || ((String) obj).isEmpty())) {
             return;
         }
-        this.f74472c.put(str, obj);
+        this.f74672c.put(str, obj);
     }
 
     private void a(String str, String str2) {
         if (str == null || str2 == null || str.isEmpty() || str2.isEmpty()) {
             return;
         }
-        this.f74473d.put(str, str2);
+        this.f74673d.put(str, str2);
     }
 
     private void d() {
@@ -84,7 +84,7 @@ public class b {
     }
 
     public Map<String, Object> a() {
-        return this.f74472c;
+        return this.f74672c;
     }
 
     public void a(Context context) {
@@ -93,13 +93,13 @@ public class b {
     }
 
     public Map<String, String> b() {
-        return this.f74473d;
+        return this.f74673d;
     }
 
     public void b(Context context) {
         Location c2 = e.c(context);
         if (c2 == null) {
-            com.meizu.cloud.pushsdk.c.f.c.a(f74470a, "Location information not available.", new Object[0]);
+            com.meizu.cloud.pushsdk.c.f.c.a(f74670a, "Location information not available.", new Object[0]);
             return;
         }
         a("la", Double.valueOf(c2.getLatitude()));
@@ -111,7 +111,7 @@ public class b {
     }
 
     public Map<String, String> c() {
-        return this.f74471b;
+        return this.f74671b;
     }
 
     public void c(Context context) {

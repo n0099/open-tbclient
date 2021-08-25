@@ -5,9 +5,9 @@ import android.content.Context;
 import androidx.collection.ArrayMap;
 import c.a.e.e.j.b.a;
 import c.a.e.e.p.l;
-import c.a.o0.b1.g;
-import c.a.o0.h0.b;
-import c.a.o0.h0.h;
+import c.a.p0.b1.g;
+import c.a.p0.h0.b;
+import c.a.p0.h0.h;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.client.socket.link.BdSocketLinkService;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -21,6 +21,7 @@ import com.baidu.permissionhelper.app.ActivityCompat;
 import com.baidu.permissionhelper.context.ContextCompat;
 import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.sofire.ac.FH;
+import com.baidu.tbadk.GrowthStatsUtil;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.permission.PermissionJudgePolicy;
 import com.baidu.tbadk.mutiprocess.event.PrivacyPolicyEvent;
@@ -74,7 +75,7 @@ public class PermissionUtil {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // c.a.o0.h0.b
+            @Override // c.a.p0.h0.b
             public boolean onEvent(PrivacyPolicyEvent privacyPolicyEvent) {
                 InterceptResult invokeL;
                 Interceptable interceptable2 = $ic;
@@ -409,7 +410,7 @@ public class PermissionUtil {
     public static boolean isAgreePrivacyPolicy() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65557, null)) == null) ? isAgreePrivacyPolicy || c.a.o0.s.d0.b.j().g("key_secret_is_show", false) || c.a.o0.s.d0.b.j().g("key_secret_is_show_new", false) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65557, null)) == null) ? isAgreePrivacyPolicy || c.a.p0.s.d0.b.j().g("key_secret_is_show", false) || c.a.p0.s.d0.b.j().g("key_secret_is_show_new", false) : invokeV.booleanValue;
     }
 
     public static Context providerContext(Context context) {
@@ -561,7 +562,8 @@ public class PermissionUtil {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65570, null, z) == null) {
             isAgreePrivacyPolicy = z;
-            c.a.o0.s.d0.b.j().t("key_secret_is_show_new", z);
+            c.a.p0.s.d0.b.j().t("key_secret_is_show_new", z);
+            GrowthStatsUtil.statisticActivity();
             h.i(new PrivacyPolicyEvent(Boolean.valueOf(z)));
             FH.setAgreePolicy(TbadkCoreApplication.getInst(), isAgreePrivacyPolicy);
             BdSocketLinkService.setHasAbsoluteClose(false);
@@ -572,10 +574,10 @@ public class PermissionUtil {
 
     public static void syncAgreeStatus(boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(65571, null, z) == null) && z && c.a.o0.s.d0.b.j().g("key_secret_is_show", false)) {
+        if ((interceptable == null || interceptable.invokeZ(65571, null, z) == null) && z && c.a.p0.s.d0.b.j().g("key_secret_is_show", false)) {
             isAgreePrivacyPolicy = true;
-            c.a.o0.s.d0.b.j().t("key_secret_is_show_new", true);
-            c.a.o0.s.d0.b.j().C("key_secret_is_show");
+            c.a.p0.s.d0.b.j().t("key_secret_is_show_new", true);
+            c.a.p0.s.d0.b.j().C("key_secret_is_show");
         }
     }
 

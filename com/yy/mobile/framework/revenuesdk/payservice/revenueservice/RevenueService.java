@@ -1,5 +1,6 @@
 package com.yy.mobile.framework.revenuesdk.payservice.revenueservice;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.adrequest.IAdRequestParam;
 import com.baidu.sapi2.activity.BaseActivity;
@@ -10,6 +11,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.paysdk.banksign.datamodel.QueryResponse;
+import com.yy.mobile.framework.revenuesdk.baseapi.ErrorCode;
 import com.yy.mobile.framework.revenuesdk.baseapi.ProtocolType;
 import com.yy.mobile.framework.revenuesdk.baseapi.data.IRevenueDataReceiver;
 import com.yy.mobile.framework.revenuesdk.baseapi.data.IRevenueDataSender;
@@ -36,7 +38,7 @@ import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 import kotlin.jvm.internal.StringCompanionObject;
 import kotlin.jvm.internal.TypeIntrinsics;
-@Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u008e\u0001\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010\b\n\u0000\n\u0002\u0010\u000e\n\u0002\b\u0003\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0007\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010\u0012\n\u0002\b\t\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010%\n\u0002\b\u0003\n\u0002\u0010\u000b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0006\u0018\u00002\u00020\u00012\u00020\u00022\u00020\u0003BA\u0012\u0006\u0010\u0013\u001a\u00020\u0004\u0012\u0006\u0010D\u001a\u00020\u0004\u0012\n\b\u0002\u0010/\u001a\u0004\u0018\u00010.\u0012\n\b\u0002\u0010B\u001a\u0004\u0018\u00010A\u0012\u0006\u0010?\u001a\u00020>\u0012\b\b\u0002\u00108\u001a\u000207¢\u0006\u0004\bE\u0010FJ3\u0010\u000b\u001a\u00020\n2\u0006\u0010\u0005\u001a\u00020\u00042\b\u0010\u0007\u001a\u0004\u0018\u00010\u00062\u0006\u0010\b\u001a\u00020\u00042\b\u0010\t\u001a\u0004\u0018\u00010\u0006H\u0016¢\u0006\u0004\b\u000b\u0010\fJ)\u0010\u0011\u001a\u00020\u0010\"\b\b\u0000\u0010\u000e*\u00020\r2\u0006\u0010\u0005\u001a\u00020\u00042\u0006\u0010\u000f\u001a\u00028\u0000H\u0016¢\u0006\u0004\b\u0011\u0010\u0012J!\u0010\u0016\u001a\u00020\n2\u0006\u0010\u0013\u001a\u00020\u00042\b\u0010\u0015\u001a\u0004\u0018\u00010\u0014H\u0016¢\u0006\u0004\b\u0016\u0010\u0017J;\u0010\u001a\u001a\u00020\n2\u0006\u0010\u0013\u001a\u00020\u00042\b\u0010\u0007\u001a\u0004\u0018\u00010\u00062\u0006\u0010\u0018\u001a\u00020\u00042\u0006\u0010\u0019\u001a\u00020\u00042\b\u0010\t\u001a\u0004\u0018\u00010\u0006H\u0016¢\u0006\u0004\b\u001a\u0010\u001bJ!\u0010\u001e\u001a\u00020\n2\u0006\u0010\u0013\u001a\u00020\u00042\b\u0010\u001d\u001a\u0004\u0018\u00010\u001cH\u0016¢\u0006\u0004\b\u001e\u0010\u001fJ!\u0010\"\u001a\u00020\n2\u0006\u0010\u0013\u001a\u00020\u00042\b\u0010!\u001a\u0004\u0018\u00010 H\u0016¢\u0006\u0004\b\"\u0010#J!\u0010&\u001a\u00020\n2\b\u0010\u0007\u001a\u0004\u0018\u00010\u00062\u0006\u0010%\u001a\u00020$H\u0016¢\u0006\u0004\b&\u0010'J\u0017\u0010)\u001a\u00020\n2\u0006\u0010(\u001a\u00020\u0010H\u0016¢\u0006\u0004\b)\u0010*R\u0016\u0010+\u001a\u00020\u00068\u0002@\u0002X\u0082D¢\u0006\u0006\n\u0004\b+\u0010,R\u0016\u0010\u0013\u001a\u00020\u00048\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b\u0013\u0010-R\u0018\u0010/\u001a\u0004\u0018\u00010.8\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b/\u00100R\u0016\u00102\u001a\u0002018\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b2\u00103R\u0016\u00105\u001a\u0002048\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b5\u00106R\u0016\u00108\u001a\u0002078\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b8\u00109R\"\u0010;\u001a\u000e\u0012\u0004\u0012\u00020\u0006\u0012\u0004\u0012\u00020\u00100:8\u0002@\u0002X\u0083\u000e¢\u0006\u0006\n\u0004\b;\u0010<R\"\u0010=\u001a\u000e\u0012\u0004\u0012\u00020\u0004\u0012\u0004\u0012\u00020\u00100:8\u0002@\u0002X\u0083\u000e¢\u0006\u0006\n\u0004\b=\u0010<R\u0016\u0010?\u001a\u00020>8\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b?\u0010@R\u0018\u0010B\u001a\u0004\u0018\u00010A8\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\bB\u0010CR\u0016\u0010D\u001a\u00020\u00048\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\bD\u0010-¨\u0006G"}, d2 = {"Lcom/yy/mobile/framework/revenuesdk/payservice/revenueservice/RevenueService;", "Lcom/yy/mobile/framework/revenuesdk/payservice/revenueservice/IRevenueService;", "Lcom/yy/mobile/framework/revenuesdk/payservice/revenueservice/IDataSender;", "Lcom/yy/mobile/framework/revenuesdk/baseapi/data/IRevenueDataReceiver;", "", "command", "", IAdRequestParam.SEQ, "code", "message", "", QueryResponse.Options.CANCEL, "(ILjava/lang/String;ILjava/lang/String;)V", "Lcom/yy/mobile/framework/revenuesdk/payapi/request/RequestParams;", "T", "params", "Lcom/yy/mobile/framework/revenuesdk/payservice/revenueservice/request/IRequest;", "obtainRequest", "(ILcom/yy/mobile/framework/revenuesdk/payapi/request/RequestParams;)Lcom/yy/mobile/framework/revenuesdk/payservice/revenueservice/request/IRequest;", BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, "Lcom/yy/mobile/framework/revenuesdk/baseapi/protocolbase/PSCIMessageBroadcast;", "broadcastData", "onBroadcastData", "(ILcom/yy/mobile/framework/revenuesdk/baseapi/protocolbase/PSCIMessageBroadcast;)V", "cmd", "srvErrorCode", "onRequestError", "(ILjava/lang/String;IILjava/lang/String;)V", "Lcom/yy/mobile/framework/revenuesdk/baseapi/protocolbase/PSCIMessageResponse;", "responseData", "onResponseData", "(ILcom/yy/mobile/framework/revenuesdk/baseapi/protocolbase/PSCIMessageResponse;)V", "Lcom/yy/mobile/framework/revenuesdk/baseapi/protocolbase/PSCIMessageUnicast;", "unicastData", "onUnicastData", "(ILcom/yy/mobile/framework/revenuesdk/baseapi/protocolbase/PSCIMessageUnicast;)V", "", "data", "sendData", "(Ljava/lang/String;[B)V", ContentUtil.REQ_KEY_REQ, "sendRequest", "(Lcom/yy/mobile/framework/revenuesdk/payservice/revenueservice/request/IRequest;)V", "TAG", "Ljava/lang/String;", "I", "Lcom/yy/mobile/framework/revenuesdk/baseapi/data/IRevenueDataSender;", "iDataSender", "Lcom/yy/mobile/framework/revenuesdk/baseapi/data/IRevenueDataSender;", "Lcom/yy/mobile/framework/revenuesdk/payservice/revenueservice/response/ProtocolDecoder;", "protocolDecoder", "Lcom/yy/mobile/framework/revenuesdk/payservice/revenueservice/response/ProtocolDecoder;", "Lcom/yy/mobile/framework/revenuesdk/payservice/revenueservice/request/ProtocolEncoder;", "protocolEncoder", "Lcom/yy/mobile/framework/revenuesdk/payservice/revenueservice/request/ProtocolEncoder;", "Lcom/yy/mobile/framework/revenuesdk/baseapi/ProtocolType;", "protocolType", "Lcom/yy/mobile/framework/revenuesdk/baseapi/ProtocolType;", "", "requestJobList", "Ljava/util/Map;", "requestJobListCmd", "", "requestReuse", "Z", "Lcom/yy/mobile/framework/revenuesdk/payservice/revenueservice/IRevenueService$IRevenueServiceListener;", "serviceListener", "Lcom/yy/mobile/framework/revenuesdk/payservice/revenueservice/IRevenueService$IRevenueServiceListener;", "useChannel", "<init>", "(IILcom/yy/mobile/framework/revenuesdk/baseapi/data/IRevenueDataSender;Lcom/yy/mobile/framework/revenuesdk/payservice/revenueservice/IRevenueService$IRevenueServiceListener;ZLcom/yy/mobile/framework/revenuesdk/baseapi/ProtocolType;)V", "paycore_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+@Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u008e\u0001\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010\b\n\u0000\n\u0002\u0010\u000e\n\u0002\b\u0003\n\u0002\u0010\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0007\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010\u0012\n\u0002\b\t\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010%\n\u0002\b\u0003\n\u0002\u0010\u000b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0006\u0018\u00002\u00020\u00012\u00020\u00022\u00020\u0003BA\u0012\u0006\u0010\u0015\u001a\u00020\u0004\u0012\u0006\u0010F\u001a\u00020\u0004\u0012\n\b\u0002\u00101\u001a\u0004\u0018\u000100\u0012\n\b\u0002\u0010D\u001a\u0004\u0018\u00010C\u0012\u0006\u0010A\u001a\u00020@\u0012\b\b\u0002\u0010:\u001a\u000209¢\u0006\u0004\bG\u0010HJ3\u0010\u000b\u001a\u00020\n2\u0006\u0010\u0005\u001a\u00020\u00042\b\u0010\u0007\u001a\u0004\u0018\u00010\u00062\u0006\u0010\b\u001a\u00020\u00042\b\u0010\t\u001a\u0004\u0018\u00010\u0006H\u0016¢\u0006\u0004\b\u000b\u0010\fJ\r\u0010\r\u001a\u00020\n¢\u0006\u0004\b\r\u0010\u000eJ)\u0010\u0013\u001a\u00020\u0012\"\b\b\u0000\u0010\u0010*\u00020\u000f2\u0006\u0010\u0005\u001a\u00020\u00042\u0006\u0010\u0011\u001a\u00028\u0000H\u0016¢\u0006\u0004\b\u0013\u0010\u0014J!\u0010\u0018\u001a\u00020\n2\u0006\u0010\u0015\u001a\u00020\u00042\b\u0010\u0017\u001a\u0004\u0018\u00010\u0016H\u0016¢\u0006\u0004\b\u0018\u0010\u0019J;\u0010\u001c\u001a\u00020\n2\u0006\u0010\u0015\u001a\u00020\u00042\b\u0010\u0007\u001a\u0004\u0018\u00010\u00062\u0006\u0010\u001a\u001a\u00020\u00042\u0006\u0010\u001b\u001a\u00020\u00042\b\u0010\t\u001a\u0004\u0018\u00010\u0006H\u0016¢\u0006\u0004\b\u001c\u0010\u001dJ!\u0010 \u001a\u00020\n2\u0006\u0010\u0015\u001a\u00020\u00042\b\u0010\u001f\u001a\u0004\u0018\u00010\u001eH\u0016¢\u0006\u0004\b \u0010!J!\u0010$\u001a\u00020\n2\u0006\u0010\u0015\u001a\u00020\u00042\b\u0010#\u001a\u0004\u0018\u00010\"H\u0016¢\u0006\u0004\b$\u0010%J!\u0010(\u001a\u00020\n2\b\u0010\u0007\u001a\u0004\u0018\u00010\u00062\u0006\u0010'\u001a\u00020&H\u0016¢\u0006\u0004\b(\u0010)J\u0017\u0010+\u001a\u00020\n2\u0006\u0010*\u001a\u00020\u0012H\u0016¢\u0006\u0004\b+\u0010,R\u0016\u0010-\u001a\u00020\u00068\u0002@\u0002X\u0082D¢\u0006\u0006\n\u0004\b-\u0010.R\u0016\u0010\u0015\u001a\u00020\u00048\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b\u0015\u0010/R\u0018\u00101\u001a\u0004\u0018\u0001008\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b1\u00102R\u0016\u00104\u001a\u0002038\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b4\u00105R\u0016\u00107\u001a\u0002068\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b7\u00108R\u0016\u0010:\u001a\u0002098\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b:\u0010;R\"\u0010=\u001a\u000e\u0012\u0004\u0012\u00020\u0006\u0012\u0004\u0012\u00020\u00120<8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b=\u0010>R\"\u0010?\u001a\u000e\u0012\u0004\u0012\u00020\u0004\u0012\u0004\u0012\u00020\u00120<8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b?\u0010>R\u0016\u0010A\u001a\u00020@8\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\bA\u0010BR\u0018\u0010D\u001a\u0004\u0018\u00010C8\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\bD\u0010ER\u0016\u0010F\u001a\u00020\u00048\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\bF\u0010/¨\u0006I"}, d2 = {"Lcom/yy/mobile/framework/revenuesdk/payservice/revenueservice/RevenueService;", "Lcom/yy/mobile/framework/revenuesdk/payservice/revenueservice/IRevenueService;", "Lcom/yy/mobile/framework/revenuesdk/payservice/revenueservice/IDataSender;", "Lcom/yy/mobile/framework/revenuesdk/baseapi/data/IRevenueDataReceiver;", "", "command", "", IAdRequestParam.SEQ, "code", "message", "", QueryResponse.Options.CANCEL, "(ILjava/lang/String;ILjava/lang/String;)V", "cancelAllRequest", "()V", "Lcom/yy/mobile/framework/revenuesdk/payapi/request/RequestParams;", "T", "params", "Lcom/yy/mobile/framework/revenuesdk/payservice/revenueservice/request/IRequest;", "obtainRequest", "(ILcom/yy/mobile/framework/revenuesdk/payapi/request/RequestParams;)Lcom/yy/mobile/framework/revenuesdk/payservice/revenueservice/request/IRequest;", BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, "Lcom/yy/mobile/framework/revenuesdk/baseapi/protocolbase/PSCIMessageBroadcast;", "broadcastData", "onBroadcastData", "(ILcom/yy/mobile/framework/revenuesdk/baseapi/protocolbase/PSCIMessageBroadcast;)V", "cmd", "srvErrorCode", "onRequestError", "(ILjava/lang/String;IILjava/lang/String;)V", "Lcom/yy/mobile/framework/revenuesdk/baseapi/protocolbase/PSCIMessageResponse;", "responseData", "onResponseData", "(ILcom/yy/mobile/framework/revenuesdk/baseapi/protocolbase/PSCIMessageResponse;)V", "Lcom/yy/mobile/framework/revenuesdk/baseapi/protocolbase/PSCIMessageUnicast;", "unicastData", "onUnicastData", "(ILcom/yy/mobile/framework/revenuesdk/baseapi/protocolbase/PSCIMessageUnicast;)V", "", "data", "sendData", "(Ljava/lang/String;[B)V", ContentUtil.REQ_KEY_REQ, "sendRequest", "(Lcom/yy/mobile/framework/revenuesdk/payservice/revenueservice/request/IRequest;)V", "TAG", "Ljava/lang/String;", "I", "Lcom/yy/mobile/framework/revenuesdk/baseapi/data/IRevenueDataSender;", "iDataSender", "Lcom/yy/mobile/framework/revenuesdk/baseapi/data/IRevenueDataSender;", "Lcom/yy/mobile/framework/revenuesdk/payservice/revenueservice/response/ProtocolDecoder;", "protocolDecoder", "Lcom/yy/mobile/framework/revenuesdk/payservice/revenueservice/response/ProtocolDecoder;", "Lcom/yy/mobile/framework/revenuesdk/payservice/revenueservice/request/ProtocolEncoder;", "protocolEncoder", "Lcom/yy/mobile/framework/revenuesdk/payservice/revenueservice/request/ProtocolEncoder;", "Lcom/yy/mobile/framework/revenuesdk/baseapi/ProtocolType;", "protocolType", "Lcom/yy/mobile/framework/revenuesdk/baseapi/ProtocolType;", "", "requestJobList", "Ljava/util/Map;", "requestJobListCmd", "", "requestReuse", "Z", "Lcom/yy/mobile/framework/revenuesdk/payservice/revenueservice/IRevenueService$IRevenueServiceListener;", "serviceListener", "Lcom/yy/mobile/framework/revenuesdk/payservice/revenueservice/IRevenueService$IRevenueServiceListener;", "useChannel", "<init>", "(IILcom/yy/mobile/framework/revenuesdk/baseapi/data/IRevenueDataSender;Lcom/yy/mobile/framework/revenuesdk/payservice/revenueservice/IRevenueService$IRevenueServiceListener;ZLcom/yy/mobile/framework/revenuesdk/baseapi/ProtocolType;)V", "paycore_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
 /* loaded from: classes10.dex */
 public final class RevenueService implements IRevenueService, IDataSender, IRevenueDataReceiver {
     public static /* synthetic */ Interceptable $ic;
@@ -111,11 +113,34 @@ public final class RevenueService implements IRevenueService, IDataSender, IReve
         }
     }
 
+    public final void cancelAllRequest() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            String str = this.TAG;
+            RLog.info(str, "before cancelAllRequest requestJobList size:" + this.requestJobList.size());
+            for (Map.Entry<String, IRequest> entry : this.requestJobList.entrySet()) {
+                IRequest value = entry.getValue();
+                String key = entry.getKey();
+                String str2 = this.TAG;
+                RLog.debug(str2, "cancelAll key:" + key + " cmd:" + value.getReqCommand());
+                if (value instanceof RequestJob) {
+                    cancel(value.getReqCommand(), key, ErrorCode.CLIENT_CANCEL_REQUEST, "取消所有请求");
+                }
+            }
+            String str3 = this.TAG;
+            RLog.info(str3, "after cancelAllRequest requestJobList size:" + this.requestJobList.size());
+            IRevenueDataSender iRevenueDataSender = this.iDataSender;
+            if (iRevenueDataSender != null) {
+                iRevenueDataSender.cancelAllRequest(this.appId, this.useChannel);
+            }
+        }
+    }
+
     @Override // com.yy.mobile.framework.revenuesdk.payservice.revenueservice.IRevenueService
     public <T extends RequestParams> IRequest obtainRequest(int i2, T t) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, t)) == null) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i2, t)) == null) {
             String str = this.TAG;
             RLog.debug(str, "obtainRequest command = " + i2 + " requestReuse = " + this.requestReuse + " retryCount = " + t.getRetryCount());
             if (this.requestReuse) {
@@ -139,14 +164,14 @@ public final class RevenueService implements IRevenueService, IDataSender, IReve
     @Override // com.yy.mobile.framework.revenuesdk.baseapi.data.IRevenueDataReceiver
     public void onBroadcastData(int i2, PSCIMessageBroadcast pSCIMessageBroadcast) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i2, pSCIMessageBroadcast) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048579, this, i2, pSCIMessageBroadcast) == null) {
         }
     }
 
     @Override // com.yy.mobile.framework.revenuesdk.baseapi.data.IRevenueDataReceiver
     public void onRequestError(int i2, String str, int i3, int i4, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i2), str, Integer.valueOf(i3), Integer.valueOf(i4), str2}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i2), str, Integer.valueOf(i3), Integer.valueOf(i4), str2}) == null) {
             String str3 = this.TAG;
             StringCompanionObject stringCompanionObject = StringCompanionObject.INSTANCE;
             String format = String.format("onRequestError appId = %d, errCode = %d, seq = %s, message = %s", Arrays.copyOf(new Object[]{Integer.valueOf(i2), Integer.valueOf(i4), str, str2}, 4));
@@ -181,7 +206,7 @@ public final class RevenueService implements IRevenueService, IDataSender, IReve
     @Override // com.yy.mobile.framework.revenuesdk.baseapi.data.IRevenueDataReceiver
     public void onResponseData(int i2, PSCIMessageResponse pSCIMessageResponse) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048580, this, i2, pSCIMessageResponse) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048581, this, i2, pSCIMessageResponse) == null) {
             String str = this.TAG;
             RLog.debug(str, "onResponseData requestReuse = " + this.requestReuse);
             if (pSCIMessageResponse != null) {
@@ -233,7 +258,7 @@ public final class RevenueService implements IRevenueService, IDataSender, IReve
         IRevenueService.IRevenueServiceListener iRevenueServiceListener2;
         IRevenueService.IRevenueServiceListener iRevenueServiceListener3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048581, this, i2, pSCIMessageUnicast) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048582, this, i2, pSCIMessageUnicast) == null) {
             if (pSCIMessageUnicast != null && pSCIMessageUnicast.getUri() == ProtocolUnicastUri.CurrencyChargeMessage) {
                 ProtocolDecoder protocolDecoder = this.protocolDecoder;
                 String jsonData = pSCIMessageUnicast.getJsonData();
@@ -270,7 +295,7 @@ public final class RevenueService implements IRevenueService, IDataSender, IReve
     @Override // com.yy.mobile.framework.revenuesdk.payservice.revenueservice.IDataSender
     public void sendData(String str, byte[] bArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048582, this, str, bArr) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048583, this, str, bArr) == null) {
             String str2 = this.TAG;
             RLog.debug(str2, "sendData requestReuse = " + this.requestReuse);
             IRevenueDataSender iRevenueDataSender = this.iDataSender;
@@ -283,7 +308,7 @@ public final class RevenueService implements IRevenueService, IDataSender, IReve
     @Override // com.yy.mobile.framework.revenuesdk.payservice.revenueservice.IRevenueService
     public void sendRequest(final IRequest iRequest) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, iRequest) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, iRequest) == null) {
             String str = this.TAG;
             RLog.debug(str, "sendRequest requestReuse = " + this.requestReuse);
             ThreadPool.getDefault().networkIO().execute(new Runnable(this, iRequest) { // from class: com.yy.mobile.framework.revenuesdk.payservice.revenueservice.RevenueService$sendRequest$1

@@ -26,10 +26,10 @@ public class DeviceInfoUtils {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f38760a;
+    public static String f38867a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f38761b;
+    public static String f38868b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -307,7 +307,7 @@ public class DeviceInfoUtils {
         byte[] bArr;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65564, null)) == null) {
-            String str2 = f38760a;
+            String str2 = f38867a;
             if (str2 != null) {
                 return str2;
             }
@@ -324,7 +324,7 @@ public class DeviceInfoUtils {
                 str = null;
             }
             if (str != null) {
-                f38760a = str;
+                f38867a = str;
             }
             return str;
         }
@@ -386,7 +386,7 @@ public class DeviceInfoUtils {
         byte[] bArr;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65568, null)) == null) {
-            String str2 = f38761b;
+            String str2 = f38868b;
             if (str2 != null) {
                 return str2;
             }
@@ -403,7 +403,7 @@ public class DeviceInfoUtils {
                 str = null;
             }
             if (str != null) {
-                f38761b = str;
+                f38868b = str;
             }
             return str;
         }

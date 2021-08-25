@@ -21,22 +21,22 @@ public class a implements Thread.UncaughtExceptionHandler {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile boolean f41900b;
+    public static volatile boolean f42007b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f41901a;
+    public String f42008a;
 
     /* renamed from: c  reason: collision with root package name */
-    public Thread.UncaughtExceptionHandler f41902c;
+    public Thread.UncaughtExceptionHandler f42009c;
 
     /* renamed from: com.baidu.mapsdkplatform.comapi.b.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public static class C1665a {
+    public static class C1669a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final a f41903a;
+        public static final a f42010a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -52,7 +52,7 @@ public class a implements Thread.UncaughtExceptionHandler {
                     return;
                 }
             }
-            f41903a = new a(null);
+            f42010a = new a(null);
         }
     }
 
@@ -84,8 +84,8 @@ public class a implements Thread.UncaughtExceptionHandler {
                 return;
             }
         }
-        this.f41901a = "";
-        this.f41902c = Thread.getDefaultUncaughtExceptionHandler();
+        this.f42008a = "";
+        this.f42009c = Thread.getDefaultUncaughtExceptionHandler();
     }
 
     public /* synthetic */ a(b bVar) {
@@ -95,7 +95,7 @@ public class a implements Thread.UncaughtExceptionHandler {
     public static a a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? C1665a.f41903a : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? C1669a.f42010a : (a) invokeV.objValue;
     }
 
     private void a(Throwable th) {
@@ -118,8 +118,8 @@ public class a implements Thread.UncaughtExceptionHandler {
                 }
                 printWriter.close();
                 String obj = stringWriter.toString();
-                if (!obj.isEmpty() && this.f41901a != null && !this.f41901a.isEmpty()) {
-                    File file = new File(URLEncoder.encode(this.f41901a + (System.currentTimeMillis() / 1000) + DownloadDataConstants.DEFAULT_DL_TEXT_EXTENSION, "UTF-8"));
+                if (!obj.isEmpty() && this.f42008a != null && !this.f42008a.isEmpty()) {
+                    File file = new File(URLEncoder.encode(this.f42008a + (System.currentTimeMillis() / 1000) + DownloadDataConstants.DEFAULT_DL_TEXT_EXTENSION, "UTF-8"));
                     if (file.exists() || file.createNewFile()) {
                         FileOutputStream fileOutputStream = new FileOutputStream(file);
                         fileOutputStream.write(obj.getBytes());
@@ -134,7 +134,7 @@ public class a implements Thread.UncaughtExceptionHandler {
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            this.f41901a = str;
+            this.f42008a = str;
             if (Thread.getDefaultUncaughtExceptionHandler() instanceof a) {
                 return;
             }
@@ -145,12 +145,12 @@ public class a implements Thread.UncaughtExceptionHandler {
     @Override // java.lang.Thread.UncaughtExceptionHandler
     public void uncaughtException(Thread thread, Throwable th) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, thread, th) == null) || f41900b) {
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, thread, th) == null) || f42007b) {
             return;
         }
-        f41900b = true;
+        f42007b = true;
         a(th);
-        Thread.UncaughtExceptionHandler uncaughtExceptionHandler = this.f41902c;
+        Thread.UncaughtExceptionHandler uncaughtExceptionHandler = this.f42009c;
         if (uncaughtExceptionHandler != null) {
             uncaughtExceptionHandler.uncaughtException(thread, th);
         }

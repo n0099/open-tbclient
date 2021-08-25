@@ -14,10 +14,10 @@ public class h {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile HandlerThread f64862a;
+    public static volatile HandlerThread f65062a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile Handler f64863b;
+    public static volatile Handler f65063b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -33,9 +33,9 @@ public class h {
                 return;
             }
         }
-        f64862a = new HandlerThread("tt_pangle_thread_io_handler");
-        f64862a.start();
-        f64863b = new Handler(f64862a.getLooper());
+        f65062a = new HandlerThread("tt_pangle_thread_io_handler");
+        f65062a.start();
+        f65063b = new Handler(f65062a.getLooper());
     }
 
     public h() {
@@ -56,16 +56,16 @@ public class h {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f64862a == null || !f64862a.isAlive()) {
+            if (f65062a == null || !f65062a.isAlive()) {
                 synchronized (h.class) {
-                    if (f64862a == null || !f64862a.isAlive()) {
-                        f64862a = new HandlerThread("tt_pangle_thread_io_handler");
-                        f64862a.start();
-                        f64863b = new Handler(f64862a.getLooper());
+                    if (f65062a == null || !f65062a.isAlive()) {
+                        f65062a = new HandlerThread("tt_pangle_thread_io_handler");
+                        f65062a.start();
+                        f65063b = new Handler(f65062a.getLooper());
                     }
                 }
             }
-            return f64863b;
+            return f65063b;
         }
         return (Handler) invokeV.objValue;
     }

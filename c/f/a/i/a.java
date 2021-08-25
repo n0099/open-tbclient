@@ -33,26 +33,26 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final boolean f32095f;
+    public static final boolean f32201f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f32096g;
+    public static final String f32202g;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final HashMap<String, Object> f32097a;
+    public final HashMap<String, Object> f32203a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final HashMap<String, Set<String>> f32098b;
+    public final HashMap<String, Set<String>> f32204b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f32099c;
+    public boolean f32205c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f32100d;
+    public String f32206d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Map<String, String> f32101e;
+    public final Map<String, String> f32207e;
 
     static {
         InterceptResult invokeClinit;
@@ -67,8 +67,8 @@ public class a {
                 return;
             }
         }
-        f32095f = ApollonConstants.DEBUG & false;
-        f32096g = b.f38141c.toLowerCase();
+        f32201f = ApollonConstants.DEBUG & false;
+        f32202g = b.f38247c.toLowerCase();
     }
 
     public a() {
@@ -84,10 +84,10 @@ public class a {
                 return;
             }
         }
-        this.f32097a = new HashMap<>();
-        this.f32098b = new HashMap<>();
-        this.f32099c = false;
-        this.f32101e = new HashMap();
+        this.f32203a = new HashMap<>();
+        this.f32204b = new HashMap<>();
+        this.f32205c = false;
+        this.f32207e = new HashMap();
     }
 
     public final Class<?> a(Object obj) {
@@ -120,7 +120,7 @@ public class a {
                     jSONObject.put("result", str2);
                 }
             } catch (JSONException e2) {
-                if (f32095f) {
+                if (f32201f) {
                     e2.printStackTrace();
                 }
             }
@@ -132,30 +132,30 @@ public class a {
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f32101e.clear();
+            this.f32207e.clear();
         }
     }
 
     public void d(Object obj, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, obj, str) == null) {
-            if (f32095f) {
+            if (f32201f) {
                 String str2 = "addJavascriptInterface to map: <" + str + StringUtil.ARRAY_ELEMENT_SEPARATOR + obj + ">";
             }
             if (obj == null || TextUtils.isEmpty(str)) {
                 return;
             }
-            this.f32097a.put(str, obj);
-            this.f32100d = null;
+            this.f32203a.put(str, obj);
+            this.f32206d = null;
         }
     }
 
     public void e(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.f32097a.remove(str);
-            this.f32100d = null;
-            if (f32095f) {
+            this.f32203a.remove(str);
+            this.f32206d = null;
+            if (f32201f) {
                 String str2 = "removeJavascriptInterface from map: " + str;
             }
         }
@@ -166,8 +166,8 @@ public class a {
         if (!(interceptable == null || interceptable.invokeLL(1048581, this, str, str2) == null) || TextUtils.isEmpty(str)) {
             return;
         }
-        this.f32099c = true;
-        this.f32101e.put(str, str2);
+        this.f32205c = true;
+        this.f32207e.put(str, str2);
     }
 
     @SuppressLint({"NewApi"})
@@ -176,7 +176,7 @@ public class a {
         if (interceptable == null || interceptable.invokeLLL(1048582, this, sb, obj, str) == null) {
             if (sb != null && obj != null && !TextUtils.isEmpty(str)) {
                 Class<?> cls = obj.getClass();
-                if (f32095f) {
+                if (f32201f) {
                     sb.append("if(typeof(window." + str + ")!='undefined'){");
                     sb.append("console.log('window." + str + " is exist!!');}else{");
                 } else {
@@ -189,7 +189,7 @@ public class a {
                 HashSet hashSet = new HashSet();
                 for (Method method : methods) {
                     String name = method.getName();
-                    if (!name.endsWith(b.f38147i) && !n(name) && !hashSet.contains(name)) {
+                    if (!name.endsWith(b.f38253i) && !n(name) && !hashSet.contains(name)) {
                         hashSet.add(name);
                         sb.append(name);
                         sb.append(":function(){");
@@ -197,7 +197,7 @@ public class a {
                             sb.append("return ");
                         }
                         sb.append("prompt('");
-                        sb.append(f32096g);
+                        sb.append(f32202g);
                         sb.append("'+");
                         sb.append("JSON.stringify({");
                         sb.append("obj");
@@ -215,14 +215,14 @@ public class a {
                         sb.append("},");
                     }
                 }
-                this.f32098b.put(str, hashSet);
+                this.f32204b.put(str, hashSet);
                 int length = sb.length() - 1;
                 if (sb.charAt(length) == ',') {
                     sb.deleteCharAt(length);
                 }
                 sb.append("};");
                 sb.append("}");
-            } else if (f32095f) {
+            } else if (f32201f) {
                 String str2 = "script=" + ((Object) sb);
                 String str3 = "obj=" + obj + ", interfaceName=" + str;
             }
@@ -246,9 +246,9 @@ public class a {
         boolean z2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{jsPromptResult, Boolean.valueOf(z), javaBridgeObject})) == null) {
-            Object obj = this.f32097a.get(javaBridgeObject.obj);
+            Object obj = this.f32203a.get(javaBridgeObject.obj);
             if (obj == null) {
-                if (f32095f) {
+                if (f32201f) {
                     String str = "not exist js interface:" + javaBridgeObject.obj;
                 }
                 if (z) {
@@ -258,7 +258,7 @@ public class a {
                 }
                 return true;
             } else if (javaBridgeObject.args == null && javaBridgeObject.func == null) {
-                if (f32095f) {
+                if (f32201f) {
                     String str2 = "interface query: found for " + obj;
                 }
                 if (z) {
@@ -274,7 +274,7 @@ public class a {
                     clsArr = new Class[length];
                     for (int i2 = 0; i2 < length; i2++) {
                         clsArr[i2] = a(javaBridgeObject.args[i2]);
-                        if (f32095f) {
+                        if (f32201f) {
                             String str3 = "type:" + clsArr[i2].getName();
                         }
                     }
@@ -286,7 +286,7 @@ public class a {
                     if (invoke != null && invoke.getClass() != Void.TYPE) {
                         z2 = false;
                         String obj2 = !z2 ? "" : invoke.toString();
-                        if (f32095f) {
+                        if (f32201f) {
                             String str4 = "called ok: " + obj2;
                         }
                         if (!z) {
@@ -299,13 +299,13 @@ public class a {
                     z2 = true;
                     if (!z2) {
                     }
-                    if (f32095f) {
+                    if (f32201f) {
                     }
                     if (!z) {
                     }
                     return true;
                 } catch (IllegalAccessException e2) {
-                    if (f32095f) {
+                    if (f32201f) {
                         e2.printStackTrace();
                         return false;
                     }
@@ -316,7 +316,7 @@ public class a {
                     }
                     return true;
                 } catch (IllegalArgumentException e3) {
-                    if (f32095f) {
+                    if (f32201f) {
                         e3.printStackTrace();
                         return false;
                     }
@@ -324,7 +324,7 @@ public class a {
                     }
                     return true;
                 } catch (NoSuchMethodException unused) {
-                    if (f32095f) {
+                    if (f32201f) {
                         StringBuilder sb = new StringBuilder(javaBridgeObject.func);
                         sb.append("(");
                         if (length > 0) {
@@ -346,7 +346,7 @@ public class a {
                     }
                     return true;
                 } catch (InvocationTargetException e4) {
-                    if (f32095f) {
+                    if (f32201f) {
                         e4.printStackTrace();
                         return false;
                     }
@@ -365,17 +365,17 @@ public class a {
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, str2, str3, jsPromptResult)) == null) {
-            if (f32095f) {
+            if (f32201f) {
                 String str4 = "handle url: " + str;
                 String str5 = "handle msg: " + str2;
             }
             if (TextUtils.isEmpty(str2)) {
                 return false;
             }
-            if (str2.startsWith(b.f38141c)) {
+            if (str2.startsWith(b.f38247c)) {
                 substring = str2.substring(9);
                 z = true;
-            } else if (!str2.startsWith(b.f38141c.toLowerCase())) {
+            } else if (!str2.startsWith(b.f38247c.toLowerCase())) {
                 return false;
             } else {
                 substring = str2.substring(9);
@@ -383,7 +383,7 @@ public class a {
             }
             try {
                 JavaBridgeObject javaBridgeObject = (JavaBridgeObject) JsonUtils.fromJson(substring, JavaBridgeObject.class);
-                if (f32095f && javaBridgeObject != null) {
+                if (f32201f && javaBridgeObject != null) {
                     StringBuilder sb = new StringBuilder();
                     sb.append(javaBridgeObject.obj);
                     sb.append(".");
@@ -400,14 +400,14 @@ public class a {
                         }
                     }
                     sb.append(SmallTailInfo.EMOTION_SUFFIX);
-                    LogUtil.i(b.f38140b, "call: " + sb.toString());
+                    LogUtil.i(b.f38246b, "call: " + sb.toString());
                 }
                 if (javaBridgeObject != null) {
                     return h(jsPromptResult, z, javaBridgeObject);
                 }
                 return true;
             } catch (JSONException e2) {
-                if (f32095f) {
+                if (f32201f) {
                     e2.printStackTrace();
                 }
                 jsPromptResult.cancel();
@@ -421,35 +421,35 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            if (!this.f32099c && !TextUtils.isEmpty(this.f32100d)) {
-                return this.f32100d;
+            if (!this.f32205c && !TextUtils.isEmpty(this.f32206d)) {
+                return this.f32206d;
             }
             StringBuilder sb = new StringBuilder();
             sb.append("javascript:");
             sb.append("(function JsAddJavascriptInterface_(){");
-            for (String str : this.f32097a.keySet()) {
+            for (String str : this.f32203a.keySet()) {
                 try {
-                    g(sb, this.f32097a.get(str), str);
+                    g(sb, this.f32203a.get(str), str);
                 } catch (JSONException unused) {
-                    boolean z = f32095f;
+                    boolean z = f32201f;
                 }
             }
-            for (String str2 : this.f32101e.values()) {
+            for (String str2 : this.f32207e.values()) {
                 if (!TextUtils.isEmpty(str2)) {
                     sb.append(str2);
                 }
             }
-            this.f32099c = false;
-            if (f32095f) {
+            this.f32205c = false;
+            if (f32201f) {
                 sb.append("console.log('addJavascript done!');");
             }
             sb.append("}");
             sb.append(")()");
-            this.f32100d = sb.toString();
-            if (f32095f) {
-                String str3 = "getImpactedJsString : " + this.f32100d;
+            this.f32206d = sb.toString();
+            if (f32201f) {
+                String str3 = "getImpactedJsString : " + this.f32206d;
             }
-            return this.f32100d;
+            return this.f32206d;
         }
         return (String) invokeV.objValue;
     }
@@ -459,7 +459,7 @@ public class a {
         if (!(interceptable == null || interceptable.invokeL(1048586, this, str) == null) || TextUtils.isEmpty(str)) {
             return;
         }
-        this.f32101e.remove(str);
+        this.f32207e.remove(str);
     }
 
     public final boolean l(String str, String str2) {
@@ -468,7 +468,7 @@ public class a {
         Set<String> set;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048587, this, str, str2)) == null) {
-            if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2) || (hashMap = this.f32098b) == null || hashMap.size() < 1 || (set = this.f32098b.get(str)) == null) {
+            if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2) || (hashMap = this.f32204b) == null || hashMap.size() < 1 || (set = this.f32204b.get(str)) == null) {
                 return false;
             }
             return set.contains(str2);
@@ -479,8 +479,8 @@ public class a {
     public void m() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            this.f32097a.clear();
-            this.f32100d = null;
+            this.f32203a.clear();
+            this.f32206d = null;
         }
     }
 

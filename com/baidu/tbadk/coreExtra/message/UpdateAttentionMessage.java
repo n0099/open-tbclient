@@ -23,34 +23,34 @@ public class UpdateAttentionMessage extends CustomResponsedMessage<a> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public boolean f47847a;
+        public boolean f47954a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f47848b;
+        public String f47955b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f47849c;
+        public String f47956c;
 
         /* renamed from: d  reason: collision with root package name */
-        public boolean f47850d;
+        public boolean f47957d;
 
         /* renamed from: e  reason: collision with root package name */
-        public boolean f47851e;
+        public boolean f47958e;
 
         /* renamed from: f  reason: collision with root package name */
-        public boolean f47852f;
+        public boolean f47959f;
 
         /* renamed from: g  reason: collision with root package name */
-        public HttpResponse f47853g;
+        public HttpResponse f47960g;
 
         /* renamed from: h  reason: collision with root package name */
-        public JSONObject f47854h;
+        public JSONObject f47961h;
 
         /* renamed from: i  reason: collision with root package name */
-        public boolean f47855i;
+        public boolean f47962i;
 
         /* renamed from: j  reason: collision with root package name */
-        public boolean f47856j;
+        public boolean f47963j;
         public String k;
         public BlockPopInfoData l;
         public int m;
@@ -68,8 +68,8 @@ public class UpdateAttentionMessage extends CustomResponsedMessage<a> {
                     return;
                 }
             }
-            this.f47851e = false;
-            this.f47852f = false;
+            this.f47958e = false;
+            this.f47959f = false;
             this.m = 0;
         }
 
@@ -100,7 +100,7 @@ public class UpdateAttentionMessage extends CustomResponsedMessage<a> {
             }
             try {
                 JSONObject jSONObject = new JSONObject(str);
-                this.f47854h = jSONObject;
+                this.f47961h = jSONObject;
                 JSONObject optJSONObject = jSONObject.optJSONObject("info");
                 if (optJSONObject == null) {
                     return;
@@ -144,7 +144,7 @@ public class UpdateAttentionMessage extends CustomResponsedMessage<a> {
             if (getData() == null || !(getData() instanceof a)) {
                 return false;
             }
-            return getData().f47850d;
+            return getData().f47957d;
         }
         return invokeV.booleanValue;
     }
@@ -156,7 +156,7 @@ public class UpdateAttentionMessage extends CustomResponsedMessage<a> {
             if (getData() == null || !(getData() instanceof a)) {
                 return false;
             }
-            return getData().f47852f;
+            return getData().f47959f;
         }
         return invokeV.booleanValue;
     }
@@ -168,7 +168,7 @@ public class UpdateAttentionMessage extends CustomResponsedMessage<a> {
             if (getData() == null || !(getData() instanceof a)) {
                 return false;
             }
-            return getData().f47847a;
+            return getData().f47954a;
         }
         return invokeV.booleanValue;
     }

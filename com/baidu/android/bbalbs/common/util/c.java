@@ -16,17 +16,17 @@ public final class c {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static b f36468b = null;
+    public static b f36574b = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f36469c = "";
+    public static String f36575c = "";
 
     /* renamed from: d  reason: collision with root package name */
-    public static volatile String f36470d = "";
+    public static volatile String f36576d = "";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Context f36471a;
+    public final Context f36577a;
 
     static {
         InterceptResult invokeClinit;
@@ -58,17 +58,17 @@ public final class c {
                 return;
             }
         }
-        this.f36471a = context.getApplicationContext();
+        this.f36577a = context.getApplicationContext();
     }
 
     public static String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (TextUtils.isEmpty(f36469c)) {
-                f36469c = "0newiqr3mini0";
+            if (TextUtils.isEmpty(f36575c)) {
+                f36575c = "0newiqr3mini0";
             }
-            return f36469c;
+            return f36575c;
         }
         return (String) invokeV.objValue;
     }
@@ -86,8 +86,8 @@ public final class c {
                 throw new IllegalArgumentException("expect src only letter or number , less than 6");
             }
             synchronized (b.class) {
-                if (TextUtils.isEmpty(f36470d)) {
-                    f36470d = str;
+                if (TextUtils.isEmpty(f36576d)) {
+                    f36576d = str;
                     int length = 5 - str.length();
                     StringBuffer stringBuffer = new StringBuffer();
                     stringBuffer.append("0newiqr3");
@@ -95,7 +95,7 @@ public final class c {
                     for (int i2 = 0; i2 < length; i2++) {
                         stringBuffer.append("0");
                     }
-                    f36469c = stringBuffer.toString().trim();
+                    f36575c = stringBuffer.toString().trim();
                 }
             }
         }
@@ -105,21 +105,21 @@ public final class c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this)) == null) {
-            b b2 = b.b(this.f36471a);
+            b b2 = b.b(this.f36577a);
             boolean z = b2 == null;
             if (b2 == null) {
-                a b3 = a.b(this.f36471a);
+                a b3 = a.b(this.f36577a);
                 if (b3 == null) {
-                    b2 = b.a(this.f36471a, a());
+                    b2 = b.a(this.f36577a, a());
                 } else {
                     b3.c();
                     b2 = b.a(b3);
                 }
             }
             if (z) {
-                b2.a(this.f36471a);
+                b2.a(this.f36577a);
             }
-            a.a(this.f36471a);
+            a.a(this.f36577a);
             return b2;
         }
         return (b) invokeV.objValue;
@@ -129,14 +129,14 @@ public final class c {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, context)) == null) {
-            if (f36468b == null) {
+            if (f36574b == null) {
                 synchronized (b.class) {
-                    if (f36468b == null) {
-                        f36468b = new c(context).b();
+                    if (f36574b == null) {
+                        f36574b = new c(context).b();
                     }
                 }
             }
-            return f36468b;
+            return f36574b;
         }
         return (b) invokeL.objValue;
     }

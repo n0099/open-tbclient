@@ -1,6 +1,6 @@
 package com.baidu.tieba.im.forum.broadcast.data;
 
-import c.a.p0.j1.i.a.b.a;
+import c.a.q0.j1.i.a.b.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;

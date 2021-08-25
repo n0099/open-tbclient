@@ -8,12 +8,12 @@ import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import c.a.e.e.m.b;
 import c.a.e.e.p.l;
-import c.a.o0.b.d;
-import c.a.o0.b.g.a;
-import c.a.o0.b1.e0;
-import c.a.o0.s.q.c2;
-import c.a.p0.v0.n2.k;
-import c.a.p0.x2.y;
+import c.a.p0.b.d;
+import c.a.p0.b.g.a;
+import c.a.p0.b1.e0;
+import c.a.p0.s.q.c2;
+import c.a.q0.v0.m2.k;
+import c.a.q0.x2.y;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
@@ -195,7 +195,7 @@ public class FrsActivityConfig extends IntentConfig {
             } else if (FRS_FROM_FREQUENTLY_FORUM_POST_THREAD.equals(stringExtra2)) {
                 i2 = 6;
             }
-            if (d.z() && a.f12523c != a.d()) {
+            if (d.z() && a.f12793c != a.d()) {
                 frsRequestData.H(k.d(a.d()));
             }
             frsRequestData.setSortType(k.d(i2));

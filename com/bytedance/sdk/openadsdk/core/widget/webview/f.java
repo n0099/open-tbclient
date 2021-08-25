@@ -30,26 +30,26 @@ public class f {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final byte[] f67095d;
+    public static final byte[] f67295d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static int f67096e = 10;
+    public static int f67296e = 10;
 
     /* renamed from: g  reason: collision with root package name */
-    public static volatile f f67097g;
+    public static volatile f f67297g;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public List<SSWebView> f67098a;
+    public List<SSWebView> f67298a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Map<Integer, x> f67099b;
+    public Map<Integer, x> f67299b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Map<Integer, com.bytedance.sdk.openadsdk.h.b> f67100c;
+    public Map<Integer, com.bytedance.sdk.openadsdk.h.b> f67300c;
 
     /* renamed from: f  reason: collision with root package name */
-    public final AtomicBoolean f67101f;
+    public final AtomicBoolean f67301f;
 
     static {
         InterceptResult invokeClinit;
@@ -64,7 +64,7 @@ public class f {
                 return;
             }
         }
-        f67095d = new byte[0];
+        f67295d = new byte[0];
     }
 
     public f() {
@@ -80,25 +80,25 @@ public class f {
                 return;
             }
         }
-        this.f67101f = new AtomicBoolean(false);
-        this.f67098a = new ArrayList();
-        this.f67099b = new HashMap();
-        this.f67100c = new HashMap();
-        f67096e = o.h().H();
+        this.f67301f = new AtomicBoolean(false);
+        this.f67298a = new ArrayList();
+        this.f67299b = new HashMap();
+        this.f67300c = new HashMap();
+        f67296e = o.h().H();
     }
 
     public static f a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f67097g == null) {
+            if (f67297g == null) {
                 synchronized (f.class) {
-                    if (f67097g == null) {
-                        f67097g = new f();
+                    if (f67297g == null) {
+                        f67297g = new f();
                     }
                 }
             }
-            return f67097g;
+            return f67297g;
         }
         return (f) invokeV.objValue;
     }
@@ -109,7 +109,7 @@ public class f {
         SSWebView remove;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (d() > 0 && (remove = this.f67098a.remove(0)) != null) {
+            if (d() > 0 && (remove = this.f67298a.remove(0)) != null) {
                 k.b("WebViewPool", "get WebView from pool; current available count: " + d());
                 return remove;
             }
@@ -135,13 +135,13 @@ public class f {
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f67098a.size() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f67298a.size() : invokeV.intValue;
     }
 
     public int e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f67098a.size() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f67298a.size() : invokeV.intValue;
     }
 
     private void e(SSWebView sSWebView) {
@@ -172,7 +172,7 @@ public class f {
         if (!(interceptable == null || interceptable.invokeL(1048585, this, sSWebView) == null) || sSWebView == null) {
             return;
         }
-        x xVar = this.f67099b.get(Integer.valueOf(sSWebView.hashCode()));
+        x xVar = this.f67299b.get(Integer.valueOf(sSWebView.hashCode()));
         if (xVar != null) {
             xVar.a(null);
         }
@@ -182,12 +182,12 @@ public class f {
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            for (SSWebView sSWebView : this.f67098a) {
+            for (SSWebView sSWebView : this.f67298a) {
                 if (sSWebView != null) {
                     sSWebView.destroy();
                 }
             }
-            this.f67098a.clear();
+            this.f67298a.clear();
         }
     }
 
@@ -196,12 +196,12 @@ public class f {
         if (!(interceptable == null || interceptable.invokeL(1048581, this, sSWebView) == null) || sSWebView == null) {
             return;
         }
-        if (this.f67098a.size() >= f67096e) {
+        if (this.f67298a.size() >= f67296e) {
             k.b("WebViewPool", "WebView pool is full，destroy webview");
             sSWebView.destroy();
             return;
         }
-        this.f67098a.add(sSWebView);
+        this.f67298a.add(sSWebView);
         k.b("WebViewPool", "recycle WebView，current available count: " + d());
     }
 
@@ -223,12 +223,12 @@ public class f {
         if (!(interceptable == null || interceptable.invokeLL(1048579, this, sSWebView, wVar) == null) || sSWebView == null || wVar == null) {
             return;
         }
-        x xVar = this.f67099b.get(Integer.valueOf(sSWebView.hashCode()));
+        x xVar = this.f67299b.get(Integer.valueOf(sSWebView.hashCode()));
         if (xVar != null) {
             xVar.a(wVar);
         } else {
             xVar = new x(wVar);
-            this.f67099b.put(Integer.valueOf(sSWebView.hashCode()), xVar);
+            this.f67299b.put(Integer.valueOf(sSWebView.hashCode()), xVar);
         }
         sSWebView.addJavascriptInterface(xVar, "SDK_INJECT_GLOBAL");
     }
@@ -239,12 +239,12 @@ public class f {
         if (!(interceptable == null || interceptable.invokeLLL(1048576, this, webView, zVar, str) == null) || webView == null || zVar == null || TextUtils.isEmpty(str)) {
             return;
         }
-        com.bytedance.sdk.openadsdk.h.b bVar = this.f67100c.get(Integer.valueOf(webView.hashCode()));
+        com.bytedance.sdk.openadsdk.h.b bVar = this.f67300c.get(Integer.valueOf(webView.hashCode()));
         if (bVar != null) {
             bVar.a(zVar);
         } else {
             bVar = new com.bytedance.sdk.openadsdk.h.b(zVar);
-            this.f67100c.put(Integer.valueOf(webView.hashCode()), bVar);
+            this.f67300c.put(Integer.valueOf(webView.hashCode()), bVar);
         }
         webView.addJavascriptInterface(bVar, str);
     }
@@ -254,7 +254,7 @@ public class f {
         if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str) == null) || webView == null || TextUtils.isEmpty(str)) {
             return;
         }
-        com.bytedance.sdk.openadsdk.h.b bVar = this.f67100c.get(Integer.valueOf(webView.hashCode()));
+        com.bytedance.sdk.openadsdk.h.b bVar = this.f67300c.get(Integer.valueOf(webView.hashCode()));
         if (bVar != null) {
             bVar.a(null);
         }

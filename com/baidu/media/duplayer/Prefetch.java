@@ -70,9 +70,9 @@ public class Prefetch {
             }
             CyberLog.i(TAG, "adjustPrefetchPolicy call before url : " + str + " prefetchSize : " + i9);
             PlayerConfigManagerInternal.b adjustPrefetchPolicy = adjustPrefetchPolicy(str, i9, prefetchOptions);
-            CyberLog.i(TAG, "adjustPrefetchPolicy call after url : " + adjustPrefetchPolicy.f42432b + " info.adjustSize : " + adjustPrefetchPolicy.f42431a);
-            if (Utils.a() > Utils.f42398b) {
-                nativeAdd(adjustPrefetchPolicy.f42432b, str2 != null ? str2 : "", str3 != null ? str3 : "", str5, i2, i3, adjustPrefetchPolicy.f42431a, str4, i5, i6, i7, i8);
+            CyberLog.i(TAG, "adjustPrefetchPolicy call after url : " + adjustPrefetchPolicy.f42539b + " info.adjustSize : " + adjustPrefetchPolicy.f42538a);
+            if (Utils.a() > Utils.f42505b) {
+                nativeAdd(adjustPrefetchPolicy.f42539b, str2 != null ? str2 : "", str3 != null ? str3 : "", str5, i2, i3, adjustPrefetchPolicy.f42538a, str4, i5, i6, i7, i8);
             }
         }
     }

@@ -27,22 +27,22 @@ public class TransparentHeadGridView extends GridView {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f58373e;
+    public int f58570e;
 
     /* renamed from: f  reason: collision with root package name */
-    public float f58374f;
+    public float f58571f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f58375g;
+    public boolean f58572g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f58376h;
+    public int f58573h;
 
     /* renamed from: i  reason: collision with root package name */
-    public View f58377i;
+    public View f58574i;
 
     /* renamed from: j  reason: collision with root package name */
-    public Interpolator f58378j;
+    public Interpolator f58575j;
     public g k;
     public int l;
     public Animation m;
@@ -63,7 +63,7 @@ public class TransparentHeadGridView extends GridView {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ TransparentHeadGridView f58379a;
+        public final /* synthetic */ TransparentHeadGridView f58576a;
 
         public a(TransparentHeadGridView transparentHeadGridView) {
             Interceptable interceptable = $ic;
@@ -80,14 +80,14 @@ public class TransparentHeadGridView extends GridView {
                     return;
                 }
             }
-            this.f58379a = transparentHeadGridView;
+            this.f58576a = transparentHeadGridView;
         }
 
         @Override // android.view.animation.Animation.AnimationListener
         public void onAnimationEnd(Animation animation) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, animation) == null) && this.f58379a.t) {
-                this.f58379a.setVisibility(8);
+            if ((interceptable == null || interceptable.invokeL(1048576, this, animation) == null) && this.f58576a.t) {
+                this.f58576a.setVisibility(8);
             }
         }
 
@@ -112,7 +112,7 @@ public class TransparentHeadGridView extends GridView {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ TransparentHeadGridView f58380a;
+        public final /* synthetic */ TransparentHeadGridView f58577a;
 
         public b(TransparentHeadGridView transparentHeadGridView) {
             Interceptable interceptable = $ic;
@@ -129,18 +129,18 @@ public class TransparentHeadGridView extends GridView {
                     return;
                 }
             }
-            this.f58380a = transparentHeadGridView;
+            this.f58577a = transparentHeadGridView;
         }
 
         @Override // com.baidu.tieba.write.album.TransparentHeadGridView.f
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.f58380a.t) {
-                    this.f58380a.setVisibility(8);
+                if (this.f58577a.t) {
+                    this.f58577a.setVisibility(8);
                 }
-                if (this.f58380a.p != null) {
-                    this.f58380a.p.a();
+                if (this.f58577a.p != null) {
+                    this.f58577a.p.a();
                 }
             }
         }
@@ -152,7 +152,7 @@ public class TransparentHeadGridView extends GridView {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TransparentHeadGridView f58381e;
+        public final /* synthetic */ TransparentHeadGridView f58578e;
 
         public c(TransparentHeadGridView transparentHeadGridView) {
             Interceptable interceptable = $ic;
@@ -169,7 +169,7 @@ public class TransparentHeadGridView extends GridView {
                     return;
                 }
             }
-            this.f58381e = transparentHeadGridView;
+            this.f58578e = transparentHeadGridView;
         }
 
         @Override // android.widget.AbsListView.OnScrollListener
@@ -178,27 +178,27 @@ public class TransparentHeadGridView extends GridView {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLIII(1048576, this, absListView, i2, i3, i4) == null) {
                 if (i2 != 0 || absListView == null || absListView.getChildAt(0) == null || absListView.getPaddingTop() != 0) {
-                    if (this.f58381e.o != null && this.f58381e.s != 100 && this.f58381e.getPaddingTop() == 0) {
-                        this.f58381e.o.a(100);
-                        this.f58381e.s = 100;
+                    if (this.f58578e.o != null && this.f58578e.s != 100 && this.f58578e.getPaddingTop() == 0) {
+                        this.f58578e.o.a(100);
+                        this.f58578e.s = 100;
                     }
                 } else {
                     View childAt = absListView.getChildAt(0);
-                    if (this.f58381e.f58376h < 0) {
-                        this.f58381e.f58376h = childAt.getTop();
+                    if (this.f58578e.f58573h < 0) {
+                        this.f58578e.f58573h = childAt.getTop();
                     }
-                    int i5 = -(childAt.getTop() - this.f58381e.f58376h);
-                    this.f58381e.f58375g = i5 == 0;
-                    if (this.f58381e.f58377i != null) {
-                        this.f58381e.f58377i.scrollTo(0, i5);
+                    int i5 = -(childAt.getTop() - this.f58578e.f58573h);
+                    this.f58578e.f58572g = i5 == 0;
+                    if (this.f58578e.f58574i != null) {
+                        this.f58578e.f58574i.scrollTo(0, i5);
                     }
-                    if (this.f58381e.o != null && childAt.getHeight() != 0 && this.f58381e.getPaddingTop() == 0 && (height = (((int) (-childAt.getY())) * 100) / childAt.getHeight()) != this.f58381e.s) {
-                        this.f58381e.o.a(height);
-                        this.f58381e.s = height;
+                    if (this.f58578e.o != null && childAt.getHeight() != 0 && this.f58578e.getPaddingTop() == 0 && (height = (((int) (-childAt.getY())) * 100) / childAt.getHeight()) != this.f58578e.s) {
+                        this.f58578e.o.a(height);
+                        this.f58578e.s = height;
                     }
                 }
-                if (this.f58381e.q != null) {
-                    this.f58381e.q.onScroll(absListView, i2, i3, i4);
+                if (this.f58578e.q != null) {
+                    this.f58578e.q.onScroll(absListView, i2, i3, i4);
                 }
             }
         }
@@ -206,10 +206,10 @@ public class TransparentHeadGridView extends GridView {
         @Override // android.widget.AbsListView.OnScrollListener
         public void onScrollStateChanged(AbsListView absListView, int i2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, absListView, i2) == null) || this.f58381e.q == null) {
+            if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, absListView, i2) == null) || this.f58578e.q == null) {
                 return;
             }
-            this.f58381e.q.onScrollStateChanged(absListView, i2);
+            this.f58578e.q.onScrollStateChanged(absListView, i2);
         }
     }
 
@@ -236,22 +236,22 @@ public class TransparentHeadGridView extends GridView {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final Interpolator f58382e;
+        public final Interpolator f58579e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final int f58383f;
+        public final int f58580f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final int f58384g;
+        public final int f58581g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final long f58385h;
+        public final long f58582h;
 
         /* renamed from: i  reason: collision with root package name */
-        public f f58386i;
+        public f f58583i;
 
         /* renamed from: j  reason: collision with root package name */
-        public boolean f58387j;
+        public boolean f58584j;
         public long k;
         public int l;
         public final /* synthetic */ TransparentHeadGridView m;
@@ -272,20 +272,20 @@ public class TransparentHeadGridView extends GridView {
                 }
             }
             this.m = transparentHeadGridView;
-            this.f58387j = true;
+            this.f58584j = true;
             this.k = -1L;
             this.l = -1;
-            this.f58384g = i2;
-            this.f58383f = i3;
-            this.f58382e = transparentHeadGridView.f58378j;
-            this.f58385h = j2;
-            this.f58386i = fVar;
+            this.f58581g = i2;
+            this.f58580f = i3;
+            this.f58579e = transparentHeadGridView.f58575j;
+            this.f58582h = j2;
+            this.f58583i = fVar;
         }
 
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f58387j = false;
+                this.f58584j = false;
                 this.m.removeCallbacks(this);
             }
         }
@@ -297,18 +297,18 @@ public class TransparentHeadGridView extends GridView {
                 if (this.k == -1) {
                     this.k = System.currentTimeMillis();
                 } else {
-                    int round = this.f58384g - Math.round((this.f58384g - this.f58383f) * this.f58382e.getInterpolation(((float) Math.max(Math.min(((System.currentTimeMillis() - this.k) * 1000) / this.f58385h, 1000L), 0L)) / 1000.0f));
+                    int round = this.f58581g - Math.round((this.f58581g - this.f58580f) * this.f58579e.getInterpolation(((float) Math.max(Math.min(((System.currentTimeMillis() - this.k) * 1000) / this.f58582h, 1000L), 0L)) / 1000.0f));
                     this.l = round;
                     this.m.setPadding(0, round, 0, 0);
                     if (this.m.p != null && this.l >= 0 && this.m.l > 0 && this.l <= this.m.l) {
                         this.m.p.b((this.l * 100) / this.m.l);
                     }
                 }
-                if (this.f58387j && this.f58383f != this.l) {
+                if (this.f58584j && this.f58580f != this.l) {
                     this.m.postDelayed(this, 16L);
                     return;
                 }
-                f fVar = this.f58386i;
+                f fVar = this.f58583i;
                 if (fVar != null) {
                     fVar.a();
                 }
@@ -334,10 +334,10 @@ public class TransparentHeadGridView extends GridView {
                 return;
             }
         }
-        this.f58373e = 0;
-        this.f58374f = 0.0f;
-        this.f58375g = true;
-        this.f58376h = -1;
+        this.f58570e = 0;
+        this.f58571f = 0.0f;
+        this.f58572g = true;
+        this.f58573h = -1;
         this.s = -1;
         this.t = false;
         this.u = new a(this);
@@ -349,7 +349,7 @@ public class TransparentHeadGridView extends GridView {
     public void hideToBottom() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f58373e = 0;
+            this.f58570e = 0;
             if (this.n == null) {
                 Animation loadAnimation = AnimationUtils.loadAnimation(this.r, R.anim.out_to_bottom);
                 this.n = loadAnimation;
@@ -377,8 +377,8 @@ public class TransparentHeadGridView extends GridView {
             }
             int paddingTop = getPaddingTop();
             if (paddingTop != i2) {
-                if (this.f58378j == null) {
-                    this.f58378j = new DecelerateInterpolator();
+                if (this.f58575j == null) {
+                    this.f58575j = new DecelerateInterpolator();
                 }
                 g gVar2 = new g(this, paddingTop, i2, j2, fVar);
                 this.k = gVar2;
@@ -399,23 +399,23 @@ public class TransparentHeadGridView extends GridView {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, motionEvent)) == null) {
             int action = motionEvent.getAction();
             if (action == 1) {
-                this.f58373e = 0;
-                this.f58374f = 0.0f;
+                this.f58570e = 0;
+                this.f58571f = 0.0f;
                 if (this.t && getPaddingTop() > this.l) {
                     n(getHeight(), 200L, 0L, this.v);
                 } else {
                     n(0, 200L, 0L, null);
                 }
             } else if (action == 2) {
-                if (this.f58374f == 0.0f) {
-                    this.f58374f = motionEvent.getY();
+                if (this.f58571f == 0.0f) {
+                    this.f58571f = motionEvent.getY();
                 }
                 float y = motionEvent.getY();
-                if (y > this.f58374f && getPaddingTop() == 0 && this.f58375g) {
-                    this.f58373e = 1;
+                if (y > this.f58571f && getPaddingTop() == 0 && this.f58572g) {
+                    this.f58570e = 1;
                 }
-                if (this.f58373e == 1) {
-                    int i3 = (int) ((y - this.f58374f) / 2.0f);
+                if (this.f58570e == 1) {
+                    int i3 = (int) ((y - this.f58571f) / 2.0f);
                     e eVar = this.p;
                     if (eVar != null && i3 >= 0 && (i2 = this.l) > 0 && i3 <= i2) {
                         eVar.b((i3 * 100) / i2);
@@ -430,7 +430,7 @@ public class TransparentHeadGridView extends GridView {
     public void setBottomMoveView(View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, view) == null) {
-            this.f58377i = view;
+            this.f58574i = view;
         }
     }
 
@@ -460,7 +460,7 @@ public class TransparentHeadGridView extends GridView {
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             setVisibility(0);
             setPadding(0, 0, 0, 0);
-            this.f58373e = 0;
+            this.f58570e = 0;
             if (this.m == null) {
                 this.m = AnimationUtils.loadAnimation(this.r, R.anim.in_from_bottom);
             }
@@ -471,9 +471,9 @@ public class TransparentHeadGridView extends GridView {
     public void smoothScroll() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            setPadding(0, (int) ((10.0f - this.f58374f) / 2.0f), 0, 0);
-            this.f58373e = 0;
-            this.f58374f = 0.0f;
+            setPadding(0, (int) ((10.0f - this.f58571f) / 2.0f), 0, 0);
+            this.f58570e = 0;
+            this.f58571f = 0.0f;
             if (this.t && getPaddingTop() > this.l) {
                 n(getHeight(), 200L, 0L, this.v);
             } else {
@@ -501,10 +501,10 @@ public class TransparentHeadGridView extends GridView {
                 return;
             }
         }
-        this.f58373e = 0;
-        this.f58374f = 0.0f;
-        this.f58375g = true;
-        this.f58376h = -1;
+        this.f58570e = 0;
+        this.f58571f = 0.0f;
+        this.f58572g = true;
+        this.f58573h = -1;
         this.s = -1;
         this.t = false;
         this.u = new a(this);
@@ -532,10 +532,10 @@ public class TransparentHeadGridView extends GridView {
                 return;
             }
         }
-        this.f58373e = 0;
-        this.f58374f = 0.0f;
-        this.f58375g = true;
-        this.f58376h = -1;
+        this.f58570e = 0;
+        this.f58571f = 0.0f;
+        this.f58572g = true;
+        this.f58573h = -1;
         this.s = -1;
         this.t = false;
         this.u = new a(this);

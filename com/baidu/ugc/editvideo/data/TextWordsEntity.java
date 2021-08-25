@@ -1,8 +1,8 @@
 package com.baidu.ugc.editvideo.data;
 
-import c.a.v0.t.e;
-import c.a.v0.t.l;
-import c.a.v0.t.w;
+import c.a.w0.t.e;
+import c.a.w0.t.l;
+import c.a.w0.t.w;
 import com.baidu.adp.widget.HorizontalTranslateLayout;
 import com.baidu.adp.widget.VerticalTranslateLayout;
 import com.baidu.android.imsdk.internal.Constants;

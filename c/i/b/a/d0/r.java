@@ -14,32 +14,32 @@ public final class r extends w {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: j  reason: collision with root package name */
-    public static final Object f32909j;
+    public static final Object f33015j;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public final long f32910b;
+    public final long f33016b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final long f32911c;
+    public final long f33017c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final long f32912d;
+    public final long f33018d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final long f32913e;
+    public final long f33019e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final long f32914f;
+    public final long f33020f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final long f32915g;
+    public final long f33021g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final boolean f32916h;
+    public final boolean f33022h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final boolean f32917i;
+    public final boolean f33023i;
 
     static {
         InterceptResult invokeClinit;
@@ -54,7 +54,7 @@ public final class r extends w {
                 return;
             }
         }
-        f32909j = new Object();
+        f33015j = new Object();
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -82,7 +82,7 @@ public final class r extends w {
     public int b(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) ? f32909j.equals(obj) ? 0 : -1 : invokeL.intValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) ? f33015j.equals(obj) ? 0 : -1 : invokeL.intValue;
     }
 
     @Override // c.i.b.a.w
@@ -91,8 +91,8 @@ public final class r extends w {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), bVar, Boolean.valueOf(z)})) == null) {
             c.i.b.a.i0.a.c(i2, 0, 1);
-            Object obj = z ? f32909j : null;
-            bVar.n(obj, obj, 0, this.f32912d, -this.f32914f);
+            Object obj = z ? f33015j : null;
+            bVar.n(obj, obj, 0, this.f33018d, -this.f33020f);
             return bVar;
         }
         return (w.b) invokeCommon.objValue;
@@ -114,15 +114,15 @@ public final class r extends w {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i2), cVar, Boolean.valueOf(z), Long.valueOf(j2)})) == null) {
             c.i.b.a.i0.a.c(i2, 0, 1);
-            Object obj = z ? f32909j : null;
-            long j3 = this.f32915g;
-            if (this.f32917i) {
+            Object obj = z ? f33015j : null;
+            long j3 = this.f33021g;
+            if (this.f33023i) {
                 j3 += j2;
-                if (j3 > this.f32913e) {
+                if (j3 > this.f33019e) {
                     j3 = -9223372036854775807L;
                 }
             }
-            cVar.d(obj, this.f32910b, this.f32911c, this.f32916h, this.f32917i, j3, this.f32913e, 0, 0, this.f32914f);
+            cVar.d(obj, this.f33016b, this.f33017c, this.f33022h, this.f33023i, j3, this.f33019e, 0, 0, this.f33020f);
             return cVar;
         }
         return (w.c) invokeCommon.objValue;
@@ -174,13 +174,13 @@ public final class r extends w {
                 return;
             }
         }
-        this.f32910b = j2;
-        this.f32911c = j3;
-        this.f32912d = j4;
-        this.f32913e = j5;
-        this.f32914f = j6;
-        this.f32915g = j7;
-        this.f32916h = z;
-        this.f32917i = z2;
+        this.f33016b = j2;
+        this.f33017c = j3;
+        this.f33018d = j4;
+        this.f33019e = j5;
+        this.f33020f = j6;
+        this.f33021g = j7;
+        this.f33022h = z;
+        this.f33023i = z2;
     }
 }

@@ -12,22 +12,22 @@ public class l extends r {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f2627a;
+    public String f2685a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f2628b;
+    public String f2686b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f2629c;
+    public String f2687c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f2630d;
+    public String f2688d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String[] f2631e;
+    public String[] f2689e;
 
     /* renamed from: f  reason: collision with root package name */
-    public List<BasicNameValuePair> f2632f;
+    public List<BasicNameValuePair> f2690f;
 
     public l(String str) {
         Interceptable interceptable = $ic;
@@ -44,10 +44,10 @@ public class l extends r {
                 return;
             }
         }
-        this.f2627a = str;
-        this.f2628b = "/";
-        this.f2630d = null;
-        this.f2631e = null;
-        this.f2632f = null;
+        this.f2685a = str;
+        this.f2686b = "/";
+        this.f2688d = null;
+        this.f2689e = null;
+        this.f2690f = null;
     }
 }

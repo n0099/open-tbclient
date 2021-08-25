@@ -23,7 +23,7 @@ public class SensorStatisticApi extends StatisticDecorate {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static SensorStatisticApi f69524a;
+        public static SensorStatisticApi f69724a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -39,7 +39,7 @@ public class SensorStatisticApi extends StatisticDecorate {
                     return;
                 }
             }
-            f69524a = new SensorStatisticApi();
+            f69724a = new SensorStatisticApi();
         }
     }
 
@@ -60,7 +60,7 @@ public class SensorStatisticApi extends StatisticDecorate {
     public static SensorStatisticApi getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? a.f69524a : (SensorStatisticApi) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? a.f69724a : (SensorStatisticApi) invokeV.objValue;
     }
 
     @Override // com.dxmpay.wallet.statistics.api.StatisticDecorate, com.dxmpay.wallet.statistics.api.IStatistic

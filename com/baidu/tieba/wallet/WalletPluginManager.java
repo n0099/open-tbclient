@@ -3,7 +3,7 @@ package com.baidu.tieba.wallet;
 import android.app.Activity;
 import android.content.Context;
 import androidx.core.view.InputDeviceCompat;
-import c.a.o0.n0.f;
+import c.a.p0.n0.f;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nps.main.install.IInstallCallback;

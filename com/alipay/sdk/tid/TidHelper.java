@@ -50,7 +50,7 @@ public class TidHelper {
                     JSONObject jSONObject = new JSONObject(a2.b());
                     a a3 = a.a(context);
                     String optString = jSONObject.optString("tid");
-                    String string = jSONObject.getString(a.f35833d);
+                    String string = jSONObject.getString(a.f35939d);
                     if (!TextUtils.isEmpty(optString) && !TextUtils.isEmpty(string)) {
                         a3.a(optString, string);
                     }

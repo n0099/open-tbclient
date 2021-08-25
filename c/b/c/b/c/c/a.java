@@ -16,7 +16,7 @@ public abstract class a<T> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f31299a;
+    public final String f31405a;
 
     public a(String str) {
         Interceptable interceptable = $ic;
@@ -33,7 +33,7 @@ public abstract class a<T> {
                 return;
             }
         }
-        this.f31299a = str;
+        this.f31405a = str;
     }
 
     public abstract ContentValues a(T t);
@@ -46,7 +46,7 @@ public abstract class a<T> {
             try {
                 StringBuilder sb = new StringBuilder();
                 sb.append("CREATE TABLE ");
-                sb.append(this.f31299a);
+                sb.append(this.f31405a);
                 sb.append(" (_id INTEGER PRIMARY KEY AUTOINCREMENT, ");
                 HashMap<String, String> b2 = b();
                 if (b2 != null) {
@@ -72,7 +72,7 @@ public abstract class a<T> {
             return;
         }
         try {
-            sQLiteDatabase.insert(this.f31299a, null, a(t));
+            sQLiteDatabase.insert(this.f31405a, null, a(t));
         } catch (Exception e2) {
             l.k.c(e2);
         }

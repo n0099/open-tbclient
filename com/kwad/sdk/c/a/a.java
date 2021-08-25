@@ -14,7 +14,7 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final List<b> f70899a;
+    public final List<b> f71099a;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -29,7 +29,7 @@ public class a {
                 return;
             }
         }
-        this.f70899a = new ArrayList();
+        this.f71099a = new ArrayList();
     }
 
     public void a(b bVar) {
@@ -37,7 +37,7 @@ public class a {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) || bVar == null) {
             return;
         }
-        this.f70899a.add(bVar);
+        this.f71099a.add(bVar);
     }
 
     public void a(b bVar, int i2) {
@@ -45,14 +45,14 @@ public class a {
         if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar, i2) == null) || bVar == null) {
             return;
         }
-        this.f70899a.add(i2, bVar);
+        this.f71099a.add(i2, bVar);
     }
 
     public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            for (b bVar : this.f70899a) {
+            for (b bVar : this.f71099a) {
                 if (bVar.a_()) {
                     return true;
                 }
@@ -67,6 +67,6 @@ public class a {
         if (!(interceptable == null || interceptable.invokeL(1048579, this, bVar) == null) || bVar == null) {
             return;
         }
-        this.f70899a.remove(bVar);
+        this.f71099a.remove(bVar);
     }
 }

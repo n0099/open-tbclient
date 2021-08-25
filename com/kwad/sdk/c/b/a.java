@@ -15,19 +15,19 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f70900a;
+    public String f71100a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f70901b;
+    public long f71101b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f70902c;
+    public long f71102c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f70903d;
+    public long f71103d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f70904e;
+    public boolean f71104e;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -47,13 +47,13 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             b bVar = new b();
-            bVar.f70906a = this.f70900a;
-            long j2 = this.f70901b;
-            bVar.f70908c = j2 != 0 ? this.f70902c - j2 : 0L;
-            long j3 = this.f70902c;
-            bVar.f70909d = j3 != 0 ? this.f70903d - j3 : 0L;
-            long j4 = this.f70901b;
-            bVar.f70907b = j4 != 0 ? this.f70903d - j4 : 0L;
+            bVar.f71106a = this.f71100a;
+            long j2 = this.f71101b;
+            bVar.f71108c = j2 != 0 ? this.f71102c - j2 : 0L;
+            long j3 = this.f71102c;
+            bVar.f71109d = j3 != 0 ? this.f71103d - j3 : 0L;
+            long j4 = this.f71101b;
+            bVar.f71107b = j4 != 0 ? this.f71103d - j4 : 0L;
             d.a(bVar);
             com.kwad.sdk.core.d.a.a("PageMonitor", bVar.toString());
         }
@@ -62,23 +62,23 @@ public class a {
     public void a(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2) == null) {
-            this.f70901b = j2;
-            this.f70902c = SystemClock.uptimeMillis();
+            this.f71101b = j2;
+            this.f71102c = SystemClock.uptimeMillis();
         }
     }
 
     public void a(Activity activity) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity) == null) || this.f70904e) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity) == null) || this.f71104e) {
             return;
         }
-        this.f70904e = true;
+        this.f71104e = true;
         ar.a(new Runnable(this) { // from class: com.kwad.sdk.c.b.a.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ a f70905a;
+            public final /* synthetic */ a f71105a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -95,15 +95,15 @@ public class a {
                         return;
                     }
                 }
-                this.f70905a = this;
+                this.f71105a = this;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    this.f70905a.f70903d = SystemClock.uptimeMillis();
-                    this.f70905a.a();
+                    this.f71105a.f71103d = SystemClock.uptimeMillis();
+                    this.f71105a.a();
                 }
             }
         });
@@ -112,7 +112,7 @@ public class a {
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.f70900a = str;
+            this.f71100a = str;
         }
     }
 }

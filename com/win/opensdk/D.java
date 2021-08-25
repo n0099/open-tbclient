@@ -11,7 +11,7 @@ public class D implements F {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ E f76389a;
+    public final /* synthetic */ E f76590a;
 
     public D(E e2) {
         Interceptable interceptable = $ic;
@@ -28,14 +28,14 @@ public class D implements F {
                 return;
             }
         }
-        this.f76389a = e2;
+        this.f76590a = e2;
     }
 
     @Override // com.win.opensdk.PBListener
     public void onClicked() {
         F f2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (f2 = this.f76389a.f76399b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (f2 = this.f76590a.f76600b) == null) {
             return;
         }
         f2.onClicked();
@@ -45,7 +45,7 @@ public class D implements F {
     public void onDisplayed() {
         F f2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (f2 = this.f76389a.f76399b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (f2 = this.f76590a.f76600b) == null) {
             return;
         }
         f2.onDisplayed();
@@ -55,7 +55,7 @@ public class D implements F {
     public void onFail(PBError pBError) {
         F f2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pBError) == null) || (f2 = this.f76389a.f76399b) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pBError) == null) || (f2 = this.f76590a.f76600b) == null) {
             return;
         }
         f2.onFail(pBError);
@@ -65,7 +65,7 @@ public class D implements F {
     public void onLoaded() {
         F f2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (f2 = this.f76389a.f76399b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (f2 = this.f76590a.f76600b) == null) {
             return;
         }
         f2.onLoaded();

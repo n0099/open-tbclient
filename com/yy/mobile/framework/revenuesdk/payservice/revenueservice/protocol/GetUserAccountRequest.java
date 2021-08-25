@@ -56,6 +56,7 @@ public class GetUserAccountRequest implements IRequestProtocol {
                 jSONObject.put(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, this.appId);
                 jSONObject.put("usedChannel", this.usedChannel);
                 jSONObject.put("returnYb", this.returnYb);
+                jSONObject.put("returnImid", true);
                 return jSONObject.toString();
             } catch (JSONException e2) {
                 RLog.error("GetUserAccountRequest", "constructPSCIMessageRequest error.", e2);

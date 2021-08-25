@@ -23,22 +23,22 @@ public class FragmentTabSwellingView extends View {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Paint f47348e;
+    public Paint f47454e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Path f47349f;
+    public Path f47455f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Path f47350g;
+    public Path f47456g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Paint f47351h;
+    public Paint f47457h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f47352i;
+    public int f47458i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f47353j;
+    public int f47459j;
     public int k;
     public int l;
     public int m;
@@ -80,33 +80,33 @@ public class FragmentTabSwellingView extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             Paint paint = new Paint();
-            this.f47348e = paint;
+            this.f47454e = paint;
             paint.setColor(SkinManager.getColor(R.color.CAM_X0205));
-            this.f47348e.setAntiAlias(true);
-            this.f47348e.setStrokeWidth(1.0f);
-            this.f47348e.setDither(true);
-            this.f47348e.setStyle(Paint.Style.FILL);
+            this.f47454e.setAntiAlias(true);
+            this.f47454e.setStrokeWidth(1.0f);
+            this.f47454e.setDither(true);
+            this.f47454e.setStyle(Paint.Style.FILL);
             Paint paint2 = new Paint();
-            this.f47351h = paint2;
+            this.f47457h = paint2;
             paint2.setAntiAlias(true);
-            this.f47351h.setDither(true);
-            this.f47351h.setShadowLayer(20.0f, 0.0f, -2.0f, getResources().getColor(R.color.CAM_X0806));
+            this.f47457h.setDither(true);
+            this.f47457h.setShadowLayer(20.0f, 0.0f, -2.0f, getResources().getColor(R.color.CAM_X0806));
         }
     }
 
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f47349f = new Path();
-            this.f47350g = new Path();
+            this.f47455f = new Path();
+            this.f47456g = new Path();
         }
     }
 
     public final void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f47352i = l.g(getContext().getApplicationContext(), R.dimen.tbds137);
-            this.f47353j = l.g(getContext().getApplicationContext(), R.dimen.tbds204);
+            this.f47458i = l.g(getContext().getApplicationContext(), R.dimen.tbds137);
+            this.f47459j = l.g(getContext().getApplicationContext(), R.dimen.tbds204);
             this.k = l.g(getContext().getApplicationContext(), R.dimen.tbds23);
             this.l = l.g(getContext().getApplicationContext(), R.dimen.tbds51);
             this.m = l.g(getContext().getApplicationContext(), R.dimen.tbds16);
@@ -119,11 +119,11 @@ public class FragmentTabSwellingView extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
             if (i2 != 1 && i2 != 4) {
-                this.f47348e.setColor(SkinManager.getColor(R.color.CAM_X0205));
-                this.f47351h.setShadowLayer(20.0f, 0.0f, -2.0f, getResources().getColor(R.color.CAM_X0806));
+                this.f47454e.setColor(SkinManager.getColor(R.color.CAM_X0205));
+                this.f47457h.setShadowLayer(20.0f, 0.0f, -2.0f, getResources().getColor(R.color.CAM_X0806));
             } else {
-                this.f47348e.setColor(SkinManager.getColor(R.color.CAM_X0206_1));
-                this.f47351h.setShadowLayer(20.0f, 0.0f, -2.0f, getResources().getColor(R.color.transparent));
+                this.f47454e.setColor(SkinManager.getColor(R.color.CAM_X0206_1));
+                this.f47457h.setShadowLayer(20.0f, 0.0f, -2.0f, getResources().getColor(R.color.transparent));
             }
             invalidate();
         }
@@ -137,28 +137,28 @@ public class FragmentTabSwellingView extends View {
             if (getWidth() > l.k(getContext())) {
                 return;
             }
-            this.f47350g.reset();
-            this.f47349f.reset();
-            this.f47349f.moveTo(0.0f, getHeight() - this.f47352i);
-            this.f47349f.lineTo((getWidth() / 2) - (this.f47353j / 2), getHeight() - this.f47352i);
-            this.f47349f.quadTo(((getWidth() / 2) - (this.f47353j / 2)) + this.k, getHeight() - this.f47352i, ((getWidth() / 2) - (this.f47353j / 2)) + this.l, (getHeight() - this.f47352i) - this.m);
-            this.f47349f.quadTo(getWidth() / 2, (getHeight() - this.f47352i) - this.n, ((getWidth() / 2) + (this.f47353j / 2)) - this.l, (getHeight() - this.f47352i) - this.m);
-            this.f47349f.quadTo(((getWidth() / 2) + (this.f47353j / 2)) - this.k, getHeight() - this.f47352i, (getWidth() / 2) + (this.f47353j / 2), getHeight() - this.f47352i);
-            this.f47349f.lineTo(getWidth(), getHeight() - this.f47352i);
-            this.f47349f.lineTo(getWidth(), getHeight());
-            this.f47349f.lineTo(0.0f, getHeight());
-            this.f47349f.close();
-            this.f47350g.moveTo(0.0f, (getHeight() - this.f47352i) + this.o);
-            this.f47350g.lineTo((getWidth() / 2) - (this.f47353j / 2), (getHeight() - this.f47352i) + this.o);
-            this.f47350g.quadTo(((getWidth() / 2) - (this.f47353j / 2)) + this.k, (getHeight() - this.f47352i) + this.o, ((getWidth() / 2) - (this.f47353j / 2)) + this.l, ((getHeight() - this.f47352i) - this.m) + this.o);
-            this.f47350g.quadTo(getWidth() / 2, ((getHeight() - this.f47352i) - this.n) + this.o, ((getWidth() / 2) + (this.f47353j / 2)) - this.l, ((getHeight() - this.f47352i) - this.m) + this.o);
-            this.f47350g.quadTo(((getWidth() / 2) + (this.f47353j / 2)) - this.k, (getHeight() - this.f47352i) + this.o, (getWidth() / 2) + (this.f47353j / 2), (getHeight() - this.f47352i) + this.o);
-            this.f47350g.lineTo(getWidth(), (getHeight() - this.f47352i) + this.o);
-            this.f47350g.lineTo(getWidth(), getHeight());
-            this.f47350g.lineTo(0.0f, getHeight());
-            this.f47350g.close();
-            canvas.drawPath(this.f47350g, this.f47351h);
-            canvas.drawPath(this.f47349f, this.f47348e);
+            this.f47456g.reset();
+            this.f47455f.reset();
+            this.f47455f.moveTo(0.0f, getHeight() - this.f47458i);
+            this.f47455f.lineTo((getWidth() / 2) - (this.f47459j / 2), getHeight() - this.f47458i);
+            this.f47455f.quadTo(((getWidth() / 2) - (this.f47459j / 2)) + this.k, getHeight() - this.f47458i, ((getWidth() / 2) - (this.f47459j / 2)) + this.l, (getHeight() - this.f47458i) - this.m);
+            this.f47455f.quadTo(getWidth() / 2, (getHeight() - this.f47458i) - this.n, ((getWidth() / 2) + (this.f47459j / 2)) - this.l, (getHeight() - this.f47458i) - this.m);
+            this.f47455f.quadTo(((getWidth() / 2) + (this.f47459j / 2)) - this.k, getHeight() - this.f47458i, (getWidth() / 2) + (this.f47459j / 2), getHeight() - this.f47458i);
+            this.f47455f.lineTo(getWidth(), getHeight() - this.f47458i);
+            this.f47455f.lineTo(getWidth(), getHeight());
+            this.f47455f.lineTo(0.0f, getHeight());
+            this.f47455f.close();
+            this.f47456g.moveTo(0.0f, (getHeight() - this.f47458i) + this.o);
+            this.f47456g.lineTo((getWidth() / 2) - (this.f47459j / 2), (getHeight() - this.f47458i) + this.o);
+            this.f47456g.quadTo(((getWidth() / 2) - (this.f47459j / 2)) + this.k, (getHeight() - this.f47458i) + this.o, ((getWidth() / 2) - (this.f47459j / 2)) + this.l, ((getHeight() - this.f47458i) - this.m) + this.o);
+            this.f47456g.quadTo(getWidth() / 2, ((getHeight() - this.f47458i) - this.n) + this.o, ((getWidth() / 2) + (this.f47459j / 2)) - this.l, ((getHeight() - this.f47458i) - this.m) + this.o);
+            this.f47456g.quadTo(((getWidth() / 2) + (this.f47459j / 2)) - this.k, (getHeight() - this.f47458i) + this.o, (getWidth() / 2) + (this.f47459j / 2), (getHeight() - this.f47458i) + this.o);
+            this.f47456g.lineTo(getWidth(), (getHeight() - this.f47458i) + this.o);
+            this.f47456g.lineTo(getWidth(), getHeight());
+            this.f47456g.lineTo(0.0f, getHeight());
+            this.f47456g.close();
+            canvas.drawPath(this.f47456g, this.f47457h);
+            canvas.drawPath(this.f47455f, this.f47454e);
         }
     }
 

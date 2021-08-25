@@ -20,7 +20,7 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Uri f75923a;
+    public static final Uri f76124a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -36,7 +36,7 @@ public class a {
                 return;
             }
         }
-        f75923a = Uri.parse("content://telephony/carriers/preferapn");
+        f76124a = Uri.parse("content://telephony/carriers/preferapn");
     }
 
     public static String a(Context context) {
@@ -94,7 +94,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
             try {
-                Cursor query = context.getContentResolver().query(f75923a, null, null, null, null);
+                Cursor query = context.getContentResolver().query(f76124a, null, null, null, null);
                 if (query == null) {
                     return null;
                 }

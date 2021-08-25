@@ -13,7 +13,7 @@ import org.apache.http.client.methods.HttpPut;
 public class e implements a {
 
     /* renamed from: a  reason: collision with root package name */
-    public com.meizu.cloud.pushsdk.b.h.a f74178a = new com.meizu.cloud.pushsdk.b.h.a(null);
+    public com.meizu.cloud.pushsdk.b.h.a f74378a = new com.meizu.cloud.pushsdk.b.h.a(null);
 
     public static l a(final HttpURLConnection httpURLConnection) throws IOException {
         if (httpURLConnection.getDoInput()) {
@@ -70,7 +70,7 @@ public class e implements a {
         a2.setUseCaches(false);
         a2.setDoInput(true);
         if (iVar.f() && fVar.startsWith("https://api-push.meizu.com")) {
-            ((HttpsURLConnection) a2).setSSLSocketFactory(this.f74178a);
+            ((HttpsURLConnection) a2).setSSLSocketFactory(this.f74378a);
         }
         return a2;
     }

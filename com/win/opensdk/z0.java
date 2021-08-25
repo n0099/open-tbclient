@@ -11,7 +11,7 @@ public class z0 implements Runnable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ A0 f76846a;
+    public final /* synthetic */ A0 f77047a;
 
     public z0(A0 a0) {
         Interceptable interceptable = $ic;
@@ -28,7 +28,7 @@ public class z0 implements Runnable {
                 return;
             }
         }
-        this.f76846a = a0;
+        this.f77047a = a0;
     }
 
     @Override // java.lang.Runnable
@@ -36,11 +36,11 @@ public class z0 implements Runnable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             try {
-                View rootView = this.f76846a.f76371a.getRootView();
+                View rootView = this.f77047a.f76572a.getRootView();
                 if (rootView == null || rootView.getVisibility() != 0) {
                     return;
                 }
-                Z0.a(this.f76846a.f76372b.f76400a).a(new a1(this.f76846a.f76372b.f76402c), this.f76846a.f76371a.getWidth(), this.f76846a.f76371a.getHeight()).a();
+                Z0.a(this.f77047a.f76573b.f76601a).a(new a1(this.f77047a.f76573b.f76603c), this.f77047a.f76572a.getWidth(), this.f77047a.f76572a.getHeight()).a();
             } catch (Exception e2) {
                 e2.printStackTrace();
             }

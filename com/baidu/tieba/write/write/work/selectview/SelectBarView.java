@@ -11,8 +11,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
 import c.a.e.e.p.l;
-import c.a.o0.s.u.c;
-import c.a.o0.u.i;
+import c.a.p0.s.u.c;
+import c.a.p0.u.i;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -47,7 +47,7 @@ public class SelectBarView extends LinearLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SelectBarView f58844e;
+        public final /* synthetic */ SelectBarView f59042e;
 
         public a(SelectBarView selectBarView) {
             Interceptable interceptable = $ic;
@@ -64,14 +64,14 @@ public class SelectBarView extends LinearLayout {
                     return;
                 }
             }
-            this.f58844e = selectBarView;
+            this.f59042e = selectBarView;
         }
 
         @Override // android.view.View.OnClickListener
         public final void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new SelectForumConfig(this.f58844e.getContext())));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new SelectForumConfig(this.f59042e.getContext())));
             }
         }
     }
@@ -101,10 +101,10 @@ public class SelectBarView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, iVar) == null) {
             if (iVar != null) {
-                String str = iVar.f14713a;
+                String str = iVar.f15024a;
                 boolean z = true;
                 if (!(str == null || str.length() == 0)) {
-                    String str2 = iVar.f14715c;
+                    String str2 = iVar.f15026c;
                     if (str2 != null && str2.length() != 0) {
                         z = false;
                     }
@@ -123,7 +123,7 @@ public class SelectBarView extends LinearLayout {
                         if (textView3 == null) {
                             Intrinsics.throwUninitializedPropertyAccessException("mCenterContent");
                         }
-                        textView3.setText(iVar.f14715c + getContext().getString(R.string.forum));
+                        textView3.setText(iVar.f15026c + getContext().getString(R.string.forum));
                         return;
                     }
                 }
@@ -316,9 +316,9 @@ public class SelectBarView extends LinearLayout {
                 Intrinsics.throwUninitializedPropertyAccessException("mCenterContent");
             }
             c d2 = c.d(textView3);
-            d2.y(R.string.F_X01);
-            d2.x(R.dimen.T_X09);
-            d2.t(R.color.CAM_X0105);
+            d2.z(R.string.F_X01);
+            d2.y(R.dimen.T_X09);
+            d2.u(R.color.CAM_X0105);
             d2.e(R.string.A_X07);
             d2.n(R.string.J_X01);
             d2.l(R.dimen.L_X02);
@@ -357,9 +357,9 @@ public class SelectBarView extends LinearLayout {
                 Intrinsics.throwUninitializedPropertyAccessException("mCenterContentPos");
             }
             c d3 = c.d(textView7);
-            d3.y(R.string.F_X01);
-            d3.x(R.dimen.T_X09);
-            d3.t(R.color.CAM_X0105);
+            d3.z(R.string.F_X01);
+            d3.y(R.dimen.T_X09);
+            d3.u(R.color.CAM_X0105);
             d3.e(R.string.A_X07);
             d3.n(R.string.J_X01);
             d3.l(R.dimen.L_X02);

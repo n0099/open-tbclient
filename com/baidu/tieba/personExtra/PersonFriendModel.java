@@ -2,7 +2,7 @@ package com.baidu.tieba.personExtra;
 
 import androidx.core.view.InputDeviceCompat;
 import c.a.e.a.f;
-import c.a.o0.s.q.h1;
+import c.a.p0.s.q.h1;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.HttpMessage;
@@ -25,17 +25,17 @@ public class PersonFriendModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f55621g;
+    public static final String f55786g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static TbHttpMessageTask f55622h;
+    public static TbHttpMessageTask f55787h;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public h1 f55623e;
+    public h1 f55788e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f55624f;
+    public String f55789f;
 
     static {
         InterceptResult invokeClinit;
@@ -51,11 +51,11 @@ public class PersonFriendModel extends BdBaseModel {
             }
         }
         String str = TbConfig.SERVER_ADDRESS + "c/r/friend/listFriend";
-        f55621g = str;
+        f55786g = str;
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.PIC_FRIEND_CMD, str);
-        f55622h = tbHttpMessageTask;
+        f55787h = tbHttpMessageTask;
         tbHttpMessageTask.setResponsedClass(PersonFriendResponseMessage.class);
-        MessageManager.getInstance().registerTask(f55622h);
+        MessageManager.getInstance().registerTask(f55787h);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -76,13 +76,13 @@ public class PersonFriendModel extends BdBaseModel {
                 return;
             }
         }
-        this.f55623e = new h1();
+        this.f55788e = new h1();
     }
 
     public void A(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            this.f55624f = str;
+            this.f55789f = str;
         }
     }
 
@@ -109,7 +109,7 @@ public class PersonFriendModel extends BdBaseModel {
     public String getId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f55624f : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f55789f : (String) invokeV.objValue;
     }
 
     public void setSex(int i2) {
@@ -121,7 +121,7 @@ public class PersonFriendModel extends BdBaseModel {
     public h1 w() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f55623e : (h1) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f55788e : (h1) invokeV.objValue;
     }
 
     public void x() {
@@ -149,7 +149,7 @@ public class PersonFriendModel extends BdBaseModel {
     public void z(h1 h1Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, h1Var) == null) {
-            this.f55623e = h1Var;
+            this.f55788e = h1Var;
         }
     }
 }

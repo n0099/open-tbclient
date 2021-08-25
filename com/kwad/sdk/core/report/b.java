@@ -31,29 +31,29 @@ public abstract class b<T extends c, R extends com.kwad.sdk.core.network.g> {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile Handler f71791c;
+    public static volatile Handler f71991c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static ExecutorService f71792d;
+    public static ExecutorService f71992d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public volatile long f71793a;
+    public volatile long f71993a;
 
     /* renamed from: b  reason: collision with root package name */
-    public h f71794b;
+    public h f71994b;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f71795e;
+    public Context f71995e;
 
     /* renamed from: f  reason: collision with root package name */
-    public AtomicInteger f71796f;
+    public AtomicInteger f71996f;
 
     /* renamed from: g  reason: collision with root package name */
-    public AtomicInteger f71797g;
+    public AtomicInteger f71997g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f71798h;
+    public int f71998h;
 
     /* loaded from: classes10.dex */
     public class a implements Runnable {
@@ -61,13 +61,13 @@ public abstract class b<T extends c, R extends com.kwad.sdk.core.network.g> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ b f71813a;
+        public final /* synthetic */ b f72013a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final h f71814b;
+        public final h f72014b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final Context f71815c;
+        public final Context f72015c;
 
         public a(b bVar, Context context, h hVar) {
             Interceptable interceptable = $ic;
@@ -84,9 +84,9 @@ public abstract class b<T extends c, R extends com.kwad.sdk.core.network.g> {
                     return;
                 }
             }
-            this.f71813a = bVar;
-            this.f71815c = context;
-            this.f71814b = hVar;
+            this.f72013a = bVar;
+            this.f72015c = context;
+            this.f72014b = hVar;
         }
 
         private void a(@NonNull List<T> list) {
@@ -96,7 +96,7 @@ public abstract class b<T extends c, R extends com.kwad.sdk.core.network.g> {
                 int size = a2.size();
                 AtomicBoolean atomicBoolean = new AtomicBoolean(false);
                 for (int i2 = 0; i2 < size; i2++) {
-                    this.f71813a.a((List) a2.get(i2), atomicBoolean);
+                    this.f72013a.a((List) a2.get(i2), atomicBoolean);
                 }
             }
         }
@@ -105,7 +105,7 @@ public abstract class b<T extends c, R extends com.kwad.sdk.core.network.g> {
         public void run() {
             List<T> b2;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f71813a.f71796f.get() > 0 || !com.ksad.download.d.b.a(this.f71815c) || (b2 = this.f71814b.b()) == null || b2.isEmpty()) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f72013a.f71996f.get() > 0 || !com.ksad.download.d.b.a(this.f72015c) || (b2 = this.f72014b.b()) == null || b2.isEmpty()) {
                 return;
             }
             a(b2);
@@ -140,13 +140,13 @@ public abstract class b<T extends c, R extends com.kwad.sdk.core.network.g> {
                 return;
             }
         }
-        this.f71793a = AppConfig.TIMESTAMP_AVAILABLE_DURATION;
-        this.f71794b = new i();
-        this.f71796f = new AtomicInteger(0);
-        this.f71797g = new AtomicInteger(0);
-        this.f71798h = 5;
-        if (f71792d == null) {
-            f71792d = com.kwad.sdk.core.i.b.f();
+        this.f71993a = AppConfig.TIMESTAMP_AVAILABLE_DURATION;
+        this.f71994b = new i();
+        this.f71996f = new AtomicInteger(0);
+        this.f71997g = new AtomicInteger(0);
+        this.f71998h = 5;
+        if (f71992d == null) {
+            f71992d = com.kwad.sdk.core.i.b.f();
         }
     }
 
@@ -155,13 +155,13 @@ public abstract class b<T extends c, R extends com.kwad.sdk.core.network.g> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(AdIconUtil.BAIDU_LOGO_ID, this, j2) == null) {
             synchronized (this) {
-                if (f71791c == null) {
+                if (f71991c == null) {
                     return;
                 }
-                f71791c.removeMessages(16843025);
-                Message obtain = Message.obtain(f71791c, new a(this, this.f71795e, this.f71794b));
+                f71991c.removeMessages(16843025);
+                Message obtain = Message.obtain(f71991c, new a(this, this.f71995e, this.f71994b));
                 obtain.what = 16843025;
-                f71791c.sendMessageDelayed(obtain, j2);
+                f71991c.sendMessageDelayed(obtain, j2);
             }
         }
     }
@@ -171,11 +171,11 @@ public abstract class b<T extends c, R extends com.kwad.sdk.core.network.g> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65543, this)) == null) {
-            int i2 = this.f71797g.get();
+            int i2 = this.f71997g.get();
             if (i2 > 16) {
                 i2 = 16;
             }
-            return this.f71794b.a() >= ((long) (com.kwad.sdk.core.config.c.m() << i2));
+            return this.f71994b.a() >= ((long) (com.kwad.sdk.core.config.c.m() << i2));
         }
         return invokeV.booleanValue;
     }
@@ -184,13 +184,13 @@ public abstract class b<T extends c, R extends com.kwad.sdk.core.network.g> {
     public void d() {
         int andIncrement;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65546, this) == null) || (andIncrement = this.f71797g.getAndIncrement()) > this.f71798h) {
+        if (!(interceptable == null || interceptable.invokeV(65546, this) == null) || (andIncrement = this.f71997g.getAndIncrement()) > this.f71998h) {
             return;
         }
         if (andIncrement > 0) {
-            this.f71793a *= 2;
+            this.f71993a *= 2;
         }
-        b(this.f71793a);
+        b(this.f71993a);
     }
 
     public abstract R a(List<T> list);
@@ -205,7 +205,7 @@ public abstract class b<T extends c, R extends com.kwad.sdk.core.network.g> {
     public void a(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2) == null) {
-            this.f71793a = j2 < 60 ? 60000L : j2 * 1000;
+            this.f71993a = j2 < 60 ? 60000L : j2 * 1000;
         }
     }
 
@@ -213,9 +213,9 @@ public abstract class b<T extends c, R extends com.kwad.sdk.core.network.g> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, context) == null) {
             synchronized (this) {
-                this.f71795e = context;
-                if (f71791c == null) {
-                    f71791c = com.kwad.sdk.core.i.a.b();
+                this.f71995e = context;
+                if (f71991c == null) {
+                    f71991c = com.kwad.sdk.core.i.a.b();
                 }
             }
         }
@@ -231,10 +231,10 @@ public abstract class b<T extends c, R extends com.kwad.sdk.core.network.g> {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ c f71808a;
+            public final /* synthetic */ c f72008a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ b f71809b;
+            public final /* synthetic */ b f72009b;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -251,8 +251,8 @@ public abstract class b<T extends c, R extends com.kwad.sdk.core.network.g> {
                         return;
                     }
                 }
-                this.f71809b = this;
-                this.f71808a = t;
+                this.f72009b = this;
+                this.f72008a = t;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -278,8 +278,8 @@ public abstract class b<T extends c, R extends com.kwad.sdk.core.network.g> {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
                     ArrayList arrayList = new ArrayList();
-                    arrayList.add(this.f71808a);
-                    return (R) this.f71809b.a(arrayList);
+                    arrayList.add(this.f72008a);
+                    return (R) this.f72009b.a(arrayList);
                 }
                 return (R) invokeV.objValue;
             }
@@ -298,10 +298,10 @@ public abstract class b<T extends c, R extends com.kwad.sdk.core.network.g> {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ c f71810a;
+            public final /* synthetic */ c f72010a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ b f71811b;
+            public final /* synthetic */ b f72011b;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -318,8 +318,8 @@ public abstract class b<T extends c, R extends com.kwad.sdk.core.network.g> {
                         return;
                     }
                 }
-                this.f71811b = this;
-                this.f71810a = t;
+                this.f72011b = this;
+                this.f72010a = t;
             }
 
             /* JADX DEBUG: Multi-variable search result rejected for r5v1, resolved type: com.kwad.sdk.core.report.b */
@@ -328,12 +328,12 @@ public abstract class b<T extends c, R extends com.kwad.sdk.core.network.g> {
             public void a(@NonNull R r, int i2, String str) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeLIL(1048576, this, r, i2, str) == null) {
-                    this.f71811b.a((g) new g<T>(this) { // from class: com.kwad.sdk.core.report.b.6.1
+                    this.f72011b.a((g) new g<T>(this) { // from class: com.kwad.sdk.core.report.b.6.1
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
 
                         /* renamed from: a  reason: collision with root package name */
-                        public final /* synthetic */ AnonymousClass6 f71812a;
+                        public final /* synthetic */ AnonymousClass6 f72012a;
 
                         {
                             Interceptable interceptable3 = $ic;
@@ -350,7 +350,7 @@ public abstract class b<T extends c, R extends com.kwad.sdk.core.network.g> {
                                     return;
                                 }
                             }
-                            this.f71812a = this;
+                            this.f72012a = this;
                         }
 
                         @Override // com.kwad.sdk.core.report.g
@@ -358,7 +358,7 @@ public abstract class b<T extends c, R extends com.kwad.sdk.core.network.g> {
                         public T a() {
                             InterceptResult invokeV;
                             Interceptable interceptable3 = $ic;
-                            return (interceptable3 == null || (invokeV = interceptable3.invokeV(1048576, this)) == null) ? (T) this.f71812a.f71810a : (T) invokeV.objValue;
+                            return (interceptable3 == null || (invokeV = interceptable3.invokeV(1048576, this)) == null) ? (T) this.f72012a.f72010a : (T) invokeV.objValue;
                         }
                     });
                 }
@@ -372,7 +372,7 @@ public abstract class b<T extends c, R extends com.kwad.sdk.core.network.g> {
             public void a(@NonNull R r, @NonNull BatchReportResult batchReportResult) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_SEND_USER_MSG, this, r, batchReportResult) == null) {
-                    com.kwad.sdk.core.d.a.a("BaseBatchReporter", "立即上报 onSuccess action= " + this.f71810a + " result " + batchReportResult.getResult());
+                    com.kwad.sdk.core.d.a.a("BaseBatchReporter", "立即上报 onSuccess action= " + this.f72010a + " result " + batchReportResult.getResult());
                 }
             }
         });
@@ -381,15 +381,15 @@ public abstract class b<T extends c, R extends com.kwad.sdk.core.network.g> {
     public void a(@NonNull g<T> gVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, gVar) == null) {
-            f71792d.execute(new Runnable(this, gVar) { // from class: com.kwad.sdk.core.report.b.1
+            f71992d.execute(new Runnable(this, gVar) { // from class: com.kwad.sdk.core.report.b.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ g f71799a;
+                public final /* synthetic */ g f71999a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ b f71800b;
+                public final /* synthetic */ b f72000b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -406,21 +406,21 @@ public abstract class b<T extends c, R extends com.kwad.sdk.core.network.g> {
                             return;
                         }
                     }
-                    this.f71800b = this;
-                    this.f71799a = gVar;
+                    this.f72000b = this;
+                    this.f71999a = gVar;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        if (b.f71791c != null && !b.f71791c.hasMessages(16843025)) {
-                            b bVar = this.f71800b;
-                            bVar.b(bVar.f71793a);
+                        if (b.f71991c != null && !b.f71991c.hasMessages(16843025)) {
+                            b bVar = this.f72000b;
+                            bVar.b(bVar.f71993a);
                         }
-                        this.f71800b.f71794b.a((h) this.f71799a.a());
-                        if (this.f71800b.c()) {
-                            this.f71800b.a();
+                        this.f72000b.f71994b.a((h) this.f71999a.a());
+                        if (this.f72000b.c()) {
+                            this.f72000b.a();
                         }
                     }
                 }
@@ -431,7 +431,7 @@ public abstract class b<T extends c, R extends com.kwad.sdk.core.network.g> {
     public void a(h hVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, hVar) == null) {
-            this.f71794b = hVar;
+            this.f71994b = hVar;
         }
     }
 
@@ -440,16 +440,16 @@ public abstract class b<T extends c, R extends com.kwad.sdk.core.network.g> {
         if (!(interceptable == null || interceptable.invokeLL(1048583, this, list, atomicBoolean) == null) || list == null || list.size() <= 0) {
             return;
         }
-        this.f71796f.getAndIncrement();
+        this.f71996f.getAndIncrement();
         new com.kwad.sdk.core.network.i<R, BatchReportResult>(this, list) { // from class: com.kwad.sdk.core.report.b.2
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ List f71801a;
+            public final /* synthetic */ List f72001a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ b f71802b;
+            public final /* synthetic */ b f72002b;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -466,8 +466,8 @@ public abstract class b<T extends c, R extends com.kwad.sdk.core.network.g> {
                         return;
                     }
                 }
-                this.f71802b = this;
-                this.f71801a = list;
+                this.f72002b = this;
+                this.f72001a = list;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -491,7 +491,7 @@ public abstract class b<T extends c, R extends com.kwad.sdk.core.network.g> {
             public R b() {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? (R) this.f71802b.a(this.f71801a) : (R) invokeV.objValue;
+                return (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? (R) this.f72002b.a(this.f72001a) : (R) invokeV.objValue;
             }
 
             @Override // com.kwad.sdk.core.network.i
@@ -508,13 +508,13 @@ public abstract class b<T extends c, R extends com.kwad.sdk.core.network.g> {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ List f71803a;
+            public final /* synthetic */ List f72003a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ AtomicBoolean f71804b;
+            public final /* synthetic */ AtomicBoolean f72004b;
 
             /* renamed from: c  reason: collision with root package name */
-            public final /* synthetic */ b f71805c;
+            public final /* synthetic */ b f72005c;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -531,18 +531,18 @@ public abstract class b<T extends c, R extends com.kwad.sdk.core.network.g> {
                         return;
                     }
                 }
-                this.f71805c = this;
-                this.f71803a = list;
-                this.f71804b = atomicBoolean;
+                this.f72005c = this;
+                this.f72003a = list;
+                this.f72004b = atomicBoolean;
             }
 
             @Override // com.kwad.sdk.core.network.j, com.kwad.sdk.core.network.h
             public void a(@NonNull R r, int i2, String str) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeLIL(1048576, this, r, i2, str) == null) {
-                    this.f71804b.set(true);
-                    if (this.f71805c.f71796f.decrementAndGet() == 0) {
-                        this.f71805c.d();
+                    this.f72004b.set(true);
+                    if (this.f72005c.f71996f.decrementAndGet() == 0) {
+                        this.f72005c.d();
                     }
                 }
             }
@@ -555,13 +555,13 @@ public abstract class b<T extends c, R extends com.kwad.sdk.core.network.g> {
             public void a(@NonNull R r, @NonNull BatchReportResult batchReportResult) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_SEND_USER_MSG, this, r, batchReportResult) == null) {
-                    this.f71805c.f71794b.a(this.f71803a);
-                    if (this.f71805c.f71796f.decrementAndGet() == 0 && this.f71804b.get()) {
-                        this.f71805c.d();
+                    this.f72005c.f71994b.a(this.f72003a);
+                    if (this.f72005c.f71996f.decrementAndGet() == 0 && this.f72004b.get()) {
+                        this.f72005c.d();
                     }
-                    this.f71805c.a(batchReportResult.getInterval());
-                    b bVar = this.f71805c;
-                    bVar.b(bVar.f71793a);
+                    this.f72005c.a(batchReportResult.getInterval());
+                    b bVar = this.f72005c;
+                    bVar.b(bVar.f71993a);
                 }
             }
         });
@@ -570,15 +570,15 @@ public abstract class b<T extends c, R extends com.kwad.sdk.core.network.g> {
     public void b(@NonNull g<T> gVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, gVar) == null) {
-            f71792d.execute(new Runnable(this, gVar) { // from class: com.kwad.sdk.core.report.b.4
+            f71992d.execute(new Runnable(this, gVar) { // from class: com.kwad.sdk.core.report.b.4
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ g f71806a;
+                public final /* synthetic */ g f72006a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ b f71807b;
+                public final /* synthetic */ b f72007b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -595,8 +595,8 @@ public abstract class b<T extends c, R extends com.kwad.sdk.core.network.g> {
                             return;
                         }
                     }
-                    this.f71807b = this;
-                    this.f71806a = gVar;
+                    this.f72007b = this;
+                    this.f72006a = gVar;
                 }
 
                 /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: com.kwad.sdk.core.report.b */
@@ -605,7 +605,7 @@ public abstract class b<T extends c, R extends com.kwad.sdk.core.network.g> {
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f71807b.a((b) this.f71806a.a());
+                        this.f72007b.a((b) this.f72006a.a());
                     }
                 }
             });

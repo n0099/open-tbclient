@@ -1,6 +1,6 @@
 package com.baidu.tieba.lego.card.model;
 
-import c.a.e.k.e.n;
+import c.a.e.l.e.n;
 import com.baidu.adp.BdUniqueId;
 import java.io.Serializable;
 /* loaded from: classes7.dex */

@@ -16,13 +16,13 @@ public class BdAsyncTaskParallel {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public BdUniqueId f36046a;
+    public BdUniqueId f36152a;
 
     /* renamed from: b  reason: collision with root package name */
-    public BdAsyncTaskParallelType f36047b;
+    public BdAsyncTaskParallelType f36153b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f36048c;
+    public int f36154c;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes4.dex */
@@ -107,12 +107,12 @@ public class BdAsyncTaskParallel {
                 return;
             }
         }
-        this.f36046a = null;
-        this.f36047b = BdAsyncTaskParallelType.MAX_PARALLEL;
-        this.f36048c = 1;
+        this.f36152a = null;
+        this.f36153b = BdAsyncTaskParallelType.MAX_PARALLEL;
+        this.f36154c = 1;
         if (bdAsyncTaskParallelType != null && bdUniqueId != null) {
-            this.f36047b = bdAsyncTaskParallelType;
-            this.f36046a = bdUniqueId;
+            this.f36153b = bdAsyncTaskParallelType;
+            this.f36152a = bdUniqueId;
             return;
         }
         throw new InvalidParameterException("BdAsyncTaskParallel parameter null");
@@ -121,14 +121,14 @@ public class BdAsyncTaskParallel {
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f36048c : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f36154c : invokeV.intValue;
     }
 
     public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            BdUniqueId bdUniqueId = this.f36046a;
+            BdUniqueId bdUniqueId = this.f36152a;
             if (bdUniqueId == null) {
                 return 0;
             }
@@ -140,7 +140,7 @@ public class BdAsyncTaskParallel {
     public BdAsyncTaskParallelType c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f36047b : (BdAsyncTaskParallelType) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f36153b : (BdAsyncTaskParallelType) invokeV.objValue;
     }
 
     public BdAsyncTaskParallel(BdUniqueId bdUniqueId, int i2) {
@@ -158,13 +158,13 @@ public class BdAsyncTaskParallel {
                 return;
             }
         }
-        this.f36046a = null;
-        this.f36047b = BdAsyncTaskParallelType.MAX_PARALLEL;
-        this.f36048c = 1;
+        this.f36152a = null;
+        this.f36153b = BdAsyncTaskParallelType.MAX_PARALLEL;
+        this.f36154c = 1;
         if (bdUniqueId != null) {
-            this.f36047b = BdAsyncTaskParallelType.CUSTOM_PARALLEL;
-            this.f36048c = i2;
-            this.f36046a = bdUniqueId;
+            this.f36153b = BdAsyncTaskParallelType.CUSTOM_PARALLEL;
+            this.f36154c = i2;
+            this.f36152a = bdUniqueId;
             return;
         }
         throw new InvalidParameterException("BdAsyncTaskParallel parameter null");

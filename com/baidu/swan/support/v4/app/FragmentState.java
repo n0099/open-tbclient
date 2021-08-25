@@ -4,8 +4,8 @@ import android.content.Context;
 import android.os.Bundle;
 import android.os.Parcel;
 import android.os.Parcelable;
-import c.a.n0.o.a.a.k;
-import c.a.n0.o.a.a.m;
+import c.a.o0.o.a.a.k;
+import c.a.o0.o.a.a.m;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -101,7 +101,7 @@ public final class FragmentState implements Parcelable {
             }
         }
         this.mClassName = fragment.getClass().getName();
-        this.mIndex = fragment.f47011j;
+        this.mIndex = fragment.f47118j;
         this.mFromLayout = fragment.s;
         this.mFragmentId = fragment.A;
         this.mContainerId = fragment.B;
@@ -138,7 +138,7 @@ public final class FragmentState implements Parcelable {
             Bundle bundle2 = this.mSavedFragmentState;
             if (bundle2 != null) {
                 bundle2.setClassLoader(h2.getClassLoader());
-                this.mInstance.f47009h = this.mSavedFragmentState;
+                this.mInstance.f47116h = this.mSavedFragmentState;
             }
             this.mInstance.i1(this.mIndex, fragment);
             Fragment fragment3 = this.mInstance;
@@ -149,7 +149,7 @@ public final class FragmentState implements Parcelable {
             fragment3.C = this.mTag;
             fragment3.F = this.mRetainInstance;
             fragment3.E = this.mDetached;
-            fragment3.w = kVar.f11830d;
+            fragment3.w = kVar.f12076d;
             if (m.x) {
                 String str = "Instantiated fragment " + this.mInstance;
             }

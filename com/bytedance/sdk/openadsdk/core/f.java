@@ -24,14 +24,14 @@ public class f {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final Object f66190c;
+    public static final Object f66390c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public c f66191a;
+    public c f66391a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f66192b;
+    public Context f66392b;
 
     /* renamed from: com.bytedance.sdk.openadsdk.core.f$1  reason: invalid class name */
     /* loaded from: classes9.dex */
@@ -46,7 +46,7 @@ public class f {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ f f66210a;
+        public final /* synthetic */ f f66410a;
 
         public b(f fVar) {
             Interceptable interceptable = $ic;
@@ -63,7 +63,7 @@ public class f {
                     return;
                 }
             }
-            this.f66210a = fVar;
+            this.f66410a = fVar;
         }
 
         @Override // android.database.AbstractCursor, android.database.Cursor
@@ -171,7 +171,7 @@ public class f {
                 return;
             }
         }
-        f66190c = new Object();
+        f66390c = new Object();
     }
 
     public f(Context context) {
@@ -190,9 +190,9 @@ public class f {
             }
         }
         try {
-            this.f66192b = context == null ? o.a() : context.getApplicationContext();
-            if (this.f66191a == null) {
-                this.f66191a = new c(this);
+            this.f66392b = context == null ? o.a() : context.getApplicationContext();
+            if (this.f66391a == null) {
+                this.f66391a = new c(this);
             }
         } catch (Throwable unused) {
         }
@@ -203,7 +203,7 @@ public class f {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this)) == null) {
-            Context context = this.f66192b;
+            Context context = this.f66392b;
             return context == null ? o.a() : context;
         }
         return (Context) invokeV.objValue;
@@ -212,7 +212,7 @@ public class f {
     public c a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f66191a : (c) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f66391a : (c) invokeV.objValue;
     }
 
     /* loaded from: classes9.dex */
@@ -221,10 +221,10 @@ public class f {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ f f66211a;
+        public final /* synthetic */ f f66411a;
 
         /* renamed from: b  reason: collision with root package name */
-        public SQLiteDatabase f66212b;
+        public SQLiteDatabase f66412b;
 
         public c(f fVar) {
             Interceptable interceptable = $ic;
@@ -241,8 +241,8 @@ public class f {
                     return;
                 }
             }
-            this.f66211a = fVar;
-            this.f66212b = null;
+            this.f66411a = fVar;
+            this.f66412b = null;
         }
 
         /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[THROW, MOVE_EXCEPTION, THROW, IF, INVOKE, INVOKE, THROW, MOVE_EXCEPTION] complete} */
@@ -252,10 +252,10 @@ public class f {
             if (interceptable == null || interceptable.invokeV(65537, this) == null) {
                 synchronized (this) {
                     try {
-                        synchronized (f.f66190c) {
-                            if (this.f66212b == null || !this.f66212b.isOpen()) {
-                                SQLiteDatabase writableDatabase = new a(this.f66211a, this.f66211a.c()).getWritableDatabase();
-                                this.f66212b = writableDatabase;
+                        synchronized (f.f66390c) {
+                            if (this.f66412b == null || !this.f66412b.isOpen()) {
+                                SQLiteDatabase writableDatabase = new a(this.f66411a, this.f66411a.c()).getWritableDatabase();
+                                this.f66412b = writableDatabase;
                                 writableDatabase.setLockingEnabled(false);
                             }
                         }
@@ -271,7 +271,7 @@ public class f {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
                 synchronized (this) {
-                    SQLiteDatabase sQLiteDatabase = this.f66212b;
+                    SQLiteDatabase sQLiteDatabase = this.f66412b;
                     if (sQLiteDatabase != null) {
                         z = sQLiteDatabase.inTransaction();
                     }
@@ -288,7 +288,7 @@ public class f {
                 synchronized (this) {
                     try {
                         d();
-                        this.f66212b.execSQL(str);
+                        this.f66412b.execSQL(str);
                     } catch (Throwable th) {
                         if (e()) {
                             throw th;
@@ -303,10 +303,10 @@ public class f {
             if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
                 synchronized (this) {
                     d();
-                    if (this.f66212b == null) {
+                    if (this.f66412b == null) {
                         return;
                     }
-                    this.f66212b.setTransactionSuccessful();
+                    this.f66412b.setTransactionSuccessful();
                 }
             }
         }
@@ -316,10 +316,10 @@ public class f {
             if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
                 synchronized (this) {
                     d();
-                    if (this.f66212b == null) {
+                    if (this.f66412b == null) {
                         return;
                     }
-                    this.f66212b.endTransaction();
+                    this.f66412b.endTransaction();
                 }
             }
         }
@@ -333,10 +333,10 @@ public class f {
                 synchronized (this) {
                     try {
                         d();
-                        cursor = this.f66212b.query(str, strArr, str2, strArr2, str3, str4, str5);
+                        cursor = this.f66412b.query(str, strArr, str2, strArr2, str3, str4, str5);
                     } catch (Throwable th) {
                         th.printStackTrace();
-                        b bVar = new b(this.f66211a, null);
+                        b bVar = new b(this.f66411a, null);
                         if (e()) {
                             throw th;
                         }
@@ -356,7 +356,7 @@ public class f {
                 synchronized (this) {
                     try {
                         d();
-                        i2 = this.f66212b.update(str, contentValues, str2, strArr);
+                        i2 = this.f66412b.update(str, contentValues, str2, strArr);
                     } catch (Exception e2) {
                         e2.printStackTrace();
                         if (e()) {
@@ -378,7 +378,7 @@ public class f {
                 synchronized (this) {
                     try {
                         d();
-                        j2 = this.f66212b.insert(str, str2, contentValues);
+                        j2 = this.f66412b.insert(str, str2, contentValues);
                     } catch (Exception e2) {
                         e2.printStackTrace();
                         if (e()) {
@@ -400,7 +400,7 @@ public class f {
                 synchronized (this) {
                     try {
                         d();
-                        i2 = this.f66212b.delete(str, str2, strArr);
+                        i2 = this.f66412b.delete(str, str2, strArr);
                     } catch (Exception e2) {
                         e2.printStackTrace();
                         if (e()) {
@@ -419,10 +419,10 @@ public class f {
             if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
                 synchronized (this) {
                     d();
-                    if (this.f66212b == null) {
+                    if (this.f66412b == null) {
                         return;
                     }
-                    this.f66212b.beginTransaction();
+                    this.f66412b.beginTransaction();
                 }
             }
         }
@@ -434,10 +434,10 @@ public class f {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final Context f66193a;
+        public final Context f66393a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ f f66194b;
+        public final /* synthetic */ f f66394b;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(f fVar, Context context) {
@@ -458,8 +458,8 @@ public class f {
                     return;
                 }
             }
-            this.f66194b = fVar;
-            this.f66193a = context;
+            this.f66394b = fVar;
+            this.f66393a = context;
         }
 
         private void a(SQLiteDatabase sQLiteDatabase, Context context) {
@@ -505,7 +505,7 @@ public class f {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, sQLiteDatabase) == null) {
                 try {
-                    a(sQLiteDatabase, this.f66193a);
+                    a(sQLiteDatabase, this.f66393a);
                 } catch (Throwable unused) {
                 }
             }
@@ -518,10 +518,10 @@ public class f {
                 try {
                     com.bytedance.sdk.component.utils.k.b("DBHelper", "onUpgrade....数据库版本升级.....old:" + i2 + ",new:" + i3);
                     if (i2 <= i3) {
-                        a(sQLiteDatabase, this.f66194b.f66192b);
+                        a(sQLiteDatabase, this.f66394b.f66392b);
                     } else {
                         a(sQLiteDatabase);
-                        a(sQLiteDatabase, this.f66194b.f66192b);
+                        a(sQLiteDatabase, this.f66394b.f66392b);
                         com.bytedance.sdk.component.utils.k.b("DBHelper", "onUpgrade...逆向安装.数据库重置-创建表.....");
                     }
                     if (i2 == 1) {

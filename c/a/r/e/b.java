@@ -15,7 +15,7 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Map<String, c.a.r.e.a> f29187a;
+    public Map<String, c.a.r.e.a> f29469a;
 
     /* loaded from: classes4.dex */
     public interface a {
@@ -37,15 +37,15 @@ public class b {
                 return;
             }
         }
-        this.f29187a = new HashMap();
+        this.f29469a = new HashMap();
         for (c.a.r.e.a aVar2 : aVar.a()) {
-            this.f29187a.put(aVar2.c(), aVar2);
+            this.f29469a.put(aVar2.c(), aVar2);
         }
     }
 
     public List<c.a.r.e.a> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new ArrayList(this.f29187a.values()) : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new ArrayList(this.f29469a.values()) : (List) invokeV.objValue;
     }
 }

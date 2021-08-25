@@ -7,6 +7,7 @@ import android.content.ClipboardManager;
 import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.datacollector.growth.utils.GrowthConstant;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -56,7 +57,7 @@ public abstract class WrappedClipboardManager {
                     return;
                 }
             }
-            sInstance = (ClipboardManager) AppRuntime.getAppContext().getSystemService("clipboard");
+            sInstance = (ClipboardManager) AppRuntime.getAppContext().getSystemService(GrowthConstant.UBC_VALUE_TYPE_CLIP_BOARD);
         }
 
         @Override // com.baidu.android.util.android.WrappedClipboardManager

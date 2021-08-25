@@ -49,23 +49,23 @@ public class p0 extends h {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             if (this.l == null) {
-                FrameLayout frameLayout = new FrameLayout(this.f3547f);
+                FrameLayout frameLayout = new FrameLayout(this.f3789f);
                 this.l = frameLayout;
                 SkinManager.setBackgroundColor(frameLayout, R.color.CAM_X0206);
                 this.l.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
             }
             this.l.removeAllViews();
             if (this.m == null) {
-                ItemCardView itemCardView = new ItemCardView(this.f3547f);
+                ItemCardView itemCardView = new ItemCardView(this.f3789f);
                 this.m = itemCardView;
                 itemCardView.setBackGroundColor(R.color.CAM_X0205);
                 this.m.setIsShowRightBtn(true);
             }
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -2);
             layoutParams.topMargin = UtilHelper.getDimenPixelSize(R.dimen.M_H_X003) - UtilHelper.getDimenPixelSize(R.dimen.M_H_X004);
-            layoutParams.leftMargin = this.f3547f.getResources().getDimensionPixelSize(R.dimen.M_W_X005);
-            layoutParams.rightMargin = this.f3547f.getResources().getDimensionPixelSize(R.dimen.M_W_X005);
-            layoutParams.bottomMargin = this.f3547f.getResources().getDimensionPixelSize(R.dimen.M_H_X004);
+            layoutParams.leftMargin = this.f3789f.getResources().getDimensionPixelSize(R.dimen.M_W_X005);
+            layoutParams.rightMargin = this.f3789f.getResources().getDimensionPixelSize(R.dimen.M_W_X005);
+            layoutParams.bottomMargin = this.f3789f.getResources().getDimensionPixelSize(R.dimen.M_H_X004);
             this.l.addView(this.m, layoutParams);
             return this.l;
         }
@@ -87,7 +87,7 @@ public class p0 extends h {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // c.a.l.p
     /* renamed from: r */
-    public void onBindDataToView(c.a.o0.s.q.a aVar) {
+    public void onBindDataToView(c.a.p0.s.q.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
             if (aVar != null && aVar.getThreadData() != null && aVar.getThreadData().v1 != null && aVar.getThreadData().v1.B != null) {
@@ -96,7 +96,7 @@ public class p0 extends h {
                     return;
                 }
                 this.l.setVisibility(0);
-                this.m.setData(aVar.getThreadData().v1.B, 13, aVar.getThreadData().v1.f47200f);
+                this.m.setData(aVar.getThreadData().v1.B, 13, aVar.getThreadData().v1.f47306f);
                 return;
             }
             this.l.setVisibility(8);

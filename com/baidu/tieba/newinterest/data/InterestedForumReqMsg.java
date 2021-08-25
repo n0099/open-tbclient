@@ -1,6 +1,7 @@
 package com.baidu.tieba.newinterest.data;
 
-import c.a.o0.b1.w;
+import c.a.p0.b.d;
+import c.a.p0.b1.w;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -45,8 +46,10 @@ public class InterestedForumReqMsg extends NetMessage {
             if (z) {
                 w.a(builder, true);
             }
-            builder.begin_id = 1;
-            builder.pn = 0;
+            if (!d.K()) {
+                builder.begin_id = 1;
+                builder.pn = 0;
+            }
             builder.classid_list = this.classidList;
             GetVerticalForumListReqIdl.Builder builder2 = new GetVerticalForumListReqIdl.Builder();
             builder2.data = builder.build(false);

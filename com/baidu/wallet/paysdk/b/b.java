@@ -38,34 +38,34 @@ public class b implements j {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public q f61972a;
+    public q f62172a;
 
     /* renamed from: b  reason: collision with root package name */
-    public com.baidu.wallet.paysdk.beans.f f61973b;
+    public com.baidu.wallet.paysdk.beans.f f62173b;
 
     /* renamed from: c  reason: collision with root package name */
-    public w f61974c;
+    public w f62174c;
 
     /* renamed from: d  reason: collision with root package name */
-    public BindCardBaseActivity f61975d;
+    public BindCardBaseActivity f62175d;
 
     /* renamed from: e  reason: collision with root package name */
-    public BindFastRequest f61976e;
+    public BindFastRequest f62176e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f61977f;
+    public boolean f62177f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f61978g;
+    public boolean f62178g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f61979h;
+    public boolean f62179h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f61980i;
+    public boolean f62180i;
 
     /* renamed from: j  reason: collision with root package name */
-    public boolean f61981j;
+    public boolean f62181j;
     public boolean k;
     public boolean l;
     public boolean m;
@@ -89,11 +89,11 @@ public class b implements j {
             }
         }
         this.r = 4;
-        this.f61977f = false;
-        this.f61978g = false;
-        this.f61979h = false;
-        this.f61980i = false;
-        this.f61981j = false;
+        this.f62177f = false;
+        this.f62178g = false;
+        this.f62179h = false;
+        this.f62180i = false;
+        this.f62181j = false;
         this.k = false;
         this.l = false;
         this.m = false;
@@ -107,8 +107,8 @@ public class b implements j {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            String string = ResUtils.getString(this.f61975d, "wallet_base_string_safeguard_entry");
-            int indexOf = string.indexOf(ResUtils.getString(this.f61975d, "wallet_base_string_safeguard_click"));
+            String string = ResUtils.getString(this.f62175d, "wallet_base_string_safeguard_entry");
+            int indexOf = string.indexOf(ResUtils.getString(this.f62175d, "wallet_base_string_safeguard_click"));
             int length = string.length();
             if (-1 == indexOf) {
                 return string;
@@ -118,7 +118,7 @@ public class b implements j {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ b f61982a;
+                public final /* synthetic */ b f62182a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -135,14 +135,14 @@ public class b implements j {
                             return;
                         }
                     }
-                    this.f61982a = this;
+                    this.f62182a = this;
                 }
 
                 @Override // android.text.style.ClickableSpan
                 public void onClick(View view) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                        this.f61982a.B();
+                        this.f62182a.B();
                     }
                 }
 
@@ -154,7 +154,7 @@ public class b implements j {
                     }
                 }
             };
-            ForegroundColorSpan foregroundColorSpan = new ForegroundColorSpan(ResUtils.getColor(this.f61975d, "dxm_wallet_base_color_clickable"));
+            ForegroundColorSpan foregroundColorSpan = new ForegroundColorSpan(ResUtils.getColor(this.f62175d, "dxm_wallet_base_color_clickable"));
             SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(string);
             spannableStringBuilder.setSpan(clickableSpan, indexOf, length, 17);
             spannableStringBuilder.setSpan(foregroundColorSpan, indexOf, length, 17);
@@ -166,7 +166,7 @@ public class b implements j {
     public void B() {
         String[] stringArray;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (stringArray = ResUtils.getStringArray(this.f61975d, "wallet_base_safeguard_tips")) == null || 2 > stringArray.length) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (stringArray = ResUtils.getStringArray(this.f62175d, "wallet_base_safeguard_tips")) == null || 2 > stringArray.length) {
             return;
         }
         String str = stringArray[0];
@@ -175,7 +175,7 @@ public class b implements j {
             sb.append(stringArray[i2]);
         }
         String str2 = stringArray[stringArray.length - 1];
-        PromptTipDialog promptTipDialog = new PromptTipDialog(this.f61975d);
+        PromptTipDialog promptTipDialog = new PromptTipDialog(this.f62175d);
         promptTipDialog.setTitleMessage(str);
         promptTipDialog.setMessage(sb.toString());
         promptTipDialog.setButtonMessage(str2);
@@ -184,10 +184,10 @@ public class b implements j {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ PromptTipDialog f61983a;
+            public final /* synthetic */ PromptTipDialog f62183a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ b f61984b;
+            public final /* synthetic */ b f62184b;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -204,15 +204,15 @@ public class b implements j {
                         return;
                     }
                 }
-                this.f61984b = this;
-                this.f61983a = promptTipDialog;
+                this.f62184b = this;
+                this.f62183a = promptTipDialog;
             }
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                    this.f61983a.dismiss();
+                    this.f62183a.dismiss();
                 }
             }
         });
@@ -270,7 +270,7 @@ public class b implements j {
     public void a(BindFastRequest bindFastRequest) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bindFastRequest) == null) {
-            this.f61976e = bindFastRequest;
+            this.f62176e = bindFastRequest;
         }
     }
 
@@ -315,14 +315,14 @@ public class b implements j {
     public void c(String... strArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048594, this, strArr) == null) {
-            if (this.f61973b == null) {
-                this.f61973b = (com.baidu.wallet.paysdk.beans.f) PayBeanFactory.getInstance().getBean((Context) this.f61975d, 5, BindCardBaseActivity.BEAN_TAG);
+            if (this.f62173b == null) {
+                this.f62173b = (com.baidu.wallet.paysdk.beans.f) PayBeanFactory.getInstance().getBean((Context) this.f62175d, 5, BindCardBaseActivity.BEAN_TAG);
             }
-            this.f61973b.setResponseCallback(this.f61975d);
+            this.f62173b.setResponseCallback(this.f62175d);
             StatisticManager.onEvent("callCardCheck");
             b(strArr);
-            this.f61973b.a(this.f61976e);
-            this.f61973b.execBean();
+            this.f62173b.a(this.f62176e);
+            this.f62173b.execBean();
         }
     }
 
@@ -330,14 +330,14 @@ public class b implements j {
     public void d(String... strArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048595, this, strArr) == null) {
-            if (this.f61972a == null) {
-                this.f61972a = (q) PayBeanFactory.getInstance().getBean((Context) this.f61975d, 4, BindCardBaseActivity.BEAN_TAG);
+            if (this.f62172a == null) {
+                this.f62172a = (q) PayBeanFactory.getInstance().getBean((Context) this.f62175d, 4, BindCardBaseActivity.BEAN_TAG);
             }
-            this.f61972a.a(this.f61976e);
-            this.f61972a.setResponseCallback(this.f61975d);
+            this.f62172a.a(this.f62176e);
+            this.f62172a.setResponseCallback(this.f62175d);
             a(strArr);
             StatisticManager.onEventStart("getCardInfo");
-            this.f61972a.execBean();
+            this.f62172a.execBean();
         }
     }
 
@@ -364,10 +364,10 @@ public class b implements j {
     @Override // com.baidu.wallet.paysdk.b.j
     public void f() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048598, this) == null) || this.f61972a == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048598, this) == null) || this.f62172a == null) {
             return;
         }
-        BeanManager.getInstance().removeBean(this.f61972a);
+        BeanManager.getInstance().removeBean(this.f62172a);
     }
 
     @Override // com.baidu.wallet.paysdk.b.j
@@ -398,35 +398,35 @@ public class b implements j {
     public boolean j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) ? this.f61978g : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) ? this.f62178g : invokeV.booleanValue;
     }
 
     @Override // com.baidu.wallet.paysdk.b.j
     public boolean k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) ? this.f61977f || this.m : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) ? this.f62177f || this.m : invokeV.booleanValue;
     }
 
     @Override // com.baidu.wallet.paysdk.b.j
     public boolean l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) ? this.f61979h || this.l : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) ? this.f62179h || this.l : invokeV.booleanValue;
     }
 
     @Override // com.baidu.wallet.paysdk.b.j
     public boolean m() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) ? this.f61980i || this.o : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) ? this.f62180i || this.o : invokeV.booleanValue;
     }
 
     @Override // com.baidu.wallet.paysdk.b.j
     public boolean n() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) ? this.f61981j || this.n : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) ? this.f62181j || this.n : invokeV.booleanValue;
     }
 
     @Override // com.baidu.wallet.paysdk.b.j
@@ -440,7 +440,7 @@ public class b implements j {
     public String p() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) ? ResUtils.getString(this.f61975d, "ebpay_card_tip") : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) ? ResUtils.getString(this.f62175d, "ebpay_card_tip") : (String) invokeV.objValue;
     }
 
     @Override // com.baidu.wallet.paysdk.b.j
@@ -460,58 +460,58 @@ public class b implements j {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048610, this) == null) {
             if ((this instanceof g) || (this instanceof h)) {
-                BindFastRequest bindFastRequest = this.f61976e;
+                BindFastRequest bindFastRequest = this.f62176e;
                 if (bindFastRequest != null && (errorContentResponse = bindFastRequest.mCardInfoUpdateContent) != null) {
                     this.m = errorContentResponse.isNeedValidCode();
-                    this.l = this.f61976e.mCardInfoUpdateContent.isNeedValidDate();
-                    this.n = this.f61976e.mCardInfoUpdateContent.isNeedPhoneNum();
-                    this.o = this.f61976e.mCardInfoUpdateContent.isNeedId();
-                    this.p = this.f61976e.mCardInfoUpdateContent.isNeedType();
-                    ErrorContentResponse errorContentResponse2 = this.f61976e.mCardInfoUpdateContent;
+                    this.l = this.f62176e.mCardInfoUpdateContent.isNeedValidDate();
+                    this.n = this.f62176e.mCardInfoUpdateContent.isNeedPhoneNum();
+                    this.o = this.f62176e.mCardInfoUpdateContent.isNeedId();
+                    this.p = this.f62176e.mCardInfoUpdateContent.isNeedType();
+                    ErrorContentResponse errorContentResponse2 = this.f62176e.mCardInfoUpdateContent;
                     GetCardInfoResponse.CardItemRequired cardItemRequired = errorContentResponse2.card_item_required;
                     if (cardItemRequired != null) {
-                        this.f61977f = this.f61977f || errorContentResponse2.needUpdate(cardItemRequired.valid_code);
-                        this.f61979h = this.f61979h || this.f61976e.mCardInfoUpdateContent.needUpdate(cardItemRequired.valid_date);
-                        this.f61978g = this.f61978g || this.f61976e.mCardInfoUpdateContent.needUpdate(cardItemRequired.true_name);
-                        this.k = this.k || this.f61976e.mCardInfoUpdateContent.needUpdate(cardItemRequired.certificate_type);
-                        this.f61980i = this.f61980i || this.f61976e.mCardInfoUpdateContent.needUpdate(cardItemRequired.certificate_code);
-                        this.f61981j = this.f61981j || this.f61976e.mCardInfoUpdateContent.needUpdate(cardItemRequired.mobile);
+                        this.f62177f = this.f62177f || errorContentResponse2.needUpdate(cardItemRequired.valid_code);
+                        this.f62179h = this.f62179h || this.f62176e.mCardInfoUpdateContent.needUpdate(cardItemRequired.valid_date);
+                        this.f62178g = this.f62178g || this.f62176e.mCardInfoUpdateContent.needUpdate(cardItemRequired.true_name);
+                        this.k = this.k || this.f62176e.mCardInfoUpdateContent.needUpdate(cardItemRequired.certificate_type);
+                        this.f62180i = this.f62180i || this.f62176e.mCardInfoUpdateContent.needUpdate(cardItemRequired.certificate_code);
+                        this.f62181j = this.f62181j || this.f62176e.mCardInfoUpdateContent.needUpdate(cardItemRequired.mobile);
                     }
                 }
-                BindCardBaseActivity bindCardBaseActivity = this.f61975d;
+                BindCardBaseActivity bindCardBaseActivity = this.f62175d;
                 if (bindCardBaseActivity != null) {
                     if (bindCardBaseActivity.isShowWithHalfScreeen()) {
-                        BindCardImplActivity bindCardImplActivity = (BindCardImplActivity) this.f61975d;
+                        BindCardImplActivity bindCardImplActivity = (BindCardImplActivity) this.f62175d;
                         BankCvv2InfoView bankCvv2InfoView = bindCardImplActivity.mBankCvv2InfoView;
                         BankUserInfoView bankUserInfoView = bindCardImplActivity.mBankUserInfoView;
-                        if (this.f61977f) {
+                        if (this.f62177f) {
                             bankCvv2InfoView.getCvv2InputView().getEditableText().toString();
                             i2 = 1;
                         } else {
                             i2 = 0;
                         }
-                        if (this.f61979h) {
+                        if (this.f62179h) {
                             i2++;
                             bankCvv2InfoView.getDateInputView().getEditableText().toString();
                         }
-                        if (this.f61980i) {
+                        if (this.f62180i) {
                             i2++;
                             bankUserInfoView.getIdEditText().getEditableText().toString();
                         }
-                        if (this.f61981j) {
+                        if (this.f62181j) {
                             i2++;
                             bankUserInfoView.getMobileEditText().getEditableText().toString();
                         }
-                        if (2 < i2 || this.f61978g) {
+                        if (2 < i2 || this.f62178g) {
                             Intent intent = new Intent();
-                            intent.putExtra("halfScreen", this.f61978g ? 0 : i2);
+                            intent.putExtra("halfScreen", this.f62178g ? 0 : i2);
                             intent.putExtra("reasonForChangeCardItem", 2);
                             bindCardImplActivity.updateUiMode(intent);
                         }
                     }
-                    this.f61975d.updateBankTitleInfo(null, true);
-                    this.f61975d.updateCvv2Info(this.m, this.l, this.n);
-                    this.f61975d.updateCardElement(k(), l(), j(), m(), n());
+                    this.f62175d.updateBankTitleInfo(null, true);
+                    this.f62175d.updateCvv2Info(this.m, this.l, this.n);
+                    this.f62175d.updateCardElement(k(), l(), j(), m(), n());
                 }
             }
         }
@@ -522,7 +522,7 @@ public class b implements j {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048611, this)) == null) {
-            BindFastRequest bindFastRequest = this.f61976e;
+            BindFastRequest bindFastRequest = this.f62176e;
             return (bindFastRequest == null || bindFastRequest.mCardInfoUpdateContent == null) ? false : true;
         }
         return invokeV.booleanValue;
@@ -562,13 +562,13 @@ public class b implements j {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048614, this)) == null) {
-            BindFastRequest bindFastRequest = this.f61976e;
+            BindFastRequest bindFastRequest = this.f62176e;
             if (bindFastRequest != null) {
-                if (bindFastRequest.getmBankInfo() != null && this.f61976e.getmBankInfo().channel_info != null) {
-                    return this.f61976e.getmBankInfo().channel_info.certificate_type_info;
+                if (bindFastRequest.getmBankInfo() != null && this.f62176e.getmBankInfo().channel_info != null) {
+                    return this.f62176e.getmBankInfo().channel_info.certificate_type_info;
                 }
-                if (this.f61976e.getmBondCard() != null) {
-                    return this.f61976e.getmBondCard().certificate_type_info;
+                if (this.f62176e.getmBondCard() != null) {
+                    return this.f62176e.getmBondCard().certificate_type_info;
                 }
                 return null;
             }
@@ -642,12 +642,12 @@ public class b implements j {
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
-            if (this.f61974c == null) {
-                this.f61974c = (w) PayBeanFactory.getInstance().getBean((Context) this.f61975d, 7, BindCardBaseActivity.BEAN_TAG);
+            if (this.f62174c == null) {
+                this.f62174c = (w) PayBeanFactory.getInstance().getBean((Context) this.f62175d, 7, BindCardBaseActivity.BEAN_TAG);
             }
-            this.f61974c.setResponseCallback(this.f61975d);
-            this.f61974c.a(str);
-            this.f61974c.execBean();
+            this.f62174c.setResponseCallback(this.f62175d);
+            this.f62174c.a(str);
+            this.f62174c.execBean();
         }
     }
 
@@ -655,7 +655,7 @@ public class b implements j {
     public void a(BindCardBaseActivity bindCardBaseActivity) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, bindCardBaseActivity) == null) {
-            this.f61975d = bindCardBaseActivity;
+            this.f62175d = bindCardBaseActivity;
         }
     }
 
@@ -665,17 +665,17 @@ public class b implements j {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048589, this, i2)) == null) {
             String[] strArr = new String[2];
-            String string = ResUtils.getString(this.f61975d, "bd_wallet_bind_card_first");
+            String string = ResUtils.getString(this.f62175d, "bd_wallet_bind_card_first");
             if (i2 == 0) {
-                string = ResUtils.getString(this.f61975d, "bd_wallet_bind_card_first");
+                string = ResUtils.getString(this.f62175d, "bd_wallet_bind_card_first");
             } else if (i2 == 1) {
-                string = ResUtils.getString(this.f61975d, "bd_wallet_bind_card_second");
+                string = ResUtils.getString(this.f62175d, "bd_wallet_bind_card_second");
             }
-            String string2 = ResUtils.getString(this.f61975d, "ebpay_pay_checkcard");
+            String string2 = ResUtils.getString(this.f62175d, "ebpay_pay_checkcard");
             if (i2 == 0) {
-                string2 = ResUtils.getString(this.f61975d, "ebpay_pay_checkcard");
+                string2 = ResUtils.getString(this.f62175d, "ebpay_pay_checkcard");
             } else if (i2 == 1) {
-                string2 = ResUtils.getString(this.f61975d, "dxm_ebpay_pay_next");
+                string2 = ResUtils.getString(this.f62175d, "dxm_ebpay_pay_next");
             }
             strArr[0] = string;
             strArr[1] = string2;

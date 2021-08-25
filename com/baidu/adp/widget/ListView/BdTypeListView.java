@@ -6,10 +6,10 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListAdapter;
 import androidx.core.view.InputDeviceCompat;
-import c.a.e.k.e.g;
-import c.a.e.k.e.h;
-import c.a.e.k.e.n;
-import c.a.e.k.e.s;
+import c.a.e.l.e.g;
+import c.a.e.l.e.h;
+import c.a.e.l.e.n;
+import c.a.e.l.e.s;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
@@ -27,7 +27,7 @@ public class BdTypeListView extends BdListView implements s<BdTypeListView> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TypeAdapter K;
-    public HashMap<BdUniqueId, c.a.e.k.e.a> L;
+    public HashMap<BdUniqueId, c.a.e.l.e.a> L;
     public HashMap<BdUniqueId, h> M;
 
     /* loaded from: classes4.dex */
@@ -36,7 +36,7 @@ public class BdTypeListView extends BdListView implements s<BdTypeListView> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BdTypeListView f36278e;
+        public final /* synthetic */ BdTypeListView f36384e;
 
         public a(BdTypeListView bdTypeListView) {
             Interceptable interceptable = $ic;
@@ -53,14 +53,14 @@ public class BdTypeListView extends BdListView implements s<BdTypeListView> {
                     return;
                 }
             }
-            this.f36278e = bdTypeListView;
+            this.f36384e = bdTypeListView;
         }
 
         @Override // android.widget.AdapterView.OnItemClickListener
         public void onItemClick(AdapterView<?> adapterView, View view, int i2, long j2) {
             TypeAdapter typeAdapter;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j2)}) == null) || (typeAdapter = this.f36278e.K) == null) {
+            if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j2)}) == null) || (typeAdapter = this.f36384e.K) == null) {
                 return;
             }
             typeAdapter.d(adapterView, view, i2, j2);
@@ -73,7 +73,7 @@ public class BdTypeListView extends BdListView implements s<BdTypeListView> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BdTypeListView f36279e;
+        public final /* synthetic */ BdTypeListView f36385e;
 
         public b(BdTypeListView bdTypeListView) {
             Interceptable interceptable = $ic;
@@ -90,7 +90,7 @@ public class BdTypeListView extends BdListView implements s<BdTypeListView> {
                     return;
                 }
             }
-            this.f36279e = bdTypeListView;
+            this.f36385e = bdTypeListView;
         }
 
         @Override // android.widget.AdapterView.OnItemLongClickListener
@@ -98,7 +98,7 @@ public class BdTypeListView extends BdListView implements s<BdTypeListView> {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j2)})) == null) {
-                TypeAdapter typeAdapter = this.f36279e.K;
+                TypeAdapter typeAdapter = this.f36385e.K;
                 if (typeAdapter != null) {
                     return typeAdapter.e(adapterView, view, i2, j2);
                 }
@@ -130,17 +130,17 @@ public class BdTypeListView extends BdListView implements s<BdTypeListView> {
         x();
     }
 
-    @Override // c.a.e.k.e.s
-    public void addAdapters(List<c.a.e.k.e.a> list) {
+    @Override // c.a.e.l.e.s
+    public void addAdapters(List<c.a.e.l.e.a> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
-            for (c.a.e.k.e.a<n, TypeAdapter.ViewHolder> aVar : list) {
+            for (c.a.e.l.e.a<n, TypeAdapter.ViewHolder> aVar : list) {
                 if (aVar != null) {
                     BdUniqueId bdUniqueId = null;
                     if (aVar.y() != null) {
                         bdUniqueId = aVar.y();
                         if (!this.M.containsKey(bdUniqueId)) {
-                            h hVar = new h(aVar.f2904e, bdUniqueId, aVar.f2908i);
+                            h hVar = new h(aVar.f2966e, bdUniqueId, aVar.f2970i);
                             hVar.j0(aVar);
                             this.K.a(hVar);
                             this.M.put(bdUniqueId, hVar);
@@ -149,7 +149,7 @@ public class BdTypeListView extends BdListView implements s<BdTypeListView> {
                     if (aVar.w() != null) {
                         bdUniqueId = aVar.w();
                         if (!this.M.containsKey(bdUniqueId)) {
-                            h hVar2 = new h(aVar.f2904e, bdUniqueId, aVar.f2908i);
+                            h hVar2 = new h(aVar.f2966e, bdUniqueId, aVar.f2970i);
                             hVar2.j0(aVar);
                             this.K.a(hVar2);
                             this.M.put(bdUniqueId, hVar2);
@@ -158,7 +158,7 @@ public class BdTypeListView extends BdListView implements s<BdTypeListView> {
                     if (aVar.x() != null) {
                         bdUniqueId = aVar.x();
                         if (!this.M.containsKey(bdUniqueId)) {
-                            h hVar3 = new h(aVar.f2904e, bdUniqueId, aVar.f2908i);
+                            h hVar3 = new h(aVar.f2966e, bdUniqueId, aVar.f2970i);
                             hVar3.j0(aVar);
                             this.K.a(hVar3);
                             this.M.put(bdUniqueId, hVar3);
@@ -167,7 +167,7 @@ public class BdTypeListView extends BdListView implements s<BdTypeListView> {
                     if (aVar.v() != null) {
                         bdUniqueId = aVar.v();
                         if (!this.M.containsKey(bdUniqueId)) {
-                            h hVar4 = new h(aVar.f2904e, bdUniqueId, aVar.f2908i);
+                            h hVar4 = new h(aVar.f2966e, bdUniqueId, aVar.f2970i);
                             hVar4.j0(aVar);
                             this.K.a(hVar4);
                             this.M.put(bdUniqueId, hVar4);
@@ -176,7 +176,7 @@ public class BdTypeListView extends BdListView implements s<BdTypeListView> {
                     if (bdUniqueId == null) {
                         this.K.a(aVar);
                     } else {
-                        this.L.put(aVar.f2907h, aVar);
+                        this.L.put(aVar.f2969h, aVar);
                     }
                 }
             }
@@ -184,7 +184,7 @@ public class BdTypeListView extends BdListView implements s<BdTypeListView> {
         }
     }
 
-    @Override // c.a.e.k.e.s
+    @Override // c.a.e.l.e.s
     public List<n> getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -199,7 +199,7 @@ public class BdTypeListView extends BdListView implements s<BdTypeListView> {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX DEBUG: Return type fixed from 'com.baidu.adp.widget.ListView.BdTypeListView' to match base method */
-    @Override // com.baidu.adp.widget.ListView.BdListView, c.a.e.k.e.p
+    @Override // com.baidu.adp.widget.ListView.BdListView, c.a.e.l.e.p
     /* renamed from: getListView */
     public BdListView getListView2() {
         InterceptResult invokeV;
@@ -207,7 +207,7 @@ public class BdTypeListView extends BdListView implements s<BdTypeListView> {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this : (BdTypeListView) invokeV.objValue;
     }
 
-    @Override // c.a.e.k.e.s
+    @Override // c.a.e.l.e.s
     public void setData(List<? extends n> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, list) == null) {
@@ -215,7 +215,7 @@ public class BdTypeListView extends BdListView implements s<BdTypeListView> {
             for (n nVar : list) {
                 if (nVar != null) {
                     if (this.L.containsKey(nVar.getType())) {
-                        c.a.e.k.e.a aVar = this.L.get(nVar.getType());
+                        c.a.e.l.e.a aVar = this.L.get(nVar.getType());
                         if (aVar.y() != null) {
                             g gVar = new g();
                             gVar.k(aVar.y());

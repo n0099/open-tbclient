@@ -1,7 +1,7 @@
 package com.faceunity;
 
 import android.content.Context;
-import c.a.p0.w3.l.f;
+import c.a.q0.w3.l.f;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -9,7 +9,6 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.faceunity.wrapper.faceunity;
-import java.io.IOException;
 import java.io.InputStream;
 /* loaded from: classes9.dex */
 public class FaceUnityUtils {
@@ -37,17 +36,13 @@ public class FaceUnityUtils {
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
             try {
                 InputStream open = TbadkCoreApplication.getInst().getResources().getAssets().open("beauty/v3.mp3");
-                byte[] bArr = new byte[open.available()];
-                open.read(bArr);
                 open.close();
-                faceunity.fuSetup(bArr, null, f.a());
+                faceunity.fuSetup(new byte[open.available()], null, f.a());
                 InputStream open2 = TbadkCoreApplication.getInst().getResources().getAssets().open("beauty/face_beautification.mp3");
-                byte[] bArr2 = new byte[open2.available()];
-                open2.read(bArr2);
                 open2.close();
-                return faceunity.fuCreateItemFromPackage(bArr2);
-            } catch (IOException e2) {
-                e2.printStackTrace();
+                return faceunity.fuCreateItemFromPackage(new byte[open2.available()]);
+            } catch (Throwable th) {
+                th.printStackTrace();
                 return 0;
             }
         }

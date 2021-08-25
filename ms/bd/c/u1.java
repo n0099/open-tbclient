@@ -13,7 +13,7 @@ public final class u1 extends t1 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f78898a;
+    public long f79099a;
 
     /* loaded from: classes2.dex */
     public class a implements NetworkParams.AddSecurityFactorProcessCallback {
@@ -21,7 +21,7 @@ public final class u1 extends t1 {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ u1 f78899a;
+        public final /* synthetic */ u1 f79100a;
 
         public a(u1 u1Var) {
             Interceptable interceptable = $ic;
@@ -38,7 +38,7 @@ public final class u1 extends t1 {
                     return;
                 }
             }
-            this.f78899a = u1Var;
+            this.f79100a = u1Var;
         }
     }
 
@@ -61,7 +61,7 @@ public final class u1 extends t1 {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j2)) == null) {
-            this.f78898a = j2;
+            this.f79099a = j2;
             d(new a(this));
             return Boolean.TRUE;
         }
@@ -80,8 +80,8 @@ public final class u1 extends t1 {
     public void finalize() throws Throwable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            b.a(50331650, this.f78898a);
-            this.f78898a = -1L;
+            b.a(50331650, this.f79099a);
+            this.f79099a = -1L;
             super.finalize();
         }
     }

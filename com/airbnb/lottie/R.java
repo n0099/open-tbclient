@@ -1,20 +1,9 @@
 package com.airbnb.lottie;
-
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
 public final class R {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes4.dex */
     public static final class anim {
-        public static /* synthetic */ Interceptable $ic = null;
         public static final int abc_fade_in = 0x7f010000;
         public static final int abc_fade_out = 0x7f010001;
         public static final int abc_grow_fade_in_from_bottom = 0x7f010002;
@@ -27,26 +16,10 @@ public final class R {
         public static final int abc_slide_out_top = 0x7f010009;
         public static final int abc_tooltip_enter = 0x7f01000a;
         public static final int abc_tooltip_exit = 0x7f01000b;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public anim() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
     }
 
     /* loaded from: classes4.dex */
     public static final class attr {
-        public static /* synthetic */ Interceptable $ic = null;
         public static final int actionBarDivider = 0x7f040039;
         public static final int actionBarItemBackground = 0x7f04003a;
         public static final int actionBarPopupTheme = 0x7f04003b;
@@ -336,49 +309,17 @@ public final class R {
         public static final int windowMinWidthMajor = 0x7f040631;
         public static final int windowMinWidthMinor = 0x7f040632;
         public static final int windowNoTitle = 0x7f040633;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public attr() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
     }
 
     /* loaded from: classes4.dex */
     public static final class bool {
-        public static /* synthetic */ Interceptable $ic = null;
         public static final int abc_action_bar_embed_tabs = 0x7f050000;
         public static final int abc_allow_stacked_button_bar = 0x7f050001;
         public static final int abc_config_actionMenuItemAllCaps = 0x7f050002;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public bool() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
     }
 
     /* loaded from: classes4.dex */
     public static final class color {
-        public static /* synthetic */ Interceptable $ic = null;
         public static final int abc_background_cache_hint_selector_material_dark = 0x7f060211;
         public static final int abc_background_cache_hint_selector_material_light = 0x7f060212;
         public static final int abc_btn_colored_borderless_text_material = 0x7f060213;
@@ -462,26 +403,10 @@ public final class R {
         public static final int switch_thumb_normal_material_light = 0x7f060b69;
         public static final int tooltip_background_dark = 0x7f060b70;
         public static final int tooltip_background_light = 0x7f060b71;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public color() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
     }
 
     /* loaded from: classes4.dex */
     public static final class dimen {
-        public static /* synthetic */ Interceptable $ic = null;
         public static final int abc_action_bar_content_inset_material = 0x7f07003d;
         public static final int abc_action_bar_content_inset_with_nav = 0x7f07003e;
         public static final int abc_action_bar_default_height_material = 0x7f07003f;
@@ -588,152 +513,120 @@ public final class R {
         public static final int notification_subtext_size = 0x7f07055f;
         public static final int notification_top_pad = 0x7f070560;
         public static final int notification_top_pad_large_text = 0x7f070561;
-        public static final int tooltip_corner_radius = 0x7f07097f;
-        public static final int tooltip_horizontal_padding = 0x7f070980;
-        public static final int tooltip_margin = 0x7f070981;
-        public static final int tooltip_precise_anchor_extra_offset = 0x7f070982;
-        public static final int tooltip_precise_anchor_threshold = 0x7f070983;
-        public static final int tooltip_vertical_padding = 0x7f070984;
-        public static final int tooltip_y_offset_non_touch = 0x7f070985;
-        public static final int tooltip_y_offset_touch = 0x7f070986;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public dimen() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
+        public static final int tooltip_corner_radius = 0x7f070984;
+        public static final int tooltip_horizontal_padding = 0x7f070985;
+        public static final int tooltip_margin = 0x7f070986;
+        public static final int tooltip_precise_anchor_extra_offset = 0x7f070987;
+        public static final int tooltip_precise_anchor_threshold = 0x7f070988;
+        public static final int tooltip_vertical_padding = 0x7f070989;
+        public static final int tooltip_y_offset_non_touch = 0x7f07098a;
+        public static final int tooltip_y_offset_touch = 0x7f07098b;
     }
 
     /* loaded from: classes4.dex */
     public static final class drawable {
-        public static /* synthetic */ Interceptable $ic = null;
-        public static final int abc_ab_share_pack_mtrl_alpha = 0x7f080082;
-        public static final int abc_action_bar_item_background_material = 0x7f080083;
-        public static final int abc_btn_borderless_material = 0x7f080084;
-        public static final int abc_btn_check_material = 0x7f080085;
-        public static final int abc_btn_check_to_on_mtrl_000 = 0x7f080087;
-        public static final int abc_btn_check_to_on_mtrl_015 = 0x7f080088;
-        public static final int abc_btn_colored_material = 0x7f080089;
-        public static final int abc_btn_default_mtrl_shape = 0x7f08008a;
-        public static final int abc_btn_radio_material = 0x7f08008b;
-        public static final int abc_btn_radio_to_on_mtrl_000 = 0x7f08008d;
-        public static final int abc_btn_radio_to_on_mtrl_015 = 0x7f08008e;
-        public static final int abc_btn_switch_to_on_mtrl_00001 = 0x7f08008f;
-        public static final int abc_btn_switch_to_on_mtrl_00012 = 0x7f080090;
-        public static final int abc_cab_background_internal_bg = 0x7f080091;
-        public static final int abc_cab_background_top_material = 0x7f080092;
-        public static final int abc_cab_background_top_mtrl_alpha = 0x7f080093;
-        public static final int abc_control_background_material = 0x7f080094;
-        public static final int abc_dialog_material_background = 0x7f080095;
-        public static final int abc_edit_text_material = 0x7f080096;
-        public static final int abc_ic_ab_back_material = 0x7f080097;
-        public static final int abc_ic_arrow_drop_right_black_24dp = 0x7f080098;
-        public static final int abc_ic_clear_material = 0x7f080099;
-        public static final int abc_ic_commit_search_api_mtrl_alpha = 0x7f08009a;
-        public static final int abc_ic_go_search_api_material = 0x7f08009b;
-        public static final int abc_ic_menu_copy_mtrl_am_alpha = 0x7f08009c;
-        public static final int abc_ic_menu_cut_mtrl_alpha = 0x7f08009d;
-        public static final int abc_ic_menu_overflow_material = 0x7f08009e;
-        public static final int abc_ic_menu_paste_mtrl_am_alpha = 0x7f08009f;
-        public static final int abc_ic_menu_selectall_mtrl_alpha = 0x7f0800a0;
-        public static final int abc_ic_menu_share_mtrl_alpha = 0x7f0800a1;
-        public static final int abc_ic_search_api_material = 0x7f0800a2;
-        public static final int abc_ic_star_black_16dp = 0x7f0800a3;
-        public static final int abc_ic_star_black_36dp = 0x7f0800a4;
-        public static final int abc_ic_star_black_48dp = 0x7f0800a5;
-        public static final int abc_ic_star_half_black_16dp = 0x7f0800a6;
-        public static final int abc_ic_star_half_black_36dp = 0x7f0800a7;
-        public static final int abc_ic_star_half_black_48dp = 0x7f0800a8;
-        public static final int abc_ic_voice_search_api_material = 0x7f0800a9;
-        public static final int abc_item_background_holo_dark = 0x7f0800aa;
-        public static final int abc_item_background_holo_light = 0x7f0800ab;
-        public static final int abc_list_divider_material = 0x7f0800ac;
-        public static final int abc_list_divider_mtrl_alpha = 0x7f0800ad;
-        public static final int abc_list_focused_holo = 0x7f0800ae;
-        public static final int abc_list_longpressed_holo = 0x7f0800af;
-        public static final int abc_list_pressed_holo_dark = 0x7f0800b0;
-        public static final int abc_list_pressed_holo_light = 0x7f0800b1;
-        public static final int abc_list_selector_background_transition_holo_dark = 0x7f0800b2;
-        public static final int abc_list_selector_background_transition_holo_light = 0x7f0800b3;
-        public static final int abc_list_selector_disabled_holo_dark = 0x7f0800b4;
-        public static final int abc_list_selector_disabled_holo_light = 0x7f0800b5;
-        public static final int abc_list_selector_holo_dark = 0x7f0800b6;
-        public static final int abc_list_selector_holo_light = 0x7f0800b7;
-        public static final int abc_menu_hardkey_panel_mtrl_mult = 0x7f0800b8;
-        public static final int abc_popup_background_mtrl_mult = 0x7f0800b9;
-        public static final int abc_ratingbar_indicator_material = 0x7f0800ba;
-        public static final int abc_ratingbar_material = 0x7f0800bb;
-        public static final int abc_ratingbar_small_material = 0x7f0800bc;
-        public static final int abc_scrubber_control_off_mtrl_alpha = 0x7f0800bd;
-        public static final int abc_scrubber_control_to_pressed_mtrl_000 = 0x7f0800be;
-        public static final int abc_scrubber_control_to_pressed_mtrl_005 = 0x7f0800bf;
-        public static final int abc_scrubber_primary_mtrl_alpha = 0x7f0800c0;
-        public static final int abc_scrubber_track_mtrl_alpha = 0x7f0800c1;
-        public static final int abc_seekbar_thumb_material = 0x7f0800c2;
-        public static final int abc_seekbar_tick_mark_material = 0x7f0800c3;
-        public static final int abc_seekbar_track_material = 0x7f0800c4;
-        public static final int abc_spinner_mtrl_am_alpha = 0x7f0800c5;
-        public static final int abc_spinner_textfield_background_material = 0x7f0800c6;
-        public static final int abc_switch_thumb_material = 0x7f0800c7;
-        public static final int abc_switch_track_mtrl_alpha = 0x7f0800c8;
-        public static final int abc_tab_indicator_material = 0x7f0800c9;
-        public static final int abc_tab_indicator_mtrl_alpha = 0x7f0800ca;
-        public static final int abc_text_cursor_material = 0x7f0800cb;
-        public static final int abc_text_select_handle_left_mtrl_dark = 0x7f0800cc;
-        public static final int abc_text_select_handle_left_mtrl_light = 0x7f0800cd;
-        public static final int abc_text_select_handle_middle_mtrl_dark = 0x7f0800ce;
-        public static final int abc_text_select_handle_middle_mtrl_light = 0x7f0800cf;
-        public static final int abc_text_select_handle_right_mtrl_dark = 0x7f0800d0;
-        public static final int abc_text_select_handle_right_mtrl_light = 0x7f0800d1;
-        public static final int abc_textfield_activated_mtrl_alpha = 0x7f0800d2;
-        public static final int abc_textfield_default_mtrl_alpha = 0x7f0800d3;
-        public static final int abc_textfield_search_activated_mtrl_alpha = 0x7f0800d4;
-        public static final int abc_textfield_search_default_mtrl_alpha = 0x7f0800d5;
-        public static final int abc_textfield_search_material = 0x7f0800d6;
-        public static final int abc_vector_test = 0x7f0800d7;
-        public static final int notification_action_background = 0x7f080da7;
-        public static final int notification_bg = 0x7f080da8;
-        public static final int notification_bg_low = 0x7f080da9;
-        public static final int notification_bg_low_normal = 0x7f080daa;
-        public static final int notification_bg_low_pressed = 0x7f080dab;
-        public static final int notification_bg_normal = 0x7f080dac;
-        public static final int notification_bg_normal_pressed = 0x7f080dad;
-        public static final int notification_icon_background = 0x7f080dae;
-        public static final int notification_template_icon_bg = 0x7f080daf;
-        public static final int notification_template_icon_low_bg = 0x7f080db0;
-        public static final int notification_tile_bg = 0x7f080db1;
-        public static final int notify_panel_notification_icon_bg = 0x7f080db3;
-        public static final int tooltip_frame_dark = 0x7f081167;
-        public static final int tooltip_frame_light = 0x7f081168;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public drawable() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
+        public static final int abc_ab_share_pack_mtrl_alpha = 0x7f080065;
+        public static final int abc_action_bar_item_background_material = 0x7f080066;
+        public static final int abc_btn_borderless_material = 0x7f080067;
+        public static final int abc_btn_check_material = 0x7f080068;
+        public static final int abc_btn_check_to_on_mtrl_000 = 0x7f08006a;
+        public static final int abc_btn_check_to_on_mtrl_015 = 0x7f08006b;
+        public static final int abc_btn_colored_material = 0x7f08006c;
+        public static final int abc_btn_default_mtrl_shape = 0x7f08006d;
+        public static final int abc_btn_radio_material = 0x7f08006e;
+        public static final int abc_btn_radio_to_on_mtrl_000 = 0x7f080070;
+        public static final int abc_btn_radio_to_on_mtrl_015 = 0x7f080071;
+        public static final int abc_btn_switch_to_on_mtrl_00001 = 0x7f080072;
+        public static final int abc_btn_switch_to_on_mtrl_00012 = 0x7f080073;
+        public static final int abc_cab_background_internal_bg = 0x7f080074;
+        public static final int abc_cab_background_top_material = 0x7f080075;
+        public static final int abc_cab_background_top_mtrl_alpha = 0x7f080076;
+        public static final int abc_control_background_material = 0x7f080077;
+        public static final int abc_dialog_material_background = 0x7f080078;
+        public static final int abc_edit_text_material = 0x7f080079;
+        public static final int abc_ic_ab_back_material = 0x7f08007a;
+        public static final int abc_ic_arrow_drop_right_black_24dp = 0x7f08007b;
+        public static final int abc_ic_clear_material = 0x7f08007c;
+        public static final int abc_ic_commit_search_api_mtrl_alpha = 0x7f08007d;
+        public static final int abc_ic_go_search_api_material = 0x7f08007e;
+        public static final int abc_ic_menu_copy_mtrl_am_alpha = 0x7f08007f;
+        public static final int abc_ic_menu_cut_mtrl_alpha = 0x7f080080;
+        public static final int abc_ic_menu_overflow_material = 0x7f080081;
+        public static final int abc_ic_menu_paste_mtrl_am_alpha = 0x7f080082;
+        public static final int abc_ic_menu_selectall_mtrl_alpha = 0x7f080083;
+        public static final int abc_ic_menu_share_mtrl_alpha = 0x7f080084;
+        public static final int abc_ic_search_api_material = 0x7f080085;
+        public static final int abc_ic_star_black_16dp = 0x7f080086;
+        public static final int abc_ic_star_black_36dp = 0x7f080087;
+        public static final int abc_ic_star_black_48dp = 0x7f080088;
+        public static final int abc_ic_star_half_black_16dp = 0x7f080089;
+        public static final int abc_ic_star_half_black_36dp = 0x7f08008a;
+        public static final int abc_ic_star_half_black_48dp = 0x7f08008b;
+        public static final int abc_ic_voice_search_api_material = 0x7f08008c;
+        public static final int abc_item_background_holo_dark = 0x7f08008d;
+        public static final int abc_item_background_holo_light = 0x7f08008e;
+        public static final int abc_list_divider_material = 0x7f08008f;
+        public static final int abc_list_divider_mtrl_alpha = 0x7f080090;
+        public static final int abc_list_focused_holo = 0x7f080091;
+        public static final int abc_list_longpressed_holo = 0x7f080092;
+        public static final int abc_list_pressed_holo_dark = 0x7f080093;
+        public static final int abc_list_pressed_holo_light = 0x7f080094;
+        public static final int abc_list_selector_background_transition_holo_dark = 0x7f080095;
+        public static final int abc_list_selector_background_transition_holo_light = 0x7f080096;
+        public static final int abc_list_selector_disabled_holo_dark = 0x7f080097;
+        public static final int abc_list_selector_disabled_holo_light = 0x7f080098;
+        public static final int abc_list_selector_holo_dark = 0x7f080099;
+        public static final int abc_list_selector_holo_light = 0x7f08009a;
+        public static final int abc_menu_hardkey_panel_mtrl_mult = 0x7f08009b;
+        public static final int abc_popup_background_mtrl_mult = 0x7f08009c;
+        public static final int abc_ratingbar_indicator_material = 0x7f08009d;
+        public static final int abc_ratingbar_material = 0x7f08009e;
+        public static final int abc_ratingbar_small_material = 0x7f08009f;
+        public static final int abc_scrubber_control_off_mtrl_alpha = 0x7f0800a0;
+        public static final int abc_scrubber_control_to_pressed_mtrl_000 = 0x7f0800a1;
+        public static final int abc_scrubber_control_to_pressed_mtrl_005 = 0x7f0800a2;
+        public static final int abc_scrubber_primary_mtrl_alpha = 0x7f0800a3;
+        public static final int abc_scrubber_track_mtrl_alpha = 0x7f0800a4;
+        public static final int abc_seekbar_thumb_material = 0x7f0800a5;
+        public static final int abc_seekbar_tick_mark_material = 0x7f0800a6;
+        public static final int abc_seekbar_track_material = 0x7f0800a7;
+        public static final int abc_spinner_mtrl_am_alpha = 0x7f0800a8;
+        public static final int abc_spinner_textfield_background_material = 0x7f0800a9;
+        public static final int abc_switch_thumb_material = 0x7f0800aa;
+        public static final int abc_switch_track_mtrl_alpha = 0x7f0800ab;
+        public static final int abc_tab_indicator_material = 0x7f0800ac;
+        public static final int abc_tab_indicator_mtrl_alpha = 0x7f0800ad;
+        public static final int abc_text_cursor_material = 0x7f0800ae;
+        public static final int abc_text_select_handle_left_mtrl_dark = 0x7f0800af;
+        public static final int abc_text_select_handle_left_mtrl_light = 0x7f0800b0;
+        public static final int abc_text_select_handle_middle_mtrl_dark = 0x7f0800b1;
+        public static final int abc_text_select_handle_middle_mtrl_light = 0x7f0800b2;
+        public static final int abc_text_select_handle_right_mtrl_dark = 0x7f0800b3;
+        public static final int abc_text_select_handle_right_mtrl_light = 0x7f0800b4;
+        public static final int abc_textfield_activated_mtrl_alpha = 0x7f0800b5;
+        public static final int abc_textfield_default_mtrl_alpha = 0x7f0800b6;
+        public static final int abc_textfield_search_activated_mtrl_alpha = 0x7f0800b7;
+        public static final int abc_textfield_search_default_mtrl_alpha = 0x7f0800b8;
+        public static final int abc_textfield_search_material = 0x7f0800b9;
+        public static final int abc_vector_test = 0x7f0800ba;
+        public static final int notification_action_background = 0x7f080d9f;
+        public static final int notification_bg = 0x7f080da0;
+        public static final int notification_bg_low = 0x7f080da1;
+        public static final int notification_bg_low_normal = 0x7f080da2;
+        public static final int notification_bg_low_pressed = 0x7f080da3;
+        public static final int notification_bg_normal = 0x7f080da4;
+        public static final int notification_bg_normal_pressed = 0x7f080da5;
+        public static final int notification_icon_background = 0x7f080da6;
+        public static final int notification_template_icon_bg = 0x7f080da7;
+        public static final int notification_template_icon_low_bg = 0x7f080da8;
+        public static final int notification_tile_bg = 0x7f080da9;
+        public static final int notify_panel_notification_icon_bg = 0x7f080dab;
+        public static final int tooltip_frame_dark = 0x7f081161;
+        public static final int tooltip_frame_light = 0x7f081162;
     }
 
     /* loaded from: classes4.dex */
     public static final class id {
-        public static /* synthetic */ Interceptable $ic = null;
         public static final int action_bar = 0x7f090058;
         public static final int action_bar_activity_content = 0x7f090059;
         public static final int action_bar_container = 0x7f09005a;
@@ -757,139 +650,107 @@ public final class R {
         public static final int alertTitle = 0x7f090220;
         public static final int async = 0x7f090280;
         public static final int automatic = 0x7f0902b5;
-        public static final int blocking = 0x7f0903b7;
-        public static final int bottom = 0x7f0903c5;
-        public static final int buttonPanel = 0x7f090473;
-        public static final int checkbox = 0x7f09067f;
-        public static final int chronometer = 0x7f0906c1;
-        public static final int content = 0x7f090743;
-        public static final int contentPanel = 0x7f090747;
-        public static final int custom = 0x7f0907d6;
-        public static final int customPanel = 0x7f0907d7;
-        public static final int decor_content_parent = 0x7f090806;
-        public static final int default_activity_button = 0x7f090809;
-        public static final int edit_query = 0x7f09094d;
-        public static final int end = 0x7f0909c0;
-        public static final int expand_activities_button = 0x7f090a29;
-        public static final int expanded_menu = 0x7f090a33;
+        public static final int blocking = 0x7f0903b8;
+        public static final int bottom = 0x7f0903c6;
+        public static final int buttonPanel = 0x7f090474;
+        public static final int checkbox = 0x7f090680;
+        public static final int chronometer = 0x7f0906c2;
+        public static final int content = 0x7f090744;
+        public static final int contentPanel = 0x7f090748;
+        public static final int custom = 0x7f0907d7;
+        public static final int customPanel = 0x7f0907d8;
+        public static final int decor_content_parent = 0x7f090807;
+        public static final int default_activity_button = 0x7f09080a;
+        public static final int edit_query = 0x7f09094e;
+        public static final int end = 0x7f0909c1;
+        public static final int expand_activities_button = 0x7f090a2a;
+        public static final int expanded_menu = 0x7f090a34;
         public static final int forever = 0x7f090b0c;
-        public static final int group_divider = 0x7f090dc6;
-        public static final int hardware = 0x7f090df6;
-        public static final int home = 0x7f090e48;
-        public static final int icon = 0x7f090efe;
-        public static final int icon_group = 0x7f090f10;
-        public static final int image = 0x7f090f6e;
-        public static final int info = 0x7f090ff7;
-        public static final int italic = 0x7f09103c;
-        public static final int left = 0x7f091253;
-        public static final int line1 = 0x7f09129b;
-        public static final int line3 = 0x7f09129d;
-        public static final int listMode = 0x7f0912bd;
-        public static final int list_item = 0x7f0912c1;
-        public static final int lottie_layer_name = 0x7f091377;
-        public static final int message = 0x7f09141e;
-        public static final int multiply = 0x7f0914a1;
-        public static final int none = 0x7f09157e;
-        public static final int normal = 0x7f091585;
-        public static final int notification_background = 0x7f091594;
-        public static final int notification_main_column = 0x7f091596;
-        public static final int notification_main_column_container = 0x7f091597;
-        public static final int parentPanel = 0x7f091618;
-        public static final int progress_circular = 0x7f091904;
-        public static final int progress_horizontal = 0x7f091906;
-        public static final int radio = 0x7f0919a4;
-        public static final int restart = 0x7f091a5b;
-        public static final int reverse = 0x7f091a61;
-        public static final int right = 0x7f091a70;
-        public static final int right_icon = 0x7f091a84;
-        public static final int right_side = 0x7f091a8a;
-        public static final int screen = 0x7f091bf6;
-        public static final int scrollIndicatorDown = 0x7f091c01;
-        public static final int scrollIndicatorUp = 0x7f091c02;
-        public static final int scrollView = 0x7f091c03;
-        public static final int search_badge = 0x7f091c13;
-        public static final int search_bar = 0x7f091c14;
-        public static final int search_button = 0x7f091c1c;
-        public static final int search_close_btn = 0x7f091c1d;
-        public static final int search_edit_frame = 0x7f091c20;
-        public static final int search_go_btn = 0x7f091c2b;
-        public static final int search_mag_icon = 0x7f091c3a;
-        public static final int search_plate = 0x7f091c3b;
-        public static final int search_src_text = 0x7f091c42;
-        public static final int search_voice_btn = 0x7f091c4c;
-        public static final int select_dialog_listview = 0x7f091c73;
-        public static final int shortcut = 0x7f091cdc;
-        public static final int software = 0x7f091d3a;
-        public static final int spacer = 0x7f091d42;
-        public static final int split_action_bar = 0x7f091d58;
-        public static final int src_atop = 0x7f091d7e;
-        public static final int src_in = 0x7f091d7f;
-        public static final int src_over = 0x7f091d80;
-        public static final int start = 0x7f091d8a;
-        public static final int submenuarrow = 0x7f091dcd;
-        public static final int submit_area = 0x7f091dce;
-        public static final int tabMode = 0x7f091e12;
-        public static final int tag_transition_group = 0x7f091e8e;
-        public static final int tag_unhandled_key_event_manager = 0x7f091e8f;
-        public static final int tag_unhandled_key_listeners = 0x7f091e90;
-        public static final int text = 0x7f091ee5;
-        public static final int text2 = 0x7f091ee6;
-        public static final int textSpacerNoButtons = 0x7f091eea;
-        public static final int textSpacerNoTitle = 0x7f091eeb;
-        public static final int time = 0x7f091fbe;
-        public static final int title = 0x7f091fee;
-        public static final int titleDividerNoCustom = 0x7f091ff0;
-        public static final int title_template = 0x7f092035;
-        public static final int top = 0x7f09207d;
-        public static final int topPanel = 0x7f092080;
-        public static final int uniform = 0x7f092333;
-        public static final int up = 0x7f09234b;
-        public static final int wrap_content = 0x7f0925d6;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public id() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
+        public static final int group_divider = 0x7f090dcc;
+        public static final int hardware = 0x7f090dfc;
+        public static final int home = 0x7f090e4e;
+        public static final int icon = 0x7f090f04;
+        public static final int icon_group = 0x7f090f16;
+        public static final int image = 0x7f090f74;
+        public static final int info = 0x7f090ffd;
+        public static final int italic = 0x7f09105d;
+        public static final int left = 0x7f09127a;
+        public static final int line1 = 0x7f0912c2;
+        public static final int line3 = 0x7f0912c4;
+        public static final int listMode = 0x7f0912e4;
+        public static final int list_item = 0x7f0912e8;
+        public static final int lottie_layer_name = 0x7f0913a0;
+        public static final int message = 0x7f091447;
+        public static final int multiply = 0x7f0914ca;
+        public static final int none = 0x7f0915a7;
+        public static final int normal = 0x7f0915ae;
+        public static final int notification_background = 0x7f0915bd;
+        public static final int notification_main_column = 0x7f0915bf;
+        public static final int notification_main_column_container = 0x7f0915c0;
+        public static final int parentPanel = 0x7f091641;
+        public static final int progress_circular = 0x7f09192d;
+        public static final int progress_horizontal = 0x7f09192f;
+        public static final int radio = 0x7f0919cd;
+        public static final int restart = 0x7f091a85;
+        public static final int reverse = 0x7f091a8b;
+        public static final int right = 0x7f091a9a;
+        public static final int right_icon = 0x7f091aae;
+        public static final int right_side = 0x7f091ab4;
+        public static final int screen = 0x7f091c20;
+        public static final int scrollIndicatorDown = 0x7f091c2b;
+        public static final int scrollIndicatorUp = 0x7f091c2c;
+        public static final int scrollView = 0x7f091c2d;
+        public static final int search_badge = 0x7f091c3d;
+        public static final int search_bar = 0x7f091c3e;
+        public static final int search_button = 0x7f091c46;
+        public static final int search_close_btn = 0x7f091c47;
+        public static final int search_edit_frame = 0x7f091c4a;
+        public static final int search_go_btn = 0x7f091c55;
+        public static final int search_mag_icon = 0x7f091c64;
+        public static final int search_plate = 0x7f091c65;
+        public static final int search_src_text = 0x7f091c6c;
+        public static final int search_voice_btn = 0x7f091c76;
+        public static final int select_dialog_listview = 0x7f091c9d;
+        public static final int shortcut = 0x7f091d06;
+        public static final int software = 0x7f091d64;
+        public static final int spacer = 0x7f091d6c;
+        public static final int split_action_bar = 0x7f091d82;
+        public static final int src_atop = 0x7f091da8;
+        public static final int src_in = 0x7f091da9;
+        public static final int src_over = 0x7f091daa;
+        public static final int start = 0x7f091db4;
+        public static final int submenuarrow = 0x7f091df7;
+        public static final int submit_area = 0x7f091df8;
+        public static final int tabMode = 0x7f091e3c;
+        public static final int tag_transition_group = 0x7f091eb8;
+        public static final int tag_unhandled_key_event_manager = 0x7f091eb9;
+        public static final int tag_unhandled_key_listeners = 0x7f091eba;
+        public static final int text = 0x7f091f0f;
+        public static final int text2 = 0x7f091f10;
+        public static final int textSpacerNoButtons = 0x7f091f14;
+        public static final int textSpacerNoTitle = 0x7f091f15;
+        public static final int time = 0x7f091fe8;
+        public static final int title = 0x7f092018;
+        public static final int titleDividerNoCustom = 0x7f09201a;
+        public static final int title_template = 0x7f09205f;
+        public static final int top = 0x7f0920a7;
+        public static final int topPanel = 0x7f0920aa;
+        public static final int uniform = 0x7f09235e;
+        public static final int up = 0x7f092376;
+        public static final int wrap_content = 0x7f092601;
     }
 
     /* loaded from: classes4.dex */
     public static final class integer {
-        public static /* synthetic */ Interceptable $ic = null;
         public static final int abc_config_activityDefaultDur = 0x7f0a0000;
         public static final int abc_config_activityShortDur = 0x7f0a0001;
         public static final int cancel_button_image_alpha = 0x7f0a0008;
         public static final int config_tooltipAnimTime = 0x7f0a000b;
         public static final int status_bar_notification_info_maxnum = 0x7f0a0021;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public integer() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
     }
 
     /* loaded from: classes4.dex */
     public static final class layout {
-        public static /* synthetic */ Interceptable $ic = null;
         public static final int abc_action_bar_title_item = 0x7f0c0000;
         public static final int abc_action_bar_up_container = 0x7f0c0001;
         public static final int abc_action_menu_item_layout = 0x7f0c0002;
@@ -918,36 +779,20 @@ public final class R {
         public static final int abc_search_view = 0x7f0c0019;
         public static final int abc_select_dialog_material = 0x7f0c001a;
         public static final int abc_tooltip = 0x7f0c001b;
-        public static final int notification_action = 0x7f0c058c;
-        public static final int notification_action_tombstone = 0x7f0c058d;
-        public static final int notification_template_custom_big = 0x7f0c0594;
-        public static final int notification_template_icon_group = 0x7f0c0595;
-        public static final int notification_template_part_chronometer = 0x7f0c0599;
-        public static final int notification_template_part_time = 0x7f0c059a;
-        public static final int select_dialog_item_material = 0x7f0c06b5;
-        public static final int select_dialog_multichoice_material = 0x7f0c06b6;
-        public static final int select_dialog_singlechoice_material = 0x7f0c06b7;
-        public static final int support_simple_spinner_dropdown_item = 0x7f0c070c;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public layout() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
+        public static final int notification_action = 0x7f0c059a;
+        public static final int notification_action_tombstone = 0x7f0c059b;
+        public static final int notification_template_custom_big = 0x7f0c05a2;
+        public static final int notification_template_icon_group = 0x7f0c05a3;
+        public static final int notification_template_part_chronometer = 0x7f0c05a7;
+        public static final int notification_template_part_time = 0x7f0c05a8;
+        public static final int select_dialog_item_material = 0x7f0c06c3;
+        public static final int select_dialog_multichoice_material = 0x7f0c06c4;
+        public static final int select_dialog_singlechoice_material = 0x7f0c06c5;
+        public static final int support_simple_spinner_dropdown_item = 0x7f0c071a;
     }
 
     /* loaded from: classes4.dex */
     public static final class string {
-        public static /* synthetic */ Interceptable $ic = null;
         public static final int abc_action_bar_home_description = 0x7f0f0039;
         public static final int abc_action_bar_up_description = 0x7f0f003a;
         public static final int abc_action_menu_overflow_description = 0x7f0f003b;
@@ -975,28 +820,12 @@ public final class R {
         public static final int abc_shareactionprovider_share_with = 0x7f0f0051;
         public static final int abc_shareactionprovider_share_with_application = 0x7f0f0052;
         public static final int abc_toolbar_collapse_description = 0x7f0f0053;
-        public static final int search_menu_title = 0x7f0f11e6;
-        public static final int status_bar_notification_info_overflow = 0x7f0f12fe;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public string() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
+        public static final int search_menu_title = 0x7f0f120f;
+        public static final int status_bar_notification_info_overflow = 0x7f0f1327;
     }
 
     /* loaded from: classes4.dex */
     public static final class style {
-        public static /* synthetic */ Interceptable $ic = null;
         public static final int AlertDialog_AppCompat = 0x7f100003;
         public static final int AlertDialog_AppCompat_Light = 0x7f100004;
         public static final int Animation_AppCompat_Dialog = 0x7f100006;
@@ -1343,28 +1172,10 @@ public final class R {
         public static final int Widget_Compat_NotificationActionContainer = 0x7f10033f;
         public static final int Widget_Compat_NotificationActionText = 0x7f100340;
         public static final int Widget_Support_CoordinatorLayout = 0x7f1003ac;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public style() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
     }
 
     /* loaded from: classes4.dex */
     public static final class styleable {
-        public static /* synthetic */ Interceptable $ic = null;
-        public static final int[] ActionBar;
-        public static final int[] ActionBarLayout;
         public static final int ActionBarLayout_android_layout_gravity = 0x00000000;
         public static final int ActionBar_background = 0x00000000;
         public static final int ActionBar_backgroundSplit = 0x00000001;
@@ -1395,20 +1206,15 @@ public final class R {
         public static final int ActionBar_subtitleTextStyle = 0x0000001a;
         public static final int ActionBar_title = 0x0000001b;
         public static final int ActionBar_titleTextStyle = 0x0000001c;
-        public static final int[] ActionMenuItemView;
         public static final int ActionMenuItemView_android_minWidth = 0x00000000;
-        public static final int[] ActionMenuView;
-        public static final int[] ActionMode;
         public static final int ActionMode_background = 0x00000000;
         public static final int ActionMode_backgroundSplit = 0x00000001;
         public static final int ActionMode_closeItemLayout = 0x00000002;
         public static final int ActionMode_height = 0x00000003;
         public static final int ActionMode_subtitleTextStyle = 0x00000004;
         public static final int ActionMode_titleTextStyle = 0x00000005;
-        public static final int[] ActivityChooserView;
         public static final int ActivityChooserView_expandActivityOverflowButtonDrawable = 0x00000000;
         public static final int ActivityChooserView_initialActivityCount = 0x00000001;
-        public static final int[] AlertDialog;
         public static final int AlertDialog_android_layout = 0x00000000;
         public static final int AlertDialog_buttonIconDimen = 0x00000001;
         public static final int AlertDialog_buttonPanelSideLayout = 0x00000002;
@@ -1417,32 +1223,26 @@ public final class R {
         public static final int AlertDialog_multiChoiceItemLayout = 0x00000005;
         public static final int AlertDialog_showTitle = 0x00000006;
         public static final int AlertDialog_singleChoiceItemLayout = 0x00000007;
-        public static final int[] AnimatedStateListDrawableCompat;
         public static final int AnimatedStateListDrawableCompat_android_constantSize = 0x00000003;
         public static final int AnimatedStateListDrawableCompat_android_dither = 0x00000000;
         public static final int AnimatedStateListDrawableCompat_android_enterFadeDuration = 0x00000004;
         public static final int AnimatedStateListDrawableCompat_android_exitFadeDuration = 0x00000005;
         public static final int AnimatedStateListDrawableCompat_android_variablePadding = 0x00000002;
         public static final int AnimatedStateListDrawableCompat_android_visible = 0x00000001;
-        public static final int[] AnimatedStateListDrawableItem;
         public static final int AnimatedStateListDrawableItem_android_drawable = 0x00000001;
         public static final int AnimatedStateListDrawableItem_android_id = 0x00000000;
-        public static final int[] AnimatedStateListDrawableTransition;
         public static final int AnimatedStateListDrawableTransition_android_drawable = 0x00000000;
         public static final int AnimatedStateListDrawableTransition_android_fromId = 0x00000002;
         public static final int AnimatedStateListDrawableTransition_android_reversible = 0x00000003;
         public static final int AnimatedStateListDrawableTransition_android_toId = 0x00000001;
-        public static final int[] AppCompatImageView;
         public static final int AppCompatImageView_android_src = 0x00000000;
         public static final int AppCompatImageView_srcCompat = 0x00000001;
         public static final int AppCompatImageView_tint = 0x00000002;
         public static final int AppCompatImageView_tintMode = 0x00000003;
-        public static final int[] AppCompatSeekBar;
         public static final int AppCompatSeekBar_android_thumb = 0x00000000;
         public static final int AppCompatSeekBar_tickMark = 0x00000001;
         public static final int AppCompatSeekBar_tickMarkTint = 0x00000002;
         public static final int AppCompatSeekBar_tickMarkTintMode = 0x00000003;
-        public static final int[] AppCompatTextHelper;
         public static final int AppCompatTextHelper_android_drawableBottom = 0x00000002;
         public static final int AppCompatTextHelper_android_drawableEnd = 0x00000006;
         public static final int AppCompatTextHelper_android_drawableLeft = 0x00000003;
@@ -1450,7 +1250,6 @@ public final class R {
         public static final int AppCompatTextHelper_android_drawableStart = 0x00000005;
         public static final int AppCompatTextHelper_android_drawableTop = 0x00000001;
         public static final int AppCompatTextHelper_android_textAppearance = 0x00000000;
-        public static final int[] AppCompatTextView;
         public static final int AppCompatTextView_android_textAppearance = 0x00000000;
         public static final int AppCompatTextView_autoSizeMaxTextSize = 0x00000001;
         public static final int AppCompatTextView_autoSizeMinTextSize = 0x00000002;
@@ -1472,7 +1271,6 @@ public final class R {
         public static final int AppCompatTextView_lineHeight = 0x00000012;
         public static final int AppCompatTextView_textAllCaps = 0x00000013;
         public static final int AppCompatTextView_textLocale = 0x00000014;
-        public static final int[] AppCompatTheme;
         public static final int AppCompatTheme_actionBarDivider = 0x00000002;
         public static final int AppCompatTheme_actionBarItemBackground = 0x00000003;
         public static final int AppCompatTheme_actionBarPopupTheme = 0x00000004;
@@ -1598,19 +1396,14 @@ public final class R {
         public static final int AppCompatTheme_windowMinWidthMajor = 0x0000007a;
         public static final int AppCompatTheme_windowMinWidthMinor = 0x0000007b;
         public static final int AppCompatTheme_windowNoTitle = 0x0000007c;
-        public static final int[] ButtonBarLayout;
         public static final int ButtonBarLayout_allowStacking = 0x00000000;
-        public static final int[] ColorStateListItem;
         public static final int ColorStateListItem_alpha = 0x00000002;
         public static final int ColorStateListItem_android_alpha = 0x00000001;
         public static final int ColorStateListItem_android_color = 0x00000000;
-        public static final int[] CompoundButton;
         public static final int CompoundButton_android_button = 0x00000000;
         public static final int CompoundButton_buttonCompat = 0x00000001;
         public static final int CompoundButton_buttonTint = 0x00000002;
         public static final int CompoundButton_buttonTintMode = 0x00000003;
-        public static final int[] CoordinatorLayout;
-        public static final int[] CoordinatorLayout_Layout;
         public static final int CoordinatorLayout_Layout_android_layout_gravity = 0x00000000;
         public static final int CoordinatorLayout_Layout_layout_anchor = 0x00000001;
         public static final int CoordinatorLayout_Layout_layout_anchorGravity = 0x00000002;
@@ -1620,7 +1413,6 @@ public final class R {
         public static final int CoordinatorLayout_Layout_layout_keyline = 0x00000006;
         public static final int CoordinatorLayout_keylines = 0x00000000;
         public static final int CoordinatorLayout_statusBarBackground = 0x00000001;
-        public static final int[] DrawerArrowToggle;
         public static final int DrawerArrowToggle_arrowHeadLength = 0x00000000;
         public static final int DrawerArrowToggle_arrowShaftLength = 0x00000001;
         public static final int DrawerArrowToggle_barLength = 0x00000002;
@@ -1629,8 +1421,6 @@ public final class R {
         public static final int DrawerArrowToggle_gapBetweenBars = 0x00000005;
         public static final int DrawerArrowToggle_spinBars = 0x00000006;
         public static final int DrawerArrowToggle_thickness = 0x00000007;
-        public static final int[] FontFamily;
-        public static final int[] FontFamilyFont;
         public static final int FontFamilyFont_android_font = 0x00000000;
         public static final int FontFamilyFont_android_fontStyle = 0x00000002;
         public static final int FontFamilyFont_android_fontVariationSettings = 0x00000004;
@@ -1647,8 +1437,6 @@ public final class R {
         public static final int FontFamily_fontProviderFetchTimeout = 0x00000003;
         public static final int FontFamily_fontProviderPackage = 0x00000004;
         public static final int FontFamily_fontProviderQuery = 0x00000005;
-        public static final int[] GradientColor;
-        public static final int[] GradientColorItem;
         public static final int GradientColorItem_android_color = 0x00000000;
         public static final int GradientColorItem_android_offset = 0x00000001;
         public static final int GradientColor_android_centerColor = 0x00000007;
@@ -1663,8 +1451,6 @@ public final class R {
         public static final int GradientColor_android_startY = 0x00000009;
         public static final int GradientColor_android_tileMode = 0x00000006;
         public static final int GradientColor_android_type = 0x00000002;
-        public static final int[] LinearLayoutCompat;
-        public static final int[] LinearLayoutCompat_Layout;
         public static final int LinearLayoutCompat_Layout_android_layout_gravity = 0x00000000;
         public static final int LinearLayoutCompat_Layout_android_layout_height = 0x00000002;
         public static final int LinearLayoutCompat_Layout_android_layout_weight = 0x00000003;
@@ -1678,10 +1464,8 @@ public final class R {
         public static final int LinearLayoutCompat_dividerPadding = 0x00000006;
         public static final int LinearLayoutCompat_measureWithLargestChild = 0x00000007;
         public static final int LinearLayoutCompat_showDividers = 0x00000008;
-        public static final int[] ListPopupWindow;
         public static final int ListPopupWindow_android_dropDownHorizontalOffset = 0x00000000;
         public static final int ListPopupWindow_android_dropDownVerticalOffset = 0x00000001;
-        public static final int[] LottieAnimationView;
         public static final int LottieAnimationView_lottie_autoPlay = 0x00000000;
         public static final int LottieAnimationView_lottie_cacheComposition = 0x0000000c;
         public static final int LottieAnimationView_lottie_colorFilter = 0x00000001;
@@ -1698,14 +1482,12 @@ public final class R {
         public static final int LottieAnimationView_lottie_scale = 0x0000000a;
         public static final int LottieAnimationView_lottie_speed = 0x0000000f;
         public static final int LottieAnimationView_lottie_url = 0x0000000b;
-        public static final int[] MenuGroup;
         public static final int MenuGroup_android_checkableBehavior = 0x00000005;
         public static final int MenuGroup_android_enabled = 0x00000000;
         public static final int MenuGroup_android_id = 0x00000001;
         public static final int MenuGroup_android_menuCategory = 0x00000003;
         public static final int MenuGroup_android_orderInCategory = 0x00000004;
         public static final int MenuGroup_android_visible = 0x00000002;
-        public static final int[] MenuItem;
         public static final int MenuItem_actionLayout = 0x0000000d;
         public static final int MenuItem_actionProviderClass = 0x0000000e;
         public static final int MenuItem_actionViewClass = 0x0000000f;
@@ -1729,7 +1511,6 @@ public final class R {
         public static final int MenuItem_numericModifiers = 0x00000014;
         public static final int MenuItem_showAsAction = 0x00000015;
         public static final int MenuItem_tooltipText = 0x00000016;
-        public static final int[] MenuView;
         public static final int MenuView_android_headerBackground = 0x00000004;
         public static final int MenuView_android_horizontalDivider = 0x00000002;
         public static final int MenuView_android_itemBackground = 0x00000005;
@@ -1739,18 +1520,14 @@ public final class R {
         public static final int MenuView_android_windowAnimationStyle = 0x00000000;
         public static final int MenuView_preserveIconSpacing = 0x00000007;
         public static final int MenuView_subMenuArrow = 0x00000008;
-        public static final int[] PopupWindow;
-        public static final int[] PopupWindowBackgroundState;
         public static final int PopupWindowBackgroundState_state_above_anchor = 0x00000000;
         public static final int PopupWindow_android_popupAnimationStyle = 0x00000001;
         public static final int PopupWindow_android_popupBackground = 0x00000000;
         public static final int PopupWindow_overlapAnchor = 0x00000002;
         public static final int PopupWindow_popupAnimationStyle = 0x00000003;
         public static final int PopupWindow_popupBackground = 0x00000004;
-        public static final int[] RecycleListView;
         public static final int RecycleListView_paddingBottomNoButtons = 0x00000000;
         public static final int RecycleListView_paddingTopNoTitle = 0x00000001;
-        public static final int[] SearchView;
         public static final int SearchView_android_focusable = 0x00000000;
         public static final int SearchView_android_imeOptions = 0x00000003;
         public static final int SearchView_android_inputType = 0x00000002;
@@ -1768,14 +1545,11 @@ public final class R {
         public static final int SearchView_submitBackground = 0x0000000e;
         public static final int SearchView_suggestionRowLayout = 0x0000000f;
         public static final int SearchView_voiceIcon = 0x00000010;
-        public static final int[] Spinner;
         public static final int Spinner_android_dropDownWidth = 0x00000003;
         public static final int Spinner_android_entries = 0x00000000;
         public static final int Spinner_android_popupBackground = 0x00000001;
         public static final int Spinner_android_prompt = 0x00000002;
         public static final int Spinner_popupTheme = 0x00000004;
-        public static final int[] StateListDrawable;
-        public static final int[] StateListDrawableItem;
         public static final int StateListDrawableItem_android_drawable = 0x00000000;
         public static final int StateListDrawable_android_constantSize = 0x00000003;
         public static final int StateListDrawable_android_dither = 0x00000000;
@@ -1783,7 +1557,6 @@ public final class R {
         public static final int StateListDrawable_android_exitFadeDuration = 0x00000005;
         public static final int StateListDrawable_android_variablePadding = 0x00000002;
         public static final int StateListDrawable_android_visible = 0x00000001;
-        public static final int[] SwitchCompat;
         public static final int SwitchCompat_android_textOff = 0x00000001;
         public static final int SwitchCompat_android_textOn = 0x00000000;
         public static final int SwitchCompat_android_thumb = 0x00000002;
@@ -1798,7 +1571,6 @@ public final class R {
         public static final int SwitchCompat_track = 0x0000000b;
         public static final int SwitchCompat_trackTint = 0x0000000c;
         public static final int SwitchCompat_trackTintMode = 0x0000000d;
-        public static final int[] TextAppearance;
         public static final int TextAppearance_android_fontFamily = 0x0000000a;
         public static final int TextAppearance_android_shadowColor = 0x00000006;
         public static final int TextAppearance_android_shadowDx = 0x00000007;
@@ -1815,7 +1587,6 @@ public final class R {
         public static final int TextAppearance_fontVariationSettings = 0x0000000d;
         public static final int TextAppearance_textAllCaps = 0x0000000e;
         public static final int TextAppearance_textLocale = 0x0000000f;
-        public static final int[] Toolbar;
         public static final int Toolbar_android_gravity = 0x00000000;
         public static final int Toolbar_android_minHeight = 0x00000001;
         public static final int Toolbar_buttonGravity = 0x00000002;
@@ -1846,12 +1617,9 @@ public final class R {
         public static final int Toolbar_titleMargins = 0x0000001b;
         public static final int Toolbar_titleTextAppearance = 0x0000001c;
         public static final int Toolbar_titleTextColor = 0x0000001d;
-        public static final int[] View;
-        public static final int[] ViewBackgroundHelper;
         public static final int ViewBackgroundHelper_android_background = 0x00000000;
         public static final int ViewBackgroundHelper_backgroundTint = 0x00000001;
         public static final int ViewBackgroundHelper_backgroundTintMode = 0x00000002;
-        public static final int[] ViewStubCompat;
         public static final int ViewStubCompat_android_id = 0x00000000;
         public static final int ViewStubCompat_android_inflatedId = 0x00000002;
         public static final int ViewStubCompat_android_layout = 0x00000001;
@@ -1925,94 +1693,50 @@ public final class R {
         public static final int View_translationY = 0x00000043;
         public static final int View_verticalScrollbarPosition = 0x00000044;
         public static final int View_visibility = 0x00000045;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(355973417, "Lcom/airbnb/lottie/R$styleable;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(355973417, "Lcom/airbnb/lottie/R$styleable;");
-                    return;
-                }
-            }
-            ActionBar = new int[]{com.baidu.tieba.R.attr.background, com.baidu.tieba.R.attr.backgroundSplit, com.baidu.tieba.R.attr.backgroundStacked, com.baidu.tieba.R.attr.contentInsetEnd, com.baidu.tieba.R.attr.contentInsetEndWithActions, com.baidu.tieba.R.attr.contentInsetLeft, com.baidu.tieba.R.attr.contentInsetRight, com.baidu.tieba.R.attr.contentInsetStart, com.baidu.tieba.R.attr.contentInsetStartWithNavigation, com.baidu.tieba.R.attr.customNavigationLayout, com.baidu.tieba.R.attr.displayOptions, com.baidu.tieba.R.attr.divider, com.baidu.tieba.R.attr.elevation, com.baidu.tieba.R.attr.height, com.baidu.tieba.R.attr.hideOnContentScroll, com.baidu.tieba.R.attr.homeAsUpIndicator, com.baidu.tieba.R.attr.homeLayout, com.baidu.tieba.R.attr.icon, com.baidu.tieba.R.attr.indeterminateProgressStyle, com.baidu.tieba.R.attr.itemPadding, com.baidu.tieba.R.attr.logo, com.baidu.tieba.R.attr.navigationMode, com.baidu.tieba.R.attr.popupTheme, com.baidu.tieba.R.attr.progressBarPadding, com.baidu.tieba.R.attr.progressBarStyle, com.baidu.tieba.R.attr.subtitle, com.baidu.tieba.R.attr.subtitleTextStyle, com.baidu.tieba.R.attr.title, com.baidu.tieba.R.attr.titleTextStyle};
-            ActionBarLayout = new int[]{16842931};
-            ActionMenuItemView = new int[]{16843071};
-            ActionMenuView = new int[0];
-            ActionMode = new int[]{com.baidu.tieba.R.attr.background, com.baidu.tieba.R.attr.backgroundSplit, com.baidu.tieba.R.attr.closeItemLayout, com.baidu.tieba.R.attr.height, com.baidu.tieba.R.attr.subtitleTextStyle, com.baidu.tieba.R.attr.titleTextStyle};
-            ActivityChooserView = new int[]{com.baidu.tieba.R.attr.expandActivityOverflowButtonDrawable, com.baidu.tieba.R.attr.initialActivityCount};
-            AlertDialog = new int[]{16842994, com.baidu.tieba.R.attr.buttonIconDimen, com.baidu.tieba.R.attr.buttonPanelSideLayout, com.baidu.tieba.R.attr.listItemLayout, com.baidu.tieba.R.attr.listLayout, com.baidu.tieba.R.attr.multiChoiceItemLayout, com.baidu.tieba.R.attr.showTitle, com.baidu.tieba.R.attr.singleChoiceItemLayout};
-            AnimatedStateListDrawableCompat = new int[]{16843036, 16843156, 16843157, 16843158, 16843532, 16843533};
-            AnimatedStateListDrawableItem = new int[]{16842960, 16843161};
-            AnimatedStateListDrawableTransition = new int[]{16843161, 16843849, 16843850, 16843851};
-            AppCompatImageView = new int[]{16843033, com.baidu.tieba.R.attr.srcCompat, com.baidu.tieba.R.attr.tint, com.baidu.tieba.R.attr.tintMode};
-            AppCompatSeekBar = new int[]{16843074, com.baidu.tieba.R.attr.tickMark, com.baidu.tieba.R.attr.tickMarkTint, com.baidu.tieba.R.attr.tickMarkTintMode};
-            AppCompatTextHelper = new int[]{16842804, 16843117, 16843118, 16843119, 16843120, 16843666, 16843667};
-            AppCompatTextView = new int[]{16842804, com.baidu.tieba.R.attr.autoSizeMaxTextSize, com.baidu.tieba.R.attr.autoSizeMinTextSize, com.baidu.tieba.R.attr.autoSizePresetSizes, com.baidu.tieba.R.attr.autoSizeStepGranularity, com.baidu.tieba.R.attr.autoSizeTextType, com.baidu.tieba.R.attr.drawableBottomCompat, com.baidu.tieba.R.attr.drawableEndCompat, com.baidu.tieba.R.attr.drawableLeftCompat, com.baidu.tieba.R.attr.drawableRightCompat, com.baidu.tieba.R.attr.drawableStartCompat, com.baidu.tieba.R.attr.drawableTint, com.baidu.tieba.R.attr.drawableTintMode, com.baidu.tieba.R.attr.drawableTopCompat, com.baidu.tieba.R.attr.firstBaselineToTopHeight, com.baidu.tieba.R.attr.fontFamily, com.baidu.tieba.R.attr.fontVariationSettings, com.baidu.tieba.R.attr.lastBaselineToBottomHeight, com.baidu.tieba.R.attr.lineHeight, com.baidu.tieba.R.attr.textAllCaps, com.baidu.tieba.R.attr.textLocale};
-            AppCompatTheme = new int[]{16842839, 16842926, com.baidu.tieba.R.attr.actionBarDivider, com.baidu.tieba.R.attr.actionBarItemBackground, com.baidu.tieba.R.attr.actionBarPopupTheme, com.baidu.tieba.R.attr.actionBarSize, com.baidu.tieba.R.attr.actionBarSplitStyle, com.baidu.tieba.R.attr.actionBarStyle, com.baidu.tieba.R.attr.actionBarTabBarStyle, com.baidu.tieba.R.attr.actionBarTabStyle, com.baidu.tieba.R.attr.actionBarTabTextStyle, com.baidu.tieba.R.attr.actionBarTheme, com.baidu.tieba.R.attr.actionBarWidgetTheme, com.baidu.tieba.R.attr.actionButtonStyle, com.baidu.tieba.R.attr.actionDropDownStyle, com.baidu.tieba.R.attr.actionMenuTextAppearance, com.baidu.tieba.R.attr.actionMenuTextColor, com.baidu.tieba.R.attr.actionModeBackground, com.baidu.tieba.R.attr.actionModeCloseButtonStyle, com.baidu.tieba.R.attr.actionModeCloseDrawable, com.baidu.tieba.R.attr.actionModeCopyDrawable, com.baidu.tieba.R.attr.actionModeCutDrawable, com.baidu.tieba.R.attr.actionModeFindDrawable, com.baidu.tieba.R.attr.actionModePasteDrawable, com.baidu.tieba.R.attr.actionModePopupWindowStyle, com.baidu.tieba.R.attr.actionModeSelectAllDrawable, com.baidu.tieba.R.attr.actionModeShareDrawable, com.baidu.tieba.R.attr.actionModeSplitBackground, com.baidu.tieba.R.attr.actionModeStyle, com.baidu.tieba.R.attr.actionModeWebSearchDrawable, com.baidu.tieba.R.attr.actionOverflowButtonStyle, com.baidu.tieba.R.attr.actionOverflowMenuStyle, com.baidu.tieba.R.attr.activityChooserViewStyle, com.baidu.tieba.R.attr.alertDialogButtonGroupStyle, com.baidu.tieba.R.attr.alertDialogCenterButtons, com.baidu.tieba.R.attr.alertDialogStyle, com.baidu.tieba.R.attr.alertDialogTheme, com.baidu.tieba.R.attr.autoCompleteTextViewStyle, com.baidu.tieba.R.attr.borderlessButtonStyle, com.baidu.tieba.R.attr.buttonBarButtonStyle, com.baidu.tieba.R.attr.buttonBarNegativeButtonStyle, com.baidu.tieba.R.attr.buttonBarNeutralButtonStyle, com.baidu.tieba.R.attr.buttonBarPositiveButtonStyle, com.baidu.tieba.R.attr.buttonBarStyle, com.baidu.tieba.R.attr.buttonStyle, com.baidu.tieba.R.attr.buttonStyleSmall, com.baidu.tieba.R.attr.checkboxStyle, com.baidu.tieba.R.attr.checkedTextViewStyle, com.baidu.tieba.R.attr.colorAccent, com.baidu.tieba.R.attr.colorBackgroundFloating, com.baidu.tieba.R.attr.colorButtonNormal, com.baidu.tieba.R.attr.colorControlActivated, com.baidu.tieba.R.attr.colorControlHighlight, com.baidu.tieba.R.attr.colorControlNormal, com.baidu.tieba.R.attr.colorError, com.baidu.tieba.R.attr.colorPrimary, com.baidu.tieba.R.attr.colorPrimaryDark, com.baidu.tieba.R.attr.colorSwitchThumbNormal, com.baidu.tieba.R.attr.controlBackground, com.baidu.tieba.R.attr.dialogCornerRadius, com.baidu.tieba.R.attr.dialogPreferredPadding, com.baidu.tieba.R.attr.dialogTheme, com.baidu.tieba.R.attr.dividerHorizontal, com.baidu.tieba.R.attr.dividerVertical, com.baidu.tieba.R.attr.dropDownListViewStyle, com.baidu.tieba.R.attr.dropdownListPreferredItemHeight, com.baidu.tieba.R.attr.editTextBackground, com.baidu.tieba.R.attr.editTextColor, com.baidu.tieba.R.attr.editTextStyle, com.baidu.tieba.R.attr.homeAsUpIndicator, com.baidu.tieba.R.attr.imageButtonStyle, com.baidu.tieba.R.attr.listChoiceBackgroundIndicator, com.baidu.tieba.R.attr.listChoiceIndicatorMultipleAnimated, com.baidu.tieba.R.attr.listChoiceIndicatorSingleAnimated, com.baidu.tieba.R.attr.listDividerAlertDialog, com.baidu.tieba.R.attr.listMenuViewStyle, com.baidu.tieba.R.attr.listPopupWindowStyle, com.baidu.tieba.R.attr.listPreferredItemHeight, com.baidu.tieba.R.attr.listPreferredItemHeightLarge, com.baidu.tieba.R.attr.listPreferredItemHeightSmall, com.baidu.tieba.R.attr.listPreferredItemPaddingEnd, com.baidu.tieba.R.attr.listPreferredItemPaddingLeft, com.baidu.tieba.R.attr.listPreferredItemPaddingRight, com.baidu.tieba.R.attr.listPreferredItemPaddingStart, com.baidu.tieba.R.attr.panelBackground, com.baidu.tieba.R.attr.panelMenuListTheme, com.baidu.tieba.R.attr.panelMenuListWidth, com.baidu.tieba.R.attr.popupMenuStyle, com.baidu.tieba.R.attr.popupWindowStyle, com.baidu.tieba.R.attr.radioButtonStyle, com.baidu.tieba.R.attr.ratingBarStyle, com.baidu.tieba.R.attr.ratingBarStyleIndicator, com.baidu.tieba.R.attr.ratingBarStyleSmall, com.baidu.tieba.R.attr.searchViewStyle, com.baidu.tieba.R.attr.seekBarStyle, com.baidu.tieba.R.attr.selectableItemBackground, com.baidu.tieba.R.attr.selectableItemBackgroundBorderless, com.baidu.tieba.R.attr.spinnerDropDownItemStyle, com.baidu.tieba.R.attr.spinnerStyle, com.baidu.tieba.R.attr.switchStyle, com.baidu.tieba.R.attr.textAppearanceLargePopupMenu, com.baidu.tieba.R.attr.textAppearanceListItem, com.baidu.tieba.R.attr.textAppearanceListItemSecondary, com.baidu.tieba.R.attr.textAppearanceListItemSmall, com.baidu.tieba.R.attr.textAppearancePopupMenuHeader, com.baidu.tieba.R.attr.textAppearanceSearchResultSubtitle, com.baidu.tieba.R.attr.textAppearanceSearchResultTitle, com.baidu.tieba.R.attr.textAppearanceSmallPopupMenu, com.baidu.tieba.R.attr.textColorAlertDialogListItem, com.baidu.tieba.R.attr.textColorSearchUrl, com.baidu.tieba.R.attr.toolbarNavigationButtonStyle, com.baidu.tieba.R.attr.toolbarStyle, com.baidu.tieba.R.attr.tooltipForegroundColor, com.baidu.tieba.R.attr.tooltipFrameBackground, com.baidu.tieba.R.attr.viewInflaterClass, com.baidu.tieba.R.attr.windowActionBar, com.baidu.tieba.R.attr.windowActionBarOverlay, com.baidu.tieba.R.attr.windowActionModeOverlay, com.baidu.tieba.R.attr.windowFixedHeightMajor, com.baidu.tieba.R.attr.windowFixedHeightMinor, com.baidu.tieba.R.attr.windowFixedWidthMajor, com.baidu.tieba.R.attr.windowFixedWidthMinor, com.baidu.tieba.R.attr.windowMinWidthMajor, com.baidu.tieba.R.attr.windowMinWidthMinor, com.baidu.tieba.R.attr.windowNoTitle};
-            ButtonBarLayout = new int[]{com.baidu.tieba.R.attr.allowStacking};
-            ColorStateListItem = new int[]{16843173, 16843551, com.baidu.tieba.R.attr.alpha};
-            CompoundButton = new int[]{16843015, com.baidu.tieba.R.attr.buttonCompat, com.baidu.tieba.R.attr.buttonTint, com.baidu.tieba.R.attr.buttonTintMode};
-            CoordinatorLayout = new int[]{com.baidu.tieba.R.attr.keylines, com.baidu.tieba.R.attr.statusBarBackground};
-            CoordinatorLayout_Layout = new int[]{16842931, com.baidu.tieba.R.attr.layout_anchor, com.baidu.tieba.R.attr.layout_anchorGravity, com.baidu.tieba.R.attr.layout_behavior, com.baidu.tieba.R.attr.layout_dodgeInsetEdges, com.baidu.tieba.R.attr.layout_insetEdge, com.baidu.tieba.R.attr.layout_keyline};
-            DrawerArrowToggle = new int[]{com.baidu.tieba.R.attr.arrowHeadLength, com.baidu.tieba.R.attr.arrowShaftLength, com.baidu.tieba.R.attr.barLength, com.baidu.tieba.R.attr.color, com.baidu.tieba.R.attr.drawableSize, com.baidu.tieba.R.attr.gapBetweenBars, com.baidu.tieba.R.attr.spinBars, com.baidu.tieba.R.attr.thickness};
-            FontFamily = new int[]{com.baidu.tieba.R.attr.fontProviderAuthority, com.baidu.tieba.R.attr.fontProviderCerts, com.baidu.tieba.R.attr.fontProviderFetchStrategy, com.baidu.tieba.R.attr.fontProviderFetchTimeout, com.baidu.tieba.R.attr.fontProviderPackage, com.baidu.tieba.R.attr.fontProviderQuery};
-            FontFamilyFont = new int[]{16844082, 16844083, 16844095, 16844143, 16844144, com.baidu.tieba.R.attr.font, com.baidu.tieba.R.attr.fontStyle, com.baidu.tieba.R.attr.fontVariationSettings, com.baidu.tieba.R.attr.fontWeight, com.baidu.tieba.R.attr.ttcIndex};
-            GradientColor = new int[]{16843165, 16843166, 16843169, 16843170, 16843171, 16843172, 16843265, 16843275, 16844048, 16844049, 16844050, 16844051};
-            GradientColorItem = new int[]{16843173, 16844052};
-            LinearLayoutCompat = new int[]{16842927, 16842948, 16843046, 16843047, 16843048, com.baidu.tieba.R.attr.divider, com.baidu.tieba.R.attr.dividerPadding, com.baidu.tieba.R.attr.measureWithLargestChild, com.baidu.tieba.R.attr.showDividers};
-            LinearLayoutCompat_Layout = new int[]{16842931, 16842996, 16842997, 16843137};
-            ListPopupWindow = new int[]{16843436, 16843437};
-            LottieAnimationView = new int[]{com.baidu.tieba.R.attr.lottie_autoPlay, com.baidu.tieba.R.attr.lottie_colorFilter, com.baidu.tieba.R.attr.lottie_enableMergePathsForKitKatAndAbove, com.baidu.tieba.R.attr.lottie_fileName, com.baidu.tieba.R.attr.lottie_imageAssetsFolder, com.baidu.tieba.R.attr.lottie_loop, com.baidu.tieba.R.attr.lottie_progress, com.baidu.tieba.R.attr.lottie_rawRes, com.baidu.tieba.R.attr.lottie_repeatCount, com.baidu.tieba.R.attr.lottie_repeatMode, com.baidu.tieba.R.attr.lottie_scale, com.baidu.tieba.R.attr.lottie_url, com.baidu.tieba.R.attr.lottie_cacheComposition, com.baidu.tieba.R.attr.lottie_fallbackRes, com.baidu.tieba.R.attr.lottie_renderMode, com.baidu.tieba.R.attr.lottie_speed};
-            MenuGroup = new int[]{16842766, 16842960, 16843156, 16843230, 16843231, 16843232};
-            MenuItem = new int[]{16842754, 16842766, 16842960, 16843014, 16843156, 16843230, 16843231, 16843233, 16843234, 16843235, 16843236, 16843237, 16843375, com.baidu.tieba.R.attr.actionLayout, com.baidu.tieba.R.attr.actionProviderClass, com.baidu.tieba.R.attr.actionViewClass, com.baidu.tieba.R.attr.alphabeticModifiers, com.baidu.tieba.R.attr.contentDescription, com.baidu.tieba.R.attr.iconTint, com.baidu.tieba.R.attr.iconTintMode, com.baidu.tieba.R.attr.numericModifiers, com.baidu.tieba.R.attr.showAsAction, com.baidu.tieba.R.attr.tooltipText};
-            MenuView = new int[]{16842926, 16843052, 16843053, 16843054, 16843055, 16843056, 16843057, com.baidu.tieba.R.attr.preserveIconSpacing, com.baidu.tieba.R.attr.subMenuArrow};
-            PopupWindow = new int[]{16843126, 16843465, com.baidu.tieba.R.attr.overlapAnchor, com.baidu.tieba.R.attr.popupAnimationStyle, com.baidu.tieba.R.attr.popupBackground};
-            PopupWindowBackgroundState = new int[]{com.baidu.tieba.R.attr.state_above_anchor};
-            RecycleListView = new int[]{com.baidu.tieba.R.attr.paddingBottomNoButtons, com.baidu.tieba.R.attr.paddingTopNoTitle};
-            SearchView = new int[]{16842970, 16843039, 16843296, 16843364, com.baidu.tieba.R.attr.closeIcon, com.baidu.tieba.R.attr.commitIcon, com.baidu.tieba.R.attr.defaultQueryHint, com.baidu.tieba.R.attr.goIcon, com.baidu.tieba.R.attr.iconifiedByDefault, com.baidu.tieba.R.attr.layout, com.baidu.tieba.R.attr.queryBackground, com.baidu.tieba.R.attr.queryHint, com.baidu.tieba.R.attr.searchHintIcon, com.baidu.tieba.R.attr.searchIcon, com.baidu.tieba.R.attr.submitBackground, com.baidu.tieba.R.attr.suggestionRowLayout, com.baidu.tieba.R.attr.voiceIcon};
-            Spinner = new int[]{16842930, 16843126, 16843131, 16843362, com.baidu.tieba.R.attr.popupTheme};
-            StateListDrawable = new int[]{16843036, 16843156, 16843157, 16843158, 16843532, 16843533};
-            StateListDrawableItem = new int[]{16843161};
-            SwitchCompat = new int[]{16843044, 16843045, 16843074, com.baidu.tieba.R.attr.showText, com.baidu.tieba.R.attr.splitTrack, com.baidu.tieba.R.attr.switchMinWidth, com.baidu.tieba.R.attr.switchPadding, com.baidu.tieba.R.attr.switchTextAppearance, com.baidu.tieba.R.attr.thumbTextPadding, com.baidu.tieba.R.attr.thumbTint, com.baidu.tieba.R.attr.thumbTintMode, com.baidu.tieba.R.attr.track, com.baidu.tieba.R.attr.trackTint, com.baidu.tieba.R.attr.trackTintMode};
-            TextAppearance = new int[]{16842901, 16842902, 16842903, 16842904, 16842906, 16842907, 16843105, 16843106, 16843107, 16843108, 16843692, 16844165, com.baidu.tieba.R.attr.fontFamily, com.baidu.tieba.R.attr.fontVariationSettings, com.baidu.tieba.R.attr.textAllCaps, com.baidu.tieba.R.attr.textLocale};
-            Toolbar = new int[]{16842927, 16843072, com.baidu.tieba.R.attr.buttonGravity, com.baidu.tieba.R.attr.collapseContentDescription, com.baidu.tieba.R.attr.collapseIcon, com.baidu.tieba.R.attr.contentInsetEnd, com.baidu.tieba.R.attr.contentInsetEndWithActions, com.baidu.tieba.R.attr.contentInsetLeft, com.baidu.tieba.R.attr.contentInsetRight, com.baidu.tieba.R.attr.contentInsetStart, com.baidu.tieba.R.attr.contentInsetStartWithNavigation, com.baidu.tieba.R.attr.logo, com.baidu.tieba.R.attr.logoDescription, com.baidu.tieba.R.attr.maxButtonHeight, com.baidu.tieba.R.attr.menu, com.baidu.tieba.R.attr.navigationContentDescription, com.baidu.tieba.R.attr.navigationIcon, com.baidu.tieba.R.attr.popupTheme, com.baidu.tieba.R.attr.subtitle, com.baidu.tieba.R.attr.subtitleTextAppearance, com.baidu.tieba.R.attr.subtitleTextColor, com.baidu.tieba.R.attr.title, com.baidu.tieba.R.attr.titleMargin, com.baidu.tieba.R.attr.titleMarginBottom, com.baidu.tieba.R.attr.titleMarginEnd, com.baidu.tieba.R.attr.titleMarginStart, com.baidu.tieba.R.attr.titleMarginTop, com.baidu.tieba.R.attr.titleMargins, com.baidu.tieba.R.attr.titleTextAppearance, com.baidu.tieba.R.attr.titleTextColor};
-            View = new int[]{16842752, 16842970, com.baidu.tieba.R.attr.accessibilityFocusable, com.baidu.tieba.R.attr.alpha, com.baidu.tieba.R.attr.clickable, com.baidu.tieba.R.attr.contentDescription, com.baidu.tieba.R.attr.drawingCacheQuality, com.baidu.tieba.R.attr.duplicateParentState, com.baidu.tieba.R.attr.fadeScrollbars, com.baidu.tieba.R.attr.fadingEdge, com.baidu.tieba.R.attr.fadingEdgeLength, com.baidu.tieba.R.attr.filterTouchesWhenObscured, com.baidu.tieba.R.attr.fitsSystemWindows, com.baidu.tieba.R.attr.focusable, com.baidu.tieba.R.attr.focusableInTouchMode, com.baidu.tieba.R.attr.hapticFeedbackEnabled, com.baidu.tieba.R.attr.id, com.baidu.tieba.R.attr.importantForAccessibility, com.baidu.tieba.R.attr.isScrollContainer, com.baidu.tieba.R.attr.keepScreenOn, com.baidu.tieba.R.attr.layerType, com.baidu.tieba.R.attr.layoutDirection, com.baidu.tieba.R.attr.longClickable, com.baidu.tieba.R.attr.minHeight, com.baidu.tieba.R.attr.minWidth, com.baidu.tieba.R.attr.nextFocusDown, com.baidu.tieba.R.attr.nextFocusForward, com.baidu.tieba.R.attr.nextFocusLeft, com.baidu.tieba.R.attr.nextFocusRight, com.baidu.tieba.R.attr.nextFocusUp, com.baidu.tieba.R.attr.onClick, com.baidu.tieba.R.attr.overScrollMode, com.baidu.tieba.R.attr.padding, com.baidu.tieba.R.attr.paddingBottom, com.baidu.tieba.R.attr.paddingEnd, com.baidu.tieba.R.attr.paddingLeft, com.baidu.tieba.R.attr.paddingRight, com.baidu.tieba.R.attr.paddingStart, com.baidu.tieba.R.attr.paddingTop, com.baidu.tieba.R.attr.requiresFadingEdge, com.baidu.tieba.R.attr.rotation, com.baidu.tieba.R.attr.rotationX, com.baidu.tieba.R.attr.rotationY, com.baidu.tieba.R.attr.saveEnabled, com.baidu.tieba.R.attr.scaleX, com.baidu.tieba.R.attr.scaleY, com.baidu.tieba.R.attr.scrollX, com.baidu.tieba.R.attr.scrollY, com.baidu.tieba.R.attr.scrollbarAlwaysDrawHorizontalTrack, com.baidu.tieba.R.attr.scrollbarAlwaysDrawVerticalTrack, com.baidu.tieba.R.attr.scrollbarDefaultDelayBeforeFade, com.baidu.tieba.R.attr.scrollbarFadeDuration, com.baidu.tieba.R.attr.scrollbarSize, com.baidu.tieba.R.attr.scrollbarStyle, com.baidu.tieba.R.attr.scrollbarThumbHorizontal, com.baidu.tieba.R.attr.scrollbarThumbVertical, com.baidu.tieba.R.attr.scrollbarTrackHorizontal, com.baidu.tieba.R.attr.scrollbarTrackVertical, com.baidu.tieba.R.attr.scrollbars, com.baidu.tieba.R.attr.soundEffectsEnabled, com.baidu.tieba.R.attr.tag, com.baidu.tieba.R.attr.textAlignment, com.baidu.tieba.R.attr.textDirection, com.baidu.tieba.R.attr.theme, com.baidu.tieba.R.attr.transformPivotX, com.baidu.tieba.R.attr.transformPivotY, com.baidu.tieba.R.attr.translationX, com.baidu.tieba.R.attr.translationY, com.baidu.tieba.R.attr.verticalScrollbarPosition, com.baidu.tieba.R.attr.visibility};
-            ViewBackgroundHelper = new int[]{16842964, com.baidu.tieba.R.attr.backgroundTint, com.baidu.tieba.R.attr.backgroundTintMode};
-            ViewStubCompat = new int[]{16842960, 16842994, 16842995};
-        }
-
-        public styleable() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                }
-            }
-        }
-    }
-
-    public R() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
+        public static final int[] ActionBar = {com.baidu.tieba.R.attr.background, com.baidu.tieba.R.attr.backgroundSplit, com.baidu.tieba.R.attr.backgroundStacked, com.baidu.tieba.R.attr.contentInsetEnd, com.baidu.tieba.R.attr.contentInsetEndWithActions, com.baidu.tieba.R.attr.contentInsetLeft, com.baidu.tieba.R.attr.contentInsetRight, com.baidu.tieba.R.attr.contentInsetStart, com.baidu.tieba.R.attr.contentInsetStartWithNavigation, com.baidu.tieba.R.attr.customNavigationLayout, com.baidu.tieba.R.attr.displayOptions, com.baidu.tieba.R.attr.divider, com.baidu.tieba.R.attr.elevation, com.baidu.tieba.R.attr.height, com.baidu.tieba.R.attr.hideOnContentScroll, com.baidu.tieba.R.attr.homeAsUpIndicator, com.baidu.tieba.R.attr.homeLayout, com.baidu.tieba.R.attr.icon, com.baidu.tieba.R.attr.indeterminateProgressStyle, com.baidu.tieba.R.attr.itemPadding, com.baidu.tieba.R.attr.logo, com.baidu.tieba.R.attr.navigationMode, com.baidu.tieba.R.attr.popupTheme, com.baidu.tieba.R.attr.progressBarPadding, com.baidu.tieba.R.attr.progressBarStyle, com.baidu.tieba.R.attr.subtitle, com.baidu.tieba.R.attr.subtitleTextStyle, com.baidu.tieba.R.attr.title, com.baidu.tieba.R.attr.titleTextStyle};
+        public static final int[] ActionBarLayout = {16842931};
+        public static final int[] ActionMenuItemView = {16843071};
+        public static final int[] ActionMenuView = new int[0];
+        public static final int[] ActionMode = {com.baidu.tieba.R.attr.background, com.baidu.tieba.R.attr.backgroundSplit, com.baidu.tieba.R.attr.closeItemLayout, com.baidu.tieba.R.attr.height, com.baidu.tieba.R.attr.subtitleTextStyle, com.baidu.tieba.R.attr.titleTextStyle};
+        public static final int[] ActivityChooserView = {com.baidu.tieba.R.attr.expandActivityOverflowButtonDrawable, com.baidu.tieba.R.attr.initialActivityCount};
+        public static final int[] AlertDialog = {16842994, com.baidu.tieba.R.attr.buttonIconDimen, com.baidu.tieba.R.attr.buttonPanelSideLayout, com.baidu.tieba.R.attr.listItemLayout, com.baidu.tieba.R.attr.listLayout, com.baidu.tieba.R.attr.multiChoiceItemLayout, com.baidu.tieba.R.attr.showTitle, com.baidu.tieba.R.attr.singleChoiceItemLayout};
+        public static final int[] AnimatedStateListDrawableCompat = {16843036, 16843156, 16843157, 16843158, 16843532, 16843533};
+        public static final int[] AnimatedStateListDrawableItem = {16842960, 16843161};
+        public static final int[] AnimatedStateListDrawableTransition = {16843161, 16843849, 16843850, 16843851};
+        public static final int[] AppCompatImageView = {16843033, com.baidu.tieba.R.attr.srcCompat, com.baidu.tieba.R.attr.tint, com.baidu.tieba.R.attr.tintMode};
+        public static final int[] AppCompatSeekBar = {16843074, com.baidu.tieba.R.attr.tickMark, com.baidu.tieba.R.attr.tickMarkTint, com.baidu.tieba.R.attr.tickMarkTintMode};
+        public static final int[] AppCompatTextHelper = {16842804, 16843117, 16843118, 16843119, 16843120, 16843666, 16843667};
+        public static final int[] AppCompatTextView = {16842804, com.baidu.tieba.R.attr.autoSizeMaxTextSize, com.baidu.tieba.R.attr.autoSizeMinTextSize, com.baidu.tieba.R.attr.autoSizePresetSizes, com.baidu.tieba.R.attr.autoSizeStepGranularity, com.baidu.tieba.R.attr.autoSizeTextType, com.baidu.tieba.R.attr.drawableBottomCompat, com.baidu.tieba.R.attr.drawableEndCompat, com.baidu.tieba.R.attr.drawableLeftCompat, com.baidu.tieba.R.attr.drawableRightCompat, com.baidu.tieba.R.attr.drawableStartCompat, com.baidu.tieba.R.attr.drawableTint, com.baidu.tieba.R.attr.drawableTintMode, com.baidu.tieba.R.attr.drawableTopCompat, com.baidu.tieba.R.attr.firstBaselineToTopHeight, com.baidu.tieba.R.attr.fontFamily, com.baidu.tieba.R.attr.fontVariationSettings, com.baidu.tieba.R.attr.lastBaselineToBottomHeight, com.baidu.tieba.R.attr.lineHeight, com.baidu.tieba.R.attr.textAllCaps, com.baidu.tieba.R.attr.textLocale};
+        public static final int[] AppCompatTheme = {16842839, 16842926, com.baidu.tieba.R.attr.actionBarDivider, com.baidu.tieba.R.attr.actionBarItemBackground, com.baidu.tieba.R.attr.actionBarPopupTheme, com.baidu.tieba.R.attr.actionBarSize, com.baidu.tieba.R.attr.actionBarSplitStyle, com.baidu.tieba.R.attr.actionBarStyle, com.baidu.tieba.R.attr.actionBarTabBarStyle, com.baidu.tieba.R.attr.actionBarTabStyle, com.baidu.tieba.R.attr.actionBarTabTextStyle, com.baidu.tieba.R.attr.actionBarTheme, com.baidu.tieba.R.attr.actionBarWidgetTheme, com.baidu.tieba.R.attr.actionButtonStyle, com.baidu.tieba.R.attr.actionDropDownStyle, com.baidu.tieba.R.attr.actionMenuTextAppearance, com.baidu.tieba.R.attr.actionMenuTextColor, com.baidu.tieba.R.attr.actionModeBackground, com.baidu.tieba.R.attr.actionModeCloseButtonStyle, com.baidu.tieba.R.attr.actionModeCloseDrawable, com.baidu.tieba.R.attr.actionModeCopyDrawable, com.baidu.tieba.R.attr.actionModeCutDrawable, com.baidu.tieba.R.attr.actionModeFindDrawable, com.baidu.tieba.R.attr.actionModePasteDrawable, com.baidu.tieba.R.attr.actionModePopupWindowStyle, com.baidu.tieba.R.attr.actionModeSelectAllDrawable, com.baidu.tieba.R.attr.actionModeShareDrawable, com.baidu.tieba.R.attr.actionModeSplitBackground, com.baidu.tieba.R.attr.actionModeStyle, com.baidu.tieba.R.attr.actionModeWebSearchDrawable, com.baidu.tieba.R.attr.actionOverflowButtonStyle, com.baidu.tieba.R.attr.actionOverflowMenuStyle, com.baidu.tieba.R.attr.activityChooserViewStyle, com.baidu.tieba.R.attr.alertDialogButtonGroupStyle, com.baidu.tieba.R.attr.alertDialogCenterButtons, com.baidu.tieba.R.attr.alertDialogStyle, com.baidu.tieba.R.attr.alertDialogTheme, com.baidu.tieba.R.attr.autoCompleteTextViewStyle, com.baidu.tieba.R.attr.borderlessButtonStyle, com.baidu.tieba.R.attr.buttonBarButtonStyle, com.baidu.tieba.R.attr.buttonBarNegativeButtonStyle, com.baidu.tieba.R.attr.buttonBarNeutralButtonStyle, com.baidu.tieba.R.attr.buttonBarPositiveButtonStyle, com.baidu.tieba.R.attr.buttonBarStyle, com.baidu.tieba.R.attr.buttonStyle, com.baidu.tieba.R.attr.buttonStyleSmall, com.baidu.tieba.R.attr.checkboxStyle, com.baidu.tieba.R.attr.checkedTextViewStyle, com.baidu.tieba.R.attr.colorAccent, com.baidu.tieba.R.attr.colorBackgroundFloating, com.baidu.tieba.R.attr.colorButtonNormal, com.baidu.tieba.R.attr.colorControlActivated, com.baidu.tieba.R.attr.colorControlHighlight, com.baidu.tieba.R.attr.colorControlNormal, com.baidu.tieba.R.attr.colorError, com.baidu.tieba.R.attr.colorPrimary, com.baidu.tieba.R.attr.colorPrimaryDark, com.baidu.tieba.R.attr.colorSwitchThumbNormal, com.baidu.tieba.R.attr.controlBackground, com.baidu.tieba.R.attr.dialogCornerRadius, com.baidu.tieba.R.attr.dialogPreferredPadding, com.baidu.tieba.R.attr.dialogTheme, com.baidu.tieba.R.attr.dividerHorizontal, com.baidu.tieba.R.attr.dividerVertical, com.baidu.tieba.R.attr.dropDownListViewStyle, com.baidu.tieba.R.attr.dropdownListPreferredItemHeight, com.baidu.tieba.R.attr.editTextBackground, com.baidu.tieba.R.attr.editTextColor, com.baidu.tieba.R.attr.editTextStyle, com.baidu.tieba.R.attr.homeAsUpIndicator, com.baidu.tieba.R.attr.imageButtonStyle, com.baidu.tieba.R.attr.listChoiceBackgroundIndicator, com.baidu.tieba.R.attr.listChoiceIndicatorMultipleAnimated, com.baidu.tieba.R.attr.listChoiceIndicatorSingleAnimated, com.baidu.tieba.R.attr.listDividerAlertDialog, com.baidu.tieba.R.attr.listMenuViewStyle, com.baidu.tieba.R.attr.listPopupWindowStyle, com.baidu.tieba.R.attr.listPreferredItemHeight, com.baidu.tieba.R.attr.listPreferredItemHeightLarge, com.baidu.tieba.R.attr.listPreferredItemHeightSmall, com.baidu.tieba.R.attr.listPreferredItemPaddingEnd, com.baidu.tieba.R.attr.listPreferredItemPaddingLeft, com.baidu.tieba.R.attr.listPreferredItemPaddingRight, com.baidu.tieba.R.attr.listPreferredItemPaddingStart, com.baidu.tieba.R.attr.panelBackground, com.baidu.tieba.R.attr.panelMenuListTheme, com.baidu.tieba.R.attr.panelMenuListWidth, com.baidu.tieba.R.attr.popupMenuStyle, com.baidu.tieba.R.attr.popupWindowStyle, com.baidu.tieba.R.attr.radioButtonStyle, com.baidu.tieba.R.attr.ratingBarStyle, com.baidu.tieba.R.attr.ratingBarStyleIndicator, com.baidu.tieba.R.attr.ratingBarStyleSmall, com.baidu.tieba.R.attr.searchViewStyle, com.baidu.tieba.R.attr.seekBarStyle, com.baidu.tieba.R.attr.selectableItemBackground, com.baidu.tieba.R.attr.selectableItemBackgroundBorderless, com.baidu.tieba.R.attr.spinnerDropDownItemStyle, com.baidu.tieba.R.attr.spinnerStyle, com.baidu.tieba.R.attr.switchStyle, com.baidu.tieba.R.attr.textAppearanceLargePopupMenu, com.baidu.tieba.R.attr.textAppearanceListItem, com.baidu.tieba.R.attr.textAppearanceListItemSecondary, com.baidu.tieba.R.attr.textAppearanceListItemSmall, com.baidu.tieba.R.attr.textAppearancePopupMenuHeader, com.baidu.tieba.R.attr.textAppearanceSearchResultSubtitle, com.baidu.tieba.R.attr.textAppearanceSearchResultTitle, com.baidu.tieba.R.attr.textAppearanceSmallPopupMenu, com.baidu.tieba.R.attr.textColorAlertDialogListItem, com.baidu.tieba.R.attr.textColorSearchUrl, com.baidu.tieba.R.attr.toolbarNavigationButtonStyle, com.baidu.tieba.R.attr.toolbarStyle, com.baidu.tieba.R.attr.tooltipForegroundColor, com.baidu.tieba.R.attr.tooltipFrameBackground, com.baidu.tieba.R.attr.viewInflaterClass, com.baidu.tieba.R.attr.windowActionBar, com.baidu.tieba.R.attr.windowActionBarOverlay, com.baidu.tieba.R.attr.windowActionModeOverlay, com.baidu.tieba.R.attr.windowFixedHeightMajor, com.baidu.tieba.R.attr.windowFixedHeightMinor, com.baidu.tieba.R.attr.windowFixedWidthMajor, com.baidu.tieba.R.attr.windowFixedWidthMinor, com.baidu.tieba.R.attr.windowMinWidthMajor, com.baidu.tieba.R.attr.windowMinWidthMinor, com.baidu.tieba.R.attr.windowNoTitle};
+        public static final int[] ButtonBarLayout = {com.baidu.tieba.R.attr.allowStacking};
+        public static final int[] ColorStateListItem = {16843173, 16843551, com.baidu.tieba.R.attr.alpha};
+        public static final int[] CompoundButton = {16843015, com.baidu.tieba.R.attr.buttonCompat, com.baidu.tieba.R.attr.buttonTint, com.baidu.tieba.R.attr.buttonTintMode};
+        public static final int[] CoordinatorLayout = {com.baidu.tieba.R.attr.keylines, com.baidu.tieba.R.attr.statusBarBackground};
+        public static final int[] CoordinatorLayout_Layout = {16842931, com.baidu.tieba.R.attr.layout_anchor, com.baidu.tieba.R.attr.layout_anchorGravity, com.baidu.tieba.R.attr.layout_behavior, com.baidu.tieba.R.attr.layout_dodgeInsetEdges, com.baidu.tieba.R.attr.layout_insetEdge, com.baidu.tieba.R.attr.layout_keyline};
+        public static final int[] DrawerArrowToggle = {com.baidu.tieba.R.attr.arrowHeadLength, com.baidu.tieba.R.attr.arrowShaftLength, com.baidu.tieba.R.attr.barLength, com.baidu.tieba.R.attr.color, com.baidu.tieba.R.attr.drawableSize, com.baidu.tieba.R.attr.gapBetweenBars, com.baidu.tieba.R.attr.spinBars, com.baidu.tieba.R.attr.thickness};
+        public static final int[] FontFamily = {com.baidu.tieba.R.attr.fontProviderAuthority, com.baidu.tieba.R.attr.fontProviderCerts, com.baidu.tieba.R.attr.fontProviderFetchStrategy, com.baidu.tieba.R.attr.fontProviderFetchTimeout, com.baidu.tieba.R.attr.fontProviderPackage, com.baidu.tieba.R.attr.fontProviderQuery};
+        public static final int[] FontFamilyFont = {16844082, 16844083, 16844095, 16844143, 16844144, com.baidu.tieba.R.attr.font, com.baidu.tieba.R.attr.fontStyle, com.baidu.tieba.R.attr.fontVariationSettings, com.baidu.tieba.R.attr.fontWeight, com.baidu.tieba.R.attr.ttcIndex};
+        public static final int[] GradientColor = {16843165, 16843166, 16843169, 16843170, 16843171, 16843172, 16843265, 16843275, 16844048, 16844049, 16844050, 16844051};
+        public static final int[] GradientColorItem = {16843173, 16844052};
+        public static final int[] LinearLayoutCompat = {16842927, 16842948, 16843046, 16843047, 16843048, com.baidu.tieba.R.attr.divider, com.baidu.tieba.R.attr.dividerPadding, com.baidu.tieba.R.attr.measureWithLargestChild, com.baidu.tieba.R.attr.showDividers};
+        public static final int[] LinearLayoutCompat_Layout = {16842931, 16842996, 16842997, 16843137};
+        public static final int[] ListPopupWindow = {16843436, 16843437};
+        public static final int[] LottieAnimationView = {com.baidu.tieba.R.attr.lottie_autoPlay, com.baidu.tieba.R.attr.lottie_colorFilter, com.baidu.tieba.R.attr.lottie_enableMergePathsForKitKatAndAbove, com.baidu.tieba.R.attr.lottie_fileName, com.baidu.tieba.R.attr.lottie_imageAssetsFolder, com.baidu.tieba.R.attr.lottie_loop, com.baidu.tieba.R.attr.lottie_progress, com.baidu.tieba.R.attr.lottie_rawRes, com.baidu.tieba.R.attr.lottie_repeatCount, com.baidu.tieba.R.attr.lottie_repeatMode, com.baidu.tieba.R.attr.lottie_scale, com.baidu.tieba.R.attr.lottie_url, com.baidu.tieba.R.attr.lottie_cacheComposition, com.baidu.tieba.R.attr.lottie_fallbackRes, com.baidu.tieba.R.attr.lottie_renderMode, com.baidu.tieba.R.attr.lottie_speed};
+        public static final int[] MenuGroup = {16842766, 16842960, 16843156, 16843230, 16843231, 16843232};
+        public static final int[] MenuItem = {16842754, 16842766, 16842960, 16843014, 16843156, 16843230, 16843231, 16843233, 16843234, 16843235, 16843236, 16843237, 16843375, com.baidu.tieba.R.attr.actionLayout, com.baidu.tieba.R.attr.actionProviderClass, com.baidu.tieba.R.attr.actionViewClass, com.baidu.tieba.R.attr.alphabeticModifiers, com.baidu.tieba.R.attr.contentDescription, com.baidu.tieba.R.attr.iconTint, com.baidu.tieba.R.attr.iconTintMode, com.baidu.tieba.R.attr.numericModifiers, com.baidu.tieba.R.attr.showAsAction, com.baidu.tieba.R.attr.tooltipText};
+        public static final int[] MenuView = {16842926, 16843052, 16843053, 16843054, 16843055, 16843056, 16843057, com.baidu.tieba.R.attr.preserveIconSpacing, com.baidu.tieba.R.attr.subMenuArrow};
+        public static final int[] PopupWindow = {16843126, 16843465, com.baidu.tieba.R.attr.overlapAnchor, com.baidu.tieba.R.attr.popupAnimationStyle, com.baidu.tieba.R.attr.popupBackground};
+        public static final int[] PopupWindowBackgroundState = {com.baidu.tieba.R.attr.state_above_anchor};
+        public static final int[] RecycleListView = {com.baidu.tieba.R.attr.paddingBottomNoButtons, com.baidu.tieba.R.attr.paddingTopNoTitle};
+        public static final int[] SearchView = {16842970, 16843039, 16843296, 16843364, com.baidu.tieba.R.attr.closeIcon, com.baidu.tieba.R.attr.commitIcon, com.baidu.tieba.R.attr.defaultQueryHint, com.baidu.tieba.R.attr.goIcon, com.baidu.tieba.R.attr.iconifiedByDefault, com.baidu.tieba.R.attr.layout, com.baidu.tieba.R.attr.queryBackground, com.baidu.tieba.R.attr.queryHint, com.baidu.tieba.R.attr.searchHintIcon, com.baidu.tieba.R.attr.searchIcon, com.baidu.tieba.R.attr.submitBackground, com.baidu.tieba.R.attr.suggestionRowLayout, com.baidu.tieba.R.attr.voiceIcon};
+        public static final int[] Spinner = {16842930, 16843126, 16843131, 16843362, com.baidu.tieba.R.attr.popupTheme};
+        public static final int[] StateListDrawable = {16843036, 16843156, 16843157, 16843158, 16843532, 16843533};
+        public static final int[] StateListDrawableItem = {16843161};
+        public static final int[] SwitchCompat = {16843044, 16843045, 16843074, com.baidu.tieba.R.attr.showText, com.baidu.tieba.R.attr.splitTrack, com.baidu.tieba.R.attr.switchMinWidth, com.baidu.tieba.R.attr.switchPadding, com.baidu.tieba.R.attr.switchTextAppearance, com.baidu.tieba.R.attr.thumbTextPadding, com.baidu.tieba.R.attr.thumbTint, com.baidu.tieba.R.attr.thumbTintMode, com.baidu.tieba.R.attr.track, com.baidu.tieba.R.attr.trackTint, com.baidu.tieba.R.attr.trackTintMode};
+        public static final int[] TextAppearance = {16842901, 16842902, 16842903, 16842904, 16842906, 16842907, 16843105, 16843106, 16843107, 16843108, 16843692, 16844165, com.baidu.tieba.R.attr.fontFamily, com.baidu.tieba.R.attr.fontVariationSettings, com.baidu.tieba.R.attr.textAllCaps, com.baidu.tieba.R.attr.textLocale};
+        public static final int[] Toolbar = {16842927, 16843072, com.baidu.tieba.R.attr.buttonGravity, com.baidu.tieba.R.attr.collapseContentDescription, com.baidu.tieba.R.attr.collapseIcon, com.baidu.tieba.R.attr.contentInsetEnd, com.baidu.tieba.R.attr.contentInsetEndWithActions, com.baidu.tieba.R.attr.contentInsetLeft, com.baidu.tieba.R.attr.contentInsetRight, com.baidu.tieba.R.attr.contentInsetStart, com.baidu.tieba.R.attr.contentInsetStartWithNavigation, com.baidu.tieba.R.attr.logo, com.baidu.tieba.R.attr.logoDescription, com.baidu.tieba.R.attr.maxButtonHeight, com.baidu.tieba.R.attr.menu, com.baidu.tieba.R.attr.navigationContentDescription, com.baidu.tieba.R.attr.navigationIcon, com.baidu.tieba.R.attr.popupTheme, com.baidu.tieba.R.attr.subtitle, com.baidu.tieba.R.attr.subtitleTextAppearance, com.baidu.tieba.R.attr.subtitleTextColor, com.baidu.tieba.R.attr.title, com.baidu.tieba.R.attr.titleMargin, com.baidu.tieba.R.attr.titleMarginBottom, com.baidu.tieba.R.attr.titleMarginEnd, com.baidu.tieba.R.attr.titleMarginStart, com.baidu.tieba.R.attr.titleMarginTop, com.baidu.tieba.R.attr.titleMargins, com.baidu.tieba.R.attr.titleTextAppearance, com.baidu.tieba.R.attr.titleTextColor};
+        public static final int[] View = {16842752, 16842970, com.baidu.tieba.R.attr.accessibilityFocusable, com.baidu.tieba.R.attr.alpha, com.baidu.tieba.R.attr.clickable, com.baidu.tieba.R.attr.contentDescription, com.baidu.tieba.R.attr.drawingCacheQuality, com.baidu.tieba.R.attr.duplicateParentState, com.baidu.tieba.R.attr.fadeScrollbars, com.baidu.tieba.R.attr.fadingEdge, com.baidu.tieba.R.attr.fadingEdgeLength, com.baidu.tieba.R.attr.filterTouchesWhenObscured, com.baidu.tieba.R.attr.fitsSystemWindows, com.baidu.tieba.R.attr.focusable, com.baidu.tieba.R.attr.focusableInTouchMode, com.baidu.tieba.R.attr.hapticFeedbackEnabled, com.baidu.tieba.R.attr.id, com.baidu.tieba.R.attr.importantForAccessibility, com.baidu.tieba.R.attr.isScrollContainer, com.baidu.tieba.R.attr.keepScreenOn, com.baidu.tieba.R.attr.layerType, com.baidu.tieba.R.attr.layoutDirection, com.baidu.tieba.R.attr.longClickable, com.baidu.tieba.R.attr.minHeight, com.baidu.tieba.R.attr.minWidth, com.baidu.tieba.R.attr.nextFocusDown, com.baidu.tieba.R.attr.nextFocusForward, com.baidu.tieba.R.attr.nextFocusLeft, com.baidu.tieba.R.attr.nextFocusRight, com.baidu.tieba.R.attr.nextFocusUp, com.baidu.tieba.R.attr.onClick, com.baidu.tieba.R.attr.overScrollMode, com.baidu.tieba.R.attr.padding, com.baidu.tieba.R.attr.paddingBottom, com.baidu.tieba.R.attr.paddingEnd, com.baidu.tieba.R.attr.paddingLeft, com.baidu.tieba.R.attr.paddingRight, com.baidu.tieba.R.attr.paddingStart, com.baidu.tieba.R.attr.paddingTop, com.baidu.tieba.R.attr.requiresFadingEdge, com.baidu.tieba.R.attr.rotation, com.baidu.tieba.R.attr.rotationX, com.baidu.tieba.R.attr.rotationY, com.baidu.tieba.R.attr.saveEnabled, com.baidu.tieba.R.attr.scaleX, com.baidu.tieba.R.attr.scaleY, com.baidu.tieba.R.attr.scrollX, com.baidu.tieba.R.attr.scrollY, com.baidu.tieba.R.attr.scrollbarAlwaysDrawHorizontalTrack, com.baidu.tieba.R.attr.scrollbarAlwaysDrawVerticalTrack, com.baidu.tieba.R.attr.scrollbarDefaultDelayBeforeFade, com.baidu.tieba.R.attr.scrollbarFadeDuration, com.baidu.tieba.R.attr.scrollbarSize, com.baidu.tieba.R.attr.scrollbarStyle, com.baidu.tieba.R.attr.scrollbarThumbHorizontal, com.baidu.tieba.R.attr.scrollbarThumbVertical, com.baidu.tieba.R.attr.scrollbarTrackHorizontal, com.baidu.tieba.R.attr.scrollbarTrackVertical, com.baidu.tieba.R.attr.scrollbars, com.baidu.tieba.R.attr.soundEffectsEnabled, com.baidu.tieba.R.attr.tag, com.baidu.tieba.R.attr.textAlignment, com.baidu.tieba.R.attr.textDirection, com.baidu.tieba.R.attr.theme, com.baidu.tieba.R.attr.transformPivotX, com.baidu.tieba.R.attr.transformPivotY, com.baidu.tieba.R.attr.translationX, com.baidu.tieba.R.attr.translationY, com.baidu.tieba.R.attr.verticalScrollbarPosition, com.baidu.tieba.R.attr.visibility};
+        public static final int[] ViewBackgroundHelper = {16842964, com.baidu.tieba.R.attr.backgroundTint, com.baidu.tieba.R.attr.backgroundTintMode};
+        public static final int[] ViewStubCompat = {16842960, 16842994, 16842995};
     }
 }

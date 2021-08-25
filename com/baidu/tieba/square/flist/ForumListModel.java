@@ -2,7 +2,7 @@ package com.baidu.tieba.square.flist;
 
 import c.a.e.a.f;
 import c.a.e.e.d.l;
-import c.a.o0.s.r.a;
+import c.a.p0.s.r.a;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.android.imsdk.internal.Constants;
@@ -138,7 +138,6 @@ public class ForumListModel extends BdBaseModel<ForumListActivity> implements Se
     public static ForumListModel new_fetch(RequestParams requestParams) {
         InterceptResult invokeL;
         int i2;
-        l<String> g2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, requestParams)) == null) {
             if (requestParams.menu_id == 0) {
@@ -156,8 +155,12 @@ public class ForumListModel extends BdBaseModel<ForumListActivity> implements Se
             String postNetData = netWork.postNetData();
             isOk = netWork.isNetSuccess();
             ForumListModel forumListModel = (ForumListModel) OrmObject.objectWithJsonStr(postNetData, ForumListModel.class);
-            if (requestParams.rn == 200 && requestParams.recommend_type == 0 && ((i2 == 9 || i2 == 136 || requestParams.menu_type == 2) && forumListModel != null && forumListModel.recommend_list_left != null && forumListModel.recommend_list_right != null && forumListModel.editor_recommend != null && forumListModel.forum_class != null && (g2 = a.f().g("tb.my_posts")) != null)) {
-                g2.e(TbadkCoreApplication.getCurrentAccount() + "_" + menu_name + KEY, postNetData, 86400000L);
+            if (requestParams.rn == 200 && requestParams.recommend_type == 0 && ((i2 == 9 || i2 == 136 || requestParams.menu_type == 2) && forumListModel != null && forumListModel.recommend_list_left != null && forumListModel.recommend_list_right != null && forumListModel.editor_recommend != null && forumListModel.forum_class != null)) {
+                a.f();
+                l<String> g2 = a.g("tb.my_posts");
+                if (g2 != null) {
+                    g2.e(TbadkCoreApplication.getCurrentAccount() + "_" + menu_name + KEY, postNetData, 86400000L);
+                }
             }
             return forumListModel;
         }

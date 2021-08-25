@@ -2,8 +2,8 @@ package com.baidu.tieba.tbadkCore;
 
 import androidx.core.view.InputDeviceCompat;
 import c.a.e.e.m.b;
-import c.a.p0.i3.e;
-import c.a.p0.i3.m;
+import c.a.q0.i3.e;
+import c.a.q0.i3.m;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.message.Message;

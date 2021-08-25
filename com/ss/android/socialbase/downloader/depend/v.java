@@ -23,17 +23,17 @@ public interface v extends IInterface {
 
         /* renamed from: com.ss.android.socialbase.downloader.depend.v$a$a  reason: collision with other inner class name */
         /* loaded from: classes10.dex */
-        public static class C2066a implements v {
+        public static class C2070a implements v {
             public static /* synthetic */ Interceptable $ic;
 
             /* renamed from: a  reason: collision with root package name */
-            public static v f75504a;
+            public static v f75705a;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: b  reason: collision with root package name */
-            public IBinder f75505b;
+            public IBinder f75706b;
 
-            public C2066a(IBinder iBinder) {
+            public C2070a(IBinder iBinder) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -48,7 +48,7 @@ public interface v extends IInterface {
                         return;
                     }
                 }
-                this.f75505b = iBinder;
+                this.f75706b = iBinder;
             }
 
             @Override // com.ss.android.socialbase.downloader.depend.v
@@ -61,7 +61,7 @@ public interface v extends IInterface {
                     try {
                         obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.depend.IDownloadForbiddenAidlHandler");
                         obtain.writeStrongBinder(uVar != null ? uVar.asBinder() : null);
-                        if (!this.f75505b.transact(1, obtain, obtain2, 0) && a.a() != null) {
+                        if (!this.f75706b.transact(1, obtain, obtain2, 0) && a.a() != null) {
                             return a.a().a(uVar);
                         }
                         obtain2.readException();
@@ -78,7 +78,7 @@ public interface v extends IInterface {
             public IBinder asBinder() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f75505b : (IBinder) invokeV.objValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f75706b : (IBinder) invokeV.objValue;
             }
         }
 
@@ -109,7 +109,7 @@ public interface v extends IInterface {
                 if (queryLocalInterface != null && (queryLocalInterface instanceof v)) {
                     return (v) queryLocalInterface;
                 }
-                return new C2066a(iBinder);
+                return new C2070a(iBinder);
             }
             return (v) invokeL.objValue;
         }
@@ -145,7 +145,7 @@ public interface v extends IInterface {
         public static v a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? C2066a.f75504a : (v) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? C2070a.f75705a : (v) invokeV.objValue;
         }
     }
 }

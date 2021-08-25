@@ -6,7 +6,7 @@ import c.a.e.e.a.f.c;
 import c.a.e.e.l.b;
 import c.a.e.e.p.j;
 import c.a.e.e.p.l;
-import c.a.e.k.d.a;
+import c.a.e.l.d.a;
 import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -90,7 +90,7 @@ public class SimpleForeverLoaderProc extends AbstractImageLoaderProc {
         if (bVar != null) {
             DiskCancelWorker diskCancelWorker = new DiskCancelWorker();
             diskCancelWorker.setOperate(cVar);
-            bVar.f2324a = diskCancelWorker;
+            bVar.f2382a = diskCancelWorker;
         }
     }
 
@@ -115,7 +115,7 @@ public class SimpleForeverLoaderProc extends AbstractImageLoaderProc {
             if (bVar != null) {
                 DiskCancelWorker diskCancelWorker = new DiskCancelWorker();
                 diskCancelWorker.setOperate(createDiskPicOperate);
-                bVar.f2324a = diskCancelWorker;
+                bVar.f2382a = diskCancelWorker;
             }
             if (!d.g().a(createDiskPicOperate)) {
                 c.a.e.e.l.a.f(false, 0L);

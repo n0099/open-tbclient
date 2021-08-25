@@ -1,7 +1,7 @@
 package com.baidu.tieba.screenlocknotify.loadmore;
 
 import c.a.e.a.f;
-import c.a.p0.i3.d0.a;
+import c.a.q0.i3.d0.a;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;

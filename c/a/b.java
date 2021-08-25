@@ -2,9 +2,9 @@ package c.a;
 
 import android.os.Handler;
 import android.os.Looper;
-import c.a.e0.b.f;
-import c.a.e0.b.g.g;
-import c.a.h0.a.g.d;
+import c.a.f0.b.f;
+import c.a.f0.b.g.g;
+import c.a.i0.a.g.d;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.mobads.sdk.api.BDAdConfig;
@@ -22,23 +22,23 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final b f1693f;
+    public static final b f1852f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public volatile boolean f1694a;
+    public volatile boolean f1853a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c.a.e0.b.a f1695b;
+    public c.a.f0.b.a f1854b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f1696c;
+    public long f1855c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final Handler f1697d;
+    public final Handler f1856d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final ArrayList<d> f1698e;
+    public final ArrayList<d> f1857e;
 
     /* loaded from: classes.dex */
     public class a implements Runnable {
@@ -46,10 +46,10 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f1699e;
+        public final /* synthetic */ int f1858e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ b f1700f;
+        public final /* synthetic */ b f1859f;
 
         public a(b bVar, int i2) {
             Interceptable interceptable = $ic;
@@ -66,20 +66,20 @@ public class b {
                     return;
                 }
             }
-            this.f1700f = bVar;
-            this.f1699e = i2;
+            this.f1859f = bVar;
+            this.f1858e = i2;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.f1699e != 1 || ((float) (System.currentTimeMillis() - this.f1700f.f1696c)) >= g.d() * 60000.0f) {
-                    if (this.f1700f.f1695b == null) {
-                        this.f1700f.f1695b = new c.a.e0.b.a();
+                if (this.f1858e != 1 || ((float) (System.currentTimeMillis() - this.f1859f.f1855c)) >= g.d() * 60000.0f) {
+                    if (this.f1859f.f1854b == null) {
+                        this.f1859f.f1854b = new c.a.f0.b.a();
                     }
-                    this.f1700f.f1695b.l(c.a.e0.a.b.a.f3041a.get());
-                    this.f1700f.f1696c = System.currentTimeMillis();
+                    this.f1859f.f1854b.l(c.a.f0.a.b.a.f3346a.get());
+                    this.f1859f.f1855c = System.currentTimeMillis();
                 }
             }
         }
@@ -87,7 +87,7 @@ public class b {
 
     /* renamed from: c.a.b$b  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0018b {
+    public interface InterfaceC0020b {
         void onFailed();
 
         void onSuccess();
@@ -106,7 +106,7 @@ public class b {
                 return;
             }
         }
-        f1693f = new b();
+        f1852f = new b();
     }
 
     public b() {
@@ -122,32 +122,32 @@ public class b {
                 return;
             }
         }
-        this.f1694a = false;
-        this.f1697d = new Handler(Looper.myLooper());
-        this.f1698e = new ArrayList<>();
+        this.f1853a = false;
+        this.f1856d = new Handler(Looper.myLooper());
+        this.f1857e = new ArrayList<>();
     }
 
     public static b f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) ? f1693f : (b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) ? f1852f : (b) invokeV.objValue;
     }
 
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f1698e.clear();
+            this.f1857e.clear();
         }
     }
 
-    public void g(c.a.e0.a.b.a aVar) {
+    public void g(c.a.f0.a.b.a aVar) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) || aVar == null) {
             return;
         }
-        c.a.e0.a.b.a.f3041a.set(aVar);
-        aVar.o().registerActivityLifecycleCallbacks(new f());
-        new BDAdConfig.Builder().setAppName(aVar.u()).setAppsid(aVar.r()).build(aVar.o()).init();
+        c.a.f0.a.b.a.f3346a.set(aVar);
+        aVar.p().registerActivityLifecycleCallbacks(new f());
+        new BDAdConfig.Builder().setAppName(aVar.v()).setAppsid(aVar.s()).build(aVar.p()).init();
         MobadsPermissionSettings.setPermissionReadDeviceID(true);
         MobadsPermissionSettings.setPermissionLocation(true);
         MobadsPermissionSettings.setPermissionStorage(true);
@@ -157,14 +157,14 @@ public class b {
     public boolean h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f1694a : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f1853a : invokeV.booleanValue;
     }
 
     public void i(int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048579, this, i2) == null) || c.a.e0.a.b.a.f3041a.get() == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048579, this, i2) == null) || c.a.f0.a.b.a.f3346a.get() == null) {
             return;
         }
-        this.f1697d.postDelayed(new a(this, i2), 5000L);
+        this.f1856d.postDelayed(new a(this, i2), 5000L);
     }
 }

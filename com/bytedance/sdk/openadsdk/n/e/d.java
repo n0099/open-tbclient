@@ -15,7 +15,7 @@ public class d implements b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public IHttpStack f67853a;
+    public IHttpStack f68053a;
 
     public d() {
         Interceptable interceptable = $ic;
@@ -31,9 +31,9 @@ public class d implements b {
             }
         }
         IHttpStack a2 = com.bytedance.sdk.openadsdk.k.d.a();
-        this.f67853a = a2;
+        this.f68053a = a2;
         if (a2 == null) {
-            this.f67853a = new j();
+            this.f68053a = new j();
         }
     }
 
@@ -42,11 +42,11 @@ public class d implements b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, fVar)) == null) {
-            e eVar = new e(fVar.f67854a, fVar.f67855b);
-            if (fVar.f67856c != -1) {
-                eVar.setRetryPolicy(new com.bytedance.sdk.component.adnet.core.e().a((int) fVar.f67856c));
+            e eVar = new e(fVar.f68054a, fVar.f68055b);
+            if (fVar.f68056c != -1) {
+                eVar.setRetryPolicy(new com.bytedance.sdk.component.adnet.core.e().a((int) fVar.f68056c));
             }
-            return new g(this.f67853a.performRequest(eVar, fVar.f67858e), fVar);
+            return new g(this.f68053a.performRequest(eVar, fVar.f68058e), fVar);
         }
         return (a) invokeL.objValue;
     }

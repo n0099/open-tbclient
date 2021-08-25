@@ -1,8 +1,8 @@
 package com.baidu.tieba.square;
 
 import android.os.Bundle;
-import c.a.p0.f3.a;
-import c.a.p0.f3.b;
+import c.a.q0.f3.a;
+import c.a.q0.f3.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -30,7 +30,7 @@ public class ForumSquareActivity extends BaseActivity<ForumSquareActivity> {
         }
     }
 
-    @Override // com.baidu.tbadk.BaseActivity, c.a.o0.m0.a
+    @Override // com.baidu.tbadk.BaseActivity, c.a.p0.m0.a
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -48,7 +48,7 @@ public class ForumSquareActivity extends BaseActivity<ForumSquareActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
             super.onChangeSkinType(i2);
-            b bVar = this.mDelegate.f17762d;
+            b bVar = this.mDelegate.f18095d;
             if (bVar != null) {
                 bVar.a(i2);
             }
@@ -63,7 +63,7 @@ public class ForumSquareActivity extends BaseActivity<ForumSquareActivity> {
             a aVar = new a(this, getPageContext());
             this.mDelegate = aVar;
             aVar.l(getIntent());
-            setContentView(this.mDelegate.f17762d.d());
+            setContentView(this.mDelegate.f18095d.d());
             this.mDelegate.o();
         }
     }

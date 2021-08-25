@@ -12,7 +12,7 @@ public abstract class a implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: e  reason: collision with root package name */
-    public static long f78819e;
+    public static long f79020e;
     public transient /* synthetic */ FieldHolder $fh;
 
     public a() {
@@ -36,8 +36,8 @@ public abstract class a implements View.OnClickListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view) == null) {
             long currentTimeMillis = System.currentTimeMillis();
-            if (currentTimeMillis - f78819e >= 1000) {
-                f78819e = currentTimeMillis;
+            if (currentTimeMillis - f79020e >= 1000) {
+                f79020e = currentTimeMillis;
                 a(view);
                 return;
             }

@@ -13,7 +13,7 @@ public class a extends VAdError {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public Intent f64002b;
+    public Intent f64202b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a(i iVar) {
@@ -39,6 +39,6 @@ public class a extends VAdError {
     public String getMessage() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f64002b != null ? "User needs to (re)enter credentials." : super.getMessage() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f64202b != null ? "User needs to (re)enter credentials." : super.getMessage() : (String) invokeV.objValue;
     }
 }

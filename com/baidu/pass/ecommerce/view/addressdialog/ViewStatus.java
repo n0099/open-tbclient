@@ -33,7 +33,7 @@ public final class ViewStatus {
             }
         }
         LOADING = new ViewStatus("LOADING", 0);
-        SUCCESS = new ViewStatus(c.f35984g, 1);
+        SUCCESS = new ViewStatus(c.f36090g, 1);
         ERROR = new ViewStatus("ERROR", 2);
         ViewStatus viewStatus = new ViewStatus("EMPTY", 3);
         EMPTY = viewStatus;

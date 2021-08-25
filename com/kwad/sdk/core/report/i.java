@@ -18,7 +18,7 @@ public class i<T extends c> implements h<T> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Map<String, T> f71823a;
+    public Map<String, T> f72023a;
 
     public i() {
         Interceptable interceptable = $ic;
@@ -33,7 +33,7 @@ public class i<T extends c> implements h<T> {
                 return;
             }
         }
-        this.f71823a = new LinkedHashMap();
+        this.f72023a = new LinkedHashMap();
     }
 
     @Override // com.kwad.sdk.core.report.h
@@ -43,7 +43,7 @@ public class i<T extends c> implements h<T> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             synchronized (this) {
-                int size = this.f71823a.size();
+                int size = this.f72023a.size();
                 com.kwad.sdk.core.d.a.a("MemReportCache", "size() = " + size);
                 j2 = size;
             }
@@ -56,7 +56,7 @@ public class i<T extends c> implements h<T> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t) == null) {
             synchronized (this) {
-                this.f71823a.put(t.f71816a, t);
+                this.f72023a.put(t.f72016a, t);
             }
         }
     }
@@ -74,7 +74,7 @@ public class i<T extends c> implements h<T> {
         if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
             synchronized (this) {
                 for (T t : list) {
-                    this.f71823a.remove(t.f71816a);
+                    this.f72023a.remove(t.f72016a);
                 }
             }
         }
@@ -87,8 +87,8 @@ public class i<T extends c> implements h<T> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             synchronized (this) {
-                arrayList = new ArrayList(this.f71823a.size());
-                for (Map.Entry<String, T> entry : this.f71823a.entrySet()) {
+                arrayList = new ArrayList(this.f72023a.size());
+                for (Map.Entry<String, T> entry : this.f72023a.entrySet()) {
                     arrayList.add(entry.getValue());
                 }
             }

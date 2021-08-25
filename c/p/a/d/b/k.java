@@ -35,8 +35,8 @@ public class k {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, eVar)) == null) {
-            if (eVar != null && d((int) eVar.f34272a)) {
-                eVar.f34275d = b((int) eVar.f34272a, eVar.f34275d, eVar.f34274c);
+            if (eVar != null && d((int) eVar.f34378a)) {
+                eVar.f34381d = b((int) eVar.f34378a, eVar.f34381d, eVar.f34380c);
             }
             return eVar;
         }

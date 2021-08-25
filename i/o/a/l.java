@@ -14,7 +14,7 @@ public class l<T, R> implements d.b<R, T> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Class<R> f78225e;
+    public final Class<R> f78426e;
 
     /* loaded from: classes10.dex */
     public static final class a<T, R> extends i.j<T> {
@@ -22,13 +22,13 @@ public class l<T, R> implements d.b<R, T> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final i.j<? super R> f78226e;
+        public final i.j<? super R> f78427e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final Class<R> f78227f;
+        public final Class<R> f78428f;
 
         /* renamed from: g  reason: collision with root package name */
-        public boolean f78228g;
+        public boolean f78429g;
 
         public a(i.j<? super R> jVar, Class<R> cls) {
             Interceptable interceptable = $ic;
@@ -45,29 +45,29 @@ public class l<T, R> implements d.b<R, T> {
                     return;
                 }
             }
-            this.f78226e = jVar;
-            this.f78227f = cls;
+            this.f78427e = jVar;
+            this.f78428f = cls;
         }
 
         @Override // i.e
         public void onCompleted() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f78228g) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f78429g) {
                 return;
             }
-            this.f78226e.onCompleted();
+            this.f78427e.onCompleted();
         }
 
         @Override // i.e
         public void onError(Throwable th) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
-                if (this.f78228g) {
+                if (this.f78429g) {
                     i.r.c.j(th);
                     return;
                 }
-                this.f78228g = true;
-                this.f78226e.onError(th);
+                this.f78429g = true;
+                this.f78427e.onError(th);
             }
         }
 
@@ -76,7 +76,7 @@ public class l<T, R> implements d.b<R, T> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) {
                 try {
-                    this.f78226e.onNext(this.f78227f.cast(t));
+                    this.f78427e.onNext(this.f78428f.cast(t));
                 } catch (Throwable th) {
                     i.m.a.e(th);
                     unsubscribe();
@@ -89,7 +89,7 @@ public class l<T, R> implements d.b<R, T> {
         public void setProducer(i.f fVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, fVar) == null) {
-                this.f78226e.setProducer(fVar);
+                this.f78427e.setProducer(fVar);
             }
         }
     }
@@ -109,7 +109,7 @@ public class l<T, R> implements d.b<R, T> {
                 return;
             }
         }
-        this.f78225e = cls;
+        this.f78426e = cls;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -119,7 +119,7 @@ public class l<T, R> implements d.b<R, T> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jVar)) == null) {
-            a aVar = new a(jVar, this.f78225e);
+            a aVar = new a(jVar, this.f78426e);
             jVar.add(aVar);
             return aVar;
         }

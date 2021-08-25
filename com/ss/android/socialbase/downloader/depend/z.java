@@ -52,7 +52,7 @@ public interface z extends IInterface {
                 if (queryLocalInterface != null && (queryLocalInterface instanceof z)) {
                     return (z) queryLocalInterface;
                 }
-                return new C2067a(iBinder);
+                return new C2071a(iBinder);
             }
             return (z) invokeL.objValue;
         }
@@ -60,7 +60,7 @@ public interface z extends IInterface {
         public static z b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? C2067a.f75506a : (z) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? C2071a.f75707a : (z) invokeV.objValue;
         }
 
         @Override // android.os.IInterface
@@ -105,17 +105,17 @@ public interface z extends IInterface {
 
         /* renamed from: com.ss.android.socialbase.downloader.depend.z$a$a  reason: collision with other inner class name */
         /* loaded from: classes10.dex */
-        public static class C2067a implements z {
+        public static class C2071a implements z {
             public static /* synthetic */ Interceptable $ic;
 
             /* renamed from: a  reason: collision with root package name */
-            public static z f75506a;
+            public static z f75707a;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: b  reason: collision with root package name */
-            public IBinder f75507b;
+            public IBinder f75708b;
 
-            public C2067a(IBinder iBinder) {
+            public C2071a(IBinder iBinder) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -130,7 +130,7 @@ public interface z extends IInterface {
                         return;
                     }
                 }
-                this.f75507b = iBinder;
+                this.f75708b = iBinder;
             }
 
             @Override // com.ss.android.socialbase.downloader.depend.z
@@ -150,7 +150,7 @@ public interface z extends IInterface {
                         }
                         obtain.writeString(str);
                         obtain.writeString(str2);
-                        if (!this.f75507b.transact(1, obtain, obtain2, 0) && a.b() != null) {
+                        if (!this.f75708b.transact(1, obtain, obtain2, 0) && a.b() != null) {
                             a.b().a(i2, downloadInfo, str, str2);
                         } else {
                             obtain2.readException();
@@ -166,7 +166,7 @@ public interface z extends IInterface {
             public IBinder asBinder() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f75507b : (IBinder) invokeV.objValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f75708b : (IBinder) invokeV.objValue;
             }
 
             @Override // com.ss.android.socialbase.downloader.depend.z
@@ -179,7 +179,7 @@ public interface z extends IInterface {
                     try {
                         obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.depend.IDownloadNotificationEventAidlListener");
                         obtain.writeInt(z ? 1 : 0);
-                        if (!this.f75507b.transact(2, obtain, obtain2, 0) && a.b() != null) {
+                        if (!this.f75708b.transact(2, obtain, obtain2, 0) && a.b() != null) {
                             return a.b().a(z);
                         }
                         obtain2.readException();
@@ -201,7 +201,7 @@ public interface z extends IInterface {
                     Parcel obtain2 = Parcel.obtain();
                     try {
                         obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.depend.IDownloadNotificationEventAidlListener");
-                        if (!this.f75507b.transact(3, obtain, obtain2, 0) && a.b() != null) {
+                        if (!this.f75708b.transact(3, obtain, obtain2, 0) && a.b() != null) {
                             return a.b().a();
                         }
                         obtain2.readException();

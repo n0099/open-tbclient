@@ -484,7 +484,7 @@ public class FaceSDK {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65544, null, new Object[]{assetManager, context, str, str2, str3, alignMethodType, parsMethodType}) == null) {
             synchronized (FaceSDK.class) {
-                File dir = context.getDir(b.f39554g, 0);
+                File dir = context.getDir(b.f39661g, 0);
                 File file = new File(dir.getAbsolutePath() + File.separator + "libFaceSDK.so");
                 File file2 = new File(dir.getAbsolutePath() + File.separator + "libidl_license.so");
                 if (file.exists() && file2.exists()) {

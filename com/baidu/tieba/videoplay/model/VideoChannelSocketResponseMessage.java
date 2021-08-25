@@ -1,6 +1,6 @@
 package com.baidu.tieba.videoplay.model;
 
-import c.a.o0.s.q.c2;
+import c.a.p0.s.q.c2;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.video.VideoItemData;

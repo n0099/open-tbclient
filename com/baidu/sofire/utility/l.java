@@ -32,7 +32,7 @@ public final class l {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
             try {
-                String string = w.a(context).f45252a.getString("lt_sha", "");
+                String string = w.a(context).f45359a.getString("lt_sha", "");
                 if (TextUtils.isEmpty(string)) {
                     com.baidu.sofire.b.a();
                     return new JSONArray();

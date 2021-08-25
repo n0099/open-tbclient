@@ -27,11 +27,11 @@ public class WalletFacadeAOP implements NoProguard, InvocationHandler {
     public static final String TAG = "WalletFacadeAOP";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final List<String> f59790b;
+    public static final List<String> f59990b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final IWalletFacade f59791a;
+    public final IWalletFacade f59991a;
 
     /* renamed from: com.baidu.wallet.api.WalletFacadeAOP$1  reason: invalid class name */
     /* loaded from: classes8.dex */
@@ -39,7 +39,7 @@ public class WalletFacadeAOP implements NoProguard, InvocationHandler {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f59792a;
+        public static final /* synthetic */ int[] f59992a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -56,17 +56,17 @@ public class WalletFacadeAOP implements NoProguard, InvocationHandler {
                 }
             }
             int[] iArr = new int[EntranceService.values().length];
-            f59792a = iArr;
+            f59992a = iArr;
             try {
                 iArr[EntranceService.PAY.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f59792a[EntranceService.CREDIT.ordinal()] = 2;
+                f59992a[EntranceService.CREDIT.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f59792a[EntranceService.SHARE.ordinal()] = 3;
+                f59992a[EntranceService.SHARE.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
         }
@@ -150,7 +150,7 @@ public class WalletFacadeAOP implements NoProguard, InvocationHandler {
                 return;
             }
         }
-        f59790b = new ArrayList(Arrays.asList("doPay", "doBind", "doRNAuth", "doCheckPwd", "doBindCardIndependent", "checkPwd", StatServiceEvent.GET_WALLET_OUTER_INTERFACE, "accessWalletEntry", "preOrderPay", "getPayMethod", "changePayMethod", "gotoWalletService"));
+        f59990b = new ArrayList(Arrays.asList("doPay", "doBind", "doRNAuth", "doCheckPwd", "doBindCardIndependent", "checkPwd", StatServiceEvent.GET_WALLET_OUTER_INTERFACE, "accessWalletEntry", "preOrderPay", "getPayMethod", "changePayMethod", "gotoWalletService"));
     }
 
     public WalletFacadeAOP(IWalletFacade iWalletFacade) {
@@ -168,7 +168,7 @@ public class WalletFacadeAOP implements NoProguard, InvocationHandler {
                 return;
             }
         }
-        this.f59791a = iWalletFacade;
+        this.f59991a = iWalletFacade;
     }
 
     private boolean a() {
@@ -181,7 +181,7 @@ public class WalletFacadeAOP implements NoProguard, InvocationHandler {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, str)) == null) {
-            List<String> list = f59790b;
+            List<String> list = f59990b;
             if (list != null && list.contains(str)) {
                 if ("gotoWalletService".equals(str)) {
                     return EntranceService.SHARE;
@@ -209,7 +209,7 @@ public class WalletFacadeAOP implements NoProguard, InvocationHandler {
             }
             EntranceService b2 = b(str);
             LogUtil.d(TAG, "AOP method = " + str);
-            int i2 = AnonymousClass1.f59792a[b2.ordinal()];
+            int i2 = AnonymousClass1.f59992a[b2.ordinal()];
             if (i2 == 1) {
                 com.dxmpay.wallet.api.WalletLoginHelper.getInstance().clearOpenBduss();
             } else if (i2 != 2) {
@@ -236,7 +236,7 @@ public class WalletFacadeAOP implements NoProguard, InvocationHandler {
                     th.printStackTrace();
                 }
             }
-            Object invoke = method.invoke(this.f59791a, objArr);
+            Object invoke = method.invoke(this.f59991a, objArr);
             if (method != null && a(method.getName())) {
                 try {
                     b();

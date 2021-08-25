@@ -18,16 +18,16 @@ public class hn implements iq<hn, Object>, Serializable, Cloneable {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final iy f77430a;
+    public static final iy f77631a;
 
     /* renamed from: a  reason: collision with other field name */
     public static final jg f502a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final iy f77431b;
+    public static final iy f77632b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final iy f77432c;
+    public static final iy f77633c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
@@ -56,9 +56,9 @@ public class hn implements iq<hn, Object>, Serializable, Cloneable {
             }
         }
         f502a = new jg("DataCollectionItem");
-        f77430a = new iy("", (byte) 10, (short) 1);
-        f77431b = new iy("", (byte) 8, (short) 2);
-        f77432c = new iy("", (byte) 11, (short) 3);
+        f77631a = new iy("", (byte) 10, (short) 1);
+        f77632b = new iy("", (byte) 8, (short) 2);
+        f77633c = new iy("", (byte) 11, (short) 3);
     }
 
     public hn() {
@@ -173,7 +173,7 @@ public class hn implements iq<hn, Object>, Serializable, Cloneable {
             jbVar.m527a();
             while (true) {
                 iy m523a = jbVar.m523a();
-                byte b2 = m523a.f77655a;
+                byte b2 = m523a.f77856a;
                 if (b2 == 0) {
                     break;
                 }
@@ -254,16 +254,16 @@ public class hn implements iq<hn, Object>, Serializable, Cloneable {
         if (interceptable == null || interceptable.invokeL(1048586, this, jbVar) == null) {
             m388a();
             jbVar.a(f502a);
-            jbVar.a(f77430a);
+            jbVar.a(f77631a);
             jbVar.a(this.f503a);
             jbVar.b();
             if (this.f504a != null) {
-                jbVar.a(f77431b);
+                jbVar.a(f77632b);
                 jbVar.a(this.f504a.a());
                 jbVar.b();
             }
             if (this.f505a != null) {
-                jbVar.a(f77432c);
+                jbVar.a(f77633c);
                 jbVar.a(this.f505a);
                 jbVar.b();
             }

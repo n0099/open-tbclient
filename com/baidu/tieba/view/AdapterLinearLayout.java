@@ -17,10 +17,10 @@ public class AdapterLinearLayout extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Adapter f57740e;
+    public Adapter f57936e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final DataSetObserver f57741f;
+    public final DataSetObserver f57937f;
 
     /* loaded from: classes7.dex */
     public class a extends DataSetObserver {
@@ -28,7 +28,7 @@ public class AdapterLinearLayout extends LinearLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ AdapterLinearLayout f57742a;
+        public final /* synthetic */ AdapterLinearLayout f57938a;
 
         public a(AdapterLinearLayout adapterLinearLayout) {
             Interceptable interceptable = $ic;
@@ -45,26 +45,26 @@ public class AdapterLinearLayout extends LinearLayout {
                     return;
                 }
             }
-            this.f57742a = adapterLinearLayout;
+            this.f57938a = adapterLinearLayout;
         }
 
         @Override // android.database.DataSetObserver
         public void onChanged() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f57742a.f57740e == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f57938a.f57936e == null) {
                 return;
             }
-            int count = this.f57742a.f57740e.getCount();
-            int childCount = this.f57742a.getChildCount() - count;
+            int count = this.f57938a.f57936e.getCount();
+            int childCount = this.f57938a.getChildCount() - count;
             for (int i2 = 0; i2 < count; i2++) {
-                View childAt = this.f57742a.getChildAt(i2);
-                View view = this.f57742a.f57740e.getView(i2, childAt, this.f57742a);
+                View childAt = this.f57938a.getChildAt(i2);
+                View view = this.f57938a.f57936e.getView(i2, childAt, this.f57938a);
                 if (childAt == null && view != null) {
-                    this.f57742a.addView(view);
+                    this.f57938a.addView(view);
                 }
             }
             if (childCount > 0) {
-                this.f57742a.removeViews(count, childCount);
+                this.f57938a.removeViews(count, childCount);
             }
         }
 
@@ -95,19 +95,19 @@ public class AdapterLinearLayout extends LinearLayout {
                 return;
             }
         }
-        this.f57741f = new a(this);
+        this.f57937f = new a(this);
     }
 
     public void setAdapter(Adapter adapter) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, adapter) == null) {
-            Adapter adapter2 = this.f57740e;
+            Adapter adapter2 = this.f57936e;
             if (adapter2 != null) {
-                adapter2.unregisterDataSetObserver(this.f57741f);
+                adapter2.unregisterDataSetObserver(this.f57937f);
             }
-            this.f57740e = adapter;
+            this.f57936e = adapter;
             if (adapter != null) {
-                adapter.registerDataSetObserver(this.f57741f);
+                adapter.registerDataSetObserver(this.f57937f);
             }
         }
     }
@@ -131,7 +131,7 @@ public class AdapterLinearLayout extends LinearLayout {
                 return;
             }
         }
-        this.f57741f = new a(this);
+        this.f57937f = new a(this);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -153,6 +153,6 @@ public class AdapterLinearLayout extends LinearLayout {
                 return;
             }
         }
-        this.f57741f = new a(this);
+        this.f57937f = new a(this);
     }
 }

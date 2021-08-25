@@ -26,16 +26,16 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ArrayList<BasicNameValuePair> f2362a;
+    public ArrayList<BasicNameValuePair> f2420a;
 
     /* renamed from: b  reason: collision with root package name */
-    public StringBuilder f2363b;
+    public StringBuilder f2421b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f2364c;
+    public long f2422c;
 
     /* renamed from: d  reason: collision with root package name */
-    public h f2365d;
+    public h f2423d;
 
     public a(String str) {
         Interceptable interceptable = $ic;
@@ -52,7 +52,7 @@ public class a {
                 return;
             }
         }
-        this.f2363b = new StringBuilder(100);
+        this.f2421b = new StringBuilder(100);
     }
 
     public static String i(String str) {
@@ -66,10 +66,10 @@ public class a {
         if (!(interceptable == null || interceptable.invokeLL(1048576, this, obj, obj2) == null) || obj == null || obj2 == null) {
             return;
         }
-        if (this.f2362a == null) {
-            this.f2362a = new ArrayList<>();
+        if (this.f2420a == null) {
+            this.f2420a = new ArrayList<>();
         }
-        this.f2362a.add(new BasicNameValuePair(obj.toString(), obj2.toString()));
+        this.f2420a.add(new BasicNameValuePair(obj.toString(), obj2.toString()));
     }
 
     public void b(String str, String str2) {
@@ -80,16 +80,16 @@ public class a {
         if (TextUtils.isEmpty(str2)) {
             str2 = "";
         }
-        if (this.f2363b.length() > 0) {
-            this.f2363b.append(Typography.amp);
+        if (this.f2421b.length() > 0) {
+            this.f2421b.append(Typography.amp);
         }
-        this.f2363b.append(str);
-        this.f2363b.append("=");
+        this.f2421b.append(str);
+        this.f2421b.append("=");
         try {
-            this.f2363b.append(URLEncoder.encode(i(str2), "utf-8"));
+            this.f2421b.append(URLEncoder.encode(i(str2), "utf-8"));
         } catch (Throwable th) {
             BdLog.e(th);
-            this.f2363b.append(i(str2));
+            this.f2421b.append(i(str2));
         }
     }
 
@@ -110,31 +110,31 @@ public class a {
     public void d(d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, dVar) == null) {
-            if (this.f2365d == null) {
-                this.f2365d = new h();
+            if (this.f2423d == null) {
+                this.f2423d = new h();
             }
-            this.f2365d.f(dVar);
-            ArrayList<BasicNameValuePair> arrayList = this.f2362a;
+            this.f2423d.f(dVar);
+            ArrayList<BasicNameValuePair> arrayList = this.f2420a;
             if (arrayList != null && arrayList.size() > 0) {
-                Iterator<BasicNameValuePair> it = this.f2362a.iterator();
+                Iterator<BasicNameValuePair> it = this.f2420a.iterator();
                 while (it.hasNext()) {
                     BasicNameValuePair next = it.next();
                     if ("module".equals(next.getName())) {
-                        this.f2365d.i(next.getValue());
+                        this.f2423d.i(next.getValue());
                     } else if ("st".equals(next.getName())) {
-                        this.f2365d.e(next.getValue());
+                        this.f2423d.e(next.getValue());
                     } else if ("errNo".equals(next.getName())) {
-                        this.f2365d.g(next.getValue());
+                        this.f2423d.g(next.getValue());
                     } else if ("errMsg".equals(next.getName())) {
-                        this.f2365d.h(next.getValue());
+                        this.f2423d.h(next.getValue());
                     } else {
-                        this.f2365d.b(next.getName(), next.getValue());
+                        this.f2423d.b(next.getName(), next.getValue());
                     }
                 }
             }
-            StringBuilder sb = this.f2363b;
+            StringBuilder sb = this.f2421b;
             if (sb != null) {
-                this.f2365d.a(sb.toString());
+                this.f2423d.a(sb.toString());
             }
         }
     }
@@ -142,19 +142,19 @@ public class a {
     public long e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? System.currentTimeMillis() - this.f2364c : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? System.currentTimeMillis() - this.f2422c : invokeV.longValue;
     }
 
     public h f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f2365d : (h) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f2423d : (h) invokeV.objValue;
     }
 
     public void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.f2364c = System.currentTimeMillis();
+            this.f2422c = System.currentTimeMillis();
         }
     }
 
@@ -165,7 +165,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             JSONObject jSONObject = new JSONObject();
-            if (this.f2363b.length() > 0 && (split = this.f2363b.toString().split("&")) != null && split.length > 0) {
+            if (this.f2421b.length() > 0 && (split = this.f2421b.toString().split("&")) != null && split.length > 0) {
                 for (String str : split) {
                     if (!TextUtils.isEmpty(str) && (split2 = str.split("=")) != null && split2.length == 2) {
                         try {
@@ -176,7 +176,7 @@ public class a {
                     }
                 }
             }
-            ArrayList<BasicNameValuePair> arrayList = this.f2362a;
+            ArrayList<BasicNameValuePair> arrayList = this.f2420a;
             if (arrayList != null) {
                 Iterator<BasicNameValuePair> it = arrayList.iterator();
                 while (it.hasNext()) {
@@ -200,10 +200,10 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             StringBuilder sb = new StringBuilder(200);
-            if (this.f2363b.length() > 0) {
-                sb.append((CharSequence) this.f2363b);
+            if (this.f2421b.length() > 0) {
+                sb.append((CharSequence) this.f2421b);
             }
-            ArrayList<BasicNameValuePair> arrayList = this.f2362a;
+            ArrayList<BasicNameValuePair> arrayList = this.f2420a;
             if (arrayList != null) {
                 Iterator<BasicNameValuePair> it = arrayList.iterator();
                 while (it.hasNext()) {
@@ -213,7 +213,7 @@ public class a {
                             sb.append(Typography.amp);
                         }
                         sb.append(next.getName());
-                        sb.append(com.alipay.sdk.encrypt.a.f35773h);
+                        sb.append(com.alipay.sdk.encrypt.a.f35879h);
                         try {
                             sb.append(URLEncoder.encode(i(next.getValue()), "utf-8"));
                         } catch (UnsupportedEncodingException e2) {
@@ -241,6 +241,6 @@ public class a {
                 return;
             }
         }
-        this.f2363b = new StringBuilder(100);
+        this.f2421b = new StringBuilder(100);
     }
 }

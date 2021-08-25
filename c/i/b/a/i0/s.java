@@ -14,13 +14,13 @@ public final class s {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f33620a;
+    public long f33726a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f33621b;
+    public long f33727b;
 
     /* renamed from: c  reason: collision with root package name */
-    public volatile long f33622c;
+    public volatile long f33728c;
 
     public s(long j2) {
         Interceptable interceptable = $ic;
@@ -37,7 +37,7 @@ public final class s {
                 return;
             }
         }
-        this.f33622c = -9223372036854775807L;
+        this.f33728c = -9223372036854775807L;
         h(j2);
     }
 
@@ -60,19 +60,19 @@ public final class s {
             if (j2 == -9223372036854775807L) {
                 return -9223372036854775807L;
             }
-            if (this.f33622c != -9223372036854775807L) {
-                this.f33622c = j2;
+            if (this.f33728c != -9223372036854775807L) {
+                this.f33728c = j2;
             } else {
-                long j3 = this.f33620a;
+                long j3 = this.f33726a;
                 if (j3 != Long.MAX_VALUE) {
-                    this.f33621b = j3 - j2;
+                    this.f33727b = j3 - j2;
                 }
                 synchronized (this) {
-                    this.f33622c = j2;
+                    this.f33728c = j2;
                     notifyAll();
                 }
             }
-            return j2 + this.f33621b;
+            return j2 + this.f33727b;
         }
         return invokeJ.longValue;
     }
@@ -84,8 +84,8 @@ public final class s {
             if (j2 == -9223372036854775807L) {
                 return -9223372036854775807L;
             }
-            if (this.f33622c != -9223372036854775807L) {
-                long i2 = i(this.f33622c);
+            if (this.f33728c != -9223372036854775807L) {
+                long i2 = i(this.f33728c);
                 long j3 = (4294967296L + i2) / AnimatedStateListDrawableCompat.AnimatedStateListState.REVERSIBLE_FLAG_BIT;
                 long j4 = ((j3 - 1) * AnimatedStateListDrawableCompat.AnimatedStateListState.REVERSIBLE_FLAG_BIT) + j2;
                 j2 += j3 * AnimatedStateListDrawableCompat.AnimatedStateListState.REVERSIBLE_FLAG_BIT;
@@ -101,17 +101,17 @@ public final class s {
     public long c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f33620a : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f33726a : invokeV.longValue;
     }
 
     public long d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (this.f33622c != -9223372036854775807L) {
-                return this.f33622c;
+            if (this.f33728c != -9223372036854775807L) {
+                return this.f33728c;
             }
-            long j2 = this.f33620a;
+            long j2 = this.f33726a;
             if (j2 != Long.MAX_VALUE) {
                 return j2;
             }
@@ -124,13 +124,13 @@ public final class s {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (this.f33620a == Long.MAX_VALUE) {
+            if (this.f33726a == Long.MAX_VALUE) {
                 return 0L;
             }
-            if (this.f33622c == -9223372036854775807L) {
+            if (this.f33728c == -9223372036854775807L) {
                 return -9223372036854775807L;
             }
-            return this.f33621b;
+            return this.f33727b;
         }
         return invokeV.longValue;
     }
@@ -138,7 +138,7 @@ public final class s {
     public void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.f33622c = -9223372036854775807L;
+            this.f33728c = -9223372036854775807L;
         }
     }
 
@@ -146,8 +146,8 @@ public final class s {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048582, this, j2) == null) {
             synchronized (this) {
-                a.f(this.f33622c == -9223372036854775807L);
-                this.f33620a = j2;
+                a.f(this.f33728c == -9223372036854775807L);
+                this.f33726a = j2;
             }
         }
     }
@@ -156,7 +156,7 @@ public final class s {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             synchronized (this) {
-                while (this.f33622c == -9223372036854775807L) {
+                while (this.f33728c == -9223372036854775807L) {
                     wait();
                 }
             }

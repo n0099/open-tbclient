@@ -48,6 +48,7 @@ public class VideoPlayActivityConfig extends IntentConfig {
     public static final String VIDEO_INDEX = "video_index";
     public static final String VIDEO_LIST = "video_list";
     public static final String VIDEO_SHOW_INDEX = "video_show_index";
+    public static final String VIDEO_VIEW_RECT = "video_view_rect";
     public static List<VideoItemData> bigDataList;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -80,9 +81,17 @@ public class VideoPlayActivityConfig extends IntentConfig {
         }
     }
 
+    public void setIsShowPbCommentFloat(boolean z) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) || getIntent() == null) {
+            return;
+        }
+        getIntent().putExtra(IS_SHOW_PB_COMMENT_FLOAT, z);
+    }
+
     public void setNid(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || getIntent() == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) || getIntent() == null) {
             return;
         }
         getIntent().putExtra("key_nid", str);
@@ -90,7 +99,7 @@ public class VideoPlayActivityConfig extends IntentConfig {
 
     public void setParamIsVertail(boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) || getIntent() == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048579, this, z) == null) || getIntent() == null) {
             return;
         }
         getIntent().putExtra("is_vertail", z);
@@ -99,7 +108,7 @@ public class VideoPlayActivityConfig extends IntentConfig {
     public void setUri(Uri uri) {
         Intent intent;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, uri) == null) || (intent = getIntent()) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, uri) == null) || (intent = getIntent()) == null) {
             return;
         }
         intent.putExtra(IntentConfig.KEY_URI, uri);
@@ -107,7 +116,7 @@ public class VideoPlayActivityConfig extends IntentConfig {
 
     public void setVideoShowIndex(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
             getIntent().putExtra("video_show_index", i2);
         }
     }
@@ -133,7 +142,7 @@ public class VideoPlayActivityConfig extends IntentConfig {
         getIntent().putExtra("video_list", (Serializable) list);
         getIntent().putExtra("video_index", i2);
         getIntent().putExtra("from", str);
-        getIntent().setSourceBounds(rect);
+        getIntent().putExtra(VIDEO_VIEW_RECT, rect);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -183,7 +192,7 @@ public class VideoPlayActivityConfig extends IntentConfig {
         getIntent().putExtra("st_type", str2);
         getIntent().putExtra("yuelaou_locate", str3);
         getIntent().putExtra("from", str4);
-        getIntent().setSourceBounds(rect);
+        getIntent().putExtra(VIDEO_VIEW_RECT, rect);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -211,7 +220,7 @@ public class VideoPlayActivityConfig extends IntentConfig {
         getIntent().putExtra("yuelaou_locate", str3);
         getIntent().putExtra("from", str4);
         getIntent().putExtra("source_from", str5);
-        getIntent().setSourceBounds(rect);
+        getIntent().putExtra(VIDEO_VIEW_RECT, rect);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -239,7 +248,7 @@ public class VideoPlayActivityConfig extends IntentConfig {
         getIntent().putExtra("yuelaou_locate", str3);
         getIntent().putExtra("from", str4);
         getIntent().putExtra("source_from", str5);
-        getIntent().setSourceBounds(rect);
+        getIntent().putExtra(VIDEO_VIEW_RECT, rect);
         getIntent().putExtra(IS_SHOW_PB_COMMENT_FLOAT, z);
     }
 }

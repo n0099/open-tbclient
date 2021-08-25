@@ -15,10 +15,10 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Set<String> f72258a;
+    public Set<String> f72458a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Set<String> f72259b;
+    public Set<String> f72459b;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -33,8 +33,8 @@ public class b {
                 return;
             }
         }
-        this.f72258a = new HashSet();
-        this.f72259b = new HashSet();
+        this.f72458a = new HashSet();
+        this.f72459b = new HashSet();
     }
 
     public synchronized void a(String[] strArr, String[] strArr2) {
@@ -46,7 +46,7 @@ public class b {
                         if (strArr.length > 0) {
                             for (String str : strArr) {
                                 if (!TextUtils.isEmpty(str)) {
-                                    this.f72258a.add(str);
+                                    this.f72458a.add(str);
                                 }
                             }
                         }
@@ -57,7 +57,7 @@ public class b {
                 if (strArr2 != null && strArr2.length > 0) {
                     for (String str2 : strArr2) {
                         if (!TextUtils.isEmpty(str2)) {
-                            this.f72259b.add(str2);
+                            this.f72459b.add(str2);
                         }
                     }
                 }
@@ -71,7 +71,7 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             synchronized (this) {
-                strArr = (String[]) this.f72258a.toArray(new String[this.f72258a.size()]);
+                strArr = (String[]) this.f72458a.toArray(new String[this.f72458a.size()]);
             }
             return strArr;
         }
@@ -84,7 +84,7 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             synchronized (this) {
-                strArr = (String[]) this.f72259b.toArray(new String[this.f72259b.size()]);
+                strArr = (String[]) this.f72459b.toArray(new String[this.f72459b.size()]);
             }
             return strArr;
         }

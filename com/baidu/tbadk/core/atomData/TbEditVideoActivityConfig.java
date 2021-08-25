@@ -55,19 +55,29 @@ public class TbEditVideoActivityConfig extends IntentConfig {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, videoInfo)) == null) {
             TbMultiMediaData tbMultiMediaData = new TbMultiMediaData();
-            tbMultiMediaData.path = videoInfo.getVideoPath();
             tbMultiMediaData.coverPath = videoInfo.getThumbPath();
-            tbMultiMediaData.height = videoInfo.getVideoHeight();
-            tbMultiMediaData.width = videoInfo.getVideoWidth();
             tbMultiMediaData.type = 1;
-            tbMultiMediaData.start = 0L;
-            tbMultiMediaData.end = videoInfo.getVideoDuration() * 1000;
-            tbMultiMediaData.originalDuration = videoInfo.getVideoDuration() * 1000;
             tbMultiMediaData.scaleType = "center_inside";
             tbMultiMediaData.coverSource = videoInfo.getMultiMediaData().coverSource;
             tbMultiMediaData.orignalCoverPath = videoInfo.getMultiMediaData().orignalCoverPath;
             tbMultiMediaData.lastCoverPercent = videoInfo.getMultiMediaData().lastCoverPercent;
             tbMultiMediaData.videoInfoSource = videoInfo.getVideoSource();
+            TbMultiMediaData multiMediaData = videoInfo.getMultiMediaData();
+            tbMultiMediaData.setCoverStickerList(multiMediaData.getCoverStickerList());
+            tbMultiMediaData.setOrignalVideoPath(multiMediaData.getOrignalVideoPath());
+            tbMultiMediaData.setVideoFilter(multiMediaData.getVideoFilter());
+            String orignalVideoPath = multiMediaData.getOrignalVideoPath();
+            tbMultiMediaData.path = orignalVideoPath;
+            if (orignalVideoPath == null) {
+                tbMultiMediaData.path = videoInfo.getVideoPath();
+            }
+            tbMultiMediaData.start = multiMediaData.start;
+            tbMultiMediaData.end = multiMediaData.end;
+            tbMultiMediaData.originalDuration = multiMediaData.originalDuration;
+            tbMultiMediaData.angle = multiMediaData.angle;
+            tbMultiMediaData.videoRatio = multiMediaData.videoRatio;
+            tbMultiMediaData.width = multiMediaData.width;
+            tbMultiMediaData.height = multiMediaData.height;
             return tbMultiMediaData;
         }
         return (TbMultiMediaData) invokeL.objValue;

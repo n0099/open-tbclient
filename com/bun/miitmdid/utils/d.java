@@ -7,7 +7,6 @@ import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.yy.hiidostatis.inner.util.cipher.RsaCipher;
 import java.security.KeyFactory;
 import java.security.PublicKey;
 import java.security.spec.X509EncodedKeySpec;
@@ -18,7 +17,7 @@ public class d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final byte[] f63659a;
+    public static final byte[] f63859a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -34,7 +33,7 @@ public class d {
                 return;
             }
         }
-        f63659a = "#PART#".getBytes();
+        f63859a = "#PART#".getBytes();
     }
 
     public static String a(String str) {
@@ -69,7 +68,7 @@ public class d {
                 if (i4 == 117 || i3 == length - 1) {
                     i5++;
                     if (i5 != 1) {
-                        for (byte b2 : f63659a) {
+                        for (byte b2 : f63859a) {
                             arrayList.add(Byte.valueOf(b2));
                         }
                     }
@@ -96,7 +95,7 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, bArr, bArr2)) == null) {
             PublicKey generatePublic = KeyFactory.getInstance("RSA").generatePublic(new X509EncodedKeySpec(bArr2));
-            Cipher cipher = Cipher.getInstance(RsaCipher.RSA_PADDING);
+            Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
             cipher.init(1, generatePublic);
             return cipher.doFinal(bArr);
         }

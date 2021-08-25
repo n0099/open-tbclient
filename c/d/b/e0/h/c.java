@@ -56,31 +56,31 @@ public final class c extends e.j implements i {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public final j f31578b;
+    public final j f31684b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final d0 f31579c;
+    public final d0 f31685c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Socket f31580d;
+    public Socket f31686d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Socket f31581e;
+    public Socket f31687e;
 
     /* renamed from: f  reason: collision with root package name */
-    public q f31582f;
+    public q f31688f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Protocol f31583g;
+    public Protocol f31689g;
 
     /* renamed from: h  reason: collision with root package name */
-    public c.d.b.e0.k.e f31584h;
+    public c.d.b.e0.k.e f31690h;
 
     /* renamed from: i  reason: collision with root package name */
-    public BufferedSource f31585i;
+    public BufferedSource f31691i;
 
     /* renamed from: j  reason: collision with root package name */
-    public BufferedSink f31586j;
+    public BufferedSink f31692j;
     public boolean k;
     public int l;
     public int m;
@@ -105,15 +105,15 @@ public final class c extends e.j implements i {
         this.m = 1;
         this.n = new ArrayList();
         this.o = Long.MAX_VALUE;
-        this.f31578b = jVar;
-        this.f31579c = d0Var;
+        this.f31684b = jVar;
+        this.f31685c = d0Var;
     }
 
     @Override // c.d.b.e0.k.e.j
     public void a(c.d.b.e0.k.e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, eVar) == null) {
-            synchronized (this.f31578b) {
+            synchronized (this.f31684b) {
                 this.m = eVar.v();
             }
         }
@@ -130,7 +130,7 @@ public final class c extends e.j implements i {
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            c.d.b.e0.e.g(this.f31580d);
+            c.d.b.e0.e.g(this.f31686d);
         }
     }
 
@@ -148,34 +148,34 @@ public final class c extends e.j implements i {
     public void d(int i2, int i3, int i4, int i5, boolean z, c.d.b.e eVar, p pVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Boolean.valueOf(z), eVar, pVar}) == null) {
-            if (this.f31583g == null) {
-                List<k> b2 = this.f31579c.a().b();
+            if (this.f31689g == null) {
+                List<k> b2 = this.f31685c.a().b();
                 b bVar = new b(b2);
-                if (this.f31579c.a().k() == null) {
-                    if (b2.contains(k.f31874h)) {
-                        String l = this.f31579c.a().l().l();
+                if (this.f31685c.a().k() == null) {
+                    if (b2.contains(k.f31980h)) {
+                        String l = this.f31685c.a().l().l();
                         if (!c.d.b.e0.m.g.m().s(l)) {
                             throw new RouteException(new UnknownServiceException("CLEARTEXT communication to " + l + " not permitted by network security policy"));
                         }
                     } else {
                         throw new RouteException(new UnknownServiceException("CLEARTEXT communication not enabled for client"));
                     }
-                } else if (this.f31579c.a().f().contains(Protocol.H2_PRIOR_KNOWLEDGE)) {
+                } else if (this.f31685c.a().f().contains(Protocol.H2_PRIOR_KNOWLEDGE)) {
                     throw new RouteException(new UnknownServiceException("H2_PRIOR_KNOWLEDGE cannot be used with HTTPS"));
                 }
                 RouteException routeException = null;
                 do {
                     try {
                         try {
-                            if (this.f31579c.c()) {
+                            if (this.f31685c.c()) {
                                 g(i2, i3, i4, eVar, pVar);
-                                if (this.f31580d == null) {
-                                    if (!this.f31579c.c() && this.f31580d == null) {
+                                if (this.f31686d == null) {
+                                    if (!this.f31685c.c() && this.f31686d == null) {
                                         throw new RouteException(new ProtocolException("Too many tunnel connections attempted: 21"));
                                     }
-                                    if (this.f31584h == null) {
-                                        synchronized (this.f31578b) {
-                                            this.m = this.f31584h.v();
+                                    if (this.f31690h == null) {
+                                        synchronized (this.f31684b) {
+                                            this.m = this.f31690h.v();
                                         }
                                         return;
                                     }
@@ -186,51 +186,51 @@ public final class c extends e.j implements i {
                                     e(i2, i3, eVar, pVar);
                                 } catch (IOException e2) {
                                     e = e2;
-                                    c.d.b.e0.e.g(this.f31581e);
-                                    c.d.b.e0.e.g(this.f31580d);
-                                    this.f31581e = null;
-                                    this.f31580d = null;
-                                    this.f31585i = null;
-                                    this.f31586j = null;
-                                    this.f31582f = null;
-                                    this.f31583g = null;
-                                    this.f31584h = null;
-                                    pVar.connectFailed(eVar, this.f31579c.d(), this.f31579c.b(), null, e);
+                                    c.d.b.e0.e.g(this.f31687e);
+                                    c.d.b.e0.e.g(this.f31686d);
+                                    this.f31687e = null;
+                                    this.f31686d = null;
+                                    this.f31691i = null;
+                                    this.f31692j = null;
+                                    this.f31688f = null;
+                                    this.f31689g = null;
+                                    this.f31690h = null;
+                                    pVar.connectFailed(eVar, this.f31685c.d(), this.f31685c.b(), null, e);
                                     if (routeException != null) {
                                     }
                                     if (!z || bVar.b(e)) {
                                     }
                                     do {
-                                        if (this.f31579c.c()) {
+                                        if (this.f31685c.c()) {
                                         }
                                         j(bVar, i5, eVar, pVar);
-                                        pVar.connectEnd(eVar, this.f31579c.d(), this.f31579c.b(), this.f31583g);
-                                        if (!this.f31579c.c()) {
+                                        pVar.connectEnd(eVar, this.f31685c.d(), this.f31685c.b(), this.f31689g);
+                                        if (!this.f31685c.c()) {
                                         }
-                                        if (this.f31584h == null) {
+                                        if (this.f31690h == null) {
                                         }
                                     } while (bVar.b(e));
                                     throw routeException;
                                 }
                             }
                             j(bVar, i5, eVar, pVar);
-                            pVar.connectEnd(eVar, this.f31579c.d(), this.f31579c.b(), this.f31583g);
-                            if (!this.f31579c.c()) {
+                            pVar.connectEnd(eVar, this.f31685c.d(), this.f31685c.b(), this.f31689g);
+                            if (!this.f31685c.c()) {
                             }
-                            if (this.f31584h == null) {
+                            if (this.f31690h == null) {
                             }
                         } catch (IOException e3) {
                             e = e3;
-                            c.d.b.e0.e.g(this.f31581e);
-                            c.d.b.e0.e.g(this.f31580d);
-                            this.f31581e = null;
-                            this.f31580d = null;
-                            this.f31585i = null;
-                            this.f31586j = null;
-                            this.f31582f = null;
-                            this.f31583g = null;
-                            this.f31584h = null;
-                            pVar.connectFailed(eVar, this.f31579c.d(), this.f31579c.b(), null, e);
+                            c.d.b.e0.e.g(this.f31687e);
+                            c.d.b.e0.e.g(this.f31686d);
+                            this.f31687e = null;
+                            this.f31686d = null;
+                            this.f31691i = null;
+                            this.f31692j = null;
+                            this.f31688f = null;
+                            this.f31689g = null;
+                            this.f31690h = null;
+                            pVar.connectFailed(eVar, this.f31685c.d(), this.f31685c.b(), null, e);
                             if (routeException != null) {
                                 routeException = new RouteException(e);
                             } else {
@@ -240,13 +240,13 @@ public final class c extends e.j implements i {
                                 throw routeException;
                             }
                             do {
-                                if (this.f31579c.c()) {
+                                if (this.f31685c.c()) {
                                 }
                                 j(bVar, i5, eVar, pVar);
-                                pVar.connectEnd(eVar, this.f31579c.d(), this.f31579c.b(), this.f31583g);
-                                if (!this.f31579c.c()) {
+                                pVar.connectEnd(eVar, this.f31685c.d(), this.f31685c.b(), this.f31689g);
+                                if (!this.f31685c.c()) {
                                 }
-                                if (this.f31584h == null) {
+                                if (this.f31690h == null) {
                                 }
                             } while (bVar.b(e));
                             throw routeException;
@@ -265,28 +265,28 @@ public final class c extends e.j implements i {
         Socket createSocket;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), eVar, pVar}) == null) {
-            Proxy b2 = this.f31579c.b();
-            c.d.b.a a2 = this.f31579c.a();
+            Proxy b2 = this.f31685c.b();
+            c.d.b.a a2 = this.f31685c.a();
             if (b2.type() != Proxy.Type.DIRECT && b2.type() != Proxy.Type.HTTP) {
                 createSocket = new Socket(b2);
             } else {
                 createSocket = a2.j().createSocket();
             }
-            this.f31580d = createSocket;
-            pVar.connectStart(eVar, this.f31579c.d(), b2);
-            this.f31580d.setSoTimeout(i3);
+            this.f31686d = createSocket;
+            pVar.connectStart(eVar, this.f31685c.d(), b2);
+            this.f31686d.setSoTimeout(i3);
             try {
-                c.d.b.e0.m.g.m().i(this.f31580d, this.f31579c.d(), i2);
+                c.d.b.e0.m.g.m().i(this.f31686d, this.f31685c.d(), i2);
                 try {
-                    this.f31585i = Okio.buffer(Okio.source(this.f31580d));
-                    this.f31586j = Okio.buffer(Okio.sink(this.f31580d));
+                    this.f31691i = Okio.buffer(Okio.source(this.f31686d));
+                    this.f31692j = Okio.buffer(Okio.sink(this.f31686d));
                 } catch (NullPointerException e2) {
                     if (RealConnection.NPE_THROW_WITH_NULL.equals(e2.getMessage())) {
                         throw new IOException(e2);
                     }
                 }
             } catch (ConnectException e3) {
-                ConnectException connectException = new ConnectException("Failed to connect to " + this.f31579c.d());
+                ConnectException connectException = new ConnectException("Failed to connect to " + this.f31685c.d());
                 connectException.initCause(e3);
                 throw connectException;
             }
@@ -298,11 +298,11 @@ public final class c extends e.j implements i {
         Protocol protocol;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, bVar) == null) {
-            c.d.b.a a2 = this.f31579c.a();
+            c.d.b.a a2 = this.f31685c.a();
             SSLSocket sSLSocket2 = null;
             try {
                 try {
-                    sSLSocket = (SSLSocket) a2.k().createSocket(this.f31580d, a2.l().l(), a2.l().w(), true);
+                    sSLSocket = (SSLSocket) a2.k().createSocket(this.f31686d, a2.l().l(), a2.l().w(), true);
                 } catch (Throwable th) {
                     th = th;
                 }
@@ -327,16 +327,16 @@ public final class c extends e.j implements i {
                 }
                 a2.a().a(a2.l().l(), b2.e());
                 String p = a3.f() ? c.d.b.e0.m.g.m().p(sSLSocket) : null;
-                this.f31581e = sSLSocket;
-                this.f31585i = Okio.buffer(Okio.source(sSLSocket));
-                this.f31586j = Okio.buffer(Okio.sink(this.f31581e));
-                this.f31582f = b2;
+                this.f31687e = sSLSocket;
+                this.f31691i = Okio.buffer(Okio.source(sSLSocket));
+                this.f31692j = Okio.buffer(Okio.sink(this.f31687e));
+                this.f31688f = b2;
                 if (p != null) {
                     protocol = Protocol.get(p);
                 } else {
                     protocol = Protocol.HTTP_1_1;
                 }
-                this.f31583g = protocol;
+                this.f31689g = protocol;
                 if (sSLSocket != null) {
                     c.d.b.e0.m.g.m().a(sSLSocket);
                 }
@@ -369,11 +369,11 @@ public final class c extends e.j implements i {
                 if (i5 == null) {
                     return;
                 }
-                c.d.b.e0.e.g(this.f31580d);
-                this.f31580d = null;
-                this.f31586j = null;
-                this.f31585i = null;
-                pVar.connectEnd(eVar, this.f31579c.d(), this.f31579c.b(), null);
+                c.d.b.e0.e.g(this.f31686d);
+                this.f31686d = null;
+                this.f31692j = null;
+                this.f31691i = null;
+                pVar.connectEnd(eVar, this.f31685c.d(), this.f31685c.b(), null);
             }
         }
     }
@@ -386,9 +386,9 @@ public final class c extends e.j implements i {
         }
         String str = "CONNECT " + c.d.b.e0.e.r(sVar, true) + " HTTP/1.1";
         while (true) {
-            c.d.b.e0.j.a aVar = new c.d.b.e0.j.a(null, null, this.f31585i, this.f31586j);
-            this.f31585i.timeout().timeout(i2, TimeUnit.MILLISECONDS);
-            this.f31586j.timeout().timeout(i3, TimeUnit.MILLISECONDS);
+            c.d.b.e0.j.a aVar = new c.d.b.e0.j.a(null, null, this.f31691i, this.f31692j);
+            this.f31691i.timeout().timeout(i2, TimeUnit.MILLISECONDS);
+            this.f31692j.timeout().timeout(i3, TimeUnit.MILLISECONDS);
             aVar.l(zVar.d(), str);
             aVar.finishRequest();
             b0.a readResponseHeaders = aVar.readResponseHeaders(false);
@@ -403,12 +403,12 @@ public final class c extends e.j implements i {
             h2.close();
             int code = c2.code();
             if (code == 200) {
-                if (this.f31585i.buffer().exhausted() && this.f31586j.buffer().exhausted()) {
+                if (this.f31691i.buffer().exhausted() && this.f31692j.buffer().exhausted()) {
                     return null;
                 }
                 throw new IOException("TLS tunnel buffered too many bytes!");
             } else if (code == 407) {
-                z a2 = this.f31579c.a().h().a(this.f31579c, c2);
+                z a2 = this.f31685c.a().h().a(this.f31685c, c2);
                 if (a2 != null) {
                     if (IntentConfig.CLOSE.equalsIgnoreCase(c2.s(HTTP.CONN_DIRECTIVE))) {
                         return a2;
@@ -427,7 +427,7 @@ public final class c extends e.j implements i {
     public q handshake() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f31582f : (q) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f31688f : (q) invokeV.objValue;
     }
 
     public final z i() throws IOException {
@@ -435,9 +435,9 @@ public final class c extends e.j implements i {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
             z.a aVar = new z.a();
-            aVar.g(this.f31579c.a().l());
+            aVar.g(this.f31685c.a().l());
             aVar.e("CONNECT", null);
-            aVar.c("Host", c.d.b.e0.e.r(this.f31579c.a().l(), true));
+            aVar.c("Host", c.d.b.e0.e.r(this.f31685c.a().l(), true));
             aVar.c("Proxy-Connection", HTTP.CONN_KEEP_ALIVE);
             aVar.c("User-Agent", c.d.b.e0.f.a());
             z b2 = aVar.b();
@@ -446,11 +446,11 @@ public final class c extends e.j implements i {
             aVar2.n(Protocol.HTTP_1_1);
             aVar2.g(407);
             aVar2.k("Preemptive Authenticate");
-            aVar2.b(c.d.b.e0.e.f31548c);
+            aVar2.b(c.d.b.e0.e.f31654c);
             aVar2.q(-1L);
             aVar2.o(-1L);
             aVar2.i(AUTH.PROXY_AUTH, "OkHttp-Preemptive");
-            z a2 = this.f31579c.a().h().a(this.f31579c, aVar2.c());
+            z a2 = this.f31685c.a().h().a(this.f31685c, aVar2.c());
             return a2 != null ? a2 : b2;
         }
         return (z) invokeV.objValue;
@@ -459,21 +459,21 @@ public final class c extends e.j implements i {
     public final void j(b bVar, int i2, c.d.b.e eVar, p pVar) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLILL(1048586, this, bVar, i2, eVar, pVar) == null) {
-            if (this.f31579c.a().k() == null) {
-                if (this.f31579c.a().f().contains(Protocol.H2_PRIOR_KNOWLEDGE)) {
-                    this.f31581e = this.f31580d;
-                    this.f31583g = Protocol.H2_PRIOR_KNOWLEDGE;
+            if (this.f31685c.a().k() == null) {
+                if (this.f31685c.a().f().contains(Protocol.H2_PRIOR_KNOWLEDGE)) {
+                    this.f31687e = this.f31686d;
+                    this.f31689g = Protocol.H2_PRIOR_KNOWLEDGE;
                     p(i2);
                     return;
                 }
-                this.f31581e = this.f31580d;
-                this.f31583g = Protocol.HTTP_1_1;
+                this.f31687e = this.f31686d;
+                this.f31689g = Protocol.HTTP_1_1;
                 return;
             }
             pVar.secureConnectStart(eVar);
             f(bVar);
-            pVar.secureConnectEnd(eVar, this.f31582f);
-            if (this.f31583g == Protocol.HTTP_2) {
+            pVar.secureConnectEnd(eVar, this.f31688f);
+            if (this.f31689g == Protocol.HTTP_2) {
                 p(i2);
             }
         }
@@ -483,13 +483,13 @@ public final class c extends e.j implements i {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048587, this, aVar, d0Var)) == null) {
-            if (this.n.size() >= this.m || this.k || !c.d.b.e0.a.f31543a.g(this.f31579c.a(), aVar)) {
+            if (this.n.size() >= this.m || this.k || !c.d.b.e0.a.f31649a.g(this.f31685c.a(), aVar)) {
                 return false;
             }
             if (aVar.l().l().equals(route().a().l().l())) {
                 return true;
             }
-            if (this.f31584h != null && d0Var != null && d0Var.b().type() == Proxy.Type.DIRECT && this.f31579c.b().type() == Proxy.Type.DIRECT && this.f31579c.d().equals(d0Var.d()) && d0Var.a().e() == c.d.b.e0.o.d.f31844a && q(aVar.l())) {
+            if (this.f31690h != null && d0Var != null && d0Var.b().type() == Proxy.Type.DIRECT && this.f31685c.b().type() == Proxy.Type.DIRECT && this.f31685c.d().equals(d0Var.d()) && d0Var.a().e() == c.d.b.e0.o.d.f31950a && q(aVar.l())) {
                 try {
                     aVar.a().a(aVar.l().l(), handshake().e());
                     return true;
@@ -506,22 +506,22 @@ public final class c extends e.j implements i {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048588, this, z)) == null) {
-            if (this.f31581e.isClosed() || this.f31581e.isInputShutdown() || this.f31581e.isOutputShutdown()) {
+            if (this.f31687e.isClosed() || this.f31687e.isInputShutdown() || this.f31687e.isOutputShutdown()) {
                 return false;
             }
-            c.d.b.e0.k.e eVar = this.f31584h;
+            c.d.b.e0.k.e eVar = this.f31690h;
             if (eVar != null) {
                 return eVar.u(System.nanoTime());
             }
             if (z) {
                 try {
-                    int soTimeout = this.f31581e.getSoTimeout();
-                    this.f31581e.setSoTimeout(1);
-                    if (this.f31585i.exhausted()) {
-                        this.f31581e.setSoTimeout(soTimeout);
+                    int soTimeout = this.f31687e.getSoTimeout();
+                    this.f31687e.setSoTimeout(1);
+                    if (this.f31691i.exhausted()) {
+                        this.f31687e.setSoTimeout(soTimeout);
                         return false;
                     }
-                    this.f31581e.setSoTimeout(soTimeout);
+                    this.f31687e.setSoTimeout(soTimeout);
                     return true;
                 } catch (SocketTimeoutException unused) {
                 } catch (IOException unused2) {
@@ -536,20 +536,20 @@ public final class c extends e.j implements i {
     public boolean m() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f31584h != null : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f31690h != null : invokeV.booleanValue;
     }
 
     public c.d.b.e0.i.c n(w wVar, t.a aVar, f fVar) throws SocketException {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048590, this, wVar, aVar, fVar)) == null) {
-            if (this.f31584h != null) {
-                return new c.d.b.e0.k.d(wVar, aVar, fVar, this.f31584h);
+            if (this.f31690h != null) {
+                return new c.d.b.e0.k.d(wVar, aVar, fVar, this.f31690h);
             }
-            this.f31581e.setSoTimeout(aVar.readTimeoutMillis());
-            this.f31585i.timeout().timeout(aVar.readTimeoutMillis(), TimeUnit.MILLISECONDS);
-            this.f31586j.timeout().timeout(aVar.writeTimeoutMillis(), TimeUnit.MILLISECONDS);
-            return new c.d.b.e0.j.a(wVar, fVar, this.f31585i, this.f31586j);
+            this.f31687e.setSoTimeout(aVar.readTimeoutMillis());
+            this.f31691i.timeout().timeout(aVar.readTimeoutMillis(), TimeUnit.MILLISECONDS);
+            this.f31692j.timeout().timeout(aVar.writeTimeoutMillis(), TimeUnit.MILLISECONDS);
+            return new c.d.b.e0.j.a(wVar, fVar, this.f31691i, this.f31692j);
         }
         return (c.d.b.e0.i.c) invokeLLL.objValue;
     }
@@ -557,19 +557,19 @@ public final class c extends e.j implements i {
     public Socket o() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.f31581e : (Socket) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.f31687e : (Socket) invokeV.objValue;
     }
 
     public final void p(int i2) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048592, this, i2) == null) {
-            this.f31581e.setSoTimeout(0);
+            this.f31687e.setSoTimeout(0);
             e.h hVar = new e.h(true);
-            hVar.d(this.f31581e, this.f31579c.a().l().l(), this.f31585i, this.f31586j);
+            hVar.d(this.f31687e, this.f31685c.a().l().l(), this.f31691i, this.f31692j);
             hVar.b(this);
             hVar.c(i2);
             c.d.b.e0.k.e a2 = hVar.a();
-            this.f31584h = a2;
+            this.f31690h = a2;
             a2.H();
         }
     }
@@ -578,20 +578,20 @@ public final class c extends e.j implements i {
     public Protocol protocol() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.f31583g : (Protocol) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.f31689g : (Protocol) invokeV.objValue;
     }
 
     public boolean q(s sVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, sVar)) == null) {
-            if (sVar.w() != this.f31579c.a().l().w()) {
+            if (sVar.w() != this.f31685c.a().l().w()) {
                 return false;
             }
-            if (sVar.l().equals(this.f31579c.a().l().l())) {
+            if (sVar.l().equals(this.f31685c.a().l().l())) {
                 return true;
             }
-            return this.f31582f != null && c.d.b.e0.o.d.f31844a.c(sVar.l(), (X509Certificate) this.f31582f.e().get(0));
+            return this.f31688f != null && c.d.b.e0.o.d.f31950a.c(sVar.l(), (X509Certificate) this.f31688f.e().get(0));
         }
         return invokeL.booleanValue;
     }
@@ -600,7 +600,7 @@ public final class c extends e.j implements i {
     public d0 route() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.f31579c : (d0) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.f31685c : (d0) invokeV.objValue;
     }
 
     public String toString() {
@@ -609,18 +609,18 @@ public final class c extends e.j implements i {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
             StringBuilder sb = new StringBuilder();
             sb.append("Connection{");
-            sb.append(this.f31579c.a().l().l());
+            sb.append(this.f31685c.a().l().l());
             sb.append(":");
-            sb.append(this.f31579c.a().l().w());
+            sb.append(this.f31685c.a().l().w());
             sb.append(", proxy=");
-            sb.append(this.f31579c.b());
+            sb.append(this.f31685c.b());
             sb.append(" hostAddress=");
-            sb.append(this.f31579c.d());
+            sb.append(this.f31685c.d());
             sb.append(" cipherSuite=");
-            q qVar = this.f31582f;
+            q qVar = this.f31688f;
             sb.append(qVar != null ? qVar.a() : "none");
             sb.append(" protocol=");
-            sb.append(this.f31583g);
+            sb.append(this.f31689g);
             sb.append(ExtendedMessageFormat.END_FE);
             return sb.toString();
         }

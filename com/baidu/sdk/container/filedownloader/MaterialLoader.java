@@ -11,8 +11,8 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.ImageView;
 import androidx.core.view.InputDeviceCompat;
-import c.a.h0.a.c.a;
-import c.a.h0.a.h.a;
+import c.a.i0.a.c.a;
+import c.a.i0.a.h.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.adrequest.AdParamInfo;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -34,17 +34,17 @@ public class MaterialLoader {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile MaterialLoader f44800c = null;
+    public static volatile MaterialLoader f44907c = null;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f44801d = "MaterialLoader";
+    public static final String f44908d = "MaterialLoader";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f44802a;
+    public Context f44909a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c.a.h0.a.e.a f44803b;
+    public c.a.i0.a.e.a f44910b;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes5.dex */
@@ -133,7 +133,7 @@ public class MaterialLoader {
     }
 
     /* loaded from: classes5.dex */
-    public class a implements c.a.h0.a.e.a {
+    public class a implements c.a.i0.a.e.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -153,21 +153,21 @@ public class MaterialLoader {
             }
         }
 
-        @Override // c.a.h0.a.e.a
+        @Override // c.a.i0.a.e.a
         public void a(String str, View view, MaterialLoadErrorCode materialLoadErrorCode) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(1048576, this, str, view, materialLoadErrorCode) == null) {
             }
         }
 
-        @Override // c.a.h0.a.e.a
+        @Override // c.a.i0.a.e.a
         public void onLoadingComplete(String str, View view, Bitmap bitmap) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, view, bitmap) == null) {
             }
         }
 
-        @Override // c.a.h0.a.e.a
+        @Override // c.a.i0.a.e.a
         public void onLoadingStarted(String str, View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, view) == null) {
@@ -181,10 +181,10 @@ public class MaterialLoader {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ImageView f44804e;
+        public final /* synthetic */ ImageView f44911e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Bitmap f44805f;
+        public final /* synthetic */ Bitmap f44912f;
 
         public b(MaterialLoader materialLoader, ImageView imageView, Bitmap bitmap) {
             Interceptable interceptable = $ic;
@@ -201,17 +201,17 @@ public class MaterialLoader {
                     return;
                 }
             }
-            this.f44804e = imageView;
-            this.f44805f = bitmap;
+            this.f44911e = imageView;
+            this.f44912f = bitmap;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f44804e.setImageBitmap(this.f44805f);
-                this.f44804e.setBackgroundResource(17170445);
-                this.f44804e.setVisibility(0);
+                this.f44911e.setImageBitmap(this.f44912f);
+                this.f44911e.setBackgroundResource(17170445);
+                this.f44911e.setVisibility(0);
             }
         }
     }
@@ -222,28 +222,28 @@ public class MaterialLoader {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ MaterialCacheType f44806a;
+        public final /* synthetic */ MaterialCacheType f44913a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f44807b;
+        public final /* synthetic */ String f44914b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ String f44808c;
+        public final /* synthetic */ String f44915c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ int f44809d;
+        public final /* synthetic */ int f44916d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.h0.a.e.a f44810e;
+        public final /* synthetic */ c.a.i0.a.e.a f44917e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ ImageView f44811f;
+        public final /* synthetic */ ImageView f44918f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ boolean f44812g;
+        public final /* synthetic */ boolean f44919g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ MaterialLoader f44813h;
+        public final /* synthetic */ MaterialLoader f44920h;
 
         /* loaded from: classes5.dex */
         public class a implements a.c {
@@ -251,7 +251,7 @@ public class MaterialLoader {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ c f44814a;
+            public final /* synthetic */ c f44921a;
 
             public a(c cVar) {
                 Interceptable interceptable = $ic;
@@ -268,24 +268,24 @@ public class MaterialLoader {
                         return;
                     }
                 }
-                this.f44814a = cVar;
+                this.f44921a = cVar;
             }
 
-            @Override // c.a.h0.a.c.a.c
+            @Override // c.a.i0.a.c.a.c
             public void onCacheComplete() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    c cVar = this.f44814a;
-                    cVar.f44810e.onLoadingComplete(cVar.f44807b, null, null);
+                    c cVar = this.f44921a;
+                    cVar.f44917e.onLoadingComplete(cVar.f44914b, null, null);
                 }
             }
 
-            @Override // c.a.h0.a.c.a.c
+            @Override // c.a.i0.a.c.a.c
             public void onCacheFailed() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                    c cVar = this.f44814a;
-                    cVar.f44810e.a(cVar.f44807b, null, MaterialLoadErrorCode.ERROR_CODE_CACHE_ERROR);
+                    c cVar = this.f44921a;
+                    cVar.f44917e.a(cVar.f44914b, null, MaterialLoadErrorCode.ERROR_CODE_CACHE_ERROR);
                 }
             }
         }
@@ -296,7 +296,7 @@ public class MaterialLoader {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ c f44815a;
+            public final /* synthetic */ c f44922a;
 
             public b(c cVar) {
                 Interceptable interceptable = $ic;
@@ -313,41 +313,41 @@ public class MaterialLoader {
                         return;
                     }
                 }
-                this.f44815a = cVar;
+                this.f44922a = cVar;
             }
 
-            @Override // c.a.h0.a.c.a.c
+            @Override // c.a.i0.a.c.a.c
             public void onCacheComplete() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    c cVar = this.f44815a;
-                    cVar.f44810e.onLoadingComplete(cVar.f44807b, null, null);
+                    c cVar = this.f44922a;
+                    cVar.f44917e.onLoadingComplete(cVar.f44914b, null, null);
                 }
             }
 
-            @Override // c.a.h0.a.c.a.c
+            @Override // c.a.i0.a.c.a.c
             public void onCacheFailed() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                    c cVar = this.f44815a;
-                    cVar.f44810e.a(cVar.f44807b, null, MaterialLoadErrorCode.ERROR_CODE_CACHE_ERROR);
+                    c cVar = this.f44922a;
+                    cVar.f44917e.a(cVar.f44914b, null, MaterialLoadErrorCode.ERROR_CODE_CACHE_ERROR);
                 }
             }
         }
 
         /* renamed from: com.baidu.sdk.container.filedownloader.MaterialLoader$c$c  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class RunnableC1698c implements Runnable {
+        public class RunnableC1702c implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ Bitmap f44816e;
+            public final /* synthetic */ Bitmap f44923e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ c f44817f;
+            public final /* synthetic */ c f44924f;
 
-            public RunnableC1698c(c cVar, Bitmap bitmap) {
+            public RunnableC1702c(c cVar, Bitmap bitmap) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -362,24 +362,24 @@ public class MaterialLoader {
                         return;
                     }
                 }
-                this.f44817f = cVar;
-                this.f44816e = bitmap;
+                this.f44924f = cVar;
+                this.f44923e = bitmap;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 ImageView imageView;
                 Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (imageView = this.f44817f.f44811f) == null) {
+                if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (imageView = this.f44924f.f44918f) == null) {
                     return;
                 }
-                imageView.setImageBitmap(this.f44816e);
-                this.f44817f.f44811f.setBackgroundResource(17170445);
-                this.f44817f.f44811f.setVisibility(0);
+                imageView.setImageBitmap(this.f44923e);
+                this.f44924f.f44918f.setBackgroundResource(17170445);
+                this.f44924f.f44918f.setVisibility(0);
             }
         }
 
-        public c(MaterialLoader materialLoader, MaterialCacheType materialCacheType, String str, String str2, int i2, c.a.h0.a.e.a aVar, ImageView imageView, boolean z) {
+        public c(MaterialLoader materialLoader, MaterialCacheType materialCacheType, String str, String str2, int i2, c.a.i0.a.e.a aVar, ImageView imageView, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -394,53 +394,53 @@ public class MaterialLoader {
                     return;
                 }
             }
-            this.f44813h = materialLoader;
-            this.f44806a = materialCacheType;
-            this.f44807b = str;
-            this.f44808c = str2;
-            this.f44809d = i2;
-            this.f44810e = aVar;
-            this.f44811f = imageView;
-            this.f44812g = z;
+            this.f44920h = materialLoader;
+            this.f44913a = materialCacheType;
+            this.f44914b = str;
+            this.f44915c = str2;
+            this.f44916d = i2;
+            this.f44917e = aVar;
+            this.f44918f = imageView;
+            this.f44919g = z;
         }
 
-        @Override // c.a.h0.a.h.a.c
+        @Override // c.a.i0.a.h.a.c
         public void onFail(String str, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, str, i2) == null) {
-                String unused = MaterialLoader.f44801d;
+                String unused = MaterialLoader.f44908d;
                 String str2 = "素材请求失败，onFail: " + str;
-                this.f44810e.a(this.f44807b, this.f44811f, MaterialLoadErrorCode.ERROR_CODE_REQUEST_ERROR);
+                this.f44917e.a(this.f44914b, this.f44918f, MaterialLoadErrorCode.ERROR_CODE_REQUEST_ERROR);
             }
         }
 
-        @Override // c.a.h0.a.h.a.c
+        @Override // c.a.i0.a.h.a.c
         public void onSuccess(InputStream inputStream, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, inputStream, str) == null) {
                 try {
                     if (inputStream != null) {
-                        if (this.f44806a != MaterialCacheType.VIDEO && !this.f44813h.p(this.f44807b)) {
+                        if (this.f44913a != MaterialCacheType.VIDEO && !this.f44920h.p(this.f44914b)) {
                             BitmapFactory.Options options = new BitmapFactory.Options();
                             options.inPurgeable = true;
                             options.inInputShareable = true;
                             Bitmap decodeStream = BitmapFactory.decodeStream(new d(inputStream), null, options);
                             if (decodeStream != null) {
-                                Bitmap r = !this.f44807b.substring(this.f44807b.lastIndexOf("/") + 1).toUpperCase().contains("PNG") ? MaterialLoader.r(MaterialLoader.s(decodeStream, 100 - (this.f44813h.t(decodeStream) * 10)), MaterialLoader.v(options)) : decodeStream;
+                                Bitmap r = !this.f44914b.substring(this.f44914b.lastIndexOf("/") + 1).toUpperCase().contains("PNG") ? MaterialLoader.r(MaterialLoader.s(decodeStream, 100 - (this.f44920h.t(decodeStream) * 10)), MaterialLoader.v(options)) : decodeStream;
                                 if (r != null) {
                                     decodeStream = r;
                                 }
                                 if (Looper.myLooper() == Looper.getMainLooper()) {
-                                    if (this.f44811f != null) {
-                                        this.f44811f.setImageBitmap(decodeStream);
-                                        this.f44811f.setBackgroundResource(17170445);
-                                        this.f44811f.setVisibility(0);
+                                    if (this.f44918f != null) {
+                                        this.f44918f.setImageBitmap(decodeStream);
+                                        this.f44918f.setBackgroundResource(17170445);
+                                        this.f44918f.setVisibility(0);
                                     }
                                 } else {
-                                    new Handler(Looper.getMainLooper()).post(new RunnableC1698c(this, decodeStream));
+                                    new Handler(Looper.getMainLooper()).post(new RunnableC1702c(this, decodeStream));
                                 }
-                                this.f44813h.y(decodeStream, this.f44807b, this.f44812g);
-                                this.f44810e.onLoadingComplete(this.f44807b, this.f44811f, decodeStream);
+                                this.f44920h.y(decodeStream, this.f44914b, this.f44919g);
+                                this.f44917e.onLoadingComplete(this.f44914b, this.f44918f, decodeStream);
                                 if (inputStream != null) {
                                     inputStream.close();
                                     return;
@@ -459,10 +459,10 @@ public class MaterialLoader {
                                 }
                                 byteArrayOutputStream.write(bArr, 0, read);
                             }
-                            if (TextUtils.isEmpty(this.f44808c) || this.f44809d <= 0) {
-                                this.f44813h.w(byteArrayOutputStream.toByteArray(), this.f44807b, new b(this));
+                            if (TextUtils.isEmpty(this.f44915c) || this.f44916d <= 0) {
+                                this.f44920h.w(byteArrayOutputStream.toByteArray(), this.f44914b, new b(this));
                             } else {
-                                this.f44813h.x(byteArrayOutputStream.toByteArray(), this.f44807b, this.f44808c, this.f44809d, new a(this));
+                                this.f44920h.x(byteArrayOutputStream.toByteArray(), this.f44914b, this.f44915c, this.f44916d, new a(this));
                             }
                             byteArrayOutputStream.flush();
                         } catch (FileNotFoundException e2) {
@@ -476,14 +476,14 @@ public class MaterialLoader {
                         byteArrayOutputStream.close();
                         return;
                     }
-                    String unused = MaterialLoader.f44801d;
-                    this.f44810e.a(this.f44807b, this.f44811f, MaterialLoadErrorCode.ERROR_CODE_REQUEST_ERROR);
+                    String unused = MaterialLoader.f44908d;
+                    this.f44917e.a(this.f44914b, this.f44918f, MaterialLoadErrorCode.ERROR_CODE_REQUEST_ERROR);
                 } catch (OutOfMemoryError unused2) {
-                    String unused3 = MaterialLoader.f44801d;
-                    this.f44810e.a(this.f44807b, this.f44811f, MaterialLoadErrorCode.ERROR_CODE_REQUEST_ERROR);
+                    String unused3 = MaterialLoader.f44908d;
+                    this.f44917e.a(this.f44914b, this.f44918f, MaterialLoadErrorCode.ERROR_CODE_REQUEST_ERROR);
                 } catch (Throwable unused4) {
-                    String unused5 = MaterialLoader.f44801d;
-                    this.f44810e.a(this.f44807b, this.f44811f, MaterialLoadErrorCode.ERROR_CODE_REQUEST_ERROR);
+                    String unused5 = MaterialLoader.f44908d;
+                    this.f44917e.a(this.f44914b, this.f44918f, MaterialLoadErrorCode.ERROR_CODE_REQUEST_ERROR);
                 }
             }
         }
@@ -566,8 +566,8 @@ public class MaterialLoader {
                 return;
             }
         }
-        this.f44803b = new a(this);
-        this.f44802a = context.getApplicationContext();
+        this.f44910b = new a(this);
+        this.f44909a = context.getApplicationContext();
     }
 
     public static int j(Bitmap bitmap) {
@@ -590,14 +590,14 @@ public class MaterialLoader {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, context)) == null) {
-            if (f44800c == null) {
+            if (f44907c == null) {
                 synchronized (MaterialLoader.class) {
-                    if (f44800c == null) {
-                        f44800c = new MaterialLoader(context);
+                    if (f44907c == null) {
+                        f44907c = new MaterialLoader(context);
                     }
                 }
             }
-            return f44800c;
+            return f44907c;
         }
         return (MaterialLoader) invokeL.objValue;
     }
@@ -672,11 +672,11 @@ public class MaterialLoader {
         return invokeL.intValue;
     }
 
-    public void e(String str, MaterialCacheType materialCacheType, c.a.h0.a.e.a aVar) {
+    public void e(String str, MaterialCacheType materialCacheType, c.a.i0.a.e.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048576, this, str, materialCacheType, aVar) == null) {
             if (aVar == null) {
-                aVar = this.f44803b;
+                aVar = this.f44910b;
             }
             if (o(str, materialCacheType)) {
                 aVar.onLoadingComplete(str, null, materialCacheType == MaterialCacheType.PICTURE ? u(str) : null);
@@ -686,7 +686,7 @@ public class MaterialLoader {
         }
     }
 
-    public void f(String str, c.a.h0.a.e.a aVar) {
+    public void f(String str, c.a.i0.a.e.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, aVar) == null) {
             if (p(str)) {
@@ -697,28 +697,28 @@ public class MaterialLoader {
         }
     }
 
-    public final void g(String str, ImageView imageView, MaterialCacheType materialCacheType, c.a.h0.a.e.a aVar) {
+    public final void g(String str, ImageView imageView, MaterialCacheType materialCacheType, c.a.i0.a.e.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, str, imageView, materialCacheType, aVar) == null) {
             h(str, imageView, materialCacheType, false, null, 0, aVar);
         }
     }
 
-    public final void h(String str, ImageView imageView, MaterialCacheType materialCacheType, boolean z, String str2, int i2, c.a.h0.a.e.a aVar) {
+    public final void h(String str, ImageView imageView, MaterialCacheType materialCacheType, boolean z, String str2, int i2, c.a.i0.a.e.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{str, imageView, materialCacheType, Boolean.valueOf(z), str2, Integer.valueOf(i2), aVar}) == null) {
-            c.a.h0.a.h.a aVar2 = new c.a.h0.a.h.a(1, str);
+            c.a.i0.a.h.a aVar2 = new c.a.i0.a.h.a(1, str);
             aVar2.c(new c(this, materialCacheType, str, str2, i2, aVar, imageView, z));
             aVar2.d();
         }
     }
 
-    public Bitmap i(String str, c.a.h0.a.e.a aVar) {
+    public Bitmap i(String str, c.a.i0.a.e.a aVar) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, aVar)) == null) {
             if (aVar == null) {
-                aVar = this.f44803b;
+                aVar = this.f44910b;
             }
             if (n(str)) {
                 return u(str);
@@ -744,7 +744,7 @@ public class MaterialLoader {
     public String m(String str, MaterialCacheType materialCacheType) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, str, materialCacheType)) == null) ? c.a.h0.a.c.a.e(this.f44802a).d(str, materialCacheType) : (String) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, str, materialCacheType)) == null) ? c.a.i0.a.c.a.e(this.f44909a).d(str, materialCacheType) : (String) invokeLL.objValue;
     }
 
     public boolean n(String str) {
@@ -762,7 +762,7 @@ public class MaterialLoader {
     public boolean o(String str, MaterialCacheType materialCacheType) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, materialCacheType)) == null) ? c.a.h0.a.c.a.e(this.f44802a).f(str, materialCacheType) : invokeLL.booleanValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, materialCacheType)) == null) ? c.a.i0.a.c.a.e(this.f44909a).f(str, materialCacheType) : invokeLL.booleanValue;
     }
 
     public boolean p(String str) {
@@ -771,12 +771,12 @@ public class MaterialLoader {
         return (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) ? str.indexOf(".mp4") > 0 || str.indexOf(".gif") > 0 : invokeL.booleanValue;
     }
 
-    public void q(ImageView imageView, String str, c.a.h0.a.e.a aVar) {
+    public void q(ImageView imageView, String str, c.a.i0.a.e.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048586, this, imageView, str, aVar) == null) {
             if (aVar == null) {
                 try {
-                    aVar = this.f44803b;
+                    aVar = this.f44910b;
                 } catch (Throwable unused) {
                     aVar.a(str, imageView, MaterialLoadErrorCode.ERROR_CODE_PARSE_ERROR);
                     return;
@@ -825,27 +825,27 @@ public class MaterialLoader {
     public final Bitmap u(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, str)) == null) ? c.a.h0.a.c.a.e(this.f44802a).j(str) : (Bitmap) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, str)) == null) ? c.a.i0.a.c.a.e(this.f44909a).j(str) : (Bitmap) invokeL.objValue;
     }
 
     public final void w(byte[] bArr, String str, a.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048589, this, bArr, str, cVar) == null) {
-            c.a.h0.a.c.a.e(this.f44802a).n(str, bArr, MaterialCacheType.VIDEO, false, cVar);
+            c.a.i0.a.c.a.e(this.f44909a).n(str, bArr, MaterialCacheType.VIDEO, false, cVar);
         }
     }
 
     public final void x(byte[] bArr, String str, String str2, int i2, a.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048590, this, new Object[]{bArr, str, str2, Integer.valueOf(i2), cVar}) == null) {
-            c.a.h0.a.c.a.e(this.f44802a).o(str, bArr, str2, i2, false, cVar);
+            c.a.i0.a.c.a.e(this.f44909a).o(str, bArr, str2, i2, false, cVar);
         }
     }
 
     public final void y(Bitmap bitmap, String str, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLZ(1048591, this, bitmap, str, z) == null) {
-            c.a.h0.a.c.a.e(this.f44802a).l(str, bitmap, z);
+            c.a.i0.a.c.a.e(this.f44909a).l(str, bitmap, z);
         }
     }
 }

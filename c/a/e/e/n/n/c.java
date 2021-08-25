@@ -39,9 +39,9 @@ public class c {
             while (it.hasNext()) {
                 c.a.e.e.n.j.d dVar = (c.a.e.e.n.j.d) it.next();
                 if (dVar != null) {
-                    long j2 = dVar.f2413c;
+                    long j2 = dVar.f2471c;
                     if (j2 != 0 && j2 + 604800000 < currentTimeMillis) {
-                        arrayList3.add(dVar.f2412b);
+                        arrayList3.add(dVar.f2470b);
                     } else {
                         arrayList2.add(dVar);
                     }
@@ -70,7 +70,7 @@ public class c {
                 long j2 = 0;
                 for (int i2 = 0; i2 < size; i2++) {
                     c.a.e.e.n.j.d dVar = a2.get(i2);
-                    j2 += dVar.f2411a;
+                    j2 += dVar.f2469a;
                     arrayList.add(dVar);
                     if (j2 >= 20480) {
                         bdUploadingLogInfo.add(arrayList);

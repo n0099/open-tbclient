@@ -29,6 +29,7 @@ import com.baidu.apollon.utils.CheckUtils;
 import com.baidu.apollon.utils.DisplayUtils;
 import com.baidu.apollon.utils.GlobalUtils;
 import com.baidu.apollon.utils.ResUtils;
+import com.baidu.searchbox.datacollector.growth.utils.GrowthConstant;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -124,10 +125,10 @@ public class MyCouponDetailActivity extends CouponBaseActivity implements View.O
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ RelativeLayout.LayoutParams f63086a;
+                public final /* synthetic */ RelativeLayout.LayoutParams f63286a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ MyCouponDetailActivity f63087b;
+                public final /* synthetic */ MyCouponDetailActivity f63287b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -144,8 +145,8 @@ public class MyCouponDetailActivity extends CouponBaseActivity implements View.O
                             return;
                         }
                     }
-                    this.f63087b = this;
-                    this.f63086a = layoutParams;
+                    this.f63287b = this;
+                    this.f63286a = layoutParams;
                 }
 
                 @Override // com.baidu.apollon.imagemanager.ImageLoader.OnGetBitmapListener
@@ -171,16 +172,16 @@ public class MyCouponDetailActivity extends CouponBaseActivity implements View.O
                     if (!(interceptable2 == null || interceptable2.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, obj, bitmap) == null) || bitmap == null) {
                         return;
                     }
-                    if (TextUtils.isEmpty(this.f63087b.mDetail.marketing_label)) {
-                        this.f63087b.mMarketLabel.post(new Runnable(this, bitmap) { // from class: com.baidu.wallet.personal.ui.MyCouponDetailActivity.5.1
+                    if (TextUtils.isEmpty(this.f63287b.mDetail.marketing_label)) {
+                        this.f63287b.mMarketLabel.post(new Runnable(this, bitmap) { // from class: com.baidu.wallet.personal.ui.MyCouponDetailActivity.5.1
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
 
                             /* renamed from: a  reason: collision with root package name */
-                            public final /* synthetic */ Bitmap f63088a;
+                            public final /* synthetic */ Bitmap f63288a;
 
                             /* renamed from: b  reason: collision with root package name */
-                            public final /* synthetic */ AnonymousClass5 f63089b;
+                            public final /* synthetic */ AnonymousClass5 f63289b;
 
                             {
                                 Interceptable interceptable3 = $ic;
@@ -197,39 +198,39 @@ public class MyCouponDetailActivity extends CouponBaseActivity implements View.O
                                         return;
                                     }
                                 }
-                                this.f63089b = this;
-                                this.f63088a = bitmap;
+                                this.f63289b = this;
+                                this.f63288a = bitmap;
                             }
 
                             @Override // java.lang.Runnable
                             public void run() {
                                 Interceptable interceptable3 = $ic;
                                 if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
-                                    AnonymousClass5 anonymousClass5 = this.f63089b;
-                                    anonymousClass5.f63086a.width = DisplayUtils.dip2px(anonymousClass5.f63087b.mAct, 65.0f);
-                                    AnonymousClass5 anonymousClass52 = this.f63089b;
-                                    anonymousClass52.f63086a.height = DisplayUtils.dip2px(anonymousClass52.f63087b.mAct, 16.55f);
-                                    this.f63089b.f63087b.mMarketLabel.setLayoutParams(this.f63089b.f63086a);
-                                    this.f63089b.f63087b.mMarketLabel.setBackgroundDrawable(new BitmapDrawable(this.f63088a));
-                                    this.f63089b.f63087b.mMarketLabel.setVisibility(0);
+                                    AnonymousClass5 anonymousClass5 = this.f63289b;
+                                    anonymousClass5.f63286a.width = DisplayUtils.dip2px(anonymousClass5.f63287b.mAct, 65.0f);
+                                    AnonymousClass5 anonymousClass52 = this.f63289b;
+                                    anonymousClass52.f63286a.height = DisplayUtils.dip2px(anonymousClass52.f63287b.mAct, 16.55f);
+                                    this.f63289b.f63287b.mMarketLabel.setLayoutParams(this.f63289b.f63286a);
+                                    this.f63289b.f63287b.mMarketLabel.setBackgroundDrawable(new BitmapDrawable(this.f63288a));
+                                    this.f63289b.f63287b.mMarketLabel.setVisibility(0);
                                 }
                             }
                         });
                         return;
                     }
-                    a aVar = new a(this.f63087b.getResources(), bitmap);
+                    a aVar = new a(this.f63287b.getResources(), bitmap);
                     aVar.a(bitmap.getWidth() / 2, 1).b(bitmap.getHeight() / 2, 1);
                     NinePatchDrawable c2 = aVar.c();
                     if (c2 != null) {
-                        this.f63087b.mMarketLabel.post(new Runnable(this, c2) { // from class: com.baidu.wallet.personal.ui.MyCouponDetailActivity.5.2
+                        this.f63287b.mMarketLabel.post(new Runnable(this, c2) { // from class: com.baidu.wallet.personal.ui.MyCouponDetailActivity.5.2
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
 
                             /* renamed from: a  reason: collision with root package name */
-                            public final /* synthetic */ NinePatchDrawable f63090a;
+                            public final /* synthetic */ NinePatchDrawable f63290a;
 
                             /* renamed from: b  reason: collision with root package name */
-                            public final /* synthetic */ AnonymousClass5 f63091b;
+                            public final /* synthetic */ AnonymousClass5 f63291b;
 
                             {
                                 Interceptable interceptable3 = $ic;
@@ -246,18 +247,18 @@ public class MyCouponDetailActivity extends CouponBaseActivity implements View.O
                                         return;
                                     }
                                 }
-                                this.f63091b = this;
-                                this.f63090a = c2;
+                                this.f63291b = this;
+                                this.f63290a = c2;
                             }
 
                             @Override // java.lang.Runnable
                             public void run() {
                                 Interceptable interceptable3 = $ic;
                                 if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
-                                    this.f63091b.f63087b.mMarketLabel.setBackgroundDrawable(this.f63090a);
-                                    this.f63091b.f63087b.mMarketLabel.setLayoutParams(this.f63091b.f63086a);
-                                    if (this.f63091b.f63087b.mMarketLabel.getVisibility() == 8) {
-                                        this.f63091b.f63087b.mMarketLabel.setVisibility(0);
+                                    this.f63291b.f63287b.mMarketLabel.setBackgroundDrawable(this.f63290a);
+                                    this.f63291b.f63287b.mMarketLabel.setLayoutParams(this.f63291b.f63286a);
+                                    if (this.f63291b.f63287b.mMarketLabel.getVisibility() == 8) {
+                                        this.f63291b.f63287b.mMarketLabel.setVisibility(0);
                                     }
                                 }
                             }
@@ -350,7 +351,7 @@ public class MyCouponDetailActivity extends CouponBaseActivity implements View.O
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ MyCouponDetailActivity f63076a;
+                    public final /* synthetic */ MyCouponDetailActivity f63276a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -367,7 +368,7 @@ public class MyCouponDetailActivity extends CouponBaseActivity implements View.O
                                 return;
                             }
                         }
-                        this.f63076a = this;
+                        this.f63276a = this;
                     }
 
                     @Override // com.baidu.apollon.imagemanager.ImageLoader.OnGetBitmapListener
@@ -393,15 +394,15 @@ public class MyCouponDetailActivity extends CouponBaseActivity implements View.O
                         if (!(interceptable2 == null || interceptable2.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, obj, bitmap) == null) || bitmap == null) {
                             return;
                         }
-                        this.f63076a.mCouponDetailBgpic.post(new Runnable(this, bitmap) { // from class: com.baidu.wallet.personal.ui.MyCouponDetailActivity.1.1
+                        this.f63276a.mCouponDetailBgpic.post(new Runnable(this, bitmap) { // from class: com.baidu.wallet.personal.ui.MyCouponDetailActivity.1.1
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
 
                             /* renamed from: a  reason: collision with root package name */
-                            public final /* synthetic */ Bitmap f63077a;
+                            public final /* synthetic */ Bitmap f63277a;
 
                             /* renamed from: b  reason: collision with root package name */
-                            public final /* synthetic */ AnonymousClass1 f63078b;
+                            public final /* synthetic */ AnonymousClass1 f63278b;
 
                             {
                                 Interceptable interceptable3 = $ic;
@@ -418,15 +419,15 @@ public class MyCouponDetailActivity extends CouponBaseActivity implements View.O
                                         return;
                                     }
                                 }
-                                this.f63078b = this;
-                                this.f63077a = bitmap;
+                                this.f63278b = this;
+                                this.f63277a = bitmap;
                             }
 
                             @Override // java.lang.Runnable
                             public void run() {
                                 Interceptable interceptable3 = $ic;
                                 if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
-                                    this.f63078b.f63076a.mCouponDetailBgpic.setImageDrawable(new BitmapDrawable(this.f63077a));
+                                    this.f63278b.f63276a.mCouponDetailBgpic.setImageDrawable(new BitmapDrawable(this.f63277a));
                                 }
                             }
                         });
@@ -456,7 +457,7 @@ public class MyCouponDetailActivity extends CouponBaseActivity implements View.O
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ MyCouponDetailActivity f63079a;
+                    public final /* synthetic */ MyCouponDetailActivity f63279a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -473,7 +474,7 @@ public class MyCouponDetailActivity extends CouponBaseActivity implements View.O
                                 return;
                             }
                         }
-                        this.f63079a = this;
+                        this.f63279a = this;
                     }
 
                     @Override // com.baidu.apollon.imagemanager.ImageLoader.OnGetBitmapListener
@@ -499,15 +500,15 @@ public class MyCouponDetailActivity extends CouponBaseActivity implements View.O
                         if (!(interceptable2 == null || interceptable2.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, obj, bitmap) == null) || bitmap == null) {
                             return;
                         }
-                        this.f63079a.mCouponBgUp.post(new Runnable(this, bitmap) { // from class: com.baidu.wallet.personal.ui.MyCouponDetailActivity.2.1
+                        this.f63279a.mCouponBgUp.post(new Runnable(this, bitmap) { // from class: com.baidu.wallet.personal.ui.MyCouponDetailActivity.2.1
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
 
                             /* renamed from: a  reason: collision with root package name */
-                            public final /* synthetic */ Bitmap f63080a;
+                            public final /* synthetic */ Bitmap f63280a;
 
                             /* renamed from: b  reason: collision with root package name */
-                            public final /* synthetic */ AnonymousClass2 f63081b;
+                            public final /* synthetic */ AnonymousClass2 f63281b;
 
                             {
                                 Interceptable interceptable3 = $ic;
@@ -524,15 +525,15 @@ public class MyCouponDetailActivity extends CouponBaseActivity implements View.O
                                         return;
                                     }
                                 }
-                                this.f63081b = this;
-                                this.f63080a = bitmap;
+                                this.f63281b = this;
+                                this.f63280a = bitmap;
                             }
 
                             @Override // java.lang.Runnable
                             public void run() {
                                 Interceptable interceptable3 = $ic;
                                 if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
-                                    this.f63081b.f63079a.mCouponBgUp.setBackgroundDrawable(new BitmapDrawable(this.f63081b.f63079a.getResources(), this.f63080a));
+                                    this.f63281b.f63279a.mCouponBgUp.setBackgroundDrawable(new BitmapDrawable(this.f63281b.f63279a.getResources(), this.f63280a));
                                 }
                             }
                         });
@@ -545,7 +546,7 @@ public class MyCouponDetailActivity extends CouponBaseActivity implements View.O
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ MyCouponDetailActivity f63082a;
+                    public final /* synthetic */ MyCouponDetailActivity f63282a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -562,7 +563,7 @@ public class MyCouponDetailActivity extends CouponBaseActivity implements View.O
                                 return;
                             }
                         }
-                        this.f63082a = this;
+                        this.f63282a = this;
                     }
 
                     @Override // com.baidu.apollon.imagemanager.ImageLoader.OnGetBitmapListener
@@ -588,17 +589,17 @@ public class MyCouponDetailActivity extends CouponBaseActivity implements View.O
                         if (!(interceptable2 == null || interceptable2.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, obj, bitmap) == null) || bitmap == null) {
                             return;
                         }
-                        a aVar = new a(this.f63082a.getResources(), bitmap);
+                        a aVar = new a(this.f63282a.getResources(), bitmap);
                         aVar.b(13, 1);
-                        this.f63082a.mCouponBgDown.post(new Runnable(this, aVar.c()) { // from class: com.baidu.wallet.personal.ui.MyCouponDetailActivity.3.1
+                        this.f63282a.mCouponBgDown.post(new Runnable(this, aVar.c()) { // from class: com.baidu.wallet.personal.ui.MyCouponDetailActivity.3.1
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
 
                             /* renamed from: a  reason: collision with root package name */
-                            public final /* synthetic */ NinePatchDrawable f63083a;
+                            public final /* synthetic */ NinePatchDrawable f63283a;
 
                             /* renamed from: b  reason: collision with root package name */
-                            public final /* synthetic */ AnonymousClass3 f63084b;
+                            public final /* synthetic */ AnonymousClass3 f63284b;
 
                             {
                                 Interceptable interceptable3 = $ic;
@@ -615,8 +616,8 @@ public class MyCouponDetailActivity extends CouponBaseActivity implements View.O
                                         return;
                                     }
                                 }
-                                this.f63084b = this;
-                                this.f63083a = r7;
+                                this.f63284b = this;
+                                this.f63283a = r7;
                             }
 
                             @Override // java.lang.Runnable
@@ -624,9 +625,9 @@ public class MyCouponDetailActivity extends CouponBaseActivity implements View.O
                                 Interceptable interceptable3 = $ic;
                                 if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
                                     if (Build.VERSION.SDK_INT >= 16) {
-                                        this.f63084b.f63082a.mCouponBgDown.setBackground(this.f63083a);
+                                        this.f63284b.f63282a.mCouponBgDown.setBackground(this.f63283a);
                                     } else {
-                                        this.f63084b.f63082a.mCouponBgDown.setBackgroundDrawable(this.f63083a);
+                                        this.f63284b.f63282a.mCouponBgDown.setBackgroundDrawable(this.f63283a);
                                     }
                                 }
                             }
@@ -737,7 +738,7 @@ public class MyCouponDetailActivity extends CouponBaseActivity implements View.O
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ MyCouponDetailActivity f63085a;
+                    public final /* synthetic */ MyCouponDetailActivity f63285a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -754,7 +755,7 @@ public class MyCouponDetailActivity extends CouponBaseActivity implements View.O
                                 return;
                             }
                         }
-                        this.f63085a = this;
+                        this.f63285a = this;
                     }
 
                     @Override // android.view.View.OnClickListener
@@ -768,36 +769,36 @@ public class MyCouponDetailActivity extends CouponBaseActivity implements View.O
                         }
                         JSONObject jSONObject = new JSONObject();
                         try {
-                            jSONObject.put("coupon_name", this.f63085a.mDetail.coupon_name);
-                            jSONObject.put("template_num", this.f63085a.mDetail.template_num);
-                            jSONObject.put("coupon_num", this.f63085a.mDetail.coupon_num);
-                            jSONObject.put("card_type", this.f63085a.cardType);
+                            jSONObject.put("coupon_name", this.f63285a.mDetail.coupon_name);
+                            jSONObject.put("template_num", this.f63285a.mDetail.template_num);
+                            jSONObject.put("coupon_num", this.f63285a.mDetail.coupon_num);
+                            jSONObject.put("card_type", this.f63285a.cardType);
                         } catch (JSONException e2) {
                             e2.printStackTrace();
                         }
                         DXMSdkSAUtils.onEventWithValues("CouponDetailToUseBtnClick", Arrays.asList(jSONObject.toString()));
-                        if (this.f63085a.mDetail.app_scene_service != null) {
-                            if (this.f63085a.mDetail.app_scene_service.f63059android > 0) {
-                                this.f63085a.needRefresh = true;
+                        if (this.f63285a.mDetail.app_scene_service != null) {
+                            if (this.f63285a.mDetail.app_scene_service.f63259android > 0) {
+                                this.f63285a.needRefresh = true;
                                 BaiduWalletServiceController baiduWalletServiceController = BaiduWalletServiceController.getInstance();
-                                MyCouponDetailActivity myCouponDetailActivity = this.f63085a;
-                                baiduWalletServiceController.gotoWalletService(myCouponDetailActivity.mAct, myCouponDetailActivity.mDetail.app_scene_service.f63059android, "");
+                                MyCouponDetailActivity myCouponDetailActivity = this.f63285a;
+                                baiduWalletServiceController.gotoWalletService(myCouponDetailActivity.mAct, myCouponDetailActivity.mDetail.app_scene_service.f63259android, "");
                                 return;
-                            } else if (TextUtils.isEmpty(this.f63085a.mDetail.app_scene_service.url)) {
+                            } else if (TextUtils.isEmpty(this.f63285a.mDetail.app_scene_service.url)) {
                                 return;
                             } else {
-                                this.f63085a.needRefresh = true;
+                                this.f63285a.needRefresh = true;
                                 baiduWalletDelegate = BaiduWalletDelegate.getInstance();
-                                MyCouponDetailActivity myCouponDetailActivity2 = this.f63085a;
+                                MyCouponDetailActivity myCouponDetailActivity2 = this.f63285a;
                                 beanActivity2 = myCouponDetailActivity2.mAct;
                                 str = myCouponDetailActivity2.mDetail.app_scene_service.url;
                             }
-                        } else if (TextUtils.isEmpty(this.f63085a.mDetail.scene_service)) {
+                        } else if (TextUtils.isEmpty(this.f63285a.mDetail.scene_service)) {
                             return;
                         } else {
-                            this.f63085a.needRefresh = true;
+                            this.f63285a.needRefresh = true;
                             baiduWalletDelegate = BaiduWalletDelegate.getInstance();
-                            MyCouponDetailActivity myCouponDetailActivity3 = this.f63085a;
+                            MyCouponDetailActivity myCouponDetailActivity3 = this.f63285a;
                             beanActivity2 = myCouponDetailActivity3.mAct;
                             str = myCouponDetailActivity3.mDetail.scene_service;
                         }
@@ -906,10 +907,10 @@ public class MyCouponDetailActivity extends CouponBaseActivity implements View.O
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ ImageView f63092a;
+                public final /* synthetic */ ImageView f63292a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ MyCouponDetailActivity f63093b;
+                public final /* synthetic */ MyCouponDetailActivity f63293b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -926,23 +927,23 @@ public class MyCouponDetailActivity extends CouponBaseActivity implements View.O
                             return;
                         }
                     }
-                    this.f63093b = this;
-                    this.f63092a = imageView;
+                    this.f63293b = this;
+                    this.f63292a = imageView;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        int dip2px = DisplayUtils.dip2px(this.f63093b.mAct, 30.0f);
-                        DisplayUtils.getDisplayHeight(this.f63093b.mAct);
-                        int height = this.f63092a.getHeight();
-                        int dip2px2 = DisplayUtils.dip2px(this.f63093b.mAct, 60.0f);
-                        int height2 = this.f63093b.mScrollView.getHeight();
-                        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.f63092a.getLayoutParams();
-                        layoutParams.topMargin = ((height2 - this.f63093b.mUseInfos.getBottom()) - dip2px) - height > dip2px2 ? (height2 - height) - dip2px : this.f63093b.mUseInfos.getBottom() + dip2px2;
+                        int dip2px = DisplayUtils.dip2px(this.f63293b.mAct, 30.0f);
+                        DisplayUtils.getDisplayHeight(this.f63293b.mAct);
+                        int height = this.f63292a.getHeight();
+                        int dip2px2 = DisplayUtils.dip2px(this.f63293b.mAct, 60.0f);
+                        int height2 = this.f63293b.mScrollView.getHeight();
+                        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.f63292a.getLayoutParams();
+                        layoutParams.topMargin = ((height2 - this.f63293b.mUseInfos.getBottom()) - dip2px) - height > dip2px2 ? (height2 - height) - dip2px : this.f63293b.mUseInfos.getBottom() + dip2px2;
                         layoutParams.bottomMargin = dip2px;
-                        this.f63092a.setLayoutParams(layoutParams);
+                        this.f63292a.setLayoutParams(layoutParams);
                     }
                 }
             });
@@ -958,7 +959,7 @@ public class MyCouponDetailActivity extends CouponBaseActivity implements View.O
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ MyCouponDetailActivity f63094a;
+                public final /* synthetic */ MyCouponDetailActivity f63294a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -975,14 +976,14 @@ public class MyCouponDetailActivity extends CouponBaseActivity implements View.O
                             return;
                         }
                     }
-                    this.f63094a = this;
+                    this.f63294a = this;
                 }
 
                 @Override // com.baidu.wallet.base.widget.WalletBaseEmptyView.EmptyBtnClickListener
                 public void onBtnClick() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f63094a.queryDetail(true);
+                        this.f63294a.queryDetail(true);
                     }
                 }
             });
@@ -1099,7 +1100,7 @@ public class MyCouponDetailActivity extends CouponBaseActivity implements View.O
     public void onClick(View view) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048580, this, view) == null) && view == this.copyBtn && Build.VERSION.SDK_INT >= 11) {
-            this.mClipboardManager = (ClipboardManager) getSystemService("clipboard");
+            this.mClipboardManager = (ClipboardManager) getSystemService(GrowthConstant.UBC_VALUE_TYPE_CLIP_BOARD);
             ClipData newPlainText = ClipData.newPlainText(ResUtils.getString(this.mAct, "wallet_personal_coupon_detail_copy_lable"), this.mDetail.display_coupon_num);
             this.mClipData = newPlainText;
             this.mClipboardManager.setPrimaryClip(newPlainText);

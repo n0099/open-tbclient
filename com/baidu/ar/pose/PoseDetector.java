@@ -157,7 +157,7 @@ public class PoseDetector extends com.baidu.ar.b.a.a {
                     }
                     float f2 = this.qr.getFloat(PoseAR.MDL_MAGIC_FILTER_CUTOFFSLOPE, 1.0f);
                     float[] floatArray = this.qr.getFloatArray(PoseAR.MDL_MAGIC_FILTER_MIN_CUTOFFFREQ);
-                    return aVar.f38188tv ? ARMdlInterfaceJNI.initPoseFromAsset(strArr[0], strArr[1], strArr[2], 1, f2, floatArray, floatArray) : ARMdlInterfaceJNI.initPose(strArr[0], strArr[1], strArr[2], 1, f2, floatArray, floatArray);
+                    return aVar.f38294tv ? ARMdlInterfaceJNI.initPoseFromAsset(strArr[0], strArr[1], strArr[2], 1, f2, floatArray, floatArray) : ARMdlInterfaceJNI.initPose(strArr[0], strArr[1], strArr[2], 1, f2, floatArray, floatArray);
                 }
                 return invokeL2.intValue;
             }

@@ -18,22 +18,22 @@ public abstract class a implements r, s {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final int f32213e;
+    public final int f32319e;
 
     /* renamed from: f  reason: collision with root package name */
-    public t f32214f;
+    public t f32320f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f32215g;
+    public int f32321g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f32216h;
+    public int f32322h;
 
     /* renamed from: i  reason: collision with root package name */
-    public c.i.b.a.d0.o f32217i;
+    public c.i.b.a.d0.o f32323i;
 
     /* renamed from: j  reason: collision with root package name */
-    public long f32218j;
+    public long f32324j;
     public boolean k;
     public boolean l;
 
@@ -52,7 +52,7 @@ public abstract class a implements r, s {
                 return;
             }
         }
-        this.f32213e = i2;
+        this.f32319e = i2;
         this.k = true;
     }
 
@@ -87,18 +87,18 @@ public abstract class a implements r, s {
         InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(Constants.METHOD_SEND_USER_MSG, this, lVar, eVar, z)) == null) {
-            int f2 = this.f32217i.f(lVar, eVar, z);
+            int f2 = this.f32323i.f(lVar, eVar, z);
             if (f2 == -4) {
                 if (eVar.j()) {
                     this.k = true;
                     return this.l ? -4 : -3;
                 }
-                eVar.f33875h += this.f32218j;
+                eVar.f33981h += this.f32324j;
             } else if (f2 == -5) {
-                Format format = lVar.f33707a;
+                Format format = lVar.f33813a;
                 long j2 = format.subsampleOffsetUs;
                 if (j2 != Long.MAX_VALUE) {
-                    lVar.f33707a = format.copyWithSubsampleOffsetUs(j2 + this.f32218j);
+                    lVar.f33813a = format.copyWithSubsampleOffsetUs(j2 + this.f32324j);
                 }
             }
             return f2;
@@ -109,14 +109,14 @@ public abstract class a implements r, s {
     public int D(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048579, this, j2)) == null) ? this.f32217i.j(j2 - this.f32218j) : invokeJ.intValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048579, this, j2)) == null) ? this.f32323i.j(j2 - this.f32324j) : invokeJ.intValue;
     }
 
     @Override // c.i.b.a.r, c.i.b.a.s
     public final int e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f32213e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f32319e : invokeV.intValue;
     }
 
     @Override // c.i.b.a.r
@@ -130,9 +130,9 @@ public abstract class a implements r, s {
     public final void g(t tVar, Format[] formatArr, c.i.b.a.d0.o oVar, long j2, boolean z, long j3) throws ExoPlaybackException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{tVar, formatArr, oVar, Long.valueOf(j2), Boolean.valueOf(z), Long.valueOf(j3)}) == null) {
-            c.i.b.a.i0.a.f(this.f32216h == 0);
-            this.f32214f = tVar;
-            this.f32216h = 1;
+            c.i.b.a.i0.a.f(this.f32322h == 0);
+            this.f32320f = tVar;
+            this.f32322h = 1;
             x(z);
             s(formatArr, oVar, j3);
             y(j2, z);
@@ -143,14 +143,14 @@ public abstract class a implements r, s {
     public final int getState() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f32216h : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f32322h : invokeV.intValue;
     }
 
     @Override // c.i.b.a.r
     public final c.i.b.a.d0.o getStream() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f32217i : (c.i.b.a.d0.o) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f32323i : (c.i.b.a.d0.o) invokeV.objValue;
     }
 
     @Override // c.i.b.a.g.a
@@ -164,9 +164,9 @@ public abstract class a implements r, s {
     public final void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            c.i.b.a.i0.a.f(this.f32216h == 1);
-            this.f32216h = 0;
-            this.f32217i = null;
+            c.i.b.a.i0.a.f(this.f32322h == 1);
+            this.f32322h = 0;
+            this.f32323i = null;
             this.l = false;
             w();
         }
@@ -211,7 +211,7 @@ public abstract class a implements r, s {
     public final void o() throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            this.f32217i.a();
+            this.f32323i.a();
         }
     }
 
@@ -237,9 +237,9 @@ public abstract class a implements r, s {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048594, this, new Object[]{formatArr, oVar, Long.valueOf(j2)}) == null) {
             c.i.b.a.i0.a.f(!this.l);
-            this.f32217i = oVar;
+            this.f32323i = oVar;
             this.k = false;
-            this.f32218j = j2;
+            this.f32324j = j2;
             B(formatArr, j2);
         }
     }
@@ -248,7 +248,7 @@ public abstract class a implements r, s {
     public final void setIndex(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048595, this, i2) == null) {
-            this.f32215g = i2;
+            this.f32321g = i2;
         }
     }
 
@@ -256,8 +256,8 @@ public abstract class a implements r, s {
     public final void start() throws ExoPlaybackException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
-            c.i.b.a.i0.a.f(this.f32216h == 1);
-            this.f32216h = 2;
+            c.i.b.a.i0.a.f(this.f32322h == 1);
+            this.f32322h = 2;
             z();
         }
     }
@@ -266,8 +266,8 @@ public abstract class a implements r, s {
     public final void stop() throws ExoPlaybackException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
-            c.i.b.a.i0.a.f(this.f32216h == 2);
-            this.f32216h = 1;
+            c.i.b.a.i0.a.f(this.f32322h == 2);
+            this.f32322h = 1;
             A();
         }
     }
@@ -275,19 +275,19 @@ public abstract class a implements r, s {
     public final t t() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? this.f32214f : (t) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? this.f32320f : (t) invokeV.objValue;
     }
 
     public final int u() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? this.f32215g : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? this.f32321g : invokeV.intValue;
     }
 
     public final boolean v() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) ? this.k ? this.l : this.f32217i.isReady() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) ? this.k ? this.l : this.f32323i.isReady() : invokeV.booleanValue;
     }
 
     public abstract void w();

@@ -18,10 +18,10 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: i  reason: collision with root package name */
-    public static List<String> f44902i;
+    public static List<String> f45009i;
 
     /* renamed from: j  reason: collision with root package name */
-    public static boolean f44903j;
+    public static boolean f45010j;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -48,7 +48,7 @@ public class b {
                 return null;
             }
             int i2 = 0;
-            com.baidu.searchbox.dns.c.a k = new a.C1703a(System.currentTimeMillis(), com.baidu.searchbox.dns.d.b.o().a(str, false, 2), com.baidu.searchbox.dns.a.a.e().c(str)).k();
+            com.baidu.searchbox.dns.c.a k = new a.C1707a(System.currentTimeMillis(), com.baidu.searchbox.dns.d.b.o().a(str, false, 2), com.baidu.searchbox.dns.a.a.e().c(str)).k();
             com.baidu.searchbox.dns.d.a i3 = k.i();
             com.baidu.searchbox.dns.d.a.a h2 = k.h();
             int j2 = k.j();
@@ -141,8 +141,8 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65544, null) == null) {
             synchronized (b.class) {
-                if (f44902i != null && f44902i.size() > 0) {
-                    for (String str : f44902i) {
+                if (f45009i != null && f45009i.size() > 0) {
+                    for (String str : f45009i) {
                         b(str);
                     }
                 }
@@ -168,11 +168,11 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, str) == null) {
             synchronized (b.class) {
-                if (f44902i == null) {
-                    f44902i = new ArrayList(4);
+                if (f45009i == null) {
+                    f45009i = new ArrayList(4);
                 }
-                if (!f44902i.contains(str)) {
-                    f44902i.add(str);
+                if (!f45009i.contains(str)) {
+                    f45009i.add(str);
                 }
             }
         }
@@ -214,7 +214,7 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, aVar, i2)) == null) {
             if (i2 == 3) {
-                return a(aVar, f44903j);
+                return a(aVar, f45010j);
             }
             if (i2 == 1) {
                 return a(aVar, false);

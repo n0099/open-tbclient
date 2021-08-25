@@ -12,7 +12,7 @@ public final class e extends FutureTask<Result> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public /* synthetic */ c f75080a;
+    public /* synthetic */ c f75281a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public e(c cVar, Callable callable) {
@@ -32,7 +32,7 @@ public final class e extends FutureTask<Result> {
                 return;
             }
         }
-        this.f75080a = cVar;
+        this.f75281a = cVar;
     }
 
     @Override // java.util.concurrent.FutureTask
@@ -40,10 +40,10 @@ public final class e extends FutureTask<Result> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             try {
-                c.b(this.f75080a, super.get());
+                c.b(this.f75281a, super.get());
             } catch (Exception e2) {
-                c.b(this.f75080a, null);
-                com.sdk.base.framework.a.a.c.b("PriorityAsyncTask", e2.getMessage(), this.f75080a.f75073a);
+                c.b(this.f75281a, null);
+                com.sdk.base.framework.a.a.c.b("PriorityAsyncTask", e2.getMessage(), this.f75281a.f75274a);
             }
         }
     }

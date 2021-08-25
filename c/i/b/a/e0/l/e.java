@@ -11,7 +11,7 @@ public final class e extends i {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: j  reason: collision with root package name */
-    public final d f33271j;
+    public final d f33377j;
 
     public e(d dVar) {
         Interceptable interceptable = $ic;
@@ -28,14 +28,14 @@ public final class e extends i {
                 return;
             }
         }
-        this.f33271j = dVar;
+        this.f33377j = dVar;
     }
 
     @Override // c.i.b.a.e0.i
     public final void m() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f33271j.l(this);
+            this.f33377j.l(this);
         }
     }
 }

@@ -28,22 +28,22 @@ public class g implements Handler.Callback {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Handler f31355e;
+    public Handler f31461e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f31356f;
+    public int f31462f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f31357g;
+    public long f31463g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final SparseArray<List<Runnable>> f31358h;
+    public final SparseArray<List<Runnable>> f31464h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final List<Printer> f31359i;
+    public final List<Printer> f31465i;
 
     /* renamed from: j  reason: collision with root package name */
-    public final List<Printer> f31360j;
+    public final List<Printer> f31466j;
     public boolean k;
     public boolean l;
 
@@ -113,12 +113,12 @@ public class g implements Handler.Callback {
                 return;
             }
         }
-        this.f31356f = 0;
-        this.f31358h = new SparseArray<>();
-        this.f31359i = new LinkedList();
-        this.f31360j = new LinkedList();
+        this.f31462f = 0;
+        this.f31464h = new SparseArray<>();
+        this.f31465i = new LinkedList();
+        this.f31466j = new LinkedList();
         this.k = false;
-        this.f31355e = new Handler(i.a().getLooper(), this);
+        this.f31461e = new Handler(i.a().getLooper(), this);
         h();
     }
 
@@ -166,13 +166,13 @@ public class g implements Handler.Callback {
         }
         for (int i3 = 0; i3 < i2; i3++) {
             int i4 = (int) j2;
-            List<Runnable> list = this.f31358h.get(i4);
+            List<Runnable> list = this.f31464h.get(i4);
             if (list == null) {
-                synchronized (this.f31358h) {
-                    list = this.f31358h.get(i4);
+                synchronized (this.f31464h) {
+                    list = this.f31464h.get(i4);
                     if (list == null) {
                         list = new LinkedList<>();
-                        this.f31358h.put(i4, list);
+                        this.f31464h.put(i4, list);
                     }
                 }
             }
@@ -184,7 +184,7 @@ public class g implements Handler.Callback {
     public void d(Printer printer) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, printer) == null) {
-            this.f31360j.add(printer);
+            this.f31466j.add(printer);
         }
     }
 
@@ -195,10 +195,10 @@ public class g implements Handler.Callback {
                 h.a(32L);
                 this.l = true;
             }
-            this.f31357g = SystemClock.uptimeMillis();
+            this.f31463g = SystemClock.uptimeMillis();
             try {
-                g(this.f31359i, str);
-                this.f31355e.sendEmptyMessage(0);
+                g(this.f31465i, str);
+                this.f31461e.sendEmptyMessage(0);
             } catch (Exception e2) {
                 l.k.b(e2);
             }
@@ -243,35 +243,35 @@ public class g implements Handler.Callback {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, message)) == null) {
-            if (this.f31355e.hasMessages(0)) {
+            if (this.f31461e.hasMessages(0)) {
                 return true;
             }
             int i2 = message.what;
             if (i2 == 0) {
-                this.f31356f = 0;
-                if (this.f31358h.size() != 0 && this.f31358h.keyAt(0) == 0) {
-                    f(this.f31358h.valueAt(0));
-                    this.f31356f++;
+                this.f31462f = 0;
+                if (this.f31464h.size() != 0 && this.f31464h.keyAt(0) == 0) {
+                    f(this.f31464h.valueAt(0));
+                    this.f31462f++;
                 }
             } else if (i2 == 1) {
-                this.f31355e.removeMessages(2);
-                if (this.f31358h.size() != 0) {
-                    SparseArray<List<Runnable>> sparseArray = this.f31358h;
+                this.f31461e.removeMessages(2);
+                if (this.f31464h.size() != 0) {
+                    SparseArray<List<Runnable>> sparseArray = this.f31464h;
                     if (sparseArray.keyAt(sparseArray.size() - 1) == 0) {
-                        f(this.f31358h.get(Integer.MAX_VALUE));
+                        f(this.f31464h.get(Integer.MAX_VALUE));
                     }
                 }
                 return true;
             } else if (i2 == 2) {
-                f(this.f31358h.valueAt(this.f31356f));
-                this.f31356f++;
+                f(this.f31464h.valueAt(this.f31462f));
+                this.f31462f++;
             }
-            if (this.f31356f >= this.f31358h.size()) {
+            if (this.f31462f >= this.f31464h.size()) {
                 return true;
             }
-            long keyAt = this.f31358h.keyAt(this.f31356f);
+            long keyAt = this.f31464h.keyAt(this.f31462f);
             if (keyAt != 2147483647L) {
-                this.f31355e.sendEmptyMessageAtTime(2, this.f31357g + keyAt);
+                this.f31461e.sendEmptyMessageAtTime(2, this.f31463g + keyAt);
             }
             return true;
         }
@@ -282,7 +282,7 @@ public class g implements Handler.Callback {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, printer) == null) {
             synchronized (this) {
-                this.f31359i.add(printer);
+                this.f31465i.add(printer);
             }
         }
     }
@@ -292,9 +292,9 @@ public class g implements Handler.Callback {
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
             SystemClock.uptimeMillis();
             try {
-                this.f31355e.removeMessages(2);
-                g(this.f31360j, str);
-                this.f31355e.sendEmptyMessage(1);
+                this.f31461e.removeMessages(2);
+                g(this.f31466j, str);
+                this.f31461e.sendEmptyMessage(1);
             } catch (Exception e2) {
                 l.k.c(e2);
             }

@@ -24,16 +24,16 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final HandlerThread f35171a;
+    public static final HandlerThread f35277a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Handler f35172b;
+    public static final Handler f35278b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static long f35173c;
+    public static long f35279c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static long f35174d;
+    public static long f35280d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes4.dex */
@@ -69,17 +69,17 @@ public class b {
 
     /* renamed from: c.p.a.e.b.o.b.b$b  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public static class RunnableC1551b implements Runnable {
+    public static class RunnableC1555b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f35175e;
+        public final /* synthetic */ String f35281e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ l f35176f;
+        public final /* synthetic */ l f35282f;
 
-        public RunnableC1551b(String str, l lVar) {
+        public RunnableC1555b(String str, l lVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -94,8 +94,8 @@ public class b {
                     return;
                 }
             }
-            this.f35175e = str;
-            this.f35176f = lVar;
+            this.f35281e = str;
+            this.f35282f = lVar;
         }
 
         @Override // java.lang.Runnable
@@ -104,17 +104,17 @@ public class b {
             if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
                 return;
             }
-            if (!TextUtils.isEmpty(this.f35175e)) {
+            if (!TextUtils.isEmpty(this.f35281e)) {
                 try {
                     try {
                         List<com.ss.android.socialbase.downloader.model.c> d2 = b.d(0L, null, null);
-                        r1 = c.p.a.e.b.o.b.a.a().e(this.f35175e) ? c.p.a.e.b.o.b.a.a().b(this.f35175e, d2) : null;
+                        r1 = c.p.a.e.b.o.b.a.a().e(this.f35281e) ? c.p.a.e.b.o.b.a.a().b(this.f35281e, d2) : null;
                         if (r1 == null) {
-                            c cVar = new c(this.f35175e, d2, 0L);
+                            c cVar = new c(this.f35281e, d2, 0L);
                             try {
                                 cVar.e();
                                 if (cVar.h()) {
-                                    c.p.a.e.b.o.b.a.a().d(this.f35175e, cVar);
+                                    c.p.a.e.b.o.b.a.a().d(this.f35281e, cVar);
                                 }
                                 r1 = cVar;
                             } catch (Exception e2) {
@@ -133,8 +133,8 @@ public class b {
                             }
                         }
                         Map<String, String> l = r1.l();
-                        if (this.f35176f != null) {
-                            this.f35176f.a(l);
+                        if (this.f35282f != null) {
+                            this.f35282f.a(l);
                         }
                     } catch (Throwable th2) {
                         th = th2;
@@ -147,7 +147,7 @@ public class b {
                 } catch (Throwable unused2) {
                 }
             } else {
-                l lVar = this.f35176f;
+                l lVar = this.f35282f;
                 if (lVar != null) {
                     lVar.a(null);
                 }
@@ -168,24 +168,24 @@ public class b {
                 return;
             }
         }
-        f35171a = new HandlerThread("Downloader-preconnecter");
+        f35277a = new HandlerThread("Downloader-preconnecter");
         e();
-        f35171a.start();
-        Handler handler = new Handler(f35171a.getLooper());
-        f35172b = handler;
+        f35277a.start();
+        Handler handler = new Handler(f35277a.getLooper());
+        f35278b = handler;
         handler.post(new a());
     }
 
     public static Looper a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? f35171a.getLooper() : (Looper) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? f35277a.getLooper() : (Looper) invokeV.objValue;
     }
 
     public static void c(String str, l lVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65539, null, str, lVar) == null) {
-            f35172b.post(new RunnableC1551b(str, lVar));
+            f35278b.post(new RunnableC1555b(str, lVar));
         }
     }
 
@@ -201,8 +201,8 @@ public class b {
     public static void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null) == null) {
-            f35173c = c.p.a.e.b.j.a.r().c("preconnect_connection_outdate_time", 300000L);
-            f35174d = c.p.a.e.b.j.a.r().c("preconnect_head_info_outdate_time", 300000L);
+            f35279c = c.p.a.e.b.j.a.r().c("preconnect_connection_outdate_time", 300000L);
+            f35280d = c.p.a.e.b.j.a.r().c("preconnect_head_info_outdate_time", 300000L);
             c.p.a.e.b.o.b.a.a().c(c.p.a.e.b.j.a.r().b("preconnect_max_cache_size", 3));
         }
     }

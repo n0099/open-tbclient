@@ -13,34 +13,34 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f36801a;
+    public long f36907a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f36802b;
+    public long f36908b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f36803c;
+    public String f36909c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f36804d;
+    public String f36910d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f36805e;
+    public String f36911e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f36806f;
+    public String f36912f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f36807g;
+    public String f36913g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f36808h;
+    public String f36914h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f36809i;
+    public String f36915i;
 
     /* renamed from: j  reason: collision with root package name */
-    public String f36810j;
+    public String f36916j;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -55,16 +55,16 @@ public class b {
                 return;
             }
         }
-        this.f36801a = 0L;
-        this.f36802b = 0L;
-        this.f36803c = "";
-        this.f36804d = "";
-        this.f36805e = "";
-        this.f36806f = "";
-        this.f36807g = "";
-        this.f36808h = "";
-        this.f36809i = "";
-        this.f36810j = "";
+        this.f36907a = 0L;
+        this.f36908b = 0L;
+        this.f36909c = "";
+        this.f36910d = "";
+        this.f36911e = "";
+        this.f36912f = "";
+        this.f36913g = "";
+        this.f36914h = "";
+        this.f36915i = "";
+        this.f36916j = "";
     }
 
     public JSONObject a() throws JSONException {
@@ -72,22 +72,22 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             JSONObject jSONObject = new JSONObject();
-            long j2 = this.f36801a;
+            long j2 = this.f36907a;
             if (j2 > -1) {
                 jSONObject.put("push_priority", j2);
             }
-            long j3 = this.f36802b;
+            long j3 = this.f36908b;
             if (j3 > -1) {
                 jSONObject.put("push_version", j3);
             }
-            jSONObject.put("push_channelid", this.f36803c);
-            jSONObject.put("push_newchannelid", this.f36804d);
-            jSONObject.put("push_curpkgname", this.f36805e);
-            jSONObject.put("push_webappbindinfo", this.f36806f);
-            jSONObject.put("push_lightappbindinfo", this.f36807g);
-            jSONObject.put("push_sdkclientbindinfo", this.f36808h);
-            jSONObject.put("push_clientsbindinfo", this.f36809i);
-            jSONObject.put("push_selfbindinfo", this.f36810j);
+            jSONObject.put("push_channelid", this.f36909c);
+            jSONObject.put("push_newchannelid", this.f36910d);
+            jSONObject.put("push_curpkgname", this.f36911e);
+            jSONObject.put("push_webappbindinfo", this.f36912f);
+            jSONObject.put("push_lightappbindinfo", this.f36913g);
+            jSONObject.put("push_sdkclientbindinfo", this.f36914h);
+            jSONObject.put("push_clientsbindinfo", this.f36915i);
+            jSONObject.put("push_selfbindinfo", this.f36916j);
             return jSONObject;
         }
         return (JSONObject) invokeV.objValue;

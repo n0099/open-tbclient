@@ -5,7 +5,7 @@ import android.graphics.Bitmap;
 import android.net.Uri;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.p0.i3.h0.r;
+import c.a.q0.i3.i0.r;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -51,7 +51,7 @@ public class QRCodeStatic {
         public CustomResponsedMessage<Bitmap> run(CustomMessage<String> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) ? new CustomResponsedMessage<>(2921388, c.a.p0.u2.b.b.b.b(customMessage.getData(), TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds247))) : (CustomResponsedMessage) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) ? new CustomResponsedMessage<>(2921388, c.a.q0.u2.b.b.b.b(customMessage.getData(), TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds247))) : (CustomResponsedMessage) invokeL.objValue;
         }
     }
 
@@ -84,16 +84,16 @@ public class QRCodeStatic {
                     return null;
                 }
                 r data = customMessage.getData();
-                int i2 = data.f19978a;
+                int i2 = data.f20317a;
                 if (i2 == 0) {
-                    str = c.a.p0.u2.b.b.a.b(data.f19980c);
+                    str = c.a.q0.u2.b.b.a.b(data.f20319c);
                 } else if (i2 == 1) {
-                    str = c.a.p0.u2.b.b.a.c(data.f19981d);
+                    str = c.a.q0.u2.b.b.a.c(data.f20320d);
                 }
                 if (TextUtils.isEmpty(str)) {
-                    data.f19982e = "qr_none";
+                    data.f20321e = "qr_none";
                 } else {
-                    data.f19982e = str;
+                    data.f20321e = str;
                 }
                 return new CustomResponsedMessage<>(2921403, data);
             }

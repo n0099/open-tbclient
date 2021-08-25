@@ -105,13 +105,13 @@ public final class Util {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public boolean f36142a;
+        public boolean f36248a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f36143b;
+        public String f36249b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f36144c;
+        public int f36250c;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -126,9 +126,9 @@ public final class Util {
                     return;
                 }
             }
-            this.f36142a = false;
-            this.f36143b = null;
-            this.f36144c = 0;
+            this.f36248a = false;
+            this.f36249b = null;
+            this.f36250c = 0;
         }
     }
 
@@ -223,7 +223,7 @@ public final class Util {
             a aVar = new a();
             if (inputStream != null && file != null) {
                 if (file.exists()) {
-                    f.o(file);
+                    f.n(file);
                 }
                 FileOutputStream fileOutputStream2 = null;
                 try {
@@ -246,12 +246,12 @@ public final class Util {
                     }
                     fileOutputStream.flush();
                     fileOutputStream.close();
-                    aVar.f36142a = true;
+                    aVar.f36248a = true;
                 } catch (Exception e3) {
                     e = e3;
                     fileOutputStream2 = fileOutputStream;
-                    aVar.f36142a = false;
-                    aVar.f36143b = e.toString();
+                    aVar.f36248a = false;
+                    aVar.f36249b = e.toString();
                     c.a.e.e.m.a.d(fileOutputStream2);
                     return aVar;
                 } catch (Throwable th2) {
@@ -263,7 +263,7 @@ public final class Util {
                 c.a.e.e.m.a.d(fileOutputStream2);
                 return aVar;
             }
-            aVar.f36143b = "illegal_param";
+            aVar.f36249b = "illegal_param";
             return aVar;
         }
         return (a) invokeLL.objValue;

@@ -16,10 +16,10 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final ConcurrentHashMap<String, com.bytedance.sdk.component.video.a.c.a> f64898a;
+    public static final ConcurrentHashMap<String, com.bytedance.sdk.component.video.a.c.a> f65098a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static w f64899b;
+    public static w f65099b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -35,24 +35,24 @@ public class a {
                 return;
             }
         }
-        f64898a = new ConcurrentHashMap<>();
-        f64899b = null;
+        f65098a = new ConcurrentHashMap<>();
+        f65099b = null;
     }
 
-    public static synchronized void a(Context context, com.bytedance.sdk.component.video.b.a aVar, a.InterfaceC1887a interfaceC1887a) {
+    public static synchronized void a(Context context, com.bytedance.sdk.component.video.b.a aVar, a.InterfaceC1891a interfaceC1891a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65537, null, context, aVar, interfaceC1887a) == null) {
+        if (interceptable == null || interceptable.invokeLLL(65537, null, context, aVar, interfaceC1891a) == null) {
             synchronized (a.class) {
                 if (aVar != null) {
                     if (aVar.a()) {
                         if (Build.VERSION.SDK_INT >= 23) {
-                            com.bytedance.sdk.component.video.a.c.a aVar2 = f64898a.get(aVar.c());
+                            com.bytedance.sdk.component.video.a.c.a aVar2 = f65098a.get(aVar.c());
                             if (aVar2 == null) {
                                 aVar2 = new com.bytedance.sdk.component.video.a.c.a(context, aVar);
-                                f64898a.put(aVar.c(), aVar2);
+                                f65098a.put(aVar.c(), aVar2);
                                 c.b("VideoFileManager", "preloadVideo:  cache size = ", Long.valueOf(aVar.e()), aVar.c());
                             }
-                            aVar2.a(interfaceC1887a);
+                            aVar2.a(interfaceC1891a);
                         }
                         c.b("VideoFileManager", "preloadVideo:  cache size = ", Long.valueOf(aVar.e()), aVar.c());
                         return;
@@ -68,7 +68,7 @@ public class a {
         if (interceptable == null || interceptable.invokeL(65538, null, aVar) == null) {
             synchronized (a.class) {
                 if (Build.VERSION.SDK_INT >= 23) {
-                    com.bytedance.sdk.component.video.a.c.a remove = f64898a.remove(aVar.c());
+                    com.bytedance.sdk.component.video.a.c.a remove = f65098a.remove(aVar.c());
                     if (remove != null) {
                         remove.a(true);
                     }

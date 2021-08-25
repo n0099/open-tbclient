@@ -6,7 +6,6 @@ import android.content.pm.Signature;
 import android.os.Bundle;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
-import com.baidu.searchbox.aps.megapp_interface.BuildConfig;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -22,7 +21,7 @@ public class d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String[][] f35380a;
+    public static final String[][] f35486a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -38,7 +37,7 @@ public class d {
                 return;
             }
         }
-        f35380a = new String[][]{new String[]{"com.duowan.mobile", "7.10.0"}};
+        f35486a = new String[][]{new String[]{"com.duowan.mobile", "7.10.0"}};
     }
 
     public static int a(Context context) {
@@ -48,7 +47,7 @@ public class d {
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
             try {
                 boolean z = false;
-                for (String[] strArr2 : f35380a) {
+                for (String[] strArr2 : f35486a) {
                     if (strArr2.length > 1) {
                         String str = strArr2[0];
                         try {
@@ -146,7 +145,7 @@ public class d {
             bundle.putString("appname", c.b(context, context.getPackageName()));
             bundle.putString("appver", c.c(context));
             bundle.putString("appdeviceid", b.a(context));
-            bundle.putString(BaseStatisContent.SDKVER, BuildConfig.VERSION_NAME);
+            bundle.putString(BaseStatisContent.SDKVER, "1.0.0");
             return bundle;
         }
         return (Bundle) invokeLL.objValue;
@@ -156,7 +155,7 @@ public class d {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, context)) == null) {
-            for (String[] strArr : f35380a) {
+            for (String[] strArr : f35486a) {
                 String str = strArr[0];
                 Intent intent = new Intent();
                 intent.setClassName(str, "com.yy.udbauth.open.activity.AgentActivity");

@@ -21,13 +21,13 @@ public abstract class LoadingLayout extends FrameLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public View f60400a;
+    public View f60600a;
 
     /* renamed from: b  reason: collision with root package name */
-    public State f60401b;
+    public State f60601b;
 
     /* renamed from: c  reason: collision with root package name */
-    public State f60402c;
+    public State f60602c;
 
     /* renamed from: com.baidu.wallet.base.widget.pulltorefresh.LoadingLayout$1  reason: invalid class name */
     /* loaded from: classes8.dex */
@@ -35,7 +35,7 @@ public abstract class LoadingLayout extends FrameLayout {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f60403a;
+        public static final /* synthetic */ int[] f60603a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -52,25 +52,25 @@ public abstract class LoadingLayout extends FrameLayout {
                 }
             }
             int[] iArr = new int[State.values().length];
-            f60403a = iArr;
+            f60603a = iArr;
             try {
                 iArr[State.RESET.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f60403a[State.RELEASE_TO_REFRESH.ordinal()] = 2;
+                f60603a[State.RELEASE_TO_REFRESH.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f60403a[State.PULL_TO_REFRESH.ordinal()] = 3;
+                f60603a[State.PULL_TO_REFRESH.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
             try {
-                f60403a[State.REFRESHING.ordinal()] = 4;
+                f60603a[State.REFRESHING.ordinal()] = 4;
             } catch (NoSuchFieldError unused4) {
             }
             try {
-                f60403a[State.NO_MORE_DATA.ordinal()] = 5;
+                f60603a[State.NO_MORE_DATA.ordinal()] = 5;
             } catch (NoSuchFieldError unused5) {
             }
         }
@@ -232,22 +232,22 @@ public abstract class LoadingLayout extends FrameLayout {
     public State getPreState() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f60402c : (State) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f60602c : (State) invokeV.objValue;
     }
 
     public State getState() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f60401b : (State) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f60601b : (State) invokeV.objValue;
     }
 
     public void init(Context context, AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, context, attributeSet) == null) {
             View createLoadingView = createLoadingView(context, attributeSet);
-            this.f60400a = createLoadingView;
+            this.f60600a = createLoadingView;
             if (createLoadingView != null) {
-                addView(this.f60400a, new FrameLayout.LayoutParams(-1, -2));
+                addView(this.f60600a, new FrameLayout.LayoutParams(-1, -2));
                 return;
             }
             throw new NullPointerException("Loading view can not be null.");
@@ -293,7 +293,7 @@ public abstract class LoadingLayout extends FrameLayout {
     public void onStateChanged(State state, State state2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048587, this, state, state2) == null) {
-            int i2 = AnonymousClass1.f60403a[state.ordinal()];
+            int i2 = AnonymousClass1.f60603a[state.ordinal()];
             if (i2 == 1) {
                 onReset();
             } else if (i2 == 2) {
@@ -348,11 +348,11 @@ public abstract class LoadingLayout extends FrameLayout {
     public void setState(State state) {
         State state2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048594, this, state) == null) || (state2 = this.f60401b) == state) {
+        if (!(interceptable == null || interceptable.invokeL(1048594, this, state) == null) || (state2 = this.f60601b) == state) {
             return;
         }
-        this.f60402c = state2;
-        this.f60401b = state;
+        this.f60602c = state2;
+        this.f60601b = state;
         onStateChanged(state, state2);
     }
 
@@ -360,7 +360,7 @@ public abstract class LoadingLayout extends FrameLayout {
         ViewGroup.LayoutParams layoutParams;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048595, this, z) == null) {
-            if (z == (getVisibility() == 0) || (layoutParams = this.f60400a.getLayoutParams()) == null) {
+            if (z == (getVisibility() == 0) || (layoutParams = this.f60600a.getLayoutParams()) == null) {
                 return;
             }
             if (z) {
@@ -414,8 +414,8 @@ public abstract class LoadingLayout extends FrameLayout {
             }
         }
         State state = State.NONE;
-        this.f60401b = state;
-        this.f60402c = state;
+        this.f60601b = state;
+        this.f60602c = state;
         init(context, attributeSet);
     }
 }

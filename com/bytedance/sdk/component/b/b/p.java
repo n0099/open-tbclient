@@ -19,7 +19,7 @@ public abstract class p {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final p f64551a;
+    public static final p f64751a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes9.dex */
@@ -40,7 +40,7 @@ public abstract class p {
                 return;
             }
         }
-        f64551a = new p() { // from class: com.bytedance.sdk.component.b.b.p.1
+        f64751a = new p() { // from class: com.bytedance.sdk.component.b.b.p.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -82,7 +82,7 @@ public abstract class p {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ p f64552a;
+            public final /* synthetic */ p f64752a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -99,14 +99,14 @@ public abstract class p {
                         return;
                     }
                 }
-                this.f64552a = pVar;
+                this.f64752a = pVar;
             }
 
             @Override // com.bytedance.sdk.component.b.b.p.a
             public p a(e eVar) {
                 InterceptResult invokeL2;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeL2 = interceptable2.invokeL(1048576, this, eVar)) == null) ? this.f64552a : (p) invokeL2.objValue;
+                return (interceptable2 == null || (invokeL2 = interceptable2.invokeL(1048576, this, eVar)) == null) ? this.f64752a : (p) invokeL2.objValue;
             }
         } : (a) invokeL.objValue;
     }

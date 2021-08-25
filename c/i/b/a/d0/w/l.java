@@ -38,22 +38,22 @@ public final class l implements Loader.a<c.i.b.a.d0.u.c>, Loader.d, p, c.i.b.a.a
     public boolean H;
 
     /* renamed from: e  reason: collision with root package name */
-    public final int f33113e;
+    public final int f33219e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final b f33114f;
+    public final b f33220f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final d f33115g;
+    public final d f33221g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final c.i.b.a.h0.b f33116h;
+    public final c.i.b.a.h0.b f33222h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final Format f33117i;
+    public final Format f33223i;
 
     /* renamed from: j  reason: collision with root package name */
-    public final int f33118j;
+    public final int f33224j;
     public final Loader k;
     public final b.a l;
     public final d.b m;
@@ -77,7 +77,7 @@ public final class l implements Loader.a<c.i.b.a.d0.u.c>, Loader.d, p, c.i.b.a.a
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ l f33119e;
+        public final /* synthetic */ l f33225e;
 
         public a(l lVar) {
             Interceptable interceptable = $ic;
@@ -94,21 +94,21 @@ public final class l implements Loader.a<c.i.b.a.d0.u.c>, Loader.d, p, c.i.b.a.a
                     return;
                 }
             }
-            this.f33119e = lVar;
+            this.f33225e = lVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f33119e.F();
+                this.f33225e.F();
             }
         }
     }
 
     /* loaded from: classes4.dex */
     public interface b extends p.a<l> {
-        void i(a.C1483a c1483a);
+        void i(a.C1487a c1487a);
 
         void onPrepared();
     }
@@ -128,12 +128,12 @@ public final class l implements Loader.a<c.i.b.a.d0.u.c>, Loader.d, p, c.i.b.a.a
                 return;
             }
         }
-        this.f33113e = i2;
-        this.f33114f = bVar;
-        this.f33115g = dVar;
-        this.f33116h = bVar2;
-        this.f33117i = format;
-        this.f33118j = i3;
+        this.f33219e = i2;
+        this.f33220f = bVar;
+        this.f33221g = dVar;
+        this.f33222h = bVar2;
+        this.f33223i = format;
+        this.f33224j = i3;
         this.l = aVar;
         this.k = new Loader("Loader:HlsSampleStreamWrapper");
         this.m = new d.b();
@@ -246,14 +246,14 @@ public final class l implements Loader.a<c.i.b.a.d0.u.c>, Loader.d, p, c.i.b.a.a
         }
         t();
         this.t = true;
-        this.f33114f.onPrepared();
+        this.f33220f.onPrepared();
     }
 
     public void G() throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             this.k.a();
-            this.f33115g.e();
+            this.f33221g.e();
         }
     }
 
@@ -263,13 +263,13 @@ public final class l implements Loader.a<c.i.b.a.d0.u.c>, Loader.d, p, c.i.b.a.a
     public void l(c.i.b.a.d0.u.c cVar, long j2, long j3, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{cVar, Long.valueOf(j2), Long.valueOf(j3), Boolean.valueOf(z)}) == null) {
-            this.l.f(cVar.f32928a, cVar.f32929b, this.f33113e, cVar.f32930c, cVar.f32931d, cVar.f32932e, cVar.f32933f, cVar.f32934g, j2, j3, cVar.c());
+            this.l.f(cVar.f33034a, cVar.f33035b, this.f33219e, cVar.f33036c, cVar.f33037d, cVar.f33038e, cVar.f33039f, cVar.f33040g, j2, j3, cVar.c());
             if (z) {
                 return;
             }
             O();
             if (this.u > 0) {
-                this.f33114f.j(this);
+                this.f33220f.j(this);
             }
         }
     }
@@ -280,12 +280,12 @@ public final class l implements Loader.a<c.i.b.a.d0.u.c>, Loader.d, p, c.i.b.a.a
     public void m(c.i.b.a.d0.u.c cVar, long j2, long j3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{cVar, Long.valueOf(j2), Long.valueOf(j3)}) == null) {
-            this.f33115g.g(cVar);
-            this.l.h(cVar.f32928a, cVar.f32929b, this.f33113e, cVar.f32930c, cVar.f32931d, cVar.f32932e, cVar.f32933f, cVar.f32934g, j2, j3, cVar.c());
+            this.f33221g.g(cVar);
+            this.l.h(cVar.f33034a, cVar.f33035b, this.f33219e, cVar.f33036c, cVar.f33037d, cVar.f33038e, cVar.f33039f, cVar.f33040g, j2, j3, cVar.c());
             if (!this.t) {
                 b(this.D);
             } else {
-                this.f33114f.j(this);
+                this.f33220f.j(this);
             }
         }
     }
@@ -300,7 +300,7 @@ public final class l implements Loader.a<c.i.b.a.d0.u.c>, Loader.d, p, c.i.b.a.a
             long c2 = cVar.c();
             boolean C = C(cVar);
             boolean z = true;
-            if (!this.f33115g.h(cVar, !C || c2 == 0, iOException)) {
+            if (!this.f33221g.h(cVar, !C || c2 == 0, iOException)) {
                 z = false;
             } else if (C) {
                 c.i.b.a.i0.a.f(this.n.removeLast() == cVar);
@@ -308,13 +308,13 @@ public final class l implements Loader.a<c.i.b.a.d0.u.c>, Loader.d, p, c.i.b.a.a
                     this.E = this.D;
                 }
             }
-            this.l.j(cVar.f32928a, cVar.f32929b, this.f33113e, cVar.f32930c, cVar.f32931d, cVar.f32932e, cVar.f32933f, cVar.f32934g, j2, j3, cVar.c(), iOException, z);
+            this.l.j(cVar.f33034a, cVar.f33035b, this.f33219e, cVar.f33036c, cVar.f33037d, cVar.f33038e, cVar.f33039f, cVar.f33040g, j2, j3, cVar.c(), iOException, z);
             if (z) {
                 if (!this.t) {
                     b(this.D);
                     return 2;
                 }
-                this.f33114f.j(this);
+                this.f33220f.j(this);
                 return 2;
             }
             return 0;
@@ -322,10 +322,10 @@ public final class l implements Loader.a<c.i.b.a.d0.u.c>, Loader.d, p, c.i.b.a.a
         return invokeCommon.intValue;
     }
 
-    public void K(a.C1483a c1483a, long j2) {
+    public void K(a.C1487a c1487a, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(1048585, this, c1483a, j2) == null) {
-            this.f33115g.i(c1483a, j2);
+        if (interceptable == null || interceptable.invokeLJ(1048585, this, c1487a, j2) == null) {
+            this.f33221g.i(c1487a, j2);
         }
     }
 
@@ -442,12 +442,12 @@ public final class l implements Loader.a<c.i.b.a.d0.u.c>, Loader.d, p, c.i.b.a.a
             int i3 = 0;
             for (int i4 = 0; i4 < fVarArr.length; i4++) {
                 if (oVarArr[i4] != null && (fVarArr[i4] == null || !zArr[i4])) {
-                    U(((k) oVarArr[i4]).f33111e, false);
+                    U(((k) oVarArr[i4]).f33217e, false);
                     oVarArr[i4] = null;
                 }
             }
             boolean z4 = z || (!this.G ? j2 == this.D : i2 != 0);
-            c.i.b.a.f0.f d2 = this.f33115g.d();
+            c.i.b.a.f0.f d2 = this.f33221g.d();
             boolean z5 = z4;
             c.i.b.a.f0.f fVar = d2;
             for (int i5 = 0; i5 < fVarArr.length; i5++) {
@@ -456,7 +456,7 @@ public final class l implements Loader.a<c.i.b.a.d0.u.c>, Loader.d, p, c.i.b.a.a
                     int b2 = this.x.b(fVar2.d());
                     U(b2, true);
                     if (b2 == this.y) {
-                        this.f33115g.l(fVar2);
+                        this.f33221g.l(fVar2);
                         fVar = fVar2;
                     }
                     oVarArr[i5] = new k(this, b2);
@@ -469,7 +469,7 @@ public final class l implements Loader.a<c.i.b.a.d0.u.c>, Loader.d, p, c.i.b.a.a
                 }
             }
             if (this.u == 0) {
-                this.f33115g.j();
+                this.f33221g.j();
                 this.v = null;
                 this.n.clear();
                 if (this.k.g()) {
@@ -487,7 +487,7 @@ public final class l implements Loader.a<c.i.b.a.d0.u.c>, Loader.d, p, c.i.b.a.a
                 if (!this.n.isEmpty() && !v.a(fVar, d2)) {
                     if (!this.G) {
                         fVar.i(j2, j2 < 0 ? -j2 : 0L, -9223372036854775807L);
-                        if (fVar.e() == this.f33115g.c().b(this.n.getLast().f32930c)) {
+                        if (fVar.e() == this.f33221g.c().b(this.n.getLast().f33036c)) {
                             z3 = false;
                             if (z3) {
                                 this.F = true;
@@ -522,7 +522,7 @@ public final class l implements Loader.a<c.i.b.a.d0.u.c>, Loader.d, p, c.i.b.a.a
     public void S(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048593, this, z) == null) {
-            this.f33115g.n(z);
+            this.f33221g.n(z);
         }
     }
 
@@ -583,7 +583,7 @@ public final class l implements Loader.a<c.i.b.a.d0.u.c>, Loader.d, p, c.i.b.a.a
                     return this.q[i4];
                 }
             }
-            c.i.b.a.d0.n nVar = new c.i.b.a.d0.n(this.f33116h);
+            c.i.b.a.d0.n nVar = new c.i.b.a.d0.n(this.f33222h);
             nVar.D(this.C);
             nVar.E(this);
             int i5 = length + 1;
@@ -613,21 +613,21 @@ public final class l implements Loader.a<c.i.b.a.d0.u.c>, Loader.d, p, c.i.b.a.a
                 j3 = this.E;
             } else {
                 last = this.n.getLast();
-                j3 = last.f32934g;
+                j3 = last.f33040g;
             }
-            this.f33115g.b(last, j2, j3, this.m);
+            this.f33221g.b(last, j2, j3, this.m);
             d.b bVar = this.m;
-            boolean z = bVar.f33094b;
-            c.i.b.a.d0.u.c cVar = bVar.f33093a;
-            a.C1483a c1483a = bVar.f33095c;
+            boolean z = bVar.f33200b;
+            c.i.b.a.d0.u.c cVar = bVar.f33199a;
+            a.C1487a c1487a = bVar.f33201c;
             bVar.a();
             if (z) {
                 this.E = -9223372036854775807L;
                 this.H = true;
                 return true;
             } else if (cVar == null) {
-                if (c1483a != null) {
-                    this.f33114f.i(c1483a);
+                if (c1487a != null) {
+                    this.f33220f.i(c1487a);
                 }
                 return false;
             } else {
@@ -637,7 +637,7 @@ public final class l implements Loader.a<c.i.b.a.d0.u.c>, Loader.d, p, c.i.b.a.a
                     hVar.h(this);
                     this.n.add(hVar);
                 }
-                this.l.l(cVar.f32928a, cVar.f32929b, this.f33113e, cVar.f32930c, cVar.f32931d, cVar.f32932e, cVar.f32933f, cVar.f32934g, this.k.k(cVar, this, this.f33118j));
+                this.l.l(cVar.f33034a, cVar.f33035b, this.f33219e, cVar.f33036c, cVar.f33037d, cVar.f33038e, cVar.f33039f, cVar.f33040g, this.k.k(cVar, this, this.f33224j));
                 return true;
             }
         }
@@ -662,7 +662,7 @@ public final class l implements Loader.a<c.i.b.a.d0.u.c>, Loader.d, p, c.i.b.a.a
                 last = this.n.size() > 1 ? this.n.get(linkedList.size() - 2) : null;
             }
             if (last != null) {
-                j2 = Math.max(j2, last.f32934g);
+                j2 = Math.max(j2, last.f33040g);
             }
             for (c.i.b.a.d0.n nVar : this.q) {
                 j2 = Math.max(j2, nVar.o());
@@ -683,7 +683,7 @@ public final class l implements Loader.a<c.i.b.a.d0.u.c>, Loader.d, p, c.i.b.a.a
             if (this.H) {
                 return Long.MIN_VALUE;
             }
-            return this.n.getLast().f32934g;
+            return this.n.getLast().f33040g;
         }
         return invokeV.longValue;
     }
@@ -771,8 +771,8 @@ public final class l implements Loader.a<c.i.b.a.d0.u.c>, Loader.d, p, c.i.b.a.a
                 }
                 i2++;
             }
-            s c4 = this.f33115g.c();
-            int i4 = c4.f32918a;
+            s c4 = this.f33221g.c();
+            int i4 = c4.f33024a;
             this.y = -1;
             this.A = new boolean[length];
             this.B = new boolean[length];
@@ -791,7 +791,7 @@ public final class l implements Loader.a<c.i.b.a.d0.u.c>, Loader.d, p, c.i.b.a.a
                     sVarArr[i5] = new s(formatArr);
                     this.y = i5;
                 } else {
-                    sVarArr[i5] = new s(v((c2 == 3 && c.i.b.a.i0.i.g(q.sampleMimeType)) ? this.f33117i : null, q));
+                    sVarArr[i5] = new s(v((c2 == 3 && c.i.b.a.i0.i.g(q.sampleMimeType)) ? this.f33223i : null, q));
                 }
             }
             this.x = new t(sVarArr);
@@ -815,9 +815,9 @@ public final class l implements Loader.a<c.i.b.a.d0.u.c>, Loader.d, p, c.i.b.a.a
             this.n.removeFirst();
         }
         h first = this.n.getFirst();
-        Format format = first.f32930c;
+        Format format = first.f33036c;
         if (!format.equals(this.v)) {
-            this.l.e(this.f33113e, format, first.f32931d, first.f32932e, first.f32933f);
+            this.l.e(this.f33219e, format, first.f33037d, first.f33038e, first.f33039f);
         }
         this.v = format;
     }
@@ -828,7 +828,7 @@ public final class l implements Loader.a<c.i.b.a.d0.u.c>, Loader.d, p, c.i.b.a.a
         if (interceptable != null && (invokeL = interceptable.invokeL(1048615, this, hVar)) != null) {
             return invokeL.booleanValue;
         }
-        int i2 = hVar.f33098j;
+        int i2 = hVar.f33204j;
         int i3 = 0;
         while (true) {
             c.i.b.a.d0.n[] nVarArr = this.q;

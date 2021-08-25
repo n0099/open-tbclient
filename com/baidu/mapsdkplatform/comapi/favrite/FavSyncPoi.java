@@ -11,34 +11,34 @@ public class FavSyncPoi {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f41918a;
+    public String f42025a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f41919b;
+    public String f42026b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Point f41920c;
+    public Point f42027c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f41921d;
+    public String f42028d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f41922e;
+    public String f42029e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f41923f;
+    public String f42030f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f41924g;
+    public int f42031g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f41925h;
+    public String f42032h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f41926i;
+    public boolean f42033i;
 
     /* renamed from: j  reason: collision with root package name */
-    public String f41927j;
+    public String f42034j;
 
     public FavSyncPoi() {
         Interceptable interceptable = $ic;

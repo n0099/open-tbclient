@@ -14,10 +14,10 @@ public final class p extends BroadcastReceiver {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ m f33927a;
+    public final /* synthetic */ m f34033a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ l f33928b;
+    public final /* synthetic */ l f34034b;
 
     public p(l lVar, m mVar) {
         Interceptable interceptable = $ic;
@@ -34,8 +34,8 @@ public final class p extends BroadcastReceiver {
                 return;
             }
         }
-        this.f33928b = lVar;
-        this.f33927a = mVar;
+        this.f34034b = lVar;
+        this.f34033a = mVar;
     }
 
     @Override // android.content.BroadcastReceiver
@@ -45,15 +45,15 @@ public final class p extends BroadcastReceiver {
             String action = intent.getAction();
             Bundle extras = intent.getExtras();
             if ("com.google.android.play.core.install.ACTION_INSTALL_STATUS".equals(action) && extras != null && extras.containsKey("install.status")) {
-                this.f33928b.p();
+                this.f34034b.p();
                 int i2 = extras.getInt("install.status");
                 if (i2 == 1 || i2 == 2 || i2 == 3) {
-                    this.f33927a.a(com.google.ar.core.p.f69883a);
+                    this.f34033a.a(com.google.ar.core.p.f70083a);
                 } else if (i2 == 4) {
-                    this.f33927a.a(com.google.ar.core.p.f69885c);
+                    this.f34033a.a(com.google.ar.core.p.f70085c);
                 } else if (i2 != 6) {
                 } else {
-                    this.f33927a.a(com.google.ar.core.p.f69884b);
+                    this.f34033a.a(com.google.ar.core.p.f70084b);
                 }
             }
         }

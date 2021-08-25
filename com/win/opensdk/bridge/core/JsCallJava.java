@@ -18,16 +18,16 @@ public class JsCallJava {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f76592a;
+    public String f76793a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f76593b;
+    public String f76794b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f76594c;
+    public String f76795c;
 
     /* renamed from: d  reason: collision with root package name */
-    public JSONObject f76595d;
+    public JSONObject f76796d;
 
     public JsCallJava() {
         Interceptable interceptable = $ic;
@@ -56,29 +56,29 @@ public class JsCallJava {
         }
         if (str.startsWith("rainbow")) {
             Uri parse = Uri.parse(str);
-            this.f76592a = parse.getHost();
+            this.f76793a = parse.getHost();
             String path = parse.getPath();
             if (TextUtils.isEmpty(path)) {
-                this.f76593b = "";
+                this.f76794b = "";
             } else {
-                this.f76593b = path.replace("/", "");
+                this.f76794b = path.replace("/", "");
             }
-            this.f76594c = String.valueOf(parse.getPort());
+            this.f76795c = String.valueOf(parse.getPort());
             try {
-                this.f76595d = new JSONObject(parse.getQuery());
+                this.f76796d = new JSONObject(parse.getQuery());
             } catch (JSONException e2) {
                 e2.printStackTrace();
-                this.f76595d = new JSONObject();
+                this.f76796d = new JSONObject();
             }
         }
-        Method findMethod = NativeMethodInjectHelper.getInstance().findMethod(this.f76592a, this.f76593b);
-        JsCallback newInstance = JsCallback.newInstance(webView, this.f76594c);
+        Method findMethod = NativeMethodInjectHelper.getInstance().findMethod(this.f76793a, this.f76794b);
+        JsCallback newInstance = JsCallback.newInstance(webView, this.f76795c);
         if (findMethod == null) {
-            JsCallback.invokeJsCallback(newInstance, false, null, "Method (" + this.f76593b + ") in this class (" + this.f76592a + ") not found!");
+            JsCallback.invokeJsCallback(newInstance, false, null, "Method (" + this.f76794b + ") in this class (" + this.f76793a + ") not found!");
             return;
         }
         try {
-            findMethod.invoke(null, webView, this.f76595d, newInstance);
+            findMethod.invoke(null, webView, this.f76796d, newInstance);
         } catch (IllegalAccessException e3) {
             e3.printStackTrace();
         } catch (InvocationTargetException e4) {

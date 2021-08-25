@@ -3,40 +3,27 @@ package j.a.a.e.n;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-import java.text.DecimalFormat;
+import com.yy.mobile.framework.revenuesdk.payapi.PayType;
 /* loaded from: classes2.dex */
 public class f {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a(double d2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{Double.valueOf(d2)})) == null) {
-            long j2 = (long) d2;
-            if (d2 == ((double) j2)) {
-                return String.valueOf(j2);
-            }
-            return new DecimalFormat("#.##").format(d2);
-        }
-        return (String) invokeCommon.objValue;
-    }
-
-    public static double b(String str) {
+    public static boolean a(PayType payType) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (str == null || str.length() == 0) {
-                return 0.0d;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, payType)) == null) {
+            if (payType == null) {
+                return false;
             }
-            try {
-                return Double.valueOf(str).doubleValue();
-            } catch (Throwable unused) {
-                RLog.error("StringUtils", "safeParseDouble " + str, new Object[0]);
-                return 0.0d;
-            }
+            return b(payType.getChannel(), payType.getMethod());
         }
-        return invokeL.doubleValue;
+        return invokeL.booleanValue;
+    }
+
+    public static boolean b(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) ? PayType.DXM_PAY_KJ.getChannel().equals(str) && PayType.DXM_PAY_KJ.getMethod().equals(str2) : invokeLL.booleanValue;
     }
 }

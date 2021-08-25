@@ -2,8 +2,8 @@ package com.baidu.tieba.myCollection.baseEditMark;
 
 import androidx.core.view.InputDeviceCompat;
 import c.a.e.a.f;
-import c.a.o0.i.a;
-import c.a.p0.b2.g.c;
+import c.a.p0.i.a;
+import c.a.q0.b2.g.c;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
@@ -24,16 +24,16 @@ public class MarkModel extends BdBaseModel {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f54192e;
+    public boolean f54335e;
 
     /* renamed from: f  reason: collision with root package name */
-    public MarkData f54193f;
+    public MarkData f54336f;
 
     /* renamed from: g  reason: collision with root package name */
-    public a f54194g;
+    public a f54337g;
 
     /* renamed from: h  reason: collision with root package name */
-    public a.InterfaceC0661a f54195h;
+    public a.InterfaceC0671a f54338h;
 
     /* loaded from: classes7.dex */
     public class a extends BdAsyncTask<Boolean, Integer, Boolean> {
@@ -41,16 +41,16 @@ public class MarkModel extends BdBaseModel {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public NetWork f54196a;
+        public NetWork f54339a;
 
         /* renamed from: b  reason: collision with root package name */
-        public boolean f54197b;
+        public boolean f54340b;
 
         /* renamed from: c  reason: collision with root package name */
-        public c f54198c;
+        public c f54341c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ MarkModel f54199d;
+        public final /* synthetic */ MarkModel f54342d;
 
         public a(MarkModel markModel, boolean z) {
             Interceptable interceptable = $ic;
@@ -67,12 +67,12 @@ public class MarkModel extends BdBaseModel {
                     return;
                 }
             }
-            this.f54199d = markModel;
-            this.f54196a = null;
-            this.f54197b = true;
-            this.f54198c = null;
-            this.f54197b = z;
-            this.f54198c = new c();
+            this.f54342d = markModel;
+            this.f54339a = null;
+            this.f54340b = true;
+            this.f54341c = null;
+            this.f54340b = z;
+            this.f54341c = new c();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -82,21 +82,21 @@ public class MarkModel extends BdBaseModel {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, boolArr)) == null) {
-                if (this.f54197b) {
-                    this.f54196a = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.MARK_ADDSTORE);
-                    c.a.p0.b2.g.a aVar = new c.a.p0.b2.g.a();
-                    aVar.j(this.f54199d.f54193f);
-                    this.f54196a.addPostData("data", aVar.E(0, 1));
+                if (this.f54340b) {
+                    this.f54339a = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.MARK_ADDSTORE);
+                    c.a.q0.b2.g.a aVar = new c.a.q0.b2.g.a();
+                    aVar.j(this.f54342d.f54336f);
+                    this.f54339a.addPostData("data", aVar.E(0, 1));
                 } else {
                     NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.MARK_DELSTORE);
-                    this.f54196a = netWork;
-                    netWork.addPostData("user_id", this.f54199d.f54193f.getAccount());
-                    this.f54196a.addPostData("tid", this.f54199d.f54193f.getId());
-                    this.f54196a.addPostData("fid", this.f54199d.f54193f.getForumId());
+                    this.f54339a = netWork;
+                    netWork.addPostData("user_id", this.f54342d.f54336f.getAccount());
+                    this.f54339a.addPostData("tid", this.f54342d.f54336f.getId());
+                    this.f54339a.addPostData("fid", this.f54342d.f54336f.getForumId());
                 }
-                this.f54198c.c(this.f54196a.postNetData());
-                boolean z = this.f54198c.a() == 0;
-                if (this.f54196a.getNetContext().getResponse().isRequestSuccess() && z) {
+                this.f54341c.c(this.f54339a.postNetData());
+                boolean z = this.f54341c.a() == 0;
+                if (this.f54339a.getNetContext().getResponse().isRequestSuccess() && z) {
                     return Boolean.TRUE;
                 }
                 return Boolean.FALSE;
@@ -109,11 +109,11 @@ public class MarkModel extends BdBaseModel {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
                 super.cancel(true);
-                NetWork netWork = this.f54196a;
+                NetWork netWork = this.f54339a;
                 if (netWork != null) {
                     netWork.cancelNetConnect();
                 }
-                this.f54199d.f54194g = null;
+                this.f54342d.f54337g = null;
             }
         }
 
@@ -130,21 +130,21 @@ public class MarkModel extends BdBaseModel {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, bool) == null) {
                 try {
-                    if (this.f54198c != null) {
-                        c.a.o0.s.z.a.a("collection", 0L, 0, "add_collection_thread", this.f54198c.a(), this.f54198c.b(), new Object[0]);
+                    if (this.f54341c != null) {
+                        c.a.p0.s.z.a.a("collection", 0L, 0, "add_collection_thread", this.f54341c.a(), this.f54341c.b(), new Object[0]);
                     }
                     if (bool.booleanValue()) {
-                        if (this.f54199d.f54195h != null) {
-                            this.f54199d.f54195h.a(true, this.f54197b, null);
+                        if (this.f54342d.f54338h != null) {
+                            this.f54342d.f54338h.a(true, this.f54340b, null);
                         }
-                    } else if (this.f54199d.f54195h != null) {
-                        if (this.f54196a == null || this.f54196a.getNetContext().getResponse().isRequestSuccess()) {
-                            this.f54199d.f54195h.a(false, this.f54197b, this.f54198c.b());
+                    } else if (this.f54342d.f54338h != null) {
+                        if (this.f54339a == null || this.f54339a.getNetContext().getResponse().isRequestSuccess()) {
+                            this.f54342d.f54338h.a(false, this.f54340b, this.f54341c.b());
                         } else {
-                            this.f54199d.f54195h.a(false, this.f54197b, this.f54196a.getErrorString());
+                            this.f54342d.f54338h.a(false, this.f54340b, this.f54339a.getErrorString());
                         }
                     }
-                    this.f54199d.f54194g = null;
+                    this.f54342d.f54337g = null;
                 } catch (Throwable th) {
                     BdLog.e(th.toString());
                 }
@@ -170,44 +170,44 @@ public class MarkModel extends BdBaseModel {
                 return;
             }
         }
-        this.f54192e = false;
-        this.f54193f = null;
-        this.f54194g = null;
-        this.f54195h = null;
-        this.f54193f = new MarkData();
+        this.f54335e = false;
+        this.f54336f = null;
+        this.f54337g = null;
+        this.f54338h = null;
+        this.f54336f = new MarkData();
     }
 
     public void A() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            a aVar = this.f54194g;
+            a aVar = this.f54337g;
             if (aVar != null) {
                 aVar.cancel();
             }
             a aVar2 = new a(this, false);
-            this.f54194g = aVar2;
+            this.f54337g = aVar2;
             aVar2.setPriority(3);
-            this.f54194g.execute(new Boolean[0]);
+            this.f54337g.execute(new Boolean[0]);
         }
     }
 
     public boolean B() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f54192e : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f54335e : invokeV.booleanValue;
     }
 
     public MarkData C() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f54193f : (MarkData) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f54336f : (MarkData) invokeV.objValue;
     }
 
     public String D() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            MarkData markData = this.f54193f;
+            MarkData markData = this.f54336f;
             if (markData != null) {
                 return markData.getPostId();
             }
@@ -219,21 +219,21 @@ public class MarkModel extends BdBaseModel {
     public void E(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            this.f54192e = z;
+            this.f54335e = z;
         }
     }
 
     public void F(MarkData markData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, markData) == null) {
-            this.f54193f = markData;
+            this.f54336f = markData;
         }
     }
 
-    public void G(a.InterfaceC0661a interfaceC0661a) {
+    public void G(a.InterfaceC0671a interfaceC0671a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, interfaceC0661a) == null) {
-            this.f54195h = interfaceC0661a;
+        if (interceptable == null || interceptable.invokeL(1048582, this, interfaceC0671a) == null) {
+            this.f54338h = interfaceC0671a;
         }
     }
 
@@ -252,7 +252,7 @@ public class MarkModel extends BdBaseModel {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            a aVar = this.f54194g;
+            a aVar = this.f54337g;
             if (aVar != null) {
                 aVar.cancel();
                 return false;
@@ -265,14 +265,14 @@ public class MarkModel extends BdBaseModel {
     public void z() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            a aVar = this.f54194g;
+            a aVar = this.f54337g;
             if (aVar != null) {
                 aVar.cancel();
             }
             a aVar2 = new a(this, true);
-            this.f54194g = aVar2;
+            this.f54337g = aVar2;
             aVar2.setPriority(3);
-            this.f54194g.execute(new Boolean[0]);
+            this.f54337g.execute(new Boolean[0]);
         }
     }
 
@@ -294,10 +294,10 @@ public class MarkModel extends BdBaseModel {
                 return;
             }
         }
-        this.f54192e = false;
-        this.f54193f = null;
-        this.f54194g = null;
-        this.f54195h = null;
-        this.f54193f = new MarkData();
+        this.f54335e = false;
+        this.f54336f = null;
+        this.f54337g = null;
+        this.f54338h = null;
+        this.f54336f = new MarkData();
     }
 }

@@ -1,8 +1,8 @@
 package com.baidu.tieba.recapp.request;
 
 import android.os.Build;
-import c.a.o0.t.c.d;
-import c.a.p0.i3.j0.a;
+import c.a.p0.t.c.d;
+import c.a.q0.i3.k0.a;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
@@ -111,7 +111,7 @@ public class ShowStatisticUploadRequest extends HttpMessage {
             addParam("net_type", netType);
         }
         d adAdSense = TbadkCoreApplication.getInst().getAdAdSense();
-        task.setUrl((adAdSense == null || adAdSense.e()) ? "https://als.baidu.com/flog/logFeed" : "http://als.baidu.com/flog/logFeed");
+        task.setUrl((adAdSense == null || adAdSense.d()) ? "https://als.baidu.com/flog/logFeed" : "http://als.baidu.com/flog/logFeed");
     }
 
     public static void sendFRS(boolean z, String str, String str2, String str3, List<a.c> list, String str4) {
@@ -125,8 +125,8 @@ public class ShowStatisticUploadRequest extends HttpMessage {
                     if (cVar != null) {
                         JSONObject jSONObject = new JSONObject();
                         try {
-                            jSONObject.put("tid", cVar.f20018a);
-                            jSONObject.put("locate", cVar.f20020c);
+                            jSONObject.put("tid", cVar.f20354a);
+                            jSONObject.put("locate", cVar.f20356c);
                             jSONArray.put(jSONObject);
                         } catch (JSONException e2) {
                             BdLog.e(e2);
@@ -150,9 +150,9 @@ public class ShowStatisticUploadRequest extends HttpMessage {
                     if (cVar != null) {
                         JSONObject jSONObject = new JSONObject();
                         try {
-                            jSONObject.put("pid", cVar.f20019b);
+                            jSONObject.put("pid", cVar.f20355b);
                             jSONObject.put("tid", str4);
-                            jSONObject.put("locate", cVar.f20020c);
+                            jSONObject.put("locate", cVar.f20356c);
                             jSONArray.put(jSONObject);
                         } catch (JSONException e2) {
                             BdLog.e(e2);

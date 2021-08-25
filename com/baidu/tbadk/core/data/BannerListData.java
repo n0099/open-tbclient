@@ -2,8 +2,8 @@ package com.baidu.tbadk.core.data;
 
 import android.text.TextUtils;
 import c.a.e.e.m.b;
-import c.a.p0.a0.d0.n;
-import c.a.p0.x2.y;
+import c.a.q0.a0.d0.n;
+import c.a.q0.x2.y;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;

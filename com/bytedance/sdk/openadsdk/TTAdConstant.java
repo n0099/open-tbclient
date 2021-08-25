@@ -91,11 +91,11 @@ public class TTAdConstant {
         public static final RitScenes HOME_TRY_PROPS;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final /* synthetic */ RitScenes[] f65010b;
+        public static final /* synthetic */ RitScenes[] f65210b;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final String f65011a;
+        public final String f65211a;
 
         static {
             InterceptResult invokeClinit;
@@ -123,7 +123,7 @@ public class TTAdConstant {
             GAME_FINISH_REWARDS = new RitScenes("GAME_FINISH_REWARDS", 10, "game_finish_rewards");
             RitScenes ritScenes = new RitScenes("GAME_GIFT_BONUS", 11, "game_gift_bonus");
             GAME_GIFT_BONUS = ritScenes;
-            f65010b = new RitScenes[]{CUSTOMIZE_SCENES, HOME_OPEN_BONUS, HOME_SVIP_BONUS, HOME_GET_PROPS, HOME_TRY_PROPS, HOME_GET_BONUS, HOME_GIFT_BONUS, GAME_START_BONUS, GAME_REDUCE_WAITING, GAME_MORE_KLLKRTUNITIES, GAME_FINISH_REWARDS, ritScenes};
+            f65210b = new RitScenes[]{CUSTOMIZE_SCENES, HOME_OPEN_BONUS, HOME_SVIP_BONUS, HOME_GET_PROPS, HOME_TRY_PROPS, HOME_GET_BONUS, HOME_GIFT_BONUS, GAME_START_BONUS, GAME_REDUCE_WAITING, GAME_MORE_KLLKRTUNITIES, GAME_FINISH_REWARDS, ritScenes};
         }
 
         public RitScenes(String str, int i2, String str2) {
@@ -144,7 +144,7 @@ public class TTAdConstant {
                     return;
                 }
             }
-            this.f65011a = str2;
+            this.f65211a = str2;
         }
 
         public static RitScenes valueOf(String str) {
@@ -156,13 +156,13 @@ public class TTAdConstant {
         public static RitScenes[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (RitScenes[]) f65010b.clone() : (RitScenes[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (RitScenes[]) f65210b.clone() : (RitScenes[]) invokeV.objValue;
         }
 
         public String getScenesName() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f65011a : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f65211a : (String) invokeV.objValue;
         }
     }
 

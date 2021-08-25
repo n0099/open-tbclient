@@ -1,10 +1,10 @@
 package com.baidu.searchbox;
 
 import android.text.TextUtils;
-import c.a.g0.a.a;
-import c.a.g0.a.b.d;
+import c.a.h0.a.a;
+import c.a.h0.a.b.d;
 import c.a.p.b.b;
-import c.a.p0.d3.p;
+import c.a.q0.d3.p;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.annotation.Inject;
 import com.baidu.searchbox.anr.ubc.ANRPerfSampleCallback;
@@ -47,7 +47,7 @@ public class PerfSampleManager {
             }
         }
 
-        @Override // c.a.g0.a.a
+        @Override // c.a.h0.a.a
         public Object get() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -106,7 +106,7 @@ public class PerfSampleManager {
     public void initmCallbackList() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            c.a.g0.a.b.b b2 = c.a.g0.a.b.b.b();
+            c.a.h0.a.b.b b2 = c.a.h0.a.b.b.b();
             this.mCallbackList = b2;
             b2.a(new IPerfSampleCallback_PerfSampleManager_ListProvider());
         }

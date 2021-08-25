@@ -6,11 +6,11 @@ import android.widget.FrameLayout;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import c.a.e.e.p.l;
-import c.a.p0.i3.a0;
-import c.a.p0.i3.b0;
-import c.a.p0.v0.g2.a;
-import c.a.p0.v0.g2.b;
-import c.a.p0.v0.g2.c;
+import c.a.q0.i3.a0;
+import c.a.q0.i3.b0;
+import c.a.q0.v0.g2.a;
+import c.a.q0.v0.g2.b;
+import c.a.q0.v0.g2.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ListUtils;
@@ -29,13 +29,13 @@ public class ServiceAreaView extends FrameLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public b f51251e;
+    public b f51401e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f51252f;
+    public int f51402f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f51253g;
+    public boolean f51403g;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ServiceAreaView(@NonNull Context context) {
@@ -55,19 +55,19 @@ public class ServiceAreaView extends FrameLayout {
                 return;
             }
         }
-        this.f51252f = SkinManager.getColor(R.color.CAM_X0302);
+        this.f51402f = SkinManager.getColor(R.color.CAM_X0302);
     }
 
     public boolean isHasHotRankList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f51253g : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f51403g : invokeV.booleanValue;
     }
 
     public void onChangeSkinType(int i2) {
         b bVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) || (bVar = this.f51251e) == null) {
+        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) || (bVar = this.f51401e) == null) {
             return;
         }
         bVar.onChangeSkinType(i2);
@@ -77,41 +77,41 @@ public class ServiceAreaView extends FrameLayout {
         b0 b0Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, a0Var, frsViewData) == null) {
-            if (this.f51253g) {
+            if (this.f51403g) {
                 if (a0Var == null) {
                     a0Var = new a0();
-                    a0Var.f19876b = new ArrayList();
+                    a0Var.f20205b = new ArrayList();
                 }
-                if (!ListUtils.isEmpty(a0Var.f19876b) && (b0Var = a0Var.f19876b.get(0)) != null && getResources().getString(R.string.hot_user_rank).equals(b0Var.f19879c) && getResources().getString(R.string.hot_user_rank).equals(b0Var.f19878b)) {
-                    a0Var.f19875a--;
-                    a0Var.f19876b.remove(0);
+                if (!ListUtils.isEmpty(a0Var.f20205b) && (b0Var = a0Var.f20205b.get(0)) != null && getResources().getString(R.string.hot_user_rank).equals(b0Var.f20208c) && getResources().getString(R.string.hot_user_rank).equals(b0Var.f20207b)) {
+                    a0Var.f20204a--;
+                    a0Var.f20205b.remove(0);
                 }
-                a0Var.f19875a++;
+                a0Var.f20204a++;
                 b0 b0Var2 = new b0();
-                b0Var2.f19879c = getResources().getString(R.string.hot_user_rank);
-                b0Var2.f19878b = getResources().getString(R.string.hot_user_rank);
-                a0Var.f19876b.add(0, b0Var2);
+                b0Var2.f20208c = getResources().getString(R.string.hot_user_rank);
+                b0Var2.f20207b = getResources().getString(R.string.hot_user_rank);
+                a0Var.f20205b.add(0, b0Var2);
             }
             if (a0Var == null) {
                 return;
             }
             int g2 = l.g(getContext(), R.dimen.M_H_X001);
             int g3 = l.g(getContext(), R.dimen.M_H_X001);
-            int i2 = a0Var.f19875a;
+            int i2 = a0Var.f20204a;
             if (i2 >= 2) {
-                this.f51251e = new MultiServiceViewController(getContext());
+                this.f51401e = new MultiServiceViewController(getContext());
             } else if (i2 == 1) {
-                this.f51251e = new c(getContext());
+                this.f51401e = new c(getContext());
                 g3 = l.g(getContext(), R.dimen.tbds12);
                 g2 = l.g(getContext(), R.dimen.tbds5);
             }
             setPadding(0, g2, 0, g3);
             removeAllViews();
-            addView(this.f51251e.getView(), -1, -2);
-            this.f51251e.a(a0Var, frsViewData);
-            b bVar = this.f51251e;
+            addView(this.f51401e.getView(), -1, -2);
+            this.f51401e.a(a0Var, frsViewData);
+            b bVar = this.f51401e;
             if (bVar instanceof a) {
-                ((a) bVar).b(this.f51252f);
+                ((a) bVar).b(this.f51402f);
             }
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         }
@@ -120,15 +120,15 @@ public class ServiceAreaView extends FrameLayout {
     public void setHasHotRankList(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.f51253g = z;
+            this.f51403g = z;
         }
     }
 
     public void setThemeFontColor(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            this.f51252f = i2;
-            b bVar = this.f51251e;
+            this.f51402f = i2;
+            b bVar = this.f51401e;
             if (bVar instanceof a) {
                 ((a) bVar).b(i2);
             }
@@ -154,7 +154,7 @@ public class ServiceAreaView extends FrameLayout {
                 return;
             }
         }
-        this.f51252f = SkinManager.getColor(R.color.CAM_X0302);
+        this.f51402f = SkinManager.getColor(R.color.CAM_X0302);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -176,6 +176,6 @@ public class ServiceAreaView extends FrameLayout {
                 return;
             }
         }
-        this.f51252f = SkinManager.getColor(R.color.CAM_X0302);
+        this.f51402f = SkinManager.getColor(R.color.CAM_X0302);
     }
 }

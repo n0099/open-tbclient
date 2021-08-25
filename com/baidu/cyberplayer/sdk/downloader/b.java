@@ -149,13 +149,13 @@ public class b {
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ String f38839a;
+                    public final /* synthetic */ String f38946a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ String f38840b;
+                    public final /* synthetic */ String f38947b;
 
                     /* renamed from: c  reason: collision with root package name */
-                    public final /* synthetic */ a f38841c;
+                    public final /* synthetic */ a f38948c;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -172,16 +172,16 @@ public class b {
                                 return;
                             }
                         }
-                        this.f38839a = str4;
-                        this.f38840b = str;
-                        this.f38841c = aVar;
+                        this.f38946a = str4;
+                        this.f38947b = str;
+                        this.f38948c = aVar;
                     }
 
                     @Override // java.lang.Runnable
                     public void run() {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            b.b(this.f38839a, this.f38840b, this.f38841c);
+                            b.b(this.f38946a, this.f38947b, this.f38948c);
                         }
                     }
                 });

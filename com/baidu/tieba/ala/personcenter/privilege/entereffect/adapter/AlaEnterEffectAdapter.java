@@ -9,7 +9,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import c.a.e.k.e.a;
+import c.a.e.l.e.a;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.ala.utils.AlaStringHelper;
@@ -125,7 +125,7 @@ public class AlaEnterEffectAdapter extends a<AlaEnterEffectData, ViewHolder> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // c.a.e.k.e.a
+    @Override // c.a.e.l.e.a
     /* renamed from: i0 */
     public ViewHolder U(ViewGroup viewGroup) {
         InterceptResult invokeL;
@@ -134,7 +134,7 @@ public class AlaEnterEffectAdapter extends a<AlaEnterEffectData, ViewHolder> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // c.a.e.k.e.a
+    @Override // c.a.e.l.e.a
     /* renamed from: j0 */
     public View a0(int i2, View view, ViewGroup viewGroup, AlaEnterEffectData alaEnterEffectData, ViewHolder viewHolder) {
         InterceptResult invokeCommon;

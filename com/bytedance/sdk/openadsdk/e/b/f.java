@@ -12,13 +12,13 @@ public class f implements c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f67327a;
+    public long f67527a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f67328b;
+    public long f67528b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f67329c;
+    public int f67529c;
 
     public f() {
         Interceptable interceptable = $ic;
@@ -33,27 +33,27 @@ public class f implements c {
                 return;
             }
         }
-        this.f67329c = 0;
+        this.f67529c = 0;
     }
 
     public void a(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2) == null) {
-            this.f67327a = j2;
+            this.f67527a = j2;
         }
     }
 
     public void b(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048579, this, j2) == null) {
-            this.f67328b = j2;
+            this.f67528b = j2;
         }
     }
 
     public void a(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-            this.f67329c = i2;
+            this.f67529c = i2;
         }
     }
 
@@ -64,9 +64,9 @@ public class f implements c {
             return;
         }
         try {
-            jSONObject.put("total_duration", this.f67327a);
-            jSONObject.put("buffers_time", this.f67328b);
-            jSONObject.put("video_backup", this.f67329c);
+            jSONObject.put("total_duration", this.f67527a);
+            jSONObject.put("buffers_time", this.f67528b);
+            jSONObject.put("video_backup", this.f67529c);
         } catch (Throwable th) {
             th.printStackTrace();
         }

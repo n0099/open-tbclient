@@ -12,7 +12,7 @@ public final class g implements Comparator {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ f f59222a;
+    public final /* synthetic */ f f59422a;
 
     public g(f fVar) {
         Interceptable interceptable = $ic;
@@ -29,7 +29,7 @@ public final class g implements Comparator {
                 return;
             }
         }
-        this.f59222a = fVar;
+        this.f59422a = fVar;
     }
 
     @Override // java.util.Comparator

@@ -15,13 +15,13 @@ public class c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public InputStream f34786a;
+    public InputStream f34892a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f34787b;
+    public boolean f34893b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f34788c;
+    public int f34894c;
 
     public c(InputStream inputStream, boolean z) {
         Interceptable interceptable = $ic;
@@ -47,13 +47,13 @@ public class c {
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
             if (i2 >= 0 && i2 <= 4) {
                 int i3 = 0;
-                if (this.f34787b) {
+                if (this.f34893b) {
                     for (int i4 = (i2 - 1) * 8; i4 >= 0; i4 -= 8) {
-                        int read = this.f34786a.read();
+                        int read = this.f34892a.read();
                         if (read == -1) {
                             throw new EOFException();
                         }
-                        this.f34788c++;
+                        this.f34894c++;
                         i3 |= read << i4;
                     }
                     return i3;
@@ -61,11 +61,11 @@ public class c {
                 int i5 = i2 * 8;
                 int i6 = 0;
                 while (i3 != i5) {
-                    int read2 = this.f34786a.read();
+                    int read2 = this.f34892a.read();
                     if (read2 == -1) {
                         throw new EOFException();
                     }
-                    this.f34788c++;
+                    this.f34894c++;
                     i6 |= read2 << i3;
                     i3 += 8;
                 }
@@ -79,7 +79,7 @@ public class c {
     public final void b() {
         InputStream inputStream;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (inputStream = this.f34786a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (inputStream = this.f34892a) == null) {
             return;
         }
         try {
@@ -92,9 +92,9 @@ public class c {
     public final void c(InputStream inputStream, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, inputStream, z) == null) {
-            this.f34786a = inputStream;
-            this.f34787b = z;
-            this.f34788c = 0;
+            this.f34892a = inputStream;
+            this.f34893b = z;
+            this.f34894c = 0;
         }
     }
 
@@ -139,8 +139,8 @@ public class c {
             return;
         }
         long j2 = i2;
-        long skip = this.f34786a.skip(j2);
-        this.f34788c = (int) (this.f34788c + skip);
+        long skip = this.f34892a.skip(j2);
+        this.f34894c = (int) (this.f34894c + skip);
         if (skip != j2) {
             throw new EOFException();
         }

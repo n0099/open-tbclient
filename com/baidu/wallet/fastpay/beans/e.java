@@ -20,10 +20,10 @@ public class e extends BaseBean<Object> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f60686a;
+    public String f60886a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f60687b;
+    public String f60887b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public <T> e(Context context) {
@@ -43,15 +43,15 @@ public class e extends BaseBean<Object> {
                 return;
             }
         }
-        this.f60686a = "";
-        this.f60687b = "";
+        this.f60886a = "";
+        this.f60887b = "";
     }
 
     public void a(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
-            this.f60686a = str;
-            this.f60687b = str2;
+            this.f60886a = str;
+            this.f60887b = str2;
         }
     }
 
@@ -69,10 +69,10 @@ public class e extends BaseBean<Object> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             ArrayList arrayList = new ArrayList();
-            arrayList.add(new RestNameValuePair("mobile_num", PayUtils.encrypt("phone_number", this.f60686a)));
+            arrayList.add(new RestNameValuePair("mobile_num", PayUtils.encrypt("phone_number", this.f60886a)));
             arrayList.add(new RestNameValuePair("cmd", "1067"));
             arrayList.add(new RestNameValuePair("callback", "phonePriceInfo_common"));
-            arrayList.add(new RestNameValuePair("device_token", this.f60687b));
+            arrayList.add(new RestNameValuePair("device_token", this.f60887b));
             return arrayList;
         }
         return (List) invokeV.objValue;

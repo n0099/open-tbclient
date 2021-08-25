@@ -18,10 +18,10 @@ public class m implements com.kwad.sdk.core.b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f71430a;
+    public String f71630a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f71431b;
+    public String f71631b;
 
     public m() {
         Interceptable interceptable = $ic;
@@ -45,7 +45,7 @@ public class m implements com.kwad.sdk.core.b {
             m mVar = new m();
             AdRequestExtentParamsProxy requestExtentParamsProxy = KsAdSDKImpl.get().getRequestExtentParamsProxy();
             if (requestExtentParamsProxy != null && (extentParams = requestExtentParamsProxy.getExtentParams()) != null) {
-                mVar.f71430a = extentParams.get("user_id");
+                mVar.f71630a = extentParams.get("user_id");
             }
             return mVar;
         }
@@ -55,7 +55,7 @@ public class m implements com.kwad.sdk.core.b {
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            this.f71431b = str;
+            this.f71631b = str;
         }
     }
 
@@ -72,8 +72,8 @@ public class m implements com.kwad.sdk.core.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             JSONObject jSONObject = new JSONObject();
-            q.a(jSONObject, "user_id", this.f71430a);
-            q.a(jSONObject, "thirdUserId", this.f71431b);
+            q.a(jSONObject, "user_id", this.f71630a);
+            q.a(jSONObject, "thirdUserId", this.f71631b);
             return jSONObject;
         }
         return (JSONObject) invokeV.objValue;

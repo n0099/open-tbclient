@@ -13,7 +13,7 @@ public class dd extends al.b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public al.b f77094a;
+    public al.b f77295a;
 
     /* renamed from: a  reason: collision with other field name */
     public final /* synthetic */ db f234a;
@@ -42,9 +42,9 @@ public class dd extends al.b {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (bVar = (db.b) this.f234a.f222a.peek()) != null && bVar.a()) {
             if (this.f234a.f222a.remove(bVar)) {
-                this.f77094a = bVar;
+                this.f77295a = bVar;
             }
-            al.b bVar2 = this.f77094a;
+            al.b bVar2 = this.f77295a;
             if (bVar2 != null) {
                 bVar2.b();
             }
@@ -56,7 +56,7 @@ public class dd extends al.b {
     public void mo245c() {
         al.b bVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (bVar = this.f77094a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (bVar = this.f77295a) == null) {
             return;
         }
         bVar.mo245c();

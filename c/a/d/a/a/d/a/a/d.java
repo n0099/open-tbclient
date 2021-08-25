@@ -9,19 +9,19 @@ public class d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static byte[] f1736a;
+    public static byte[] f1961a;
     public transient /* synthetic */ FieldHolder $fh;
 
     public static byte[] a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            byte[] bArr = f1736a;
+            byte[] bArr = f1961a;
             if (bArr != null) {
                 return bArr;
             }
-            byte[] byteArray = new BigInteger(c.f1733a).modPow(new BigInteger(c.f1734b), new BigInteger(c.f1735c)).toByteArray();
-            f1736a = byteArray;
+            byte[] byteArray = new BigInteger(c.f1958a).modPow(new BigInteger(c.f1959b), new BigInteger(c.f1960c)).toByteArray();
+            f1961a = byteArray;
             return byteArray;
         }
         return (byte[]) invokeV.objValue;

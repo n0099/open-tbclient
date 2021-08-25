@@ -17,7 +17,7 @@ import android.os.ParcelFileDescriptor;
 import android.util.SparseArray;
 import androidx.core.view.InputDeviceCompat;
 import c.a.e.e.p.m;
-import c.a.e.k.d.a;
+import c.a.e.l.d.a;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.mapsdkplatform.comapi.map.r;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -1348,7 +1348,7 @@ public class BitmapHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65584, null, context, uri, i2)) == null) {
             try {
-                parcelFileDescriptor = context.getContentResolver().openFileDescriptor(uri, r.f42062a);
+                parcelFileDescriptor = context.getContentResolver().openFileDescriptor(uri, r.f42169a);
             } catch (Throwable unused) {
                 parcelFileDescriptor = null;
             }

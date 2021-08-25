@@ -10,47 +10,47 @@ public class i {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f63750a;
+    public static boolean f63950a;
     public transient /* synthetic */ FieldHolder $fh;
 
     public static void a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65539, null, z) == null) {
-            f63750a = z;
+            f63950a = z;
         }
     }
 
     public static void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) {
-            boolean z = f63750a;
+            boolean z = f63950a;
         }
     }
 
     public static void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
-            boolean z = f63750a;
+            boolean z = f63950a;
         }
     }
 
     public static void b(String str, Throwable th) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, str, th) == null) && f63750a) {
+        if ((interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, str, th) == null) && f63950a) {
             String str2 = "Stacktrace: " + Log.getStackTraceString(th);
         }
     }
 
     public static void a(String str, Throwable th) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65538, null, str, th) == null) && f63750a) {
+        if ((interceptable == null || interceptable.invokeLL(65538, null, str, th) == null) && f63950a) {
             String str2 = "Stacktrace: " + Log.getStackTraceString(th);
         }
     }
 
     public static void a(RuntimeException runtimeException) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65536, null, runtimeException) == null) && f63750a) {
+        if ((interceptable == null || interceptable.invokeL(65536, null, runtimeException) == null) && f63950a) {
             throw runtimeException;
         }
     }

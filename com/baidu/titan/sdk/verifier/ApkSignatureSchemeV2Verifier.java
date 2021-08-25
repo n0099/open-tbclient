@@ -42,7 +42,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class ApkSignatureSchemeV2Verifier {
     public static final int APK_SIGNATURE_SCHEME_V2_BLOCK_ID = 1896449818;
     public static final long APK_SIG_BLOCK_MAGIC_HI = 3617552046287187010L;
@@ -169,7 +169,7 @@ public class ApkSignatureSchemeV2Verifier {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class WrappedX509Certificate extends X509Certificate {
         public final X509Certificate wrapped;
 
@@ -651,7 +651,7 @@ public class ApkSignatureSchemeV2Verifier {
 
     public static boolean hasSignature(String str) throws IOException {
         boolean z;
-        RandomAccessFile randomAccessFile = new RandomAccessFile(str, r.f42062a);
+        RandomAccessFile randomAccessFile = new RandomAccessFile(str, r.f42169a);
         try {
             findSignature(randomAccessFile);
             z = true;
@@ -728,7 +728,7 @@ public class ApkSignatureSchemeV2Verifier {
     }
 
     public static X509Certificate[][] verify(String str) throws SignatureNotFoundException, SecurityException, IOException {
-        RandomAccessFile randomAccessFile = new RandomAccessFile(str, r.f42062a);
+        RandomAccessFile randomAccessFile = new RandomAccessFile(str, r.f42169a);
         try {
             return verify(randomAccessFile);
         } finally {
@@ -893,7 +893,7 @@ public class ApkSignatureSchemeV2Verifier {
 
     public static boolean hasSignature(File file) throws IOException {
         boolean z;
-        RandomAccessFile randomAccessFile = new RandomAccessFile(file, r.f42062a);
+        RandomAccessFile randomAccessFile = new RandomAccessFile(file, r.f42169a);
         try {
             findSignature(randomAccessFile);
             z = true;
@@ -908,7 +908,7 @@ public class ApkSignatureSchemeV2Verifier {
     }
 
     public static X509Certificate[][] verify(File file) throws SignatureNotFoundException, SecurityException, IOException {
-        RandomAccessFile randomAccessFile = new RandomAccessFile(file, r.f42062a);
+        RandomAccessFile randomAccessFile = new RandomAccessFile(file, r.f42169a);
         try {
             return verify(randomAccessFile);
         } finally {

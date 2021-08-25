@@ -11,10 +11,10 @@ public class i {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f1726a;
+    public String f1951a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f1727b;
+    public int f1952b;
 
     public i(int i2, String str, Exception exc) {
         Interceptable interceptable = $ic;
@@ -31,8 +31,8 @@ public class i {
                 return;
             }
         }
-        this.f1727b = i2;
-        this.f1726a = str;
+        this.f1952b = i2;
+        this.f1951a = str;
     }
 
     public static i a(int i2) {
@@ -56,6 +56,6 @@ public class i {
     public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f1727b == 0 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f1952b == 0 : invokeV.booleanValue;
     }
 }

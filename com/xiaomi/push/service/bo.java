@@ -17,7 +17,7 @@ public final class bo implements Runnable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ Context f77801a;
+    public final /* synthetic */ Context f78002a;
 
     /* renamed from: a  reason: collision with other field name */
     public final /* synthetic */ hj f946a;
@@ -37,7 +37,7 @@ public final class bo implements Runnable {
                 return;
             }
         }
-        this.f77801a = context;
+        this.f78002a = context;
         this.f946a = hjVar;
     }
 
@@ -72,7 +72,7 @@ public final class bo implements Runnable {
                 return;
             }
         }
-        synchronized (bn.f77800a) {
+        synchronized (bn.f78001a) {
             FileLock fileLock = null;
             r1 = null;
             FileLock fileLock2 = null;
@@ -80,12 +80,12 @@ public final class bo implements Runnable {
             try {
                 try {
                     try {
-                        File file = new File(this.f77801a.getFilesDir(), "tiny_data.lock");
+                        File file = new File(this.f78002a.getFilesDir(), "tiny_data.lock");
                         com.xiaomi.push.y.m646a(file);
                         randomAccessFile = new RandomAccessFile(file, "rw");
                         try {
                             fileLock2 = randomAccessFile.getChannel().lock();
-                            bn.c(this.f77801a, this.f946a);
+                            bn.c(this.f78002a, this.f946a);
                             fileLock = fileLock2;
                             r3 = randomAccessFile;
                             if (fileLock2 != null) {

@@ -12,7 +12,7 @@ public class u implements F {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ PBSplash f76800a;
+    public final /* synthetic */ PBSplash f77001a;
 
     public u(PBSplash pBSplash) {
         Interceptable interceptable = $ic;
@@ -29,15 +29,15 @@ public class u implements F {
                 return;
             }
         }
-        this.f76800a = pBSplash;
+        this.f77001a = pBSplash;
     }
 
     @Override // com.win.opensdk.PBListener
     public void onClicked() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f76800a.k = true;
-            PBSplashListener pBSplashListener = this.f76800a.f76476e;
+            this.f77001a.k = true;
+            PBSplashListener pBSplashListener = this.f77001a.f76677e;
             if (pBSplashListener != null) {
                 pBSplashListener.onClicked();
             }
@@ -48,7 +48,7 @@ public class u implements F {
     public void onDisplayed() {
         PBSplashListener pBSplashListener;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (pBSplashListener = this.f76800a.f76476e) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (pBSplashListener = this.f77001a.f76677e) == null) {
             return;
         }
         pBSplashListener.onDisplayed();
@@ -59,16 +59,16 @@ public class u implements F {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pBError) == null) {
             if (pBError == PBError.PID_INVALID) {
-                PBSplashListener pBSplashListener = this.f76800a.f76476e;
+                PBSplashListener pBSplashListener = this.f77001a.f76677e;
                 if (pBSplashListener != null) {
                     pBSplashListener.onFail(PBError.NO_FILL);
                     return;
                 }
                 return;
             }
-            PBSplash pBSplash = this.f76800a;
-            PBSplashListener pBSplashListener2 = pBSplash.f76476e;
-            if (pBSplashListener2 == null || pBSplash.f76481j) {
+            PBSplash pBSplash = this.f77001a;
+            PBSplashListener pBSplashListener2 = pBSplash.f76677e;
+            if (pBSplashListener2 == null || pBSplash.f76682j) {
                 return;
             }
             pBSplashListener2.onFail(PBError.NO_FILL);
@@ -78,26 +78,26 @@ public class u implements F {
     @Override // com.win.opensdk.PBListener
     public void onLoaded() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && this.f76800a.f76473b.c()) {
-            PBSplash pBSplash = this.f76800a;
-            Context context = pBSplash.f76472a;
-            A1 a1 = pBSplash.f76473b.f76398a;
-            U1.d(context, (a1 == null || !a1.b()) ? 0L : a1.f76375c.getLo_timeout());
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && this.f77001a.f76674b.c()) {
+            PBSplash pBSplash = this.f77001a;
+            Context context = pBSplash.f76673a;
+            A1 a1 = pBSplash.f76674b.f76599a;
+            U1.d(context, (a1 == null || !a1.b()) ? 0L : a1.f76576c.getLo_timeout());
             String str = "";
-            if (this.f76800a.f76473b.b().equals("image")) {
-                A1 a12 = this.f76800a.f76473b.f76398a;
+            if (this.f77001a.f76674b.b().equals("image")) {
+                A1 a12 = this.f77001a.f76674b.f76599a;
                 if (a12 != null && a12.b()) {
-                    str = a12.f76375c.getLoad();
+                    str = a12.f76576c.getLoad();
                 }
-                this.f76800a.b(str);
-            } else if (this.f76800a.f76473b.b().equals("gif")) {
-                A1 a13 = this.f76800a.f76473b.f76398a;
+                this.f77001a.b(str);
+            } else if (this.f77001a.f76674b.b().equals("gif")) {
+                A1 a13 = this.f77001a.f76674b.f76599a;
                 if (a13 != null && a13.b()) {
-                    str = a13.f76375c.getLoad();
+                    str = a13.f76576c.getLoad();
                 }
-                this.f76800a.a(str);
+                this.f77001a.a(str);
             } else {
-                PBSplashListener pBSplashListener = this.f76800a.f76476e;
+                PBSplashListener pBSplashListener = this.f77001a.f76677e;
                 if (pBSplashListener != null) {
                     pBSplashListener.onFail(PBError.LOAD_TYPE_ERROR);
                 }

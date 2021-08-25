@@ -21,22 +21,22 @@ public class PersonTabView extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f55753e;
+    public Context f55918e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f55754f;
+    public TextView f55919f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f55755g;
+    public TextView f55920g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View f55756h;
+    public View f55921h;
 
     /* renamed from: i  reason: collision with root package name */
-    public View f55757i;
+    public View f55922i;
 
     /* renamed from: j  reason: collision with root package name */
-    public View f55758j;
+    public View f55923j;
     public View k;
     public int l;
     public int m;
@@ -50,7 +50,7 @@ public class PersonTabView extends LinearLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PersonTabView f55759e;
+        public final /* synthetic */ PersonTabView f55924e;
 
         public a(PersonTabView personTabView) {
             Interceptable interceptable = $ic;
@@ -67,7 +67,7 @@ public class PersonTabView extends LinearLayout {
                     return;
                 }
             }
-            this.f55759e = personTabView;
+            this.f55924e = personTabView;
         }
 
         @Override // android.view.View.OnClickListener
@@ -75,12 +75,12 @@ public class PersonTabView extends LinearLayout {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
                 if (view.getId() == R.id.main_thread_btn) {
-                    this.f55759e.setCurrentTab(0);
+                    this.f55924e.setCurrentTab(0);
                 } else if (view.getId() == R.id.reply_btn) {
-                    this.f55759e.setCurrentTab(1);
+                    this.f55924e.setCurrentTab(1);
                 }
-                if (this.f55759e.o != null) {
-                    this.f55759e.o.onTabSelect(this.f55759e.l);
+                if (this.f55924e.o != null) {
+                    this.f55924e.o.onTabSelect(this.f55924e.l);
                 }
             }
         }
@@ -119,17 +119,17 @@ public class PersonTabView extends LinearLayout {
     public final void c(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            this.f55753e = context;
+            this.f55918e = context;
             LayoutInflater.from(context).inflate(R.layout.person_button_header_view, this);
             TextView textView = (TextView) findViewById(R.id.main_thread_btn);
-            this.f55754f = textView;
+            this.f55919f = textView;
             textView.setOnClickListener(this.p);
             TextView textView2 = (TextView) findViewById(R.id.reply_btn);
-            this.f55755g = textView2;
+            this.f55920g = textView2;
             textView2.setOnClickListener(this.p);
-            this.f55756h = findViewById(R.id.main_thread_divider);
-            this.f55757i = findViewById(R.id.reply_btn_divider);
-            this.f55758j = findViewById(R.id.main_thread_bottom_divider);
+            this.f55921h = findViewById(R.id.main_thread_divider);
+            this.f55922i = findViewById(R.id.reply_btn_divider);
+            this.f55923j = findViewById(R.id.main_thread_bottom_divider);
             this.k = findViewById(R.id.reply_btn_bottom_divider);
             setCurrentTab(0);
         }
@@ -141,17 +141,17 @@ public class PersonTabView extends LinearLayout {
             this.m = SkinManager.getColor(R.color.CAM_X0105);
             this.n = SkinManager.getColor(R.color.CAM_X0107);
             SkinManager.setBackgroundResource(this, R.drawable.item_person_header_attention_bg_selector);
-            SkinManager.setBackgroundResource(this.f55756h, R.drawable.roundline);
-            SkinManager.setBackgroundResource(this.f55757i, R.drawable.roundline);
-            SkinManager.setBackgroundColor(this.f55758j, R.color.CAM_X0204);
+            SkinManager.setBackgroundResource(this.f55921h, R.drawable.roundline);
+            SkinManager.setBackgroundResource(this.f55922i, R.drawable.roundline);
+            SkinManager.setBackgroundColor(this.f55923j, R.color.CAM_X0204);
             SkinManager.setBackgroundColor(this.k, R.color.CAM_X0204);
             int i2 = this.l;
             if (i2 == 0) {
-                this.f55754f.setTextColor(this.m);
-                this.f55755g.setTextColor(this.n);
+                this.f55919f.setTextColor(this.m);
+                this.f55920g.setTextColor(this.n);
             } else if (i2 == 1) {
-                this.f55754f.setTextColor(this.n);
-                this.f55755g.setTextColor(this.m);
+                this.f55919f.setTextColor(this.n);
+                this.f55920g.setTextColor(this.m);
             }
         }
     }
@@ -163,15 +163,15 @@ public class PersonTabView extends LinearLayout {
         }
         this.l = i2;
         if (i2 == 0) {
-            this.f55756h.setVisibility(0);
-            this.f55757i.setVisibility(4);
-            this.f55754f.setTextColor(this.m);
-            this.f55755g.setTextColor(this.n);
+            this.f55921h.setVisibility(0);
+            this.f55922i.setVisibility(4);
+            this.f55919f.setTextColor(this.m);
+            this.f55920g.setTextColor(this.n);
         } else if (i2 == 1) {
-            this.f55756h.setVisibility(4);
-            this.f55757i.setVisibility(0);
-            this.f55754f.setTextColor(this.n);
-            this.f55755g.setTextColor(this.m);
+            this.f55921h.setVisibility(4);
+            this.f55922i.setVisibility(0);
+            this.f55919f.setTextColor(this.n);
+            this.f55920g.setTextColor(this.m);
         }
     }
 

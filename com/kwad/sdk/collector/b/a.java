@@ -16,18 +16,18 @@ public class a extends d {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public C1973a f70937b;
+    public C1977a f71137b;
 
     /* renamed from: com.kwad.sdk.collector.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes10.dex */
-    public static class C1973a {
+    public static class C1977a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public List<String> f70938a;
+        public List<String> f71138a;
 
-        public C1973a(List<String> list) {
+        public C1977a(List<String> list) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -42,7 +42,7 @@ public class a extends d {
                     return;
                 }
             }
-            this.f70938a = list;
+            this.f71138a = list;
         }
 
         public JSONObject a() {
@@ -50,7 +50,7 @@ public class a extends d {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 JSONObject jSONObject = new JSONObject();
-                q.a(jSONObject, "packageName", this.f70938a);
+                q.a(jSONObject, "packageName", this.f71138a);
                 return jSONObject;
             }
             return (JSONObject) invokeV.objValue;
@@ -72,9 +72,9 @@ public class a extends d {
                 return;
             }
         }
-        C1973a c1973a = new C1973a(list);
-        this.f70937b = c1973a;
-        a("targetAppInfo", c1973a.a());
+        C1977a c1977a = new C1977a(list);
+        this.f71137b = c1977a;
+        a("targetAppInfo", c1977a.a());
         b(CommandMessage.SDK_VERSION, "3.3.11");
         a("sdkVersionCode", 3031100);
     }

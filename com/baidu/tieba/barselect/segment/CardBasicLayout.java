@@ -3,11 +3,11 @@ package com.baidu.tieba.barselect.segment;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.LinearLayout;
-import c.a.p0.x.b.d;
-import c.a.p0.x.b.e;
-import c.a.p0.x.b.f;
-import c.a.p0.x.e.a;
-import c.a.p0.x.e.c;
+import c.a.q0.x.b.d;
+import c.a.q0.x.b.e;
+import c.a.q0.x.b.f;
+import c.a.q0.x.e.a;
+import c.a.q0.x.e.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.barselect.view.VoteCandidateCard;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -68,21 +68,21 @@ public class CardBasicLayout extends LinearLayout {
                 return;
             }
             int g2 = a2.g();
-            if (g2 == c.f28256b) {
+            if (g2 == c.f28595b) {
                 if (i2 == VoteCandidateCard.MINE_VOTE) {
-                    this.status = a.f28254d;
+                    this.status = a.f28593d;
                     this.mElectionData = this.mData.f();
                     return;
                 }
-                this.status = a.f28251a;
+                this.status = a.f28590a;
                 List<d> b2 = this.mData.b();
                 if (b2 == null || b2.size() <= i2) {
                     return;
                 }
                 this.mElectionData = b2.get(i2);
-            } else if (g2 == c.f28257c) {
+            } else if (g2 == c.f28596c) {
                 if (i2 == VoteCandidateCard.MINE_VOTE) {
-                    this.status = a.f28253c;
+                    this.status = a.f28592c;
                     List<d> b3 = this.mData.b();
                     if (b3 == null || b3.size() <= 0) {
                         return;
@@ -95,7 +95,7 @@ public class CardBasicLayout extends LinearLayout {
                     }
                     return;
                 }
-                this.status = a.f28252b;
+                this.status = a.f28591b;
                 List<d> b4 = this.mData.b();
                 if (b4 == null || b4.size() <= i2) {
                     return;
@@ -103,7 +103,7 @@ public class CardBasicLayout extends LinearLayout {
                 d dVar2 = b4.get(i2);
                 this.mElectionData = dVar2;
                 if (dVar2.i() == 1 && i2 == 0) {
-                    this.status = a.f28253c;
+                    this.status = a.f28592c;
                 }
             }
         }

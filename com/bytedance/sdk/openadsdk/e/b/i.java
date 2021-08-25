@@ -11,10 +11,10 @@ public class i implements c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f67335a;
+    public String f67535a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f67336b;
+    public long f67536b;
 
     public i(String str, long j2) {
         Interceptable interceptable = $ic;
@@ -31,8 +31,8 @@ public class i implements c {
                 return;
             }
         }
-        this.f67335a = str;
-        this.f67336b = j2;
+        this.f67535a = str;
+        this.f67536b = j2;
     }
 
     @Override // com.bytedance.sdk.openadsdk.e.b.c
@@ -42,8 +42,8 @@ public class i implements c {
             return;
         }
         try {
-            jSONObject.put("preload_url", this.f67336b);
-            jSONObject.put("preload_size", this.f67336b);
+            jSONObject.put("preload_url", this.f67536b);
+            jSONObject.put("preload_size", this.f67536b);
         } catch (Throwable th) {
             th.printStackTrace();
         }

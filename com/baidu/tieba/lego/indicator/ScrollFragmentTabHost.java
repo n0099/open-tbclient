@@ -9,9 +9,9 @@ import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import androidx.core.view.InputDeviceCompat;
 import c.a.e.a.j;
-import c.a.p0.o1.d;
-import c.a.p0.o1.p.e;
-import c.a.p0.o1.q.c;
+import c.a.q0.o1.d;
+import c.a.q0.o1.p.e;
+import c.a.q0.o1.q.c;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
@@ -33,27 +33,27 @@ public class ScrollFragmentTabHost extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f53680e;
+    public Context f53822e;
 
     /* renamed from: f  reason: collision with root package name */
-    public CustomViewPager f53681f;
+    public CustomViewPager f53823f;
 
     /* renamed from: g  reason: collision with root package name */
-    public c.a.p0.o1.q.a f53682g;
+    public c.a.q0.o1.q.a f53824g;
 
     /* renamed from: h  reason: collision with root package name */
-    public NoNetworkView f53683h;
+    public NoNetworkView f53825h;
 
     /* renamed from: i  reason: collision with root package name */
-    public ScrollFragmentAdapter f53684i;
+    public ScrollFragmentAdapter f53826i;
 
     /* renamed from: j  reason: collision with root package name */
-    public List<e> f53685j;
+    public List<e> f53827j;
     public FrameLayout k;
     public c l;
     public BdUniqueId m;
     public View.OnClickListener n;
-    public c.InterfaceC1058c o;
+    public c.InterfaceC1069c o;
 
     /* loaded from: classes7.dex */
     public class a implements View.OnClickListener {
@@ -61,7 +61,7 @@ public class ScrollFragmentTabHost extends LinearLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ScrollFragmentTabHost f53686e;
+        public final /* synthetic */ ScrollFragmentTabHost f53828e;
 
         public a(ScrollFragmentTabHost scrollFragmentTabHost) {
             Interceptable interceptable = $ic;
@@ -78,29 +78,29 @@ public class ScrollFragmentTabHost extends LinearLayout {
                     return;
                 }
             }
-            this.f53686e = scrollFragmentTabHost;
+            this.f53828e = scrollFragmentTabHost;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                if (this.f53686e.isMoreWindowShowing()) {
-                    this.f53686e.dismissPopupWindow();
+                if (this.f53828e.isMoreWindowShowing()) {
+                    this.f53828e.dismissPopupWindow();
                 } else {
-                    this.f53686e.showPopupWindow();
+                    this.f53828e.showPopupWindow();
                 }
             }
         }
     }
 
     /* loaded from: classes7.dex */
-    public class b implements c.InterfaceC1058c {
+    public class b implements c.InterfaceC1069c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ScrollFragmentTabHost f53687a;
+        public final /* synthetic */ ScrollFragmentTabHost f53829a;
 
         public b(ScrollFragmentTabHost scrollFragmentTabHost) {
             Interceptable interceptable = $ic;
@@ -117,19 +117,19 @@ public class ScrollFragmentTabHost extends LinearLayout {
                     return;
                 }
             }
-            this.f53687a = scrollFragmentTabHost;
+            this.f53829a = scrollFragmentTabHost;
         }
 
-        @Override // c.a.p0.o1.q.c.InterfaceC1058c
+        @Override // c.a.q0.o1.q.c.InterfaceC1069c
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.f53687a.f53682g != null) {
-                    this.f53687a.f53682g.d();
+                if (this.f53829a.f53824g != null) {
+                    this.f53829a.f53824g.d();
                 }
-                if (this.f53687a.l != null) {
-                    this.f53687a.l.l(null);
-                    this.f53687a.l = null;
+                if (this.f53829a.l != null) {
+                    this.f53829a.l.l(null);
+                    this.f53829a.l = null;
                 }
             }
         }
@@ -166,16 +166,16 @@ public class ScrollFragmentTabHost extends LinearLayout {
         ArrayList arrayList = new ArrayList();
         for (e eVar : list) {
             if (eVar != null) {
-                arrayList.add(new c.a.p0.o1.p.c(eVar));
+                arrayList.add(new c.a.q0.o1.p.c(eVar));
             }
         }
-        this.f53685j = list;
-        ScrollFragmentAdapter scrollFragmentAdapter = this.f53684i;
+        this.f53827j = list;
+        ScrollFragmentAdapter scrollFragmentAdapter = this.f53826i;
         if (scrollFragmentAdapter != null) {
             scrollFragmentAdapter.updateList(arrayList);
-            c.a.p0.o1.q.a aVar = this.f53682g;
+            c.a.q0.o1.q.a aVar = this.f53824g;
             if (aVar != null) {
-                aVar.i(this.f53681f, i2);
+                aVar.i(this.f53823f, i2);
             }
         }
     }
@@ -183,11 +183,11 @@ public class ScrollFragmentTabHost extends LinearLayout {
     public final void d(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            this.f53680e = context;
+            this.f53822e = context;
             LayoutInflater.from(context).inflate(R.layout.lego_scroll_fragment_tabhost, (ViewGroup) this, true);
-            this.f53683h = (NoNetworkView) findViewById(R.id.view_no_network);
-            c.a.p0.o1.q.a aVar = new c.a.p0.o1.q.a(context, findViewById(R.id.tab_container));
-            this.f53682g = aVar;
+            this.f53825h = (NoNetworkView) findViewById(R.id.view_no_network);
+            c.a.q0.o1.q.a aVar = new c.a.q0.o1.q.a(context, findViewById(R.id.tab_container));
+            this.f53824g = aVar;
             aVar.h(this.n);
             this.k = (FrameLayout) findViewById(R.id.tab_widget_content_container);
         }
@@ -199,26 +199,26 @@ public class ScrollFragmentTabHost extends LinearLayout {
         if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (cVar = this.l) == null) {
             return;
         }
-        cVar.f(this.f53680e);
+        cVar.f(this.f53822e);
     }
 
     public boolean hasContentData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            ScrollFragmentAdapter scrollFragmentAdapter = this.f53684i;
+            ScrollFragmentAdapter scrollFragmentAdapter = this.f53826i;
             return scrollFragmentAdapter != null && scrollFragmentAdapter.getCount() > 0;
         }
         return invokeV.booleanValue;
     }
 
-    public void initViewPager(d dVar, c.a.p0.o1.c cVar) {
+    public void initViewPager(d dVar, c.a.q0.o1.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, dVar, cVar) == null) {
-            this.f53681f = (CustomViewPager) findViewById(R.id.tab_widget_view_pager);
-            ScrollFragmentAdapter scrollFragmentAdapter = new ScrollFragmentAdapter(this.f53680e, dVar, cVar, this.m);
-            this.f53684i = scrollFragmentAdapter;
-            this.f53681f.setAdapter(scrollFragmentAdapter);
+            this.f53823f = (CustomViewPager) findViewById(R.id.tab_widget_view_pager);
+            ScrollFragmentAdapter scrollFragmentAdapter = new ScrollFragmentAdapter(this.f53822e, dVar, cVar, this.m);
+            this.f53826i = scrollFragmentAdapter;
+            this.f53823f.setAdapter(scrollFragmentAdapter);
         }
     }
 
@@ -235,23 +235,23 @@ public class ScrollFragmentTabHost extends LinearLayout {
     public boolean isTagListEmpty() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? ListUtils.getCount(this.f53685j) <= 0 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? ListUtils.getCount(this.f53827j) <= 0 : invokeV.booleanValue;
     }
 
     public void onChangeSkinType(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-            c.a.p0.o1.q.a aVar = this.f53682g;
+            c.a.q0.o1.q.a aVar = this.f53824g;
             if (aVar != null) {
                 aVar.g(i2);
             }
             SkinManager.setBackgroundColor(this, R.color.CAM_X0201, i2);
-            ScrollFragmentAdapter scrollFragmentAdapter = this.f53684i;
+            ScrollFragmentAdapter scrollFragmentAdapter = this.f53826i;
             if (scrollFragmentAdapter != null) {
                 scrollFragmentAdapter.onChangeSkin(i2);
             }
-            if (this.f53683h != null) {
-                this.f53683h.onChangeSkinType(j.a(getContext()), i2);
+            if (this.f53825h != null) {
+                this.f53825h.onChangeSkinType(j.a(getContext()), i2);
             }
             c cVar = this.l;
             if (cVar != null) {
@@ -262,16 +262,16 @@ public class ScrollFragmentTabHost extends LinearLayout {
 
     public void setCurrentTab(int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) || i2 < 0 || i2 >= this.f53684i.getCount()) {
+        if (!(interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) || i2 < 0 || i2 >= this.f53826i.getCount()) {
             return;
         }
-        this.f53681f.setCurrentItem(i2, false);
+        this.f53823f.setCurrentItem(i2, false);
     }
 
     public void setFirstPosition(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048585, this, i2) == null) {
-            this.f53684i.setFirstPosition(i2);
+            this.f53826i.setFirstPosition(i2);
         }
     }
 
@@ -293,8 +293,8 @@ public class ScrollFragmentTabHost extends LinearLayout {
             if (this.l.j()) {
                 return;
             }
-            this.l.m(this.f53680e, this.f53685j, this.f53681f.getCurrentItem());
-            c.a.p0.o1.q.a aVar = this.f53682g;
+            this.l.m(this.f53822e, this.f53827j, this.f53823f.getCurrentItem());
+            c.a.q0.o1.q.a aVar = this.f53824g;
             if (aVar != null) {
                 aVar.j();
             }
@@ -304,7 +304,7 @@ public class ScrollFragmentTabHost extends LinearLayout {
     public void startFirstLoad(long j2, String str) {
         ScrollFragmentAdapter scrollFragmentAdapter;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeJL(1048588, this, j2, str) == null) || (scrollFragmentAdapter = this.f53684i) == null) {
+        if (!(interceptable == null || interceptable.invokeJL(1048588, this, j2, str) == null) || (scrollFragmentAdapter = this.f53826i) == null) {
             return;
         }
         scrollFragmentAdapter.startFirstLoad(j2, str);
@@ -313,7 +313,7 @@ public class ScrollFragmentTabHost extends LinearLayout {
     public void updateData(boolean z, long j2, String str, DataRes dataRes, boolean z2, int i2) {
         ScrollFragmentAdapter scrollFragmentAdapter;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048589, this, new Object[]{Boolean.valueOf(z), Long.valueOf(j2), str, dataRes, Boolean.valueOf(z2), Integer.valueOf(i2)}) == null) || (scrollFragmentAdapter = this.f53684i) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048589, this, new Object[]{Boolean.valueOf(z), Long.valueOf(j2), str, dataRes, Boolean.valueOf(z2), Integer.valueOf(i2)}) == null) || (scrollFragmentAdapter = this.f53826i) == null) {
             return;
         }
         scrollFragmentAdapter.updateItem(z, j2, str, dataRes, z2, i2);
@@ -321,16 +321,16 @@ public class ScrollFragmentTabHost extends LinearLayout {
 
     public void updateError(long j2, String str, String str2, int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048590, this, new Object[]{Long.valueOf(j2), str, str2, Integer.valueOf(i2)}) == null) || this.f53681f == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048590, this, new Object[]{Long.valueOf(j2), str, str2, Integer.valueOf(i2)}) == null) || this.f53823f == null) {
             return;
         }
-        this.f53684i.updateError(j2, str, str2, i2);
+        this.f53826i.updateError(j2, str, str2, i2);
     }
 
     public void updateHotData(long j2, String str, DataRes dataRes, boolean z) {
         ScrollFragmentAdapter scrollFragmentAdapter;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048591, this, new Object[]{Long.valueOf(j2), str, dataRes, Boolean.valueOf(z)}) == null) || (scrollFragmentAdapter = this.f53684i) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048591, this, new Object[]{Long.valueOf(j2), str, dataRes, Boolean.valueOf(z)}) == null) || (scrollFragmentAdapter = this.f53826i) == null) {
             return;
         }
         scrollFragmentAdapter.updateHotData(j2, str, dataRes, z);

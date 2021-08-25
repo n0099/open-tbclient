@@ -18,7 +18,7 @@ public class e implements c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public JSONObject f2095a;
+    public JSONObject f2153a;
 
     public e(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
@@ -35,7 +35,7 @@ public class e implements c {
                 return;
             }
         }
-        this.f2095a = jSONObject;
+        this.f2153a = jSONObject;
     }
 
     @Override // c.a.e.e.b.b.a.c.c
@@ -43,7 +43,7 @@ public class e implements c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            Iterator<String> keys = this.f2095a.keys();
+            Iterator<String> keys = this.f2153a.keys();
             if (keys != null) {
                 HashSet hashSet = new HashSet();
                 while (keys.hasNext()) {
@@ -64,7 +64,7 @@ public class e implements c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, obj) == null) {
             try {
-                this.f2095a.putOpt(str, obj);
+                this.f2153a.putOpt(str, obj);
             } catch (JSONException e2) {
                 e2.printStackTrace();
             }
@@ -90,6 +90,6 @@ public class e implements c {
     public Object d(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) ? this.f2095a.opt(str) : invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) ? this.f2153a.opt(str) : invokeL.objValue;
     }
 }

@@ -1,7 +1,7 @@
 package com.baidu.tbadk.img;
 
 import android.text.TextUtils;
-import c.a.o0.c0.c;
+import c.a.p0.c0.c;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.MessageManager;
@@ -25,10 +25,10 @@ public class GetEmotionInfosModel extends BdBaseModel {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public b f48151e;
+    public b f48258e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final HttpMessageListener f48152f;
+    public final HttpMessageListener f48259f;
 
     /* loaded from: classes6.dex */
     public class a extends HttpMessageListener {
@@ -36,7 +36,7 @@ public class GetEmotionInfosModel extends BdBaseModel {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ GetEmotionInfosModel f48153a;
+        public final /* synthetic */ GetEmotionInfosModel f48260a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(GetEmotionInfosModel getEmotionInfosModel, int i2) {
@@ -56,21 +56,21 @@ public class GetEmotionInfosModel extends BdBaseModel {
                     return;
                 }
             }
-            this.f48153a = getEmotionInfosModel;
+            this.f48260a = getEmotionInfosModel;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003353 && (httpResponsedMessage instanceof GetEmotionInfosResponseMessage) && this.f48153a.f48151e != null) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003353 && (httpResponsedMessage instanceof GetEmotionInfosResponseMessage) && this.f48260a.f48258e != null) {
                 GetEmotionInfosResponseMessage getEmotionInfosResponseMessage = (GetEmotionInfosResponseMessage) httpResponsedMessage;
                 if (getEmotionInfosResponseMessage.getEmotionList() != null) {
-                    this.f48153a.f48151e.onSuccess(getEmotionInfosResponseMessage.getEmotionList());
+                    this.f48260a.f48258e.onSuccess(getEmotionInfosResponseMessage.getEmotionList());
                 } else {
-                    this.f48153a.f48151e.onFail(getEmotionInfosResponseMessage.getError(), getEmotionInfosResponseMessage.getErrorString());
+                    this.f48260a.f48258e.onFail(getEmotionInfosResponseMessage.getError(), getEmotionInfosResponseMessage.getErrorString());
                 }
-                this.f48153a.f48151e = null;
+                this.f48260a.f48258e = null;
             }
         }
     }
@@ -95,12 +95,12 @@ public class GetEmotionInfosModel extends BdBaseModel {
                 return;
             }
         }
-        this.f48152f = new a(this, CmdConfigHttp.CMD_GET_EMOTION_INFOS);
+        this.f48259f = new a(this, CmdConfigHttp.CMD_GET_EMOTION_INFOS);
         setUniqueId(BdUniqueId.gen());
         registerTask();
-        this.f48152f.setTag(getUniqueId());
-        this.f48152f.setSelfListener(true);
-        registerListener(this.f48152f);
+        this.f48259f.setTag(getUniqueId());
+        this.f48259f.setSelfListener(true);
+        registerListener(this.f48259f);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -118,7 +118,7 @@ public class GetEmotionInfosModel extends BdBaseModel {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            MessageManager.getInstance().unRegisterListener(this.f48152f);
+            MessageManager.getInstance().unRegisterListener(this.f48259f);
             MessageManager.getInstance().unRegisterTask(CmdConfigHttp.CMD_GET_EMOTION_INFOS);
             return true;
         }
@@ -137,7 +137,7 @@ public class GetEmotionInfosModel extends BdBaseModel {
     public void y(List<String> list, b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, list, bVar) == null) {
-            this.f48151e = bVar;
+            this.f48258e = bVar;
             if (list == null || list.isEmpty()) {
                 if (bVar != null) {
                     bVar.onFail(0, "list is empty");
@@ -153,7 +153,7 @@ public class GetEmotionInfosModel extends BdBaseModel {
                 }
             }
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GET_EMOTION_INFOS);
-            httpMessage.addParam("pic_urls", c.a.o0.m.c.o(jSONArray.toString()));
+            httpMessage.addParam("pic_urls", c.a.p0.m.c.o(jSONArray.toString()));
             sendMessage(httpMessage);
         }
     }

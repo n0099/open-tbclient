@@ -13,16 +13,16 @@ public final class b extends c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f76121a;
+    public String f76322a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f76122b;
+    public String f76323b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f76123c;
+    public String f76324c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f76124d;
+    public String f76325d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(boolean z, String str) {
@@ -50,25 +50,25 @@ public final class b extends c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
             super.c(aVar);
-            aVar.a("sdk_clients", this.f76121a);
+            aVar.a("sdk_clients", this.f76322a);
             aVar.a(ZeusInitConfigUtils.PREF_KEY_SDK_VERSION, 293L);
-            aVar.a("BaseAppCommand.EXTRA_APPID", this.f76123c);
-            aVar.a("BaseAppCommand.EXTRA_APPKEY", this.f76122b);
-            aVar.a("PUSH_REGID", this.f76124d);
+            aVar.a("BaseAppCommand.EXTRA_APPID", this.f76324c);
+            aVar.a("BaseAppCommand.EXTRA_APPKEY", this.f76323b);
+            aVar.a("PUSH_REGID", this.f76325d);
         }
     }
 
     public final void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f76123c = null;
+            this.f76324c = null;
         }
     }
 
     public final void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f76122b = null;
+            this.f76323b = null;
         }
     }
 
@@ -87,10 +87,10 @@ public final class b extends c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
             super.d(aVar);
-            this.f76121a = aVar.a("sdk_clients");
-            this.f76123c = aVar.a("BaseAppCommand.EXTRA_APPID");
-            this.f76122b = aVar.a("BaseAppCommand.EXTRA_APPKEY");
-            this.f76124d = aVar.a("PUSH_REGID");
+            this.f76322a = aVar.a("sdk_clients");
+            this.f76324c = aVar.a("BaseAppCommand.EXTRA_APPID");
+            this.f76323b = aVar.a("BaseAppCommand.EXTRA_APPKEY");
+            this.f76325d = aVar.a("PUSH_REGID");
         }
     }
 }

@@ -12,16 +12,16 @@ public final class j implements ValueAnimator.AnimatorUpdateListener {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final /* synthetic */ int f33908e;
+    public final /* synthetic */ int f34014e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final /* synthetic */ int f33909f;
+    public final /* synthetic */ int f34015f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final /* synthetic */ int f33910g;
+    public final /* synthetic */ int f34016g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final /* synthetic */ InstallActivity f33911h;
+    public final /* synthetic */ InstallActivity f34017h;
 
     public j(InstallActivity installActivity, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
@@ -38,10 +38,10 @@ public final class j implements ValueAnimator.AnimatorUpdateListener {
                 return;
             }
         }
-        this.f33911h = installActivity;
-        this.f33908e = i2;
-        this.f33909f = i3;
-        this.f33910g = i4;
+        this.f34017h = installActivity;
+        this.f34014e = i2;
+        this.f34015f = i3;
+        this.f34016g = i4;
     }
 
     @Override // android.animation.ValueAnimator.AnimatorUpdateListener
@@ -50,9 +50,9 @@ public final class j implements ValueAnimator.AnimatorUpdateListener {
         if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
             float animatedFraction = 1.0f - valueAnimator.getAnimatedFraction();
             float animatedFraction2 = valueAnimator.getAnimatedFraction();
-            int i2 = this.f33909f;
-            this.f33911h.getWindow().setLayout((int) ((this.f33908e * animatedFraction) + (i2 * animatedFraction2)), (int) ((this.f33910g * animatedFraction) + (i2 * animatedFraction2)));
-            this.f33911h.getWindow().getDecorView().refreshDrawableState();
+            int i2 = this.f34015f;
+            this.f34017h.getWindow().setLayout((int) ((this.f34014e * animatedFraction) + (i2 * animatedFraction2)), (int) ((this.f34016g * animatedFraction) + (i2 * animatedFraction2)));
+            this.f34017h.getWindow().getDecorView().refreshDrawableState();
         }
     }
 }

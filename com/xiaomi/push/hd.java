@@ -15,7 +15,7 @@ public class hd {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile hd f77380a;
+    public static volatile hd f77581a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
@@ -51,14 +51,14 @@ public class hd {
                 com.xiaomi.channel.commonutils.logger.b.d("[TinyDataManager]:mContext is null, TinyDataManager.getInstance(Context) failed.");
                 return null;
             }
-            if (f77380a == null) {
+            if (f77581a == null) {
                 synchronized (hd.class) {
-                    if (f77380a == null) {
-                        f77380a = new hd(context);
+                    if (f77581a == null) {
+                        f77581a = new hd(context);
                     }
                 }
             }
-            return f77380a;
+            return f77581a;
         }
         return (hd) invokeL.objValue;
     }

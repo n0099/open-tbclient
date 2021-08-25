@@ -15,7 +15,7 @@ public class c<T> extends d<T> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public View f1918a;
+    public View f1976a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public c(f<T> fVar, int i2) {
@@ -35,21 +35,21 @@ public class c<T> extends d<T> {
                 return;
             }
         }
-        this.f1918a = null;
+        this.f1976a = null;
         View inflate = LayoutInflater.from(fVar.getContext()).inflate(i2, (ViewGroup) null);
-        this.f1918a = inflate;
+        this.f1976a = inflate;
         inflate.setTag(this);
     }
 
     public View c(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? this.f1918a.findViewById(i2) : (View) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? this.f1976a.findViewById(i2) : (View) invokeI.objValue;
     }
 
     public View d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f1918a : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f1976a : (View) invokeV.objValue;
     }
 }

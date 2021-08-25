@@ -38,22 +38,22 @@ public class FunAdDownloadView extends RelativeLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Context f51541e;
+    public final Context f51691e;
 
     /* renamed from: f  reason: collision with root package name */
-    public FunAdButton f51542f;
+    public FunAdButton f51692f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f51543g;
+    public TextView f51693g;
 
     /* renamed from: h  reason: collision with root package name */
-    public LinearLayout f51544h;
+    public LinearLayout f51694h;
 
     /* renamed from: i  reason: collision with root package name */
-    public RankStarView f51545i;
+    public RankStarView f51695i;
 
     /* renamed from: j  reason: collision with root package name */
-    public TextView f51546j;
+    public TextView f51696j;
     public TextView k;
     public TextView l;
     public ViewGroup m;
@@ -68,13 +68,13 @@ public class FunAdDownloadView extends RelativeLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Activity f51547e;
+        public final /* synthetic */ Activity f51697e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f51548f;
+        public final /* synthetic */ String f51698f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ FunAdDownloadView f51549g;
+        public final /* synthetic */ FunAdDownloadView f51699g;
 
         public a(FunAdDownloadView funAdDownloadView, Activity activity, String str) {
             Interceptable interceptable = $ic;
@@ -91,17 +91,17 @@ public class FunAdDownloadView extends RelativeLayout {
                     return;
                 }
             }
-            this.f51549g = funAdDownloadView;
-            this.f51547e = activity;
-            this.f51548f = str;
+            this.f51699g = funAdDownloadView;
+            this.f51697e = activity;
+            this.f51698f = str;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                g.i(this.f51549g.q, this.f51547e);
-                TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.FUN_AD_AUTHORITY_CLICK).param("obj_source", 6).param("obj_type", this.f51548f));
+                g.i(this.f51699g.q, this.f51697e);
+                TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.FUN_AD_AUTHORITY_CLICK).param("obj_source", 6).param("obj_type", this.f51698f));
             }
         }
     }
@@ -112,13 +112,13 @@ public class FunAdDownloadView extends RelativeLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c f51550e;
+        public final /* synthetic */ c f51700e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f51551f;
+        public final /* synthetic */ String f51701f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ FunAdDownloadView f51552g;
+        public final /* synthetic */ FunAdDownloadView f51702g;
 
         public b(FunAdDownloadView funAdDownloadView, c cVar, String str) {
             Interceptable interceptable = $ic;
@@ -135,17 +135,17 @@ public class FunAdDownloadView extends RelativeLayout {
                     return;
                 }
             }
-            this.f51552g = funAdDownloadView;
-            this.f51550e = cVar;
-            this.f51551f = str;
+            this.f51702g = funAdDownloadView;
+            this.f51700e = cVar;
+            this.f51701f = str;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                c.a.o0.m.a.e(this.f51552g.f51541e, this.f51550e.d());
-                TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.FUN_AD_PRIVACY_CLICK).param("obj_source", 6).param("obj_type", this.f51551f));
+                c.a.p0.m.a.e(this.f51702g.f51691e, this.f51700e.d());
+                TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.FUN_AD_PRIVACY_CLICK).param("obj_source", 6).param("obj_type", this.f51701f));
             }
         }
     }
@@ -156,25 +156,25 @@ public class FunAdDownloadView extends RelativeLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final CharSequence f51553a;
+        public final CharSequence f51703a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final float f51554b;
+        public final float f51704b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final String f51555c;
+        public final String f51705c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final String f51556d;
+        public final String f51706d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final String f51557e;
+        public final String f51707e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final String f51558f;
+        public final String f51708f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final String f51559g;
+        public final String f51709g;
 
         public c(@NonNull FunNativeAd funNativeAd) {
             NativeUnifiedADData nativeUnifiedADData;
@@ -196,80 +196,80 @@ public class FunAdDownloadView extends RelativeLayout {
             }
             ChannelNativeAds_6 channelNativeAds_6 = funNativeAd.getChannelNativeAds_6();
             if (channelNativeAds_6 != null && (tTNativeAd = channelNativeAds_6.csjNative) != null) {
-                this.f51554b = tTNativeAd.getAppScore();
-                this.f51555c = null;
-                this.f51556d = null;
-                this.f51557e = tTNativeAd.getSource();
-                this.f51559g = null;
-                this.f51558f = null;
-                this.f51553a = tTNativeAd.getTitle();
+                this.f51704b = tTNativeAd.getAppScore();
+                this.f51705c = null;
+                this.f51706d = null;
+                this.f51707e = tTNativeAd.getSource();
+                this.f51709g = null;
+                this.f51708f = null;
+                this.f51703a = tTNativeAd.getTitle();
             } else if (channelNativeAds_6 != null && (ksNativeAd = channelNativeAds_6.ksNative) != null) {
-                this.f51553a = ksNativeAd.getAppName();
-                this.f51554b = ksNativeAd.getAppScore() / 2.0f;
-                this.f51555c = ksNativeAd.getAppDownloadCountDes();
-                this.f51556d = TbadkCoreApplication.getInst().getString(R.string.fun_ad_item_version) + ksNativeAd.getAppVersion();
-                this.f51557e = ksNativeAd.getCorporationName();
-                this.f51559g = ksNativeAd.getPermissionInfo();
-                this.f51558f = ksNativeAd.getAppPrivacyUrl();
+                this.f51703a = ksNativeAd.getAppName();
+                this.f51704b = ksNativeAd.getAppScore() / 2.0f;
+                this.f51705c = ksNativeAd.getAppDownloadCountDes();
+                this.f51706d = TbadkCoreApplication.getInst().getString(R.string.fun_ad_item_version) + ksNativeAd.getAppVersion();
+                this.f51707e = ksNativeAd.getCorporationName();
+                this.f51709g = ksNativeAd.getPermissionInfo();
+                this.f51708f = ksNativeAd.getAppPrivacyUrl();
             } else if (channelNativeAds_6 != null && (nativeUnifiedADData = channelNativeAds_6.gdtNative) != null) {
-                this.f51553a = nativeUnifiedADData.getTitle();
-                this.f51554b = nativeUnifiedADData.getAppScore() / 2.0f;
-                this.f51555c = TbadkCoreApplication.getInst().getString(R.string.fun_ad_item_download_count, new Object[]{StringHelper.numberUniformFormat(nativeUnifiedADData.getDownloadCount())});
-                this.f51556d = null;
-                this.f51557e = null;
-                this.f51559g = null;
-                this.f51558f = null;
+                this.f51703a = nativeUnifiedADData.getTitle();
+                this.f51704b = nativeUnifiedADData.getAppScore() / 2.0f;
+                this.f51705c = TbadkCoreApplication.getInst().getString(R.string.fun_ad_item_download_count, new Object[]{StringHelper.numberUniformFormat(nativeUnifiedADData.getDownloadCount())});
+                this.f51706d = null;
+                this.f51707e = null;
+                this.f51709g = null;
+                this.f51708f = null;
             } else {
-                this.f51554b = 0.0f;
-                this.f51555c = null;
-                this.f51556d = null;
-                this.f51557e = null;
-                this.f51559g = null;
-                this.f51558f = null;
-                this.f51553a = "";
+                this.f51704b = 0.0f;
+                this.f51705c = null;
+                this.f51706d = null;
+                this.f51707e = null;
+                this.f51709g = null;
+                this.f51708f = null;
+                this.f51703a = "";
             }
         }
 
         public String a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f51559g : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f51709g : (String) invokeV.objValue;
         }
 
         public String b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f51557e : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f51707e : (String) invokeV.objValue;
         }
 
         public String c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f51555c : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f51705c : (String) invokeV.objValue;
         }
 
         public String d() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f51558f : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f51708f : (String) invokeV.objValue;
         }
 
         public String e() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f51556d : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f51706d : (String) invokeV.objValue;
         }
 
         public float f() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f51554b : invokeV.floatValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f51704b : invokeV.floatValue;
         }
 
         public CharSequence g() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f51553a : (CharSequence) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f51703a : (CharSequence) invokeV.objValue;
         }
     }
 
@@ -297,65 +297,65 @@ public class FunAdDownloadView extends RelativeLayout {
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LayoutInflater.from(this.f51541e).inflate(R.layout.fun_ad_download_info, (ViewGroup) this, true);
-            this.f51542f = (FunAdButton) findViewById(R.id.fun_ad_download_button);
-            this.f51543g = (TextView) findViewById(R.id.fun_ad_download_title);
-            this.f51544h = (LinearLayout) findViewById(R.id.fun_ad_download_score_layout);
-            this.f51545i = (RankStarView) findViewById(R.id.fun_ad_download_star);
-            this.f51546j = (TextView) findViewById(R.id.fun_ad_download_score);
+            LayoutInflater.from(this.f51691e).inflate(R.layout.fun_ad_download_info, (ViewGroup) this, true);
+            this.f51692f = (FunAdButton) findViewById(R.id.fun_ad_download_button);
+            this.f51693g = (TextView) findViewById(R.id.fun_ad_download_title);
+            this.f51694h = (LinearLayout) findViewById(R.id.fun_ad_download_score_layout);
+            this.f51695i = (RankStarView) findViewById(R.id.fun_ad_download_star);
+            this.f51696j = (TextView) findViewById(R.id.fun_ad_download_score);
             this.k = (TextView) findViewById(R.id.fun_ad_download_count);
             this.l = (TextView) findViewById(R.id.fun_ad_download_version);
             this.m = (ViewGroup) findViewById(R.id.fun_download_line_2);
             this.n = (TextView) findViewById(R.id.fun_ad_download_company);
             this.o = (TextView) findViewById(R.id.fun_ad_download_privacy);
             this.p = (TextView) findViewById(R.id.fun_ad_download_authority);
-            this.q = new EBusinessProtocolView(this.f51541e, EBusinessProtocolView.WindowType.TIP);
+            this.q = new EBusinessProtocolView(this.f51691e, EBusinessProtocolView.WindowType.TIP);
         }
     }
 
     public FunAdButton getDownloadButton() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f51542f : (FunAdButton) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f51692f : (FunAdButton) invokeV.objValue;
     }
 
     public void onSkinChanged(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            c.a.o0.s.u.c d2 = c.a.o0.s.u.c.d(this);
+            c.a.p0.s.u.c d2 = c.a.p0.s.u.c.d(this);
             d2.n(R.string.J_X05);
             d2.f(R.color.CAM_X0206);
-            c.a.o0.s.u.c.d(this.f51543g).t(R.color.CAM_X0107);
-            c.a.o0.s.u.c.d(this.l).t(R.color.CAM_X0109);
-            c.a.o0.s.u.c.d(this.f51546j).t(R.color.CAM_X0109);
-            c.a.o0.s.u.c.d(this.k).t(R.color.CAM_X0109);
-            c.a.o0.s.u.c.d(this.n).t(R.color.CAM_X0109);
-            c.a.o0.s.u.c.d(this.o).t(R.color.CAM_X0109);
-            c.a.o0.s.u.c.d(this.p).t(R.color.CAM_X0109);
-            this.f51542f.onChangeSkinType();
-            this.f51545i.onChangeSkinType(i2);
+            c.a.p0.s.u.c.d(this.f51693g).u(R.color.CAM_X0107);
+            c.a.p0.s.u.c.d(this.l).u(R.color.CAM_X0109);
+            c.a.p0.s.u.c.d(this.f51696j).u(R.color.CAM_X0109);
+            c.a.p0.s.u.c.d(this.k).u(R.color.CAM_X0109);
+            c.a.p0.s.u.c.d(this.n).u(R.color.CAM_X0109);
+            c.a.p0.s.u.c.d(this.o).u(R.color.CAM_X0109);
+            c.a.p0.s.u.c.d(this.p).u(R.color.CAM_X0109);
+            this.f51692f.onChangeSkinType();
+            this.f51695i.onChangeSkinType(i2);
         }
     }
 
     public void setViewData(FunNativeAd funNativeAd, Activity activity, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048579, this, funNativeAd, activity, str) == null) {
-            if (c.a.p0.x0.b.o(funNativeAd) && FunAdSdkSwitch.isOn()) {
+            if (c.a.q0.x0.b.o(funNativeAd) && FunAdSdkSwitch.isOn()) {
                 setVisibility(0);
                 c cVar = new c(funNativeAd);
-                this.f51543g.setText(cVar.g());
+                this.f51693g.setText(cVar.g());
                 float f2 = cVar.f();
                 if (f2 > 2.5d) {
-                    this.f51544h.setVisibility(0);
+                    this.f51694h.setVisibility(0);
                     this.k.setVisibility(8);
-                    this.f51546j.setText(String.valueOf(f2));
-                    this.f51545i.setStarCount(f2);
+                    this.f51696j.setText(String.valueOf(f2));
+                    this.f51695i.setStarCount(f2);
                 } else if (!TextUtils.isEmpty(cVar.c())) {
-                    this.f51544h.setVisibility(8);
+                    this.f51694h.setVisibility(8);
                     this.k.setVisibility(0);
                     this.k.setText(cVar.c());
                 } else {
-                    this.f51544h.setVisibility(8);
+                    this.f51694h.setVisibility(8);
                     this.k.setVisibility(8);
                 }
                 if (!TextUtils.isEmpty(cVar.e())) {
@@ -374,7 +374,7 @@ public class FunAdDownloadView extends RelativeLayout {
                 if (!TextUtils.isEmpty(cVar.a())) {
                     this.p.setVisibility(0);
                     this.q.setContent(cVar.a());
-                    this.q.setTitle(this.f51541e.getString(R.string.fun_ad_privacy_dialog_title));
+                    this.q.setTitle(this.f51691e.getString(R.string.fun_ad_privacy_dialog_title));
                     this.p.setOnClickListener(new a(this, activity, str));
                 } else {
                     this.p.setVisibility(8);
@@ -437,7 +437,7 @@ public class FunAdDownloadView extends RelativeLayout {
                 return;
             }
         }
-        this.f51541e = context;
+        this.f51691e = context;
         c();
     }
 }

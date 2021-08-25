@@ -40,16 +40,16 @@ public final class AdDownloadData implements Serializable, IDownloadModel {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final String f48929a;
+        public final String f49037a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f48930b;
+        public String f49038b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f48931c;
+        public String f49039c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f48932d;
+        public String f49040d;
 
         public b(@NonNull DownloadCacheKey downloadCacheKey) {
             Interceptable interceptable = $ic;
@@ -66,9 +66,9 @@ public final class AdDownloadData implements Serializable, IDownloadModel {
                     return;
                 }
             }
-            this.f48929a = downloadCacheKey.mAdId;
-            this.f48930b = downloadCacheKey.mDownloadUrl;
-            this.f48931c = downloadCacheKey.mPackageName;
+            this.f49037a = downloadCacheKey.mAdId;
+            this.f49038b = downloadCacheKey.mDownloadUrl;
+            this.f49039c = downloadCacheKey.mPackageName;
         }
 
         @NonNull
@@ -296,10 +296,10 @@ public final class AdDownloadData implements Serializable, IDownloadModel {
                 return;
             }
         }
-        this.mAdId = bVar.f48929a;
-        this.mPackageName = bVar.f48931c;
-        this.mDownloadUrl = bVar.f48930b;
-        this.mDeeplinkUrl = bVar.f48932d;
+        this.mAdId = bVar.f49037a;
+        this.mPackageName = bVar.f49039c;
+        this.mDownloadUrl = bVar.f49038b;
+        this.mDeeplinkUrl = bVar.f49040d;
         this.mExtra = new AdDownloadExtra(this);
     }
 }

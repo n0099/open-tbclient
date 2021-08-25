@@ -19,34 +19,34 @@ public class o {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f35003a;
+    public final String f35109a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f35004b;
+    public final String f35110b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final String f35005c;
+    public final String f35111c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final boolean f35006d;
+    public final boolean f35112d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final List<l> f35007e;
+    public final List<l> f35113e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f35008f;
+    public int f35114f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f35009g;
+    public boolean f35115g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f35010h;
+    public int f35116h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f35011i;
+    public String f35117i;
 
     /* renamed from: j  reason: collision with root package name */
-    public final AtomicLong f35012j;
+    public final AtomicLong f35118j;
 
     public o(String str, boolean z) {
         Interceptable interceptable = $ic;
@@ -63,12 +63,12 @@ public class o {
                 return;
             }
         }
-        this.f35007e = new ArrayList();
-        this.f35012j = new AtomicLong();
-        this.f35003a = str;
-        this.f35006d = z;
-        this.f35004b = null;
-        this.f35005c = null;
+        this.f35113e = new ArrayList();
+        this.f35118j = new AtomicLong();
+        this.f35109a = str;
+        this.f35112d = z;
+        this.f35110b = null;
+        this.f35111c = null;
     }
 
     public synchronized int a() {
@@ -77,7 +77,7 @@ public class o {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             synchronized (this) {
-                size = this.f35007e.size();
+                size = this.f35113e.size();
             }
             return size;
         }
@@ -108,7 +108,7 @@ public class o {
     public void c(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2) == null) {
-            this.f35012j.addAndGet(j2);
+            this.f35118j.addAndGet(j2);
         }
     }
 
@@ -116,7 +116,7 @@ public class o {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, lVar) == null) {
             synchronized (this) {
-                this.f35007e.add(lVar);
+                this.f35113e.add(lVar);
             }
         }
     }
@@ -125,8 +125,8 @@ public class o {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             synchronized (this) {
-                this.f35008f++;
-                this.f35009g = true;
+                this.f35114f++;
+                this.f35115g = true;
             }
         }
     }
@@ -151,7 +151,7 @@ public class o {
         if (interceptable == null || interceptable.invokeL(1048582, this, lVar) == null) {
             synchronized (this) {
                 try {
-                    this.f35007e.remove(lVar);
+                    this.f35113e.remove(lVar);
                 } catch (Throwable unused) {
                 }
             }
@@ -162,7 +162,7 @@ public class o {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             synchronized (this) {
-                this.f35009g = false;
+                this.f35115g = false;
             }
         }
     }
@@ -173,7 +173,7 @@ public class o {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             synchronized (this) {
-                z = this.f35009g;
+                z = this.f35115g;
             }
             return z;
         }
@@ -184,10 +184,10 @@ public class o {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            if (this.f35010h == 0) {
-                this.f35010h = i().hashCode();
+            if (this.f35116h == 0) {
+                this.f35116h = i().hashCode();
             }
-            return this.f35010h;
+            return this.f35116h;
         }
         return invokeV.intValue;
     }
@@ -196,20 +196,20 @@ public class o {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            if (this.f35011i == null) {
+            if (this.f35117i == null) {
                 StringBuilder sb = new StringBuilder();
-                sb.append(this.f35003a);
+                sb.append(this.f35109a);
                 sb.append("_");
-                String str = this.f35004b;
+                String str = this.f35110b;
                 if (str == null) {
                     str = "";
                 }
                 sb.append(str);
                 sb.append("_");
-                sb.append(this.f35006d);
-                this.f35011i = sb.toString();
+                sb.append(this.f35112d);
+                this.f35117i = sb.toString();
             }
-            return this.f35011i;
+            return this.f35117i;
         }
         return (String) invokeV.objValue;
     }
@@ -218,7 +218,7 @@ public class o {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            return "UrlRecord{url='" + this.f35003a + ExtendedMessageFormat.QUOTE + ", ip='" + this.f35004b + ExtendedMessageFormat.QUOTE + ", ipFamily='" + this.f35005c + ExtendedMessageFormat.QUOTE + ", isMainUrl=" + this.f35006d + ", failedTimes=" + this.f35008f + ", isCurrentFailed=" + this.f35009g + ExtendedMessageFormat.END_FE;
+            return "UrlRecord{url='" + this.f35109a + ExtendedMessageFormat.QUOTE + ", ip='" + this.f35110b + ExtendedMessageFormat.QUOTE + ", ipFamily='" + this.f35111c + ExtendedMessageFormat.QUOTE + ", isMainUrl=" + this.f35112d + ", failedTimes=" + this.f35114f + ", isCurrentFailed=" + this.f35115g + ExtendedMessageFormat.END_FE;
         }
         return (String) invokeV.objValue;
     }
@@ -238,11 +238,11 @@ public class o {
                 return;
             }
         }
-        this.f35007e = new ArrayList();
-        this.f35012j = new AtomicLong();
-        this.f35003a = str;
-        this.f35006d = false;
-        this.f35004b = str2;
-        this.f35005c = b(str2);
+        this.f35113e = new ArrayList();
+        this.f35118j = new AtomicLong();
+        this.f35109a = str;
+        this.f35112d = false;
+        this.f35110b = str2;
+        this.f35111c = b(str2);
     }
 }

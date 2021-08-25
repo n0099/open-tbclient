@@ -14,7 +14,7 @@ import c.a.e.e.j.b.a;
 import c.a.e.e.p.j;
 import c.a.e.e.p.k;
 import c.a.e.e.p.q;
-import c.a.o0.q0.b;
+import c.a.p0.q0.b;
 import com.baidu.adp.lib.network.http.BdHttpCancelException;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
@@ -287,19 +287,19 @@ public class NetWorkCoreByBdHttp implements INetWorkCore {
                     BdLog.e(e2.getMessage());
                     e e3 = this.manager.e();
                     if (e3 != null && e3.d() != null && handler != null) {
-                        i5 = e3.c().f2271c;
+                        i5 = e3.c().f2329c;
                         int size = e3.d().size();
                         bVar = new b();
                         if (size > 0) {
                             d dVar = e3.d().get(size - 1);
                             bVar.c(i5);
                             bVar.e(this.netContext.getResponse().mNetErrorCode);
-                            bVar.d(dVar.f2255h);
+                            bVar.d(dVar.f2313h);
                             bVar.b(dVar.q + "_" + dVar.n + "_" + dVar.l + "_" + dVar.m + "_" + dVar.o);
                             bVar.f(dVar.s);
-                            bVar.f13458f = dVar.w;
-                            bVar.f13459g = dVar.x;
-                            bVar.f13460h = dVar.y;
+                            bVar.f13749f = dVar.w;
+                            bVar.f13750g = dVar.x;
+                            bVar.f13751h = dVar.y;
                         }
                     }
                 } catch (OutOfMemoryError e4) {
@@ -308,19 +308,19 @@ public class NetWorkCoreByBdHttp implements INetWorkCore {
                     BdLog.e(e4.getMessage());
                     e e5 = this.manager.e();
                     if (e5 != null && e5.d() != null && handler != null) {
-                        i5 = e5.c().f2271c;
+                        i5 = e5.c().f2329c;
                         int size2 = e5.d().size();
                         bVar = new b();
                         if (size2 > 0) {
                             d dVar2 = e5.d().get(size2 - 1);
                             bVar.c(i5);
                             bVar.e(this.netContext.getResponse().mNetErrorCode);
-                            bVar.d(dVar2.f2255h);
+                            bVar.d(dVar2.f2313h);
                             bVar.b(dVar2.q + "_" + dVar2.n + "_" + dVar2.l + "_" + dVar2.m + "_" + dVar2.o);
                             bVar.f(dVar2.s);
-                            bVar.f13458f = dVar2.w;
-                            bVar.f13459g = dVar2.x;
-                            bVar.f13460h = dVar2.y;
+                            bVar.f13749f = dVar2.w;
+                            bVar.f13750g = dVar2.x;
+                            bVar.f13751h = dVar2.y;
                         }
                     }
                 }
@@ -385,22 +385,22 @@ public class NetWorkCoreByBdHttp implements INetWorkCore {
                         }
                     }
                 }, true, false, this.netContext.getRequest().mCanHttpsDownToHttp);
-                this.netContext.getResponse().mNetErrorCode = this.manager.e().c().f2270b;
+                this.netContext.getResponse().mNetErrorCode = this.manager.e().c().f2328b;
                 e e6 = this.manager.e();
                 if (e6 != null && e6.d() != null && handler != null) {
-                    i5 = e6.c().f2271c;
+                    i5 = e6.c().f2329c;
                     int size3 = e6.d().size();
                     bVar = new b();
                     if (size3 > 0) {
                         d dVar3 = e6.d().get(size3 - 1);
                         bVar.c(i5);
                         bVar.e(this.netContext.getResponse().mNetErrorCode);
-                        bVar.d(dVar3.f2255h);
+                        bVar.d(dVar3.f2313h);
                         bVar.b(dVar3.q + "_" + dVar3.n + "_" + dVar3.l + "_" + dVar3.m + "_" + dVar3.o);
                         bVar.f(dVar3.s);
-                        bVar.f13458f = dVar3.w;
-                        bVar.f13459g = dVar3.x;
-                        bVar.f13460h = dVar3.y;
+                        bVar.f13749f = dVar3.w;
+                        bVar.f13750g = dVar3.x;
+                        bVar.f13751h = dVar3.y;
                     }
                     handler.dispatchMessage(handler.obtainMessage(-1, i5, -1, bVar));
                 }
@@ -409,19 +409,19 @@ public class NetWorkCoreByBdHttp implements INetWorkCore {
             } finally {
                 e e7 = this.manager.e();
                 if (e7 != null && e7.d() != null && handler != null) {
-                    int i6 = e7.c().f2271c;
+                    int i6 = e7.c().f2329c;
                     int size4 = e7.d().size();
                     b bVar2 = new b();
                     if (size4 > 0) {
                         d dVar4 = e7.d().get(size4 - 1);
                         bVar2.c(i6);
                         bVar2.e(this.netContext.getResponse().mNetErrorCode);
-                        bVar2.d(dVar4.f2255h);
+                        bVar2.d(dVar4.f2313h);
                         bVar2.b(dVar4.q + "_" + dVar4.n + "_" + dVar4.l + "_" + dVar4.m + "_" + dVar4.o);
                         bVar2.f(dVar4.s);
-                        bVar2.f13458f = dVar4.w;
-                        bVar2.f13459g = dVar4.x;
-                        bVar2.f13460h = dVar4.y;
+                        bVar2.f13749f = dVar4.w;
+                        bVar2.f13750g = dVar4.x;
+                        bVar2.f13751h = dVar4.y;
                     }
                     handler.dispatchMessage(handler.obtainMessage(-1, i6, -1, bVar2));
                 }
@@ -513,7 +513,7 @@ public class NetWorkCoreByBdHttp implements INetWorkCore {
                         StringBuilder sb2 = new StringBuilder();
                         sb2.append(String.valueOf(this.netContext.getResponse().mNetErrorCode));
                         sb2.append("|retryCount:");
-                        sb2.append(this.netContext.getStat().stat != null ? this.netContext.getStat().stat.f2252e : -1);
+                        sb2.append(this.netContext.getStat().stat != null ? this.netContext.getStat().stat.f2310e : -1);
                         sb2.append("|");
                         sb2.append(BdHttpCancelException.class);
                         sb2.append("|");
@@ -529,7 +529,7 @@ public class NetWorkCoreByBdHttp implements INetWorkCore {
                         StringBuilder sb3 = new StringBuilder();
                         sb3.append(String.valueOf(this.netContext.getResponse().mNetErrorCode));
                         sb3.append("|retryCount:");
-                        sb3.append(this.netContext.getStat().stat != null ? this.netContext.getStat().stat.f2252e : -1);
+                        sb3.append(this.netContext.getStat().stat != null ? this.netContext.getStat().stat.f2310e : -1);
                         sb3.append("|");
                         sb3.append(exc.getClass());
                         sb3.append("|");
@@ -547,7 +547,7 @@ public class NetWorkCoreByBdHttp implements INetWorkCore {
                         StringBuilder sb4 = new StringBuilder();
                         sb4.append(String.valueOf(this.netContext.getResponse().mNetErrorCode));
                         sb4.append("|retryCount:");
-                        sb4.append(this.netContext.getStat().stat != null ? this.netContext.getStat().stat.f2252e : -1);
+                        sb4.append(this.netContext.getStat().stat != null ? this.netContext.getStat().stat.f2310e : -1);
                         sb4.append("|");
                         sb4.append(outOfMemoryError.getClass());
                         sb4.append("|");
@@ -565,7 +565,7 @@ public class NetWorkCoreByBdHttp implements INetWorkCore {
                         StringBuilder sb5 = new StringBuilder();
                         sb5.append(String.valueOf(this.netContext.getResponse().mNetErrorCode));
                         sb5.append("|retryCount:");
-                        sb5.append(this.netContext.getStat().stat != null ? this.netContext.getStat().stat.f2252e : -1);
+                        sb5.append(this.netContext.getStat().stat != null ? this.netContext.getStat().stat.f2310e : -1);
                         sb5.append("|");
                         sb5.append(socketException.getClass());
                         sb5.append("|");
@@ -582,7 +582,7 @@ public class NetWorkCoreByBdHttp implements INetWorkCore {
                         StringBuilder sb6 = new StringBuilder();
                         sb6.append(String.valueOf(this.netContext.getResponse().mNetErrorCode));
                         sb6.append("|retryCount:");
-                        sb6.append(this.netContext.getStat().stat != null ? this.netContext.getStat().stat.f2252e : -1);
+                        sb6.append(this.netContext.getStat().stat != null ? this.netContext.getStat().stat.f2310e : -1);
                         sb6.append("|");
                         sb6.append(socketTimeoutException.getClass());
                         sb6.append("|");
@@ -597,23 +597,23 @@ public class NetWorkCoreByBdHttp implements INetWorkCore {
                 if (gVar == null) {
                     return null;
                 }
-                this.netContext.getResponse().mNetErrorCode = gVar.f2270b;
+                this.netContext.getResponse().mNetErrorCode = gVar.f2328b;
                 if (this.netContext.getResponse().mNetErrorCode != 200) {
                     this.netContext.getResponse().mErrorString = this.mContext.getResources().getString(R.string.neterror);
-                    if (this.netContext.getStat().stat != null && !TextUtils.isEmpty(this.netContext.getStat().stat.f2255h)) {
-                        this.netContext.getResponse().mException = this.netContext.getStat().stat.f2255h;
+                    if (this.netContext.getStat().stat != null && !TextUtils.isEmpty(this.netContext.getStat().stat.f2313h)) {
+                        this.netContext.getResponse().mException = this.netContext.getStat().stat.f2313h;
                     } else {
                         HttpResponse response6 = this.netContext.getResponse();
                         StringBuilder sb7 = new StringBuilder();
                         sb7.append(String.valueOf(this.netContext.getResponse().mNetErrorCode));
                         sb7.append("|retryCount:");
-                        sb7.append(this.netContext.getStat().stat == null ? -1 : this.netContext.getStat().stat.f2252e);
+                        sb7.append(this.netContext.getStat().stat == null ? -1 : this.netContext.getStat().stat.f2310e);
                         response6.mException = sb7.toString();
                     }
                     TiebaStatic.net(this.netContext);
                     return null;
                 }
-                if (TbadkCoreApplication.getInst().isMainProcess(true) && (str3 = gVar.f2274f) != null) {
+                if (TbadkCoreApplication.getInst().isMainProcess(true) && (str3 = gVar.f2332f) != null) {
                     try {
                         int parseInt = Integer.parseInt(str3);
                         if (parseInt > MAX_DATA_LENG) {
@@ -624,7 +624,7 @@ public class NetWorkCoreByBdHttp implements INetWorkCore {
                         int i3 = parseInt * 10;
                         if (i3 > 0) {
                             BdLog.isDebugMode();
-                            if (!c.a.o0.b0.c.k().i(i3)) {
+                            if (!c.a.p0.b0.c.k().i(i3)) {
                                 BdLog.d("Image download cacelled. out of memory. url:[" + this.netContext.getRequest().getNetWorkParam().mUrl + "], size:" + i3);
                                 this.netContext.getResponse().mNetErrorCode = -16;
                                 TiebaStatic.net(this.netContext);
@@ -636,15 +636,15 @@ public class NetWorkCoreByBdHttp implements INetWorkCore {
                 }
                 NetWorkState.StatisticsData statisticsData = new NetWorkState.StatisticsData();
                 statisticsData.mMode = getMode(j.I());
-                statisticsData.mSize = this.netContext.getStat().stat.f2249b;
+                statisticsData.mSize = this.netContext.getStat().stat.f2307b;
                 statisticsData.mTime = new Date().getTime() - time;
-                statisticsData.mTimesNum = this.netContext.getStat().stat.f2252e;
+                statisticsData.mTimesNum = this.netContext.getStat().stat.f2310e;
                 statisticsData.mMethod = 2;
                 NetWorkState.addStatisticsData(statisticsData);
-                NetWorkState.mErrorNums.set(this.netContext.getStat().stat.f2252e);
+                NetWorkState.mErrorNums.set(this.netContext.getStat().stat.f2310e);
                 TiebaStatic.net(this.netContext);
                 if (gVar == null) {
-                    return gVar.f2276h;
+                    return gVar.f2334h;
                 }
                 return null;
             }
@@ -721,8 +721,8 @@ public class NetWorkCoreByBdHttp implements INetWorkCore {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
             this.netContext.getResponse().mServerErrorCode = -1;
-            if (str != null) {
-                try {
+            try {
+                if (str != null) {
                     ErrorData errorData = new ErrorData();
                     errorData.parserJson(str);
                     this.netContext.getResponse().mServerErrorCode = errorData.getError_code();
@@ -731,10 +731,12 @@ public class NetWorkCoreByBdHttp implements INetWorkCore {
                     } else if (this.netContext.getResponse().mServerErrorCode != 0) {
                         this.netContext.getResponse().mErrorString = errorData.getError_msg();
                     }
-                } catch (Exception e2) {
-                    BdLog.e(e2.getMessage());
+                } else {
                     this.netContext.getResponse().mErrorString = this.mContext.getString(R.string.error_unkown_try_again);
                 }
+            } catch (Exception e2) {
+                BdLog.e(e2.getMessage());
+                this.netContext.getResponse().mErrorString = this.mContext.getString(R.string.error_unkown_try_again);
             }
         }
     }
@@ -762,14 +764,14 @@ public class NetWorkCoreByBdHttp implements INetWorkCore {
             }
             if (!this.manager.j()) {
                 g l = this.manager.l(this.netContext.getRequest().getNetWorkParam().mUrl, this.netContext.getRequest().getNetWorkParam().mRequestGzip, this.netContext.getRequest().getNetWorkParam().mPostData, this.netContext.getRequest().getNetWorkParam().mFileData, 5, -1, getExtendHeader());
-                this.netContext.getResponse().mNetErrorCode = l.f2270b;
-                this.netContext.getResponse().mHeader = l.f2275g;
+                this.netContext.getResponse().mNetErrorCode = l.f2328b;
+                this.netContext.getResponse().mHeader = l.f2333g;
                 if (this.netContext.getResponse().mNetErrorCode != 200) {
                     e e5 = this.manager.e();
                     int size = (e5 == null || e5.d() == null) ? 0 : e5.d().size();
                     String str2 = "";
                     if (size > 0 && (dVar = e5.d().get(size - 1)) != null) {
-                        str2 = dVar.f2255h;
+                        str2 = dVar.f2313h;
                     }
                     if (!TextUtils.isEmpty(str2)) {
                         this.netContext.getResponse().mException = str2;
@@ -778,16 +780,16 @@ public class NetWorkCoreByBdHttp implements INetWorkCore {
                         StringBuilder sb = new StringBuilder();
                         sb.append(String.valueOf(this.netContext.getResponse().mNetErrorCode));
                         sb.append("|retryCount:");
-                        sb.append(this.netContext.getStat().stat == null ? -1 : this.netContext.getStat().stat.f2252e);
+                        sb.append(this.netContext.getStat().stat == null ? -1 : this.netContext.getStat().stat.f2310e);
                         response.mException = sb.toString();
                     }
                     TiebaStatic.net(this.netContext);
                     return null;
                 } else if (!this.manager.j()) {
-                    String str3 = new String(l.f2276h, "UTF-8");
+                    String str3 = new String(l.f2334h, "UTF-8");
                     try {
                         parseServerCode(str3);
-                        i3 = l.f2276h.length;
+                        i3 = l.f2334h.length;
                         j2 = System.currentTimeMillis();
                         TiebaStatic.net(this.netContext);
                     } catch (BdHttpCancelException e6) {
@@ -799,7 +801,7 @@ public class NetWorkCoreByBdHttp implements INetWorkCore {
                         sb2.append(String.valueOf(this.netContext.getResponse().mNetErrorCode));
                         sb2.append("|retryCount:");
                         if (this.netContext.getStat().stat != null) {
-                            i2 = this.netContext.getStat().stat.f2252e;
+                            i2 = this.netContext.getStat().stat.f2310e;
                         }
                         sb2.append(i2);
                         sb2.append("|");
@@ -922,17 +924,17 @@ public class NetWorkCoreByBdHttp implements INetWorkCore {
                 if (e7 != null && e7.d() != null && (size = e7.d().size()) > 0) {
                     this.netContext.getStat().stat = e7.d().get(size - 1);
                 }
-                this.netContext.getResponse().mNetErrorCode = c2.f2270b;
-                this.netContext.getResponse().mHeader = c2.f2275g;
+                this.netContext.getResponse().mNetErrorCode = c2.f2328b;
+                this.netContext.getResponse().mHeader = c2.f2333g;
                 if (this.netContext.getResponse().mNetErrorCode != 200) {
-                    if (this.netContext.getStat().stat != null && !TextUtils.isEmpty(this.netContext.getStat().stat.f2255h)) {
-                        this.netContext.getResponse().mException = this.netContext.getStat().stat.f2255h;
+                    if (this.netContext.getStat().stat != null && !TextUtils.isEmpty(this.netContext.getStat().stat.f2313h)) {
+                        this.netContext.getResponse().mException = this.netContext.getStat().stat.f2313h;
                     } else {
                         HttpResponse response = this.netContext.getResponse();
                         StringBuilder sb2 = new StringBuilder();
                         sb2.append(String.valueOf(this.netContext.getResponse().mNetErrorCode));
                         sb2.append("|retryCount:");
-                        sb2.append(this.netContext.getStat().stat == null ? -1 : this.netContext.getStat().stat.f2252e);
+                        sb2.append(this.netContext.getStat().stat == null ? -1 : this.netContext.getStat().stat.f2310e);
                         response.mException = sb2.toString();
                     }
                     TiebaStatic.net(this.netContext);
@@ -940,21 +942,21 @@ public class NetWorkCoreByBdHttp implements INetWorkCore {
                 } else if (this.manager.j()) {
                     return null;
                 } else {
-                    String str2 = new String(c2.f2276h, "utf-8");
+                    String str2 = new String(c2.f2334h, "utf-8");
                     try {
                         if (this.netContext.getRequest().getNetWorkParam().mIsBaiduServer && this.netContext.getRequest().getNetWorkParam().mIsJson) {
                             parseServerCode(str2);
                         }
-                        i3 = c2.f2276h.length;
+                        i3 = c2.f2334h.length;
                         j2 = System.currentTimeMillis();
                         NetWorkState.StatisticsData statisticsData = new NetWorkState.StatisticsData();
                         statisticsData.mMode = getMode(j.I());
-                        statisticsData.mSize = this.netContext.getStat().stat.f2249b;
-                        statisticsData.mTime = this.netContext.getStat().stat.f2253f;
-                        statisticsData.mTimesNum = this.netContext.getStat().stat.f2252e;
+                        statisticsData.mSize = this.netContext.getStat().stat.f2307b;
+                        statisticsData.mTime = this.netContext.getStat().stat.f2311f;
+                        statisticsData.mTimesNum = this.netContext.getStat().stat.f2310e;
                         statisticsData.mMethod = 1;
                         NetWorkState.addStatisticsData(statisticsData);
-                        NetWorkState.mErrorNums.set(this.netContext.getStat().stat.f2252e);
+                        NetWorkState.mErrorNums.set(this.netContext.getStat().stat.f2310e);
                         TiebaStatic.net(this.netContext);
                         i2 = i3;
                     } catch (BdHttpCancelException e8) {
@@ -965,7 +967,7 @@ public class NetWorkCoreByBdHttp implements INetWorkCore {
                         StringBuilder sb3 = new StringBuilder();
                         sb3.append(String.valueOf(this.netContext.getResponse().mNetErrorCode));
                         sb3.append("|retryCount:");
-                        sb3.append(this.netContext.getStat().stat != null ? this.netContext.getStat().stat.f2252e : -1);
+                        sb3.append(this.netContext.getStat().stat != null ? this.netContext.getStat().stat.f2310e : -1);
                         sb3.append("|");
                         sb3.append(BdHttpCancelException.class);
                         sb3.append("|");

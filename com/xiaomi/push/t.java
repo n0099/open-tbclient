@@ -15,7 +15,7 @@ public class t {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Context f77862a;
+    public static Context f78063a;
 
     /* renamed from: a  reason: collision with other field name */
     public static String f989a;
@@ -57,7 +57,7 @@ public class t {
     public static Context m639a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f77862a : (Context) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f78063a : (Context) invokeV.objValue;
     }
 
     public static Class<?> a(Context context, String str) {
@@ -131,7 +131,7 @@ public class t {
     public static void m641a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, context) == null) {
-            f77862a = context.getApplicationContext();
+            f78063a = context.getApplicationContext();
         }
     }
 

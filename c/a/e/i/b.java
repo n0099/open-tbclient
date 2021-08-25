@@ -1,7 +1,7 @@
 package c.a.e.i;
 
 import android.text.TextUtils;
-import c.a.e.j.g;
+import c.a.e.k.g;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.annotation.Service;
 import com.baidu.pyramid.annotation.Singleton;
@@ -81,6 +81,7 @@ public class b implements IPmsContext {
             if ("0".equals(str)) {
                 requestParams.addChannel(c.a.e.g.c.d().c());
                 requestParams.addChannel(new g());
+                requestParams.addChannel(new c.a.e.j.c(null));
             }
             return requestParams;
         }

@@ -27,10 +27,10 @@ public final class GlobalUtils {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static LayoutInflater f38014a = null;
+    public static LayoutInflater f38120a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static WeakReference<Toast> f38015b = null;
+    public static WeakReference<Toast> f38121b = null;
     public static String showStr = "";
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -112,10 +112,10 @@ public final class GlobalUtils {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ Context f38016a;
+                public final /* synthetic */ Context f38122a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ View f38017b;
+                public final /* synthetic */ View f38123b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -132,15 +132,15 @@ public final class GlobalUtils {
                             return;
                         }
                     }
-                    this.f38016a = context;
-                    this.f38017b = view;
+                    this.f38122a = context;
+                    this.f38123b = view;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        ((InputMethodManager) this.f38016a.getSystemService("input_method")).showSoftInput(this.f38017b, 0);
+                        ((InputMethodManager) this.f38122a.getSystemService("input_method")).showSoftInput(this.f38123b, 0);
                     }
                 }
             }, 100L);
@@ -175,14 +175,14 @@ public final class GlobalUtils {
             if (TextUtils.isEmpty(charSequence)) {
                 return;
             }
-            WeakReference<Toast> weakReference = f38015b;
+            WeakReference<Toast> weakReference = f38121b;
             if (weakReference != null && weakReference.get() != null) {
-                f38015b.get().cancel();
+                f38121b.get().cancel();
             }
-            if (f38014a == null) {
-                f38014a = LayoutInflater.from(applicationContext);
+            if (f38120a == null) {
+                f38120a = LayoutInflater.from(applicationContext);
             }
-            View inflate = f38014a.inflate(ResUtils.layout(applicationContext, "wallet_base_toast"), (ViewGroup) null);
+            View inflate = f38120a.inflate(ResUtils.layout(applicationContext, "wallet_base_toast"), (ViewGroup) null);
             if (inflate == null || (textView = (TextView) inflate.findViewById(ResUtils.id(applicationContext, "wallet_base_toast_message"))) == null) {
                 return;
             }
@@ -196,7 +196,7 @@ public final class GlobalUtils {
             toast.setDuration(i3);
             toast.setGravity(17, 0, 0);
             toast.setView(inflate);
-            f38015b = new WeakReference<>(toast);
+            f38121b = new WeakReference<>(toast);
             toast.show();
         }
     }

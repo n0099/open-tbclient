@@ -2,8 +2,8 @@ package com.baidu.sapi2.social;
 
 import android.os.Bundle;
 import android.widget.RelativeLayout;
-import c.a.b0.a.e;
-import c.a.b0.a.f;
+import c.a.c0.a.e;
+import c.a.c0.a.f;
 import com.baidu.sapi2.NoProguard;
 import com.baidu.sapi2.activity.BaseActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;

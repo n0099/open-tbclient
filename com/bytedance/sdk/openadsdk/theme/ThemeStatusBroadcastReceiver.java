@@ -16,7 +16,7 @@ public class ThemeStatusBroadcastReceiver extends BroadcastReceiver {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public WeakReference<a> f68526a;
+    public WeakReference<a> f68726a;
 
     public ThemeStatusBroadcastReceiver() {
         Interceptable interceptable = $ic;
@@ -35,7 +35,7 @@ public class ThemeStatusBroadcastReceiver extends BroadcastReceiver {
     public void a(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-            this.f68526a = new WeakReference<>(aVar);
+            this.f68726a = new WeakReference<>(aVar);
         }
     }
 
@@ -48,11 +48,11 @@ public class ThemeStatusBroadcastReceiver extends BroadcastReceiver {
                 return;
             }
             int intExtra = intent.getIntExtra("theme_status_change", 0);
-            WeakReference<a> weakReference = this.f68526a;
+            WeakReference<a> weakReference = this.f68726a;
             if (weakReference == null || weakReference.get() == null) {
                 return;
             }
-            this.f68526a.get().a(intExtra);
+            this.f68726a.get().a(intExtra);
         }
     }
 }

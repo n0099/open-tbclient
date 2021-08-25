@@ -1,6 +1,6 @@
 package com.baidu.tieba.homepage.topic.topicdetail.message;
 
-import c.a.p0.f1.k.a.c.a;
+import c.a.q0.f1.k.a.c.a;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;

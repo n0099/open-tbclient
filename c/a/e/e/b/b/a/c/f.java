@@ -15,7 +15,7 @@ public class f implements c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Map<String, Object> f2096a;
+    public Map<String, Object> f2154a;
 
     public f(Map<String, Object> map) {
         Interceptable interceptable = $ic;
@@ -32,21 +32,21 @@ public class f implements c {
                 return;
             }
         }
-        this.f2096a = map;
+        this.f2154a = map;
     }
 
     @Override // c.a.e.e.b.b.a.c.c
     public Set<String> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f2096a.keySet() : (Set) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f2154a.keySet() : (Set) invokeV.objValue;
     }
 
     @Override // c.a.e.e.b.b.a.c.c
     public void b(String str, Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, obj) == null) {
-            this.f2096a.put(str, obj);
+            this.f2154a.put(str, obj);
         }
     }
 
@@ -69,6 +69,6 @@ public class f implements c {
     public Object d(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) ? this.f2096a.get(str) : invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) ? this.f2154a.get(str) : invokeL.objValue;
     }
 }

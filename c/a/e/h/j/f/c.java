@@ -15,7 +15,7 @@ public class c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public List<BasicNameValuePair> f2787a;
+    public List<BasicNameValuePair> f2845a;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -30,19 +30,19 @@ public class c {
                 return;
             }
         }
-        this.f2787a = new ArrayList();
+        this.f2845a = new ArrayList();
     }
 
     public List<BasicNameValuePair> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f2787a : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f2845a : (List) invokeV.objValue;
     }
 
     public void b(List<BasicNameValuePair> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
-            this.f2787a = list;
+            this.f2845a = list;
         }
     }
 }

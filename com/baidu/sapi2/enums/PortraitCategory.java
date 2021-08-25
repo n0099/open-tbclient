@@ -15,11 +15,11 @@ public final class PortraitCategory {
     public static final PortraitCategory NORMAL;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final /* synthetic */ PortraitCategory[] f44660b;
+    public static final /* synthetic */ PortraitCategory[] f44767b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f44661a;
+    public String f44768a;
 
     static {
         InterceptResult invokeClinit;
@@ -37,7 +37,7 @@ public final class PortraitCategory {
         NORMAL = new PortraitCategory("NORMAL", 0, "");
         PortraitCategory portraitCategory = new PortraitCategory("NEW", 1, "new");
         NEW = portraitCategory;
-        f44660b = new PortraitCategory[]{NORMAL, portraitCategory};
+        f44767b = new PortraitCategory[]{NORMAL, portraitCategory};
     }
 
     public PortraitCategory(String str, int i2, String str2) {
@@ -58,7 +58,7 @@ public final class PortraitCategory {
                 return;
             }
         }
-        this.f44661a = str2;
+        this.f44768a = str2;
     }
 
     public static PortraitCategory valueOf(String str) {
@@ -70,12 +70,12 @@ public final class PortraitCategory {
     public static PortraitCategory[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (PortraitCategory[]) f44660b.clone() : (PortraitCategory[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (PortraitCategory[]) f44767b.clone() : (PortraitCategory[]) invokeV.objValue;
     }
 
     public String getValue() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f44661a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f44768a : (String) invokeV.objValue;
     }
 }

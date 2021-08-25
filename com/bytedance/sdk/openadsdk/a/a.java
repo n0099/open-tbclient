@@ -17,19 +17,19 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f65038a;
+    public long f65238a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f65039b;
+    public String f65239b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f65040c;
+    public String f65240c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f65041d;
+    public long f65241d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f65042e;
+    public long f65242e;
 
     public a(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
@@ -46,35 +46,35 @@ public class a {
                 return;
             }
         }
-        this.f65038a = jSONObject.optLong(IAdRequestParam.CELL_ID);
-        this.f65039b = jSONObject.optString("url");
-        this.f65040c = jSONObject.optString("file_hash");
-        this.f65041d = jSONObject.optLong("effective_time");
-        this.f65042e = jSONObject.optLong(GameGuideConfigInfo.KEY_EXPIRATION_TIME);
+        this.f65238a = jSONObject.optLong(IAdRequestParam.CELL_ID);
+        this.f65239b = jSONObject.optString("url");
+        this.f65240c = jSONObject.optString("file_hash");
+        this.f65241d = jSONObject.optLong("effective_time");
+        this.f65242e = jSONObject.optLong(GameGuideConfigInfo.KEY_EXPIRATION_TIME);
     }
 
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f65039b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f65239b : (String) invokeV.objValue;
     }
 
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f65040c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f65240c : (String) invokeV.objValue;
     }
 
     public long c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f65041d : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f65241d : invokeV.longValue;
     }
 
     public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? System.currentTimeMillis() >= this.f65042e : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? System.currentTimeMillis() >= this.f65242e : invokeV.booleanValue;
     }
 
     public JSONObject e() {
@@ -83,11 +83,11 @@ public class a {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put(IAdRequestParam.CELL_ID, this.f65038a);
-                jSONObject.put("url", this.f65039b);
-                jSONObject.put("file_hash", this.f65040c);
-                jSONObject.put("effective_time", this.f65041d);
-                jSONObject.put(GameGuideConfigInfo.KEY_EXPIRATION_TIME, this.f65042e);
+                jSONObject.put(IAdRequestParam.CELL_ID, this.f65238a);
+                jSONObject.put("url", this.f65239b);
+                jSONObject.put("file_hash", this.f65240c);
+                jSONObject.put("effective_time", this.f65241d);
+                jSONObject.put(GameGuideConfigInfo.KEY_EXPIRATION_TIME, this.f65242e);
             } catch (Exception e2) {
                 k.d("BrandVideo", e2.getMessage());
             }
@@ -100,7 +100,7 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            File file = new File(str, this.f65040c);
+            File file = new File(str, this.f65240c);
             if (file.exists()) {
                 return file.lastModified();
             }
@@ -113,7 +113,7 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            File file = new File(str, this.f65040c);
+            File file = new File(str, this.f65240c);
             if (file.exists()) {
                 try {
                     return file.delete();

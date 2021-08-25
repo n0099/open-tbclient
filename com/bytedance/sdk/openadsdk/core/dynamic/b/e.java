@@ -20,19 +20,19 @@ public class e {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f65959a;
+    public int f66159a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f65960b;
+    public String f66160b;
 
     /* renamed from: c  reason: collision with root package name */
-    public d f65961c;
+    public d f66161c;
 
     /* renamed from: d  reason: collision with root package name */
-    public c f65962d;
+    public c f66162d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f65963e;
+    public String f66163e;
 
     public e(@NonNull c cVar) {
         Interceptable interceptable = $ic;
@@ -49,64 +49,64 @@ public class e {
                 return;
             }
         }
-        this.f65962d = cVar;
-        this.f65959a = cVar.a();
-        this.f65960b = cVar.b();
-        this.f65963e = cVar.c();
+        this.f66162d = cVar;
+        this.f66159a = cVar.a();
+        this.f66160b = cVar.b();
+        this.f66163e = cVar.c();
         if (h.d().A() == 1) {
-            this.f65961c = cVar.e();
+            this.f66161c = cVar.e();
         } else {
-            this.f65961c = cVar.d();
+            this.f66161c = cVar.d();
         }
     }
 
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (int) this.f65961c.c() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (int) this.f66161c.c() : invokeV.intValue;
     }
 
     public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? (int) this.f65961c.f() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? (int) this.f66161c.f() : invokeV.intValue;
     }
 
     public int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? (int) this.f65961c.d() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? (int) this.f66161c.d() : invokeV.intValue;
     }
 
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? (int) this.f65961c.e() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? (int) this.f66161c.e() : invokeV.intValue;
     }
 
     public float e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f65961c.g() : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f66161c.g() : invokeV.floatValue;
     }
 
     public String f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f65959a == 0 ? this.f65960b : "" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f66159a == 0 ? this.f66160b : "" : (String) invokeV.objValue;
     }
 
     public int g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? a(this.f65961c.j()) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? a(this.f66161c.j()) : invokeV.intValue;
     }
 
     public int h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            String i2 = this.f65961c.i();
+            String i2 = this.f66161c.i();
             if ("left".equals(i2)) {
                 return 2;
             }
@@ -121,56 +121,56 @@ public class e {
     public String i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f65959a == 2 ? this.f65960b : "" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f66159a == 2 ? this.f66160b : "" : (String) invokeV.objValue;
     }
 
     public String j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f65959a == 1 ? this.f65960b : "" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f66159a == 1 ? this.f66160b : "" : (String) invokeV.objValue;
     }
 
     public String k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f65963e : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f66163e : (String) invokeV.objValue;
     }
 
     public int l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f65961c.h() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f66161c.h() : invokeV.intValue;
     }
 
     public float m() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f65961c.a() : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f66161c.a() : invokeV.floatValue;
     }
 
     public int n() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? a(this.f65961c.l()) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? a(this.f66161c.l()) : invokeV.intValue;
     }
 
     public float o() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.f65961c.b() : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.f66161c.b() : invokeV.floatValue;
     }
 
     public boolean p() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.f65961c.o() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.f66161c.o() : invokeV.booleanValue;
     }
 
     public int q() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
-            String m = this.f65961c.m();
+            String m = this.f66161c.m();
             if (!TextUtils.isEmpty(m) && !m.equals("none")) {
                 if (m.equals("normal")) {
                     return 1;
@@ -181,7 +181,7 @@ public class e {
                 if (m.equals("video")) {
                     return 4;
                 }
-                if ("slide".equals(this.f65961c.n())) {
+                if ("slide".equals(this.f66161c.n())) {
                     return 2;
                 }
             }
@@ -193,7 +193,7 @@ public class e {
     public int r() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? a(this.f65961c.k()) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? a(this.f66161c.k()) : invokeV.intValue;
     }
 
     private int a(String str) {
@@ -225,16 +225,16 @@ public class e {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
-            c cVar = this.f65962d;
+            c cVar = this.f66162d;
             if (cVar == null) {
                 return false;
             }
             if (i2 == 1) {
-                this.f65961c = cVar.e();
+                this.f66161c = cVar.e();
             } else {
-                this.f65961c = cVar.d();
+                this.f66161c = cVar.d();
             }
-            return this.f65961c != null;
+            return this.f66161c != null;
         }
         return invokeI.booleanValue;
     }

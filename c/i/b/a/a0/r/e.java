@@ -18,32 +18,32 @@ public final class e {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final int f32486i;
+    public static final int f32592i;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f32487a;
+    public int f32593a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f32488b;
+    public int f32594b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f32489c;
+    public long f32595c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f32490d;
+    public int f32596d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f32491e;
+    public int f32597e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f32492f;
+    public int f32598f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final int[] f32493g;
+    public final int[] f32599g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final l f32494h;
+    public final l f32600h;
 
     static {
         InterceptResult invokeClinit;
@@ -58,7 +58,7 @@ public final class e {
                 return;
             }
         }
-        f32486i = v.q("OggS");
+        f32592i = v.q("OggS");
     }
 
     public e() {
@@ -74,44 +74,44 @@ public final class e {
                 return;
             }
         }
-        this.f32493g = new int[255];
-        this.f32494h = new l(255);
+        this.f32599g = new int[255];
+        this.f32600h = new l(255);
     }
 
     public boolean a(c.i.b.a.a0.f fVar, boolean z) throws IOException, InterruptedException {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048576, this, fVar, z)) == null) {
-            this.f32494h.F();
+            this.f32600h.F();
             b();
-            if ((fVar.getLength() == -1 || fVar.getLength() - fVar.f() >= 27) && fVar.d(this.f32494h.f33597a, 0, 27, true)) {
-                if (this.f32494h.z() != f32486i) {
+            if ((fVar.getLength() == -1 || fVar.getLength() - fVar.f() >= 27) && fVar.d(this.f32600h.f33703a, 0, 27, true)) {
+                if (this.f32600h.z() != f32592i) {
                     if (z) {
                         return false;
                     }
                     throw new ParserException("expected OggS capture pattern at begin of page");
                 } else {
-                    int x = this.f32494h.x();
-                    this.f32487a = x;
+                    int x = this.f32600h.x();
+                    this.f32593a = x;
                     if (x != 0) {
                         if (z) {
                             return false;
                         }
                         throw new ParserException("unsupported bit stream revision");
                     }
-                    this.f32488b = this.f32494h.x();
-                    this.f32489c = this.f32494h.m();
-                    this.f32494h.n();
-                    this.f32494h.n();
-                    this.f32494h.n();
-                    int x2 = this.f32494h.x();
-                    this.f32490d = x2;
-                    this.f32491e = x2 + 27;
-                    this.f32494h.F();
-                    fVar.c(this.f32494h.f33597a, 0, this.f32490d);
-                    for (int i2 = 0; i2 < this.f32490d; i2++) {
-                        this.f32493g[i2] = this.f32494h.x();
-                        this.f32492f += this.f32493g[i2];
+                    this.f32594b = this.f32600h.x();
+                    this.f32595c = this.f32600h.m();
+                    this.f32600h.n();
+                    this.f32600h.n();
+                    this.f32600h.n();
+                    int x2 = this.f32600h.x();
+                    this.f32596d = x2;
+                    this.f32597e = x2 + 27;
+                    this.f32600h.F();
+                    fVar.c(this.f32600h.f33703a, 0, this.f32596d);
+                    for (int i2 = 0; i2 < this.f32596d; i2++) {
+                        this.f32599g[i2] = this.f32600h.x();
+                        this.f32598f += this.f32599g[i2];
                     }
                     return true;
                 }
@@ -127,12 +127,12 @@ public final class e {
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f32487a = 0;
-            this.f32488b = 0;
-            this.f32489c = 0L;
-            this.f32490d = 0;
-            this.f32491e = 0;
-            this.f32492f = 0;
+            this.f32593a = 0;
+            this.f32594b = 0;
+            this.f32595c = 0L;
+            this.f32596d = 0;
+            this.f32597e = 0;
+            this.f32598f = 0;
         }
     }
 }

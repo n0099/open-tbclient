@@ -17,22 +17,22 @@ public class bc implements ar {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f77005a = "content://com.vivo.vms.IdProvider/IdentifierId/";
+    public static String f77206a = "content://com.vivo.vms.IdProvider/IdentifierId/";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f77006b;
+    public static String f77207b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f77007c;
+    public static String f77208c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f77008d;
+    public static String f77209d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f77009e;
+    public static String f77210e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static String f77010f;
+    public static String f77211f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
@@ -51,11 +51,11 @@ public class bc implements ar {
                 return;
             }
         }
-        f77006b = f77005a + "OAID";
-        f77007c = f77005a + "VAID_";
-        f77008d = f77005a + "AAID_";
-        f77009e = f77005a + "OAIDSTATUS";
-        f77010f = "persist.sys.identifierid.supported";
+        f77207b = f77206a + "OAID";
+        f77208c = f77206a + "VAID_";
+        f77209d = f77206a + "AAID_";
+        f77210e = f77206a + "OAIDSTATUS";
+        f77211f = "persist.sys.identifierid.supported";
     }
 
     public bc(Context context) {
@@ -129,7 +129,7 @@ public class bc implements ar {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
             try {
-                ProviderInfo resolveContentProvider = context.getPackageManager().resolveContentProvider(Uri.parse(f77005a).getAuthority(), 128);
+                ProviderInfo resolveContentProvider = context.getPackageManager().resolveContentProvider(Uri.parse(f77206a).getAuthority(), 128);
                 if (resolveContentProvider != null) {
                     if ((resolveContentProvider.applicationInfo.flags & 1) != 0) {
                         return true;
@@ -156,7 +156,7 @@ public class bc implements ar {
     public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "1".equals(s.a(f77010f, "0")) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "1".equals(s.a(f77211f, "0")) : invokeV.booleanValue;
     }
 
     @Override // com.xiaomi.push.ar
@@ -164,7 +164,7 @@ public class bc implements ar {
     public String mo152b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? a(f77006b) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? a(f77207b) : (String) invokeV.objValue;
     }
 
     @Override // com.xiaomi.push.ar

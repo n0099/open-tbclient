@@ -22,10 +22,10 @@ public class b implements IDiskCache {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f64788a;
+    public long f64988a;
 
     /* renamed from: b  reason: collision with root package name */
-    public a f64789b;
+    public a f64989b;
 
     public b(File file, long j2, ExecutorService executorService) {
         Interceptable interceptable = $ic;
@@ -42,9 +42,9 @@ public class b implements IDiskCache {
                 return;
             }
         }
-        this.f64788a = j2;
+        this.f64988a = j2;
         try {
-            this.f64789b = a.a(file, 20210302, 1, j2, executorService);
+            this.f64989b = a.a(file, 20210302, 1, j2, executorService);
         } catch (IOException e2) {
             com.bytedance.sdk.component.image.c.c.a("LruCountDiskCache", e2.toString());
         }
@@ -55,7 +55,7 @@ public class b implements IDiskCache {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-            a aVar = this.f64789b;
+            a aVar = this.f64989b;
             if (aVar == null) {
                 return null;
             }
@@ -78,7 +78,7 @@ public class b implements IDiskCache {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
             try {
-                return this.f64789b.c(str);
+                return this.f64989b.c(str);
             } catch (IOException e2) {
                 com.bytedance.sdk.component.image.c.c.a("LruCountDiskCache", e2.getMessage());
                 return false;
@@ -93,7 +93,7 @@ public class b implements IDiskCache {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
             try {
-                this.f64789b.c(str);
+                this.f64989b.c(str);
                 return false;
             } catch (IOException e2) {
                 com.bytedance.sdk.component.image.c.c.a("LruCountDiskCache", e2.getMessage());
@@ -112,15 +112,15 @@ public class b implements IDiskCache {
         if (interceptable != null && (invokeLL = interceptable.invokeLL(1048579, this, str, bArr)) != null) {
             return invokeLL.booleanValue;
         }
-        a aVar = this.f64789b;
+        a aVar = this.f64989b;
         if (aVar == null || bArr == null || str == null) {
             return false;
         }
-        a.C1885a c1885a = null;
+        a.C1889a c1889a = null;
         Closeable closeable2 = null;
         try {
             try {
-                a.C1885a b2 = aVar.b(str);
+                a.C1889a b2 = aVar.b(str);
                 try {
                     if (b2 == null) {
                         com.bytedance.sdk.component.image.c.c.a("LruCountDiskCache", "save " + str + " failed for edit null");
@@ -128,25 +128,25 @@ public class b implements IDiskCache {
                         return false;
                     }
                     OutputStream a2 = b2.a(0);
-                    if (a2 == a.f64761c) {
+                    if (a2 == a.f64961c) {
                         com.bytedance.sdk.component.image.c.c.a("LruCountDiskCache", "save " + str + " failed for null OutputStream");
                         com.bytedance.sdk.component.image.c.c.a.a(a2);
                         return false;
                     }
                     a2.write(bArr);
                     b2.a();
-                    this.f64789b.a();
+                    this.f64989b.a();
                     com.bytedance.sdk.component.image.c.c.a.a(a2);
                     return true;
                 } catch (IOException e2) {
                     e = e2;
                     closeable = null;
-                    c1885a = b2;
+                    c1889a = b2;
                     try {
                         com.bytedance.sdk.component.image.c.c.a("LruCountDiskCache", e.toString());
-                        if (c1885a != null) {
+                        if (c1889a != null) {
                             try {
-                                c1885a.b();
+                                c1889a.b();
                             } catch (IOException unused) {
                             }
                         }
@@ -181,7 +181,7 @@ public class b implements IDiskCache {
         if (interceptable != null && (invokeL = interceptable.invokeL(1048580, this, str)) != null) {
             return (byte[]) invokeL.objValue;
         }
-        a aVar = this.f64789b;
+        a aVar = this.f64989b;
         InputStream inputStream2 = null;
         if (aVar == null || str == null) {
             return null;
@@ -260,7 +260,7 @@ public class b implements IDiskCache {
     public void a(double d2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Double.valueOf(d2)}) == null) {
-            this.f64789b.a((long) (this.f64788a * d2));
+            this.f64989b.a((long) (this.f64988a * d2));
         }
     }
 }

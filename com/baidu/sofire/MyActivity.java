@@ -88,13 +88,13 @@ public class MyActivity extends Activity {
                         public transient /* synthetic */ FieldHolder $fh;
 
                         /* renamed from: a  reason: collision with root package name */
-                        public final /* synthetic */ Intent f44943a;
+                        public final /* synthetic */ Intent f45050a;
 
                         /* renamed from: b  reason: collision with root package name */
-                        public final /* synthetic */ WeakReference f44944b;
+                        public final /* synthetic */ WeakReference f45051b;
 
                         /* renamed from: c  reason: collision with root package name */
-                        public final /* synthetic */ Context f44945c;
+                        public final /* synthetic */ Context f45052c;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -111,9 +111,9 @@ public class MyActivity extends Activity {
                                     return;
                                 }
                             }
-                            this.f44943a = intent;
-                            this.f44944b = weakReference;
-                            this.f44945c = applicationContext;
+                            this.f45050a = intent;
+                            this.f45051b = weakReference;
+                            this.f45052c = applicationContext;
                         }
 
                         @Override // java.lang.Runnable
@@ -121,16 +121,16 @@ public class MyActivity extends Activity {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                                 try {
-                                    String stringExtra = this.f44943a.getStringExtra("c");
+                                    String stringExtra = this.f45050a.getStringExtra("c");
                                     Intent intent3 = new Intent();
                                     intent3.putExtra("t", "a");
                                     intent3.putExtra("c", stringExtra);
-                                    String a2 = MyActivity.a((Activity) this.f44944b.get());
+                                    String a2 = MyActivity.a((Activity) this.f45051b.get());
                                     if (a2 == null) {
                                         a2 = "";
                                     }
                                     intent3.putExtra("source", a2);
-                                    a.a(this.f44945c.getApplicationContext(), intent3);
+                                    a.a(this.f45052c.getApplicationContext(), intent3);
                                 } catch (Throwable unused) {
                                     com.baidu.sofire.utility.c.a();
                                 }

@@ -63,13 +63,13 @@ public class d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public File f76023a;
+        public File f76224a;
 
         /* renamed from: b  reason: collision with root package name */
-        public long f76024b;
+        public long f76225b;
 
         /* renamed from: c  reason: collision with root package name */
-        public long f76025c;
+        public long f76226c;
 
         public c() {
             Interceptable interceptable = $ic;
@@ -88,19 +88,19 @@ public class d {
         public File a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f76023a : (File) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f76224a : (File) invokeV.objValue;
         }
 
         public long b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f76024b : invokeV.longValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f76225b : invokeV.longValue;
         }
 
         public long c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f76025c : invokeV.longValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f76226c : invokeV.longValue;
         }
 
         public String toString() {
@@ -112,14 +112,14 @@ public class d {
         public void a(File file) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, file) == null) {
-                this.f76023a = file;
+                this.f76224a = file;
             }
         }
 
         public void b(long j2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeJ(1048580, this, j2) == null) {
-                this.f76025c = j2;
+                this.f76226c = j2;
             }
         }
 
@@ -141,14 +141,14 @@ public class d {
         public void a(long j2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2) == null) {
-                this.f76024b = j2;
+                this.f76225b = j2;
             }
         }
     }
 
     /* renamed from: com.tencent.open.log.d$d  reason: collision with other inner class name */
     /* loaded from: classes10.dex */
-    public static final class C2090d {
+    public static final class C2094d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 

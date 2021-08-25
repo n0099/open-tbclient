@@ -20,7 +20,7 @@ public class SelectorImageView extends BdBaseImageView {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: g  reason: collision with root package name */
-    public static int f46556g = 255;
+    public static int f46663g = 255;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes6.dex */
@@ -116,7 +116,7 @@ public class SelectorImageView extends BdBaseImageView {
                 if (action == 0) {
                     setImageAlpha(76);
                 } else if (action == 1 || action == 3) {
-                    setImageAlpha(f46556g);
+                    setImageAlpha(f46663g);
                 }
             }
             return super.onTouchEvent(motionEvent);
@@ -133,7 +133,7 @@ public class SelectorImageView extends BdBaseImageView {
             if (!z) {
                 setImageAlpha(255);
             } else {
-                setImageAlpha(f46556g);
+                setImageAlpha(f46663g);
             }
         }
     }

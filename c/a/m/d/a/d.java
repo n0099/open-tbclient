@@ -12,13 +12,13 @@ public class d extends f {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d  reason: collision with root package name */
-    public byte[] f3998d;
+    public byte[] f3973d;
 
     /* renamed from: e  reason: collision with root package name */
-    public byte[] f3999e;
+    public byte[] f3974e;
 
     /* renamed from: f  reason: collision with root package name */
-    public byte[] f4000f;
+    public byte[] f3975f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public d(b bVar) {
@@ -38,22 +38,22 @@ public class d extends f {
                 return;
             }
         }
-        this.f4000f = null;
-        int i4 = this.f4011b;
-        this.f3999e = new byte[i4];
-        this.f3998d = new byte[i4];
+        this.f3975f = null;
+        int i4 = this.f3986b;
+        this.f3974e = new byte[i4];
+        this.f3973d = new byte[i4];
     }
 
     @Override // c.a.m.d.a.f
     public void a(boolean z, String str, byte[] bArr, byte[] bArr2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), str, bArr, bArr2}) == null) {
-            if (bArr == null || bArr2 == null || bArr2.length != this.f4011b) {
+            if (bArr == null || bArr2 == null || bArr2.length != this.f3986b) {
                 throw new InvalidKeyException("Internal error");
             }
-            this.f4012c = bArr2;
+            this.f3987c = bArr2;
             c();
-            this.f4010a.e(z, str, bArr);
+            this.f3985a.e(z, str, bArr);
         }
     }
 
@@ -63,12 +63,12 @@ public class d extends f {
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{bArr, Integer.valueOf(i2), Integer.valueOf(i3), bArr2, Integer.valueOf(i4)}) == null) {
             int i5 = i3 + i2;
             while (i2 < i5) {
-                for (int i6 = 0; i6 < this.f4011b; i6++) {
-                    this.f3999e[i6] = (byte) (bArr[i6 + i2] ^ this.f3998d[i6]);
+                for (int i6 = 0; i6 < this.f3986b; i6++) {
+                    this.f3974e[i6] = (byte) (bArr[i6 + i2] ^ this.f3973d[i6]);
                 }
-                this.f4010a.f(this.f3999e, 0, bArr2, i4);
-                System.arraycopy(bArr2, i4, this.f3998d, 0, this.f4011b);
-                int i7 = this.f4011b;
+                this.f3985a.f(this.f3974e, 0, bArr2, i4);
+                System.arraycopy(bArr2, i4, this.f3973d, 0, this.f3986b);
+                int i7 = this.f3986b;
                 i2 += i7;
                 i4 += i7;
             }
@@ -79,7 +79,7 @@ public class d extends f {
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            System.arraycopy(this.f4012c, 0, this.f3998d, 0, this.f4011b);
+            System.arraycopy(this.f3987c, 0, this.f3973d, 0, this.f3986b);
         }
     }
 
@@ -89,25 +89,25 @@ public class d extends f {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{bArr, Integer.valueOf(i2), Integer.valueOf(i3), bArr2, Integer.valueOf(i4)}) == null) {
             int i6 = i3 + i2;
-            byte[] bArr3 = (bArr != bArr2 || i2 < i4 || i2 - i4 >= this.f4011b) ? null : (byte[]) bArr.clone();
+            byte[] bArr3 = (bArr != bArr2 || i2 < i4 || i2 - i4 >= this.f3986b) ? null : (byte[]) bArr.clone();
             while (i2 < i6) {
-                this.f4010a.j(bArr, i2, this.f3999e, 0);
+                this.f3985a.j(bArr, i2, this.f3974e, 0);
                 int i7 = 0;
                 while (true) {
-                    i5 = this.f4011b;
+                    i5 = this.f3986b;
                     if (i7 >= i5) {
                         break;
                     }
-                    bArr2[i7 + i4] = (byte) (this.f3999e[i7] ^ this.f3998d[i7]);
+                    bArr2[i7 + i4] = (byte) (this.f3974e[i7] ^ this.f3973d[i7]);
                     i7++;
                 }
-                byte[] bArr4 = this.f3998d;
+                byte[] bArr4 = this.f3973d;
                 if (bArr3 == null) {
                     System.arraycopy(bArr, i2, bArr4, 0, i5);
                 } else {
                     System.arraycopy(bArr3, i2, bArr4, 0, i5);
                 }
-                int i8 = this.f4011b;
+                int i8 = this.f3986b;
                 i2 += i8;
                 i4 += i8;
             }
@@ -118,10 +118,10 @@ public class d extends f {
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            if (this.f4000f == null) {
-                this.f4000f = new byte[this.f4011b];
+            if (this.f3975f == null) {
+                this.f3975f = new byte[this.f3986b];
             }
-            System.arraycopy(this.f3998d, 0, this.f4000f, 0, this.f4011b);
+            System.arraycopy(this.f3973d, 0, this.f3975f, 0, this.f3986b);
         }
     }
 
@@ -129,7 +129,7 @@ public class d extends f {
     public void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            System.arraycopy(this.f4000f, 0, this.f3998d, 0, this.f4011b);
+            System.arraycopy(this.f3975f, 0, this.f3973d, 0, this.f3986b);
         }
     }
 }

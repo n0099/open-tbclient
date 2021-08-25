@@ -18,10 +18,10 @@ public class SwitchButton extends ImageButton {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f62952a;
+    public boolean f63152a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f62953b;
+    public boolean f63153b;
 
     /* loaded from: classes8.dex */
     public interface a {
@@ -46,26 +46,26 @@ public class SwitchButton extends ImageButton {
                 return;
             }
         }
-        this.f62953b = false;
+        this.f63153b = false;
         a();
     }
 
     public boolean isChanged() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f62952a == this.f62953b : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f63152a == this.f63153b : invokeV.booleanValue;
     }
 
     public boolean isChecked() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f62952a : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f63152a : invokeV.booleanValue;
     }
 
     public void resetChecked() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f62953b = this.f62952a;
+            this.f63153b = this.f63152a;
         }
     }
 
@@ -77,7 +77,7 @@ public class SwitchButton extends ImageButton {
             } else {
                 setBackgroundResource(ResUtils.drawable(getContext(), "dxm_wallet_base_btn_default_off"));
             }
-            this.f62952a = z;
+            this.f63152a = z;
             AccessibilityUtils.setContentDescription(this, !z ? "开" : "关");
         }
     }
@@ -90,10 +90,10 @@ public class SwitchButton extends ImageButton {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ a f62954a;
+                public final /* synthetic */ a f63154a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ SwitchButton f62955b;
+                public final /* synthetic */ SwitchButton f63155b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -110,18 +110,18 @@ public class SwitchButton extends ImageButton {
                             return;
                         }
                     }
-                    this.f62955b = this;
-                    this.f62954a = aVar;
+                    this.f63155b = this;
+                    this.f63154a = aVar;
                 }
 
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     a aVar2;
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) || (aVar2 = this.f62954a) == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) || (aVar2 = this.f63154a) == null) {
                         return;
                     }
-                    aVar2.a(!this.f62955b.f62952a);
+                    aVar2.a(!this.f63155b.f63152a);
                 }
             });
         }
@@ -131,7 +131,7 @@ public class SwitchButton extends ImageButton {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
             setBackgroundResource(ResUtils.drawable(getContext(), "dxm_wallet_base_btn_default_off"));
-            AccessibilityUtils.setContentDescription(this, !this.f62952a ? "开" : "关");
+            AccessibilityUtils.setContentDescription(this, !this.f63152a ? "开" : "关");
         }
     }
 
@@ -154,7 +154,7 @@ public class SwitchButton extends ImageButton {
                 return;
             }
         }
-        this.f62953b = false;
+        this.f63153b = false;
         a();
     }
 }

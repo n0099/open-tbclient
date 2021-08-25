@@ -27,19 +27,19 @@ public interface c extends IInterface {
         public static /* synthetic */ Interceptable $ic = null;
 
         /* renamed from: a  reason: collision with root package name */
-        public static String f75271a = "";
+        public static String f75472a = "";
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: com.ss.android.downloadlib.a.b.c$a$a  reason: collision with other inner class name */
         /* loaded from: classes10.dex */
-        public static class C2044a implements c {
+        public static class C2048a implements c {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public IBinder f75272a;
+            public IBinder f75473a;
 
-            public C2044a(IBinder iBinder) {
+            public C2048a(IBinder iBinder) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -54,11 +54,11 @@ public interface c extends IInterface {
                         return;
                     }
                 }
-                if (TextUtils.isEmpty(a.f75271a)) {
+                if (TextUtils.isEmpty(a.f75472a)) {
                     JSONObject v = l.v();
-                    String unused = a.f75271a = c.p.a.e.a.h.d.b(v.optString(r.f42062a), v.optString("s"));
+                    String unused = a.f75472a = c.p.a.e.a.h.d.b(v.optString(r.f42169a), v.optString("s"));
                 }
-                this.f75272a = iBinder;
+                this.f75473a = iBinder;
             }
 
             @Override // com.ss.android.downloadlib.a.b.c
@@ -68,7 +68,7 @@ public interface c extends IInterface {
                     Parcel obtain = Parcel.obtain();
                     Parcel obtain2 = Parcel.obtain();
                     try {
-                        obtain.writeInterfaceToken(a.f75271a);
+                        obtain.writeInterfaceToken(a.f75472a);
                         if (bVar != null) {
                             obtain.writeInt(1);
                             bVar.writeToParcel(obtain, 0);
@@ -76,7 +76,7 @@ public interface c extends IInterface {
                             obtain.writeInt(0);
                         }
                         obtain.writeStrongBinder(dVar != null ? dVar.asBinder() : null);
-                        this.f75272a.transact(1, obtain, obtain2, 0);
+                        this.f75473a.transact(1, obtain, obtain2, 0);
                         obtain2.readException();
                     } finally {
                         obtain2.recycle();
@@ -89,7 +89,7 @@ public interface c extends IInterface {
             public IBinder asBinder() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f75272a : (IBinder) invokeV.objValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f75473a : (IBinder) invokeV.objValue;
             }
         }
 
@@ -115,13 +115,13 @@ public interface c extends IInterface {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), parcel, parcel2, Integer.valueOf(i3)})) == null) {
                 if (i2 == 1598968902) {
-                    parcel2.writeString(f75271a);
+                    parcel2.writeString(f75472a);
                     return true;
                 }
                 if (i2 != 1) {
                     return super.onTransact(i2, parcel, parcel2, i3);
                 }
-                parcel.enforceInterface(f75271a);
+                parcel.enforceInterface(f75472a);
                 a(parcel.readInt() != 0 ? b.CREATOR.createFromParcel(parcel) : null, d.a.a(parcel.readStrongBinder()));
                 parcel2.writeNoException();
                 return true;
@@ -136,11 +136,11 @@ public interface c extends IInterface {
                 if (iBinder == null) {
                     return null;
                 }
-                IInterface queryLocalInterface = iBinder.queryLocalInterface(f75271a);
+                IInterface queryLocalInterface = iBinder.queryLocalInterface(f75472a);
                 if (queryLocalInterface != null && (queryLocalInterface instanceof c)) {
                     return (c) queryLocalInterface;
                 }
-                return new C2044a(iBinder);
+                return new C2048a(iBinder);
             }
             return (c) invokeL.objValue;
         }

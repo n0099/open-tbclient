@@ -19,7 +19,7 @@ public class a extends SQLiteOpenHelper {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f77686a = 1;
+    public static int f77887a = 1;
 
     /* renamed from: a  reason: collision with other field name */
     public static final Object f830a;
@@ -47,7 +47,7 @@ public class a extends SQLiteOpenHelper {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a(Context context) {
-        super(context, "traffic.db", (SQLiteDatabase.CursorFactory) null, f77686a);
+        super(context, "traffic.db", (SQLiteDatabase.CursorFactory) null, f77887a);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

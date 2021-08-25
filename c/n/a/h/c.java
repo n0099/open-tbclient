@@ -12,10 +12,10 @@ public final class c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final double f34170a;
+    public final double f34276a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final double f34171b;
+    public final double f34277b;
 
     public c(double d2, double d3, double d4, double d5) {
         Interceptable interceptable = $ic;
@@ -32,19 +32,19 @@ public final class c {
                 return;
             }
         }
-        this.f34170a = d4;
-        this.f34171b = d5;
+        this.f34276a = d4;
+        this.f34277b = d5;
     }
 
     public final double a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f34171b : invokeV.doubleValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f34277b : invokeV.doubleValue;
     }
 
     public final double b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f34170a : invokeV.doubleValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f34276a : invokeV.doubleValue;
     }
 }

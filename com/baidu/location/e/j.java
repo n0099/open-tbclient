@@ -10,10 +10,10 @@ public final class j {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f41072a;
+    public static String f41179a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile j f41073b;
+    public static volatile j f41180b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -29,6 +29,6 @@ public final class j {
                 return;
             }
         }
-        f41072a = k.i();
+        f41179a = k.i();
     }
 }

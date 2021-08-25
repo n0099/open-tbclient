@@ -33,7 +33,7 @@ public class ce implements com.kwad.sdk.core.d<com.kwad.sdk.core.webview.b.a.d> 
         if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dVar, jSONObject) == null) || jSONObject == null) {
             return;
         }
-        dVar.f72069a = jSONObject.optBoolean("userForce");
+        dVar.f72269a = jSONObject.optBoolean("userForce");
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -45,7 +45,7 @@ public class ce implements com.kwad.sdk.core.d<com.kwad.sdk.core.webview.b.a.d> 
             if (jSONObject == null) {
                 jSONObject = new JSONObject();
             }
-            com.kwad.sdk.utils.q.a(jSONObject, "userForce", dVar.f72069a);
+            com.kwad.sdk.utils.q.a(jSONObject, "userForce", dVar.f72269a);
             return jSONObject;
         }
         return (JSONObject) invokeLL.objValue;

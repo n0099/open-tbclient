@@ -2,7 +2,7 @@ package com.baidu.live.business.model.data;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-import c.a.v.e.g.j;
+import c.a.w.e.g.j;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.launch.SmartLaunchStats;
 import com.baidu.searchbox.live.interfaces.service.bd.IFavorStateServiceKt;
@@ -81,7 +81,7 @@ public class LiveBannerEntity implements Parcelable {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f40569a;
+        public String f40676a;
 
         public b(LiveBannerEntity liveBannerEntity) {
             Interceptable interceptable = $ic;
@@ -105,7 +105,7 @@ public class LiveBannerEntity implements Parcelable {
                 return;
             }
             jSONObject.optInt("type");
-            this.f40569a = jSONObject.optString("action");
+            this.f40676a = jSONObject.optString("action");
         }
     }
 

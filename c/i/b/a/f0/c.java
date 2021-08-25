@@ -27,14 +27,14 @@ public class c extends e {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final int[] f33425f;
+    public static final int[] f33531f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d  reason: collision with root package name */
-    public final f.a f33426d;
+    public final f.a f33532d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final AtomicReference<C1492c> f33427e;
+    public final AtomicReference<C1496c> f33533e;
 
     /* loaded from: classes4.dex */
     public static final class a {
@@ -42,13 +42,13 @@ public class c extends e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final int f33428a;
+        public final int f33534a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final int f33429b;
+        public final int f33535b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final String f33430c;
+        public final String f33536c;
 
         public a(int i2, int i3, String str) {
             Interceptable interceptable = $ic;
@@ -65,9 +65,9 @@ public class c extends e {
                     return;
                 }
             }
-            this.f33428a = i2;
-            this.f33429b = i3;
-            this.f33430c = str;
+            this.f33534a = i2;
+            this.f33535b = i3;
+            this.f33536c = str;
         }
 
         public boolean equals(Object obj) {
@@ -81,7 +81,7 @@ public class c extends e {
                     return false;
                 }
                 a aVar = (a) obj;
-                return this.f33428a == aVar.f33428a && this.f33429b == aVar.f33429b && TextUtils.equals(this.f33430c, aVar.f33430c);
+                return this.f33534a == aVar.f33534a && this.f33535b == aVar.f33535b && TextUtils.equals(this.f33536c, aVar.f33536c);
             }
             return invokeL.booleanValue;
         }
@@ -90,8 +90,8 @@ public class c extends e {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                int i2 = ((this.f33428a * 31) + this.f33429b) * 31;
-                String str = this.f33430c;
+                int i2 = ((this.f33534a * 31) + this.f33535b) * 31;
+                String str = this.f33536c;
                 return i2 + (str != null ? str.hashCode() : 0);
             }
             return invokeV.intValue;
@@ -104,30 +104,30 @@ public class c extends e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final C1492c f33431e;
+        public final C1496c f33537e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final int f33432f;
+        public final int f33538f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final int f33433g;
+        public final int f33539g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final int f33434h;
+        public final int f33540h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final int f33435i;
+        public final int f33541i;
 
         /* renamed from: j  reason: collision with root package name */
-        public final int f33436j;
+        public final int f33542j;
         public final int k;
 
-        public b(Format format, C1492c c1492c, int i2) {
+        public b(Format format, C1496c c1496c, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {format, c1492c, Integer.valueOf(i2)};
+                Object[] objArr = {format, c1496c, Integer.valueOf(i2)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i3 = newInitContext.flag;
                 if ((i3 & 1) != 0) {
@@ -137,12 +137,12 @@ public class c extends e {
                     return;
                 }
             }
-            this.f33431e = c1492c;
-            this.f33432f = c.w(i2, false) ? 1 : 0;
-            this.f33433g = c.p(format, c1492c.f33437a) ? 1 : 0;
-            this.f33434h = (format.selectionFlags & 1) != 0 ? 1 : 0;
-            this.f33435i = format.channelCount;
-            this.f33436j = format.sampleRate;
+            this.f33537e = c1496c;
+            this.f33538f = c.w(i2, false) ? 1 : 0;
+            this.f33539g = c.p(format, c1496c.f33543a) ? 1 : 0;
+            this.f33540h = (format.selectionFlags & 1) != 0 ? 1 : 0;
+            this.f33541i = format.channelCount;
+            this.f33542j = format.sampleRate;
             this.k = format.bitrate;
         }
 
@@ -154,32 +154,32 @@ public class c extends e {
             int n;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bVar)) == null) {
-                int i2 = this.f33432f;
-                int i3 = bVar.f33432f;
+                int i2 = this.f33538f;
+                int i3 = bVar.f33538f;
                 if (i2 != i3) {
                     return c.n(i2, i3);
                 }
-                int i4 = this.f33433g;
-                int i5 = bVar.f33433g;
+                int i4 = this.f33539g;
+                int i5 = bVar.f33539g;
                 if (i4 != i5) {
                     return c.n(i4, i5);
                 }
-                int i6 = this.f33434h;
-                int i7 = bVar.f33434h;
+                int i6 = this.f33540h;
+                int i7 = bVar.f33540h;
                 if (i6 != i7) {
                     return c.n(i6, i7);
                 }
-                if (this.f33431e.f33446j) {
+                if (this.f33537e.f33552j) {
                     return c.n(bVar.k, this.k);
                 }
                 int i8 = i2 != 1 ? -1 : 1;
-                int i9 = this.f33435i;
-                int i10 = bVar.f33435i;
+                int i9 = this.f33541i;
+                int i10 = bVar.f33541i;
                 if (i9 != i10) {
                     n = c.n(i9, i10);
                 } else {
-                    int i11 = this.f33436j;
-                    int i12 = bVar.f33436j;
+                    int i11 = this.f33542j;
+                    int i12 = bVar.f33542j;
                     n = i11 != i12 ? c.n(i11, i12) : c.n(this.k, bVar.k);
                 }
                 return i8 * n;
@@ -198,7 +198,7 @@ public class c extends e {
                     return false;
                 }
                 b bVar = (b) obj;
-                return this.f33432f == bVar.f33432f && this.f33433g == bVar.f33433g && this.f33434h == bVar.f33434h && this.f33435i == bVar.f33435i && this.f33436j == bVar.f33436j && this.k == bVar.k;
+                return this.f33538f == bVar.f33538f && this.f33539g == bVar.f33539g && this.f33540h == bVar.f33540h && this.f33541i == bVar.f33541i && this.f33542j == bVar.f33542j && this.k == bVar.k;
             }
             return invokeL.booleanValue;
         }
@@ -206,51 +206,51 @@ public class c extends e {
         public int hashCode() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? (((((((((this.f33432f * 31) + this.f33433g) * 31) + this.f33434h) * 31) + this.f33435i) * 31) + this.f33436j) * 31) + this.k : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? (((((((((this.f33538f * 31) + this.f33539g) * 31) + this.f33540h) * 31) + this.f33541i) * 31) + this.f33542j) * 31) + this.k : invokeV.intValue;
         }
     }
 
     /* renamed from: c.i.b.a.f0.c$c  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public static final class C1492c {
+    public static final class C1496c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final String f33437a;
+        public final String f33543a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final String f33438b;
+        public final String f33544b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final int f33439c;
+        public final int f33545c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final int f33440d;
+        public final int f33546d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final int f33441e;
+        public final int f33547e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final boolean f33442f;
+        public final boolean f33548f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final int f33443g;
+        public final int f33549g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final int f33444h;
+        public final int f33550h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final boolean f33445i;
+        public final boolean f33551i;
 
         /* renamed from: j  reason: collision with root package name */
-        public final boolean f33446j;
+        public final boolean f33552j;
         public final boolean k;
         public final boolean l;
         public final boolean m;
 
         /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-        public C1492c() {
+        public C1496c() {
             this(null, null, false, false, true, Integer.MAX_VALUE, Integer.MAX_VALUE, Integer.MAX_VALUE, true, true, Integer.MAX_VALUE, Integer.MAX_VALUE, true);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -275,11 +275,11 @@ public class c extends e {
                 if (this == obj) {
                     return true;
                 }
-                if (obj == null || C1492c.class != obj.getClass()) {
+                if (obj == null || C1496c.class != obj.getClass()) {
                     return false;
                 }
-                C1492c c1492c = (C1492c) obj;
-                return this.f33446j == c1492c.f33446j && this.k == c1492c.k && this.l == c1492c.l && this.f33439c == c1492c.f33439c && this.f33440d == c1492c.f33440d && this.f33442f == c1492c.f33442f && this.m == c1492c.m && this.f33445i == c1492c.f33445i && this.f33443g == c1492c.f33443g && this.f33444h == c1492c.f33444h && this.f33441e == c1492c.f33441e && TextUtils.equals(this.f33437a, c1492c.f33437a) && TextUtils.equals(this.f33438b, c1492c.f33438b);
+                C1496c c1496c = (C1496c) obj;
+                return this.f33552j == c1496c.f33552j && this.k == c1496c.k && this.l == c1496c.l && this.f33545c == c1496c.f33545c && this.f33546d == c1496c.f33546d && this.f33548f == c1496c.f33548f && this.m == c1496c.m && this.f33551i == c1496c.f33551i && this.f33549g == c1496c.f33549g && this.f33550h == c1496c.f33550h && this.f33547e == c1496c.f33547e && TextUtils.equals(this.f33543a, c1496c.f33543a) && TextUtils.equals(this.f33544b, c1496c.f33544b);
             }
             return invokeL.booleanValue;
         }
@@ -288,12 +288,12 @@ public class c extends e {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return (((((((((((((((((((((((this.f33437a.hashCode() * 31) + this.f33438b.hashCode()) * 31) + (this.f33446j ? 1 : 0)) * 31) + (this.k ? 1 : 0)) * 31) + (this.l ? 1 : 0)) * 31) + this.f33439c) * 31) + this.f33440d) * 31) + this.f33441e) * 31) + (this.f33442f ? 1 : 0)) * 31) + (this.m ? 1 : 0)) * 31) + (this.f33445i ? 1 : 0)) * 31) + this.f33443g) * 31) + this.f33444h;
+                return (((((((((((((((((((((((this.f33543a.hashCode() * 31) + this.f33544b.hashCode()) * 31) + (this.f33552j ? 1 : 0)) * 31) + (this.k ? 1 : 0)) * 31) + (this.l ? 1 : 0)) * 31) + this.f33545c) * 31) + this.f33546d) * 31) + this.f33547e) * 31) + (this.f33548f ? 1 : 0)) * 31) + (this.m ? 1 : 0)) * 31) + (this.f33551i ? 1 : 0)) * 31) + this.f33549g) * 31) + this.f33550h;
             }
             return invokeV.intValue;
         }
 
-        public C1492c(String str, String str2, boolean z, boolean z2, boolean z3, int i2, int i3, int i4, boolean z4, boolean z5, int i5, int i6, boolean z6) {
+        public C1496c(String str, String str2, boolean z, boolean z2, boolean z3, int i2, int i3, int i4, boolean z4, boolean z5, int i5, int i6, boolean z6) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -308,19 +308,19 @@ public class c extends e {
                     return;
                 }
             }
-            this.f33437a = str;
-            this.f33438b = str2;
-            this.f33446j = z;
+            this.f33543a = str;
+            this.f33544b = str2;
+            this.f33552j = z;
             this.k = z2;
             this.l = z3;
-            this.f33439c = i2;
-            this.f33440d = i3;
-            this.f33441e = i4;
-            this.f33442f = z4;
+            this.f33545c = i2;
+            this.f33546d = i3;
+            this.f33547e = i4;
+            this.f33548f = z4;
             this.m = z5;
-            this.f33443g = i5;
-            this.f33444h = i6;
-            this.f33445i = z6;
+            this.f33549g = i5;
+            this.f33550h = i6;
+            this.f33551i = z6;
         }
     }
 
@@ -337,7 +337,7 @@ public class c extends e {
                 return;
             }
         }
-        f33425f = new int[0];
+        f33531f = new int[0];
     }
 
     public c(f.a aVar) {
@@ -355,8 +355,8 @@ public class c extends e {
                 return;
             }
         }
-        this.f33426d = aVar;
-        this.f33427e = new AtomicReference<>(new C1492c());
+        this.f33532d = aVar;
+        this.f33533e = new AtomicReference<>(new C1496c());
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:45:0x0087, code lost:
@@ -365,14 +365,14 @@ public class c extends e {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static f B(t tVar, int[][] iArr, C1492c c1492c) {
+    public static f B(t tVar, int[][] iArr, C1496c c1496c) {
         InterceptResult invokeLLL;
         int m;
         int i2;
         int i3;
         int i4;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, tVar, iArr, c1492c)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, tVar, iArr, c1496c)) == null) {
             t tVar2 = tVar;
             int i5 = -1;
             int i6 = 0;
@@ -381,17 +381,17 @@ public class c extends e {
             int i8 = 0;
             int i9 = -1;
             int i10 = -1;
-            while (i6 < tVar2.f32922a) {
+            while (i6 < tVar2.f33028a) {
                 s a2 = tVar2.a(i6);
-                List<Integer> v = v(a2, c1492c.f33443g, c1492c.f33444h, c1492c.f33445i);
+                List<Integer> v = v(a2, c1496c.f33549g, c1496c.f33550h, c1496c.f33551i);
                 int[] iArr2 = iArr[i6];
                 int i11 = 0;
-                while (i11 < a2.f32918a) {
-                    if (w(iArr2[i11], c1492c.m)) {
+                while (i11 < a2.f33024a) {
+                    if (w(iArr2[i11], c1496c.m)) {
                         Format a3 = a2.a(i11);
                         boolean z = true;
-                        boolean z2 = v.contains(Integer.valueOf(i11)) && ((i2 = a3.width) == i5 || i2 <= c1492c.f33439c) && (((i3 = a3.height) == i5 || i3 <= c1492c.f33440d) && ((i4 = a3.bitrate) == i5 || i4 <= c1492c.f33441e));
-                        if (z2 || c1492c.f33442f) {
+                        boolean z2 = v.contains(Integer.valueOf(i11)) && ((i2 = a3.width) == i5 || i2 <= c1496c.f33545c) && (((i3 = a3.height) == i5 || i3 <= c1496c.f33546d) && ((i4 = a3.bitrate) == i5 || i4 <= c1496c.f33547e));
+                        if (z2 || c1496c.f33548f) {
                             int i12 = z2 ? 2 : 1;
                             boolean w = w(iArr2[i11], false);
                             if (w) {
@@ -399,7 +399,7 @@ public class c extends e {
                             }
                             boolean z3 = i12 > i8;
                             if (i12 == i8) {
-                                if (!c1492c.f33446j) {
+                                if (!c1496c.f33552j) {
                                     int pixelCount = a3.getPixelCount();
                                     if (pixelCount != i9) {
                                         m = m(pixelCount, i9);
@@ -486,7 +486,7 @@ public class c extends e {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65544, null, sVar, iArr, aVar)) == null) {
             int i2 = 0;
-            for (int i3 = 0; i3 < sVar.f32918a; i3++) {
+            for (int i3 = 0; i3 < sVar.f33024a; i3++) {
                 if (x(sVar.a(i3), iArr[i3], aVar)) {
                     i2++;
                 }
@@ -504,7 +504,7 @@ public class c extends e {
             HashSet hashSet = new HashSet();
             a aVar = null;
             int i2 = 0;
-            for (int i3 = 0; i3 < sVar.f32918a; i3++) {
+            for (int i3 = 0; i3 < sVar.f33024a; i3++) {
                 Format a2 = sVar.a(i3);
                 a aVar2 = new a(a2.channelCount, a2.sampleRate, z ? null : a2.sampleMimeType);
                 if (hashSet.add(aVar2) && (q = q(sVar, iArr, aVar2)) > i2) {
@@ -515,7 +515,7 @@ public class c extends e {
             if (i2 > 1) {
                 int[] iArr2 = new int[i2];
                 int i4 = 0;
-                for (int i5 = 0; i5 < sVar.f32918a; i5++) {
+                for (int i5 = 0; i5 < sVar.f33024a; i5++) {
                     if (x(sVar.a(i5), iArr[i5], aVar)) {
                         iArr2[i4] = i5;
                         i4++;
@@ -523,7 +523,7 @@ public class c extends e {
                 }
                 return iArr2;
             }
-            return f33425f;
+            return f33531f;
         }
         return (int[]) invokeLLZ.objValue;
     }
@@ -550,12 +550,12 @@ public class c extends e {
         int s;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65547, null, new Object[]{sVar, iArr, Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7), Boolean.valueOf(z2)})) == null) {
-            if (sVar.f32918a < 2) {
-                return f33425f;
+            if (sVar.f33024a < 2) {
+                return f33531f;
             }
             List<Integer> v = v(sVar, i6, i7, z2);
             if (v.size() < 2) {
-                return f33425f;
+                return f33531f;
             }
             if (z) {
                 str = null;
@@ -573,7 +573,7 @@ public class c extends e {
                 str = str2;
             }
             o(sVar, iArr, i2, str, i3, i4, i5, v);
-            return v.size() < 2 ? f33425f : v.I(v);
+            return v.size() < 2 ? f33531f : v.I(v);
         }
         return (int[]) invokeCommon.objValue;
     }
@@ -607,13 +607,13 @@ public class c extends e {
         int i4;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65549, null, new Object[]{sVar, Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z)})) == null) {
-            ArrayList arrayList = new ArrayList(sVar.f32918a);
-            for (int i5 = 0; i5 < sVar.f32918a; i5++) {
+            ArrayList arrayList = new ArrayList(sVar.f33024a);
+            for (int i5 = 0; i5 < sVar.f33024a; i5++) {
                 arrayList.add(Integer.valueOf(i5));
             }
             if (i2 != Integer.MAX_VALUE && i3 != Integer.MAX_VALUE) {
                 int i6 = Integer.MAX_VALUE;
-                for (int i7 = 0; i7 < sVar.f32918a; i7++) {
+                for (int i7 = 0; i7 < sVar.f33024a; i7++) {
                     Format a2 = sVar.a(i7);
                     int i8 = a2.width;
                     if (i8 > 0 && (i4 = a2.height) > 0) {
@@ -654,8 +654,8 @@ public class c extends e {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65551, null, format, i2, aVar)) == null) {
-            if (w(i2, false) && format.channelCount == aVar.f33428a && format.sampleRate == aVar.f33429b) {
-                String str = aVar.f33430c;
+            if (w(i2, false) && format.channelCount == aVar.f33534a && format.sampleRate == aVar.f33535b) {
+                String str = aVar.f33536c;
                 return str == null || TextUtils.equals(str, format.sampleMimeType);
             }
             return false;
@@ -687,15 +687,15 @@ public class c extends e {
         return invokeCommon.booleanValue;
     }
 
-    public static f z(c.i.b.a.s sVar, t tVar, int[][] iArr, C1492c c1492c, f.a aVar) throws ExoPlaybackException {
+    public static f z(c.i.b.a.s sVar, t tVar, int[][] iArr, C1496c c1496c, f.a aVar) throws ExoPlaybackException {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65553, null, sVar, tVar, iArr, c1492c, aVar)) == null) {
-            int i2 = c1492c.l ? 24 : 16;
-            boolean z = c1492c.k && (sVar.r() & i2) != 0;
-            for (int i3 = 0; i3 < tVar.f32922a; i3++) {
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65553, null, sVar, tVar, iArr, c1496c, aVar)) == null) {
+            int i2 = c1496c.l ? 24 : 16;
+            boolean z = c1496c.k && (sVar.r() & i2) != 0;
+            for (int i3 = 0; i3 < tVar.f33028a; i3++) {
                 s a2 = tVar.a(i3);
-                int[] t = t(a2, iArr[i3], z, i2, c1492c.f33439c, c1492c.f33440d, c1492c.f33441e, c1492c.f33443g, c1492c.f33444h, c1492c.f33445i);
+                int[] t = t(a2, iArr[i3], z, i2, c1496c.f33545c, c1496c.f33546d, c1496c.f33547e, c1496c.f33549g, c1496c.f33550h, c1496c.f33551i);
                 if (t.length > 0) {
                     return aVar.a(a2, t);
                 }
@@ -705,19 +705,19 @@ public class c extends e {
         return (f) invokeLLLLL.objValue;
     }
 
-    public f A(t tVar, int[][] iArr, C1492c c1492c, f.a aVar) throws ExoPlaybackException {
+    public f A(t tVar, int[][] iArr, C1496c c1496c, f.a aVar) throws ExoPlaybackException {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, tVar, iArr, c1492c, aVar)) == null) {
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, tVar, iArr, c1496c, aVar)) == null) {
             b bVar = null;
             int i2 = -1;
             int i3 = -1;
-            for (int i4 = 0; i4 < tVar.f32922a; i4++) {
+            for (int i4 = 0; i4 < tVar.f33028a; i4++) {
                 s a2 = tVar.a(i4);
                 int[] iArr2 = iArr[i4];
-                for (int i5 = 0; i5 < a2.f32918a; i5++) {
-                    if (w(iArr2[i5], c1492c.m)) {
-                        b bVar2 = new b(a2.a(i5), c1492c, iArr2[i5]);
+                for (int i5 = 0; i5 < a2.f33024a; i5++) {
+                    if (w(iArr2[i5], c1496c.m)) {
+                        b bVar2 = new b(a2.a(i5), c1496c, iArr2[i5]);
                         if (bVar == null || bVar2.compareTo(bVar) > 0) {
                             i2 = i4;
                             i3 = i5;
@@ -730,8 +730,8 @@ public class c extends e {
                 return null;
             }
             s a3 = tVar.a(i2);
-            if (!c1492c.f33446j && aVar != null) {
-                int[] r = r(a3, iArr[i2], c1492c.k);
+            if (!c1496c.f33552j && aVar != null) {
+                int[] r = r(a3, iArr[i2], c1496c.k);
                 if (r.length > 0) {
                     return aVar.a(a3, r);
                 }
@@ -741,18 +741,18 @@ public class c extends e {
         return (f) invokeLLLL.objValue;
     }
 
-    public f C(int i2, t tVar, int[][] iArr, C1492c c1492c) throws ExoPlaybackException {
+    public f C(int i2, t tVar, int[][] iArr, C1496c c1496c) throws ExoPlaybackException {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), tVar, iArr, c1492c})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), tVar, iArr, c1496c})) == null) {
             s sVar = null;
             int i3 = 0;
             int i4 = 0;
-            for (int i5 = 0; i5 < tVar.f32922a; i5++) {
+            for (int i5 = 0; i5 < tVar.f33028a; i5++) {
                 s a2 = tVar.a(i5);
                 int[] iArr2 = iArr[i5];
-                for (int i6 = 0; i6 < a2.f32918a; i6++) {
-                    if (w(iArr2[i6], c1492c.m)) {
+                for (int i6 = 0; i6 < a2.f33024a; i6++) {
+                    if (w(iArr2[i6], c1496c.m)) {
                         int i7 = (a2.a(i6).selectionFlags & 1) != 0 ? 2 : 1;
                         if (w(iArr2[i6], false)) {
                             i7 += 1000;
@@ -773,28 +773,28 @@ public class c extends e {
         return (f) invokeCommon.objValue;
     }
 
-    public f D(t tVar, int[][] iArr, C1492c c1492c) throws ExoPlaybackException {
+    public f D(t tVar, int[][] iArr, C1496c c1496c) throws ExoPlaybackException {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, tVar, iArr, c1492c)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, tVar, iArr, c1496c)) == null) {
             s sVar = null;
             int i2 = 0;
             int i3 = 0;
-            for (int i4 = 0; i4 < tVar.f32922a; i4++) {
+            for (int i4 = 0; i4 < tVar.f33028a; i4++) {
                 s a2 = tVar.a(i4);
                 int[] iArr2 = iArr[i4];
-                for (int i5 = 0; i5 < a2.f32918a; i5++) {
-                    if (w(iArr2[i5], c1492c.m)) {
+                for (int i5 = 0; i5 < a2.f33024a; i5++) {
+                    if (w(iArr2[i5], c1496c.m)) {
                         Format a3 = a2.a(i5);
                         int i6 = 1;
                         boolean z = (a3.selectionFlags & 1) != 0;
                         boolean z2 = (a3.selectionFlags & 2) != 0;
-                        if (p(a3, c1492c.f33438b)) {
+                        if (p(a3, c1496c.f33544b)) {
                             i6 = z ? 6 : !z2 ? 5 : 4;
                         } else if (z) {
                             i6 = 3;
                         } else if (z2) {
-                            if (p(a3, c1492c.f33437a)) {
+                            if (p(a3, c1496c.f33543a)) {
                                 i6 = 2;
                             }
                         }
@@ -817,12 +817,12 @@ public class c extends e {
         return (f) invokeLLL.objValue;
     }
 
-    public f E(c.i.b.a.s sVar, t tVar, int[][] iArr, C1492c c1492c, f.a aVar) throws ExoPlaybackException {
+    public f E(c.i.b.a.s sVar, t tVar, int[][] iArr, C1496c c1496c, f.a aVar) throws ExoPlaybackException {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048579, this, sVar, tVar, iArr, c1492c, aVar)) == null) {
-            f z = (c1492c.f33446j || aVar == null) ? null : z(sVar, tVar, iArr, c1492c, aVar);
-            return z == null ? B(tVar, iArr, c1492c) : z;
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048579, this, sVar, tVar, iArr, c1496c, aVar)) == null) {
+            f z = (c1496c.f33552j || aVar == null) ? null : z(sVar, tVar, iArr, c1496c, aVar);
+            return z == null ? B(tVar, iArr, c1496c) : z;
         }
         return (f) invokeLLLLL.objValue;
     }
@@ -834,7 +834,7 @@ public class c extends e {
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048580, this, sVarArr, tVarArr, iArr)) == null) {
             int length = sVarArr.length;
             f[] fVarArr = new f[length];
-            C1492c c1492c = this.f33427e.get();
+            C1496c c1496c = this.f33533e.get();
             boolean z = false;
             int i2 = 0;
             boolean z2 = false;
@@ -844,10 +844,10 @@ public class c extends e {
                 }
                 if (2 == sVarArr[i2].e()) {
                     if (!z) {
-                        fVarArr[i2] = E(sVarArr[i2], tVarArr[i2], iArr[i2], c1492c, this.f33426d);
+                        fVarArr[i2] = E(sVarArr[i2], tVarArr[i2], iArr[i2], c1496c, this.f33532d);
                         z = fVarArr[i2] != null;
                     }
-                    z2 |= tVarArr[i2].f32922a > 0;
+                    z2 |= tVarArr[i2].f33028a > 0;
                 }
                 i2++;
             }
@@ -858,14 +858,14 @@ public class c extends e {
                 if (e2 != 1) {
                     if (e2 != 2) {
                         if (e2 != 3) {
-                            fVarArr[i3] = C(sVarArr[i3].e(), tVarArr[i3], iArr[i3], c1492c);
+                            fVarArr[i3] = C(sVarArr[i3].e(), tVarArr[i3], iArr[i3], c1496c);
                         } else if (!z4) {
-                            fVarArr[i3] = D(tVarArr[i3], iArr[i3], c1492c);
+                            fVarArr[i3] = D(tVarArr[i3], iArr[i3], c1496c);
                             z4 = fVarArr[i3] != null;
                         }
                     }
                 } else if (!z3) {
-                    fVarArr[i3] = A(tVarArr[i3], iArr[i3], c1492c, z2 ? null : this.f33426d);
+                    fVarArr[i3] = A(tVarArr[i3], iArr[i3], c1496c, z2 ? null : this.f33532d);
                     z3 = fVarArr[i3] != null;
                 }
             }

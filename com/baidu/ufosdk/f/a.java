@@ -22,13 +22,13 @@ public final class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static a f59206a;
+    public static a f59406a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static HashMap f59207b;
+    public static HashMap f59407b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static ExecutorService f59208c;
+    public static ExecutorService f59408c;
     public transient /* synthetic */ FieldHolder $fh;
 
     public a() {
@@ -44,8 +44,8 @@ public final class a {
                 return;
             }
         }
-        if (f59207b == null) {
-            f59207b = new HashMap();
+        if (f59407b == null) {
+            f59407b = new HashMap();
         }
     }
 
@@ -142,13 +142,13 @@ public final class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             synchronized (a.class) {
-                if (f59206a == null) {
-                    f59206a = new a();
-                    if (f59208c == null) {
-                        f59208c = Executors.newFixedThreadPool(1);
+                if (f59406a == null) {
+                    f59406a = new a();
+                    if (f59408c == null) {
+                        f59408c = Executors.newFixedThreadPool(1);
                     }
                 }
-                aVar = f59206a;
+                aVar = f59406a;
             }
             return aVar;
         }
@@ -162,7 +162,7 @@ public final class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, nVar, str)) == null) {
             String c2 = k.c(str);
-            if (!f59207b.containsKey(c2) || (bitmap2 = (Bitmap) ((SoftReference) f59207b.get(c2)).get()) == null) {
+            if (!f59407b.containsKey(c2) || (bitmap2 = (Bitmap) ((SoftReference) f59407b.get(c2)).get()) == null) {
                 try {
                     bitmap = f.a(c2);
                 } catch (OutOfMemoryError unused) {
@@ -170,10 +170,10 @@ public final class a {
                     bitmap = null;
                 }
                 if (bitmap != null) {
-                    f59207b.put(c2, new SoftReference(bitmap));
+                    f59407b.put(c2, new SoftReference(bitmap));
                     return bitmap;
                 }
-                f59208c.execute(new b(this, str, c2, nVar));
+                f59408c.execute(new b(this, str, c2, nVar));
                 return null;
             }
             return bitmap2;

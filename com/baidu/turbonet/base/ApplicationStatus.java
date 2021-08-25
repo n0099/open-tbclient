@@ -18,33 +18,33 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 @JNINamespace
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class ApplicationStatus {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Object f58876a;
+    public static Object f59076a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Integer f58877b;
+    public static Integer f59077b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static Activity f58878c;
+    public static Activity f59078c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static f f58879d;
+    public static f f59079d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final Map<Activity, d> f58880e;
+    public static final Map<Activity, d> f59080e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final c.a.q0.a.b<e> f58881f;
+    public static final c.a.r0.a.b<e> f59081f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final c.a.q0.a.b<f> f58882g;
+    public static final c.a.r0.a.b<f> f59082g;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class a implements BaseChromiumApplication.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -67,14 +67,14 @@ public class ApplicationStatus {
         public void a(Activity activity, boolean z) {
             int h2;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLZ(1048576, this, activity, z) == null) || !z || activity == ApplicationStatus.f58878c || (h2 = ApplicationStatus.h(activity)) == 6 || h2 == 5) {
+            if (!(interceptable == null || interceptable.invokeLZ(1048576, this, activity, z) == null) || !z || activity == ApplicationStatus.f59078c || (h2 = ApplicationStatus.h(activity)) == 6 || h2 == 5) {
                 return;
             }
-            Activity unused = ApplicationStatus.f58878c = activity;
+            Activity unused = ApplicationStatus.f59078c = activity;
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class b implements Application.ActivityLifecycleCallbacks {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -149,12 +149,12 @@ public class ApplicationStatus {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class c implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        /* loaded from: classes7.dex */
+        /* loaded from: classes8.dex */
         public class a implements f {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -201,19 +201,19 @@ public class ApplicationStatus {
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && ApplicationStatus.f58879d == null) {
-                f unused = ApplicationStatus.f58879d = new a(this);
-                ApplicationStatus.k(ApplicationStatus.f58879d);
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && ApplicationStatus.f59079d == null) {
+                f unused = ApplicationStatus.f59079d = new a(this);
+                ApplicationStatus.k(ApplicationStatus.f59079d);
             }
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface e {
         void a(Activity activity, int i2);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface f {
         void a(int i2);
     }
@@ -231,10 +231,10 @@ public class ApplicationStatus {
                 return;
             }
         }
-        f58876a = new Object();
-        f58880e = new ConcurrentHashMap();
-        f58881f = new c.a.q0.a.b<>();
-        f58882g = new c.a.q0.a.b<>();
+        f59076a = new Object();
+        f59080e = new ConcurrentHashMap();
+        f59081f = new c.a.r0.a.b<>();
+        f59082g = new c.a.r0.a.b<>();
     }
 
     public ApplicationStatus() {
@@ -257,7 +257,7 @@ public class ApplicationStatus {
         if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
             boolean z = false;
             boolean z2 = false;
-            for (d dVar : f58880e.values()) {
+            for (d dVar : f59080e.values()) {
                 int b2 = dVar.b();
                 if (b2 != 4 && b2 != 5 && b2 != 6) {
                     return 1;
@@ -282,11 +282,11 @@ public class ApplicationStatus {
         int intValue;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
-            synchronized (f58876a) {
-                if (f58877b == null) {
-                    f58877b = Integer.valueOf(g());
+            synchronized (f59076a) {
+                if (f59077b == null) {
+                    f59077b = Integer.valueOf(g());
                 }
-                intValue = f58877b.intValue();
+                intValue = f59077b.intValue();
             }
             return intValue;
         }
@@ -297,7 +297,7 @@ public class ApplicationStatus {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, activity)) == null) {
-            d dVar = f58880e.get(activity);
+            d dVar = f59080e.get(activity);
             if (dVar != null) {
                 return dVar.b();
             }
@@ -318,37 +318,37 @@ public class ApplicationStatus {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(65548, null, activity, i2) == null) {
             if (activity != null) {
-                if (f58878c == null || i2 == 1 || i2 == 3 || i2 == 2) {
-                    f58878c = activity;
+                if (f59078c == null || i2 == 1 || i2 == 3 || i2 == 2) {
+                    f59078c = activity;
                 }
                 int stateForApplication = getStateForApplication();
                 if (i2 == 1) {
-                    f58880e.put(activity, new d(null));
+                    f59080e.put(activity, new d(null));
                 }
-                synchronized (f58876a) {
-                    f58877b = null;
+                synchronized (f59076a) {
+                    f59077b = null;
                 }
-                d dVar = f58880e.get(activity);
+                d dVar = f59080e.get(activity);
                 dVar.c(i2);
                 Iterator<e> it = dVar.a().iterator();
                 while (it.hasNext()) {
                     it.next().a(activity, i2);
                 }
-                Iterator<e> it2 = f58881f.iterator();
+                Iterator<e> it2 = f59081f.iterator();
                 while (it2.hasNext()) {
                     it2.next().a(activity, i2);
                 }
                 int stateForApplication2 = getStateForApplication();
                 if (stateForApplication2 != stateForApplication) {
-                    Iterator<f> it3 = f58882g.iterator();
+                    Iterator<f> it3 = f59082g.iterator();
                     while (it3.hasNext()) {
                         it3.next().a(stateForApplication2);
                     }
                 }
                 if (i2 == 6) {
-                    f58880e.remove(activity);
-                    if (activity == f58878c) {
-                        f58878c = null;
+                    f59080e.remove(activity);
+                    if (activity == f59078c) {
+                        f59078c = null;
                         return;
                     }
                     return;
@@ -362,7 +362,7 @@ public class ApplicationStatus {
     public static void k(f fVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65549, null, fVar) == null) {
-            f58882g.e(fVar);
+            f59082g.e(fVar);
         }
     }
 
@@ -376,16 +376,16 @@ public class ApplicationStatus {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f58883a;
+        public int f59083a;
 
         /* renamed from: b  reason: collision with root package name */
-        public c.a.q0.a.b<e> f58884b;
+        public c.a.r0.a.b<e> f59084b;
 
         public d() {
             Interceptable interceptable = $ic;
@@ -400,26 +400,26 @@ public class ApplicationStatus {
                     return;
                 }
             }
-            this.f58883a = 6;
-            this.f58884b = new c.a.q0.a.b<>();
+            this.f59083a = 6;
+            this.f59084b = new c.a.r0.a.b<>();
         }
 
-        public c.a.q0.a.b<e> a() {
+        public c.a.r0.a.b<e> a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f58884b : (c.a.q0.a.b) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f59084b : (c.a.r0.a.b) invokeV.objValue;
         }
 
         public int b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f58883a : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f59083a : invokeV.intValue;
         }
 
         public void c(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-                this.f58883a = i2;
+                this.f59083a = i2;
             }
         }
 

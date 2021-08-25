@@ -3,7 +3,6 @@ package com.yy.mobile.framework.revenuesdk.payservice.revenueservice.protocol;
 import android.text.TextUtils;
 import com.baidu.mobads.container.adrequest.IAdRequestParam;
 import com.baidu.sapi2.activity.BaseActivity;
-import com.baidu.searchbox.aps.megapp_interface.BuildConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -141,7 +140,7 @@ public class ChargeCurrencyRequest implements IRequestProtocol {
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public ChargeCurrencyRequest(int i2, int i3, int i4, String str, String str2, String str3, double d2) {
-        this(i2, 0, i3, 10002, i4, str, str2, str3, d2, 0, true, "", "", BuildConfig.VERSION_NAME, "");
+        this(i2, 0, i3, 10002, i4, str, str2, str3, d2, 0, true, "", "", "1.0.0", "");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

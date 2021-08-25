@@ -69,11 +69,11 @@ public class ChatClipImageItemView extends TbImageView implements k.a {
     }
 
     @Override // com.baidu.tbadk.widget.TbImageView, com.baidu.adp.newwidget.ImageView.BDImageView
-    public c.a.e.k.d.a getBdImage() {
+    public c.a.e.l.d.a getBdImage() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            c.a.e.k.d.a bdImage = super.getBdImage();
+            c.a.e.l.d.a bdImage = super.getBdImage();
             boolean z = true;
             boolean z2 = (getDrawable() == null || !(getDrawable() instanceof BitmapDrawable) || ((BitmapDrawable) getDrawable()).getBitmap() == null) ? false : true;
             boolean z3 = bdImage != null && bdImage.w();
@@ -84,18 +84,18 @@ public class ChatClipImageItemView extends TbImageView implements k.a {
             kVar.u(z);
             return bdImage;
         }
-        return (c.a.e.k.d.a) invokeV.objValue;
+        return (c.a.e.l.d.a) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.widget.TbImageView, com.baidu.adp.newwidget.ImageView.BDImageView
-    public c.a.e.k.d.a getDefaultBdImage() {
+    public c.a.e.l.d.a getDefaultBdImage() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             this.pathClipDrawer.u(false);
             return super.getDefaultBdImage();
         }
-        return (c.a.e.k.d.a) invokeV.objValue;
+        return (c.a.e.l.d.a) invokeV.objValue;
     }
 
     public boolean isLeft() {

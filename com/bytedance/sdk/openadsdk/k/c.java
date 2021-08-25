@@ -18,10 +18,10 @@ public class c implements ITTAdNetDepend {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f67594a;
+    public String f67794a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f67595b;
+    public Context f67795b;
 
     public c(Context context) {
         Interceptable interceptable = $ic;
@@ -38,8 +38,8 @@ public class c implements ITTAdNetDepend {
                 return;
             }
         }
-        this.f67594a = "sp_multi_ttadnet_config";
-        this.f67595b = context;
+        this.f67794a = "sp_multi_ttadnet_config";
+        this.f67795b = context;
     }
 
     @Override // com.bytedance.sdk.component.net.tnc.ITTAdNetDepend
@@ -67,14 +67,14 @@ public class c implements ITTAdNetDepend {
     public Context getContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f67595b : (Context) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f67795b : (Context) invokeV.objValue;
     }
 
     @Override // com.bytedance.sdk.component.net.tnc.ITTAdNetDepend
     public String getDid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? j.a(this.f67595b) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? j.a(this.f67795b) : (String) invokeV.objValue;
     }
 
     @Override // com.bytedance.sdk.component.net.tnc.ITTAdNetDepend
@@ -98,14 +98,14 @@ public class c implements ITTAdNetDepend {
     public int getProviderInt(Context context, String str, int i2) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048583, this, context, str, i2)) == null) ? com.bytedance.sdk.openadsdk.multipro.d.a.a(this.f67594a, str, i2) : invokeLLI.intValue;
+        return (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048583, this, context, str, i2)) == null) ? com.bytedance.sdk.openadsdk.multipro.d.a.a(this.f67794a, str, i2) : invokeLLI.intValue;
     }
 
     @Override // com.bytedance.sdk.component.net.tnc.ITTAdNetDepend
     public String getProviderString(Context context, String str, String str2) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, context, str, str2)) == null) ? com.bytedance.sdk.openadsdk.multipro.d.a.b(this.f67594a, str, str2) : (String) invokeLLL.objValue;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, context, str, str2)) == null) ? com.bytedance.sdk.openadsdk.multipro.d.a.b(this.f67794a, str, str2) : (String) invokeLLL.objValue;
     }
 
     @Override // com.bytedance.sdk.component.net.tnc.ITTAdNetDepend
@@ -128,15 +128,15 @@ public class c implements ITTAdNetDepend {
             for (Map.Entry<String, ?> entry : map.entrySet()) {
                 Object value = entry.getValue();
                 if (value instanceof Integer) {
-                    com.bytedance.sdk.openadsdk.multipro.d.a.a(this.f67594a, entry.getKey(), (Integer) value);
+                    com.bytedance.sdk.openadsdk.multipro.d.a.a(this.f67794a, entry.getKey(), (Integer) value);
                 } else if (value instanceof Long) {
-                    com.bytedance.sdk.openadsdk.multipro.d.a.a(this.f67594a, entry.getKey(), (Long) value);
+                    com.bytedance.sdk.openadsdk.multipro.d.a.a(this.f67794a, entry.getKey(), (Long) value);
                 } else if (value instanceof Float) {
-                    com.bytedance.sdk.openadsdk.multipro.d.a.a(this.f67594a, entry.getKey(), (Float) value);
+                    com.bytedance.sdk.openadsdk.multipro.d.a.a(this.f67794a, entry.getKey(), (Float) value);
                 } else if (value instanceof Boolean) {
-                    com.bytedance.sdk.openadsdk.multipro.d.a.a(this.f67594a, entry.getKey(), (Boolean) value);
+                    com.bytedance.sdk.openadsdk.multipro.d.a.a(this.f67794a, entry.getKey(), (Boolean) value);
                 } else if (value instanceof String) {
-                    com.bytedance.sdk.openadsdk.multipro.d.a.a(this.f67594a, entry.getKey(), (String) value);
+                    com.bytedance.sdk.openadsdk.multipro.d.a.a(this.f67794a, entry.getKey(), (String) value);
                 }
             }
         } catch (Throwable unused) {

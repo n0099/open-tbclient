@@ -28,13 +28,13 @@ public class d {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f39015a;
+    public String f39122a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f39016b;
+    public String f39123b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f39017c;
+    public String f39124c;
 
     public d() {
         Interceptable interceptable = $ic;
@@ -49,10 +49,10 @@ public class d {
                 return;
             }
         }
-        this.f39015a = null;
-        this.f39016b = null;
-        this.f39017c = null;
-        this.f39017c = "video_session";
+        this.f39122a = null;
+        this.f39123b = null;
+        this.f39124c = null;
+        this.f39124c = "video_session";
         a(CyberPlayerManager.getApplicationContext());
     }
 
@@ -71,10 +71,10 @@ public class d {
                 return;
             }
         }
-        this.f39015a = null;
-        this.f39016b = null;
-        this.f39017c = null;
-        this.f39017c = str;
+        this.f39122a = null;
+        this.f39123b = null;
+        this.f39124c = null;
+        this.f39124c = str;
         a(CyberPlayerManager.getApplicationContext());
     }
 
@@ -228,15 +228,15 @@ public class d {
 
     public void a() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || TextUtils.isEmpty(this.f39015a) || TextUtils.isEmpty(this.f39016b)) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || TextUtils.isEmpty(this.f39122a) || TextUtils.isEmpty(this.f39123b)) {
             return;
         }
         ReentrantLock reentrantLock = new ReentrantLock(true);
         reentrantLock.lock();
         try {
-            String str = this.f39015a;
+            String str = this.f39122a;
             if (b(str)) {
-                String str2 = this.f39016b;
+                String str2 = this.f39123b;
                 a(str2);
                 if (b(str, str2)) {
                     a(str);
@@ -259,20 +259,20 @@ public class d {
         }
         new File(b2).mkdirs();
         String coreVersion = CyberPlayerManager.getCoreVersion();
-        this.f39015a = b2 + File.separator + this.f39017c + "_" + coreVersion + ".bak";
-        this.f39016b = b2 + File.separator + this.f39017c + "_log_" + coreVersion + ".tmp";
+        this.f39122a = b2 + File.separator + this.f39124c + "_" + coreVersion + ".bak";
+        this.f39123b = b2 + File.separator + this.f39124c + "_log_" + coreVersion + ".tmp";
     }
 
     public void a(byte[] bArr) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bArr) == null) || bArr == null || TextUtils.isEmpty(this.f39015a)) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bArr) == null) || bArr == null || TextUtils.isEmpty(this.f39122a)) {
             return;
         }
         ReentrantLock reentrantLock = new ReentrantLock(true);
         reentrantLock.lock();
         try {
             try {
-                a(this.f39015a, bArr, Part.CRLF);
+                a(this.f39122a, bArr, Part.CRLF);
             } catch (AssertionError unused) {
                 CyberLog.e("DpStatFileWriter", "write data to file fail");
             }
@@ -291,7 +291,7 @@ public class d {
                 FileInputStream fileInputStream = new FileInputStream(str);
                 InputStreamReader inputStreamReader = new InputStreamReader(fileInputStream, "UTF-8");
                 BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
-                String a2 = DpSessionDatasUploader.getInstance().a("sailor_monitor", this.f39017c.equals("live_show_session") ? 24 : 1);
+                String a2 = DpSessionDatasUploader.getInstance().a("sailor_monitor", this.f39124c.equals("live_show_session") ? 24 : 1);
                 if (TextUtils.isEmpty(a2)) {
                     z = true;
                 } else {

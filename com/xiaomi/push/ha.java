@@ -18,7 +18,7 @@ public class ha implements XMPushService.l {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f77376a;
+    public static boolean f77577a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
@@ -28,7 +28,7 @@ public class ha implements XMPushService.l {
     public Context f471a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f77377b;
+    public boolean f77578b;
 
     static {
         InterceptResult invokeClinit;
@@ -72,7 +72,7 @@ public class ha implements XMPushService.l {
     private void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, this, context) == null) {
-            this.f77377b = com.xiaomi.push.service.aq.a(context).a(hk.ak.a(), true);
+            this.f77578b = com.xiaomi.push.service.aq.a(context).a(hk.ak.a(), true);
             int a2 = com.xiaomi.push.service.aq.a(context).a(hk.al.a(), 7200);
             this.f470a = a2;
             this.f470a = Math.max(60, a2);
@@ -82,7 +82,7 @@ public class ha implements XMPushService.l {
     public static void a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TRACKBALL, null, z) == null) {
-            f77376a = z;
+            f77577a = z;
         }
     }
 
@@ -96,7 +96,7 @@ public class ha implements XMPushService.l {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, this, heVar)) == null) {
-            if (!bg.b(this.f471a) || heVar == null || TextUtils.isEmpty(a(this.f471a.getPackageName())) || !new File(this.f471a.getFilesDir(), "tiny_data.data").exists() || f77376a) {
+            if (!bg.b(this.f471a) || heVar == null || TextUtils.isEmpty(a(this.f471a.getPackageName())) || !new File(this.f471a.getFilesDir(), "tiny_data.data").exists() || f77577a) {
                 return false;
             }
             return !com.xiaomi.push.service.aq.a(this.f471a).a(hk.aV.a(), false) || i.m440a(this.f471a) || i.m443b(this.f471a);
@@ -110,11 +110,11 @@ public class ha implements XMPushService.l {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             a(this.f471a);
-            if (this.f77377b && a()) {
+            if (this.f77578b && a()) {
                 com.xiaomi.channel.commonutils.logger.b.m73a("TinyData TinyDataCacheProcessor.pingFollowUpAction ts:" + System.currentTimeMillis());
                 he a2 = hd.a(this.f471a).a();
                 if (a(a2)) {
-                    f77376a = true;
+                    f77577a = true;
                     hb.a(this.f471a, a2);
                     return;
                 }

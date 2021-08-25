@@ -45,13 +45,13 @@ public class ai {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ View f42958a;
+                public final /* synthetic */ View f43065a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ Activity f42959b;
+                public final /* synthetic */ Activity f43066b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ TextView f42960c;
+                public final /* synthetic */ TextView f43067c;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -68,22 +68,22 @@ public class ai {
                             return;
                         }
                     }
-                    this.f42958a = viewGroup;
-                    this.f42959b = activity;
-                    this.f42960c = agVar;
+                    this.f43065a = viewGroup;
+                    this.f43066b = activity;
+                    this.f43067c = agVar;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        int width = this.f42958a.getWidth();
-                        int height = this.f42958a.getHeight();
-                        int c2 = ah.c(this.f42959b, 55.0f);
+                        int width = this.f43065a.getWidth();
+                        int height = this.f43065a.getHeight();
+                        int c2 = ah.c(this.f43066b, 55.0f);
                         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(c2, c2);
                         layoutParams.leftMargin = (width - c2) / 6;
                         layoutParams.topMargin = ((height - c2) * 5) / 6;
-                        this.f42960c.setLayoutParams(layoutParams);
+                        this.f43067c.setLayoutParams(layoutParams);
                     }
                 }
             });
@@ -218,22 +218,22 @@ public class ai {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public int f42961a;
+                public int f43068a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public int f42962b;
+                public int f43069b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public int f42963c;
+                public int f43070c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public int f42964d;
+                public int f43071d;
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ View f42965e;
+                public final /* synthetic */ View f43072e;
 
                 /* renamed from: f  reason: collision with root package name */
-                public final /* synthetic */ Activity f42966f;
+                public final /* synthetic */ Activity f43073f;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -250,12 +250,12 @@ public class ai {
                             return;
                         }
                     }
-                    this.f42965e = r6;
-                    this.f42966f = activity;
-                    this.f42961a = 0;
-                    this.f42962b = 0;
-                    this.f42963c = 0;
-                    this.f42964d = 0;
+                    this.f43072e = r6;
+                    this.f43073f = activity;
+                    this.f43068a = 0;
+                    this.f43069b = 0;
+                    this.f43070c = 0;
+                    this.f43071d = 0;
                 }
 
                 @Override // android.view.View.OnTouchListener
@@ -267,16 +267,16 @@ public class ai {
                         int rawY = (int) motionEvent.getRawY();
                         int action = motionEvent.getAction();
                         if (action == 0) {
-                            this.f42961a = rawX;
-                            this.f42962b = rawY;
-                            this.f42963c = rawX - view.getLeft();
-                            this.f42964d = rawY - view.getTop();
+                            this.f43068a = rawX;
+                            this.f43069b = rawY;
+                            this.f43070c = rawX - view.getLeft();
+                            this.f43071d = rawY - view.getTop();
                         } else if (action != 1) {
                             if (action == 2) {
-                                int i2 = rawX - this.f42963c;
-                                int i3 = rawY - this.f42964d;
+                                int i2 = rawX - this.f43070c;
+                                int i3 = rawY - this.f43071d;
                                 Rect rect = new Rect();
-                                this.f42965e.getLocalVisibleRect(rect);
+                                this.f43072e.getLocalVisibleRect(rect);
                                 if (rect.contains(new Rect(i2, i3, view.getWidth() + i2, view.getHeight() + i3))) {
                                     ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) view.getLayoutParams();
                                     marginLayoutParams.leftMargin = i2;
@@ -284,8 +284,8 @@ public class ai {
                                     view.setLayoutParams(marginLayoutParams);
                                 }
                             }
-                        } else if (ai.b(this.f42961a, (int) motionEvent.getRawX(), this.f42962b, (int) motionEvent.getRawY())) {
-                            ai.b((Context) this.f42966f);
+                        } else if (ai.b(this.f43068a, (int) motionEvent.getRawX(), this.f43069b, (int) motionEvent.getRawY())) {
+                            ai.b((Context) this.f43073f);
                         }
                         return true;
                     }

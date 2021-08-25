@@ -4,10 +4,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import c.a.o0.s.u.c;
-import c.a.p0.a0.e0.e;
-import c.a.p0.i2.k.e.o;
-import c.a.p0.i2.o.b;
+import c.a.p0.s.u.c;
+import c.a.q0.a0.e0.e;
+import c.a.q0.i2.k.e.m;
+import c.a.q0.i2.o.b;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
@@ -20,7 +20,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class PbRecomChildTitleAdapter extends o<e, ViewHolder> {
+public class PbRecomChildTitleAdapter extends m<e, ViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ViewHolder s;
@@ -31,10 +31,10 @@ public class PbRecomChildTitleAdapter extends o<e, ViewHolder> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f54607a;
+        public int f54772a;
 
         /* renamed from: b  reason: collision with root package name */
-        public TextView f54608b;
+        public TextView f54773b;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public ViewHolder(View view) {
@@ -54,14 +54,14 @@ public class PbRecomChildTitleAdapter extends o<e, ViewHolder> {
                     return;
                 }
             }
-            this.f54607a = 3;
+            this.f54772a = 3;
             initView(view);
         }
 
         public void bindDataToView(e eVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, eVar) == null) {
-                this.f54608b.setText(eVar.f15002e);
+                this.f54773b.setText(eVar.f15288e);
             }
         }
 
@@ -69,20 +69,20 @@ public class PbRecomChildTitleAdapter extends o<e, ViewHolder> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view) == null) {
                 TextView textView = (TextView) view.findViewById(R.id.tv_title);
-                this.f54608b = textView;
-                c.d(textView).y(R.string.F_X02);
+                this.f54773b = textView;
+                c.d(textView).z(R.string.F_X02);
             }
         }
 
         public void onChangeSkin() {
             int skinType;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.f54607a == (skinType = TbadkCoreApplication.getInst().getSkinType())) {
+            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.f54772a == (skinType = TbadkCoreApplication.getInst().getSkinType())) {
                 return;
             }
             SkinManager.setBackgroundColor(getView(), R.color.CAM_X0202);
-            SkinManager.setViewTextColor(this.f54608b, R.color.CAM_X0105);
-            this.f54607a = skinType;
+            SkinManager.setViewTextColor(this.f54773b, R.color.CAM_X0105);
+            this.f54772a = skinType;
         }
     }
 
@@ -107,7 +107,7 @@ public class PbRecomChildTitleAdapter extends o<e, ViewHolder> {
         }
     }
 
-    @Override // c.a.p0.i2.k.e.o, c.a.e.k.e.a
+    @Override // c.a.q0.i2.k.e.m, c.a.e.l.e.a
     public /* bridge */ /* synthetic */ View a0(int i2, View view, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
         l0(i2, view, viewGroup, (e) obj, (ViewHolder) viewHolder);
         return view;
@@ -120,13 +120,13 @@ public class PbRecomChildTitleAdapter extends o<e, ViewHolder> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // c.a.e.k.e.a
+    @Override // c.a.e.l.e.a
     /* renamed from: k0 */
     public ViewHolder U(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
-            ViewHolder viewHolder = new ViewHolder(LayoutInflater.from(this.f2904e).inflate(R.layout.pb_reclist_title, viewGroup, false));
+            ViewHolder viewHolder = new ViewHolder(LayoutInflater.from(this.f2966e).inflate(R.layout.pb_reclist_title, viewGroup, false));
             this.s = viewHolder;
             return viewHolder;
         }

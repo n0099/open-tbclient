@@ -1,6 +1,6 @@
 package com.baidu.tieba.likedForum;
 
-import c.a.o0.b1.w;
+import c.a.p0.b1.w;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;

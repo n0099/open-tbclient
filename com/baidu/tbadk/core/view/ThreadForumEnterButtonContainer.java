@@ -8,8 +8,8 @@ import android.widget.RelativeLayout;
 import c.a.e.e.m.b;
 import c.a.e.e.p.k;
 import c.a.e.e.p.l;
-import c.a.o0.s.q.c2;
-import c.a.o0.s.q.y1;
+import c.a.p0.s.q.c2;
+import c.a.p0.s.q.y1;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tieba.R;
@@ -24,22 +24,22 @@ public class ThreadForumEnterButtonContainer extends RelativeLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final int f47593e;
+    public final int f47690e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ThreadForumEnterButton f47594f;
+    public ThreadForumEnterButton f47691f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ThreadForumEnterButton f47595g;
+    public ThreadForumEnterButton f47692g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ThreadForumEnterButton f47596h;
+    public ThreadForumEnterButton f47693h;
 
     /* renamed from: i  reason: collision with root package name */
-    public View f47597i;
+    public View f47694i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f47598j;
+    public int f47695j;
     public int k;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -70,47 +70,47 @@ public class ThreadForumEnterButtonContainer extends RelativeLayout {
         }
         if (list != null && list.size() > 1) {
             if (list.size() == 2) {
-                if (this.f47594f != null && list.get(0) != null && !k.isEmpty(list.get(0).getForumName())) {
+                if (this.f47691f != null && list.get(0) != null && !k.isEmpty(list.get(0).getForumName())) {
                     c2 c2Var2 = new c2();
                     c2Var2.H3(c2Var.f0());
                     c2Var2.B3(list.get(0).getForumName());
                     c2Var2.x3(b.f(list.get(0).getForumId(), 0L));
-                    this.f47594f.bindData(c2Var2, this.f47598j);
+                    this.f47691f.bindData(c2Var2, this.f47695j);
                 }
-                if (this.f47595g != null && list.get(1) != null && !k.isEmpty(list.get(1).getForumName())) {
+                if (this.f47692g != null && list.get(1) != null && !k.isEmpty(list.get(1).getForumName())) {
                     c2 c2Var3 = new c2();
                     c2Var3.H3(c2Var.f0());
                     c2Var3.B3(list.get(1).getForumName());
                     c2Var3.x3(b.f(list.get(1).getForumId(), 0L));
-                    this.f47595g.bindData(c2Var3, this.f47598j);
+                    this.f47692g.bindData(c2Var3, this.f47695j);
                 }
-                ThreadForumEnterButton threadForumEnterButton = this.f47596h;
+                ThreadForumEnterButton threadForumEnterButton = this.f47693h;
                 if (threadForumEnterButton != null) {
                     threadForumEnterButton.setVisibility(8);
                 }
                 setVisibility(0);
                 return;
             }
-            if (this.f47594f != null && list.get(0) != null && !k.isEmpty(list.get(0).getForumName())) {
+            if (this.f47691f != null && list.get(0) != null && !k.isEmpty(list.get(0).getForumName())) {
                 c2 c2Var4 = new c2();
                 c2Var4.H3(c2Var.f0());
                 c2Var4.B3(list.get(0).getForumName());
                 c2Var4.x3(b.f(list.get(0).getForumId(), 0L));
-                this.f47594f.bindData(c2Var4, this.k);
+                this.f47691f.bindData(c2Var4, this.k);
             }
-            if (this.f47595g != null && list.get(1) != null && !k.isEmpty(list.get(1).getForumName())) {
+            if (this.f47692g != null && list.get(1) != null && !k.isEmpty(list.get(1).getForumName())) {
                 c2 c2Var5 = new c2();
                 c2Var5.H3(c2Var.f0());
                 c2Var5.B3(list.get(1).getForumName());
                 c2Var5.x3(b.f(list.get(1).getForumId(), 0L));
-                this.f47595g.bindData(c2Var5, this.k);
+                this.f47692g.bindData(c2Var5, this.k);
             }
-            if (this.f47596h != null && list.get(2) != null && !k.isEmpty(list.get(2).getForumName())) {
+            if (this.f47693h != null && list.get(2) != null && !k.isEmpty(list.get(2).getForumName())) {
                 c2 c2Var6 = new c2();
                 c2Var6.H3(c2Var.f0());
                 c2Var6.B3(list.get(2).getForumName());
                 c2Var6.x3(b.f(list.get(2).getForumId(), 0L));
-                this.f47596h.bindData(c2Var6, this.k);
+                this.f47693h.bindData(c2Var6, this.k);
             }
             setVisibility(0);
             return;
@@ -123,16 +123,16 @@ public class ThreadForumEnterButtonContainer extends RelativeLayout {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, c2Var) == null) || c2Var == null || k.isEmpty(c2Var.Z())) {
             return;
         }
-        ThreadForumEnterButton threadForumEnterButton = this.f47594f;
+        ThreadForumEnterButton threadForumEnterButton = this.f47691f;
         if (threadForumEnterButton != null) {
             threadForumEnterButton.bindData(c2Var);
             setVisibility(0);
         }
-        ThreadForumEnterButton threadForumEnterButton2 = this.f47595g;
+        ThreadForumEnterButton threadForumEnterButton2 = this.f47692g;
         if (threadForumEnterButton2 != null) {
             threadForumEnterButton2.setVisibility(8);
         }
-        ThreadForumEnterButton threadForumEnterButton3 = this.f47596h;
+        ThreadForumEnterButton threadForumEnterButton3 = this.f47693h;
         if (threadForumEnterButton3 != null) {
             threadForumEnterButton3.setVisibility(8);
         }
@@ -141,15 +141,15 @@ public class ThreadForumEnterButtonContainer extends RelativeLayout {
     public void onChangeSkinType() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            ThreadForumEnterButton threadForumEnterButton = this.f47594f;
+            ThreadForumEnterButton threadForumEnterButton = this.f47691f;
             if (threadForumEnterButton != null) {
                 threadForumEnterButton.onChangeSkinType();
             }
-            ThreadForumEnterButton threadForumEnterButton2 = this.f47595g;
+            ThreadForumEnterButton threadForumEnterButton2 = this.f47692g;
             if (threadForumEnterButton2 != null) {
                 threadForumEnterButton2.onChangeSkinType();
             }
-            ThreadForumEnterButton threadForumEnterButton3 = this.f47596h;
+            ThreadForumEnterButton threadForumEnterButton3 = this.f47693h;
             if (threadForumEnterButton3 != null) {
                 threadForumEnterButton3.onChangeSkinType();
             }
@@ -159,15 +159,15 @@ public class ThreadForumEnterButtonContainer extends RelativeLayout {
     public void setAfterItemClickListener(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, onClickListener) == null) {
-            ThreadForumEnterButton threadForumEnterButton = this.f47594f;
+            ThreadForumEnterButton threadForumEnterButton = this.f47691f;
             if (threadForumEnterButton != null) {
                 threadForumEnterButton.setAfterClickListener(onClickListener);
             }
-            ThreadForumEnterButton threadForumEnterButton2 = this.f47595g;
+            ThreadForumEnterButton threadForumEnterButton2 = this.f47692g;
             if (threadForumEnterButton2 != null) {
                 threadForumEnterButton2.setAfterClickListener(onClickListener);
             }
-            ThreadForumEnterButton threadForumEnterButton3 = this.f47596h;
+            ThreadForumEnterButton threadForumEnterButton3 = this.f47693h;
             if (threadForumEnterButton3 != null) {
                 threadForumEnterButton3.setAfterClickListener(onClickListener);
             }
@@ -177,22 +177,22 @@ public class ThreadForumEnterButtonContainer extends RelativeLayout {
     public void setBottomPlaceHolderVisibility(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            this.f47597i.setVisibility(z ? 0 : 8);
+            this.f47694i.setVisibility(z ? 0 : 8);
         }
     }
 
     public void setFrom(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-            ThreadForumEnterButton threadForumEnterButton = this.f47594f;
+            ThreadForumEnterButton threadForumEnterButton = this.f47691f;
             if (threadForumEnterButton != null) {
                 threadForumEnterButton.setFrom(i2);
             }
-            ThreadForumEnterButton threadForumEnterButton2 = this.f47595g;
+            ThreadForumEnterButton threadForumEnterButton2 = this.f47692g;
             if (threadForumEnterButton2 != null) {
                 threadForumEnterButton2.setFrom(i2);
             }
-            ThreadForumEnterButton threadForumEnterButton3 = this.f47596h;
+            ThreadForumEnterButton threadForumEnterButton3 = this.f47693h;
             if (threadForumEnterButton3 != null) {
                 threadForumEnterButton3.setFrom(i2);
             }
@@ -239,13 +239,13 @@ public class ThreadForumEnterButtonContainer extends RelativeLayout {
                 return;
             }
         }
-        this.f47593e = l.g(TbadkApplication.getInst(), R.dimen.tbds22);
+        this.f47690e = l.g(TbadkApplication.getInst(), R.dimen.tbds22);
         LayoutInflater.from(context).inflate(R.layout.thread_forum_enter_button_container_layout, this);
-        this.f47594f = (ThreadForumEnterButton) findViewById(R.id.forum_enter_button_one);
-        this.f47595g = (ThreadForumEnterButton) findViewById(R.id.forum_enter_button_two);
-        this.f47596h = (ThreadForumEnterButton) findViewById(R.id.forum_enter_button_three);
-        this.f47597i = findViewById(R.id.bottom_placeholder);
-        this.f47598j = (((l.k(getContext()) - getPaddingLeft()) - getPaddingRight()) - this.f47593e) / 2;
-        this.k = (((l.k(getContext()) - getPaddingLeft()) - getPaddingRight()) - (this.f47593e * 2)) / 3;
+        this.f47691f = (ThreadForumEnterButton) findViewById(R.id.forum_enter_button_one);
+        this.f47692g = (ThreadForumEnterButton) findViewById(R.id.forum_enter_button_two);
+        this.f47693h = (ThreadForumEnterButton) findViewById(R.id.forum_enter_button_three);
+        this.f47694i = findViewById(R.id.bottom_placeholder);
+        this.f47695j = (((l.k(getContext()) - getPaddingLeft()) - getPaddingRight()) - this.f47690e) / 2;
+        this.k = (((l.k(getContext()) - getPaddingLeft()) - getPaddingRight()) - (this.f47690e * 2)) / 3;
     }
 }

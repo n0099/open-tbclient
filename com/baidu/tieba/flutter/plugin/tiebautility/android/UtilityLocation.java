@@ -2,7 +2,7 @@ package com.baidu.tieba.flutter.plugin.tiebautility.android;
 
 import c.a.e.e.m.b;
 import c.a.e.e.p.l;
-import c.a.p0.x2.j0.a;
+import c.a.q0.x2.j0.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.UtilHelper;

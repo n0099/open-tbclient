@@ -25,7 +25,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.sdk.openadsdk.TTAdConstant;
 import java.util.ArrayList;
 import java.util.HashMap;
 /* loaded from: classes.dex */
@@ -192,7 +191,7 @@ public abstract class JobIntentService extends Service {
                 synchronized (this) {
                     if (!this.mServiceProcessing) {
                         this.mServiceProcessing = true;
-                        this.mRunWakeLock.acquire(TTAdConstant.AD_MAX_EVENT_TIME);
+                        this.mRunWakeLock.acquire(600000L);
                         this.mLaunchWakeLock.release();
                     }
                 }

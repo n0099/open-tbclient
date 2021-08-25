@@ -41,10 +41,10 @@ public class b {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ List f72303a;
+            public final /* synthetic */ List f72503a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ b f72304b;
+            public final /* synthetic */ b f72504b;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -61,8 +61,8 @@ public class b {
                         return;
                     }
                 }
-                this.f72304b = this;
-                this.f72303a = list;
+                this.f72504b = this;
+                this.f72503a = list;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -88,7 +88,7 @@ public class b {
             public a b() {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new a(this.f72303a) : (a) invokeV.objValue;
+                return (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new a(this.f72503a) : (a) invokeV.objValue;
             }
 
             @Override // com.kwad.sdk.core.network.i
@@ -105,10 +105,10 @@ public class b {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ List f72305a;
+            public final /* synthetic */ List f72505a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ b f72306b;
+            public final /* synthetic */ b f72506b;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -125,8 +125,8 @@ public class b {
                         return;
                     }
                 }
-                this.f72306b = this;
-                this.f72305a = list;
+                this.f72506b = this;
+                this.f72505a = list;
             }
 
             /* JADX DEBUG: Method merged with bridge method */

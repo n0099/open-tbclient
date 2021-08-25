@@ -16,10 +16,10 @@ public class e implements TTAdNative.FullScreenVideoAdListener, TTAdNative.Rewar
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final TTAdNative.RewardVideoAdListener f65474a;
+    public final TTAdNative.RewardVideoAdListener f65674a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final TTAdNative.FullScreenVideoAdListener f65475b;
+    public final TTAdNative.FullScreenVideoAdListener f65675b;
 
     public e(TTAdNative.RewardVideoAdListener rewardVideoAdListener) {
         Interceptable interceptable = $ic;
@@ -36,27 +36,27 @@ public class e implements TTAdNative.FullScreenVideoAdListener, TTAdNative.Rewar
                 return;
             }
         }
-        this.f65474a = rewardVideoAdListener;
-        this.f65475b = null;
+        this.f65674a = rewardVideoAdListener;
+        this.f65675b = null;
     }
 
     @Override // com.bytedance.sdk.openadsdk.TTAdNative.FullScreenVideoAdListener, com.bytedance.sdk.openadsdk.c.b
     public void onError(int i2, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048576, this, i2, str) == null) {
-            if (this.f65474a != null) {
+            if (this.f65674a != null) {
                 new Handler(Looper.getMainLooper()).post(new Runnable(this, str, i2) { // from class: com.bytedance.sdk.openadsdk.component.reward.e.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ String f65476a;
+                    public final /* synthetic */ String f65676a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ int f65477b;
+                    public final /* synthetic */ int f65677b;
 
                     /* renamed from: c  reason: collision with root package name */
-                    public final /* synthetic */ e f65478c;
+                    public final /* synthetic */ e f65678c;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -73,38 +73,38 @@ public class e implements TTAdNative.FullScreenVideoAdListener, TTAdNative.Rewar
                                 return;
                             }
                         }
-                        this.f65478c = this;
-                        this.f65476a = str;
-                        this.f65477b = i2;
+                        this.f65678c = this;
+                        this.f65676a = str;
+                        this.f65677b = i2;
                     }
 
                     @Override // java.lang.Runnable
                     public void run() {
                         Interceptable interceptable2 = $ic;
-                        if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.f65478c.f65474a == null) {
+                        if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.f65678c.f65674a == null) {
                             return;
                         }
-                        String str2 = this.f65476a;
+                        String str2 = this.f65676a;
                         if (str2 == null) {
                             str2 = "";
                         }
-                        this.f65478c.f65474a.onError(this.f65477b, str2);
+                        this.f65678c.f65674a.onError(this.f65677b, str2);
                     }
                 });
             }
-            if (this.f65475b != null) {
+            if (this.f65675b != null) {
                 new Handler(Looper.getMainLooper()).post(new Runnable(this, i2, str) { // from class: com.bytedance.sdk.openadsdk.component.reward.e.2
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ int f65479a;
+                    public final /* synthetic */ int f65679a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ String f65480b;
+                    public final /* synthetic */ String f65680b;
 
                     /* renamed from: c  reason: collision with root package name */
-                    public final /* synthetic */ e f65481c;
+                    public final /* synthetic */ e f65681c;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -121,19 +121,19 @@ public class e implements TTAdNative.FullScreenVideoAdListener, TTAdNative.Rewar
                                 return;
                             }
                         }
-                        this.f65481c = this;
-                        this.f65479a = i2;
-                        this.f65480b = str;
+                        this.f65681c = this;
+                        this.f65679a = i2;
+                        this.f65680b = str;
                     }
 
                     @Override // java.lang.Runnable
                     public void run() {
                         TTAdNative.FullScreenVideoAdListener fullScreenVideoAdListener;
                         Interceptable interceptable2 = $ic;
-                        if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || (fullScreenVideoAdListener = this.f65481c.f65475b) == null) {
+                        if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || (fullScreenVideoAdListener = this.f65681c.f65675b) == null) {
                             return;
                         }
-                        fullScreenVideoAdListener.onError(this.f65479a, this.f65480b);
+                        fullScreenVideoAdListener.onError(this.f65679a, this.f65680b);
                     }
                 });
             }
@@ -143,7 +143,7 @@ public class e implements TTAdNative.FullScreenVideoAdListener, TTAdNative.Rewar
     @Override // com.bytedance.sdk.openadsdk.TTAdNative.FullScreenVideoAdListener
     public void onFullScreenVideoAdLoad(TTFullScreenVideoAd tTFullScreenVideoAd) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tTFullScreenVideoAd) == null) || this.f65475b == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tTFullScreenVideoAd) == null) || this.f65675b == null) {
             return;
         }
         new Handler(Looper.getMainLooper()).post(new Runnable(this, tTFullScreenVideoAd) { // from class: com.bytedance.sdk.openadsdk.component.reward.e.3
@@ -151,10 +151,10 @@ public class e implements TTAdNative.FullScreenVideoAdListener, TTAdNative.Rewar
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ TTFullScreenVideoAd f65482a;
+            public final /* synthetic */ TTFullScreenVideoAd f65682a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ e f65483b;
+            public final /* synthetic */ e f65683b;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -171,18 +171,18 @@ public class e implements TTAdNative.FullScreenVideoAdListener, TTAdNative.Rewar
                         return;
                     }
                 }
-                this.f65483b = this;
-                this.f65482a = tTFullScreenVideoAd;
+                this.f65683b = this;
+                this.f65682a = tTFullScreenVideoAd;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 TTAdNative.FullScreenVideoAdListener fullScreenVideoAdListener;
                 Interceptable interceptable2 = $ic;
-                if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || (fullScreenVideoAdListener = this.f65483b.f65475b) == null) {
+                if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || (fullScreenVideoAdListener = this.f65683b.f65675b) == null) {
                     return;
                 }
-                fullScreenVideoAdListener.onFullScreenVideoAdLoad(this.f65482a);
+                fullScreenVideoAdListener.onFullScreenVideoAdLoad(this.f65682a);
             }
         });
     }
@@ -190,7 +190,7 @@ public class e implements TTAdNative.FullScreenVideoAdListener, TTAdNative.Rewar
     @Override // com.bytedance.sdk.openadsdk.TTAdNative.FullScreenVideoAdListener
     public void onFullScreenVideoCached() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.f65475b == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.f65675b == null) {
             return;
         }
         new Handler(Looper.getMainLooper()).post(new Runnable(this) { // from class: com.bytedance.sdk.openadsdk.component.reward.e.4
@@ -198,7 +198,7 @@ public class e implements TTAdNative.FullScreenVideoAdListener, TTAdNative.Rewar
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ e f65484a;
+            public final /* synthetic */ e f65684a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -215,14 +215,14 @@ public class e implements TTAdNative.FullScreenVideoAdListener, TTAdNative.Rewar
                         return;
                     }
                 }
-                this.f65484a = this;
+                this.f65684a = this;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 TTAdNative.FullScreenVideoAdListener fullScreenVideoAdListener;
                 Interceptable interceptable2 = $ic;
-                if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || (fullScreenVideoAdListener = this.f65484a.f65475b) == null) {
+                if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || (fullScreenVideoAdListener = this.f65684a.f65675b) == null) {
                     return;
                 }
                 fullScreenVideoAdListener.onFullScreenVideoCached();
@@ -233,7 +233,7 @@ public class e implements TTAdNative.FullScreenVideoAdListener, TTAdNative.Rewar
     @Override // com.bytedance.sdk.openadsdk.TTAdNative.RewardVideoAdListener
     public void onRewardVideoAdLoad(TTRewardVideoAd tTRewardVideoAd) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, tTRewardVideoAd) == null) || this.f65474a == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, tTRewardVideoAd) == null) || this.f65674a == null) {
             return;
         }
         new Handler(Looper.getMainLooper()).post(new Runnable(this, tTRewardVideoAd) { // from class: com.bytedance.sdk.openadsdk.component.reward.e.5
@@ -241,10 +241,10 @@ public class e implements TTAdNative.FullScreenVideoAdListener, TTAdNative.Rewar
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ TTRewardVideoAd f65485a;
+            public final /* synthetic */ TTRewardVideoAd f65685a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ e f65486b;
+            public final /* synthetic */ e f65686b;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -261,18 +261,18 @@ public class e implements TTAdNative.FullScreenVideoAdListener, TTAdNative.Rewar
                         return;
                     }
                 }
-                this.f65486b = this;
-                this.f65485a = tTRewardVideoAd;
+                this.f65686b = this;
+                this.f65685a = tTRewardVideoAd;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 TTAdNative.RewardVideoAdListener rewardVideoAdListener;
                 Interceptable interceptable2 = $ic;
-                if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || (rewardVideoAdListener = this.f65486b.f65474a) == null) {
+                if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || (rewardVideoAdListener = this.f65686b.f65674a) == null) {
                     return;
                 }
-                rewardVideoAdListener.onRewardVideoAdLoad(this.f65485a);
+                rewardVideoAdListener.onRewardVideoAdLoad(this.f65685a);
             }
         });
     }
@@ -280,7 +280,7 @@ public class e implements TTAdNative.FullScreenVideoAdListener, TTAdNative.Rewar
     @Override // com.bytedance.sdk.openadsdk.TTAdNative.RewardVideoAdListener
     public void onRewardVideoCached() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || this.f65474a == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || this.f65674a == null) {
             return;
         }
         new Handler(Looper.getMainLooper()).post(new Runnable(this) { // from class: com.bytedance.sdk.openadsdk.component.reward.e.6
@@ -288,7 +288,7 @@ public class e implements TTAdNative.FullScreenVideoAdListener, TTAdNative.Rewar
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ e f65487a;
+            public final /* synthetic */ e f65687a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -305,14 +305,14 @@ public class e implements TTAdNative.FullScreenVideoAdListener, TTAdNative.Rewar
                         return;
                     }
                 }
-                this.f65487a = this;
+                this.f65687a = this;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 TTAdNative.RewardVideoAdListener rewardVideoAdListener;
                 Interceptable interceptable2 = $ic;
-                if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || (rewardVideoAdListener = this.f65487a.f65474a) == null) {
+                if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || (rewardVideoAdListener = this.f65687a.f65674a) == null) {
                     return;
                 }
                 rewardVideoAdListener.onRewardVideoCached();
@@ -335,7 +335,7 @@ public class e implements TTAdNative.FullScreenVideoAdListener, TTAdNative.Rewar
                 return;
             }
         }
-        this.f65474a = null;
-        this.f65475b = fullScreenVideoAdListener;
+        this.f65674a = null;
+        this.f65675b = fullScreenVideoAdListener;
     }
 }

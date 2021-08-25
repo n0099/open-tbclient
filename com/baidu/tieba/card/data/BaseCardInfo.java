@@ -1,7 +1,7 @@
 package com.baidu.tieba.card.data;
 
 import androidx.core.view.InputDeviceCompat;
-import c.a.e.k.e.n;
+import c.a.e.l.e.n;
 import c.a.f.j;
 import c.a.f.k;
 import com.baidu.adp.BdUniqueId;
@@ -116,7 +116,7 @@ public abstract class BaseCardInfo implements n, k {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.trigger : (j) invokeV.objValue;
     }
 
-    @Override // c.a.e.k.e.n
+    @Override // c.a.e.l.e.n
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

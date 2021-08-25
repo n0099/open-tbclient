@@ -13,10 +13,10 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
-import c.a.e.k.e.d;
-import c.a.e.k.e.o;
-import c.a.e.k.e.p;
-import c.a.e.k.e.q;
+import c.a.e.l.e.d;
+import c.a.e.l.e.o;
+import c.a.e.l.e.p;
+import c.a.e.l.e.q;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.widget.ListView.BdListView;
@@ -34,28 +34,28 @@ public class BdRecyclerView extends RecyclerView implements p<BdRecyclerView> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public BdRecyclerAdapter f36262e;
+    public BdRecyclerAdapter f36368e;
 
     /* renamed from: f  reason: collision with root package name */
-    public c.a.e.a.i f36263f;
+    public c.a.e.a.i f36369f;
 
     /* renamed from: g  reason: collision with root package name */
-    public i f36264g;
+    public i f36370g;
 
     /* renamed from: h  reason: collision with root package name */
-    public j f36265h;
+    public j f36371h;
 
     /* renamed from: i  reason: collision with root package name */
-    public BdListView.m f36266i;
+    public BdListView.m f36372i;
 
     /* renamed from: j  reason: collision with root package name */
-    public BdListView.l f36267j;
+    public BdListView.l f36373j;
     public BdListView.p k;
     public BdListView.s l;
     public BdListView.o m;
     public long n;
-    public c.a.e.k.e.b o;
-    public c.a.e.k.e.b p;
+    public c.a.e.l.e.b o;
+    public c.a.e.l.e.b p;
     public View q;
     public boolean r;
     public boolean s;
@@ -70,7 +70,7 @@ public class BdRecyclerView extends RecyclerView implements p<BdRecyclerView> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BdRecyclerView f36268e;
+        public final /* synthetic */ BdRecyclerView f36374e;
 
         public a(BdRecyclerView bdRecyclerView) {
             Interceptable interceptable = $ic;
@@ -87,33 +87,33 @@ public class BdRecyclerView extends RecyclerView implements p<BdRecyclerView> {
                     return;
                 }
             }
-            this.f36268e = bdRecyclerView;
+            this.f36374e = bdRecyclerView;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f36268e.m == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f36374e.m == null) {
                 return;
             }
-            int firstVisiblePosition = this.f36268e.getFirstVisiblePosition();
-            int lastVisiblePosition = this.f36268e.getLastVisiblePosition();
+            int firstVisiblePosition = this.f36374e.getFirstVisiblePosition();
+            int lastVisiblePosition = this.f36374e.getLastVisiblePosition();
             int i2 = 0;
             int i3 = -1;
-            if (this.f36268e.f36262e == null || this.f36268e.f36262e.getWrappedAdapter() == null || this.f36268e.f36262e.getWrappedAdapter().getItemCount() <= 0) {
+            if (this.f36374e.f36368e == null || this.f36374e.f36368e.getWrappedAdapter() == null || this.f36374e.f36368e.getWrappedAdapter().getItemCount() <= 0) {
                 i2 = -1;
             } else {
-                int headersCount = firstVisiblePosition - this.f36268e.f36262e.getHeadersCount();
+                int headersCount = firstVisiblePosition - this.f36374e.f36368e.getHeadersCount();
                 i3 = headersCount < 0 ? 0 : headersCount;
-                int headersCount2 = lastVisiblePosition - this.f36268e.f36262e.getHeadersCount();
-                if (headersCount2 >= this.f36268e.f36262e.getWrappedAdapter().getItemCount()) {
-                    headersCount2 = this.f36268e.f36262e.getWrappedAdapter().getItemCount() - 1;
+                int headersCount2 = lastVisiblePosition - this.f36374e.f36368e.getHeadersCount();
+                if (headersCount2 >= this.f36374e.f36368e.getWrappedAdapter().getItemCount()) {
+                    headersCount2 = this.f36374e.f36368e.getWrappedAdapter().getItemCount() - 1;
                 }
                 if (headersCount2 >= 0) {
                     i2 = headersCount2;
                 }
             }
-            this.f36268e.m.onScrollStop(i3, i2);
+            this.f36374e.m.onScrollStop(i3, i2);
         }
     }
 
@@ -123,7 +123,7 @@ public class BdRecyclerView extends RecyclerView implements p<BdRecyclerView> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BdRecyclerView f36269e;
+        public final /* synthetic */ BdRecyclerView f36375e;
 
         public b(BdRecyclerView bdRecyclerView) {
             Interceptable interceptable = $ic;
@@ -140,7 +140,7 @@ public class BdRecyclerView extends RecyclerView implements p<BdRecyclerView> {
                     return;
                 }
             }
-            this.f36269e = bdRecyclerView;
+            this.f36375e = bdRecyclerView;
         }
 
         public final void a(View view) {
@@ -164,11 +164,11 @@ public class BdRecyclerView extends RecyclerView implements p<BdRecyclerView> {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                int childCount = this.f36269e.getChildCount();
+                int childCount = this.f36375e.getChildCount();
                 for (int i2 = 0; i2 < childCount; i2++) {
-                    a(this.f36269e.getChildAt(i2));
+                    a(this.f36375e.getChildAt(i2));
                 }
-                this.f36269e.v.run();
+                this.f36375e.v.run();
             }
         }
     }
@@ -179,7 +179,7 @@ public class BdRecyclerView extends RecyclerView implements p<BdRecyclerView> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BdRecyclerView f36270e;
+        public final /* synthetic */ BdRecyclerView f36376e;
 
         public c(BdRecyclerView bdRecyclerView) {
             Interceptable interceptable = $ic;
@@ -196,7 +196,7 @@ public class BdRecyclerView extends RecyclerView implements p<BdRecyclerView> {
                     return;
                 }
             }
-            this.f36270e = bdRecyclerView;
+            this.f36376e = bdRecyclerView;
         }
 
         @Override // java.lang.Runnable
@@ -204,13 +204,13 @@ public class BdRecyclerView extends RecyclerView implements p<BdRecyclerView> {
             c.a.e.a.i c2;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.f36270e.f36263f != null) {
-                    c2 = this.f36270e.f36263f;
+                if (this.f36376e.f36369f != null) {
+                    c2 = this.f36376e.f36369f;
                 } else {
-                    c2 = c.a.e.a.j.c(this.f36270e.getContext());
+                    c2 = c.a.e.a.j.c(this.f36376e.getContext());
                 }
                 if (c2 != null) {
-                    c2.onPreLoad(this.f36270e.w);
+                    c2.onPreLoad(this.f36376e.w);
                 }
             }
         }
@@ -222,7 +222,7 @@ public class BdRecyclerView extends RecyclerView implements p<BdRecyclerView> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ BdRecyclerView f36271a;
+        public final /* synthetic */ BdRecyclerView f36377a;
 
         public d(BdRecyclerView bdRecyclerView) {
             Interceptable interceptable = $ic;
@@ -239,37 +239,37 @@ public class BdRecyclerView extends RecyclerView implements p<BdRecyclerView> {
                     return;
                 }
             }
-            this.f36271a = bdRecyclerView;
+            this.f36377a = bdRecyclerView;
         }
 
-        @Override // c.a.e.k.e.q
+        @Override // c.a.e.l.e.q
         public void cancelRefresh() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                BdRecyclerView bdRecyclerView = this.f36271a;
+                BdRecyclerView bdRecyclerView = this.f36377a;
                 bdRecyclerView.removeCallbacks(bdRecyclerView.u);
             }
         }
 
-        @Override // c.a.e.k.e.q
+        @Override // c.a.e.l.e.q
         public o getAdapter() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f36271a.f36262e : (o) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f36377a.f36368e : (o) invokeV.objValue;
         }
 
-        @Override // c.a.e.k.e.q
+        @Override // c.a.e.l.e.q
         public int getFirstVisiblePosition() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f36271a.getFirstVisiblePosition() : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f36377a.getFirstVisiblePosition() : invokeV.intValue;
         }
 
-        @Override // c.a.e.k.e.q
+        @Override // c.a.e.l.e.q
         public int getLastVisiblePosition() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f36271a.getLastVisiblePosition() : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f36377a.getLastVisiblePosition() : invokeV.intValue;
         }
     }
 
@@ -279,7 +279,7 @@ public class BdRecyclerView extends RecyclerView implements p<BdRecyclerView> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ BdRecyclerView f36272a;
+        public final /* synthetic */ BdRecyclerView f36378a;
 
         public e(BdRecyclerView bdRecyclerView) {
             Interceptable interceptable = $ic;
@@ -296,16 +296,16 @@ public class BdRecyclerView extends RecyclerView implements p<BdRecyclerView> {
                     return;
                 }
             }
-            this.f36272a = bdRecyclerView;
+            this.f36378a = bdRecyclerView;
         }
 
-        @Override // c.a.e.k.e.d.a
+        @Override // c.a.e.l.e.d.a
         public void onPreLoad() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                BdRecyclerView bdRecyclerView = this.f36272a;
+                BdRecyclerView bdRecyclerView = this.f36378a;
                 bdRecyclerView.removeCallbacks(bdRecyclerView.v);
-                BdRecyclerView bdRecyclerView2 = this.f36272a;
+                BdRecyclerView bdRecyclerView2 = this.f36378a;
                 bdRecyclerView2.postDelayed(bdRecyclerView2.v, 100L);
             }
         }
@@ -317,7 +317,7 @@ public class BdRecyclerView extends RecyclerView implements p<BdRecyclerView> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BdRecyclerView f36273e;
+        public final /* synthetic */ BdRecyclerView f36379e;
 
         public f(BdRecyclerView bdRecyclerView) {
             Interceptable interceptable = $ic;
@@ -334,38 +334,38 @@ public class BdRecyclerView extends RecyclerView implements p<BdRecyclerView> {
                     return;
                 }
             }
-            this.f36273e = bdRecyclerView;
+            this.f36379e = bdRecyclerView;
         }
 
         @Override // com.baidu.adp.widget.ListView.BdRecyclerView.i
         public void b(ViewGroup viewGroup, View view, Object obj, int i2, long j2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{viewGroup, view, obj, Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
-                int headerViewsCount = this.f36273e.getHeaderViewsCount();
+                int headerViewsCount = this.f36379e.getHeaderViewsCount();
                 if (i2 < headerViewsCount) {
-                    if (this.f36273e.o == null || view != this.f36273e.o.b()) {
-                        if (this.f36273e.f36266i != null) {
-                            this.f36273e.f36266i.onClick(view);
+                    if (this.f36379e.o == null || view != this.f36379e.o.b()) {
+                        if (this.f36379e.f36372i != null) {
+                            this.f36379e.f36372i.onClick(view);
                             return;
                         }
                         return;
                     }
-                    this.f36273e.o.c();
+                    this.f36379e.o.c();
                     return;
                 }
                 int i3 = i2 - headerViewsCount;
-                RecyclerView.Adapter wrappedAdapter = this.f36273e.f36262e.getWrappedAdapter();
+                RecyclerView.Adapter wrappedAdapter = this.f36379e.f36368e.getWrappedAdapter();
                 if (wrappedAdapter == null || i3 >= wrappedAdapter.getItemCount()) {
-                    if (this.f36273e.p == null || view != this.f36273e.p.b()) {
-                        if (this.f36273e.f36267j != null) {
-                            this.f36273e.f36267j.onClick(view);
+                    if (this.f36379e.p == null || view != this.f36379e.p.b()) {
+                        if (this.f36379e.f36373j != null) {
+                            this.f36379e.f36373j.onClick(view);
                             return;
                         }
                         return;
                     }
-                    this.f36273e.p.c();
-                } else if (this.f36273e.f36264g != null) {
-                    this.f36273e.f36264g.b(viewGroup, view, obj, i3, j2);
+                    this.f36379e.p.c();
+                } else if (this.f36379e.f36370g != null) {
+                    this.f36379e.f36370g.b(viewGroup, view, obj, i3, j2);
                 }
             }
         }
@@ -377,7 +377,7 @@ public class BdRecyclerView extends RecyclerView implements p<BdRecyclerView> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ BdRecyclerView f36274a;
+        public final /* synthetic */ BdRecyclerView f36380a;
 
         public g(BdRecyclerView bdRecyclerView) {
             Interceptable interceptable = $ic;
@@ -394,7 +394,7 @@ public class BdRecyclerView extends RecyclerView implements p<BdRecyclerView> {
                     return;
                 }
             }
-            this.f36274a = bdRecyclerView;
+            this.f36380a = bdRecyclerView;
         }
 
         @Override // com.baidu.adp.widget.ListView.BdRecyclerView.j
@@ -402,12 +402,12 @@ public class BdRecyclerView extends RecyclerView implements p<BdRecyclerView> {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{viewGroup, view, obj, Integer.valueOf(i2), Long.valueOf(j2)})) == null) {
-                int headerViewsCount = i2 - this.f36274a.getHeaderViewsCount();
-                RecyclerView.Adapter wrappedAdapter = this.f36274a.f36262e.getWrappedAdapter();
-                if (wrappedAdapter == null || headerViewsCount >= wrappedAdapter.getItemCount() || this.f36274a.f36265h == null) {
+                int headerViewsCount = i2 - this.f36380a.getHeaderViewsCount();
+                RecyclerView.Adapter wrappedAdapter = this.f36380a.f36368e.getWrappedAdapter();
+                if (wrappedAdapter == null || headerViewsCount >= wrappedAdapter.getItemCount() || this.f36380a.f36371h == null) {
                     return false;
                 }
-                return this.f36274a.f36265h.a(viewGroup, view, obj, headerViewsCount, j2);
+                return this.f36380a.f36371h.a(viewGroup, view, obj, headerViewsCount, j2);
             }
             return invokeCommon.booleanValue;
         }
@@ -419,7 +419,7 @@ public class BdRecyclerView extends RecyclerView implements p<BdRecyclerView> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ BdRecyclerView f36275a;
+        public final /* synthetic */ BdRecyclerView f36381a;
 
         /* loaded from: classes4.dex */
         public class a implements Runnable {
@@ -427,7 +427,7 @@ public class BdRecyclerView extends RecyclerView implements p<BdRecyclerView> {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ h f36276e;
+            public final /* synthetic */ h f36382e;
 
             public a(h hVar) {
                 Interceptable interceptable = $ic;
@@ -444,16 +444,16 @@ public class BdRecyclerView extends RecyclerView implements p<BdRecyclerView> {
                         return;
                     }
                 }
-                this.f36276e = hVar;
+                this.f36382e = hVar;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f36276e.f36275a.k == null) {
+                if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f36382e.f36381a.k == null) {
                     return;
                 }
-                this.f36276e.f36275a.k.onScrollToBottom();
+                this.f36382e.f36381a.k.onScrollToBottom();
             }
         }
 
@@ -463,7 +463,7 @@ public class BdRecyclerView extends RecyclerView implements p<BdRecyclerView> {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ h f36277e;
+            public final /* synthetic */ h f36383e;
 
             public b(h hVar) {
                 Interceptable interceptable = $ic;
@@ -480,16 +480,16 @@ public class BdRecyclerView extends RecyclerView implements p<BdRecyclerView> {
                         return;
                     }
                 }
-                this.f36277e = hVar;
+                this.f36383e = hVar;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f36277e.f36275a.l == null) {
+                if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f36383e.f36381a.l == null) {
                     return;
                 }
-                this.f36277e.f36275a.l.onScrollToTop();
+                this.f36383e.f36381a.l.onScrollToTop();
             }
         }
 
@@ -508,7 +508,7 @@ public class BdRecyclerView extends RecyclerView implements p<BdRecyclerView> {
                     return;
                 }
             }
-            this.f36275a = bdRecyclerView;
+            this.f36381a = bdRecyclerView;
         }
 
         @Override // androidx.recyclerview.widget.RecyclerView.OnScrollListener
@@ -516,26 +516,26 @@ public class BdRecyclerView extends RecyclerView implements p<BdRecyclerView> {
             c.a.e.a.i c2;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, recyclerView, i2) == null) {
-                if (this.f36275a.f36263f != null) {
-                    c2 = this.f36275a.f36263f;
+                if (this.f36381a.f36369f != null) {
+                    c2 = this.f36381a.f36369f;
                 } else {
-                    c2 = c.a.e.a.j.c(this.f36275a.getContext());
+                    c2 = c.a.e.a.j.c(this.f36381a.getContext());
                 }
                 if (c2 != null) {
                     if (i2 == 2) {
-                        BdRecyclerView bdRecyclerView = this.f36275a;
+                        BdRecyclerView bdRecyclerView = this.f36381a;
                         bdRecyclerView.removeCallbacks(bdRecyclerView.u);
                         c2.setIsScroll(true);
                     } else if (c2.isScroll()) {
                         c2.setIsScroll(false);
-                        BdRecyclerView bdRecyclerView2 = this.f36275a;
+                        BdRecyclerView bdRecyclerView2 = this.f36381a;
                         bdRecyclerView2.removeCallbacks(bdRecyclerView2.u);
-                        BdRecyclerView bdRecyclerView3 = this.f36275a;
+                        BdRecyclerView bdRecyclerView3 = this.f36381a;
                         bdRecyclerView3.postDelayed(bdRecyclerView3.u, 100L);
                     } else if (i2 == 0) {
-                        BdRecyclerView bdRecyclerView4 = this.f36275a;
+                        BdRecyclerView bdRecyclerView4 = this.f36381a;
                         bdRecyclerView4.removeCallbacks(bdRecyclerView4.v);
-                        BdRecyclerView bdRecyclerView5 = this.f36275a;
+                        BdRecyclerView bdRecyclerView5 = this.f36381a;
                         bdRecyclerView5.postDelayed(bdRecyclerView5.v, 100L);
                     }
                 }
@@ -547,20 +547,20 @@ public class BdRecyclerView extends RecyclerView implements p<BdRecyclerView> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, recyclerView, i2, i3) == null) {
                 super.onScrolled(recyclerView, i2, i3);
-                boolean canScrollVertically = this.f36275a.canScrollVertically(1);
-                boolean canScrollVertically2 = this.f36275a.canScrollVertically(-1);
+                boolean canScrollVertically = this.f36381a.canScrollVertically(1);
+                boolean canScrollVertically2 = this.f36381a.canScrollVertically(-1);
                 if (!canScrollVertically && canScrollVertically2 && Math.abs(i3) > 0) {
-                    if (this.f36275a.k != null) {
+                    if (this.f36381a.k != null) {
                         recyclerView.post(new a(this));
                     }
-                } else if (!canScrollVertically2 && canScrollVertically && Math.abs(i3) > 0 && this.f36275a.l != null) {
+                } else if (!canScrollVertically2 && canScrollVertically && Math.abs(i3) > 0 && this.f36381a.l != null) {
                     recyclerView.post(new b(this));
                 }
-                if (this.f36275a.m == null || this.f36275a.n <= 0) {
+                if (this.f36381a.m == null || this.f36381a.n <= 0) {
                     return;
                 }
-                this.f36275a.getHandler().removeCallbacks(this.f36275a.t);
-                this.f36275a.getHandler().postDelayed(this.f36275a.t, this.f36275a.n);
+                this.f36381a.getHandler().removeCallbacks(this.f36381a.t);
+                this.f36381a.getHandler().postDelayed(this.f36381a.t, this.f36381a.n);
             }
         }
     }
@@ -607,11 +607,11 @@ public class BdRecyclerView extends RecyclerView implements p<BdRecyclerView> {
                 return;
             }
         }
-        this.f36263f = null;
-        this.f36264g = null;
-        this.f36265h = null;
-        this.f36266i = null;
-        this.f36267j = null;
+        this.f36369f = null;
+        this.f36370g = null;
+        this.f36371h = null;
+        this.f36372i = null;
+        this.f36373j = null;
         this.k = null;
         this.l = null;
         this.m = null;
@@ -631,7 +631,7 @@ public class BdRecyclerView extends RecyclerView implements p<BdRecyclerView> {
     public void addFooterView(View view) {
         BdRecyclerAdapter bdRecyclerAdapter;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (bdRecyclerAdapter = this.f36262e) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (bdRecyclerAdapter = this.f36368e) == null) {
             return;
         }
         bdRecyclerAdapter.addFooterView(view);
@@ -640,7 +640,7 @@ public class BdRecyclerView extends RecyclerView implements p<BdRecyclerView> {
     public void addHeaderView(View view, Object obj, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLZ(1048580, this, view, obj, z) == null) {
-            this.f36262e.addHeaderView(view, obj, z, true, -1);
+            this.f36368e.addHeaderView(view, obj, z, true, -1);
         }
     }
 
@@ -690,7 +690,7 @@ public class BdRecyclerView extends RecyclerView implements p<BdRecyclerView> {
         return invokeCommon.booleanValue;
     }
 
-    @Override // c.a.e.k.e.p
+    @Override // c.a.e.l.e.p
     public int getContentViewsCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -753,18 +753,18 @@ public class BdRecyclerView extends RecyclerView implements p<BdRecyclerView> {
         return invokeV.intValue;
     }
 
-    @Override // c.a.e.k.e.p
+    @Override // c.a.e.l.e.p
     public int getFooterViewsCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f36262e.getFootersCount() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f36368e.getFootersCount() : invokeV.intValue;
     }
 
-    @Override // c.a.e.k.e.p
+    @Override // c.a.e.l.e.p
     public int getHeaderViewsCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f36262e.getHeadersCount() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f36368e.getHeadersCount() : invokeV.intValue;
     }
 
     public int getLastCompletelyVisiblePosition() {
@@ -824,7 +824,7 @@ public class BdRecyclerView extends RecyclerView implements p<BdRecyclerView> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // c.a.e.k.e.p
+    @Override // c.a.e.l.e.p
     public BdRecyclerView getListView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -841,7 +841,7 @@ public class BdRecyclerView extends RecyclerView implements p<BdRecyclerView> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
-            BdRecyclerAdapter bdRecyclerAdapter = this.f36262e;
+            BdRecyclerAdapter bdRecyclerAdapter = this.f36368e;
             if (bdRecyclerAdapter != null) {
                 return bdRecyclerAdapter.getWrappedAdapter();
             }
@@ -903,7 +903,7 @@ public class BdRecyclerView extends RecyclerView implements p<BdRecyclerView> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048599, this, view)) == null) {
-            BdRecyclerAdapter bdRecyclerAdapter = this.f36262e;
+            BdRecyclerAdapter bdRecyclerAdapter = this.f36368e;
             if (bdRecyclerAdapter == null) {
                 return false;
             }
@@ -912,12 +912,12 @@ public class BdRecyclerView extends RecyclerView implements p<BdRecyclerView> {
         return invokeL.booleanValue;
     }
 
-    @Override // c.a.e.k.e.p
+    @Override // c.a.e.l.e.p
     public boolean removeHeaderView(View view) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048600, this, view)) == null) {
-            BdRecyclerAdapter bdRecyclerAdapter = this.f36262e;
+            BdRecyclerAdapter bdRecyclerAdapter = this.f36368e;
             if (bdRecyclerAdapter == null) {
                 return false;
             }
@@ -939,10 +939,10 @@ public class BdRecyclerView extends RecyclerView implements p<BdRecyclerView> {
         if (interceptable == null || interceptable.invokeV(1048602, this) == null) {
             setFadingEdgeLength(0);
             BdRecyclerAdapter bdRecyclerAdapter = new BdRecyclerAdapter(getContext());
-            this.f36262e = bdRecyclerAdapter;
+            this.f36368e = bdRecyclerAdapter;
             bdRecyclerAdapter.setListPreLoad(new e(this));
-            this.f36262e.setOnItemClickListener(new f(this));
-            this.f36262e.setOnItemLongClickListener(new g(this));
+            this.f36368e.setOnItemClickListener(new f(this));
+            this.f36368e.setOnItemLongClickListener(new g(this));
             addOnScrollListener(new h(this));
         }
     }
@@ -952,8 +952,8 @@ public class BdRecyclerView extends RecyclerView implements p<BdRecyclerView> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048603, this, adapter) == null) {
             super.setAdapter(null);
-            this.f36262e.setAdapter(adapter);
-            super.setAdapter(this.f36262e);
+            this.f36368e.setAdapter(adapter);
+            super.setAdapter(this.f36368e);
         }
     }
 
@@ -967,29 +967,29 @@ public class BdRecyclerView extends RecyclerView implements p<BdRecyclerView> {
     public void setFooterView(View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048605, this, view) == null) {
-            this.f36262e.setFooterView(view, null, true, true, -1);
+            this.f36368e.setFooterView(view, null, true, true, -1);
         }
     }
 
     public void setHeaderView(View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048606, this, view) == null) {
-            this.f36262e.setHeaderView(view, null, true, true, -1);
+            this.f36368e.setHeaderView(view, null, true, true, -1);
         }
     }
 
-    public void setNextPage(c.a.e.k.e.b bVar) {
+    public void setNextPage(c.a.e.l.e.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048608, this, bVar) == null) {
-            c.a.e.k.e.b bVar2 = this.p;
+            c.a.e.l.e.b bVar2 = this.p;
             if (bVar2 == null || bVar2 != bVar) {
-                c.a.e.k.e.b bVar3 = this.p;
+                c.a.e.l.e.b bVar3 = this.p;
                 if (bVar3 != null && bVar3 != bVar) {
                     removeFooterView(bVar3.b());
                     this.p = null;
                 }
                 if (bVar != null) {
-                    this.f36262e.addFooterView(bVar.b(), null, true, 0);
+                    this.f36368e.addFooterView(bVar.b(), null, true, 0);
                     this.p = bVar;
                 }
             }
@@ -1011,28 +1011,28 @@ public class BdRecyclerView extends RecyclerView implements p<BdRecyclerView> {
     public void setOnFooterClickListener(BdListView.l lVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048611, this, lVar) == null) {
-            this.f36267j = lVar;
+            this.f36373j = lVar;
         }
     }
 
     public void setOnHeaderClickListener(BdListView.m mVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048612, this, mVar) == null) {
-            this.f36266i = mVar;
+            this.f36372i = mVar;
         }
     }
 
     public void setOnItemClickListener(i iVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048613, this, iVar) == null) {
-            this.f36264g = iVar;
+            this.f36370g = iVar;
         }
     }
 
     public void setOnItemLongClickListener(j jVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048614, this, jVar) == null) {
-            this.f36265h = jVar;
+            this.f36371h = jVar;
         }
     }
 
@@ -1058,12 +1058,12 @@ public class BdRecyclerView extends RecyclerView implements p<BdRecyclerView> {
         }
     }
 
-    public void setPrePage(c.a.e.k.e.b bVar) {
+    public void setPrePage(c.a.e.l.e.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048618, this, bVar) == null) {
-            c.a.e.k.e.b bVar2 = this.o;
+            c.a.e.l.e.b bVar2 = this.o;
             if (bVar2 == null || bVar2 != bVar) {
-                c.a.e.k.e.b bVar3 = this.o;
+                c.a.e.l.e.b bVar3 = this.o;
                 if (bVar3 != null) {
                     removeHeaderView(bVar3.b());
                     this.o = null;
@@ -1079,7 +1079,7 @@ public class BdRecyclerView extends RecyclerView implements p<BdRecyclerView> {
     public void setScrollable(c.a.e.a.i iVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048619, this, iVar) == null) {
-            this.f36263f = iVar;
+            this.f36369f = iVar;
         }
     }
 
@@ -1114,14 +1114,14 @@ public class BdRecyclerView extends RecyclerView implements p<BdRecyclerView> {
     public void addHeaderView(View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view) == null) {
-            this.f36262e.addHeaderView(view, -1);
+            this.f36368e.addHeaderView(view, -1);
         }
     }
 
     public void setHeaderView(View view, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(1048607, this, view, z) == null) {
-            this.f36262e.setHeaderView(view, null, true, z, -1);
+            this.f36368e.setHeaderView(view, null, true, z, -1);
         }
     }
 
@@ -1135,7 +1135,7 @@ public class BdRecyclerView extends RecyclerView implements p<BdRecyclerView> {
     public void addFooterView(View view, Object obj, boolean z) {
         BdRecyclerAdapter bdRecyclerAdapter;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, obj, z) == null) || (bdRecyclerAdapter = this.f36262e) == null) {
+        if (!(interceptable == null || interceptable.invokeLLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, obj, z) == null) || (bdRecyclerAdapter = this.f36368e) == null) {
             return;
         }
         bdRecyclerAdapter.addFooterView(view, obj, z, -1);
@@ -1144,7 +1144,7 @@ public class BdRecyclerView extends RecyclerView implements p<BdRecyclerView> {
     public void addHeaderView(View view, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048579, this, view, i2) == null) {
-            this.f36262e.addHeaderView(view, i2);
+            this.f36368e.addHeaderView(view, i2);
         }
     }
 
@@ -1182,11 +1182,11 @@ public class BdRecyclerView extends RecyclerView implements p<BdRecyclerView> {
                 return;
             }
         }
-        this.f36263f = null;
-        this.f36264g = null;
-        this.f36265h = null;
-        this.f36266i = null;
-        this.f36267j = null;
+        this.f36369f = null;
+        this.f36370g = null;
+        this.f36371h = null;
+        this.f36372i = null;
+        this.f36373j = null;
         this.k = null;
         this.l = null;
         this.m = null;
@@ -1222,11 +1222,11 @@ public class BdRecyclerView extends RecyclerView implements p<BdRecyclerView> {
                 return;
             }
         }
-        this.f36263f = null;
-        this.f36264g = null;
-        this.f36265h = null;
-        this.f36266i = null;
-        this.f36267j = null;
+        this.f36369f = null;
+        this.f36370g = null;
+        this.f36371h = null;
+        this.f36372i = null;
+        this.f36373j = null;
         this.k = null;
         this.l = null;
         this.m = null;

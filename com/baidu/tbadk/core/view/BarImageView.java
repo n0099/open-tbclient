@@ -95,7 +95,7 @@ public class BarImageView extends TbClipImageView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, canvas) == null) {
             a aVar = this.mDrawer;
-            if (aVar != null && aVar.f2647b != null) {
+            if (aVar != null && aVar.f2705b != null) {
                 if (!this.V) {
                     super.onDraw(canvas);
                     return;
@@ -115,8 +115,8 @@ public class BarImageView extends TbClipImageView {
                 this.R.cubicTo(f6, f7, 0.0f, f11, 0.0f, f10);
                 this.R.cubicTo(0.0f, f6, f6, 0.0f, f8, 0.0f);
                 this.R.close();
-                this.mDrawer.f2648c.setStyle(Paint.Style.FILL);
-                this.mDrawer.f2648c.setColor(SkinManager.getColor(this.U));
+                this.mDrawer.f2706c.setStyle(Paint.Style.FILL);
+                this.mDrawer.f2706c.setColor(SkinManager.getColor(this.U));
                 this.i0 = u(measuredWidth, measuredHeight, true);
                 this.R.reset();
                 float strokeWith = getStrokeWith();
@@ -140,7 +140,7 @@ public class BarImageView extends TbClipImageView {
                 if (this.j0 == null) {
                     this.j0 = new Canvas(this.b0);
                 }
-                this.mDrawer.f2648c.setStyle(Paint.Style.STROKE);
+                this.mDrawer.f2706c.setStyle(Paint.Style.STROKE);
                 super.onDraw(this.j0);
                 this.c0 = u(measuredWidth, measuredHeight, false);
                 if (this.a0) {
@@ -149,12 +149,12 @@ public class BarImageView extends TbClipImageView {
                     f3 = f7;
                     f4 = f6;
                     int saveLayer = canvas.saveLayer(0.0f, 0.0f, f7, f2, null, 31);
-                    this.mDrawer.f2648c.setStyle(Paint.Style.FILL);
-                    this.mDrawer.f2648c.setColor(SkinManager.getColor(this.U));
-                    canvas.drawBitmap(this.c0, 0.0f, 0.0f, this.mDrawer.f2648c);
-                    this.mDrawer.f2648c.setXfermode(this.m0);
-                    canvas.drawBitmap(this.i0, 0.0f, 0.0f, this.mDrawer.f2648c);
-                    this.mDrawer.f2648c.setXfermode(null);
+                    this.mDrawer.f2706c.setStyle(Paint.Style.FILL);
+                    this.mDrawer.f2706c.setColor(SkinManager.getColor(this.U));
+                    canvas.drawBitmap(this.c0, 0.0f, 0.0f, this.mDrawer.f2706c);
+                    this.mDrawer.f2706c.setXfermode(this.m0);
+                    canvas.drawBitmap(this.i0, 0.0f, 0.0f, this.mDrawer.f2706c);
+                    this.mDrawer.f2706c.setXfermode(null);
                     if (saveLayer >= 1 && saveLayer <= canvas.getSaveCount()) {
                         canvas.restoreToCount(saveLayer);
                     }
@@ -165,10 +165,10 @@ public class BarImageView extends TbClipImageView {
                     f5 = 0.0f;
                 }
                 int saveLayer2 = canvas.saveLayer(0.0f, 0.0f, f3, f2, null, 31);
-                canvas.drawBitmap(this.c0, f5, f5, this.mDrawer.f2647b);
-                this.mDrawer.f2647b.setXfermode(this.l0);
-                canvas.drawBitmap(this.b0, f5, f5, this.mDrawer.f2647b);
-                this.mDrawer.f2647b.setXfermode(null);
+                canvas.drawBitmap(this.c0, f5, f5, this.mDrawer.f2705b);
+                this.mDrawer.f2705b.setXfermode(this.l0);
+                canvas.drawBitmap(this.b0, f5, f5, this.mDrawer.f2705b);
+                this.mDrawer.f2705b.setXfermode(null);
                 if (saveLayer2 >= 1 && saveLayer2 <= canvas.getSaveCount()) {
                     canvas.restoreToCount(saveLayer2);
                 }
@@ -232,12 +232,12 @@ public class BarImageView extends TbClipImageView {
             this.S.cubicTo(f6, f4, strokeWith, f5, strokeWith, f3);
             this.S.cubicTo(strokeWith, f6, f6, strokeWith, f3, strokeWith);
             this.S.close();
-            float strokeWidth = this.mDrawer.f2648c.getStrokeWidth();
-            this.mDrawer.f2648c.setStyle(Paint.Style.STROKE);
-            this.mDrawer.f2648c.setStrokeWidth(getStrokeWith() + 0.5f);
-            this.mDrawer.f2648c.setColor(SkinManager.getColor(getStrokeColorResId()));
-            canvas.drawPath(this.S, this.mDrawer.f2648c);
-            this.mDrawer.f2648c.setStrokeWidth(strokeWidth);
+            float strokeWidth = this.mDrawer.f2706c.getStrokeWidth();
+            this.mDrawer.f2706c.setStyle(Paint.Style.STROKE);
+            this.mDrawer.f2706c.setStrokeWidth(getStrokeWith() + 0.5f);
+            this.mDrawer.f2706c.setColor(SkinManager.getColor(getStrokeColorResId()));
+            canvas.drawPath(this.S, this.mDrawer.f2706c);
+            this.mDrawer.f2706c.setStrokeWidth(strokeWidth);
         }
     }
 
@@ -246,7 +246,7 @@ public class BarImageView extends TbClipImageView {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z)})) == null) {
             Bitmap createBitmap = Bitmap.createBitmap(i2, i3, Bitmap.Config.ARGB_8888);
-            new Canvas(createBitmap).drawPath(this.R, z ? this.mDrawer.f2648c : this.mDrawer.f2647b);
+            new Canvas(createBitmap).drawPath(this.R, z ? this.mDrawer.f2706c : this.mDrawer.f2705b);
             return createBitmap;
         }
         return (Bitmap) invokeCommon.objValue;

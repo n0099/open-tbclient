@@ -17,25 +17,25 @@ public class b extends p {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f34761b;
+    public Context f34867b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f34762c;
+    public int f34868c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f34763d;
+    public String f34869d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f34764e;
+    public String f34870e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f34765f;
+    public String f34871f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f34766g;
+    public String f34872g;
 
     /* renamed from: h  reason: collision with root package name */
-    public c.p.a.e.b.p.a f34767h;
+    public c.p.a.e.b.p.a f34873h;
 
     public b(Context context, int i2, String str, String str2, String str3, String str4) {
         Interceptable interceptable = $ic;
@@ -53,15 +53,15 @@ public class b extends p {
             }
         }
         if (context != null) {
-            this.f34761b = context.getApplicationContext();
+            this.f34867b = context.getApplicationContext();
         } else {
-            this.f34761b = e.n();
+            this.f34867b = e.n();
         }
-        this.f34762c = i2;
-        this.f34763d = str;
-        this.f34764e = str2;
-        this.f34765f = str3;
-        this.f34766g = str4;
+        this.f34868c = i2;
+        this.f34869d = str;
+        this.f34870e = str2;
+        this.f34871f = str3;
+        this.f34872g = str4;
     }
 
     @Override // c.p.a.e.b.f.p, c.p.a.e.b.f.a, c.p.a.e.b.f.c
@@ -85,7 +85,7 @@ public class b extends p {
     @Override // c.p.a.e.b.f.p, c.p.a.e.b.f.a, c.p.a.e.b.f.c
     public void f(DownloadInfo downloadInfo) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, downloadInfo) == null) || downloadInfo == null || this.f34761b == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, downloadInfo) == null) || downloadInfo == null || this.f34867b == null) {
             return;
         }
         if (downloadInfo.canShowNotification() && (!downloadInfo.isAutoInstallWithoutNotification() || !downloadInfo.isAutoInstall())) {
@@ -108,7 +108,7 @@ public class b extends p {
     @Override // c.p.a.e.b.f.p, c.p.a.e.b.f.a, c.p.a.e.b.f.c
     public void h(DownloadInfo downloadInfo, BaseException baseException) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048580, this, downloadInfo, baseException) == null) || downloadInfo == null || this.f34761b == null || !downloadInfo.canShowNotification() || downloadInfo.isAutoInstallWithoutNotification()) {
+        if (!(interceptable == null || interceptable.invokeLL(1048580, this, downloadInfo, baseException) == null) || downloadInfo == null || this.f34867b == null || !downloadInfo.canShowNotification() || downloadInfo.isAutoInstallWithoutNotification()) {
             return;
         }
         super.h(downloadInfo, baseException);
@@ -129,10 +129,10 @@ public class b extends p {
         Context context;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            if (this.f34767h == null && (context = this.f34761b) != null) {
-                return new a(context, this.f34762c, this.f34763d, this.f34764e, this.f34765f, this.f34766g);
+            if (this.f34873h == null && (context = this.f34867b) != null) {
+                return new a(context, this.f34868c, this.f34869d, this.f34870e, this.f34871f, this.f34872g);
             }
-            return this.f34767h;
+            return this.f34873h;
         }
         return (c.p.a.e.b.p.a) invokeV.objValue;
     }
@@ -152,7 +152,7 @@ public class b extends p {
                 return;
             }
         }
-        this.f34761b = e.n();
-        this.f34767h = aVar;
+        this.f34867b = e.n();
+        this.f34873h = aVar;
     }
 }

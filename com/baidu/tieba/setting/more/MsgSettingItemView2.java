@@ -22,7 +22,7 @@ public class MsgSettingItemView2 extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public CheckBox f56400e;
+    public CheckBox f56565e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public MsgSettingItemView2(Context context) {
@@ -48,7 +48,7 @@ public class MsgSettingItemView2 extends LinearLayout {
     public CheckBox getSwitchView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f56400e : (CheckBox) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f56565e : (CheckBox) invokeV.objValue;
     }
 
     public void init(Context context) {
@@ -56,7 +56,7 @@ public class MsgSettingItemView2 extends LinearLayout {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
             setOrientation(1);
             LayoutInflater.from(context).inflate(R.layout.msg_setting_item_view2, (ViewGroup) this, true);
-            this.f56400e = (CheckBox) findViewById(R.id.setting_check_view);
+            this.f56565e = (CheckBox) findViewById(R.id.setting_check_view);
         }
     }
 
@@ -82,7 +82,7 @@ public class MsgSettingItemView2 extends LinearLayout {
             if (StringUtils.isNULL(str)) {
                 str = "";
             }
-            this.f56400e.setText(str);
+            this.f56565e.setText(str);
         }
     }
 
@@ -113,6 +113,6 @@ public class MsgSettingItemView2 extends LinearLayout {
         if (!(interceptable == null || interceptable.invokeI(1048580, this, i2) == null) || i2 == 0) {
             return;
         }
-        this.f56400e.setText(i2);
+        this.f56565e.setText(i2);
     }
 }

@@ -20,7 +20,7 @@ public class ai {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile ai f76959a;
+    public static volatile ai f77160a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
@@ -64,7 +64,7 @@ public class ai {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public a f76960a;
+        public a f77161a;
 
         public b(a aVar) {
             Interceptable interceptable = $ic;
@@ -81,7 +81,7 @@ public class ai {
                     return;
                 }
             }
-            this.f76960a = aVar;
+            this.f77161a = aVar;
         }
 
         public void a() {
@@ -101,7 +101,7 @@ public class ai {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
                 a();
-                this.f76960a.run();
+                this.f77161a.run();
                 b();
             }
         }
@@ -132,14 +132,14 @@ public class ai {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            if (f76959a == null) {
+            if (f77160a == null) {
                 synchronized (ai.class) {
-                    if (f76959a == null) {
-                        f76959a = new ai(context);
+                    if (f77160a == null) {
+                        f77160a = new ai(context);
                     }
                 }
             }
-            return f76959a;
+            return f77160a;
         }
         return (ai) invokeL.objValue;
     }

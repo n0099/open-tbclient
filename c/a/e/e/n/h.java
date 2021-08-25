@@ -24,31 +24,31 @@ public class h {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public d f2392a;
+    public d f2450a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f2393b;
+    public String f2451b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f2394c;
+    public String f2452c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f2395d;
+    public String f2453d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f2396e;
+    public String f2454e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f2397f;
+    public String f2455f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f2398g;
+    public String f2456g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f2399h;
+    public String f2457h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Map<String, String> f2400i;
+    public Map<String, String> f2458i;
 
     public h() {
         Interceptable interceptable = $ic;
@@ -74,8 +74,8 @@ public class h {
         String[] split;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            if (this.f2400i == null) {
-                this.f2400i = new HashMap();
+            if (this.f2458i == null) {
+                this.f2458i = new HashMap();
             }
             String[] split2 = str.split("&");
             if (split2 == null || split2.length == 0) {
@@ -84,7 +84,7 @@ public class h {
             for (String str2 : split2) {
                 if (!TextUtils.isEmpty(str2) && (split = str2.split("=")) != null && split.length == 2) {
                     try {
-                        this.f2400i.put(split[0], URLDecoder.decode(split[1], "utf-8"));
+                        this.f2458i.put(split[0], URLDecoder.decode(split[1], "utf-8"));
                     } catch (UnsupportedEncodingException e2) {
                         BdLog.e(e2);
                     }
@@ -96,10 +96,10 @@ public class h {
     public void b(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) {
-            if (this.f2400i == null) {
-                this.f2400i = new HashMap();
+            if (this.f2458i == null) {
+                this.f2458i = new HashMap();
             }
-            this.f2400i.put(str, str2);
+            this.f2458i.put(str, str2);
         }
     }
 
@@ -110,13 +110,13 @@ public class h {
             JSONObject jSONObject = new JSONObject();
             try {
                 JSONObject jSONObject2 = new JSONObject();
-                if (this.f2392a != null) {
-                    jSONObject2.put("app_version", this.f2392a.f2368c);
+                if (this.f2450a != null) {
+                    jSONObject2.put("app_version", this.f2450a.f2426c);
                     jSONObject2.put("client_timestamp", Long.toString(System.currentTimeMillis()));
-                    jSONObject2.put("cuid", this.f2392a.f2372g);
-                    jSONObject2.put("shoubai_cuid", this.f2392a.f2373h);
-                    jSONObject2.put("from", this.f2392a.f2369d);
-                    jSONObject2.put("uid", this.f2392a.l);
+                    jSONObject2.put("cuid", this.f2450a.f2430g);
+                    jSONObject2.put("shoubai_cuid", this.f2450a.f2431h);
+                    jSONObject2.put("from", this.f2450a.f2427d);
+                    jSONObject2.put("uid", this.f2450a.l);
                 }
                 jSONObject2.put("client_ip", g.b());
                 jSONObject2.put("network", d());
@@ -128,21 +128,21 @@ public class h {
                 jSONObject2.put("mission_id", g.c());
                 jSONObject.put("base_info", jSONObject2);
                 JSONObject jSONObject3 = new JSONObject();
-                if (this.f2393b != null) {
-                    jSONObject3.put("module", this.f2393b);
+                if (this.f2451b != null) {
+                    jSONObject3.put("module", this.f2451b);
                 }
-                if (this.f2394c != null) {
-                    jSONObject3.put("action", this.f2394c);
+                if (this.f2452c != null) {
+                    jSONObject3.put("action", this.f2452c);
                 }
-                if (this.f2395d != null) {
-                    jSONObject3.put("error_code", this.f2395d);
+                if (this.f2453d != null) {
+                    jSONObject3.put("error_code", this.f2453d);
                 }
-                if (this.f2396e != null) {
-                    jSONObject3.put("error_message", this.f2396e);
+                if (this.f2454e != null) {
+                    jSONObject3.put("error_message", this.f2454e);
                 }
-                if (this.f2400i != null) {
+                if (this.f2458i != null) {
                     StringBuilder sb = new StringBuilder();
-                    for (Map.Entry<String, String> entry : this.f2400i.entrySet()) {
+                    for (Map.Entry<String, String> entry : this.f2458i.entrySet()) {
                         sb.append(entry.getKey());
                         sb.append(":");
                         sb.append(entry.getValue());
@@ -153,14 +153,14 @@ public class h {
                     }
                     jSONObject3.put("ext1", sb);
                 }
-                if (this.f2397f != null) {
-                    jSONObject3.put("id", this.f2397f);
+                if (this.f2455f != null) {
+                    jSONObject3.put("id", this.f2455f);
                 }
-                if (this.f2398g != null) {
-                    jSONObject3.put("title", this.f2398g);
+                if (this.f2456g != null) {
+                    jSONObject3.put("title", this.f2456g);
                 }
-                if (this.f2399h != null) {
-                    jSONObject3.put("abstract", this.f2399h);
+                if (this.f2457h != null) {
+                    jSONObject3.put("abstract", this.f2457h);
                 }
                 jSONObject.put("debug_info", jSONObject3);
                 jSONObject.put("kpi", new JSONObject());
@@ -175,35 +175,35 @@ public class h {
     public void e(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.f2394c = str;
+            this.f2452c = str;
         }
     }
 
     public void f(d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, dVar) == null) {
-            this.f2392a = dVar;
+            this.f2450a = dVar;
         }
     }
 
     public void g(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.f2395d = str;
+            this.f2453d = str;
         }
     }
 
     public void h(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.f2396e = str;
+            this.f2454e = str;
         }
     }
 
     public void i(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            this.f2393b = str;
+            this.f2451b = str;
         }
     }
 }

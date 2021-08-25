@@ -14,10 +14,10 @@ public interface v0 {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f31223a;
+        public String f31329a;
 
         /* renamed from: b  reason: collision with root package name */
-        public boolean f31224b;
+        public boolean f31330b;
 
         public a() {
             Interceptable interceptable = $ic;

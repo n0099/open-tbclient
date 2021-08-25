@@ -21,39 +21,39 @@ public class c extends DiskFileOperate {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Bitmap f2060a;
+    public Bitmap f2118a;
 
     /* renamed from: b  reason: collision with root package name */
-    public BitmapFactory.Options f2061b;
+    public BitmapFactory.Options f2119b;
 
     /* renamed from: c  reason: collision with root package name */
-    public a f2062c;
+    public a f2120c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f2063d;
+    public boolean f2121d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f2064e;
+    public long f2122e;
 
     /* loaded from: classes.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic = null;
 
         /* renamed from: d  reason: collision with root package name */
-        public static byte f2065d = Byte.MIN_VALUE;
+        public static byte f2123d = Byte.MIN_VALUE;
 
         /* renamed from: e  reason: collision with root package name */
-        public static byte f2066e = Byte.MIN_VALUE;
+        public static byte f2124e = Byte.MIN_VALUE;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public boolean f2067a;
+        public boolean f2125a;
 
         /* renamed from: b  reason: collision with root package name */
-        public long f2068b;
+        public long f2126b;
 
         /* renamed from: c  reason: collision with root package name */
-        public boolean f2069c;
+        public boolean f2127c;
 
         static {
             InterceptResult invokeClinit;
@@ -83,9 +83,9 @@ public class c extends DiskFileOperate {
                     return;
                 }
             }
-            this.f2067a = false;
-            this.f2068b = 0L;
-            this.f2069c = true;
+            this.f2125a = false;
+            this.f2126b = 0L;
+            this.f2127c = true;
         }
 
         public static int a() {
@@ -108,12 +108,12 @@ public class c extends DiskFileOperate {
                 if (wrap.getInt() != 1786600511) {
                     return false;
                 }
-                if ((wrap.get() & f2065d) != 0) {
-                    this.f2067a = true;
+                if ((wrap.get() & f2123d) != 0) {
+                    this.f2125a = true;
                 }
-                this.f2068b = wrap.getLong();
-                if ((wrap.get() & f2066e) != 0) {
-                    this.f2069c = false;
+                this.f2126b = wrap.getLong();
+                if ((wrap.get() & f2124e) != 0) {
+                    this.f2127c = false;
                 }
                 return true;
             }
@@ -126,9 +126,9 @@ public class c extends DiskFileOperate {
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
                 ByteBuffer allocate = ByteBuffer.allocate(a());
                 allocate.putInt(1786600511);
-                allocate.put(this.f2067a ? (byte) (f2065d | 0) : (byte) 0);
-                allocate.putLong(this.f2068b);
-                allocate.put(this.f2069c ? (byte) 0 : (byte) (f2066e | 0));
+                allocate.put(this.f2125a ? (byte) (f2123d | 0) : (byte) 0);
+                allocate.putLong(this.f2126b);
+                allocate.put(this.f2127c ? (byte) 0 : (byte) (f2124e | 0));
                 allocate.flip();
                 return allocate.array();
             }
@@ -155,11 +155,11 @@ public class c extends DiskFileOperate {
                 return;
             }
         }
-        this.f2060a = null;
-        this.f2061b = null;
-        this.f2062c = null;
-        this.f2063d = true;
-        this.f2062c = new a();
+        this.f2118a = null;
+        this.f2119b = null;
+        this.f2120c = null;
+        this.f2121d = true;
+        this.f2120c = new a();
     }
 
     public static int a(BitmapFactory.Options options, int i2, int i3) {
@@ -185,26 +185,26 @@ public class c extends DiskFileOperate {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLII = interceptable.invokeLII(1048576, this, bArr, i2, i3)) == null) {
-            if (bArr != null && this.f2062c.b(bArr)) {
-                long j2 = this.f2062c.f2068b;
+            if (bArr != null && this.f2120c.b(bArr)) {
+                long j2 = this.f2120c.f2126b;
                 if (j2 == 0 || j2 >= System.currentTimeMillis()) {
                     int a2 = a.a();
                     try {
-                        if (this.f2061b == null) {
+                        if (this.f2119b == null) {
                             BitmapFactory.Options options = new BitmapFactory.Options();
-                            this.f2061b = options;
+                            this.f2119b = options;
                             options.inPreferredConfig = Bitmap.Config.RGB_565;
                         }
-                        this.f2061b.inJustDecodeBounds = true;
-                        BitmapFactory.decodeByteArray(bArr, a2, bArr.length - a2, this.f2061b);
+                        this.f2119b.inJustDecodeBounds = true;
+                        BitmapFactory.decodeByteArray(bArr, a2, bArr.length - a2, this.f2119b);
                     } catch (Error e2) {
                         BdLog.e(e2.getMessage());
                     }
-                    if (!this.f2061b.mCancel && this.f2061b.outWidth != -1 && this.f2061b.outHeight != -1) {
-                        this.f2061b.inSampleSize = a(this.f2061b, i2, i3);
-                        this.f2061b.inJustDecodeBounds = false;
-                        this.f2060a = BitmapFactory.decodeByteArray(bArr, a2, bArr.length - a2, this.f2061b);
-                        return this.f2060a != null;
+                    if (!this.f2119b.mCancel && this.f2119b.outWidth != -1 && this.f2119b.outHeight != -1) {
+                        this.f2119b.inSampleSize = a(this.f2119b, i2, i3);
+                        this.f2119b.inJustDecodeBounds = false;
+                        this.f2118a = BitmapFactory.decodeByteArray(bArr, a2, bArr.length - a2, this.f2119b);
+                        return this.f2118a != null;
                     }
                     return false;
                 }
@@ -220,10 +220,10 @@ public class c extends DiskFileOperate {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.mData == null || !this.f2063d) {
+            if (this.mData == null || !this.f2121d) {
                 return null;
             }
-            return this.f2062c.c();
+            return this.f2120c.c();
         }
         return (byte[]) invokeV.objValue;
     }
@@ -244,13 +244,13 @@ public class c extends DiskFileOperate {
     public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f2062c.f2069c : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f2120c.f2127c : invokeV.booleanValue;
     }
 
     public void e(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            this.f2062c.f2069c = z;
+            this.f2120c.f2127c = z;
         }
     }
 
@@ -258,14 +258,14 @@ public class c extends DiskFileOperate {
     public void endLog() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            c.a.e.e.l.a.k(isSuccess(), System.currentTimeMillis() - this.f2064e);
+            c.a.e.e.l.a.k(isSuccess(), System.currentTimeMillis() - this.f2122e);
         }
     }
 
     public void f(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            this.f2063d = z;
+            this.f2121d = z;
         }
     }
 
@@ -274,21 +274,21 @@ public class c extends DiskFileOperate {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, bArr)) == null) {
-            if (bArr != null && this.f2062c.b(bArr)) {
-                long j2 = this.f2062c.f2068b;
+            if (bArr != null && this.f2120c.b(bArr)) {
+                long j2 = this.f2120c.f2126b;
                 if (j2 == 0 || j2 >= System.currentTimeMillis()) {
-                    if (this.f2061b == null) {
+                    if (this.f2119b == null) {
                         BitmapFactory.Options options = new BitmapFactory.Options();
-                        this.f2061b = options;
+                        this.f2119b = options;
                         options.inPreferredConfig = Bitmap.Config.RGB_565;
                     }
                     int a2 = a.a();
                     try {
-                        this.f2060a = BitmapFactory.decodeByteArray(bArr, a2, bArr.length - a2, this.f2061b);
+                        this.f2118a = BitmapFactory.decodeByteArray(bArr, a2, bArr.length - a2, this.f2119b);
                     } catch (Error e2) {
                         BdLog.e(e2.getMessage());
                     }
-                    return this.f2060a != null;
+                    return this.f2118a != null;
                 }
             }
             return false;
@@ -299,13 +299,13 @@ public class c extends DiskFileOperate {
     public Bitmap getBitmap() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f2060a : (Bitmap) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f2118a : (Bitmap) invokeV.objValue;
     }
 
     public boolean isGif() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f2062c.f2067a : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f2120c.f2125a : invokeV.booleanValue;
     }
 
     @Override // com.baidu.adp.lib.Disk.ops.DiskFileOperate
@@ -323,7 +323,7 @@ public class c extends DiskFileOperate {
     public void setGif(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
-            this.f2062c.f2067a = z;
+            this.f2120c.f2125a = z;
         }
     }
 
@@ -331,7 +331,7 @@ public class c extends DiskFileOperate {
     public void startLog() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            this.f2064e = System.currentTimeMillis();
+            this.f2122e = System.currentTimeMillis();
         }
     }
 }

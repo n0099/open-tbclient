@@ -3,7 +3,7 @@ package com.baidu.tieba.wxapi;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import c.a.o0.n0.e;
+import c.a.p0.n0.e;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.lbspay.channelpay.wxpay.ChannelWXPay;
 import com.baidu.tbadk.TbConfig;
@@ -85,9 +85,9 @@ public class WXPayEntryActivity extends Activity implements IWXAPIEventHandler {
                 e2.printStackTrace();
             }
             e eVar = new e();
-            eVar.f13358g = true;
-            eVar.f13353b = baseResp.getType();
-            eVar.f13354c = str;
+            eVar.f13649g = true;
+            eVar.f13644b = baseResp.getType();
+            eVar.f13645c = str;
             Intent intent = new Intent("WXPayResult");
             intent.putExtra("errorCode", baseResp.errCode);
             intent.putExtra("errorMsg", baseResp.errStr);

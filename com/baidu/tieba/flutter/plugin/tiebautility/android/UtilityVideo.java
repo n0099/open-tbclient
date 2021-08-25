@@ -1,8 +1,8 @@
 package com.baidu.tieba.flutter.plugin.tiebautility.android;
 
 import androidx.core.view.InputDeviceCompat;
-import c.a.o0.b1.r0;
-import c.a.p0.o2.n;
+import c.a.p0.b1.r0;
+import c.a.q0.o2.n;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.TbadkCoreApplication;

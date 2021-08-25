@@ -112,7 +112,7 @@ public class PassNormalizeActivity extends BeanActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PassNormalizeActivity f69520e;
+        public final /* synthetic */ PassNormalizeActivity f69720e;
 
         public /* synthetic */ b(PassNormalizeActivity passNormalizeActivity, a aVar) {
             this(passNormalizeActivity);
@@ -130,12 +130,12 @@ public class PassNormalizeActivity extends BeanActivity {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str) == null) {
                 String str2 = "onPageFinished url=" + str;
-                if (this.f69520e.mContent != null) {
-                    WalletGlobalUtils.safeDismissDialog(this.f69520e, -1);
+                if (this.f69720e.mContent != null) {
+                    WalletGlobalUtils.safeDismissDialog(this.f69720e, -1);
                 }
-                String property = DebugConfig.getInstance(this.f69520e.mContent).getProperty("pass_complete_verify", "http://wappass.baidu.com/v2/?bindingret");
+                String property = DebugConfig.getInstance(this.f69720e.mContent).getProperty("pass_complete_verify", "http://wappass.baidu.com/v2/?bindingret");
                 if (str != null && str.startsWith(property)) {
-                    this.f69520e.mWebView.loadUrl("javascript:window.sapi_obj.authorized_response(document.body.innerHTML);");
+                    this.f69720e.mWebView.loadUrl("javascript:window.sapi_obj.authorized_response(document.body.innerHTML);");
                 }
                 super.onPageFinished(webView, str);
             }
@@ -147,16 +147,16 @@ public class PassNormalizeActivity extends BeanActivity {
             if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, webView, str, bitmap) == null) {
                 String str2 = "url=" + str;
                 if (str == null || !str.equals(TbDomainConfig.DOMAIN_HTTPS_BAIDU)) {
-                    if (this.f69520e.mContent != null) {
-                        PassNormalizeActivity passNormalizeActivity = this.f69520e;
+                    if (this.f69720e.mContent != null) {
+                        PassNormalizeActivity passNormalizeActivity = this.f69720e;
                         WalletGlobalUtils.safeShowDialog(passNormalizeActivity, -1, ResUtils.getString(passNormalizeActivity.mContent, "dxm_ebpay_loading"));
                     }
                     super.onPageStarted(webView, str, bitmap);
                     return;
                 }
-                PassUtil.backNormalized(this.f69520e.mContent, this.f69520e.type, null);
+                PassUtil.backNormalized(this.f69720e.mContent, this.f69720e.type, null);
                 StatisticManager.onEventWithValue("normalizeVerify", QueryResponse.Options.CANCEL);
-                this.f69520e.finish();
+                this.f69720e.finish();
             }
         }
 
@@ -175,7 +175,7 @@ public class PassNormalizeActivity extends BeanActivity {
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, webView, str)) == null) {
                 if (str != null && (str.startsWith("sms") || str.startsWith("tel") || str.startsWith("bdscenter"))) {
                     try {
-                        this.f69520e.mContent.startActivity(new Intent("android.intent.action.VIEW", Uri.parse(str)));
+                        this.f69720e.mContent.startActivity(new Intent("android.intent.action.VIEW", Uri.parse(str)));
                         return true;
                     } catch (Throwable th) {
                         th.getMessage();
@@ -203,7 +203,7 @@ public class PassNormalizeActivity extends BeanActivity {
                     return;
                 }
             }
-            this.f69520e = passNormalizeActivity;
+            this.f69720e = passNormalizeActivity;
         }
     }
 

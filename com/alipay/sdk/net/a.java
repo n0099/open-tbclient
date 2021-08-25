@@ -34,31 +34,31 @@ public final class a {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f35779a = "msp";
+    public static final String f35885a = "msp";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f35780b = "application/octet-stream;binary/octet-stream";
+    public static final String f35886b = "application/octet-stream;binary/octet-stream";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final CookieManager f35781c;
+    public static final CookieManager f35887c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.alipay.sdk.net.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public static final class C1560a {
+    public static final class C1564a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final String f35782a;
+        public final String f35888a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final byte[] f35783b;
+        public final byte[] f35889b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final Map<String, String> f35784c;
+        public final Map<String, String> f35890c;
 
-        public C1560a(String str, Map<String, String> map, byte[] bArr) {
+        public C1564a(String str, Map<String, String> map, byte[] bArr) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -73,15 +73,15 @@ public final class a {
                     return;
                 }
             }
-            this.f35782a = str;
-            this.f35783b = bArr;
-            this.f35784c = map;
+            this.f35888a = str;
+            this.f35889b = bArr;
+            this.f35890c = map;
         }
 
         public String toString() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? String.format("<UrlConnectionConfigure url=%s headers=%s>", this.f35782a, this.f35784c) : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? String.format("<UrlConnectionConfigure url=%s headers=%s>", this.f35888a, this.f35890c) : (String) invokeV.objValue;
         }
     }
 
@@ -91,13 +91,13 @@ public final class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final Map<String, List<String>> f35785a;
+        public final Map<String, List<String>> f35891a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final String f35786b;
+        public final String f35892b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final byte[] f35787c;
+        public final byte[] f35893c;
 
         public b(Map<String, List<String>> map, String str, byte[] bArr) {
             Interceptable interceptable = $ic;
@@ -114,9 +114,9 @@ public final class a {
                     return;
                 }
             }
-            this.f35785a = map;
-            this.f35786b = str;
-            this.f35787c = bArr;
+            this.f35891a = map;
+            this.f35892b = str;
+            this.f35893c = bArr;
         }
     }
 
@@ -133,7 +133,7 @@ public final class a {
                 return;
             }
         }
-        f35781c = new CookieManager();
+        f35887c = new CookieManager();
     }
 
     public a() {
@@ -156,7 +156,7 @@ public final class a {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static b a(Context context, C1560a c1560a) {
+    public static b a(Context context, C1564a c1564a) {
         InterceptResult invokeLL;
         HttpURLConnection httpURLConnection;
         BufferedInputStream bufferedInputStream;
@@ -166,13 +166,13 @@ public final class a {
         BufferedOutputStream bufferedOutputStream2;
         BufferedInputStream bufferedInputStream2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, c1560a)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, c1564a)) == null) {
             if (context == null) {
                 return null;
             }
             try {
-                c.b(com.alipay.sdk.cons.a.x, "conn config: " + c1560a);
-                url = new URL(c1560a.f35782a);
+                c.b(com.alipay.sdk.cons.a.x, "conn config: " + c1564a);
+                url = new URL(c1564a.f35888a);
                 Proxy a2 = a(context);
                 c.b(com.alipay.sdk.cons.a.x, "conn proxy: " + a2);
                 if (a2 != null) {
@@ -185,24 +185,24 @@ public final class a {
                     if (httpURLConnection2 instanceof HttpsURLConnection) {
                         HttpsURLConnection httpsURLConnection = (HttpsURLConnection) httpURLConnection2;
                     }
-                    if (f35781c.getCookieStore().getCookies().size() > 0) {
-                        httpURLConnection2.setRequestProperty("Cookie", TextUtils.join(";", f35781c.getCookieStore().getCookies()));
+                    if (f35887c.getCookieStore().getCookies().size() > 0) {
+                        httpURLConnection2.setRequestProperty("Cookie", TextUtils.join(";", f35887c.getCookieStore().getCookies()));
                     }
                     httpURLConnection2.setConnectTimeout(20000);
                     httpURLConnection2.setReadTimeout(30000);
                     httpURLConnection2.setInstanceFollowRedirects(true);
-                    httpURLConnection2.setRequestProperty("User-Agent", f35779a);
-                    if (c1560a.f35783b != null && c1560a.f35783b.length > 0) {
+                    httpURLConnection2.setRequestProperty("User-Agent", f35885a);
+                    if (c1564a.f35889b != null && c1564a.f35889b.length > 0) {
                         httpURLConnection2.setRequestMethod("POST");
-                        httpURLConnection2.setRequestProperty("Content-Type", f35780b);
+                        httpURLConnection2.setRequestProperty("Content-Type", f35886b);
                         httpURLConnection2.setRequestProperty("Accept-Charset", "UTF-8");
                         httpURLConnection2.setRequestProperty(HTTP.CONN_DIRECTIVE, HTTP.CONN_KEEP_ALIVE);
                         httpURLConnection2.setRequestProperty(HTTP.CONN_KEEP_ALIVE, "timeout=180, max=100");
                     } else {
                         httpURLConnection2.setRequestMethod("GET");
                     }
-                    if (c1560a.f35784c != null) {
-                        for (Map.Entry<String, String> entry : c1560a.f35784c.entrySet()) {
+                    if (c1564a.f35890c != null) {
+                        for (Map.Entry<String, String> entry : c1564a.f35890c.entrySet()) {
                             if (entry.getKey() != null) {
                                 httpURLConnection2.setRequestProperty(entry.getKey(), entry.getValue());
                             }
@@ -215,7 +215,7 @@ public final class a {
                     if ("POST".equals(httpURLConnection2.getRequestMethod())) {
                         bufferedOutputStream2 = new BufferedOutputStream(httpURLConnection2.getOutputStream());
                         try {
-                            bufferedOutputStream2.write(c1560a.f35783b);
+                            bufferedOutputStream2.write(c1564a.f35889b);
                             bufferedOutputStream2.flush();
                         } catch (Throwable th) {
                             th = th;
@@ -272,7 +272,7 @@ public final class a {
                     for (String str : list) {
                         List<HttpCookie> parse = HttpCookie.parse(str);
                         if (parse != null && !parse.isEmpty()) {
-                            f35781c.getCookieStore().add(url.toURI(), parse.get(0));
+                            f35887c.getCookieStore().add(url.toURI(), parse.get(0));
                         }
                     }
                 }

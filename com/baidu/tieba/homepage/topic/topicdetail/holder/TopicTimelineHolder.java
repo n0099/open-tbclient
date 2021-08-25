@@ -13,7 +13,7 @@ public class TopicTimelineHolder<T extends View> extends RecyclerView.ViewHolder
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public T f52188a;
+    public T f52349a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public TopicTimelineHolder(T t) {
@@ -33,12 +33,12 @@ public class TopicTimelineHolder<T extends View> extends RecyclerView.ViewHolder
                 return;
             }
         }
-        this.f52188a = t;
+        this.f52349a = t;
     }
 
     public T getCellView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f52188a : (T) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f52349a : (T) invokeV.objValue;
     }
 }

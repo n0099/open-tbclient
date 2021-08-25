@@ -117,6 +117,10 @@ public interface NativeUnifiedADData extends ApkDownloadComplianceInterface {
 
     void resumeVideo();
 
+    void sendLossNotification(int i2, int i3, String str);
+
+    void sendWinNotification(int i2);
+
     void setNativeAdEventListener(NativeADEventListener nativeADEventListener);
 
     void setVideoMute(boolean z);

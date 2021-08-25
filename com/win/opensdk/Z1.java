@@ -21,7 +21,7 @@ public class Z1 {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f76563a;
+    public static String f76764a;
     public transient /* synthetic */ FieldHolder $fh;
 
     public static boolean a(Context context, Uri uri) {

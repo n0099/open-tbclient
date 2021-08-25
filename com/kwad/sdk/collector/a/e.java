@@ -17,13 +17,13 @@ public class e extends com.kwad.sdk.core.response.a.a implements com.kwad.sdk.co
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f70932a;
+    public int f71132a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<Float> f70933b;
+    public List<Float> f71133b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f70934c;
+    public long f71134c;
 
     public e() {
         Interceptable interceptable = $ic;
@@ -38,9 +38,9 @@ public class e extends com.kwad.sdk.core.response.a.a implements com.kwad.sdk.co
                 return;
             }
         }
-        this.f70932a = -1;
-        this.f70933b = new ArrayList();
-        this.f70934c = 0L;
+        this.f71132a = -1;
+        this.f71133b = new ArrayList();
+        this.f71134c = 0L;
     }
 
     public static e a(SensorEvent sensorEvent, long j2) {
@@ -51,10 +51,10 @@ public class e extends com.kwad.sdk.core.response.a.a implements com.kwad.sdk.co
                 return null;
             }
             e eVar = new e();
-            eVar.f70932a = sensorEvent.sensor.getType();
-            eVar.f70934c = j2 / 1000;
+            eVar.f71132a = sensorEvent.sensor.getType();
+            eVar.f71134c = j2 / 1000;
             for (float f2 : sensorEvent.values) {
-                eVar.f70933b.add(Float.valueOf(f2));
+                eVar.f71133b.add(Float.valueOf(f2));
             }
             return eVar;
         }
@@ -66,7 +66,7 @@ public class e extends com.kwad.sdk.core.response.a.a implements com.kwad.sdk.co
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
             super.afterToJson(jSONObject);
-            q.a(jSONObject, SavedStateHandle.VALUES, this.f70933b);
+            q.a(jSONObject, SavedStateHandle.VALUES, this.f71133b);
         }
     }
 }

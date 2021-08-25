@@ -23,10 +23,10 @@ public class e extends l {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f39927b;
+    public String f40034b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f39928c;
+    public String f40035c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public e(Context context) {
@@ -46,13 +46,13 @@ public class e extends l {
                 return;
             }
         }
-        this.f39928c = "1";
+        this.f40035c = "1";
     }
 
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            this.f39927b = str;
+            this.f40034b = str;
         }
     }
 
@@ -76,15 +76,15 @@ public class e extends l {
                 arrayList.add(new RestNameValuePair("processid", livenessRecogDTO.processid));
                 arrayList.add(new RestNameValuePair("exuid", livenessRecogDTO.exUid));
             }
-            arrayList.add(new RestNameValuePair("imgdigests", this.f39927b));
+            arrayList.add(new RestNameValuePair("imgdigests", this.f40034b));
             String randomString = RandomUtils.getRandomString(4096);
             try {
-                arrayList.add(new RestNameValuePair("image", Base64Utils.encodeToString(SafeUtils.xor(this.f39956a, randomString).getBytes("UTF-8"))));
+                arrayList.add(new RestNameValuePair("image", Base64Utils.encodeToString(SafeUtils.xor(this.f40063a, randomString).getBytes("UTF-8"))));
             } catch (UnsupportedEncodingException e2) {
                 e2.printStackTrace();
             }
             arrayList.add(new RestNameValuePair("ik", RimArmor.getInstance().encryptProxy(randomString)));
-            arrayList.add(new RestNameValuePair("last", this.f39928c));
+            arrayList.add(new RestNameValuePair("last", this.f40035c));
             return arrayList;
         }
         return (List) invokeV.objValue;
@@ -130,7 +130,7 @@ public class e extends l {
     public void a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            this.f39928c = z ? "1" : "0";
+            this.f40035c = z ? "1" : "0";
         }
     }
 }

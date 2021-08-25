@@ -21,16 +21,16 @@ public final class BaiduWalletUtils {
     public static final boolean IS_BAIDUAPP_PLUGIN = false;
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f69430a;
+    public static int f69630a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f69431b;
+    public static int f69631b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static int f69432c;
+    public static int f69632c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static int f69433d;
+    public static int f69633d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes9.dex */
@@ -61,14 +61,14 @@ public final class BaiduWalletUtils {
         if (!(interceptable == null || interceptable.invokeL(65537, null, context) == null) || context == null) {
             return;
         }
-        if (f69432c == 0 || f69433d == 0) {
-            f69432c = ResUtils.anim(context, "dxm_wallet_base_slide_from_left");
-            f69433d = ResUtils.anim(context, "dxm_wallet_base_slide_to_right");
+        if (f69632c == 0 || f69633d == 0) {
+            f69632c = ResUtils.anim(context, "dxm_wallet_base_slide_from_left");
+            f69633d = ResUtils.anim(context, "dxm_wallet_base_slide_to_right");
         }
         if ((context instanceof Activity) && BeanConstants.needActAnimation) {
-            ((Activity) context).overridePendingTransition(f69432c, f69433d);
+            ((Activity) context).overridePendingTransition(f69632c, f69633d);
         }
-        String str = "BaiduWalletUtils-finishActivityAnim-context:" + context + ", mCloseEnter:" + f69432c + ", mCloseExit:" + f69433d;
+        String str = "BaiduWalletUtils-finishActivityAnim-context:" + context + ", mCloseEnter:" + f69632c + ", mCloseExit:" + f69633d;
     }
 
     public static String getBaiduappVersionCode(Context context) {
@@ -165,12 +165,12 @@ public final class BaiduWalletUtils {
         if (!(interceptable == null || interceptable.invokeL(65547, null, context) == null) || context == null) {
             return;
         }
-        if (f69430a == 0 || f69431b == 0) {
-            f69430a = ResUtils.anim(context, "dxm_wallet_base_slide_from_right");
-            f69431b = ResUtils.anim(context, "dxm_wallet_base_slide_to_left");
+        if (f69630a == 0 || f69631b == 0) {
+            f69630a = ResUtils.anim(context, "dxm_wallet_base_slide_from_right");
+            f69631b = ResUtils.anim(context, "dxm_wallet_base_slide_to_left");
         }
         if ((context instanceof Activity) && BeanConstants.needActAnimation) {
-            ((Activity) context).overridePendingTransition(f69430a, f69431b);
+            ((Activity) context).overridePendingTransition(f69630a, f69631b);
         }
     }
 }

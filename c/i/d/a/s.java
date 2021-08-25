@@ -14,7 +14,7 @@ public final class s {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Object f33957a;
+    public static final Object f34063a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -31,11 +31,11 @@ public final class s {
             }
         }
         Object b2 = b();
-        f33957a = b2;
+        f34063a = b2;
         if (b2 != null) {
             a();
         }
-        if (f33957a == null) {
+        if (f34063a == null) {
             return;
         }
         d();

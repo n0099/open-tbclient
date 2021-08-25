@@ -16,7 +16,7 @@ public class PnPController {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public CtrlPointProvider f38819a;
+    public CtrlPointProvider f38926a;
 
     public PnPController(String str, DlnaProvider dlnaProvider) {
         Interceptable interceptable = $ic;
@@ -33,9 +33,9 @@ public class PnPController {
                 return;
             }
         }
-        this.f38819a = null;
+        this.f38926a = null;
         if (dlnaProvider != null) {
-            this.f38819a = dlnaProvider.ctrlPoint(str);
+            this.f38926a = dlnaProvider.ctrlPoint(str);
         }
     }
 
@@ -43,7 +43,7 @@ public class PnPController {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            CtrlPointProvider ctrlPointProvider = this.f38819a;
+            CtrlPointProvider ctrlPointProvider = this.f38926a;
             if (ctrlPointProvider != null) {
                 return ctrlPointProvider.getCurrentTime();
             }
@@ -56,7 +56,7 @@ public class PnPController {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            CtrlPointProvider ctrlPointProvider = this.f38819a;
+            CtrlPointProvider ctrlPointProvider = this.f38926a;
             if (ctrlPointProvider != null) {
                 return ctrlPointProvider.getDuration();
             }
@@ -69,7 +69,7 @@ public class PnPController {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            CtrlPointProvider ctrlPointProvider = this.f38819a;
+            CtrlPointProvider ctrlPointProvider = this.f38926a;
             if (ctrlPointProvider != null) {
                 return ctrlPointProvider.getPlaybackVolume();
             }
@@ -82,7 +82,7 @@ public class PnPController {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            CtrlPointProvider ctrlPointProvider = this.f38819a;
+            CtrlPointProvider ctrlPointProvider = this.f38926a;
             if (ctrlPointProvider == null || str == null) {
                 return -1;
             }
@@ -94,7 +94,7 @@ public class PnPController {
     public void pause() {
         CtrlPointProvider ctrlPointProvider;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (ctrlPointProvider = this.f38819a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (ctrlPointProvider = this.f38926a) == null) {
             return;
         }
         ctrlPointProvider.pause();
@@ -103,7 +103,7 @@ public class PnPController {
     public void play() {
         CtrlPointProvider ctrlPointProvider;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (ctrlPointProvider = this.f38819a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (ctrlPointProvider = this.f38926a) == null) {
             return;
         }
         ctrlPointProvider.play();
@@ -112,7 +112,7 @@ public class PnPController {
     public void seek(long j2) {
         CtrlPointProvider ctrlPointProvider;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeJ(1048582, this, j2) == null) || (ctrlPointProvider = this.f38819a) == null) {
+        if (!(interceptable == null || interceptable.invokeJ(1048582, this, j2) == null) || (ctrlPointProvider = this.f38926a) == null) {
             return;
         }
         ctrlPointProvider.seek(j2);
@@ -121,7 +121,7 @@ public class PnPController {
     public void setAVTransportUrl(String str) {
         CtrlPointProvider ctrlPointProvider;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048583, this, str) == null) || (ctrlPointProvider = this.f38819a) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048583, this, str) == null) || (ctrlPointProvider = this.f38926a) == null) {
             return;
         }
         ctrlPointProvider.setAVTransportUrl(str);
@@ -130,7 +130,7 @@ public class PnPController {
     public void setListener(CtrlPointProvider.CtrlPointListener ctrlPointListener) {
         CtrlPointProvider ctrlPointProvider;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, ctrlPointListener) == null) || (ctrlPointProvider = this.f38819a) == null) {
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, ctrlPointListener) == null) || (ctrlPointProvider = this.f38926a) == null) {
             return;
         }
         ctrlPointProvider.setListener(ctrlPointListener);
@@ -139,7 +139,7 @@ public class PnPController {
     public void setMute(boolean z) {
         CtrlPointProvider ctrlPointProvider;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048585, this, z) == null) || (ctrlPointProvider = this.f38819a) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048585, this, z) == null) || (ctrlPointProvider = this.f38926a) == null) {
             return;
         }
         ctrlPointProvider.setMute(z ? 1 : 0);
@@ -148,7 +148,7 @@ public class PnPController {
     public void setPlaybackVolume(int i2) {
         CtrlPointProvider ctrlPointProvider;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048586, this, i2) == null) || (ctrlPointProvider = this.f38819a) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048586, this, i2) == null) || (ctrlPointProvider = this.f38926a) == null) {
             return;
         }
         ctrlPointProvider.setPlaybackVolume(i2);
@@ -158,7 +158,7 @@ public class PnPController {
     public void shutdown() {
         CtrlPointProvider ctrlPointProvider;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048587, this) == null) || (ctrlPointProvider = this.f38819a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048587, this) == null) || (ctrlPointProvider = this.f38926a) == null) {
             return;
         }
         ctrlPointProvider.shutdown();
@@ -167,7 +167,7 @@ public class PnPController {
     public void shutdown(boolean z) {
         CtrlPointProvider ctrlPointProvider;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048588, this, z) == null) || (ctrlPointProvider = this.f38819a) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048588, this, z) == null) || (ctrlPointProvider = this.f38926a) == null) {
             return;
         }
         ctrlPointProvider.shutdown(z);
@@ -176,7 +176,7 @@ public class PnPController {
     public void stop() {
         CtrlPointProvider ctrlPointProvider;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048589, this) == null) || (ctrlPointProvider = this.f38819a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048589, this) == null) || (ctrlPointProvider = this.f38926a) == null) {
             return;
         }
         ctrlPointProvider.stop();

@@ -15,7 +15,7 @@ public final class c {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f42158a = "c";
+    public static final String f42265a = "c";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -59,7 +59,7 @@ public final class c {
                 messageDigest.update(str.getBytes());
                 return a(messageDigest.digest());
             } catch (NoSuchAlgorithmException e2) {
-                a.a(f42158a, "NoSuchAlgorithmException happened when get MD5 string", e2);
+                a.a(f42265a, "NoSuchAlgorithmException happened when get MD5 string", e2);
                 return null;
             }
         }

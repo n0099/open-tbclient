@@ -1,7 +1,7 @@
 package com.baidu.searchbox.live.interfaces.defaultimpl.service;
 
-import c.a.a0.f.a;
-import c.a.a0.f.b;
+import c.a.b0.f.a;
+import c.a.b0.f.b;
 import com.baidu.nps.pm.IBundleInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -48,7 +48,7 @@ public final class YYPluginManageServiceImpl$downloadBundle$2 implements a {
         }
     }
 
-    @Override // c.a.a0.f.a
+    @Override // c.a.b0.f.a
     public final void checkAuthorization(IBundleInfo iBundleInfo, int i2, b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIL(1048576, this, iBundleInfo, i2, bVar) == null) {

@@ -33,14 +33,14 @@ public class s {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f43660a;
+    public static String f43767a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static s f43661b;
+    public static s f43768b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public Handler f43662c;
+    public Handler f43769c;
 
     static {
         InterceptResult invokeClinit;
@@ -55,7 +55,7 @@ public class s {
                 return;
             }
         }
-        f43660a = Build.VERSION.SDK_INT < 9 ? "http://openrcv.baidu.com/1010/bplus.gif" : "https://openrcv.baidu.com/1010/bplus.gif";
+        f43767a = Build.VERSION.SDK_INT < 9 ? "http://openrcv.baidu.com/1010/bplus.gif" : "https://openrcv.baidu.com/1010/bplus.gif";
     }
 
     public s() {
@@ -71,9 +71,9 @@ public class s {
                 return;
             }
         }
-        HandlerThread handlerThread = new HandlerThread(com.baidu.fsg.base.statistics.i.f39311a);
+        HandlerThread handlerThread = new HandlerThread(com.baidu.fsg.base.statistics.i.f39418a);
         handlerThread.start();
-        this.f43662c = new Handler(handlerThread.getLooper());
+        this.f43769c = new Handler(handlerThread.getLooper());
     }
 
     private boolean b(Context context, String str) {
@@ -85,7 +85,7 @@ public class s {
                     return true;
                 }
                 try {
-                    a(context, f43660a, str);
+                    a(context, f43767a, str);
                     return true;
                 } catch (Exception e2) {
                     bb.c().c(e2);
@@ -100,14 +100,14 @@ public class s {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f43661b == null) {
+            if (f43768b == null) {
                 synchronized (s.class) {
-                    if (f43661b == null) {
-                        f43661b = new s();
+                    if (f43768b == null) {
+                        f43768b = new s();
                     }
                 }
             }
-            return f43661b;
+            return f43768b;
         }
         return (s) invokeV.objValue;
     }
@@ -120,18 +120,18 @@ public class s {
             if (str == null || "".equals(str)) {
                 return;
             }
-            this.f43662c.post(new Runnable(this, str, context) { // from class: com.baidu.mobstat.s.1
+            this.f43769c.post(new Runnable(this, str, context) { // from class: com.baidu.mobstat.s.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ String f43663a;
+                public final /* synthetic */ String f43770a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ Context f43664b;
+                public final /* synthetic */ Context f43771b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ s f43665c;
+                public final /* synthetic */ s f43772c;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -148,9 +148,9 @@ public class s {
                             return;
                         }
                     }
-                    this.f43665c = this;
-                    this.f43663a = str;
-                    this.f43664b = context;
+                    this.f43772c = this;
+                    this.f43770a = str;
+                    this.f43771b = context;
                 }
 
                 @Override // java.lang.Runnable
@@ -158,11 +158,11 @@ public class s {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         try {
-                            this.f43665c.a(this.f43663a);
-                            if (this.f43664b == null) {
+                            this.f43772c.a(this.f43770a);
+                            if (this.f43771b == null) {
                                 return;
                             }
-                            this.f43665c.a(this.f43664b.getApplicationContext());
+                            this.f43772c.a(this.f43771b.getApplicationContext());
                         } catch (Throwable th) {
                             bb.c().b(th);
                         }
@@ -195,7 +195,7 @@ public class s {
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ s f43666a;
+                    public final /* synthetic */ s f43773a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -212,7 +212,7 @@ public class s {
                                 return;
                             }
                         }
-                        this.f43666a = this;
+                        this.f43773a = this;
                     }
 
                     /* JADX DEBUG: Method merged with bridge method */

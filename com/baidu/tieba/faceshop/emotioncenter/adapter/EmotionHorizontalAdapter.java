@@ -3,8 +3,8 @@ package com.baidu.tieba.faceshop.emotioncenter.adapter;
 import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
-import c.a.e.k.e.a;
-import c.a.p0.q0.x.c.b;
+import c.a.e.l.e.a;
+import c.a.q0.q0.x.c.b;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
@@ -28,7 +28,7 @@ public class EmotionHorizontalAdapter extends a<b, EmotionGridViewHolder> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public EmotionHorizontalView f50340a;
+        public EmotionHorizontalView f50448a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public EmotionGridViewHolder(View view) {
@@ -48,16 +48,16 @@ public class EmotionHorizontalAdapter extends a<b, EmotionGridViewHolder> {
                     return;
                 }
             }
-            this.f50340a = (EmotionHorizontalView) view;
+            this.f50448a = (EmotionHorizontalView) view;
         }
 
         public void setData(b bVar) {
             EmotionHorizontalView emotionHorizontalView;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) || (emotionHorizontalView = this.f50340a) == null || bVar == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) || (emotionHorizontalView = this.f50448a) == null || bVar == null) {
                 return;
             }
-            emotionHorizontalView.setData(bVar.f23504e);
+            emotionHorizontalView.setData(bVar.f23836e);
         }
     }
 
@@ -84,7 +84,7 @@ public class EmotionHorizontalAdapter extends a<b, EmotionGridViewHolder> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // c.a.e.k.e.a
+    @Override // c.a.e.l.e.a
     /* renamed from: h0 */
     public EmotionGridViewHolder U(ViewGroup viewGroup) {
         InterceptResult invokeL;
@@ -99,7 +99,7 @@ public class EmotionHorizontalAdapter extends a<b, EmotionGridViewHolder> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // c.a.e.k.e.a
+    @Override // c.a.e.l.e.a
     /* renamed from: i0 */
     public View a0(int i2, View view, ViewGroup viewGroup, b bVar, EmotionGridViewHolder emotionGridViewHolder) {
         InterceptResult invokeCommon;

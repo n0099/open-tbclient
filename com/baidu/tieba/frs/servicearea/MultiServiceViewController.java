@@ -12,10 +12,10 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import c.a.e.e.p.l;
-import c.a.p0.i3.a0;
-import c.a.p0.i3.b0;
-import c.a.p0.v0.g2.b;
-import c.a.p0.v0.g2.d;
+import c.a.q0.i3.a0;
+import c.a.q0.i3.b0;
+import c.a.q0.v0.g2.b;
+import c.a.q0.v0.g2.d;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -44,19 +44,19 @@ public class MultiServiceViewController implements b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Context f51236a;
+    public final Context f51386a;
 
     /* renamed from: b  reason: collision with root package name */
-    public RecyclerView f51237b;
+    public RecyclerView f51387b;
 
     /* renamed from: c  reason: collision with root package name */
-    public List<b0> f51238c;
+    public List<b0> f51388c;
 
     /* renamed from: d  reason: collision with root package name */
-    public FrsViewData f51239d;
+    public FrsViewData f51389d;
 
     /* renamed from: e  reason: collision with root package name */
-    public RecyclerView.Adapter f51240e;
+    public RecyclerView.Adapter f51390e;
 
     /* loaded from: classes7.dex */
     public static class ServiceViewHolder extends RecyclerView.ViewHolder {
@@ -64,28 +64,28 @@ public class MultiServiceViewController implements b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public LinearLayout f51241a;
+        public LinearLayout f51391a;
 
         /* renamed from: b  reason: collision with root package name */
-        public FrameLayout f51242b;
+        public FrameLayout f51392b;
 
         /* renamed from: c  reason: collision with root package name */
-        public TbClipImageView f51243c;
+        public TbClipImageView f51393c;
 
         /* renamed from: d  reason: collision with root package name */
-        public TextView f51244d;
+        public TextView f51394d;
 
         /* renamed from: e  reason: collision with root package name */
-        public b0 f51245e;
+        public b0 f51395e;
 
         /* renamed from: f  reason: collision with root package name */
-        public List<String> f51246f;
+        public List<String> f51396f;
 
         /* renamed from: g  reason: collision with root package name */
-        public FrsViewData f51247g;
+        public FrsViewData f51397g;
 
         /* renamed from: h  reason: collision with root package name */
-        public View.OnClickListener f51248h;
+        public View.OnClickListener f51398h;
 
         /* loaded from: classes7.dex */
         public class a implements View.OnClickListener {
@@ -93,7 +93,7 @@ public class MultiServiceViewController implements b {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ ServiceViewHolder f51249e;
+            public final /* synthetic */ ServiceViewHolder f51399e;
 
             public a(ServiceViewHolder serviceViewHolder) {
                 Interceptable interceptable = $ic;
@@ -110,26 +110,26 @@ public class MultiServiceViewController implements b {
                         return;
                     }
                 }
-                this.f51249e = serviceViewHolder;
+                this.f51399e = serviceViewHolder;
             }
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                    if (!TextUtils.equals(view.getResources().getString(R.string.hot_user_rank), this.f51249e.f51245e.f19878b) || this.f51249e.f51247g == null || this.f51249e.f51247g.getForum() == null || TextUtils.isEmpty(this.f51249e.f51247g.getForum().getId())) {
-                        if (this.f51249e.f51245e != null && this.f51249e.f51245e.f19882f != null) {
-                            TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_FE_FITE_PROGRAM_CLICK).param("uid", TbadkCoreApplication.getCurrentAccountId()).param("fid", this.f51249e.f51245e.f19883g).param("obj_source", AppletsCellView.FRS_SHARE_CARD_LITE_PROGRAM_FROM).param("obj_id", this.f51249e.f51245e.f19882f.f19887b).param("obj_name", this.f51249e.f51245e.f19882f.f19886a).param("obj_param1", this.f51249e.f51245e.f19882f.f19889d.intValue()));
+                    if (!TextUtils.equals(view.getResources().getString(R.string.hot_user_rank), this.f51399e.f51395e.f20207b) || this.f51399e.f51397g == null || this.f51399e.f51397g.getForum() == null || TextUtils.isEmpty(this.f51399e.f51397g.getForum().getId())) {
+                        if (this.f51399e.f51395e != null && this.f51399e.f51395e.f20211f != null) {
+                            TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_FE_FITE_PROGRAM_CLICK).param("uid", TbadkCoreApplication.getCurrentAccountId()).param("fid", this.f51399e.f51395e.f20212g).param("obj_source", AppletsCellView.FRS_SHARE_CARD_LITE_PROGRAM_FROM).param("obj_id", this.f51399e.f51395e.f20211f.f20216b).param("obj_name", this.f51399e.f51395e.f20211f.f20215a).param("obj_param1", this.f51399e.f51395e.f20211f.f20218d.intValue()));
                         }
-                        d.a(view.getContext(), this.f51249e.f51245e);
-                        d.b(this.f51249e.f51245e);
+                        d.b(view.getContext(), this.f51399e.f51395e);
+                        d.c(this.f51399e.f51395e);
                         return;
                     }
                     HotUserRankActivityConfig hotUserRankActivityConfig = new HotUserRankActivityConfig(view.getContext());
-                    hotUserRankActivityConfig.setForumId(Long.valueOf(c.a.e.e.m.b.f(this.f51249e.f51247g.getForum().getId(), 0L)));
+                    hotUserRankActivityConfig.setForumId(Long.valueOf(c.a.e.e.m.b.f(this.f51399e.f51397g.getForum().getId(), 0L)));
                     MessageManager.getInstance().sendMessage(new CustomMessage(2002001, hotUserRankActivityConfig));
                     StatisticItem statisticItem = new StatisticItem("c13666");
-                    statisticItem.param("fid", this.f51249e.f51247g.getForum().getId());
+                    statisticItem.param("fid", this.f51399e.f51397g.getForum().getId());
                     TiebaStatic.log(statisticItem);
                 }
             }
@@ -153,33 +153,33 @@ public class MultiServiceViewController implements b {
                     return;
                 }
             }
-            this.f51246f = new ArrayList();
-            this.f51248h = new a(this);
+            this.f51396f = new ArrayList();
+            this.f51398h = new a(this);
             Context context = view.getContext();
-            this.f51247g = frsViewData;
+            this.f51397g = frsViewData;
             LinearLayout linearLayout = (LinearLayout) view;
-            this.f51241a = linearLayout;
+            this.f51391a = linearLayout;
             linearLayout.setGravity(16);
-            this.f51241a.setOrientation(0);
-            this.f51242b = new FrameLayout(context);
-            this.f51243c = new TbClipImageView(context);
+            this.f51391a.setOrientation(0);
+            this.f51392b = new FrameLayout(context);
+            this.f51393c = new TbClipImageView(context);
             int g2 = l.g(context, R.dimen.tbds57);
-            this.f51243c.setDrawerType(1);
-            this.f51243c.setIsRound(true);
-            this.f51243c.setBorderWidth(R.dimen.L_X01);
-            this.f51243c.setBorderColor(R.color.CAM_X0401);
-            this.f51243c.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            this.f51243c.setPlaceHolder(1);
-            this.f51242b.addView(this.f51243c, new FrameLayout.LayoutParams(g2, g2));
-            this.f51241a.addView(this.f51242b, new LinearLayout.LayoutParams(-2, l.g(this.f51243c.getContext(), R.dimen.tbds62)));
+            this.f51393c.setDrawerType(1);
+            this.f51393c.setIsRound(true);
+            this.f51393c.setBorderWidth(R.dimen.L_X01);
+            this.f51393c.setBorderColor(R.color.CAM_X0401);
+            this.f51393c.setScaleType(ImageView.ScaleType.CENTER_CROP);
+            this.f51393c.setPlaceHolder(1);
+            this.f51392b.addView(this.f51393c, new FrameLayout.LayoutParams(g2, g2));
+            this.f51391a.addView(this.f51392b, new LinearLayout.LayoutParams(-2, l.g(this.f51393c.getContext(), R.dimen.tbds62)));
             TextView textView = new TextView(context);
-            this.f51244d = textView;
+            this.f51394d = textView;
             textView.setTextSize(0, l.g(context, R.dimen.T_X08));
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
             layoutParams.leftMargin = l.g(context, R.dimen.tbds10);
             layoutParams.rightMargin = l.g(context, R.dimen.M_W_X008);
-            this.f51241a.addView(this.f51244d, layoutParams);
-            view.setOnClickListener(this.f51248h);
+            this.f51391a.addView(this.f51394d, layoutParams);
+            view.setOnClickListener(this.f51398h);
         }
 
         public void bindData(b0 b0Var) {
@@ -187,22 +187,22 @@ public class MultiServiceViewController implements b {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, b0Var) == null) || b0Var == null) {
                 return;
             }
-            this.f51245e = b0Var;
-            if (TextUtils.equals(this.itemView.getResources().getString(R.string.hot_user_rank), b0Var.f19878b)) {
-                this.f51243c.setImageResource(R.drawable.icon_mask_service_celebrity24);
-                FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.f51243c.getLayoutParams();
-                layoutParams.width = l.g(this.f51243c.getContext(), R.dimen.tbds62);
-                layoutParams.height = l.g(this.f51243c.getContext(), R.dimen.tbds62);
+            this.f51395e = b0Var;
+            if (TextUtils.equals(this.itemView.getResources().getString(R.string.hot_user_rank), b0Var.f20207b)) {
+                this.f51393c.setImageResource(R.drawable.icon_mask_service_celebrity24);
+                FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.f51393c.getLayoutParams();
+                layoutParams.width = l.g(this.f51393c.getContext(), R.dimen.tbds62);
+                layoutParams.height = l.g(this.f51393c.getContext(), R.dimen.tbds62);
             } else {
-                this.f51243c.startLoad(b0Var.f19878b, 10, false);
+                this.f51393c.startLoad(b0Var.f20207b, 10, false);
             }
-            this.f51244d.setText(StringHelper.cutChineseAndEnglishWithSuffix(b0Var.f19879c, 10, ""));
-            SkinManager.setViewTextColor(this.f51244d, R.color.CAM_X0105);
-            if (this.f51246f.contains(b0Var.f19879c)) {
+            this.f51394d.setText(StringHelper.cutChineseAndEnglishWithSuffix(b0Var.f20208c, 10, ""));
+            SkinManager.setViewTextColor(this.f51394d, R.color.CAM_X0105);
+            if (this.f51396f.contains(b0Var.f20208c)) {
                 return;
             }
-            d.c(b0Var);
-            this.f51246f.add(b0Var.f19879c);
+            d.d(b0Var);
+            this.f51396f.add(b0Var.f20208c);
         }
     }
 
@@ -212,7 +212,7 @@ public class MultiServiceViewController implements b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ MultiServiceViewController f51250a;
+        public final /* synthetic */ MultiServiceViewController f51400a;
 
         public a(MultiServiceViewController multiServiceViewController) {
             Interceptable interceptable = $ic;
@@ -229,7 +229,7 @@ public class MultiServiceViewController implements b {
                     return;
                 }
             }
-            this.f51250a = multiServiceViewController;
+            this.f51400a = multiServiceViewController;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -238,7 +238,7 @@ public class MultiServiceViewController implements b {
         public void onBindViewHolder(ServiceViewHolder serviceViewHolder, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, serviceViewHolder, i2) == null) {
-                serviceViewHolder.bindData((b0) this.f51250a.f51238c.get(i2));
+                serviceViewHolder.bindData((b0) this.f51400a.f51388c.get(i2));
             }
         }
 
@@ -248,14 +248,14 @@ public class MultiServiceViewController implements b {
         public ServiceViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i2) {
             InterceptResult invokeLI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup, i2)) == null) ? new ServiceViewHolder(new LinearLayout(viewGroup.getContext()), this.f51250a.f51239d) : (ServiceViewHolder) invokeLI.objValue;
+            return (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup, i2)) == null) ? new ServiceViewHolder(new LinearLayout(viewGroup.getContext()), this.f51400a.f51389d) : (ServiceViewHolder) invokeLI.objValue;
         }
 
         @Override // androidx.recyclerview.widget.RecyclerView.Adapter
         public int getItemCount() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f51250a.f51238c.size() : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f51400a.f51388c.size() : invokeV.intValue;
         }
     }
 
@@ -274,42 +274,42 @@ public class MultiServiceViewController implements b {
                 return;
             }
         }
-        this.f51238c = new ArrayList();
-        this.f51240e = new a(this);
-        this.f51236a = context;
-        this.f51237b = new RecyclerView(context);
+        this.f51388c = new ArrayList();
+        this.f51390e = new a(this);
+        this.f51386a = context;
+        this.f51387b = new RecyclerView(context);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(context);
         linearLayoutManager.setOrientation(0);
-        this.f51237b.setLayoutManager(linearLayoutManager);
-        this.f51237b.setAdapter(this.f51240e);
+        this.f51387b.setLayoutManager(linearLayoutManager);
+        this.f51387b.setAdapter(this.f51390e);
     }
 
-    @Override // c.a.p0.v0.g2.b
+    @Override // c.a.q0.v0.g2.b
     public void a(a0 a0Var, FrsViewData frsViewData) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, a0Var, frsViewData) == null) || a0Var == null || ListUtils.isEmpty(a0Var.f19876b)) {
+        if (!(interceptable == null || interceptable.invokeLL(1048576, this, a0Var, frsViewData) == null) || a0Var == null || ListUtils.isEmpty(a0Var.f20205b)) {
             return;
         }
-        this.f51238c = a0Var.f19876b;
-        this.f51239d = frsViewData;
-        this.f51240e.notifyDataSetChanged();
-        RecyclerView recyclerView = this.f51237b;
+        this.f51388c = a0Var.f20205b;
+        this.f51389d = frsViewData;
+        this.f51390e.notifyDataSetChanged();
+        RecyclerView recyclerView = this.f51387b;
         recyclerView.setPadding(l.g(recyclerView.getContext(), R.dimen.M_W_X007), 0, 0, 0);
-        this.f51237b.setClipToPadding(false);
+        this.f51387b.setClipToPadding(false);
     }
 
-    @Override // c.a.p0.v0.g2.b
+    @Override // c.a.q0.v0.g2.b
     public View getView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f51237b : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f51387b : (View) invokeV.objValue;
     }
 
-    @Override // c.a.p0.v0.g2.b
+    @Override // c.a.q0.v0.g2.b
     public void onChangeSkinType(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            this.f51240e.notifyDataSetChanged();
+            this.f51390e.notifyDataSetChanged();
         }
     }
 }

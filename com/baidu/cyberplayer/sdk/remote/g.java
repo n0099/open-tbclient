@@ -28,35 +28,35 @@ public class g {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f38956a;
+    public static boolean f39063a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile g f38957b;
+    public static volatile g f39064b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public c f38958c;
+    public c f39065c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f38959d;
+    public String f39066d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f38960e;
+    public int f39067e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Class<?> f38961f;
+    public Class<?> f39068f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final Object f38962g;
+    public final Object f39069g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ArrayList<WeakReference<b>> f38963h;
+    public ArrayList<WeakReference<b>> f39070h;
 
     /* renamed from: i  reason: collision with root package name */
-    public ServiceConnection f38964i;
+    public ServiceConnection f39071i;
 
     /* renamed from: j  reason: collision with root package name */
-    public IBinder.DeathRecipient f38965j;
+    public IBinder.DeathRecipient f39072j;
 
     /* loaded from: classes5.dex */
     public static class a extends c.a {
@@ -64,7 +64,7 @@ public class g {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public RemotePlayerService f38968a;
+        public RemotePlayerService f39075a;
 
         public a(RemotePlayerService remotePlayerService) {
             Interceptable interceptable = $ic;
@@ -81,7 +81,7 @@ public class g {
                     return;
                 }
             }
-            this.f38968a = remotePlayerService;
+            this.f39075a = remotePlayerService;
         }
 
         @Override // com.baidu.cyberplayer.sdk.remote.c
@@ -90,7 +90,7 @@ public class g {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 if (CyberPlayerManager.isCoreLoaded(1)) {
-                    return new com.baidu.cyberplayer.sdk.extractor.c(this.f38968a);
+                    return new com.baidu.cyberplayer.sdk.extractor.c(this.f39075a);
                 }
                 CyberLog.w("RemotePlayer", "RemoteExtractor has not load kernel, create failed!");
                 return null;
@@ -104,7 +104,7 @@ public class g {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
                 if (CyberPlayerManager.isCoreLoaded(1)) {
-                    return new f(i2, this.f38968a);
+                    return new f(i2, this.f39075a);
                 }
                 CyberLog.w("RemotePlayer", "RemotePlayer has not load kernel, create failed!");
                 return null;
@@ -126,10 +126,10 @@ public class g {
                     return;
                 }
                 CyberLog.i("RemotePlayer", "RemotePlayer prefetch");
-                if (!g.f38956a && (remotePlayerService = this.f38968a) != null) {
+                if (!g.f39063a && (remotePlayerService = this.f39075a) != null) {
                     long kernelNetHandle = remotePlayerService.getKernelNetHandle();
                     if (kernelNetHandle != 0 && com.baidu.cyberplayer.sdk.d.c(kernelNetHandle) == 0) {
-                        boolean unused = g.f38956a = true;
+                        boolean unused = g.f39063a = true;
                     }
                 }
                 CyberPlayerManager.prefetch(str, str2, str3, i3, i4, null, str4, i5, i6, i7, i8, prefetchOptions);
@@ -188,14 +188,14 @@ public class g {
                 return;
             }
         }
-        this.f38962g = new Object();
-        this.f38963h = new ArrayList<>();
-        this.f38964i = new ServiceConnection(this) { // from class: com.baidu.cyberplayer.sdk.remote.g.1
+        this.f39069g = new Object();
+        this.f39070h = new ArrayList<>();
+        this.f39071i = new ServiceConnection(this) { // from class: com.baidu.cyberplayer.sdk.remote.g.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ g f38966a;
+            public final /* synthetic */ g f39073a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -212,7 +212,7 @@ public class g {
                         return;
                     }
                 }
-                this.f38966a = this;
+                this.f39073a = this;
             }
 
             @Override // android.content.ServiceConnection
@@ -220,12 +220,12 @@ public class g {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeLL(1048576, this, componentName, iBinder) == null) {
                     CyberLog.i("RemotePlayer", "RemotePlayer service connected");
-                    this.f38966a.f38958c = c.a.a(iBinder);
+                    this.f39073a.f39065c = c.a.a(iBinder);
                     try {
-                        this.f38966a.f38958c.asBinder().linkToDeath(this.f38966a.f38965j, 0);
+                        this.f39073a.f39065c.asBinder().linkToDeath(this.f39073a.f39072j, 0);
                     } catch (RemoteException e2) {
                         e2.printStackTrace();
-                        this.f38966a.f38958c = null;
+                        this.f39073a.f39065c = null;
                     }
                 }
             }
@@ -235,16 +235,16 @@ public class g {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, componentName) == null) {
                     CyberLog.e("RemotePlayer", "RemotePlayer service disconnected");
-                    this.f38966a.f38958c = null;
+                    this.f39073a.f39065c = null;
                 }
             }
         };
-        this.f38965j = new IBinder.DeathRecipient(this) { // from class: com.baidu.cyberplayer.sdk.remote.g.2
+        this.f39072j = new IBinder.DeathRecipient(this) { // from class: com.baidu.cyberplayer.sdk.remote.g.2
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ g f38967a;
+            public final /* synthetic */ g f39074a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -261,7 +261,7 @@ public class g {
                         return;
                     }
                 }
-                this.f38967a = this;
+                this.f39074a = this;
             }
 
             @Override // android.os.IBinder.DeathRecipient
@@ -269,12 +269,12 @@ public class g {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                     CyberLog.i("RemotePlayer", "RemotePlayer service binder died");
-                    if (this.f38967a.f38958c != null) {
-                        this.f38967a.f38958c.asBinder().unlinkToDeath(this.f38967a.f38965j, 0);
-                        this.f38967a.f38958c = null;
+                    if (this.f39074a.f39065c != null) {
+                        this.f39074a.f39065c.asBinder().unlinkToDeath(this.f39074a.f39072j, 0);
+                        this.f39074a.f39065c = null;
                     }
-                    synchronized (this.f38967a.f38962g) {
-                        Iterator it = this.f38967a.f38963h.iterator();
+                    synchronized (this.f39074a.f39069g) {
+                        Iterator it = this.f39074a.f39070h.iterator();
                         while (it.hasNext()) {
                             b bVar = (b) ((WeakReference) it.next()).get();
                             if (bVar != null) {
@@ -284,8 +284,8 @@ public class g {
                             }
                         }
                     }
-                    g gVar = this.f38967a;
-                    gVar.a(gVar.f38961f, this.f38967a.f38959d, this.f38967a.f38960e, CyberPlayerManager.getInstallOpts());
+                    g gVar = this.f39074a;
+                    gVar.a(gVar.f39068f, this.f39074a.f39066d, this.f39074a.f39067e, CyberPlayerManager.getInstallOpts());
                 }
             }
         };
@@ -295,10 +295,10 @@ public class g {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (f38957b == null) {
-                f38957b = new g();
+            if (f39064b == null) {
+                f39064b = new g();
             }
-            return f38957b;
+            return f39064b;
         }
         return (g) invokeV.objValue;
     }
@@ -307,7 +307,7 @@ public class g {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            c cVar = this.f38958c;
+            c cVar = this.f39065c;
             if (cVar == null) {
                 return -1;
             }
@@ -325,7 +325,7 @@ public class g {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
-            c cVar = this.f38958c;
+            c cVar = this.f39065c;
             if (cVar != null) {
                 try {
                     return cVar.a(i2);
@@ -341,8 +341,8 @@ public class g {
     public void a(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
-            synchronized (this.f38962g) {
-                this.f38963h.add(new WeakReference<>(bVar));
+            synchronized (this.f39069g) {
+                this.f39070h.add(new WeakReference<>(bVar));
             }
         }
     }
@@ -353,16 +353,16 @@ public class g {
             return;
         }
         CyberLog.i("RemotePlayer", "RemotePlayer connect service");
-        this.f38961f = cls;
-        this.f38959d = str;
-        this.f38960e = i2;
-        Intent intent = new Intent(CyberPlayerManager.getApplicationContext(), this.f38961f);
-        intent.putExtra("clientID", this.f38959d);
-        intent.putExtra("installType", this.f38960e);
+        this.f39068f = cls;
+        this.f39066d = str;
+        this.f39067e = i2;
+        Intent intent = new Intent(CyberPlayerManager.getApplicationContext(), this.f39068f);
+        intent.putExtra("clientID", this.f39066d);
+        intent.putExtra("installType", this.f39067e);
         intent.putExtra("installOpts", (Serializable) map);
         boolean z = false;
         try {
-            z = CyberPlayerManager.getApplicationContext().bindService(intent, this.f38964i, 1);
+            z = CyberPlayerManager.getApplicationContext().bindService(intent, this.f39071i, 1);
         } catch (Exception unused) {
             CyberLog.e("RemotePlayer", "Failed binding to service!");
         }
@@ -376,7 +376,7 @@ public class g {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{str, str2, str3, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), str4, Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7), Integer.valueOf(i8), prefetchOptions})) == null) {
-            c cVar = this.f38958c;
+            c cVar = this.f39065c;
             if (cVar == null) {
                 return false;
             }
@@ -395,7 +395,7 @@ public class g {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            c cVar = this.f38958c;
+            c cVar = this.f39065c;
             if (cVar != null) {
                 try {
                     return cVar.a();
@@ -411,8 +411,8 @@ public class g {
     public void b(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, bVar) == null) {
-            synchronized (this.f38962g) {
-                Iterator<WeakReference<b>> it = this.f38963h.iterator();
+            synchronized (this.f39069g) {
+                Iterator<WeakReference<b>> it = this.f39070h.iterator();
                 while (it.hasNext()) {
                     b bVar2 = it.next().get();
                     if (bVar2 == null || bVar2.equals(bVar)) {
@@ -427,7 +427,7 @@ public class g {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
-            c cVar = this.f38958c;
+            c cVar = this.f39065c;
             if (cVar == null) {
                 return false;
             }

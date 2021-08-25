@@ -12,7 +12,7 @@ public final class i implements c.i.b.a.d0.v.d {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final f f33071a;
+    public final f f33177a;
 
     public i(f fVar) {
         Interceptable interceptable = $ic;
@@ -29,7 +29,7 @@ public final class i implements c.i.b.a.d0.v.d {
                 return;
             }
         }
-        this.f33071a = fVar;
+        this.f33177a = fVar;
     }
 
     @Override // c.i.b.a.d0.v.d
@@ -73,7 +73,7 @@ public final class i implements c.i.b.a.d0.v.d {
     public f e(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) ? this.f33071a : (f) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) ? this.f33177a : (f) invokeI.objValue;
     }
 
     @Override // c.i.b.a.d0.v.d

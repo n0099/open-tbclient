@@ -20,34 +20,34 @@ public class NewsNotifyMessage extends CustomResponsedMessage<Object> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f47994a;
+        public int f48101a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f47995b;
+        public int f48102b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f47996c;
+        public int f48103c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f47997d;
+        public int f48104d;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f47998e;
+        public int f48105e;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f47999f;
+        public int f48106f;
 
         /* renamed from: g  reason: collision with root package name */
-        public int f48000g;
+        public int f48107g;
 
         /* renamed from: h  reason: collision with root package name */
-        public int f48001h;
+        public int f48108h;
 
         /* renamed from: i  reason: collision with root package name */
-        public int f48002i;
+        public int f48109i;
 
         /* renamed from: j  reason: collision with root package name */
-        public int f48003j;
+        public int f48110j;
 
         public a(NewsNotifyMessage newsNotifyMessage) {
             Interceptable interceptable = $ic;
@@ -64,16 +64,16 @@ public class NewsNotifyMessage extends CustomResponsedMessage<Object> {
                     return;
                 }
             }
-            this.f47994a = 0;
-            this.f47995b = 0;
-            this.f47996c = 0;
-            this.f47997d = 0;
-            this.f47998e = 0;
-            this.f47999f = 0;
-            this.f48000g = 0;
-            this.f48001h = 0;
-            this.f48002i = 0;
-            this.f48003j = 0;
+            this.f48101a = 0;
+            this.f48102b = 0;
+            this.f48103c = 0;
+            this.f48104d = 0;
+            this.f48105e = 0;
+            this.f48106f = 0;
+            this.f48107g = 0;
+            this.f48108h = 0;
+            this.f48109i = 0;
+            this.f48110j = 0;
         }
     }
 
@@ -99,130 +99,130 @@ public class NewsNotifyMessage extends CustomResponsedMessage<Object> {
     public int getMsgAgree() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mData.f47994a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mData.f48101a : invokeV.intValue;
     }
 
     public int getMsgAtme() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mData.f47996c : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mData.f48103c : invokeV.intValue;
     }
 
     public int getMsgBookmark() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mData.f47999f : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mData.f48106f : invokeV.intValue;
     }
 
     public int getMsgChat() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mData.f47997d : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mData.f48104d : invokeV.intValue;
     }
 
     public int getMsgFans() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mData.f47998e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mData.f48105e : invokeV.intValue;
     }
 
     public int getMsgGiftNum() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mData.f48000g : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mData.f48107g : invokeV.intValue;
     }
 
     public int getMsgOfficialMerge() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mData.f48003j : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mData.f48110j : invokeV.intValue;
     }
 
     public int getMsgPrivateChat() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.mData.f48001h : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.mData.f48108h : invokeV.intValue;
     }
 
     public int getMsgReplyme() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.mData.f47995b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.mData.f48102b : invokeV.intValue;
     }
 
     public int getMsgStrangerChat() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.mData.f48002i : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.mData.f48109i : invokeV.intValue;
     }
 
     public void setMsgAgree(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048586, this, i2) == null) {
-            this.mData.f47994a = i2;
+            this.mData.f48101a = i2;
         }
     }
 
     public void setMsgAtme(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048587, this, i2) == null) {
-            this.mData.f47996c = i2;
+            this.mData.f48103c = i2;
         }
     }
 
     public void setMsgBookmark(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048588, this, i2) == null) {
-            this.mData.f47999f = i2;
+            this.mData.f48106f = i2;
         }
     }
 
     public void setMsgChat(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048589, this, i2) == null) {
-            this.mData.f47997d = i2;
+            this.mData.f48104d = i2;
         }
     }
 
     public void setMsgFans(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048590, this, i2) == null) {
-            this.mData.f47998e = i2;
+            this.mData.f48105e = i2;
         }
     }
 
     public void setMsgGiftNum(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048591, this, i2) == null) {
-            this.mData.f48000g = i2;
+            this.mData.f48107g = i2;
         }
     }
 
     public void setMsgOfficialMerge(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048592, this, i2) == null) {
-            this.mData.f48003j = i2;
+            this.mData.f48110j = i2;
         }
     }
 
     public void setMsgPrivateChat(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048593, this, i2) == null) {
-            this.mData.f48001h = i2;
+            this.mData.f48108h = i2;
         }
     }
 
     public void setMsgReplyme(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048594, this, i2) == null) {
-            this.mData.f47995b = i2;
+            this.mData.f48102b = i2;
         }
     }
 
     public void setMsgStrangerChat(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048595, this, i2) == null) {
-            this.mData.f48002i = i2;
+            this.mData.f48109i = i2;
         }
     }
 
@@ -246,12 +246,12 @@ public class NewsNotifyMessage extends CustomResponsedMessage<Object> {
         }
         a aVar = new a(this);
         this.mData = aVar;
-        aVar.f47994a = i2;
-        this.mData.f47995b = i3;
-        this.mData.f47996c = i4;
-        this.mData.f47997d = i5;
-        this.mData.f47999f = i6;
-        this.mData.f48000g = i7;
-        this.mData.f48001h = i8;
+        aVar.f48101a = i2;
+        this.mData.f48102b = i3;
+        this.mData.f48103c = i4;
+        this.mData.f48104d = i5;
+        this.mData.f48106f = i6;
+        this.mData.f48107g = i7;
+        this.mData.f48108h = i8;
     }
 }

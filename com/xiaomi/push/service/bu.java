@@ -13,7 +13,7 @@ public class bu implements fy {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ XMPushService f77806a;
+    public final /* synthetic */ XMPushService f78007a;
 
     public bu(XMPushService xMPushService) {
         Interceptable interceptable = $ic;
@@ -30,7 +30,7 @@ public class bu implements fy {
                 return;
             }
         }
-        this.f77806a = xMPushService;
+        this.f78007a = xMPushService;
     }
 
     @Override // com.xiaomi.push.fy

@@ -78,7 +78,7 @@ public class CloudLogUtil {
         if (interceptable == null || interceptable.invokeLL(65538, null, str, str2) == null) {
             synchronized (CloudLogUtil.class) {
                 String str3 = "addLogContent startLogLoop:" + startLogLoop;
-                ThreadPool.getDefault().networkIO().execute(new Runnable(str, str2) { // from class: com.yy.mobile.framework.revenuesdk.baseapi.log.CloudLogUtil.1
+                ThreadPool.getDefault().scheduledIO().execute(new Runnable(str, str2) { // from class: com.yy.mobile.framework.revenuesdk.baseapi.log.CloudLogUtil.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ String val$logContent;
@@ -152,7 +152,7 @@ public class CloudLogUtil {
             synchronized (CloudLogUtil.class) {
                 if (logContent != null) {
                     if (logContent.copyWaitingJsonList != null && logContent.content != null) {
-                        ThreadPool.getDefault().networkIO().schedule(new Runnable(logContent) { // from class: com.yy.mobile.framework.revenuesdk.baseapi.log.CloudLogUtil.4
+                        ThreadPool.getDefault().scheduledIO().schedule(new Runnable(logContent) { // from class: com.yy.mobile.framework.revenuesdk.baseapi.log.CloudLogUtil.4
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
                             public final /* synthetic */ LogContent val$logContent;
@@ -193,7 +193,7 @@ public class CloudLogUtil {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, logContent) == null) {
             synchronized (CloudLogUtil.class) {
-                ThreadPool.getDefault().networkIO().execute(new Runnable(logContent) { // from class: com.yy.mobile.framework.revenuesdk.baseapi.log.CloudLogUtil.3
+                ThreadPool.getDefault().scheduledIO().execute(new Runnable(logContent) { // from class: com.yy.mobile.framework.revenuesdk.baseapi.log.CloudLogUtil.3
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ LogContent val$logContent;
@@ -271,7 +271,7 @@ public class CloudLogUtil {
                     return;
                 }
                 startLogLoop = true;
-                ThreadPool.getDefault().networkIO().scheduleAtFixedRate(new Runnable() { // from class: com.yy.mobile.framework.revenuesdk.baseapi.log.CloudLogUtil.2
+                ThreadPool.getDefault().scheduledIO().scheduleAtFixedRate(new Runnable() { // from class: com.yy.mobile.framework.revenuesdk.baseapi.log.CloudLogUtil.2
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 

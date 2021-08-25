@@ -1,31 +1,18 @@
 package j.a.a.e.n;
 
-import android.app.Activity;
-import android.content.Context;
-import android.view.View;
-import android.view.inputmethod.InputMethodManager;
+import android.content.res.Resources;
+import android.util.TypedValue;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes2.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(Context context, View view) {
+    public static int a(float f2) {
+        InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65536, null, context, view) == null) || context == null || view == null) {
-            return;
-        }
-        ((InputMethodManager) context.getSystemService("input_method")).hideSoftInputFromWindow(view.getWindowToken(), 0);
-    }
-
-    public static void b(Activity activity, View view) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, activity, view) == null) {
-            if (view == null && (view = activity.getCurrentFocus()) == null) {
-                return;
-            }
-            ((InputMethodManager) activity.getSystemService("input_method")).showSoftInput(view, 1);
-        }
+        return (interceptable == null || (invokeF = interceptable.invokeF(65536, null, f2)) == null) ? (int) TypedValue.applyDimension(1, f2, Resources.getSystem().getDisplayMetrics()) : invokeF.intValue;
     }
 }

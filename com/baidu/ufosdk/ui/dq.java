@@ -18,7 +18,7 @@ public final class dq implements AdapterView.OnItemLongClickListener {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ FeedbackListActivity f59469a;
+    public final /* synthetic */ FeedbackListActivity f59669a;
 
     public dq(FeedbackListActivity feedbackListActivity) {
         Interceptable interceptable = $ic;
@@ -35,7 +35,7 @@ public final class dq implements AdapterView.OnItemLongClickListener {
                 return;
             }
         }
-        this.f59469a = feedbackListActivity;
+        this.f59669a = feedbackListActivity;
     }
 
     @Override // android.widget.AdapterView.OnItemLongClickListener
@@ -51,20 +51,20 @@ public final class dq implements AdapterView.OnItemLongClickListener {
         RelativeLayout relativeLayout;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j2)})) == null) {
-            list = this.f59469a.f59305e;
-            list2 = this.f59469a.f59305e;
-            FeedbackListActivity feedbackListActivity = this.f59469a;
+            list = this.f59669a.f59505e;
+            list2 = this.f59669a.f59505e;
+            FeedbackListActivity feedbackListActivity = this.f59669a;
             a2 = feedbackListActivity.a(feedbackListActivity.getApplicationContext(), com.baidu.ufosdk.f.s.a("3"), (String) ((Map) list.get(i2)).get("id"), (String) ((Map) list2.get(i2)).get("appid"));
-            this.f59469a.z = new PopupWindow(a2, com.baidu.ufosdk.f.i.a(this.f59469a.getApplicationContext(), 79.0f), com.baidu.ufosdk.f.i.a(this.f59469a.getApplicationContext(), 68.0f));
-            popupWindow = this.f59469a.z;
+            this.f59669a.z = new PopupWindow(a2, com.baidu.ufosdk.f.i.a(this.f59669a.getApplicationContext(), 79.0f), com.baidu.ufosdk.f.i.a(this.f59669a.getApplicationContext(), 68.0f));
+            popupWindow = this.f59669a.z;
             popupWindow.setFocusable(false);
-            popupWindow2 = this.f59469a.z;
+            popupWindow2 = this.f59669a.z;
             popupWindow2.setOutsideTouchable(true);
-            popupWindow3 = this.f59469a.z;
+            popupWindow3 = this.f59669a.z;
             popupWindow3.setBackgroundDrawable(new BitmapDrawable());
             a2.getLocationOnScreen(new int[2]);
-            popupWindow4 = this.f59469a.z;
-            relativeLayout = this.f59469a.f59301a;
+            popupWindow4 = this.f59669a.z;
+            relativeLayout = this.f59669a.f59501a;
             popupWindow4.showAtLocation(relativeLayout, 17, 0, 0);
             return true;
         }

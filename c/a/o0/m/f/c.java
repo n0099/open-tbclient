@@ -1,115 +1,141 @@
 package c.a.o0.m.f;
 
-import android.content.Context;
-import android.text.TextUtils;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.browser.newshare.ThreadAchievementShareInfo;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tbadk.core.util.SvgManager;
-import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.R;
+import com.baidu.searchbox.http.AbstractHttpManager;
+import com.baidu.searchbox.http.request.HttpCommonRequest;
+import com.baidu.searchbox.http.request.HttpCommonRequestBuilder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import okhttp3.Request;
+import okhttp3.RequestBody;
+import org.apache.http.client.methods.HttpTrace;
 /* loaded from: classes3.dex */
-public class c {
+public class c extends HttpCommonRequest<a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* renamed from: a  reason: collision with root package name */
-    public final Context f13326a;
+    /* loaded from: classes3.dex */
+    public static class a extends HttpCommonRequestBuilder<a> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
-    /* renamed from: b  reason: collision with root package name */
-    public final View f13327b;
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(AbstractHttpManager abstractHttpManager) {
+            super(abstractHttpManager);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {abstractHttpManager};
+                interceptable.invokeUnInit(65538, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super((AbstractHttpManager) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65538, newInitContext);
+                    return;
+                }
+            }
+        }
 
-    /* renamed from: c  reason: collision with root package name */
-    public final ThreadAchievementShareInfo.ParamBean f13328c;
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.searchbox.http.request.HttpRequestBuilder
+        /* renamed from: a */
+        public c build() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new c(this) : (c) invokeV.objValue;
+        }
 
-    /* renamed from: d  reason: collision with root package name */
-    public TbImageView f13329d;
+        /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+        public a(c cVar) {
+            this(cVar, null);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {cVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    this((c) objArr2[0], (AbstractHttpManager) objArr2[1]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+        }
 
-    /* renamed from: e  reason: collision with root package name */
-    public ImageView f13330e;
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(c cVar, AbstractHttpManager abstractHttpManager) {
+            super(cVar, abstractHttpManager);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {cVar, abstractHttpManager};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super((HttpCommonRequest) objArr2[0], (AbstractHttpManager) objArr2[1]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
+        }
+    }
 
-    /* renamed from: f  reason: collision with root package name */
-    public TextView f13331f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public TextView f13332g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public TextView f13333h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public TextView f13334i;
-
-    public c(Context context, ThreadAchievementShareInfo threadAchievementShareInfo) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public c(a aVar) {
+        super(aVar);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, threadAchievementShareInfo};
+            Object[] objArr = {aVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
+                super((HttpCommonRequestBuilder) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f13326a = context;
-        this.f13327b = LayoutInflater.from(context).inflate(R.layout.video_interaction_achievement, (ViewGroup) null);
-        this.f13328c = threadAchievementShareInfo.getParams();
-        c();
-        b();
     }
 
-    public View a() {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.searchbox.http.request.HttpRequest
+    /* renamed from: a */
+    public a newBuilder() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f13327b : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new a(this) : (a) invokeV.objValue;
     }
 
-    public final void b() {
-        ThreadAchievementShareInfo.ParamBean paramBean;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.searchbox.http.request.HttpRequest
+    /* renamed from: b */
+    public a newBuilder(AbstractHttpManager abstractHttpManager) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (paramBean = this.f13328c) == null || paramBean.getVideo_info() == null || TextUtils.isEmpty(this.f13328c.getVideo_info().getThumbnail_url())) {
-            return;
-        }
-        this.f13329d.startLoad(this.f13328c.getVideo_info().getThumbnail_url(), 10, false);
-        this.f13334i.setText(StringHelper.numFormatOverWanWithNegative(this.f13328c.getAgree_num()));
-        this.f13331f.setText(StringHelper.numFormatOverWanWithNegative(this.f13328c.getPost_num()));
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, abstractHttpManager)) == null) ? new a(this, abstractHttpManager) : (a) invokeL.objValue;
     }
 
-    public final void c() {
+    @Override // com.baidu.searchbox.http.request.HttpRequest
+    public Request buildOkRequest(RequestBody requestBody) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f13331f = (TextView) this.f13327b.findViewById(R.id.comment_num);
-            this.f13332g = (TextView) this.f13327b.findViewById(R.id.comment_desc);
-            this.f13333h = (TextView) this.f13327b.findViewById(R.id.praise_desc);
-            TextView textView = (TextView) this.f13327b.findViewById(R.id.praise_num);
-            this.f13334i = textView;
-            textView.setTextColor(SkinManager.getColor(R.color.CAM_X0310));
-            this.f13331f.setTextColor(SkinManager.getColor(R.color.CAM_X0310));
-            this.f13333h.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
-            this.f13332g.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
-            TbImageView tbImageView = (TbImageView) this.f13327b.findViewById(R.id.video_img);
-            this.f13329d = tbImageView;
-            tbImageView.setDefaultBgResource(R.color.transparent);
-            this.f13329d.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            this.f13329d.setPlaceHolder(2);
-            ImageView imageView = (ImageView) this.f13327b.findViewById(R.id.play_icon);
-            this.f13330e = imageView;
-            imageView.setImageDrawable(SvgManager.getInstance().getPureDrawable(R.drawable.ic_icon_pure_video_play44_svg, R.color.CAM_X0101, null));
-        }
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, requestBody)) == null) ? this.okRequestBuilder.method(HttpTrace.METHOD_NAME, requestBody).build() : (Request) invokeL.objValue;
     }
 }

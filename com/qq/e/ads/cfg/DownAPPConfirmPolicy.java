@@ -15,11 +15,11 @@ public final class DownAPPConfirmPolicy {
     public static final DownAPPConfirmPolicy NOConfirm;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final /* synthetic */ DownAPPConfirmPolicy[] f74739b;
+    public static final /* synthetic */ DownAPPConfirmPolicy[] f74940b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final int f74740a;
+    public final int f74941a;
 
     static {
         InterceptResult invokeClinit;
@@ -37,7 +37,7 @@ public final class DownAPPConfirmPolicy {
         Default = new DownAPPConfirmPolicy("Default", 0, 0);
         DownAPPConfirmPolicy downAPPConfirmPolicy = new DownAPPConfirmPolicy("NOConfirm", 1, 2);
         NOConfirm = downAPPConfirmPolicy;
-        f74739b = new DownAPPConfirmPolicy[]{Default, downAPPConfirmPolicy};
+        f74940b = new DownAPPConfirmPolicy[]{Default, downAPPConfirmPolicy};
     }
 
     public DownAPPConfirmPolicy(String str, int i2, int i3) {
@@ -58,7 +58,7 @@ public final class DownAPPConfirmPolicy {
                 return;
             }
         }
-        this.f74740a = i3;
+        this.f74941a = i3;
     }
 
     public static DownAPPConfirmPolicy valueOf(String str) {
@@ -70,12 +70,12 @@ public final class DownAPPConfirmPolicy {
     public static DownAPPConfirmPolicy[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (DownAPPConfirmPolicy[]) f74739b.clone() : (DownAPPConfirmPolicy[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (DownAPPConfirmPolicy[]) f74940b.clone() : (DownAPPConfirmPolicy[]) invokeV.objValue;
     }
 
     public final int value() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f74740a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f74941a : invokeV.intValue;
     }
 }

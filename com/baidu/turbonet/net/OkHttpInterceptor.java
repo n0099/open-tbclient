@@ -8,12 +8,12 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.squareup.okhttp.Interceptor;
 import com.squareup.okhttp.internal.http.RealResponseBody;
 import java.lang.reflect.Field;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class OkHttpInterceptor implements Interceptor {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Field f59050a;
+    public static Field f59250a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -31,10 +31,10 @@ public class OkHttpInterceptor implements Interceptor {
         }
         try {
             Field declaredField = RealResponseBody.class.getDeclaredField("source");
-            f59050a = declaredField;
+            f59250a = declaredField;
             declaredField.setAccessible(true);
         } catch (NoSuchFieldException unused) {
-            f59050a = null;
+            f59250a = null;
         }
     }
 }

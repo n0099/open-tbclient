@@ -24,16 +24,16 @@ public class O2OBankCardInfoAdapter extends BaseAdapter {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public List<O2OBankInfo> f62076a;
+    public List<O2OBankInfo> f62276a;
 
     /* renamed from: b  reason: collision with root package name */
-    public LayoutInflater f62077b;
+    public LayoutInflater f62277b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Context f62078c;
+    public Context f62278c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f62079d;
+    public int f62279d;
 
     /* renamed from: com.baidu.wallet.paysdk.datamodel.O2OBankCardInfoAdapter$1  reason: invalid class name */
     /* loaded from: classes8.dex */
@@ -48,13 +48,13 @@ public class O2OBankCardInfoAdapter extends BaseAdapter {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public TextView f62080a;
+        public TextView f62280a;
 
         /* renamed from: b  reason: collision with root package name */
-        public ImageView f62081b;
+        public ImageView f62281b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ O2OBankCardInfoAdapter f62082c;
+        public final /* synthetic */ O2OBankCardInfoAdapter f62282c;
 
         public a(O2OBankCardInfoAdapter o2OBankCardInfoAdapter) {
             Interceptable interceptable = $ic;
@@ -71,7 +71,7 @@ public class O2OBankCardInfoAdapter extends BaseAdapter {
                     return;
                 }
             }
-            this.f62082c = o2OBankCardInfoAdapter;
+            this.f62282c = o2OBankCardInfoAdapter;
         }
 
         public /* synthetic */ a(O2OBankCardInfoAdapter o2OBankCardInfoAdapter, AnonymousClass1 anonymousClass1) {
@@ -94,12 +94,12 @@ public class O2OBankCardInfoAdapter extends BaseAdapter {
                 return;
             }
         }
-        this.f62076a = new ArrayList();
-        this.f62079d = 0;
-        this.f62078c = context;
-        this.f62077b = (LayoutInflater) context.getSystemService("layout_inflater");
+        this.f62276a = new ArrayList();
+        this.f62279d = 0;
+        this.f62278c = context;
+        this.f62277b = (LayoutInflater) context.getSystemService("layout_inflater");
         if (list != null) {
-            this.f62076a.addAll(list);
+            this.f62276a.addAll(list);
         }
     }
 
@@ -107,7 +107,7 @@ public class O2OBankCardInfoAdapter extends BaseAdapter {
     public int getCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f62076a.size() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f62276a.size() : invokeV.intValue;
     }
 
     @Override // android.widget.Adapter
@@ -127,10 +127,10 @@ public class O2OBankCardInfoAdapter extends BaseAdapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeILL = interceptable.invokeILL(1048580, this, i2, view, viewGroup)) == null) {
             if (view == null) {
-                view = this.f62077b.inflate(ResUtils.layout(this.f62078c, "wallet_base_bankinfo_item"), (ViewGroup) null);
+                view = this.f62277b.inflate(ResUtils.layout(this.f62278c, "wallet_base_bankinfo_item"), (ViewGroup) null);
                 aVar = new a(this, null);
-                aVar.f62080a = (TextView) view.findViewById(ResUtils.id(this.f62078c, "bd_wallet_bank_info"));
-                aVar.f62081b = (ImageView) view.findViewById(ResUtils.id(this.f62078c, "bd_Wallet_bank_sel_imge"));
+                aVar.f62280a = (TextView) view.findViewById(ResUtils.id(this.f62278c, "bd_wallet_bank_info"));
+                aVar.f62281b = (ImageView) view.findViewById(ResUtils.id(this.f62278c, "bd_Wallet_bank_sel_imge"));
                 view.setTag(aVar);
             } else {
                 aVar = (a) view.getTag();
@@ -140,23 +140,23 @@ public class O2OBankCardInfoAdapter extends BaseAdapter {
                 return view;
             }
             if (i2 == 0) {
-                view.setBackgroundResource(ResUtils.drawable(this.f62078c, "wallet_base_corners_top"));
+                view.setBackgroundResource(ResUtils.drawable(this.f62278c, "wallet_base_corners_top"));
             } else {
-                view.setBackgroundResource(ResUtils.drawable(this.f62078c, "wallet_base_history_item_selector"));
+                view.setBackgroundResource(ResUtils.drawable(this.f62278c, "wallet_base_history_item_selector"));
             }
             if ("1".equalsIgnoreCase(item.enabled)) {
-                aVar.f62080a.setEnabled(true);
-                aVar.f62080a.setText(item.display_name);
-                aVar.f62080a.setTextColor(ResUtils.getColor(this.f62078c, "bd_wallet_text_gray_color"));
+                aVar.f62280a.setEnabled(true);
+                aVar.f62280a.setText(item.display_name);
+                aVar.f62280a.setTextColor(ResUtils.getColor(this.f62278c, "bd_wallet_text_gray_color"));
             } else {
-                aVar.f62080a.setEnabled(false);
-                aVar.f62080a.setText(item.display_name);
-                aVar.f62080a.setTextColor(ResUtils.getColor(this.f62078c, "dxm_wallet_pwdpay_light_gray"));
+                aVar.f62280a.setEnabled(false);
+                aVar.f62280a.setText(item.display_name);
+                aVar.f62280a.setTextColor(ResUtils.getColor(this.f62278c, "dxm_wallet_pwdpay_light_gray"));
             }
-            if (i2 + 1 == this.f62079d) {
-                aVar.f62081b.setImageDrawable(ResUtils.getDrawable(this.f62078c, "wallet_base_payset_checked"));
+            if (i2 + 1 == this.f62279d) {
+                aVar.f62281b.setImageDrawable(ResUtils.getDrawable(this.f62278c, "wallet_base_payset_checked"));
             } else {
-                aVar.f62081b.setImageDrawable(ResUtils.getDrawable(this.f62078c, "wallet_base_payset_unchecked"));
+                aVar.f62281b.setImageDrawable(ResUtils.getDrawable(this.f62278c, "wallet_base_payset_unchecked"));
             }
             return view;
         }
@@ -168,8 +168,8 @@ public class O2OBankCardInfoAdapter extends BaseAdapter {
         if (!(interceptable == null || interceptable.invokeL(1048581, this, list) == null) || list == null) {
             return;
         }
-        this.f62076a.clear();
-        this.f62076a.addAll(list);
+        this.f62276a.clear();
+        this.f62276a.addAll(list);
         notifyDataSetChanged();
     }
 
@@ -178,7 +178,7 @@ public class O2OBankCardInfoAdapter extends BaseAdapter {
         if (!(interceptable == null || interceptable.invokeI(1048582, this, i2) == null) || i2 <= 0) {
             return;
         }
-        this.f62079d = i2;
+        this.f62279d = i2;
         notifyDataSetChanged();
     }
 
@@ -188,10 +188,10 @@ public class O2OBankCardInfoAdapter extends BaseAdapter {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
-            if (i2 < 0 || i2 >= this.f62076a.size()) {
+            if (i2 < 0 || i2 >= this.f62276a.size()) {
                 return null;
             }
-            return this.f62076a.get(i2);
+            return this.f62276a.get(i2);
         }
         return (O2OBankInfo) invokeI.objValue;
     }

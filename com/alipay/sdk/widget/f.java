@@ -14,7 +14,7 @@ public class f {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Stack<e> f35948a;
+    public Stack<e> f36054a;
 
     public f() {
         Interceptable interceptable = $ic;
@@ -29,19 +29,19 @@ public class f {
                 return;
             }
         }
-        this.f35948a = new Stack<>();
+        this.f36054a = new Stack<>();
     }
 
     public e a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f35948a.pop() : (e) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f36054a.pop() : (e) invokeV.objValue;
     }
 
     public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f35948a.isEmpty() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f36054a.isEmpty() : invokeV.booleanValue;
     }
 
     public void c() {
@@ -49,17 +49,17 @@ public class f {
         if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || b()) {
             return;
         }
-        Iterator<e> it = this.f35948a.iterator();
+        Iterator<e> it = this.f36054a.iterator();
         while (it.hasNext()) {
             it.next().a();
         }
-        this.f35948a.clear();
+        this.f36054a.clear();
     }
 
     public void a(e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, eVar) == null) {
-            this.f35948a.push(eVar);
+            this.f36054a.push(eVar);
         }
     }
 }

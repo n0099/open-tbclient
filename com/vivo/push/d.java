@@ -11,10 +11,10 @@ public final class d implements Runnable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ String f76216a;
+    public final /* synthetic */ String f76417a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ LocalAliasTagsManager f76217b;
+    public final /* synthetic */ LocalAliasTagsManager f76418b;
 
     public d(LocalAliasTagsManager localAliasTagsManager, String str) {
         Interceptable interceptable = $ic;
@@ -31,8 +31,8 @@ public final class d implements Runnable {
                 return;
             }
         }
-        this.f76217b = localAliasTagsManager;
-        this.f76216a = str;
+        this.f76418b = localAliasTagsManager;
+        this.f76417a = str;
     }
 
     @Override // java.lang.Runnable
@@ -40,9 +40,9 @@ public final class d implements Runnable {
         ISubscribeAppAliasManager iSubscribeAppAliasManager;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            iSubscribeAppAliasManager = this.f76217b.mSubscribeAppAliasManager;
-            if (iSubscribeAppAliasManager.setAlias(this.f76216a)) {
-                p.a().a(LocalAliasTagsManager.DEFAULT_LOCAL_REQUEST_ID, this.f76216a);
+            iSubscribeAppAliasManager = this.f76418b.mSubscribeAppAliasManager;
+            if (iSubscribeAppAliasManager.setAlias(this.f76417a)) {
+                p.a().a(LocalAliasTagsManager.DEFAULT_LOCAL_REQUEST_ID, this.f76417a);
             }
         }
     }

@@ -2,12 +2,12 @@ package com.baidu.tieba.frs;
 
 import android.view.View;
 import android.view.ViewGroup;
-import c.a.o0.s.q.s1;
-import c.a.o0.s.q.t1;
-import c.a.p0.v0.k;
-import c.a.p0.v0.r2.d;
-import c.a.p0.v0.x;
-import c.a.p0.v0.z0;
+import c.a.p0.s.q.s1;
+import c.a.p0.s.q.t1;
+import c.a.q0.v0.k;
+import c.a.q0.v0.q2.d;
+import c.a.q0.v0.x;
+import c.a.q0.v0.z0;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
@@ -74,20 +74,20 @@ public class FrsSchoolRecommendAdapter extends k<s1, FrsSchoolRecommendViewHolde
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // c.a.e.k.e.a
+    @Override // c.a.e.l.e.a
     /* renamed from: u0 */
     public FrsSchoolRecommendViewHolder U(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            this.x = new d(this.o, this.f2908i);
+            this.x = new d(this.o, this.f2970i);
             return new FrsSchoolRecommendViewHolder(this, this.x);
         }
         return (FrsSchoolRecommendViewHolder) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // c.a.p0.v0.k, c.a.e.k.e.a
+    @Override // c.a.q0.v0.k, c.a.e.l.e.a
     /* renamed from: v0 */
     public View a0(int i2, View view, ViewGroup viewGroup, s1 s1Var, FrsSchoolRecommendViewHolder frsSchoolRecommendViewHolder) {
         InterceptResult invokeCommon;
@@ -106,11 +106,11 @@ public class FrsSchoolRecommendAdapter extends k<s1, FrsSchoolRecommendViewHolde
                 t1 t1Var = D4.get(i3);
                 if (t1Var != null) {
                     z0 z0Var = new z0();
-                    z0Var.f27043a.setUserId(t1Var.d());
-                    z0Var.f27043a.setUserName(t1Var.e());
-                    z0Var.f27043a.setPortrait(t1Var.c());
-                    z0Var.f27043a.getGodUserData().setIsLike(t1Var.b() == 1);
-                    z0Var.f27043a.getGodUserData().setIntro(t1Var.a());
+                    z0Var.f27382a.setUserId(t1Var.d());
+                    z0Var.f27382a.setUserName(t1Var.e());
+                    z0Var.f27382a.setPortrait(t1Var.c());
+                    z0Var.f27382a.getGodUserData().setIsLike(t1Var.b() == 1);
+                    z0Var.f27382a.getGodUserData().setIntro(t1Var.a());
                     xVar.g(z0Var);
                 }
             }

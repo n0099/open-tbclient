@@ -101,7 +101,7 @@ public class UIMsg {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ UIMsg f41091a;
+        public final /* synthetic */ UIMsg f41198a;
 
         public UIGPSStatus(UIMsg uIMsg) {
             Interceptable interceptable = $ic;
@@ -118,7 +118,7 @@ public class UIMsg {
                     return;
                 }
             }
-            this.f41091a = uIMsg;
+            this.f41198a = uIMsg;
         }
     }
 
@@ -138,7 +138,7 @@ public class UIMsg {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ UIMsg f41092a;
+        public final /* synthetic */ UIMsg f41199a;
 
         public UIHttpType(UIMsg uIMsg) {
             Interceptable interceptable = $ic;
@@ -155,7 +155,7 @@ public class UIMsg {
                     return;
                 }
             }
-            this.f41092a = uIMsg;
+            this.f41199a = uIMsg;
         }
     }
 
@@ -180,7 +180,7 @@ public class UIMsg {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ UIMsg f41093a;
+        public final /* synthetic */ UIMsg f41200a;
 
         public UIOffType(UIMsg uIMsg) {
             Interceptable interceptable = $ic;
@@ -197,7 +197,7 @@ public class UIMsg {
                     return;
                 }
             }
-            this.f41093a = uIMsg;
+            this.f41200a = uIMsg;
         }
     }
 
@@ -279,7 +279,7 @@ public class UIMsg {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ UIMsg f41094a;
+        public final /* synthetic */ UIMsg f41201a;
 
         public d_ResultType(UIMsg uIMsg) {
             Interceptable interceptable = $ic;
@@ -296,7 +296,7 @@ public class UIMsg {
                     return;
                 }
             }
-            this.f41094a = uIMsg;
+            this.f41201a = uIMsg;
         }
     }
 
@@ -460,7 +460,7 @@ public class UIMsg {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ UIMsg f41095a;
+        public final /* synthetic */ UIMsg f41202a;
 
         public f_FUN(UIMsg uIMsg) {
             Interceptable interceptable = $ic;
@@ -477,7 +477,7 @@ public class UIMsg {
                     return;
                 }
             }
-            this.f41095a = uIMsg;
+            this.f41202a = uIMsg;
         }
     }
 
@@ -539,7 +539,7 @@ public class UIMsg {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ UIMsg f41096a;
+        public final /* synthetic */ UIMsg f41203a;
 
         public k_event(UIMsg uIMsg) {
             Interceptable interceptable = $ic;
@@ -556,7 +556,7 @@ public class UIMsg {
                     return;
                 }
             }
-            this.f41096a = uIMsg;
+            this.f41203a = uIMsg;
         }
     }
 
@@ -581,7 +581,7 @@ public class UIMsg {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ UIMsg f41097a;
+        public final /* synthetic */ UIMsg f41204a;
 
         public l_ErrorNo(UIMsg uIMsg) {
             Interceptable interceptable = $ic;
@@ -598,7 +598,7 @@ public class UIMsg {
                     return;
                 }
             }
-            this.f41097a = uIMsg;
+            this.f41204a = uIMsg;
         }
     }
 
@@ -664,7 +664,7 @@ public class UIMsg {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ UIMsg f41098a;
+        public final /* synthetic */ UIMsg f41205a;
 
         public m_AppUI(UIMsg uIMsg) {
             Interceptable interceptable = $ic;
@@ -681,7 +681,7 @@ public class UIMsg {
                     return;
                 }
             }
-            this.f41098a = uIMsg;
+            this.f41205a = uIMsg;
         }
     }
 

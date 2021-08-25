@@ -38,7 +38,7 @@ public class FacebookSSOLoginActivity extends BaseSSOLoginActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ FacebookSSOLoginActivity f44603a;
+        public final /* synthetic */ FacebookSSOLoginActivity f44710a;
 
         public a(FacebookSSOLoginActivity facebookSSOLoginActivity) {
             Interceptable interceptable = $ic;
@@ -55,7 +55,7 @@ public class FacebookSSOLoginActivity extends BaseSSOLoginActivity {
                     return;
                 }
             }
-            this.f44603a = facebookSSOLoginActivity;
+            this.f44710a = facebookSSOLoginActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -73,12 +73,12 @@ public class FacebookSSOLoginActivity extends BaseSSOLoginActivity {
                 Log.d(str2, "userId = " + userId);
                 String str3 = FacebookSSOLoginActivity.p;
                 Log.d(str3, "applicationId = " + applicationId);
-                String urlBind = ParamsUtil.getUrlBind(this.f44603a.configuration, SocialType.FACEBOOK, token, userId, applicationId);
+                String urlBind = ParamsUtil.getUrlBind(this.f44710a.configuration, SocialType.FACEBOOK, token, userId, applicationId);
                 HashMap hashMap = new HashMap();
                 hashMap.put("supportGuestAccount", "1");
                 String addExtras = ParamsUtil.addExtras(urlBind, hashMap);
-                FacebookSSOLoginActivity facebookSSOLoginActivity = this.f44603a;
-                facebookSSOLoginActivity.a(addExtras, facebookSSOLoginActivity.getString(c.a.b0.a.j.a.sapi_sdk_facebook_logging));
+                FacebookSSOLoginActivity facebookSSOLoginActivity = this.f44710a;
+                facebookSSOLoginActivity.a(addExtras, facebookSSOLoginActivity.getString(c.a.c0.a.j.a.sapi_sdk_facebook_logging));
             }
         }
 
@@ -86,8 +86,8 @@ public class FacebookSSOLoginActivity extends BaseSSOLoginActivity {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
                 Log.d(FacebookSSOLoginActivity.p, "facebook LoginManager login cancel");
-                FacebookSSOLoginActivity facebookSSOLoginActivity = this.f44603a;
-                facebookSSOLoginActivity.a(((BaseSSOLoginActivity) facebookSSOLoginActivity).f44588g);
+                FacebookSSOLoginActivity facebookSSOLoginActivity = this.f44710a;
+                facebookSSOLoginActivity.a(((BaseSSOLoginActivity) facebookSSOLoginActivity).f44695g);
             }
         }
 
@@ -95,8 +95,8 @@ public class FacebookSSOLoginActivity extends BaseSSOLoginActivity {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, facebookException) == null) {
                 Log.d(FacebookSSOLoginActivity.p, "facebook LoginManager login error");
-                FacebookSSOLoginActivity facebookSSOLoginActivity = this.f44603a;
-                facebookSSOLoginActivity.a(((BaseSSOLoginActivity) facebookSSOLoginActivity).f44588g);
+                FacebookSSOLoginActivity facebookSSOLoginActivity = this.f44710a;
+                facebookSSOLoginActivity.a(((BaseSSOLoginActivity) facebookSSOLoginActivity).f44695g);
             }
         }
     }
@@ -169,7 +169,7 @@ public class FacebookSSOLoginActivity extends BaseSSOLoginActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.setupViews();
-            setTitleText(c.a.b0.a.j.a.sapi_sdk_title_login_facebook);
+            setTitleText(c.a.c0.a.j.a.sapi_sdk_title_login_facebook);
             RelativeLayout relativeLayout = this.rootView;
             if (relativeLayout != null) {
                 relativeLayout.setVisibility(4);

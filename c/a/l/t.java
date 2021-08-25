@@ -5,7 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import c.a.o0.s.q.c2;
+import c.a.p0.s.q.c2;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.view.ThreadLinkView;
@@ -16,15 +16,15 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
-public class t extends a<c.a.o0.s.q.a> {
+public class t extends a<c.a.p0.s.q.a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: j  reason: collision with root package name */
-    public View f3626j;
+    public View f3868j;
     public ThreadLinkView k;
     public TextView l;
-    public c.a.o0.s.q.a m;
+    public c.a.p0.s.q.a m;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public t(Context context) {
@@ -45,28 +45,28 @@ public class t extends a<c.a.o0.s.q.a> {
             }
         }
         View inflate = LayoutInflater.from(context).inflate(R.layout.card_link_layout, (ViewGroup) null, true);
-        this.f3626j = inflate;
+        this.f3868j = inflate;
         this.k = (ThreadLinkView) inflate.findViewById(R.id.link_thread_root);
-        this.l = (TextView) this.f3626j.findViewById(R.id.link_seg_title);
+        this.l = (TextView) this.f3868j.findViewById(R.id.link_seg_title);
     }
 
     @Override // c.a.l.a
     public View f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f3626j : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f3868j : (View) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // c.a.l.p
     /* renamed from: n */
-    public void onBindDataToView(c.a.o0.s.q.a aVar) {
+    public void onBindDataToView(c.a.p0.s.q.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
             if (aVar != null && aVar.getThreadData() != null) {
                 this.m = aVar;
                 c2 threadData = aVar.getThreadData();
-                c.a.p0.a0.m.j(threadData, this.l);
+                c.a.q0.a0.m.j(threadData, this.l);
                 this.k.setData(threadData);
                 return;
             }
@@ -79,11 +79,11 @@ public class t extends a<c.a.o0.s.q.a> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048579, this, tbPageContext, i2) == null) {
             this.k.onChangeSkinType();
-            c.a.o0.s.q.a aVar = this.m;
+            c.a.p0.s.q.a aVar = this.m;
             if (aVar == null || aVar.getThreadData() == null) {
                 return;
             }
-            c.a.p0.a0.m.l(this.l, this.m.getThreadData().f0(), R.color.CAM_X0105, R.color.CAM_X0109);
+            c.a.q0.a0.m.l(this.l, this.m.getThreadData().f0(), R.color.CAM_X0105, R.color.CAM_X0109);
         }
     }
 }

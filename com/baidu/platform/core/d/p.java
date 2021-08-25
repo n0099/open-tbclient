@@ -34,22 +34,22 @@ public class p extends com.baidu.platform.base.e {
     private void a(WalkingRoutePlanOption walkingRoutePlanOption) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, this, walkingRoutePlanOption) == null) {
-            this.f44083a.a("qt", "walk2");
-            this.f44083a.a(IAdRequestParam.SN, a(walkingRoutePlanOption.mFrom));
-            this.f44083a.a(com.baidu.fsg.base.statistics.f.f39281a, a(walkingRoutePlanOption.mTo));
+            this.f44190a.a("qt", "walk2");
+            this.f44190a.a(IAdRequestParam.SN, a(walkingRoutePlanOption.mFrom));
+            this.f44190a.a(com.baidu.fsg.base.statistics.f.f39388a, a(walkingRoutePlanOption.mTo));
             PlanNode planNode = walkingRoutePlanOption.mFrom;
             if (planNode != null) {
-                this.f44083a.a("sc", planNode.getCity());
+                this.f44190a.a("sc", planNode.getCity());
             }
             PlanNode planNode2 = walkingRoutePlanOption.mTo;
             if (planNode2 != null) {
-                this.f44083a.a("ec", planNode2.getCity());
+                this.f44190a.a("ec", planNode2.getCity());
             }
-            this.f44083a.a("ie", "utf-8");
-            this.f44083a.a("lrn", "20");
-            this.f44083a.a("version", "3");
-            this.f44083a.a("rp_format", "json");
-            this.f44083a.a("rp_filter", "mobile");
+            this.f44190a.a("ie", "utf-8");
+            this.f44190a.a("lrn", "20");
+            this.f44190a.a("version", "3");
+            this.f44190a.a("rp_format", "json");
+            this.f44190a.a("rp_filter", "mobile");
         }
     }
 

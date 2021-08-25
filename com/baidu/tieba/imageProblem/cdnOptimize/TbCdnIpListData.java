@@ -14,25 +14,25 @@ public class TbCdnIpListData {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f53305a;
+    public int f53466a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f53306b;
+    public String f53467b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f53307c;
+    public String f53468c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f53308d;
+    public String f53469d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ArrayList<ArrayList<String>> f53309e;
+    public ArrayList<ArrayList<String>> f53470e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f53310f;
+    public boolean f53471f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f53311g;
+    public String f53472g;
 
     public TbCdnIpListData() {
         Interceptable interceptable = $ic;
@@ -47,12 +47,12 @@ public class TbCdnIpListData {
                 return;
             }
         }
-        this.f53305a = 0;
-        this.f53306b = null;
-        this.f53307c = null;
-        this.f53308d = null;
-        this.f53310f = false;
-        this.f53311g = null;
+        this.f53466a = 0;
+        this.f53467b = null;
+        this.f53468c = null;
+        this.f53469d = null;
+        this.f53471f = false;
+        this.f53472g = null;
     }
 
     public void parseJson(JSONObject jSONObject) {
@@ -64,19 +64,19 @@ public class TbCdnIpListData {
         try {
             JSONObject optJSONObject = jSONObject.optJSONObject("error");
             if (optJSONObject != null) {
-                this.f53305a = optJSONObject.optInt("errorno");
-                this.f53306b = optJSONObject.optString("errmsg");
+                this.f53466a = optJSONObject.optInt("errorno");
+                this.f53467b = optJSONObject.optString("errmsg");
             }
             if (1 == jSONObject.optInt("cdn_switch")) {
-                this.f53310f = true;
+                this.f53471f = true;
             } else {
-                this.f53310f = false;
+                this.f53471f = false;
             }
-            this.f53311g = jSONObject.optString("cdn_domain");
+            this.f53472g = jSONObject.optString("cdn_domain");
             JSONObject optJSONObject2 = jSONObject.optJSONObject("cdn_img_info");
             if (optJSONObject2 != null) {
-                this.f53307c = optJSONObject2.optString(BigdayActivityConfig.IMG_URL);
-                this.f53308d = optJSONObject2.optString("img_md5");
+                this.f53468c = optJSONObject2.optString(BigdayActivityConfig.IMG_URL);
+                this.f53469d = optJSONObject2.optString("img_md5");
             }
             JSONArray optJSONArray2 = jSONObject.optJSONArray("ip_list");
             if (optJSONArray2 != null) {
@@ -99,7 +99,7 @@ public class TbCdnIpListData {
                     }
                 }
                 if (arrayList.size() > 0) {
-                    this.f53309e = arrayList;
+                    this.f53470e = arrayList;
                 }
             }
         } catch (Exception e2) {

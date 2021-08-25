@@ -13,15 +13,15 @@ public class a {
     @c(a = "gecko_accesskey")
 
     /* renamed from: a  reason: collision with root package name */
-    public List<String> f68399a;
+    public List<String> f68599a;
     @c(a = "os")
 
     /* renamed from: b  reason: collision with root package name */
-    public int f68400b;
+    public int f68600b;
     @c(a = "msg_type")
 
     /* renamed from: c  reason: collision with root package name */
-    public int f68401c;
+    public int f68601c;
 
     public a(List<String> list) {
         Interceptable interceptable = $ic;
@@ -38,8 +38,8 @@ public class a {
                 return;
             }
         }
-        this.f68400b = 0;
-        this.f68401c = 1;
-        this.f68399a = list;
+        this.f68600b = 0;
+        this.f68601c = 1;
+        this.f68599a = list;
     }
 }

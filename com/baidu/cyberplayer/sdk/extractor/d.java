@@ -22,7 +22,7 @@ public class d extends ExtractorProvider {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public com.baidu.cyberplayer.sdk.remote.a f38857a;
+    public com.baidu.cyberplayer.sdk.remote.a f38964a;
 
     public d(com.baidu.cyberplayer.sdk.remote.a aVar) {
         Interceptable interceptable = $ic;
@@ -39,14 +39,14 @@ public class d extends ExtractorProvider {
                 return;
             }
         }
-        this.f38857a = aVar;
+        this.f38964a = aVar;
     }
 
     public static ExtractorProvider a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            com.baidu.cyberplayer.sdk.remote.a a2 = a.AbstractBinderC1638a.a(g.a().b());
+            com.baidu.cyberplayer.sdk.remote.a a2 = a.AbstractBinderC1642a.a(g.a().b());
             if (a2 != null) {
                 return new d(a2);
             }
@@ -58,7 +58,7 @@ public class d extends ExtractorProvider {
     private void a(Uri uri, Map<String, String> map) {
         com.baidu.cyberplayer.sdk.remote.a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65538, this, uri, map) == null) || (aVar = this.f38857a) == null) {
+        if (!(interceptable == null || interceptable.invokeLL(65538, this, uri, map) == null) || (aVar = this.f38964a) == null) {
             return;
         }
         try {
@@ -73,7 +73,7 @@ public class d extends ExtractorProvider {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            com.baidu.cyberplayer.sdk.remote.a aVar = this.f38857a;
+            com.baidu.cyberplayer.sdk.remote.a aVar = this.f38964a;
             if (aVar == null) {
                 return null;
             }
@@ -92,7 +92,7 @@ public class d extends ExtractorProvider {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             CyberLog.i("RemoteExtractorProxy", "release");
-            com.baidu.cyberplayer.sdk.remote.a aVar = this.f38857a;
+            com.baidu.cyberplayer.sdk.remote.a aVar = this.f38964a;
             if (aVar == null) {
                 return;
             }
@@ -103,7 +103,7 @@ public class d extends ExtractorProvider {
                     e2.printStackTrace();
                 }
             } finally {
-                this.f38857a = null;
+                this.f38964a = null;
             }
         }
     }
@@ -143,7 +143,7 @@ public class d extends ExtractorProvider {
     public void setOption(int i2, String str, long j2) {
         com.baidu.cyberplayer.sdk.remote.a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i2), str, Long.valueOf(j2)}) == null) || (aVar = this.f38857a) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i2), str, Long.valueOf(j2)}) == null) || (aVar = this.f38964a) == null) {
             return;
         }
         try {

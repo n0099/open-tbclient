@@ -32,10 +32,10 @@ public class c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public com.baidu.mobads.cid.cesium.c.d.d f42592a;
+    public com.baidu.mobads.cid.cesium.c.d.d f42699a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<b> f42593b;
+    public List<b> f42700b;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -83,7 +83,7 @@ public class c {
     private void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
-            this.f42592a = new com.baidu.mobads.cid.cesium.c.d.e(d.a(), d.b());
+            this.f42699a = new com.baidu.mobads.cid.cesium.c.d.e(d.a(), d.b());
         }
     }
 
@@ -151,10 +151,10 @@ public class c {
                                     byte[] a2 = com.baidu.mobads.cid.cesium.d.a.a(string.getBytes("utf-8"));
                                     JSONObject jSONObject = new JSONObject(new String(a2));
                                     b bVar = new b();
-                                    bVar.f42526b = jSONObject.getInt("priority");
-                                    bVar.f42525a = resolveInfo.activityInfo.applicationInfo;
+                                    bVar.f42633b = jSONObject.getInt("priority");
+                                    bVar.f42632a = resolveInfo.activityInfo.applicationInfo;
                                     if (context.getPackageName().equals(resolveInfo.activityInfo.applicationInfo.packageName)) {
-                                        bVar.f42528d = true;
+                                        bVar.f42635d = true;
                                     }
                                     if (z) {
                                         String string2 = bundle.getString("galaxy_sf");
@@ -167,9 +167,9 @@ public class c {
                                                 strArr[i2] = jSONArray.getString(i2);
                                             }
                                             if (a(strArr, a(packageInfo.signatures))) {
-                                                byte[] a3 = a(com.baidu.mobads.cid.cesium.d.a.a(string2.getBytes()), this.f42592a);
+                                                byte[] a3 = a(com.baidu.mobads.cid.cesium.d.a.a(string2.getBytes()), this.f42699a);
                                                 if (a3 != null && Arrays.equals(a3, com.baidu.mobads.cid.cesium.d.c.a(a2))) {
-                                                    bVar.f42527c = true;
+                                                    bVar.f42634c = true;
                                                 }
                                             }
                                         }
@@ -187,7 +187,7 @@ public class c {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ c f42594a;
+                public final /* synthetic */ c f42701a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -204,7 +204,7 @@ public class c {
                             return;
                         }
                     }
-                    this.f42594a = this;
+                    this.f42701a = this;
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
@@ -214,15 +214,15 @@ public class c {
                     InterceptResult invokeLL;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, bVar2, bVar3)) == null) {
-                        int i3 = bVar3.f42526b - bVar2.f42526b;
+                        int i3 = bVar3.f42633b - bVar2.f42633b;
                         if (i3 == 0) {
-                            if (bVar2.f42528d && bVar3.f42528d) {
+                            if (bVar2.f42635d && bVar3.f42635d) {
                                 return 0;
                             }
-                            if (bVar2.f42528d) {
+                            if (bVar2.f42635d) {
                                 return -1;
                             }
-                            if (bVar3.f42528d) {
+                            if (bVar3.f42635d) {
                                 return 1;
                             }
                         }
@@ -246,7 +246,7 @@ public class c {
                 }
                 return false;
             }
-            boolean z = a2.get(0).f42527c;
+            boolean z = a2.get(0).f42634c;
             if (!z) {
                 for (int i3 = 0; i3 < 3; i3++) {
                 }
@@ -260,13 +260,13 @@ public class c {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) {
-            List<b> list = this.f42593b;
+            List<b> list = this.f42700b;
             if (list != null) {
                 return list;
             }
             a(context);
             List<b> a2 = a(context, new Intent("com.baidu.intent.action.GALAXY"), true);
-            this.f42593b = a2;
+            this.f42700b = a2;
             return a2;
         }
         return (List) invokeL.objValue;

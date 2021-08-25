@@ -20,7 +20,7 @@ public class LivenessVideoWarningTipTextView extends TextView {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f40153a;
+    public boolean f40260a;
 
     /* loaded from: classes5.dex */
     public interface a {
@@ -51,7 +51,7 @@ public class LivenessVideoWarningTipTextView extends TextView {
 
     public void startInvisibleAnim() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && !this.f40153a && getVisibility() == 0) {
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && !this.f40260a && getVisibility() == 0) {
             AlphaAnimation alphaAnimation = new AlphaAnimation(1.0f, 0.0f);
             alphaAnimation.setFillAfter(true);
             alphaAnimation.setInterpolator(new LinearInterpolator());
@@ -61,7 +61,7 @@ public class LivenessVideoWarningTipTextView extends TextView {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ LivenessVideoWarningTipTextView f40158a;
+                public final /* synthetic */ LivenessVideoWarningTipTextView f40265a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -78,15 +78,15 @@ public class LivenessVideoWarningTipTextView extends TextView {
                             return;
                         }
                     }
-                    this.f40158a = this;
+                    this.f40265a = this;
                 }
 
                 @Override // android.view.animation.Animation.AnimationListener
                 public void onAnimationEnd(Animation animation) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, animation) == null) {
-                        this.f40158a.setVisibility(4);
-                        this.f40158a.f40153a = false;
+                        this.f40265a.setVisibility(4);
+                        this.f40265a.f40260a = false;
                     }
                 }
 
@@ -101,7 +101,7 @@ public class LivenessVideoWarningTipTextView extends TextView {
                 public void onAnimationStart(Animation animation) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_SEND_USER_MSG, this, animation) == null) {
-                        this.f40158a.f40153a = true;
+                        this.f40265a.f40260a = true;
                     }
                 }
             });
@@ -120,13 +120,13 @@ public class LivenessVideoWarningTipTextView extends TextView {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ a f40154a;
+                public final /* synthetic */ a f40261a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ int f40155b;
+                public final /* synthetic */ int f40262b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ LivenessVideoWarningTipTextView f40156c;
+                public final /* synthetic */ LivenessVideoWarningTipTextView f40263c;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -143,21 +143,21 @@ public class LivenessVideoWarningTipTextView extends TextView {
                             return;
                         }
                     }
-                    this.f40156c = this;
-                    this.f40154a = aVar;
-                    this.f40155b = dimensionPixelOffset;
+                    this.f40263c = this;
+                    this.f40261a = aVar;
+                    this.f40262b = dimensionPixelOffset;
                 }
 
                 @Override // android.view.animation.Animation.AnimationListener
                 public void onAnimationEnd(Animation animation) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, animation) == null) {
-                        a aVar2 = this.f40154a;
+                        a aVar2 = this.f40261a;
                         if (aVar2 != null) {
                             aVar2.b();
                         }
-                        this.f40156c.clearAnimation();
-                        this.f40156c.setTranslationY(this.f40155b);
+                        this.f40263c.clearAnimation();
+                        this.f40263c.setTranslationY(this.f40262b);
                     }
                 }
 
@@ -172,7 +172,7 @@ public class LivenessVideoWarningTipTextView extends TextView {
                 public void onAnimationStart(Animation animation) {
                     a aVar2;
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeL(Constants.METHOD_SEND_USER_MSG, this, animation) == null) || (aVar2 = this.f40154a) == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeL(Constants.METHOD_SEND_USER_MSG, this, animation) == null) || (aVar2 = this.f40261a) == null) {
                         return;
                     }
                     aVar2.a();
@@ -186,7 +186,7 @@ public class LivenessVideoWarningTipTextView extends TextView {
 
     public void startVisibleAnim() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.f40153a || getVisibility() == 0) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.f40260a || getVisibility() == 0) {
             return;
         }
         setVisibility(0);
@@ -199,7 +199,7 @@ public class LivenessVideoWarningTipTextView extends TextView {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ LivenessVideoWarningTipTextView f40157a;
+            public final /* synthetic */ LivenessVideoWarningTipTextView f40264a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -216,15 +216,15 @@ public class LivenessVideoWarningTipTextView extends TextView {
                         return;
                     }
                 }
-                this.f40157a = this;
+                this.f40264a = this;
             }
 
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationEnd(Animation animation) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, animation) == null) {
-                    this.f40157a.clearAnimation();
-                    this.f40157a.f40153a = false;
+                    this.f40264a.clearAnimation();
+                    this.f40264a.f40260a = false;
                 }
             }
 
@@ -239,7 +239,7 @@ public class LivenessVideoWarningTipTextView extends TextView {
             public void onAnimationStart(Animation animation) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_SEND_USER_MSG, this, animation) == null) {
-                    this.f40157a.f40153a = true;
+                    this.f40264a.f40260a = true;
                 }
             }
         });

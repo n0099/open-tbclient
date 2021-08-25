@@ -1,0 +1,103 @@
+package com.baidu.tbadk.core.view.itemcard.download;
+
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
+/* loaded from: classes6.dex */
+public class ItemFetchUrlHttpResponsedMsg extends TbHttpResponsedMessage {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public String appname;
+    public String downloadUrl;
+    public boolean isBussiness;
+    public String rcvUrl;
+    public String source;
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ItemFetchUrlHttpResponsedMsg() {
+        super(CmdConfigHttp.CMD_ITEM_FETCH_URL);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+    }
+
+    public String getAppname() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.appname : (String) invokeV.objValue;
+    }
+
+    public String getDownloadUrl() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.downloadUrl : (String) invokeV.objValue;
+    }
+
+    public String getRcvUrl() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.rcvUrl : (String) invokeV.objValue;
+    }
+
+    public String getSource() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.source : (String) invokeV.objValue;
+    }
+
+    public boolean isBussinessApk() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.isBussiness : invokeV.booleanValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.message.ResponsedMessage
+    public void afterDispatchInBackGround(int i2, byte[] bArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, bArr) == null) {
+            super.afterDispatchInBackGround(i2, (int) bArr);
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tbadk.message.http.TbHttpResponsedMessage, com.baidu.adp.framework.message.HttpResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
+    public void decodeInBackGround(int i2, byte[] bArr) throws Exception {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048579, this, i2, bArr) == null) {
+            String parseToString = parseToString(bArr);
+            if (TextUtils.isEmpty(parseToString)) {
+                return;
+            }
+            JSONObject jSONObject = new JSONObject(parseToString);
+            setError(jSONObject.optInt("error_code", -1));
+            setErrorString(jSONObject.optString("error_msg"));
+            JSONObject optJSONObject = jSONObject.optJSONObject("data");
+            if (optJSONObject != null) {
+                this.downloadUrl = optJSONObject.optString("download_url");
+                this.isBussiness = optJSONObject.optInt("is_ad") == 1;
+                this.rcvUrl = optJSONObject.optString("app_rcv");
+                this.source = optJSONObject.optString("source");
+                this.appname = optJSONObject.optString("sname");
+            }
+        }
+    }
+}

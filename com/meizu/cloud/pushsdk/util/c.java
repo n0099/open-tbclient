@@ -1,7 +1,6 @@
 package com.meizu.cloud.pushsdk.util;
 
 import android.text.TextUtils;
-import com.yy.hiidostatis.inner.util.cipher.RsaCipher;
 import java.io.IOException;
 import java.nio.charset.Charset;
 import java.security.KeyFactory;
@@ -15,7 +14,7 @@ import javax.crypto.Cipher;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Charset f74625a = Charset.forName("UTF-8");
+    public static final Charset f74825a = Charset.forName("UTF-8");
 
     public static String a(String str, String str2) {
         if (str != null) {
@@ -23,7 +22,7 @@ public class c {
                 if (TextUtils.isEmpty(str2)) {
                     return null;
                 }
-                return new String(a(a(str), b(str2)), f74625a);
+                return new String(a(a(str), b(str2)), f74825a);
             } catch (Exception e2) {
                 c.l.a.a.a.b("RSAUtils", "decrypt " + e2.getMessage());
                 return null;
@@ -62,7 +61,7 @@ public class c {
     }
 
     public static byte[] a(PublicKey publicKey, byte[] bArr) throws Exception {
-        Cipher cipher = Cipher.getInstance(RsaCipher.RSA_PADDING);
+        Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
         cipher.init(2, publicKey);
         return cipher.doFinal(bArr);
     }

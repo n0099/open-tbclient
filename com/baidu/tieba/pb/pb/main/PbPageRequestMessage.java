@@ -2,9 +2,9 @@ package com.baidu.tieba.pb.pb.main;
 
 import android.content.Context;
 import androidx.core.view.InputDeviceCompat;
-import c.a.o0.b1.w;
-import c.a.p0.x2.j0.a;
-import c.a.p0.x2.l0.b;
+import c.a.p0.b1.w;
+import c.a.q0.x2.j0.a;
+import c.a.q0.x2.l0.b;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;

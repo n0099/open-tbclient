@@ -18,7 +18,7 @@ public abstract class g {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Set<Type> f34080a;
+    public final Set<Type> f34186a;
 
     public g() {
         Interceptable interceptable = $ic;
@@ -33,14 +33,14 @@ public abstract class g {
                 return;
             }
         }
-        this.f34080a = Sets.f();
+        this.f34186a = Sets.f();
     }
 
     public final void a(Type... typeArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, typeArr) == null) {
             for (Type type : typeArr) {
-                if (type != null && this.f34080a.add(type)) {
+                if (type != null && this.f34186a.add(type)) {
                     try {
                         if (type instanceof TypeVariable) {
                             e((TypeVariable) type);
@@ -56,7 +56,7 @@ public abstract class g {
                             throw new AssertionError("Unknown type: " + type);
                         }
                     } catch (Throwable th) {
-                        this.f34080a.remove(type);
+                        this.f34186a.remove(type);
                         throw th;
                     }
                 }

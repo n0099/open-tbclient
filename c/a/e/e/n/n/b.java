@@ -43,23 +43,23 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static b f2429f;
+    public static b f2487f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public c.a.e.e.n.d f2430a;
+    public c.a.e.e.n.d f2488a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f2431b;
+    public String f2489b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f2432c;
+    public String f2490c;
 
     /* renamed from: d  reason: collision with root package name */
-    public C0048b f2433d;
+    public C0038b f2491d;
 
     /* renamed from: e  reason: collision with root package name */
-    public CustomMessageListener f2434e;
+    public CustomMessageListener f2492e;
 
     /* loaded from: classes.dex */
     public class a extends CustomMessageListener {
@@ -67,7 +67,7 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ b f2435a;
+        public final /* synthetic */ b f2493a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(b bVar, int i2) {
@@ -87,7 +87,7 @@ public class b {
                     return;
                 }
             }
-            this.f2435a = bVar;
+            this.f2493a = bVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -95,19 +95,19 @@ public class b {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage) && !customResponsedMessage.hasError()) {
-                this.f2435a.f();
+                this.f2493a.f();
             }
         }
     }
 
     /* renamed from: c.a.e.e.n.n.b$b  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0048b extends BroadcastReceiver {
+    public class C0038b extends BroadcastReceiver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ b this$0;
 
-        public C0048b(b bVar) {
+        public C0038b(b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -134,7 +134,7 @@ public class b {
             this.this$0.o(intent.getStringExtra("intent_data_userid"), intent.getStringExtra("intent_data_username"), intent.getStringExtra("intent_data_bduss"));
         }
 
-        public /* synthetic */ C0048b(b bVar, a aVar) {
+        public /* synthetic */ C0038b(b bVar, a aVar) {
             this(bVar);
         }
     }
@@ -145,10 +145,10 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public c.a.e.e.n.j.a f2436a;
+        public c.a.e.e.n.j.a f2494a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ b f2437b;
+        public final /* synthetic */ b f2495b;
 
         public c(@NonNull b bVar, c.a.e.e.n.j.a aVar) {
             Interceptable interceptable = $ic;
@@ -165,9 +165,9 @@ public class b {
                     return;
                 }
             }
-            this.f2437b = bVar;
-            this.f2436a = null;
-            this.f2436a = aVar;
+            this.f2495b = bVar;
+            this.f2494a = null;
+            this.f2494a = aVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -177,7 +177,7 @@ public class b {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, objArr)) == null) {
-                d(this.f2436a);
+                d(this.f2494a);
                 return null;
             }
             return (Void) invokeL.objValue;
@@ -189,7 +189,7 @@ public class b {
         public void onPostExecute(Void r5) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, r5) == null) {
-                this.f2436a.J(false);
+                this.f2494a.J(false);
             }
         }
 
@@ -205,7 +205,7 @@ public class b {
                     for (int i2 = size - 1; i2 >= 0; i2--) {
                         ArrayList<String> trackLogStringByIndex = b2.getTrackLogStringByIndex(i2);
                         if (trackLogStringByIndex != null && trackLogStringByIndex.size() != 0) {
-                            this.f2437b.i(aVar, trackLogStringByIndex, b2.get(i2));
+                            this.f2495b.i(aVar, trackLogStringByIndex, b2.get(i2));
                         }
                     }
                 } catch (Exception e2) {
@@ -221,13 +221,13 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public c.a.e.e.n.j.a f2438a;
+        public c.a.e.e.n.j.a f2496a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f2439b;
+        public String f2497b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ b f2440c;
+        public final /* synthetic */ b f2498c;
 
         public d(b bVar, c.a.e.e.n.j.a aVar, String str) {
             Interceptable interceptable = $ic;
@@ -244,9 +244,9 @@ public class b {
                     return;
                 }
             }
-            this.f2440c = bVar;
-            this.f2438a = aVar;
-            this.f2439b = str;
+            this.f2498c = bVar;
+            this.f2496a = aVar;
+            this.f2497b = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -256,14 +256,14 @@ public class b {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, objArr)) == null) {
-                String e2 = c.a.e.e.n.n.d.e(this.f2438a, this.f2440c.f2430a);
-                String str = this.f2439b;
+                String e2 = c.a.e.e.n.n.d.e(this.f2496a, this.f2498c.f2488a);
+                String str = this.f2497b;
                 ArrayList arrayList = new ArrayList();
                 arrayList.add(str);
                 BdLog.i("commonHeader = " + e2);
                 BdLog.i("cache = " + str);
-                this.f2438a.d();
-                this.f2440c.h(this.f2438a, e2, arrayList, null, true);
+                this.f2496a.d();
+                this.f2498c.h(this.f2496a, e2, arrayList, null, true);
                 return null;
             }
             return (Void) invokeL.objValue;
@@ -276,13 +276,13 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public c.a.e.e.n.j.a f2441a;
+        public c.a.e.e.n.j.a f2499a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f2442b;
+        public String f2500b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ b f2443c;
+        public final /* synthetic */ b f2501c;
 
         public e(b bVar, c.a.e.e.n.j.a aVar, String str) {
             Interceptable interceptable = $ic;
@@ -299,9 +299,9 @@ public class b {
                     return;
                 }
             }
-            this.f2443c = bVar;
-            this.f2441a = aVar;
-            this.f2442b = str;
+            this.f2501c = bVar;
+            this.f2499a = aVar;
+            this.f2500b = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -311,11 +311,11 @@ public class b {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, objArr)) == null) {
-                String str = this.f2442b;
+                String str = this.f2500b;
                 ArrayList arrayList = new ArrayList();
                 arrayList.add(str);
-                this.f2441a.f();
-                this.f2443c.i(this.f2441a, arrayList, null);
+                this.f2499a.f();
+                this.f2501c.i(this.f2499a, arrayList, null);
                 return null;
             }
             return (Void) invokeL.objValue;
@@ -328,22 +328,22 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public c.a.e.e.n.j.a f2444a;
+        public c.a.e.e.n.j.a f2502a;
 
         /* renamed from: b  reason: collision with root package name */
-        public ArrayList<String> f2445b;
+        public ArrayList<String> f2503b;
 
         /* renamed from: c  reason: collision with root package name */
-        public boolean f2446c;
+        public boolean f2504c;
 
         /* renamed from: d  reason: collision with root package name */
-        public boolean f2447d;
+        public boolean f2505d;
 
         /* renamed from: e  reason: collision with root package name */
-        public boolean f2448e;
+        public boolean f2506e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ b f2449f;
+        public final /* synthetic */ b f2507f;
 
         public f(b bVar, c.a.e.e.n.j.a aVar, ArrayList<String> arrayList, boolean z, boolean z2, boolean z3) {
             Interceptable interceptable = $ic;
@@ -360,17 +360,17 @@ public class b {
                     return;
                 }
             }
-            this.f2449f = bVar;
-            this.f2444a = null;
-            this.f2445b = null;
-            this.f2446c = false;
-            this.f2447d = false;
-            this.f2448e = false;
-            this.f2444a = aVar;
-            this.f2445b = arrayList;
-            this.f2446c = z;
-            this.f2447d = z2;
-            this.f2448e = z3;
+            this.f2507f = bVar;
+            this.f2502a = null;
+            this.f2503b = null;
+            this.f2504c = false;
+            this.f2505d = false;
+            this.f2506e = false;
+            this.f2502a = aVar;
+            this.f2503b = arrayList;
+            this.f2504c = z;
+            this.f2505d = z2;
+            this.f2506e = z3;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -380,7 +380,7 @@ public class b {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, objArr)) == null) {
-                d(this.f2444a, this.f2446c, this.f2447d, this.f2448e);
+                d(this.f2502a, this.f2504c, this.f2505d, this.f2506e);
                 return null;
             }
             return (Void) invokeL.objValue;
@@ -392,7 +392,7 @@ public class b {
         public void onPostExecute(Void r5) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, r5) == null) {
-                this.f2444a.K(false);
+                this.f2502a.K(false);
             }
         }
 
@@ -401,7 +401,7 @@ public class b {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{aVar, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)}) == null) {
                 try {
-                    String e2 = c.a.e.e.n.n.d.e(aVar, this.f2449f.f2430a);
+                    String e2 = c.a.e.e.n.n.d.e(aVar, this.f2507f.f2488a);
                     BdUploadingLogInfo b2 = c.a.e.e.n.n.a.b(aVar, z2);
                     int size = b2.size();
                     if (b2 == null || size <= 0) {
@@ -410,20 +410,20 @@ public class b {
                     if (!z) {
                         int i3 = 0;
                         while (i3 < size) {
-                            ArrayList<String> logStringByIndex = b2.getLogStringByIndex(i3, this.f2445b);
+                            ArrayList<String> logStringByIndex = b2.getLogStringByIndex(i3, this.f2503b);
                             if (logStringByIndex != null && logStringByIndex.size() != 0) {
                                 if (!z2) {
                                     i2 = i3;
-                                    this.f2449f.h(aVar, e2, logStringByIndex, b2.get(i2), z3);
+                                    this.f2507f.h(aVar, e2, logStringByIndex, b2.get(i2), z3);
                                 } else {
                                     ArrayList<c.a.e.e.n.j.d> arrayList = b2.get(i3);
                                     for (int i4 = 0; i4 < arrayList.size(); i4++) {
-                                        if (arrayList.get(i4).f2412b.contains("notUpload/")) {
-                                            arrayList.get(i4).f2412b = arrayList.get(i4).f2412b.replace("notUpload/", "");
+                                        if (arrayList.get(i4).f2470b.contains("notUpload/")) {
+                                            arrayList.get(i4).f2470b = arrayList.get(i4).f2470b.replace("notUpload/", "");
                                         }
                                     }
                                     i2 = i3;
-                                    this.f2449f.h(aVar, e2, logStringByIndex, arrayList, z3);
+                                    this.f2507f.h(aVar, e2, logStringByIndex, arrayList, z3);
                                 }
                                 i3 = i2 + 1;
                             }
@@ -434,22 +434,22 @@ public class b {
                     }
                     int i5 = 0;
                     for (int i6 = size - 1; i6 >= 0; i6--) {
-                        ArrayList<String> logStringByIndex2 = b2.getLogStringByIndex(i6, this.f2445b);
+                        ArrayList<String> logStringByIndex2 = b2.getLogStringByIndex(i6, this.f2503b);
                         if (logStringByIndex2 != null && logStringByIndex2.size() != 0) {
                             if (!j.H() && (i5 = i5 + logStringByIndex2.toString().length()) > 102400) {
                                 return;
                             }
                             int i7 = i5;
                             if (!z2) {
-                                this.f2449f.h(aVar, e2, logStringByIndex2, b2.get(i6), z3);
+                                this.f2507f.h(aVar, e2, logStringByIndex2, b2.get(i6), z3);
                             } else {
                                 ArrayList<c.a.e.e.n.j.d> arrayList2 = b2.get(i6);
                                 for (int i8 = 0; i8 < arrayList2.size(); i8++) {
-                                    if (arrayList2.get(i8).f2412b.contains("notUpload/")) {
-                                        arrayList2.get(i8).f2412b = arrayList2.get(i8).f2412b.replace("notUpload/", "");
+                                    if (arrayList2.get(i8).f2470b.contains("notUpload/")) {
+                                        arrayList2.get(i8).f2470b = arrayList2.get(i8).f2470b.replace("notUpload/", "");
                                     }
                                 }
-                                this.f2449f.h(aVar, e2, logStringByIndex2, arrayList2, z3);
+                                this.f2507f.h(aVar, e2, logStringByIndex2, arrayList2, z3);
                             }
                             i5 = i7;
                         }
@@ -489,21 +489,21 @@ public class b {
                 return;
             }
         }
-        this.f2434e = new a(this, 2000994);
+        this.f2492e = new a(this, 2000994);
     }
 
     public static b m() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) {
-            if (f2429f == null) {
+            if (f2487f == null) {
                 synchronized (b.class) {
-                    if (f2429f == null) {
-                        f2429f = new b();
+                    if (f2487f == null) {
+                        f2487f = new b();
                     }
                 }
             }
-            return f2429f;
+            return f2487f;
         }
         return (b) invokeV.objValue;
     }
@@ -525,8 +525,8 @@ public class b {
     public final void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f2430a.o = c.a.e.e.n.e.a(BdBaseApplication.getInst());
-            this.f2430a.p = String.valueOf(j.I());
+            this.f2488a.o = c.a.e.e.n.e.a(BdBaseApplication.getInst());
+            this.f2488a.p = String.valueOf(j.I());
         }
     }
 
@@ -585,14 +585,14 @@ public class b {
                         if (aVar.o().equals("pfmonitor") && BdStatisticsSwitchStatic.isOn()) {
                             try {
                                 c.a.e.e.j.a.e eVar = new c.a.e.e.j.a.e();
-                                String str4 = this.f2431b;
+                                String str4 = this.f2489b;
                                 if (z2 && str4.contains("c.tieba.baidu.com")) {
                                     str4 = str4.replace("c.tieba.baidu.com", "123.125.115.120");
                                     eVar.b().a("Host", "c.tieba.baidu.com");
                                 }
                                 eVar.b().s(str4);
                                 eVar.b().q(HttpMessageTask.HTTP_METHOD.POST);
-                                HashMap<String, Object> f2 = c.a.e.e.n.n.d.f(this.f2430a, z);
+                                HashMap<String, Object> f2 = c.a.e.e.n.n.d.f(this.f2488a, z);
                                 if (f2 != null) {
                                     eVar.b().r(new ArrayList(f2.entrySet()));
                                 }
@@ -625,15 +625,15 @@ public class b {
                 }
                 eVar2.b().s(str3);
                 eVar2.b().q(HttpMessageTask.HTTP_METHOD.POST);
-                HashMap<String, Object> f3 = c.a.e.e.n.n.d.f(this.f2430a, z);
+                HashMap<String, Object> f3 = c.a.e.e.n.n.d.f(this.f2488a, z);
                 if (f3 != null) {
                     eVar2.b().r(new ArrayList(f3.entrySet()));
                 }
                 eVar2.b().r(arrayList3);
                 try {
                     new c.a.e.e.j.a.c(eVar2).n(3, -1, -1);
-                    int i2 = eVar2.c().f2270b;
-                    byte[] bArr2 = eVar2.c().f2276h;
+                    int i2 = eVar2.c().f2328b;
+                    byte[] bArr2 = eVar2.c().f2334h;
                     if (bArr2 != null && i2 == 200) {
                         try {
                             if (new JSONObject(new String(bArr2, "utf-8")).optInt("error_code", -1) == 0) {
@@ -650,11 +650,11 @@ public class b {
                         StringBuilder sb = new StringBuilder();
                         for (int i3 = 0; i3 < d2.size(); i3++) {
                             c.a.e.e.j.a.d dVar = d2.get(i3);
-                            if (dVar != null && !TextUtils.isEmpty(dVar.f2255h)) {
+                            if (dVar != null && !TextUtils.isEmpty(dVar.f2313h)) {
                                 if (sb.length() > 0) {
                                     sb.append(",");
                                 }
-                                sb.append(dVar.f2255h);
+                                sb.append(dVar.f2313h);
                             }
                         }
                         if (sb.length() > 0) {
@@ -673,8 +673,8 @@ public class b {
 
     public final void h(c.a.e.e.n.j.a aVar, String str, ArrayList<String> arrayList, ArrayList<c.a.e.e.n.j.d> arrayList2, boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{aVar, str, arrayList, arrayList2, Boolean.valueOf(z)}) == null) && g(this.f2431b, aVar, str, arrayList, arrayList2, z, false) != null && j.z()) {
-            String g2 = g(this.f2431b, aVar, str, arrayList, arrayList2, z, true);
+        if ((interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{aVar, str, arrayList, arrayList2, Boolean.valueOf(z)}) == null) && g(this.f2489b, aVar, str, arrayList, arrayList2, z, false) != null && j.z()) {
+            String g2 = g(this.f2489b, aVar, str, arrayList, arrayList2, z, true);
             if (g2 == null) {
                 c.a.e.e.n.a statsItem = BdStatisticsManager.getInstance().getStatsItem("dbg");
                 statsItem.b("issuc", "true");
@@ -740,22 +740,22 @@ public class b {
             ArrayList arrayList3 = new ArrayList(hashMap.entrySet());
             c.a.e.e.j.a.e eVar = new c.a.e.e.j.a.e();
             eVar.b().a("Host", "c.tieba.baidu.com");
-            eVar.b().s(this.f2432c);
+            eVar.b().s(this.f2490c);
             eVar.b().q(HttpMessageTask.HTTP_METHOD.POST);
-            HashMap<String, Object> f2 = c.a.e.e.n.n.d.f(this.f2430a, false);
+            HashMap<String, Object> f2 = c.a.e.e.n.n.d.f(this.f2488a, false);
             if (f2 != null) {
                 eVar.b().r(new ArrayList(f2.entrySet()));
             }
             eVar.b().r(arrayList3);
             try {
                 new c.a.e.e.j.a.c(eVar).n(3, -1, -1);
-                if (eVar.c().f2270b == 200) {
+                if (eVar.c().f2328b == 200) {
                     try {
-                        if (new JSONObject(new String(eVar.c().f2276h, "utf-8")).optString("error_code").equals("0")) {
+                        if (new JSONObject(new String(eVar.c().f2334h, "utf-8")).optString("error_code").equals("0")) {
                             ArrayList arrayList4 = new ArrayList();
                             Iterator<c.a.e.e.n.j.d> it = arrayList2.iterator();
                             while (it.hasNext()) {
-                                arrayList4.add(it.next().f2412b);
+                                arrayList4.add(it.next().f2470b);
                             }
                             if (arrayList4.size() > 0) {
                                 c.a.e.e.n.j.c.a(arrayList4, aVar.C());
@@ -786,7 +786,7 @@ public class b {
         ArrayList arrayList2 = new ArrayList();
         Iterator<c.a.e.e.n.j.d> it = arrayList.iterator();
         while (it.hasNext()) {
-            arrayList2.add(it.next().f2412b);
+            arrayList2.add(it.next().f2470b);
         }
         if (arrayList2.size() > 0) {
             c.a.e.e.n.j.b.a(arrayList2, z);
@@ -829,7 +829,7 @@ public class b {
                     for (int i2 = 0; i2 < size; i2++) {
                         sb.append("&rec");
                         sb.append(i2);
-                        sb.append(com.alipay.sdk.encrypt.a.f35773h);
+                        sb.append(com.alipay.sdk.encrypt.a.f35879h);
                         try {
                             sb.append(URLEncoder.encode(arrayList.get(i2), "utf-8"));
                         } catch (UnsupportedEncodingException e2) {
@@ -849,25 +849,25 @@ public class b {
     public void n(c.a.e.e.n.d dVar, String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, dVar, str, str2) == null) {
-            this.f2431b = str;
-            this.f2432c = str2;
-            this.f2430a = dVar;
+            this.f2489b = str;
+            this.f2490c = str2;
+            this.f2488a = dVar;
             if (dVar != null) {
                 dVar.k = Build.MODEL;
                 dVar.q = Build.VERSION.RELEASE;
                 dVar.o = c.a.e.e.n.e.a(BdBaseApplication.getInst());
-                this.f2430a.p = String.valueOf(j.I());
+                this.f2488a.p = String.valueOf(j.I());
             }
             try {
-                MessageManager.getInstance().registerListener(this.f2434e);
+                MessageManager.getInstance().registerListener(this.f2492e);
             } catch (Exception e2) {
                 BdLog.e(e2.getMessage());
             }
-            if (this.f2433d == null) {
-                this.f2433d = new C0048b(this, null);
+            if (this.f2491d == null) {
+                this.f2491d = new C0038b(this, null);
                 IntentFilter intentFilter = new IntentFilter();
                 intentFilter.addAction("adp.bdstatisticsmanager.account_changed");
-                BdBaseApplication.getInst().registerReceiver(this.f2433d, intentFilter);
+                BdBaseApplication.getInst().registerReceiver(this.f2491d, intentFilter);
             }
         }
     }
@@ -875,12 +875,12 @@ public class b {
     public void o(String str, String str2, String str3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048585, this, str, str2, str3) == null) {
-            if (this.f2430a.l == null && str == null) {
+            if (this.f2488a.l == null && str == null) {
                 return;
             }
-            String str4 = this.f2430a.l;
+            String str4 = this.f2488a.l;
             if (str4 == null || !str4.equals(str)) {
-                c.a.e.e.n.d dVar = this.f2430a;
+                c.a.e.e.n.d dVar = this.f2488a;
                 dVar.l = str;
                 dVar.m = str2;
                 dVar.n = str3;

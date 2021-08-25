@@ -16,7 +16,7 @@ public final class i {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public /* synthetic */ g f35342a;
+    public /* synthetic */ g f35448a;
 
     public i(g gVar) {
         Interceptable interceptable = $ic;
@@ -33,7 +33,7 @@ public final class i {
                 return;
             }
         }
-        this.f35342a = gVar;
+        this.f35448a = gVar;
     }
 
     public final String a() {
@@ -55,16 +55,16 @@ public final class i {
             }
             Parcel obtain = Parcel.obtain();
             Parcel obtain2 = Parcel.obtain();
-            f2 = this.f35342a.f(str2);
+            f2 = this.f35448a.f(str2);
             if (TextUtils.isEmpty(f2)) {
                 return "";
             }
             obtain.writeInterfaceToken(f2);
             if (Build.VERSION.SDK_INT >= 23) {
-                context = g.f35338c;
+                context = g.f35444c;
                 obtain.writeString(context.getPackageName());
             }
-            c2 = this.f35342a.c(str2, str, obtain, obtain2);
+            c2 = this.f35448a.c(str2, str, obtain, obtain2);
             if (c2 != null) {
                 try {
                     obtain2.readException();

@@ -2,7 +2,7 @@ package com.baidu.tbadk;
 
 import android.os.Build;
 import c.a.e.e.p.j;
-import c.a.o0.e0.a;
+import c.a.p0.e0.a;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.client.socket.link.BdSocketLinkService;
 import com.baidu.adp.framework.listener.CustomMessageListener;

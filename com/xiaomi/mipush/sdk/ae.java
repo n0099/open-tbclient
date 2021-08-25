@@ -17,7 +17,7 @@ public class ae {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile ae f76888a;
+    public static volatile ae f77089a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
@@ -68,14 +68,14 @@ public class ae {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            if (f76888a == null) {
+            if (f77089a == null) {
                 synchronized (ae.class) {
-                    if (f76888a == null) {
-                        f76888a = new ae(context);
+                    if (f77089a == null) {
+                        f77089a = new ae(context);
                     }
                 }
             }
-            return f76888a;
+            return f77089a;
         }
         return (ae) invokeL.objValue;
     }
@@ -90,7 +90,7 @@ public class ae {
                 if (this.f64a.contains(wVar)) {
                     for (w wVar2 : this.f64a) {
                         if (wVar2.equals(wVar)) {
-                            return wVar2.f76945a;
+                            return wVar2.f77146a;
                         }
                     }
                 }
@@ -129,7 +129,7 @@ public class ae {
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
             synchronized (this.f64a) {
                 w wVar = new w();
-                wVar.f76945a = 0;
+                wVar.f77146a = 0;
                 wVar.f102a = str;
                 if (this.f64a.contains(wVar)) {
                     this.f64a.remove(wVar);
@@ -172,7 +172,7 @@ public class ae {
                         }
                     }
                 }
-                wVar.f76945a++;
+                wVar.f77146a++;
                 this.f64a.remove(wVar);
                 this.f64a.add(wVar);
             }

@@ -1,7 +1,7 @@
 package com.baidu.tbadk.core.util.resourceLoaderProc;
 
-import c.a.e.k.d.a;
-import c.a.o0.b0.c;
+import c.a.e.l.d.a;
+import c.a.p0.b0.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;

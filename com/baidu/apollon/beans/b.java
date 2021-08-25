@@ -16,12 +16,12 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import org.json.JSONException;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public abstract class b<T> extends ApollonBean<T> {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f37605a = "CommonBean";
+    public static final String f37711a = "CommonBean";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -70,14 +70,14 @@ public abstract class b<T> extends ApollonBean<T> {
                         this.mRspCallback.onBeanExecFailure(getBeanId(), serverReturnValue, body.getRealResponseMsg());
                         return;
                     }
-                    LogUtil.d(f37605a, "execBean. ret       . rsp class = " + cls);
+                    LogUtil.d(f37711a, "execBean. ret       . rsp class = " + cls);
                     if (cls != null) {
                         if (JsonUtils.DataType.isString(cls)) {
                             this.mRspCallback.onBeanExecSuccess(getBeanId(), null, body.getRealResponseContent());
                             return;
                         }
                         T a2 = a(body.getRealResponseContent(), cls);
-                        LogUtil.d(f37605a, "execBean. ret ok. real response = " + a2);
+                        LogUtil.d(f37711a, "execBean. ret ok. real response = " + a2);
                         if (a2 != null) {
                             IBeanResponse iBeanResponse = (IBeanResponse) a2;
                             if (iBeanResponse.checkResponseValidity()) {

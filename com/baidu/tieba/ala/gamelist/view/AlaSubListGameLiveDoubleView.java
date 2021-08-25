@@ -1,8 +1,8 @@
 package com.baidu.tieba.ala.gamelist.view;
 
 import android.view.View;
-import c.a.p0.a0.b;
-import c.a.p0.v.h.b.a;
+import c.a.q0.a0.b;
+import c.a.q0.v.h.b.a;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;

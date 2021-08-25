@@ -35,7 +35,7 @@ public class SupplementaryDIDManager {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SupplementaryDIDManager f36001e;
+        public final /* synthetic */ SupplementaryDIDManager f36107e;
 
         public a(SupplementaryDIDManager supplementaryDIDManager) {
             Interceptable interceptable = $ic;
@@ -52,7 +52,7 @@ public class SupplementaryDIDManager {
                     return;
                 }
             }
-            this.f36001e = supplementaryDIDManager;
+            this.f36107e = supplementaryDIDManager;
         }
 
         @Override // android.content.ServiceConnection
@@ -60,8 +60,8 @@ public class SupplementaryDIDManager {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, componentName, iBinder) == null) {
                 boolean unused = SupplementaryDIDManager.DEBUG;
-                this.f36001e.mDidService = a.AbstractBinderC1565a.a(iBinder);
-                this.f36001e.notifyAllListeners(true);
+                this.f36107e.mDidService = a.AbstractBinderC1569a.a(iBinder);
+                this.f36107e.notifyAllListeners(true);
             }
         }
 
@@ -69,7 +69,7 @@ public class SupplementaryDIDManager {
         public void onServiceDisconnected(ComponentName componentName) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, componentName) == null) {
-                this.f36001e.notifyAllListeners(false);
+                this.f36107e.notifyAllListeners(false);
             }
         }
     }

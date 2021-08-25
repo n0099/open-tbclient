@@ -13,34 +13,34 @@ public class n {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f66109a;
+    public final String f66309a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f66110b;
+    public int f66310b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f66111c;
+    public int f66311c;
 
     /* renamed from: d  reason: collision with root package name */
-    public JSONArray f66112d;
+    public JSONArray f66312d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f66113e;
+    public int f66313e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f66114f;
+    public long f66314f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f66115g;
+    public long f66315g;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f66116h;
+    public long f66316h;
 
     /* renamed from: i  reason: collision with root package name */
-    public long f66117i;
+    public long f66317i;
 
     /* renamed from: j  reason: collision with root package name */
-    public JSONObject f66118j;
+    public JSONObject f66318j;
 
     public n() {
         Interceptable interceptable = $ic;
@@ -55,13 +55,13 @@ public class n {
                 return;
             }
         }
-        this.f66109a = com.bytedance.sdk.openadsdk.q.q.c();
-        this.f66110b = -1;
-        this.f66111c = -1;
-        this.f66112d = null;
-        this.f66113e = 1;
-        this.f66114f = System.currentTimeMillis();
-        this.f66118j = null;
+        this.f66309a = com.bytedance.sdk.openadsdk.q.q.c();
+        this.f66310b = -1;
+        this.f66311c = -1;
+        this.f66312d = null;
+        this.f66313e = 1;
+        this.f66314f = System.currentTimeMillis();
+        this.f66318j = null;
     }
 
     public n a() {
@@ -69,14 +69,14 @@ public class n {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             n nVar = new n();
-            nVar.f66110b = this.f66110b;
-            nVar.f66111c = this.f66111c;
-            nVar.f66112d = this.f66112d;
-            nVar.f66113e = this.f66113e;
-            nVar.f66114f = this.f66114f;
-            nVar.f66115g = this.f66115g;
-            nVar.f66116h = this.f66116h;
-            nVar.f66117i = this.f66117i;
+            nVar.f66310b = this.f66310b;
+            nVar.f66311c = this.f66311c;
+            nVar.f66312d = this.f66312d;
+            nVar.f66313e = this.f66313e;
+            nVar.f66314f = this.f66314f;
+            nVar.f66315g = this.f66315g;
+            nVar.f66316h = this.f66316h;
+            nVar.f66317i = this.f66317i;
             return nVar;
         }
         return (n) invokeV.objValue;

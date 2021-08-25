@@ -16,13 +16,13 @@ public final class a0 implements v0 {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Object f31099a;
+    public static Object f31205a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Class<?> f31100b;
+    public static Class<?> f31206b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static Method f31101c;
+    public static Method f31207c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -40,11 +40,11 @@ public final class a0 implements v0 {
         }
         try {
             Class<?> cls = Class.forName("com.android.id.impl.IdProviderImpl");
-            f31100b = cls;
-            f31099a = cls.newInstance();
-            f31101c = f31100b.getMethod("getOAID", Context.class);
+            f31206b = cls;
+            f31205a = cls.newInstance();
+            f31207c = f31206b.getMethod("getOAID", Context.class);
         } catch (Exception e2) {
-            String str = u0.f31212j;
+            String str = u0.f31318j;
             o0.g(str, "Api#static reflect exception! " + e2.getMessage());
         }
     }
@@ -66,7 +66,7 @@ public final class a0 implements v0 {
     public static boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (f31100b == null || f31099a == null || f31101c == null) ? false : true : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (f31206b == null || f31205a == null || f31207c == null) ? false : true : invokeV.booleanValue;
     }
 
     @Override // c.b.a.v0
@@ -80,7 +80,7 @@ public final class a0 implements v0 {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, method)) == null) {
-            Object obj = f31099a;
+            Object obj = f31205a;
             if (obj == null || method == null) {
                 return null;
             }
@@ -104,7 +104,7 @@ public final class a0 implements v0 {
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
             try {
                 v0.a aVar = new v0.a();
-                aVar.f31223a = a(context, f31101c);
+                aVar.f31329a = a(context, f31207c);
                 return aVar;
             } catch (Exception e2) {
                 e2.printStackTrace();

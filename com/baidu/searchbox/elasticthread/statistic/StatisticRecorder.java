@@ -143,7 +143,7 @@ public class StatisticRecorder implements Recordable {
                 ArteryManager arteryManager = elasticTaskScheduler.getArteryManager();
                 jSONObject3.put("first", loadArteryExecutorData(arteryManager.getUserRelatedArteryExecutor()));
                 jSONObject3.put(TypeAdapters.AnonymousClass27.SECOND, loadArteryExecutorData(arteryManager.getInTimeArteryExecutor()));
-                jSONObject3.put(b.f35702e, loadArteryExecutorData(arteryManager.getBackgroundArteryExecutor()));
+                jSONObject3.put(b.f35808e, loadArteryExecutorData(arteryManager.getBackgroundArteryExecutor()));
                 jSONObject2.put("artery", jSONObject3);
                 JSONObject jSONObject4 = new JSONObject();
                 DredgeManager dredgeManager = elasticTaskScheduler.getDredgeManager();
@@ -157,7 +157,7 @@ public class StatisticRecorder implements Recordable {
                 jSONObject5.put("immediate", loadSingleQueueData(queueManager.getQueue(0)));
                 jSONObject5.put("first", loadSingleQueueData(queueManager.getQueue(1)));
                 jSONObject5.put(TypeAdapters.AnonymousClass27.SECOND, loadSingleQueueData(queueManager.getQueue(2)));
-                jSONObject5.put(b.f35702e, loadSingleQueueData(queueManager.getQueue(3)));
+                jSONObject5.put(b.f35808e, loadSingleQueueData(queueManager.getQueue(3)));
                 jSONObject.put("queue", jSONObject5);
                 ElasticDataUploader.getInstance().uploadStatisticData(jSONObject);
             } catch (Exception unused) {

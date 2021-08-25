@@ -8,12 +8,12 @@ import android.widget.CompoundButton;
 import androidx.core.view.InputDeviceCompat;
 import c.a.e.e.p.l;
 import c.a.l.b0;
-import c.a.o0.h0.h;
-import c.a.o0.s.d0.b;
-import c.a.o0.s.q.c2;
-import c.a.o0.s.q.x0;
-import c.a.p0.i3.h0.e;
-import c.a.p0.w2.a;
+import c.a.p0.h0.h;
+import c.a.p0.s.d0.b;
+import c.a.p0.s.q.c2;
+import c.a.p0.s.q.x0;
+import c.a.q0.i3.i0.e;
+import c.a.q0.w2.a;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -141,7 +141,7 @@ public class UtilityComponents implements TiebaUtilityComponentsAuto.HostUtility
                 sendMesage(i2, B);
             }
             e eVar = new e();
-            eVar.f19938b = B;
+            eVar.f20277b = B;
             if (c2Var.L() != null) {
                 B.nid = c2Var.L().oriUgcNid;
             }
@@ -198,7 +198,7 @@ public class UtilityComponents implements TiebaUtilityComponentsAuto.HostUtility
             boolean[] zArr = {false};
             if (currentActivity instanceof TbPageContextSupport) {
                 PbHistoryCacheModel pbHistoryCacheModel = new PbHistoryCacheModel(((TbPageContextSupport) currentActivity).getPageContext());
-                pbHistoryCacheModel.O(new CacheModel.c<c.a.p0.b2.h.a>(this, zArr, result) { // from class: com.baidu.tieba.flutter.plugin.tiebautility.android.UtilityComponents.1
+                pbHistoryCacheModel.O(new CacheModel.c<c.a.q0.b2.h.a>(this, zArr, result) { // from class: com.baidu.tieba.flutter.plugin.tiebautility.android.UtilityComponents.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ UtilityComponents this$0;
@@ -226,12 +226,12 @@ public class UtilityComponents implements TiebaUtilityComponentsAuto.HostUtility
                     }
 
                     @Override // com.baidu.tbadk.mvc.model.CacheModel.c
-                    public void onCacheDataGet(ReadCacheRespMsg<List<c.a.p0.b2.h.a>> readCacheRespMsg, ReadCacheMessage<c.a.p0.b2.h.a> readCacheMessage) {
+                    public void onCacheDataGet(ReadCacheRespMsg<List<c.a.q0.b2.h.a>> readCacheRespMsg, ReadCacheMessage<c.a.q0.b2.h.a> readCacheMessage) {
                         Interceptable interceptable2 = $ic;
                         if (!(interceptable2 == null || interceptable2.invokeLL(1048576, this, readCacheRespMsg, readCacheMessage) == null) || readCacheRespMsg == null || readCacheRespMsg.getData() == null) {
                             return;
                         }
-                        List<c.a.p0.b2.h.a> data = readCacheRespMsg.getData();
+                        List<c.a.q0.b2.h.a> data = readCacheRespMsg.getData();
                         if (this.val$issubmitted[0] || this.val$result == null) {
                             return;
                         }
@@ -242,7 +242,7 @@ public class UtilityComponents implements TiebaUtilityComponentsAuto.HostUtility
                     }
 
                     @Override // com.baidu.tbadk.mvc.model.CacheModel.c
-                    public void onCacheDataWrite(WriteCacheRespMsg<List<c.a.p0.b2.h.a>> writeCacheRespMsg, WriteCacheMessage<c.a.p0.b2.h.a> writeCacheMessage) {
+                    public void onCacheDataWrite(WriteCacheRespMsg<List<c.a.q0.b2.h.a>> writeCacheRespMsg, WriteCacheMessage<c.a.q0.b2.h.a> writeCacheMessage) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, writeCacheRespMsg, writeCacheMessage) == null) {
                         }
@@ -455,7 +455,7 @@ public class UtilityComponents implements TiebaUtilityComponentsAuto.HostUtility
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, result) == null) {
             TiebaUtilityComponentsAuto.ComponentsBoolResult componentsBoolResult = new TiebaUtilityComponentsAuto.ComponentsBoolResult();
-            componentsBoolResult.setResult(Boolean.valueOf(c.a.p0.y2.a.v().z()));
+            componentsBoolResult.setResult(Boolean.valueOf(c.a.q0.y2.a.v().z()));
             result.success(componentsBoolResult);
         }
     }

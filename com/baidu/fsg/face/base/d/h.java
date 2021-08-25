@@ -41,34 +41,34 @@ public class h {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f39637a = "armeabi";
+    public static final String f39744a = "armeabi";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f39638b = "armeabi-v7a";
+    public static final String f39745b = "armeabi-v7a";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f39639c = "x86";
+    public static final String f39746c = "x86";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f39640d = "arm64-v8a";
+    public static final String f39747d = "arm64-v8a";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int f39641e = 480;
+    public static final int f39748e = 480;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final int f39642f = 480;
+    public static final int f39749f = 480;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final int f39643g = 192;
+    public static final int f39750g = 192;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final int f39644h = 480;
+    public static final int f39751h = 480;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final int f39645i = 620;
+    public static final int f39752i = 620;
 
     /* renamed from: j  reason: collision with root package name */
-    public static final int f39646j = 728;
+    public static final int f39753j = 728;
     public static final int k = 750;
     public static final int l = 1335;
     public static final String m = "SapiBiometricUtil";
@@ -470,7 +470,7 @@ public class h {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, str, context)) == null) {
-            return str + "-" + d(context) + "-Android-sapi_bio-" + com.baidu.fsg.face.base.c.f39608a;
+            return str + "-" + d(context) + "-Android-sapi_bio-" + com.baidu.fsg.face.base.c.f39715a;
         }
         return (String) invokeLL.objValue;
     }

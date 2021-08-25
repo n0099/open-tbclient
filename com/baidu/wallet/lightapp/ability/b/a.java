@@ -25,7 +25,7 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public RSAPublicKey f61253a;
+    public RSAPublicKey f61453a;
 
     /* renamed from: com.baidu.wallet.lightapp.ability.b.a$1  reason: invalid class name */
     /* loaded from: classes8.dex */
@@ -36,11 +36,11 @@ public class a {
 
     /* renamed from: com.baidu.wallet.lightapp.ability.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public static class C1830a {
+    public static class C1834a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static a f61254a;
+        public static a f61454a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -56,7 +56,7 @@ public class a {
                     return;
                 }
             }
-            f61254a = new a(null);
+            f61454a = new a(null);
         }
     }
 
@@ -67,7 +67,7 @@ public class a {
     public static a a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? C1830a.f61254a : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? C1834a.f61454a : (a) invokeV.objValue;
     }
 
     public static String b(Context context) {
@@ -132,15 +132,15 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, this, context)) == null) {
-            if (this.f61253a == null) {
+            if (this.f61453a == null) {
                 try {
-                    this.f61253a = RsaUtils.loadPublicKeyByStr(b(context));
+                    this.f61453a = RsaUtils.loadPublicKeyByStr(b(context));
                 } catch (Exception e2) {
                     e2.printStackTrace();
                 }
             }
-            LogUtil.d(AdParamInfo.AdClickActionString.AD_CLICK_ACTION_NA, "path mPublicKey = " + this.f61253a);
-            return this.f61253a;
+            LogUtil.d(AdParamInfo.AdClickActionString.AD_CLICK_ACTION_NA, "path mPublicKey = " + this.f61453a);
+            return this.f61453a;
         }
         return (RSAPublicKey) invokeL.objValue;
     }

@@ -1,19 +1,19 @@
 package com.baidu.tieba.ala.alasquare.adapter;
 
 import android.view.View;
-import c.a.e.k.e.a;
-import c.a.p0.v.d.i.d;
+import c.a.e.l.e.a;
+import c.a.q0.v.d.i.d;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class AlaSquareRecordAdapter extends a<Object, SquareRecordViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class SquareRecordViewHolder extends TypeAdapter.ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

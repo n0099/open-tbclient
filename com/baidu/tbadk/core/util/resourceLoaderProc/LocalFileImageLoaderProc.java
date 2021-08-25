@@ -3,9 +3,9 @@ package com.baidu.tbadk.core.util.resourceLoaderProc;
 import c.a.e.e.l.b;
 import c.a.e.e.l.e;
 import c.a.e.e.p.l;
-import c.a.e.k.d.a;
-import c.a.o0.b0.c;
-import c.a.o0.c0.g.d;
+import c.a.e.l.d.a;
+import c.a.p0.b0.c;
+import c.a.p0.c0.i.d;
 import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
@@ -130,7 +130,7 @@ public class LocalFileImageLoaderProc implements e<a> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, str)) == null) {
             ImageOperation g2 = d.g(this.width, this.height);
-            return "image_" + str + ':' + g2.actionName + com.alipay.sdk.encrypt.a.f35773h + g2.actionParam;
+            return "image_" + str + ':' + g2.actionName + com.alipay.sdk.encrypt.a.f35879h + g2.actionParam;
         }
         return (String) invokeL.objValue;
     }

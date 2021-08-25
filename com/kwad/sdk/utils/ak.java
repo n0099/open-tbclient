@@ -21,14 +21,14 @@ public class ak {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile ak f73506a;
+    public static volatile ak f73706a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f73507b;
+    public boolean f73707b;
 
     /* renamed from: c  reason: collision with root package name */
-    public o.a f73508c;
+    public o.a f73708c;
 
     public ak() {
         Interceptable interceptable = $ic;
@@ -43,21 +43,21 @@ public class ak {
                 return;
             }
         }
-        this.f73507b = false;
+        this.f73707b = false;
     }
 
     public static ak a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f73506a == null) {
+            if (f73706a == null) {
                 synchronized (ak.class) {
-                    if (f73506a == null) {
-                        f73506a = new ak();
+                    if (f73706a == null) {
+                        f73706a = new ak();
                     }
                 }
             }
-            return f73506a;
+            return f73706a;
         }
         return (ak) invokeV.objValue;
     }
@@ -99,28 +99,28 @@ public class ak {
     private void c() {
         o.a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) || (aVar = this.f73508c) == null) {
+        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) || (aVar = this.f73708c) == null) {
             return;
         }
-        if (!this.f73507b && aVar.f71138c.size() > 0) {
-            for (String str : this.f73508c.f71138c) {
+        if (!this.f73707b && aVar.f71338c.size() > 0) {
+            for (String str : this.f73708c.f71338c) {
                 boolean a2 = a(str);
-                this.f73507b = a2;
+                this.f73707b = a2;
                 if (a2) {
                     break;
                 }
             }
         }
-        if (this.f73507b) {
+        if (this.f73707b) {
             ArrayList arrayList = new ArrayList();
-            if (this.f73508c.f71136a.size() > 0) {
-                for (Map.Entry<Integer, String> entry : this.f73508c.f71136a.entrySet()) {
+            if (this.f73708c.f71336a.size() > 0) {
+                for (Map.Entry<Integer, String> entry : this.f73708c.f71336a.entrySet()) {
                     if (a(entry.getValue())) {
                         arrayList.add(entry.getKey());
                     }
                 }
             }
-            com.kwad.sdk.core.report.d.a(a(this.f73508c.f71137b), arrayList);
+            com.kwad.sdk.core.report.d.a(a(this.f73708c.f71337b), arrayList);
         }
     }
 
@@ -132,9 +132,9 @@ public class ak {
         SharedPreferences sharedPreferences = context.getSharedPreferences("ksadsdk_config", 0);
         if (sharedPreferences != null) {
             c.a.aE.a(sharedPreferences);
-            this.f73508c = c.a.aE.a();
+            this.f73708c = c.a.aE.a();
         }
-        if (this.f73508c != null) {
+        if (this.f73708c != null) {
             c();
         }
     }
@@ -143,7 +143,7 @@ public class ak {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ksScene, str)) == null) {
-            boolean a2 = this.f73507b ? a(this.f73508c.f71137b) : false;
+            boolean a2 = this.f73707b ? a(this.f73708c.f71337b) : false;
             com.kwad.sdk.core.report.d.a(ksScene, a2, str);
             return a2;
         }
@@ -154,9 +154,9 @@ public class ak {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            o.a aVar = this.f73508c;
+            o.a aVar = this.f73708c;
             if (aVar != null) {
-                return aVar.f71139d;
+                return aVar.f71339d;
             }
             return 0;
         }

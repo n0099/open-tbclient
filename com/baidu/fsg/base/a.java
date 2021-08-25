@@ -9,34 +9,34 @@ public final class a {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f39077a = false;
+    public static final boolean f39184a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f39078b = "com.baidu.fsg.base";
+    public static final String f39185b = "com.baidu.fsg.base";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f39079c = "release";
+    public static final String f39186c = "release";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f39080d = "";
+    public static final String f39187d = "";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int f39081e = 1;
+    public static final int f39188e = 1;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f39082f = "1.0";
+    public static final String f39189f = "1.0";
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f39083g = "";
+    public static final String f39190g = "";
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f39084h = "BgAAAA";
+    public static final String f39191h = "BgAAAA";
 
     /* renamed from: i  reason: collision with root package name */
-    public static final boolean f39085i = true;
+    public static final boolean f39192i = true;
 
     /* renamed from: j  reason: collision with root package name */
-    public static final boolean f39086j = true;
+    public static final boolean f39193j = true;
     public static final String k = "2.0.2.0";
     public transient /* synthetic */ FieldHolder $fh;
 

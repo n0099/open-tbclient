@@ -14,17 +14,17 @@ public class a {
 
     /* renamed from: c.m.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public static class C1510a {
+    public static class C1514a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static Object f34117a;
+        public static Object f34223a;
 
         /* renamed from: b  reason: collision with root package name */
-        public static Class<?> f34118b;
+        public static Class<?> f34224b;
 
         /* renamed from: c  reason: collision with root package name */
-        public static Method f34119c;
+        public static Method f34225c;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -42,12 +42,12 @@ public class a {
             }
             try {
                 Class<?> cls = Class.forName("com.android.id.impl.IdProviderImpl");
-                f34118b = cls;
-                f34117a = cls.newInstance();
-                f34118b.getMethod("getUDID", Context.class);
-                f34119c = f34118b.getMethod("getOAID", Context.class);
-                f34118b.getMethod("getVAID", Context.class);
-                f34118b.getMethod("getAAID", Context.class);
+                f34224b = cls;
+                f34223a = cls.newInstance();
+                f34224b.getMethod("getUDID", Context.class);
+                f34225c = f34224b.getMethod("getOAID", Context.class);
+                f34224b.getMethod("getVAID", Context.class);
+                f34224b.getMethod("getAAID", Context.class);
             } catch (Throwable unused) {
             }
         }
@@ -55,14 +55,14 @@ public class a {
         public static String a(Context context) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) ? b(context, f34119c) : (String) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) ? b(context, f34225c) : (String) invokeL.objValue;
         }
 
         public static String b(Context context, Method method) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, method)) == null) {
-                Object obj = f34117a;
+                Object obj = f34223a;
                 if (obj == null || method == null) {
                     return null;
                 }
@@ -82,19 +82,19 @@ public class a {
         public static boolean c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (f34118b == null || f34117a == null) ? false : true : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (f34224b == null || f34223a == null) ? false : true : invokeV.booleanValue;
         }
     }
 
     public static String a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) ? C1510a.a(context.getApplicationContext()) : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) ? C1514a.a(context.getApplicationContext()) : (String) invokeL.objValue;
     }
 
     public static boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? C1510a.c() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? C1514a.c() : invokeV.booleanValue;
     }
 }

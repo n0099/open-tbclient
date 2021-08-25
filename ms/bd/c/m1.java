@@ -16,10 +16,10 @@ public class m1 {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile boolean f78854a;
+    public static volatile boolean f79055a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Map<String, e0> f78855b;
+    public static Map<String, e0> f79056b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes2.dex */
@@ -46,7 +46,7 @@ public class m1 {
                 return;
             }
         }
-        f78855b = new ConcurrentHashMap();
+        f79056b = new ConcurrentHashMap();
     }
 
     public m1() {
@@ -69,12 +69,12 @@ public class m1 {
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
             synchronized (m1.class) {
                 if (str != null) {
-                    if (f78854a) {
+                    if (f79055a) {
                         Object a2 = b.a(67108866, str);
                         if (a2 == null) {
                             return null;
                         }
-                        e0 e0Var = f78855b.get(str);
+                        e0 e0Var = f79056b.get(str);
                         if (e0Var == null) {
                             return null;
                         }
@@ -144,24 +144,24 @@ public class m1 {
             synchronized (m1.class) {
                 if (context != null) {
                     if (e0Var != null) {
-                        String str2 = e0Var.f78833a;
-                        String str3 = (str2 == null || str2.length() <= 0) ? e0Var.f78839g : e0Var.f78833a;
+                        String str2 = e0Var.f79034a;
+                        String str3 = (str2 == null || str2.length() <= 0) ? e0Var.f79040g : e0Var.f79034a;
                         if (str3 == null || str3.length() <= 0) {
                             throw new NullPointerException("appID must be set");
                         }
-                        if (!f78854a) {
+                        if (!f79055a) {
                             synchronized (m1.class) {
-                                if (!f78854a) {
+                                if (!f79055a) {
                                     b(context, str);
-                                    f78854a = true;
+                                    f79055a = true;
                                 }
                             }
                         }
-                        if (f78855b.containsKey(str3)) {
+                        if (f79056b.containsKey(str3)) {
                             return false;
                         }
                         if (((Boolean) b.a(67108865, e0Var.a())).booleanValue()) {
-                            f78855b.put(str3, e0Var);
+                            f79056b.put(str3, e0Var);
                             return true;
                         }
                         return false;

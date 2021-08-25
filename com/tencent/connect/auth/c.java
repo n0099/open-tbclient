@@ -29,10 +29,10 @@ public class c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public AuthAgent f75777a;
+    public AuthAgent f75978a;
 
     /* renamed from: b  reason: collision with root package name */
-    public QQToken f75778b;
+    public QQToken f75979b;
 
     public c(String str, Context context) {
         Interceptable interceptable = $ic;
@@ -50,9 +50,9 @@ public class c {
             }
         }
         SLog.i("openSDK_LOG.QQAuth", "new QQAuth() --start");
-        this.f75778b = new QQToken(str);
-        this.f75777a = new AuthAgent(this.f75778b);
-        com.tencent.connect.a.a.c(context, this.f75778b);
+        this.f75979b = new QQToken(str);
+        this.f75978a = new AuthAgent(this.f75979b);
+        com.tencent.connect.a.a.c(context, this.f75979b);
         a(context, Constants.SDK_VERSION);
         SLog.i("openSDK_LOG.QQAuth", "new QQAuth() --end");
     }
@@ -71,7 +71,7 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048586, this, activity, str, iUiListener)) == null) {
             SLog.i("openSDK_LOG.QQAuth", "reAuth()");
-            return this.f75777a.a(activity, str, iUiListener, true, null, false);
+            return this.f75978a.a(activity, str, iUiListener, true, null, false);
         }
         return invokeLLL.intValue;
     }
@@ -82,9 +82,9 @@ public class c {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
             StringBuilder sb = new StringBuilder();
             sb.append("isSessionValid(), result = ");
-            sb.append(this.f75778b.isSessionValid() ? "true" : "false");
+            sb.append(this.f75979b.isSessionValid() ? "true" : "false");
             SLog.i("openSDK_LOG.QQAuth", sb.toString());
-            return this.f75778b.isSessionValid();
+            return this.f75979b.isSessionValid();
         }
         return invokeV.booleanValue;
     }
@@ -92,15 +92,15 @@ public class c {
     public QQToken b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f75778b : (QQToken) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f75979b : (QQToken) invokeV.objValue;
     }
 
     public void b(Context context, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048588, this, context, str) == null) {
             SLog.i("openSDK_LOG.QQAuth", "setOpenId() --start");
-            this.f75778b.setOpenId(str);
-            com.tencent.connect.a.a.d(context, this.f75778b);
+            this.f75979b.setOpenId(str);
+            com.tencent.connect.a.a.d(context, this.f75979b);
             SLog.i("openSDK_LOG.QQAuth", "setOpenId() --end");
         }
     }
@@ -210,7 +210,7 @@ public class c {
             }
             SLog.d("openSDK_LOG.QQAuth", "-->login channelId is null ");
             BaseApi.isOEM = false;
-            return this.f75777a.doLogin(activity, str, iUiListener, false, fragment, z, map);
+            return this.f75978a.doLogin(activity, str, iUiListener, false, fragment, z, map);
         }
         return invokeCommon.intValue;
     }
@@ -234,7 +234,7 @@ public class c {
             BaseApi.installChannel = str3;
             BaseApi.registerChannel = str2;
             BaseApi.businessId = str4;
-            return this.f75777a.a(activity, str, iUiListener, false, null, z);
+            return this.f75978a.a(activity, str, iUiListener, false, null, z);
         }
         return invokeCommon.intValue;
     }
@@ -242,14 +242,14 @@ public class c {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.f75777a.a((IUiListener) null);
+            this.f75978a.a((IUiListener) null);
         }
     }
 
     public void a(IUiListener iUiListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, iUiListener) == null) {
-            this.f75777a.b(iUiListener);
+            this.f75978a.b(iUiListener);
         }
     }
 
@@ -257,7 +257,7 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048585, this, str, str2) == null) {
             SLog.i("openSDK_LOG.QQAuth", "setAccessToken(), validTimeInSecond = " + str2 + "");
-            this.f75778b.setAccessToken(str, str2);
+            this.f75979b.setAccessToken(str, str2);
         }
     }
 }

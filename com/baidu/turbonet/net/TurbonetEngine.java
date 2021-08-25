@@ -3,7 +3,7 @@ package com.baidu.turbonet.net;
 import android.content.Context;
 import android.os.Environment;
 import androidx.core.view.InputDeviceCompat;
-import c.a.q0.b.c;
+import c.a.r0.b.c;
 import com.alipay.sdk.cons.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.util.devices.RomUtils;
@@ -94,34 +94,34 @@ public abstract class TurbonetEngine {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final Context f59105a;
+        public final Context f59305a;
 
         /* renamed from: b  reason: collision with root package name */
-        public LibraryLoader f59106b;
+        public LibraryLoader f59306b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f59107c;
+        public String f59307c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f59108d;
+        public String f59308d;
 
         /* renamed from: e  reason: collision with root package name */
-        public boolean f59109e;
+        public boolean f59309e;
 
         /* renamed from: f  reason: collision with root package name */
-        public boolean f59110f;
+        public boolean f59310f;
 
         /* renamed from: g  reason: collision with root package name */
-        public String f59111g;
+        public String f59311g;
 
         /* renamed from: h  reason: collision with root package name */
-        public boolean f59112h;
+        public boolean f59312h;
 
         /* renamed from: i  reason: collision with root package name */
-        public int f59113i;
+        public int f59313i;
 
         /* renamed from: j  reason: collision with root package name */
-        public long f59114j;
+        public long f59314j;
         public String k;
         public boolean l;
         public JSONObject m;
@@ -169,7 +169,7 @@ public abstract class TurbonetEngine {
                     return;
                 }
             }
-            this.f59105a = context;
+            this.f59305a = context;
             t("turbonet");
             this.m = new JSONObject();
             d(false);
@@ -191,7 +191,7 @@ public abstract class TurbonetEngine {
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
                 s(SchemeCollecter.CLASSIFY_BASE, "config_path", Environment.getExternalStorageState().equals("mounted") ? Environment.getExternalStorageDirectory().getPath() : "");
                 if (j() == null) {
-                    v(c.a(this.f59105a));
+                    v(c.a(this.f59305a));
                 }
                 return TurbonetEngine.c(this);
             }
@@ -201,7 +201,7 @@ public abstract class TurbonetEngine {
         public boolean c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f59112h : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f59312h : invokeV.booleanValue;
         }
 
         public Builder d(boolean z) {
@@ -209,7 +209,7 @@ public abstract class TurbonetEngine {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZ = interceptable.invokeZ(1048579, this, z)) == null) {
                 s(SchemeCollecter.CLASSIFY_BASE, "http2_enabled", Boolean.valueOf(z));
-                this.f59109e = z;
+                this.f59309e = z;
                 return this;
             }
             return (Builder) invokeZ.objValue;
@@ -248,47 +248,47 @@ public abstract class TurbonetEngine {
         public Context i() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f59105a : (Context) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f59305a : (Context) invokeV.objValue;
         }
 
         public String j() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f59108d : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f59308d : (String) invokeV.objValue;
         }
 
         public boolean k() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f59109e : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f59309e : invokeV.booleanValue;
         }
 
         public long l() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f59114j : invokeV.longValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f59314j : invokeV.longValue;
         }
 
         public int m() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f59113i : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f59313i : invokeV.intValue;
         }
 
         public void n() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-                LibraryLoader libraryLoader = this.f59106b;
+                LibraryLoader libraryLoader = this.f59306b;
                 if (libraryLoader == null) {
-                    if (this.f59107c.equals("turbonet")) {
-                        System.loadLibrary(this.f59107c);
+                    if (this.f59307c.equals("turbonet")) {
+                        System.loadLibrary(this.f59307c);
                         return;
                     } else {
-                        System.load(this.f59107c);
+                        System.load(this.f59307c);
                         return;
                     }
                 }
-                libraryLoader.a(this.f59107c);
+                libraryLoader.a(this.f59307c);
             }
         }
 
@@ -301,7 +301,7 @@ public abstract class TurbonetEngine {
         public boolean p() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.f59110f : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.f59310f : invokeV.booleanValue;
         }
 
         public Builder q(String str) {
@@ -344,7 +344,7 @@ public abstract class TurbonetEngine {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048595, this, str)) == null) {
-                this.f59107c = str;
+                this.f59307c = str;
                 return this;
             }
             return (Builder) invokeL.objValue;
@@ -355,7 +355,7 @@ public abstract class TurbonetEngine {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048596, this, str)) == null) {
                 if (new File(str).isDirectory()) {
-                    this.f59111g = str;
+                    this.f59311g = str;
                     return this;
                 }
                 throw new IllegalArgumentException("Storage path must be set to existing directory");
@@ -367,8 +367,8 @@ public abstract class TurbonetEngine {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048597, this, str)) == null) {
-                s(SchemeCollecter.CLASSIFY_BASE, b.f35719b, str);
-                this.f59108d = str;
+                s(SchemeCollecter.CLASSIFY_BASE, b.f35825b, str);
+                this.f59308d = str;
                 return this;
             }
             return (Builder) invokeL.objValue;
@@ -377,7 +377,7 @@ public abstract class TurbonetEngine {
         public String w() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? this.f59111g : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? this.f59311g : (String) invokeV.objValue;
         }
     }
 

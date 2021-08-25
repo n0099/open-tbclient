@@ -25,10 +25,10 @@ public class AlaShareInBarModel extends BdBaseModel {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public b f53740e;
+    public b f53882e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final HttpMessageListener f53741f;
+    public final HttpMessageListener f53883f;
 
     /* loaded from: classes7.dex */
     public class a extends HttpMessageListener {
@@ -36,7 +36,7 @@ public class AlaShareInBarModel extends BdBaseModel {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ AlaShareInBarModel f53742a;
+        public final /* synthetic */ AlaShareInBarModel f53884a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(AlaShareInBarModel alaShareInBarModel, int i2) {
@@ -56,7 +56,7 @@ public class AlaShareInBarModel extends BdBaseModel {
                     return;
                 }
             }
-            this.f53742a = alaShareInBarModel;
+            this.f53884a = alaShareInBarModel;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -67,8 +67,8 @@ public class AlaShareInBarModel extends BdBaseModel {
                 AlaShareInBarResponsedMessage alaShareInBarResponsedMessage = (AlaShareInBarResponsedMessage) httpResponsedMessage;
                 String str = "live share callback errorcode: " + alaShareInBarResponsedMessage.getError();
                 String str2 = "live share callback error string: " + alaShareInBarResponsedMessage.getErrorString();
-                if (this.f53742a.f53740e != null) {
-                    this.f53742a.f53740e.a(alaShareInBarResponsedMessage.getError(), alaShareInBarResponsedMessage.getErrorString(), alaShareInBarResponsedMessage.getShareInBarData());
+                if (this.f53884a.f53882e != null) {
+                    this.f53884a.f53882e.a(alaShareInBarResponsedMessage.getError(), alaShareInBarResponsedMessage.getErrorString(), alaShareInBarResponsedMessage.getShareInBarData());
                 }
             }
         }
@@ -76,7 +76,7 @@ public class AlaShareInBarModel extends BdBaseModel {
 
     /* loaded from: classes7.dex */
     public interface b {
-        void a(int i2, String str, c.a.p0.r1.l.b.a aVar);
+        void a(int i2, String str, c.a.q0.r1.l.b.a aVar);
     }
 
     public AlaShareInBarModel() {
@@ -92,9 +92,9 @@ public class AlaShareInBarModel extends BdBaseModel {
                 return;
             }
         }
-        this.f53741f = new a(this, AlaCmdConfigHttp.CMD_ALA_LIVE_SHARE_IN_BAR);
+        this.f53883f = new a(this, AlaCmdConfigHttp.CMD_ALA_LIVE_SHARE_IN_BAR);
         x();
-        MessageManager.getInstance().registerListener(this.f53741f);
+        MessageManager.getInstance().registerListener(this.f53883f);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -122,7 +122,7 @@ public class AlaShareInBarModel extends BdBaseModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             MessageManager.getInstance().unRegisterTask(AlaCmdConfigHttp.CMD_ALA_LIVE_SHARE_IN_BAR);
-            MessageManager.getInstance().unRegisterListener(this.f53741f);
+            MessageManager.getInstance().unRegisterListener(this.f53883f);
         }
     }
 
@@ -155,7 +155,7 @@ public class AlaShareInBarModel extends BdBaseModel {
     public void z(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, bVar) == null) {
-            this.f53740e = bVar;
+            this.f53882e = bVar;
         }
     }
 }

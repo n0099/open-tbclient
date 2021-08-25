@@ -1,8 +1,8 @@
 package com.baidu.tieba.myAttentionAndFans.message;
 
 import c.a.e.e.d.l;
-import c.a.o0.s.q.i1;
-import c.a.o0.s.r.a;
+import c.a.p0.s.q.i1;
+import c.a.p0.s.r.a;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -100,7 +100,8 @@ public class ResponseNetPersonFollowMessage extends JsonHttpResponsedMessage {
                     BdUniqueId tag = ((HttpMessage) getOrginalMessage()).getTag();
                     z = (tag == null || !tag.equals(PersonListModel.FOLLOWME)) ? false : false;
                     String str = new String(bArr);
-                    l<String> g2 = a.f().g("tb.my_pages");
+                    a.f();
+                    l<String> g2 = a.g("tb.my_pages");
                     if (g2 != null) {
                         String str2 = z ? "personal_followme" : "personal_myfollow";
                         g2.e(str2 + "_" + this.mModel.getId(), str, 604800000L);

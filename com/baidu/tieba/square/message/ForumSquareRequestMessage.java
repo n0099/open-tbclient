@@ -1,6 +1,6 @@
 package com.baidu.tieba.square.message;
 
-import c.a.o0.b1.w;
+import c.a.p0.b1.w;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;

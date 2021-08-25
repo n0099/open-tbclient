@@ -16,17 +16,17 @@ public final class MapPoi {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f41252d = "MapPoi";
+    public static final String f41359d = "MapPoi";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f41253a;
+    public String f41360a;
 
     /* renamed from: b  reason: collision with root package name */
-    public LatLng f41254b;
+    public LatLng f41361b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f41255c;
+    public String f41362c;
 
     static {
         InterceptResult invokeClinit;
@@ -61,30 +61,30 @@ public final class MapPoi {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
             String optString = jSONObject.optString("tx");
-            this.f41253a = optString;
+            this.f41360a = optString;
             if (optString != null && !optString.equals("")) {
-                this.f41253a = this.f41253a.replaceAll("\\\\", "").replaceAll("/?[a-zA-Z]{1,10};", "").replaceAll("<[^>]*>", "").replaceAll("[(/>)<]", "");
+                this.f41360a = this.f41360a.replaceAll("\\\\", "").replaceAll("/?[a-zA-Z]{1,10};", "").replaceAll("<[^>]*>", "").replaceAll("[(/>)<]", "");
             }
-            this.f41254b = CoordUtil.decodeNodeLocation(jSONObject.optString("geo"));
-            this.f41255c = jSONObject.optString("ud");
+            this.f41361b = CoordUtil.decodeNodeLocation(jSONObject.optString("geo"));
+            this.f41362c = jSONObject.optString("ud");
         }
     }
 
     public String getName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f41253a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f41360a : (String) invokeV.objValue;
     }
 
     public LatLng getPosition() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f41254b : (LatLng) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f41361b : (LatLng) invokeV.objValue;
     }
 
     public String getUid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f41255c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f41362c : (String) invokeV.objValue;
     }
 }

@@ -11,7 +11,7 @@ public class d1 implements T0 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ e1 f76627a;
+    public final /* synthetic */ e1 f76828a;
 
     public d1(e1 e1Var) {
         Interceptable interceptable = $ic;
@@ -28,7 +28,7 @@ public class d1 implements T0 {
                 return;
             }
         }
-        this.f76627a = e1Var;
+        this.f76828a = e1Var;
     }
 
     @Override // com.win.opensdk.T0
@@ -42,11 +42,11 @@ public class d1 implements T0 {
     public void a(int i2, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str) == null) {
-            f1 f1Var = this.f76627a.f76638a;
+            f1 f1Var = this.f76828a.f76839a;
             long currentTimeMillis = System.currentTimeMillis();
-            f1 f1Var2 = this.f76627a.f76638a;
-            f1Var.f76645c = currentTimeMillis - f1Var2.f76644b;
-            Z0.a(f1Var2.f76643a).a(i2, this.f76627a.f76638a.f76645c).a();
+            f1 f1Var2 = this.f76828a.f76839a;
+            f1Var.f76846c = currentTimeMillis - f1Var2.f76845b;
+            Z0.a(f1Var2.f76844a).a(i2, this.f76828a.f76839a.f76846c).a();
         }
     }
 
@@ -55,11 +55,11 @@ public class d1 implements T0 {
         long j2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
-            f1 f1Var = this.f76627a.f76638a;
+            f1 f1Var = this.f76828a.f76839a;
             long currentTimeMillis = System.currentTimeMillis();
-            j2 = this.f76627a.f76638a.f76644b;
-            f1Var.f76645c = currentTimeMillis - j2;
-            this.f76627a.f76638a.a((t1) obj);
+            j2 = this.f76828a.f76839a.f76845b;
+            f1Var.f76846c = currentTimeMillis - j2;
+            this.f76828a.f76839a.a((t1) obj);
         }
     }
 }

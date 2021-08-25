@@ -9,7 +9,7 @@ import androidx.core.view.InputDeviceCompat;
 import c.a.e.e.m.e;
 import c.a.e.e.n.a;
 import c.a.e.h.j.g.d;
-import c.a.o0.a.g;
+import c.a.p0.a.g;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -99,7 +99,7 @@ public class OpenFlutter {
                 statsItem.b("staticversion", BdStatisticsManager.getInstance().getAppVersion());
                 statsItem.b("version", TbConfig.getVersion());
                 statsItem.b("sub_version", TbConfig.getSubVersion());
-                statsItem.b(com.alipay.sdk.sys.a.f35824j, PluginPackageManager.O().M());
+                statsItem.b(com.alipay.sdk.sys.a.f35930j, PluginPackageManager.O().M());
                 statsItem.b(SpeedStatsMainTable.PLUGIN_TASK, PluginPackageManager.O().M());
                 BdStatisticsManager.getInstance().debug("pluginproxy", statsItem);
                 return false;
@@ -328,7 +328,7 @@ public class OpenFlutter {
                         this.val$params = hashMap;
                     }
 
-                    @Override // c.a.o0.a.g.b
+                    @Override // c.a.p0.a.g.b
                     public void onCallBack(HashMap<String, Object> hashMap2) {
                         Interceptable interceptable2 = $ic;
                         if ((interceptable2 == null || interceptable2.invokeL(1048576, this, hashMap2) == null) && hashMap2 != null && (hashMap2.get(g.u) instanceof String)) {

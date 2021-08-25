@@ -17,35 +17,35 @@ public final class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final c f35682a;
+    public static final c f35788a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final c f35683b;
+    public static final c f35789b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final c f35684c;
+    public static final c f35790c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final c f35685d;
+    public static final c f35791d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final c f35686e;
+    public static final c f35792e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final c f35687f;
+    public static final c f35793f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final c f35688g;
+    public static final c f35794g;
 
     /* renamed from: j  reason: collision with root package name */
-    public static final /* synthetic */ c[] f35689j;
+    public static final /* synthetic */ c[] f35795j;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f35690h;
+    public int f35796h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f35691i;
+    public String f35797i;
 
     static {
         InterceptResult invokeClinit;
@@ -60,15 +60,15 @@ public final class c {
                 return;
             }
         }
-        f35682a = new c("SUCCEEDED", 0, 9000, "处理成功");
-        f35683b = new c("FAILED", 1, 4000, "系统繁忙，请稍后再试");
-        f35684c = new c("CANCELED", 2, ARPMessageType.MSG_TYPE_MODEL_LOAD_PROGRESS, "用户取消");
-        f35685d = new c("NETWORK_ERROR", 3, 6002, "网络连接异常");
-        f35686e = new c("PARAMS_ERROR", 4, 4001, PASSMethodCallTransfer.DynamicCallbak.ERROR_MSG_PARAMS_ERROR);
-        f35687f = new c("DOUBLE_REQUEST", 5, 5000, "重复请求");
+        f35788a = new c("SUCCEEDED", 0, 9000, "处理成功");
+        f35789b = new c("FAILED", 1, 4000, "系统繁忙，请稍后再试");
+        f35790c = new c("CANCELED", 2, ARPMessageType.MSG_TYPE_MODEL_LOAD_PROGRESS, "用户取消");
+        f35791d = new c("NETWORK_ERROR", 3, 6002, "网络连接异常");
+        f35792e = new c("PARAMS_ERROR", 4, 4001, PASSMethodCallTransfer.DynamicCallbak.ERROR_MSG_PARAMS_ERROR);
+        f35793f = new c("DOUBLE_REQUEST", 5, 5000, "重复请求");
         c cVar = new c("PAY_WAITTING", 6, 8000, "支付结果确认中");
-        f35688g = cVar;
-        f35689j = new c[]{f35682a, f35683b, f35684c, f35685d, f35686e, f35687f, cVar};
+        f35794g = cVar;
+        f35795j = new c[]{f35788a, f35789b, f35790c, f35791d, f35792e, f35793f, cVar};
     }
 
     public c(String str, int i2, int i3, String str2) {
@@ -89,8 +89,8 @@ public final class c {
                 return;
             }
         }
-        this.f35690h = i3;
-        this.f35691i = str2;
+        this.f35796h = i3;
+        this.f35797i = str2;
     }
 
     public static c valueOf(String str) {
@@ -102,20 +102,20 @@ public final class c {
     public static c[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (c[]) f35689j.clone() : (c[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (c[]) f35795j.clone() : (c[]) invokeV.objValue;
     }
 
     public void a(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            this.f35690h = i2;
+            this.f35796h = i2;
         }
     }
 
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f35691i : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f35797i : (String) invokeV.objValue;
     }
 
     public static c b(int i2) {
@@ -128,19 +128,19 @@ public final class c {
                         if (i2 != 9000) {
                             if (i2 != 6001) {
                                 if (i2 != 6002) {
-                                    return f35683b;
+                                    return f35789b;
                                 }
-                                return f35685d;
+                                return f35791d;
                             }
-                            return f35684c;
+                            return f35790c;
                         }
-                        return f35682a;
+                        return f35788a;
                     }
-                    return f35688g;
+                    return f35794g;
                 }
-                return f35687f;
+                return f35793f;
             }
-            return f35686e;
+            return f35792e;
         }
         return (c) invokeI.objValue;
     }
@@ -148,13 +148,13 @@ public final class c {
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f35690h : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f35796h : invokeV.intValue;
     }
 
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.f35691i = str;
+            this.f35797i = str;
         }
     }
 }

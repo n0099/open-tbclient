@@ -27,7 +27,7 @@ public class e implements a {
     }
 
     @Override // c.a.e.d.a
-    public c.a.e.k.d.a a(byte[] bArr, int i2, int i3) {
+    public c.a.e.l.d.a a(byte[] bArr, int i2, int i3) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLII = interceptable.invokeLII(1048576, this, bArr, i2, i3)) == null) {
@@ -35,13 +35,13 @@ public class e implements a {
             if (f2 == null) {
                 return null;
             }
-            return new c.a.e.k.d.a(f2);
+            return new c.a.e.l.d.a(f2);
         }
-        return (c.a.e.k.d.a) invokeLII.objValue;
+        return (c.a.e.l.d.a) invokeLII.objValue;
     }
 
     @Override // c.a.e.d.a
-    public c.a.e.k.d.a get(String str) {
+    public c.a.e.l.d.a get(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
@@ -49,8 +49,8 @@ public class e implements a {
             if (e2 == null) {
                 return null;
             }
-            return new c.a.e.k.d.a(e2);
+            return new c.a.e.l.d.a(e2);
         }
-        return (c.a.e.k.d.a) invokeL.objValue;
+        return (c.a.e.l.d.a) invokeL.objValue;
     }
 }

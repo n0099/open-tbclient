@@ -34,8 +34,8 @@ public class ae implements com.kwad.sdk.core.d<k.a> {
         if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar, jSONObject) == null) || jSONObject == null) {
             return;
         }
-        aVar.f72178a = jSONObject.optBoolean("clickActionButton");
-        aVar.f72179b = jSONObject.optString("adTemplate");
+        aVar.f72378a = jSONObject.optBoolean("clickActionButton");
+        aVar.f72379b = jSONObject.optString("adTemplate");
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -47,8 +47,8 @@ public class ae implements com.kwad.sdk.core.d<k.a> {
             if (jSONObject == null) {
                 jSONObject = new JSONObject();
             }
-            com.kwad.sdk.utils.q.a(jSONObject, "clickActionButton", aVar.f72178a);
-            com.kwad.sdk.utils.q.a(jSONObject, "adTemplate", aVar.f72179b);
+            com.kwad.sdk.utils.q.a(jSONObject, "clickActionButton", aVar.f72378a);
+            com.kwad.sdk.utils.q.a(jSONObject, "adTemplate", aVar.f72379b);
             return jSONObject;
         }
         return (JSONObject) invokeLL.objValue;

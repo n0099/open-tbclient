@@ -42,10 +42,10 @@ public abstract class m {
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ Method f68150a;
+                    public final /* synthetic */ Method f68350a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ Object f68151b;
+                    public final /* synthetic */ Object f68351b;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -62,8 +62,8 @@ public abstract class m {
                                 return;
                             }
                         }
-                        this.f68150a = r6;
-                        this.f68151b = r7;
+                        this.f68350a = r6;
+                        this.f68351b = r7;
                     }
 
                     @Override // com.bytedance.sdk.openadsdk.preload.a.b.m
@@ -72,7 +72,7 @@ public abstract class m {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, cls2)) == null) {
                             m.b(cls2);
-                            return (T) this.f68150a.invoke(this.f68151b, cls2);
+                            return (T) this.f68350a.invoke(this.f68351b, cls2);
                         }
                         return (T) invokeL.objValue;
                     }
@@ -90,10 +90,10 @@ public abstract class m {
                             public transient /* synthetic */ FieldHolder $fh;
 
                             /* renamed from: a  reason: collision with root package name */
-                            public final /* synthetic */ Method f68152a;
+                            public final /* synthetic */ Method f68352a;
 
                             /* renamed from: b  reason: collision with root package name */
-                            public final /* synthetic */ int f68153b;
+                            public final /* synthetic */ int f68353b;
 
                             {
                                 Interceptable interceptable2 = $ic;
@@ -110,8 +110,8 @@ public abstract class m {
                                         return;
                                     }
                                 }
-                                this.f68152a = declaredMethod2;
-                                this.f68153b = intValue;
+                                this.f68352a = declaredMethod2;
+                                this.f68353b = intValue;
                             }
 
                             @Override // com.bytedance.sdk.openadsdk.preload.a.b.m
@@ -120,7 +120,7 @@ public abstract class m {
                                 Interceptable interceptable2 = $ic;
                                 if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, cls2)) == null) {
                                     m.b(cls2);
-                                    return (T) this.f68152a.invoke(null, cls2, Integer.valueOf(this.f68153b));
+                                    return (T) this.f68352a.invoke(null, cls2, Integer.valueOf(this.f68353b));
                                 }
                                 return (T) invokeL.objValue;
                             }
@@ -133,7 +133,7 @@ public abstract class m {
                             public transient /* synthetic */ FieldHolder $fh;
 
                             /* renamed from: a  reason: collision with root package name */
-                            public final /* synthetic */ Method f68154a;
+                            public final /* synthetic */ Method f68354a;
 
                             {
                                 Interceptable interceptable2 = $ic;
@@ -150,7 +150,7 @@ public abstract class m {
                                         return;
                                     }
                                 }
-                                this.f68154a = declaredMethod3;
+                                this.f68354a = declaredMethod3;
                             }
 
                             @Override // com.bytedance.sdk.openadsdk.preload.a.b.m
@@ -159,7 +159,7 @@ public abstract class m {
                                 Interceptable interceptable2 = $ic;
                                 if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, cls2)) == null) {
                                     m.b(cls2);
-                                    return (T) this.f68154a.invoke(null, cls2, Object.class);
+                                    return (T) this.f68354a.invoke(null, cls2, Object.class);
                                 }
                                 return (T) invokeL.objValue;
                             }

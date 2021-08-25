@@ -1,10 +1,5 @@
 package j.a.a.e.n;
 
-import android.annotation.TargetApi;
-import android.app.Activity;
-import android.app.Dialog;
-import android.content.Context;
-import android.os.Build;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -13,13 +8,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
+import kotlin.jvm.internal.Intrinsics;
+import tv.athena.revenue.payui.model.PayUIKitConfig;
+import tv.athena.revenue.payui.model.ThemeColorConfig;
 /* loaded from: classes2.dex */
 public final class h {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final h f78736a;
+    public static final h f78936a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -35,7 +32,7 @@ public final class h {
                 return;
             }
         }
-        f78736a = new h();
+        f78936a = new h();
     }
 
     public h() {
@@ -52,29 +49,34 @@ public final class h {
         }
     }
 
-    @TargetApi(17)
-    public final boolean a(Context context) {
+    public final int a(PayUIKitConfig payUIKitConfig) {
         InterceptResult invokeL;
+        ThemeColorConfig themeColorConfig;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-            if (context != null && (context instanceof Activity)) {
-                Activity activity = (Activity) context;
-                if (!activity.isFinishing()) {
-                    return Build.VERSION.SDK_INT < 17 || !activity.isDestroyed();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, payUIKitConfig)) == null) {
+            if (payUIKitConfig != null && (themeColorConfig = payUIKitConfig.themeColorConfig) != null && themeColorConfig.getThemeResId() != null) {
+                Integer themeResId = payUIKitConfig.themeColorConfig.getThemeResId();
+                if (themeResId == null) {
+                    Intrinsics.throwNpe();
                 }
-                RLog.warn("ViewUtils", "activity is finishing");
-                return false;
+                return themeResId.intValue();
             }
-            RLog.warn("ViewUtils", "mContext is null or not activity");
-            return false;
+            return j.a.a.e.g.PayUi_Base_Theme;
         }
-        return invokeL.booleanValue;
+        return invokeL.intValue;
     }
 
-    public final void b(Dialog dialog) {
+    public final boolean b(PayUIKitConfig payUIKitConfig) {
+        InterceptResult invokeL;
+        ThemeColorConfig themeColorConfig;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dialog) == null) && dialog != null && dialog.isShowing()) {
-            dialog.dismiss();
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, payUIKitConfig)) == null) {
+            if (payUIKitConfig == null || (themeColorConfig = payUIKitConfig.themeColorConfig) == null) {
+                return true;
+            }
+            Integer themeResId = themeColorConfig != null ? themeColorConfig.getThemeResId() : null;
+            return themeResId != null && themeResId.intValue() == j.a.a.e.g.PayUi_Base_Theme;
         }
+        return invokeL.booleanValue;
     }
 }

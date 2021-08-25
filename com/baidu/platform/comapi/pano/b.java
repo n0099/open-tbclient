@@ -13,17 +13,17 @@ public class b extends HttpClient.ProtoResultCallback {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ a.InterfaceC1685a f44093a;
+    public final /* synthetic */ a.InterfaceC1689a f44200a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ a f44094b;
+    public final /* synthetic */ a f44201b;
 
-    public b(a aVar, a.InterfaceC1685a interfaceC1685a) {
+    public b(a aVar, a.InterfaceC1689a interfaceC1689a) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {aVar, interfaceC1685a};
+            Object[] objArr = {aVar, interfaceC1689a};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -33,15 +33,15 @@ public class b extends HttpClient.ProtoResultCallback {
                 return;
             }
         }
-        this.f44094b = aVar;
-        this.f44093a = interfaceC1685a;
+        this.f44201b = aVar;
+        this.f44200a = interfaceC1689a;
     }
 
     @Override // com.baidu.mapapi.http.HttpClient.ProtoResultCallback
     public void onFailed(HttpClient.HttpStateError httpStateError) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, httpStateError) == null) {
-            this.f44093a.a(httpStateError);
+            this.f44200a.a(httpStateError);
         }
     }
 
@@ -50,9 +50,9 @@ public class b extends HttpClient.ProtoResultCallback {
         c a2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            a.InterfaceC1685a interfaceC1685a = this.f44093a;
-            a2 = this.f44094b.a(str);
-            interfaceC1685a.a((a.InterfaceC1685a) a2);
+            a.InterfaceC1689a interfaceC1689a = this.f44200a;
+            a2 = this.f44201b.a(str);
+            interfaceC1689a.a((a.InterfaceC1689a) a2);
         }
     }
 }

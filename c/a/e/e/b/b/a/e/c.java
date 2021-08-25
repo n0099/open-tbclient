@@ -14,13 +14,13 @@ public class c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Type[] f2119a;
+    public Type[] f2177a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Type f2120b;
+    public Type f2178b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Class<?> f2121c;
+    public Class<?> f2179c;
 
     public c(Type type) {
         Interceptable interceptable = $ic;
@@ -37,20 +37,20 @@ public class c {
                 return;
             }
         }
-        this.f2119a = null;
-        this.f2120b = null;
-        this.f2121c = null;
+        this.f2177a = null;
+        this.f2178b = null;
+        this.f2179c = null;
         if (type instanceof ParameterizedType) {
             ParameterizedType parameterizedType = (ParameterizedType) type;
-            this.f2119a = parameterizedType.getActualTypeArguments();
+            this.f2177a = parameterizedType.getActualTypeArguments();
             Type rawType = parameterizedType.getRawType();
-            this.f2120b = rawType;
-            Type[] typeArr = this.f2119a;
+            this.f2178b = rawType;
+            Type[] typeArr = this.f2177a;
             if (typeArr == null || typeArr.length <= 0) {
                 return;
             }
             try {
-                this.f2121c = (Class) rawType;
+                this.f2179c = (Class) rawType;
                 return;
             } catch (Exception e2) {
                 e2.printStackTrace();
@@ -58,7 +58,7 @@ public class c {
             }
         }
         try {
-            this.f2121c = (Class) type;
+            this.f2179c = (Class) type;
         } catch (Exception e3) {
             e3.printStackTrace();
         }
@@ -67,12 +67,12 @@ public class c {
     public Class<?> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f2121c : (Class) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f2179c : (Class) invokeV.objValue;
     }
 
     public Type[] b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f2119a : (Type[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f2177a : (Type[]) invokeV.objValue;
     }
 }

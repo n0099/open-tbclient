@@ -15,7 +15,7 @@ public class LineCountNotifyTextView extends TextView {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public a f48304e;
+    public a f48413e;
 
     /* loaded from: classes6.dex */
     public interface a {
@@ -48,7 +48,7 @@ public class LineCountNotifyTextView extends TextView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) {
             super.onDraw(canvas);
-            a aVar = this.f48304e;
+            a aVar = this.f48413e;
             if (aVar != null) {
                 aVar.a();
             }
@@ -58,7 +58,7 @@ public class LineCountNotifyTextView extends TextView {
     public void setGetLineCountCallback(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-            this.f48304e = aVar;
+            this.f48413e = aVar;
         }
     }
 }

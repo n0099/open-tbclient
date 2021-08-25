@@ -1,7 +1,7 @@
 package com.baidu.tieba.addresslist;
 
-import c.a.p0.j1.c;
-import c.a.p0.s.b;
+import c.a.q0.j1.c;
+import c.a.q0.s.b;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -46,7 +46,7 @@ public class TaskRegisterStatic {
         public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) ? new CustomResponsedMessage<>(2001322, new c.a.p0.s.a()) : (CustomResponsedMessage) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) ? new CustomResponsedMessage<>(2001322, new c.a.q0.s.a()) : (CustomResponsedMessage) invokeL.objValue;
         }
     }
 

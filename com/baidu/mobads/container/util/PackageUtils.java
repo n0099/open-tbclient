@@ -402,7 +402,7 @@ public class PackageUtils {
         return (JSONArray) invokeL.objValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:71:0x0181 A[Catch: Exception -> 0x01a3, TryCatch #9 {Exception -> 0x01a3, blocks: (B:69:0x0156, B:71:0x0181, B:72:0x018a), top: B:90:0x0156 }] */
+    /* JADX WARN: Removed duplicated region for block: B:71:0x0183 A[Catch: Exception -> 0x01a5, TryCatch #9 {Exception -> 0x01a5, blocks: (B:69:0x0157, B:71:0x0183, B:72:0x018c), top: B:90:0x0157 }] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -413,7 +413,6 @@ public class PackageUtils {
         boolean z2;
         List<ResolveInfo> list;
         int i5;
-        int i6;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65551, null, new Object[]{xAdContainerContext, str, iXAdInstanceInfo, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)})) == null) {
             if (xAdContainerContext == null || iXAdInstanceInfo == null) {
@@ -434,12 +433,12 @@ public class PackageUtils {
                 if (queryIntentActivities.size() > 0) {
                     hashMap.put("open", "true");
                     hashMap.put("n", String.valueOf(queryIntentActivities.size()));
-                    int i7 = 0;
+                    int i6 = 0;
                     boolean z3 = true;
-                    while (i7 < queryIntentActivities.size()) {
+                    while (i6 < queryIntentActivities.size()) {
                         try {
-                            ResolveInfo resolveInfo = queryIntentActivities.get(i7);
-                            if (i7 == 0) {
+                            ResolveInfo resolveInfo = queryIntentActivities.get(i6);
+                            if (i6 == 0) {
                                 sb2.append(resolveInfo.activityInfo.packageName);
                             } else {
                                 sb2.append(",");
@@ -454,77 +453,77 @@ public class PackageUtils {
                                 try {
                                     sb = sb2;
                                     try {
-                                        i6 = packageManager.getPackageInfo(resolveInfo.activityInfo.packageName, 0).versionCode;
-                                    } catch (Exception unused) {
-                                        i5 = -1;
+                                        int i7 = packageManager.getPackageInfo(resolveInfo.activityInfo.packageName, 0).versionCode;
                                         try {
-                                            hashMap.put("exception", "true");
-                                            hashMap.put("installedVersion", String.valueOf(i5));
-                                            hashMap.put("requiredVersion", String.valueOf(i4));
-                                            hashMap.put("realopen", String.valueOf(z3));
-                                            hashMap.put("installedVersionName", str2);
-                                            i7++;
-                                            queryIntentActivities = list;
-                                            sb2 = sb;
-                                        } catch (Throwable th) {
-                                            th = th;
+                                            str2 = packageManager.getPackageInfo(resolveInfo.activityInfo.packageName, 0).versionName;
+                                            if (i7 < i4) {
+                                                z3 = false;
+                                            }
+                                            try {
+                                                hashMap.put("installedVersion", String.valueOf(i7));
+                                                hashMap.put("requiredVersion", String.valueOf(i4));
+                                                hashMap.put("realopen", String.valueOf(z3));
+                                            } catch (Exception e2) {
+                                                e = e2;
+                                                z = z3;
+                                                RemoteXAdLogger.getInstance().d(e.getMessage());
+                                                SendLogUtil.Builder create = SendLogUtil.Builder.create(appContext);
+                                                create.appendType(i2);
+                                                create.append("fb_act", i3);
+                                                create.append(hashMap);
+                                                create.append("open", z);
+                                                create.append("targetscheme", str);
+                                                create.append("pk", appPackageName);
+                                                create.appendAdInfo(iXAdInstanceInfo);
+                                                if (sb.length() > 0) {
+                                                }
+                                                create.appendProdType(xAdContainerContext.getAdProd());
+                                                create.appendAppSid(xAdContainerContext.getAppsid());
+                                                create.appendApId(xAdContainerContext.getAdPlacementId());
+                                                create.send();
+                                                return z;
+                                            }
+                                        } catch (Exception unused) {
+                                            i5 = i7;
+                                            try {
+                                                hashMap.put("exception", "true");
+                                                hashMap.put("installedVersion", String.valueOf(i5));
+                                                hashMap.put("requiredVersion", String.valueOf(i4));
+                                                hashMap.put("realopen", String.valueOf(z3));
+                                                hashMap.put("installedVersionName", str2);
+                                                i6++;
+                                                queryIntentActivities = list;
+                                                sb2 = sb;
+                                            } catch (Throwable th) {
+                                                th = th;
+                                                hashMap.put("installedVersion", String.valueOf(i5));
+                                                hashMap.put("requiredVersion", String.valueOf(i4));
+                                                hashMap.put("realopen", String.valueOf(z3));
+                                                hashMap.put("installedVersionName", "");
+                                                throw th;
+                                            }
+                                        } catch (Throwable th2) {
+                                            th = th2;
+                                            i5 = i7;
                                             hashMap.put("installedVersion", String.valueOf(i5));
                                             hashMap.put("requiredVersion", String.valueOf(i4));
                                             hashMap.put("realopen", String.valueOf(z3));
                                             hashMap.put("installedVersionName", "");
                                             throw th;
                                         }
-                                    } catch (Throwable th2) {
-                                        th = th2;
-                                        i5 = -1;
-                                        hashMap.put("installedVersion", String.valueOf(i5));
-                                        hashMap.put("requiredVersion", String.valueOf(i4));
-                                        hashMap.put("realopen", String.valueOf(z3));
-                                        hashMap.put("installedVersionName", "");
-                                        throw th;
-                                    }
-                                    try {
-                                        str2 = packageManager.getPackageInfo(resolveInfo.activityInfo.packageName, 0).versionName;
-                                        if (i6 < i4) {
-                                            z3 = false;
-                                        }
-                                        try {
-                                            hashMap.put("installedVersion", String.valueOf(i6));
-                                            hashMap.put("requiredVersion", String.valueOf(i4));
-                                            hashMap.put("realopen", String.valueOf(z3));
-                                        } catch (Exception e2) {
-                                            e = e2;
-                                            z = z3;
-                                            RemoteXAdLogger.getInstance().d(e.getMessage());
-                                            SendLogUtil.Builder create = SendLogUtil.Builder.create(appContext);
-                                            create.appendType(i2);
-                                            create.append("fb_act", i3);
-                                            create.append(hashMap);
-                                            create.append("open", z);
-                                            create.append("targetscheme", str);
-                                            create.append("pk", appPackageName);
-                                            create.appendAdInfo(iXAdInstanceInfo);
-                                            if (sb.length() > 0) {
-                                            }
-                                            create.appendProdType(xAdContainerContext.getAdProd());
-                                            create.appendAppSid(xAdContainerContext.getAppsid());
-                                            create.appendApId(xAdContainerContext.getAdPlacementId());
-                                            create.send();
-                                            return z;
-                                        }
                                     } catch (Exception unused2) {
-                                        i5 = i6;
+                                        i5 = -1;
                                         hashMap.put("exception", "true");
                                         hashMap.put("installedVersion", String.valueOf(i5));
                                         hashMap.put("requiredVersion", String.valueOf(i4));
                                         hashMap.put("realopen", String.valueOf(z3));
                                         hashMap.put("installedVersionName", str2);
-                                        i7++;
+                                        i6++;
                                         queryIntentActivities = list;
                                         sb2 = sb;
                                     } catch (Throwable th3) {
                                         th = th3;
-                                        i5 = i6;
+                                        i5 = -1;
                                         hashMap.put("installedVersion", String.valueOf(i5));
                                         hashMap.put("requiredVersion", String.valueOf(i4));
                                         hashMap.put("realopen", String.valueOf(z3));
@@ -539,7 +538,7 @@ public class PackageUtils {
                                 }
                                 hashMap.put("installedVersionName", str2);
                             }
-                            i7++;
+                            i6++;
                             queryIntentActivities = list;
                             sb2 = sb;
                         } catch (Exception e3) {

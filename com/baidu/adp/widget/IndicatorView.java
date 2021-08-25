@@ -11,7 +11,7 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
 import androidx.core.view.InputDeviceCompat;
-import c.a.e.k.j;
+import c.a.e.l.j;
 import com.baidu.adp.R;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -26,22 +26,22 @@ public class IndicatorView extends View {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f36199e;
+    public boolean f36305e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f36200f;
+    public int f36306f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f36201g;
+    public int f36307g;
 
     /* renamed from: h  reason: collision with root package name */
-    public float f36202h;
+    public float f36308h;
 
     /* renamed from: i  reason: collision with root package name */
-    public float f36203i;
+    public float f36309i;
 
     /* renamed from: j  reason: collision with root package name */
-    public Drawable f36204j;
+    public Drawable f36310j;
     public Drawable k;
     public final j l;
 
@@ -57,22 +57,22 @@ public class IndicatorView extends View {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final int f36205e;
+        public final int f36311e;
 
         /* renamed from: f  reason: collision with root package name */
-        public long f36206f;
+        public long f36312f;
 
         /* renamed from: g  reason: collision with root package name */
-        public long f36207g;
+        public long f36313g;
 
         /* renamed from: h  reason: collision with root package name */
-        public int f36208h;
+        public int f36314h;
 
         /* renamed from: i  reason: collision with root package name */
-        public float f36209i;
+        public float f36315i;
 
         /* renamed from: j  reason: collision with root package name */
-        public final a f36210j;
+        public final a f36316j;
         public final /* synthetic */ IndicatorView k;
 
         /* loaded from: classes4.dex */
@@ -81,7 +81,7 @@ public class IndicatorView extends View {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ b f36211a;
+            public final /* synthetic */ b f36317a;
 
             public a(b bVar) {
                 Interceptable interceptable = $ic;
@@ -98,14 +98,14 @@ public class IndicatorView extends View {
                         return;
                     }
                 }
-                this.f36211a = bVar;
+                this.f36317a = bVar;
             }
 
             @Override // android.os.Handler
             public void handleMessage(Message message) {
                 Interceptable interceptable = $ic;
                 if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && message.what == 1000) {
-                    this.f36211a.g();
+                    this.f36317a.g();
                 }
             }
 
@@ -130,11 +130,11 @@ public class IndicatorView extends View {
                 }
             }
             this.k = indicatorView;
-            this.f36210j = new a(this, null);
-            this.f36205e = (int) ((indicatorView.getResources().getDisplayMetrics().density * 1.0f) + 0.5f);
+            this.f36316j = new a(this, null);
+            this.f36311e = (int) ((indicatorView.getResources().getDisplayMetrics().density * 1.0f) + 0.5f);
         }
 
-        @Override // c.a.e.k.j
+        @Override // c.a.e.l.j
         public boolean a(MotionEvent motionEvent) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -144,11 +144,11 @@ public class IndicatorView extends View {
             return invokeL.booleanValue;
         }
 
-        @Override // c.a.e.k.j
+        @Override // c.a.e.l.j
         public void b(int i2, int i3) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3) == null) {
-                if (this.k.f36204j != null && this.k.k != null && this.k.f36201g != 0) {
+                if (this.k.f36310j != null && this.k.k != null && this.k.f36307g != 0) {
                     this.k.setWillNotDraw(false);
                     this.k.setMeasuredDimension(i(i2), h(i3));
                     return;
@@ -158,28 +158,28 @@ public class IndicatorView extends View {
             }
         }
 
-        @Override // c.a.e.k.j
+        @Override // c.a.e.l.j
         public void c(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-                if (this.k.f36203i <= this.k.f36202h) {
-                    if (this.k.f36203i >= this.k.f36202h) {
+                if (this.k.f36309i <= this.k.f36308h) {
+                    if (this.k.f36309i >= this.k.f36308h) {
                         return;
                     }
-                    this.f36208h = -this.f36205e;
+                    this.f36314h = -this.f36311e;
                 } else {
-                    this.f36208h = this.f36205e;
+                    this.f36314h = this.f36311e;
                 }
-                this.f36209i = this.k.f36202h;
+                this.f36315i = this.k.f36308h;
                 long uptimeMillis = SystemClock.uptimeMillis();
-                this.f36206f = uptimeMillis;
-                this.f36207g = uptimeMillis + 16;
-                this.f36210j.removeMessages(1000);
-                this.f36210j.sendEmptyMessageAtTime(1000, this.f36207g);
+                this.f36312f = uptimeMillis;
+                this.f36313g = uptimeMillis + 16;
+                this.f36316j.removeMessages(1000);
+                this.f36316j.sendEmptyMessageAtTime(1000, this.f36313g);
             }
         }
 
-        @Override // c.a.e.k.j
+        @Override // c.a.e.l.j
         public boolean dispatchTouchEvent(MotionEvent motionEvent) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -189,25 +189,25 @@ public class IndicatorView extends View {
             return invokeL.booleanValue;
         }
 
-        @Override // c.a.e.k.j
+        @Override // c.a.e.l.j
         public void draw(Canvas canvas) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048580, this, canvas) == null) {
                 int save = canvas.save();
-                for (int i2 = 0; i2 < this.k.f36201g; i2++) {
+                for (int i2 = 0; i2 < this.k.f36307g; i2++) {
                     if (i2 != 0) {
-                        canvas.translate(this.k.f36204j.getBounds().width() + this.k.f36200f, 0.0f);
+                        canvas.translate(this.k.f36310j.getBounds().width() + this.k.f36306f, 0.0f);
                     }
-                    this.k.f36204j.draw(canvas);
+                    this.k.f36310j.draw(canvas);
                 }
                 if (save >= 1 && save <= canvas.getSaveCount()) {
                     canvas.restoreToCount(save);
                 }
                 int save2 = canvas.save();
-                if (this.k.f36202h > (this.k.f36201g - 1) + 0.5d) {
-                    this.k.f36202h = 0.0f;
+                if (this.k.f36308h > (this.k.f36307g - 1) + 0.5d) {
+                    this.k.f36308h = 0.0f;
                 }
-                canvas.translate((this.k.k.getBounds().width() + this.k.f36200f) * this.k.f36202h, 0.0f);
+                canvas.translate((this.k.k.getBounds().width() + this.k.f36306f) * this.k.f36308h, 0.0f);
                 this.k.k.draw(canvas);
                 if (save2 < 1 || save2 > canvas.getSaveCount()) {
                     return;
@@ -216,7 +216,7 @@ public class IndicatorView extends View {
             }
         }
 
-        @Override // c.a.e.k.j
+        @Override // c.a.e.l.j
         public boolean e(MotionEvent motionEvent) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -230,28 +230,28 @@ public class IndicatorView extends View {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
                 long uptimeMillis = SystemClock.uptimeMillis();
-                float f2 = this.f36209i;
-                int i2 = this.f36208h;
-                float f3 = f2 + (i2 * (((float) (uptimeMillis - this.f36206f)) / 1000.0f));
-                this.f36209i = f3;
-                this.f36206f = uptimeMillis;
-                this.f36207g = uptimeMillis + 16;
+                float f2 = this.f36315i;
+                int i2 = this.f36314h;
+                float f3 = f2 + (i2 * (((float) (uptimeMillis - this.f36312f)) / 1000.0f));
+                this.f36315i = f3;
+                this.f36312f = uptimeMillis;
+                this.f36313g = uptimeMillis + 16;
                 if (i2 < 0) {
-                    if (f3 < this.k.f36203i) {
+                    if (f3 < this.k.f36309i) {
                         IndicatorView indicatorView = this.k;
-                        indicatorView.f36202h = indicatorView.f36203i;
+                        indicatorView.f36308h = indicatorView.f36309i;
                     } else {
-                        this.k.f36202h = this.f36209i;
-                        this.f36210j.removeMessages(1000);
-                        this.f36210j.sendEmptyMessageAtTime(1000, this.f36207g);
+                        this.k.f36308h = this.f36315i;
+                        this.f36316j.removeMessages(1000);
+                        this.f36316j.sendEmptyMessageAtTime(1000, this.f36313g);
                     }
-                } else if (f3 > this.k.f36203i) {
+                } else if (f3 > this.k.f36309i) {
                     IndicatorView indicatorView2 = this.k;
-                    indicatorView2.f36202h = indicatorView2.f36203i;
+                    indicatorView2.f36308h = indicatorView2.f36309i;
                 } else {
-                    this.k.f36202h = this.f36209i;
-                    this.f36210j.removeMessages(1000);
-                    this.f36210j.sendEmptyMessageAtTime(1000, this.f36207g);
+                    this.k.f36308h = this.f36315i;
+                    this.f36316j.removeMessages(1000);
+                    this.f36316j.sendEmptyMessageAtTime(1000, this.f36313g);
                 }
                 this.k.invalidate();
             }
@@ -263,20 +263,20 @@ public class IndicatorView extends View {
             if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i2)) == null) {
                 int i3 = (-1073741824) & i2;
                 int i4 = i2 & LockFreeTaskQueueCore.MAX_CAPACITY_MASK;
-                int max = Math.max(this.k.f36204j.getIntrinsicHeight(), this.k.k.getIntrinsicHeight());
+                int max = Math.max(this.k.f36310j.getIntrinsicHeight(), this.k.k.getIntrinsicHeight());
                 if (i3 == Integer.MIN_VALUE) {
                     int min = Math.min(i4, max);
-                    this.k.f36204j.setBounds(0, 0, this.k.f36204j.getBounds().width(), min);
+                    this.k.f36310j.setBounds(0, 0, this.k.f36310j.getBounds().width(), min);
                     this.k.k.setBounds(0, 0, this.k.k.getBounds().width(), min);
                     return min;
                 } else if (i3 == 0) {
-                    this.k.f36204j.setBounds(0, 0, this.k.f36204j.getBounds().width(), max);
+                    this.k.f36310j.setBounds(0, 0, this.k.f36310j.getBounds().width(), max);
                     this.k.k.setBounds(0, 0, this.k.k.getBounds().width(), max);
                     return max;
                 } else if (i3 != 1073741824) {
                     return i4;
                 } else {
-                    this.k.f36204j.setBounds(0, 0, this.k.f36204j.getBounds().width(), i4);
+                    this.k.f36310j.setBounds(0, 0, this.k.f36310j.getBounds().width(), i4);
                     this.k.k.setBounds(0, 0, this.k.k.getBounds().width(), i4);
                     return i4;
                 }
@@ -290,22 +290,22 @@ public class IndicatorView extends View {
             if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2)) == null) {
                 int i3 = (-1073741824) & i2;
                 int i4 = i2 & LockFreeTaskQueueCore.MAX_CAPACITY_MASK;
-                int max = (this.k.f36200f * (this.k.f36201g - 1)) + (Math.max(this.k.f36204j.getIntrinsicWidth(), this.k.k.getIntrinsicWidth()) * this.k.f36201g);
+                int max = (this.k.f36306f * (this.k.f36307g - 1)) + (Math.max(this.k.f36310j.getIntrinsicWidth(), this.k.k.getIntrinsicWidth()) * this.k.f36307g);
                 if (i3 == Integer.MIN_VALUE) {
                     int min = Math.min(i4, max);
-                    this.k.f36204j.setBounds(0, 0, this.k.f36204j.getIntrinsicWidth(), this.k.f36204j.getBounds().height());
+                    this.k.f36310j.setBounds(0, 0, this.k.f36310j.getIntrinsicWidth(), this.k.f36310j.getBounds().height());
                     this.k.k.setBounds(0, 0, this.k.k.getIntrinsicWidth(), this.k.k.getBounds().height());
                     return min;
                 } else if (i3 == 0) {
-                    this.k.f36204j.setBounds(0, 0, this.k.f36204j.getIntrinsicWidth(), 0);
+                    this.k.f36310j.setBounds(0, 0, this.k.f36310j.getIntrinsicWidth(), 0);
                     this.k.k.setBounds(0, 0, this.k.k.getIntrinsicWidth(), 0);
                     return max;
                 } else if (i3 != 1073741824) {
                     return i4;
                 } else {
-                    int i5 = (int) ((i4 - (this.k.f36200f * (this.k.f36201g - 1))) / this.k.f36201g);
+                    int i5 = (int) ((i4 - (this.k.f36306f * (this.k.f36307g - 1))) / this.k.f36307g);
                     this.k.k.setBounds(0, 0, i5, this.k.k.getBounds().height());
-                    this.k.f36204j.setBounds(0, 0, i5, this.k.f36204j.getBounds().height());
+                    this.k.f36310j.setBounds(0, 0, i5, this.k.f36310j.getBounds().height());
                     return i4;
                 }
             }
@@ -337,19 +337,19 @@ public class IndicatorView extends View {
     public int getCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f36201g : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f36307g : invokeV.intValue;
     }
 
     public Drawable getDrawable() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f36204j : (Drawable) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f36310j : (Drawable) invokeV.objValue;
     }
 
     public float getPosition() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f36202h : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f36308h : invokeV.floatValue;
     }
 
     public Drawable getSelector() {
@@ -361,13 +361,13 @@ public class IndicatorView extends View {
     public int getSpacing() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f36200f : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f36306f : invokeV.intValue;
     }
 
     public boolean isAutoHide() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f36199e : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f36305e : invokeV.booleanValue;
     }
 
     @Override // android.view.View
@@ -389,14 +389,14 @@ public class IndicatorView extends View {
     public void setAutoHide(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
-            this.f36199e = z;
+            this.f36305e = z;
         }
     }
 
     public void setCount(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048585, this, i2) == null) {
-            this.f36201g = i2;
+            this.f36307g = i2;
             requestLayout();
             invalidate();
         }
@@ -405,7 +405,7 @@ public class IndicatorView extends View {
     public void setDrawable(Drawable drawable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, drawable) == null) {
-            this.f36204j = drawable;
+            this.f36310j = drawable;
             requestLayout();
             invalidate();
         }
@@ -414,7 +414,7 @@ public class IndicatorView extends View {
     public void setPosition(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048587, this, f2) == null) {
-            this.f36202h = f2;
+            this.f36308h = f2;
             invalidate();
         }
     }
@@ -431,7 +431,7 @@ public class IndicatorView extends View {
     public void setSpacing(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048589, this, i2) == null) {
-            this.f36200f = i2;
+            this.f36306f = i2;
             requestLayout();
             invalidate();
         }
@@ -479,18 +479,18 @@ public class IndicatorView extends View {
         }
         this.l = new b(this);
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.IndicatorView);
-        this.f36200f = obtainStyledAttributes.getDimensionPixelSize(R.styleable.IndicatorView_spacing, (int) ((getResources().getDisplayMetrics().density * 5.0f) + 0.5f));
-        this.f36201g = obtainStyledAttributes.getInteger(R.styleable.IndicatorView_count, 0);
+        this.f36306f = obtainStyledAttributes.getDimensionPixelSize(R.styleable.IndicatorView_spacing, (int) ((getResources().getDisplayMetrics().density * 5.0f) + 0.5f));
+        this.f36307g = obtainStyledAttributes.getInteger(R.styleable.IndicatorView_count, 0);
         Drawable drawable = obtainStyledAttributes.getDrawable(R.styleable.IndicatorView_drawable);
-        this.f36204j = drawable;
+        this.f36310j = drawable;
         if (drawable != null) {
-            drawable.setBounds(0, 0, drawable.getIntrinsicWidth(), this.f36204j.getIntrinsicHeight());
+            drawable.setBounds(0, 0, drawable.getIntrinsicWidth(), this.f36310j.getIntrinsicHeight());
         }
         Drawable drawable2 = obtainStyledAttributes.getDrawable(R.styleable.IndicatorView_selector);
         this.k = drawable2;
         if (drawable2 != null) {
             drawable2.setBounds(0, 0, drawable2.getIntrinsicWidth(), this.k.getIntrinsicHeight());
         }
-        this.f36199e = obtainStyledAttributes.getBoolean(R.styleable.IndicatorView_autoHide, false);
+        this.f36305e = obtainStyledAttributes.getBoolean(R.styleable.IndicatorView_autoHide, false);
     }
 }

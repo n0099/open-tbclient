@@ -20,37 +20,37 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile a f65886a;
+    public static volatile a f66086a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile boolean f65887b;
+    public static volatile boolean f66087b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile long f65888c;
+    public static volatile long f66088c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d  reason: collision with root package name */
-    public final Queue<C1899a> f65889d;
+    public final Queue<C1903a> f66089d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Handler f65890e;
+    public Handler f66090e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final h f65891f;
+    public final h f66091f;
 
     /* renamed from: com.bytedance.sdk.openadsdk.core.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes9.dex */
-    public static class C1899a {
+    public static class C1903a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final long f65893a;
+        public final long f66093a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final String f65894b;
+        public final String f66094b;
 
-        public C1899a(long j2, String str) {
+        public C1903a(long j2, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -65,8 +65,8 @@ public class a {
                     return;
                 }
             }
-            this.f65893a = j2;
-            this.f65894b = str;
+            this.f66093a = j2;
+            this.f66094b = str;
         }
     }
 
@@ -83,8 +83,8 @@ public class a {
                 return;
             }
         }
-        this.f65889d = new LinkedList();
-        this.f65891f = o.h();
+        this.f66089d = new LinkedList();
+        this.f66091f = o.h();
     }
 
     private synchronized boolean b(String str) {
@@ -93,18 +93,18 @@ public class a {
         if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, this, str)) == null) {
             synchronized (this) {
                 long currentTimeMillis = System.currentTimeMillis();
-                int l = this.f65891f.l();
-                long k = this.f65891f.k();
-                if (this.f65889d.size() > 0 && this.f65889d.size() >= l) {
-                    long abs = Math.abs(currentTimeMillis - this.f65889d.peek().f65893a);
+                int l = this.f66091f.l();
+                long k = this.f66091f.k();
+                if (this.f66089d.size() > 0 && this.f66089d.size() >= l) {
+                    long abs = Math.abs(currentTimeMillis - this.f66089d.peek().f66093a);
                     if (abs <= k) {
                         b(k - abs);
                         return true;
                     }
-                    this.f65889d.poll();
-                    this.f65889d.offer(new C1899a(currentTimeMillis, str));
+                    this.f66089d.poll();
+                    this.f66089d.offer(new C1903a(currentTimeMillis, str));
                 } else {
-                    this.f65889d.offer(new C1899a(currentTimeMillis, str));
+                    this.f66089d.offer(new C1903a(currentTimeMillis, str));
                 }
                 return false;
             }
@@ -119,11 +119,11 @@ public class a {
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             synchronized (this) {
                 HashMap hashMap = new HashMap();
-                for (C1899a c1899a : this.f65889d) {
-                    if (hashMap.containsKey(c1899a.f65894b)) {
-                        hashMap.put(c1899a.f65894b, Integer.valueOf(((Integer) hashMap.get(c1899a.f65894b)).intValue() + 1));
+                for (C1903a c1903a : this.f66089d) {
+                    if (hashMap.containsKey(c1903a.f66094b)) {
+                        hashMap.put(c1903a.f66094b, Integer.valueOf(((Integer) hashMap.get(c1903a.f66094b)).intValue() + 1));
                     } else {
-                        hashMap.put(c1899a.f65894b, 1);
+                        hashMap.put(c1903a.f66094b, 1);
                     }
                 }
                 int i2 = Integer.MIN_VALUE;
@@ -145,14 +145,14 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f65886a == null) {
+            if (f66086a == null) {
                 synchronized (a.class) {
-                    if (f65886a == null) {
-                        f65886a = new a();
+                    if (f66086a == null) {
+                        f66086a = new a();
                     }
                 }
             }
-            return f65886a;
+            return f66086a;
         }
         return (a) invokeV.objValue;
     }
@@ -165,11 +165,11 @@ public class a {
             synchronized (this) {
                 if (b(str)) {
                     a(true);
-                    a(f65888c);
+                    a(f66088c);
                 } else {
                     a(false);
                 }
-                z = f65887b;
+                z = f66087b;
             }
             return z;
         }
@@ -180,15 +180,15 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(65538, this, j2) == null) {
             synchronized (this) {
-                if (this.f65890e == null) {
-                    this.f65890e = new Handler(Looper.getMainLooper());
+                if (this.f66090e == null) {
+                    this.f66090e = new Handler(Looper.getMainLooper());
                 }
-                this.f65890e.postDelayed(new Runnable(this) { // from class: com.bytedance.sdk.openadsdk.core.c.a.1
+                this.f66090e.postDelayed(new Runnable(this) { // from class: com.bytedance.sdk.openadsdk.core.c.a.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ a f65892a;
+                    public final /* synthetic */ a f66092a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -205,14 +205,14 @@ public class a {
                                 return;
                             }
                         }
-                        this.f65892a = this;
+                        this.f66092a = this;
                     }
 
                     @Override // java.lang.Runnable
                     public void run() {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            this.f65892a.a(false);
+                            this.f66092a.a(false);
                         }
                     }
                 }, j2);
@@ -226,7 +226,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             synchronized (this) {
-                z = f65887b;
+                z = f66087b;
             }
             return z;
         }
@@ -237,7 +237,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(AdIconUtil.AD_TEXT_ID, this, j2) == null) {
             synchronized (this) {
-                f65888c = j2;
+                f66088c = j2;
             }
         }
     }
@@ -247,7 +247,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TRACKBALL, this, z) == null) {
             synchronized (this) {
-                f65887b = z;
+                f66087b = z;
             }
         }
     }

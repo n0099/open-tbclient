@@ -12,20 +12,20 @@ public interface a {
 
     /* renamed from: c.a.e.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0040a implements a {
+    public static class C0030a implements a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: c  reason: collision with root package name */
-        public static a f2037c;
+        public static a f2095c;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f2038a;
+        public int f2096a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final e f2039b;
+        public final e f2097b;
 
-        public C0040a() {
+        public C0030a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -38,12 +38,12 @@ public interface a {
                     return;
                 }
             }
-            this.f2038a = 0;
-            this.f2039b = new e();
-            if (NSGif.f36033f) {
-                this.f2038a = 0;
+            this.f2096a = 0;
+            this.f2097b = new e();
+            if (NSGif.f36139f) {
+                this.f2096a = 0;
             } else {
-                this.f2038a = 1;
+                this.f2096a = 1;
             }
         }
 
@@ -52,11 +52,11 @@ public interface a {
             a aVar;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-                synchronized (C0040a.class) {
-                    if (f2037c == null) {
-                        f2037c = new C0040a();
+                synchronized (C0030a.class) {
+                    if (f2095c == null) {
+                        f2095c = new C0030a();
                     }
-                    aVar = f2037c;
+                    aVar = f2095c;
                 }
                 return aVar;
             }
@@ -64,39 +64,39 @@ public interface a {
         }
 
         @Override // c.a.e.d.a
-        public c.a.e.k.d.a a(byte[] bArr, int i2, int i3) {
+        public c.a.e.l.d.a a(byte[] bArr, int i2, int i3) {
             InterceptResult invokeLII;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLII = interceptable.invokeLII(1048576, this, bArr, i2, i3)) == null) {
-                if (this.f2038a == 0) {
+                if (this.f2096a == 0) {
                     try {
-                        return this.f2039b.a(bArr, i2, i3);
+                        return this.f2097b.a(bArr, i2, i3);
                     } catch (Exception unused) {
                     }
                 }
                 return null;
             }
-            return (c.a.e.k.d.a) invokeLII.objValue;
+            return (c.a.e.l.d.a) invokeLII.objValue;
         }
 
         @Override // c.a.e.d.a
-        public c.a.e.k.d.a get(String str) {
+        public c.a.e.l.d.a get(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-                if (this.f2038a == 0) {
+                if (this.f2096a == 0) {
                     try {
-                        return this.f2039b.get(str);
+                        return this.f2097b.get(str);
                     } catch (Exception unused) {
                     }
                 }
                 return null;
             }
-            return (c.a.e.k.d.a) invokeL.objValue;
+            return (c.a.e.l.d.a) invokeL.objValue;
         }
     }
 
-    c.a.e.k.d.a a(byte[] bArr, int i2, int i3);
+    c.a.e.l.d.a a(byte[] bArr, int i2, int i3);
 
-    c.a.e.k.d.a get(String str);
+    c.a.e.l.d.a get(String str);
 }

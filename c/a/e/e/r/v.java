@@ -11,7 +11,7 @@ public class v extends r {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public WebSocketException f2641a;
+    public WebSocketException f2699a;
 
     public v(WebSocketException webSocketException) {
         Interceptable interceptable = $ic;
@@ -28,6 +28,6 @@ public class v extends r {
                 return;
             }
         }
-        this.f2641a = webSocketException;
+        this.f2699a = webSocketException;
     }
 }

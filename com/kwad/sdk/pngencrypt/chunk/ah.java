@@ -15,10 +15,10 @@ public class ah {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final e f72752a;
+    public final e f72952a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final boolean f72753b;
+    public final boolean f72953b;
 
     public ah(e eVar) {
         Interceptable interceptable = $ic;
@@ -35,8 +35,8 @@ public class ah {
                 return;
             }
         }
-        this.f72752a = eVar;
-        this.f72753b = !(eVar instanceof f);
+        this.f72952a = eVar;
+        this.f72953b = !(eVar instanceof f);
     }
 
     public List<? extends ae> a(String str) {
@@ -44,9 +44,9 @@ public class ah {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
             ArrayList arrayList = new ArrayList();
-            arrayList.addAll(this.f72752a.a("tEXt", str));
-            arrayList.addAll(this.f72752a.a("zTXt", str));
-            arrayList.addAll(this.f72752a.a("iTXt", str));
+            arrayList.addAll(this.f72952a.a("tEXt", str));
+            arrayList.addAll(this.f72952a.a("zTXt", str));
+            arrayList.addAll(this.f72952a.a("iTXt", str));
             return arrayList;
         }
         return (List) invokeL.objValue;

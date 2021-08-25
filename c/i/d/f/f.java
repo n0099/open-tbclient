@@ -15,19 +15,19 @@ public final class f {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f34057a;
+    public long f34163a;
 
     /* renamed from: b  reason: collision with root package name */
-    public double f34058b;
+    public double f34164b;
 
     /* renamed from: c  reason: collision with root package name */
-    public double f34059c;
+    public double f34165c;
 
     /* renamed from: d  reason: collision with root package name */
-    public double f34060d;
+    public double f34166d;
 
     /* renamed from: e  reason: collision with root package name */
-    public double f34061e;
+    public double f34167e;
 
     public f() {
         Interceptable interceptable = $ic;
@@ -42,11 +42,11 @@ public final class f {
                 return;
             }
         }
-        this.f34057a = 0L;
-        this.f34058b = 0.0d;
-        this.f34059c = 0.0d;
-        this.f34060d = Double.NaN;
-        this.f34061e = Double.NaN;
+        this.f34163a = 0L;
+        this.f34164b = 0.0d;
+        this.f34165c = 0.0d;
+        this.f34166d = Double.NaN;
+        this.f34167e = Double.NaN;
     }
 
     public static double g(double d2, double d3) {
@@ -67,31 +67,31 @@ public final class f {
     public void a(double d2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Double.valueOf(d2)}) == null) {
-            long j2 = this.f34057a;
+            long j2 = this.f34163a;
             if (j2 == 0) {
-                this.f34057a = 1L;
-                this.f34058b = d2;
-                this.f34060d = d2;
-                this.f34061e = d2;
+                this.f34163a = 1L;
+                this.f34164b = d2;
+                this.f34166d = d2;
+                this.f34167e = d2;
                 if (Doubles.f(d2)) {
                     return;
                 }
-                this.f34059c = Double.NaN;
+                this.f34165c = Double.NaN;
                 return;
             }
-            this.f34057a = j2 + 1;
-            if (Doubles.f(d2) && Doubles.f(this.f34058b)) {
-                double d3 = this.f34058b;
+            this.f34163a = j2 + 1;
+            if (Doubles.f(d2) && Doubles.f(this.f34164b)) {
+                double d3 = this.f34164b;
                 double d4 = d2 - d3;
-                double d5 = d3 + (d4 / this.f34057a);
-                this.f34058b = d5;
-                this.f34059c += d4 * (d2 - d5);
+                double d5 = d3 + (d4 / this.f34163a);
+                this.f34164b = d5;
+                this.f34165c += d4 * (d2 - d5);
             } else {
-                this.f34058b = g(this.f34058b, d2);
-                this.f34059c = Double.NaN;
+                this.f34164b = g(this.f34164b, d2);
+                this.f34165c = Double.NaN;
             }
-            this.f34060d = Math.min(this.f34060d, d2);
-            this.f34061e = Math.max(this.f34061e, d2);
+            this.f34166d = Math.min(this.f34166d, d2);
+            this.f34167e = Math.max(this.f34167e, d2);
         }
     }
 
@@ -143,6 +143,6 @@ public final class f {
     public Stats h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? new Stats(this.f34057a, this.f34058b, this.f34059c, this.f34060d, this.f34061e) : (Stats) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? new Stats(this.f34163a, this.f34164b, this.f34165c, this.f34166d, this.f34167e) : (Stats) invokeV.objValue;
     }
 }

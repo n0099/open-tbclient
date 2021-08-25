@@ -30,7 +30,7 @@ public class StatService {
     public static final int JAVA_EXCEPTION_LOG = 16;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f43565a;
+    public static boolean f43672a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes5.dex */
@@ -257,10 +257,10 @@ public class StatService {
 
     public static void setOn(Context context, int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(65566, null, context, i2) == null) || !a(context, "setOn(...)") || f43565a || a(context)) {
+        if (!(interceptable == null || interceptable.invokeLI(65566, null, context, i2) == null) || !a(context, "setOn(...)") || f43672a || a(context)) {
             return;
         }
-        f43565a = true;
+        f43672a = true;
         if ((i2 & 1) != 0) {
             a(context, false);
         } else if ((i2 & 16) != 0) {

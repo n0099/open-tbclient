@@ -1,6 +1,7 @@
 package com.baidu.searchbox.logsystem.basic.upload;
 
-import c.a.p0.d3.l;
+import c.a.q0.d3.f;
+import c.a.q0.d3.l;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.annotation.Autowired;
 import com.baidu.pyramid.annotation.Inject;
@@ -151,7 +152,7 @@ public class LokiRuntime {
     public static ILokiIdentityContext getIdentityContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? EMPTY : (ILokiIdentityContext) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f.a() : (ILokiIdentityContext) invokeV.objValue;
     }
 
     @Inject

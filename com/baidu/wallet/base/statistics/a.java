@@ -26,11 +26,11 @@ public class a {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f59950a = "a";
+    public static final String f60150a = "a";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public Pattern f59951b;
+    public Pattern f60151b;
 
     /* renamed from: com.baidu.wallet.base.statistics.a$1  reason: invalid class name */
     /* loaded from: classes8.dex */
@@ -41,11 +41,11 @@ public class a {
 
     /* renamed from: com.baidu.wallet.base.statistics.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public static class C1814a {
+    public static class C1818a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static a f59952a;
+        public static a f60152a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -61,10 +61,10 @@ public class a {
                     return;
                 }
             }
-            f59952a = new a(null);
+            f60152a = new a(null);
         }
 
-        public C1814a() {
+        public C1818a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -101,7 +101,7 @@ public class a {
     public static a a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? C1814a.f59952a : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? C1818a.f60152a : (a) invokeV.objValue;
     }
 
     public String b(Context context) {
@@ -113,10 +113,10 @@ public class a {
                 e = e2;
             }
             try {
-                return this.f59951b.matcher(PhoneUtils.getCUID2(context)).replaceAll("");
+                return this.f60151b.matcher(PhoneUtils.getCUID2(context)).replaceAll("");
             } catch (Exception e3) {
                 e = e3;
-                LogUtil.d(f59950a, e.getMessage());
+                LogUtil.d(f60150a, e.getMessage());
                 return null;
             }
         }
@@ -143,7 +143,7 @@ public class a {
             try {
                 return ((TelephonyManager) context.getSystemService("phone")).getNetworkOperator();
             } catch (Exception e2) {
-                LogUtil.d(f59950a, e2.getMessage());
+                LogUtil.d(f60150a, e2.getMessage());
                 return null;
             }
         }
@@ -222,7 +222,7 @@ public class a {
                 return;
             }
         }
-        this.f59951b = Pattern.compile("\\s*|\t|\r|\n");
+        this.f60151b = Pattern.compile("\\s*|\t|\r|\n");
     }
 
     public String a(Context context) {
@@ -234,10 +234,10 @@ public class a {
                 e = e2;
             }
             try {
-                return this.f59951b.matcher(PhoneUtils.getCUID(context)).replaceAll("");
+                return this.f60151b.matcher(PhoneUtils.getCUID(context)).replaceAll("");
             } catch (Exception e3) {
                 e = e3;
-                LogUtil.d(f59950a, e.getMessage());
+                LogUtil.d(f60150a, e.getMessage());
                 return null;
             }
         }

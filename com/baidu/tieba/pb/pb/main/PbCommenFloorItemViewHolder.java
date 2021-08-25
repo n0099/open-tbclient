@@ -9,9 +9,9 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import c.a.e.e.p.l;
-import c.a.o0.s.q.f;
-import c.a.p0.i2.k.e.a1.g;
-import c.a.p0.i2.k.e.e;
+import c.a.p0.s.q.f;
+import c.a.q0.i2.k.e.c;
+import c.a.q0.i2.k.e.y0.g;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
@@ -39,7 +39,7 @@ public class PbCommenFloorItemViewHolder extends TypeAdapter.ViewHolder {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public TBLottieAnimationView f54650a;
+    public TBLottieAnimationView f54815a;
     public LinearLayout mAllContent;
     public View mBottomAgreeContainer;
     public AgreeView mBottomAgreeView;
@@ -106,7 +106,7 @@ public class PbCommenFloorItemViewHolder extends TypeAdapter.ViewHolder {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PbCommenFloorItemViewHolder f54651e;
+        public final /* synthetic */ PbCommenFloorItemViewHolder f54816e;
 
         public a(PbCommenFloorItemViewHolder pbCommenFloorItemViewHolder) {
             Interceptable interceptable = $ic;
@@ -123,14 +123,14 @@ public class PbCommenFloorItemViewHolder extends TypeAdapter.ViewHolder {
                     return;
                 }
             }
-            this.f54651e = pbCommenFloorItemViewHolder;
+            this.f54816e = pbCommenFloorItemViewHolder;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f54651e.f54650a.playAnimation();
+                this.f54816e.f54815a.playAnimation();
             }
         }
     }
@@ -196,10 +196,10 @@ public class PbCommenFloorItemViewHolder extends TypeAdapter.ViewHolder {
         this.mFeedBackImg = (ImageView) view.findViewById(R.id.pb_floor_feedback);
         this.pageFrom = i2;
         f fVar = new f();
-        fVar.f13913b = 5;
-        fVar.f13919h = 8;
-        fVar.f13918g = 2;
-        fVar.f13917f = i2;
+        fVar.f14219b = 5;
+        fVar.f14225h = 8;
+        fVar.f14224g = 2;
+        fVar.f14223f = i2;
         this.mPbFloorPraiseView.setStatisticData(fVar);
         this.mHeadPhotoView = (HeadImageView) view.findViewById(R.id.normal_user_photo);
         HeadPendantView headPendantView = (HeadPendantView) view.findViewById(R.id.pendant_user_photo);
@@ -226,11 +226,11 @@ public class PbCommenFloorItemViewHolder extends TypeAdapter.ViewHolder {
         this.mPointRightPostTime = (TextView) view.findViewById(R.id.point_between_time_and_locate);
         this.mImagesView.setImageMargin(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds16));
         this.mImagesView.setSingleImageRatio(0.75d);
-        this.mImagesView.setImageProcessor(new c.a.o0.d1.j.f(3));
-        e eVar = new e(this.mRichTextView.getLayoutStrategy());
-        eVar.j(l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds18));
-        eVar.o(TbConfig.getPostLineSpace(), 1.0f);
-        this.mRichTextView.setLayoutStrategy(eVar);
+        this.mImagesView.setImageProcessor(new c.a.p0.d1.j.f(3));
+        c cVar = new c(this.mRichTextView.getLayoutStrategy());
+        cVar.j(l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds18));
+        cVar.o(TbConfig.getPostLineSpace(), 1.0f);
+        this.mRichTextView.setLayoutStrategy(cVar);
         this.mRichTextView.setIsNeedResizeEmotion(true);
         this.mRichTextView.setTextSize(TbConfig.getContentSize());
         this.mHeadPhotoView.setIsRound(true);
@@ -248,7 +248,7 @@ public class PbCommenFloorItemViewHolder extends TypeAdapter.ViewHolder {
         this.mFoldOpArea = (LinearLayout) view.findViewById(R.id.fold_op_area);
         this.mFoldTitleView = (TextView) view.findViewById(R.id.fold_title);
         this.mImgGodComment = (ImageView) view.findViewById(R.id.pic_comment_god);
-        this.f54650a = (TBLottieAnimationView) view.findViewById(R.id.user_living_lottie);
+        this.f54815a = (TBLottieAnimationView) view.findViewById(R.id.user_living_lottie);
         this.mPbRightTopLayout = (ViewGroup) view.findViewById(R.id.pb_floor_right_top_layout);
         this.mPbRightTopAgreeView = (AgreeView) view.findViewById(R.id.pb_floor_right_top_agree_view);
         this.mPbRightTopMoreView = (ImageView) view.findViewById(R.id.pb_floor_right_top_feedback);
@@ -264,7 +264,7 @@ public class PbCommenFloorItemViewHolder extends TypeAdapter.ViewHolder {
         this.uegFrameLayout = frameLayout;
         g gVar = new g(tbPageContext, frameLayout);
         this.pbHeadUegController = gVar;
-        gVar.f18947f = 3;
+        gVar.f19725f = 3;
         this.mMaskView = (MaskView) view.findViewById(R.id.mask_view_op);
     }
 
@@ -282,7 +282,7 @@ public class PbCommenFloorItemViewHolder extends TypeAdapter.ViewHolder {
     public void handleUserAlaLiveSkinType(int i2) {
         TBLottieAnimationView tBLottieAnimationView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) || (tBLottieAnimationView = this.f54650a) == null) {
+        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) || (tBLottieAnimationView = this.f54815a) == null) {
             return;
         }
         SkinManager.setLottieAnimation(tBLottieAnimationView, R.raw.card_live_header_bg);
@@ -292,18 +292,18 @@ public class PbCommenFloorItemViewHolder extends TypeAdapter.ViewHolder {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
             if (z) {
-                this.f54650a.setVisibility(0);
-                if (this.f54650a.isAnimating()) {
+                this.f54815a.setVisibility(0);
+                if (this.f54815a.isAnimating()) {
                     return;
                 }
-                this.f54650a.setSpeed(0.8f);
-                this.f54650a.setRepeatCount(-1);
-                this.f54650a.post(new a(this));
+                this.f54815a.setSpeed(0.8f);
+                this.f54815a.setRepeatCount(-1);
+                this.f54815a.post(new a(this));
                 return;
             }
-            this.f54650a.setVisibility(8);
-            if (this.f54650a.isAnimating()) {
-                this.f54650a.cancelAnimation();
+            this.f54815a.setVisibility(8);
+            if (this.f54815a.isAnimating()) {
+                this.f54815a.cancelAnimation();
             }
         }
     }
@@ -312,10 +312,10 @@ public class PbCommenFloorItemViewHolder extends TypeAdapter.ViewHolder {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeZ(1048579, this, z) == null) && z) {
             f fVar = new f();
-            fVar.f13913b = 12;
-            fVar.f13919h = 9;
-            fVar.f13918g = 3;
-            fVar.f13917f = this.pageFrom;
+            fVar.f14219b = 12;
+            fVar.f14225h = 9;
+            fVar.f14224g = 3;
+            fVar.f14223f = this.pageFrom;
             this.mPbFloorPraiseView.setStatisticData(fVar);
         }
     }

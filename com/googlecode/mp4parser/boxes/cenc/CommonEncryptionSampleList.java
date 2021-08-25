@@ -1,6 +1,7 @@
 package com.googlecode.mp4parser.boxes.cenc;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.datacollector.growth.utils.UBCEncryptor;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -182,7 +183,7 @@ public class CommonEncryptionSampleList extends AbstractList<Sample> {
             }
         }
         try {
-            cipher = Cipher.getInstance("AES/CTR/NoPadding");
+            cipher = Cipher.getInstance(UBCEncryptor.TRANSFORMATION);
         } catch (NoSuchAlgorithmException e2) {
             throw new RuntimeException(e2);
         } catch (NoSuchPaddingException e3) {

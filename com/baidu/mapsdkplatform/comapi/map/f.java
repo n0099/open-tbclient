@@ -22,8 +22,8 @@ public class f extends d {
                 return;
             }
         }
-        this.f42002c = 6;
-        this.f42001b = "map";
-        this.f42003d = 10;
+        this.f42109c = 6;
+        this.f42108b = "map";
+        this.f42110d = 10;
     }
 }

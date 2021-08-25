@@ -4,8 +4,8 @@ import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
 import androidx.annotation.NonNull;
-import c.a.p0.o1.o.k.a;
-import c.a.p0.x2.i0.b.d;
+import c.a.q0.o1.o.k.a;
+import c.a.q0.x2.i0.b.d;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.widget.TbImageView;
@@ -48,8 +48,8 @@ public class AdCardSinglePicView extends AdCardBaseView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, adCard) == null) {
             d dVar = adCard.picInfo;
-            if (dVar != null && !a.e(dVar.f28542c)) {
-                String str = dVar.f28542c.get(0);
+            if (dVar != null && !a.e(dVar.f28881c)) {
+                String str = dVar.f28881c.get(0);
                 boolean resizeImage = resizeImage(this.y, adCard, dVar);
                 if (!TextUtils.isEmpty(str) && resizeImage) {
                     this.mCustomRoot.setVisibility(0);
@@ -106,13 +106,13 @@ public class AdCardSinglePicView extends AdCardBaseView {
             }
             int i2 = this.mMaxWidth;
             int i3 = (int) (i2 * d2);
-            int b2 = (int) (c.a.p0.x2.i0.c.a.b(i2) * d2);
+            int b2 = (int) (c.a.q0.x2.i0.c.a.b(i2) * d2);
             if (!adCard.isNeedResize()) {
                 setImageViewSize(tbImageView, b2, i3);
                 return true;
             }
-            int i4 = dVar.f28544e;
-            int i5 = dVar.f28543d;
+            int i4 = dVar.f28883e;
+            int i5 = dVar.f28882d;
             if (i3 > 0 && i4 > 0 && i5 > 0) {
                 int i6 = (i4 * i3) / i5;
                 if (i6 > i3) {

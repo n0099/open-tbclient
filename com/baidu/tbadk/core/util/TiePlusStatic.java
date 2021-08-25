@@ -34,7 +34,9 @@ public class TiePlusStatic {
     public static class Values {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int CLI_LOCATE_TO_DETAIL = 2;
+        public static final int CLI_LOCATE_TO_FRS = 3;
         public static final int CLI_LOCATE_TO_PB = 1;
+        public static final int CLI_LOCATE_TO_USER = 4;
         public transient /* synthetic */ FieldHolder $fh;
 
         public Values() {

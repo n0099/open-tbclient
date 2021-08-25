@@ -1,8 +1,8 @@
 package com.baidu.tieba.forumMember.member;
 
 import androidx.core.view.InputDeviceCompat;
-import c.a.p0.i3.w;
-import c.a.p0.t0.c.c;
+import c.a.q0.i3.w;
+import c.a.q0.t0.c.c;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;

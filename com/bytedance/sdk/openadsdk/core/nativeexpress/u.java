@@ -40,8 +40,8 @@ public class u extends q {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048576, this, context, mVar, adSlot) == null) {
             NativeExpressVideoView nativeExpressVideoView = new NativeExpressVideoView(context, mVar, adSlot, "embeded_ad");
-            this.f66525a = nativeExpressVideoView;
-            a(nativeExpressVideoView, this.f66527c);
+            this.f66725a = nativeExpressVideoView;
+            a(nativeExpressVideoView, this.f66727c);
         }
     }
 
@@ -50,7 +50,7 @@ public class u extends q {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            NativeExpressView nativeExpressView = this.f66525a;
+            NativeExpressView nativeExpressView = this.f66725a;
             if (nativeExpressView != null) {
                 return ((NativeExpressVideoView) nativeExpressView).getVideoModel();
             }
@@ -63,7 +63,7 @@ public class u extends q {
     public void setVideoAdListener(TTNativeExpressAd.ExpressVideoAdListener expressVideoAdListener) {
         NativeExpressView nativeExpressView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, expressVideoAdListener) == null) || (nativeExpressView = this.f66525a) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, expressVideoAdListener) == null) || (nativeExpressView = this.f66725a) == null) {
             return;
         }
         nativeExpressView.setVideoAdListener(expressVideoAdListener);

@@ -30,12 +30,12 @@ public class SignAllForumAdvertActivity extends BaseActivity<SignAllForumAdvertA
     public NavigationBar mNavigationBar;
 
     /* loaded from: classes7.dex */
-    public class a extends c.a.e.e.l.c<c.a.e.k.d.a> {
+    public class a extends c.a.e.e.l.c<c.a.e.l.d.a> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ SignAllForumAdvertActivity f56515a;
+        public final /* synthetic */ SignAllForumAdvertActivity f56680a;
 
         public a(SignAllForumAdvertActivity signAllForumAdvertActivity) {
             Interceptable interceptable = $ic;
@@ -52,17 +52,17 @@ public class SignAllForumAdvertActivity extends BaseActivity<SignAllForumAdvertA
                     return;
                 }
             }
-            this.f56515a = signAllForumAdvertActivity;
+            this.f56680a = signAllForumAdvertActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // c.a.e.e.l.c
-        public void onLoaded(c.a.e.k.d.a aVar, String str, int i2) {
+        public void onLoaded(c.a.e.l.d.a aVar, String str, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLI(1048576, this, aVar, str, i2) == null) {
                 super.onLoaded((a) aVar, str, i2);
                 if (aVar == null) {
-                    this.f56515a.finish();
+                    this.f56680a.finish();
                 }
             }
         }
@@ -74,7 +74,7 @@ public class SignAllForumAdvertActivity extends BaseActivity<SignAllForumAdvertA
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SignAllForumAdvertActivity f56516e;
+        public final /* synthetic */ SignAllForumAdvertActivity f56681e;
 
         public b(SignAllForumAdvertActivity signAllForumAdvertActivity) {
             Interceptable interceptable = $ic;
@@ -91,14 +91,14 @@ public class SignAllForumAdvertActivity extends BaseActivity<SignAllForumAdvertA
                     return;
                 }
             }
-            this.f56516e = signAllForumAdvertActivity;
+            this.f56681e = signAllForumAdvertActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                UrlManager.getInstance().dealOneLink(this.f56516e.getPageContext(), new String[]{this.f56516e.mAdUrl});
+                UrlManager.getInstance().dealOneLink(this.f56681e.getPageContext(), new String[]{this.f56681e.mAdUrl});
             }
         }
     }
@@ -109,7 +109,7 @@ public class SignAllForumAdvertActivity extends BaseActivity<SignAllForumAdvertA
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SignAllForumAdvertActivity f56517e;
+        public final /* synthetic */ SignAllForumAdvertActivity f56682e;
 
         public c(SignAllForumAdvertActivity signAllForumAdvertActivity) {
             Interceptable interceptable = $ic;
@@ -126,14 +126,14 @@ public class SignAllForumAdvertActivity extends BaseActivity<SignAllForumAdvertA
                     return;
                 }
             }
-            this.f56517e = signAllForumAdvertActivity;
+            this.f56682e = signAllForumAdvertActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f56517e.finish();
+                this.f56682e.finish();
             }
         }
     }

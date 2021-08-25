@@ -19,10 +19,10 @@ public class OkHttpFactory implements NoProguard {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final x f37826a;
+    public final x f37932a;
 
     /* renamed from: b  reason: collision with root package name */
-    public URLStreamHandler f37827b;
+    public URLStreamHandler f37933b;
 
     /* renamed from: com.baidu.apollon.restnet.http.OkHttpFactory$1  reason: invalid class name */
     /* loaded from: classes5.dex */
@@ -36,7 +36,7 @@ public class OkHttpFactory implements NoProguard {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final OkHttpFactory f37828a;
+        public static final OkHttpFactory f37934a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -52,7 +52,7 @@ public class OkHttpFactory implements NoProguard {
                     return;
                 }
             }
-            f37828a = new OkHttpFactory(null);
+            f37934a = new OkHttpFactory(null);
         }
 
         public a() {
@@ -77,13 +77,13 @@ public class OkHttpFactory implements NoProguard {
     public static OkHttpFactory getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f37828a : (OkHttpFactory) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f37934a : (OkHttpFactory) invokeV.objValue;
     }
 
     public w client() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f37826a.d() : (w) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f37932a.d() : (w) invokeV.objValue;
     }
 
     public URLStreamHandler getURLStreamHandler(String str) {
@@ -91,10 +91,10 @@ public class OkHttpFactory implements NoProguard {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
             if ("http".equals(str) || "https".equals(str)) {
-                if (this.f37827b == null) {
-                    this.f37827b = this.f37826a.createURLStreamHandler(str);
+                if (this.f37933b == null) {
+                    this.f37933b = this.f37932a.createURLStreamHandler(str);
                 }
-                return this.f37827b;
+                return this.f37933b;
             }
             return null;
         }
@@ -106,7 +106,7 @@ public class OkHttpFactory implements NoProguard {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, wVar) == null) || wVar == null) {
             return;
         }
-        this.f37826a.h(wVar);
+        this.f37932a.h(wVar);
     }
 
     public OkHttpFactory() {
@@ -124,7 +124,7 @@ public class OkHttpFactory implements NoProguard {
         }
         w.b v = new w().v();
         v.e(new u(d.a()));
-        v.h(b.f37839e);
-        this.f37826a = new x(v.a());
+        v.h(b.f37945e);
+        this.f37932a = new x(v.a());
     }
 }

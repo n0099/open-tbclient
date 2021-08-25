@@ -20,17 +20,17 @@ public class k {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile k f67429a;
+    public static volatile k f67629a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public c f67430b;
+    public c f67630b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Map<String, Object> f67431c;
+    public Map<String, Object> f67631c;
 
     /* renamed from: d  reason: collision with root package name */
-    public b f67432d;
+    public b f67632d;
 
     /* loaded from: classes9.dex */
     public class a implements Runnable {
@@ -38,10 +38,10 @@ public class k {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ k f67433a;
+        public final /* synthetic */ k f67633a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f67434b;
+        public int f67634b;
 
         public a(k kVar, int i2) {
             Interceptable interceptable = $ic;
@@ -58,16 +58,16 @@ public class k {
                     return;
                 }
             }
-            this.f67433a = kVar;
-            this.f67434b = i2;
+            this.f67633a = kVar;
+            this.f67634b = i2;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f67434b == 100 && this.f67433a.f67432d != null) {
-                k kVar = this.f67433a;
-                kVar.b(kVar.f67432d);
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f67634b == 100 && this.f67633a.f67632d != null) {
+                k kVar = this.f67633a;
+                kVar.b(kVar.f67632d);
             }
         }
     }
@@ -78,22 +78,22 @@ public class k {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final AtomicInteger f67435a;
+        public final AtomicInteger f67635a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final AtomicBoolean f67436b;
+        public final AtomicBoolean f67636b;
 
         /* renamed from: c  reason: collision with root package name */
-        public com.bytedance.sdk.openadsdk.core.e.m f67437c;
+        public com.bytedance.sdk.openadsdk.core.e.m f67637c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f67438d;
+        public String f67638d;
 
         /* renamed from: e  reason: collision with root package name */
-        public Map<String, Object> f67439e;
+        public Map<String, Object> f67639e;
 
         /* renamed from: f  reason: collision with root package name */
-        public boolean f67440f;
+        public boolean f67640f;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b() {
@@ -111,8 +111,8 @@ public class k {
                     return;
                 }
             }
-            this.f67435a = new AtomicInteger(0);
-            this.f67436b = new AtomicBoolean(false);
+            this.f67635a = new AtomicInteger(0);
+            this.f67636b = new AtomicBoolean(false);
         }
 
         public static b a(com.bytedance.sdk.openadsdk.core.e.m mVar, String str, Map<String, Object> map, boolean z) {
@@ -124,13 +124,13 @@ public class k {
         public int c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f67435a.get() : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f67635a.get() : invokeV.intValue;
         }
 
         public void d() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                this.f67435a.incrementAndGet();
+                this.f67635a.incrementAndGet();
             }
         }
 
@@ -140,18 +140,18 @@ public class k {
             com.bytedance.sdk.openadsdk.core.e.m mVar;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                if (this.f67437c != null && !TextUtils.isEmpty(this.f67438d) && (atomicBoolean = this.f67436b) != null) {
-                    if (this.f67440f) {
-                        com.bytedance.sdk.component.utils.k.b("DMLibManager", "落地页调起应用是否成功 sResult.get() " + this.f67436b.get());
-                        d.b(com.bytedance.sdk.openadsdk.core.o.a(), this.f67437c, this.f67438d, this.f67436b.get() ? "lp_dpl_success" : "lp_dpl_failed");
+                if (this.f67637c != null && !TextUtils.isEmpty(this.f67638d) && (atomicBoolean = this.f67636b) != null) {
+                    if (this.f67640f) {
+                        com.bytedance.sdk.component.utils.k.b("DMLibManager", "落地页调起应用是否成功 sResult.get() " + this.f67636b.get());
+                        d.b(com.bytedance.sdk.openadsdk.core.o.a(), this.f67637c, this.f67638d, this.f67636b.get() ? "lp_dpl_success" : "lp_dpl_failed");
                         return;
                     }
-                    d.h(com.bytedance.sdk.openadsdk.core.o.a(), this.f67437c, this.f67438d, atomicBoolean.get() ? "dpl_success" : "dpl_failed", this.f67439e);
-                    AtomicBoolean atomicBoolean2 = this.f67436b;
-                    if (atomicBoolean2 == null || !atomicBoolean2.get() || (mVar = this.f67437c) == null) {
+                    d.h(com.bytedance.sdk.openadsdk.core.o.a(), this.f67637c, this.f67638d, atomicBoolean.get() ? "dpl_success" : "dpl_failed", this.f67639e);
+                    AtomicBoolean atomicBoolean2 = this.f67636b;
+                    if (atomicBoolean2 == null || !atomicBoolean2.get() || (mVar = this.f67637c) == null) {
                         return;
                     }
-                    k.b(mVar, this.f67438d);
+                    k.b(mVar, this.f67638d);
                     return;
                 }
                 com.bytedance.sdk.component.utils.k.a("materialMeta or eventTag or sResult is null, pls check");
@@ -162,7 +162,7 @@ public class k {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
-                this.f67436b.set(z);
+                this.f67636b.set(z);
                 return this;
             }
             return (b) invokeZ.objValue;
@@ -186,12 +186,12 @@ public class k {
                     return;
                 }
             }
-            this.f67435a = new AtomicInteger(0);
-            this.f67436b = new AtomicBoolean(false);
-            this.f67437c = mVar;
-            this.f67438d = str;
-            this.f67439e = map;
-            this.f67440f = z;
+            this.f67635a = new AtomicInteger(0);
+            this.f67636b = new AtomicBoolean(false);
+            this.f67637c = mVar;
+            this.f67638d = str;
+            this.f67639e = map;
+            this.f67640f = z;
         }
     }
 
@@ -201,16 +201,16 @@ public class k {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f67441a;
+        public int f67641a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f67442b;
+        public int f67642b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f67443c;
+        public int f67643c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f67444d;
+        public int f67644d;
 
         public c() {
             Interceptable interceptable = $ic;
@@ -225,10 +225,10 @@ public class k {
                     return;
                 }
             }
-            this.f67441a = 500;
-            this.f67442b = 5000;
-            this.f67443c = 1000;
-            this.f67444d = 300;
+            this.f67641a = 500;
+            this.f67642b = 5000;
+            this.f67643c = 1000;
+            this.f67644d = 300;
         }
 
         public static c a() {
@@ -251,7 +251,7 @@ public class k {
                 return;
             }
         }
-        this.f67430b = c.a();
+        this.f67630b = c.a();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -279,14 +279,14 @@ public class k {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f67429a == null) {
+            if (f67629a == null) {
                 synchronized (k.class) {
-                    if (f67429a == null) {
-                        f67429a = new k();
+                    if (f67629a == null) {
+                        f67629a = new k();
                     }
                 }
             }
-            return f67429a;
+            return f67629a;
         }
         return (k) invokeV.objValue;
     }
@@ -308,7 +308,7 @@ public class k {
     public void a(com.bytedance.sdk.openadsdk.core.e.m mVar, String str, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLZ(1048576, this, mVar, str, z) == null) {
-            this.f67432d = b.a(mVar, str, this.f67431c, z);
+            this.f67632d = b.a(mVar, str, this.f67631c, z);
             com.bytedance.sdk.component.d.e.d().schedule(new a(this, 100), 0L, TimeUnit.MILLISECONDS);
         }
     }
@@ -320,11 +320,11 @@ public class k {
         }
         bVar.d();
         int c2 = bVar.c();
-        c cVar = this.f67430b;
-        if (c2 * cVar.f67441a > cVar.f67442b) {
+        c cVar = this.f67630b;
+        if (c2 * cVar.f67641a > cVar.f67642b) {
             c(bVar.a(false));
         } else {
-            com.bytedance.sdk.component.d.e.d().schedule(new a(this, 100), this.f67430b.f67441a, TimeUnit.MILLISECONDS);
+            com.bytedance.sdk.component.d.e.d().schedule(new a(this, 100), this.f67630b.f67641a, TimeUnit.MILLISECONDS);
         }
     }
 }

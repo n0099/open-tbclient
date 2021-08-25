@@ -13,9 +13,9 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import c.a.b0.a.d;
-import c.a.b0.a.e;
-import c.a.b0.a.f;
+import c.a.c0.a.d;
+import c.a.c0.a.e;
+import c.a.c0.a.f;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.sapi2.SapiWebView;
@@ -36,21 +36,21 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ WebView f44694a;
+        public final /* synthetic */ WebView f44801a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ View f44695b;
+        public final /* synthetic */ View f44802b;
 
         /* renamed from: com.baidu.sapi2.utils.b$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class RunnableC1696a implements Runnable {
+        public class RunnableC1700a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ a f44696a;
+            public final /* synthetic */ a f44803a;
 
-            public RunnableC1696a(a aVar) {
+            public RunnableC1700a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -65,15 +65,15 @@ public class b {
                         return;
                     }
                 }
-                this.f44696a = aVar;
+                this.f44803a = aVar;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.f44696a.f44695b.setVisibility(4);
-                    this.f44696a.f44694a.reload();
+                    this.f44803a.f44802b.setVisibility(4);
+                    this.f44803a.f44801a.reload();
                 }
             }
         }
@@ -93,15 +93,15 @@ public class b {
                     return;
                 }
             }
-            this.f44694a = webView;
-            this.f44695b = view;
+            this.f44801a = webView;
+            this.f44802b = view;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f44694a.post(new RunnableC1696a(this));
+                this.f44801a.post(new RunnableC1700a(this));
             }
         }
     }
@@ -140,7 +140,7 @@ public class b {
             try {
                 ProgressBar progressBar = new ProgressBar(context, null, 16842872);
                 progressBar.setLayoutParams(new AbsoluteLayout.LayoutParams(-1, SapiUtils.dip2px(context, 2.0f), 0, 0));
-                progressBar.setBackgroundColor(context.getResources().getColor(c.a.b0.a.b.sapi_sdk_dark_mode_color));
+                progressBar.setBackgroundColor(context.getResources().getColor(c.a.c0.a.b.sapi_sdk_dark_mode_color));
                 sapiWebView.setProgressBar(progressBar);
             } catch (Throwable th) {
                 Log.e(th);
@@ -176,13 +176,13 @@ public class b {
             View inflate = ((LayoutInflater) context.getSystemService("layout_inflater")).inflate(f.layout_sapi_sdk_loading_timeout, (ViewGroup) null);
             Button button = (Button) inflate.findViewById(e.btn_retry);
             if (SapiAccountManager.getInstance().getConfignation().isDarkMode && inflate != null) {
-                ((LinearLayout) inflate.findViewById(e.sapi_sdk_loading_timeout_bg_layout)).setBackgroundColor(context.getResources().getColor(c.a.b0.a.b.sapi_sdk_dark_mode_color));
-                ((TextView) inflate.findViewById(e.sapi_sdk_loading_timeout_tv)).setTextColor(context.getResources().getColor(c.a.b0.a.b.sapi_sdk_dark_mode_no_network_tv_color));
+                ((LinearLayout) inflate.findViewById(e.sapi_sdk_loading_timeout_bg_layout)).setBackgroundColor(context.getResources().getColor(c.a.c0.a.b.sapi_sdk_dark_mode_color));
+                ((TextView) inflate.findViewById(e.sapi_sdk_loading_timeout_tv)).setTextColor(context.getResources().getColor(c.a.c0.a.b.sapi_sdk_dark_mode_no_network_tv_color));
                 ((ImageView) inflate.findViewById(e.sapi_sdk_loading_timeout_iv)).setImageResource(d.sapi_sdk_icon_connection_failed_dark);
                 button.setBackgroundResource(d.sapi_sdk_btn_gray);
                 Resources resources = context.getResources();
                 if (resources != null) {
-                    button.setTextColor(resources.getColorStateList(c.a.b0.a.b.sapi_sdk_text_white));
+                    button.setTextColor(resources.getColorStateList(c.a.c0.a.b.sapi_sdk_text_white));
                 }
             }
             button.setOnClickListener(new a(webView, inflate));

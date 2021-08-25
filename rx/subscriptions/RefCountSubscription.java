@@ -17,14 +17,14 @@ public final class RefCountSubscription implements k {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final a f79100g;
+    public static final a f79301g;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final k f79101e;
+    public final k f79302e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final AtomicReference<a> f79102f;
+    public final AtomicReference<a> f79303f;
 
     /* loaded from: classes2.dex */
     public static final class InnerSubscription extends AtomicInteger implements k {
@@ -73,10 +73,10 @@ public final class RefCountSubscription implements k {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final boolean f79103a;
+        public final boolean f79304a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final int f79104b;
+        public final int f79305b;
 
         public a(boolean z, int i2) {
             Interceptable interceptable = $ic;
@@ -93,26 +93,26 @@ public final class RefCountSubscription implements k {
                     return;
                 }
             }
-            this.f79103a = z;
-            this.f79104b = i2;
+            this.f79304a = z;
+            this.f79305b = i2;
         }
 
         public a a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new a(this.f79103a, this.f79104b + 1) : (a) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new a(this.f79304a, this.f79305b + 1) : (a) invokeV.objValue;
         }
 
         public a b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new a(this.f79103a, this.f79104b - 1) : (a) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new a(this.f79304a, this.f79305b - 1) : (a) invokeV.objValue;
         }
 
         public a c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? new a(true, this.f79104b) : (a) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? new a(true, this.f79305b) : (a) invokeV.objValue;
         }
     }
 
@@ -129,7 +129,7 @@ public final class RefCountSubscription implements k {
                 return;
             }
         }
-        f79100g = new a(false, 0);
+        f79301g = new a(false, 0);
     }
 
     public RefCountSubscription(k kVar) {
@@ -147,9 +147,9 @@ public final class RefCountSubscription implements k {
                 return;
             }
         }
-        this.f79102f = new AtomicReference<>(f79100g);
+        this.f79303f = new AtomicReference<>(f79301g);
         if (kVar != null) {
-            this.f79101e = kVar;
+            this.f79302e = kVar;
             return;
         }
         throw new IllegalArgumentException("s");
@@ -160,10 +160,10 @@ public final class RefCountSubscription implements k {
         a aVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            AtomicReference<a> atomicReference = this.f79102f;
+            AtomicReference<a> atomicReference = this.f79303f;
             do {
                 aVar = atomicReference.get();
-                if (aVar.f79103a) {
+                if (aVar.f79304a) {
                     return e.c();
                 }
             } while (!atomicReference.compareAndSet(aVar, aVar.a()));
@@ -177,7 +177,7 @@ public final class RefCountSubscription implements k {
         a b2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            AtomicReference<a> atomicReference = this.f79102f;
+            AtomicReference<a> atomicReference = this.f79303f;
             do {
                 aVar = atomicReference.get();
                 b2 = aVar.b();
@@ -188,8 +188,8 @@ public final class RefCountSubscription implements k {
 
     public final void c(a aVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) && aVar.f79103a && aVar.f79104b == 0) {
-            this.f79101e.unsubscribe();
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) && aVar.f79304a && aVar.f79305b == 0) {
+            this.f79302e.unsubscribe();
         }
     }
 
@@ -197,7 +197,7 @@ public final class RefCountSubscription implements k {
     public boolean isUnsubscribed() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f79102f.get().f79103a : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f79303f.get().f79304a : invokeV.booleanValue;
     }
 
     @Override // i.k
@@ -206,10 +206,10 @@ public final class RefCountSubscription implements k {
         a c2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            AtomicReference<a> atomicReference = this.f79102f;
+            AtomicReference<a> atomicReference = this.f79303f;
             do {
                 aVar = atomicReference.get();
-                if (aVar.f79103a) {
+                if (aVar.f79304a) {
                     return;
                 }
                 c2 = aVar.c();

@@ -35,34 +35,34 @@ public class j {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public NetworkInfo f2502a;
+    public NetworkInfo f2560a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f2503b;
+    public boolean f2561b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f2504c;
+    public boolean f2562c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f2505d;
+    public boolean f2563d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f2506e;
+    public int f2564e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f2507f;
+    public int f2565f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f2508g;
+    public int f2566g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f2509h;
+    public String f2567h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f2510i;
+    public int f2568i;
 
     /* renamed from: j  reason: collision with root package name */
-    public long f2511j;
+    public long f2569j;
     public boolean k;
     public Runnable l;
 
@@ -184,15 +184,15 @@ public class j {
                 return;
             }
         }
-        this.f2502a = null;
-        this.f2503b = true;
-        this.f2504c = false;
-        this.f2505d = true;
-        this.f2506e = 0;
-        this.f2507f = 0;
-        this.f2508g = -1;
-        this.f2509h = null;
-        this.f2510i = -1;
+        this.f2560a = null;
+        this.f2561b = true;
+        this.f2562c = false;
+        this.f2563d = true;
+        this.f2564e = 0;
+        this.f2565f = 0;
+        this.f2566g = -1;
+        this.f2567h = null;
+        this.f2568i = -1;
         this.k = true;
         this.l = new a(this);
     }
@@ -472,10 +472,10 @@ public class j {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.f2502a == null) {
+            if (this.f2560a == null) {
                 j();
             }
-            return this.f2503b;
+            return this.f2561b;
         }
         return invokeV.booleanValue;
     }
@@ -483,7 +483,7 @@ public class j {
     public final void N(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2) == null) {
-            this.f2511j = j2;
+            this.f2569j = j2;
         }
     }
 
@@ -497,7 +497,7 @@ public class j {
     public final long g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f2511j : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f2569j : invokeV.longValue;
     }
 
     public final NetworkInfo h() {
@@ -518,10 +518,10 @@ public class j {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            if (this.f2502a == null) {
+            if (this.f2560a == null) {
                 j();
             }
-            return this.f2507f;
+            return this.f2565f;
         }
         return invokeV.intValue;
     }
@@ -530,36 +530,36 @@ public class j {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             NetworkInfo h2 = h();
-            this.f2502a = h2;
+            this.f2560a = h2;
             if (h2 != null) {
                 if (h2.getType() == 1) {
-                    this.f2503b = true;
-                    this.f2504c = false;
+                    this.f2561b = true;
+                    this.f2562c = false;
                 } else if (h2.getType() == 0) {
-                    this.f2503b = false;
-                    this.f2504c = true;
+                    this.f2561b = false;
+                    this.f2562c = true;
                 } else {
-                    this.f2503b = false;
-                    this.f2504c = false;
+                    this.f2561b = false;
+                    this.f2562c = false;
                 }
-                this.f2505d = true;
+                this.f2563d = true;
                 int subtype = h2.getSubtype();
-                this.f2506e = subtype;
-                if (this.f2504c) {
-                    this.f2507f = n(subtype);
+                this.f2564e = subtype;
+                if (this.f2562c) {
+                    this.f2565f = n(subtype);
                 } else {
-                    this.f2507f = 0;
+                    this.f2565f = 0;
                 }
             } else {
-                this.f2503b = false;
-                this.f2504c = false;
-                this.f2505d = false;
-                this.f2506e = 0;
-                this.f2506e = 0;
+                this.f2561b = false;
+                this.f2562c = false;
+                this.f2563d = false;
+                this.f2564e = 0;
+                this.f2564e = 0;
             }
-            this.f2508g = L();
-            this.f2509h = Proxy.getDefaultHost();
-            this.f2510i = Proxy.getDefaultPort();
+            this.f2566g = L();
+            this.f2567h = Proxy.getDefaultHost();
+            this.f2568i = Proxy.getDefaultPort();
         }
     }
 
@@ -567,14 +567,14 @@ public class j {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            if (this.f2508g == -1) {
+            if (this.f2566g == -1) {
                 try {
-                    this.f2508g = L();
+                    this.f2566g = L();
                 } catch (Exception unused) {
-                    this.f2508g = 0;
+                    this.f2566g = 0;
                 }
             }
-            return this.f2508g;
+            return this.f2566g;
         }
         return invokeV.intValue;
     }
@@ -583,10 +583,10 @@ public class j {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            if (this.f2509h == null) {
-                this.f2509h = Proxy.getDefaultHost();
+            if (this.f2567h == null) {
+                this.f2567h = Proxy.getDefaultHost();
             }
-            return this.f2509h;
+            return this.f2567h;
         }
         return (String) invokeV.objValue;
     }
@@ -595,10 +595,10 @@ public class j {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            if (-1 == this.f2510i) {
-                this.f2510i = Proxy.getDefaultPort();
+            if (-1 == this.f2568i) {
+                this.f2568i = Proxy.getDefaultPort();
             }
-            return this.f2510i;
+            return this.f2568i;
         }
         return invokeV.intValue;
     }
@@ -607,10 +607,10 @@ public class j {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            if (this.f2502a == null) {
+            if (this.f2560a == null) {
                 j();
             }
-            return this.f2504c;
+            return this.f2562c;
         }
         return invokeV.booleanValue;
     }
@@ -619,10 +619,10 @@ public class j {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            if (this.f2502a == null) {
+            if (this.f2560a == null) {
                 j();
             }
-            return this.f2505d;
+            return this.f2563d;
         }
         return invokeV.booleanValue;
     }

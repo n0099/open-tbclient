@@ -15,13 +15,13 @@ public class b implements com.kwad.sdk.core.b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f72051a;
+    public String f72251a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f72052b;
+    public String f72252b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f72053c;
+    public String f72253c;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -43,9 +43,9 @@ public class b implements com.kwad.sdk.core.b {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
             return;
         }
-        this.f72051a = jSONObject.optString("action");
-        this.f72052b = jSONObject.optString("data");
-        this.f72053c = jSONObject.optString("callback");
+        this.f72251a = jSONObject.optString("action");
+        this.f72252b = jSONObject.optString("data");
+        this.f72253c = jSONObject.optString("callback");
     }
 
     @Override // com.kwad.sdk.core.b
@@ -54,9 +54,9 @@ public class b implements com.kwad.sdk.core.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             JSONObject jSONObject = new JSONObject();
-            q.a(jSONObject, "action", this.f72051a);
-            q.a(jSONObject, "data", this.f72052b);
-            q.a(jSONObject, "callback", this.f72053c);
+            q.a(jSONObject, "action", this.f72251a);
+            q.a(jSONObject, "data", this.f72252b);
+            q.a(jSONObject, "callback", this.f72253c);
             return jSONObject;
         }
         return (JSONObject) invokeV.objValue;

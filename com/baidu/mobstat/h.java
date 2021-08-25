@@ -25,7 +25,7 @@ public class h {
                 jSONObject.put("ii", bw.a(2, context));
                 jSONObject.put("w", bw.c(context));
                 jSONObject.put("h", bw.d(context));
-                jSONObject.put("ly", ab.f42943c);
+                jSONObject.put("ly", ab.f43050c);
                 jSONObject.put("pv", "24");
                 try {
                     PackageInfo packageInfo = context.getPackageManager().getPackageInfo(context.getPackageName(), 0);

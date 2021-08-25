@@ -18,7 +18,7 @@ public class e extends BroadcastReceiver {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f41917a;
+    public static final String f42024a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -34,7 +34,7 @@ public class e extends BroadcastReceiver {
                 return;
             }
         }
-        f41917a = e.class.getSimpleName();
+        f42024a = e.class.getSimpleName();
     }
 
     public e() {

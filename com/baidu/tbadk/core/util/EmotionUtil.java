@@ -35,57 +35,32 @@ public class EmotionUtil {
         }
     }
 
+    /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[INVOKE, MOVE_EXCEPTION, CONST_STR, INVOKE, INVOKE, MOVE_EXCEPTION] complete} */
     public static void statisticsEmotionGroupNums() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-            new Thread(new Runnable() { // from class: com.baidu.tbadk.core.util.EmotionUtil.1
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                        }
-                    }
+            int i2 = 0;
+            Cursor cursor = null;
+            try {
+                cursor = TiebaDatabase.getInstance().getMainDBDatabaseManager().f().rawQuery("SELECT * FROM user_emotions where uid = ? order by updateTime desc ", new String[]{TbadkCoreApplication.getCurrentAccount()});
+                while (cursor.moveToNext()) {
+                    i2++;
                 }
-
-                /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[INVOKE, MOVE_EXCEPTION, CONST_STR, INVOKE, INVOKE, MOVE_EXCEPTION] complete} */
-                @Override // java.lang.Runnable
-                public void run() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        int i2 = 0;
-                        Cursor cursor = null;
-                        try {
-                            cursor = TiebaDatabase.getInstance().getMainDBDatabaseManager().f().rawQuery("SELECT * FROM user_emotions where uid = ? order by updateTime desc ", new String[]{TbadkCoreApplication.getCurrentAccount()});
-                            while (cursor.moveToNext()) {
-                                i2++;
-                            }
-                        } finally {
-                            try {
-                                m.a(cursor);
-                                StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.FACESHOP_TOTAL_NUM);
-                                statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-                                statisticItem.param("obj_param1", i2);
-                                TiebaStatic.log(statisticItem);
-                            } catch (Throwable th) {
-                            }
-                        }
-                        m.a(cursor);
-                        StatisticItem statisticItem2 = new StatisticItem(TbadkCoreStatisticKey.FACESHOP_TOTAL_NUM);
-                        statisticItem2.param("uid", TbadkCoreApplication.getCurrentAccount());
-                        statisticItem2.param("obj_param1", i2);
-                        TiebaStatic.log(statisticItem2);
-                    }
+            } finally {
+                try {
+                    m.a(cursor);
+                    StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.FACESHOP_TOTAL_NUM);
+                    statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
+                    statisticItem.param("obj_param1", i2);
+                    TiebaStatic.log(statisticItem);
+                } catch (Throwable th) {
                 }
-            }).start();
+            }
+            m.a(cursor);
+            StatisticItem statisticItem2 = new StatisticItem(TbadkCoreStatisticKey.FACESHOP_TOTAL_NUM);
+            statisticItem2.param("uid", TbadkCoreApplication.getCurrentAccount());
+            statisticItem2.param("obj_param1", i2);
+            TiebaStatic.log(statisticItem2);
         }
     }
 

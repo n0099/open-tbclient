@@ -35,7 +35,7 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile b f37023a;
+    public static volatile b f37129a;
     public transient /* synthetic */ FieldHolder $fh;
 
     public b() {
@@ -73,14 +73,14 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (f37023a == null) {
+            if (f37129a == null) {
                 synchronized (b.class) {
-                    if (f37023a == null) {
-                        f37023a = new b();
+                    if (f37129a == null) {
+                        f37129a = new b();
                     }
                 }
             }
-            return f37023a;
+            return f37129a;
         }
         return (b) invokeV.objValue;
     }
@@ -302,27 +302,27 @@ public class b {
         }
         HashMap hashMap = new HashMap();
         hashMap.put("Content-Type", "application/json");
-        d.a().a(new com.baidu.android.pushservice.h.c(this, context, h.f37059c + h.f37063g, str, hashMap, aVar) { // from class: com.baidu.android.pushservice.frequency.b.3
+        d.a().a(new com.baidu.android.pushservice.h.c(this, context, h.f37165c + h.f37169g, str, hashMap, aVar) { // from class: com.baidu.android.pushservice.frequency.b.3
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ Context f37038a;
+            public final /* synthetic */ Context f37144a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ String f37039b;
+            public final /* synthetic */ String f37145b;
 
             /* renamed from: c  reason: collision with root package name */
-            public final /* synthetic */ String f37040c;
+            public final /* synthetic */ String f37146c;
 
             /* renamed from: d  reason: collision with root package name */
-            public final /* synthetic */ HashMap f37041d;
+            public final /* synthetic */ HashMap f37147d;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ a f37042e;
+            public final /* synthetic */ a f37148e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ b f37043f;
+            public final /* synthetic */ b f37149f;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -339,12 +339,12 @@ public class b {
                         return;
                     }
                 }
-                this.f37043f = this;
-                this.f37038a = context;
-                this.f37039b = r8;
-                this.f37040c = str;
-                this.f37041d = hashMap;
-                this.f37042e = aVar;
+                this.f37149f = this;
+                this.f37144a = context;
+                this.f37145b = r8;
+                this.f37146c = str;
+                this.f37147d = hashMap;
+                this.f37148e = aVar;
             }
 
             /* JADX WARN: Can't wrap try/catch for region: R(7:(2:9|10)|(1:12)(2:28|(7:30|31|32|14|15|16|(2:18|19)(2:21|(2:23|24)(1:25))))|13|14|15|16|(0)(0)) */
@@ -363,33 +363,33 @@ public class b {
                 if (interceptable2 != null && interceptable2.invokeV(1048576, this) != null) {
                     return;
                 }
-                Context context2 = this.f37038a;
-                com.baidu.android.pushservice.e.b a2 = com.baidu.android.pushservice.e.c.a(context2, this.f37039b, "POST", this.f37043f.a(context2, this.f37040c), this.f37041d, "application/json");
+                Context context2 = this.f37144a;
+                com.baidu.android.pushservice.e.b a2 = com.baidu.android.pushservice.e.c.a(context2, this.f37145b, "POST", this.f37149f.a(context2, this.f37146c), this.f37147d, "application/json");
                 int i5 = 0;
                 if (a2 != null) {
-                    String a3 = m.a(this.f37038a, a2.a());
+                    String a3 = m.a(this.f37144a, a2.a());
                     i2 = a2.b();
-                    if (i2 == 200 && (i2 = this.f37043f.a(a3)) == 0) {
+                    if (i2 == 200 && (i2 = this.f37149f.a(a3)) == 0) {
                         try {
                             jSONObject = new JSONObject(a3).getJSONObject("data");
                         } catch (JSONException unused) {
                         }
-                        if (this.f37040c.equals(PushConstants.EXTRA_PUSH_FREQ)) {
+                        if (this.f37146c.equals(PushConstants.EXTRA_PUSH_FREQ)) {
                             i5 = jSONObject.getInt(PushConstants.EXTRA_PUSH_FREQ);
-                        } else if (this.f37040c.equals("do_not_disturb")) {
+                        } else if (this.f37146c.equals("do_not_disturb")) {
                             JSONObject jSONObject2 = jSONObject.getJSONObject("do_not_disturb");
                             i4 = jSONObject2.getInt("from");
                             try {
                                 i3 = jSONObject2.getInt("to");
-                                this.f37043f.b(this.f37038a, jSONObject);
+                                this.f37149f.b(this.f37144a, jSONObject);
                             } catch (JSONException unused2) {
                                 i3 = 0;
                             }
-                            if (this.f37040c.equals(PushConstants.EXTRA_PUSH_FREQ)) {
-                                ((GetFrequencyListener) this.f37042e).onResult(i2, i5);
+                            if (this.f37146c.equals(PushConstants.EXTRA_PUSH_FREQ)) {
+                                ((GetFrequencyListener) this.f37148e).onResult(i2, i5);
                                 return;
-                            } else if (this.f37040c.equals("do_not_disturb")) {
-                                ((GetNoDisturbListener) this.f37042e).onResult(i2, i4, i3);
+                            } else if (this.f37146c.equals("do_not_disturb")) {
+                                ((GetNoDisturbListener) this.f37148e).onResult(i2, i4, i3);
                                 return;
                             } else {
                                 return;
@@ -397,8 +397,8 @@ public class b {
                         }
                         i3 = 0;
                         i4 = 0;
-                        this.f37043f.b(this.f37038a, jSONObject);
-                        if (this.f37040c.equals(PushConstants.EXTRA_PUSH_FREQ)) {
+                        this.f37149f.b(this.f37144a, jSONObject);
+                        if (this.f37146c.equals(PushConstants.EXTRA_PUSH_FREQ)) {
                         }
                     }
                 } else {
@@ -406,7 +406,7 @@ public class b {
                 }
                 i3 = 0;
                 i4 = 0;
-                if (this.f37040c.equals(PushConstants.EXTRA_PUSH_FREQ)) {
+                if (this.f37146c.equals(PushConstants.EXTRA_PUSH_FREQ)) {
                 }
             }
         });
@@ -417,27 +417,27 @@ public class b {
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, context, hashMap, uploadDataListener) == null) {
             HashMap hashMap2 = new HashMap();
             hashMap2.put("Content-Type", "application/json");
-            d.a().a(new com.baidu.android.pushservice.h.c(this, hashMap, context, hashMap2, uploadDataListener, h.f37059c + h.f37061e) { // from class: com.baidu.android.pushservice.frequency.b.1
+            d.a().a(new com.baidu.android.pushservice.h.c(this, hashMap, context, hashMap2, uploadDataListener, h.f37165c + h.f37167e) { // from class: com.baidu.android.pushservice.frequency.b.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ HashMap f37024a;
+                public final /* synthetic */ HashMap f37130a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ Context f37025b;
+                public final /* synthetic */ Context f37131b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ HashMap f37026c;
+                public final /* synthetic */ HashMap f37132c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ UploadDataListener f37027d;
+                public final /* synthetic */ UploadDataListener f37133d;
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ String f37028e;
+                public final /* synthetic */ String f37134e;
 
                 /* renamed from: f  reason: collision with root package name */
-                public final /* synthetic */ b f37029f;
+                public final /* synthetic */ b f37135f;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -454,46 +454,46 @@ public class b {
                             return;
                         }
                     }
-                    this.f37029f = this;
-                    this.f37024a = hashMap;
-                    this.f37025b = context;
-                    this.f37026c = hashMap2;
-                    this.f37027d = uploadDataListener;
-                    this.f37028e = r11;
+                    this.f37135f = this;
+                    this.f37130a = hashMap;
+                    this.f37131b = context;
+                    this.f37132c = hashMap2;
+                    this.f37133d = uploadDataListener;
+                    this.f37134e = r11;
                 }
 
                 @Override // com.baidu.android.pushservice.h.c
                 public void a() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        if (this.f37024a.containsKey("bduss")) {
-                            HashMap hashMap3 = this.f37024a;
-                            hashMap3.put("bduss", "bduss=" + this.f37024a.get("bduss"));
+                        if (this.f37130a.containsKey("bduss")) {
+                            HashMap hashMap3 = this.f37130a;
+                            hashMap3.put("bduss", "bduss=" + this.f37130a.get("bduss"));
                         }
-                        HashMap b2 = this.f37029f.b(this.f37025b, this.f37024a);
+                        HashMap b2 = this.f37135f.b(this.f37131b, this.f37130a);
                         if (b2.containsKey("bduss")) {
                             if (b2.containsKey(PushConstants.EXTRA_BDUSS_ACTION)) {
-                                HashMap hashMap4 = this.f37026c;
+                                HashMap hashMap4 = this.f37132c;
                                 hashMap4.put("cookie", b2.get("bduss") + "");
                             }
                             b2.remove("bduss");
                         }
-                        if (b2.isEmpty() && !this.f37026c.containsKey("bduss")) {
-                            this.f37027d.onResult(0);
+                        if (b2.isEmpty() && !this.f37132c.containsKey("bduss")) {
+                            this.f37133d.onResult(0);
                             return;
                         }
                         int i2 = 10001;
-                        com.baidu.android.pushservice.e.b a2 = com.baidu.android.pushservice.e.c.a(this.f37025b, this.f37028e, "POST", this.f37029f.c(this.f37025b, b2), this.f37026c, "application/json");
+                        com.baidu.android.pushservice.e.b a2 = com.baidu.android.pushservice.e.c.a(this.f37131b, this.f37134e, "POST", this.f37135f.c(this.f37131b, b2), this.f37132c, "application/json");
                         if (a2 != null) {
-                            String a3 = m.a(this.f37025b, a2.a());
-                            if (a2.b() == 200 && (i2 = this.f37029f.a(a3)) == 0) {
-                                if (this.f37026c.containsKey("cookie")) {
-                                    b2.put("bduss", this.f37026c.get("cookie"));
+                            String a3 = m.a(this.f37131b, a2.a());
+                            if (a2.b() == 200 && (i2 = this.f37135f.a(a3)) == 0) {
+                                if (this.f37132c.containsKey("cookie")) {
+                                    b2.put("bduss", this.f37132c.get("cookie"));
                                 }
-                                this.f37029f.a(this.f37025b, b2);
+                                this.f37135f.a(this.f37131b, b2);
                             }
                         }
-                        this.f37027d.onResult(i2);
+                        this.f37133d.onResult(i2);
                     }
                 }
             });
@@ -516,33 +516,33 @@ public class b {
         if (i.b(context, "click_data_size", -1) != -1 || z) {
             HashMap hashMap = new HashMap();
             hashMap.put("Content-Type", "application/json");
-            d.a().a(new com.baidu.android.pushservice.h.c(this, context, z, str, i2, str2, h.f37065i + h.f37066j, hashMap) { // from class: com.baidu.android.pushservice.frequency.b.2
+            d.a().a(new com.baidu.android.pushservice.h.c(this, context, z, str, i2, str2, h.f37171i + h.f37172j, hashMap) { // from class: com.baidu.android.pushservice.frequency.b.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ Context f37030a;
+                public final /* synthetic */ Context f37136a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ boolean f37031b;
+                public final /* synthetic */ boolean f37137b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ String f37032c;
+                public final /* synthetic */ String f37138c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ int f37033d;
+                public final /* synthetic */ int f37139d;
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ String f37034e;
+                public final /* synthetic */ String f37140e;
 
                 /* renamed from: f  reason: collision with root package name */
-                public final /* synthetic */ String f37035f;
+                public final /* synthetic */ String f37141f;
 
                 /* renamed from: g  reason: collision with root package name */
-                public final /* synthetic */ HashMap f37036g;
+                public final /* synthetic */ HashMap f37142g;
 
                 /* renamed from: h  reason: collision with root package name */
-                public final /* synthetic */ b f37037h;
+                public final /* synthetic */ b f37143h;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -559,33 +559,33 @@ public class b {
                             return;
                         }
                     }
-                    this.f37037h = this;
-                    this.f37030a = context;
-                    this.f37031b = z;
-                    this.f37032c = str;
-                    this.f37033d = i2;
-                    this.f37034e = str2;
-                    this.f37035f = r12;
-                    this.f37036g = hashMap;
+                    this.f37143h = this;
+                    this.f37136a = context;
+                    this.f37137b = z;
+                    this.f37138c = str;
+                    this.f37139d = i2;
+                    this.f37140e = str2;
+                    this.f37141f = r12;
+                    this.f37142g = hashMap;
                 }
 
                 @Override // com.baidu.android.pushservice.h.c
                 public void a() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        JSONObject a2 = this.f37037h.a(this.f37030a, this.f37031b, this.f37032c, this.f37033d, this.f37034e);
+                        JSONObject a2 = this.f37143h.a(this.f37136a, this.f37137b, this.f37138c, this.f37139d, this.f37140e);
                         int i3 = 2;
                         do {
-                            com.baidu.android.pushservice.e.b a3 = a2 != null ? com.baidu.android.pushservice.e.c.a(this.f37030a, this.f37035f, "POST", a2.toString(), this.f37036g, "application/json") : null;
+                            com.baidu.android.pushservice.e.b a3 = a2 != null ? com.baidu.android.pushservice.e.c.a(this.f37136a, this.f37141f, "POST", a2.toString(), this.f37142g, "application/json") : null;
                             if (a3 != null) {
                                 int b2 = a3.b();
-                                String a4 = m.a(this.f37030a, a3.a());
-                                if (b2 == 200 && this.f37037h.a(a4) == 0) {
+                                String a4 = m.a(this.f37136a, a3.a());
+                                if (b2 == 200 && this.f37143h.a(a4) == 0) {
                                     return;
                                 }
                             }
                             if (i3 == 1) {
-                                this.f37037h.a(this.f37030a, a2);
+                                this.f37143h.a(this.f37136a, a2);
                             }
                             i3--;
                         } while (i3 > 0);

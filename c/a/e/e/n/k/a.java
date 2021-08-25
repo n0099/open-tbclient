@@ -12,11 +12,11 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static a f2414b;
+    public static a f2472b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f2415a;
+    public long f2473a;
 
     static {
         InterceptResult invokeClinit;
@@ -46,21 +46,21 @@ public class a {
                 return;
             }
         }
-        this.f2415a = 0L;
+        this.f2473a = 0L;
     }
 
     public static a b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f2414b == null) {
+            if (f2472b == null) {
                 synchronized (a.class) {
-                    if (f2414b == null) {
-                        f2414b = new a();
+                    if (f2472b == null) {
+                        f2472b = new a();
                     }
                 }
             }
-            return f2414b;
+            return f2472b;
         }
         return (a) invokeV.objValue;
     }
@@ -71,12 +71,12 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             synchronized (this) {
-                if (this.f2415a > 0) {
-                    this.f2415a++;
+                if (this.f2473a > 0) {
+                    this.f2473a++;
                 } else {
-                    this.f2415a = System.currentTimeMillis();
+                    this.f2473a = System.currentTimeMillis();
                 }
-                j2 = this.f2415a;
+                j2 = this.f2473a;
             }
             return j2;
         }

@@ -2,8 +2,8 @@ package com.baidu.tieba.recapp.lego.view;
 
 import android.text.TextUtils;
 import android.view.View;
-import c.a.p0.o1.o.k.a;
-import c.a.p0.x2.i0.b.d;
+import c.a.q0.o1.o.k.a;
+import c.a.q0.x2.i0.b.d;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.widget.TbImageView;
@@ -20,10 +20,10 @@ public class AdCardSmallPicView extends AdSimpleCardBaseView {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: i  reason: collision with root package name */
-    public XfremodeRoundLayout f56044i;
+    public XfremodeRoundLayout f56209i;
 
     /* renamed from: j  reason: collision with root package name */
-    public TbImageView f56045j;
+    public TbImageView f56210j;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AdCardSmallPicView(TbPageContext tbPageContext) {
@@ -50,11 +50,11 @@ public class AdCardSmallPicView extends AdSimpleCardBaseView {
         d dVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, adCard) == null) {
-            if (adCard != null && (dVar = adCard.picInfo) != null && a.k(dVar.f28542c) >= 1) {
-                String str = (String) a.d(adCard.picInfo.f28542c, 0);
+            if (adCard != null && (dVar = adCard.picInfo) != null && a.k(dVar.f28881c) >= 1) {
+                String str = (String) a.d(adCard.picInfo.f28881c, 0);
                 if (!TextUtils.isEmpty(str)) {
                     this.mCustomRoot.setVisibility(0);
-                    this.f56045j.startLoad(str, 17, false);
+                    this.f56210j.startLoad(str, 17, false);
                     return;
                 }
                 this.mCustomRoot.setVisibility(8);
@@ -83,11 +83,11 @@ public class AdCardSmallPicView extends AdSimpleCardBaseView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, view) == null) {
             float dimensionPixelSize = this.mContext.getResources().getDimensionPixelSize(R.dimen.tbds10);
-            this.f56044i = (XfremodeRoundLayout) view.findViewById(R.id.rl_ad_image);
+            this.f56209i = (XfremodeRoundLayout) view.findViewById(R.id.rl_ad_image);
             TbImageView tbImageView = (TbImageView) view.findViewById(R.id.ad_img);
-            this.f56045j = tbImageView;
+            this.f56210j = tbImageView;
             tbImageView.setPlaceHolder(3);
-            this.f56044i.setRoundLayoutRadius(new float[]{dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize});
+            this.f56209i.setRoundLayoutRadius(new float[]{dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize});
         }
     }
 }

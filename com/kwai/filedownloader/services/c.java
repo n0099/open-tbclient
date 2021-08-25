@@ -17,7 +17,7 @@ public class c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final a f73955a;
+    public final a f74155a;
 
     /* loaded from: classes10.dex */
     public static class a {
@@ -25,22 +25,22 @@ public class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public c.InterfaceC2024c f73956a;
+        public c.InterfaceC2028c f74156a;
 
         /* renamed from: b  reason: collision with root package name */
-        public Integer f73957b;
+        public Integer f74157b;
 
         /* renamed from: c  reason: collision with root package name */
-        public c.e f73958c;
+        public c.e f74158c;
 
         /* renamed from: d  reason: collision with root package name */
-        public c.b f73959d;
+        public c.b f74159d;
 
         /* renamed from: e  reason: collision with root package name */
-        public c.a f73960e;
+        public c.a f74160e;
 
         /* renamed from: f  reason: collision with root package name */
-        public c.d f73961f;
+        public c.d f74161f;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -61,7 +61,7 @@ public class c {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
                 if (i2 > 0) {
-                    this.f73957b = Integer.valueOf(i2);
+                    this.f74157b = Integer.valueOf(i2);
                 }
                 return this;
             }
@@ -72,7 +72,7 @@ public class c {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar)) == null) {
-                this.f73959d = bVar;
+                this.f74159d = bVar;
                 return this;
             }
             return (a) invokeL.objValue;
@@ -81,7 +81,7 @@ public class c {
         public String toString() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? com.kwai.filedownloader.f.f.a("component: database[%s], maxNetworkCount[%s], outputStream[%s], connection[%s], connectionCountAdapter[%s]", this.f73956a, this.f73957b, this.f73958c, this.f73959d, this.f73960e) : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? com.kwai.filedownloader.f.f.a("component: database[%s], maxNetworkCount[%s], outputStream[%s], connection[%s], connectionCountAdapter[%s]", this.f74156a, this.f74157b, this.f74158c, this.f74159d, this.f74160e) : (String) invokeV.objValue;
         }
     }
 
@@ -98,7 +98,7 @@ public class c {
                 return;
             }
         }
-        this.f73955a = null;
+        this.f74155a = null;
     }
 
     public c(a aVar) {
@@ -116,7 +116,7 @@ public class c {
                 return;
             }
         }
-        this.f73955a = aVar;
+        this.f74155a = aVar;
     }
 
     private c.d g() {
@@ -128,7 +128,7 @@ public class c {
     private int h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) ? com.kwai.filedownloader.f.e.a().f73869e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) ? com.kwai.filedownloader.f.e.a().f74069e : invokeV.intValue;
     }
 
     private com.kwai.filedownloader.b.a i() {
@@ -160,9 +160,9 @@ public class c {
         Integer num;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            a aVar = this.f73955a;
-            if (aVar != null && (num = aVar.f73957b) != null) {
-                if (com.kwai.filedownloader.f.d.f73864a) {
+            a aVar = this.f74155a;
+            if (aVar != null && (num = aVar.f74157b) != null) {
+                if (com.kwai.filedownloader.f.d.f74064a) {
                     com.kwai.filedownloader.f.d.c(this, "initial FileDownloader manager with the customize maxNetworkThreadCount: %d", num);
                 }
                 return com.kwai.filedownloader.f.e.a(num.intValue());
@@ -174,16 +174,16 @@ public class c {
 
     public com.kwai.filedownloader.b.a b() {
         InterceptResult invokeV;
-        c.InterfaceC2024c interfaceC2024c;
+        c.InterfaceC2028c interfaceC2028c;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            a aVar = this.f73955a;
-            if (aVar == null || (interfaceC2024c = aVar.f73956a) == null) {
+            a aVar = this.f74155a;
+            if (aVar == null || (interfaceC2028c = aVar.f74156a) == null) {
                 return i();
             }
-            com.kwai.filedownloader.b.a a2 = interfaceC2024c.a();
+            com.kwai.filedownloader.b.a a2 = interfaceC2028c.a();
             if (a2 != null) {
-                if (com.kwai.filedownloader.f.d.f73864a) {
+                if (com.kwai.filedownloader.f.d.f74064a) {
                     com.kwai.filedownloader.f.d.c(this, "initial FileDownloader manager with the customize database: %s", a2);
                 }
                 return a2;
@@ -198,9 +198,9 @@ public class c {
         c.e eVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            a aVar = this.f73955a;
-            if (aVar != null && (eVar = aVar.f73958c) != null) {
-                if (com.kwai.filedownloader.f.d.f73864a) {
+            a aVar = this.f74155a;
+            if (aVar != null && (eVar = aVar.f74158c) != null) {
+                if (com.kwai.filedownloader.f.d.f74064a) {
                     com.kwai.filedownloader.f.d.c(this, "initial FileDownloader manager with the customize output stream: %s", eVar);
                 }
                 return eVar;
@@ -215,9 +215,9 @@ public class c {
         c.b bVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            a aVar = this.f73955a;
-            if (aVar != null && (bVar = aVar.f73959d) != null) {
-                if (com.kwai.filedownloader.f.d.f73864a) {
+            a aVar = this.f74155a;
+            if (aVar != null && (bVar = aVar.f74159d) != null) {
+                if (com.kwai.filedownloader.f.d.f74064a) {
                     com.kwai.filedownloader.f.d.c(this, "initial FileDownloader manager with the customize connection creator: %s", bVar);
                 }
                 return bVar;
@@ -232,9 +232,9 @@ public class c {
         c.a aVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            a aVar2 = this.f73955a;
-            if (aVar2 != null && (aVar = aVar2.f73960e) != null) {
-                if (com.kwai.filedownloader.f.d.f73864a) {
+            a aVar2 = this.f74155a;
+            if (aVar2 != null && (aVar = aVar2.f74160e) != null) {
+                if (com.kwai.filedownloader.f.d.f74064a) {
                     com.kwai.filedownloader.f.d.c(this, "initial FileDownloader manager with the customize connection count adapter: %s", aVar);
                 }
                 return aVar;
@@ -249,9 +249,9 @@ public class c {
         c.d dVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            a aVar = this.f73955a;
-            if (aVar != null && (dVar = aVar.f73961f) != null) {
-                if (com.kwai.filedownloader.f.d.f73864a) {
+            a aVar = this.f74155a;
+            if (aVar != null && (dVar = aVar.f74161f) != null) {
+                if (com.kwai.filedownloader.f.d.f74064a) {
                     com.kwai.filedownloader.f.d.c(this, "initial FileDownloader manager with the customize id generator: %s", dVar);
                 }
                 return dVar;

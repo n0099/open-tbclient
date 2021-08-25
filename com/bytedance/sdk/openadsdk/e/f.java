@@ -25,10 +25,10 @@ public class f implements e<a> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Context f67396a;
+    public final Context f67596a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final com.bytedance.sdk.openadsdk.core.c f67397b;
+    public final com.bytedance.sdk.openadsdk.core.c f67597b;
 
     public f(Context context) {
         Interceptable interceptable = $ic;
@@ -45,8 +45,8 @@ public class f implements e<a> {
                 return;
             }
         }
-        this.f67396a = context;
-        this.f67397b = com.bytedance.sdk.openadsdk.core.c.a(c());
+        this.f67596a = context;
+        this.f67597b = com.bytedance.sdk.openadsdk.core.c.a(c());
     }
 
     private synchronized void b(int i2, long j2) {
@@ -73,7 +73,7 @@ public class f implements e<a> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            Context context = this.f67396a;
+            Context context = this.f67596a;
             return context == null ? com.bytedance.sdk.openadsdk.core.o.a() : context;
         }
         return (Context) invokeV.objValue;
@@ -119,7 +119,7 @@ public class f implements e<a> {
             synchronized (this) {
                 LinkedList linkedList = new LinkedList();
                 for (a aVar : list) {
-                    linkedList.add(aVar.f67303a);
+                    linkedList.add(aVar.f67503a);
                 }
                 com.bytedance.sdk.openadsdk.multipro.a.a.a(c(), "UPDATE adevent SET " + HttpRetryStrategyDataParse.DOWNFLOW_RETRY_REQUEST_PARAM + " = " + HttpRetryStrategyDataParse.DOWNFLOW_RETRY_REQUEST_PARAM + "+1 WHERE " + a("id", linkedList, 1000, true));
             }
@@ -133,8 +133,8 @@ public class f implements e<a> {
         if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
             synchronized (this) {
                 ContentValues contentValues = new ContentValues();
-                contentValues.put("id", aVar.f67303a);
-                contentValues.put("value", aVar.f67304b != null ? aVar.f67304b.toString() : "");
+                contentValues.put("id", aVar.f67503a);
+                contentValues.put("value", aVar.f67504b != null ? aVar.f67504b.toString() : "");
                 contentValues.put("gen_time", Long.valueOf(System.currentTimeMillis()));
                 contentValues.put(HttpRetryStrategyDataParse.DOWNFLOW_RETRY_REQUEST_PARAM, (Integer) 0);
                 com.bytedance.sdk.openadsdk.multipro.a.a.a(c(), "adevent", contentValues);
@@ -152,7 +152,7 @@ public class f implements e<a> {
                 }
                 LinkedList linkedList = new LinkedList();
                 for (a aVar : list) {
-                    linkedList.add(aVar.f67303a);
+                    linkedList.add(aVar.f67503a);
                 }
                 com.bytedance.sdk.openadsdk.multipro.a.a.a(c(), "DELETE FROM adevent WHERE " + a("id", linkedList, 1000, true));
             }
@@ -163,7 +163,7 @@ public class f implements e<a> {
     public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f67397b.b("serverbusy_retrycount", 0) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f67597b.b("serverbusy_retrycount", 0) : invokeV.intValue;
     }
 
     @Override // com.bytedance.sdk.openadsdk.e.e
@@ -197,7 +197,7 @@ public class f implements e<a> {
     public void a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
-            this.f67397b.a("serverbusy_flag", z);
+            this.f67597b.a("serverbusy_flag", z);
         }
     }
 
@@ -205,14 +205,14 @@ public class f implements e<a> {
     public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f67397b.b("serverbusy_flag", false) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f67597b.b("serverbusy_flag", false) : invokeV.booleanValue;
     }
 
     @Override // com.bytedance.sdk.openadsdk.e.e
     public void a(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            this.f67397b.a("serverbusy_retrycount", i2);
+            this.f67597b.a("serverbusy_retrycount", i2);
         }
     }
 

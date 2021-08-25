@@ -30,6 +30,7 @@ public class StartupCountStats extends SimpleActivityLifeCycle implements NoProG
     public static long sForegroundTimeStamp;
     public static boolean sIsWarmBootApp;
     public static PerfSampleManager sPerfSampleManager;
+    public static ExtDataCallBack sStartupCountExtCallBack;
     public static StatsRule sStartupCountStatsRule;
     public static String sStartupCountStatsType;
     public static String sStartupCountUploadId;
@@ -118,6 +119,7 @@ public class StartupCountStats extends SimpleActivityLifeCycle implements NoProG
         sBackgroundTimeStamp = -1L;
         sStartupCountStatsRule = new StatsRule();
         sUseDurationStatsRule = new StatsRule();
+        sStartupCountExtCallBack = new ExtDataCallBack();
         sUseDurationExtCallBack = new ExtDataCallBack();
         sStartupCountUploadId = StartupCountStatsUtils.DEFAULT_STARTUP_UBC_ID;
         sUseDurationUploadId = StartupCountStatsUtils.DEFAULT_USE_DURATION_UBC_ID;
@@ -150,17 +152,21 @@ public class StartupCountStats extends SimpleActivityLifeCycle implements NoProG
                     jSONObject.put("source", sAppStartSource);
                     sAppStartSource = "";
                 }
-                JSONObject jSONObject2 = new JSONObject();
-                jSONObject2.put("ftime", sForegroundTimeStamp);
-                jSONObject2.put(StartupCountStatsUtils.BACKGROUND_TIME_STAMP, sBackgroundTimeStamp);
+                JSONObject addData = sStartupCountExtCallBack.addData();
+                if (addData == null) {
+                    addData = new JSONObject();
+                }
+                addData.put("ftime", sForegroundTimeStamp);
+                addData.put(StartupCountStatsUtils.BACKGROUND_TIME_STAMP, sBackgroundTimeStamp);
                 if (!TextUtils.isEmpty(sStartupCountStatsType)) {
-                    jSONObject2.put(StartupCountStatsUtils.LAUNCH_SAMPLE, sStartupCountStatsType);
+                    addData.put(StartupCountStatsUtils.LAUNCH_SAMPLE, sStartupCountStatsType);
                 }
                 String sampleFlag = sPerfSampleManager.getSampleFlag();
                 if (!TextUtils.isEmpty(sampleFlag)) {
-                    jSONObject2.put("pf", sampleFlag);
+                    addData.put("pf", sampleFlag);
                 }
-                jSONObject.put("ext", jSONObject2);
+                addData.put(StartupCountStatsUtils.SDK_FLAG_KEY, StartupCountStatsUtils.SDK_FLAG_VALUE);
+                jSONObject.put("ext", addData);
             } catch (JSONException e2) {
                 if (DEBUG) {
                     e2.printStackTrace();
@@ -183,6 +189,7 @@ public class StartupCountStats extends SimpleActivityLifeCycle implements NoProG
                 if (!TextUtils.isEmpty(sampleFlag)) {
                     addData.put("pf", sampleFlag);
                 }
+                addData.put(StartupCountStatsUtils.SDK_FLAG_KEY, StartupCountStatsUtils.SDK_FLAG_VALUE);
                 if (!TextUtils.isEmpty(sUseDurationStatsType)) {
                     addData.put(StartupCountStatsUtils.LAUNCH_SAMPLE, sUseDurationStatsType);
                 }
@@ -208,58 +215,65 @@ public class StartupCountStats extends SimpleActivityLifeCycle implements NoProG
         }
     }
 
+    public static void setStartupCountExtCallBack(ExtDataCallBack extDataCallBack) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, extDataCallBack) == null) {
+            sStartupCountExtCallBack = extDataCallBack;
+        }
+    }
+
     public static void setStartupCountStatsRule(StatsRule statsRule) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, statsRule) == null) {
+        if (interceptable == null || interceptable.invokeL(65543, null, statsRule) == null) {
             sStartupCountStatsRule = statsRule;
         }
     }
 
     public static void setStartupCountStatsType(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65543, null, str) == null) {
+        if (interceptable == null || interceptable.invokeL(65544, null, str) == null) {
             sStartupCountStatsType = str;
         }
     }
 
     public static void setStartupCountUploadId(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65544, null, str) == null) {
+        if (interceptable == null || interceptable.invokeL(65545, null, str) == null) {
             sStartupCountUploadId = str;
         }
     }
 
     public static void setUseDurationExtCallBack(ExtDataCallBack extDataCallBack) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65545, null, extDataCallBack) == null) {
+        if (interceptable == null || interceptable.invokeL(65546, null, extDataCallBack) == null) {
             sUseDurationExtCallBack = extDataCallBack;
         }
     }
 
     public static void setUseDurationStatsRule(StatsRule statsRule) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65546, null, statsRule) == null) {
+        if (interceptable == null || interceptable.invokeL(65547, null, statsRule) == null) {
             sUseDurationStatsRule = statsRule;
         }
     }
 
     public static void setUseDurationStatsType(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65547, null, str) == null) {
+        if (interceptable == null || interceptable.invokeL(65548, null, str) == null) {
             sUseDurationStatsType = str;
         }
     }
 
     public static void setUseDurationUploadId(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65548, null, str) == null) {
+        if (interceptable == null || interceptable.invokeL(65549, null, str) == null) {
             sUseDurationUploadId = str;
         }
     }
 
     public static void startTiming() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65549, null) == null) {
+        if (interceptable == null || interceptable.invokeV(65550, null) == null) {
             boolean z = DEBUG;
             JSONObject jSONObject = new JSONObject();
             try {
@@ -274,7 +288,7 @@ public class StartupCountStats extends SimpleActivityLifeCycle implements NoProG
     public static void stopTiming() {
         Flow flow;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65550, null) == null) || (flow = sFlow) == null) {
+        if (!(interceptable == null || interceptable.invokeV(65551, null) == null) || (flow = sFlow) == null) {
             return;
         }
         ubc.flowSetValueWithDuration(flow, generateValueJson());
@@ -285,7 +299,7 @@ public class StartupCountStats extends SimpleActivityLifeCycle implements NoProG
 
     public static void updateTiming() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65551, null) == null) || sFlow == null || !sUseDurationStatsRule.shouldStats(null) || System.currentTimeMillis() - sFlow.getStartTime() <= 300000) {
+        if (!(interceptable == null || interceptable.invokeV(65552, null) == null) || sFlow == null || !sUseDurationStatsRule.shouldStats(null) || System.currentTimeMillis() - sFlow.getStartTime() <= 300000) {
             return;
         }
         ubc.flowSetValueWithDuration(sFlow, generateValueJson());
@@ -306,7 +320,7 @@ public class StartupCountStats extends SimpleActivityLifeCycle implements NoProG
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) {
             if (sStartupCountStatsRule.shouldStats(activity)) {
                 sForegroundTimeStamp = System.currentTimeMillis();
-                appStartupUpload(sIsWarmBootApp ? StartupCountStatsUtils.START_WARM_START : StartupCountStatsUtils.STARTUP_COLD_START);
+                appStartupUpload(sIsWarmBootApp ? "warm_start" : "cold_start");
             }
             if (sUseDurationStatsRule.shouldStats(activity)) {
                 startTiming();

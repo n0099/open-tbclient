@@ -33,7 +33,7 @@ public class YoungsterPasswordActivity extends BaseActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ YoungsterPasswordActivity f56423e;
+        public final /* synthetic */ YoungsterPasswordActivity f56588e;
 
         public a(YoungsterPasswordActivity youngsterPasswordActivity) {
             Interceptable interceptable = $ic;
@@ -50,14 +50,14 @@ public class YoungsterPasswordActivity extends BaseActivity {
                     return;
                 }
             }
-            this.f56423e = youngsterPasswordActivity;
+            this.f56588e = youngsterPasswordActivity;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f56423e.finish();
+                this.f56588e.finish();
             }
         }
     }

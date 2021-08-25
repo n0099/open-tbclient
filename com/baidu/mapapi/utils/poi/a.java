@@ -10,12 +10,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public final class a implements a.InterfaceC1685a<c> {
+public final class a implements a.InterfaceC1689a<c> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ Context f41812a;
+    public final /* synthetic */ Context f41919a;
 
     public a(Context context) {
         Interceptable interceptable = $ic;
@@ -32,24 +32,24 @@ public final class a implements a.InterfaceC1685a<c> {
                 return;
             }
         }
-        this.f41812a = context;
+        this.f41919a = context;
     }
 
-    @Override // com.baidu.platform.comapi.pano.a.InterfaceC1685a
+    @Override // com.baidu.platform.comapi.pano.a.InterfaceC1689a
     public void a(HttpClient.HttpStateError httpStateError) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, httpStateError) == null) {
-            int i2 = b.f41814b[httpStateError.ordinal()];
+            int i2 = b.f41921b[httpStateError.ordinal()];
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.platform.comapi.pano.a.InterfaceC1685a
+    @Override // com.baidu.platform.comapi.pano.a.InterfaceC1689a
     public void a(c cVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar) == null) && cVar != null && b.f41813a[cVar.a().ordinal()] == 4 && cVar.c() == 1) {
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar) == null) && cVar != null && b.f41920a[cVar.a().ordinal()] == 4 && cVar.c() == 1) {
             try {
-                BaiduMapPoiSearch.b(cVar.b(), this.f41812a);
+                BaiduMapPoiSearch.b(cVar.b(), this.f41919a);
             } catch (Exception e2) {
                 e2.printStackTrace();
             }

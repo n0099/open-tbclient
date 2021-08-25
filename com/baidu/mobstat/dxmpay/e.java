@@ -25,35 +25,35 @@ public class e {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static e f43582b;
+    public static e f43689b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public a f43583a;
+    public a f43690a;
 
     /* renamed from: c  reason: collision with root package name */
-    public HandlerThread f43584c;
+    public HandlerThread f43691c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Handler f43585d;
+    public Handler f43692d;
 
     /* renamed from: e  reason: collision with root package name */
-    public volatile int f43586e;
+    public volatile int f43693e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f43587f;
+    public int f43694f;
 
     /* renamed from: g  reason: collision with root package name */
-    public JSONObject f43588g;
+    public JSONObject f43695g;
 
     /* renamed from: h  reason: collision with root package name */
-    public JSONArray f43589h;
+    public JSONArray f43696h;
 
     /* renamed from: i  reason: collision with root package name */
-    public JSONArray f43590i;
+    public JSONArray f43697i;
 
     /* renamed from: j  reason: collision with root package name */
-    public JSONArray f43591j;
+    public JSONArray f43698j;
     public JSONArray k;
     public boolean l;
     public List<JSONObject> m;
@@ -78,7 +78,7 @@ public class e {
                 return;
             }
         }
-        f43582b = new e();
+        f43689b = new e();
     }
 
     public e() {
@@ -94,19 +94,19 @@ public class e {
                 return;
             }
         }
-        this.f43584c = new HandlerThread("fullTraceHandleThread");
-        this.f43588g = new JSONObject();
-        this.f43589h = new JSONArray();
-        this.f43590i = new JSONArray();
-        this.f43591j = new JSONArray();
+        this.f43691c = new HandlerThread("fullTraceHandleThread");
+        this.f43695g = new JSONObject();
+        this.f43696h = new JSONArray();
+        this.f43697i = new JSONArray();
+        this.f43698j = new JSONArray();
         this.k = new JSONArray();
         this.l = false;
         this.m = new ArrayList();
         this.n = new ArrayList();
         this.o = new ArrayList();
-        this.f43584c.start();
-        this.f43584c.setPriority(10);
-        this.f43585d = new Handler(this.f43584c.getLooper());
+        this.f43691c.start();
+        this.f43691c.setPriority(10);
+        this.f43692d = new Handler(this.f43691c.getLooper());
     }
 
     private void a(JSONObject jSONObject) {
@@ -118,7 +118,7 @@ public class e {
     private void c(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65549, this, context) == null) {
-            this.f43590i = a(this.f43590i, BDStatCore.instance().getPageSessionHead());
+            this.f43697i = a(this.f43697i, BDStatCore.instance().getPageSessionHead());
             a(context, false);
             b();
         }
@@ -127,11 +127,11 @@ public class e {
     public void b(Context context, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(1048580, this, context, z) == null) {
-            this.f43588g = new JSONObject();
+            this.f43695g = new JSONObject();
             a(context);
-            this.f43590i = new JSONArray();
-            this.f43589h = new JSONArray();
-            this.f43591j = new JSONArray();
+            this.f43697i = new JSONArray();
+            this.f43696h = new JSONArray();
+            this.f43698j = new JSONArray();
             this.k = new JSONArray();
             if (!z) {
                 c.a().b();
@@ -143,45 +143,45 @@ public class e {
     public static e a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f43582b : (e) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f43689b : (e) invokeV.objValue;
     }
 
     public void a(Context context, String str, String str2, String str3, int i2, long j2, String str4, JSONArray jSONArray, String str5, JSONArray jSONArray2, String str6, Map<String, String> map, boolean z, JSONObject jSONObject, String str7) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{context, str, str2, str3, Integer.valueOf(i2), Long.valueOf(j2), str4, jSONArray, str5, jSONArray2, str6, map, Boolean.valueOf(z), jSONObject, str7}) == null) {
-            this.f43585d.post(new Runnable(this, context, str, str2, str3, i2, j2, str4, jSONArray, str5, jSONArray2, str6, map, z, jSONObject, str7) { // from class: com.baidu.mobstat.dxmpay.e.1
+            this.f43692d.post(new Runnable(this, context, str, str2, str3, i2, j2, str4, jSONArray, str5, jSONArray2, str6, map, z, jSONObject, str7) { // from class: com.baidu.mobstat.dxmpay.e.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ Context f43592a;
+                public final /* synthetic */ Context f43699a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ String f43593b;
+                public final /* synthetic */ String f43700b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ String f43594c;
+                public final /* synthetic */ String f43701c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ String f43595d;
+                public final /* synthetic */ String f43702d;
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ int f43596e;
+                public final /* synthetic */ int f43703e;
 
                 /* renamed from: f  reason: collision with root package name */
-                public final /* synthetic */ long f43597f;
+                public final /* synthetic */ long f43704f;
 
                 /* renamed from: g  reason: collision with root package name */
-                public final /* synthetic */ String f43598g;
+                public final /* synthetic */ String f43705g;
 
                 /* renamed from: h  reason: collision with root package name */
-                public final /* synthetic */ JSONArray f43599h;
+                public final /* synthetic */ JSONArray f43706h;
 
                 /* renamed from: i  reason: collision with root package name */
-                public final /* synthetic */ String f43600i;
+                public final /* synthetic */ String f43707i;
 
                 /* renamed from: j  reason: collision with root package name */
-                public final /* synthetic */ JSONArray f43601j;
+                public final /* synthetic */ JSONArray f43708j;
                 public final /* synthetic */ String k;
                 public final /* synthetic */ Map l;
                 public final /* synthetic */ boolean m;
@@ -205,16 +205,16 @@ public class e {
                         }
                     }
                     this.p = this;
-                    this.f43592a = context;
-                    this.f43593b = str;
-                    this.f43594c = str2;
-                    this.f43595d = str3;
-                    this.f43596e = i2;
-                    this.f43597f = j2;
-                    this.f43598g = str4;
-                    this.f43599h = jSONArray;
-                    this.f43600i = str5;
-                    this.f43601j = jSONArray2;
+                    this.f43699a = context;
+                    this.f43700b = str;
+                    this.f43701c = str2;
+                    this.f43702d = str3;
+                    this.f43703e = i2;
+                    this.f43704f = j2;
+                    this.f43705g = str4;
+                    this.f43706h = jSONArray;
+                    this.f43707i = str5;
+                    this.f43708j = jSONArray2;
                     this.k = str6;
                     this.l = map;
                     this.m = z;
@@ -230,7 +230,7 @@ public class e {
                         if (sessionStartTime <= 0) {
                             return;
                         }
-                        this.p.a(this.f43592a, sessionStartTime, this.f43593b, this.f43594c, this.f43595d, this.f43596e, this.f43597f, this.f43598g, this.f43599h, this.f43600i, this.f43601j, this.k, this.l, this.m, this.n, this.o);
+                        this.p.a(this.f43699a, sessionStartTime, this.f43700b, this.f43701c, this.f43702d, this.f43703e, this.f43704f, this.f43705g, this.f43706h, this.f43707i, this.f43708j, this.k, this.l, this.m, this.n, this.o);
                     }
                 }
             });
@@ -249,7 +249,7 @@ public class e {
     private void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65548, this) == null) {
-            this.f43587f = 0;
+            this.f43694f = 0;
         }
     }
 
@@ -274,14 +274,14 @@ public class e {
         if (interceptable == null || interceptable.invokeL(1048579, this, context) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("he", new JSONObject(this.f43588g.toString()));
-                jSONObject.put("pr", new JSONArray(this.f43590i.toString()));
-                jSONObject.put("ev", new JSONArray(this.f43589h.toString()));
-                jSONObject.put("ti", new JSONArray(this.f43591j.toString()));
+                jSONObject.put("he", new JSONObject(this.f43695g.toString()));
+                jSONObject.put("pr", new JSONArray(this.f43697i.toString()));
+                jSONObject.put("ev", new JSONArray(this.f43696h.toString()));
+                jSONObject.put("ti", new JSONArray(this.f43698j.toString()));
                 jSONObject.put("sv", new JSONArray(this.k.toString()));
-                jSONObject.put("pd", c.a().a(c.a.f43580b));
-                jSONObject.put("ed", c.a().a(c.a.f43579a));
-                jSONObject.put("sd", c.a().a(c.a.f43581c));
+                jSONObject.put("pd", c.a().a(c.a.f43687b));
+                jSONObject.put("ed", c.a().a(c.a.f43686a));
+                jSONObject.put("sd", c.a().a(c.a.f43688c));
             } catch (Exception unused) {
             }
             String jSONObject2 = jSONObject.toString();
@@ -289,7 +289,7 @@ public class e {
             if (length >= 184320) {
                 return;
             }
-            this.f43586e = length;
+            this.f43693e = length;
             String k = w.k(context);
             o.a(context, k + Config.STAT_FULL_CACHE_FILE_NAME, jSONObject2, false);
         }
@@ -308,18 +308,18 @@ public class e {
         if (a(context, jSONObject2)) {
             if (j.c().b()) {
                 j c3 = j.c();
-                c3.a("checkExceedLogLimit exceed:true; mCacheLogSize: " + this.f43586e + "; addedSize:" + jSONObject2.length());
+                c3.a("checkExceedLogLimit exceed:true; mCacheLogSize: " + this.f43693e + "; addedSize:" + jSONObject2.length());
             }
             c(context);
         }
-        EventAnalysis.doEventMerge(this.f43589h, jSONObject);
+        EventAnalysis.doEventMerge(this.f43696h, jSONObject);
     }
 
     private boolean a(Context context, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, this, context, str)) == null) {
-            return (str != null ? str.getBytes().length : 0) + this.f43586e > 184320;
+            return (str != null ? str.getBytes().length : 0) + this.f43693e > 184320;
         }
         return invokeLL.booleanValue;
     }
@@ -333,27 +333,27 @@ public class e {
                 b();
             }
             try {
-                b(context, this.f43588g);
+                b(context, this.f43695g);
             } catch (Exception unused) {
             }
-            if (this.f43589h.length() == 0 && this.f43590i.length() == 0 && this.f43591j.length() == 0 && this.k.length() == 0) {
+            if (this.f43696h.length() == 0 && this.f43697i.length() == 0 && this.f43698j.length() == 0 && this.k.length() == 0) {
                 return;
             }
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("he", this.f43588g);
+                jSONObject.put("he", this.f43695g);
             } catch (Exception unused2) {
             }
             try {
-                jSONObject.put("pr", this.f43590i);
+                jSONObject.put("pr", this.f43697i);
             } catch (Exception unused3) {
             }
             try {
-                jSONObject.put("ev", this.f43589h);
+                jSONObject.put("ev", this.f43696h);
             } catch (Exception unused4) {
             }
             try {
-                jSONObject.put("ti", this.f43591j);
+                jSONObject.put("ti", this.f43698j);
             } catch (Exception unused5) {
             }
             try {
@@ -361,15 +361,15 @@ public class e {
             } catch (Exception unused6) {
             }
             try {
-                jSONObject.put("pd", c.a().a(c.a.f43580b));
+                jSONObject.put("pd", c.a().a(c.a.f43687b));
             } catch (Exception unused7) {
             }
             try {
-                jSONObject.put("ed", c.a().a(c.a.f43579a));
+                jSONObject.put("ed", c.a().a(c.a.f43686a));
             } catch (Exception unused8) {
             }
             try {
-                jSONObject.put("sd", c.a().a(c.a.f43581c));
+                jSONObject.put("sd", c.a().a(c.a.f43688c));
             } catch (Exception unused9) {
             }
             c(context, jSONObject);
@@ -391,7 +391,7 @@ public class e {
             CooperService.instance().getHeadObject().installHeader(context, jSONObject);
             try {
                 jSONObject.put("t", System.currentTimeMillis());
-                jSONObject.put("sq", this.f43587f);
+                jSONObject.put("sq", this.f43694f);
                 jSONObject.put("ss", BDStatCore.instance().getSessionStartTime());
                 jSONObject.put("at", "1");
                 jSONObject.put("sign", CooperService.instance().getUUID());
@@ -403,7 +403,7 @@ public class e {
     private void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65545, this) == null) {
-            this.f43587f++;
+            this.f43694f++;
         }
     }
 
@@ -411,9 +411,9 @@ public class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65546, this, context, str) == null) {
             LogSender.instance().saveLogData(context, str, true);
-            if (this.f43583a != null) {
+            if (this.f43690a != null) {
                 try {
-                    this.f43583a.a(new JSONObject(str));
+                    this.f43690a.a(new JSONObject(str));
                 } catch (Exception unused) {
                 }
             }
@@ -423,7 +423,7 @@ public class e {
     public void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            CooperService.instance().getHeadObject().installHeader(context, this.f43588g);
+            CooperService.instance().getHeadObject().installHeader(context, this.f43695g);
         }
     }
 

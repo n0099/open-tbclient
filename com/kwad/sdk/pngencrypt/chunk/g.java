@@ -10,10 +10,10 @@ public class g extends aa {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f72774h;
+    public int f72974h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f72775i;
+    public int f72975i;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public g(com.kwad.sdk.pngencrypt.k kVar) {
@@ -40,8 +40,8 @@ public class g extends aa {
     public void a(d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, dVar) == null) {
-            this.f72774h = com.kwad.sdk.pngencrypt.n.c(dVar.f72763d, 0);
-            this.f72775i = com.kwad.sdk.pngencrypt.n.c(dVar.f72763d, 4);
+            this.f72974h = com.kwad.sdk.pngencrypt.n.c(dVar.f72963d, 0);
+            this.f72975i = com.kwad.sdk.pngencrypt.n.c(dVar.f72963d, 4);
         }
     }
 }

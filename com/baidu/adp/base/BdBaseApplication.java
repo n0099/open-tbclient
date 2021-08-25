@@ -51,7 +51,7 @@ public class BdBaseApplication extends Application {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ BdBaseApplication f36014a;
+        public final /* synthetic */ BdBaseApplication f36120a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(BdBaseApplication bdBaseApplication, Looper looper) {
@@ -71,14 +71,14 @@ public class BdBaseApplication extends Application {
                     return;
                 }
             }
-            this.f36014a = bdBaseApplication;
+            this.f36120a = bdBaseApplication;
         }
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
-                this.f36014a.handleInitMessage(message);
+                this.f36120a.handleInitMessage(message);
             }
         }
     }

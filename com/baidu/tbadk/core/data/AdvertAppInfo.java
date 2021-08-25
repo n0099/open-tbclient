@@ -3,14 +3,14 @@ package com.baidu.tbadk.core.data;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import c.a.o0.s.k;
-import c.a.o0.s.q.c2;
-import c.a.o0.s.q.e;
-import c.a.o0.s.q.o0;
-import c.a.p0.o1.o.b;
-import c.a.p0.o1.o.k.a;
-import c.a.p0.x2.d0.c;
-import c.a.p0.x2.z;
+import c.a.p0.s.k;
+import c.a.p0.s.q.c2;
+import c.a.p0.s.q.e;
+import c.a.p0.s.q.o0;
+import c.a.q0.o1.o.b;
+import c.a.q0.o1.o.k.a;
+import c.a.q0.x2.d0.c;
+import c.a.q0.x2.z;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.featureSwitch.SwitchManager;
 import com.baidu.android.imsdk.internal.Constants;
@@ -77,7 +77,7 @@ public class AdvertAppInfo extends c2 implements o0, c {
 
         AdvertAppInfo getAdvertAppInfo();
 
-        c.a.o0.s.q.c getAppInfoModel();
+        c.a.p0.s.q.c getAppInfoModel();
 
         @NonNull
         String getDownloadId();
@@ -88,7 +88,7 @@ public class AdvertAppInfo extends c2 implements o0, c {
 
         int getGoodsStyle();
 
-        @Override // com.baidu.tieba.lego.card.model.ICardInfo, c.a.e.k.e.n
+        @Override // com.baidu.tieba.lego.card.model.ICardInfo, c.a.e.l.e.n
         /* synthetic */ BdUniqueId getType();
 
         boolean isNoPicAd();
@@ -269,7 +269,7 @@ public class AdvertAppInfo extends c2 implements o0, c {
                 if (TextUtils.isEmpty(this.T3) || TextUtils.isEmpty(this.T3.trim())) {
                     return 24;
                 }
-                if (this.b4.getAppInfoModel() == null || c.a.o0.s.q.c.c(this.b4.getAppInfoModel())) {
+                if (this.b4.getAppInfoModel() == null || c.a.p0.s.q.c.c(this.b4.getAppInfoModel())) {
                     if (k.c().g() || this.b4.isNoPicAd()) {
                         int i4 = this.i4;
                         if (i4 == 3 || i4 == 1) {
@@ -362,7 +362,7 @@ public class AdvertAppInfo extends c2 implements o0, c {
         }
     }
 
-    @Override // c.a.p0.x2.d0.c
+    @Override // c.a.q0.x2.d0.c
     public void b(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048585, this, i2) == null) {
@@ -370,14 +370,14 @@ public class AdvertAppInfo extends c2 implements o0, c {
         }
     }
 
-    @Override // c.a.p0.x2.d0.c
+    @Override // c.a.q0.x2.d0.c
     public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.V3 == 1001 || getType() == n4 || getType() == o4 || getType() == p4 : invokeV.booleanValue;
     }
 
-    @Override // c.a.o0.s.q.o0
+    @Override // c.a.p0.s.q.o0
     public boolean e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -397,7 +397,7 @@ public class AdvertAppInfo extends c2 implements o0, c {
         return invokeL.booleanValue;
     }
 
-    @Override // c.a.o0.s.q.o0
+    @Override // c.a.p0.s.q.o0
     public int f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -411,7 +411,7 @@ public class AdvertAppInfo extends c2 implements o0, c {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? F4() ? this.b4.getDownloadId() : "" : (String) invokeV.objValue;
     }
 
-    @Override // c.a.o0.s.q.c2, com.baidu.tieba.card.data.BaseCardInfo, c.a.e.k.e.n
+    @Override // c.a.p0.s.q.c2, com.baidu.tieba.card.data.BaseCardInfo, c.a.e.l.e.n
     public BdUniqueId getType() {
         InterceptResult invokeV;
         ILegoAdvert iLegoAdvert;
@@ -467,14 +467,14 @@ public class AdvertAppInfo extends c2 implements o0, c {
         return invokeV.intValue;
     }
 
-    @Override // c.a.o0.s.q.o0
+    @Override // c.a.p0.s.q.o0
     public AdvertAppInfo m() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this : (AdvertAppInfo) invokeV.objValue;
     }
 
-    @Override // c.a.o0.s.q.o0
+    @Override // c.a.p0.s.q.o0
     public void setPosition(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048594, this, i2) == null) {

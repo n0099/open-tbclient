@@ -37,29 +37,29 @@ public class d extends com.baidu.platform.base.e {
         PlanNode planNode;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, this, drivingRoutePlanOption) == null) {
-            this.f44083a.a("qt", "cars");
-            this.f44083a.a("sy", drivingRoutePlanOption.mPolicy.getInt() + "");
-            this.f44083a.a("ie", "utf-8");
-            this.f44083a.a("lrn", "20");
-            this.f44083a.a("version", "6");
-            this.f44083a.a("extinfo", EventType.GiftEventID.SEND_GIFT_TO_MULTIUSER_SUCCESS);
-            this.f44083a.a("mrs", "1");
-            this.f44083a.a("rp_format", "json");
-            this.f44083a.a("rp_filter", "mobile");
-            this.f44083a.a("route_traffic", drivingRoutePlanOption.mtrafficPolicy.getInt() + "");
-            this.f44083a.a(IAdRequestParam.SN, a(drivingRoutePlanOption.mFrom));
-            this.f44083a.a(com.baidu.fsg.base.statistics.f.f39281a, a(drivingRoutePlanOption.mTo));
+            this.f44190a.a("qt", "cars");
+            this.f44190a.a("sy", drivingRoutePlanOption.mPolicy.getInt() + "");
+            this.f44190a.a("ie", "utf-8");
+            this.f44190a.a("lrn", "20");
+            this.f44190a.a("version", "6");
+            this.f44190a.a("extinfo", EventType.GiftEventID.SEND_GIFT_TO_MULTIUSER_SUCCESS);
+            this.f44190a.a("mrs", "1");
+            this.f44190a.a("rp_format", "json");
+            this.f44190a.a("rp_filter", "mobile");
+            this.f44190a.a("route_traffic", drivingRoutePlanOption.mtrafficPolicy.getInt() + "");
+            this.f44190a.a(IAdRequestParam.SN, a(drivingRoutePlanOption.mFrom));
+            this.f44190a.a(com.baidu.fsg.base.statistics.f.f39388a, a(drivingRoutePlanOption.mTo));
             String str = drivingRoutePlanOption.mCityName;
             if (str != null) {
-                this.f44083a.a("c", str);
+                this.f44190a.a("c", str);
             }
             PlanNode planNode2 = drivingRoutePlanOption.mFrom;
             if (planNode2 != null) {
-                this.f44083a.a("sc", planNode2.getCity());
+                this.f44190a.a("sc", planNode2.getCity());
             }
             PlanNode planNode3 = drivingRoutePlanOption.mTo;
             if (planNode3 != null) {
-                this.f44083a.a("ec", planNode3.getCity());
+                this.f44190a.a("ec", planNode3.getCity());
             }
             List<PlanNode> list = drivingRoutePlanOption.mWayPoints;
             String str2 = new String();
@@ -75,8 +75,8 @@ public class d extends com.baidu.platform.base.e {
                         }
                     }
                 }
-                this.f44083a.a("wp", str2);
-                this.f44083a.a("wpc", str3);
+                this.f44190a.a("wp", str2);
+                this.f44190a.a("wpc", str3);
             }
         }
     }

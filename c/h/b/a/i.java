@@ -16,14 +16,14 @@ public class i extends a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final LinkedHashMap<Long, String> f32196f;
+    public static final LinkedHashMap<Long, String> f32302f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f32197d;
+    public int f32303d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Thread f32198e;
+    public Thread f32304e;
 
     static {
         InterceptResult invokeClinit;
@@ -38,7 +38,7 @@ public class i extends a {
                 return;
             }
         }
-        f32196f = new LinkedHashMap<>();
+        f32302f = new LinkedHashMap<>();
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -67,15 +67,15 @@ public class i extends a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             StringBuilder sb = new StringBuilder();
-            for (StackTraceElement stackTraceElement : this.f32198e.getStackTrace()) {
+            for (StackTraceElement stackTraceElement : this.f32304e.getStackTrace()) {
                 sb.append(stackTraceElement.toString());
                 sb.append(Part.CRLF);
             }
-            synchronized (f32196f) {
-                if (f32196f.size() == this.f32197d && this.f32197d > 0) {
-                    f32196f.remove(f32196f.keySet().iterator().next());
+            synchronized (f32302f) {
+                if (f32302f.size() == this.f32303d && this.f32303d > 0) {
+                    f32302f.remove(f32302f.keySet().iterator().next());
                 }
-                f32196f.put(Long.valueOf(System.currentTimeMillis()), sb.toString());
+                f32302f.put(Long.valueOf(System.currentTimeMillis()), sb.toString());
             }
         }
     }
@@ -85,10 +85,10 @@ public class i extends a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)})) == null) {
             ArrayList<String> arrayList = new ArrayList<>();
-            synchronized (f32196f) {
-                for (Long l : f32196f.keySet()) {
+            synchronized (f32302f) {
+                for (Long l : f32302f.keySet()) {
                     if (j2 < l.longValue() && l.longValue() < j3) {
-                        arrayList.add(c.h.b.a.j.a.x.format(l) + Part.CRLF + Part.CRLF + f32196f.get(l));
+                        arrayList.add(c.h.b.a.j.a.x.format(l) + Part.CRLF + Part.CRLF + f32302f.get(l));
                     }
                 }
             }
@@ -115,8 +115,8 @@ public class i extends a {
                 return;
             }
         }
-        this.f32197d = 100;
-        this.f32198e = thread;
-        this.f32197d = i2;
+        this.f32303d = 100;
+        this.f32304e = thread;
+        this.f32303d = i2;
     }
 }

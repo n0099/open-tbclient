@@ -12,10 +12,10 @@ public final class d {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final boolean f35792a;
+    public final boolean f35898a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final byte[] f35793b;
+    public final byte[] f35899b;
 
     public d(boolean z, byte[] bArr) {
         Interceptable interceptable = $ic;
@@ -32,19 +32,19 @@ public final class d {
                 return;
             }
         }
-        this.f35792a = z;
-        this.f35793b = bArr;
+        this.f35898a = z;
+        this.f35899b = bArr;
     }
 
     public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f35792a : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f35898a : invokeV.booleanValue;
     }
 
     public byte[] b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f35793b : (byte[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f35899b : (byte[]) invokeV.objValue;
     }
 }

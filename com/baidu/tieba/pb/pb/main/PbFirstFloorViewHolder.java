@@ -10,12 +10,12 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import c.a.e.e.m.b;
 import c.a.e.e.p.l;
-import c.a.o0.s.q.c2;
-import c.a.p0.i2.h.e;
-import c.a.p0.i2.k.e.f;
-import c.a.p0.i2.k.e.g1.a;
-import c.a.p0.i2.k.e.q0;
-import c.a.p0.i2.k.e.t;
+import c.a.p0.s.q.c2;
+import c.a.q0.i2.h.e;
+import c.a.q0.i2.k.e.d;
+import c.a.q0.i2.k.e.e1.a;
+import c.a.q0.i2.k.e.o0;
+import c.a.q0.i2.k.e.r;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
@@ -40,10 +40,10 @@ public class PbFirstFloorViewHolder extends TypeAdapter.ViewHolder {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ImageView f54656a;
+    public ImageView f54821a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f54657b;
+    public View f54822b;
     public AppletsCellView mAppletsCellView;
     public View mBottomDivider;
     public ThreadForumEnterButtonContainer mForumEnterButtonContainer;
@@ -51,14 +51,14 @@ public class PbFirstFloorViewHolder extends TypeAdapter.ViewHolder {
     public TbImageView mHeadMask;
     public LinearLayout mLinkContainer;
     public a mManagerSelectView;
-    public c.a.p0.i2.k.e.d1.a mOriginalThreadView;
+    public c.a.q0.i2.k.e.b1.a mOriginalThreadView;
     public FrameLayout mOrignalThreadRootView;
     public PbBusinessPromotionContainer mPbBusinessPromotionContainer;
     public ThreadSkinView mPbItemSkinView;
     public LinearLayout mPbListContent;
     public int mSkinType;
     public TextView mTailContent;
-    public t mViewStubController;
+    public r mViewStubController;
     public TextView mVoteTailTv;
     public VoteView mVoteView;
     public TextView mYoungsterTipTv;
@@ -85,20 +85,20 @@ public class PbFirstFloorViewHolder extends TypeAdapter.ViewHolder {
             }
         }
         this.mSkinType = 3;
-        this.mViewStubController = new t(view);
+        this.mViewStubController = new r(view);
         ImageView imageView = (ImageView) view.findViewById(R.id.pb_thread_type_stamp_first_floor_bottom_part);
-        this.f54656a = imageView;
+        this.f54821a = imageView;
         imageView.setScaleType(ImageView.ScaleType.MATRIX);
         Matrix matrix = new Matrix();
-        matrix.postTranslate(0.0f, -q0.h());
-        this.f54656a.setImageMatrix(matrix);
-        this.f54657b = view.findViewById(R.id.blank_view_above_rich_text);
+        matrix.postTranslate(0.0f, -o0.g());
+        this.f54821a.setImageMatrix(matrix);
+        this.f54822b = view.findViewById(R.id.blank_view_above_rich_text);
         this.richText = (TbRichTextView) view.findViewById(R.id.richText);
         this.pbItemViewRoot = view;
         int k = (((l.k(TbadkCoreApplication.getInst()) - view.getPaddingLeft()) - view.getPaddingRight()) - this.richText.getPaddingLeft()) - this.richText.getPaddingRight();
-        f fVar = new f(this.richText.getLayoutStrategy());
-        fVar.G = k;
-        this.richText.setLayoutStrategy(fVar);
+        d dVar = new d(this.richText.getLayoutStrategy());
+        dVar.G = k;
+        this.richText.setLayoutStrategy(dVar);
         this.mGameBanner = (TbImageView) view.findViewById(R.id.game_activity_banner);
         int min = Math.min(k - ((int) TbadkCoreApplication.getInst().getResources().getDimension(R.dimen.ds60)), i2);
         this.richText.getLayoutStrategy().q(min);
@@ -130,14 +130,14 @@ public class PbFirstFloorViewHolder extends TypeAdapter.ViewHolder {
     public void showBlankViewAboveRichText(boolean z, int i2) {
         View view;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2)}) == null) || (view = this.f54657b) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2)}) == null) || (view = this.f54822b) == null) {
             return;
         }
         if (z) {
             RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) view.getLayoutParams();
             layoutParams.height = i2;
-            this.f54657b.setLayoutParams(layoutParams);
-            this.f54657b.setVisibility(0);
+            this.f54822b.setLayoutParams(layoutParams);
+            this.f54822b.setVisibility(0);
             return;
         }
         view.setVisibility(8);
@@ -165,7 +165,7 @@ public class PbFirstFloorViewHolder extends TypeAdapter.ViewHolder {
         if (eVar.O() != null) {
             c2Var.p4(eVar.O().a0);
         }
-        if (eVar.f18737i) {
+        if (eVar.f19070i) {
             this.mForumEnterButtonContainer.setVisibility(8);
             this.mPbBusinessPromotionContainer.bindForumData(c2Var, eVar.h(), eVar.p0());
             return;
@@ -176,20 +176,20 @@ public class PbFirstFloorViewHolder extends TypeAdapter.ViewHolder {
     public void showThreadTypeStampBottomPart(e eVar, boolean z, boolean z2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{eVar, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
-            if (eVar != null && eVar.f18738j) {
-                this.f54656a.setImageResource(R.drawable.pic_frs_headlines_n);
-                this.f54656a.setVisibility(0);
+            if (eVar != null && eVar.f19071j) {
+                this.f54821a.setImageResource(R.drawable.pic_frs_headlines_n);
+                this.f54821a.setVisibility(0);
             } else if (z && z2) {
-                this.f54656a.setImageResource(R.drawable.pic_pb_stick_refined_n);
-                this.f54656a.setVisibility(0);
+                this.f54821a.setImageResource(R.drawable.pic_pb_stick_refined_n);
+                this.f54821a.setVisibility(0);
             } else if (z) {
-                this.f54656a.setImageResource(R.drawable.pic_pb_refined_n);
-                this.f54656a.setVisibility(0);
+                this.f54821a.setImageResource(R.drawable.pic_pb_refined_n);
+                this.f54821a.setVisibility(0);
             } else if (z2) {
-                this.f54656a.setImageResource(R.drawable.pic_pb_stick_n);
-                this.f54656a.setVisibility(0);
+                this.f54821a.setImageResource(R.drawable.pic_pb_stick_n);
+                this.f54821a.setVisibility(0);
             } else {
-                this.f54656a.setVisibility(8);
+                this.f54821a.setVisibility(8);
             }
         }
     }

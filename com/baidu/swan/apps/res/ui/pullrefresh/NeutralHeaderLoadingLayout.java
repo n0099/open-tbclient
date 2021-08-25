@@ -6,10 +6,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import androidx.core.view.InputDeviceCompat;
-import c.a.n0.a.f;
-import c.a.n0.a.g;
-import c.a.n0.a.k;
-import c.a.n0.a.v2.n0;
+import c.a.o0.a.f;
+import c.a.o0.a.g;
+import c.a.o0.a.k;
+import c.a.o0.a.v2.n0;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -26,10 +26,10 @@ public class NeutralHeaderLoadingLayout extends LoadingLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f46119i;
+    public int f46226i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f46120j;
+    public int f46227j;
     public int k;
     public int l;
     public View m;
@@ -41,10 +41,10 @@ public class NeutralHeaderLoadingLayout extends LoadingLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Runnable f46121e;
+        public final /* synthetic */ Runnable f46228e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ NeutralHeaderLoadingLayout f46122f;
+        public final /* synthetic */ NeutralHeaderLoadingLayout f46229f;
 
         public a(NeutralHeaderLoadingLayout neutralHeaderLoadingLayout, Runnable runnable) {
             Interceptable interceptable = $ic;
@@ -61,15 +61,15 @@ public class NeutralHeaderLoadingLayout extends LoadingLayout {
                     return;
                 }
             }
-            this.f46122f = neutralHeaderLoadingLayout;
-            this.f46121e = runnable;
+            this.f46229f = neutralHeaderLoadingLayout;
+            this.f46228e = runnable;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f46121e.run();
+                this.f46228e.run();
             }
         }
     }
@@ -87,7 +87,7 @@ public class NeutralHeaderLoadingLayout extends LoadingLayout {
                 return;
             }
         }
-        o = k.f6803a;
+        o = k.f7049a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -108,7 +108,7 @@ public class NeutralHeaderLoadingLayout extends LoadingLayout {
                 return;
             }
         }
-        this.f46119i = 0;
+        this.f46226i = 0;
         a();
     }
 
@@ -117,14 +117,14 @@ public class NeutralHeaderLoadingLayout extends LoadingLayout {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             this.n = (NeutralRefreshAnimView) findViewById(f.neutral_refresh_anim_view);
             int f2 = n0.f(getContext(), 29.0f);
-            this.f46119i = f2;
-            this.f46120j = (int) (f2 * 2.4f);
+            this.f46226i = f2;
+            this.f46227j = (int) (f2 * 2.4f);
             int i2 = (int) (f2 * 1.5f);
             this.l = i2;
             this.k = i2;
             if (o) {
-                String str = "mRefreshingViewSizeInPixel" + this.f46119i;
-                String str2 = "mTriggerRefreshLength" + this.f46120j;
+                String str = "mRefreshingViewSizeInPixel" + this.f46226i;
+                String str2 = "mTriggerRefreshLength" + this.f46227j;
                 String str3 = "mRefreshingHeight" + this.l;
                 String str4 = "mScrollStartLength" + this.k;
             }
@@ -136,9 +136,9 @@ public class NeutralHeaderLoadingLayout extends LoadingLayout {
         float f2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
-            int i3 = this.f46120j;
+            int i3 = this.f46227j;
             if (i2 < i3) {
-                int i4 = this.f46119i;
+                int i4 = this.f46226i;
                 f2 = i2 < i4 ? 0.0f : (i2 - i4) / (i3 - i4);
             } else {
                 f2 = 1.0f;
@@ -168,7 +168,7 @@ public class NeutralHeaderLoadingLayout extends LoadingLayout {
     public int getCanRefreshPullLength() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f46120j : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f46227j : invokeV.intValue;
     }
 
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout

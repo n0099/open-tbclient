@@ -1,7 +1,7 @@
 package com.baidu.tieba.pb.pb.sub;
 
 import android.content.Context;
-import c.a.p0.i2.h.r;
+import c.a.q0.i2.h.r;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;

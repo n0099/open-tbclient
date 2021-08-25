@@ -19,26 +19,26 @@ public class l {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Set<String> f67945a;
+    public static final Set<String> f68145a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Set<String> f67946b;
+    public static final Set<String> f68146b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public final ArrayList<a> f67947c;
+    public final ArrayList<a> f68147c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final int f67948d;
+    public final int f68148d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f67949e;
+    public int f68149e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f67950f;
+    public int f68150f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final int f67951g;
+    public final int f68151g;
 
     /* loaded from: classes9.dex */
     public class a {
@@ -46,13 +46,13 @@ public class l {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final String f67952a;
+        public final String f68152a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f67953b;
+        public int f68153b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ l f67954c;
+        public final /* synthetic */ l f68154c;
 
         public a(l lVar, String str) {
             Interceptable interceptable = $ic;
@@ -69,28 +69,28 @@ public class l {
                     return;
                 }
             }
-            this.f67954c = lVar;
-            this.f67952a = str;
+            this.f68154c = lVar;
+            this.f68152a = str;
         }
 
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                l.f67945a.add(this.f67952a);
+                l.f68145a.add(this.f68152a);
             }
         }
 
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                l.f67946b.add(this.f67952a);
+                l.f68146b.add(this.f68152a);
             }
         }
 
         public String toString() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f67952a : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f68152a : (String) invokeV.objValue;
         }
     }
 
@@ -107,8 +107,8 @@ public class l {
                 return;
             }
         }
-        f67945a = new HashSet();
-        f67946b = new HashSet();
+        f68145a = new HashSet();
+        f68146b = new HashSet();
     }
 
     public l(@NonNull List<String> list) {
@@ -127,37 +127,37 @@ public class l {
                 return;
             }
         }
-        this.f67949e = -1;
+        this.f68149e = -1;
         if (!list.isEmpty()) {
-            this.f67948d = list.size();
-            this.f67947c = new ArrayList<>(this.f67948d);
+            this.f68148d = list.size();
+            this.f68147c = new ArrayList<>(this.f68148d);
             ArrayList arrayList = null;
             ArrayList arrayList2 = null;
             for (String str : list) {
                 a aVar = new a(this, str);
-                if (f67945a.contains(str)) {
+                if (f68145a.contains(str)) {
                     arrayList2 = arrayList2 == null ? new ArrayList() : arrayList2;
                     arrayList2.add(aVar);
-                } else if (f67946b.contains(str)) {
+                } else if (f68146b.contains(str)) {
                     arrayList = arrayList == null ? new ArrayList() : arrayList;
                     arrayList.add(aVar);
                 } else {
-                    this.f67947c.add(aVar);
+                    this.f68147c.add(aVar);
                 }
             }
             if (arrayList != null) {
-                this.f67947c.addAll(arrayList);
+                this.f68147c.addAll(arrayList);
             }
             if (arrayList2 != null) {
-                this.f67947c.addAll(arrayList2);
+                this.f68147c.addAll(arrayList2);
             }
-            Integer num = e.f67848i;
+            Integer num = e.f68048i;
             if (num != null && num.intValue() > 0) {
                 i2 = num.intValue();
             } else {
-                i2 = this.f67948d >= 2 ? 1 : 2;
+                i2 = this.f68148d >= 2 ? 1 : 2;
             }
-            this.f67951g = i2;
+            this.f68151g = i2;
             return;
         }
         throw new IllegalArgumentException("urls can't be empty");
@@ -166,7 +166,7 @@ public class l {
     public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f67950f < this.f67951g : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f68150f < this.f68151g : invokeV.booleanValue;
     }
 
     public a b() {
@@ -174,15 +174,15 @@ public class l {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             if (a()) {
-                int i2 = this.f67949e + 1;
-                if (i2 >= this.f67948d - 1) {
-                    this.f67949e = -1;
-                    this.f67950f++;
+                int i2 = this.f68149e + 1;
+                if (i2 >= this.f68148d - 1) {
+                    this.f68149e = -1;
+                    this.f68150f++;
                 } else {
-                    this.f67949e = i2;
+                    this.f68149e = i2;
                 }
-                a aVar = this.f67947c.get(i2);
-                aVar.f67953b = (this.f67950f * this.f67948d) + this.f67949e;
+                a aVar = this.f68147c.get(i2);
+                aVar.f68153b = (this.f68150f * this.f68148d) + this.f68149e;
                 return aVar;
             }
             throw new NoSuchElementException();
@@ -205,11 +205,11 @@ public class l {
                 return;
             }
         }
-        this.f67949e = -1;
+        this.f68149e = -1;
         ArrayList<a> arrayList = new ArrayList<>(1);
-        this.f67947c = arrayList;
+        this.f68147c = arrayList;
         arrayList.add(new a(this, str));
-        this.f67948d = 1;
-        this.f67951g = 1;
+        this.f68148d = 1;
+        this.f68151g = 1;
     }
 }

@@ -6,14 +6,14 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import j.a.a.e.n.h;
+import j.a.a.e.n.i;
 /* loaded from: classes2.dex */
 public class SafeDismissDialog extends Dialog {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f79568e;
+    public Context f79770e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public SafeDismissDialog(Context context, int i2) {
@@ -34,13 +34,13 @@ public class SafeDismissDialog extends Dialog {
                 return;
             }
         }
-        this.f79568e = context;
+        this.f79770e = context;
     }
 
     @Override // android.app.Dialog, android.content.DialogInterface
     public void dismiss() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && h.f78736a.a(this.f79568e)) {
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && i.f78937a.a(this.f79770e)) {
             super.dismiss();
         }
     }

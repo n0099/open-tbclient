@@ -19,10 +19,10 @@ public class ADRequestModel extends BdBaseModel<BaseFragmentActivity> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public b f50716e;
+    public b f50824e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final c.a.e.c.g.a f50717f;
+    public final c.a.e.c.g.a f50825f;
 
     /* loaded from: classes7.dex */
     public class a extends c.a.e.c.g.a {
@@ -30,7 +30,7 @@ public class ADRequestModel extends BdBaseModel<BaseFragmentActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ADRequestModel f50718a;
+        public final /* synthetic */ ADRequestModel f50826a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(ADRequestModel aDRequestModel, int i2, int i3) {
@@ -51,7 +51,7 @@ public class ADRequestModel extends BdBaseModel<BaseFragmentActivity> {
                     return;
                 }
             }
-            this.f50718a = aDRequestModel;
+            this.f50826a = aDRequestModel;
         }
 
         @Override // c.a.e.c.g.a
@@ -61,11 +61,11 @@ public class ADRequestModel extends BdBaseModel<BaseFragmentActivity> {
                 return;
             }
             boolean z = responsedMessage instanceof ADSocketResponseMessage;
-            if ((z || (responsedMessage instanceof ADHttpResponseMessage)) && this.f50718a.f50716e != null) {
+            if ((z || (responsedMessage instanceof ADHttpResponseMessage)) && this.f50826a.f50824e != null) {
                 if (z) {
-                    this.f50718a.f50716e.a((ADSocketResponseMessage) responsedMessage);
+                    this.f50826a.f50824e.a((ADSocketResponseMessage) responsedMessage);
                 } else if (responsedMessage instanceof ADHttpResponseMessage) {
-                    this.f50718a.f50716e.b((ADHttpResponseMessage) responsedMessage);
+                    this.f50826a.f50824e.b((ADHttpResponseMessage) responsedMessage);
                 }
             }
         }
@@ -96,10 +96,10 @@ public class ADRequestModel extends BdBaseModel<BaseFragmentActivity> {
                 return;
             }
         }
-        this.f50717f = new a(this, CmdConfigHttp.CMD_HTTP_FRS_TAB_AD, 309611);
-        c.a.p0.i3.d0.a.h(309611, ADSocketResponseMessage.class, false, false);
-        c.a.p0.i3.d0.a.c(309611, CmdConfigHttp.CMD_HTTP_FRS_TAB_AD, "c/f/frs/getadlist", ADHttpResponseMessage.class, false, false, true, false);
-        registerListener(this.f50717f);
+        this.f50825f = new a(this, CmdConfigHttp.CMD_HTTP_FRS_TAB_AD, 309611);
+        c.a.q0.i3.d0.a.h(309611, ADSocketResponseMessage.class, false, false);
+        c.a.q0.i3.d0.a.c(309611, CmdConfigHttp.CMD_HTTP_FRS_TAB_AD, "c/f/frs/getadlist", ADHttpResponseMessage.class, false, false, true, false);
+        registerListener(this.f50825f);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -125,7 +125,7 @@ public class ADRequestModel extends BdBaseModel<BaseFragmentActivity> {
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            MessageManager.getInstance().unRegisterListener(this.f50717f);
+            MessageManager.getInstance().unRegisterListener(this.f50825f);
         }
     }
 
@@ -144,7 +144,7 @@ public class ADRequestModel extends BdBaseModel<BaseFragmentActivity> {
     public void y(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, bVar) == null) {
-            this.f50716e = bVar;
+            this.f50824e = bVar;
         }
     }
 }

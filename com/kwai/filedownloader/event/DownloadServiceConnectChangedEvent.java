@@ -13,10 +13,10 @@ public class DownloadServiceConnectChangedEvent extends b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public final ConnectStatus f73850c;
+    public final ConnectStatus f74050c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final Class<?> f73851d;
+    public final Class<?> f74051d;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes10.dex */
@@ -98,13 +98,13 @@ public class DownloadServiceConnectChangedEvent extends b {
                 return;
             }
         }
-        this.f73850c = connectStatus;
-        this.f73851d = cls;
+        this.f74050c = connectStatus;
+        this.f74051d = cls;
     }
 
     public ConnectStatus a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f73850c : (ConnectStatus) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f74050c : (ConnectStatus) invokeV.objValue;
     }
 }

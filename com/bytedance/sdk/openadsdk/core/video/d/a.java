@@ -12,7 +12,7 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f66746a;
+    public static final int f66946a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -28,7 +28,7 @@ public class a {
                 return;
             }
         }
-        f66746a = Build.VERSION.SDK_INT;
+        f66946a = Build.VERSION.SDK_INT;
     }
 
     public static int a(long j2, long j3) {
@@ -80,7 +80,7 @@ public class a {
             view.setSystemUiVisibility(0);
             return;
         }
-        int i2 = f66746a;
+        int i2 = f66946a;
         if (i2 >= 19) {
             view.setSystemUiVisibility(3846);
         } else if (i2 >= 16) {

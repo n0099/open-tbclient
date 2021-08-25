@@ -32,20 +32,20 @@ public class b extends p {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final p.c f37839e;
+    public static final p.c f37945e;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final long f37840a;
+    public final long f37946a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c f37841b;
+    public c f37947b;
 
     /* renamed from: c  reason: collision with root package name */
-    public a f37842c;
+    public a f37948c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f37843d;
+    public boolean f37949d;
 
     /* loaded from: classes5.dex */
     public static class a {
@@ -53,28 +53,28 @@ public class b extends p {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f37844a;
+        public String f37950a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f37845b;
+        public String f37951b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String[] f37846c;
+        public String[] f37952c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f37847d;
+        public String f37953d;
 
         /* renamed from: e  reason: collision with root package name */
-        public List<String> f37848e;
+        public List<String> f37954e;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f37849f;
+        public String f37955f;
 
         /* renamed from: g  reason: collision with root package name */
-        public String f37850g;
+        public String f37956g;
 
         /* renamed from: h  reason: collision with root package name */
-        public String f37851h;
+        public String f37957h;
 
         public a(String str) {
             Interceptable interceptable = $ic;
@@ -94,44 +94,44 @@ public class b extends p {
             if (TextUtils.isEmpty(str)) {
                 return;
             }
-            this.f37844a = Uri.parse(str).getHost();
-            this.f37845b = Uri.parse(str).getPath();
+            this.f37950a = Uri.parse(str).getHost();
+            this.f37951b = Uri.parse(str).getPath();
         }
     }
 
     /* renamed from: com.baidu.apollon.restnet.http.b$b  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public interface InterfaceC1611b {
+    public interface InterfaceC1615b {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final String f37852a = "plt";
+        public static final String f37958a = "plt";
 
         /* renamed from: b  reason: collision with root package name */
-        public static final String f37853b = "dns";
+        public static final String f37959b = "dns";
 
         /* renamed from: c  reason: collision with root package name */
-        public static final String f37854c = "pdt";
+        public static final String f37960c = "pdt";
 
         /* renamed from: d  reason: collision with root package name */
-        public static final String f37855d = "tcp";
+        public static final String f37961d = "tcp";
 
         /* renamed from: e  reason: collision with root package name */
-        public static final String f37856e = "srt";
+        public static final String f37962e = "srt";
 
         /* renamed from: f  reason: collision with root package name */
-        public static final String f37857f = "host";
+        public static final String f37963f = "host";
 
         /* renamed from: g  reason: collision with root package name */
-        public static final String f37858g = "path";
+        public static final String f37964g = "path";
 
         /* renamed from: h  reason: collision with root package name */
-        public static final String f37859h = "proxy";
+        public static final String f37965h = "proxy";
 
         /* renamed from: i  reason: collision with root package name */
-        public static final String f37860i = "location";
+        public static final String f37966i = "location";
 
         /* renamed from: j  reason: collision with root package name */
-        public static final String f37861j = "protocol";
+        public static final String f37967j = "protocol";
         public static final String k = "hostAddresses";
         public static final String l = "connectHostAddress";
         public static final String m = "connectFailedHostAddresses";
@@ -143,34 +143,34 @@ public class b extends p {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public long f37862a;
+        public long f37968a;
 
         /* renamed from: b  reason: collision with root package name */
-        public long f37863b;
+        public long f37969b;
 
         /* renamed from: c  reason: collision with root package name */
-        public long f37864c;
+        public long f37970c;
 
         /* renamed from: d  reason: collision with root package name */
-        public long f37865d;
+        public long f37971d;
 
         /* renamed from: e  reason: collision with root package name */
-        public long f37866e;
+        public long f37972e;
 
         /* renamed from: f  reason: collision with root package name */
-        public long f37867f;
+        public long f37973f;
 
         /* renamed from: g  reason: collision with root package name */
-        public long f37868g;
+        public long f37974g;
 
         /* renamed from: h  reason: collision with root package name */
-        public long f37869h;
+        public long f37975h;
 
         /* renamed from: i  reason: collision with root package name */
-        public long f37870i;
+        public long f37976i;
 
         /* renamed from: j  reason: collision with root package name */
-        public long f37871j;
+        public long f37977j;
         public long k;
         public long l;
         public long m;
@@ -211,7 +211,7 @@ public class b extends p {
                     return;
                 }
             }
-            this.f37862a = j2;
+            this.f37968a = j2;
         }
 
         public JSONObject a() {
@@ -220,7 +220,7 @@ public class b extends p {
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 JSONObject jSONObject = new JSONObject();
                 try {
-                    jSONObject.put(InterfaceC1611b.f37852a, this.r - this.f37862a).put(InterfaceC1611b.f37853b, this.f37864c - this.f37863b).put(InterfaceC1611b.f37854c, this.p - this.m).put(InterfaceC1611b.f37855d, this.f37868g - this.f37865d).put(InterfaceC1611b.f37856e, this.m - this.f37870i);
+                    jSONObject.put(InterfaceC1615b.f37958a, this.r - this.f37968a).put(InterfaceC1615b.f37959b, this.f37970c - this.f37969b).put(InterfaceC1615b.f37960c, this.p - this.m).put(InterfaceC1615b.f37961d, this.f37974g - this.f37971d).put(InterfaceC1615b.f37962e, this.m - this.f37976i);
                 } catch (JSONException unused) {
                 }
                 return jSONObject;
@@ -242,7 +242,7 @@ public class b extends p {
                 return;
             }
         }
-        f37839e = new p.c() { // from class: com.baidu.apollon.restnet.http.b.1
+        f37945e = new p.c() { // from class: com.baidu.apollon.restnet.http.b.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -278,8 +278,8 @@ public class b extends p {
     private void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, str) == null) {
-            this.f37841b = new c(this.f37841b.r);
-            this.f37842c = new a(str);
+            this.f37947b = new c(this.f37947b.r);
+            this.f37948c = new a(str);
         }
     }
 
@@ -287,20 +287,20 @@ public class b extends p {
     public void callEnd(c.d.b.e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, eVar) == null) {
-            this.f37841b.r = a(System.nanoTime() - this.f37840a);
+            this.f37947b.r = a(System.nanoTime() - this.f37946a);
             try {
-                JSONObject put = this.f37841b.a().put("host", this.f37842c.f37844a).put("path", this.f37842c.f37845b).put(InterfaceC1611b.l, this.f37842c.f37847d).put("protocol", this.f37842c.f37850g);
-                if (!Proxy.Type.DIRECT.toString().equals(this.f37842c.f37849f)) {
-                    put.put("proxy", this.f37842c.f37849f);
+                JSONObject put = this.f37947b.a().put("host", this.f37948c.f37950a).put("path", this.f37948c.f37951b).put(InterfaceC1615b.l, this.f37948c.f37953d).put("protocol", this.f37948c.f37956g);
+                if (!Proxy.Type.DIRECT.toString().equals(this.f37948c.f37955f)) {
+                    put.put("proxy", this.f37948c.f37955f);
                 }
-                if (this.f37842c.f37846c != null) {
-                    put.put(InterfaceC1611b.k, Arrays.toString(this.f37842c.f37846c));
+                if (this.f37948c.f37952c != null) {
+                    put.put(InterfaceC1615b.k, Arrays.toString(this.f37948c.f37952c));
                 }
-                if (!TextUtils.isEmpty(this.f37842c.f37851h)) {
-                    put.put("location", this.f37842c.f37851h);
+                if (!TextUtils.isEmpty(this.f37948c.f37957h)) {
+                    put.put("location", this.f37948c.f37957h);
                 }
-                if (this.f37843d) {
-                    a(this.f37842c.f37851h);
+                if (this.f37949d) {
+                    a(this.f37948c.f37957h);
                 }
                 com.baidu.apollon.restnet.a.a().a(put);
             } catch (JSONException unused) {
@@ -312,20 +312,20 @@ public class b extends p {
     public void callFailed(c.d.b.e eVar, IOException iOException) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, eVar, iOException) == null) {
-            this.f37841b.s = a(System.nanoTime() - this.f37840a);
+            this.f37947b.s = a(System.nanoTime() - this.f37946a);
             try {
-                JSONObject put = new JSONObject().put("host", this.f37842c.f37844a).put("path", this.f37842c.f37845b).put("protocol", this.f37842c.f37850g);
-                if (!Proxy.Type.DIRECT.toString().equals(this.f37842c.f37849f)) {
-                    put.put("proxy", this.f37842c.f37849f);
+                JSONObject put = new JSONObject().put("host", this.f37948c.f37950a).put("path", this.f37948c.f37951b).put("protocol", this.f37948c.f37956g);
+                if (!Proxy.Type.DIRECT.toString().equals(this.f37948c.f37955f)) {
+                    put.put("proxy", this.f37948c.f37955f);
                 }
-                if (this.f37842c.f37846c != null) {
-                    put.put(InterfaceC1611b.k, Arrays.toString(this.f37842c.f37846c));
+                if (this.f37948c.f37952c != null) {
+                    put.put(InterfaceC1615b.k, Arrays.toString(this.f37948c.f37952c));
                 }
-                if (this.f37842c.f37848e != null) {
-                    put.put(InterfaceC1611b.m, this.f37842c.f37848e.toString());
+                if (this.f37948c.f37954e != null) {
+                    put.put(InterfaceC1615b.m, this.f37948c.f37954e.toString());
                 }
-                if (!TextUtils.isEmpty(this.f37842c.f37851h)) {
-                    put.put("location", this.f37842c.f37851h);
+                if (!TextUtils.isEmpty(this.f37948c.f37957h)) {
+                    put.put("location", this.f37948c.f37957h);
                 }
                 com.baidu.apollon.restnet.a.a().a(put);
             } catch (JSONException unused) {
@@ -337,8 +337,8 @@ public class b extends p {
     public void callStart(c.d.b.e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, eVar) == null) {
-            this.f37841b.f37862a = a(System.nanoTime() - this.f37840a);
-            this.f37842c = new a(eVar.request().h().toString());
+            this.f37947b.f37968a = a(System.nanoTime() - this.f37946a);
+            this.f37948c = new a(eVar.request().h().toString());
         }
     }
 
@@ -346,7 +346,7 @@ public class b extends p {
     public void connectEnd(c.d.b.e eVar, InetSocketAddress inetSocketAddress, Proxy proxy, Protocol protocol) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(1048579, this, eVar, inetSocketAddress, proxy, protocol) == null) {
-            this.f37841b.f37868g = a(System.nanoTime() - this.f37840a);
+            this.f37947b.f37974g = a(System.nanoTime() - this.f37946a);
         }
     }
 
@@ -354,17 +354,17 @@ public class b extends p {
     public void connectFailed(c.d.b.e eVar, InetSocketAddress inetSocketAddress, Proxy proxy, Protocol protocol, IOException iOException) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLLL(1048580, this, eVar, inetSocketAddress, proxy, protocol, iOException) == null) {
-            this.f37841b.t = a(System.nanoTime() - this.f37840a);
-            a aVar = this.f37842c;
-            if (aVar.f37848e == null) {
-                aVar.f37848e = new ArrayList();
+            this.f37947b.t = a(System.nanoTime() - this.f37946a);
+            a aVar = this.f37948c;
+            if (aVar.f37954e == null) {
+                aVar.f37954e = new ArrayList();
             }
-            this.f37842c.f37848e.add(String.valueOf(inetSocketAddress));
+            this.f37948c.f37954e.add(String.valueOf(inetSocketAddress));
             if (proxy != null) {
-                this.f37842c.f37849f = proxy.toString();
+                this.f37948c.f37955f = proxy.toString();
             }
             if (protocol != null) {
-                this.f37842c.f37850g = protocol.toString();
+                this.f37948c.f37956g = protocol.toString();
             }
         }
     }
@@ -373,7 +373,7 @@ public class b extends p {
     public void connectStart(c.d.b.e eVar, InetSocketAddress inetSocketAddress, Proxy proxy) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048581, this, eVar, inetSocketAddress, proxy) == null) {
-            this.f37841b.f37865d = a(System.nanoTime() - this.f37840a);
+            this.f37947b.f37971d = a(System.nanoTime() - this.f37946a);
         }
     }
 
@@ -381,12 +381,12 @@ public class b extends p {
     public void connectionAcquired(c.d.b.e eVar, i iVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048582, this, eVar, iVar) == null) {
-            this.f37841b.f37869h = a(System.nanoTime() - this.f37840a);
-            a aVar = this.f37842c;
-            aVar.f37844a = iVar.route().a().l().l() + ":" + iVar.route().a().l().w();
-            this.f37842c.f37849f = String.valueOf(iVar.route().b());
-            this.f37842c.f37847d = String.valueOf(iVar.route().d());
-            this.f37842c.f37850g = String.valueOf(iVar.protocol());
+            this.f37947b.f37975h = a(System.nanoTime() - this.f37946a);
+            a aVar = this.f37948c;
+            aVar.f37950a = iVar.route().a().l().l() + ":" + iVar.route().a().l().w();
+            this.f37948c.f37955f = String.valueOf(iVar.route().b());
+            this.f37948c.f37953d = String.valueOf(iVar.route().d());
+            this.f37948c.f37956g = String.valueOf(iVar.protocol());
         }
     }
 
@@ -394,7 +394,7 @@ public class b extends p {
     public void connectionReleased(c.d.b.e eVar, i iVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048583, this, eVar, iVar) == null) {
-            this.f37841b.q = a(System.nanoTime() - this.f37840a);
+            this.f37947b.q = a(System.nanoTime() - this.f37946a);
         }
     }
 
@@ -402,10 +402,10 @@ public class b extends p {
     public void dnsEnd(c.d.b.e eVar, String str, List<InetAddress> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, eVar, str, list) == null) {
-            this.f37841b.f37864c = a(System.nanoTime() - this.f37840a);
-            this.f37842c.f37846c = new String[list.size()];
+            this.f37947b.f37970c = a(System.nanoTime() - this.f37946a);
+            this.f37948c.f37952c = new String[list.size()];
             for (int i2 = 0; i2 < list.size(); i2++) {
-                this.f37842c.f37846c[i2] = list.get(i2).getHostAddress();
+                this.f37948c.f37952c[i2] = list.get(i2).getHostAddress();
             }
         }
     }
@@ -414,7 +414,7 @@ public class b extends p {
     public void dnsStart(c.d.b.e eVar, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048585, this, eVar, str) == null) {
-            this.f37841b.f37863b = a(System.nanoTime() - this.f37840a);
+            this.f37947b.f37969b = a(System.nanoTime() - this.f37946a);
         }
     }
 
@@ -422,7 +422,7 @@ public class b extends p {
     public void requestBodyEnd(c.d.b.e eVar, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLJ(1048586, this, eVar, j2) == null) {
-            this.f37841b.l = a(System.nanoTime() - this.f37840a);
+            this.f37947b.l = a(System.nanoTime() - this.f37946a);
         }
     }
 
@@ -430,7 +430,7 @@ public class b extends p {
     public void requestBodyStart(c.d.b.e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, eVar) == null) {
-            this.f37841b.k = a(System.nanoTime() - this.f37840a);
+            this.f37947b.k = a(System.nanoTime() - this.f37946a);
         }
     }
 
@@ -438,7 +438,7 @@ public class b extends p {
     public void requestHeadersEnd(c.d.b.e eVar, z zVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048588, this, eVar, zVar) == null) {
-            this.f37841b.f37871j = a(System.nanoTime() - this.f37840a);
+            this.f37947b.f37977j = a(System.nanoTime() - this.f37946a);
         }
     }
 
@@ -446,7 +446,7 @@ public class b extends p {
     public void requestHeadersStart(c.d.b.e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, eVar) == null) {
-            this.f37841b.f37870i = a(System.nanoTime() - this.f37840a);
+            this.f37947b.f37976i = a(System.nanoTime() - this.f37946a);
         }
     }
 
@@ -454,7 +454,7 @@ public class b extends p {
     public void responseBodyEnd(c.d.b.e eVar, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLJ(1048590, this, eVar, j2) == null) {
-            this.f37841b.p = a(System.nanoTime() - this.f37840a);
+            this.f37947b.p = a(System.nanoTime() - this.f37946a);
         }
     }
 
@@ -462,7 +462,7 @@ public class b extends p {
     public void responseBodyStart(c.d.b.e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, eVar) == null) {
-            this.f37841b.o = a(System.nanoTime() - this.f37840a);
+            this.f37947b.o = a(System.nanoTime() - this.f37946a);
         }
     }
 
@@ -470,12 +470,12 @@ public class b extends p {
     public void responseHeadersEnd(c.d.b.e eVar, b0 b0Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048592, this, eVar, b0Var) == null) {
-            this.f37841b.n = a(System.nanoTime() - this.f37840a);
+            this.f37947b.n = a(System.nanoTime() - this.f37946a);
             if (b0Var != null) {
                 boolean w = b0Var.w();
-                this.f37843d = w;
+                this.f37949d = w;
                 if (w) {
-                    this.f37842c.f37851h = b0Var.s("Location");
+                    this.f37948c.f37957h = b0Var.s("Location");
                 }
             }
         }
@@ -485,7 +485,7 @@ public class b extends p {
     public void responseHeadersStart(c.d.b.e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048593, this, eVar) == null) {
-            this.f37841b.m = a(System.nanoTime() - this.f37840a);
+            this.f37947b.m = a(System.nanoTime() - this.f37946a);
         }
     }
 
@@ -493,7 +493,7 @@ public class b extends p {
     public void secureConnectEnd(c.d.b.e eVar, q qVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048594, this, eVar, qVar) == null) {
-            this.f37841b.f37867f = a(System.nanoTime() - this.f37840a);
+            this.f37947b.f37973f = a(System.nanoTime() - this.f37946a);
         }
     }
 
@@ -501,7 +501,7 @@ public class b extends p {
     public void secureConnectStart(c.d.b.e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048595, this, eVar) == null) {
-            this.f37841b.f37866e = a(System.nanoTime() - this.f37840a);
+            this.f37947b.f37972e = a(System.nanoTime() - this.f37946a);
         }
     }
 
@@ -520,8 +520,8 @@ public class b extends p {
                 return;
             }
         }
-        this.f37840a = j2;
-        this.f37841b = new c();
+        this.f37946a = j2;
+        this.f37947b = new c();
     }
 
     private long a(long j2) {

@@ -18,11 +18,11 @@ public class StatService {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f39244a = "logsender";
+    public static final String f39351a = "logsender";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public ConcurrentHashMap<String, Long> f39245b;
+    public ConcurrentHashMap<String, Long> f39352b;
 
     /* renamed from: com.baidu.fsg.base.statistics.StatService$1  reason: invalid class name */
     /* loaded from: classes5.dex */
@@ -100,7 +100,7 @@ public class StatService {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static StatService f39246a;
+        public static StatService f39353a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -116,7 +116,7 @@ public class StatService {
                     return;
                 }
             }
-            f39246a = new StatService(null);
+            f39353a = new StatService(null);
         }
 
         public a() {
@@ -147,7 +147,7 @@ public class StatService {
                 return;
             }
         }
-        this.f39245b = new ConcurrentHashMap<>();
+        this.f39352b = new ConcurrentHashMap<>();
     }
 
     public /* synthetic */ StatService(AnonymousClass1 anonymousClass1) {
@@ -157,7 +157,7 @@ public class StatService {
     public static StatService a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f39246a : (StatService) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f39353a : (StatService) invokeV.objValue;
     }
 
     public static ArrayList<String> a(String str, String str2) {
@@ -165,12 +165,12 @@ public class StatService {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, str2)) == null) {
             ArrayList<String> arrayList = new ArrayList<>();
-            Long l = a().f39245b.get(str);
+            Long l = a().f39352b.get(str);
             if (l == null) {
                 return null;
             }
             Long valueOf = Long.valueOf(System.currentTimeMillis() - l.longValue());
-            a().f39245b.remove(str);
+            a().f39352b.remove(str);
             arrayList.add(Long.toString(valueOf.longValue()));
             arrayList.add(str2);
             return arrayList;
@@ -181,7 +181,7 @@ public class StatService {
     public static void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) {
-            a().f39245b.put(str, Long.valueOf(System.currentTimeMillis()));
+            a().f39352b.put(str, Long.valueOf(System.currentTimeMillis()));
         }
     }
 

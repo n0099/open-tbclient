@@ -115,10 +115,10 @@ public class GetFPResponse implements IBeanResponse {
         public static final int YAW = 15;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final int f39187a = 6;
+        public static final int f39294a = 6;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final int f39188b = 3;
+        public static final int f39295b = 3;
         public transient /* synthetic */ FieldHolder $fh;
         public String crop_face_ratio;
         public String crop_face_size;
@@ -545,7 +545,7 @@ public class GetFPResponse implements IBeanResponse {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: common  reason: collision with root package name */
-        public CommonConfig f39189common;
+        public CommonConfig f39296common;
         public LivenessConfig living;
         public OcrConfig ocr;
 

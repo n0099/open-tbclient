@@ -16,7 +16,7 @@ public class b implements DownloadCallback {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public IPackageDownloadCallback f2683a;
+    public IPackageDownloadCallback f2741a;
 
     public b(IPackageDownloadCallback iPackageDownloadCallback) {
         Interceptable interceptable = $ic;
@@ -33,7 +33,7 @@ public class b implements DownloadCallback {
                 return;
             }
         }
-        this.f2683a = iPackageDownloadCallback;
+        this.f2741a = iPackageDownloadCallback;
     }
 
     @Override // com.baidu.searchbox.pms.callback.DownloadCallback
@@ -54,7 +54,7 @@ public class b implements DownloadCallback {
     public void onDownloadError(PackageInfo packageInfo, ErrorInfo errorInfo) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, packageInfo, errorInfo) == null) {
-            this.f2683a.onPackageDownloadFail(packageInfo.packageName, errorInfo.code, errorInfo.errorMsg);
+            this.f2741a.onPackageDownloadFail(packageInfo.packageName, errorInfo.code, errorInfo.errorMsg);
             c.a.e.g.h.b.b(packageInfo.packageName, 1, packageInfo.version);
         }
     }
@@ -70,7 +70,7 @@ public class b implements DownloadCallback {
     public void onDownloadProgress(PackageInfo packageInfo, long j2, long j3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{packageInfo, Long.valueOf(j2), Long.valueOf(j3)}) == null) {
-            this.f2683a.onProgress(j2, j3);
+            this.f2741a.onProgress(j2, j3);
         }
     }
 
@@ -92,7 +92,7 @@ public class b implements DownloadCallback {
     public void onDownloadSuccess(PackageInfo packageInfo, ErrorInfo errorInfo) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048583, this, packageInfo, errorInfo) == null) {
-            this.f2683a.onPackageDownloadSuccess(packageInfo.packageName, packageInfo.filePath);
+            this.f2741a.onPackageDownloadSuccess(packageInfo.packageName, packageInfo.filePath);
             c.a.e.g.h.b.b(packageInfo.packageName, 0, packageInfo.version);
         }
     }

@@ -12,7 +12,7 @@ public class d {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f29172a;
+    public Context f29454a;
 
     public d(Context context) {
         Interceptable interceptable = $ic;
@@ -29,12 +29,12 @@ public class d {
                 return;
             }
         }
-        this.f29172a = context;
+        this.f29454a = context;
     }
 
     public c.a.r.d.a a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? c.a.r.a.a(this.f29172a) : (c.a.r.d.a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? c.a.r.a.a(this.f29454a) : (c.a.r.d.a) invokeV.objValue;
     }
 }

@@ -19,10 +19,10 @@ public class a extends com.sdk.base.framework.f.a {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f75221a = "com.sdk.base.framework.f.j.a";
+    public static final String f75422a = "com.sdk.base.framework.f.j.a";
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f75222b;
+    public static boolean f75423b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -38,7 +38,7 @@ public class a extends com.sdk.base.framework.f.a {
                 return;
             }
         }
-        f75222b = f.f75169b;
+        f75423b = f.f75370b;
     }
 
     public a() {
@@ -72,7 +72,7 @@ public class a extends com.sdk.base.framework.f.a {
                     String sb2 = sb.toString();
                     if (entry.getValue() != null && sb2.length() > 0 && !StringUtil.NULL_STRING.equals(sb2) && !"sign".equals(key) && !key.startsWith("_") && !"file".equals(key)) {
                         stringBuffer.append(key);
-                        stringBuffer.append(com.alipay.sdk.encrypt.a.f35773h);
+                        stringBuffer.append(com.alipay.sdk.encrypt.a.f35879h);
                         stringBuffer.append(entry.getValue());
                         stringBuffer.append(Typography.amp);
                     }
@@ -82,7 +82,7 @@ public class a extends com.sdk.base.framework.f.a {
                 }
                 return e.a(stringBuffer.toString());
             } catch (Exception e2) {
-                c.b(f75221a, e2.getMessage(), Boolean.valueOf(f75222b));
+                c.b(f75422a, e2.getMessage(), Boolean.valueOf(f75423b));
                 return null;
             }
         }

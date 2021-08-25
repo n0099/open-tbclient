@@ -18,7 +18,7 @@ import c.a.e.a.h;
 import c.a.e.a.i;
 import c.a.e.e.l.d;
 import c.a.e.e.p.l;
-import c.a.e.k.e.q;
+import c.a.e.l.e.q;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.MessageListener;
@@ -46,7 +46,7 @@ public abstract class BdBaseFragmentActivity<T> extends FragmentActivity impleme
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BdBaseFragmentActivity f36015e;
+        public final /* synthetic */ BdBaseFragmentActivity f36121e;
 
         public a(BdBaseFragmentActivity bdBaseFragmentActivity) {
             Interceptable interceptable = $ic;
@@ -63,14 +63,14 @@ public abstract class BdBaseFragmentActivity<T> extends FragmentActivity impleme
                     return;
                 }
             }
-            this.f36015e = bdBaseFragmentActivity;
+            this.f36121e = bdBaseFragmentActivity;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                BdBaseFragmentActivity bdBaseFragmentActivity = this.f36015e;
+                BdBaseFragmentActivity bdBaseFragmentActivity = this.f36121e;
                 bdBaseFragmentActivity.onPreLoad(bdBaseFragmentActivity.onGetPreLoadListView());
             }
         }

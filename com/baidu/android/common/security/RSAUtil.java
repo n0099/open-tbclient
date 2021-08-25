@@ -7,7 +7,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.hiidostatis.inner.util.cipher.RsaCipher;
 import java.io.UnsupportedEncodingException;
 import java.math.BigInteger;
 import java.security.Key;
@@ -56,7 +55,7 @@ public final class RSAUtil {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, bArr, str)) == null) {
             PrivateKey generatePrivate = KeyFactory.getInstance("RSA").generatePrivate(new PKCS8EncodedKeySpec(Base64.decode(str.getBytes())));
-            Cipher cipher = Cipher.getInstance(RsaCipher.RSA_PADDING);
+            Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
             cipher.init(2, generatePrivate);
             return cipher.doFinal(bArr);
         }
@@ -68,7 +67,7 @@ public final class RSAUtil {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, bArr, str)) == null) {
             PublicKey generatePublic = KeyFactory.getInstance("RSA").generatePublic(new X509EncodedKeySpec(Base64.decode(str.getBytes())));
-            Cipher cipher = Cipher.getInstance(RsaCipher.RSA_PADDING);
+            Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
             cipher.init(2, generatePublic);
             return cipher.doFinal(bArr);
         }
@@ -80,7 +79,7 @@ public final class RSAUtil {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65539, null, bArr, str, i2)) == null) {
             PrivateKey generatePrivate = KeyFactory.getInstance("RSA").generatePrivate(new PKCS8EncodedKeySpec(Base64.decode(str.getBytes())));
-            Cipher cipher = Cipher.getInstance(RsaCipher.RSA_PADDING);
+            Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
             cipher.init(2, generatePrivate);
             int i3 = i2 / 8;
             StringBuilder sb = new StringBuilder();
@@ -106,7 +105,7 @@ public final class RSAUtil {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, bArr, str)) == null) {
             PrivateKey generatePrivate = KeyFactory.getInstance("RSA").generatePrivate(new PKCS8EncodedKeySpec(Base64.decode(str.getBytes())));
-            Cipher cipher = Cipher.getInstance(RsaCipher.RSA_PADDING);
+            Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
             cipher.init(1, generatePrivate);
             return cipher.doFinal(bArr);
         }
@@ -118,7 +117,7 @@ public final class RSAUtil {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, bArr, str)) == null) {
             PublicKey generatePublic = KeyFactory.getInstance("RSA").generatePublic(new X509EncodedKeySpec(Base64.decode(str.getBytes())));
-            Cipher cipher = Cipher.getInstance(RsaCipher.RSA_PADDING);
+            Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
             cipher.init(1, generatePublic);
             return cipher.doFinal(bArr);
         }
@@ -130,7 +129,7 @@ public final class RSAUtil {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLI = interceptable.invokeLLI(AdIconUtil.BAIDU_LOGO_ID, null, bArr, str, i2)) == null) {
             PublicKey generatePublic = KeyFactory.getInstance("RSA").generatePublic(new X509EncodedKeySpec(Base64.decode(str.getBytes())));
-            Cipher cipher = Cipher.getInstance(RsaCipher.RSA_PADDING);
+            Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
             cipher.init(1, generatePublic);
             int i3 = i2 / 8;
             int i4 = i3 - 11;

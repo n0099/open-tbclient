@@ -11,34 +11,34 @@ public class d {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f2248a;
+    public long f2306a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f2249b;
+    public long f2307b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f2250c;
+    public long f2308c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f2251d;
+    public long f2309d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f2252e;
+    public int f2310e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f2253f;
+    public long f2311f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f2254g;
+    public long f2312g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f2255h;
+    public String f2313h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f2256i;
+    public int f2314i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f2257j;
+    public int f2315j;
     public String k;
     public String l;
     public BDHttpDnsResult.ResolveType m;
@@ -68,16 +68,16 @@ public class d {
                 return;
             }
         }
-        this.f2248a = -1L;
-        this.f2249b = -1L;
-        this.f2250c = -1L;
-        this.f2251d = -1L;
-        this.f2252e = 0;
-        this.f2253f = -1L;
-        this.f2254g = -1L;
-        this.f2255h = "";
-        this.f2256i = -1;
-        this.f2257j = 0;
+        this.f2306a = -1L;
+        this.f2307b = -1L;
+        this.f2308c = -1L;
+        this.f2309d = -1L;
+        this.f2310e = 0;
+        this.f2311f = -1L;
+        this.f2312g = -1L;
+        this.f2313h = "";
+        this.f2314i = -1;
+        this.f2315j = 0;
         this.k = null;
         this.l = null;
         this.m = null;

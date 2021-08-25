@@ -2,7 +2,7 @@ package com.baidu.tieba.imMessageCenter.mention;
 
 import androidx.core.view.InputDeviceCompat;
 import c.a.e.e.p.k;
-import c.a.o0.i0.b.a;
+import c.a.p0.i0.b.a;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.atomData.ImageViewerConfig;
@@ -410,7 +410,7 @@ public class FeedData implements Serializable, a {
                 jSONObject.put("is_share_thread", i2);
                 if (this.mOriginalThreadInfo != null) {
                     JSONObject jSONObject5 = new JSONObject();
-                    jSONObject5.put("title", this.mOriginalThreadInfo.f47201g);
+                    jSONObject5.put("title", this.mOriginalThreadInfo.f47307g);
                     jSONObject.put("origin_thread_info", jSONObject5);
                 }
                 jSONArray.put(jSONObject);

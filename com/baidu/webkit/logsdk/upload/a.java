@@ -12,31 +12,31 @@ public final class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f63520a;
+    public String f63720a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f63521b;
+    public int f63721b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f63522c;
+    public boolean f63722c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f63523d;
+    public long f63723d;
 
     /* renamed from: e  reason: collision with root package name */
-    public com.baidu.webkit.logsdk.b.a f63524e;
+    public com.baidu.webkit.logsdk.b.a f63724e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f63525f;
+    public String f63725f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f63526g;
+    public String f63726g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f63527h;
+    public String f63727h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f63528i;
+    public String f63728i;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public a(com.baidu.webkit.logsdk.b.a aVar, String str) {
@@ -74,16 +74,16 @@ public final class a {
                 return;
             }
         }
-        this.f63520a = str;
-        this.f63521b = 0;
-        this.f63522c = false;
-        this.f63524e = aVar;
+        this.f63720a = str;
+        this.f63721b = 0;
+        this.f63722c = false;
+        this.f63724e = aVar;
         int a2 = !TextUtils.isEmpty(str2) ? c.a(str2) : -1;
         if (a2 <= 1 && a2 >= 0) {
-            this.f63525f = str2;
+            this.f63725f = str2;
             return;
         }
-        this.f63525f = aVar.f63491c;
-        this.f63526g = aVar.f63492d;
+        this.f63725f = aVar.f63691c;
+        this.f63726g = aVar.f63692d;
     }
 }

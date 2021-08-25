@@ -17,7 +17,7 @@ public final class o {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String[] f45233a;
+    public static final String[] f45340a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -33,7 +33,7 @@ public final class o {
                 return;
             }
         }
-        f45233a = new String[]{"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "a", "b", "c", "d", "e", "f"};
+        f45340a = new String[]{"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "a", "b", "c", "d", "e", "f"};
     }
 
     public static String a(String str) {
@@ -68,7 +68,7 @@ public final class o {
                 if (i2 < 0) {
                     i2 += 256;
                 }
-                stringBuffer.append(f45233a[i2 / 16] + f45233a[i2 % 16]);
+                stringBuffer.append(f45340a[i2 / 16] + f45340a[i2 % 16]);
             }
             return stringBuffer.toString();
         }

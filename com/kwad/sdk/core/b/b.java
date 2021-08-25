@@ -21,7 +21,7 @@ public final class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Charset f71076a;
+    public static final Charset f71276a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -37,7 +37,7 @@ public final class b {
                 return;
             }
         }
-        f71076a = Charset.forName("UTF-8");
+        f71276a = Charset.forName("UTF-8");
     }
 
     public static void a(InputStream inputStream, OutputStream outputStream) {
@@ -62,7 +62,7 @@ public final class b {
     public static byte[] a(String str, byte[] bArr) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, bArr)) == null) ? a(str.getBytes(f71076a), bArr, 2) : (byte[]) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, bArr)) == null) ? a(str.getBytes(f71276a), bArr, 2) : (byte[]) invokeLL.objValue;
     }
 
     public static byte[] a(byte[] bArr) {

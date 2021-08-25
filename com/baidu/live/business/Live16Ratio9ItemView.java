@@ -7,11 +7,11 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import c.a.v.b.f.a;
-import c.a.v.b.f.e;
-import c.a.v.c.a.c;
-import c.a.v.c.a.d;
-import c.a.v.i.f;
+import c.a.w.b.f.a;
+import c.a.w.b.f.e;
+import c.a.w.c.a.c;
+import c.a.w.c.a.d;
+import c.a.w.i.f;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.live.business.base.LiveBaseItemView;
 import com.baidu.live.business.model.data.LeftLableInfo;
@@ -31,13 +31,13 @@ public class Live16Ratio9ItemView extends LiveBaseItemView {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: f  reason: collision with root package name */
-    public SimpleDraweeView f40508f;
+    public SimpleDraweeView f40615f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f40509g;
+    public boolean f40616g;
 
     /* renamed from: h  reason: collision with root package name */
-    public float[] f40510h;
+    public float[] f40617h;
     public Context mContext;
     public SimpleDraweeView mCover;
     public TextView mName;
@@ -64,7 +64,7 @@ public class Live16Ratio9ItemView extends LiveBaseItemView {
                 return;
             }
         }
-        this.f40509g = false;
+        this.f40616g = false;
         a(context);
     }
 
@@ -86,9 +86,9 @@ public class Live16Ratio9ItemView extends LiveBaseItemView {
             this.mName = (TextView) inflate.findViewById(c.live_feed_page_item_name);
             this.mUserAvatar = (SimpleDraweeView) inflate.findViewById(c.live_feed_page_item_avatar_iv);
             this.mPersonNum = (TextView) inflate.findViewById(c.live_feed_page_item_count);
-            this.f40508f = (SimpleDraweeView) inflate.findViewById(c.live_feed_page_item_right_lable);
+            this.f40615f = (SimpleDraweeView) inflate.findViewById(c.live_feed_page_item_right_lable);
             float a2 = a.a(getContext(), 10.0f);
-            this.f40510h = new float[]{a2, a2, a2, a2, a2, a2, a2, a2};
+            this.f40617h = new float[]{a2, a2, a2, a2, a2, a2, a2, a2};
         }
     }
 
@@ -98,7 +98,7 @@ public class Live16Ratio9ItemView extends LiveBaseItemView {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
             GradientDrawable gradientDrawable = new GradientDrawable();
             gradientDrawable.setColor(f.e().a(getContext(), this.mIsImmersion, "color_white2"));
-            gradientDrawable.setCornerRadii(this.f40510h);
+            gradientDrawable.setCornerRadii(this.f40617h);
             setBackgroundDrawable(gradientDrawable);
             SimpleDraweeView simpleDraweeView = this.mCover;
             if (simpleDraweeView != null) {
@@ -128,7 +128,7 @@ public class Live16Ratio9ItemView extends LiveBaseItemView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.onViewAttached();
-            if (this.f40509g && this.mUserLable.isHasAnim()) {
+            if (this.f40616g && this.mUserLable.isHasAnim()) {
                 this.mUserLable.startAnim();
             }
         }
@@ -183,10 +183,10 @@ public class Live16Ratio9ItemView extends LiveBaseItemView {
                     int i3 = liveRoomEntity.liveStatus;
                     LeftLableInfo leftLableInfo2 = liveRoomEntity.leftLabel;
                     liveStatusAnimView.setData(i3, leftLableInfo2.text, leftLableInfo2.startColor, leftLableInfo2.endColor);
-                    this.f40509g = true;
+                    this.f40616g = true;
                     this.mUserLable.setVisibility(0);
                 } else {
-                    this.f40509g = false;
+                    this.f40616g = false;
                     LiveStatusAnimView liveStatusAnimView2 = this.mUserLable;
                     if (liveStatusAnimView2 != null) {
                         liveStatusAnimView2.setVisibility(8);
@@ -206,15 +206,15 @@ public class Live16Ratio9ItemView extends LiveBaseItemView {
                 }
                 RightLableInfo rightLableInfo = liveRoomEntity.rightLabel;
                 if (rightLableInfo != null && !TextUtils.isEmpty(rightLableInfo.iconUrl)) {
-                    this.f40508f.setImageURI(liveRoomEntity.rightLabel.iconUrl);
-                    this.f40508f.setVisibility(0);
+                    this.f40615f.setImageURI(liveRoomEntity.rightLabel.iconUrl);
+                    this.f40615f.setVisibility(0);
                 } else {
-                    this.f40508f.setVisibility(8);
+                    this.f40615f.setVisibility(8);
                 }
                 if (this.mIsImmersion) {
                     this.mCover.getHierarchy().setUseGlobalColorFilter(false);
                     this.mUserAvatar.getHierarchy().setUseGlobalColorFilter(false);
-                    this.f40508f.getHierarchy().setUseGlobalColorFilter(false);
+                    this.f40615f.getHierarchy().setUseGlobalColorFilter(false);
                 }
                 onDarkModeChange("day");
             }
@@ -240,7 +240,7 @@ public class Live16Ratio9ItemView extends LiveBaseItemView {
                 return;
             }
         }
-        this.f40509g = false;
+        this.f40616g = false;
         a(context);
     }
 }

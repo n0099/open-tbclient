@@ -151,8 +151,8 @@ public class ChatMessageDBManager extends DBBase {
         return invokeL.longValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:72:0x02c7 A[RETURN] */
-    /* JADX WARN: Removed duplicated region for block: B:74:0x02c9  */
+    /* JADX WARN: Removed duplicated region for block: B:72:0x02c5 A[RETURN] */
+    /* JADX WARN: Removed duplicated region for block: B:74:0x02c7  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -2368,8 +2368,8 @@ public class ChatMessageDBManager extends DBBase {
         return (ArrayList) invokeCommon.objValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:19:0x005e  */
-    /* JADX WARN: Removed duplicated region for block: B:20:0x0061  */
+    /* JADX WARN: Removed duplicated region for block: B:19:0x005d  */
+    /* JADX WARN: Removed duplicated region for block: B:20:0x0060  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -4593,14 +4593,14 @@ public class ChatMessageDBManager extends DBBase {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:114:0x0254  */
-    /* JADX WARN: Removed duplicated region for block: B:124:0x01ad A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:114:0x0253  */
+    /* JADX WARN: Removed duplicated region for block: B:127:0x01ac A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /* JADX WARN: Removed duplicated region for block: B:140:? A[RETURN, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:50:0x0111 A[Catch: all -> 0x0234, Exception -> 0x0237, TryCatch #6 {Exception -> 0x0237, all -> 0x0234, blocks: (B:42:0x007d, B:44:0x008e, B:47:0x0099, B:50:0x0111, B:52:0x0122, B:53:0x0136, B:55:0x014f, B:57:0x0157, B:66:0x0173, B:67:0x01ac, B:48:0x00d6), top: B:129:0x007d }] */
-    /* JADX WARN: Removed duplicated region for block: B:52:0x0122 A[Catch: all -> 0x0234, Exception -> 0x0237, TryCatch #6 {Exception -> 0x0237, all -> 0x0234, blocks: (B:42:0x007d, B:44:0x008e, B:47:0x0099, B:50:0x0111, B:52:0x0122, B:53:0x0136, B:55:0x014f, B:57:0x0157, B:66:0x0173, B:67:0x01ac, B:48:0x00d6), top: B:129:0x007d }] */
-    /* JADX WARN: Removed duplicated region for block: B:55:0x014f A[Catch: all -> 0x0234, Exception -> 0x0237, TryCatch #6 {Exception -> 0x0237, all -> 0x0234, blocks: (B:42:0x007d, B:44:0x008e, B:47:0x0099, B:50:0x0111, B:52:0x0122, B:53:0x0136, B:55:0x014f, B:57:0x0157, B:66:0x0173, B:67:0x01ac, B:48:0x00d6), top: B:129:0x007d }] */
-    /* JADX WARN: Removed duplicated region for block: B:60:0x0165  */
-    /* JADX WARN: Removed duplicated region for block: B:63:0x016c A[ADDED_TO_REGION] */
+    /* JADX WARN: Removed duplicated region for block: B:50:0x0110 A[Catch: all -> 0x0233, Exception -> 0x0236, TryCatch #6 {Exception -> 0x0236, all -> 0x0233, blocks: (B:42:0x007d, B:44:0x008e, B:47:0x0099, B:50:0x0110, B:52:0x0121, B:53:0x0135, B:55:0x014e, B:57:0x0156, B:66:0x0172, B:67:0x01ab, B:48:0x00d6), top: B:129:0x007d }] */
+    /* JADX WARN: Removed duplicated region for block: B:52:0x0121 A[Catch: all -> 0x0233, Exception -> 0x0236, TryCatch #6 {Exception -> 0x0236, all -> 0x0233, blocks: (B:42:0x007d, B:44:0x008e, B:47:0x0099, B:50:0x0110, B:52:0x0121, B:53:0x0135, B:55:0x014e, B:57:0x0156, B:66:0x0172, B:67:0x01ab, B:48:0x00d6), top: B:129:0x007d }] */
+    /* JADX WARN: Removed duplicated region for block: B:55:0x014e A[Catch: all -> 0x0233, Exception -> 0x0236, TryCatch #6 {Exception -> 0x0236, all -> 0x0233, blocks: (B:42:0x007d, B:44:0x008e, B:47:0x0099, B:50:0x0110, B:52:0x0121, B:53:0x0135, B:55:0x014e, B:57:0x0156, B:66:0x0172, B:67:0x01ab, B:48:0x00d6), top: B:129:0x007d }] */
+    /* JADX WARN: Removed duplicated region for block: B:60:0x0164  */
+    /* JADX WARN: Removed duplicated region for block: B:63:0x016b A[ADDED_TO_REGION] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */

@@ -1,6 +1,6 @@
 package com.baidu.searchbox.ubcprocessor;
 
-import c.a.g0.a.a;
+import c.a.h0.a.a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -26,7 +26,7 @@ public class UBCCloudConfigObserver_UBCCloudConfigObservers_ListProvider impleme
         }
     }
 
-    @Override // c.a.g0.a.a
+    @Override // c.a.h0.a.a
     public Object get() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

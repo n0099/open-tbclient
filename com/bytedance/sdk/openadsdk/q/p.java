@@ -17,7 +17,7 @@ public class p {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f68493a;
+    public static String f68693a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Removed duplicated region for block: B:57:0x0080 A[EXC_TOP_SPLITTER, SYNTHETIC] */
@@ -150,10 +150,10 @@ public class p {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (TextUtils.isEmpty(f68493a)) {
-                f68493a = new String(Base64.decode("ZGV2aWNlX2lk", 0));
+            if (TextUtils.isEmpty(f68693a)) {
+                f68693a = new String(Base64.decode("ZGV2aWNlX2lk", 0));
             }
-            return f68493a;
+            return f68693a;
         }
         return (String) invokeV.objValue;
     }

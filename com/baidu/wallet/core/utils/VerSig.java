@@ -14,7 +14,7 @@ public final class VerSig {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f60642a = 0;
+    public static final int f60842a = 0;
     public transient /* synthetic */ FieldHolder $fh;
 
     public VerSig() {

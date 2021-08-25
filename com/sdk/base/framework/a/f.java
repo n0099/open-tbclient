@@ -21,32 +21,32 @@ public final class f<T> extends com.sdk.base.framework.a.c.c<Object, Object, Voi
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static d f75106b;
+    public static d f75307b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f75107c;
+    public long f75308c;
 
     /* renamed from: d  reason: collision with root package name */
-    public com.sdk.base.framework.b.b<T> f75108d;
+    public com.sdk.base.framework.b.b<T> f75309d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f75109e;
+    public String f75310e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f75110f;
+    public String f75311f;
 
     /* renamed from: g  reason: collision with root package name */
-    public g f75111g;
+    public g f75312g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f75112h;
+    public int f75313h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f75113i;
+    public boolean f75314i;
 
     /* renamed from: j  reason: collision with root package name */
-    public long f75114j;
+    public long f75315j;
     public String k;
     public boolean l;
     public Boolean m;
@@ -68,7 +68,7 @@ public final class f<T> extends com.sdk.base.framework.a.c.c<Object, Object, Voi
                 return;
             }
         }
-        f75106b = new d();
+        f75307b = new d();
     }
 
     public f(h<T> hVar) {
@@ -86,9 +86,9 @@ public final class f<T> extends com.sdk.base.framework.a.c.c<Object, Object, Voi
                 return;
             }
         }
-        this.f75107c = d.a();
-        this.f75111g = g.f75115a;
-        this.f75113i = true;
+        this.f75308c = d.a();
+        this.f75312g = g.f75316a;
+        this.f75314i = true;
         this.k = null;
         this.l = false;
         Boolean bool = Boolean.FALSE;
@@ -98,10 +98,10 @@ public final class f<T> extends com.sdk.base.framework.a.c.c<Object, Object, Voi
         k<T> b2 = hVar.b();
         this.p = b2;
         if (b2 != null) {
-            this.f75109e = b2.a();
-            this.f75110f = this.p.d();
-            this.f75112h = this.p.f();
-            this.f75108d = this.p.g();
+            this.f75310e = b2.a();
+            this.f75311f = this.p.d();
+            this.f75313h = this.p.f();
+            this.f75309d = this.p.g();
         }
     }
 
@@ -114,14 +114,14 @@ public final class f<T> extends com.sdk.base.framework.a.c.c<Object, Object, Voi
             try {
             } catch (Throwable th) {
                 com.sdk.base.framework.f.f.a.b(th.toString());
-                com.sdk.base.framework.a.a.c.b("PriorityAsyncTask", "网络访问异常：" + th.toString(), this.f75073a);
-                int i2 = this.f75112h;
+                com.sdk.base.framework.a.a.c.b("PriorityAsyncTask", "网络访问异常：" + th.toString(), this.f75274a);
+                int i2 = this.f75313h;
                 if (i2 > 0) {
-                    this.f75112h = i2 - 1;
+                    this.f75313h = i2 - 1;
                     lVar = a(hVar, httpURLConnection);
                 }
             }
-            if (!d.b(this.f75109e) || (a2 = f75106b.a(this.f75110f)) == null) {
+            if (!d.b(this.f75310e) || (a2 = f75307b.a(this.f75311f)) == null) {
                 if (this.m.booleanValue() && this.l) {
                     File file = new File(this.k);
                     long length = (file.isFile() && file.exists()) ? file.length() : 0L;
@@ -162,19 +162,19 @@ public final class f<T> extends com.sdk.base.framework.a.c.c<Object, Object, Voi
                     sb.append("\n  net请求码：");
                     sb.append(i2);
                     sb.toString();
-                    this.f75073a.booleanValue();
+                    this.f75274a.booleanValue();
                 }
-                if (this.f75073a.booleanValue()) {
+                if (this.f75274a.booleanValue()) {
                     StringBuilder sb2 = new StringBuilder("响应返回：code=");
                     sb2.append(i2);
                     sb2.append(";耗时=");
                     sb2.append(System.currentTimeMillis() - this.q);
-                    com.sdk.base.framework.a.a.c.a("PriorityAsyncTask", sb2.toString(), this.f75073a);
+                    com.sdk.base.framework.a.a.c.a("PriorityAsyncTask", sb2.toString(), this.f75274a);
                 }
                 if (i2 < 300) {
                     byte[] bArr = null;
                     if (httpURLConnection != null) {
-                        this.f75113i = false;
+                        this.f75314i = false;
                         if (this.l) {
                             this.m = Boolean.valueOf(this.m.booleanValue() && com.sdk.base.framework.f.d.a.a(httpURLConnection));
                             String b2 = this.n.booleanValue() ? com.sdk.base.framework.f.d.a.b(httpURLConnection) : null;
@@ -188,8 +188,8 @@ public final class f<T> extends com.sdk.base.framework.a.c.c<Object, Object, Voi
                             new com.sdk.base.framework.a.b.d();
                             String a2 = com.sdk.base.framework.a.b.d.a(httpURLConnection, this, "UTF-8");
                             bArr = a2;
-                            if (d.b(this.f75109e)) {
-                                f75106b.a(this.f75110f, a2, this.f75107c);
+                            if (d.b(this.f75310e)) {
+                                f75307b.a(this.f75311f, a2, this.f75308c);
                                 bArr = a2;
                             }
                         }
@@ -206,7 +206,7 @@ public final class f<T> extends com.sdk.base.framework.a.c.c<Object, Object, Voi
                         if (com.sdk.base.framework.a.a.c.b(headerField2).booleanValue()) {
                             if ("/ctcnet/gctcmc.do".equals(path)) {
                                 com.sdk.base.framework.f.b.a.b(SDKManager.getContext(), "ctc", headerField2);
-                                com.sdk.base.framework.a.a.c.a("PriorityAsyncTask", "mdb Cookie cache", this.f75073a);
+                                com.sdk.base.framework.a.a.c.a("PriorityAsyncTask", "mdb Cookie cache", this.f75274a);
                             }
                             a3.setRequestProperty("Cookie", headerField2);
                         } else {
@@ -222,11 +222,11 @@ public final class f<T> extends com.sdk.base.framework.a.c.c<Object, Object, Voi
                     }
                 }
                 com.sdk.base.framework.f.f.a.b("服务异常 ResponseCode = " + i2);
-                com.sdk.base.framework.a.a.c.b("PriorityAsyncTask", "服务异常 ResponseCode = " + i2, this.f75073a);
+                com.sdk.base.framework.a.a.c.b("PriorityAsyncTask", "服务异常 ResponseCode = " + i2, this.f75274a);
                 return new l<>(0, "服务端数据格式出错", false);
             } catch (Exception e2) {
                 com.sdk.base.framework.f.f.a.b(e2.toString());
-                com.sdk.base.framework.a.a.c.b("PriorityAsyncTask", e2.toString(), this.f75073a);
+                com.sdk.base.framework.a.a.c.b("PriorityAsyncTask", e2.toString(), this.f75274a);
                 return new l<>(1, "网络访问异常", false);
             }
         }
@@ -258,7 +258,7 @@ public final class f<T> extends com.sdk.base.framework.a.c.c<Object, Object, Voi
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, objArr)) == null) {
-            if (this.f75111g != g.f75119e && objArr != null && objArr.length != 0) {
+            if (this.f75312g != g.f75320e && objArr != null && objArr.length != 0) {
                 if (objArr.length == 4) {
                     String valueOf = String.valueOf(objArr[1]);
                     this.k = valueOf;
@@ -270,11 +270,11 @@ public final class f<T> extends com.sdk.base.framework.a.c.c<Object, Object, Voi
                     this.o = (Boolean) objArr[1];
                 }
                 try {
-                    this.f75114j = SystemClock.uptimeMillis();
+                    this.f75315j = SystemClock.uptimeMillis();
                     d(1);
                     h<T> hVar = (h) objArr[0];
                     String a2 = hVar.a();
-                    this.f75110f = a2;
+                    this.f75311f = a2;
                     HttpURLConnection a3 = hVar.a(a2, false);
                     if (a3 == null) {
                         d(4, new l(0, c(), false));
@@ -291,7 +291,7 @@ public final class f<T> extends com.sdk.base.framework.a.c.c<Object, Object, Voi
                     }
                 } catch (Exception e2) {
                     com.sdk.base.framework.f.f.a.b(e2.toString());
-                    com.sdk.base.framework.a.a.c.b("PriorityAsyncTask", "网络访问异常：\n" + e2.toString(), this.f75073a);
+                    com.sdk.base.framework.a.a.c.b("PriorityAsyncTask", "网络访问异常：\n" + e2.toString(), this.f75274a);
                     d(3, 302002, "网络访问异常");
                 }
             }
@@ -304,14 +304,14 @@ public final class f<T> extends com.sdk.base.framework.a.c.c<Object, Object, Voi
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f75111g = g.f75119e;
+            this.f75312g = g.f75320e;
             if (b()) {
                 return;
             }
             try {
                 a(true);
             } catch (Throwable th) {
-                com.sdk.base.framework.a.a.c.b("PriorityAsyncTask", th.getMessage(), this.f75073a);
+                com.sdk.base.framework.a.a.c.b("PriorityAsyncTask", th.getMessage(), this.f75274a);
             }
         }
     }
@@ -319,29 +319,29 @@ public final class f<T> extends com.sdk.base.framework.a.c.c<Object, Object, Voi
     @Override // com.sdk.base.framework.a.c.c
     public final void a(Object... objArr) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, objArr) == null) || this.f75111g == g.f75119e || objArr == null || objArr.length == 0 || this.f75108d == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, objArr) == null) || this.f75312g == g.f75320e || objArr == null || objArr.length == 0 || this.f75309d == null) {
             return;
         }
         int intValue = ((Integer) objArr[0]).intValue();
         if (intValue == 1) {
-            this.f75111g = g.f75116b;
+            this.f75312g = g.f75317b;
         } else if (intValue == 2) {
             if (objArr.length != 3) {
                 return;
             }
-            this.f75111g = g.f75117c;
+            this.f75312g = g.f75318c;
             Long.parseLong(String.valueOf(objArr[1]));
             Long.parseLong(String.valueOf(objArr[2]));
         } else if (intValue == 3) {
             if (objArr.length != 3) {
                 return;
             }
-            this.f75111g = g.f75118d;
-            this.f75108d.a(((Integer) objArr[1]).intValue(), (String) objArr[2]);
+            this.f75312g = g.f75319d;
+            this.f75309d.a(((Integer) objArr[1]).intValue(), (String) objArr[2]);
         } else if (intValue == 4 && objArr.length == 2) {
-            this.f75111g = g.f75120f;
+            this.f75312g = g.f75321f;
             this.p.d();
-            this.f75108d.a((l) objArr[1]);
+            this.f75309d.a((l) objArr[1]);
         }
     }
 
@@ -350,18 +350,18 @@ public final class f<T> extends com.sdk.base.framework.a.c.c<Object, Object, Voi
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), Boolean.valueOf(z)})) == null) {
-            if (this.f75108d != null && this.f75111g != g.f75119e) {
+            if (this.f75309d != null && this.f75312g != g.f75320e) {
                 if (z) {
                     d(2, Long.valueOf(j2), Long.valueOf(j3));
                 } else {
                     long uptimeMillis = SystemClock.uptimeMillis();
-                    if (uptimeMillis - this.f75114j >= this.f75108d.a()) {
-                        this.f75114j = uptimeMillis;
+                    if (uptimeMillis - this.f75315j >= this.f75309d.a()) {
+                        this.f75315j = uptimeMillis;
                         d(2, Long.valueOf(j2), Long.valueOf(j3));
                     }
                 }
             }
-            return this.f75111g != g.f75119e;
+            return this.f75312g != g.f75320e;
         }
         return invokeCommon.booleanValue;
     }

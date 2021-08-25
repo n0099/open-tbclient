@@ -2,7 +2,7 @@ package com.baidu.tieba.setting.privacy;
 
 import android.os.Bundle;
 import c.a.e.e.p.j;
-import c.a.o0.s.d0.b;
+import c.a.p0.s.d0.b;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.HttpMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -22,7 +22,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class PrivacyMarkActivity extends BaseActivity<PrivacyMarkActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public c.a.p0.a3.e.a privacyMarkView;
+    public c.a.q0.a3.e.a privacyMarkView;
     public HttpMessageListener setPrivateHttpListener;
 
     /* loaded from: classes7.dex */
@@ -31,7 +31,7 @@ public class PrivacyMarkActivity extends BaseActivity<PrivacyMarkActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PrivacyMarkActivity f56439a;
+        public final /* synthetic */ PrivacyMarkActivity f56604a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(PrivacyMarkActivity privacyMarkActivity, int i2, boolean z) {
@@ -52,7 +52,7 @@ public class PrivacyMarkActivity extends BaseActivity<PrivacyMarkActivity> {
                     return;
                 }
             }
-            this.f56439a = privacyMarkActivity;
+            this.f56604a = privacyMarkActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -71,14 +71,14 @@ public class PrivacyMarkActivity extends BaseActivity<PrivacyMarkActivity> {
                     return;
                 }
                 if (PrivacyMarkActivityConfig.BAZHU_SHOW_INSIDE.equals(operation)) {
-                    this.f56439a.privacyMarkView.k();
+                    this.f56604a.privacyMarkView.k();
                 } else if (PrivacyMarkActivityConfig.BAZHU_SHOW_OUTSIDE.equals(operation)) {
-                    this.f56439a.privacyMarkView.l();
+                    this.f56604a.privacyMarkView.l();
                 }
                 if (httpResponsedMessage.getError() != -1 && j.z()) {
-                    this.f56439a.showToast(R.string.privacy_setting_failed);
+                    this.f56604a.showToast(R.string.privacy_setting_failed);
                 } else {
-                    this.f56439a.showToast(R.string.neterror);
+                    this.f56604a.showToast(R.string.neterror);
                 }
             }
         }
@@ -122,7 +122,7 @@ public class PrivacyMarkActivity extends BaseActivity<PrivacyMarkActivity> {
             if (intExtra2 != 1 && intExtra2 != 3) {
                 intExtra2 = 1;
             }
-            c.a.p0.a3.e.a aVar = new c.a.p0.a3.e.a(getPageContext(), (intExtra << 2) | intExtra2);
+            c.a.q0.a3.e.a aVar = new c.a.q0.a3.e.a(getPageContext(), (intExtra << 2) | intExtra2);
             this.privacyMarkView = aVar;
             setContentView(aVar.h());
             registerListener(this.setPrivateHttpListener);

@@ -1,8 +1,8 @@
 package com.baidu.tieba.pb.pb.main;
 
 import android.view.View;
-import c.a.o0.s.f0.n.b;
-import c.a.o0.s.u.c;
+import c.a.p0.s.f0.n.b;
+import c.a.p0.s.u.c;
 import com.baidu.adp.newwidget.ImageView.BDImageView;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
@@ -25,16 +25,16 @@ public final class PbVideoDetailBrowseModeEmotionHolder extends TypeAdapter.View
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final BDImageView f54909a;
+    public final BDImageView f55074a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final EMTextView f54910b;
+    public final EMTextView f55075b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final TBSpecificationBtn f54911c;
+    public final TBSpecificationBtn f55076c;
 
     /* renamed from: d  reason: collision with root package name */
-    public View.OnClickListener f54912d;
+    public View.OnClickListener f55077d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PbVideoDetailBrowseModeEmotionHolder(View view) {
@@ -56,44 +56,44 @@ public final class PbVideoDetailBrowseModeEmotionHolder extends TypeAdapter.View
         }
         View findViewById = getView().findViewById(R.id.emotion_img);
         Intrinsics.checkExpressionValueIsNotNull(findViewById, "getView().findViewById(R.id.emotion_img)");
-        this.f54909a = (BDImageView) findViewById;
+        this.f55074a = (BDImageView) findViewById;
         View findViewById2 = getView().findViewById(R.id.description_text);
         Intrinsics.checkExpressionValueIsNotNull(findViewById2, "getView().findViewById(R.id.description_text)");
-        this.f54910b = (EMTextView) findViewById2;
+        this.f55075b = (EMTextView) findViewById2;
         View findViewById3 = getView().findViewById(R.id.agree_btn);
         Intrinsics.checkExpressionValueIsNotNull(findViewById3, "getView().findViewById(R.id.agree_btn)");
-        this.f54911c = (TBSpecificationBtn) findViewById3;
-        SkinManager.setImageResource(this.f54909a, R.drawable.new_pic_emotion_01);
-        this.f54910b.setText(R.string.pb_video_detail_browse_mode_description);
-        c.d(this.f54910b).t(R.color.CAM_X0107);
+        this.f55076c = (TBSpecificationBtn) findViewById3;
+        SkinManager.setImageResource(this.f55074a, R.drawable.new_pic_emotion_01);
+        this.f55075b.setText(R.string.pb_video_detail_browse_mode_description);
+        c.d(this.f55075b).u(R.color.CAM_X0107);
         b bVar = new b();
         bVar.o(R.color.CAM_X0303, R.color.CAM_X0101);
-        this.f54911c.setConfig(bVar);
-        this.f54911c.setText(TbadkCoreApplication.getInst().getString(R.string.pb_video_detail_browse_mode_agree_btn));
-        this.f54911c.setTextSize(R.dimen.T_X07);
+        this.f55076c.setConfig(bVar);
+        this.f55076c.setText(TbadkCoreApplication.getInst().getString(R.string.pb_video_detail_browse_mode_agree_btn));
+        this.f55076c.setTextSize(R.dimen.T_X07);
     }
 
     public final View.OnClickListener getOnAgreeListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f54912d : (View.OnClickListener) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f55077d : (View.OnClickListener) invokeV.objValue;
     }
 
     public final void onChangeSkinType() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            SkinManager.setImageResource(this.f54909a, R.drawable.new_pic_emotion_01);
-            c.d(this.f54910b).t(R.color.CAM_X0107);
-            this.f54911c.changeSkinType();
+            SkinManager.setImageResource(this.f55074a, R.drawable.new_pic_emotion_01);
+            c.d(this.f55075b).u(R.color.CAM_X0107);
+            this.f55076c.changeSkinType();
         }
     }
 
     public final void setOnAgreeListener(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, onClickListener) == null) {
-            this.f54912d = onClickListener;
+            this.f55077d = onClickListener;
             if (onClickListener != null) {
-                this.f54911c.setOnClickListener(onClickListener);
+                this.f55076c.setOnClickListener(onClickListener);
             }
         }
     }

@@ -60,10 +60,10 @@ public class x extends p {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cursor)) == null) {
-            this.f31176e = cursor.getLong(0);
-            this.f31177f = cursor.getLong(1);
-            this.f31178g = cursor.getString(2);
-            this.f31179h = cursor.getString(3);
+            this.f31282e = cursor.getLong(0);
+            this.f31283f = cursor.getLong(1);
+            this.f31284g = cursor.getString(2);
+            this.f31285h = cursor.getString(3);
             this.m = cursor.getString(4);
             this.n = cursor.getInt(5);
             this.o = cursor.getInt(6);
@@ -79,10 +79,10 @@ public class x extends p {
     public void e(@NonNull ContentValues contentValues) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, contentValues) == null) {
-            contentValues.put("local_time_ms", Long.valueOf(this.f31176e));
-            contentValues.put("tea_event_index", Long.valueOf(this.f31177f));
-            contentValues.put("session_id", this.f31178g);
-            contentValues.put("user_unique_id", this.f31179h);
+            contentValues.put("local_time_ms", Long.valueOf(this.f31282e));
+            contentValues.put("tea_event_index", Long.valueOf(this.f31283f));
+            contentValues.put("session_id", this.f31284g);
+            contentValues.put("user_unique_id", this.f31285h);
             contentValues.put("event_name", this.m);
             contentValues.put("is_monitor", Integer.valueOf(this.n));
             contentValues.put("bav_monitor_rate", Integer.valueOf(this.o));
@@ -96,10 +96,10 @@ public class x extends p {
     public void f(@NonNull JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
-            jSONObject.put("local_time_ms", this.f31176e);
-            jSONObject.put("tea_event_index", this.f31177f);
-            jSONObject.put("session_id", this.f31178g);
-            jSONObject.put("user_unique_id", this.f31179h);
+            jSONObject.put("local_time_ms", this.f31282e);
+            jSONObject.put("tea_event_index", this.f31283f);
+            jSONObject.put("session_id", this.f31284g);
+            jSONObject.put("user_unique_id", this.f31285h);
             jSONObject.put("event_name", this.m);
             jSONObject.put("is_monitor", this.n);
             jSONObject.put("bav_monitor_rate", this.o);
@@ -121,10 +121,10 @@ public class x extends p {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, jSONObject)) == null) {
-            this.f31176e = jSONObject.optLong("local_time_ms", 0L);
-            this.f31177f = jSONObject.optLong("tea_event_index", 0L);
-            this.f31178g = jSONObject.optString("session_id", null);
-            this.f31179h = jSONObject.optString("user_unique_id", null);
+            this.f31282e = jSONObject.optLong("local_time_ms", 0L);
+            this.f31283f = jSONObject.optLong("tea_event_index", 0L);
+            this.f31284g = jSONObject.optString("session_id", null);
+            this.f31285h = jSONObject.optString("user_unique_id", null);
             this.m = jSONObject.optString("event_name", null);
             this.n = jSONObject.optInt("is_monitor", 0);
             this.o = jSONObject.optInt("bav_monitor_rate", 0);

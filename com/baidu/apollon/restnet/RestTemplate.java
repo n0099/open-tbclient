@@ -32,26 +32,26 @@ public class RestTemplate {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f37791a = "RestTemplate";
+    public static final String f37897a = "RestTemplate";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public AbstractHttpMessageConverter<?> f37792b;
+    public AbstractHttpMessageConverter<?> f37898b;
 
     /* renamed from: c  reason: collision with root package name */
-    public List<RestHttpRequestInterceptor> f37793c;
+    public List<RestHttpRequestInterceptor> f37899c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Context f37794d;
+    public Context f37900d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f37795e;
+    public String f37901e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f37796f;
+    public String f37902f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f37797g;
+    public boolean f37903g;
 
     /* renamed from: com.baidu.apollon.restnet.RestTemplate$1  reason: invalid class name */
     /* loaded from: classes5.dex */
@@ -66,10 +66,10 @@ public class RestTemplate {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ RestTemplate f37798a;
+        public final /* synthetic */ RestTemplate f37904a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final Class<?> f37799b;
+        public final Class<?> f37905b;
 
         public /* synthetic */ a(RestTemplate restTemplate, Class cls, AnonymousClass1 anonymousClass1) {
             this(restTemplate, cls);
@@ -78,7 +78,7 @@ public class RestTemplate {
         @Override // com.baidu.apollon.restnet.rest.RestHttpRequestInterceptor
         public void intercept(Context context, d dVar) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLL(1048576, this, context, dVar) == null) || this.f37799b == null) {
+            if (!(interceptable == null || interceptable.invokeLL(1048576, this, context, dVar) == null) || this.f37905b == null) {
                 return;
             }
             ArrayList arrayList = new ArrayList();
@@ -112,8 +112,8 @@ public class RestTemplate {
                     return;
                 }
             }
-            this.f37798a = restTemplate;
-            this.f37799b = cls;
+            this.f37904a = restTemplate;
+            this.f37905b = cls;
         }
     }
 
@@ -141,13 +141,13 @@ public class RestTemplate {
     public List<RestHttpRequestInterceptor> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f37793c : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f37899c : (List) invokeV.objValue;
     }
 
     public AbstractHttpMessageConverter<?> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f37792b : (AbstractHttpMessageConverter) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f37898b : (AbstractHttpMessageConverter) invokeV.objValue;
     }
 
     public <T> T c(String str, List<RestNameValuePair> list, String str2, Class<T> cls, boolean z) throws RestRuntimeException {
@@ -196,14 +196,14 @@ public class RestTemplate {
     public void setMessageConverter(AbstractHttpMessageConverter<?> abstractHttpMessageConverter) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, abstractHttpMessageConverter) == null) {
-            this.f37792b = abstractHttpMessageConverter;
+            this.f37898b = abstractHttpMessageConverter;
         }
     }
 
     public void setRequestInterceptor(List<RestHttpRequestInterceptor> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, list) == null) {
-            this.f37793c = list;
+            this.f37899c = list;
         }
     }
 
@@ -231,7 +231,7 @@ public class RestTemplate {
     public void a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.f37797g = z;
+            this.f37903g = z;
         }
     }
 
@@ -264,15 +264,15 @@ public class RestTemplate {
                 return;
             }
         }
-        this.f37792b = null;
-        this.f37793c = new ArrayList();
-        this.f37794d = null;
-        this.f37795e = null;
-        this.f37796f = "";
-        this.f37797g = true;
-        this.f37796f = str2;
-        this.f37794d = DxmApplicationContextImpl.getApplicationContext(context);
-        this.f37795e = str;
+        this.f37898b = null;
+        this.f37899c = new ArrayList();
+        this.f37900d = null;
+        this.f37901e = null;
+        this.f37902f = "";
+        this.f37903g = true;
+        this.f37902f = str2;
+        this.f37900d = DxmApplicationContextImpl.getApplicationContext(context);
+        this.f37901e = str;
     }
 
     public <T> T a(String str, List<RestNameValuePair> list, String str2, Class<T> cls, boolean z) throws RestRuntimeException {
@@ -379,9 +379,9 @@ public class RestTemplate {
                 }
                 LogUtil.d("RestTemplate", sb.toString());
             }
-            d a2 = com.baidu.apollon.restnet.rest.httpurlconnection.c.a().a(this.f37794d, this.f37796f, this.f37795e, str, httpMethod, list, restMultipartEntity, str2, z);
+            d a2 = com.baidu.apollon.restnet.rest.httpurlconnection.c.a().a(this.f37900d, this.f37902f, this.f37901e, str, httpMethod, list, restMultipartEntity, str2, z);
             for (RestHttpRequestInterceptor restHttpRequestInterceptor : a()) {
-                restHttpRequestInterceptor.intercept(this.f37794d, a2);
+                restHttpRequestInterceptor.intercept(this.f37900d, a2);
             }
             return a2;
         }
@@ -399,7 +399,7 @@ public class RestTemplate {
                 if (port > 0) {
                     String str = host + ":" + port;
                 }
-                if (this.f37797g) {
+                if (this.f37903g) {
                     ((RestUrlConnectionRequest) dVar).b(RestHttpDNSEnabler.a(url));
                 }
                 dVar.a(url.toString());

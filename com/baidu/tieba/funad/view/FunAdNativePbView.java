@@ -14,12 +14,12 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.core.view.InputDeviceCompat;
-import c.a.o0.b.d;
-import c.a.o0.s.u.c;
-import c.a.p0.i3.h0.o;
-import c.a.p0.w0.a;
-import c.a.p0.x0.b;
-import c.a.p0.x0.f.a;
+import c.a.p0.b.d;
+import c.a.p0.s.u.c;
+import c.a.q0.i3.i0.o;
+import c.a.q0.w0.a;
+import c.a.q0.x0.b;
+import c.a.q0.x0.f.a;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
@@ -57,7 +57,7 @@ public class FunAdNativePbView extends FunAbsAdView {
     public FunAdDownloadView downloadView;
 
     /* renamed from: e  reason: collision with root package name */
-    public FunAdButton f51570e;
+    public FunAdButton f51720e;
     public ViewGroup funAdContainer;
     public ViewGroup mediaContainer;
     public FunAdNativePicView mediaImageView;
@@ -92,8 +92,8 @@ public class FunAdNativePbView extends FunAbsAdView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, funNativeAd, oVar) == null) {
             ChannelNativeAds_6 channelNativeAds_6 = funNativeAd.getChannelNativeAds_6();
-            this.f51570e.setTag(oVar);
-            a aVar = new a(this.f51570e, oVar);
+            this.f51720e.setTag(oVar);
+            a aVar = new a(this.f51720e, oVar);
             if (channelNativeAds_6 != null && (ksNativeAd = channelNativeAds_6.ksNative) != null) {
                 ksNativeAd.setDownloadListener(aVar);
             } else if (channelNativeAds_6 != null && (tTNativeAd = channelNativeAds_6.csjNative) != null) {
@@ -154,7 +154,7 @@ public class FunAdNativePbView extends FunAbsAdView {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return c.a.p0.w0.a.b("pb", d.R() ? "1" : "0");
+            return c.a.q0.w0.a.b("pb", d.U() ? "1" : "0");
         }
         return (a.g) invokeV.objValue;
     }
@@ -261,9 +261,9 @@ public class FunAdNativePbView extends FunAbsAdView {
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
             WebPManager.setPureDrawable(this.pbFeedBackView, R.drawable.icon_pure_card_close22, R.color.CAM_X0111, null);
             SkinManager.setBackgroundColor(this.dividerView, R.color.CAM_X0204);
-            c.d(this.descriptionView).t(R.color.CAM_X0105);
-            c.d(this.adTitleView).t(R.color.CAM_X0109);
-            c.d(this.adLabel).t(R.color.CAM_X0101);
+            c.d(this.descriptionView).u(R.color.CAM_X0105);
+            c.d(this.adTitleView).u(R.color.CAM_X0109);
+            c.d(this.adLabel).u(R.color.CAM_X0101);
             c d2 = c.d(this.adLabelLayout);
             d2.n(R.string.J_X01);
             d2.f(R.color.CAM_X0606);
@@ -288,12 +288,12 @@ public class FunAdNativePbView extends FunAbsAdView {
             if (FunAdSdkSwitch.isOn() && z) {
                 this.downloadView.setVisibility(0);
                 this.adButton.setVisibility(8);
-                this.f51570e = this.downloadView.getDownloadButton();
+                this.f51720e = this.downloadView.getDownloadButton();
                 return;
             }
             this.downloadView.setVisibility(8);
             this.adButton.setVisibility(0);
-            this.f51570e = this.adButton;
+            this.f51720e = this.adButton;
         }
     }
 

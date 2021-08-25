@@ -21,7 +21,7 @@ public final class dt {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f77111a;
+        public int f77312a;
 
         /* renamed from: a  reason: collision with other field name */
         public List<String> f248a;
@@ -30,25 +30,25 @@ public final class dt {
         public boolean f249a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f77112b;
+        public int f77313b;
 
         /* renamed from: b  reason: collision with other field name */
         public boolean f250b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f77113c;
+        public int f77314c;
 
         /* renamed from: c  reason: collision with other field name */
         public boolean f251c;
 
         /* renamed from: d  reason: collision with root package name */
-        public boolean f77114d;
+        public boolean f77315d;
 
         /* renamed from: e  reason: collision with root package name */
-        public boolean f77115e;
+        public boolean f77316e;
 
         /* renamed from: f  reason: collision with root package name */
-        public boolean f77116f;
+        public boolean f77317f;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -63,12 +63,12 @@ public final class dt {
                     return;
                 }
             }
-            this.f77111a = 0;
+            this.f77312a = 0;
             this.f251c = false;
-            this.f77112b = 0;
-            this.f77116f = false;
+            this.f77313b = 0;
+            this.f77317f = false;
             this.f248a = Collections.emptyList();
-            this.f77113c = -1;
+            this.f77314c = -1;
         }
 
         public static a a(byte[] bArr) {
@@ -88,10 +88,10 @@ public final class dt {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (this.f77113c < 0) {
+                if (this.f77314c < 0) {
                     b();
                 }
-                return this.f77113c;
+                return this.f77314c;
             }
             return invokeV.intValue;
         }
@@ -101,7 +101,7 @@ public final class dt {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
                 this.f249a = true;
-                this.f77111a = i2;
+                this.f77312a = i2;
                 return this;
             }
             return (a) invokeI.objValue;
@@ -219,7 +219,7 @@ public final class dt {
                     i2 += c.a(str);
                 }
                 int size = b2 + i2 + (a().size() * 1);
-                this.f77113c = size;
+                this.f77314c = size;
                 return size;
             }
             return invokeV.intValue;
@@ -229,8 +229,8 @@ public final class dt {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i2)) == null) {
-                this.f77114d = true;
-                this.f77112b = i2;
+                this.f77315d = true;
+                this.f77313b = i2;
                 return this;
             }
             return (a) invokeI.objValue;
@@ -240,8 +240,8 @@ public final class dt {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZ = interceptable.invokeZ(1048587, this, z)) == null) {
-                this.f77115e = true;
-                this.f77116f = z;
+                this.f77316e = true;
+                this.f77317f = z;
                 return this;
             }
             return (a) invokeZ.objValue;
@@ -257,7 +257,7 @@ public final class dt {
         public int c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f77111a : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f77312a : invokeV.intValue;
         }
 
         /* renamed from: c  reason: collision with other method in class */
@@ -270,14 +270,14 @@ public final class dt {
         public int d() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.f77112b : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.f77313b : invokeV.intValue;
         }
 
         /* renamed from: d  reason: collision with other method in class */
         public boolean m255d() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.f77114d : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.f77315d : invokeV.booleanValue;
         }
 
         public int e() {
@@ -290,13 +290,13 @@ public final class dt {
         public boolean m256e() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.f77116f : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.f77317f : invokeV.booleanValue;
         }
 
         public boolean f() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.f77115e : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.f77316e : invokeV.booleanValue;
         }
     }
 }

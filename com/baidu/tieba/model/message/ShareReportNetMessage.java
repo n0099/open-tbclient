@@ -1,7 +1,7 @@
 package com.baidu.tieba.model.message;
 
 import androidx.core.view.InputDeviceCompat;
-import c.a.o0.b1.w;
+import c.a.p0.b1.w;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -19,7 +19,7 @@ public class ShareReportNetMessage extends NetMessage {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: common  reason: collision with root package name */
-    public CommonReq f54124common;
+    public CommonReq f54267common;
     public long fid;
     public int from;
     public long tid;
@@ -49,7 +49,7 @@ public class ShareReportNetMessage extends NetMessage {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             DataReq.Builder builder = new DataReq.Builder();
-            builder.f79438common = getCommon();
+            builder.f79639common = getCommon();
             builder.fid = Long.valueOf(getFid());
             builder.tid = Long.valueOf(getTid());
             builder.from = Integer.valueOf(getFrom());
@@ -66,7 +66,7 @@ public class ShareReportNetMessage extends NetMessage {
     public CommonReq getCommon() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f54124common : (CommonReq) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f54267common : (CommonReq) invokeV.objValue;
     }
 
     public long getFid() {
@@ -90,7 +90,7 @@ public class ShareReportNetMessage extends NetMessage {
     public void setCommon(CommonReq commonReq) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, commonReq) == null) {
-            this.f54124common = commonReq;
+            this.f54267common = commonReq;
         }
     }
 

@@ -21,10 +21,10 @@ public class af {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile boolean f42954a = true;
+    public static volatile boolean f43061a = true;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile boolean f42955b;
+    public static volatile boolean f43062b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes5.dex */
@@ -169,13 +169,13 @@ public class af {
     public static boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? f42955b : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? f43062b : invokeV.booleanValue;
     }
 
     public static boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? f42954a : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? f43061a : invokeV.booleanValue;
     }
 
     public static JSONArray c() {
@@ -187,7 +187,7 @@ public class af {
     public static void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
-            f42955b = true;
+            f43062b = true;
             am.a().a(str);
         }
     }

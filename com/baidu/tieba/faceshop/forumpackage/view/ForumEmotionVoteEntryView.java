@@ -24,19 +24,19 @@ public class ForumEmotionVoteEntryView extends RelativeLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f50454e;
+    public int f50562e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f50455f;
+    public int f50563f;
 
     /* renamed from: g  reason: collision with root package name */
-    public LinearLayout f50456g;
+    public LinearLayout f50564g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f50457h;
+    public TextView f50565h;
 
     /* renamed from: i  reason: collision with root package name */
-    public View f50458i;
+    public View f50566i;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ForumEmotionVoteEntryView(Context context) {
@@ -63,11 +63,11 @@ public class ForumEmotionVoteEntryView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             LayoutInflater.from(context).inflate(R.layout.forum_emotion_vote_entry_view, this);
-            this.f50456g = (LinearLayout) findViewById(R.id.forum_vote_avatars);
-            this.f50454e = context.getResources().getDimensionPixelSize(R.dimen.ds40);
-            this.f50455f = context.getResources().getDimensionPixelSize(R.dimen.ds4);
-            this.f50457h = (TextView) findViewById(R.id.forum_emotion_vote_title);
-            this.f50458i = findViewById(R.id.forum_vote_bottom_line);
+            this.f50564g = (LinearLayout) findViewById(R.id.forum_vote_avatars);
+            this.f50562e = context.getResources().getDimensionPixelSize(R.dimen.ds40);
+            this.f50563f = context.getResources().getDimensionPixelSize(R.dimen.ds4);
+            this.f50565h = (TextView) findViewById(R.id.forum_emotion_vote_title);
+            this.f50566i = findViewById(R.id.forum_vote_bottom_line);
         }
     }
 
@@ -75,16 +75,16 @@ public class ForumEmotionVoteEntryView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
             SkinManager.setBackgroundColor(this, R.color.CAM_X0201);
-            SkinManager.setBackgroundColor(this.f50456g, R.color.CAM_X0201);
-            SkinManager.setViewTextColor(this.f50457h, R.color.CAM_X0105);
-            SkinManager.setBackgroundColor(this.f50458i, R.color.common_color_10312);
+            SkinManager.setBackgroundColor(this.f50564g, R.color.CAM_X0201);
+            SkinManager.setViewTextColor(this.f50565h, R.color.CAM_X0105);
+            SkinManager.setBackgroundColor(this.f50566i, R.color.common_color_10312);
         }
     }
 
     public void setAvatarList(List<String> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
-            this.f50456g.removeAllViews();
+            this.f50564g.removeAllViews();
             if (list == null || list.isEmpty()) {
                 return;
             }
@@ -94,12 +94,12 @@ public class ForumEmotionVoteEntryView extends RelativeLayout {
                     tbImageView.setDrawerType(1);
                     tbImageView.setIsRound(true);
                     tbImageView.setScaleType(ImageView.ScaleType.FIT_XY);
-                    int i2 = this.f50454e;
+                    int i2 = this.f50562e;
                     LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(i2, i2);
-                    layoutParams.leftMargin = this.f50455f;
+                    layoutParams.leftMargin = this.f50563f;
                     layoutParams.gravity = 17;
                     tbImageView.startLoad(str, 10, false);
-                    this.f50456g.addView(tbImageView, layoutParams);
+                    this.f50564g.addView(tbImageView, layoutParams);
                 }
             }
         }

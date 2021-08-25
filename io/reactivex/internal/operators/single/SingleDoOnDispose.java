@@ -30,7 +30,7 @@ public final class SingleDoOnDispose<T> extends Single<T> {
         public final SingleObserver<? super T> actual;
 
         /* renamed from: d  reason: collision with root package name */
-        public Disposable f78574d;
+        public Disposable f78775d;
 
         public DoOnDisposeObserver(SingleObserver<? super T> singleObserver, Action action) {
             Interceptable interceptable = $ic;
@@ -64,14 +64,14 @@ public final class SingleDoOnDispose<T> extends Single<T> {
                 Exceptions.throwIfFatal(th);
                 RxJavaPlugins.onError(th);
             }
-            this.f78574d.dispose();
+            this.f78775d.dispose();
         }
 
         @Override // io.reactivex.disposables.Disposable
         public boolean isDisposed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f78574d.isDisposed() : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f78775d.isDisposed() : invokeV.booleanValue;
         }
 
         @Override // io.reactivex.SingleObserver
@@ -85,8 +85,8 @@ public final class SingleDoOnDispose<T> extends Single<T> {
         @Override // io.reactivex.SingleObserver
         public void onSubscribe(Disposable disposable) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048579, this, disposable) == null) && DisposableHelper.validate(this.f78574d, disposable)) {
-                this.f78574d = disposable;
+            if ((interceptable == null || interceptable.invokeL(1048579, this, disposable) == null) && DisposableHelper.validate(this.f78775d, disposable)) {
+                this.f78775d = disposable;
                 this.actual.onSubscribe(this);
             }
         }

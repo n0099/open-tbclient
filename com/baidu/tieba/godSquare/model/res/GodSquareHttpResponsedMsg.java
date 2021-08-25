@@ -1,6 +1,6 @@
 package com.baidu.tieba.godSquare.model.res;
 
-import c.a.p0.a1.c.a;
+import c.a.q0.a1.c.a;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;

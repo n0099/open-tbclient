@@ -11,7 +11,7 @@ import c.a.e.e.n.a;
 import c.a.e.e.p.j;
 import c.a.e.e.p.k;
 import c.a.e.e.p.l;
-import c.a.o0.b1.o;
+import c.a.p0.b1.o;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.down.retry.HttpRetryStrategyDataParse;
@@ -247,7 +247,7 @@ public class ImageLogger {
                 } else {
                     str4 = ImageLoggerHelper.getInstance().getTiebaIp();
                     if (!TextUtils.isEmpty(str4)) {
-                        ICDNProblemUploader.getInstance().insertErrorData(dVar.f2256i, str);
+                        ICDNProblemUploader.getInstance().insertErrorData(dVar.f2314i, str);
                     }
                 }
             }
@@ -264,13 +264,13 @@ public class ImageLogger {
                 }
             }
             if (z && z3) {
-                if (H && j2 < ICDNIPDirectConnect.getInstance().getCDNImageTimeData().f13376d) {
+                if (H && j2 < ICDNIPDirectConnect.getInstance().getCDNImageTimeData().f13667d) {
                     return;
                 }
-                if (!H && j.t() && j2 < ICDNIPDirectConnect.getInstance().getCDNImageTimeData().f13378f) {
+                if (!H && j.t() && j2 < ICDNIPDirectConnect.getInstance().getCDNImageTimeData().f13669f) {
                     return;
                 }
-                if (!H && j2 < ICDNIPDirectConnect.getInstance().getCDNImageTimeData().f13377e) {
+                if (!H && j2 < ICDNIPDirectConnect.getInstance().getCDNImageTimeData().f13668e) {
                     return;
                 }
             }
@@ -285,9 +285,9 @@ public class ImageLogger {
             logItem.b("requrl", str2);
             logItem.b("netlib", dVar.v == 0 ? "Apache" : "HttpManager");
             logItem.b(TiebaStatic.LogFields.COST_TIME, String.valueOf(j2));
-            logItem.b("connTime", String.valueOf(dVar.f2250c));
-            logItem.b("rspTime", String.valueOf(dVar.f2251d));
-            logItem.b(HttpRetryStrategyDataParse.DOWNFLOW_RETRY_REQUEST_PARAM, String.valueOf(dVar.f2252e));
+            logItem.b("connTime", String.valueOf(dVar.f2308c));
+            logItem.b("rspTime", String.valueOf(dVar.f2309d));
+            logItem.b(HttpRetryStrategyDataParse.DOWNFLOW_RETRY_REQUEST_PARAM, String.valueOf(dVar.f2310e));
             logItem.b("clientIp", CommonHelper.getIp());
             logItem.b("tiebaIp", str4);
             String domainIp = ImageLoggerHelper.getInstance().getDomainIp(str);
@@ -295,19 +295,19 @@ public class ImageLogger {
                 logItem.b("domainIp", domainIp);
             }
             logItem.b("wifiDnsIp", dnsIp);
-            long j3 = dVar.f2250c;
+            long j3 = dVar.f2308c;
             if (j3 > 1500 || j3 < 0) {
                 logItem.b("connBaidu", String.valueOf(connBaidu()));
             }
             logItem.b("memory", memoryUsage());
             logItem.b("task", taskStatus());
-            logItem.b("status", String.valueOf(dVar.f2257j));
-            logItem.b("up", String.valueOf(dVar.f2248a));
-            logItem.b("down", String.valueOf(dVar.f2249b));
+            logItem.b("status", String.valueOf(dVar.f2315j));
+            logItem.b("up", String.valueOf(dVar.f2306a));
+            logItem.b("down", String.valueOf(dVar.f2307b));
             logItem.b("isCDN", b2 ? "1" : "0");
             logItem.b("isWebp", bool.booleanValue() ? "1" : "0");
             logItem.b("isMobileProxy", z2 ? "1" : "0");
-            logItem.b("exception", dVar.f2255h);
+            logItem.b("exception", dVar.f2313h);
             logItem.b("reason", str3);
             if (i2 != 0) {
                 logItem.c("procType", Integer.valueOf(i2));
@@ -326,7 +326,7 @@ public class ImageLogger {
                 logItem.b("httpDnsIp", dVar.l);
             }
             logItem.c("ipIndex", Integer.valueOf(dVar.q));
-            logItem.c("dnsSwitch1", Boolean.valueOf(c.f2242f));
+            logItem.c("dnsSwitch1", Boolean.valueOf(c.f2300f));
             logItem.c("dnsSwitch2", Boolean.valueOf(UseHttpdnsSdkSwitch.isOn()));
             logItem.b("httpDnsIpList", dVar.p);
             logItem.c("dnsResolveType", dVar.m);
@@ -357,7 +357,7 @@ public class ImageLogger {
     public static String memoryUsage() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) ? c.a.o0.b0.c.k().v() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) ? c.a.p0.b0.c.k().v() : (String) invokeV.objValue;
     }
 
     public static void mobileTachometerLoger(ArrayList<String> arrayList, long j2) {

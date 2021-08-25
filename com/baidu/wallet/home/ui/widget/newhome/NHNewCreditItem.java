@@ -124,7 +124,7 @@ public class NHNewCreditItem extends BaseItemView {
                         public transient /* synthetic */ FieldHolder $fh;
 
                         /* renamed from: a  reason: collision with root package name */
-                        public final /* synthetic */ NHNewCreditItem f61124a;
+                        public final /* synthetic */ NHNewCreditItem f61324a;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -141,14 +141,14 @@ public class NHNewCreditItem extends BaseItemView {
                                     return;
                                 }
                             }
-                            this.f61124a = this;
+                            this.f61324a = this;
                         }
 
                         @Override // android.view.View.OnClickListener
                         public void onClick(View view) {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                                this.f61124a.getWalletInterface().jump(this.f61124a.getData().getName(), this.f61124a.getData().getType(), this.f61124a.getData().getLinkAddr(), this.f61124a.getData().getPrevlogin());
+                                this.f61324a.getWalletInterface().jump(this.f61324a.getData().getName(), this.f61324a.getData().getType(), this.f61324a.getData().getLinkAddr(), this.f61324a.getData().getPrevlogin());
                             }
                         }
                     });
@@ -167,7 +167,7 @@ public class NHNewCreditItem extends BaseItemView {
                             public transient /* synthetic */ FieldHolder $fh;
 
                             /* renamed from: a  reason: collision with root package name */
-                            public final /* synthetic */ NHNewCreditItem f61125a;
+                            public final /* synthetic */ NHNewCreditItem f61325a;
 
                             {
                                 Interceptable interceptable2 = $ic;
@@ -184,14 +184,14 @@ public class NHNewCreditItem extends BaseItemView {
                                         return;
                                     }
                                 }
-                                this.f61125a = this;
+                                this.f61325a = this;
                             }
 
                             @Override // android.view.View.OnClickListener
                             public void onClick(View view) {
                                 Interceptable interceptable2 = $ic;
                                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                                    this.f61125a.getWalletInterface().jump(this.f61125a.getData().buttons[0].name, this.f61125a.getData().buttons[0].type, this.f61125a.getData().buttons[0].link_addr, this.f61125a.getData().getPrevlogin());
+                                    this.f61325a.getWalletInterface().jump(this.f61325a.getData().buttons[0].name, this.f61325a.getData().buttons[0].type, this.f61325a.getData().buttons[0].link_addr, this.f61325a.getData().getPrevlogin());
                                 }
                             }
                         });
@@ -244,7 +244,7 @@ public class NHNewCreditItem extends BaseItemView {
                         public transient /* synthetic */ FieldHolder $fh;
 
                         /* renamed from: a  reason: collision with root package name */
-                        public final /* synthetic */ NHNewCreditItem f61126a;
+                        public final /* synthetic */ NHNewCreditItem f61326a;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -261,14 +261,14 @@ public class NHNewCreditItem extends BaseItemView {
                                     return;
                                 }
                             }
-                            this.f61126a = this;
+                            this.f61326a = this;
                         }
 
                         @Override // android.view.View.OnClickListener
                         public void onClick(View view) {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                                this.f61126a.getWalletInterface().jump(this.f61126a.getData().buttons[1].name, this.f61126a.getData().buttons[1].type, this.f61126a.getData().buttons[1].link_addr, this.f61126a.getData().getPrevlogin());
+                                this.f61326a.getWalletInterface().jump(this.f61326a.getData().buttons[1].name, this.f61326a.getData().buttons[1].type, this.f61326a.getData().buttons[1].link_addr, this.f61326a.getData().getPrevlogin());
                             }
                         }
                     });

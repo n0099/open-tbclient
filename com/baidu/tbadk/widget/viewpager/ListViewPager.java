@@ -18,22 +18,22 @@ public class ListViewPager extends ViewPager {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public float f48737e;
+    public float f48844e;
 
     /* renamed from: f  reason: collision with root package name */
-    public float f48738f;
+    public float f48845f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float f48739g;
+    public float f48846g;
 
     /* renamed from: h  reason: collision with root package name */
-    public float f48740h;
+    public float f48847h;
 
     /* renamed from: i  reason: collision with root package name */
-    public GestureDetector f48741i;
+    public GestureDetector f48848i;
 
     /* renamed from: j  reason: collision with root package name */
-    public boolean f48742j;
+    public boolean f48849j;
     public SwipeBackLayout.c k;
 
     /* loaded from: classes6.dex */
@@ -48,7 +48,7 @@ public class ListViewPager extends ViewPager {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ListViewPager f48743e;
+        public final /* synthetic */ ListViewPager f48850e;
 
         public b(ListViewPager listViewPager) {
             Interceptable interceptable = $ic;
@@ -65,7 +65,7 @@ public class ListViewPager extends ViewPager {
                     return;
                 }
             }
-            this.f48743e = listViewPager;
+            this.f48850e = listViewPager;
         }
 
         @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
@@ -73,8 +73,8 @@ public class ListViewPager extends ViewPager {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{motionEvent, motionEvent2, Float.valueOf(f2), Float.valueOf(f3)})) == null) {
-                if (this.f48743e.k != null) {
-                    this.f48743e.k.enableSwipeBack();
+                if (this.f48850e.k != null) {
+                    this.f48850e.k.enableSwipeBack();
                 }
                 return Math.abs(f2) > Math.abs(f3);
             }
@@ -104,14 +104,14 @@ public class ListViewPager extends ViewPager {
                 return;
             }
         }
-        this.f48742j = false;
+        this.f48849j = false;
         b();
     }
 
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f48741i = new GestureDetector((Context) null, new b(this, null));
+            this.f48848i = new GestureDetector((Context) null, new b(this, null));
         }
     }
 
@@ -133,7 +133,7 @@ public class ListViewPager extends ViewPager {
             if (c(motionEvent)) {
                 return true;
             }
-            if (this.f48742j) {
+            if (this.f48849j) {
                 if (getParent() != null) {
                     getParent().requestDisallowInterceptTouchEvent(true);
                 }
@@ -143,7 +143,7 @@ public class ListViewPager extends ViewPager {
                     return false;
                 }
             }
-            if (getCurrentItem() != 0 && this.f48741i.onTouchEvent(motionEvent)) {
+            if (getCurrentItem() != 0 && this.f48848i.onTouchEvent(motionEvent)) {
                 requestParentInterceptTouchEvent(true);
             }
             try {
@@ -170,7 +170,7 @@ public class ListViewPager extends ViewPager {
         if (interceptable != null && (invokeL = interceptable.invokeL(1048579, this, motionEvent)) != null) {
             return invokeL.booleanValue;
         }
-        if (this.f48742j) {
+        if (this.f48849j) {
             if (getParent() != null) {
                 getParent().requestDisallowInterceptTouchEvent(true);
             }
@@ -188,11 +188,11 @@ public class ListViewPager extends ViewPager {
                     if (cVar != null) {
                         cVar.enableSwipeBack();
                     }
-                    this.f48739g = motionEvent.getX() - this.f48737e;
-                    this.f48740h = motionEvent.getY() - this.f48738f;
-                    this.f48737e = motionEvent.getX();
-                    this.f48738f = motionEvent.getY();
-                    if (getCurrentItem() != 0 && Math.abs(this.f48739g) > Math.abs(this.f48740h)) {
+                    this.f48846g = motionEvent.getX() - this.f48844e;
+                    this.f48847h = motionEvent.getY() - this.f48845f;
+                    this.f48844e = motionEvent.getX();
+                    this.f48845f = motionEvent.getY();
+                    if (getCurrentItem() != 0 && Math.abs(this.f48846g) > Math.abs(this.f48847h)) {
                         requestParentInterceptTouchEvent(true);
                     }
                 } else if (action != 3) {
@@ -212,10 +212,10 @@ public class ListViewPager extends ViewPager {
             if (cVar2 != null) {
                 cVar2.enableSwipeBack();
             }
-            this.f48737e = 0.0f;
-            this.f48738f = 0.0f;
-            this.f48739g = 0.0f;
-            this.f48740h = 0.0f;
+            this.f48844e = 0.0f;
+            this.f48845f = 0.0f;
+            this.f48846g = 0.0f;
+            this.f48847h = 0.0f;
             if (c(motionEvent)) {
             }
         }
@@ -223,8 +223,8 @@ public class ListViewPager extends ViewPager {
         if (cVar3 != null) {
             cVar3.enableSwipeBack();
         }
-        this.f48737e = motionEvent.getX();
-        this.f48738f = motionEvent.getY();
+        this.f48844e = motionEvent.getX();
+        this.f48845f = motionEvent.getY();
         if (c(motionEvent)) {
         }
     }
@@ -240,7 +240,7 @@ public class ListViewPager extends ViewPager {
     public void setDisableParentEvent(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            this.f48742j = z;
+            this.f48849j = z;
         }
     }
 
@@ -270,7 +270,7 @@ public class ListViewPager extends ViewPager {
                 return;
             }
         }
-        this.f48742j = false;
+        this.f48849j = false;
         b();
     }
 }

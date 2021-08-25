@@ -36,11 +36,15 @@ public interface IAppPayService {
 
     void addWechatSdkProxy(IWechatSdkServiceProxy iWechatSdkServiceProxy);
 
+    void cancelAllRequest();
+
     void exchangeCurrency(@NonNull ExchangeCurrencyReqParams exchangeCurrencyReqParams, IResult<ExchangeResult> iResult);
 
     boolean isPayingStatus(@NonNull PayType payType);
 
     boolean isSupported(@NonNull Activity activity, @NonNull PayType payType);
+
+    void onQQPayResult(int i2, String str);
 
     void onWxPayResult(int i2, String str);
 

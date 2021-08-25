@@ -12,7 +12,7 @@ public class g extends e {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final long f71954a;
+    public final long f72154a;
 
     public g(long j2) {
         Interceptable interceptable = $ic;
@@ -32,13 +32,13 @@ public class g extends e {
         if (j2 <= 0) {
             throw new IllegalArgumentException("Max size must be positive number!");
         }
-        this.f71954a = j2;
+        this.f72154a = j2;
     }
 
     @Override // com.kwad.sdk.core.videocache.a.e
     public boolean a(File file, long j2, int i2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{file, Long.valueOf(j2), Integer.valueOf(i2)})) == null) ? j2 <= this.f71954a : invokeCommon.booleanValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{file, Long.valueOf(j2), Integer.valueOf(i2)})) == null) ? j2 <= this.f72154a : invokeCommon.booleanValue;
     }
 }

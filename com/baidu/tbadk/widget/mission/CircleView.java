@@ -21,24 +21,24 @@ public class CircleView extends View {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: i  reason: collision with root package name */
-    public static int f48516i = 20;
+    public static int f48623i = 20;
 
     /* renamed from: j  reason: collision with root package name */
-    public static int f48517j = 13;
+    public static int f48624j = 13;
     public static final int k;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public float f48518e;
+    public float f48625e;
 
     /* renamed from: f  reason: collision with root package name */
-    public float f48519f;
+    public float f48626f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float f48520g;
+    public float f48627g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Paint f48521h;
+    public Paint f48628h;
 
     static {
         InterceptResult invokeClinit;
@@ -80,21 +80,21 @@ public class CircleView extends View {
     public final void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            f48516i = l.g(context, R.dimen.tbds94);
-            f48517j = l.g(context, R.dimen.tbds94);
+            f48623i = l.g(context, R.dimen.tbds94);
+            f48624j = l.g(context, R.dimen.tbds94);
             Paint paint = new Paint();
-            this.f48521h = paint;
+            this.f48628h = paint;
             paint.setColor(context.getResources().getColor(R.color.CAM_X0314));
-            this.f48521h.setAntiAlias(true);
-            this.f48521h.setStyle(Paint.Style.STROKE);
-            this.f48521h.setStrokeWidth(k);
+            this.f48628h.setAntiAlias(true);
+            this.f48628h.setStyle(Paint.Style.STROKE);
+            this.f48628h.setStrokeWidth(k);
         }
     }
 
     public void onChangeSkinType() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f48521h.setColor(getContext().getResources().getColor(R.color.CAM_X0314));
+            this.f48628h.setColor(getContext().getResources().getColor(R.color.CAM_X0314));
             invalidate();
         }
     }
@@ -104,7 +104,7 @@ public class CircleView extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, canvas) == null) {
             super.onDraw(canvas);
-            canvas.drawCircle(this.f48518e, this.f48519f, this.f48520g, this.f48521h);
+            canvas.drawCircle(this.f48625e, this.f48626f, this.f48627g, this.f48628h);
         }
     }
 
@@ -118,11 +118,11 @@ public class CircleView extends View {
             int mode2 = View.MeasureSpec.getMode(i3);
             int size2 = View.MeasureSpec.getSize(i3);
             if (mode == Integer.MIN_VALUE && mode2 == Integer.MIN_VALUE) {
-                setMeasuredDimension(f48516i, f48517j);
+                setMeasuredDimension(f48623i, f48624j);
             } else if (mode == Integer.MIN_VALUE) {
-                setMeasuredDimension(f48516i, size2);
+                setMeasuredDimension(f48623i, size2);
             } else if (mode2 == Integer.MIN_VALUE) {
-                setMeasuredDimension(size, f48517j);
+                setMeasuredDimension(size, f48624j);
             }
         }
     }
@@ -132,9 +132,9 @@ public class CircleView extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIII(1048580, this, i2, i3, i4, i5) == null) {
             super.onSizeChanged(i2, i3, i4, i5);
-            this.f48518e = i2 / 2.0f;
-            this.f48519f = i3 / 2.0f;
-            this.f48520g = (Math.min(i2, i3) / 2.0f) - k;
+            this.f48625e = i2 / 2.0f;
+            this.f48626f = i3 / 2.0f;
+            this.f48627g = (Math.min(i2, i3) / 2.0f) - k;
         }
     }
 

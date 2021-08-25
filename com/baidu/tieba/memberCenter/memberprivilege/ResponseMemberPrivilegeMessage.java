@@ -1,7 +1,7 @@
 package com.baidu.tieba.memberCenter.memberprivilege;
 
-import c.a.o0.s.l.c;
-import c.a.p0.w1.g.a;
+import c.a.p0.s.l.c;
+import c.a.q0.w1.g.a;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
@@ -63,12 +63,12 @@ public class ResponseMemberPrivilegeMessage extends JsonHttpResponsedMessage {
         if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, bArr) == null) {
             super.afterDispatchInBackGround(i2, (int) bArr);
             a aVar = this.mData;
-            if (aVar == null || (eVar = aVar.f27664a) == null || (currentAccountObj = TbadkCoreApplication.getCurrentAccountObj()) == null || eVar == null || currentAccountObj.getID() == null || !currentAccountObj.getID().equals(eVar.f27678a)) {
+            if (aVar == null || (eVar = aVar.f28003a) == null || (currentAccountObj = TbadkCoreApplication.getCurrentAccountObj()) == null || eVar == null || currentAccountObj.getID() == null || !currentAccountObj.getID().equals(eVar.f28017a)) {
                 return;
             }
-            a.b bVar = eVar.f27681d;
-            if (bVar != null && bVar.f27671b > bVar.f27672c && !StringUtils.isNull(bVar.f27673d)) {
-                currentAccountObj.setMemberIconUrl(bVar.f27673d);
+            a.b bVar = eVar.f28020d;
+            if (bVar != null && bVar.f28010b > bVar.f28011c && !StringUtils.isNull(bVar.f28012d)) {
+                currentAccountObj.setMemberIconUrl(bVar.f28012d);
             } else {
                 currentAccountObj.setMemberIconUrl(null);
             }

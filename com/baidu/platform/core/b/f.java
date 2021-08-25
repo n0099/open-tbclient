@@ -41,17 +41,17 @@ public class f extends com.baidu.platform.base.e {
                 if (SDKInitializer.getCoordType() == CoordType.GCJ02) {
                     latLng = CoordTrans.gcjToBaidu(latLng);
                 }
-                com.baidu.platform.util.a aVar = this.f44083a;
+                com.baidu.platform.util.a aVar = this.f44190a;
                 aVar.a("location", latLng.latitude + "," + latLng.longitude);
             }
-            this.f44083a.a("coordtype", "bd09ll");
-            this.f44083a.a("page_index", String.valueOf(reverseGeoCodeOption.getPageNum()));
-            this.f44083a.a("page_size", String.valueOf(reverseGeoCodeOption.getPageSize()));
-            this.f44083a.a("pois", "1");
-            this.f44083a.a("output", "jsonaes");
-            this.f44083a.a("from", "android_map_sdk");
-            this.f44083a.a("latest_admin", String.valueOf(reverseGeoCodeOption.getLatestAdmin()));
-            this.f44083a.a("radius", String.valueOf(reverseGeoCodeOption.getRadius()));
+            this.f44190a.a("coordtype", "bd09ll");
+            this.f44190a.a("page_index", String.valueOf(reverseGeoCodeOption.getPageNum()));
+            this.f44190a.a("page_size", String.valueOf(reverseGeoCodeOption.getPageSize()));
+            this.f44190a.a("pois", "1");
+            this.f44190a.a("output", "jsonaes");
+            this.f44190a.a("from", "android_map_sdk");
+            this.f44190a.a("latest_admin", String.valueOf(reverseGeoCodeOption.getLatestAdmin()));
+            this.f44190a.a("radius", String.valueOf(reverseGeoCodeOption.getRadius()));
         }
     }
 

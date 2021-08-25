@@ -23,10 +23,10 @@ public class BaseWebViewFragment extends BaseFragment {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f47076e;
+    public String f47183e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f47077f;
+    public String f47184f;
     public String mUrl;
 
     public BaseWebViewFragment() {
@@ -48,11 +48,11 @@ public class BaseWebViewFragment extends BaseFragment {
         int indexOf;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
-            if (StringUtils.isNull(str, true) || StringUtils.isNull(str2, true) || (indexOf = this.f47076e.indexOf(str)) < 0) {
+            if (StringUtils.isNull(str, true) || StringUtils.isNull(str2, true) || (indexOf = this.f47183e.indexOf(str)) < 0) {
                 return null;
             }
             int length = indexOf + str.length();
-            String str3 = this.f47076e;
+            String str3 = this.f47183e;
             String substring = str3.substring(length, str3.length());
             int indexOf2 = substring.indexOf(str2);
             if (indexOf2 < 0) {
@@ -74,13 +74,13 @@ public class BaseWebViewFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, str, str2, str3, str4)) == null) {
             ShareItem shareItem = new ShareItem();
-            if (StringUtils.isNull(this.f47077f, true)) {
+            if (StringUtils.isNull(this.f47184f, true)) {
                 shareItem.r = getResources().getString(R.string.share_from_tieba);
             } else {
-                shareItem.r = this.f47077f;
+                shareItem.r = this.f47184f;
             }
             shareItem.t = this.mUrl;
-            if (StringUtils.isNull(this.f47076e, true)) {
+            if (StringUtils.isNull(this.f47183e, true)) {
                 shareItem.s = this.mUrl;
             } else {
                 String a2 = a("<meta name=\"description\" content=\"", "\"");
@@ -172,7 +172,7 @@ public class BaseWebViewFragment extends BaseFragment {
     public void setSource(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-            this.f47076e = str;
+            this.f47183e = str;
         }
     }
 
@@ -190,7 +190,7 @@ public class BaseWebViewFragment extends BaseFragment {
     public void setUrlTitle(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
-            this.f47077f = str;
+            this.f47184f = str;
         }
     }
 }

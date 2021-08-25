@@ -17,7 +17,7 @@ public final class ReqPriority implements com.baidu.pass.a {
     public static final ReqPriority NORMAL;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final /* synthetic */ ReqPriority[] f44011a;
+    public static final /* synthetic */ ReqPriority[] f44118a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -38,7 +38,7 @@ public final class ReqPriority implements com.baidu.pass.a {
         HIGH = new ReqPriority("HIGH", 2);
         ReqPriority reqPriority = new ReqPriority("IMMEDIATE", 3);
         IMMEDIATE = reqPriority;
-        f44011a = new ReqPriority[]{LOW, NORMAL, HIGH, reqPriority};
+        f44118a = new ReqPriority[]{LOW, NORMAL, HIGH, reqPriority};
     }
 
     public ReqPriority(String str, int i2) {
@@ -69,6 +69,6 @@ public final class ReqPriority implements com.baidu.pass.a {
     public static ReqPriority[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (ReqPriority[]) f44011a.clone() : (ReqPriority[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (ReqPriority[]) f44118a.clone() : (ReqPriority[]) invokeV.objValue;
     }
 }

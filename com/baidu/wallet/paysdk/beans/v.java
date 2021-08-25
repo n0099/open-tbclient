@@ -22,7 +22,7 @@ public class v extends BaseBean<QueryPayResponse> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public List<RestNameValuePair> f62061a;
+    public List<RestNameValuePair> f62261a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public <T> v(Context context) {
@@ -57,7 +57,7 @@ public class v extends BaseBean<QueryPayResponse> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            List<RestNameValuePair> list = this.f62061a;
+            List<RestNameValuePair> list = this.f62261a;
             if (list != null) {
                 return list;
             }
@@ -72,7 +72,7 @@ public class v extends BaseBean<QueryPayResponse> {
                 arrayList.add(new RestNameValuePair("bank_no", payQueryRequest.mBankNo));
             }
             arrayList.add(new RestNameValuePair("sign", payQueryRequest.getMd5Sign()));
-            this.f62061a = arrayList;
+            this.f62261a = arrayList;
             return arrayList;
         }
         return (List) invokeV.objValue;

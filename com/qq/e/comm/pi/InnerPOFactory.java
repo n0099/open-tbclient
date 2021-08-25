@@ -6,6 +6,7 @@ import android.content.Context;
 import android.view.ViewGroup;
 import com.qq.e.ads.banner2.UnifiedBannerADListener;
 import com.qq.e.ads.banner2.UnifiedBannerView;
+import com.qq.e.ads.dfa.GDTAppDialogClickListener;
 import com.qq.e.ads.dfa.IGDTApkListener;
 import com.qq.e.ads.hybrid.HybridADListener;
 import com.qq.e.ads.hybrid.HybridADSetting;
@@ -23,6 +24,8 @@ public interface InnerPOFactory {
 
     ACTD getActivityDelegate(String str, Activity activity);
 
+    String getBuyerId();
+
     UIADI2 getExpressInterstitialADDelegate(Context context, String str, String str2, ADListener aDListener);
 
     RVADI2 getExpressRewardVideoADDelegate(Context context, String str, String str2, ADListener aDListener);
@@ -31,19 +34,21 @@ public interface InnerPOFactory {
 
     HADI getHybridAD(HybridADSetting hybridADSetting, HybridADListener hybridADListener);
 
-    NUADI getNativeAdManagerDelegate(Context context, String str, String str2, ADListener aDListener);
+    NUADI getNativeAdManagerDelegate(Context context, String str, String str2, String str3, ADListener aDListener);
 
-    NEADI getNativeExpressADDelegate(Context context, ADSize aDSize, String str, String str2, ADListener aDListener);
+    NEADI getNativeExpressADDelegate(Context context, ADSize aDSize, String str, String str2, String str3, ADListener aDListener);
 
     NEIADI getNativeExpressADDelegate2(Context context, String str, String str2, ADListener aDListener);
 
     NEADVI getNativeExpressADView(NEADI neadi, NEADVI neadvi, NativeExpressADData2 nativeExpressADData2, Context context, ViewGroup viewGroup, ADSize aDSize, String str, String str2, JSONObject jSONObject, HashMap<String, Object> hashMap);
 
-    NSPVI getNativeSplashAdView(Context context, String str, String str2);
+    NSPVI getNativeSplashAdView(Context context, String str, String str2, String str3);
 
-    RVADI getRewardVideoADDelegate(Context context, String str, String str2, ADListener aDListener);
+    RVADI getRewardVideoADDelegate(Context context, String str, String str2, String str3, ADListener aDListener);
 
-    UBVI getUnifiedBannerViewDelegate(UnifiedBannerView unifiedBannerView, Activity activity, String str, String str2, UnifiedBannerADListener unifiedBannerADListener);
+    UBVI getUnifiedBannerViewDelegate(UnifiedBannerView unifiedBannerView, Activity activity, String str, String str2, String str3, UnifiedBannerADListener unifiedBannerADListener);
 
-    UIADI getUnifiedInterstitialADDelegate(Activity activity, String str, String str2, UnifiedInterstitialADListener unifiedInterstitialADListener);
+    UIADI getUnifiedInterstitialADDelegate(Activity activity, String str, String str2, String str3, UnifiedInterstitialADListener unifiedInterstitialADListener);
+
+    int showOpenOrInstallAppDialog(GDTAppDialogClickListener gDTAppDialogClickListener);
 }

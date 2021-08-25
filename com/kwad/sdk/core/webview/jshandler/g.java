@@ -20,16 +20,16 @@ public class g implements com.kwad.sdk.core.webview.a.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final com.kwad.sdk.core.webview.a f72132a;
+    public final com.kwad.sdk.core.webview.a f72332a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final AdTemplate f72133b;
+    public final AdTemplate f72333b;
 
     /* renamed from: c  reason: collision with root package name */
-    public com.kwad.sdk.core.download.b.b f72134c;
+    public com.kwad.sdk.core.download.b.b f72334c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final Handler f72135d;
+    public final Handler f72335d;
 
     /* loaded from: classes10.dex */
     public static final class a extends com.kwad.sdk.core.response.a.a {
@@ -37,34 +37,34 @@ public class g implements com.kwad.sdk.core.webview.a.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f72138a;
+        public int f72338a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f72139b;
+        public String f72339b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f72140c;
+        public String f72340c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f72141d;
+        public String f72341d;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f72142e;
+        public int f72342e;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f72143f;
+        public int f72343f;
 
         /* renamed from: g  reason: collision with root package name */
-        public String f72144g;
+        public String f72344g;
 
         /* renamed from: h  reason: collision with root package name */
-        public String f72145h;
+        public String f72345h;
 
         /* renamed from: i  reason: collision with root package name */
-        public String f72146i;
+        public String f72346i;
 
         /* renamed from: j  reason: collision with root package name */
-        public String f72147j;
+        public String f72347j;
         public String k;
         public String l;
         public String m;
@@ -103,12 +103,12 @@ public class g implements com.kwad.sdk.core.webview.a.a {
                 return;
             }
         }
-        this.f72135d = new Handler(Looper.getMainLooper());
-        this.f72132a = aVar;
+        this.f72335d = new Handler(Looper.getMainLooper());
+        this.f72332a = aVar;
         AdTemplate adTemplate = new AdTemplate();
-        this.f72133b = adTemplate;
+        this.f72333b = adTemplate;
         try {
-            adTemplate.parseJson(this.f72132a.f72043b.mOriginJString != null ? new JSONObject(this.f72132a.f72043b.mOriginJString) : this.f72132a.f72043b.toJson());
+            adTemplate.parseJson(this.f72332a.f72243b.mOriginJString != null ? new JSONObject(this.f72332a.f72243b.mOriginJString) : this.f72332a.f72243b.toJson());
         } catch (Exception e2) {
             com.kwad.sdk.core.d.a.a(e2);
         }
@@ -118,22 +118,22 @@ public class g implements com.kwad.sdk.core.webview.a.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65538, null, adInfo, aVar) == null) {
             AdInfo.AdConversionInfo adConversionInfo = adInfo.adConversionInfo;
-            adConversionInfo.deeplinkUrl = aVar.f72146i;
+            adConversionInfo.deeplinkUrl = aVar.f72346i;
             adConversionInfo.marketUrl = aVar.m;
             AdInfo.AdBaseInfo adBaseInfo = adInfo.adBaseInfo;
-            adBaseInfo.adOperationType = aVar.f72138a;
-            adBaseInfo.appPackageName = aVar.f72140c;
-            adBaseInfo.appName = aVar.f72139b;
-            adBaseInfo.appVersion = aVar.f72141d;
-            adBaseInfo.packageSize = aVar.f72143f;
-            adBaseInfo.appIconUrl = aVar.f72147j;
+            adBaseInfo.adOperationType = aVar.f72338a;
+            adBaseInfo.appPackageName = aVar.f72340c;
+            adBaseInfo.appName = aVar.f72339b;
+            adBaseInfo.appVersion = aVar.f72341d;
+            adBaseInfo.packageSize = aVar.f72343f;
+            adBaseInfo.appIconUrl = aVar.f72347j;
             adBaseInfo.appDescription = aVar.k;
             if (!com.kwad.sdk.core.response.b.a.v(adInfo)) {
-                adInfo.adConversionInfo.h5Url = aVar.f72145h;
+                adInfo.adConversionInfo.h5Url = aVar.f72345h;
                 return;
             }
             AdInfo.AdConversionInfo adConversionInfo2 = adInfo.adConversionInfo;
-            String str = aVar.f72145h;
+            String str = aVar.f72345h;
             adConversionInfo2.appDownloadUrl = str;
             adInfo.downloadId = w.a(str);
         }
@@ -153,14 +153,14 @@ public class g implements com.kwad.sdk.core.webview.a.a {
         int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, cVar) == null) {
-            if (com.kwad.sdk.core.response.b.a.v(com.kwad.sdk.core.response.b.c.i(this.f72133b))) {
-                if (this.f72134c == null) {
-                    this.f72134c = new com.kwad.sdk.core.download.b.b(this.f72133b);
+            if (com.kwad.sdk.core.response.b.a.v(com.kwad.sdk.core.response.b.c.i(this.f72333b))) {
+                if (this.f72334c == null) {
+                    this.f72334c = new com.kwad.sdk.core.download.b.b(this.f72333b);
                 }
-                bVar = this.f72134c;
+                bVar = this.f72334c;
                 i2 = 2;
             } else {
-                AdInfo i3 = com.kwad.sdk.core.response.b.c.i(this.f72133b);
+                AdInfo i3 = com.kwad.sdk.core.response.b.c.i(this.f72333b);
                 a aVar = new a();
                 try {
                     aVar.parseJson(new JSONObject(str));
@@ -168,19 +168,19 @@ public class g implements com.kwad.sdk.core.webview.a.a {
                     com.kwad.sdk.core.d.a.a(e2);
                 }
                 a(i3, aVar);
-                if (this.f72134c == null) {
-                    this.f72134c = new com.kwad.sdk.core.download.b.b(this.f72133b);
+                if (this.f72334c == null) {
+                    this.f72334c = new com.kwad.sdk.core.download.b.b(this.f72333b);
                 }
-                bVar = this.f72134c;
+                bVar = this.f72334c;
                 i2 = 1;
             }
             bVar.a(i2);
-            this.f72135d.post(new Runnable(this) { // from class: com.kwad.sdk.core.webview.jshandler.g.1
+            this.f72335d.post(new Runnable(this) { // from class: com.kwad.sdk.core.webview.jshandler.g.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ g f72136a;
+                public final /* synthetic */ g f72336a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -197,19 +197,19 @@ public class g implements com.kwad.sdk.core.webview.a.a {
                             return;
                         }
                     }
-                    this.f72136a = this;
+                    this.f72336a = this;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        com.kwad.sdk.core.download.b.a.a(this.f72136a.f72132a.f72046e.getContext(), this.f72136a.f72133b, new a.InterfaceC1982a(this) { // from class: com.kwad.sdk.core.webview.jshandler.g.1.1
+                        com.kwad.sdk.core.download.b.a.a(this.f72336a.f72332a.f72246e.getContext(), this.f72336a.f72333b, new a.InterfaceC1986a(this) { // from class: com.kwad.sdk.core.webview.jshandler.g.1.1
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
 
                             /* renamed from: a  reason: collision with root package name */
-                            public final /* synthetic */ AnonymousClass1 f72137a;
+                            public final /* synthetic */ AnonymousClass1 f72337a;
 
                             {
                                 Interceptable interceptable3 = $ic;
@@ -226,16 +226,16 @@ public class g implements com.kwad.sdk.core.webview.a.a {
                                         return;
                                     }
                                 }
-                                this.f72137a = this;
+                                this.f72337a = this;
                             }
 
-                            @Override // com.kwad.sdk.core.download.b.a.InterfaceC1982a
+                            @Override // com.kwad.sdk.core.download.b.a.InterfaceC1986a
                             public void a() {
                                 Interceptable interceptable3 = $ic;
                                 if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
                                 }
                             }
-                        }, this.f72136a.f72134c, false);
+                        }, this.f72336a.f72334c, false);
                     }
                 }
             });
@@ -247,7 +247,7 @@ public class g implements com.kwad.sdk.core.webview.a.a {
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f72135d.removeCallbacksAndMessages(null);
+            this.f72335d.removeCallbacksAndMessages(null);
         }
     }
 }

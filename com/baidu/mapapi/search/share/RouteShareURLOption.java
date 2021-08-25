@@ -29,11 +29,11 @@ public class RouteShareURLOption {
         public static final RouteShareMode FOOT_ROUTE_SHARE_MODE;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final /* synthetic */ RouteShareMode[] f41727b;
+        public static final /* synthetic */ RouteShareMode[] f41834b;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f41728a;
+        public int f41835a;
 
         static {
             InterceptResult invokeClinit;
@@ -53,7 +53,7 @@ public class RouteShareURLOption {
             CYCLE_ROUTE_SHARE_MODE = new RouteShareMode("CYCLE_ROUTE_SHARE_MODE", 2, 2);
             RouteShareMode routeShareMode = new RouteShareMode("BUS_ROUTE_SHARE_MODE", 3, 3);
             BUS_ROUTE_SHARE_MODE = routeShareMode;
-            f41727b = new RouteShareMode[]{CAR_ROUTE_SHARE_MODE, FOOT_ROUTE_SHARE_MODE, CYCLE_ROUTE_SHARE_MODE, routeShareMode};
+            f41834b = new RouteShareMode[]{CAR_ROUTE_SHARE_MODE, FOOT_ROUTE_SHARE_MODE, CYCLE_ROUTE_SHARE_MODE, routeShareMode};
         }
 
         public RouteShareMode(String str, int i2, int i3) {
@@ -74,8 +74,8 @@ public class RouteShareURLOption {
                     return;
                 }
             }
-            this.f41728a = -1;
-            this.f41728a = i3;
+            this.f41835a = -1;
+            this.f41835a = i3;
         }
 
         public static RouteShareMode valueOf(String str) {
@@ -87,13 +87,13 @@ public class RouteShareURLOption {
         public static RouteShareMode[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (RouteShareMode[]) f41727b.clone() : (RouteShareMode[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (RouteShareMode[]) f41834b.clone() : (RouteShareMode[]) invokeV.objValue;
         }
 
         public int getRouteShareMode() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f41728a : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f41835a : invokeV.intValue;
         }
     }
 

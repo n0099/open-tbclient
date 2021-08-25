@@ -22,7 +22,7 @@ public class ap implements ar {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f76968a;
+    public static boolean f77169a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
@@ -41,7 +41,7 @@ public class ap implements ar {
     public volatile String f126a;
 
     /* renamed from: b  reason: collision with root package name */
-    public volatile String f76969b;
+    public volatile String f77170b;
 
     /* renamed from: b  reason: collision with other field name */
     public volatile boolean f127b;
@@ -52,7 +52,7 @@ public class ap implements ar {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ap f76970a;
+        public final /* synthetic */ ap f77171a;
 
         public a(ap apVar) {
             Interceptable interceptable = $ic;
@@ -69,7 +69,7 @@ public class ap implements ar {
                     return;
                 }
             }
-            this.f76970a = apVar;
+            this.f77171a = apVar;
         }
 
         public /* synthetic */ a(ap apVar, aq aqVar) {
@@ -82,31 +82,31 @@ public class ap implements ar {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, componentName, iBinder) == null) {
                 try {
-                    this.f76970a.f126a = b.a(iBinder);
-                    this.f76970a.f127b = b.m153a(iBinder);
-                    this.f76970a.b();
-                    this.f76970a.f122a = 2;
-                    synchronized (this.f76970a.f125a) {
+                    this.f77171a.f126a = b.a(iBinder);
+                    this.f77171a.f127b = b.m153a(iBinder);
+                    this.f77171a.b();
+                    this.f77171a.f122a = 2;
+                    synchronized (this.f77171a.f125a) {
                         try {
-                            this.f76970a.f125a.notifyAll();
+                            this.f77171a.f125a.notifyAll();
                         } catch (Exception unused) {
                         }
                     }
                 } catch (Exception unused2) {
-                    this.f76970a.b();
-                    this.f76970a.f122a = 2;
-                    synchronized (this.f76970a.f125a) {
+                    this.f77171a.b();
+                    this.f77171a.f122a = 2;
+                    synchronized (this.f77171a.f125a) {
                         try {
-                            this.f76970a.f125a.notifyAll();
+                            this.f77171a.f125a.notifyAll();
                         } catch (Exception unused3) {
                         }
                     }
                 } catch (Throwable th) {
-                    this.f76970a.b();
-                    this.f76970a.f122a = 2;
-                    synchronized (this.f76970a.f125a) {
+                    this.f77171a.b();
+                    this.f77171a.f122a = 2;
+                    synchronized (this.f77171a.f125a) {
                         try {
-                            this.f76970a.f125a.notifyAll();
+                            this.f77171a.f125a.notifyAll();
                         } catch (Exception unused4) {
                         }
                         throw th;
@@ -186,7 +186,7 @@ public class ap implements ar {
         this.f122a = 0;
         this.f126a = null;
         this.f127b = false;
-        this.f76969b = null;
+        this.f77170b = null;
         this.f125a = new Object();
         this.f123a = context;
         a();
@@ -266,7 +266,7 @@ public class ap implements ar {
             try {
                 PackageInfo packageInfo = context.getPackageManager().getPackageInfo("com.huawei.hwid", 128);
                 z = (packageInfo.applicationInfo.flags & 1) != 0;
-                f76968a = packageInfo.versionCode >= 20602000;
+                f77169a = packageInfo.versionCode >= 20602000;
             } catch (Exception unused) {
             }
             return z;
@@ -301,7 +301,7 @@ public class ap implements ar {
     public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? f76968a : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? f77169a : invokeV.booleanValue;
     }
 
     @Override // com.xiaomi.push.ar
@@ -331,14 +331,14 @@ public class ap implements ar {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (this.f76969b == null) {
+            if (this.f77170b == null) {
                 synchronized (this) {
-                    if (this.f76969b == null) {
-                        this.f76969b = a(this.f123a);
+                    if (this.f77170b == null) {
+                        this.f77170b = a(this.f123a);
                     }
                 }
             }
-            return this.f76969b;
+            return this.f77170b;
         }
         return (String) invokeV.objValue;
     }

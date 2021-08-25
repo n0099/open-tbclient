@@ -2,7 +2,7 @@ package com.baidu.tieba.im.data;
 
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.e.k.e.n;
+import c.a.e.l.e.n;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.AbstractImageProvider;
@@ -194,7 +194,7 @@ public class GroupInfoData extends AbstractImageProvider implements n, Serializa
         return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.portrait : (String) invokeV.objValue;
     }
 
-    @Override // c.a.e.k.e.n
+    @Override // c.a.e.l.e.n
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

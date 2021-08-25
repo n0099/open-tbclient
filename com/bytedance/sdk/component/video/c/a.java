@@ -14,29 +14,29 @@ public abstract class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public InterfaceC1888a f64919a;
+    public InterfaceC1892a f65119a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Surface f64920b;
+    public Surface f65120b;
 
     /* renamed from: c  reason: collision with root package name */
-    public SurfaceHolder f64921c;
+    public SurfaceHolder f65121c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f64922d;
+    public boolean f65122d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f64923e;
+    public boolean f65123e;
 
     /* renamed from: f  reason: collision with root package name */
-    public com.bytedance.sdk.component.video.b.a f64924f;
+    public com.bytedance.sdk.component.video.b.a f65124f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Context f64925g;
+    public Context f65125g;
 
     /* renamed from: com.bytedance.sdk.component.video.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes9.dex */
-    public interface InterfaceC1888a {
+    public interface InterfaceC1892a {
     }
 
     public a() {
@@ -52,10 +52,10 @@ public abstract class a {
                 return;
             }
         }
-        this.f64922d = false;
-        this.f64923e = false;
-        this.f64924f = null;
-        this.f64919a = null;
+        this.f65122d = false;
+        this.f65123e = false;
+        this.f65124f = null;
+        this.f65119a = null;
     }
 
     public abstract void a();
@@ -65,7 +65,7 @@ public abstract class a {
     public void a(Surface surface) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, surface) == null) {
-            this.f64920b = surface;
+            this.f65120b = surface;
         }
     }
 
@@ -74,7 +74,7 @@ public abstract class a {
     public void b(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
-            this.f64923e = z;
+            this.f65123e = z;
         }
     }
 
@@ -85,35 +85,35 @@ public abstract class a {
     public void a(SurfaceHolder surfaceHolder) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, surfaceHolder) == null) {
-            this.f64921c = surfaceHolder;
+            this.f65121c = surfaceHolder;
         }
     }
 
     public void a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
-            this.f64922d = z;
+            this.f65122d = z;
         }
     }
 
     public void a(com.bytedance.sdk.component.video.b.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, aVar) == null) {
-            this.f64924f = aVar;
+            this.f65124f = aVar;
         }
     }
 
     public void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
-            this.f64925g = context;
+            this.f65125g = context;
         }
     }
 
-    public void a(InterfaceC1888a interfaceC1888a) {
+    public void a(InterfaceC1892a interfaceC1892a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, interfaceC1888a) == null) {
-            this.f64919a = interfaceC1888a;
+        if (interceptable == null || interceptable.invokeL(1048582, this, interfaceC1892a) == null) {
+            this.f65119a = interfaceC1892a;
         }
     }
 }

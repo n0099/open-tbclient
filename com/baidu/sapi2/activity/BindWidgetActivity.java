@@ -4,7 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.b0.a.f;
+import c.a.c0.a.f;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.sapi2.CoreViewRouter;
 import com.baidu.sapi2.SapiAccountManager;
@@ -48,7 +48,7 @@ public class BindWidgetActivity extends BaseActivity {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ BindWidgetActivity f44440a;
+            public final /* synthetic */ BindWidgetActivity f44547a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -65,7 +65,7 @@ public class BindWidgetActivity extends BaseActivity {
                         return;
                     }
                 }
-                this.f44440a = this;
+                this.f44547a = this;
             }
 
             @Override // com.baidu.sapi2.result.WebBindWidgetResult
@@ -73,7 +73,7 @@ public class BindWidgetActivity extends BaseActivity {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                     super.loginSuc();
-                    this.f44440a.onClose();
+                    this.f44547a.onClose();
                 }
             }
         };
@@ -183,7 +183,7 @@ public class BindWidgetActivity extends BaseActivity {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ BindWidgetActivity f44441a;
+                public final /* synthetic */ BindWidgetActivity f44548a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -200,14 +200,14 @@ public class BindWidgetActivity extends BaseActivity {
                             return;
                         }
                     }
-                    this.f44441a = this;
+                    this.f44548a = this;
                 }
 
                 @Override // com.baidu.sapi2.SapiWebView.OnBackCallback
                 public void onBack() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f44441a.a();
+                        this.f44548a.a();
                     }
                 }
             });
@@ -216,7 +216,7 @@ public class BindWidgetActivity extends BaseActivity {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ BindWidgetActivity f44442a;
+                public final /* synthetic */ BindWidgetActivity f44549a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -233,14 +233,14 @@ public class BindWidgetActivity extends BaseActivity {
                             return;
                         }
                     }
-                    this.f44442a = this;
+                    this.f44549a = this;
                 }
 
                 @Override // com.baidu.sapi2.SapiWebView.OnFinishCallback
                 public void onFinish() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f44442a.onClose();
+                        this.f44549a.onClose();
                     }
                 }
             });
@@ -249,7 +249,7 @@ public class BindWidgetActivity extends BaseActivity {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ BindWidgetActivity f44443a;
+                public final /* synthetic */ BindWidgetActivity f44550a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -266,7 +266,7 @@ public class BindWidgetActivity extends BaseActivity {
                             return;
                         }
                     }
-                    this.f44443a = this;
+                    this.f44550a = this;
                 }
 
                 @Override // com.baidu.sapi2.SapiWebView.BindWidgetCallback
@@ -275,15 +275,15 @@ public class BindWidgetActivity extends BaseActivity {
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, str) == null) {
                         SapiAccountManager.getInstance().getSapiConfiguration().presetPhoneNumber = str;
                         if (CoreViewRouter.getInstance().getWebBindWidgetDTO().handleLogin && CoreViewRouter.getInstance().getWebBindWidgetCallback() != null) {
-                            this.f44443a.v.setResultCode(-10001);
-                            this.f44443a.v.setResultMsg("请登录");
-                            CoreViewRouter.getInstance().getWebBindWidgetCallback().onFinish(this.f44443a.v);
+                            this.f44550a.v.setResultCode(-10001);
+                            this.f44550a.v.setResultMsg("请登录");
+                            CoreViewRouter.getInstance().getWebBindWidgetCallback().onFinish(this.f44550a.v);
                             return;
                         }
-                        Intent intent = new Intent(this.f44443a, LoginActivity.class);
+                        Intent intent = new Intent(this.f44550a, LoginActivity.class);
                         intent.putExtra(LoginActivity.EXTRA_LOGIN_TYPE, WebLoginDTO.EXTRA_LOGIN_WITH_SMS);
                         intent.putExtra(BaseActivity.EXTRA_PARAM_BUSINESS_FROM, 2003);
-                        this.f44443a.startActivityForResult(intent, BindWidgetActivity.REQUEST_CODE_LOGIN);
+                        this.f44550a.startActivityForResult(intent, BindWidgetActivity.REQUEST_CODE_LOGIN);
                     }
                 }
             });

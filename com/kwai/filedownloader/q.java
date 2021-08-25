@@ -19,24 +19,24 @@ public class q {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Object f73944a;
+    public static final Object f74144a;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final Object f73945c;
+    public static final Object f74145c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public v f73946b;
+    public v f74146b;
 
     /* renamed from: d  reason: collision with root package name */
-    public u f73947d;
+    public u f74147d;
 
     /* loaded from: classes10.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final q f73948a;
+        public static final q f74148a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -52,7 +52,7 @@ public class q {
                     return;
                 }
             }
-            f73948a = new q();
+            f74148a = new q();
         }
     }
 
@@ -69,8 +69,8 @@ public class q {
                 return;
             }
         }
-        f73944a = new Object();
-        f73945c = new Object();
+        f74144a = new Object();
+        f74145c = new Object();
     }
 
     public q() {
@@ -90,13 +90,13 @@ public class q {
     public static q a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f73948a : (q) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f74148a : (q) invokeV.objValue;
     }
 
     public static void a(Context context, c.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65539, null, context, aVar) == null) {
-            if (com.kwai.filedownloader.f.d.f73864a) {
+            if (com.kwai.filedownloader.f.d.f74064a) {
                 com.kwai.filedownloader.f.d.c(q.class, "init Downloader with params: %s %s", context, aVar);
             }
             if (context == null) {
@@ -179,14 +179,14 @@ public class q {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            if (this.f73946b == null) {
-                synchronized (f73944a) {
-                    if (this.f73946b == null) {
-                        this.f73946b = new aa();
+            if (this.f74146b == null) {
+                synchronized (f74144a) {
+                    if (this.f74146b == null) {
+                        this.f74146b = new aa();
                     }
                 }
             }
-            return this.f73946b;
+            return this.f74146b;
         }
         return (v) invokeV.objValue;
     }
@@ -195,16 +195,16 @@ public class q {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            if (this.f73947d == null) {
-                synchronized (f73945c) {
-                    if (this.f73947d == null) {
+            if (this.f74147d == null) {
+                synchronized (f74145c) {
+                    if (this.f74147d == null) {
                         y yVar = new y();
-                        this.f73947d = yVar;
+                        this.f74147d = yVar;
                         a(yVar);
                     }
                 }
             }
-            return this.f73947d;
+            return this.f74147d;
         }
         return (u) invokeV.objValue;
     }

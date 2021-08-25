@@ -1,6 +1,6 @@
 package com.baidu.tieba.tbean.message;
 
-import c.a.p0.k3.f.a;
+import c.a.q0.k3.f.a;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -45,28 +45,28 @@ public class GetYinJiHttpResponseMessage extends HttpResponsedMessage implements
         }
     }
 
-    @Override // c.a.p0.k3.f.a
+    @Override // c.a.q0.k3.f.a
     public List<Custom> getCustomList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.customList : (List) invokeV.objValue;
     }
 
-    @Override // c.a.p0.k3.f.a
+    @Override // c.a.q0.k3.f.a
     public List<IconInfo> getIconInfoList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.iconInfoList : (List) invokeV.objValue;
     }
 
-    @Override // c.a.p0.k3.f.a
+    @Override // c.a.q0.k3.f.a
     public Setting getSetting() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.setting : (Setting) invokeV.objValue;
     }
 
-    @Override // c.a.p0.k3.f.a
+    @Override // c.a.q0.k3.f.a
     public UserInfo getUserInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

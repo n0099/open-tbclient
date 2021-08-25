@@ -12,10 +12,10 @@ public class g extends com.kwad.sdk.core.response.a.a implements com.kwad.sdk.co
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f71405a;
+    public String f71605a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f71406b;
+    public String f71606b;
 
     public g() {
         Interceptable interceptable = $ic;
@@ -40,13 +40,13 @@ public class g extends com.kwad.sdk.core.response.a.a implements com.kwad.sdk.co
                 g gVar = new g();
                 String str = a2.h5Url;
                 if (str != null) {
-                    gVar.f71406b = str;
+                    gVar.f71606b = str;
                 }
                 String str2 = a2.h5Version;
                 if (str2 != null) {
-                    gVar.f71405a = str2;
+                    gVar.f71605a = str2;
                 }
-                if (gVar.f71406b == null && gVar.f71405a == null) {
+                if (gVar.f71606b == null && gVar.f71605a == null) {
                     return null;
                 }
                 return gVar;

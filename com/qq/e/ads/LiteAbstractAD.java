@@ -16,7 +16,7 @@ public abstract class LiteAbstractAD<T extends LADI> extends AbstractAD<T> imple
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public DownloadConfirmListener f74726b;
+    public DownloadConfirmListener f74927b;
 
     public LiteAbstractAD() {
         Interceptable interceptable = $ic;
@@ -37,7 +37,7 @@ public abstract class LiteAbstractAD<T extends LADI> extends AbstractAD<T> imple
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            T t = this.f74712a;
+            T t = this.f74912a;
             if (t != 0) {
                 return ((LADI) t).getApkInfoUrl();
             }
@@ -52,7 +52,7 @@ public abstract class LiteAbstractAD<T extends LADI> extends AbstractAD<T> imple
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            T t = this.f74712a;
+            T t = this.f74912a;
             if (t != 0) {
                 return ((LADI) t).getECPM();
             }
@@ -67,7 +67,7 @@ public abstract class LiteAbstractAD<T extends LADI> extends AbstractAD<T> imple
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            T t = this.f74712a;
+            T t = this.f74912a;
             if (t != 0) {
                 return ((LADI) t).getECPMLevel();
             }
@@ -81,18 +81,44 @@ public abstract class LiteAbstractAD<T extends LADI> extends AbstractAD<T> imple
     public void onDownloadConfirm(Activity activity, int i2, String str, DownloadConfirmCallBack downloadConfirmCallBack) {
         DownloadConfirmListener downloadConfirmListener;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLILL(1048579, this, activity, i2, str, downloadConfirmCallBack) == null) || (downloadConfirmListener = this.f74726b) == null) {
+        if (!(interceptable == null || interceptable.invokeLILL(1048579, this, activity, i2, str, downloadConfirmCallBack) == null) || (downloadConfirmListener = this.f74927b) == null) {
             return;
         }
         downloadConfirmListener.onDownloadConfirm(activity, i2, str, downloadConfirmCallBack);
     }
 
+    @Override // com.qq.e.comm.pi.LADI
+    public void sendLossNotification(int i2, int i3, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIIL(1048580, this, i2, i3, str) == null) {
+            T t = this.f74912a;
+            if (t != 0) {
+                ((LADI) t).sendLossNotification(i2, i3, str);
+            } else {
+                a("sendLossNotification");
+            }
+        }
+    }
+
+    @Override // com.qq.e.comm.pi.LADI
+    public void sendWinNotification(int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
+            T t = this.f74912a;
+            if (t != 0) {
+                ((LADI) t).sendWinNotification(i2);
+            } else {
+                a("sendWinNotification");
+            }
+        }
+    }
+
     @Override // com.qq.e.comm.compliance.ApkDownloadComplianceInterface
     public void setDownloadConfirmListener(DownloadConfirmListener downloadConfirmListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, downloadConfirmListener) == null) {
-            this.f74726b = downloadConfirmListener;
-            T t = this.f74712a;
+        if (interceptable == null || interceptable.invokeL(1048582, this, downloadConfirmListener) == null) {
+            this.f74927b = downloadConfirmListener;
+            T t = this.f74912a;
             if (t != 0) {
                 ((LADI) t).setDownloadConfirmListener(this);
             }

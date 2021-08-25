@@ -1,9 +1,9 @@
 package com.baidu.tieba.funad;
 
-import c.a.p0.w0.a;
-import c.a.p0.w0.b;
-import c.a.p0.x0.c;
-import c.a.p0.x0.d;
+import c.a.q0.w0.a;
+import c.a.q0.w0.b;
+import c.a.q0.x0.c;
+import c.a.q0.x0.d;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -65,7 +65,7 @@ public class FunAdStatic {
                 return;
             }
         }
-        b.f27287a.set(new d());
+        b.f27626a.set(new d());
         a();
     }
 

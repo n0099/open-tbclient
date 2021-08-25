@@ -1,9 +1,9 @@
 package com.baidu.tieba.personPolymeric.mode.message;
 
 import c.a.e.e.p.l;
-import c.a.o0.b1.w;
-import c.a.o0.s.k;
-import c.a.p0.k2.b;
+import c.a.p0.b1.w;
+import c.a.p0.s.k;
+import c.a.q0.k2.b;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;

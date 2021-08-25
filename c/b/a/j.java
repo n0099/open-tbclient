@@ -13,7 +13,7 @@ public class j extends s1 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final y1 f31138e;
+    public final y1 f31244e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public j(y1 y1Var) {
@@ -34,7 +34,7 @@ public class j extends s1 {
                 return;
             }
         }
-        this.f31138e = y1Var;
+        this.f31244e = y1Var;
     }
 
     @Override // c.b.a.s1
@@ -42,7 +42,7 @@ public class j extends s1 {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONObject)) == null) {
-            SharedPreferences D = this.f31138e.D();
+            SharedPreferences D = this.f31244e.D();
             String string = D.getString("install_id", null);
             String string2 = D.getString("device_id", null);
             String string3 = D.getString("ssid", null);

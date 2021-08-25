@@ -19,10 +19,10 @@ public class LinearLayoutDetectsSoftKeyboard extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public a f57873e;
+    public a f58069e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Rect f57874f;
+    public Rect f58070f;
 
     /* loaded from: classes7.dex */
     public interface a {
@@ -48,7 +48,7 @@ public class LinearLayoutDetectsSoftKeyboard extends LinearLayout {
                 return;
             }
         }
-        this.f57874f = new Rect();
+        this.f58070f = new Rect();
     }
 
     @Override // android.widget.LinearLayout, android.view.View
@@ -57,14 +57,14 @@ public class LinearLayoutDetectsSoftKeyboard extends LinearLayout {
         if (interceptable == null || interceptable.invokeII(1048576, this, i2, i3) == null) {
             int size = View.MeasureSpec.getSize(i3);
             Activity activity = (Activity) getContext();
-            activity.getWindow().getDecorView().getWindowVisibleDisplayFrame(this.f57874f);
-            int height = (activity.getWindowManager().getDefaultDisplay().getHeight() - this.f57874f.top) - size;
-            if (this.f57873e != null) {
+            activity.getWindow().getDecorView().getWindowVisibleDisplayFrame(this.f58070f);
+            int height = (activity.getWindowManager().getDefaultDisplay().getHeight() - this.f58070f.top) - size;
+            if (this.f58069e != null) {
                 boolean z = true;
                 if (!MenuKeyUtils.hasSmartBar() ? height <= 128 : height <= l.e(activity, 48.0f) + 128) {
                     z = false;
                 }
-                this.f57873e.a(z);
+                this.f58069e.a(z);
             }
             super.onMeasure(i2, i3);
         }
@@ -73,7 +73,7 @@ public class LinearLayoutDetectsSoftKeyboard extends LinearLayout {
     public void setOnSoftKeyBoardShownListener(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-            this.f57873e = aVar;
+            this.f58069e = aVar;
         }
     }
 }

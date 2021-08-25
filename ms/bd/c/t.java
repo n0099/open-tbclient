@@ -14,10 +14,10 @@ public interface t {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public long f78884a;
+        public long f79085a;
 
         /* renamed from: b  reason: collision with root package name */
-        public long f78885b;
+        public long f79086b;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -40,22 +40,22 @@ public interface t {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public boolean f78886a;
+        public boolean f79087a;
 
         /* renamed from: b  reason: collision with root package name */
-        public long f78887b;
+        public long f79088b;
 
         /* renamed from: c  reason: collision with root package name */
-        public long f78888c;
+        public long f79089c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f78889d;
+        public int f79090d;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f78890e;
+        public int f79091e;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f78891f;
+        public int f79092f;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -84,16 +84,16 @@ public interface t {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public long f78892a;
+        public long f79093a;
 
         /* renamed from: b  reason: collision with root package name */
-        public long f78893b;
+        public long f79094b;
 
         /* renamed from: c  reason: collision with root package name */
-        public long f78894c;
+        public long f79095c;
 
         /* renamed from: d  reason: collision with root package name */
-        public long f78895d;
+        public long f79096d;
 
         public c() {
             Interceptable interceptable = $ic;
@@ -116,7 +116,7 @@ public interface t {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public long f78896a;
+        public long f79097a;
 
         public d() {
             Interceptable interceptable = $ic;

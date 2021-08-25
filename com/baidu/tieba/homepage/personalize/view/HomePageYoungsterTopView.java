@@ -11,7 +11,7 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
-import c.a.o0.e1.b.e;
+import c.a.p0.e1.b.e;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -30,16 +30,16 @@ public class HomePageYoungsterTopView extends RelativeLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f52086e;
+    public TextView f52236e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ImageView f52087f;
+    public ImageView f52237f;
 
     /* renamed from: g  reason: collision with root package name */
-    public c f52088g;
+    public c f52238g;
 
     /* renamed from: h  reason: collision with root package name */
-    public b f52089h;
+    public b f52239h;
 
     /* loaded from: classes7.dex */
     public class a implements View.OnClickListener {
@@ -47,7 +47,7 @@ public class HomePageYoungsterTopView extends RelativeLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ HomePageYoungsterTopView f52090e;
+        public final /* synthetic */ HomePageYoungsterTopView f52240e;
 
         public a(HomePageYoungsterTopView homePageYoungsterTopView) {
             Interceptable interceptable = $ic;
@@ -64,16 +64,16 @@ public class HomePageYoungsterTopView extends RelativeLayout {
                     return;
                 }
             }
-            this.f52090e = homePageYoungsterTopView;
+            this.f52240e = homePageYoungsterTopView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f52090e.f52089h == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f52240e.f52239h == null) {
                 return;
             }
-            this.f52090e.f52089h.onDelete();
+            this.f52240e.f52239h.onDelete();
         }
     }
 
@@ -88,7 +88,7 @@ public class HomePageYoungsterTopView extends RelativeLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public WeakReference<Context> f52091e;
+        public WeakReference<Context> f52241e;
 
         public c(Context context) {
             Interceptable interceptable = $ic;
@@ -105,14 +105,14 @@ public class HomePageYoungsterTopView extends RelativeLayout {
                     return;
                 }
             }
-            this.f52091e = new WeakReference<>(context);
+            this.f52241e = new WeakReference<>(context);
         }
 
         @Override // android.text.style.ClickableSpan
         public void onClick(@NonNull View view) {
             Context context;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && (context = this.f52091e.get()) != null && e.d()) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && (context = this.f52241e.get()) != null && e.d()) {
                 YoungsterPasswordActivityConfig youngsterPasswordActivityConfig = new YoungsterPasswordActivityConfig(context);
                 youngsterPasswordActivityConfig.setKeyYoungsterPasswordFrom(3);
                 youngsterPasswordActivityConfig.setYoungsterPasswordPageType(3);
@@ -154,15 +154,15 @@ public class HomePageYoungsterTopView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             RelativeLayout.inflate(getContext(), R.layout.view_homepage_youngster_top, this);
-            this.f52086e = (TextView) findViewById(R.id.youngster_top_text);
-            this.f52087f = (ImageView) findViewById(R.id.youngster_top_delete);
+            this.f52236e = (TextView) findViewById(R.id.youngster_top_text);
+            this.f52237f = (ImageView) findViewById(R.id.youngster_top_delete);
             SpannableString spannableString = new SpannableString(getContext().getString(R.string.youngster_open_title) + "，" + getContext().getString(R.string.youngster_homgpage_top_text));
             c cVar = new c(getContext());
-            this.f52088g = cVar;
+            this.f52238g = cVar;
             spannableString.setSpan(cVar, 9, 13, 33);
-            this.f52086e.setText(spannableString);
-            this.f52086e.setMovementMethod(LinkMovementMethod.getInstance());
-            this.f52087f.setOnClickListener(new a(this));
+            this.f52236e.setText(spannableString);
+            this.f52236e.setMovementMethod(LinkMovementMethod.getInstance());
+            this.f52237f.setOnClickListener(new a(this));
             onChangeSkinType();
         }
     }
@@ -171,15 +171,15 @@ public class HomePageYoungsterTopView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             SkinManager.setBackgroundColor(this, R.color.CAM_X0206);
-            SkinManager.setViewTextColor(this.f52086e, R.color.CAM_X0107);
-            SkinManager.setImageResource(this.f52087f, R.drawable.icon_home_card_delete);
+            SkinManager.setViewTextColor(this.f52236e, R.color.CAM_X0107);
+            SkinManager.setImageResource(this.f52237f, R.drawable.icon_home_card_delete);
         }
     }
 
     public void setOnDeleteClick(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
-            this.f52089h = bVar;
+            this.f52239h = bVar;
         }
     }
 

@@ -25,7 +25,7 @@ public final class a implements t {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final m f31615a;
+    public final m f31721a;
 
     public a(m mVar) {
         Interceptable interceptable = $ic;
@@ -42,7 +42,7 @@ public final class a implements t {
                 return;
             }
         }
-        this.f31615a = mVar;
+        this.f31721a = mVar;
     }
 
     @Override // c.d.b.t
@@ -78,7 +78,7 @@ public final class a implements t {
                 z = true;
                 g2.c("Accept-Encoding", AsyncHttpClient.ENCODING_GZIP);
             }
-            List<c.d.b.l> a4 = this.f31615a.a(request.h());
+            List<c.d.b.l> a4 = this.f31721a.a(request.h());
             if (!a4.isEmpty()) {
                 g2.c("Cookie", b(a4));
             }
@@ -86,7 +86,7 @@ public final class a implements t {
                 g2.c("User-Agent", c.d.b.e0.f.a());
             }
             b0 a5 = aVar.a(g2.b());
-            e.e(this.f31615a, request.h(), a5.v());
+            e.e(this.f31721a, request.h(), a5.v());
             b0.a z2 = a5.z();
             z2.p(request);
             if (z && AsyncHttpClient.ENCODING_GZIP.equalsIgnoreCase(a5.s("Content-Encoding")) && e.c(a5)) {
@@ -114,7 +114,7 @@ public final class a implements t {
                 }
                 c.d.b.l lVar = list.get(i2);
                 sb.append(lVar.c());
-                sb.append(com.alipay.sdk.encrypt.a.f35773h);
+                sb.append(com.alipay.sdk.encrypt.a.f35879h);
                 sb.append(lVar.k());
             }
             return sb.toString();

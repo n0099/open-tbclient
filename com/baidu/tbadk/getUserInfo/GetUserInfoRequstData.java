@@ -1,6 +1,6 @@
 package com.baidu.tbadk.getUserInfo;
 
-import c.a.o0.b1.w;
+import c.a.p0.b1.w;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;

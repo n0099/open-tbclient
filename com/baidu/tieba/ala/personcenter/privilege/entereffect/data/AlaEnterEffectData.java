@@ -1,7 +1,7 @@
 package com.baidu.tieba.ala.personcenter.privilege.entereffect.data;
 
 import c.a.e.e.m.b;
-import c.a.e.k.e.n;
+import c.a.e.l.e.n;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.ala.gift.AlaDynamicGift;
 import com.baidu.ala.gift.AlaDynamicGiftConfigInfo;
@@ -84,7 +84,7 @@ public class AlaEnterEffectData implements Serializable, n {
         }
     }
 
-    @Override // c.a.e.k.e.n
+    @Override // c.a.e.l.e.n
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

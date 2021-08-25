@@ -20,28 +20,28 @@ public abstract class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: e  reason: collision with root package name */
-    public static Comparator<a> f3938e;
+    public static Comparator<a> f3913e;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public b f3939a;
+    public b f3914a;
 
     /* renamed from: b  reason: collision with root package name */
-    public a.C0101a f3940b;
+    public a.C0100a f3915b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final String f3941c;
+    public final String f3916c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f3942d;
+    public long f3917d;
 
     /* renamed from: c.a.m.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0098a implements Comparator<a> {
+    public static class C0097a implements Comparator<a> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public C0098a() {
+        public C0097a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -75,10 +75,10 @@ public abstract class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public Context f3943a;
+        public Context f3918a;
 
         /* renamed from: b  reason: collision with root package name */
-        public c.a.m.g.a f3944b;
+        public c.a.m.g.a f3919b;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -101,20 +101,20 @@ public abstract class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public a.C0101a f3945a;
+        public a.C0100a f3920a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f3946b;
+        public String f3921b;
 
         /* renamed from: c  reason: collision with root package name */
-        public boolean f3947c;
+        public boolean f3922c;
 
-        public c(a.C0101a c0101a, String str) {
+        public c(a.C0100a c0100a, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {c0101a, str};
+                Object[] objArr = {c0100a, str};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -124,9 +124,9 @@ public abstract class a {
                     return;
                 }
             }
-            this.f3947c = true;
-            this.f3945a = c0101a;
-            this.f3946b = "target-pkg-" + Base64.encodeToString(str.getBytes(), 3);
+            this.f3922c = true;
+            this.f3920a = c0100a;
+            this.f3921b = "target-pkg-" + Base64.encodeToString(str.getBytes(), 3);
         }
 
         public abstract void a(JSONObject jSONObject);
@@ -134,7 +134,7 @@ public abstract class a {
         public void b(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-                this.f3947c = z;
+                this.f3922c = z;
             }
         }
 
@@ -142,7 +142,7 @@ public abstract class a {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                String c2 = this.f3945a.c(this.f3946b, true);
+                String c2 = this.f3920a.c(this.f3921b, true);
                 if (!TextUtils.isEmpty(c2)) {
                     try {
                         a(new JSONObject(c2));
@@ -162,11 +162,11 @@ public abstract class a {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-                if (this.f3947c) {
+                if (this.f3922c) {
                     try {
                         JSONObject jSONObject = new JSONObject();
                         d(jSONObject);
-                        this.f3945a.e(this.f3946b, jSONObject.toString(), true);
+                        this.f3920a.e(this.f3921b, jSONObject.toString(), true);
                         b(false);
                         return true;
                     } catch (Exception unused) {
@@ -264,7 +264,7 @@ public abstract class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public boolean f3948a;
+        public boolean f3923a;
 
         public g() {
             Interceptable interceptable = $ic;
@@ -287,10 +287,10 @@ public abstract class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public l.a f3949a;
+        public l.a f3924a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f3950b;
+        public int f3925b;
 
         public h(int i2, l.a aVar, Exception exc) {
             Interceptable interceptable = $ic;
@@ -307,8 +307,8 @@ public abstract class a {
                     return;
                 }
             }
-            this.f3950b = i2;
-            this.f3949a = aVar;
+            this.f3925b = i2;
+            this.f3924a = aVar;
         }
 
         public static h a(int i2) {
@@ -332,7 +332,7 @@ public abstract class a {
         public boolean c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f3950b == 0 : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f3925b == 0 : invokeV.booleanValue;
         }
     }
 
@@ -349,7 +349,7 @@ public abstract class a {
                 return;
             }
         }
-        f3938e = new C0098a();
+        f3913e = new C0097a();
     }
 
     public a(String str, long j2) {
@@ -367,8 +367,8 @@ public abstract class a {
                 return;
             }
         }
-        this.f3941c = str;
-        this.f3942d = j2;
+        this.f3916c = str;
+        this.f3917d = j2;
     }
 
     public abstract f a(e eVar, l.a aVar);
@@ -378,14 +378,14 @@ public abstract class a {
     public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f3941c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f3916c : (String) invokeV.objValue;
     }
 
     public final void d(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bVar) == null) {
-            this.f3939a = bVar;
-            this.f3940b = bVar.f3944b.e().b("cs");
+            this.f3914a = bVar;
+            this.f3915b = bVar.f3919b.e().b("cs");
         }
     }
 
@@ -394,6 +394,6 @@ public abstract class a {
     public long f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f3942d : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f3917d : invokeV.longValue;
     }
 }

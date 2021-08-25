@@ -16,7 +16,7 @@ public final class c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public List<a> f31370a;
+    public List<a> f31476a;
 
     public c(Handler handler, Context context) {
         Interceptable interceptable = $ic;
@@ -34,7 +34,7 @@ public final class c {
             }
         }
         ArrayList arrayList = new ArrayList(3);
-        this.f31370a = arrayList;
+        this.f31476a = arrayList;
         arrayList.add(new b(handler, 0L, 15000L));
     }
 
@@ -47,8 +47,8 @@ public final class c {
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            l.k.a("[ScheduleTaskManager] execute, task size=" + this.f31370a.size());
-            for (a aVar : this.f31370a) {
+            l.k.a("[ScheduleTaskManager] execute, task size=" + this.f31476a.size());
+            for (a aVar : this.f31476a) {
                 try {
                     aVar.a();
                 } catch (Throwable unused) {

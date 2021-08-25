@@ -168,7 +168,7 @@ public class SimpleLoaderProc extends AbstractImageLoaderProc {
         if (bVar != null) {
             DiskCancelWorker diskCancelWorker = new DiskCancelWorker();
             diskCancelWorker.setOperate(cVar);
-            bVar.f2324a = diskCancelWorker;
+            bVar.f2382a = diskCancelWorker;
         }
     }
 }

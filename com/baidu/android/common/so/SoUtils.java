@@ -1,6 +1,8 @@
 package com.baidu.android.common.so;
 
+import android.annotation.SuppressLint;
 import android.os.Build;
+import android.os.Process;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -72,7 +74,7 @@ public final class SoUtils {
                 return;
             }
         }
-        uris = new String[]{"lib/armeabi", "lib/x86", "lib/mips"};
+        uris = new String[]{"lib/arm64", "lib/armeabi", "lib/x86", "lib/mips"};
     }
 
     public SoUtils() {
@@ -144,6 +146,8 @@ public final class SoUtils {
         return (String) invokeLI.objValue;
     }
 
+    @SuppressLint({"ObsoleteSdkInt"})
+    @Deprecated
     public static boolean hasGingerbread() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -157,10 +161,30 @@ public final class SoUtils {
         }
     }
 
+    public static boolean is64Bit() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
+            int i2 = Build.VERSION.SDK_INT;
+            if (i2 >= 23) {
+                return Process.is64Bit();
+            }
+            if (i2 >= 21) {
+                String[] strArr = Build.SUPPORTED_64_BIT_ABIS;
+                if (strArr.length > 0) {
+                    return Build.CPU_ABI.equals(strArr[0]);
+                }
+                return false;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
     public static void onEvent(String str, String str2) {
         SoUbcLoggable soUbcLoggable;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65544, null, str, str2) == null) || (soUbcLoggable = sUbcImpl) == null) {
+        if (!(interceptable == null || interceptable.invokeLL(65545, null, str, str2) == null) || (soUbcLoggable = sUbcImpl) == null) {
             return;
         }
         soUbcLoggable.onEvent(str, str2);
@@ -168,7 +192,7 @@ public final class SoUtils {
 
     public static void saveLog(HashMap<String, String> hashMap, String str, String str2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(65545, null, hashMap, str, str2) == null) || TextUtils.isEmpty(str2)) {
+        if (!(interceptable == null || interceptable.invokeLLL(65546, null, hashMap, str, str2) == null) || TextUtils.isEmpty(str2)) {
             return;
         }
         hashMap.put(str, str2);
@@ -176,7 +200,7 @@ public final class SoUtils {
 
     public static void sendLog(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65546, null, str) == null) || TextUtils.isEmpty(str)) {
+        if (!(interceptable == null || interceptable.invokeL(65547, null, str) == null) || TextUtils.isEmpty(str)) {
             return;
         }
         onEvent("24", str);

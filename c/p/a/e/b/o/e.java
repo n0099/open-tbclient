@@ -18,13 +18,13 @@ public class e {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final com.ss.android.socialbase.downloader.i.h<String, d> f35202a;
+    public final com.ss.android.socialbase.downloader.i.h<String, d> f35308a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Handler f35203b;
+    public final Handler f35309b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Handler f35204c;
+    public final Handler f35310c;
 
     /* loaded from: classes4.dex */
     public class a implements Runnable {
@@ -32,16 +32,16 @@ public class e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f35205e;
+        public final /* synthetic */ String f35311e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ c f35206f;
+        public final /* synthetic */ c f35312f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ long f35207g;
+        public final /* synthetic */ long f35313g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ e f35208h;
+        public final /* synthetic */ e f35314h;
 
         public a(e eVar, String str, c cVar, long j2) {
             Interceptable interceptable = $ic;
@@ -58,17 +58,17 @@ public class e {
                     return;
                 }
             }
-            this.f35208h = eVar;
-            this.f35205e = str;
-            this.f35206f = cVar;
-            this.f35207g = j2;
+            this.f35314h = eVar;
+            this.f35311e = str;
+            this.f35312f = cVar;
+            this.f35313g = j2;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f35208h.e(this.f35205e, this.f35206f, this.f35207g);
+                this.f35314h.e(this.f35311e, this.f35312f, this.f35313g);
             }
         }
     }
@@ -79,13 +79,13 @@ public class e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c f35209e;
+        public final /* synthetic */ c f35315e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f35210f;
+        public final /* synthetic */ String f35316f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ d f35211g;
+        public final /* synthetic */ d f35317g;
 
         public b(e eVar, c cVar, String str, d dVar) {
             Interceptable interceptable = $ic;
@@ -102,21 +102,21 @@ public class e {
                     return;
                 }
             }
-            this.f35209e = cVar;
-            this.f35210f = str;
-            this.f35211g = dVar;
+            this.f35315e = cVar;
+            this.f35316f = str;
+            this.f35317g = dVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             c cVar;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (cVar = this.f35209e) == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (cVar = this.f35315e) == null) {
                 return;
             }
-            String str = this.f35210f;
-            d dVar = this.f35211g;
-            cVar.a(str, dVar == null ? null : dVar.f35212a);
+            String str = this.f35316f;
+            d dVar = this.f35317g;
+            cVar.a(str, dVar == null ? null : dVar.f35318a);
         }
     }
 
@@ -131,10 +131,10 @@ public class e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public List<InetAddress> f35212a;
+        public List<InetAddress> f35318a;
 
         /* renamed from: b  reason: collision with root package name */
-        public long f35213b;
+        public long f35319b;
 
         public d() {
             Interceptable interceptable = $ic;
@@ -157,11 +157,11 @@ public class e {
 
     /* renamed from: c.p.a.e.b.o.e$e  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public static class C1552e {
+    public static class C1556e {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final e f35214a;
+        public static final e f35320a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -177,7 +177,7 @@ public class e {
                     return;
                 }
             }
-            f35214a = new e(null);
+            f35320a = new e(null);
         }
     }
 
@@ -188,33 +188,33 @@ public class e {
     public static e a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? C1552e.f35214a : (e) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? C1556e.f35320a : (e) invokeV.objValue;
     }
 
     public void c(String str, c cVar, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{str, cVar, Long.valueOf(j2)}) == null) {
-            this.f35203b.post(new a(this, str, cVar, j2));
+            this.f35309b.post(new a(this, str, cVar, j2));
         }
     }
 
     public final void d(String str, List<InetAddress> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, list) == null) {
-            synchronized (this.f35202a) {
-                d dVar = this.f35202a.get(str);
+            synchronized (this.f35308a) {
+                d dVar = this.f35308a.get(str);
                 if (dVar == null) {
                     dVar = new d(null);
-                    this.f35202a.put(str, dVar);
+                    this.f35308a.put(str, dVar);
                 }
-                dVar.f35212a = list;
-                dVar.f35213b = System.currentTimeMillis();
+                dVar.f35318a = list;
+                dVar.f35319b = System.currentTimeMillis();
             }
         }
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:36:0x0089, code lost:
-        r10 = r2.f35212a;
+        r10 = r2.f35318a;
      */
     /* JADX WARN: Removed duplicated region for block: B:39:0x0092 A[Catch: all -> 0x0099, TRY_LEAVE, TryCatch #3 {all -> 0x0099, blocks: (B:4:0x0004, B:5:0x000e, B:9:0x001a, B:12:0x0038, B:14:0x003e, B:16:0x0056, B:23:0x0067, B:31:0x007c, B:34:0x0083, B:37:0x008b, B:39:0x0092, B:36:0x0089, B:25:0x006d, B:18:0x005c, B:26:0x0071, B:6:0x000f, B:7:0x0017), top: B:50:0x0004 }] */
     /* JADX WARN: Removed duplicated region for block: B:52:? A[RETURN, SYNTHETIC] */
@@ -230,18 +230,18 @@ public class e {
         }
         try {
             String host = Uri.parse(str).getHost();
-            synchronized (this.f35202a) {
-                dVar = this.f35202a.get(host);
+            synchronized (this.f35308a) {
+                dVar = this.f35308a.get(host);
             }
-            if (dVar != null && System.currentTimeMillis() - dVar.f35213b < c.p.a.e.b.j.a.r().b("dns_expire_min", 10) * 60 * 1000) {
+            if (dVar != null && System.currentTimeMillis() - dVar.f35319b < c.p.a.e.b.j.a.r().b("dns_expire_min", 10) * 60 * 1000) {
                 if (cVar != null) {
-                    cVar.a(str, dVar.f35212a);
+                    cVar.a(str, dVar.f35318a);
                     return;
                 }
                 return;
             }
             b bVar = new b(this, cVar, str, dVar);
-            this.f35204c.postDelayed(bVar, j2);
+            this.f35310c.postDelayed(bVar, j2);
             List<InetAddress> list = null;
             if (c.p.a.e.b.j.a.r().b("use_host_dns", 1) == 1 && (J0 = c.p.a.e.b.g.e.J0()) != null) {
                 list = J0.a(host);
@@ -251,14 +251,14 @@ public class e {
             }
             if (list != null && !list.isEmpty()) {
                 d(host, list);
-                this.f35204c.removeCallbacks(bVar);
+                this.f35310c.removeCallbacks(bVar);
                 if (cVar == null) {
                     cVar.a(str, list);
                     return;
                 }
                 return;
             }
-            this.f35204c.removeCallbacks(bVar);
+            this.f35310c.removeCallbacks(bVar);
             if (cVar == null) {
             }
         } catch (Throwable th) {
@@ -279,8 +279,8 @@ public class e {
                 return;
             }
         }
-        this.f35202a = new com.ss.android.socialbase.downloader.i.h<>(4, 16, false);
-        this.f35203b = new Handler(c.p.a.e.b.o.b.b.a());
-        this.f35204c = new Handler(c.p.a.e.b.k.e.a());
+        this.f35308a = new com.ss.android.socialbase.downloader.i.h<>(4, 16, false);
+        this.f35309b = new Handler(c.p.a.e.b.o.b.b.a());
+        this.f35310c = new Handler(c.p.a.e.b.k.e.a());
     }
 }

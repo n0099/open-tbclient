@@ -39,13 +39,13 @@ public class n extends d {
         if (interceptable == null || interceptable.invokeL(1048576, this, hashMap) == null) {
             super.b(hashMap);
             hashMap.put("method", "unbind");
-            hashMap.put("model", l.a(((a) this).f36926a) + "");
-            if (com.baidu.android.pushservice.b.d.b(((a) this).f36926a)) {
-                hashMap.put("new_channel_id", com.baidu.android.pushservice.k.a(((a) this).f36926a).c());
+            hashMap.put("model", l.a(((a) this).f37032a) + "");
+            if (com.baidu.android.pushservice.b.d.b(((a) this).f37032a)) {
+                hashMap.put("new_channel_id", com.baidu.android.pushservice.k.a(((a) this).f37032a).c());
             }
-            hashMap.put("app_alone_conn", (com.baidu.android.pushservice.b.d.e(((a) this).f36926a) ? 1 : 0) + "");
+            hashMap.put("app_alone_conn", (com.baidu.android.pushservice.b.d.e(((a) this).f37032a) ? 1 : 0) + "");
             hashMap.put("manufacture", Build.MANUFACTURER);
-            hashMap.put("proxy_mode", (com.baidu.android.pushservice.b.d.c(((a) this).f36926a) ? 1 : 0) + "");
+            hashMap.put("proxy_mode", (com.baidu.android.pushservice.b.d.c(((a) this).f37032a) ? 1 : 0) + "");
         }
     }
 }

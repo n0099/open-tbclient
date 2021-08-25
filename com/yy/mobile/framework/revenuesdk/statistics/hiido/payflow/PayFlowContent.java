@@ -243,7 +243,7 @@ public final class PayFlowContent extends AbstractHiidoContent {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65559, this)) == null) {
-            String str = "orderid=" + URLEncoder.encode(this.mOrderId, "UTF-8") + "&" + PURCHASETIME + "=" + URLEncoder.encode(this.mPurchaseTime, "UTF-8") + "&productid=" + URLEncoder.encode(this.mProductId, "UTF-8") + "&" + PAYENTRANCEID + "=" + URLEncoder.encode(this.mPayEntranceId, "UTF-8") + "&" + PAYTRACEID + "=" + URLEncoder.encode(this.mPayTraceId, "UTF-8") + "&event=" + URLEncoder.encode(this.mEventId, "UTF-8") + "&code=" + this.mCode + "&msg=" + URLEncoder.encode(this.mMsg, "UTF-8") + "&pay_from=" + URLEncoder.encode(this.mPayFrom, "UTF-8");
+            String str = ORDERID + "=" + URLEncoder.encode(this.mOrderId, "UTF-8") + "&" + PURCHASETIME + "=" + URLEncoder.encode(this.mPurchaseTime, "UTF-8") + "&" + PRODUCTID + "=" + URLEncoder.encode(this.mProductId, "UTF-8") + "&" + PAYENTRANCEID + "=" + URLEncoder.encode(this.mPayEntranceId, "UTF-8") + "&" + PAYTRACEID + "=" + URLEncoder.encode(this.mPayTraceId, "UTF-8") + "&event=" + URLEncoder.encode(this.mEventId, "UTF-8") + "&code=" + this.mCode + "&msg=" + URLEncoder.encode(this.mMsg, "UTF-8") + "&pay_from=" + URLEncoder.encode(this.mPayFrom, "UTF-8");
             Intrinsics.checkExpressionValueIsNotNull(str, "contents.toString()");
             return str;
         }
@@ -290,9 +290,9 @@ public final class PayFlowContent extends AbstractHiidoContent {
                 mapContent = new LinkedHashMap<>();
             }
             mapContent.put("event", this.mEventId);
-            mapContent.put("orderid", this.mOrderId);
+            mapContent.put(ORDERID, this.mOrderId);
             mapContent.put(PURCHASETIME, this.mPurchaseTime);
-            mapContent.put("productid", this.mProductId);
+            mapContent.put(PRODUCTID, this.mProductId);
             mapContent.put(PAYENTRANCEID, this.mPayEntranceId);
             mapContent.put(PAYTRACEID, this.mPayTraceId);
             mapContent.put("code", this.mCode);

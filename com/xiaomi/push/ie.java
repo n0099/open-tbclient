@@ -22,37 +22,37 @@ public class ie implements iq<ie, Object>, Serializable, Cloneable {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final iy f77542a;
+    public static final iy f77743a;
 
     /* renamed from: a  reason: collision with other field name */
     public static final jg f648a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final iy f77543b;
+    public static final iy f77744b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final iy f77544c;
+    public static final iy f77745c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final iy f77545d;
+    public static final iy f77746d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final iy f77546e;
+    public static final iy f77747e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final iy f77547f;
+    public static final iy f77748f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final iy f77548g;
+    public static final iy f77749g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final iy f77549h;
+    public static final iy f77750h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final iy f77550i;
+    public static final iy f77751i;
 
     /* renamed from: j  reason: collision with root package name */
-    public static final iy f77551j;
+    public static final iy f77752j;
     public static final iy k;
     public static final iy l;
     public static final iy m;
@@ -122,16 +122,16 @@ public class ie implements iq<ie, Object>, Serializable, Cloneable {
             }
         }
         f648a = new jg("XmPushActionNotification");
-        f77542a = new iy("", (byte) 11, (short) 1);
-        f77543b = new iy("", StandardMessageCodec.LIST, (short) 2);
-        f77544c = new iy("", (byte) 11, (short) 3);
-        f77545d = new iy("", (byte) 11, (short) 4);
-        f77546e = new iy("", (byte) 11, (short) 5);
-        f77547f = new iy("", (byte) 2, (short) 6);
-        f77548g = new iy("", (byte) 11, (short) 7);
-        f77549h = new iy("", (byte) 13, (short) 8);
-        f77550i = new iy("", (byte) 11, (short) 9);
-        f77551j = new iy("", (byte) 11, (short) 10);
+        f77743a = new iy("", (byte) 11, (short) 1);
+        f77744b = new iy("", StandardMessageCodec.LIST, (short) 2);
+        f77745c = new iy("", (byte) 11, (short) 3);
+        f77746d = new iy("", (byte) 11, (short) 4);
+        f77747e = new iy("", (byte) 11, (short) 5);
+        f77748f = new iy("", (byte) 2, (short) 6);
+        f77749g = new iy("", (byte) 11, (short) 7);
+        f77750h = new iy("", (byte) 13, (short) 8);
+        f77751i = new iy("", (byte) 11, (short) 9);
+        f77752j = new iy("", (byte) 11, (short) 10);
         k = new iy("", (byte) 11, (short) 12);
         l = new iy("", (byte) 11, (short) 13);
         m = new iy("", (byte) 11, (short) 14);
@@ -403,7 +403,7 @@ public class ie implements iq<ie, Object>, Serializable, Cloneable {
         jbVar.m527a();
         while (true) {
             iy m523a = jbVar.m523a();
-            byte b2 = m523a.f77655a;
+            byte b2 = m523a.f77856a;
             if (b2 == 0) {
                 jbVar.f();
                 if (f()) {
@@ -676,40 +676,40 @@ public class ie implements iq<ie, Object>, Serializable, Cloneable {
             m470a();
             jbVar.a(f648a);
             if (this.f651a != null && m472a()) {
-                jbVar.a(f77542a);
+                jbVar.a(f77743a);
                 jbVar.a(this.f651a);
                 jbVar.b();
             }
             if (this.f650a != null && m475b()) {
-                jbVar.a(f77543b);
+                jbVar.a(f77744b);
                 this.f650a.b(jbVar);
                 jbVar.b();
             }
             if (this.f656b != null) {
-                jbVar.a(f77544c);
+                jbVar.a(f77745c);
                 jbVar.a(this.f656b);
                 jbVar.b();
             }
             if (this.f658c != null && d()) {
-                jbVar.a(f77545d);
+                jbVar.a(f77746d);
                 jbVar.a(this.f658c);
                 jbVar.b();
             }
             if (this.f659d != null && e()) {
-                jbVar.a(f77546e);
+                jbVar.a(f77747e);
                 jbVar.a(this.f659d);
                 jbVar.b();
             }
-            jbVar.a(f77547f);
+            jbVar.a(f77748f);
             jbVar.a(this.f655a);
             jbVar.b();
             if (this.f660e != null && g()) {
-                jbVar.a(f77548g);
+                jbVar.a(f77749g);
                 jbVar.a(this.f660e);
                 jbVar.b();
             }
             if (this.f654a != null && h()) {
-                jbVar.a(f77549h);
+                jbVar.a(f77750h);
                 jbVar.a(new ja((byte) 11, (byte) 11, this.f654a.size()));
                 for (Map.Entry<String, String> entry : this.f654a.entrySet()) {
                     jbVar.a(entry.getKey());
@@ -719,12 +719,12 @@ public class ie implements iq<ie, Object>, Serializable, Cloneable {
                 jbVar.b();
             }
             if (this.f661f != null && i()) {
-                jbVar.a(f77550i);
+                jbVar.a(f77751i);
                 jbVar.a(this.f661f);
                 jbVar.b();
             }
             if (this.f662g != null && j()) {
-                jbVar.a(f77551j);
+                jbVar.a(f77752j);
                 jbVar.a(this.f662g);
                 jbVar.b();
             }

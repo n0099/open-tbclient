@@ -1,8 +1,8 @@
 package com.baidu.tieba.homepage.topic.topictab.message;
 
-import c.a.e.k.e.n;
-import c.a.p0.f1.k.b.c.a;
-import c.a.p0.f1.k.b.c.c;
+import c.a.e.l.e.n;
+import c.a.q0.f1.k.b.c.a;
+import c.a.q0.f1.k.b.c.c;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
@@ -72,13 +72,13 @@ public class ResponseSocketGetTopicListMessage extends SocketResponsedMessage {
                 aVar.Q(newTopicList);
                 this.mTopicDataList.add(aVar);
                 c cVar = new c();
-                cVar.f17680e = R.dimen.tbds1;
-                cVar.f17681f = R.color.CAM_X0203;
+                cVar.f18013e = R.dimen.tbds1;
+                cVar.f18014f = R.color.CAM_X0203;
                 this.mTopicDataList.add(cVar);
                 i3++;
             }
         }
         List<n> list = this.mTopicDataList;
-        ((c) ListUtils.getItem(list, list.size() - 1)).f17680e = 0;
+        ((c) ListUtils.getItem(list, list.size() - 1)).f18013e = 0;
     }
 }

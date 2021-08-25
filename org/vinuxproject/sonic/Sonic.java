@@ -14,7 +14,7 @@ public class Sonic {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f78920a;
+    public long f79121a;
 
     static {
         InterceptResult invokeClinit;
@@ -47,9 +47,9 @@ public class Sonic {
                 return;
             }
         }
-        this.f78920a = 0L;
+        this.f79121a = 0L;
         b();
-        this.f78920a = initNative(i2, i3);
+        this.f79121a = initNative(i2, i3);
     }
 
     private native int availableBytesNative(long j2);
@@ -95,16 +95,16 @@ public class Sonic {
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? availableBytesNative(this.f78920a) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? availableBytesNative(this.f79121a) : invokeV.intValue;
     }
 
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            long j2 = this.f78920a;
+            long j2 = this.f79121a;
             if (j2 != 0) {
                 closeNative(j2);
-                this.f78920a = 0L;
+                this.f79121a = 0L;
             }
         }
     }
@@ -112,26 +112,26 @@ public class Sonic {
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            flushNative(this.f78920a);
+            flushNative(this.f79121a);
         }
     }
 
     public boolean d(byte[] bArr, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048579, this, bArr, i2)) == null) ? putBytesNative(this.f78920a, bArr, i2) : invokeLI.booleanValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048579, this, bArr, i2)) == null) ? putBytesNative(this.f79121a, bArr, i2) : invokeLI.booleanValue;
     }
 
     public int e(byte[] bArr, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, bArr, i2)) == null) ? receiveBytesNative(this.f78920a, bArr, i2) : invokeLI.intValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, bArr, i2)) == null) ? receiveBytesNative(this.f79121a, bArr, i2) : invokeLI.intValue;
     }
 
     public void f(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048581, this, f2) == null) {
-            setSpeedNative(this.f78920a, f2);
+            setSpeedNative(this.f79121a, f2);
         }
     }
 

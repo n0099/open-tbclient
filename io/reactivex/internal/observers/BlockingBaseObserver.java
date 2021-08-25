@@ -18,7 +18,7 @@ public abstract class BlockingBaseObserver<T> extends CountDownLatch implements 
     public volatile boolean cancelled;
 
     /* renamed from: d  reason: collision with root package name */
-    public Disposable f78507d;
+    public Disposable f78708d;
     public Throwable error;
     public T value;
 
@@ -67,7 +67,7 @@ public abstract class BlockingBaseObserver<T> extends CountDownLatch implements 
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             this.cancelled = true;
-            Disposable disposable = this.f78507d;
+            Disposable disposable = this.f78708d;
             if (disposable != null) {
                 disposable.dispose();
             }
@@ -93,7 +93,7 @@ public abstract class BlockingBaseObserver<T> extends CountDownLatch implements 
     public final void onSubscribe(Disposable disposable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, disposable) == null) {
-            this.f78507d = disposable;
+            this.f78708d = disposable;
             if (this.cancelled) {
                 disposable.dispose();
             }

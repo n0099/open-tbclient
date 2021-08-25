@@ -11,7 +11,7 @@ public final class dx implements Runnable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ int f77171a;
+    public final /* synthetic */ int f77372a;
 
     /* renamed from: a  reason: collision with other field name */
     public final /* synthetic */ Context f312a;
@@ -20,7 +20,7 @@ public final class dx implements Runnable {
     public final /* synthetic */ String f313a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ String f77172b;
+    public final /* synthetic */ String f77373b;
 
     public dx(Context context, String str, int i2, String str2) {
         Interceptable interceptable = $ic;
@@ -39,15 +39,15 @@ public final class dx implements Runnable {
         }
         this.f312a = context;
         this.f313a = str;
-        this.f77171a = i2;
-        this.f77172b = str2;
+        this.f77372a = i2;
+        this.f77373b = str2;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            dw.c(this.f312a, this.f313a, this.f77171a, this.f77172b);
+            dw.c(this.f312a, this.f313a, this.f77372a, this.f77373b);
         }
     }
 }

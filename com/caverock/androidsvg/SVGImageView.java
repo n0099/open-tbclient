@@ -27,7 +27,7 @@ public class SVGImageView extends ImageView {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: e  reason: collision with root package name */
-    public static Method f68621e;
+    public static Method f68821e;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes9.dex */
@@ -42,7 +42,7 @@ public class SVGImageView extends ImageView {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ SVGImageView f68622a;
+        public final /* synthetic */ SVGImageView f68822a;
 
         public b(SVGImageView sVGImageView) {
             Interceptable interceptable = $ic;
@@ -59,7 +59,7 @@ public class SVGImageView extends ImageView {
                     return;
                 }
             }
-            this.f68622a = sVGImageView;
+            this.f68822a = sVGImageView;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -70,7 +70,7 @@ public class SVGImageView extends ImageView {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, strArr)) == null) {
                 try {
-                    return SVG.f(this.f68622a.getContext().getAssets(), strArr[0]).l();
+                    return SVG.f(this.f68822a.getContext().getAssets(), strArr[0]).l();
                 } catch (SVGParseException e2) {
                     String str = "Error loading file " + strArr + ": " + e2.getMessage();
                     return null;
@@ -93,8 +93,8 @@ public class SVGImageView extends ImageView {
             if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, picture) == null) || picture == null) {
                 return;
             }
-            this.f68622a.d();
-            this.f68622a.setImageDrawable(new PictureDrawable(picture));
+            this.f68822a.d();
+            this.f68822a.setImageDrawable(new PictureDrawable(picture));
         }
 
         public /* synthetic */ b(SVGImageView sVGImageView, a aVar) {
@@ -108,7 +108,7 @@ public class SVGImageView extends ImageView {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ SVGImageView f68623a;
+        public final /* synthetic */ SVGImageView f68823a;
 
         public c(SVGImageView sVGImageView) {
             Interceptable interceptable = $ic;
@@ -125,7 +125,7 @@ public class SVGImageView extends ImageView {
                     return;
                 }
             }
-            this.f68623a = sVGImageView;
+            this.f68823a = sVGImageView;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -136,7 +136,7 @@ public class SVGImageView extends ImageView {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, numArr)) == null) {
                 try {
-                    return SVG.h(this.f68623a.getContext(), numArr[0].intValue()).l();
+                    return SVG.h(this.f68823a.getContext(), numArr[0].intValue()).l();
                 } catch (SVGParseException e2) {
                     String.format("Error loading resource 0x%x: %s", numArr, e2.getMessage());
                     return null;
@@ -153,8 +153,8 @@ public class SVGImageView extends ImageView {
             if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, picture) == null) || picture == null) {
                 return;
             }
-            this.f68623a.d();
-            this.f68623a.setImageDrawable(new PictureDrawable(picture));
+            this.f68823a.d();
+            this.f68823a.setImageDrawable(new PictureDrawable(picture));
         }
 
         public /* synthetic */ c(SVGImageView sVGImageView, a aVar) {
@@ -168,7 +168,7 @@ public class SVGImageView extends ImageView {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ SVGImageView f68624a;
+        public final /* synthetic */ SVGImageView f68824a;
 
         public d(SVGImageView sVGImageView) {
             Interceptable interceptable = $ic;
@@ -185,7 +185,7 @@ public class SVGImageView extends ImageView {
                     return;
                 }
             }
-            this.f68624a = sVGImageView;
+            this.f68824a = sVGImageView;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -231,8 +231,8 @@ public class SVGImageView extends ImageView {
             if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, picture) == null) || picture == null) {
                 return;
             }
-            this.f68624a.d();
-            this.f68624a.setImageDrawable(new PictureDrawable(picture));
+            this.f68824a.d();
+            this.f68824a.setImageDrawable(new PictureDrawable(picture));
         }
 
         public /* synthetic */ d(SVGImageView sVGImageView, a aVar) {
@@ -274,7 +274,7 @@ public class SVGImageView extends ImageView {
             }
         }
         try {
-            f68621e = View.class.getMethod("setLayerType", Integer.TYPE, Paint.class);
+            f68821e = View.class.getMethod("setLayerType", Integer.TYPE, Paint.class);
         } catch (NoSuchMethodException unused) {
         }
     }
@@ -322,11 +322,11 @@ public class SVGImageView extends ImageView {
 
     public final void d() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || f68621e == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || f68821e == null) {
             return;
         }
         try {
-            f68621e.invoke(this, Integer.valueOf(View.class.getField("LAYER_TYPE_SOFTWARE").getInt(new View(getContext()))), null);
+            f68821e.invoke(this, Integer.valueOf(View.class.getField("LAYER_TYPE_SOFTWARE").getInt(new View(getContext()))), null);
         } catch (Exception unused) {
         }
     }
@@ -386,7 +386,7 @@ public class SVGImageView extends ImageView {
             }
         }
         try {
-            f68621e = View.class.getMethod("setLayerType", Integer.TYPE, Paint.class);
+            f68821e = View.class.getMethod("setLayerType", Integer.TYPE, Paint.class);
         } catch (NoSuchMethodException unused) {
         }
         b(attributeSet, 0);
@@ -412,7 +412,7 @@ public class SVGImageView extends ImageView {
             }
         }
         try {
-            f68621e = View.class.getMethod("setLayerType", Integer.TYPE, Paint.class);
+            f68821e = View.class.getMethod("setLayerType", Integer.TYPE, Paint.class);
         } catch (NoSuchMethodException unused) {
         }
         b(attributeSet, i2);

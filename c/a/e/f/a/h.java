@@ -49,28 +49,28 @@ public class h extends k {
     public void h(Canvas canvas, d dVar, ImageView imageView) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048576, this, canvas, dVar, imageView) == null) {
-            Matrix matrix = this.f2650e;
+            Matrix matrix = this.f2708e;
             if (matrix != null) {
                 canvas.concat(matrix);
             }
             if (dVar.e()) {
-                Bitmap bitmap = dVar.f2659a.getBitmap();
+                Bitmap bitmap = dVar.f2717a.getBitmap();
                 if (this.u) {
                     v(canvas, bitmap);
                     return;
                 }
                 this.y.set(0, 0, dVar.b(), dVar.a());
-                dVar.f2660b.g(canvas, this.y, this.f2651f, this.f2647b);
+                dVar.f2718b.g(canvas, this.y, this.f2709f, this.f2705b);
             } else if (dVar.d()) {
                 if (this.u) {
-                    v(canvas, dVar.f2660b.p());
+                    v(canvas, dVar.f2718b.p());
                     return;
                 }
                 this.y.set(0, 0, dVar.b(), dVar.a());
-                dVar.f2660b.g(canvas, this.y, this.f2651f, this.f2647b);
+                dVar.f2718b.g(canvas, this.y, this.f2709f, this.f2705b);
             } else {
                 this.y.set(0, 0, dVar.b(), dVar.a());
-                dVar.f2660b.g(canvas, this.y, this.f2651f, this.f2647b);
+                dVar.f2718b.g(canvas, this.y, this.f2709f, this.f2705b);
             }
         }
     }
@@ -79,11 +79,11 @@ public class h extends k {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas, bitmap) == null) {
             this.y.set(0, 0, bitmap.getWidth(), bitmap.getHeight());
-            this.x.set(0, 0, (int) this.f2651f.width(), (int) this.f2651f.height());
+            this.x.set(0, 0, (int) this.f2709f.width(), (int) this.f2709f.height());
             canvas.save();
             canvas.drawARGB(0, 0, 0, 0);
             canvas.drawPath(this.r, this.v);
-            canvas.drawBitmap(bitmap, this.y, this.f2651f, this.w);
+            canvas.drawBitmap(bitmap, this.y, this.f2709f, this.w);
             canvas.restore();
         }
     }

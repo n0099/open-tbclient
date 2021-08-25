@@ -66,11 +66,11 @@ public final class t0 implements v0 {
                 }
                 if (call.getInt("code", -1) == 0) {
                     v0.a aVar = new v0.a();
-                    aVar.f31223a = call.getString("id");
+                    aVar.f31329a = call.getString("id");
                     return aVar;
                 }
                 if (!TextUtils.isEmpty(call.getString("message"))) {
-                    String str = u0.f31212j;
+                    String str = u0.f31318j;
                 }
                 return null;
             } catch (Exception e2) {

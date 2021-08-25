@@ -12,13 +12,13 @@ public class c implements b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public b f68712a;
+    public b f68912a;
 
     /* renamed from: b  reason: collision with root package name */
-    public com.cmic.sso.sdk.b.d.c f68713b;
+    public com.cmic.sso.sdk.b.d.c f68913b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final com.cmic.sso.sdk.b.a f68714c;
+    public final com.cmic.sso.sdk.b.a f68914c;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -33,29 +33,29 @@ public class c implements b {
                 return;
             }
         }
-        this.f68714c = new com.cmic.sso.sdk.b.a();
+        this.f68914c = new com.cmic.sso.sdk.b.a();
     }
 
     public void b(com.cmic.sso.sdk.b.c.c cVar, com.cmic.sso.sdk.b.d.c cVar2, com.cmic.sso.sdk.a aVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, cVar, cVar2, aVar) == null) || this.f68712a == null) {
+        if (!(interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, cVar, cVar2, aVar) == null) || this.f68912a == null) {
             return;
         }
-        this.f68713b = new com.cmic.sso.sdk.b.d.c(this, cVar, aVar, cVar2) { // from class: com.cmic.sso.sdk.b.a.c.1
+        this.f68913b = new com.cmic.sso.sdk.b.d.c(this, cVar, aVar, cVar2) { // from class: com.cmic.sso.sdk.b.a.c.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ com.cmic.sso.sdk.b.c.c f68715a;
+            public final /* synthetic */ com.cmic.sso.sdk.b.c.c f68915a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ com.cmic.sso.sdk.a f68716b;
+            public final /* synthetic */ com.cmic.sso.sdk.a f68916b;
 
             /* renamed from: c  reason: collision with root package name */
-            public final /* synthetic */ com.cmic.sso.sdk.b.d.c f68717c;
+            public final /* synthetic */ com.cmic.sso.sdk.b.d.c f68917c;
 
             /* renamed from: d  reason: collision with root package name */
-            public final /* synthetic */ c f68718d;
+            public final /* synthetic */ c f68918d;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -72,10 +72,10 @@ public class c implements b {
                         return;
                     }
                 }
-                this.f68718d = this;
-                this.f68715a = cVar;
-                this.f68716b = aVar;
-                this.f68717c = cVar2;
+                this.f68918d = this;
+                this.f68915a = cVar;
+                this.f68916b = aVar;
+                this.f68917c = cVar2;
             }
 
             @Override // com.cmic.sso.sdk.b.d.c
@@ -83,11 +83,11 @@ public class c implements b {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
                     if (bVar.d()) {
-                        this.f68718d.b(this.f68718d.f68714c.a(this.f68715a, bVar, this.f68716b), this.f68717c, this.f68716b);
-                    } else if (!TextUtils.isEmpty(this.f68718d.f68714c.a())) {
-                        this.f68718d.b(this.f68718d.f68714c.b(this.f68715a, bVar, this.f68716b), this.f68717c, this.f68716b);
+                        this.f68918d.b(this.f68918d.f68914c.a(this.f68915a, bVar, this.f68916b), this.f68917c, this.f68916b);
+                    } else if (!TextUtils.isEmpty(this.f68918d.f68914c.a())) {
+                        this.f68918d.b(this.f68918d.f68914c.b(this.f68915a, bVar, this.f68916b), this.f68917c, this.f68916b);
                     } else {
-                        this.f68717c.a(bVar);
+                        this.f68917c.a(bVar);
                     }
                 }
             }
@@ -96,17 +96,17 @@ public class c implements b {
             public void a(com.cmic.sso.sdk.b.d.a aVar2) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, aVar2) == null) {
-                    if (this.f68715a.j()) {
-                        com.cmic.sso.sdk.d.c.a("RetryAndRedirectInterceptor", "retry: " + this.f68715a.a());
-                        this.f68718d.b(this.f68715a, this.f68717c, this.f68716b);
+                    if (this.f68915a.j()) {
+                        com.cmic.sso.sdk.d.c.a("RetryAndRedirectInterceptor", "retry: " + this.f68915a.a());
+                        this.f68918d.b(this.f68915a, this.f68917c, this.f68916b);
                         return;
                     }
-                    this.f68717c.a(aVar2);
+                    this.f68917c.a(aVar2);
                 }
             }
         };
         if (cVar.g()) {
-            this.f68712a.a(cVar, this.f68713b, aVar);
+            this.f68912a.a(cVar, this.f68913b, aVar);
         } else {
             cVar2.a(com.cmic.sso.sdk.b.d.a.a(200025));
         }
@@ -123,7 +123,7 @@ public class c implements b {
     public void a(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
-            this.f68712a = bVar;
+            this.f68912a = bVar;
         }
     }
 }

@@ -10,10 +10,10 @@ public final class h {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public byte[] f78051a;
+    public byte[] f78252a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int[] f78052b;
+    public int[] f78253b;
 
     public h() {
         Interceptable interceptable = $ic;
@@ -33,8 +33,8 @@ public final class h {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(65537, null, hVar, i2) == null) {
             for (int i3 = 0; i3 < i2; i3++) {
-                int[] iArr = hVar.f78052b;
-                byte[] bArr = hVar.f78051a;
+                int[] iArr = hVar.f78253b;
+                byte[] bArr = hVar.f78252a;
                 int i4 = i3 * 4;
                 iArr[i3] = ((bArr[i4 + 3] & 255) << 24) | (bArr[i4] & 255) | ((bArr[i4 + 1] & 255) << 8) | ((bArr[i4 + 2] & 255) << 16);
             }
@@ -44,8 +44,8 @@ public final class h {
     public static void b(h hVar, byte[] bArr, int[] iArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65538, null, hVar, bArr, iArr) == null) {
-            hVar.f78051a = bArr;
-            hVar.f78052b = iArr;
+            hVar.f78252a = bArr;
+            hVar.f78253b = iArr;
         }
     }
 }

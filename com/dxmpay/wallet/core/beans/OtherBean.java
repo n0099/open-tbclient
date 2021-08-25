@@ -32,7 +32,7 @@ public abstract class OtherBean<T> extends NetworkBean<T> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f69423a;
+    public long f69623a;
     public int mRetCode;
     public String mRetMsg;
 
@@ -54,7 +54,7 @@ public abstract class OtherBean<T> extends NetworkBean<T> {
                 return;
             }
         }
-        this.f69423a = 0L;
+        this.f69623a = 0L;
         this.mRetCode = -1;
         this.mRetMsg = "";
     }
@@ -62,7 +62,7 @@ public abstract class OtherBean<T> extends NetworkBean<T> {
     private void a(int i2, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(65537, this, i2, str) == null) {
-            long currentTimeMillis = System.currentTimeMillis() - this.f69423a;
+            long currentTimeMillis = System.currentTimeMillis() - this.f69623a;
             try {
                 URL url = new URL(getUrl());
                 ArrayList arrayList = new ArrayList();
@@ -88,7 +88,7 @@ public abstract class OtherBean<T> extends NetworkBean<T> {
     public <T, E> void execBean(Class<T> cls, Class<E> cls2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, cls, cls2) == null) {
-            this.f69423a = System.currentTimeMillis();
+            this.f69623a = System.currentTimeMillis();
             super.execBean(cls, cls2);
         }
     }

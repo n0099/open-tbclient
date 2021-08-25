@@ -12,10 +12,10 @@ public abstract class t {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ac f35552a;
+    public ac f35658a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f35553b;
+    public boolean f35659b;
 
     public t() {
         Interceptable interceptable = $ic;
@@ -30,25 +30,25 @@ public abstract class t {
                 return;
             }
         }
-        this.f35553b = false;
+        this.f35659b = false;
     }
 
     public final ac f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f35552a : (ac) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f35658a : (ac) invokeV.objValue;
     }
 
     public final void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f35553b = true;
+            this.f35659b = true;
         }
     }
 
     public final boolean h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f35553b : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f35659b : invokeV.booleanValue;
     }
 }

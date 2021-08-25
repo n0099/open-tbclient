@@ -17,10 +17,10 @@ public class PromptMultiBtnDialog extends WalletDialog {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public MultiBtnDialogModel f69344e;
+    public MultiBtnDialogModel f69544e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View.OnClickListener f69345f;
+    public View.OnClickListener f69545f;
 
     /* loaded from: classes9.dex */
     public class a implements View.OnClickListener {
@@ -28,7 +28,7 @@ public class PromptMultiBtnDialog extends WalletDialog {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PromptMultiBtnDialog f69346e;
+        public final /* synthetic */ PromptMultiBtnDialog f69546e;
 
         public a(PromptMultiBtnDialog promptMultiBtnDialog) {
             Interceptable interceptable = $ic;
@@ -45,14 +45,14 @@ public class PromptMultiBtnDialog extends WalletDialog {
                     return;
                 }
             }
-            this.f69346e = promptMultiBtnDialog;
+            this.f69546e = promptMultiBtnDialog;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f69346e.dismiss();
+                this.f69546e.dismiss();
             }
         }
     }
@@ -76,16 +76,16 @@ public class PromptMultiBtnDialog extends WalletDialog {
                 return;
             }
         }
-        this.f69344e = new MultiBtnDialogModel();
-        this.f69345f = new a(this);
+        this.f69544e = new MultiBtnDialogModel();
+        this.f69545f = new a(this);
         a();
     }
 
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            MultiBtnDialogModel multiBtnDialogModel = this.f69344e;
-            multiBtnDialogModel.defaultClickListener = this.f69345f;
+            MultiBtnDialogModel multiBtnDialogModel = this.f69544e;
+            multiBtnDialogModel.defaultClickListener = this.f69545f;
             setAdapter(new MultiBtnDialogAdapter(multiBtnDialogModel));
         }
     }
@@ -93,7 +93,7 @@ public class PromptMultiBtnDialog extends WalletDialog {
     public void setFirstBtn(int i2, View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, onClickListener) == null) {
-            MultiBtnDialogModel multiBtnDialogModel = this.f69344e;
+            MultiBtnDialogModel multiBtnDialogModel = this.f69544e;
             multiBtnDialogModel.firstBtnTextId = i2;
             multiBtnDialogModel.firstBtnClickListener = onClickListener;
         }
@@ -102,21 +102,21 @@ public class PromptMultiBtnDialog extends WalletDialog {
     public void setFirstBtnTextBold() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f69344e.firstBtnTextBold = true;
+            this.f69544e.firstBtnTextBold = true;
         }
     }
 
     public void setMessage(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            this.f69344e.messageId = i2;
+            this.f69544e.messageId = i2;
         }
     }
 
     public void setSecondBtn(int i2, View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048582, this, i2, onClickListener) == null) {
-            MultiBtnDialogModel multiBtnDialogModel = this.f69344e;
+            MultiBtnDialogModel multiBtnDialogModel = this.f69544e;
             multiBtnDialogModel.secondBtnTextId = i2;
             multiBtnDialogModel.secondBtnClickListener = onClickListener;
         }
@@ -125,14 +125,14 @@ public class PromptMultiBtnDialog extends WalletDialog {
     public void setSecondBtnTextBold() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            this.f69344e.secondBtnTextBold = true;
+            this.f69544e.secondBtnTextBold = true;
         }
     }
 
     public void setThirdBtn(int i2, View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048585, this, i2, onClickListener) == null) {
-            MultiBtnDialogModel multiBtnDialogModel = this.f69344e;
+            MultiBtnDialogModel multiBtnDialogModel = this.f69544e;
             multiBtnDialogModel.thirdBtnTextId = i2;
             multiBtnDialogModel.thirdBtnClickListener = onClickListener;
         }
@@ -141,35 +141,35 @@ public class PromptMultiBtnDialog extends WalletDialog {
     public void setThirdBtnTextBold() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            this.f69344e.thirdBtnTextBold = true;
+            this.f69544e.thirdBtnTextBold = true;
         }
     }
 
     public void setTitleMessage(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048588, this, i2) == null) {
-            this.f69344e.titleId = i2;
+            this.f69544e.titleId = i2;
         }
     }
 
     public void setMessage(CharSequence charSequence) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, charSequence) == null) {
-            this.f69344e.message = charSequence;
+            this.f69544e.message = charSequence;
         }
     }
 
     public void setTitleMessage(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {
-            this.f69344e.titleText = str;
+            this.f69544e.titleText = str;
         }
     }
 
     public void setFirstBtn(String str, View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, onClickListener) == null) {
-            MultiBtnDialogModel multiBtnDialogModel = this.f69344e;
+            MultiBtnDialogModel multiBtnDialogModel = this.f69544e;
             multiBtnDialogModel.firstBtnText = str;
             multiBtnDialogModel.firstBtnClickListener = onClickListener;
         }
@@ -178,7 +178,7 @@ public class PromptMultiBtnDialog extends WalletDialog {
     public void setSecondBtn(String str, View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048583, this, str, onClickListener) == null) {
-            MultiBtnDialogModel multiBtnDialogModel = this.f69344e;
+            MultiBtnDialogModel multiBtnDialogModel = this.f69544e;
             multiBtnDialogModel.secondBtnText = str;
             multiBtnDialogModel.secondBtnClickListener = onClickListener;
         }
@@ -187,7 +187,7 @@ public class PromptMultiBtnDialog extends WalletDialog {
     public void setThirdBtn(String str, View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048586, this, str, onClickListener) == null) {
-            MultiBtnDialogModel multiBtnDialogModel = this.f69344e;
+            MultiBtnDialogModel multiBtnDialogModel = this.f69544e;
             multiBtnDialogModel.thirdBtnText = str;
             multiBtnDialogModel.thirdBtnClickListener = onClickListener;
         }
@@ -212,8 +212,8 @@ public class PromptMultiBtnDialog extends WalletDialog {
                 return;
             }
         }
-        this.f69344e = new MultiBtnDialogModel();
-        this.f69345f = new a(this);
+        this.f69544e = new MultiBtnDialogModel();
+        this.f69545f = new a(this);
         a();
     }
 }

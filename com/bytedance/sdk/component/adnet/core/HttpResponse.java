@@ -15,16 +15,16 @@ public final class HttpResponse {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final int f63881a;
+    public final int f64081a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final List<Header> f63882b;
+    public final List<Header> f64082b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final int f63883c;
+    public final int f64083c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final InputStream f63884d;
+    public final InputStream f64084d;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public HttpResponse(int i2, List<Header> list) {
@@ -50,25 +50,25 @@ public final class HttpResponse {
     public final InputStream getContent() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f63884d : (InputStream) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f64084d : (InputStream) invokeV.objValue;
     }
 
     public final int getContentLength() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f63883c : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f64083c : invokeV.intValue;
     }
 
     public final List<Header> getHeaders() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? Collections.unmodifiableList(this.f63882b) : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? Collections.unmodifiableList(this.f64082b) : (List) invokeV.objValue;
     }
 
     public final int getStatusCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f63881a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f64081a : invokeV.intValue;
     }
 
     public HttpResponse(int i2, List<Header> list, int i3, InputStream inputStream) {
@@ -86,9 +86,9 @@ public final class HttpResponse {
                 return;
             }
         }
-        this.f63881a = i2;
-        this.f63882b = list;
-        this.f63883c = i3;
-        this.f63884d = inputStream;
+        this.f64081a = i2;
+        this.f64082b = list;
+        this.f64083c = i3;
+        this.f64084d = inputStream;
     }
 }

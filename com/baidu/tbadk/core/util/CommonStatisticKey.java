@@ -82,9 +82,14 @@ public class CommonStatisticKey {
     public static final String KEY_HOME_PAGE_YY_LIVE_AVATER_SHOW = "c14282";
     public static final String KEY_IMMERSION_VIDEO_SHARE_DIALOG_MUSK_CLiCK = "c14339";
     public static final String KEY_INTEREST_GUIDE_CLICK = "c14096";
+    public static final String KEY_INTEREST_GUIDE_SEE_MORE_CLICK = "c14350";
     public static final String KEY_INTEREST_GUIDE_SHOW = "c14095";
     public static final String KEY_ITEM_CARD_BUTTON_CLICK = "c14121";
     public static final String KEY_ITEM_CARD_BUTTON_SHOW = "c14120";
+    public static final String KEY_ITEM_HOT_VIDEO_CLICK = "c14352";
+    public static final String KEY_ITEM_HOT_VIDEO_SHOW = "c14351";
+    public static final String KEY_ITEM_RECENT_UPDATE_CLICK = "c14354";
+    public static final String KEY_ITEM_RECENT_UPDATE_SHOW = "c14353";
     public static final String KEY_KEEP_LIVE = "c12662";
     public static final String KEY_LIVE_SECOND_TAB_CLICK = "c14135";
     public static final String KEY_LIVE_SECOND_TAB_SHOW = "c14134";

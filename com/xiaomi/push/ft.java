@@ -13,7 +13,7 @@ public class ft extends XMPushService.i {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ long f77279a;
+    public final /* synthetic */ long f77480a;
 
     /* renamed from: a  reason: collision with other field name */
     public final /* synthetic */ fs f417a;
@@ -37,7 +37,7 @@ public class ft extends XMPushService.i {
             }
         }
         this.f417a = fsVar;
-        this.f77279a = j2;
+        this.f77480a = j2;
     }
 
     @Override // com.xiaomi.push.service.XMPushService.i
@@ -45,7 +45,7 @@ public class ft extends XMPushService.i {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "check the ping-pong." + this.f77279a;
+            return "check the ping-pong." + this.f77480a;
         }
         return (String) invokeV.objValue;
     }
@@ -55,10 +55,10 @@ public class ft extends XMPushService.i {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             Thread.yield();
-            if (!this.f417a.m330c() || this.f417a.a(this.f77279a)) {
+            if (!this.f417a.m330c() || this.f417a.a(this.f77480a)) {
                 return;
             }
-            this.f417a.f77273b.a(22, (Exception) null);
+            this.f417a.f77474b.a(22, (Exception) null);
         }
     }
 }

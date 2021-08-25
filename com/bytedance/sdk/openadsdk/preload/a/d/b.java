@@ -13,34 +13,34 @@ public final class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final b f68176a;
+    public static final b f68376a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final b f68177b;
+    public static final b f68377b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final b f68178c;
+    public static final b f68378c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final b f68179d;
+    public static final b f68379d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final b f68180e;
+    public static final b f68380e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final b f68181f;
+    public static final b f68381f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final b f68182g;
+    public static final b f68382g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final b f68183h;
+    public static final b f68383h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final b f68184i;
+    public static final b f68384i;
 
     /* renamed from: j  reason: collision with root package name */
-    public static final b f68185j;
+    public static final b f68385j;
     public static final /* synthetic */ b[] k;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -57,18 +57,18 @@ public final class b {
                 return;
             }
         }
-        f68176a = new b("BEGIN_ARRAY", 0);
-        f68177b = new b("END_ARRAY", 1);
-        f68178c = new b("BEGIN_OBJECT", 2);
-        f68179d = new b("END_OBJECT", 3);
-        f68180e = new b("NAME", 4);
-        f68181f = new b("STRING", 5);
-        f68182g = new b("NUMBER", 6);
-        f68183h = new b("BOOLEAN", 7);
-        f68184i = new b("NULL", 8);
+        f68376a = new b("BEGIN_ARRAY", 0);
+        f68377b = new b("END_ARRAY", 1);
+        f68378c = new b("BEGIN_OBJECT", 2);
+        f68379d = new b("END_OBJECT", 3);
+        f68380e = new b("NAME", 4);
+        f68381f = new b("STRING", 5);
+        f68382g = new b("NUMBER", 6);
+        f68383h = new b("BOOLEAN", 7);
+        f68384i = new b("NULL", 8);
         b bVar = new b("END_DOCUMENT", 9);
-        f68185j = bVar;
-        k = new b[]{f68176a, f68177b, f68178c, f68179d, f68180e, f68181f, f68182g, f68183h, f68184i, bVar};
+        f68385j = bVar;
+        k = new b[]{f68376a, f68377b, f68378c, f68379d, f68380e, f68381f, f68382g, f68383h, f68384i, bVar};
     }
 
     public b(String str, int i2) {

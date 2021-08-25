@@ -9,18 +9,23 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.Executor;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.ThreadFactory;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes10.dex */
 public class ThreadPool {
     public static /* synthetic */ Interceptable $ic;
     public static volatile ThreadPool instance;
     public transient /* synthetic */ FieldHolder $fh;
-    public ExecutorService diskIO;
     public ScheduleExecutor mainThreadIO;
-    public ScheduledExecutorService netIO;
+    public ThreadPoolExecutor netIO;
+    public ScheduledExecutorService scheduledIO;
 
     /* renamed from: com.yy.mobile.framework.revenuesdk.baseapi.utils.ThreadPool$1  reason: invalid class name */
     /* loaded from: classes10.dex */
@@ -30,15 +35,57 @@ public class ThreadPool {
     }
 
     /* loaded from: classes10.dex */
+    public static class DefaultThreadFactory implements ThreadFactory {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final String namePrefix;
+        public final AtomicInteger threadNumber;
+
+        public DefaultThreadFactory(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.threadNumber = new AtomicInteger(1);
+            this.namePrefix = str;
+        }
+
+        @Override // java.util.concurrent.ThreadFactory
+        public Thread newThread(Runnable runnable) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, runnable)) == null) {
+                Thread thread = new Thread(runnable, this.namePrefix + "-thread-" + this.threadNumber.getAndIncrement());
+                if (thread.isDaemon()) {
+                    thread.setDaemon(false);
+                }
+                if (thread.getPriority() != 5) {
+                    thread.setPriority(5);
+                }
+                return thread;
+            }
+            return (Thread) invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes10.dex */
     public interface ScheduleExecutor extends Executor {
         void postDelay(Runnable runnable, long j2);
 
         void removeCallback(Runnable runnable);
     }
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public ThreadPool() {
-        this(Executors.newSingleThreadExecutor(), Executors.newScheduledThreadPool(5), new MainThreadExecutor(null));
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -46,19 +93,22 @@ public class ThreadPool {
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
-                Object[] objArr = newInitContext.callArgs;
-                this((ExecutorService) objArr[0], (ScheduledExecutorService) objArr[1], (ScheduleExecutor) objArr[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(3, 5, 30L, TimeUnit.SECONDS, new ArrayBlockingQueue(64), new DefaultThreadFactory("YYPay"), new ThreadPoolExecutor.DiscardOldestPolicy());
+        this.netIO = threadPoolExecutor;
+        threadPoolExecutor.allowCoreThreadTimeOut(true);
+        this.scheduledIO = Executors.newScheduledThreadPool(1);
+        this.mainThreadIO = new MainThreadExecutor(null);
     }
 
     public static ThreadPool getDefault() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
             if (instance == null) {
                 synchronized (ThreadPool.class) {
                     if (instance == null) {
@@ -71,22 +121,22 @@ public class ThreadPool {
         return (ThreadPool) invokeV.objValue;
     }
 
-    public ExecutorService diskIO() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.diskIO : (ExecutorService) invokeV.objValue;
-    }
-
     public ScheduleExecutor mainThreadIO() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mainThreadIO : (ScheduleExecutor) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mainThreadIO : (ScheduleExecutor) invokeV.objValue;
     }
 
-    public ScheduledExecutorService networkIO() {
+    public ExecutorService networkIO() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.netIO : (ScheduledExecutorService) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.netIO : (ExecutorService) invokeV.objValue;
+    }
+
+    public ScheduledExecutorService scheduledIO() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.scheduledIO : (ScheduledExecutorService) invokeV.objValue;
     }
 
     /* loaded from: classes10.dex */
@@ -138,25 +188,5 @@ public class ThreadPool {
         public /* synthetic */ MainThreadExecutor(AnonymousClass1 anonymousClass1) {
             this();
         }
-    }
-
-    public ThreadPool(ExecutorService executorService, ScheduledExecutorService scheduledExecutorService, ScheduleExecutor scheduleExecutor) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {executorService, scheduledExecutorService, scheduleExecutor};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.diskIO = executorService;
-        this.netIO = scheduledExecutorService;
-        this.mainThreadIO = scheduleExecutor;
     }
 }

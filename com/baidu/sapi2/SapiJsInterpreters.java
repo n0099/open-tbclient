@@ -48,6 +48,7 @@ import com.baidu.sapi2.utils.StatService;
 import com.baidu.sapi2.utils.ThirdPartyUtil;
 import com.baidu.sapi2.utils.enums.FastLoginFeature;
 import com.baidu.sapi2.utils.enums.SocialType;
+import com.baidu.searchbox.datacollector.growth.utils.GrowthConstant;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.TbEnum;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -362,7 +363,7 @@ public class SapiJsInterpreters {
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, command)) == null) {
                 String str = "";
                 try {
-                    ClipboardManager clipboardManager = (ClipboardManager) this.this$0.context.getSystemService("clipboard");
+                    ClipboardManager clipboardManager = (ClipboardManager) this.this$0.context.getSystemService(GrowthConstant.UBC_VALUE_TYPE_CLIP_BOARD);
                     if (clipboardManager.hasPrimaryClip()) {
                         str = SapiUtils.getSmsCheckCode(clipboardManager.getPrimaryClip().getItemAt(0).getText().toString());
                     }
@@ -1072,7 +1073,7 @@ public class SapiJsInterpreters {
         }
 
         /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-        /* JADX WARN: Code restructure failed: missing block: B:34:0x007c, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:34:0x007f, code lost:
             if (r5.equals(com.baidu.sapi2.utils.enums.FastLoginFeature.SSOLoginType.WEIXIN) != false) goto L10;
          */
         @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
@@ -1366,7 +1367,7 @@ public class SapiJsInterpreters {
                 JSONObject jSONObject = new JSONObject();
                 try {
                     jSONObject.put("errno", 0);
-                    ClipboardManager clipboardManager = (ClipboardManager) this.this$0.context.getSystemService("clipboard");
+                    ClipboardManager clipboardManager = (ClipboardManager) this.this$0.context.getSystemService(GrowthConstant.UBC_VALUE_TYPE_CLIP_BOARD);
                     if (clipboardManager.hasPrimaryClip()) {
                         jSONObject.put("paste", clipboardManager.getPrimaryClip().getItemAt(0).getText().toString());
                     }
@@ -3610,7 +3611,7 @@ public class SapiJsInterpreters {
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, command)) == null) {
                 JSONObject jSONObject = new JSONObject();
                 try {
-                    ((ClipboardManager) this.this$0.context.getSystemService("clipboard")).setPrimaryClip(ClipData.newPlainText("address", new JSONObject(command.getActionParams().get(0)).optString("content")));
+                    ((ClipboardManager) this.this$0.context.getSystemService(GrowthConstant.UBC_VALUE_TYPE_CLIP_BOARD)).setPrimaryClip(ClipData.newPlainText("address", new JSONObject(command.getActionParams().get(0)).optString("content")));
                     jSONObject.put("errno", 0);
                     return jSONObject.toString();
                 } catch (Exception e2) {

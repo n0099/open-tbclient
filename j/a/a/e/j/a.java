@@ -10,7 +10,7 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String[] f78653a;
+    public static String[] f78854a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -26,6 +26,6 @@ public class a {
                 return;
             }
         }
-        f78653a = new String[]{"https://web.zhiniu8.com", "https://web.myzhiniu.com"};
+        f78854a = new String[]{"https://web.zhiniu8.com", "https://web.myzhiniu.com"};
     }
 }

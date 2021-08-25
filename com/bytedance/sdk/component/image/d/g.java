@@ -15,13 +15,13 @@ public class g extends a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Throwable f64843a;
+    public Throwable f65043a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f64844b;
+    public int f65044b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f64845c;
+    public String f65045c;
 
     public g(int i2, String str, Throwable th) {
         Interceptable interceptable = $ic;
@@ -38,9 +38,9 @@ public class g extends a {
                 return;
             }
         }
-        this.f64844b = i2;
-        this.f64845c = str;
-        this.f64843a = th;
+        this.f65044b = i2;
+        this.f65045c = str;
+        this.f65043a = th;
     }
 
     private void b(com.bytedance.sdk.component.image.c.a aVar) {
@@ -49,14 +49,14 @@ public class g extends a {
         if (!(interceptable == null || interceptable.invokeL(65537, this, aVar) == null) || (c2 = aVar.c()) == null) {
             return;
         }
-        c2.onFailed(this.f64844b, this.f64845c, this.f64843a);
+        c2.onFailed(this.f65044b, this.f65045c, this.f65043a);
     }
 
     @Override // com.bytedance.sdk.component.image.d.h
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? com.alipay.sdk.util.e.f35855a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? com.alipay.sdk.util.e.f35961a : (String) invokeV.objValue;
     }
 
     @Override // com.bytedance.sdk.component.image.d.h

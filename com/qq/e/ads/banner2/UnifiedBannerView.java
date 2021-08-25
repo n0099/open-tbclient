@@ -3,9 +3,11 @@ package com.qq.e.ads.banner2;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
+import android.text.TextUtils;
 import android.widget.FrameLayout;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -24,7 +26,7 @@ public class UnifiedBannerView extends FrameLayout implements ApkDownloadComplia
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public UnifiedBannerAD f74734a;
+    public UnifiedBannerAD f74935a;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public UnifiedBannerView(Activity activity, String str, UnifiedBannerADListener unifiedBannerADListener) {
@@ -65,27 +67,52 @@ public class UnifiedBannerView extends FrameLayout implements ApkDownloadComplia
                 return;
             }
         }
-        this.f74734a = new UnifiedBannerAD(activity, this, str, unifiedBannerADListener);
-        setLayoutParams(new FrameLayout.LayoutParams(-1, -2));
+        this.f74935a = new UnifiedBannerAD(activity, this, str, unifiedBannerADListener);
+        a();
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public UnifiedBannerView(Activity activity, String str, UnifiedBannerADListener unifiedBannerADListener, Map map, String str2) {
+        super(activity);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {activity, str, unifiedBannerADListener, map, str2};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        if (!TextUtils.isEmpty(str2)) {
+            GDTLogger.e(UnifiedBannerView.class.getSimpleName() + "构造函数中 token 参数不可为空");
+        }
+        this.f74935a = new UnifiedBannerAD(activity, this, str, str2, unifiedBannerADListener);
+        a();
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     @Deprecated
     public UnifiedBannerView(Activity activity, String str, String str2, UnifiedBannerADListener unifiedBannerADListener) {
-        this(activity, str, str2, unifiedBannerADListener, null);
+        this(activity, str, str2, unifiedBannerADListener, (Map) null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
             Object[] objArr = {activity, str, str2, unifiedBannerADListener};
-            interceptable.invokeUnInit(65538, newInitContext);
+            interceptable.invokeUnInit(65539, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Activity) objArr2[0], (String) objArr2[1], (String) objArr2[2], (UnifiedBannerADListener) objArr2[3], (Map) objArr2[4]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
+                interceptable.invokeInitBody(65539, newInitContext);
                 return;
             }
         }
@@ -100,24 +127,31 @@ public class UnifiedBannerView extends FrameLayout implements ApkDownloadComplia
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
             Object[] objArr = {activity, str, str2, unifiedBannerADListener, map};
-            interceptable.invokeUnInit(65539, newInitContext);
+            interceptable.invokeUnInit(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Activity) objArr2[0], (String) objArr2[1], (UnifiedBannerADListener) objArr2[2], (Map) objArr2[3]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65539, newInitContext);
+                interceptable.invokeInitBody(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
                 return;
             }
         }
         GDTLogger.e(UnifiedBannerView.class.getSimpleName() + ":此构造方法已废弃，请在 Application 中初始化 SDK 后，使用不带 appId 的构造方法，详细请参考Demo，构造函数中传入的appId将被忽略，实际使用的是GDTADManager.getInstance().initWith() 传入的appId");
     }
 
+    private void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this) == null) {
+            setLayoutParams(new FrameLayout.LayoutParams(-1, -2));
+        }
+    }
+
     public void destroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f74734a.f();
+            this.f74935a.f();
         }
     }
 
@@ -125,31 +159,31 @@ public class UnifiedBannerView extends FrameLayout implements ApkDownloadComplia
     public String getApkInfoUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f74734a.getApkInfoUrl() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f74935a.getApkInfoUrl() : (String) invokeV.objValue;
     }
 
     public int getECPM() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f74734a.getECPM() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f74935a.getECPM() : invokeV.intValue;
     }
 
     public String getECPMLevel() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f74734a.getECPMLevel() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f74935a.getECPMLevel() : (String) invokeV.objValue;
     }
 
     public Map getExt() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f74734a.e() : (Map) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f74935a.e() : (Map) invokeV.objValue;
     }
 
     public void loadAD() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.f74734a.d();
+            this.f74935a.d();
         }
     }
 
@@ -158,36 +192,50 @@ public class UnifiedBannerView extends FrameLayout implements ApkDownloadComplia
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
             super.onWindowFocusChanged(z);
-            this.f74734a.a(z);
+            this.f74935a.a(z);
+        }
+    }
+
+    public void sendLossNotification(int i2, int i3, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIIL(1048583, this, i2, i3, str) == null) {
+            this.f74935a.sendLossNotification(i2, i3, str);
+        }
+    }
+
+    public void sendWinNotification(int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
+            this.f74935a.sendWinNotification(i2);
         }
     }
 
     public void setDownConfirmPolicy(DownAPPConfirmPolicy downAPPConfirmPolicy) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, downAPPConfirmPolicy) == null) {
-            this.f74734a.a(downAPPConfirmPolicy);
+        if (interceptable == null || interceptable.invokeL(1048585, this, downAPPConfirmPolicy) == null) {
+            this.f74935a.a(downAPPConfirmPolicy);
         }
     }
 
     @Override // com.qq.e.comm.compliance.ApkDownloadComplianceInterface
     public void setDownloadConfirmListener(DownloadConfirmListener downloadConfirmListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, downloadConfirmListener) == null) {
-            this.f74734a.setDownloadConfirmListener(downloadConfirmListener);
+        if (interceptable == null || interceptable.invokeL(1048586, this, downloadConfirmListener) == null) {
+            this.f74935a.setDownloadConfirmListener(downloadConfirmListener);
         }
     }
 
     public void setLoadAdParams(LoadAdParams loadAdParams) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, loadAdParams) == null) {
-            this.f74734a.a(loadAdParams);
+        if (interceptable == null || interceptable.invokeL(1048587, this, loadAdParams) == null) {
+            this.f74935a.a(loadAdParams);
         }
     }
 
     public void setRefresh(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048586, this, i2) == null) {
-            this.f74734a.c(i2);
+        if (interceptable == null || interceptable.invokeI(1048588, this, i2) == null) {
+            this.f74935a.c(i2);
         }
     }
 }

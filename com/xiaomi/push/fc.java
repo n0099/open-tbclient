@@ -20,7 +20,7 @@ public class fc {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ff f77242a;
+    public ff f77443a;
 
     /* renamed from: a  reason: collision with other field name */
     public fh f369a;
@@ -41,7 +41,7 @@ public class fc {
     public byte[] f374a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ByteBuffer f77243b;
+    public ByteBuffer f77444b;
 
     public fc(InputStream inputStream, fh fhVar) {
         Interceptable interceptable = $ic;
@@ -59,11 +59,11 @@ public class fc {
             }
         }
         this.f371a = ByteBuffer.allocate(2048);
-        this.f77243b = ByteBuffer.allocate(4);
+        this.f77444b = ByteBuffer.allocate(4);
         this.f372a = new Adler32();
         this.f370a = new BufferedInputStream(inputStream);
         this.f369a = fhVar;
-        this.f77242a = new ff();
+        this.f77443a = new ff();
     }
 
     /* JADX WARN: Removed duplicated region for block: B:21:0x00c2  */
@@ -97,10 +97,10 @@ public class fc {
                 allocate.put(this.f371a.array(), 0, this.f371a.arrayOffset() + this.f371a.position());
             }
             a(this.f371a, i3);
-            this.f77243b.clear();
-            a(this.f77243b, 4);
-            this.f77243b.position(0);
-            i2 = this.f77243b.getInt();
+            this.f77444b.clear();
+            a(this.f77444b, 4);
+            this.f77444b.position(0);
+            i2 = this.f77444b.getInt();
             this.f372a.reset();
             this.f372a.update(this.f371a.array(), 0, this.f371a.position());
             if (i2 != ((int) this.f372a.getValue())) {
@@ -117,10 +117,10 @@ public class fc {
         allocate.put(this.f371a.array(), 0, this.f371a.arrayOffset() + this.f371a.position());
         this.f371a = allocate;
         a(this.f371a, i3);
-        this.f77243b.clear();
-        a(this.f77243b, 4);
-        this.f77243b.position(0);
-        i2 = this.f77243b.getInt();
+        this.f77444b.clear();
+        a(this.f77444b, 4);
+        this.f77444b.position(0);
+        i2 = this.f77444b.getInt();
         this.f372a.reset();
         this.f372a.update(this.f371a.array(), 0, this.f371a.position());
         if (i2 != ((int) this.f372a.getValue())) {
@@ -182,7 +182,7 @@ public class fc {
                             com.xiaomi.channel.commonutils.logger.b.m73a(str);
                         } else {
                             try {
-                                this.f369a.b(this.f77242a.a(m313a2.m309a(), this.f369a));
+                                this.f369a.b(this.f77443a.a(m313a2.m309a(), this.f369a));
                             } catch (Exception e2) {
                                 e = e2;
                                 sb = new StringBuilder();
@@ -198,7 +198,7 @@ public class fc {
                         }
                     } else if ("SECMSG".equals(m313a2.m305a()) && ((m313a2.a() == 2 || m313a2.a() == 3) && TextUtils.isEmpty(m313a2.m311b()))) {
                         try {
-                            this.f369a.b(this.f77242a.a(m313a2.m310a(com.xiaomi.push.service.av.a().a(Integer.valueOf(m313a2.a()).toString(), m313a2.g()).f77756h), this.f369a));
+                            this.f369a.b(this.f77443a.a(m313a2.m310a(com.xiaomi.push.service.av.a().a(Integer.valueOf(m313a2.a()).toString(), m313a2.g()).f77957h), this.f369a));
                         } catch (Exception e3) {
                             e = e3;
                             sb = new StringBuilder();

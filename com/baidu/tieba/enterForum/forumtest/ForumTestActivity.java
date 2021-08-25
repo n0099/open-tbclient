@@ -12,9 +12,9 @@ import android.webkit.JsPromptResult;
 import android.webkit.WebView;
 import android.widget.RelativeLayout;
 import c.a.e.e.p.l;
-import c.a.o0.b1.q;
-import c.a.o0.s.s.f;
-import c.a.o0.s.s.i;
+import c.a.p0.b1.q;
+import c.a.p0.s.s.f;
+import c.a.p0.s.s.i;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -46,7 +46,7 @@ import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class ForumTestActivity extends BaseActivity implements c.a.p0.m0.e.a.b {
+public class ForumTestActivity extends BaseActivity implements c.a.q0.m0.e.a.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public i.d mDialogSaveToDiskListener;
@@ -67,7 +67,7 @@ public class ForumTestActivity extends BaseActivity implements c.a.p0.m0.e.a.b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ForumTestActivity f49878e;
+        public final /* synthetic */ ForumTestActivity f49986e;
 
         public a(ForumTestActivity forumTestActivity) {
             Interceptable interceptable = $ic;
@@ -84,14 +84,14 @@ public class ForumTestActivity extends BaseActivity implements c.a.p0.m0.e.a.b {
                     return;
                 }
             }
-            this.f49878e = forumTestActivity;
+            this.f49986e = forumTestActivity;
         }
 
         @Override // android.view.View.OnLongClickListener
         public boolean onLongClick(View view) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view)) == null) ? this.f49878e.handleLongClick() : invokeL.booleanValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view)) == null) ? this.f49986e.handleLongClick() : invokeL.booleanValue;
         }
     }
 
@@ -101,10 +101,10 @@ public class ForumTestActivity extends BaseActivity implements c.a.p0.m0.e.a.b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ShareItem f49879e;
+        public final /* synthetic */ ShareItem f49987e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ ForumTestActivity f49880f;
+        public final /* synthetic */ ForumTestActivity f49988f;
 
         public b(ForumTestActivity forumTestActivity, ShareItem shareItem) {
             Interceptable interceptable = $ic;
@@ -121,16 +121,16 @@ public class ForumTestActivity extends BaseActivity implements c.a.p0.m0.e.a.b {
                     return;
                 }
             }
-            this.f49880f = forumTestActivity;
-            this.f49879e = shareItem;
+            this.f49988f = forumTestActivity;
+            this.f49987e = shareItem;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                c.a.e.e.p.a.a(this.f49879e.t);
-                l.M(this.f49880f, view.getResources().getString(R.string.copy_pb_url_success));
+                c.a.e.e.p.a.a(this.f49987e.t);
+                l.M(this.f49988f, view.getResources().getString(R.string.copy_pb_url_success));
             }
         }
     }
@@ -141,7 +141,7 @@ public class ForumTestActivity extends BaseActivity implements c.a.p0.m0.e.a.b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ForumTestActivity f49881a;
+        public final /* synthetic */ ForumTestActivity f49989a;
 
         public c(ForumTestActivity forumTestActivity) {
             Interceptable interceptable = $ic;
@@ -158,14 +158,14 @@ public class ForumTestActivity extends BaseActivity implements c.a.p0.m0.e.a.b {
                     return;
                 }
             }
-            this.f49881a = forumTestActivity;
+            this.f49989a = forumTestActivity;
         }
 
-        @Override // c.a.o0.s.s.i.c
+        @Override // c.a.p0.s.s.i.c
         public void onClick() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f49881a.hideMoreDialog();
+                this.f49989a.hideMoreDialog();
             }
         }
     }
@@ -176,7 +176,7 @@ public class ForumTestActivity extends BaseActivity implements c.a.p0.m0.e.a.b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ForumTestActivity f49882a;
+        public final /* synthetic */ ForumTestActivity f49990a;
 
         public d(ForumTestActivity forumTestActivity) {
             Interceptable interceptable = $ic;
@@ -193,16 +193,16 @@ public class ForumTestActivity extends BaseActivity implements c.a.p0.m0.e.a.b {
                     return;
                 }
             }
-            this.f49882a = forumTestActivity;
+            this.f49990a = forumTestActivity;
         }
 
-        @Override // c.a.o0.s.s.i.d
+        @Override // c.a.p0.s.s.i.d
         public void onClick() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                ForumTestActivity forumTestActivity = this.f49882a;
+                ForumTestActivity forumTestActivity = this.f49990a;
                 forumTestActivity.saveImage(forumTestActivity.mWebView.getHitTestResult().getExtra());
-                this.f49882a.hideMoreDialog();
+                this.f49990a.hideMoreDialog();
             }
         }
     }
@@ -213,7 +213,7 @@ public class ForumTestActivity extends BaseActivity implements c.a.p0.m0.e.a.b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ForumTestActivity f49883a;
+        public final /* synthetic */ ForumTestActivity f49991a;
 
         public e(ForumTestActivity forumTestActivity) {
             Interceptable interceptable = $ic;
@@ -230,10 +230,10 @@ public class ForumTestActivity extends BaseActivity implements c.a.p0.m0.e.a.b {
                     return;
                 }
             }
-            this.f49883a = forumTestActivity;
+            this.f49991a = forumTestActivity;
         }
 
-        @Override // c.a.o0.b1.q.a
+        @Override // c.a.p0.b1.q.a
         public void onError(int i2, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(1048576, this, i2, str) == null) {
@@ -241,7 +241,7 @@ public class ForumTestActivity extends BaseActivity implements c.a.p0.m0.e.a.b {
             }
         }
 
-        @Override // c.a.o0.b1.q.a
+        @Override // c.a.p0.b1.q.a
         public void onSuccess(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
@@ -370,7 +370,7 @@ public class ForumTestActivity extends BaseActivity implements c.a.p0.m0.e.a.b {
         this.mMoreDialog.showDialog();
     }
 
-    @Override // c.a.p0.m0.e.a.b
+    @Override // c.a.q0.m0.e.a.b
     public boolean dealJsInterface(String str, String str2, String str3, JsPromptResult jsPromptResult) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;

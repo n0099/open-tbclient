@@ -1,7 +1,7 @@
 package com.baidu.sapi2.activity;
 
 import android.os.Bundle;
-import c.a.b0.a.f;
+import c.a.c0.a.f;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.sapi2.CoreViewRouter;
 import com.baidu.sapi2.SapiJsCallBacks;
@@ -59,7 +59,7 @@ public class ChildVerifyActivity extends BaseActivity {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ ChildVerifyActivity f44444a;
+                public final /* synthetic */ ChildVerifyActivity f44551a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -76,7 +76,7 @@ public class ChildVerifyActivity extends BaseActivity {
                             return;
                         }
                     }
-                    this.f44444a = this;
+                    this.f44551a = this;
                 }
 
                 @Override // com.baidu.sapi2.SapiJsCallBacks.WebviewPageFinishCallback
@@ -103,7 +103,7 @@ public class ChildVerifyActivity extends BaseActivity {
                             }
                             accountRealNameCallback.onFinish(accountRealNameResult);
                         }
-                        this.f44444a.finish();
+                        this.f44551a.finish();
                     }
                 }
             });

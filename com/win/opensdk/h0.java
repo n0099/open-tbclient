@@ -22,19 +22,19 @@ public class h0 implements w2 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public z2 f76655a;
+    public z2 f76856a;
 
     /* renamed from: b  reason: collision with root package name */
-    public x2 f76656b;
+    public x2 f76857b;
 
     /* renamed from: c  reason: collision with root package name */
-    public WebView f76657c;
+    public WebView f76858c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f76658d;
+    public boolean f76859d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f76659e;
+    public String f76860e;
 
     public h0(Context context) {
         Interceptable interceptable = $ic;
@@ -52,7 +52,7 @@ public class h0 implements w2 {
             }
         }
         WebView webView = new WebView(context);
-        this.f76657c = webView;
+        this.f76858c = webView;
         webView.setScrollContainer(false);
         webView.setVerticalScrollBarEnabled(false);
         webView.setHorizontalScrollBarEnabled(false);
@@ -81,25 +81,25 @@ public class h0 implements w2 {
                 cookieManager.setAcceptThirdPartyCookies(webView, true);
             }
         }
-        this.f76657c.getSettings().setJavaScriptEnabled(true);
+        this.f76858c.getSettings().setJavaScriptEnabled(true);
         JsBridge.getInstance().clazz(JsInvokeJavaScope.class).inject();
-        this.f76657c.setWebChromeClient(new JsBridgeWebChromeClient());
-        this.f76657c.setWebViewClient(new g0(this));
+        this.f76858c.setWebChromeClient(new JsBridgeWebChromeClient());
+        this.f76858c.setWebViewClient(new g0(this));
     }
 
     public void a(String str, Info info) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, str, info) == null) {
             if ((!TextUtils.isEmpty(str) && (str.startsWith("http") || str.startsWith("https"))) || str.startsWith(ImageSource.FILE_SCHEME)) {
-                this.f76657c.loadUrl(str);
+                this.f76858c.loadUrl(str);
             } else {
-                this.f76657c.loadDataWithBaseURL("http://abcd/", str, SapiWebView.DATA_MIME_TYPE, "UTF-8", null);
+                this.f76858c.loadDataWithBaseURL("http://abcd/", str, SapiWebView.DATA_MIME_TYPE, "UTF-8", null);
             }
-            z2 z2Var = this.f76655a;
+            z2 z2Var = this.f76856a;
             if (z2Var != null) {
                 z2Var.a();
             }
-            this.f76657c.setOnTouchListener(new i0(info, new f0(this)));
+            this.f76858c.setOnTouchListener(new i0(info, new f0(this)));
         }
     }
 }

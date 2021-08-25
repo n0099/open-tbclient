@@ -5,7 +5,6 @@ import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.yy.hiidostatis.inner.util.cipher.RsaCipher;
 import java.io.ByteArrayOutputStream;
 import java.security.Key;
 import java.security.KeyFactory;
@@ -37,7 +36,7 @@ public class h {
     public static byte[] a(byte[] bArr, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, bArr, str)) == null) ? a(bArr, str, RsaCipher.RSA_PADDING) : (byte[]) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, bArr, str)) == null) ? a(bArr, str, "RSA/ECB/PKCS1Padding") : (byte[]) invokeLL.objValue;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:46:0x0061 A[EXC_TOP_SPLITTER, SYNTHETIC] */
@@ -127,7 +126,7 @@ public class h {
     public static String b(byte[] bArr, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, bArr, str)) == null) ? new String(b(bArr, str, RsaCipher.RSA_PADDING), "UTF-8") : (String) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, bArr, str)) == null) ? new String(b(bArr, str, "RSA/ECB/PKCS1Padding"), "UTF-8") : (String) invokeLL.objValue;
     }
 
     public static byte[] b(byte[] bArr, String str, String str2) {

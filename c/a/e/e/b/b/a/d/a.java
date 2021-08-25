@@ -11,7 +11,7 @@ public class a implements h {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Object f2101a;
+    public Object f2159a;
 
     public a(Object obj) {
         Interceptable interceptable = $ic;
@@ -31,7 +31,7 @@ public class a implements h {
         if (obj == null || !obj.getClass().isArray()) {
             return;
         }
-        this.f2101a = obj;
+        this.f2159a = obj;
     }
 
     @Override // c.a.e.e.b.b.a.d.h
@@ -39,7 +39,7 @@ public class a implements h {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cVar)) == null) {
-            Object obj = this.f2101a;
+            Object obj = this.f2159a;
             if (obj != null) {
                 return c.a.e.e.b.b.a.e.b.b(obj, cVar);
             }

@@ -40,7 +40,7 @@ public final class RimStatisticsUtil {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static RimStatisticsUtil f39243a;
+        public static RimStatisticsUtil f39350a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -56,7 +56,7 @@ public final class RimStatisticsUtil {
                     return;
                 }
             }
-            f39243a = new RimStatisticsUtil(null);
+            f39350a = new RimStatisticsUtil(null);
         }
 
         public a() {
@@ -128,13 +128,13 @@ public final class RimStatisticsUtil {
     public static RimStatisticsUtil getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? a.f39243a : (RimStatisticsUtil) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? a.f39350a : (RimStatisticsUtil) invokeV.objValue;
     }
 
     private String getSignKey1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this)) == null) ? com.baidu.fsg.base.a.f39084h : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this)) == null) ? com.baidu.fsg.base.a.f39191h : (String) invokeV.objValue;
     }
 
     private String getSignKey2() {

@@ -26,7 +26,7 @@ public abstract class b<T, R> extends c.i.d.h.a implements GenericDeclaration {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: g  reason: collision with root package name */
-        public final Constructor<?> f34066g;
+        public final Constructor<?> f34172g;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(Constructor<?> constructor) {
@@ -46,18 +46,18 @@ public abstract class b<T, R> extends c.i.d.h.a implements GenericDeclaration {
                     return;
                 }
             }
-            this.f34066g = constructor;
+            this.f34172g = constructor;
         }
 
         public Type[] b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                Type[] genericParameterTypes = this.f34066g.getGenericParameterTypes();
+                Type[] genericParameterTypes = this.f34172g.getGenericParameterTypes();
                 if (genericParameterTypes.length <= 0 || !c()) {
                     return genericParameterTypes;
                 }
-                Class<?>[] parameterTypes = this.f34066g.getParameterTypes();
+                Class<?>[] parameterTypes = this.f34172g.getParameterTypes();
                 return (genericParameterTypes.length == parameterTypes.length && parameterTypes[0] == getDeclaringClass().getEnclosingClass()) ? (Type[]) Arrays.copyOfRange(genericParameterTypes, 1, genericParameterTypes.length) : genericParameterTypes;
             }
             return (Type[]) invokeV.objValue;
@@ -67,7 +67,7 @@ public abstract class b<T, R> extends c.i.d.h.a implements GenericDeclaration {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                Class<?> declaringClass = this.f34066g.getDeclaringClass();
+                Class<?> declaringClass = this.f34172g.getDeclaringClass();
                 if (declaringClass.getEnclosingConstructor() != null) {
                     return true;
                 }
@@ -86,7 +86,7 @@ public abstract class b<T, R> extends c.i.d.h.a implements GenericDeclaration {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
                 TypeVariable<Class<? super T>>[] typeParameters = getDeclaringClass().getTypeParameters();
-                TypeVariable<Constructor<?>>[] typeParameters2 = this.f34066g.getTypeParameters();
+                TypeVariable<Constructor<?>>[] typeParameters2 = this.f34172g.getTypeParameters();
                 TypeVariable<?>[] typeVariableArr = new TypeVariable[typeParameters.length + typeParameters2.length];
                 System.arraycopy(typeParameters, 0, typeVariableArr, 0, typeParameters.length);
                 System.arraycopy(typeParameters2, 0, typeVariableArr, typeParameters.length, typeParameters2.length);
@@ -98,15 +98,15 @@ public abstract class b<T, R> extends c.i.d.h.a implements GenericDeclaration {
 
     /* renamed from: c.i.d.h.b$b  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public static class C1508b<T> extends b<T, Object> {
+    public static class C1512b<T> extends b<T, Object> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: g  reason: collision with root package name */
-        public final Method f34067g;
+        public final Method f34173g;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C1508b(Method method) {
+        public C1512b(Method method) {
             super(method);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -123,14 +123,14 @@ public abstract class b<T, R> extends c.i.d.h.a implements GenericDeclaration {
                     return;
                 }
             }
-            this.f34067g = method;
+            this.f34173g = method;
         }
 
         @Override // java.lang.reflect.GenericDeclaration
         public final TypeVariable<?>[] getTypeParameters() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f34067g.getTypeParameters() : (TypeVariable[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f34173g.getTypeParameters() : (TypeVariable[]) invokeV.objValue;
         }
     }
 

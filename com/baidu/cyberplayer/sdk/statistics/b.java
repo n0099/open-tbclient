@@ -23,10 +23,10 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ArrayList<c> f39011a;
+    public ArrayList<c> f39118a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c f39012b;
+    public c f39119b;
 
     public b(Context context) {
         Interceptable interceptable = $ic;
@@ -43,27 +43,27 @@ public class b {
                 return;
             }
         }
-        this.f39011a = new ArrayList<>();
+        this.f39118a = new ArrayList<>();
         String networkStatisticsData = DpNetworkUtils.getNetworkStatisticsData(context);
         c cVar = new c(DpStatConstants.SESSION_TYPE_DP_INIT_COMMON);
-        this.f39012b = cVar;
+        this.f39119b = cVar;
         cVar.a(new e((int) DpStatConstants.SESSION_TYPE_DP_INIT_COMMON, "timestamp", System.currentTimeMillis()));
-        this.f39012b.a(new e((int) DpStatConstants.SESSION_TYPE_DP_INIT_COMMON, "CPU", o.g()));
-        this.f39012b.a(new e((int) DpStatConstants.SESSION_TYPE_DP_INIT_COMMON, "MODEL", Build.MODEL));
-        this.f39012b.a(new e((int) DpStatConstants.SESSION_TYPE_DP_INIT_COMMON, "HARDWARE", Build.HARDWARE));
-        this.f39012b.a(new e((int) DpStatConstants.SESSION_TYPE_DP_INIT_COMMON, "network", networkStatisticsData));
+        this.f39119b.a(new e((int) DpStatConstants.SESSION_TYPE_DP_INIT_COMMON, "CPU", o.g()));
+        this.f39119b.a(new e((int) DpStatConstants.SESSION_TYPE_DP_INIT_COMMON, "MODEL", Build.MODEL));
+        this.f39119b.a(new e((int) DpStatConstants.SESSION_TYPE_DP_INIT_COMMON, "HARDWARE", Build.HARDWARE));
+        this.f39119b.a(new e((int) DpStatConstants.SESSION_TYPE_DP_INIT_COMMON, "network", networkStatisticsData));
     }
 
     private JSONObject a(JSONObject jSONObject) throws JSONException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, this, jSONObject)) == null) {
-            this.f39012b.a(jSONObject);
+            this.f39119b.a(jSONObject);
             JSONArray jSONArray = new JSONArray();
-            int size = this.f39011a.size();
+            int size = this.f39118a.size();
             for (int i2 = 0; i2 < size; i2++) {
                 JSONObject jSONObject2 = new JSONObject();
-                this.f39011a.get(i2).a(jSONObject2);
+                this.f39118a.get(i2).a(jSONObject2);
                 jSONArray.put(jSONObject2);
             }
             jSONObject.put("data", jSONArray);
@@ -93,13 +93,13 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str, str2) == null) {
             if (24323 == i2) {
-                this.f39012b.a(new e((int) DpStatConstants.SESSION_TYPE_DP_INIT_COMMON, str, str2));
+                this.f39119b.a(new e((int) DpStatConstants.SESSION_TYPE_DP_INIT_COMMON, str, str2));
                 return;
             }
             e eVar = new e(i2, str, str2);
-            int size = this.f39011a.size();
+            int size = this.f39118a.size();
             for (int i3 = 0; i3 < size; i3++) {
-                c cVar = this.f39011a.get(i3);
+                c cVar = this.f39118a.get(i3);
                 if (cVar != null && cVar.a() == i2) {
                     cVar.a(eVar);
                     return;
@@ -107,7 +107,7 @@ public class b {
             }
             c cVar2 = new c(i2);
             cVar2.a(eVar);
-            this.f39011a.add(cVar2);
+            this.f39118a.add(cVar2);
         }
     }
 

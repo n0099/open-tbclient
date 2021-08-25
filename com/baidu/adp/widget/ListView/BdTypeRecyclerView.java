@@ -6,10 +6,10 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
 import androidx.core.view.InputDeviceCompat;
-import c.a.e.k.e.g;
-import c.a.e.k.e.h;
-import c.a.e.k.e.n;
-import c.a.e.k.e.s;
+import c.a.e.l.e.g;
+import c.a.e.l.e.h;
+import c.a.e.l.e.n;
+import c.a.e.l.e.s;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.BdRecyclerView;
 import com.baidu.adp.widget.ListView.TypeAdapter;
@@ -28,7 +28,7 @@ public class BdTypeRecyclerView extends BdRecyclerView implements s<BdTypeRecycl
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public RecyclerViewTypeAdapter x;
-    public HashMap<BdUniqueId, c.a.e.k.e.a> y;
+    public HashMap<BdUniqueId, c.a.e.l.e.a> y;
     public HashMap<BdUniqueId, h> z;
 
     /* loaded from: classes4.dex */
@@ -37,7 +37,7 @@ public class BdTypeRecyclerView extends BdRecyclerView implements s<BdTypeRecycl
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BdTypeRecyclerView f36280e;
+        public final /* synthetic */ BdTypeRecyclerView f36386e;
 
         public a(BdTypeRecyclerView bdTypeRecyclerView) {
             Interceptable interceptable = $ic;
@@ -54,14 +54,14 @@ public class BdTypeRecyclerView extends BdRecyclerView implements s<BdTypeRecycl
                     return;
                 }
             }
-            this.f36280e = bdTypeRecyclerView;
+            this.f36386e = bdTypeRecyclerView;
         }
 
         @Override // com.baidu.adp.widget.ListView.BdRecyclerView.i
         public void b(ViewGroup viewGroup, View view, Object obj, int i2, long j2) {
             RecyclerViewTypeAdapter recyclerViewTypeAdapter;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{viewGroup, view, obj, Integer.valueOf(i2), Long.valueOf(j2)}) == null) || (recyclerViewTypeAdapter = this.f36280e.x) == null) {
+            if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{viewGroup, view, obj, Integer.valueOf(i2), Long.valueOf(j2)}) == null) || (recyclerViewTypeAdapter = this.f36386e.x) == null) {
                 return;
             }
             recyclerViewTypeAdapter.onItemClick(viewGroup, view, i2, j2);
@@ -74,7 +74,7 @@ public class BdTypeRecyclerView extends BdRecyclerView implements s<BdTypeRecycl
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ BdTypeRecyclerView f36281a;
+        public final /* synthetic */ BdTypeRecyclerView f36387a;
 
         public b(BdTypeRecyclerView bdTypeRecyclerView) {
             Interceptable interceptable = $ic;
@@ -91,7 +91,7 @@ public class BdTypeRecyclerView extends BdRecyclerView implements s<BdTypeRecycl
                     return;
                 }
             }
-            this.f36281a = bdTypeRecyclerView;
+            this.f36387a = bdTypeRecyclerView;
         }
 
         @Override // com.baidu.adp.widget.ListView.BdRecyclerView.j
@@ -99,7 +99,7 @@ public class BdTypeRecyclerView extends BdRecyclerView implements s<BdTypeRecycl
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{viewGroup, view, obj, Integer.valueOf(i2), Long.valueOf(j2)})) == null) {
-                RecyclerViewTypeAdapter recyclerViewTypeAdapter = this.f36281a.x;
+                RecyclerViewTypeAdapter recyclerViewTypeAdapter = this.f36387a.x;
                 if (recyclerViewTypeAdapter != null) {
                     return recyclerViewTypeAdapter.onItemLongClick(viewGroup, view, i2, j2);
                 }
@@ -131,17 +131,17 @@ public class BdTypeRecyclerView extends BdRecyclerView implements s<BdTypeRecycl
         t();
     }
 
-    @Override // c.a.e.k.e.s
-    public void addAdapters(List<c.a.e.k.e.a> list) {
+    @Override // c.a.e.l.e.s
+    public void addAdapters(List<c.a.e.l.e.a> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
-            for (c.a.e.k.e.a<n, TypeAdapter.ViewHolder> aVar : list) {
+            for (c.a.e.l.e.a<n, TypeAdapter.ViewHolder> aVar : list) {
                 if (aVar != null) {
                     BdUniqueId bdUniqueId = null;
                     if (aVar.y() != null) {
                         bdUniqueId = aVar.y();
                         if (!this.z.containsKey(bdUniqueId)) {
-                            h hVar = new h(aVar.f2904e, bdUniqueId, aVar.f2908i);
+                            h hVar = new h(aVar.f2966e, bdUniqueId, aVar.f2970i);
                             hVar.j0(aVar);
                             this.x.addAdapter(hVar);
                             this.z.put(bdUniqueId, hVar);
@@ -150,7 +150,7 @@ public class BdTypeRecyclerView extends BdRecyclerView implements s<BdTypeRecycl
                     if (aVar.w() != null) {
                         bdUniqueId = aVar.w();
                         if (!this.z.containsKey(bdUniqueId)) {
-                            h hVar2 = new h(aVar.f2904e, bdUniqueId, aVar.f2908i);
+                            h hVar2 = new h(aVar.f2966e, bdUniqueId, aVar.f2970i);
                             hVar2.j0(aVar);
                             this.x.addAdapter(hVar2);
                             this.z.put(bdUniqueId, hVar2);
@@ -159,7 +159,7 @@ public class BdTypeRecyclerView extends BdRecyclerView implements s<BdTypeRecycl
                     if (aVar.x() != null) {
                         bdUniqueId = aVar.x();
                         if (!this.z.containsKey(bdUniqueId)) {
-                            h hVar3 = new h(aVar.f2904e, bdUniqueId, aVar.f2908i);
+                            h hVar3 = new h(aVar.f2966e, bdUniqueId, aVar.f2970i);
                             hVar3.j0(aVar);
                             this.x.addAdapter(hVar3);
                             this.z.put(bdUniqueId, hVar3);
@@ -168,7 +168,7 @@ public class BdTypeRecyclerView extends BdRecyclerView implements s<BdTypeRecycl
                     if (aVar.v() != null) {
                         bdUniqueId = aVar.v();
                         if (!this.z.containsKey(bdUniqueId)) {
-                            h hVar4 = new h(aVar.f2904e, bdUniqueId, aVar.f2908i);
+                            h hVar4 = new h(aVar.f2966e, bdUniqueId, aVar.f2970i);
                             hVar4.j0(aVar);
                             this.x.addAdapter(hVar4);
                             this.z.put(bdUniqueId, hVar4);
@@ -177,7 +177,7 @@ public class BdTypeRecyclerView extends BdRecyclerView implements s<BdTypeRecycl
                     if (bdUniqueId == null) {
                         this.x.addAdapter(aVar);
                     } else {
-                        this.y.put(aVar.f2907h, aVar);
+                        this.y.put(aVar.f2969h, aVar);
                     }
                 }
             }
@@ -191,7 +191,7 @@ public class BdTypeRecyclerView extends BdRecyclerView implements s<BdTypeRecycl
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.x.getCount() : invokeV.intValue;
     }
 
-    @Override // c.a.e.k.e.s
+    @Override // c.a.e.l.e.s
     public List<n> getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -206,7 +206,7 @@ public class BdTypeRecyclerView extends BdRecyclerView implements s<BdTypeRecycl
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX DEBUG: Return type fixed from 'com.baidu.adp.widget.ListView.BdTypeRecyclerView' to match base method */
-    @Override // com.baidu.adp.widget.ListView.BdRecyclerView, c.a.e.k.e.p
+    @Override // com.baidu.adp.widget.ListView.BdRecyclerView, c.a.e.l.e.p
     /* renamed from: getListView */
     public BdRecyclerView getListView2() {
         InterceptResult invokeV;
@@ -243,7 +243,7 @@ public class BdTypeRecyclerView extends BdRecyclerView implements s<BdTypeRecycl
         }
     }
 
-    @Override // c.a.e.k.e.s
+    @Override // c.a.e.l.e.s
     public void setData(List<? extends n> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, list) == null) {
@@ -251,7 +251,7 @@ public class BdTypeRecyclerView extends BdRecyclerView implements s<BdTypeRecycl
             for (n nVar : list) {
                 if (nVar != null) {
                     if (this.y.containsKey(nVar.getType())) {
-                        c.a.e.k.e.a aVar = this.y.get(nVar.getType());
+                        c.a.e.l.e.a aVar = this.y.get(nVar.getType());
                         if (aVar.y() != null) {
                             g gVar = new g();
                             gVar.k(aVar.y());

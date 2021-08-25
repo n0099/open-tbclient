@@ -18,20 +18,20 @@ public final class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f3538d;
+    public static final String f3769d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static a f3539e;
+    public static a f3770e;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f3540a;
+    public Context f3771a;
 
     /* renamed from: b  reason: collision with root package name */
-    public WebView f3541b;
+    public WebView f3772b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f3542c;
+    public boolean f3773c;
 
     static {
         InterceptResult invokeClinit;
@@ -46,7 +46,7 @@ public final class a {
                 return;
             }
         }
-        f3538d = BdSailor.class.getName();
+        f3769d = BdSailor.class.getName();
     }
 
     public a() {
@@ -67,15 +67,15 @@ public final class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            a aVar = f3539e;
+            a aVar = f3770e;
             if (aVar == null) {
-                f3539e = new a();
-            } else if (aVar.f3541b != null && (aVar.f3542c ^ BdZeusUtil.isWebkitLoaded())) {
-                Log.d(f3538d, "BdWebViewSingleton, re-new instance need because of the kernel changed");
-                f3539e.f();
-                f3539e.e();
+                f3770e = new a();
+            } else if (aVar.f3772b != null && (aVar.f3773c ^ BdZeusUtil.isWebkitLoaded())) {
+                Log.d(f3769d, "BdWebViewSingleton, re-new instance need because of the kernel changed");
+                f3770e.f();
+                f3770e.e();
             }
-            return f3539e;
+            return f3770e;
         }
         return (a) invokeV.objValue;
     }
@@ -85,8 +85,8 @@ public final class a {
         if (interceptable == null || interceptable.invokeV(65539, null) == null) {
             a a2 = a();
             a2.f();
-            a2.f3540a = null;
-            f3539e = null;
+            a2.f3771a = null;
+            f3770e = null;
         }
     }
 
@@ -94,10 +94,10 @@ public final class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            Log.d(f3538d, "BdWebViewSingleton pauseTimer");
+            Log.d(f3769d, "BdWebViewSingleton pauseTimer");
             try {
                 e();
-                this.f3541b.pauseTimers();
+                this.f3772b.pauseTimers();
                 return true;
             } catch (Exception e2) {
                 Log.printStackTrace(e2);
@@ -111,10 +111,10 @@ public final class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            Log.d(f3538d, "BdWebViewSingleton resumeTimer");
+            Log.d(f3769d, "BdWebViewSingleton resumeTimer");
             try {
                 e();
-                this.f3541b.resumeTimers();
+                this.f3772b.resumeTimers();
                 return true;
             } catch (Exception e2) {
                 Log.printStackTrace(e2);
@@ -126,25 +126,25 @@ public final class a {
 
     public final void e() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.f3541b == null && this.f3540a != null) {
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.f3772b == null && this.f3771a != null) {
             if (BdZeusUtil.isWebkitLoaded()) {
-                this.f3542c = true;
+                this.f3773c = true;
             } else {
-                this.f3542c = false;
-                Log.d(f3538d, "BdWebViewSingleton init system webview,zeus was not load complete");
+                this.f3773c = false;
+                Log.d(f3769d, "BdWebViewSingleton init system webview,zeus was not load complete");
             }
-            this.f3541b = new WebView(this.f3540a);
+            this.f3772b = new WebView(this.f3771a);
         }
     }
 
     public final void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            Log.w(f3538d, "BdWebViewSingleton, old instance has been destroyed");
-            WebView webView = this.f3541b;
+            Log.w(f3769d, "BdWebViewSingleton, old instance has been destroyed");
+            WebView webView = this.f3772b;
             if (webView != null) {
                 webView.destroy();
-                this.f3541b = null;
+                this.f3772b = null;
             }
         }
     }

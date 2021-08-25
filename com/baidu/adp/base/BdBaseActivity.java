@@ -18,7 +18,7 @@ import c.a.e.a.h;
 import c.a.e.a.i;
 import c.a.e.e.l.d;
 import c.a.e.e.p.l;
-import c.a.e.k.e.q;
+import c.a.e.l.e.q;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.MessageListener;
@@ -45,7 +45,7 @@ public abstract class BdBaseActivity<T> extends Activity implements View.OnClick
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BdBaseActivity f36013e;
+        public final /* synthetic */ BdBaseActivity f36119e;
 
         public a(BdBaseActivity bdBaseActivity) {
             Interceptable interceptable = $ic;
@@ -62,14 +62,14 @@ public abstract class BdBaseActivity<T> extends Activity implements View.OnClick
                     return;
                 }
             }
-            this.f36013e = bdBaseActivity;
+            this.f36119e = bdBaseActivity;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                BdBaseActivity bdBaseActivity = this.f36013e;
+                BdBaseActivity bdBaseActivity = this.f36119e;
                 bdBaseActivity.onPreLoad(bdBaseActivity.onGetPreLoadListView());
             }
         }

@@ -21,16 +21,16 @@ public class j {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f4062a;
+    public String f4037a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f4063b;
+    public String f4038b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f4064c;
+    public int f4039c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f4065d;
+    public int f4040d;
 
     public j() {
         Interceptable interceptable = $ic;
@@ -45,8 +45,8 @@ public class j {
                 return;
             }
         }
-        this.f4064c = 2;
-        this.f4065d = 0;
+        this.f4039c = 2;
+        this.f4040d = 0;
     }
 
     public static j a(String str, String str2) {
@@ -57,14 +57,14 @@ public class j {
                 return null;
             }
             j jVar = new j();
-            jVar.f4062a = str;
+            jVar.f4037a = str;
             int length = TextUtils.isEmpty(str2) ? 0 : str2.length();
-            jVar.f4065d = length;
+            jVar.f4040d = length;
             if (length < 14) {
                 if (TextUtils.isEmpty(str2)) {
                     str2 = "0";
                 }
-                jVar.f4063b = str2;
+                jVar.f4038b = str2;
             }
             return jVar;
         }
@@ -112,14 +112,14 @@ public class j {
                 int length = TextUtils.isEmpty(str3) ? 0 : str3.length();
                 if (!TextUtils.isEmpty(string)) {
                     j jVar = new j();
-                    jVar.f4062a = string;
-                    jVar.f4064c = i2;
-                    jVar.f4065d = length;
+                    jVar.f4037a = string;
+                    jVar.f4039c = i2;
+                    jVar.f4040d = length;
                     if (length < 14) {
                         if (!TextUtils.isEmpty(str3)) {
                             str2 = str3;
                         }
-                        jVar.f4063b = str2;
+                        jVar.f4038b = str2;
                     }
                     jVar.k();
                     return jVar;
@@ -177,13 +177,13 @@ public class j {
     public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? d(this.f4063b) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? d(this.f4038b) : invokeV.booleanValue;
     }
 
     public boolean f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? c(this.f4065d) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? c(this.f4040d) : invokeV.booleanValue;
     }
 
     public String h() {
@@ -204,7 +204,7 @@ public class j {
             } else {
                 str = "0";
             }
-            this.f4063b = str;
+            this.f4038b = str;
             return true;
         }
         return invokeV.booleanValue;
@@ -215,7 +215,7 @@ public class j {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             try {
-                return new JSONObject().put(i("ZGV2aWNlaWQ="), this.f4062a).put(i("aW1laQ=="), this.f4063b).put(i("dmVy"), this.f4064c).toString();
+                return new JSONObject().put(i("ZGV2aWNlaWQ="), this.f4037a).put(i("aW1laQ=="), this.f4038b).put(i("dmVy"), this.f4039c).toString();
             } catch (JSONException e2) {
                 c.a.m.i.c.c(e2);
                 return null;

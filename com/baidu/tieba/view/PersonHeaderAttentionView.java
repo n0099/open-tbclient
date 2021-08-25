@@ -10,7 +10,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import c.a.e.e.p.l;
-import c.a.p0.a4.e;
+import c.a.q0.a4.e;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.UserData;
@@ -31,22 +31,22 @@ public class PersonHeaderAttentionView extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f57910e;
+    public Context f58106e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f57911f;
+    public TextView f58107f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f57912g;
+    public TextView f58108g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f57913h;
+    public TextView f58109h;
 
     /* renamed from: i  reason: collision with root package name */
-    public ImageView f57914i;
+    public ImageView f58110i;
 
     /* renamed from: j  reason: collision with root package name */
-    public TextView f57915j;
+    public TextView f58111j;
     public TextView k;
     public TextView l;
     public TextView m;
@@ -65,10 +65,10 @@ public class PersonHeaderAttentionView extends LinearLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public c.a.p0.n0.a f57916e;
+        public c.a.q0.n0.a f58112e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ PersonHeaderAttentionView f57917f;
+        public final /* synthetic */ PersonHeaderAttentionView f58113f;
 
         public a(PersonHeaderAttentionView personHeaderAttentionView) {
             Interceptable interceptable = $ic;
@@ -85,50 +85,50 @@ public class PersonHeaderAttentionView extends LinearLayout {
                     return;
                 }
             }
-            this.f57917f = personHeaderAttentionView;
-            this.f57916e = new c.a.p0.n0.a();
+            this.f58113f = personHeaderAttentionView;
+            this.f58112e = new c.a.q0.n0.a();
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f57917f.q == null || view == null || !ViewHelper.checkUpIsLogin(this.f57917f.f57910e)) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f58113f.q == null || view == null || !ViewHelper.checkUpIsLogin(this.f58113f.f58106e)) {
                 return;
             }
-            boolean equals = TbadkCoreApplication.getCurrentAccount().equals(this.f57917f.q.getUserId());
-            boolean z = this.f57917f.q.getIsFriend() == 1;
+            boolean equals = TbadkCoreApplication.getCurrentAccount().equals(this.f58113f.q.getUserId());
+            boolean z = this.f58113f.q.getIsFriend() == 1;
             int id = view.getId();
-            if (id != this.f57917f.f57911f.getId() && id != this.f57917f.f57912g.getId()) {
-                if (id != this.f57917f.f57913h.getId() && id != this.f57917f.f57915j.getId()) {
-                    if (id == this.f57917f.k.getId() || id == this.f57917f.l.getId()) {
+            if (id != this.f58113f.f58107f.getId() && id != this.f58113f.f58108g.getId()) {
+                if (id != this.f58113f.f58109h.getId() && id != this.f58113f.f58111j.getId()) {
+                    if (id == this.f58113f.k.getId() || id == this.f58113f.l.getId()) {
                         TiebaStatic.log(new StatisticItem("c12502").param("obj_locate", "10"));
-                        if (this.f57917f.q.getPersonPrivate() != null) {
-                            if (this.f57917f.q.getPersonPrivate().w() != 1 && !equals && (!z || this.f57917f.q.getPersonPrivate().w() != 2)) {
-                                PersonHeaderAttentionView personHeaderAttentionView = this.f57917f;
+                        if (this.f58113f.q.getPersonPrivate() != null) {
+                            if (this.f58113f.q.getPersonPrivate().w() != 1 && !equals && (!z || this.f58113f.q.getPersonPrivate().w() != 2)) {
+                                PersonHeaderAttentionView personHeaderAttentionView = this.f58113f;
                                 personHeaderAttentionView.m(personHeaderAttentionView.q.getSex());
                                 return;
                             }
-                            this.f57916e.f22121a = 7;
+                            this.f58112e.f22451a = 7;
                         } else {
-                            PersonHeaderAttentionView personHeaderAttentionView2 = this.f57917f;
+                            PersonHeaderAttentionView personHeaderAttentionView2 = this.f58113f;
                             personHeaderAttentionView2.m(personHeaderAttentionView2.q.getSex());
                             return;
                         }
                     }
                 } else {
                     TiebaStatic.log(new StatisticItem("c12502").param("obj_locate", "8"));
-                    this.f57916e.f22121a = 5;
+                    this.f58112e.f22451a = 5;
                 }
             } else {
                 TiebaStatic.log(new StatisticItem("c12502").param("obj_locate", "9"));
-                this.f57916e.f22121a = 4;
+                this.f58112e.f22451a = 4;
             }
-            if (this.f57917f.p == null) {
+            if (this.f58113f.p == null) {
                 return;
             }
-            this.f57916e.f22122b = new Bundle();
-            this.f57916e.f22122b.putSerializable(UserData.TYPE_USER, this.f57917f.q);
-            this.f57917f.p.a(view, this.f57916e);
+            this.f58112e.f22452b = new Bundle();
+            this.f58112e.f22452b.putSerializable(UserData.TYPE_USER, this.f58113f.q);
+            this.f58113f.p.a(view, this.f58112e);
         }
     }
 
@@ -160,10 +160,10 @@ public class PersonHeaderAttentionView extends LinearLayout {
     public final void k() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f57913h.setOnClickListener(this.u);
-            this.f57915j.setOnClickListener(this.u);
-            this.f57911f.setOnClickListener(this.u);
-            this.f57912g.setOnClickListener(this.u);
+            this.f58109h.setOnClickListener(this.u);
+            this.f58111j.setOnClickListener(this.u);
+            this.f58107f.setOnClickListener(this.u);
+            this.f58108g.setOnClickListener(this.u);
             this.k.setOnClickListener(this.u);
             this.l.setOnClickListener(this.u);
             this.m.setOnClickListener(this.u);
@@ -174,15 +174,15 @@ public class PersonHeaderAttentionView extends LinearLayout {
     public final void l(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            this.f57910e = context;
+            this.f58106e = context;
             setOrientation(0);
             setGravity(16);
             LayoutInflater.from(context).inflate(R.layout.item_person_header_attention_view, (ViewGroup) this, true);
-            this.f57913h = (TextView) findViewById(R.id.person_header_fans_num);
-            this.f57915j = (TextView) findViewById(R.id.person_header_fans_des);
-            this.f57914i = (ImageView) findViewById(R.id.person_header_fans_red_tip);
-            this.f57911f = (TextView) findViewById(R.id.person_header_attention_num);
-            this.f57912g = (TextView) findViewById(R.id.person_header_attention_des);
+            this.f58109h = (TextView) findViewById(R.id.person_header_fans_num);
+            this.f58111j = (TextView) findViewById(R.id.person_header_fans_des);
+            this.f58110i = (ImageView) findViewById(R.id.person_header_fans_red_tip);
+            this.f58107f = (TextView) findViewById(R.id.person_header_attention_num);
+            this.f58108g = (TextView) findViewById(R.id.person_header_attention_des);
             this.k = (TextView) findViewById(R.id.person_header_bar_num);
             this.l = (TextView) findViewById(R.id.person_header_bar_des);
             TextView textView = (TextView) findViewById(R.id.person_header_thread_num);
@@ -202,7 +202,7 @@ public class PersonHeaderAttentionView extends LinearLayout {
     public final void m(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            Context context = this.f57910e;
+            Context context = this.f58106e;
             BdToast.i(context, String.format(context.getString(R.string.person_privacy_toast), StringHelper.getUserDescByGender(i2)), R.drawable.icon_pure_toast_mistake40_svg, true).q();
         }
     }
@@ -210,8 +210,8 @@ public class PersonHeaderAttentionView extends LinearLayout {
     public final void n(String str, String str2, String str3, String str4) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(1048579, this, str, str2, str3, str4) == null) {
-            this.f57911f.setText(str);
-            this.f57913h.setText(str2);
+            this.f58107f.setText(str);
+            this.f58109h.setText(str2);
             this.k.setText(str4);
             this.m.setText(str3);
         }
@@ -223,11 +223,11 @@ public class PersonHeaderAttentionView extends LinearLayout {
             return;
         }
         this.o = i2;
-        SkinManager.setViewTextColor(this.f57911f, R.color.CAM_X0105, 1);
-        SkinManager.setViewTextColor(this.f57912g, R.color.CAM_X0107, 1);
-        SkinManager.setViewTextColor(this.f57913h, R.color.CAM_X0105, 1);
-        SkinManager.setViewTextColor(this.f57915j, R.color.CAM_X0107, 1);
-        SkinManager.setImageResource(this.f57914i, R.drawable.icon_news_down_bar_one);
+        SkinManager.setViewTextColor(this.f58107f, R.color.CAM_X0105, 1);
+        SkinManager.setViewTextColor(this.f58108g, R.color.CAM_X0107, 1);
+        SkinManager.setViewTextColor(this.f58109h, R.color.CAM_X0105, 1);
+        SkinManager.setViewTextColor(this.f58111j, R.color.CAM_X0107, 1);
+        SkinManager.setImageResource(this.f58110i, R.drawable.icon_news_down_bar_one);
         SkinManager.setViewTextColor(this.k, R.color.CAM_X0105, 1);
         SkinManager.setViewTextColor(this.l, R.color.CAM_X0107, 1);
         SkinManager.setViewTextColor(this.m, R.color.CAM_X0105, 1);
@@ -242,16 +242,16 @@ public class PersonHeaderAttentionView extends LinearLayout {
         if (interceptable == null || interceptable.invokeL(1048581, this, userData) == null) {
             this.q = userData;
             if (userData.getConcernNum() >= 9999000) {
-                this.f57911f.setTextSize(0, l.g(this.f57910e, R.dimen.ds32));
+                this.f58107f.setTextSize(0, l.g(this.f58106e, R.dimen.ds32));
             }
             if (this.q.getFansNum() >= 9999000) {
-                this.f57913h.setTextSize(0, l.g(this.f57910e, R.dimen.ds32));
+                this.f58109h.setTextSize(0, l.g(this.f58106e, R.dimen.ds32));
             }
             if (this.q.getLike_bars() >= 9999000) {
-                this.k.setTextSize(0, l.g(this.f57910e, R.dimen.ds32));
+                this.k.setTextSize(0, l.g(this.f58106e, R.dimen.ds32));
             }
             if (this.q.getPosts_num() >= 9999000) {
-                this.m.setTextSize(0, l.g(this.f57910e, R.dimen.ds32));
+                this.m.setTextSize(0, l.g(this.f58106e, R.dimen.ds32));
             }
             n(StringHelper.numFormatOverWanNa(this.q.getConcernNum()), StringHelper.numFormatOverWanNa(this.q.getFansNum()), StringHelper.numFormatOverWanNa(this.q.getPosts_num()), StringHelper.numFormatOverWanNa(this.q.getLike_bars()));
         }
@@ -267,7 +267,7 @@ public class PersonHeaderAttentionView extends LinearLayout {
     public void showMyFansRedTip(boolean z) {
         ImageView imageView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048583, this, z) == null) || (imageView = this.f57914i) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048583, this, z) == null) || (imageView = this.f58110i) == null) {
             return;
         }
         if (z) {

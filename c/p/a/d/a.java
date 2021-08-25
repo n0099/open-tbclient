@@ -51,31 +51,31 @@ public class a implements c.p.a.b.a.b, c.e, a.b, k {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: g  reason: collision with root package name */
-    public static String f34327g = "a";
+    public static String f34433g = "a";
 
     /* renamed from: h  reason: collision with root package name */
-    public static volatile a f34328h;
+    public static volatile a f34434h;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f34329e;
+    public long f34435e;
 
     /* renamed from: f  reason: collision with root package name */
-    public f f34330f;
+    public f f34436f;
 
     /* renamed from: c.p.a.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C1518a implements c.j {
+    public class C1522a implements c.j {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ c.p.a.b.a.c.b f34343a;
+        public final /* synthetic */ c.p.a.b.a.c.b f34449a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f34344b;
+        public final /* synthetic */ String f34450b;
 
-        public C1518a(a aVar, c.p.a.b.a.c.b bVar, String str) {
+        public C1522a(a aVar, c.p.a.b.a.c.b bVar, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -90,23 +90,23 @@ public class a implements c.p.a.b.a.b, c.e, a.b, k {
                     return;
                 }
             }
-            this.f34343a = bVar;
-            this.f34344b = str;
+            this.f34449a = bVar;
+            this.f34450b = str;
         }
 
         @Override // c.p.a.d.c.j
         public void a(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-                String str = a.f34327g;
+                String str = a.f34433g;
                 c.p.a.e.b.c.a.g(str, "appBackForeground->" + z);
                 if (z) {
-                    if (!(c.i.f(this.f34343a) ? c.d.i(this.f34344b, this.f34343a) : false) && c.i.g(this.f34343a) && this.f34343a.H() == 4) {
-                        c.p.a.d.b.a.a.a().f(this.f34343a);
+                    if (!(c.i.f(this.f34449a) ? c.d.i(this.f34450b, this.f34449a) : false) && c.i.g(this.f34449a) && this.f34449a.H() == 4) {
+                        c.p.a.d.b.a.a.a().f(this.f34449a);
                     }
-                } else if (c.d.i(this.f34344b, this.f34343a) || this.f34343a.H() != 4) {
+                } else if (c.d.i(this.f34450b, this.f34449a) || this.f34449a.H() != 4) {
                 } else {
-                    c.p.a.d.b.a.a.a().f(this.f34343a);
+                    c.p.a.d.b.a.a.a().f(this.f34449a);
                 }
             }
         }
@@ -118,7 +118,7 @@ public class a implements c.p.a.b.a.b, c.e, a.b, k {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ long f34345e;
+        public final /* synthetic */ long f34451e;
 
         public b(a aVar, long j2) {
             Interceptable interceptable = $ic;
@@ -135,14 +135,14 @@ public class a implements c.p.a.b.a.b, c.e, a.b, k {
                     return;
                 }
             }
-            this.f34345e = j2;
+            this.f34451e = j2;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                a.d().h(this.f34345e);
+                a.d().h(this.f34451e);
             }
         }
     }
@@ -153,10 +153,10 @@ public class a implements c.p.a.b.a.b, c.e, a.b, k {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f34346e;
+        public final /* synthetic */ String f34452e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ c.p.a.b.a.c.b f34347f;
+        public final /* synthetic */ c.p.a.b.a.c.b f34453f;
 
         public c(a aVar, String str, c.p.a.b.a.c.b bVar) {
             Interceptable interceptable = $ic;
@@ -173,19 +173,19 @@ public class a implements c.p.a.b.a.b, c.e, a.b, k {
                     return;
                 }
             }
-            this.f34346e = str;
-            this.f34347f = bVar;
+            this.f34452e = str;
+            this.f34453f = bVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                String b2 = h.g.b(this.f34346e);
+                String b2 = h.g.b(this.f34452e);
                 if (TextUtils.isEmpty(b2)) {
                     return;
                 }
-                l.a().getSharedPreferences("sp_ttdownloader_md5", 0).edit().putString(String.valueOf(this.f34347f.b()), b2).apply();
+                l.a().getSharedPreferences("sp_ttdownloader_md5", 0).edit().putString(String.valueOf(this.f34453f.b()), b2).apply();
             }
         }
     }
@@ -196,10 +196,10 @@ public class a implements c.p.a.b.a.b, c.e, a.b, k {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ DownloadInfo f34348a;
+        public final /* synthetic */ DownloadInfo f34454a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ JSONObject f34349b;
+        public final /* synthetic */ JSONObject f34455b;
 
         public d(a aVar, DownloadInfo downloadInfo, JSONObject jSONObject) {
             Interceptable interceptable = $ic;
@@ -216,8 +216,8 @@ public class a implements c.p.a.b.a.b, c.e, a.b, k {
                     return;
                 }
             }
-            this.f34348a = downloadInfo;
-            this.f34349b = jSONObject;
+            this.f34454a = downloadInfo;
+            this.f34455b = jSONObject;
         }
 
         @Override // c.p.a.d.c.g
@@ -225,18 +225,18 @@ public class a implements c.p.a.b.a.b, c.e, a.b, k {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
                 if (!z) {
-                    Intent intent = (Intent) this.f34348a.getTempCacheData().get("intent");
+                    Intent intent = (Intent) this.f34454a.getTempCacheData().get("intent");
                     if (intent != null) {
-                        this.f34348a.getTempCacheData().remove("intent");
+                        this.f34454a.getTempCacheData().remove("intent");
                         c.p.a.e.a.d.f(l.a(), intent);
-                        h.r.q(this.f34349b, UnitedSchemeConstants.UNITED_SCHEME_BACKUP, 1);
+                        h.r.q(this.f34455b, UnitedSchemeConstants.UNITED_SCHEME_BACKUP, 1);
                     } else {
-                        h.r.q(this.f34349b, UnitedSchemeConstants.UNITED_SCHEME_BACKUP, 2);
+                        h.r.q(this.f34455b, UnitedSchemeConstants.UNITED_SCHEME_BACKUP, 2);
                     }
                 }
-                c.p.a.b.a.c.b c2 = c.g.e().c(this.f34348a);
+                c.p.a.b.a.c.b c2 = c.g.e().c(this.f34454a);
                 if (c2 != null) {
-                    e.c.a().r(z ? "installer_delay_success" : "installer_delay_failed", this.f34349b, c2);
+                    e.c.a().r(z ? "installer_delay_success" : "installer_delay_failed", this.f34455b, c2);
                 } else {
                     f.e.b().g("ah nativeModel=null");
                 }
@@ -254,10 +254,10 @@ public class a implements c.p.a.b.a.b, c.e, a.b, k {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final int f34350e;
+        public final int f34456e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ a f34351f;
+        public final /* synthetic */ a f34457f;
 
         public e(a aVar, int i2) {
             Interceptable interceptable = $ic;
@@ -274,8 +274,8 @@ public class a implements c.p.a.b.a.b, c.e, a.b, k {
                     return;
                 }
             }
-            this.f34351f = aVar;
-            this.f34350e = i2;
+            this.f34457f = aVar;
+            this.f34456e = i2;
         }
 
         @Override // java.lang.Runnable
@@ -288,7 +288,7 @@ public class a implements c.p.a.b.a.b, c.e, a.b, k {
                     if (t == null || t.isEmpty()) {
                         return;
                     }
-                    this.f34351f.r(t, this.f34350e);
+                    this.f34457f.r(t, this.f34456e);
                 } catch (Exception e2) {
                     e2.printStackTrace();
                 }
@@ -302,21 +302,21 @@ public class a implements c.p.a.b.a.b, c.e, a.b, k {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public long f34352e;
+        public long f34458e;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f34353f;
+        public int f34459f;
 
         /* renamed from: g  reason: collision with root package name */
-        public long f34354g;
+        public long f34460g;
 
         /* renamed from: h  reason: collision with root package name */
-        public int f34355h;
+        public int f34461h;
 
         /* renamed from: i  reason: collision with root package name */
-        public long f34356i;
+        public long f34462i;
 
-        public /* synthetic */ f(long j2, int i2, long j3, int i3, C1518a c1518a) {
+        public /* synthetic */ f(long j2, int i2, long j3, int i3, C1522a c1522a) {
             this(j2, i2, j3, i3);
         }
 
@@ -336,7 +336,7 @@ public class a implements c.p.a.b.a.b, c.e, a.b, k {
                         return 2005;
                     }
                 }
-                int i3 = this.f34355h;
+                int i3 = this.f34461h;
                 if (i3 != 2000) {
                     return i3;
                 }
@@ -344,12 +344,12 @@ public class a implements c.p.a.b.a.b, c.e, a.b, k {
                     return 2006;
                 }
                 if (z) {
-                    long j2 = this.f34356i;
-                    long j3 = this.f34354g;
+                    long j2 = this.f34462i;
+                    long j3 = this.f34460g;
                     if (j2 > j3) {
                         try {
                             jSONObject.put("install_time", j2 - j3);
-                            if (bVar.z() <= this.f34354g) {
+                            if (bVar.z() <= this.f34460g) {
                                 i2 = 0;
                             }
                             jSONObject.put("install_again", i2);
@@ -377,7 +377,7 @@ public class a implements c.p.a.b.a.b, c.e, a.b, k {
             JSONObject jSONObject;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                c.p.a.b.a.c.b u = c.g.e().u(this.f34352e);
+                c.p.a.b.a.c.b u = c.g.e().u(this.f34458e);
                 boolean z = false;
                 if (u == null || h.r.C(u) || u.N.get() || (f2 = c.p.a.e.b.g.a.H(l.a()).f(u.s())) == null) {
                     return false;
@@ -397,7 +397,7 @@ public class a implements c.p.a.b.a.b, c.e, a.b, k {
                 boolean l = c.p.a.e.a.c.l(l.a());
                 JSONObject jSONObject2 = new JSONObject();
                 int a2 = a(z, u, f2, l, jSONObject2);
-                this.f34355h = a2;
+                this.f34461h = a2;
                 try {
                     jSONObject = jSONObject2;
                 } catch (Exception e3) {
@@ -433,7 +433,7 @@ public class a implements c.p.a.b.a.b, c.e, a.b, k {
         public final void d() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                this.f34356i = System.currentTimeMillis();
+                this.f34462i = System.currentTimeMillis();
             }
         }
 
@@ -443,7 +443,7 @@ public class a implements c.p.a.b.a.b, c.e, a.b, k {
             if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
                 try {
                     if (c()) {
-                        a.d().i(this.f34352e, this.f34353f);
+                        a.d().i(this.f34458e, this.f34459f);
                     }
                 } catch (Throwable th) {
                     th.printStackTrace();
@@ -466,10 +466,10 @@ public class a implements c.p.a.b.a.b, c.e, a.b, k {
                     return;
                 }
             }
-            this.f34352e = j2;
-            this.f34353f = i2;
-            this.f34354g = j3;
-            this.f34355h = i3;
+            this.f34458e = j2;
+            this.f34459f = i2;
+            this.f34460g = j3;
+            this.f34461h = i3;
         }
     }
 
@@ -479,10 +479,10 @@ public class a implements c.p.a.b.a.b, c.e, a.b, k {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final c.p.a.b.a.c.b f34357e;
+        public final c.p.a.b.a.c.b f34463e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ a f34358f;
+        public final /* synthetic */ a f34464f;
 
         public g(a aVar, c.p.a.b.a.c.b bVar) {
             Interceptable interceptable = $ic;
@@ -499,8 +499,8 @@ public class a implements c.p.a.b.a.b, c.e, a.b, k {
                     return;
                 }
             }
-            this.f34358f = aVar;
-            this.f34357e = bVar;
+            this.f34464f = aVar;
+            this.f34463e = bVar;
         }
 
         @Override // java.lang.Runnable
@@ -509,13 +509,13 @@ public class a implements c.p.a.b.a.b, c.e, a.b, k {
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 try {
                     try {
-                        this.f34357e.T0(true);
-                        this.f34358f.x(this.f34357e);
+                        this.f34463e.T0(true);
+                        this.f34464f.x(this.f34463e);
                     } catch (Exception e2) {
                         e2.printStackTrace();
                     }
                 } finally {
-                    this.f34357e.T0(false);
+                    this.f34463e.T0(false);
                 }
             }
         }
@@ -557,14 +557,14 @@ public class a implements c.p.a.b.a.b, c.e, a.b, k {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (f34328h == null) {
+            if (f34434h == null) {
                 synchronized (a.class) {
-                    if (f34328h == null) {
-                        f34328h = new a();
+                    if (f34434h == null) {
+                        f34434h = new a();
                     }
                 }
             }
-            return f34328h;
+            return f34434h;
         }
         return (a) invokeV.objValue;
     }
@@ -639,7 +639,7 @@ public class a implements c.p.a.b.a.b, c.e, a.b, k {
                             jSONObject.put("download_speed", d2);
                         } catch (Exception unused) {
                         }
-                        String str = f34327g;
+                        String str = f34433g;
                         c.p.a.e.b.c.a.g(str, "download speed : " + d2 + "MB/s");
                     }
                     try {
@@ -804,11 +804,11 @@ public class a implements c.p.a.b.a.b, c.e, a.b, k {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
             long currentTimeMillis = System.currentTimeMillis();
-            if (currentTimeMillis - this.f34329e < AppConfig.TIMESTAMP_AVAILABLE_DURATION) {
+            if (currentTimeMillis - this.f34435e < AppConfig.TIMESTAMP_AVAILABLE_DURATION) {
                 return;
             }
-            c.p.a.d.e.a().c(new e(this, i2), this.f34329e > 0 ? 2000L : 8000L);
-            this.f34329e = currentTimeMillis;
+            c.p.a.d.e.a().c(new e(this, i2), this.f34435e > 0 ? 2000L : 8000L);
+            this.f34435e = currentTimeMillis;
         }
     }
 
@@ -845,7 +845,7 @@ public class a implements c.p.a.b.a.b, c.e, a.b, k {
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            c.p.a.e.b.c.a.g(f34327g, "onAppBackground()");
+            c.p.a.e.b.c.a.g(f34433g, "onAppBackground()");
             a(6);
         }
     }
@@ -914,10 +914,10 @@ public class a implements c.p.a.b.a.b, c.e, a.b, k {
                     if (a2 == null) {
                         return;
                     }
-                    c.e.b().g(a2.f34401a);
+                    c.e.b().g(a2.f34507a);
                     JSONObject jSONObject = new JSONObject();
-                    jSONObject.put("installed_app_name", a2.f34404d);
-                    jSONObject.put("installed_pkg_name", a2.f34401a);
+                    jSONObject.put("installed_app_name", a2.f34510d);
+                    jSONObject.put("installed_pkg_name", a2.f34507a);
                     if (i2 != -1) {
                         jSONObject.put("error_code", i2);
                         h.l.d(jSONObject, u.s());
@@ -997,7 +997,7 @@ public class a implements c.p.a.b.a.b, c.e, a.b, k {
         long j2 = max;
         f fVar = new f(bVar.b(), downloadInfo.getId(), currentTimeMillis, i2, null);
         c.p.a.d.e.a().c(fVar, j2);
-        this.f34330f = fVar;
+        this.f34436f = fVar;
         c.j.b().c(bVar);
     }
 
@@ -1025,7 +1025,7 @@ public class a implements c.p.a.b.a.b, c.e, a.b, k {
                     if (c.p.a.e.b.j.a.d(d2.s()).m("notification_opt_2") == 1) {
                         c.p.a.e.b.p.b.a().m(d2.s());
                     }
-                    new c.e().a(d2, new C1518a(this, d2, str), h.k.c(d2).b("try_applink_delay_after_installed", 0));
+                    new c.e().a(d2, new C1522a(this, d2, str), h.k.c(d2).b("try_applink_delay_after_installed", 0));
                     d.k.a().m(d2);
                     q(str, d2);
                     c.p.a.d.b.a.a.a().j(str);
@@ -1194,10 +1194,10 @@ public class a implements c.p.a.b.a.b, c.e, a.b, k {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
             synchronized (this) {
-                f fVar = this.f34330f;
+                f fVar = this.f34436f;
                 if (fVar != null) {
                     fVar.d();
-                    this.f34330f = null;
+                    this.f34436f = null;
                 }
             }
         }
@@ -1211,7 +1211,7 @@ public class a implements c.p.a.b.a.b, c.e, a.b, k {
             return;
         }
         JSONArray v = c.p.a.e.b.j.a.d(downloadInfo.getId()).v("ah_report_config");
-        if (bVar.f34700b != 0) {
+        if (bVar.f34806b != 0) {
             downloadInfo.getTempCacheData().remove("intent");
         }
         if (v == null || (s = s(downloadInfo, bVar)) == null) {
@@ -1236,7 +1236,7 @@ public class a implements c.p.a.b.a.b, c.e, a.b, k {
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            c.p.a.e.b.c.a.g(f34327g, "onAppForeground()");
+            c.p.a.e.b.c.a.g(f34433g, "onAppForeground()");
             z();
             a(5);
         }

@@ -26,7 +26,7 @@ public final class i1 {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final h1<E> f33983e;
+        public final h1<E> f34089e;
 
         public a(h1<E> h1Var) {
             Interceptable interceptable = $ic;
@@ -43,7 +43,7 @@ public final class i1 {
                     return;
                 }
             }
-            this.f33983e = h1Var;
+            this.f34089e = h1Var;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -52,7 +52,7 @@ public final class i1 {
         public final h1<E> b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f33983e : (h1) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f34089e : (h1) invokeV.objValue;
         }
 
         @Override // java.util.SortedSet

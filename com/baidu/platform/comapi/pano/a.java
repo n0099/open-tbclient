@@ -20,11 +20,11 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public AsyncHttpClient f44092a;
+    public AsyncHttpClient f44199a;
 
     /* renamed from: com.baidu.platform.comapi.pano.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public interface InterfaceC1685a<T> {
+    public interface InterfaceC1689a<T> {
         void a(HttpClient.HttpStateError httpStateError);
 
         void a(T t);
@@ -43,7 +43,7 @@ public class a {
                 return;
             }
         }
-        this.f44092a = new AsyncHttpClient();
+        this.f44199a = new AsyncHttpClient();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -52,34 +52,34 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, str)) == null) {
             if (str == null || str.equals("")) {
-                return new c(PanoStateError.f44089c);
+                return new c(PanoStateError.f44196c);
             }
             try {
                 JSONObject jSONObject = new JSONObject(str);
                 JSONObject optJSONObject = jSONObject.optJSONObject("result");
                 if (optJSONObject == null) {
-                    return new c(PanoStateError.f44089c);
+                    return new c(PanoStateError.f44196c);
                 }
                 if (optJSONObject.optInt("error") == 0) {
                     JSONArray optJSONArray = jSONObject.optJSONArray("content");
                     if (optJSONArray == null) {
-                        return new c(PanoStateError.f44089c);
+                        return new c(PanoStateError.f44196c);
                     }
                     c cVar = null;
                     for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
                         JSONObject optJSONObject2 = optJSONArray.optJSONObject(i2).optJSONObject("poiinfo");
                         if (optJSONObject2 != null) {
-                            cVar = new c(PanoStateError.f44087a);
+                            cVar = new c(PanoStateError.f44194a);
                             cVar.a(optJSONObject2.optString("PID"));
                             cVar.a(optJSONObject2.optInt("hasstreet"));
                         }
                     }
                     return cVar;
                 }
-                return new c(PanoStateError.f44088b);
+                return new c(PanoStateError.f44195b);
             } catch (JSONException e2) {
                 e2.printStackTrace();
-                return new c(PanoStateError.f44089c);
+                return new c(PanoStateError.f44196c);
             }
         }
         return (c) invokeL.objValue;
@@ -105,9 +105,9 @@ public class a {
         builder.appendQueryParameter(str, str2);
     }
 
-    public void a(String str, InterfaceC1685a<c> interfaceC1685a) {
+    public void a(String str, InterfaceC1689a<c> interfaceC1689a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, interfaceC1685a) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, interfaceC1689a) == null) {
             Uri.Builder builder = new Uri.Builder();
             builder.scheme(HttpClient.isHttpsEnable ? "https" : "http");
             builder.encodedAuthority("api.map.baidu.com");
@@ -117,11 +117,11 @@ public class a {
             a(builder, "action", "0");
             String authToken = HttpClient.getAuthToken();
             if (authToken == null) {
-                interfaceC1685a.a((InterfaceC1685a<c>) new c(PanoStateError.f44090d));
+                interfaceC1689a.a((InterfaceC1689a<c>) new c(PanoStateError.f44197d));
                 return;
             }
             a(builder, "token", authToken);
-            this.f44092a.get(a(builder), new b(this, interfaceC1685a));
+            this.f44199a.get(a(builder), new b(this, interfaceC1689a));
         }
     }
 }

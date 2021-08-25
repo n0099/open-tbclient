@@ -11,9 +11,9 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
 import c.a.e.e.p.l;
-import c.a.o0.s.q.c2;
-import c.a.o0.s.q.f;
-import c.a.o0.s.u.c;
+import c.a.p0.s.q.c2;
+import c.a.p0.s.q.f;
+import c.a.p0.s.u.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.AntiData;
@@ -68,9 +68,9 @@ public class PbThreadCommentAndPraiseInfoLayout extends ThreadCommentAndPraiseIn
             return;
         }
         f fVar = new f();
-        fVar.f13913b = 4;
-        fVar.f13915d = 2;
-        fVar.f13921j = str2;
+        fVar.f14219b = 4;
+        fVar.f14221d = 2;
+        fVar.f14227j = str2;
         this.mAgreeView.setStatisticData(fVar);
         this.mAgreeView.onAgreeClick();
     }
@@ -148,8 +148,8 @@ public class PbThreadCommentAndPraiseInfoLayout extends ThreadCommentAndPraiseIn
             EMTextView eMTextView = this.mCommentGrabSofa;
             if (eMTextView != null) {
                 c d2 = c.d(eMTextView);
-                d2.y(R.string.F_X02);
-                d2.t(R.color.CAM_X0107);
+                d2.z(R.string.F_X02);
+                d2.u(R.color.CAM_X0107);
                 EMTextView eMTextView2 = this.mCommentGrabSofa;
                 int g2 = l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds18);
                 int i2 = R.color.CAM_X0207;

@@ -26,10 +26,10 @@ public final class a implements HostnameVerifier {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final a f32067a;
+    public static final a f32173a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Pattern f32068b;
+    public static final Pattern f32174b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -45,8 +45,8 @@ public final class a implements HostnameVerifier {
                 return;
             }
         }
-        f32067a = new a();
-        f32068b = Pattern.compile("([0-9a-fA-F]*:[0-9a-fA-F:.]*)|([\\d.]+)");
+        f32173a = new a();
+        f32174b = Pattern.compile("([0-9a-fA-F]*:[0-9a-fA-F:.]*)|([\\d.]+)");
     }
 
     public a() {
@@ -91,7 +91,7 @@ public final class a implements HostnameVerifier {
     public static boolean b(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? f32068b.matcher(str).matches() : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? f32174b.matcher(str).matches() : invokeL.booleanValue;
     }
 
     public final boolean c(String str, String str2) {

@@ -1,11 +1,20 @@
 package com.baidu.tieba;
 
-import c.a.p0.v3.f;
+import c.a.e.e.p.l;
+import c.a.e.j.c;
+import c.a.e.j.d;
+import c.a.q0.v3.f;
+import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.pms.bean.ErrorInfo;
+import com.baidu.searchbox.pms.bean.PackageInfo;
+import com.baidu.searchbox.pms.callback.DefaultDownloadCallback;
+import com.baidu.searchbox.pms.init.PmsManager;
+import com.baidu.searchbox.pms.init.RequestParams;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.CloudMusicActivityConfig;
 import com.baidu.tbadk.core.atomData.TbCaptureActivityConfig;
@@ -27,6 +36,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
 /* loaded from: classes6.dex */
 public class CaptureStatic {
     public static /* synthetic */ Interceptable $ic;
@@ -39,14 +49,69 @@ public class CaptureStatic {
 
         /* renamed from: com.baidu.tieba.CaptureStatic$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class C1741a implements f {
+        public class C1745a implements f {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ CustomResponsedMessage f48796a;
+            public final /* synthetic */ CustomResponsedMessage f48903a;
 
-            public C1741a(a aVar, CustomResponsedMessage customResponsedMessage) {
+            /* renamed from: com.baidu.tieba.CaptureStatic$a$a$a  reason: collision with other inner class name */
+            /* loaded from: classes6.dex */
+            public class C1746a extends DefaultDownloadCallback {
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                /* renamed from: a  reason: collision with root package name */
+                public final /* synthetic */ C1745a f48904a;
+
+                public C1746a(C1745a c1745a) {
+                    Interceptable interceptable = $ic;
+                    if (interceptable != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {c1745a};
+                        interceptable.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.f48904a = c1745a;
+                }
+
+                @Override // com.baidu.searchbox.pms.callback.DefaultDownloadCallback, com.baidu.searchbox.pms.callback.DownloadCallback
+                public void onDownloadCancel(PackageInfo packageInfo) {
+                    Interceptable interceptable = $ic;
+                    if ((interceptable == null || interceptable.invokeL(1048576, this, packageInfo) == null) && packageInfo != null && "libcbffmpeg.so".equals(packageInfo.name)) {
+                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921614, Boolean.FALSE));
+                        l.L(TbadkCoreApplication.getInst(), R.string.libso_load_faild);
+                    }
+                }
+
+                @Override // com.baidu.searchbox.pms.callback.DefaultDownloadCallback, com.baidu.searchbox.pms.callback.DownloadCallback
+                public void onDownloadError(PackageInfo packageInfo, ErrorInfo errorInfo) {
+                    Interceptable interceptable = $ic;
+                    if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, packageInfo, errorInfo) == null) && packageInfo != null && "libcbffmpeg.so".equals(packageInfo.name)) {
+                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921614, Boolean.FALSE));
+                        l.L(TbadkCoreApplication.getInst(), R.string.libso_load_faild);
+                    }
+                }
+
+                @Override // com.baidu.searchbox.pms.callback.DefaultDownloadCallback, com.baidu.searchbox.pms.callback.DownloadCallback
+                public void onDownloadSuccess(PackageInfo packageInfo, ErrorInfo errorInfo) {
+                    Interceptable interceptable = $ic;
+                    if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, packageInfo, errorInfo) == null) && packageInfo != null && "libcbffmpeg.so".equals(packageInfo.name)) {
+                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, (IntentConfig) this.f48904a.f48903a.getData()));
+                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921614, Boolean.TRUE));
+                    }
+                }
+            }
+
+            public C1745a(a aVar, CustomResponsedMessage customResponsedMessage) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -61,21 +126,31 @@ public class CaptureStatic {
                         return;
                     }
                 }
-                this.f48796a = customResponsedMessage;
+                this.f48903a = customResponsedMessage;
             }
 
-            @Override // c.a.p0.v3.f
+            @Override // c.a.q0.v3.f
             public void a() {
                 Interceptable interceptable = $ic;
-                if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (this.f48796a.getData() instanceof IntentConfig)) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, (IntentConfig) this.f48796a.getData()));
+                if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (this.f48903a.getData() instanceof IntentConfig)) {
+                    if (new File(BdBaseApplication.getInst().getFilesDir() + File.separator + "so_cache" + File.separator + "libcbffmpeg.so").exists()) {
+                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, (IntentConfig) this.f48903a.getData()));
+                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921614, Boolean.TRUE));
+                        return;
+                    }
+                    RequestParams requestParams = new RequestParams();
+                    requestParams.setRunType(d.f2904a);
+                    requestParams.setRunNode("aps");
+                    requestParams.addChannel(new c(new C1746a(this)));
+                    PmsManager.getInstance().execute(requestParams);
                 }
             }
 
-            @Override // c.a.p0.v3.f
+            @Override // c.a.q0.v3.f
             public void b() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921614, Boolean.FALSE));
                 }
             }
         }
@@ -105,7 +180,7 @@ public class CaptureStatic {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2921582) {
-                c.a.p0.v3.a.b(TbadkCoreApplication.getInst(), new C1741a(this, customResponsedMessage));
+                c.a.q0.v3.a.b(TbadkCoreApplication.getInst(), new C1745a(this, customResponsedMessage));
             }
         }
     }

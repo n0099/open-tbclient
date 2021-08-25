@@ -21,7 +21,7 @@ public class u implements h {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f2118a;
+    public String f2176a;
 
     public u(String str) {
         Interceptable interceptable = $ic;
@@ -38,7 +38,7 @@ public class u implements h {
                 return;
             }
         }
-        this.f2118a = str;
+        this.f2176a = str;
     }
 
     @Override // c.a.e.e.b.b.a.d.h
@@ -62,59 +62,59 @@ public class u implements h {
                                     if (a2 != Character.class && a2 != Character.TYPE) {
                                         if (a2 != Boolean.class && a2 != Boolean.TYPE) {
                                             if (a2 == String.class) {
-                                                return this.f2118a;
+                                                return this.f2176a;
                                             }
                                             if (a2 == char[].class) {
-                                                return this.f2118a.toCharArray();
+                                                return this.f2176a.toCharArray();
                                             }
                                             if (a2 == byte[].class) {
                                                 try {
-                                                    return c.a.e.e.p.c.e(this.f2118a, 0);
+                                                    return c.a.e.e.p.c.e(this.f2176a, 0);
                                                 } catch (IOException e3) {
                                                     e3.printStackTrace();
                                                     return null;
                                                 }
                                             } else if (c.a.e.e.b.a.a.e(a2, OrmObject.class)) {
-                                                return OrmObject.objectWithJsonStr(this.f2118a, a2);
+                                                return OrmObject.objectWithJsonStr(this.f2176a, a2);
                                             } else {
                                                 if (c.a.e.e.b.a.a.e(a2, List.class)) {
                                                     try {
-                                                        return new j(new JSONArray(this.f2118a)).a(cVar);
+                                                        return new j(new JSONArray(this.f2176a)).a(cVar);
                                                     } catch (JSONException e4) {
                                                         e4.printStackTrace();
                                                         return null;
                                                     }
                                                 } else if (a2.isArray()) {
                                                     try {
-                                                        return new j(new JSONArray(this.f2118a)).a(cVar);
+                                                        return new j(new JSONArray(this.f2176a)).a(cVar);
                                                     } catch (JSONException e5) {
                                                         e5.printStackTrace();
                                                         return null;
                                                     }
                                                 } else if (c.a.e.e.b.a.a.e(a2, Queue.class)) {
                                                     try {
-                                                        return new j(new JSONArray(this.f2118a)).a(cVar);
+                                                        return new j(new JSONArray(this.f2176a)).a(cVar);
                                                     } catch (JSONException e6) {
                                                         e6.printStackTrace();
                                                         return null;
                                                     }
                                                 } else if (c.a.e.e.b.a.a.e(a2, Set.class)) {
                                                     try {
-                                                        return new j(new JSONArray(this.f2118a)).a(cVar);
+                                                        return new j(new JSONArray(this.f2176a)).a(cVar);
                                                     } catch (JSONException e7) {
                                                         e7.printStackTrace();
                                                         return null;
                                                     }
                                                 } else if (c.a.e.e.b.a.a.e(a2, Map.class)) {
                                                     try {
-                                                        return new k(new JSONObject(this.f2118a)).a(cVar);
+                                                        return new k(new JSONObject(this.f2176a)).a(cVar);
                                                     } catch (JSONException e8) {
                                                         e8.printStackTrace();
                                                         return null;
                                                     }
                                                 } else if (c.a.e.e.b.a.a.e(a2, SparseArray.class)) {
                                                     try {
-                                                        return new k(new JSONObject(this.f2118a)).a(cVar);
+                                                        return new k(new JSONObject(this.f2176a)).a(cVar);
                                                     } catch (JSONException e9) {
                                                         e9.printStackTrace();
                                                         return null;
@@ -126,21 +126,21 @@ public class u implements h {
                                             e2.printStackTrace();
                                             return null;
                                         }
-                                        return Boolean.valueOf(Boolean.parseBoolean(this.f2118a));
+                                        return Boolean.valueOf(Boolean.parseBoolean(this.f2176a));
                                     }
-                                    return Character.valueOf(this.f2118a.charAt(0));
+                                    return Character.valueOf(this.f2176a.charAt(0));
                                 }
-                                return Double.valueOf(Double.parseDouble(this.f2118a));
+                                return Double.valueOf(Double.parseDouble(this.f2176a));
                             }
-                            return Float.valueOf(Float.parseFloat(this.f2118a));
+                            return Float.valueOf(Float.parseFloat(this.f2176a));
                         }
-                        return Long.valueOf(Long.parseLong(this.f2118a));
+                        return Long.valueOf(Long.parseLong(this.f2176a));
                     }
-                    return Integer.valueOf(Integer.parseInt(this.f2118a));
+                    return Integer.valueOf(Integer.parseInt(this.f2176a));
                 }
-                return Short.valueOf(Short.parseShort(this.f2118a));
+                return Short.valueOf(Short.parseShort(this.f2176a));
             }
-            return Byte.valueOf(Byte.parseByte(this.f2118a));
+            return Byte.valueOf(Byte.parseByte(this.f2176a));
         }
         return invokeL.objValue;
     }

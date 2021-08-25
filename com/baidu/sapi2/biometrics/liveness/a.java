@@ -9,22 +9,22 @@ public final class a {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f44654a = false;
+    public static final boolean f44761a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f44655b = "com.baidu.sapi2.biometrics.liveness";
+    public static final String f44762b = "com.baidu.sapi2.biometrics.liveness";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f44656c = "release";
+    public static final String f44763c = "release";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f44657d = "";
+    public static final String f44764d = "";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int f44658e = 1;
+    public static final int f44765e = 1;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f44659f = "1.0";
+    public static final String f44766f = "1.0";
     public transient /* synthetic */ FieldHolder $fh;
 
     public a() {

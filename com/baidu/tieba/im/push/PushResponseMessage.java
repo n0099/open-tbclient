@@ -1,6 +1,6 @@
 package com.baidu.tieba.im.push;
 
-import c.a.o0.s.q.z0;
+import c.a.p0.s.q.z0;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.TiebaStatic;

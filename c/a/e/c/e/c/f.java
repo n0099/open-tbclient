@@ -16,11 +16,11 @@ public class f {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static f f1955b;
+    public static f f2013b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f1956a;
+    public int f2014a;
 
     static {
         InterceptResult invokeClinit;
@@ -50,21 +50,21 @@ public class f {
                 return;
             }
         }
-        this.f1956a = 0;
+        this.f2014a = 0;
     }
 
     public static f a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f1955b == null) {
+            if (f2013b == null) {
                 synchronized (f.class) {
-                    if (f1955b == null) {
-                        f1955b = new f();
+                    if (f2013b == null) {
+                        f2013b = new f();
                     }
                 }
             }
-            return f1955b;
+            return f2013b;
         }
         return (f) invokeV.objValue;
     }
@@ -75,11 +75,11 @@ public class f {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             synchronized (this) {
-                if (this.f1956a == 0) {
-                    this.f1956a++;
+                if (this.f2014a == 0) {
+                    this.f2014a++;
                 }
-                i2 = this.f1956a;
-                this.f1956a = i2 + 1;
+                i2 = this.f2014a;
+                this.f2014a = i2 + 1;
             }
             return i2;
         }
@@ -92,12 +92,12 @@ public class f {
             synchronized (this) {
                 if (map != null) {
                     try {
-                        this.f1956a = Integer.valueOf(map.get("Seq-Id")).intValue();
+                        this.f2014a = Integer.valueOf(map.get("Seq-Id")).intValue();
                     } catch (Exception e2) {
                         BdLog.e(e2.getMessage());
                         i.a("SequenceManager", 0, 0, "setSequenceId", h.x, "parser Seq-Id error");
-                        if (this.f1956a == 0) {
-                            this.f1956a = new Random().nextInt();
+                        if (this.f2014a == 0) {
+                            this.f2014a = new Random().nextInt();
                         }
                     }
                 }

@@ -3,8 +3,8 @@ package com.baidu.ugc.editvideo.record.renderer;
 import android.opengl.GLES20;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.v0.t.h;
-import c.a.z.b.a.e;
+import c.a.a0.b.a.e;
+import c.a.w0.t.h;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.minivideo.effect.core.vlogedit.MediaSegment;
 import com.baidu.minivideo.effect.core.vlogedit.MediaTrack;
@@ -164,14 +164,14 @@ public class MultiMediaStickerRenderer extends MultiMediaEditBaseRenderer {
                             aVar.a(this.mFullScreen2D, this.mFullScreenEXT);
                         } else {
                             aVar.b(this.mFullScreen2D);
-                            GLES20.glBindFramebuffer(36160, aVar.f59614a[0]);
+                            GLES20.glBindFramebuffer(36160, aVar.f59814a[0]);
                             GLViewPortLocation gLViewPortLocation2 = this.mGLViewPortLocation;
                             GLES20.glViewport(0, 0, gLViewPortLocation2.width, gLViewPortLocation2.height);
                             GLES20.glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
                             GLES20.glClear(16640);
                             aVar.a(this.mFullScreen2D, this.mFullScreenEXT);
                             GLES20.glBindFramebuffer(36160, 0);
-                            int h2 = eVar.h(mediaSegment, aVar.f59615b[0], null);
+                            int h2 = eVar.h(mediaSegment, aVar.f59815b[0], null);
                             GLES20.glViewport(i4, i6, i7, i8);
                             this.mFullScreen2D.drawFrame(h2, fArr);
                         }

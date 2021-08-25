@@ -24,7 +24,7 @@ public class i {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static HashMap<String, String> f76931a;
+    public static HashMap<String, String> f77132a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -40,7 +40,7 @@ public class i {
                 return;
             }
         }
-        f76931a = new HashMap<>();
+        f77132a = new HashMap<>();
     }
 
     public static MiPushMessage a(String str) {
@@ -148,7 +148,7 @@ public class i {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, context, str)) == null) {
             synchronized (i.class) {
-                str2 = f76931a.get(str);
+                str2 = f77132a.get(str);
                 if (TextUtils.isEmpty(str2)) {
                     str2 = "";
                 }
@@ -162,7 +162,7 @@ public class i {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, eVar)) == null) {
-            int i2 = k.f76933a[eVar.ordinal()];
+            int i2 = k.f77134a[eVar.ordinal()];
             if (i2 != 1) {
                 if (i2 != 2) {
                     if (i2 != 3) {
@@ -191,22 +191,22 @@ public class i {
             if (TextUtils.isEmpty(a2)) {
                 return hashMap;
             }
-            int i2 = k.f76933a[eVar.ordinal()];
+            int i2 = k.f77134a[eVar.ordinal()];
             String str = null;
             ApplicationInfo applicationInfo = null;
             if (i2 != 1) {
                 if (i2 == 2) {
                     sb = new StringBuilder();
                     sb.append("brand:");
-                    afVar = af.f76891c;
+                    afVar = af.f77092c;
                 } else if (i2 == 3) {
                     sb = new StringBuilder();
                     sb.append("brand:");
-                    afVar = af.f76892d;
+                    afVar = af.f77093d;
                 } else if (i2 == 4) {
                     sb = new StringBuilder();
                     sb.append("brand:");
-                    afVar = af.f76893e;
+                    afVar = af.f77094e;
                 }
                 sb.append(afVar.name());
                 sb.append(Constants.WAVE_SEPARATOR);
@@ -238,8 +238,8 @@ public class i {
         if (interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, context) == null) {
             boolean z = false;
             SharedPreferences sharedPreferences = context.getSharedPreferences("mipush_extra", 0);
-            String a2 = a(e.f76924a);
-            String a3 = a(e.f76925b);
+            String a2 = a(e.f77125a);
+            String a3 = a(e.f77126b);
             if (!TextUtils.isEmpty(sharedPreferences.getString(a2, "")) && TextUtils.isEmpty(sharedPreferences.getString(a3, ""))) {
                 z = true;
             }
@@ -305,7 +305,7 @@ public class i {
                 } else if (TextUtils.isEmpty(str)) {
                     com.xiaomi.channel.commonutils.logger.b.m73a("ASSEMBLE_PUSH : token is null");
                 } else {
-                    f76931a.put(a2, str);
+                    f77132a.put(a2, str);
                 }
             }
         }
@@ -348,7 +348,7 @@ public class i {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65550, null, eVar)) == null) {
-            int i2 = k.f76933a[eVar.ordinal()];
+            int i2 = k.f77134a[eVar.ordinal()];
             if (i2 != 1) {
                 if (i2 != 2) {
                     if (i2 != 3) {

@@ -6,9 +6,9 @@ import android.os.Bundle;
 import android.view.View;
 import androidx.annotation.NonNull;
 import c.a.e.e.p.l;
-import c.a.p0.a0.b0;
-import c.a.p0.k2.i.b;
-import c.a.p0.l2.e.h;
+import c.a.q0.a0.b0;
+import c.a.q0.k2.i.b;
+import c.a.q0.l2.e.h;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
@@ -42,7 +42,7 @@ public class PersonCenterMoreActivity extends BaseActivity<PersonCenterMoreActiv
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ PersonCenterMoreActivity f55473b;
+        public final /* synthetic */ PersonCenterMoreActivity f55638b;
 
         public a(PersonCenterMoreActivity personCenterMoreActivity) {
             Interceptable interceptable = $ic;
@@ -59,20 +59,20 @@ public class PersonCenterMoreActivity extends BaseActivity<PersonCenterMoreActiv
                     return;
                 }
             }
-            this.f55473b = personCenterMoreActivity;
+            this.f55638b = personCenterMoreActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // c.a.p0.a0.b0
+        @Override // c.a.q0.a0.b0
         /* renamed from: d */
         public void a(View view, h hVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, hVar) == null) {
-                this.f55473b.mItemData = hVar;
-                if (this.f55473b.mItemData == null || this.f55473b.requestPermission()) {
+                this.f55638b.mItemData = hVar;
+                if (this.f55638b.mItemData == null || this.f55638b.requestPermission()) {
                     return;
                 }
-                PersonCenterMoreActivity personCenterMoreActivity = this.f55473b;
+                PersonCenterMoreActivity personCenterMoreActivity = this.f55638b;
                 personCenterMoreActivity.dealUrlMapClick(personCenterMoreActivity.mItemData.k);
             }
         }
@@ -127,7 +127,7 @@ public class PersonCenterMoreActivity extends BaseActivity<PersonCenterMoreActiv
         } else if (!str.startsWith(UrlSchemaHelper.SCHEMA_TYPE_HTTP) && !str.startsWith(UrlSchemaHelper.SCHEMA_TYPE_HTTPS)) {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001387, str));
         } else {
-            c.a.o0.m.a.s(getPageContext().getPageActivity(), true, str);
+            c.a.p0.m.a.t(getPageContext().getPageActivity(), true, str);
         }
     }
 

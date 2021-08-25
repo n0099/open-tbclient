@@ -1,6 +1,6 @@
 package com.baidu.tieba.screenlocknotify.loadmore;
 
-import c.a.p0.z2.e.a;
+import c.a.q0.z2.e.a;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;

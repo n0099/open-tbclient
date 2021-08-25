@@ -3,7 +3,7 @@ package com.baidu.swan.apps.favordata;
 import android.net.Uri;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.n0.a.f1.e.c;
+import c.a.o0.a.f1.e.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.NoProGuard;
 import com.baidu.titan.sdk.runtime.FieldHolder;

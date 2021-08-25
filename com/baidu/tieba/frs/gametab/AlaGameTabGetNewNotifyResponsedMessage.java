@@ -1,6 +1,6 @@
 package com.baidu.tieba.frs.gametab;
 
-import c.a.p0.v0.w1.a;
+import c.a.q0.v0.w1.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;

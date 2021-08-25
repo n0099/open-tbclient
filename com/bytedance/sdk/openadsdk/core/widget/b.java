@@ -34,34 +34,34 @@ public class b extends AlertDialog {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f66917a;
+    public Context f67117a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f66918b;
+    public TextView f67118b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f66919c;
+    public TextView f67119c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TextView f66920d;
+    public TextView f67120d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f66921e;
+    public TextView f67121e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f66922f;
+    public TextView f67122f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ListView f66923g;
+    public ListView f67123g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Button f66924h;
+    public Button f67124h;
 
     /* renamed from: i  reason: collision with root package name */
-    public a f66925i;
+    public a f67125i;
 
     /* renamed from: j  reason: collision with root package name */
-    public String f66926j;
+    public String f67126j;
     public String k;
     public String l;
     public String m;
@@ -83,12 +83,12 @@ public class b extends AlertDialog {
 
     /* renamed from: com.bytedance.sdk.openadsdk.core.widget.b$b  reason: collision with other inner class name */
     /* loaded from: classes9.dex */
-    public class C1908b extends ArrayAdapter<c> {
+    public class C1912b extends ArrayAdapter<c> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ b f66930a;
+        public final /* synthetic */ b f67130a;
 
         /* renamed from: com.bytedance.sdk.openadsdk.core.widget.b$b$a */
         /* loaded from: classes9.dex */
@@ -97,23 +97,23 @@ public class b extends AlertDialog {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public TextView f66931a;
+            public TextView f67131a;
 
             /* renamed from: b  reason: collision with root package name */
-            public TextView f66932b;
+            public TextView f67132b;
 
             /* renamed from: c  reason: collision with root package name */
-            public ImageView f66933c;
+            public ImageView f67133c;
 
             /* renamed from: d  reason: collision with root package name */
-            public final /* synthetic */ C1908b f66934d;
+            public final /* synthetic */ C1912b f67134d;
 
-            public a(C1908b c1908b) {
+            public a(C1912b c1912b) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {c1908b};
+                    Object[] objArr = {c1912b};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i2 = newInitContext.flag;
                     if ((i2 & 1) != 0) {
@@ -123,12 +123,12 @@ public class b extends AlertDialog {
                         return;
                     }
                 }
-                this.f66934d = c1908b;
+                this.f67134d = c1912b;
             }
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C1908b(b bVar, Context context, int i2, List<c> list) {
+        public C1912b(b bVar, Context context, int i2, List<c> list) {
             super(context, i2, list);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -146,7 +146,7 @@ public class b extends AlertDialog {
                     return;
                 }
             }
-            this.f66930a = bVar;
+            this.f67130a = bVar;
         }
 
         @Override // android.widget.ArrayAdapter, android.widget.Adapter
@@ -158,21 +158,21 @@ public class b extends AlertDialog {
             if (interceptable == null || (invokeILL = interceptable.invokeILL(1048576, this, i2, view, viewGroup)) == null) {
                 c item = getItem(i2);
                 if (view == null) {
-                    view = LayoutInflater.from(getContext()).inflate(t.f(this.f66930a.f66917a, "tt_app_detail_listview_item"), viewGroup, false);
+                    view = LayoutInflater.from(getContext()).inflate(t.f(this.f67130a.f67117a, "tt_app_detail_listview_item"), viewGroup, false);
                     aVar = new a(this);
-                    aVar.f66931a = (TextView) view.findViewById(t.e(this.f66930a.f66917a, "tt_item_title_tv"));
-                    aVar.f66932b = (TextView) view.findViewById(t.e(this.f66930a.f66917a, "tt_item_desc_tv"));
-                    aVar.f66933c = (ImageView) view.findViewById(t.e(this.f66930a.f66917a, "tt_item_select_img"));
+                    aVar.f67131a = (TextView) view.findViewById(t.e(this.f67130a.f67117a, "tt_item_title_tv"));
+                    aVar.f67132b = (TextView) view.findViewById(t.e(this.f67130a.f67117a, "tt_item_desc_tv"));
+                    aVar.f67133c = (ImageView) view.findViewById(t.e(this.f67130a.f67117a, "tt_item_select_img"));
                     view.setTag(aVar);
                 } else {
                     aVar = (a) view.getTag();
                 }
-                aVar.f66933c.setVisibility(0);
+                aVar.f67133c.setVisibility(0);
                 if ("补充中，可于应用官网查看".equals(item.a())) {
-                    aVar.f66933c.setVisibility(4);
+                    aVar.f67133c.setVisibility(4);
                 }
-                aVar.f66931a.setText(item.a());
-                aVar.f66932b.setText(item.b());
+                aVar.f67131a.setText(item.a());
+                aVar.f67132b.setText(item.b());
                 return view;
             }
             return (View) invokeILL.objValue;
@@ -185,13 +185,13 @@ public class b extends AlertDialog {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ b f66935a;
+        public final /* synthetic */ b f67135a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f66936b;
+        public String f67136b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f66937c;
+        public String f67137c;
 
         public c(b bVar, String str, String str2) {
             Interceptable interceptable = $ic;
@@ -208,21 +208,21 @@ public class b extends AlertDialog {
                     return;
                 }
             }
-            this.f66935a = bVar;
-            this.f66936b = str;
-            this.f66937c = str2;
+            this.f67135a = bVar;
+            this.f67136b = str;
+            this.f67137c = str2;
         }
 
         public String a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f66936b : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f67136b : (String) invokeV.objValue;
         }
 
         public String b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f66937c : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f67137c : (String) invokeV.objValue;
         }
     }
 
@@ -245,14 +245,14 @@ public class b extends AlertDialog {
                 return;
             }
         }
-        this.f66926j = "补充中，可于应用官网查看";
+        this.f67126j = "补充中，可于应用官网查看";
         this.k = "暂无";
         this.m = "http://sf6-ttcdn-tos.pstatp.com/obj/ad-tetris-site/personal-privacy-page.html";
         this.r = false;
         this.s = new ArrayList();
-        this.f66917a = context;
+        this.f67117a = context;
         if (context == null) {
-            this.f66917a = o.a();
+            this.f67117a = o.a();
         }
         this.n = str;
     }
@@ -260,18 +260,18 @@ public class b extends AlertDialog {
     private void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            if (this.f66918b != null) {
-                this.f66918b.setText(String.format(t.a(this.f66917a, "tt_open_app_detail_developer"), this.f66926j));
+            if (this.f67118b != null) {
+                this.f67118b.setText(String.format(t.a(this.f67117a, "tt_open_app_detail_developer"), this.f67126j));
             }
-            if (this.f66919c != null) {
-                this.f66919c.setText(String.format(t.a(this.f66917a, "tt_open_app_version"), this.k));
+            if (this.f67119c != null) {
+                this.f67119c.setText(String.format(t.a(this.f67117a, "tt_open_app_version"), this.k));
             }
             String str = this.m;
             if (str != null) {
-                this.f66920d.setText(str);
+                this.f67120d.setText(str);
             }
-            if (this.f66922f != null) {
-                this.f66922f.setText(String.format(t.a(this.f66917a, "tt_open_app_name"), this.l));
+            if (this.f67122f != null) {
+                this.f67122f.setText(String.format(t.a(this.f67117a, "tt_open_app_name"), this.l));
             }
         }
     }
@@ -279,25 +279,25 @@ public class b extends AlertDialog {
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            View inflate = getLayoutInflater().inflate(t.f(this.f66917a, "tt_app_detail_full_dialog_list_head"), (ViewGroup) null);
+            View inflate = getLayoutInflater().inflate(t.f(this.f67117a, "tt_app_detail_full_dialog_list_head"), (ViewGroup) null);
             this.p = inflate;
-            this.f66918b = (TextView) inflate.findViewById(t.e(this.f66917a, "tt_app_developer_tv"));
-            this.f66920d = (TextView) this.p.findViewById(t.e(this.f66917a, "tt_app_privacy_url_tv"));
-            this.q = (TextView) this.p.findViewById(t.e(this.f66917a, "tt_app_privacy_tv"));
-            this.f66922f = (TextView) this.p.findViewById(t.e(this.f66917a, "tt_app_name_tv"));
-            this.f66919c = (TextView) this.p.findViewById(t.e(this.f66917a, "tt_app_version_tv"));
-            this.f66924h = (Button) findViewById(t.e(this.f66917a, "tt_download_app_btn"));
-            this.f66923g = (ListView) findViewById(t.e(this.f66917a, "tt_privacy_list"));
-            this.f66921e = (TextView) findViewById(t.e(this.f66917a, "tt_app_detail_back_tv"));
-            this.f66923g.addHeaderView(this.p);
+            this.f67118b = (TextView) inflate.findViewById(t.e(this.f67117a, "tt_app_developer_tv"));
+            this.f67120d = (TextView) this.p.findViewById(t.e(this.f67117a, "tt_app_privacy_url_tv"));
+            this.q = (TextView) this.p.findViewById(t.e(this.f67117a, "tt_app_privacy_tv"));
+            this.f67122f = (TextView) this.p.findViewById(t.e(this.f67117a, "tt_app_name_tv"));
+            this.f67119c = (TextView) this.p.findViewById(t.e(this.f67117a, "tt_app_version_tv"));
+            this.f67124h = (Button) findViewById(t.e(this.f67117a, "tt_download_app_btn"));
+            this.f67123g = (ListView) findViewById(t.e(this.f67117a, "tt_privacy_list"));
+            this.f67121e = (TextView) findViewById(t.e(this.f67117a, "tt_app_detail_back_tv"));
+            this.f67123g.addHeaderView(this.p);
             if (this.r) {
-                this.f66924h.setVisibility(0);
-                this.f66924h.setOnClickListener(new View.OnClickListener(this) { // from class: com.bytedance.sdk.openadsdk.core.widget.b.1
+                this.f67124h.setVisibility(0);
+                this.f67124h.setOnClickListener(new View.OnClickListener(this) { // from class: com.bytedance.sdk.openadsdk.core.widget.b.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ b f66927a;
+                    public final /* synthetic */ b f67127a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -314,27 +314,27 @@ public class b extends AlertDialog {
                                 return;
                             }
                         }
-                        this.f66927a = this;
+                        this.f67127a = this;
                     }
 
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
                         Interceptable interceptable2 = $ic;
-                        if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) || this.f66927a.f66925i == null) {
+                        if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) || this.f67127a.f67125i == null) {
                             return;
                         }
-                        this.f66927a.f66925i.a(this.f66927a);
+                        this.f67127a.f67125i.a(this.f67127a);
                     }
                 });
             } else {
-                this.f66924h.setVisibility(8);
+                this.f67124h.setVisibility(8);
             }
-            this.f66921e.setOnClickListener(new View.OnClickListener(this) { // from class: com.bytedance.sdk.openadsdk.core.widget.b.2
+            this.f67121e.setOnClickListener(new View.OnClickListener(this) { // from class: com.bytedance.sdk.openadsdk.core.widget.b.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ b f66928a;
+                public final /* synthetic */ b f67128a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -351,24 +351,24 @@ public class b extends AlertDialog {
                             return;
                         }
                     }
-                    this.f66928a = this;
+                    this.f67128a = this;
                 }
 
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) || this.f66928a.f66925i == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) || this.f67128a.f67125i == null) {
                         return;
                     }
-                    this.f66928a.f66925i.b(this.f66928a);
+                    this.f67128a.f67125i.b(this.f67128a);
                 }
             });
-            this.f66920d.setOnClickListener(new View.OnClickListener(this) { // from class: com.bytedance.sdk.openadsdk.core.widget.b.3
+            this.f67120d.setOnClickListener(new View.OnClickListener(this) { // from class: com.bytedance.sdk.openadsdk.core.widget.b.3
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ b f66929a;
+                public final /* synthetic */ b f67129a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -385,24 +385,24 @@ public class b extends AlertDialog {
                             return;
                         }
                     }
-                    this.f66929a = this;
+                    this.f67129a = this;
                 }
 
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) || this.f66929a.f66925i == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) || this.f67129a.f67125i == null) {
                         return;
                     }
-                    this.f66929a.f66925i.c(this.f66929a);
+                    this.f67129a.f67125i.c(this.f67129a);
                 }
             });
             List<c> list = this.s;
             if (list == null || list.size() <= 0) {
                 return;
             }
-            Context context = this.f66917a;
-            this.f66923g.setAdapter((ListAdapter) new C1908b(this, context, t.f(context, "tt_app_detail_listview_item"), this.s));
+            Context context = this.f67117a;
+            this.f67123g.setAdapter((ListAdapter) new C1912b(this, context, t.f(context, "tt_app_detail_listview_item"), this.s));
         }
     }
 
@@ -410,7 +410,7 @@ public class b extends AlertDialog {
     public void onBackPressed() {
         a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (aVar = this.f66925i) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (aVar = this.f67125i) == null) {
             return;
         }
         aVar.b(this);
@@ -421,7 +421,7 @@ public class b extends AlertDialog {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(t.f(this.f66917a, "tt_app_detail_full_dialog"));
+            setContentView(t.f(this.f67117a, "tt_app_detail_full_dialog"));
             a();
             b();
         }
@@ -440,7 +440,7 @@ public class b extends AlertDialog {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) {
-            this.f66925i = aVar;
+            this.f67125i = aVar;
             return this;
         }
         return (b) invokeL.objValue;
@@ -451,7 +451,7 @@ public class b extends AlertDialog {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             if (TextUtils.isEmpty(this.n)) {
                 this.k = "暂无";
-                this.f66926j = "补充中，可于应用官网查看";
+                this.f67126j = "补充中，可于应用官网查看";
                 this.m = "http://sf6-ttcdn-tos.pstatp.com/obj/ad-tetris-site/personal-privacy-page.html";
                 a(this.o);
                 return;
@@ -465,9 +465,9 @@ public class b extends AlertDialog {
                         this.k = "暂无";
                     }
                     String c2 = b2.c();
-                    this.f66926j = c2;
+                    this.f67126j = c2;
                     if (TextUtils.isEmpty(c2)) {
-                        this.f66926j = "补充中，可于应用官网查看";
+                        this.f67126j = "补充中，可于应用官网查看";
                     }
                     String d2 = b2.d();
                     this.m = d2;

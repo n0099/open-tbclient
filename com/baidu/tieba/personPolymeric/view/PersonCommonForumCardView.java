@@ -4,7 +4,7 @@ import android.content.Context;
 import android.view.ViewGroup;
 import c.a.e.e.k.b;
 import c.a.e.e.p.l;
-import c.a.p0.n2.e.f;
+import c.a.q0.n2.e.f;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.widget.layout.FlowLayout;
@@ -21,10 +21,10 @@ public class PersonCommonForumCardView extends FlowLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: i  reason: collision with root package name */
-    public Context f55740i;
+    public Context f55905i;
 
     /* renamed from: j  reason: collision with root package name */
-    public List<f> f55741j;
+    public List<f> f55906j;
     public List<PersonCommonForumItemView> k;
     public b<PersonCommonForumItemView> l;
 
@@ -47,19 +47,19 @@ public class PersonCommonForumCardView extends FlowLayout {
             }
         }
         this.k = new ArrayList();
-        this.f55740i = context;
+        this.f55905i = context;
     }
 
     public final void f() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || ListUtils.isEmpty(this.f55741j)) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || ListUtils.isEmpty(this.f55906j)) {
             return;
         }
-        for (f fVar : this.f55741j) {
+        for (f fVar : this.f55906j) {
             if (fVar != null) {
                 PersonCommonForumItemView b2 = this.l.b();
                 b2.setData(fVar);
-                addView(b2, new ViewGroup.LayoutParams(((l.k(this.f55740i) - l.g(this.f55740i, R.dimen.tbds88)) - l.g(this.f55740i, R.dimen.tbds96)) / 2, -2));
+                addView(b2, new ViewGroup.LayoutParams(((l.k(this.f55905i) - l.g(this.f55905i, R.dimen.tbds88)) - l.g(this.f55905i, R.dimen.tbds96)) / 2, -2));
                 this.k.add(b2);
             }
         }
@@ -90,7 +90,7 @@ public class PersonCommonForumCardView extends FlowLayout {
     public void setData(List<f> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
-            this.f55741j = list;
+            this.f55906j = list;
             f();
         }
     }

@@ -40,7 +40,7 @@ public class z {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f67103a;
+    public static boolean f67303a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -75,16 +75,16 @@ public class z {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ Context f67116a;
+            public final /* synthetic */ Context f67316a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ com.bytedance.sdk.openadsdk.core.e.m f67117b;
+            public final /* synthetic */ com.bytedance.sdk.openadsdk.core.e.m f67317b;
 
             /* renamed from: c  reason: collision with root package name */
-            public final /* synthetic */ String f67118c;
+            public final /* synthetic */ String f67318c;
 
             /* renamed from: d  reason: collision with root package name */
-            public final /* synthetic */ Intent f67119d;
+            public final /* synthetic */ Intent f67319d;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -101,23 +101,23 @@ public class z {
                         return;
                     }
                 }
-                this.f67116a = context;
-                this.f67117b = mVar;
-                this.f67118c = str;
-                this.f67119d = intent;
+                this.f67316a = context;
+                this.f67317b = mVar;
+                this.f67318c = str;
+                this.f67319d = intent;
             }
 
             @Override // com.bytedance.sdk.openadsdk.q.c.a
             public void a() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    com.bytedance.sdk.openadsdk.e.d.h(this.f67116a, this.f67117b, this.f67118c, "open_url_app", null);
-                    com.bytedance.sdk.component.utils.b.a(this.f67116a, this.f67119d, new b.a(this) { // from class: com.bytedance.sdk.openadsdk.core.z.3.1
+                    com.bytedance.sdk.openadsdk.e.d.h(this.f67316a, this.f67317b, this.f67318c, "open_url_app", null);
+                    com.bytedance.sdk.component.utils.b.a(this.f67316a, this.f67319d, new b.a(this) { // from class: com.bytedance.sdk.openadsdk.core.z.3.1
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
 
                         /* renamed from: a  reason: collision with root package name */
-                        public final /* synthetic */ AnonymousClass3 f67120a;
+                        public final /* synthetic */ AnonymousClass3 f67320a;
 
                         {
                             Interceptable interceptable3 = $ic;
@@ -134,7 +134,7 @@ public class z {
                                     return;
                                 }
                             }
-                            this.f67120a = this;
+                            this.f67320a = this;
                         }
 
                         @Override // com.bytedance.sdk.component.utils.b.a
@@ -142,11 +142,11 @@ public class z {
                             Interceptable interceptable3 = $ic;
                             if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
                                 com.bytedance.sdk.openadsdk.e.k a2 = com.bytedance.sdk.openadsdk.e.k.a();
-                                AnonymousClass3 anonymousClass3 = this.f67120a;
-                                a2.a(anonymousClass3.f67117b, anonymousClass3.f67118c, false);
+                                AnonymousClass3 anonymousClass3 = this.f67320a;
+                                a2.a(anonymousClass3.f67317b, anonymousClass3.f67318c, false);
                                 Context a3 = o.a();
-                                AnonymousClass3 anonymousClass32 = this.f67120a;
-                                com.bytedance.sdk.openadsdk.e.d.b(a3, anonymousClass32.f67117b, anonymousClass32.f67118c, "deeplink_success_realtime");
+                                AnonymousClass3 anonymousClass32 = this.f67320a;
+                                com.bytedance.sdk.openadsdk.e.d.b(a3, anonymousClass32.f67317b, anonymousClass32.f67318c, "deeplink_success_realtime");
                             }
                         }
 
@@ -155,8 +155,8 @@ public class z {
                             Interceptable interceptable3 = $ic;
                             if (interceptable3 == null || interceptable3.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
                                 Context a2 = o.a();
-                                AnonymousClass3 anonymousClass3 = this.f67120a;
-                                com.bytedance.sdk.openadsdk.e.d.b(a2, anonymousClass3.f67117b, anonymousClass3.f67118c, "deeplink_fail_realtime");
+                                AnonymousClass3 anonymousClass3 = this.f67320a;
+                                com.bytedance.sdk.openadsdk.e.d.b(a2, anonymousClass3.f67317b, anonymousClass3.f67318c, "deeplink_fail_realtime");
                             }
                         }
                     });
@@ -182,7 +182,7 @@ public class z {
     public static void a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TRACKBALL, null, z) == null) {
-            f67103a = z;
+            f67303a = z;
         }
     }
 
@@ -231,22 +231,22 @@ public class z {
                                 public transient /* synthetic */ FieldHolder $fh;
 
                                 /* renamed from: a  reason: collision with root package name */
-                                public final /* synthetic */ com.bytedance.sdk.openadsdk.core.e.m f67104a;
+                                public final /* synthetic */ com.bytedance.sdk.openadsdk.core.e.m f67304a;
 
                                 /* renamed from: b  reason: collision with root package name */
-                                public final /* synthetic */ String f67105b;
+                                public final /* synthetic */ String f67305b;
 
                                 /* renamed from: c  reason: collision with root package name */
-                                public final /* synthetic */ Context f67106c;
+                                public final /* synthetic */ Context f67306c;
 
                                 /* renamed from: d  reason: collision with root package name */
-                                public final /* synthetic */ int f67107d;
+                                public final /* synthetic */ int f67307d;
 
                                 /* renamed from: e  reason: collision with root package name */
-                                public final /* synthetic */ boolean f67108e;
+                                public final /* synthetic */ boolean f67308e;
 
                                 /* renamed from: f  reason: collision with root package name */
-                                public final /* synthetic */ Map f67109f;
+                                public final /* synthetic */ Map f67309f;
 
                                 {
                                     Interceptable interceptable2 = $ic;
@@ -263,19 +263,19 @@ public class z {
                                             return;
                                         }
                                     }
-                                    this.f67104a = mVar;
-                                    this.f67105b = str;
-                                    this.f67106c = context;
-                                    this.f67107d = i2;
-                                    this.f67108e = z;
-                                    this.f67109f = map;
+                                    this.f67304a = mVar;
+                                    this.f67305b = str;
+                                    this.f67306c = context;
+                                    this.f67307d = i2;
+                                    this.f67308e = z;
+                                    this.f67309f = map;
                                 }
 
                                 @Override // com.bytedance.sdk.component.utils.b.a
                                 public void a() {
                                     Interceptable interceptable2 = $ic;
                                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                                        com.bytedance.sdk.openadsdk.e.d.b(o.a(), this.f67104a, this.f67105b, "deeplink_success_realtime");
+                                        com.bytedance.sdk.openadsdk.e.d.b(o.a(), this.f67304a, this.f67305b, "deeplink_success_realtime");
                                     }
                                 }
 
@@ -283,12 +283,12 @@ public class z {
                                 public void a(Throwable th) {
                                     Interceptable interceptable2 = $ic;
                                     if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
-                                        com.bytedance.sdk.openadsdk.core.e.m mVar2 = this.f67104a;
+                                        com.bytedance.sdk.openadsdk.core.e.m mVar2 = this.f67304a;
                                         if (mVar2 != null && !mVar2.az()) {
-                                            z.a(this.f67106c, this.f67104a.Z(), this.f67104a, this.f67107d, this.f67105b, this.f67108e, this.f67109f);
+                                            z.a(this.f67306c, this.f67304a.Z(), this.f67304a, this.f67307d, this.f67305b, this.f67308e, this.f67309f);
                                             com.bytedance.sdk.component.utils.k.c("WebHelper", "openDetailPage() -> context.startActivity(intent) fail :", th);
                                         }
-                                        com.bytedance.sdk.openadsdk.e.d.b(o.a(), this.f67104a, this.f67105b, "deeplink_fail_realtime");
+                                        com.bytedance.sdk.openadsdk.e.d.b(o.a(), this.f67304a, this.f67305b, "deeplink_fail_realtime");
                                     }
                                 }
                             });
@@ -392,7 +392,7 @@ public class z {
                     }
                 } else {
                     com.bytedance.sdk.component.utils.b.a(context, a(context, Z, mVar, i2, tTNativeAd, tTNativeExpressAd, tTSplashAd, str, z, map, z2, false), null);
-                    f67103a = false;
+                    f67303a = false;
                 }
                 return z4;
             }
@@ -432,27 +432,27 @@ public class z {
         if (!(interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{context, mVar, intent, Long.valueOf(j2), str}) == null) || mVar == null || intent == null || context == null || !mVar.aA() || (c2 = h.d().c()) == null) {
             return;
         }
-        c2.a(new a.InterfaceC1929a(j2, context, mVar, intent, str, c2) { // from class: com.bytedance.sdk.openadsdk.core.z.2
+        c2.a(new a.InterfaceC1933a(j2, context, mVar, intent, str, c2) { // from class: com.bytedance.sdk.openadsdk.core.z.2
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ long f67110a;
+            public final /* synthetic */ long f67310a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ Context f67111b;
+            public final /* synthetic */ Context f67311b;
 
             /* renamed from: c  reason: collision with root package name */
-            public final /* synthetic */ com.bytedance.sdk.openadsdk.core.e.m f67112c;
+            public final /* synthetic */ com.bytedance.sdk.openadsdk.core.e.m f67312c;
 
             /* renamed from: d  reason: collision with root package name */
-            public final /* synthetic */ Intent f67113d;
+            public final /* synthetic */ Intent f67313d;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ String f67114e;
+            public final /* synthetic */ String f67314e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ com.bytedance.sdk.openadsdk.q.a f67115f;
+            public final /* synthetic */ com.bytedance.sdk.openadsdk.q.a f67315f;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -469,59 +469,59 @@ public class z {
                         return;
                     }
                 }
-                this.f67110a = j2;
-                this.f67111b = context;
-                this.f67112c = mVar;
-                this.f67113d = intent;
-                this.f67114e = str;
-                this.f67115f = c2;
+                this.f67310a = j2;
+                this.f67311b = context;
+                this.f67312c = mVar;
+                this.f67313d = intent;
+                this.f67314e = str;
+                this.f67315f = c2;
             }
 
-            @Override // com.bytedance.sdk.openadsdk.q.a.InterfaceC1929a
+            @Override // com.bytedance.sdk.openadsdk.q.a.InterfaceC1933a
             public void a() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                     long currentTimeMillis = System.currentTimeMillis();
-                    com.bytedance.sdk.component.utils.k.b("WebHelper", "间隔时间 onActivityResumed intervalTime " + (currentTimeMillis - this.f67110a));
-                    if (currentTimeMillis - this.f67110a <= 3000) {
-                        z.b(this.f67111b, this.f67112c, this.f67113d, this.f67114e);
+                    com.bytedance.sdk.component.utils.k.b("WebHelper", "间隔时间 onActivityResumed intervalTime " + (currentTimeMillis - this.f67310a));
+                    if (currentTimeMillis - this.f67310a <= 3000) {
+                        z.b(this.f67311b, this.f67312c, this.f67313d, this.f67314e);
                     }
-                    com.bytedance.sdk.openadsdk.q.a aVar = this.f67115f;
+                    com.bytedance.sdk.openadsdk.q.a aVar = this.f67315f;
                     if (aVar != null) {
                         aVar.b();
                     }
                 }
             }
 
-            @Override // com.bytedance.sdk.openadsdk.q.a.InterfaceC1929a
+            @Override // com.bytedance.sdk.openadsdk.q.a.InterfaceC1933a
             public void b() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
                 }
             }
 
-            @Override // com.bytedance.sdk.openadsdk.q.a.InterfaceC1929a
+            @Override // com.bytedance.sdk.openadsdk.q.a.InterfaceC1933a
             public void c() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
                 }
             }
 
-            @Override // com.bytedance.sdk.openadsdk.q.a.InterfaceC1929a
+            @Override // com.bytedance.sdk.openadsdk.q.a.InterfaceC1933a
             public void d() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048579, this) == null) {
                 }
             }
 
-            @Override // com.bytedance.sdk.openadsdk.q.a.InterfaceC1929a
+            @Override // com.bytedance.sdk.openadsdk.q.a.InterfaceC1933a
             public void e() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048580, this) == null) {
                 }
             }
 
-            @Override // com.bytedance.sdk.openadsdk.q.a.InterfaceC1929a
+            @Override // com.bytedance.sdk.openadsdk.q.a.InterfaceC1933a
             public void f() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048581, this) == null) {
@@ -534,9 +534,9 @@ public class z {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, tTNativeAd)) == null) {
-            if (tTNativeAd != null && (tTNativeAd instanceof a.InterfaceC1917a)) {
+            if (tTNativeAd != null && (tTNativeAd instanceof a.InterfaceC1921a)) {
                 try {
-                    return ((a.InterfaceC1917a) tTNativeAd).g();
+                    return ((a.InterfaceC1921a) tTNativeAd).g();
                 } catch (Throwable unused) {
                     return false;
                 }
@@ -564,7 +564,7 @@ public class z {
                     }
                 }
             } else {
-                intent = tTNativeAd instanceof TTDrawFeedAd ? new Intent(context, TTWebPageActivity.class) : (!com.bytedance.sdk.openadsdk.core.e.m.b(mVar) || f67103a || a(tTNativeAd) || !com.bytedance.sdk.openadsdk.q.q.c(mVar)) ? new Intent(context, TTWebPageActivity.class) : new Intent(context, TTVideoWebPageActivity.class);
+                intent = tTNativeAd instanceof TTDrawFeedAd ? new Intent(context, TTWebPageActivity.class) : (!com.bytedance.sdk.openadsdk.core.e.m.b(mVar) || f67303a || a(tTNativeAd) || !com.bytedance.sdk.openadsdk.q.q.c(mVar)) ? new Intent(context, TTWebPageActivity.class) : new Intent(context, TTVideoWebPageActivity.class);
             }
             intent.putExtra("url", str);
             intent.putExtra("gecko_id", mVar.ab());
@@ -587,7 +587,7 @@ public class z {
             }
             if (com.bytedance.sdk.openadsdk.core.e.m.b(mVar)) {
                 if (tTNativeAd != null) {
-                    r12 = tTNativeAd instanceof a.InterfaceC1917a ? ((a.InterfaceC1917a) tTNativeAd).e() : null;
+                    r12 = tTNativeAd instanceof a.InterfaceC1921a ? ((a.InterfaceC1921a) tTNativeAd).e() : null;
                     if (r12 != null) {
                         intent.putExtra(TTAdConstant.MULTI_PROCESS_DATA, r12.a().toString());
                     }
@@ -596,18 +596,18 @@ public class z {
                     intent.putExtra(TTAdConstant.MULTI_PROCESS_DATA, r12.a().toString());
                 }
                 if (r12 != null) {
-                    intent.putExtra("video_is_auto_play", r12.f67736d);
+                    intent.putExtra("video_is_auto_play", r12.f67936d);
                     com.bytedance.sdk.component.utils.k.c("videoDataModel", "videoDataModel=" + r12.a().toString());
                 }
                 if (TTVideoWebPageActivity.a(intent) && (r12 != null || z2)) {
                     try {
                         if (r12 != null) {
-                            i3 = (int) ((((float) r12.f67739g) / ((float) r12.f67737e)) * 100.0f);
+                            i3 = (int) ((((float) r12.f67939g) / ((float) r12.f67937e)) * 100.0f);
                         } else {
                             com.bytedance.sdk.openadsdk.multipro.b.a aVar = new com.bytedance.sdk.openadsdk.multipro.b.a();
-                            aVar.f67739g = 100L;
-                            aVar.f67733a = true;
-                            aVar.f67736d = com.bytedance.sdk.openadsdk.q.q.j(mVar);
+                            aVar.f67939g = 100L;
+                            aVar.f67933a = true;
+                            aVar.f67936d = com.bytedance.sdk.openadsdk.q.q.j(mVar);
                             intent.putExtra(TTAdConstant.MULTI_PROCESS_DATA, aVar.a().toString());
                             i3 = 100;
                         }

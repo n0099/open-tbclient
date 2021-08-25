@@ -5,9 +5,9 @@ import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.appcompat.graphics.drawable.AnimatedStateListDrawableCompat;
 import androidx.core.view.InputDeviceCompat;
-import c.a.v0.j.b;
-import c.a.v0.t.h;
-import c.a.z.b.a.k.c;
+import c.a.a0.b.a.k.c;
+import c.a.w0.j.b;
+import c.a.w0.t.h;
 import com.baidu.minivideo.effect.core.vlogedit.MediaAEffect;
 import com.baidu.minivideo.effect.core.vlogedit.MediaAEffectKeyData;
 import com.baidu.minivideo.effect.core.vlogedit.MediaSegment;
@@ -98,7 +98,7 @@ public class InnerImportExportConfigUtil {
             HashMap hashMap2 = new HashMap();
             if (map != null) {
                 for (Map.Entry<String, ShaderConfig> entry : map.entrySet()) {
-                    if (!TextUtils.equals(entry.getKey(), c.f31089b) && !TextUtils.equals(entry.getKey(), c.f31092e) && (!TextUtils.equals(entry.getKey(), c.f31090c) || !h.e(entry.getValue().textures))) {
+                    if (!TextUtils.equals(entry.getKey(), c.f1843b) && !TextUtils.equals(entry.getKey(), c.f1846e) && (!TextUtils.equals(entry.getKey(), c.f1844c) || !h.e(entry.getValue().textures))) {
                         ShaderConfig shaderConfig = (ShaderConfig) entry.getValue().clone();
                         if (!TextUtils.isEmpty(shaderConfig.resourcePath)) {
                             File file = new File(shaderConfig.resourcePath);

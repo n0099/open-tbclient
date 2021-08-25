@@ -56,7 +56,7 @@ public class b {
     public static final String Z = "LogCurrentAppLaunchSwitch";
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f35698a = "net";
+    public static final String f35804a = "net";
     public static final String aa = "LogCurrentQueryTime";
     public static final String ab = "LogCalledPackage";
     public static final String ac = "LogBindCalledH5";
@@ -79,31 +79,31 @@ public class b {
     public static final String at = "app_id";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f35699b = "biz";
+    public static final String f35805b = "biz";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f35700c = "cp";
+    public static final String f35806c = "cp";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f35701d = "auth";
+    public static final String f35807d = "auth";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f35702e = "third";
+    public static final String f35808e = "third";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f35703f = "tid";
+    public static final String f35809f = "tid";
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f35704g = "wlt";
+    public static final String f35810g = "wlt";
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f35705h = "FormatResultEx";
+    public static final String f35811h = "FormatResultEx";
 
     /* renamed from: i  reason: collision with root package name */
-    public static final String f35706i = "GetApdidEx";
+    public static final String f35812i = "GetApdidEx";
 
     /* renamed from: j  reason: collision with root package name */
-    public static final String f35707j = "GetApdidNull";
+    public static final String f35813j = "GetApdidNull";
     public static final String k = "GetApdidTimeout";
     public static final String l = "GetUtdidEx";
     public static final String m = "GetPackageInfoEx";

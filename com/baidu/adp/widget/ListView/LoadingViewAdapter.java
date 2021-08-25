@@ -6,9 +6,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import c.a.e.e.p.l;
-import c.a.e.k.e.a;
-import c.a.e.k.e.t;
-import c.a.o0.f0.g;
+import c.a.e.l.e.a;
+import c.a.e.l.e.t;
+import c.a.p0.f0.g;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
@@ -58,7 +58,7 @@ public class LoadingViewAdapter extends a<t, TabLoadingViewHolder> {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public LoadingViewAdapter(TbPageContext<?> tbPageContext) {
-        super(tbPageContext.getPageActivity(), t.f3007e);
+        super(tbPageContext.getPageActivity(), t.f3069e);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -81,7 +81,7 @@ public class LoadingViewAdapter extends a<t, TabLoadingViewHolder> {
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
-    @Override // c.a.e.k.e.a
+    @Override // c.a.e.l.e.a
     public /* bridge */ /* synthetic */ View a0(int i2, View view, ViewGroup viewGroup, t tVar, TabLoadingViewHolder tabLoadingViewHolder) {
         j0(i2, view, viewGroup, tVar, tabLoadingViewHolder);
         return view;
@@ -94,19 +94,19 @@ public class LoadingViewAdapter extends a<t, TabLoadingViewHolder> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // c.a.e.k.e.a
+    @Override // c.a.e.l.e.a
     /* renamed from: i0 */
     public TabLoadingViewHolder U(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
-            RelativeLayout relativeLayout = new RelativeLayout(this.f2904e);
+            RelativeLayout relativeLayout = new RelativeLayout(this.f2966e);
             ViewGroup.LayoutParams u = u(viewGroup);
             u.width = -1;
             u.height = -1;
             relativeLayout.setLayoutParams(u);
             relativeLayout.setGravity(1);
-            g gVar = new g(this.f2904e, 0);
+            g gVar = new g(this.f2966e, 0);
             gVar.attachView(relativeLayout);
             gVar.q(this.n);
             gVar.o(this.o);

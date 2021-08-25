@@ -18,13 +18,13 @@ public class TableLineGridView extends BdGridView {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f51659e;
+    public int f51809e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f51660f;
+    public int f51810f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f51661g;
+    public int f51811g;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public TableLineGridView(Context context) {
@@ -55,16 +55,16 @@ public class TableLineGridView extends BdGridView {
         }
         Paint paint = new Paint();
         paint.setStyle(Paint.Style.STROKE);
-        paint.setColor(this.f51661g);
-        int width = childAt.getWidth() * this.f51660f;
-        int height = childAt.getHeight() * this.f51659e;
+        paint.setColor(this.f51811g);
+        int width = childAt.getWidth() * this.f51810f;
+        int height = childAt.getHeight() * this.f51809e;
         int width2 = childAt.getWidth();
         int height2 = childAt.getHeight();
-        for (int i2 = 1; i2 < this.f51659e; i2++) {
+        for (int i2 = 1; i2 < this.f51809e; i2++) {
             float f2 = height2 * i2;
             canvas.drawLine(0.0f, f2, width, f2, paint);
         }
-        for (int i3 = 1; i3 < this.f51660f; i3++) {
+        for (int i3 = 1; i3 < this.f51810f; i3++) {
             float f3 = width2 * i3;
             canvas.drawLine(f3, 0.0f, f3, height, paint);
         }
@@ -74,39 +74,39 @@ public class TableLineGridView extends BdGridView {
     public int getBackgroundLineResource() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f51661g : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f51811g : invokeV.intValue;
     }
 
     public int getColumnCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f51660f : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f51810f : invokeV.intValue;
     }
 
     public int getRowCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f51659e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f51809e : invokeV.intValue;
     }
 
     public void setBackgroundLineResource(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            this.f51661g = i2;
+            this.f51811g = i2;
         }
     }
 
     public void setColumnCount(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-            this.f51660f = i2;
+            this.f51810f = i2;
         }
     }
 
     public void setRowCount(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-            this.f51659e = i2;
+            this.f51809e = i2;
         }
     }
 

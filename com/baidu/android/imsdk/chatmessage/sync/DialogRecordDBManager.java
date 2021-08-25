@@ -151,8 +151,8 @@ public class DialogRecordDBManager extends DBBase {
         return invokeL.longValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:77:0x0162  */
-    /* JADX WARN: Removed duplicated region for block: B:79:0x0167  */
+    /* JADX WARN: Removed duplicated region for block: B:77:0x0161  */
+    /* JADX WARN: Removed duplicated region for block: B:79:0x0166  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */

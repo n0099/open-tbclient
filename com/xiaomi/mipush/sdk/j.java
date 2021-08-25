@@ -12,7 +12,7 @@ public final class j implements Runnable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ Context f76932a;
+    public final /* synthetic */ Context f77133a;
 
     /* renamed from: a  reason: collision with other field name */
     public final /* synthetic */ e f97a;
@@ -36,7 +36,7 @@ public final class j implements Runnable {
             }
         }
         this.f98a = str;
-        this.f76932a = context;
+        this.f77133a = context;
         this.f97a = eVar;
     }
 
@@ -67,7 +67,7 @@ public final class j implements Runnable {
             return;
         }
         com.xiaomi.channel.commonutils.logger.b.m73a("ASSEMBLE_PUSH : receive correct token");
-        i.d(this.f76932a, this.f97a, str);
-        i.m133a(this.f76932a);
+        i.d(this.f77133a, this.f97a, str);
+        i.m133a(this.f77133a);
     }
 }

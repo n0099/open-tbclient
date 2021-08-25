@@ -17,13 +17,13 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f65940a;
+    public String f66140a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f65941b;
+    public String f66141b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f65942c;
+    public String f66142c;
 
     public a(@NonNull m mVar) {
         Interceptable interceptable = $ic;
@@ -43,9 +43,9 @@ public class a {
         if (mVar == null) {
             return;
         }
-        this.f65940a = mVar.ak();
-        this.f65941b = mVar.ao();
-        this.f65942c = q.i(mVar);
+        this.f66140a = mVar.ak();
+        this.f66141b = mVar.ao();
+        this.f66142c = q.i(mVar);
     }
 
     public JSONObject a() {
@@ -54,14 +54,14 @@ public class a {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
-                if (!TextUtils.isEmpty(this.f65940a)) {
-                    jSONObject.put(IAdRequestParam.CELL_ID, this.f65940a);
+                if (!TextUtils.isEmpty(this.f66140a)) {
+                    jSONObject.put(IAdRequestParam.CELL_ID, this.f66140a);
                 }
-                if (!TextUtils.isEmpty(this.f65941b)) {
-                    jSONObject.put("log_extra", this.f65941b);
+                if (!TextUtils.isEmpty(this.f66141b)) {
+                    jSONObject.put("log_extra", this.f66141b);
                 }
-                if (!TextUtils.isEmpty(this.f65942c)) {
-                    jSONObject.put("download_url", this.f65942c);
+                if (!TextUtils.isEmpty(this.f66142c)) {
+                    jSONObject.put("download_url", this.f66142c);
                 }
             } catch (Exception unused) {
             }

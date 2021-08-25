@@ -17,7 +17,7 @@ public class f {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Map<Class<?>, Method> f32041a;
+    public static Map<Class<?>, Method> f32147a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -33,7 +33,7 @@ public class f {
                 return;
             }
         }
-        f32041a = new HashMap();
+        f32147a = new HashMap();
     }
 
     public f() {
@@ -51,13 +51,13 @@ public class f {
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:35:0x0070, code lost:
-        r1 = c.f.a.c.f.f32041a;
+        r1 = c.f.a.c.f.f32147a;
      */
     /* JADX WARN: Code restructure failed: missing block: B:36:0x0072, code lost:
         monitor-enter(r1);
      */
     /* JADX WARN: Code restructure failed: missing block: B:37:0x0073, code lost:
-        c.f.a.c.f.f32041a.put(r12, r2);
+        c.f.a.c.f.f32147a.put(r12, r2);
      */
     /* JADX WARN: Code restructure failed: missing block: B:38:0x0078, code lost:
         monitor-exit(r1);
@@ -73,8 +73,8 @@ public class f {
         Method method;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cls)) == null) {
-            synchronized (f32041a) {
-                method = f32041a.get(cls);
+            synchronized (f32147a) {
+                method = f32147a.get(cls);
             }
             if (method != null) {
                 return method;

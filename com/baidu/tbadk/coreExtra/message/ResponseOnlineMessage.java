@@ -1,6 +1,6 @@
 package com.baidu.tbadk.coreExtra.message;
 
-import c.a.o0.e0.a;
+import c.a.p0.e0.a;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;

@@ -15,17 +15,17 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Context f72236a;
+    public static Context f72436a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f72237b;
+    public static String f72437b;
     public transient /* synthetic */ FieldHolder $fh;
 
     public static File a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            File file = !TextUtils.isEmpty(f72237b) ? new File(f72237b) : new File(a(f72236a), "kwad_ex");
+            File file = !TextUtils.isEmpty(f72437b) ? new File(f72437b) : new File(a(f72436a), "kwad_ex");
             if (!file.exists()) {
                 file.mkdir();
             }
@@ -54,8 +54,8 @@ public class a {
     public static void a(@NonNull Context context, @Nullable String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65538, null, context, str) == null) {
-            f72236a = context;
-            f72237b = str;
+            f72436a = context;
+            f72437b = str;
         }
     }
 

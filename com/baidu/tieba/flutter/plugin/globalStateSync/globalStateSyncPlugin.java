@@ -4,13 +4,13 @@ import android.os.Build;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import c.a.e.e.p.k;
-import c.a.o0.b.d;
-import c.a.o0.b.e;
-import c.a.o0.b.f.z;
-import c.a.o0.b1.r0;
-import c.a.o0.s.d0.b;
-import c.a.o0.t.b.a;
-import c.a.p0.r0.a.b.g;
+import c.a.p0.b.d;
+import c.a.p0.b.e;
+import c.a.p0.b.f.a0;
+import c.a.p0.b1.r0;
+import c.a.p0.s.d0.b;
+import c.a.p0.t.b.a;
+import c.a.q0.r0.a.b.g;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
@@ -444,11 +444,11 @@ public class globalStateSyncPlugin implements FlutterPlugin, GlobalStateSyncAuto
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
-            e a2 = d.a(z.f12518c);
-            if (a2 == null || k.isEmpty(a2.f12436a)) {
+            e a2 = d.a(a0.f12704c);
+            if (a2 == null || k.isEmpty(a2.f12703a)) {
                 return "";
             }
-            String str = a2.f12436a;
+            String str = a2.f12703a;
             char c2 = 65535;
             int hashCode = str.hashCode();
             if (hashCode != 1688589) {
@@ -523,7 +523,7 @@ public class globalStateSyncPlugin implements FlutterPlugin, GlobalStateSyncAuto
             hashMap.put("z_id", TbadkCoreApplication.getInst().getZid());
             hashMap.put("hdid", TbadkCoreApplication.getInst().getHdid());
             hashMap.put("model", Build.MODEL);
-            hashMap.put("teenMode", Boolean.valueOf(c.a.o0.e1.b.e.d()));
+            hashMap.put("teenMode", Boolean.valueOf(c.a.p0.e1.b.e.d()));
             hashMap.put("sdk_ver", TbadkCoreApplication.getInst().getSdk_ver());
             hashMap.put("framework_ver", TbadkCoreApplication.getInst().getFramework_ver());
             hashMap.put("swan_game_ver", TbadkCoreApplication.getInst().getSwan_game_ver());

@@ -12,7 +12,7 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public c.a.r.g.b.d.b.b f29291a;
+    public c.a.r.g.b.d.b.b f29573a;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -27,18 +27,18 @@ public class b {
                 return;
             }
         }
-        this.f29291a = new c.a.r.g.b.d.b.b(32);
+        this.f29573a = new c.a.r.g.b.d.b.b(32);
     }
 
     public byte[] a(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bArr)) == null) ? this.f29291a.j(bArr) : (byte[]) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bArr)) == null) ? this.f29573a.j(bArr) : (byte[]) invokeL.objValue;
     }
 
     public byte[] b(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr)) == null) ? this.f29291a.m(bArr) : (byte[]) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr)) == null) ? this.f29573a.m(bArr) : (byte[]) invokeL.objValue;
     }
 }

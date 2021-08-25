@@ -14,7 +14,7 @@ public final class g extends com.vivo.push.y {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f76132a;
+    public int f76333a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public g() {
@@ -32,7 +32,7 @@ public final class g extends com.vivo.push.y {
                 return;
             }
         }
-        this.f76132a = -1;
+        this.f76333a = -1;
     }
 
     public static boolean a(int i2) {
@@ -44,15 +44,15 @@ public final class g extends com.vivo.push.y {
     public final void b(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-            this.f76132a = i2;
+            this.f76333a = i2;
         }
     }
 
     @Override // com.vivo.push.y
     public final void c(com.vivo.push.a aVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) && a(this.f76132a)) {
-            aVar.a(DebugConfig.f60529e, this.f76132a);
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) && a(this.f76333a)) {
+            aVar.a(DebugConfig.f60729e, this.f76333a);
         }
     }
 
@@ -60,7 +60,7 @@ public final class g extends com.vivo.push.y {
     public final void d(com.vivo.push.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
-            this.f76132a = aVar.b(DebugConfig.f60529e, 1);
+            this.f76333a = aVar.b(DebugConfig.f60729e, 1);
         }
     }
 }

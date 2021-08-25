@@ -12,10 +12,10 @@ public abstract class x extends u {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f76156a;
+    public String f76357a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f76157b;
+    public long f76358b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public x(int i2) {
@@ -42,8 +42,8 @@ public abstract class x extends u {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
             super.c(aVar);
-            aVar.a("OnVerifyCallBackCommand.EXTRA_SECURITY_CONTENT", this.f76156a);
-            aVar.a("notify_id", this.f76157b);
+            aVar.a("OnVerifyCallBackCommand.EXTRA_SECURITY_CONTENT", this.f76357a);
+            aVar.a("notify_id", this.f76358b);
         }
     }
 
@@ -52,20 +52,20 @@ public abstract class x extends u {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
             super.d(aVar);
-            this.f76156a = aVar.a("OnVerifyCallBackCommand.EXTRA_SECURITY_CONTENT");
-            this.f76157b = aVar.b("notify_id", -1L);
+            this.f76357a = aVar.a("OnVerifyCallBackCommand.EXTRA_SECURITY_CONTENT");
+            this.f76358b = aVar.b("notify_id", -1L);
         }
     }
 
     public final long f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f76157b : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f76358b : invokeV.longValue;
     }
 
     public final String i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f76156a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f76357a : (String) invokeV.objValue;
     }
 }

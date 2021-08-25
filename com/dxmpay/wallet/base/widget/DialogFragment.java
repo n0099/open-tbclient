@@ -41,7 +41,7 @@ public class DialogFragment extends BaseFragment implements IBeanResponseCallbac
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ DialogFragment f69223e;
+        public final /* synthetic */ DialogFragment f69423e;
 
         public a(DialogFragment dialogFragment) {
             Interceptable interceptable = $ic;
@@ -58,15 +58,15 @@ public class DialogFragment extends BaseFragment implements IBeanResponseCallbac
                     return;
                 }
             }
-            this.f69223e = dialogFragment;
+            this.f69423e = dialogFragment;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                GlobalUtils.hideKeyboard(((BaseFragment) this.f69223e).mAct.getActivity());
-                this.f69223e.finish();
+                GlobalUtils.hideKeyboard(((BaseFragment) this.f69423e).mAct.getActivity());
+                this.f69423e.finish();
             }
         }
     }
@@ -77,7 +77,7 @@ public class DialogFragment extends BaseFragment implements IBeanResponseCallbac
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ DialogFragment f69224e;
+        public final /* synthetic */ DialogFragment f69424e;
 
         public b(DialogFragment dialogFragment) {
             Interceptable interceptable = $ic;
@@ -94,15 +94,15 @@ public class DialogFragment extends BaseFragment implements IBeanResponseCallbac
                     return;
                 }
             }
-            this.f69224e = dialogFragment;
+            this.f69424e = dialogFragment;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                GlobalUtils.hideKeyboard(((BaseFragment) this.f69224e).mAct.getActivity());
-                this.f69224e.finish();
+                GlobalUtils.hideKeyboard(((BaseFragment) this.f69424e).mAct.getActivity());
+                this.f69424e.finish();
             }
         }
     }
@@ -113,7 +113,7 @@ public class DialogFragment extends BaseFragment implements IBeanResponseCallbac
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ DialogFragment f69225e;
+        public final /* synthetic */ DialogFragment f69425e;
 
         public c(DialogFragment dialogFragment) {
             Interceptable interceptable = $ic;
@@ -130,16 +130,16 @@ public class DialogFragment extends BaseFragment implements IBeanResponseCallbac
                     return;
                 }
             }
-            this.f69225e = dialogFragment;
+            this.f69425e = dialogFragment;
         }
 
         @Override // android.content.DialogInterface.OnCancelListener
         public void onCancel(DialogInterface dialogInterface) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) || ((BaseFragment) this.f69225e).mAct == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) || ((BaseFragment) this.f69425e).mAct == null) {
                 return;
             }
-            ((BaseFragment) this.f69225e).mAct.onBackPressed();
+            ((BaseFragment) this.f69425e).mAct.onBackPressed();
         }
     }
 
@@ -149,7 +149,7 @@ public class DialogFragment extends BaseFragment implements IBeanResponseCallbac
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ DialogFragment f69226e;
+        public final /* synthetic */ DialogFragment f69426e;
 
         public d(DialogFragment dialogFragment) {
             Interceptable interceptable = $ic;
@@ -166,14 +166,14 @@ public class DialogFragment extends BaseFragment implements IBeanResponseCallbac
                     return;
                 }
             }
-            this.f69226e = dialogFragment;
+            this.f69426e = dialogFragment;
         }
 
         @Override // android.content.DialogInterface.OnCancelListener
         public void onCancel(DialogInterface dialogInterface) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
-                this.f69226e.cancleRequest();
+                this.f69426e.cancleRequest();
             }
         }
     }
@@ -184,7 +184,7 @@ public class DialogFragment extends BaseFragment implements IBeanResponseCallbac
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ DialogFragment f69227e;
+        public final /* synthetic */ DialogFragment f69427e;
 
         public e(DialogFragment dialogFragment) {
             Interceptable interceptable = $ic;
@@ -201,14 +201,14 @@ public class DialogFragment extends BaseFragment implements IBeanResponseCallbac
                     return;
                 }
             }
-            this.f69227e = dialogFragment;
+            this.f69427e = dialogFragment;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                WalletGlobalUtils.safeDismissDialog(((BaseFragment) this.f69227e).mAct, 3851);
+                WalletGlobalUtils.safeDismissDialog(((BaseFragment) this.f69427e).mAct, 3851);
             }
         }
     }
@@ -219,7 +219,7 @@ public class DialogFragment extends BaseFragment implements IBeanResponseCallbac
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ DialogFragment f69228e;
+        public final /* synthetic */ DialogFragment f69428e;
 
         public f(DialogFragment dialogFragment) {
             Interceptable interceptable = $ic;
@@ -236,16 +236,16 @@ public class DialogFragment extends BaseFragment implements IBeanResponseCallbac
                     return;
                 }
             }
-            this.f69228e = dialogFragment;
+            this.f69428e = dialogFragment;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                WalletGlobalUtils.safeDismissDialog(((BaseFragment) this.f69228e).mAct, 3851);
+                WalletGlobalUtils.safeDismissDialog(((BaseFragment) this.f69428e).mAct, 3851);
                 try {
-                    this.f69228e.startActivityForResult(new Intent("android.settings.SETTINGS"), 0);
+                    this.f69428e.startActivityForResult(new Intent("android.settings.SETTINGS"), 0);
                 } catch (Exception unused) {
                 }
             }
@@ -258,16 +258,16 @@ public class DialogFragment extends BaseFragment implements IBeanResponseCallbac
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f69229e;
+        public final /* synthetic */ int f69429e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Object f69230f;
+        public final /* synthetic */ Object f69430f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f69231g;
+        public final /* synthetic */ String f69431g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ DialogFragment f69232h;
+        public final /* synthetic */ DialogFragment f69432h;
 
         public g(DialogFragment dialogFragment, int i2, Object obj, String str) {
             Interceptable interceptable = $ic;
@@ -284,19 +284,19 @@ public class DialogFragment extends BaseFragment implements IBeanResponseCallbac
                     return;
                 }
             }
-            this.f69232h = dialogFragment;
-            this.f69229e = i2;
-            this.f69230f = obj;
-            this.f69231g = str;
+            this.f69432h = dialogFragment;
+            this.f69429e = i2;
+            this.f69430f = obj;
+            this.f69431g = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || ((BaseFragment) this.f69232h).mAct == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || ((BaseFragment) this.f69432h).mAct == null) {
                 return;
             }
-            this.f69232h.handleResponse(this.f69229e, this.f69230f, this.f69231g);
+            this.f69432h.handleResponse(this.f69429e, this.f69430f, this.f69431g);
         }
     }
 
@@ -306,16 +306,16 @@ public class DialogFragment extends BaseFragment implements IBeanResponseCallbac
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f69233e;
+        public final /* synthetic */ int f69433e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f69234f;
+        public final /* synthetic */ int f69434f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f69235g;
+        public final /* synthetic */ String f69435g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ DialogFragment f69236h;
+        public final /* synthetic */ DialogFragment f69436h;
 
         public h(DialogFragment dialogFragment, int i2, int i3, String str) {
             Interceptable interceptable = $ic;
@@ -332,19 +332,19 @@ public class DialogFragment extends BaseFragment implements IBeanResponseCallbac
                     return;
                 }
             }
-            this.f69236h = dialogFragment;
-            this.f69233e = i2;
-            this.f69234f = i3;
-            this.f69235g = str;
+            this.f69436h = dialogFragment;
+            this.f69433e = i2;
+            this.f69434f = i3;
+            this.f69435g = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || ((BaseFragment) this.f69236h).mAct == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || ((BaseFragment) this.f69436h).mAct == null) {
                 return;
             }
-            this.f69236h.handleFailure(this.f69233e, this.f69234f, this.f69235g);
+            this.f69436h.handleFailure(this.f69433e, this.f69434f, this.f69435g);
         }
     }
 

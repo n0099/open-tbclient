@@ -86,7 +86,7 @@ public class RsaCipher {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
                     try {
-                        return Cipher.getInstance(RsaCipher.RSA_PADDING);
+                        return Cipher.getInstance("RSA/ECB/PKCS1Padding");
                     } catch (NoSuchAlgorithmException e2) {
                         throw new RuntimeException(e2);
                     } catch (NoSuchPaddingException e3) {

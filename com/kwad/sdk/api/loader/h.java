@@ -41,7 +41,7 @@ public class h {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f70733a;
+    public static final String f70933a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes10.dex */
@@ -57,7 +57,7 @@ public class h {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final OutputStream f70737a;
+        public final OutputStream f70937a;
 
         public b(File file, boolean z) {
             Interceptable interceptable = $ic;
@@ -74,7 +74,7 @@ public class h {
                     return;
                 }
             }
-            this.f70737a = new FileOutputStream(file, z);
+            this.f70937a = new FileOutputStream(file, z);
         }
 
         @Override // com.kwad.sdk.api.loader.h.d
@@ -95,7 +95,7 @@ public class h {
         public void a(byte[] bArr, int i2, int i3) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, bArr, i2, i3) == null) {
-                this.f70737a.write(bArr, i2, i3);
+                this.f70937a.write(bArr, i2, i3);
             }
         }
 
@@ -103,7 +103,7 @@ public class h {
         public void close() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                this.f70737a.close();
+                this.f70937a.close();
             }
         }
     }
@@ -135,7 +135,7 @@ public class h {
                 return;
             }
         }
-        f70733a = a(Loader.get().getContext()) + "/apkfileD/dynamic";
+        f70933a = a(Loader.get().getContext()) + "/apkfileD/dynamic";
     }
 
     @NonNull
@@ -217,13 +217,13 @@ public class h {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ String f70734a;
+                public final /* synthetic */ String f70934a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ File f70735b;
+                public final /* synthetic */ File f70935b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ a f70736c;
+                public final /* synthetic */ a f70936c;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -240,9 +240,9 @@ public class h {
                             return;
                         }
                     }
-                    this.f70734a = str;
-                    this.f70735b = file;
-                    this.f70736c = aVar;
+                    this.f70934a = str;
+                    this.f70935b = file;
+                    this.f70936c = aVar;
                 }
 
                 @Override // java.lang.Runnable
@@ -250,17 +250,17 @@ public class h {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         try {
-                            boolean a2 = h.a(this.f70734a, this.f70735b, null, 0);
-                            if (this.f70736c != null) {
+                            boolean a2 = h.a(this.f70934a, this.f70935b, null, 0);
+                            if (this.f70936c != null) {
                                 if (a2) {
-                                    this.f70736c.a(this.f70735b);
+                                    this.f70936c.a(this.f70935b);
                                 } else {
-                                    this.f70736c.a();
+                                    this.f70936c.a();
                                 }
                             }
                         } catch (Exception e2) {
                             e2.printStackTrace();
-                            a aVar2 = this.f70736c;
+                            a aVar2 = this.f70936c;
                             if (aVar2 != null) {
                                 aVar2.a();
                             }
@@ -435,7 +435,7 @@ public class h {
             if (contentLength <= 0) {
                 try {
                     Random random = new Random(System.currentTimeMillis());
-                    file2 = new File(f70733a, random.nextInt() + ".tmp");
+                    file2 = new File(f70933a, random.nextInt() + ".tmp");
                     try {
                         fileOutputStream = new FileOutputStream(file2);
                         try {

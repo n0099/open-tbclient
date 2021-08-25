@@ -21,7 +21,7 @@ public class a implements AdDownloadProxy {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f71311a;
+    public boolean f71511a;
 
     public a(boolean z) {
         Interceptable interceptable = $ic;
@@ -38,7 +38,7 @@ public class a implements AdDownloadProxy {
                 return;
             }
         }
-        this.f71311a = z;
+        this.f71511a = z;
     }
 
     private String a(String str) {
@@ -92,7 +92,7 @@ public class a implements AdDownloadProxy {
             downloadRequest.setDestinationFileName(a(downloadParams.mFileUrl));
             downloadRequest.setTag(downloadParams);
             downloadRequest.setDownloadEnablePause(downloadParams.downloadEnablePause);
-            downloadRequest.setNotificationVisibility(this.f71311a ? 3 : 0);
+            downloadRequest.setNotificationVisibility(this.f71511a ? 3 : 0);
             com.ksad.download.a.a.a(context, str, downloadRequest);
         }
     }

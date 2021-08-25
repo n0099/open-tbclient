@@ -1,7 +1,7 @@
 package com.baidu.tieba.themeCenter.background;
 
-import c.a.p0.o3.e.b;
-import c.a.p0.o3.h.e;
+import c.a.q0.o3.e.b;
+import c.a.q0.o3.h.e;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;

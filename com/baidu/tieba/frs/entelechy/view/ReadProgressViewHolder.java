@@ -4,7 +4,7 @@ import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.view.View;
 import android.widget.TextView;
-import c.a.p0.v0.u;
+import c.a.q0.v0.u;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
@@ -23,10 +23,10 @@ public class ReadProgressViewHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f50830a;
+    public static final int f50938a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f50831b;
+    public static final int f50939b;
     public transient /* synthetic */ FieldHolder $fh;
     public Context mContext;
     public View mRoot;
@@ -46,8 +46,8 @@ public class ReadProgressViewHolder extends TypeAdapter.ViewHolder {
             }
         }
         UtilHelper.getDimenPixelSize(R.dimen.M_H_X002);
-        f50830a = UtilHelper.getDimenPixelSize(R.dimen.M_H_X003);
-        f50831b = UtilHelper.getDimenPixelSize(R.dimen.M_H_X005);
+        f50938a = UtilHelper.getDimenPixelSize(R.dimen.M_H_X003);
+        f50939b = UtilHelper.getDimenPixelSize(R.dimen.M_H_X005);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -71,8 +71,8 @@ public class ReadProgressViewHolder extends TypeAdapter.ViewHolder {
         this.mRoot = view;
         TextView textView = (TextView) view.findViewById(R.id.view_frs_read_progress);
         this.mTipView = textView;
-        int i4 = f50831b;
-        textView.setPadding(0, i4, 0, i4 - f50830a);
+        int i4 = f50939b;
+        textView.setPadding(0, i4, 0, i4 - f50938a);
         this.mContext = context;
     }
 

@@ -11,7 +11,7 @@ public final class c implements Runnable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ Process f59178a;
+    public final /* synthetic */ Process f59378a;
 
     public c(Process process) {
         Interceptable interceptable = $ic;
@@ -28,7 +28,7 @@ public final class c implements Runnable {
                 return;
             }
         }
-        this.f59178a = process;
+        this.f59378a = process;
     }
 
     @Override // java.lang.Runnable
@@ -37,7 +37,7 @@ public final class c implements Runnable {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             try {
                 do {
-                } while (this.f59178a.getErrorStream().read(new byte[8192]) >= 0);
+                } while (this.f59378a.getErrorStream().read(new byte[8192]) >= 0);
             } catch (IOException unused) {
             }
         }

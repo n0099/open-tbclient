@@ -16,13 +16,13 @@ public class g implements j {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public d f3174a;
+    public d f3294a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f3175b;
+    public boolean f3295b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final HttpMessageListener f3176c;
+    public final HttpMessageListener f3296c;
 
     /* loaded from: classes.dex */
     public class a extends HttpMessageListener {
@@ -30,7 +30,7 @@ public class g implements j {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ g f3177a;
+        public final /* synthetic */ g f3297a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(g gVar, int i2) {
@@ -50,7 +50,7 @@ public class g implements j {
                     return;
                 }
             }
-            this.f3177a = gVar;
+            this.f3297a = gVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -59,11 +59,11 @@ public class g implements j {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003397 && (httpResponsedMessage instanceof AfdSyncResponseMessage)) {
                 e eVar = ((AfdSyncResponseMessage) httpResponsedMessage).adModel;
-                this.f3177a.f3174a.t(eVar);
-                if (!eVar.f3170a || eVar.f3173d == null) {
+                this.f3297a.f3294a.t(eVar);
+                if (!eVar.f3290a || eVar.f3293d == null) {
                     return;
                 }
-                c.a.p0.x2.l0.e.b().d(c.a.p0.x2.l0.g.o(this.f3177a.f3174a, eVar.f3173d));
+                c.a.q0.x2.l0.e.b().d(c.a.q0.x2.l0.g.o(this.f3297a.f3294a, eVar.f3293d));
             }
         }
     }
@@ -84,22 +84,22 @@ public class g implements j {
             }
         }
         a aVar = new a(this, CmdConfigHttp.CMD_AFD_REQUEST_ASYNC);
-        this.f3176c = aVar;
-        this.f3174a = dVar;
+        this.f3296c = aVar;
+        this.f3294a = dVar;
         aVar.setSelfListener(true);
-        this.f3176c.setTag(dVar.p());
-        MessageManager.getInstance().registerListener(this.f3176c);
+        this.f3296c.setTag(dVar.p());
+        MessageManager.getInstance().registerListener(this.f3296c);
     }
 
     @Override // c.a.f.j
     public void a() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f3175b) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f3295b) {
             return;
         }
-        this.f3175b = true;
-        AfdSyncRequestMessage afdSyncRequestMessage = new AfdSyncRequestMessage(this.f3174a.f3166g);
-        afdSyncRequestMessage.setTag(this.f3174a.p());
+        this.f3295b = true;
+        AfdSyncRequestMessage afdSyncRequestMessage = new AfdSyncRequestMessage(this.f3294a.f3286g);
+        afdSyncRequestMessage.setTag(this.f3294a.p());
         MessageManager.getInstance().sendMessage(afdSyncRequestMessage);
     }
 }

@@ -39,34 +39,34 @@ public class FeedbackHotActivity extends Activity {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final int f59279a;
+    public final int f59479a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f59280b;
+    public final int f59480b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final int f59281c;
+    public final int f59481c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final int f59282d;
+    public final int f59482d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final int f59283e;
+    public final int f59483e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final String f59284f;
+    public final String f59484f;
 
     /* renamed from: g  reason: collision with root package name */
-    public RelativeLayout f59285g;
+    public RelativeLayout f59485g;
 
     /* renamed from: h  reason: collision with root package name */
-    public LinearLayout f59286h;
+    public LinearLayout f59486h;
 
     /* renamed from: i  reason: collision with root package name */
-    public ImageView f59287i;
+    public ImageView f59487i;
 
     /* renamed from: j  reason: collision with root package name */
-    public WebView f59288j;
+    public WebView f59488j;
     public Button k;
     public View l;
     public TextView m;
@@ -91,12 +91,12 @@ public class FeedbackHotActivity extends Activity {
                 return;
             }
         }
-        this.f59279a = R.id.App_Launch_Circle_Animation_View;
-        this.f59280b = R.id.App_Launch_Shimmer_Animation_View;
-        this.f59281c = R.id.BLOCK;
-        this.f59282d = R.id.BOTH;
-        this.f59283e = R.id.BOTTOM;
-        this.f59284f = "UfoCacheFile";
+        this.f59479a = R.id.App_Launch_Circle_Animation_View;
+        this.f59480b = R.id.App_Launch_Shimmer_Animation_View;
+        this.f59481c = R.id.BLOCK;
+        this.f59482d = R.id.BOTH;
+        this.f59483e = R.id.BOTTOM;
+        this.f59484f = "UfoCacheFile";
         this.o = "";
         this.p = "";
         this.r = new ax(this);
@@ -142,10 +142,10 @@ public class FeedbackHotActivity extends Activity {
         }
         if (this.o.contains("ufosdk.baidu.com")) {
             if (this.o.contains("http")) {
-                this.f59288j.loadUrl(this.o);
+                this.f59488j.loadUrl(this.o);
                 return;
             }
-            WebView webView = this.f59288j;
+            WebView webView = this.f59488j;
             webView.loadUrl("https://" + this.o);
             return;
         }
@@ -157,7 +157,7 @@ public class FeedbackHotActivity extends Activity {
             jSONObject.put("devid", UfoSDK.devid);
             jSONObject.put("osvn", Build.VERSION.RELEASE);
             jSONObject.put("appname", com.baidu.ufosdk.b.e.a());
-            jSONObject.put("channel_id", com.baidu.ufosdk.b.f59177j);
+            jSONObject.put("channel_id", com.baidu.ufosdk.b.f59377j);
             jSONObject.put("nettype", com.baidu.ufosdk.b.d.b(this));
             jSONObject.put("model", Build.MODEL);
         } catch (JSONException e2) {
@@ -168,9 +168,9 @@ public class FeedbackHotActivity extends Activity {
         hashMap.put("refertype", "mobile");
         hashMap.put("newreferer", jSONObject2);
         if (Build.VERSION.SDK_INT >= 8) {
-            this.f59288j.loadUrl(this.o, hashMap);
+            this.f59488j.loadUrl(this.o, hashMap);
         } else {
-            this.f59288j.loadUrl(this.o);
+            this.f59488j.loadUrl(this.o);
         }
     }
 
@@ -193,7 +193,7 @@ public class FeedbackHotActivity extends Activity {
         intent.setClass(feedbackHotActivity, FeedbackEditActivity.class);
         intent.putExtra("msgid", "newMessage");
         intent.putExtra("faq_id", feedbackHotActivity.p);
-        intent.putExtra("feedback_channel", com.baidu.ufosdk.b.f59177j);
+        intent.putExtra("feedback_channel", com.baidu.ufosdk.b.f59377j);
         intent.putExtra("product_type", i2);
         intent.putExtra("come_from", 1);
         feedbackHotActivity.startActivity(intent);
@@ -234,14 +234,14 @@ public class FeedbackHotActivity extends Activity {
             com.baidu.ufosdk.f.r.a(this, getWindow());
             com.baidu.ufosdk.f.r.a(getWindow(), com.baidu.ufosdk.b.L);
             RelativeLayout relativeLayout = new RelativeLayout(this);
-            this.f59285g = relativeLayout;
+            this.f59485g = relativeLayout;
             relativeLayout.setFitsSystemWindows(true);
-            this.f59285g.setId(R.id.BOTH);
+            this.f59485g.setId(R.id.BOTH);
             RelativeLayout relativeLayout2 = new RelativeLayout(this);
             relativeLayout2.setId(R.id.BLOCK);
-            this.f59285g.setBackgroundColor(com.baidu.ufosdk.b.z);
+            this.f59485g.setBackgroundColor(com.baidu.ufosdk.b.z);
             LinearLayout linearLayout = new LinearLayout(this);
-            this.f59286h = linearLayout;
+            this.f59486h = linearLayout;
             linearLayout.setOrientation(1);
             ImageView imageView = new ImageView(this);
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(com.baidu.ufosdk.f.i.a(getApplicationContext(), 115.0f), com.baidu.ufosdk.f.i.a(getApplicationContext(), 85.0f));
@@ -250,7 +250,7 @@ public class FeedbackHotActivity extends Activity {
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
-            this.f59286h.addView(imageView, layoutParams);
+            this.f59486h.addView(imageView, layoutParams);
             TextView textView = new TextView(this);
             this.m = textView;
             textView.setPadding(com.baidu.ufosdk.f.i.a(getApplicationContext(), 10.0f), com.baidu.ufosdk.f.i.a(getApplicationContext(), 18.0f), com.baidu.ufosdk.f.i.a(getApplicationContext(), 10.0f), com.baidu.ufosdk.f.i.a(getApplicationContext(), 11.0f));
@@ -258,7 +258,7 @@ public class FeedbackHotActivity extends Activity {
             this.m.setTextColor(com.baidu.ufosdk.b.x);
             LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-2, -2);
             com.baidu.ufosdk.f.i.a(getApplicationContext(), this.m);
-            this.f59286h.addView(this.m, layoutParams2);
+            this.f59486h.addView(this.m, layoutParams2);
             Button button = new Button(this);
             this.k = button;
             button.setText(com.baidu.ufosdk.f.s.a(com.tencent.connect.common.Constants.VIA_REPORT_TYPE_DATALINE));
@@ -271,12 +271,12 @@ public class FeedbackHotActivity extends Activity {
             }
             LinearLayout.LayoutParams layoutParams3 = new LinearLayout.LayoutParams(com.baidu.ufosdk.f.i.a(getApplicationContext(), 122.0f), com.baidu.ufosdk.f.i.a(getApplicationContext(), 40.0f));
             layoutParams3.setMargins(0, com.baidu.ufosdk.f.i.a(getApplicationContext(), 15.0f), 0, 0);
-            this.f59286h.addView(this.k, layoutParams3);
+            this.f59486h.addView(this.k, layoutParams3);
             RelativeLayout.LayoutParams layoutParams4 = new RelativeLayout.LayoutParams(-2, -2);
             layoutParams4.addRule(13);
-            this.f59285g.addView(this.f59286h, layoutParams4);
-            this.f59286h.setGravity(17);
-            this.f59286h.setVisibility(8);
+            this.f59485g.addView(this.f59486h, layoutParams4);
+            this.f59486h.setGravity(17);
+            this.f59486h.setVisibility(8);
             LinearLayout linearLayout2 = new LinearLayout(this);
             linearLayout2.setOrientation(0);
             linearLayout2.setGravity(16);
@@ -284,13 +284,13 @@ public class FeedbackHotActivity extends Activity {
             LinearLayout.LayoutParams layoutParams5 = new LinearLayout.LayoutParams(com.baidu.ufosdk.f.i.a(getApplicationContext(), 18.0f), com.baidu.ufosdk.f.i.a(getApplicationContext(), 50.0f));
             layoutParams5.setMargins(com.baidu.ufosdk.f.i.a(getApplicationContext(), 10.0f), 0, 0, 0);
             ImageView imageView2 = new ImageView(this);
-            this.f59287i = imageView2;
+            this.f59487i = imageView2;
             imageView2.setId(R.id.App_Launch_Circle_Animation_View);
-            this.f59287i.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            this.f59287i.setBackgroundDrawable(new BitmapDrawable(com.baidu.ufosdk.f.m.a(getApplicationContext(), "ufo_back_icon_browser.png")));
-            linearLayout2.addView(this.f59287i, layoutParams5);
+            this.f59487i.setScaleType(ImageView.ScaleType.CENTER_CROP);
+            this.f59487i.setBackgroundDrawable(new BitmapDrawable(com.baidu.ufosdk.f.m.a(getApplicationContext(), "ufo_back_icon_browser.png")));
+            linearLayout2.addView(this.f59487i, layoutParams5);
             TextView textView2 = new TextView(this);
-            textView2.setText(com.baidu.ufosdk.b.f59176i);
+            textView2.setText(com.baidu.ufosdk.b.f59376i);
             textView2.setTextSize(com.baidu.ufosdk.b.M);
             textView2.setTextColor(com.baidu.ufosdk.b.H);
             textView2.setGravity(16);
@@ -314,28 +314,28 @@ public class FeedbackHotActivity extends Activity {
             relativeLayout2.addView(this.n, layoutParams8);
             RelativeLayout.LayoutParams layoutParams9 = new RelativeLayout.LayoutParams(-1, com.baidu.ufosdk.f.i.a(getApplicationContext(), 50.0f));
             layoutParams9.addRule(10);
-            this.f59285g.addView(relativeLayout2, layoutParams9);
+            this.f59485g.addView(relativeLayout2, layoutParams9);
             View view = new View(this);
             view.setId(R.id.BOTTOM);
             view.setBackgroundColor(-2894893);
             RelativeLayout.LayoutParams layoutParams10 = new RelativeLayout.LayoutParams(-1, com.baidu.ufosdk.f.i.a(getApplicationContext(), 0.5f));
             layoutParams10.addRule(3, relativeLayout2.getId());
-            this.f59285g.addView(view, layoutParams10);
+            this.f59485g.addView(view, layoutParams10);
             WebView webView = new WebView(this);
-            this.f59288j = webView;
+            this.f59488j = webView;
             webView.setBackgroundColor(com.baidu.ufosdk.b.z);
             RelativeLayout.LayoutParams layoutParams11 = new RelativeLayout.LayoutParams(-1, -1);
             layoutParams11.addRule(12);
             layoutParams11.addRule(3, view.getId());
-            this.f59285g.addView(this.f59288j, layoutParams11);
+            this.f59485g.addView(this.f59488j, layoutParams11);
             new RelativeLayout.LayoutParams(-1, -1);
-            this.f59285g.setLayoutParams(layoutParams6);
-            setContentView(this.f59285g);
+            this.f59485g.setLayoutParams(layoutParams6);
+            setContentView(this.f59485g);
             this.l = com.baidu.ufosdk.f.i.b(this, com.baidu.ufosdk.f.s.a("13"));
             RelativeLayout.LayoutParams layoutParams12 = new RelativeLayout.LayoutParams(-2, -2);
             layoutParams12.addRule(13);
-            this.f59285g.addView(this.l, layoutParams12);
-            WebSettings settings = this.f59288j.getSettings();
+            this.f59485g.addView(this.l, layoutParams12);
+            WebSettings settings = this.f59488j.getSettings();
             settings.setJavaScriptEnabled(true);
             settings.setRenderPriority(WebSettings.RenderPriority.HIGH);
             settings.setUseWideViewPort(true);
@@ -344,10 +344,10 @@ public class FeedbackHotActivity extends Activity {
             if (com.baidu.ufosdk.b.d.b(getApplicationContext()).contains(RomUtils.UNKNOWN) || com.baidu.ufosdk.b.d.b(getApplicationContext()).contains("NONE")) {
                 this.l.setVisibility(8);
             } else {
-                this.f59286h.setVisibility(8);
-                this.f59288j.setVisibility(0);
+                this.f59486h.setVisibility(8);
+                this.f59488j.setVisibility(0);
             }
-            this.f59288j.setWebViewClient(new bc(this, (byte) 0));
+            this.f59488j.setWebViewClient(new bc(this, (byte) 0));
             linearLayout2.setOnClickListener(new ay(this));
             this.k.setOnClickListener(new az(this));
             a();
@@ -374,7 +374,7 @@ public class FeedbackHotActivity extends Activity {
             this.k.setText(com.baidu.ufosdk.f.s.a(com.tencent.connect.common.Constants.VIA_REPORT_TYPE_DATALINE));
             this.n.setText(com.baidu.ufosdk.f.s.a("8"));
             com.baidu.ufosdk.f.i.a((RelativeLayout) this.l, com.baidu.ufosdk.f.s.a("13"));
-            this.f59288j.resumeTimers();
+            this.f59488j.resumeTimers();
             if (UfoSDK.clientid.length() == 0) {
                 new Thread(new ba(this)).start();
             }

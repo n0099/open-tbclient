@@ -119,7 +119,7 @@ public final class ProtocolDecoder {
             switch (i2) {
                 case 2005:
                     GetUserAccountResponse getUserAccountResponse = new GetUserAccountResponse(str);
-                    return newResponse(1005, getUserAccountResponse.seq, new MyBalanceResult(new MyBalanceInfo(getUserAccountResponse.accountList, getUserAccountResponse.accountPeriodList, getUserAccountResponse.minAmountLimit)), getUserAccountResponse.result, getUserAccountResponse.message);
+                    return newResponse(1005, getUserAccountResponse.seq, new MyBalanceResult(new MyBalanceInfo(getUserAccountResponse.accountList, getUserAccountResponse.accountPeriodList, getUserAccountResponse.minAmountLimit, getUserAccountResponse.imid)), getUserAccountResponse.result, getUserAccountResponse.message);
                 case 2021:
                     GetChargeCurrencyConfigResponse getChargeCurrencyConfigResponse = new GetChargeCurrencyConfigResponse(str);
                     Object productListResult = new ProductListResult(getChargeCurrencyConfigResponse.currencyType, getChargeCurrencyConfigResponse.currencyName, getChargeCurrencyConfigResponse.paysSettingInfo, getChargeCurrencyConfigResponse.confList, getChargeCurrencyConfigResponse.payWayInfoList);

@@ -21,10 +21,10 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f29326a;
+    public Context f29608a;
 
     /* renamed from: b  reason: collision with root package name */
-    public C1372a f29327b;
+    public C1379a f29609b;
 
     public a(Context context) {
         Interceptable interceptable = $ic;
@@ -41,7 +41,7 @@ public class a {
                 return;
             }
         }
-        this.f29326a = context;
+        this.f29608a = context;
         c().mkdirs();
     }
 
@@ -150,7 +150,7 @@ public class a {
     public File b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new File(this.f29326a.getApplicationInfo().dataDir) : (File) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new File(this.f29608a.getApplicationInfo().dataDir) : (File) invokeV.objValue;
     }
 
     public final File c() {
@@ -159,49 +159,49 @@ public class a {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new File(b(), ".helios") : (File) invokeV.objValue;
     }
 
-    public synchronized C1372a d() {
+    public synchronized C1379a d() {
         InterceptResult invokeV;
-        C1372a c1372a;
+        C1379a c1379a;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             synchronized (this) {
-                if (this.f29327b == null) {
-                    this.f29327b = new C1372a(this, ".helios", null);
+                if (this.f29609b == null) {
+                    this.f29609b = new C1379a(this, ".helios", null);
                 }
-                c1372a = this.f29327b;
+                c1379a = this.f29609b;
             }
-            return c1372a;
+            return c1379a;
         }
-        return (C1372a) invokeV.objValue;
+        return (C1379a) invokeV.objValue;
     }
 
     /* renamed from: c.a.r.g.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public final class C1372a {
+    public final class C1379a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public File f29328a;
+        public File f29610a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f29329b;
+        public String f29611b;
 
         /* renamed from: c  reason: collision with root package name */
-        public C1372a f29330c;
+        public C1379a f29612c;
 
         /* renamed from: d  reason: collision with root package name */
-        public boolean f29331d;
+        public boolean f29613d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f29332e;
+        public final /* synthetic */ a f29614e;
 
-        public C1372a(a aVar, String str, C1372a c1372a) {
+        public C1379a(a aVar, String str, C1379a c1379a) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {aVar, str, c1372a};
+                Object[] objArr = {aVar, str, c1379a};
                 interceptable.invokeUnInit(65537, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -211,11 +211,11 @@ public class a {
                     return;
                 }
             }
-            this.f29332e = aVar;
-            this.f29331d = false;
-            this.f29329b = str;
-            this.f29330c = c1372a;
-            this.f29331d = false;
+            this.f29614e = aVar;
+            this.f29613d = false;
+            this.f29611b = str;
+            this.f29612c = c1379a;
+            this.f29613d = false;
         }
 
         public void a() {
@@ -230,16 +230,16 @@ public class a {
             File file;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                File file2 = this.f29328a;
+                File file2 = this.f29610a;
                 if (file2 != null) {
                     return file2;
                 }
-                if (this.f29330c == null) {
-                    file = new File(this.f29332e.b(), this.f29329b);
+                if (this.f29612c == null) {
+                    file = new File(this.f29614e.b(), this.f29611b);
                 } else {
-                    file = new File(this.f29330c.b(), this.f29329b);
+                    file = new File(this.f29612c.b(), this.f29611b);
                 }
-                this.f29328a = file;
+                this.f29610a = file;
                 return file;
             }
             return (File) invokeV.objValue;
@@ -248,25 +248,25 @@ public class a {
         public String c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f29329b : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f29611b : (String) invokeV.objValue;
         }
 
         public File d(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) ? new File(this.f29328a, str) : (File) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) ? new File(this.f29610a, str) : (File) invokeL.objValue;
         }
 
-        public C1372a e() {
+        public C1379a e() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f29330c : (C1372a) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f29612c : (C1379a) invokeV.objValue;
         }
 
-        public C1372a f(String str) {
+        public C1379a f(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) ? new C1372a(this.f29332e, str, this) : (C1372a) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) ? new C1379a(this.f29614e, str, this) : (C1379a) invokeL.objValue;
         }
 
         public String g(String str, boolean z) {
@@ -275,27 +275,27 @@ public class a {
             return (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048582, this, str, z)) == null) ? a.e(b(), str, "UTF-8", z) : (String) invokeLZ.objValue;
         }
 
-        public C1372a h(File file) {
+        public C1379a h(File file) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, file)) == null) {
-                if (!this.f29331d) {
+                if (!this.f29613d) {
                     ArrayList arrayList = new ArrayList();
-                    C1372a c1372a = this;
+                    C1379a c1379a = this;
                     do {
-                        arrayList.add(c1372a.c());
-                        c1372a = c1372a.e();
-                    } while (c1372a != null);
+                        arrayList.add(c1379a.c());
+                        c1379a = c1379a.e();
+                    } while (c1379a != null);
                     int size = arrayList.size() - 1;
                     while (size >= 0) {
                         size--;
                         file = new File(file, (String) arrayList.get(size));
                     }
-                    return new C1372a(this.f29332e, file);
+                    return new C1379a(this.f29614e, file);
                 }
                 throw new IllegalStateException("isolate session is not support");
             }
-            return (C1372a) invokeL.objValue;
+            return (C1379a) invokeL.objValue;
         }
 
         public boolean i(String str, String str2, boolean z) {
@@ -304,7 +304,7 @@ public class a {
             return (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, str2, z)) == null) ? a.f(b(), str, str2, "UTF-8", z) : invokeLLZ.booleanValue;
         }
 
-        public C1372a(a aVar, File file) {
+        public C1379a(a aVar, File file) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -319,11 +319,11 @@ public class a {
                     return;
                 }
             }
-            this.f29332e = aVar;
-            this.f29331d = false;
-            this.f29331d = true;
-            this.f29328a = file;
-            this.f29329b = file.getName();
+            this.f29614e = aVar;
+            this.f29613d = false;
+            this.f29613d = true;
+            this.f29610a = file;
+            this.f29611b = file.getName();
         }
     }
 }

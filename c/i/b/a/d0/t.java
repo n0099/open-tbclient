@@ -14,17 +14,17 @@ public final class t {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final t f32921d;
+    public static final t f33027d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final int f32922a;
+    public final int f33028a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final s[] f32923b;
+    public final s[] f33029b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f32924c;
+    public int f33030c;
 
     static {
         InterceptResult invokeClinit;
@@ -39,7 +39,7 @@ public final class t {
                 return;
             }
         }
-        f32921d = new t(new s[0]);
+        f33027d = new t(new s[0]);
     }
 
     public t(s... sVarArr) {
@@ -57,22 +57,22 @@ public final class t {
                 return;
             }
         }
-        this.f32923b = sVarArr;
-        this.f32922a = sVarArr.length;
+        this.f33029b = sVarArr;
+        this.f33028a = sVarArr.length;
     }
 
     public s a(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? this.f32923b[i2] : (s) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? this.f33029b[i2] : (s) invokeI.objValue;
     }
 
     public int b(s sVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sVar)) == null) {
-            for (int i2 = 0; i2 < this.f32922a; i2++) {
-                if (this.f32923b[i2] == sVar) {
+            for (int i2 = 0; i2 < this.f33028a; i2++) {
+                if (this.f33029b[i2] == sVar) {
                     return i2;
                 }
             }
@@ -92,7 +92,7 @@ public final class t {
                 return false;
             }
             t tVar = (t) obj;
-            return this.f32922a == tVar.f32922a && Arrays.equals(this.f32923b, tVar.f32923b);
+            return this.f33028a == tVar.f33028a && Arrays.equals(this.f33029b, tVar.f33029b);
         }
         return invokeL.booleanValue;
     }
@@ -101,10 +101,10 @@ public final class t {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (this.f32924c == 0) {
-                this.f32924c = Arrays.hashCode(this.f32923b);
+            if (this.f33030c == 0) {
+                this.f33030c = Arrays.hashCode(this.f33029b);
             }
-            return this.f32924c;
+            return this.f33030c;
         }
         return invokeV.intValue;
     }

@@ -16,7 +16,7 @@ public final class SendStrategyEnum {
     public static final SendStrategyEnum SET_TIME_INTERVAL;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final /* synthetic */ SendStrategyEnum[] f43537a;
+    public static final /* synthetic */ SendStrategyEnum[] f43644a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -36,7 +36,7 @@ public final class SendStrategyEnum {
         ONCE_A_DAY = new SendStrategyEnum("ONCE_A_DAY", 1);
         SendStrategyEnum sendStrategyEnum = new SendStrategyEnum("SET_TIME_INTERVAL", 2);
         SET_TIME_INTERVAL = sendStrategyEnum;
-        f43537a = new SendStrategyEnum[]{APP_START, ONCE_A_DAY, sendStrategyEnum};
+        f43644a = new SendStrategyEnum[]{APP_START, ONCE_A_DAY, sendStrategyEnum};
     }
 
     public SendStrategyEnum(String str, int i2) {
@@ -67,6 +67,6 @@ public final class SendStrategyEnum {
     public static SendStrategyEnum[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (SendStrategyEnum[]) f43537a.clone() : (SendStrategyEnum[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (SendStrategyEnum[]) f43644a.clone() : (SendStrategyEnum[]) invokeV.objValue;
     }
 }

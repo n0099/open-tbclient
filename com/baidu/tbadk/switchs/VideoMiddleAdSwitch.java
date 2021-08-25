@@ -1,7 +1,7 @@
 package com.baidu.tbadk.switchs;
 
 import c.a.e.e.f.a;
-import c.a.o0.b.d;
+import c.a.p0.b.d;
 import com.baidu.adp.lib.featureSwitch.SwitchManager;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.debugtool.annotation.Modify;
@@ -44,7 +44,7 @@ public class VideoMiddleAdSwitch extends a {
     public static boolean isOnAndHitVideoAdDrawTest() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? isOn() && d.c0() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? isOn() && d.f0() : invokeV.booleanValue;
     }
 
     @Override // c.a.e.e.f.a

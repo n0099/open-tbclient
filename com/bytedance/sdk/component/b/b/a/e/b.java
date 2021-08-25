@@ -14,29 +14,29 @@ public final class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final b f64228a;
+    public static final b f64428a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final b f64229b;
+    public static final b f64429b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final b f64230c;
+    public static final b f64430c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final b f64231d;
+    public static final b f64431d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final b f64232e;
+    public static final b f64432e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final b f64233f;
+    public static final b f64433f;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final /* synthetic */ b[] f64234h;
+    public static final /* synthetic */ b[] f64434h;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: g  reason: collision with root package name */
-    public final int f64235g;
+    public final int f64435g;
 
     static {
         InterceptResult invokeClinit;
@@ -51,14 +51,14 @@ public final class b {
                 return;
             }
         }
-        f64228a = new b("NO_ERROR", 0, 0);
-        f64229b = new b("PROTOCOL_ERROR", 1, 1);
-        f64230c = new b("INTERNAL_ERROR", 2, 2);
-        f64231d = new b("FLOW_CONTROL_ERROR", 3, 3);
-        f64232e = new b("REFUSED_STREAM", 4, 7);
+        f64428a = new b("NO_ERROR", 0, 0);
+        f64429b = new b("PROTOCOL_ERROR", 1, 1);
+        f64430c = new b("INTERNAL_ERROR", 2, 2);
+        f64431d = new b("FLOW_CONTROL_ERROR", 3, 3);
+        f64432e = new b("REFUSED_STREAM", 4, 7);
         b bVar = new b("CANCEL", 5, 8);
-        f64233f = bVar;
-        f64234h = new b[]{f64228a, f64229b, f64230c, f64231d, f64232e, bVar};
+        f64433f = bVar;
+        f64434h = new b[]{f64428a, f64429b, f64430c, f64431d, f64432e, bVar};
     }
 
     public b(String str, int i2, int i3) {
@@ -79,7 +79,7 @@ public final class b {
                 return;
             }
         }
-        this.f64235g = i3;
+        this.f64435g = i3;
     }
 
     public static b a(int i2) {
@@ -88,7 +88,7 @@ public final class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i2)) == null) {
             for (b bVar : values()) {
-                if (bVar.f64235g == i2) {
+                if (bVar.f64435g == i2) {
                     return bVar;
                 }
             }
@@ -106,6 +106,6 @@ public final class b {
     public static b[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (b[]) f64234h.clone() : (b[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (b[]) f64434h.clone() : (b[]) invokeV.objValue;
     }
 }

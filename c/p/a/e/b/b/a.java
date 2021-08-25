@@ -17,11 +17,11 @@ public class a extends SQLiteOpenHelper {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static volatile a f34846f;
+    public static volatile a f34952f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f34847e;
+    public boolean f34953e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a() {
@@ -40,21 +40,21 @@ public class a extends SQLiteOpenHelper {
                 return;
             }
         }
-        this.f34847e = false;
+        this.f34953e = false;
     }
 
     public static a g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f34846f == null) {
+            if (f34952f == null) {
                 synchronized (a.class) {
-                    if (f34846f == null) {
-                        f34846f = new a();
+                    if (f34952f == null) {
+                        f34952f = new a();
                     }
                 }
             }
-            return f34846f;
+            return f34952f;
         }
         return (a) invokeV.objValue;
     }
@@ -65,14 +65,14 @@ public class a extends SQLiteOpenHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             Context n = e.n();
-            if (!this.f34847e && n != null) {
+            if (!this.f34953e && n != null) {
                 try {
                     File file = new File("/data/data/" + n.getPackageName() + "/database/main/");
                     if (!file.exists()) {
                         file.mkdir();
                     }
                     super.getReadableDatabase().execSQL("PRAGMA temp_store_directory = tempDir");
-                    this.f34847e = true;
+                    this.f34953e = true;
                 } catch (Exception e2) {
                     e2.printStackTrace();
                 }

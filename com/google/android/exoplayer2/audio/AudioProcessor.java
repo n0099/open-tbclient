@@ -10,7 +10,7 @@ import java.nio.ByteOrder;
 public interface AudioProcessor {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final ByteBuffer f69686a = ByteBuffer.allocateDirect(0).order(ByteOrder.nativeOrder());
+    public static final ByteBuffer f69886a = ByteBuffer.allocateDirect(0).order(ByteOrder.nativeOrder());
 
     /* loaded from: classes9.dex */
     public static final class UnhandledFormatException extends Exception {

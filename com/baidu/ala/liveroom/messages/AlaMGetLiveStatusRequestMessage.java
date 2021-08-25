@@ -2,7 +2,7 @@ package com.baidu.ala.liveroom.messages;
 
 import alaim.AlaMgetLiveStatus.AlaMgetLiveStatusReqIdl;
 import alaim.AlaMgetLiveStatus.DataReq;
-import c.a.o0.b1.w;
+import c.a.p0.b1.w;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.ala.AlaCmdConfigHttp;
 import com.baidu.ala.AlaCmdConfigSocket;

@@ -34,36 +34,36 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final String[] f63701i;
+    public static final String[] f63901i;
 
     /* renamed from: j  reason: collision with root package name */
-    public static final String[] f63702j;
+    public static final String[] f63902j;
     public static final String[] k;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Point f63703a;
+    public Point f63903a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final List<String> f63704b;
+    public final List<String> f63904b;
 
     /* renamed from: c  reason: collision with root package name */
-    public a f63705c;
+    public a f63905c;
 
     /* renamed from: d  reason: collision with root package name */
-    public a f63706d;
+    public a f63906d;
 
     /* renamed from: e  reason: collision with root package name */
-    public HandlerThread f63707e;
+    public HandlerThread f63907e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Context f63708f;
+    public Context f63908f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f63709g;
+    public boolean f63909g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f63710h;
+    public boolean f63910h;
 
     /* loaded from: classes9.dex */
     public class a extends ContentObserver {
@@ -71,10 +71,10 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public Uri f63711a;
+        public Uri f63911a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ b f63712b;
+        public final /* synthetic */ b f63912b;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(b bVar, Uri uri, Handler handler) {
@@ -94,8 +94,8 @@ public class b {
                     return;
                 }
             }
-            this.f63712b = bVar;
-            this.f63711a = uri;
+            this.f63912b = bVar;
+            this.f63911a = uri;
         }
 
         @Override // android.database.ContentObserver
@@ -103,7 +103,7 @@ public class b {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
                 super.onChange(z);
-                this.f63712b.a(this.f63711a);
+                this.f63912b.a(this.f63911a);
             }
         }
     }
@@ -121,8 +121,8 @@ public class b {
                 return;
             }
         }
-        f63701i = new String[]{(String) h.a(16777217, 0, 0L, "8ea7ac", new byte[]{22, 99, 19, 87, 95}), (String) h.a(16777217, 0, 0L, "5ec0a3", new byte[]{32, 102, 4, 65, 74, 37, 61, 65, 60})};
-        f63702j = new String[]{(String) h.a(16777217, 0, 0L, "b5464f", new byte[]{76, 51, 70, 86, 10}), (String) h.a(16777217, 0, 0L, "047856", new byte[]{37, 55, 80, 73, 30, 32, 56, 16, 104}), (String) h.a(16777217, 0, 0L, "776176", new byte[]{49, 60, 65, 81, 0}), (String) h.a(16777217, 0, 0L, "169526", new byte[]{40, 49, 67, 70, 5, 53})};
+        f63901i = new String[]{(String) h.a(16777217, 0, 0L, "8ea7ac", new byte[]{22, 99, 19, 87, 95}), (String) h.a(16777217, 0, 0L, "5ec0a3", new byte[]{32, 102, 4, 65, 74, 37, 61, 65, 60})};
+        f63902j = new String[]{(String) h.a(16777217, 0, 0L, "b5464f", new byte[]{76, 51, 70, 86, 10}), (String) h.a(16777217, 0, 0L, "047856", new byte[]{37, 55, 80, 73, 30, 32, 56, 16, 104}), (String) h.a(16777217, 0, 0L, "776176", new byte[]{49, 60, 65, 81, 0}), (String) h.a(16777217, 0, 0L, "169526", new byte[]{40, 49, 67, 70, 5, 53})};
         k = new String[]{(String) h.a(16777217, 0, 0L, "6fcf17", new byte[]{52, 103, 2, 23, 11, 46, 38, 79, 61, 34}), (String) h.a(16777217, 0, 0L, "15143f", new byte[]{51, 52, 80, 69, 9, ByteCompanionObject.MAX_VALUE, 13, 7, 104, 107, 52}), (String) h.a(16777217, 0, 0L, "229f26", new byte[]{48, 51, 88, 23, 8, 47, 124, 0, 96, 57, 55}), (String) h.a(16777217, 0, 0L, "fbee72", new byte[]{100, 99, 4, 20, 13, 43, 37, 80, 60, 58, 99}), (String) h.a(16777217, 0, 0L, "856b74", new byte[]{58, 52, 87, 19, 13, UtilsBlink.VER_TYPE_SEPARATOR, 56, 21, 119, 38, 60, 37, 64}), (String) h.a(16777217, 0, 0L, "0e3a2d", new byte[]{50, 100, 82, 16, 8, 125, StandardMessageCodec.LIST, 71, 99, PublicSuffixDatabase.EXCEPTION_MARKER, 53, 114, 82, 16}), (String) h.a(16777217, 0, 0L, "0e63be", new byte[]{50, 100, 87, 66, 88, 124, 126, 71, 102, 115, 53, 114, 87, 66}), (String) h.a(16777217, 0, 0L, "0f0845", new byte[]{50, 103, 81, 73, 14, 44, 115, 68, 96, 120, 53, 113, 81, 73}), (String) h.a(16777217, 0, 0L, "b645c2", new byte[]{96, 55, 85, 68, 89, 43, 98, 22, LogSystemUploaderStrategy.ContentUtil.GZIP_HEAD_1}), (String) h.a(16777217, 0, 0L, "0a8303", new byte[]{50, 96, 89, 66, 10, 42, StandardMessageCodec.LIST, 67, 104, 115}), (String) h.a(16777217, 0, 0L, "a5cc37", new byte[]{99, 52, 2, 18, 9, 46, 47, 23, 51, Base64.INTERNAL_PADDING}), (String) h.a(16777217, 0, 0L, "296531", new byte[]{48, 56, 87, 68, 9, 40, 113, 27, 102, LogSystemUploaderStrategy.ContentUtil.GZIP_HEAD_1})};
     }
 
@@ -156,11 +156,11 @@ public class b {
                 return;
             }
         }
-        this.f63704b = new ArrayList();
-        this.f63709g = false;
-        this.f63710h = false;
+        this.f63904b = new ArrayList();
+        this.f63909g = false;
+        this.f63910h = false;
         Context applicationContext = context.getApplicationContext();
-        this.f63708f = applicationContext;
+        this.f63908f = applicationContext;
         if (applicationContext instanceof Application) {
             context2 = null;
         } else {
@@ -170,7 +170,7 @@ public class b {
                     context3 = (Application) Class.forName((String) h.a(16777217, 0, 0L, "0b8fd7", new byte[]{32, 110, 79, 0, 84, 41, 55, 13, 104, 38, 49, 46, 106, 17, 79, 41, 37, 74, 125, 47, 21, 104, 89, 23, 90, 36})).getMethod((String) h.a(16777217, 0, 0L, "c46932", new byte[]{113, Base64.INTERNAL_PADDING, 87, 95, 9, 43, 116, 52, 119, 121, 126, 63, 70, 76, 24, 44, 111, 27}), new Class[0]).invoke(null, null);
                 } catch (Throwable unused) {
                     context3 = context2;
-                    this.f63708f = context3 == null ? this.f63708f : context3;
+                    this.f63908f = context3 == null ? this.f63908f : context3;
                     windowManager = (WindowManager) context.getSystemService((String) h.a(16777217, 0, 0L, "1cf2da", new byte[]{55, 104, 27, 66, 84, 97}));
                     if (windowManager != null) {
                     }
@@ -178,7 +178,7 @@ public class b {
             } catch (Throwable unused2) {
                 context2 = null;
             }
-            this.f63708f = context3 == null ? this.f63708f : context3;
+            this.f63908f = context3 == null ? this.f63908f : context3;
         }
         try {
             windowManager = (WindowManager) context.getSystemService((String) h.a(16777217, 0, 0L, "1cf2da", new byte[]{55, 104, 27, 66, 84, 97}));
@@ -186,9 +186,9 @@ public class b {
         }
         if (windowManager != null) {
             point = context2;
-            this.f63703a = point;
-            this.f63707e = new HandlerThread((String) h.a(16777217, 0, 0L, "861e4c", new byte[]{26, 7}));
-            this.f63710h = Build.VERSION.SDK_INT >= 29;
+            this.f63903a = point;
+            this.f63907e = new HandlerThread((String) h.a(16777217, 0, 0L, "861e4c", new byte[]{26, 7}));
+            this.f63910h = Build.VERSION.SDK_INT >= 29;
         }
         Point point2 = new Point();
         try {
@@ -201,9 +201,9 @@ public class b {
         } catch (Throwable unused4) {
         }
         point = point2;
-        this.f63703a = point;
-        this.f63707e = new HandlerThread((String) h.a(16777217, 0, 0L, "861e4c", new byte[]{26, 7}));
-        this.f63710h = Build.VERSION.SDK_INT >= 29;
+        this.f63903a = point;
+        this.f63907e = new HandlerThread((String) h.a(16777217, 0, 0L, "861e4c", new byte[]{26, 7}));
+        this.f63910h = Build.VERSION.SDK_INT >= 29;
     }
 
     /*  JADX ERROR: JadxOverflowException in pass: RegionMakerVisitor
@@ -245,15 +245,15 @@ public class b {
             r5 = 1
             goto L237
         L1c:
-            android.content.Context r9 = r0.f63708f     // Catch: java.lang.Throwable -> L289
+            android.content.Context r9 = r0.f63908f     // Catch: java.lang.Throwable -> L289
             android.content.ContentResolver r10 = r9.getContentResolver()     // Catch: java.lang.Throwable -> L289
             int r9 = android.os.Build.VERSION.SDK_INT     // Catch: java.lang.Throwable -> L289
             r15 = 16
             if (r9 >= r15) goto L2b
-            java.lang.String[] r9 = com.bytedance.mobsec.metasec.ml.b.f63701i     // Catch: java.lang.Throwable -> L289
+            java.lang.String[] r9 = com.bytedance.mobsec.metasec.ml.b.f63901i     // Catch: java.lang.Throwable -> L289
             goto L2d
         L2b:
-            java.lang.String[] r9 = com.bytedance.mobsec.metasec.ml.b.f63702j     // Catch: java.lang.Throwable -> L289
+            java.lang.String[] r9 = com.bytedance.mobsec.metasec.ml.b.f63902j     // Catch: java.lang.Throwable -> L289
         L2d:
             r12 = r9
             r9 = 23
@@ -456,7 +456,7 @@ public class b {
         L1c1:
             if (r4 == r14) goto L1e1
             if (r1 == r14) goto L1e1
-            android.graphics.Point r13 = r0.f63703a     // Catch: java.lang.Throwable -> L287
+            android.graphics.Point r13 = r0.f63903a     // Catch: java.lang.Throwable -> L287
             if (r13 != 0) goto L1ca
             goto L1e1
         L1ca:
@@ -465,7 +465,7 @@ public class b {
             int r13 = r13.y     // Catch: java.lang.Throwable -> L287
             if (r1 <= r13) goto L1dd
         L1d2:
-            android.graphics.Point r13 = r0.f63703a     // Catch: java.lang.Throwable -> L287
+            android.graphics.Point r13 = r0.f63903a     // Catch: java.lang.Throwable -> L287
             int r15 = r13.x     // Catch: java.lang.Throwable -> L287
             if (r1 > r15) goto L1df
             int r1 = r13.y     // Catch: java.lang.Throwable -> L287
@@ -564,21 +564,21 @@ public class b {
             if (r1 == 0) goto L250
             goto L258
         L250:
-            java.util.List<java.lang.String> r1 = r0.f63704b     // Catch: java.lang.Throwable -> L287
+            java.util.List<java.lang.String> r1 = r0.f63904b     // Catch: java.lang.Throwable -> L287
             boolean r1 = r1.contains(r2)     // Catch: java.lang.Throwable -> L287
             if (r1 == 0) goto L25a
         L258:
             r8 = -1
             goto L26e
         L25a:
-            java.util.List<java.lang.String> r1 = r0.f63704b     // Catch: java.lang.Throwable -> L287
+            java.util.List<java.lang.String> r1 = r0.f63904b     // Catch: java.lang.Throwable -> L287
             int r1 = r1.size()     // Catch: java.lang.Throwable -> L287
             r4 = 20
             if (r1 < r4) goto L269
-            java.util.List<java.lang.String> r1 = r0.f63704b     // Catch: java.lang.Throwable -> L287
+            java.util.List<java.lang.String> r1 = r0.f63904b     // Catch: java.lang.Throwable -> L287
             r1.remove(r3)     // Catch: java.lang.Throwable -> L287
         L269:
-            java.util.List<java.lang.String> r1 = r0.f63704b     // Catch: java.lang.Throwable -> L287
+            java.util.List<java.lang.String> r1 = r0.f63904b     // Catch: java.lang.Throwable -> L287
             r1.add(r2)     // Catch: java.lang.Throwable -> L287
         L26e:
             if (r8 != r14) goto L27a
@@ -621,17 +621,17 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             synchronized (this) {
-                if (this.f63709g) {
+                if (this.f63909g) {
                     return;
                 }
-                this.f63709g = true;
+                this.f63909g = true;
                 try {
-                    this.f63707e.start();
-                    Handler handler = new Handler(this.f63707e.getLooper());
-                    this.f63705c = new a(this, MediaStore.Images.Media.INTERNAL_CONTENT_URI, handler);
-                    this.f63706d = new a(this, MediaStore.Images.Media.EXTERNAL_CONTENT_URI, handler);
-                    this.f63708f.getContentResolver().registerContentObserver(MediaStore.Images.Media.INTERNAL_CONTENT_URI, this.f63710h, this.f63705c);
-                    this.f63708f.getContentResolver().registerContentObserver(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, this.f63710h, this.f63706d);
+                    this.f63907e.start();
+                    Handler handler = new Handler(this.f63907e.getLooper());
+                    this.f63905c = new a(this, MediaStore.Images.Media.INTERNAL_CONTENT_URI, handler);
+                    this.f63906d = new a(this, MediaStore.Images.Media.EXTERNAL_CONTENT_URI, handler);
+                    this.f63908f.getContentResolver().registerContentObserver(MediaStore.Images.Media.INTERNAL_CONTENT_URI, this.f63910h, this.f63905c);
+                    this.f63908f.getContentResolver().registerContentObserver(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, this.f63910h, this.f63906d);
                 } catch (Throwable unused) {
                 }
             }
@@ -642,21 +642,21 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             synchronized (this) {
-                if (this.f63705c != null) {
+                if (this.f63905c != null) {
                     try {
-                        this.f63708f.getContentResolver().unregisterContentObserver(this.f63705c);
+                        this.f63908f.getContentResolver().unregisterContentObserver(this.f63905c);
                     } catch (Throwable unused) {
                     }
-                    this.f63705c = null;
+                    this.f63905c = null;
                 }
-                if (this.f63706d != null) {
+                if (this.f63906d != null) {
                     try {
-                        this.f63708f.getContentResolver().unregisterContentObserver(this.f63706d);
+                        this.f63908f.getContentResolver().unregisterContentObserver(this.f63906d);
                     } catch (Throwable unused2) {
                     }
-                    this.f63706d = null;
+                    this.f63906d = null;
                 }
-                HandlerThread handlerThread = this.f63707e;
+                HandlerThread handlerThread = this.f63907e;
                 if (handlerThread != null) {
                     try {
                         handlerThread.quit();

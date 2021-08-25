@@ -18,22 +18,22 @@ public class d {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f2690a = "11446";
+    public static String f2748a = "11446";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f2691b = "type";
+    public static String f2749b = "type";
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f2692c = "value";
+    public static String f2750c = "value";
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f2693d = "ext";
+    public static String f2751d = "ext";
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f2694e = "suc";
+    public static String f2752e = "suc";
 
     /* renamed from: f  reason: collision with root package name */
-    public static String f2695f = "fail";
+    public static String f2753f = "fail";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -62,8 +62,8 @@ public class d {
         if (interceptable == null || interceptable.invokeLL(65538, null, str, list) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put(f2691b, f2695f);
-                jSONObject.put(f2692c, str);
+                jSONObject.put(f2749b, f2753f);
+                jSONObject.put(f2750c, str);
                 JSONObject jSONObject2 = new JSONObject();
                 if (list != null && !list.isEmpty()) {
                     for (int i2 = 0; i2 < list.size(); i2++) {
@@ -73,8 +73,8 @@ public class d {
                         }
                     }
                 }
-                jSONObject.put(f2693d, jSONObject2);
-                d(f2690a, jSONObject);
+                jSONObject.put(f2751d, jSONObject2);
+                d(f2748a, jSONObject);
             } catch (JSONException e2) {
                 e2.printStackTrace();
             }
@@ -86,8 +86,8 @@ public class d {
         if (interceptable == null || interceptable.invokeLL(65539, null, str, list) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put(f2691b, f2694e);
-                jSONObject.put(f2692c, str);
+                jSONObject.put(f2749b, f2752e);
+                jSONObject.put(f2750c, str);
                 JSONObject jSONObject2 = new JSONObject();
                 if (list != null && !list.isEmpty()) {
                     for (int i2 = 0; i2 < list.size(); i2++) {
@@ -97,8 +97,8 @@ public class d {
                         }
                     }
                 }
-                jSONObject.put(f2693d, jSONObject2);
-                d(f2690a, jSONObject);
+                jSONObject.put(f2751d, jSONObject2);
+                d(f2748a, jSONObject);
             } catch (JSONException e2) {
                 e2.printStackTrace();
             }

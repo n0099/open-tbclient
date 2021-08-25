@@ -10,14 +10,14 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-import c.a.n0.a.a2.d;
-import c.a.n0.a.e;
-import c.a.n0.a.f;
-import c.a.n0.a.f1.e.b;
-import c.a.n0.a.g;
-import c.a.n0.a.j2.k;
-import c.a.n0.a.v2.t;
-import c.a.n0.a.y1.a;
+import c.a.o0.a.a2.d;
+import c.a.o0.a.e;
+import c.a.o0.a.f;
+import c.a.o0.a.f1.e.b;
+import c.a.o0.a.g;
+import c.a.o0.a.j2.k;
+import c.a.o0.a.v2.t;
+import c.a.o0.a.y1.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.ubcprocessor.UBCCloudControlProcessor;
 import com.baidu.searchbox.unitedscheme.SchemeRouter;
@@ -35,10 +35,10 @@ public class SwanAppRelatedSwanListAdapter extends RecyclerView.Adapter<Recycler
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f46001a;
+    public Context f46108a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c.a.n0.a.y1.a f46002b;
+    public c.a.o0.a.y1.a f46109b;
 
     /* loaded from: classes6.dex */
     public static class a extends RecyclerView.ViewHolder {
@@ -47,17 +47,17 @@ public class SwanAppRelatedSwanListAdapter extends RecyclerView.Adapter<Recycler
 
         /* renamed from: com.baidu.swan.apps.relateswans.SwanAppRelatedSwanListAdapter$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class View$OnClickListenerC1727a implements View.OnClickListener {
+        public class View$OnClickListenerC1731a implements View.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ Context f46003e;
+            public final /* synthetic */ Context f46110e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ String f46004f;
+            public final /* synthetic */ String f46111f;
 
-            public View$OnClickListenerC1727a(a aVar, Context context, String str) {
+            public View$OnClickListenerC1731a(a aVar, Context context, String str) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -72,15 +72,15 @@ public class SwanAppRelatedSwanListAdapter extends RecyclerView.Adapter<Recycler
                         return;
                     }
                 }
-                this.f46003e = context;
-                this.f46004f = str;
+                this.f46110e = context;
+                this.f46111f = str;
             }
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                    SchemeRouter.invoke(this.f46003e, this.f46004f);
+                    SchemeRouter.invoke(this.f46110e, this.f46111f);
                     SwanAppRelatedSwanListAdapter.doUBCEventStatistic("aboutrelated", SwanAppRelatedSwanListAdapter.PAGE_ABOUT_MORE_RELATED_SWAN, PrefetchEvent.STATE_CLICK);
                 }
             }
@@ -115,7 +115,7 @@ public class SwanAppRelatedSwanListAdapter extends RecyclerView.Adapter<Recycler
                     return;
                 }
                 textView.setVisibility(0);
-                textView.setOnClickListener(new View$OnClickListenerC1727a(this, context, str));
+                textView.setOnClickListener(new View$OnClickListenerC1731a(this, context, str));
             }
         }
     }
@@ -131,20 +131,20 @@ public class SwanAppRelatedSwanListAdapter extends RecyclerView.Adapter<Recycler
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ a.C0463a f46005e;
+            public final /* synthetic */ a.C0471a f46112e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ Context f46006f;
+            public final /* synthetic */ Context f46113f;
 
             /* renamed from: g  reason: collision with root package name */
-            public final /* synthetic */ int f46007g;
+            public final /* synthetic */ int f46114g;
 
-            public a(b bVar, a.C0463a c0463a, Context context, int i2) {
+            public a(b bVar, a.C0471a c0471a, Context context, int i2) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {bVar, c0463a, context, Integer.valueOf(i2)};
+                    Object[] objArr = {bVar, c0471a, context, Integer.valueOf(i2)};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i3 = newInitContext.flag;
                     if ((i3 & 1) != 0) {
@@ -154,35 +154,35 @@ public class SwanAppRelatedSwanListAdapter extends RecyclerView.Adapter<Recycler
                         return;
                     }
                 }
-                this.f46005e = c0463a;
-                this.f46006f = context;
-                this.f46007g = i2;
+                this.f46112e = c0471a;
+                this.f46113f = context;
+                this.f46114g = i2;
             }
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || TextUtils.isEmpty(this.f46005e.f9574c)) {
+                if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || TextUtils.isEmpty(this.f46112e.f9820c)) {
                     return;
                 }
-                SchemeRouter.invoke(this.f46006f, this.f46005e.f9574c);
-                SwanAppRelatedSwanListAdapter.doUBCEventStatistic("aboutrelated", String.valueOf(this.f46007g), PrefetchEvent.STATE_CLICK);
+                SchemeRouter.invoke(this.f46113f, this.f46112e.f9820c);
+                SwanAppRelatedSwanListAdapter.doUBCEventStatistic("aboutrelated", String.valueOf(this.f46114g), PrefetchEvent.STATE_CLICK);
             }
         }
 
         /* renamed from: com.baidu.swan.apps.relateswans.SwanAppRelatedSwanListAdapter$b$b  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class C1728b implements t.b {
+        public class C1732b implements t.b {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ SwanAppRoundedImageView f46008a;
+            public final /* synthetic */ SwanAppRoundedImageView f46115a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ Context f46009b;
+            public final /* synthetic */ Context f46116b;
 
-            public C1728b(b bVar, SwanAppRoundedImageView swanAppRoundedImageView, Context context) {
+            public C1732b(b bVar, SwanAppRoundedImageView swanAppRoundedImageView, Context context) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -197,18 +197,18 @@ public class SwanAppRelatedSwanListAdapter extends RecyclerView.Adapter<Recycler
                         return;
                     }
                 }
-                this.f46008a = swanAppRoundedImageView;
-                this.f46009b = context;
+                this.f46115a = swanAppRoundedImageView;
+                this.f46116b = context;
             }
 
-            @Override // c.a.n0.a.v2.t.b
+            @Override // c.a.o0.a.v2.t.b
             public void a(String str, Bitmap bitmap) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeLL(1048576, this, str, bitmap) == null) {
                     if (bitmap == null) {
-                        this.f46008a.setImageDrawable(this.f46009b.getResources().getDrawable(e.aiapps_default_grey_icon));
+                        this.f46115a.setImageDrawable(this.f46116b.getResources().getDrawable(e.aiapps_default_grey_icon));
                     } else {
-                        this.f46008a.setImageBitmap(bitmap);
+                        this.f46115a.setImageBitmap(bitmap);
                     }
                 }
             }
@@ -234,14 +234,14 @@ public class SwanAppRelatedSwanListAdapter extends RecyclerView.Adapter<Recycler
             }
         }
 
-        public void a(Context context, a.C0463a c0463a, int i2) {
+        public void a(Context context, a.C0471a c0471a, int i2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLLI(1048576, this, context, c0463a, i2) == null) || c0463a == null) {
+            if (!(interceptable == null || interceptable.invokeLLI(1048576, this, context, c0471a, i2) == null) || c0471a == null) {
                 return;
             }
-            ((RelativeLayout) this.itemView.findViewById(f.related_swan_app)).setOnClickListener(new a(this, c0463a, context, i2));
-            t.e(c0463a.f9572a, new C1728b(this, (SwanAppRoundedImageView) this.itemView.findViewById(f.swan_app_icon), context));
-            ((TextView) this.itemView.findViewById(f.swan_app_name)).setText(c0463a.f9573b);
+            ((RelativeLayout) this.itemView.findViewById(f.related_swan_app)).setOnClickListener(new a(this, c0471a, context, i2));
+            t.e(c0471a.f9818a, new C1732b(this, (SwanAppRoundedImageView) this.itemView.findViewById(f.swan_app_icon), context));
+            ((TextView) this.itemView.findViewById(f.swan_app_name)).setText(c0471a.f9819b);
         }
     }
 
@@ -258,7 +258,7 @@ public class SwanAppRelatedSwanListAdapter extends RecyclerView.Adapter<Recycler
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                this((Context) objArr2[0], (c.a.n0.a.y1.a) objArr2[1]);
+                this((Context) objArr2[0], (c.a.o0.a.y1.a) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -271,22 +271,22 @@ public class SwanAppRelatedSwanListAdapter extends RecyclerView.Adapter<Recycler
         if (!(interceptable == null || interceptable.invokeLLL(65538, null, str, str2, str3) == null) || TextUtils.isEmpty(str)) {
             return;
         }
-        c.a.n0.a.j2.p.f fVar = new c.a.n0.a.j2.p.f();
-        fVar.f6793e = str;
+        c.a.o0.a.j2.p.f fVar = new c.a.o0.a.j2.p.f();
+        fVar.f7039e = str;
         if (!TextUtils.isEmpty(str2)) {
             fVar.a("page", str2);
-            fVar.f6795g = str2;
+            fVar.f7041g = str2;
         }
         if (!TextUtils.isEmpty(str3)) {
-            fVar.f6790b = str3;
+            fVar.f7036b = str3;
         }
         b.a L = d.g().r().L();
-        fVar.f6789a = k.m(d.g().l());
-        fVar.f6794f = L.H();
-        fVar.f6791c = L.T();
+        fVar.f7035a = k.m(d.g().l());
+        fVar.f7040f = L.H();
+        fVar.f7037c = L.T();
         fVar.b(k.k(L.W()));
         fVar.d(L.r0().getString(UBCCloudControlProcessor.UBC_KEY));
-        c.a.n0.a.j2.d.b(fVar);
+        c.a.o0.a.j2.d.b(fVar);
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
@@ -294,11 +294,11 @@ public class SwanAppRelatedSwanListAdapter extends RecyclerView.Adapter<Recycler
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            c.a.n0.a.y1.a aVar = this.f46002b;
+            c.a.o0.a.y1.a aVar = this.f46109b;
             if (aVar == null) {
                 return 0;
             }
-            return aVar.f9570a.size() + 1;
+            return aVar.f9816a.size() + 1;
         }
         return invokeV.intValue;
     }
@@ -312,14 +312,14 @@ public class SwanAppRelatedSwanListAdapter extends RecyclerView.Adapter<Recycler
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder viewHolder, int i2) {
-        c.a.n0.a.y1.a aVar;
+        c.a.o0.a.y1.a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, viewHolder, i2) == null) || (aVar = this.f46002b) == null) {
+        if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, viewHolder, i2) == null) || (aVar = this.f46109b) == null) {
             return;
         }
         if (!(viewHolder instanceof b)) {
             if (viewHolder instanceof a) {
-                ((a) viewHolder).a(this.f46001a, aVar.f9571b);
+                ((a) viewHolder).a(this.f46108a, aVar.f9817b);
                 return;
             }
             return;
@@ -328,7 +328,7 @@ public class SwanAppRelatedSwanListAdapter extends RecyclerView.Adapter<Recycler
         if (i3 < 0) {
             return;
         }
-        ((b) viewHolder).a(this.f46001a, aVar.f9570a.get(i3), i2);
+        ((b) viewHolder).a(this.f46108a, aVar.f9816a.get(i3), i2);
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
@@ -345,15 +345,15 @@ public class SwanAppRelatedSwanListAdapter extends RecyclerView.Adapter<Recycler
         return (RecyclerView.ViewHolder) invokeLI.objValue;
     }
 
-    public void updateData(c.a.n0.a.y1.a aVar) {
+    public void updateData(c.a.o0.a.y1.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
-            this.f46002b = aVar;
+            this.f46109b = aVar;
             notifyDataSetChanged();
         }
     }
 
-    public SwanAppRelatedSwanListAdapter(Context context, c.a.n0.a.y1.a aVar) {
+    public SwanAppRelatedSwanListAdapter(Context context, c.a.o0.a.y1.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -368,7 +368,7 @@ public class SwanAppRelatedSwanListAdapter extends RecyclerView.Adapter<Recycler
                 return;
             }
         }
-        this.f46001a = context;
-        this.f46002b = aVar;
+        this.f46108a = context;
+        this.f46109b = aVar;
     }
 }

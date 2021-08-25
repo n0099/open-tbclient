@@ -22,16 +22,16 @@ public abstract class d extends a0 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Timeout f31805a;
+    public Timeout f31911a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f31806b;
+    public long f31912b;
 
     /* renamed from: c  reason: collision with root package name */
-    public OutputStream f31807c;
+    public OutputStream f31913c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f31808d;
+    public boolean f31914d;
 
     /* loaded from: classes4.dex */
     public class a extends OutputStream {
@@ -39,16 +39,16 @@ public abstract class d extends a0 {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public long f31809e;
+        public long f31915e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ long f31810f;
+        public final /* synthetic */ long f31916f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ BufferedSink f31811g;
+        public final /* synthetic */ BufferedSink f31917g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ d f31812h;
+        public final /* synthetic */ d f31918h;
 
         public a(d dVar, long j2, BufferedSink bufferedSink) {
             Interceptable interceptable = $ic;
@@ -65,31 +65,31 @@ public abstract class d extends a0 {
                     return;
                 }
             }
-            this.f31812h = dVar;
-            this.f31810f = j2;
-            this.f31811g = bufferedSink;
+            this.f31918h = dVar;
+            this.f31916f = j2;
+            this.f31917g = bufferedSink;
         }
 
         @Override // java.io.OutputStream, java.io.Closeable, java.lang.AutoCloseable
         public void close() throws IOException {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f31812h.f31808d = true;
-                long j2 = this.f31810f;
-                if (j2 != -1 && this.f31809e < j2) {
-                    throw new ProtocolException("expected " + this.f31810f + " bytes but received " + this.f31809e);
+                this.f31918h.f31914d = true;
+                long j2 = this.f31916f;
+                if (j2 != -1 && this.f31915e < j2) {
+                    throw new ProtocolException("expected " + this.f31916f + " bytes but received " + this.f31915e);
                 }
-                this.f31811g.close();
+                this.f31917g.close();
             }
         }
 
         @Override // java.io.OutputStream, java.io.Flushable
         public void flush() throws IOException {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f31812h.f31808d) {
+            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f31918h.f31914d) {
                 return;
             }
-            this.f31811g.flush();
+            this.f31917g.flush();
         }
 
         @Override // java.io.OutputStream
@@ -104,14 +104,14 @@ public abstract class d extends a0 {
         public void write(byte[] bArr, int i2, int i3) throws IOException {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLII(1048579, this, bArr, i2, i3) == null) {
-                if (!this.f31812h.f31808d) {
-                    long j2 = this.f31810f;
-                    if (j2 != -1 && this.f31809e + i3 > j2) {
-                        throw new ProtocolException("expected " + this.f31810f + " bytes but received " + this.f31809e + i3);
+                if (!this.f31918h.f31914d) {
+                    long j2 = this.f31916f;
+                    if (j2 != -1 && this.f31915e + i3 > j2) {
+                        throw new ProtocolException("expected " + this.f31916f + " bytes but received " + this.f31915e + i3);
                     }
-                    this.f31809e += i3;
+                    this.f31915e += i3;
                     try {
-                        this.f31811g.write(bArr, i2, i3);
+                        this.f31917g.write(bArr, i2, i3);
                         return;
                     } catch (InterruptedIOException e2) {
                         throw new SocketTimeoutException(e2.getMessage());
@@ -140,7 +140,7 @@ public abstract class d extends a0 {
     public long a() throws IOException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f31806b : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f31912b : invokeV.longValue;
     }
 
     @Override // c.d.b.a0
@@ -156,22 +156,22 @@ public abstract class d extends a0 {
     public void f(BufferedSink bufferedSink, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, bufferedSink, j2) == null) {
-            this.f31805a = bufferedSink.timeout();
-            this.f31806b = j2;
-            this.f31807c = new a(this, j2, bufferedSink);
+            this.f31911a = bufferedSink.timeout();
+            this.f31912b = j2;
+            this.f31913c = new a(this, j2, bufferedSink);
         }
     }
 
     public final boolean g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f31808d : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f31914d : invokeV.booleanValue;
     }
 
     public final OutputStream h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f31807c : (OutputStream) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f31913c : (OutputStream) invokeV.objValue;
     }
 
     public z i(z zVar) throws IOException {
@@ -183,6 +183,6 @@ public abstract class d extends a0 {
     public final Timeout j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f31805a : (Timeout) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f31911a : (Timeout) invokeV.objValue;
     }
 }

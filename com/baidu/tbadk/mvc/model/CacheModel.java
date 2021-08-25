@@ -1,8 +1,8 @@
 package com.baidu.tbadk.mvc.model;
 
 import c.a.e.a.f;
-import c.a.o0.i0.b.c;
-import c.a.o0.i0.e.d;
+import c.a.p0.i0.b.c;
+import c.a.p0.i0.e.d;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
@@ -21,27 +21,27 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 /* loaded from: classes6.dex */
-public abstract class CacheModel<T extends c.a.o0.i0.b.c, ActivityType> extends BdBaseModel<ActivityType> {
+public abstract class CacheModel<T extends c.a.p0.i0.b.c, ActivityType> extends BdBaseModel<ActivityType> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public MessageListener<CustomResponsedMessage<?>> f48182e;
+    public MessageListener<CustomResponsedMessage<?>> f48289e;
 
     /* renamed from: f  reason: collision with root package name */
-    public MessageListener<CustomResponsedMessage<?>> f48183f;
+    public MessageListener<CustomResponsedMessage<?>> f48290f;
 
     /* renamed from: g  reason: collision with root package name */
-    public c<T> f48184g;
+    public c<T> f48291g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f48185h;
+    public boolean f48292h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f48186i;
+    public boolean f48293i;
 
     /* renamed from: j  reason: collision with root package name */
-    public boolean f48187j;
+    public boolean f48294j;
     public boolean k;
     public boolean l;
     public boolean m;
@@ -52,7 +52,7 @@ public abstract class CacheModel<T extends c.a.o0.i0.b.c, ActivityType> extends 
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ CacheModel f48188a;
+        public final /* synthetic */ CacheModel f48295a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(CacheModel cacheModel, int i2) {
@@ -72,7 +72,7 @@ public abstract class CacheModel<T extends c.a.o0.i0.b.c, ActivityType> extends 
                     return;
                 }
             }
-            this.f48188a = cacheModel;
+            this.f48295a = cacheModel;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -80,7 +80,7 @@ public abstract class CacheModel<T extends c.a.o0.i0.b.c, ActivityType> extends 
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
-                this.f48188a.l = false;
+                this.f48295a.l = false;
                 if (customResponsedMessage == null || !(customResponsedMessage instanceof ReadCacheRespMsg)) {
                     return;
                 }
@@ -89,8 +89,8 @@ public abstract class CacheModel<T extends c.a.o0.i0.b.c, ActivityType> extends 
                 if (readCacheRespMsg.getOrginalMessage() != null && (readCacheRespMsg.getOrginalMessage() instanceof ReadCacheMessage)) {
                     readCacheMessage = (ReadCacheMessage) readCacheRespMsg.getOrginalMessage();
                 }
-                if (this.f48188a.f48184g != null) {
-                    this.f48188a.f48184g.onCacheDataGet(readCacheRespMsg, readCacheMessage);
+                if (this.f48295a.f48291g != null) {
+                    this.f48295a.f48291g.onCacheDataGet(readCacheRespMsg, readCacheMessage);
                 }
             }
         }
@@ -102,7 +102,7 @@ public abstract class CacheModel<T extends c.a.o0.i0.b.c, ActivityType> extends 
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ CacheModel f48189a;
+        public final /* synthetic */ CacheModel f48296a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(CacheModel cacheModel, int i2) {
@@ -122,7 +122,7 @@ public abstract class CacheModel<T extends c.a.o0.i0.b.c, ActivityType> extends 
                     return;
                 }
             }
-            this.f48189a = cacheModel;
+            this.f48296a = cacheModel;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -130,7 +130,7 @@ public abstract class CacheModel<T extends c.a.o0.i0.b.c, ActivityType> extends 
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
-                this.f48189a.m = false;
+                this.f48296a.m = false;
                 if (customResponsedMessage == null || !(customResponsedMessage instanceof WriteCacheRespMsg)) {
                     return;
                 }
@@ -139,8 +139,8 @@ public abstract class CacheModel<T extends c.a.o0.i0.b.c, ActivityType> extends 
                 if (writeCacheRespMsg.getOrginalMessage() != null && (writeCacheRespMsg.getOrginalMessage() instanceof WriteCacheMessage)) {
                     writeCacheMessage = (WriteCacheMessage) writeCacheRespMsg.getOrginalMessage();
                 }
-                if (this.f48189a.f48184g != null) {
-                    this.f48189a.f48184g.onCacheDataWrite(writeCacheRespMsg, writeCacheMessage);
+                if (this.f48296a.f48291g != null) {
+                    this.f48296a.f48291g.onCacheDataWrite(writeCacheRespMsg, writeCacheMessage);
                 }
             }
         }
@@ -171,9 +171,9 @@ public abstract class CacheModel<T extends c.a.o0.i0.b.c, ActivityType> extends 
                 return;
             }
         }
-        this.f48185h = false;
-        this.f48186i = false;
-        this.f48187j = false;
+        this.f48292h = false;
+        this.f48293i = false;
+        this.f48294j = false;
         this.k = false;
     }
 
@@ -186,24 +186,24 @@ public abstract class CacheModel<T extends c.a.o0.i0.b.c, ActivityType> extends 
 
     public final void B() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f48187j) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f48294j) {
             return;
         }
-        if (this.f48182e == null) {
+        if (this.f48289e == null) {
             a aVar = new a(this, I());
-            this.f48182e = aVar;
+            this.f48289e = aVar;
             aVar.setSelfListener(true);
-            this.f48182e.setTag(this.unique_id);
+            this.f48289e.setTag(this.unique_id);
         }
-        registerListener(this.f48182e);
-        this.f48187j = true;
+        registerListener(this.f48289e);
+        this.f48294j = true;
     }
 
     public final void C() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && !this.f48185h && MessageManager.getInstance().findTask(I()) == null) {
-            MessageManager.getInstance().registerTask(new c.a.o0.x0.a(I(), new c.a.o0.i0.e.c(I(), v(), H())));
-            this.f48185h = true;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && !this.f48292h && MessageManager.getInstance().findTask(I()) == null) {
+            MessageManager.getInstance().registerTask(new c.a.p0.x0.a(I(), new c.a.p0.i0.e.c(I(), v(), H())));
+            this.f48292h = true;
         }
     }
 
@@ -212,21 +212,21 @@ public abstract class CacheModel<T extends c.a.o0.i0.b.c, ActivityType> extends 
         if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || this.k) {
             return;
         }
-        if (this.f48183f == null) {
+        if (this.f48290f == null) {
             b bVar = new b(this, J());
-            this.f48183f = bVar;
+            this.f48290f = bVar;
             bVar.setSelfListener(true);
-            this.f48183f.setTag(this.unique_id);
+            this.f48290f.setTag(this.unique_id);
         }
-        registerListener(this.f48183f);
+        registerListener(this.f48290f);
         this.k = true;
     }
 
     public final void E() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && !this.f48186i && MessageManager.getInstance().findTask(J()) == null) {
-            MessageManager.getInstance().registerTask(new c.a.o0.x0.a(J(), new d(J(), v(), H())));
-            this.f48186i = true;
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && !this.f48293i && MessageManager.getInstance().findTask(J()) == null) {
+            MessageManager.getInstance().registerTask(new c.a.p0.x0.a(J(), new d(J(), v(), H())));
+            this.f48293i = true;
         }
     }
 
@@ -288,7 +288,7 @@ public abstract class CacheModel<T extends c.a.o0.i0.b.c, ActivityType> extends 
         return invokeV.booleanValue;
     }
 
-    public final void M(c.a.o0.i0.b.d dVar) {
+    public final void M(c.a.p0.i0.b.d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, dVar) == null) {
             B();
@@ -311,7 +311,7 @@ public abstract class CacheModel<T extends c.a.o0.i0.b.c, ActivityType> extends 
     public void O(c<T> cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, cVar) == null) {
-            this.f48184g = cVar;
+            this.f48291g = cVar;
         }
     }
 

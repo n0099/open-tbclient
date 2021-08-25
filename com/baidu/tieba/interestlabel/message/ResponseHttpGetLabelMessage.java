@@ -1,6 +1,6 @@
 package com.baidu.tieba.interestlabel.message;
 
-import c.a.p0.m1.b.b;
+import c.a.q0.m1.b.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;

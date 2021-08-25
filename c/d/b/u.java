@@ -20,7 +20,7 @@ public final class u implements m {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public final CookieHandler f31935b;
+    public final CookieHandler f32041b;
 
     public u(CookieHandler cookieHandler) {
         Interceptable interceptable = $ic;
@@ -37,7 +37,7 @@ public final class u implements m {
                 return;
             }
         }
-        this.f31935b = cookieHandler;
+        this.f32041b = cookieHandler;
     }
 
     @Override // c.d.b.m
@@ -47,7 +47,7 @@ public final class u implements m {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, sVar)) == null) {
             try {
                 ArrayList arrayList = null;
-                for (Map.Entry<String, List<String>> entry : this.f31935b.get(sVar.C(), Collections.emptyMap()).entrySet()) {
+                for (Map.Entry<String, List<String>> entry : this.f32041b.get(sVar.C(), Collections.emptyMap()).entrySet()) {
                     String key = entry.getKey();
                     if ("Cookie".equalsIgnoreCase(key) || SM.COOKIE2.equalsIgnoreCase(key)) {
                         if (!entry.getValue().isEmpty()) {
@@ -76,7 +76,7 @@ public final class u implements m {
     @Override // c.d.b.m
     public void b(s sVar, List<l> list) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sVar, list) == null) || this.f31935b == null) {
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sVar, list) == null) || this.f32041b == null) {
             return;
         }
         ArrayList arrayList = new ArrayList();
@@ -84,7 +84,7 @@ public final class u implements m {
             arrayList.add(lVar.j(true));
         }
         try {
-            this.f31935b.put(sVar.C(), Collections.singletonMap("Set-Cookie", arrayList));
+            this.f32041b.put(sVar.C(), Collections.singletonMap("Set-Cookie", arrayList));
         } catch (IOException e2) {
             c.d.b.e0.m.g m = c.d.b.e0.m.g.m();
             m.u(5, "Saving cookies failed for " + sVar.A("/..."), e2);
@@ -100,7 +100,7 @@ public final class u implements m {
             int i2 = 0;
             while (i2 < length) {
                 int n = c.d.b.e0.e.n(str, i2, length, ";,");
-                int m = c.d.b.e0.e.m(str, i2, n, com.alipay.sdk.encrypt.a.f35773h);
+                int m = c.d.b.e0.e.m(str, i2, n, com.alipay.sdk.encrypt.a.f35879h);
                 String H = c.d.b.e0.e.H(str, i2, m);
                 if (!H.startsWith("$")) {
                     String H2 = m < n ? c.d.b.e0.e.H(str, m + 1, n) : "";

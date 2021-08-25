@@ -14,19 +14,19 @@ public final class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f45144a;
+    public Context f45251a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c f45145b;
+    public c f45252b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ServiceConnection f45146c;
+    public ServiceConnection f45253c;
 
     /* renamed from: d  reason: collision with root package name */
-    public com.baidu.sofire.j.c f45147d;
+    public com.baidu.sofire.j.c f45254d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f45148e;
+    public String f45255e;
 
     public a(Context context, com.baidu.sofire.j.c cVar) {
         Interceptable interceptable = $ic;
@@ -43,9 +43,9 @@ public final class a {
                 return;
             }
         }
-        this.f45144a = null;
-        this.f45144a = context;
-        this.f45147d = cVar;
+        this.f45251a = null;
+        this.f45251a = context;
+        this.f45254d = cVar;
     }
 
     public final String a() {
@@ -56,13 +56,13 @@ public final class a {
             } catch (Throwable th) {
                 th.printStackTrace();
             }
-            if (TextUtils.isEmpty(this.f45148e)) {
-                if (this.f45145b != null) {
-                    this.f45148e = this.f45145b.a();
+            if (TextUtils.isEmpty(this.f45255e)) {
+                if (this.f45252b != null) {
+                    this.f45255e = this.f45252b.a();
                 }
-                return this.f45148e;
+                return this.f45255e;
             }
-            return this.f45148e;
+            return this.f45255e;
         }
         return (String) invokeV.objValue;
     }

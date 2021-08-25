@@ -6,7 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
-import c.a.o0.s.f0.h;
+import c.a.p0.s.f0.h;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.view.AgreeView;
 import com.baidu.tieba.R;
@@ -27,7 +27,7 @@ public class ThreadCardBottomOpSegmentWeightLayout extends ThreadCommentAndPrais
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ThreadCardBottomOpSegmentWeightLayout f47572a;
+        public final /* synthetic */ ThreadCardBottomOpSegmentWeightLayout f47669a;
 
         public a(ThreadCardBottomOpSegmentWeightLayout threadCardBottomOpSegmentWeightLayout) {
             Interceptable interceptable = $ic;
@@ -44,14 +44,14 @@ public class ThreadCardBottomOpSegmentWeightLayout extends ThreadCommentAndPrais
                     return;
                 }
             }
-            this.f47572a = threadCardBottomOpSegmentWeightLayout;
+            this.f47669a = threadCardBottomOpSegmentWeightLayout;
         }
 
         @Override // com.baidu.tbadk.core.view.AgreeView.d
         public void a(View view, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLZ(1048576, this, view, z) == null) {
-                this.f47572a.w(z);
+                this.f47669a.w(z);
             }
         }
     }

@@ -3,7 +3,7 @@ package com.baidu.tbadk.plugins.gameCenter;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
-import c.a.o0.r0.c.a;
+import c.a.p0.r0.c.a;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;

@@ -158,10 +158,10 @@ public class LightInvokerImpl {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ JSONObject f63360a;
+                public final /* synthetic */ JSONObject f63560a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ IResultListener f63361b;
+                public final /* synthetic */ IResultListener f63561b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -178,8 +178,8 @@ public class LightInvokerImpl {
                             return;
                         }
                     }
-                    this.f63360a = jSONObject2;
-                    this.f63361b = iResultListener;
+                    this.f63560a = jSONObject2;
+                    this.f63561b = iResultListener;
                 }
 
                 @Override // com.baidu.walletfacesdk.LivenessManager.IvoiceListener
@@ -188,14 +188,14 @@ public class LightInvokerImpl {
                     if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), str2, obj}) == null) {
                         if (obj != null) {
                             try {
-                                this.f63360a.put("data", obj);
+                                this.f63560a.put("data", obj);
                             } catch (Exception unused3) {
                                 return;
                             }
                         }
-                        this.f63360a.put("errCode", i3);
-                        this.f63360a.put(BeanConstants.DXM_OCR_KEY_ERROR_DES, str2);
-                        this.f63361b.onResult(i2, this.f63360a);
+                        this.f63560a.put("errCode", i3);
+                        this.f63560a.put(BeanConstants.DXM_OCR_KEY_ERROR_DES, str2);
+                        this.f63561b.onResult(i2, this.f63560a);
                     }
                 }
             });
@@ -214,7 +214,7 @@ public class LightInvokerImpl {
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ LightInvokerCallback f63359a;
+                    public final /* synthetic */ LightInvokerCallback f63559a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -231,7 +231,7 @@ public class LightInvokerImpl {
                                 return;
                             }
                         }
-                        this.f63359a = lightInvokerCallback;
+                        this.f63559a = lightInvokerCallback;
                     }
 
                     @Override // com.baidu.walletfacesdk.LightInvokerImpl.IResultListener
@@ -240,7 +240,7 @@ public class LightInvokerImpl {
                         if (!(interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, jSONObject) == null) || jSONObject == null) {
                             return;
                         }
-                        this.f63359a.onResult(i2, LightInvokerImpl.assembleResult(i2, jSONObject));
+                        this.f63559a.onResult(i2, LightInvokerImpl.assembleResult(i2, jSONObject));
                     }
                 });
             }

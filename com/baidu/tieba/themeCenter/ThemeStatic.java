@@ -121,7 +121,7 @@ public class ThemeStatic {
                             indexOf = substring.length();
                         }
                         int d2 = c.a.e.e.m.b.d(substring.substring(0, indexOf), 0);
-                        c.a.o0.s.d0.b j2 = c.a.o0.s.d0.b.j();
+                        c.a.p0.s.d0.b j2 = c.a.p0.s.d0.b.j();
                         StringBuilder sb = new StringBuilder();
                         sb.append("current_used_personal_background_");
                         sb.append(TbadkCoreApplication.getCurrentAccount());
@@ -272,8 +272,8 @@ public class ThemeStatic {
         TbadkCoreApplication.getInst().RegisterIntent(PersonalCardCategoryActivityConfig.class, PersonalCardCategoryActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(PersonalCardDetailActivityConfig.class, PersonalCardDetailActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(AvatarPendantActivityConfig.class, AvatarPendantActivity.class);
-        c.a.p0.i3.d0.a.h(309022, BackgroundSetSocketResponseMessage.class, false, false);
-        c.a.p0.i3.d0.a.c(309022, CmdConfigHttp.CMD_PERSONAL_BACKGROUND_SET, TbConfig.PERSONAL_BACKGROUND_SET, BackgroundSetHttpResponseMessage.class, false, false, false, false);
+        c.a.q0.i3.d0.a.h(309022, BackgroundSetSocketResponseMessage.class, false, false);
+        c.a.q0.i3.d0.a.c(309022, CmdConfigHttp.CMD_PERSONAL_BACKGROUND_SET, TbConfig.PERSONAL_BACKGROUND_SET, BackgroundSetHttpResponseMessage.class, false, false, false, false);
     }
 
     public ThemeStatic() {

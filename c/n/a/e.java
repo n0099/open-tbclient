@@ -11,7 +11,7 @@ public final class e {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final BitmapFactory.Options f34135a;
+    public static final BitmapFactory.Options f34241a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -27,6 +27,6 @@ public final class e {
                 return;
             }
         }
-        f34135a = new BitmapFactory.Options();
+        f34241a = new BitmapFactory.Options();
     }
 }

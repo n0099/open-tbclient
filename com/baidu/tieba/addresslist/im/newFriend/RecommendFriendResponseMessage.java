@@ -1,6 +1,6 @@
 package com.baidu.tieba.addresslist.im.newFriend;
 
-import c.a.p0.j1.g.a;
+import c.a.q0.j1.g.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;

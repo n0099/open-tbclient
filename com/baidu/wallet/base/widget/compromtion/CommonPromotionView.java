@@ -26,7 +26,7 @@ public class CommonPromotionView extends FrameLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final int f60323a;
+    public final int f60523a;
     public NetImageView leftDraw;
     public View mView;
     public TextView promotionTxt;
@@ -50,7 +50,7 @@ public class CommonPromotionView extends FrameLayout {
                 return;
             }
         }
-        this.f60323a = 33;
+        this.f60523a = 33;
         initViews();
     }
 
@@ -137,7 +137,7 @@ public class CommonPromotionView extends FrameLayout {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ CommonPromotionView f60324a;
+                public final /* synthetic */ CommonPromotionView f60524a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -154,14 +154,14 @@ public class CommonPromotionView extends FrameLayout {
                             return;
                         }
                     }
-                    this.f60324a = this;
+                    this.f60524a = this;
                 }
 
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                        this.f60324a.setVisibility(8);
+                        this.f60524a.setVisibility(8);
                     }
                 }
             });
@@ -249,7 +249,7 @@ public class CommonPromotionView extends FrameLayout {
                 return;
             }
         }
-        this.f60323a = 33;
+        this.f60523a = 33;
         initViews();
     }
 
@@ -272,7 +272,7 @@ public class CommonPromotionView extends FrameLayout {
                 return;
             }
         }
-        this.f60323a = 33;
+        this.f60523a = 33;
         initViews();
     }
 }

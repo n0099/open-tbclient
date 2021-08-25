@@ -3,20 +3,20 @@ package com.meizu.cloud.pushsdk.base;
 public class i<T> {
 
     /* renamed from: a  reason: collision with root package name */
-    public T f74366a;
+    public T f74566a;
 
     /* renamed from: b  reason: collision with root package name */
-    public T f74367b;
+    public T f74567b;
 
     public i(T t) {
         if (t == null) {
             throw new RuntimeException("proxy must be has a default implementation");
         }
-        this.f74367b = t;
+        this.f74567b = t;
     }
 
     public T c() {
-        T t = this.f74366a;
-        return t != null ? t : this.f74367b;
+        T t = this.f74566a;
+        return t != null ? t : this.f74567b;
     }
 }

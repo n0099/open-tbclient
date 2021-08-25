@@ -12,13 +12,13 @@ public class a extends AsyncHttpClient.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ HttpClient.ProtoResultCallback f41127a;
+    public final /* synthetic */ HttpClient.ProtoResultCallback f41234a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ String f41128b;
+    public final /* synthetic */ String f41235b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ AsyncHttpClient f41129c;
+    public final /* synthetic */ AsyncHttpClient f41236c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a(AsyncHttpClient asyncHttpClient, HttpClient.ProtoResultCallback protoResultCallback, String str) {
@@ -38,9 +38,9 @@ public class a extends AsyncHttpClient.a {
                 return;
             }
         }
-        this.f41129c = asyncHttpClient;
-        this.f41127a = protoResultCallback;
-        this.f41128b = str;
+        this.f41236c = asyncHttpClient;
+        this.f41234a = protoResultCallback;
+        this.f41235b = str;
     }
 
     @Override // com.baidu.mapapi.http.AsyncHttpClient.a
@@ -49,12 +49,12 @@ public class a extends AsyncHttpClient.a {
         int i3;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            HttpClient httpClient = new HttpClient("GET", this.f41127a);
-            i2 = this.f41129c.f41117a;
+            HttpClient httpClient = new HttpClient("GET", this.f41234a);
+            i2 = this.f41236c.f41224a;
             httpClient.setMaxTimeOut(i2);
-            i3 = this.f41129c.f41118b;
+            i3 = this.f41236c.f41225b;
             httpClient.setReadTimeOut(i3);
-            httpClient.request(this.f41128b);
+            httpClient.request(this.f41235b);
         }
     }
 }

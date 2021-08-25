@@ -15,7 +15,7 @@ public class y extends Handler {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ x f40945a;
+    public final /* synthetic */ x f41052a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public y(x xVar, Looper looper) {
@@ -35,7 +35,7 @@ public class y extends Handler {
                 return;
             }
         }
-        this.f40945a = xVar;
+        this.f41052a = xVar;
     }
 
     /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:39:0x009d -> B:44:0x00a0). Please submit an issue!!! */
@@ -80,9 +80,9 @@ public class y extends Handler {
                         if (i3) {
                             h.a().d();
                         }
-                        handler = this.f40945a.f40943d;
+                        handler = this.f41052a.f41050d;
                         if (handler != null) {
-                            handler2 = this.f40945a.f40943d;
+                            handler2 = this.f41052a.f41050d;
                             handler2.sendEmptyMessageDelayed(4, com.baidu.location.e.k.R);
                         }
                     }

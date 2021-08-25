@@ -1,6 +1,6 @@
 package com.baidu.tieba.frs;
 
-import c.a.e.k.e.a;
+import c.a.e.l.e.a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;

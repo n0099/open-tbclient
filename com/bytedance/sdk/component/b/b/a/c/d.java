@@ -19,13 +19,13 @@ public final class d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final ThreadLocal<DateFormat> f64178a;
+    public static final ThreadLocal<DateFormat> f64378a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String[] f64179b;
+    public static final String[] f64379b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final DateFormat[] f64180c;
+    public static final DateFormat[] f64380c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -41,7 +41,7 @@ public final class d {
                 return;
             }
         }
-        f64178a = new ThreadLocal<DateFormat>() { // from class: com.bytedance.sdk.component.b.b.a.c.d.1
+        f64378a = new ThreadLocal<DateFormat>() { // from class: com.bytedance.sdk.component.b.b.a.c.d.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -68,15 +68,15 @@ public final class d {
                 if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
                     SimpleDateFormat simpleDateFormat = new SimpleDateFormat("EEE, dd MMM yyyy HH:mm:ss 'GMT'", Locale.US);
                     simpleDateFormat.setLenient(false);
-                    simpleDateFormat.setTimeZone(com.bytedance.sdk.component.b.b.a.c.f64169g);
+                    simpleDateFormat.setTimeZone(com.bytedance.sdk.component.b.b.a.c.f64369g);
                     return simpleDateFormat;
                 }
                 return (DateFormat) invokeV.objValue;
             }
         };
         String[] strArr = {"EEE, dd MMM yyyy HH:mm:ss zzz", DateUtils.PATTERN_RFC1036, DateUtils.PATTERN_ASCTIME, NetscapeDraftSpec.EXPIRES_PATTERN, "EEE, dd-MMM-yyyy HH-mm-ss z", "EEE, dd MMM yy HH:mm:ss z", "EEE dd-MMM-yyyy HH:mm:ss z", "EEE dd MMM yyyy HH:mm:ss z", "EEE dd-MMM-yyyy HH-mm-ss z", "EEE dd-MMM-yy HH:mm:ss z", "EEE dd MMM yy HH:mm:ss z", "EEE,dd-MMM-yy HH:mm:ss z", "EEE,dd-MMM-yyyy HH:mm:ss z", "EEE, dd-MM-yyyy HH:mm:ss z", "EEE MMM d yyyy HH:mm:ss z"};
-        f64179b = strArr;
-        f64180c = new DateFormat[strArr.length];
+        f64379b = strArr;
+        f64380c = new DateFormat[strArr.length];
     }
 
     public static Date a(String str) {
@@ -87,18 +87,18 @@ public final class d {
                 return null;
             }
             ParsePosition parsePosition = new ParsePosition(0);
-            Date parse = f64178a.get().parse(str, parsePosition);
+            Date parse = f64378a.get().parse(str, parsePosition);
             if (parsePosition.getIndex() == str.length()) {
                 return parse;
             }
-            synchronized (f64179b) {
-                int length = f64179b.length;
+            synchronized (f64379b) {
+                int length = f64379b.length;
                 for (int i2 = 0; i2 < length; i2++) {
-                    DateFormat dateFormat = f64180c[i2];
+                    DateFormat dateFormat = f64380c[i2];
                     if (dateFormat == null) {
-                        dateFormat = new SimpleDateFormat(f64179b[i2], Locale.US);
-                        dateFormat.setTimeZone(com.bytedance.sdk.component.b.b.a.c.f64169g);
-                        f64180c[i2] = dateFormat;
+                        dateFormat = new SimpleDateFormat(f64379b[i2], Locale.US);
+                        dateFormat.setTimeZone(com.bytedance.sdk.component.b.b.a.c.f64369g);
+                        f64380c[i2] = dateFormat;
                     }
                     parsePosition.setIndex(0);
                     Date parse2 = dateFormat.parse(str, parsePosition);
@@ -115,6 +115,6 @@ public final class d {
     public static String a(Date date) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, date)) == null) ? f64178a.get().format(date) : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, date)) == null) ? f64378a.get().format(date) : (String) invokeL.objValue;
     }
 }

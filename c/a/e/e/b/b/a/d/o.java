@@ -11,7 +11,7 @@ public class o implements h {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Object f2113a;
+    public Object f2171a;
 
     public o(Object obj) {
         Interceptable interceptable = $ic;
@@ -28,13 +28,13 @@ public class o implements h {
                 return;
             }
         }
-        this.f2113a = obj;
+        this.f2171a = obj;
     }
 
     @Override // c.a.e.e.b.b.a.d.h
     public Object a(c.a.e.e.b.b.a.e.c cVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cVar)) == null) ? this.f2113a : invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cVar)) == null) ? this.f2171a : invokeL.objValue;
     }
 }

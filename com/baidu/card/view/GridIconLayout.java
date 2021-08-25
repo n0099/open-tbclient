@@ -12,11 +12,11 @@ import androidx.core.view.InputDeviceCompat;
 import c.a.e.a.j;
 import c.a.l.p;
 import c.a.l.q;
-import c.a.o0.n.c;
-import c.a.o0.n.e;
-import c.a.o0.n.f;
-import c.a.o0.s.q.l0;
-import c.a.o0.s.q.m;
+import c.a.p0.n.c;
+import c.a.p0.n.e;
+import c.a.p0.n.f;
+import c.a.p0.s.q.l0;
+import c.a.p0.s.q.m;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.ListUtils;
@@ -36,19 +36,19 @@ public class GridIconLayout extends FrameLayout implements q, p<l0> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public XGridLayout f38438e;
+    public XGridLayout f38545e;
 
     /* renamed from: f  reason: collision with root package name */
-    public f<m> f38439f;
+    public f<m> f38546f;
 
     /* renamed from: g  reason: collision with root package name */
-    public c f38440g;
+    public c f38547g;
 
     /* renamed from: h  reason: collision with root package name */
-    public e<m> f38441h;
+    public e<m> f38548h;
 
     /* renamed from: i  reason: collision with root package name */
-    public c.a.o0.d1.f.a.a f38442i;
+    public c.a.p0.d1.f.a.a f38549i;
 
     /* loaded from: classes5.dex */
     public class a implements e<m> {
@@ -56,7 +56,7 @@ public class GridIconLayout extends FrameLayout implements q, p<l0> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ GridIconLayout f38443a;
+        public final /* synthetic */ GridIconLayout f38550a;
 
         public a(GridIconLayout gridIconLayout) {
             Interceptable interceptable = $ic;
@@ -73,32 +73,32 @@ public class GridIconLayout extends FrameLayout implements q, p<l0> {
                     return;
                 }
             }
-            this.f38443a = gridIconLayout;
+            this.f38550a = gridIconLayout;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // c.a.o0.n.e
+        @Override // c.a.p0.n.e
         /* renamed from: b */
         public void a(View view, m mVar, int i2, long j2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{view, mVar, Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
                 if (mVar != null) {
-                    this.f38443a.dealOneLink(mVar.c());
+                    this.f38550a.dealOneLink(mVar.c());
                 }
-                if (this.f38443a.f38439f != null) {
-                    this.f38443a.f38439f.a(view, mVar, i2, j2);
+                if (this.f38550a.f38546f != null) {
+                    this.f38550a.f38546f.a(view, mVar, i2, j2);
                 }
             }
         }
     }
 
     /* loaded from: classes5.dex */
-    public class b extends c.a.o0.d1.f.a.a<m> {
+    public class b extends c.a.p0.d1.f.a.a<m> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ GridIconLayout f38444g;
+        public final /* synthetic */ GridIconLayout f38551g;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(GridIconLayout gridIconLayout, Context context, int i2) {
@@ -119,13 +119,13 @@ public class GridIconLayout extends FrameLayout implements q, p<l0> {
                     return;
                 }
             }
-            this.f38444g = gridIconLayout;
+            this.f38551g = gridIconLayout;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // c.a.o0.d1.f.a.a
+        @Override // c.a.p0.d1.f.a.a
         /* renamed from: i */
-        public void f(c.a.o0.d1.f.a.c cVar, m mVar, int i2) {
+        public void f(c.a.p0.d1.f.a.c cVar, m mVar, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar, mVar, i2) == null) {
                 TbImageView tbImageView = (TbImageView) cVar.b(R.id.iv_icon);
@@ -136,8 +136,8 @@ public class GridIconLayout extends FrameLayout implements q, p<l0> {
                 TextView textView = (TextView) cVar.b(R.id.tv_title);
                 SkinManager.setViewTextColor(textView, R.color.CAM_X0105);
                 textView.setText(mVar.e());
-                if (this.f38444g.f38439f != null) {
-                    this.f38444g.f38439f.c(cVar.a(), mVar, i2, i2);
+                if (this.f38551g.f38546f != null) {
+                    this.f38551g.f38546f.c(cVar.a(), mVar, i2, i2);
                 }
             }
         }
@@ -169,7 +169,7 @@ public class GridIconLayout extends FrameLayout implements q, p<l0> {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
             XGridLayout xGridLayout = new XGridLayout(getContext());
-            this.f38438e = xGridLayout;
+            this.f38545e = xGridLayout;
             addView(xGridLayout);
         }
     }
@@ -192,44 +192,53 @@ public class GridIconLayout extends FrameLayout implements q, p<l0> {
     public void onChangeSkinType(TbPageContext tbPageContext, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048580, this, tbPageContext, i2) == null) {
-            c.a.o0.s.u.c d2 = c.a.o0.s.u.c.d(this);
+            c.a.p0.s.u.c d2 = c.a.p0.s.u.c.d(this);
             d2.n(R.string.J_X06);
             d2.f(R.color.CAM_X0205);
-            XGridLayout xGridLayout = this.f38438e;
+            XGridLayout xGridLayout = this.f38545e;
             if (xGridLayout != null) {
                 xGridLayout.onChangeSkinType();
             }
         }
     }
 
+    public void onDestroy() {
+        XGridLayout xGridLayout;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (xGridLayout = this.f38545e) == null) {
+            return;
+        }
+        xGridLayout.onDestroyed();
+    }
+
     @Override // android.view.View
     public void onWindowVisibilityChanged(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
             super.onWindowVisibilityChanged(i2);
-            if (this.f38440g != null) {
-                this.f38440g.a(this, i2 == 0, null);
+            if (this.f38547g != null) {
+                this.f38547g.a(this, i2 == 0, null);
             }
         }
     }
 
     public void setHorizontalSpace(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-            this.f38438e.setHorizontalSpace(i2);
+        if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
+            this.f38545e.setHorizontalSpace(i2);
         }
     }
 
     public void setIWindowChangedListener(c cVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, cVar) == null) {
-            this.f38440g = cVar;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, cVar) == null) {
+            this.f38547g = cVar;
         }
     }
 
     public void setMarginsTop(View view, int i2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, view, i2) == null) && (view.getLayoutParams() instanceof ViewGroup.MarginLayoutParams)) {
+        if ((interceptable == null || interceptable.invokeLI(1048585, this, view, i2) == null) && (view.getLayoutParams() instanceof ViewGroup.MarginLayoutParams)) {
             ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) view.getLayoutParams();
             if (marginLayoutParams.topMargin != i2) {
                 marginLayoutParams.topMargin = i2;
@@ -240,22 +249,22 @@ public class GridIconLayout extends FrameLayout implements q, p<l0> {
 
     public void setMaxItem(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i2) == null) {
-            this.f38438e.setMaxItem(i2);
+        if (interceptable == null || interceptable.invokeI(1048586, this, i2) == null) {
+            this.f38545e.setMaxItem(i2);
         }
     }
 
     public void setOnItemCoverListener(f<m> fVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, fVar) == null) {
-            this.f38439f = fVar;
+        if (interceptable == null || interceptable.invokeL(1048587, this, fVar) == null) {
+            this.f38546f = fVar;
         }
     }
 
     public void setVerticalSpace(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048587, this, i2) == null) {
-            this.f38438e.setVerticalSpace(i2);
+        if (interceptable == null || interceptable.invokeI(1048588, this, i2) == null) {
+            this.f38545e.setVerticalSpace(i2);
         }
     }
 
@@ -278,8 +287,8 @@ public class GridIconLayout extends FrameLayout implements q, p<l0> {
                 return;
             }
         }
-        this.f38441h = new a(this);
-        this.f38442i = new b(this, getContext(), R.layout.grid_icon_item);
+        this.f38548h = new a(this);
+        this.f38549i = new b(this, getContext(), R.layout.grid_icon_item);
         b();
     }
 
@@ -288,18 +297,18 @@ public class GridIconLayout extends FrameLayout implements q, p<l0> {
     public void onBindDataToView(l0 l0Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, l0Var) == null) {
-            if (l0Var != null && !ListUtils.isEmpty(l0Var.f13984e)) {
+            if (l0Var != null && !ListUtils.isEmpty(l0Var.f14290e)) {
                 setVisibility(0);
-                List<m> list = l0Var.f13984e;
+                List<m> list = l0Var.f14290e;
                 int size = list != null ? list.size() : 0;
                 if (size != 5 && size >= 4 && size < 9) {
-                    this.f38438e.setAutoGridSpan(list, 4);
+                    this.f38545e.setAutoGridSpan(list, 4);
                 } else {
-                    this.f38438e.setAutoGridSpan(list, 5);
+                    this.f38545e.setAutoGridSpan(list, 5);
                 }
-                this.f38438e.setAdapter(this.f38442i);
-                this.f38442i.h(this.f38441h);
-                this.f38442i.g(list);
+                this.f38545e.setAdapter(this.f38549i);
+                this.f38549i.h(this.f38548h);
+                this.f38549i.g(list);
                 return;
             }
             setVisibility(8);

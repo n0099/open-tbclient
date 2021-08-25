@@ -4,8 +4,8 @@ import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
-import c.a.o0.g0.b;
-import c.a.o0.g0.c;
+import c.a.p0.g0.b;
+import c.a.p0.g0.c;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -55,14 +55,14 @@ public class ThreadDelegateStatic extends b {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             c fragmentTabStructure;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2016207 && (customResponsedMessage.getData() instanceof c.a.o0.r.a)) {
-                c.a.o0.r.a aVar = (c.a.o0.r.a) customResponsedMessage.getData();
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2016207 && (customResponsedMessage.getData() instanceof c.a.p0.r.a)) {
+                c.a.p0.r.a aVar = (c.a.p0.r.a) customResponsedMessage.getData();
                 ThreadDelegateStatic threadDelegateStatic = new ThreadDelegateStatic();
                 aVar.a(threadDelegateStatic);
                 if (aVar.b() == null || (fragmentTabStructure = threadDelegateStatic.getFragmentTabStructure()) == null) {
                     return;
                 }
-                fragmentTabStructure.f13185a.setArguments(new Bundle());
+                fragmentTabStructure.f13476a.setArguments(new Bundle());
             }
         }
     }
@@ -99,21 +99,21 @@ public class ThreadDelegateStatic extends b {
         }
     }
 
-    @Override // c.a.o0.g0.b
+    @Override // c.a.p0.g0.b
     public c createFragmentTabStructure() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             c cVar = new c();
-            cVar.f13185a = ThreadFragment.newInstance();
-            cVar.f13189e = 1;
-            cVar.f13186b = R.string.collect_thread;
+            cVar.f13476a = ThreadFragment.newInstance();
+            cVar.f13480e = 1;
+            cVar.f13477b = R.string.collect_thread;
             return cVar;
         }
         return (c) invokeV.objValue;
     }
 
-    @Override // c.a.o0.g0.b
+    @Override // c.a.p0.g0.b
     public TbFragmentTabIndicator getTabIndicator(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -125,7 +125,7 @@ public class ThreadDelegateStatic extends b {
         return (TbFragmentTabIndicator) invokeL.objValue;
     }
 
-    @Override // c.a.o0.g0.b
+    @Override // c.a.p0.g0.b
     public boolean isAvailable() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

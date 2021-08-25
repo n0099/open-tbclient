@@ -11,7 +11,7 @@ public final class w extends a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static w f76329b;
+    public static w f76530b;
     public transient /* synthetic */ FieldHolder $fh;
 
     public w() {
@@ -34,10 +34,10 @@ public final class w extends a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
             synchronized (w.class) {
-                if (f76329b == null) {
-                    f76329b = new w();
+                if (f76530b == null) {
+                    f76530b = new w();
                 }
-                wVar = f76329b;
+                wVar = f76530b;
             }
             return wVar;
         }
@@ -46,8 +46,8 @@ public final class w extends a {
 
     public final void a(Context context) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, context) == null) && this.f76285a == null) {
-            this.f76285a = context;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, context) == null) && this.f76486a == null) {
+            this.f76486a = context;
             a(context, "com.vivo.push_preferences");
         }
     }

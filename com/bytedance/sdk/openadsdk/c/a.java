@@ -21,7 +21,7 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f65246a;
+    public static String f65446a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -65,8 +65,8 @@ public class a {
             } catch (Throwable th) {
                 com.bytedance.sdk.openadsdk.preload.geckox.h.b.a("gecko-debug-tag", "getApplicationName:", th);
             }
-            if (f65246a != null) {
-                return f65246a;
+            if (f65446a != null) {
+                return f65446a;
             }
             ApplicationInfo applicationInfo = context.getPackageManager().getApplicationInfo(context.getPackageName(), 128);
             if (applicationInfo == null) {
@@ -81,8 +81,8 @@ public class a {
                     }
                 }
             }
-            f65246a = jSONObject.toString();
-            return f65246a;
+            f65446a = jSONObject.toString();
+            return f65446a;
         }
         return (String) invokeL.objValue;
     }

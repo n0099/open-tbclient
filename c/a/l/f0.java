@@ -37,7 +37,7 @@ public class f0 extends h {
             }
         }
         int g2 = c.a.e.e.p.l.g(context, R.dimen.M_H_X003);
-        int g3 = c.a.e.e.p.l.g(context, c.a.o0.b.g.b.e(R.dimen.tbds21, R.dimen.tbds0));
+        int g3 = c.a.e.e.p.l.g(context, c.a.p0.b.g.b.e(R.dimen.tbds21, R.dimen.tbds0));
         q(g2);
         p(g3);
         this.l = new RecommendInfoLayout(context);
@@ -61,14 +61,14 @@ public class f0 extends h {
     public void r() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            if (c.a.o0.b.d.r0()) {
-                int g2 = c.a.e.e.p.l.g(this.f3547f, R.dimen.M_H_X003);
-                int g3 = c.a.e.e.p.l.g(this.f3547f, c.a.o0.b.g.b.e(R.dimen.tbds21, R.dimen.tbds0));
+            if (c.a.p0.b.d.w0()) {
+                int g2 = c.a.e.e.p.l.g(this.f3789f, R.dimen.M_H_X003);
+                int g3 = c.a.e.e.p.l.g(this.f3789f, c.a.p0.b.g.b.e(R.dimen.tbds21, R.dimen.tbds0));
                 q(g2);
                 p(g3);
                 return;
             }
-            int g4 = c.a.e.e.p.l.g(this.f3547f, R.dimen.tbds10);
+            int g4 = c.a.e.e.p.l.g(this.f3789f, R.dimen.tbds10);
             q(g4);
             p(0);
             t(this.l, g4, 0);
@@ -78,7 +78,7 @@ public class f0 extends h {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // c.a.l.p
     /* renamed from: s */
-    public void onBindDataToView(c.a.o0.s.q.a aVar) {
+    public void onBindDataToView(c.a.p0.s.q.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
             this.l.setData(aVar);

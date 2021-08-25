@@ -35,22 +35,22 @@ public class CommonPagerSlidingTabStrip extends HorizontalScrollView {
     public ViewPager.OnPageChangeListener delegatePageListener;
 
     /* renamed from: e  reason: collision with root package name */
-    public LinearLayout.LayoutParams f47392e;
+    public LinearLayout.LayoutParams f47498e;
 
     /* renamed from: f  reason: collision with root package name */
-    public LinearLayout.LayoutParams f47393f;
+    public LinearLayout.LayoutParams f47499f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final d f47394g;
+    public final d f47500g;
 
     /* renamed from: h  reason: collision with root package name */
-    public LinearLayout f47395h;
+    public LinearLayout f47501h;
 
     /* renamed from: i  reason: collision with root package name */
-    public ViewPager f47396i;
+    public ViewPager f47502i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f47397j;
+    public int f47503j;
     public int k;
     public float l;
     public Paint m;
@@ -190,7 +190,7 @@ public class CommonPagerSlidingTabStrip extends HorizontalScrollView {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CommonPagerSlidingTabStrip f47398e;
+        public final /* synthetic */ CommonPagerSlidingTabStrip f47504e;
 
         public a(CommonPagerSlidingTabStrip commonPagerSlidingTabStrip) {
             Interceptable interceptable = $ic;
@@ -207,17 +207,17 @@ public class CommonPagerSlidingTabStrip extends HorizontalScrollView {
                     return;
                 }
             }
-            this.f47398e = commonPagerSlidingTabStrip;
+            this.f47504e = commonPagerSlidingTabStrip;
         }
 
         @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
         public void onGlobalLayout() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f47398e.getViewTreeObserver().removeGlobalOnLayoutListener(this);
-                CommonPagerSlidingTabStrip commonPagerSlidingTabStrip = this.f47398e;
-                commonPagerSlidingTabStrip.k = commonPagerSlidingTabStrip.f47396i.getCurrentItem();
-                CommonPagerSlidingTabStrip commonPagerSlidingTabStrip2 = this.f47398e;
+                this.f47504e.getViewTreeObserver().removeGlobalOnLayoutListener(this);
+                CommonPagerSlidingTabStrip commonPagerSlidingTabStrip = this.f47504e;
+                commonPagerSlidingTabStrip.k = commonPagerSlidingTabStrip.f47502i.getCurrentItem();
+                CommonPagerSlidingTabStrip commonPagerSlidingTabStrip2 = this.f47504e;
                 commonPagerSlidingTabStrip2.l(commonPagerSlidingTabStrip2.k, 0);
             }
         }
@@ -229,10 +229,10 @@ public class CommonPagerSlidingTabStrip extends HorizontalScrollView {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f47399e;
+        public final /* synthetic */ int f47505e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ CommonPagerSlidingTabStrip f47400f;
+        public final /* synthetic */ CommonPagerSlidingTabStrip f47506f;
 
         public b(CommonPagerSlidingTabStrip commonPagerSlidingTabStrip, int i2) {
             Interceptable interceptable = $ic;
@@ -249,16 +249,16 @@ public class CommonPagerSlidingTabStrip extends HorizontalScrollView {
                     return;
                 }
             }
-            this.f47400f = commonPagerSlidingTabStrip;
-            this.f47399e = i2;
+            this.f47506f = commonPagerSlidingTabStrip;
+            this.f47505e = i2;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f47400f.f47396i.setCurrentItem(this.f47399e);
-                this.f47400f.m();
+                this.f47506f.f47502i.setCurrentItem(this.f47505e);
+                this.f47506f.m();
             }
         }
     }
@@ -274,7 +274,7 @@ public class CommonPagerSlidingTabStrip extends HorizontalScrollView {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CommonPagerSlidingTabStrip f47401e;
+        public final /* synthetic */ CommonPagerSlidingTabStrip f47507e;
 
         public d(CommonPagerSlidingTabStrip commonPagerSlidingTabStrip) {
             Interceptable interceptable = $ic;
@@ -291,20 +291,20 @@ public class CommonPagerSlidingTabStrip extends HorizontalScrollView {
                     return;
                 }
             }
-            this.f47401e = commonPagerSlidingTabStrip;
+            this.f47507e = commonPagerSlidingTabStrip;
         }
 
         @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
         public void onPageScrollStateChanged(int i2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeI(1048576, this, i2) == null) || this.f47401e.f47395h.getChildCount() == 0) {
+            if (!(interceptable == null || interceptable.invokeI(1048576, this, i2) == null) || this.f47507e.f47501h.getChildCount() == 0) {
                 return;
             }
             if (i2 == 0) {
-                CommonPagerSlidingTabStrip commonPagerSlidingTabStrip = this.f47401e;
-                commonPagerSlidingTabStrip.l(commonPagerSlidingTabStrip.f47396i.getCurrentItem(), 0);
+                CommonPagerSlidingTabStrip commonPagerSlidingTabStrip = this.f47507e;
+                commonPagerSlidingTabStrip.l(commonPagerSlidingTabStrip.f47502i.getCurrentItem(), 0);
             }
-            ViewPager.OnPageChangeListener onPageChangeListener = this.f47401e.delegatePageListener;
+            ViewPager.OnPageChangeListener onPageChangeListener = this.f47507e.delegatePageListener;
             if (onPageChangeListener != null) {
                 onPageChangeListener.onPageScrollStateChanged(i2);
             }
@@ -313,15 +313,15 @@ public class CommonPagerSlidingTabStrip extends HorizontalScrollView {
         @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
         public void onPageScrolled(int i2, float f2, int i3) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), Float.valueOf(f2), Integer.valueOf(i3)}) == null) || this.f47401e.f47395h.getChildCount() == 0) {
+            if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), Float.valueOf(f2), Integer.valueOf(i3)}) == null) || this.f47507e.f47501h.getChildCount() == 0) {
                 return;
             }
-            this.f47401e.k = i2;
-            this.f47401e.l = f2;
-            CommonPagerSlidingTabStrip commonPagerSlidingTabStrip = this.f47401e;
-            commonPagerSlidingTabStrip.l(i2, (int) (commonPagerSlidingTabStrip.f47395h.getChildAt(i2).getWidth() * f2));
-            this.f47401e.invalidate();
-            ViewPager.OnPageChangeListener onPageChangeListener = this.f47401e.delegatePageListener;
+            this.f47507e.k = i2;
+            this.f47507e.l = f2;
+            CommonPagerSlidingTabStrip commonPagerSlidingTabStrip = this.f47507e;
+            commonPagerSlidingTabStrip.l(i2, (int) (commonPagerSlidingTabStrip.f47501h.getChildAt(i2).getWidth() * f2));
+            this.f47507e.invalidate();
+            ViewPager.OnPageChangeListener onPageChangeListener = this.f47507e.delegatePageListener;
             if (onPageChangeListener != null) {
                 onPageChangeListener.onPageScrolled(i2, f2, i3);
             }
@@ -331,11 +331,11 @@ public class CommonPagerSlidingTabStrip extends HorizontalScrollView {
         public void onPageSelected(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-                ViewPager.OnPageChangeListener onPageChangeListener = this.f47401e.delegatePageListener;
+                ViewPager.OnPageChangeListener onPageChangeListener = this.f47507e.delegatePageListener;
                 if (onPageChangeListener != null) {
                     onPageChangeListener.onPageSelected(i2);
                 }
-                this.f47401e.m();
+                this.f47507e.m();
             }
         }
 
@@ -395,7 +395,7 @@ public class CommonPagerSlidingTabStrip extends HorizontalScrollView {
             view.setFocusable(true);
             view.setOnClickListener(new b(this, i2));
             view.setPadding(this.s, this.t, this.u, this.v);
-            this.f47395h.addView(view, i2, this.n ? this.f47393f : this.f47392e);
+            this.f47501h.addView(view, i2, this.n ? this.f47499f : this.f47498e);
         }
     }
 
@@ -416,25 +416,25 @@ public class CommonPagerSlidingTabStrip extends HorizontalScrollView {
             setFillViewport(true);
             setWillNotDraw(false);
             LinearLayout linearLayout = new LinearLayout(getContext());
-            this.f47395h = linearLayout;
+            this.f47501h = linearLayout;
             linearLayout.setOrientation(0);
-            this.f47395h.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
-            addView(this.f47395h);
+            this.f47501h.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
+            addView(this.f47501h);
             Paint paint = new Paint();
             this.m = paint;
             paint.setAntiAlias(true);
             this.m.setStyle(Paint.Style.FILL);
-            this.f47392e = new LinearLayout.LayoutParams(-2, -1);
-            this.f47393f = new LinearLayout.LayoutParams(0, -1, 1.0f);
+            this.f47498e = new LinearLayout.LayoutParams(-2, -1);
+            this.f47499f = new LinearLayout.LayoutParams(0, -1, 1.0f);
         }
     }
 
     public final void l(int i2, int i3) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeII(1048581, this, i2, i3) == null) || this.f47397j == 0) {
+        if (!(interceptable == null || interceptable.invokeII(1048581, this, i2, i3) == null) || this.f47503j == 0) {
             return;
         }
-        int left = this.f47395h.getChildAt(i2).getLeft() + i3;
+        int left = this.f47501h.getChildAt(i2).getLeft() + i3;
         if (i2 > 0 || i3 > 0) {
             left -= this.q;
         }
@@ -447,15 +447,15 @@ public class CommonPagerSlidingTabStrip extends HorizontalScrollView {
     public final void m() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            for (int i2 = 0; i2 < this.f47397j; i2++) {
-                View childAt = this.f47395h.getChildAt(i2);
+            for (int i2 = 0; i2 < this.f47503j; i2++) {
+                View childAt = this.f47501h.getChildAt(i2);
                 if (childAt != null) {
                     childAt.setBackgroundResource(this.B);
                     if (childAt instanceof TextView) {
                         TextView textView = (TextView) childAt;
                         textView.setTextSize(0, this.x);
                         textView.setTypeface(this.y, this.z);
-                        if (i2 == this.f47396i.getCurrentItem()) {
+                        if (i2 == this.f47502i.getCurrentItem()) {
                             textView.setTextColor(this.o);
                         } else {
                             textView.setTextColor(this.p);
@@ -469,16 +469,16 @@ public class CommonPagerSlidingTabStrip extends HorizontalScrollView {
     public void notifyDataSetChanged() {
         ViewPager viewPager;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || (viewPager = this.f47396i) == null || viewPager.getAdapter() == null || this.f47396i.getAdapter().getCount() == 0) {
+        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || (viewPager = this.f47502i) == null || viewPager.getAdapter() == null || this.f47502i.getAdapter().getCount() == 0) {
             return;
         }
-        this.f47395h.removeAllViews();
-        this.f47397j = this.f47396i.getAdapter().getCount();
-        for (int i2 = 0; i2 < this.f47397j; i2++) {
-            if (this.f47396i.getAdapter() instanceof c) {
-                h(i2, ((c) this.f47396i.getAdapter()).a(i2));
+        this.f47501h.removeAllViews();
+        this.f47503j = this.f47502i.getAdapter().getCount();
+        for (int i2 = 0; i2 < this.f47503j; i2++) {
+            if (this.f47502i.getAdapter() instanceof c) {
+                h(i2, ((c) this.f47502i.getAdapter()).a(i2));
             } else {
-                j(i2, this.f47396i.getAdapter().getPageTitle(i2).toString());
+                j(i2, this.f47502i.getAdapter().getPageTitle(i2).toString());
             }
         }
         m();
@@ -500,16 +500,16 @@ public class CommonPagerSlidingTabStrip extends HorizontalScrollView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, canvas) == null) {
             super.onDraw(canvas);
-            if (isInEditMode() || this.f47397j == 0 || this.f47395h.getChildCount() <= 1) {
+            if (isInEditMode() || this.f47503j == 0 || this.f47501h.getChildCount() <= 1) {
                 return;
             }
             int height = getHeight();
             this.m.setColor(this.o);
-            View childAt = this.f47395h.getChildAt(this.k);
+            View childAt = this.f47501h.getChildAt(this.k);
             float left = childAt.getLeft();
             float right = childAt.getRight();
-            if (this.l > 0.0f && (i2 = this.k) < this.f47397j - 1) {
-                View childAt2 = this.f47395h.getChildAt(i2 + 1);
+            if (this.l > 0.0f && (i2 = this.k) < this.f47503j - 1) {
+                View childAt2 = this.f47501h.getChildAt(i2 + 1);
                 float f2 = this.l;
                 left = (childAt2.getLeft() * f2) + ((1.0f - f2) * left);
                 right = (childAt2.getRight() * f2) + ((1.0f - f2) * right);
@@ -559,11 +559,11 @@ public class CommonPagerSlidingTabStrip extends HorizontalScrollView {
     public void setViewPager(ViewPager viewPager) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, viewPager) == null) {
-            this.f47396i = viewPager;
+            this.f47502i = viewPager;
             if (viewPager.getAdapter() == null) {
                 return;
             }
-            viewPager.setOnPageChangeListener(this.f47394g);
+            viewPager.setOnPageChangeListener(this.f47500g);
             notifyDataSetChanged();
         }
     }
@@ -608,7 +608,7 @@ public class CommonPagerSlidingTabStrip extends HorizontalScrollView {
                 return;
             }
         }
-        this.f47394g = new d(this, null);
+        this.f47500g = new d(this, null);
         this.k = 0;
         this.l = 0.0f;
         this.n = false;

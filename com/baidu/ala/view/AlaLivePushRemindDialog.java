@@ -4,8 +4,8 @@ import android.content.Intent;
 import android.net.Uri;
 import androidx.core.view.InputDeviceCompat;
 import c.a.e.c.g.c;
-import c.a.o0.s.s.a;
-import c.a.o0.t.d.d;
+import c.a.p0.s.s.a;
+import c.a.p0.t.d.d;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
@@ -145,7 +145,7 @@ public class AlaLivePushRemindDialog {
                     this.val$showAttentionSuccessPanel = z;
                 }
 
-                @Override // c.a.o0.s.s.a.e
+                @Override // c.a.p0.s.s.a.e
                 public void onClick(a aVar2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, aVar2) == null) {
@@ -183,7 +183,7 @@ public class AlaLivePushRemindDialog {
                     this.val$showAttentionSuccessPanel = z;
                 }
 
-                @Override // c.a.o0.s.s.a.e
+                @Override // c.a.p0.s.s.a.e
                 public void onClick(a aVar2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, aVar2) == null) {

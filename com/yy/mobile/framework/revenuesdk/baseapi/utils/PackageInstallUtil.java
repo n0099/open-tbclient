@@ -58,7 +58,7 @@ public final class PackageInstallUtil {
     public static final boolean isInstallAlipay(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) ? isInstalled(context, k.f35883a) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) ? isInstalled(context, k.f35989a) : invokeL.booleanValue;
     }
 
     @JvmStatic

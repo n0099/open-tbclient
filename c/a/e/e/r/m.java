@@ -10,10 +10,10 @@ public class m extends r {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f2633a;
+    public int f2691a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f2634b;
+    public String f2692b;
 
     public m() {
         Interceptable interceptable = $ic;
@@ -28,8 +28,8 @@ public class m extends r {
                 return;
             }
         }
-        this.f2633a = -1;
-        this.f2634b = null;
+        this.f2691a = -1;
+        this.f2692b = null;
     }
 
     public m(int i2, String str) {
@@ -47,7 +47,7 @@ public class m extends r {
                 return;
             }
         }
-        this.f2633a = i2;
-        this.f2634b = str;
+        this.f2691a = i2;
+        this.f2692b = str;
     }
 }

@@ -6,12 +6,12 @@ import android.content.pm.ApplicationInfo;
 import android.os.Build;
 import android.webkit.WebView;
 import androidx.core.view.InputDeviceCompat;
+import c.a.a0.a.b;
 import c.a.e.c.f.k;
-import c.a.o0.h0.h;
-import c.a.o0.s.l.a;
-import c.a.o0.w.d;
+import c.a.p0.h0.h;
+import c.a.p0.s.l.a;
+import c.a.p0.w.d;
 import c.a.r.f.a.b;
-import c.a.z.a.b;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -158,9 +158,9 @@ public class AsyncLaunchTaskManager {
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        c.a.o0.s.l.b.s().A();
+                        c.a.p0.s.l.b.s().A();
                         a.c();
-                        c.a.o0.s.l.b.s().z();
+                        c.a.p0.s.l.b.s().z();
                     }
                 }
             }, AppCreateSpeedStats.INIT_ACCOUNT);
@@ -443,7 +443,7 @@ public class AsyncLaunchTaskManager {
     public void initAxeSdk(Context context) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) && PermissionUtil.isAgreePrivacyPolicy()) {
-            b.C1370b.c(context.getApplicationContext()).b().t();
+            b.C1377b.c(context.getApplicationContext()).b().t();
         }
     }
 
@@ -461,7 +461,7 @@ public class AsyncLaunchTaskManager {
             context.getSharedPreferences("adp_feature_switch", 0);
             setWebViewDataDirectorySuffix();
             InitVersion(context);
-            TbFaceManager.e().i(TbadkCoreApplication.getInst(), new c.a.o0.x.p.b());
+            TbFaceManager.e().i(TbadkCoreApplication.getInst(), new c.a.p0.x.p.b());
             registerGoActionTask();
             if (TbadkCoreApplication.getInst().isMainProcess(true)) {
                 MessageManager.getInstance().runTask(2921328, null, context);

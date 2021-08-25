@@ -15,13 +15,13 @@ public final class k {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final x f64200a;
+    public final x f64400a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f64201b;
+    public final int f64401b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final String f64202c;
+    public final String f64402c;
 
     public k(x xVar, int i2, String str) {
         Interceptable interceptable = $ic;
@@ -38,9 +38,9 @@ public final class k {
                 return;
             }
         }
-        this.f64200a = xVar;
-        this.f64201b = i2;
-        this.f64202c = str;
+        this.f64400a = xVar;
+        this.f64401b = i2;
+        this.f64402c = str;
     }
 
     public static k a(ab abVar) {
@@ -54,12 +54,12 @@ public final class k {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             StringBuilder sb = new StringBuilder();
-            sb.append(this.f64200a == x.f64615a ? "HTTP/1.0" : "HTTP/1.1");
+            sb.append(this.f64400a == x.f64815a ? "HTTP/1.0" : "HTTP/1.1");
             sb.append(' ');
-            sb.append(this.f64201b);
-            if (this.f64202c != null) {
+            sb.append(this.f64401b);
+            if (this.f64402c != null) {
                 sb.append(' ');
-                sb.append(this.f64202c);
+                sb.append(this.f64402c);
             }
             return sb.toString();
         }
@@ -77,9 +77,9 @@ public final class k {
                 if (str.length() >= 9 && str.charAt(8) == ' ') {
                     int charAt = str.charAt(7) - '0';
                     if (charAt == 0) {
-                        xVar = x.f64615a;
+                        xVar = x.f64815a;
                     } else if (charAt == 1) {
-                        xVar = x.f64616b;
+                        xVar = x.f64816b;
                     } else {
                         throw new ProtocolException("Unexpected status line: " + str);
                     }
@@ -87,7 +87,7 @@ public final class k {
                     throw new ProtocolException("Unexpected status line: " + str);
                 }
             } else if (str.startsWith("ICY ")) {
-                xVar = x.f64615a;
+                xVar = x.f64815a;
                 i2 = 4;
             } else {
                 throw new ProtocolException("Unexpected status line: " + str);

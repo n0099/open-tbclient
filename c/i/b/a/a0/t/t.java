@@ -15,10 +15,10 @@ public final class t {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final List<Format> f32706a;
+    public final List<Format> f32812a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final c.i.b.a.a0.m[] f32707b;
+    public final c.i.b.a.a0.m[] f32813b;
 
     public t(List<Format> list) {
         Interceptable interceptable = $ic;
@@ -35,24 +35,24 @@ public final class t {
                 return;
             }
         }
-        this.f32706a = list;
-        this.f32707b = new c.i.b.a.a0.m[list.size()];
+        this.f32812a = list;
+        this.f32813b = new c.i.b.a.a0.m[list.size()];
     }
 
     public void a(long j2, c.i.b.a.i0.l lVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJL(1048576, this, j2, lVar) == null) {
-            c.i.b.a.e0.l.g.a(j2, lVar, this.f32707b);
+            c.i.b.a.e0.l.g.a(j2, lVar, this.f32813b);
         }
     }
 
     public void b(c.i.b.a.a0.g gVar, w.d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, gVar, dVar) == null) {
-            for (int i2 = 0; i2 < this.f32707b.length; i2++) {
+            for (int i2 = 0; i2 < this.f32813b.length; i2++) {
                 dVar.a();
                 c.i.b.a.a0.m a2 = gVar.a(dVar.c(), 3);
-                Format format = this.f32706a.get(i2);
+                Format format = this.f32812a.get(i2);
                 String str = format.sampleMimeType;
                 boolean z = "application/cea-608".equals(str) || "application/cea-708".equals(str);
                 c.i.b.a.i0.a.b(z, "Invalid closed caption mime type provided: " + str);
@@ -61,7 +61,7 @@ public final class t {
                     str2 = dVar.b();
                 }
                 a2.b(Format.createTextSampleFormat(str2, str, (String) null, -1, format.selectionFlags, format.language, format.accessibilityChannel, (DrmInitData) null));
-                this.f32707b[i2] = a2;
+                this.f32813b[i2] = a2;
             }
         }
     }

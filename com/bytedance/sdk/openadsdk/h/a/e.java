@@ -18,7 +18,7 @@ public class e extends com.bytedance.sdk.component.a.e<JSONObject, JSONObject> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public WeakReference<w> f67526a;
+    public WeakReference<w> f67726a;
 
     public e(w wVar) {
         Interceptable interceptable = $ic;
@@ -35,7 +35,7 @@ public class e extends com.bytedance.sdk.component.a.e<JSONObject, JSONObject> {
                 return;
             }
         }
-        this.f67526a = new WeakReference<>(wVar);
+        this.f67726a = new WeakReference<>(wVar);
     }
 
     public JSONObject c() {
@@ -45,7 +45,7 @@ public class e extends com.bytedance.sdk.component.a.e<JSONObject, JSONObject> {
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
-                if (this.f67526a == null || (wVar = this.f67526a.get()) == null) {
+                if (this.f67726a == null || (wVar = this.f67726a.get()) == null) {
                     return jSONObject;
                 }
                 jSONObject = wVar.o();

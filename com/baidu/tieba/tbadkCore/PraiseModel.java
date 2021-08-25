@@ -24,17 +24,17 @@ public class PraiseModel extends BdBaseModel {
     public static final int UN_LIKE = 0;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f56739g;
+    public static final String f56904g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static TbHttpMessageTask f56740h;
+    public static TbHttpMessageTask f56905h;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public b f56741e;
+    public b f56906e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final HttpMessageListener f56742f;
+    public final HttpMessageListener f56907f;
 
     /* loaded from: classes7.dex */
     public class a extends HttpMessageListener {
@@ -42,7 +42,7 @@ public class PraiseModel extends BdBaseModel {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PraiseModel f56743a;
+        public final /* synthetic */ PraiseModel f56908a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(PraiseModel praiseModel, int i2) {
@@ -62,7 +62,7 @@ public class PraiseModel extends BdBaseModel {
                     return;
                 }
             }
-            this.f56743a = praiseModel;
+            this.f56908a = praiseModel;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -72,17 +72,17 @@ public class PraiseModel extends BdBaseModel {
             if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1001600) {
                 int statusCode = httpResponsedMessage.getStatusCode();
                 if (statusCode != 200 || !(httpResponsedMessage instanceof PraiseResponseMessage)) {
-                    if (this.f56743a.f56741e != null) {
-                        this.f56743a.f56741e.b(statusCode, null);
+                    if (this.f56908a.f56906e != null) {
+                        this.f56908a.f56906e.b(statusCode, null);
                         return;
                     }
                     return;
                 }
                 PraiseResponseMessage praiseResponseMessage = (PraiseResponseMessage) httpResponsedMessage;
                 if (praiseResponseMessage.getError() == 0) {
-                    this.f56743a.f56741e.a(praiseResponseMessage.getErrMsg());
-                } else if (this.f56743a.f56741e != null) {
-                    this.f56743a.f56741e.b(praiseResponseMessage.getError(), praiseResponseMessage.getErrMsg());
+                    this.f56908a.f56906e.a(praiseResponseMessage.getErrMsg());
+                } else if (this.f56908a.f56906e != null) {
+                    this.f56908a.f56906e.b(praiseResponseMessage.getError(), praiseResponseMessage.getErrMsg());
                 }
             }
         }
@@ -109,11 +109,11 @@ public class PraiseModel extends BdBaseModel {
             }
         }
         String str = TbConfig.SERVER_ADDRESS + TbConfig.COMMON_PRAISE_URL;
-        f56739g = str;
+        f56904g = str;
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.COMMON_PRAISE_Y_OR_N, str);
-        f56740h = tbHttpMessageTask;
+        f56905h = tbHttpMessageTask;
         tbHttpMessageTask.setResponsedClass(PraiseResponseMessage.class);
-        MessageManager.getInstance().registerTask(f56740h);
+        MessageManager.getInstance().registerTask(f56905h);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -134,9 +134,9 @@ public class PraiseModel extends BdBaseModel {
                 return;
             }
         }
-        this.f56741e = null;
-        this.f56742f = new a(this, CmdConfigHttp.COMMON_PRAISE_Y_OR_N);
-        this.f56741e = bVar;
+        this.f56906e = null;
+        this.f56907f = new a(this, CmdConfigHttp.COMMON_PRAISE_Y_OR_N);
+        this.f56906e = bVar;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -162,9 +162,9 @@ public class PraiseModel extends BdBaseModel {
     public void registerListener() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f56742f.setSelfListener(true);
-            this.f56742f.setTag(getUniqueId());
-            registerListener(this.f56742f);
+            this.f56907f.setSelfListener(true);
+            this.f56907f.setTag(getUniqueId());
+            registerListener(this.f56907f);
         }
     }
 }

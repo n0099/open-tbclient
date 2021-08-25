@@ -29,19 +29,19 @@ public class c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public com.heytap.openid.a f34083a = null;
+    public com.heytap.openid.a f34189a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f34084b = null;
+    public String f34190b = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f34085c = null;
+    public String f34191c = null;
 
     /* renamed from: d  reason: collision with root package name */
-    public final Object f34086d = new Object();
+    public final Object f34192d = new Object();
 
     /* renamed from: e  reason: collision with root package name */
-    public ServiceConnection f34087e = new a(this);
+    public ServiceConnection f34193e = new a(this);
 
     /* loaded from: classes4.dex */
     public class a implements ServiceConnection {
@@ -49,7 +49,7 @@ public class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c f34088e;
+        public final /* synthetic */ c f34194e;
 
         public a(c cVar) {
             Interceptable interceptable = $ic;
@@ -66,16 +66,16 @@ public class c {
                     return;
                 }
             }
-            this.f34088e = cVar;
+            this.f34194e = cVar;
         }
 
         @Override // android.content.ServiceConnection
         public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, componentName, iBinder) == null) {
-                this.f34088e.f34083a = a.AbstractBinderC1963a.a(iBinder);
-                synchronized (this.f34088e.f34086d) {
-                    this.f34088e.f34086d.notify();
+                this.f34194e.f34189a = a.AbstractBinderC1967a.a(iBinder);
+                synchronized (this.f34194e.f34192d) {
+                    this.f34194e.f34192d.notify();
                 }
             }
         }
@@ -84,7 +84,7 @@ public class c {
         public void onServiceDisconnected(ComponentName componentName) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, componentName) == null) {
-                this.f34088e.f34083a = null;
+                this.f34194e.f34189a = null;
             }
         }
     }
@@ -94,7 +94,7 @@ public class c {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final c f34089a;
+        public static final c f34195a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -110,7 +110,7 @@ public class c {
                     return;
                 }
             }
-            f34089a = new c(null);
+            f34195a = new c(null);
         }
     }
 
@@ -123,7 +123,7 @@ public class c {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, context, str)) == null) {
             synchronized (this) {
                 if (Looper.myLooper() != Looper.getMainLooper()) {
-                    if (this.f34083a != null) {
+                    if (this.f34189a != null) {
                         try {
                             return c(context, str);
                         } catch (RemoteException e2) {
@@ -134,16 +134,16 @@ public class c {
                     Intent intent = new Intent();
                     intent.setComponent(new ComponentName("com.heytap.openid", "com.heytap.openid.IdentifyService"));
                     intent.setAction("action.com.heytap.openid.OPEN_ID_SERVICE");
-                    if (context.bindService(intent, this.f34087e, 1)) {
-                        synchronized (this.f34086d) {
+                    if (context.bindService(intent, this.f34193e, 1)) {
+                        synchronized (this.f34192d) {
                             try {
-                                this.f34086d.wait(3000L);
+                                this.f34192d.wait(3000L);
                             } catch (InterruptedException e3) {
                                 e3.printStackTrace();
                             }
                         }
                     }
-                    if (this.f34083a == null) {
+                    if (this.f34189a == null) {
                         return "";
                     }
                     try {
@@ -179,13 +179,13 @@ public class c {
         Signature[] signatureArr;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, str)) == null) {
-            if (TextUtils.isEmpty(this.f34084b)) {
-                this.f34084b = context.getPackageName();
+            if (TextUtils.isEmpty(this.f34190b)) {
+                this.f34190b = context.getPackageName();
             }
-            if (TextUtils.isEmpty(this.f34085c)) {
+            if (TextUtils.isEmpty(this.f34191c)) {
                 String str2 = null;
                 try {
-                    signatureArr = context.getPackageManager().getPackageInfo(this.f34084b, 64).signatures;
+                    signatureArr = context.getPackageManager().getPackageInfo(this.f34190b, 64).signatures;
                 } catch (PackageManager.NameNotFoundException e2) {
                     e2.printStackTrace();
                     signatureArr = null;
@@ -206,9 +206,9 @@ public class c {
                         e3.printStackTrace();
                     }
                 }
-                this.f34085c = str2;
+                this.f34191c = str2;
             }
-            String a2 = ((a.AbstractBinderC1963a.C1964a) this.f34083a).a(this.f34084b, this.f34085c, str);
+            String a2 = ((a.AbstractBinderC1967a.C1968a) this.f34189a).a(this.f34190b, this.f34191c, str);
             return TextUtils.isEmpty(a2) ? "" : a2;
         }
         return (String) invokeLL.objValue;

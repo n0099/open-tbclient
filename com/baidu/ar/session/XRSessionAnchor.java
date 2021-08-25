@@ -5,7 +5,7 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.view.OrientationEventListener;
 import android.view.WindowManager;
-import c.a.i0.a.a;
+import c.a.j0.a.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.ar.plugin.PluginManager;
 import com.baidu.searchbox.v8engine.NotProguard;

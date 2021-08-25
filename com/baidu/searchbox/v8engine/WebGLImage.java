@@ -248,35 +248,37 @@ public class WebGLImage {
 
     public static String saveTempFilePath(long j2, byte[] bArr, String str) {
         InterceptResult invokeCommon;
+        File createTempFile;
+        FileOutputStream fileOutputStream;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeCommon = interceptable.invokeCommon(65548, null, new Object[]{Long.valueOf(j2), bArr, str})) != null) {
-            return (String) invokeCommon.objValue;
-        }
-        FileOutputStream fileOutputStream = null;
-        try {
-            File file = new File(V8Engine.getInstance(j2).getBdFileRealPath(), "tmp");
-            if (!file.exists()) {
-                file.mkdirs();
-            }
-            File createTempFile = File.createTempFile("tmp_", "." + str, file);
-            Log.e("V8", "saveTempFilePath--file : " + createTempFile);
-            FileOutputStream fileOutputStream2 = new FileOutputStream(createTempFile);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65548, null, new Object[]{Long.valueOf(j2), bArr, str})) == null) {
+            FileOutputStream fileOutputStream2 = null;
             try {
-                fileOutputStream2.write(bArr);
-                String str2 = "bdfile://tmp/" + createTempFile.getName();
-                fileOutputStream2.close();
-                return str2;
+                File file = new File(V8Engine.getInstance(j2).getBdFileRealPath(), "tmp");
+                if (!file.exists()) {
+                    file.mkdirs();
+                }
+                createTempFile = File.createTempFile("tmp_", "." + str, file);
+                Log.e("V8", "saveTempFilePath--file : " + createTempFile);
+                fileOutputStream = new FileOutputStream(createTempFile);
             } catch (Throwable th) {
                 th = th;
-                fileOutputStream = fileOutputStream2;
-                if (fileOutputStream != null) {
-                    fileOutputStream.close();
+            }
+            try {
+                fileOutputStream.write(bArr);
+                String str2 = "bdfile://tmp/" + createTempFile.getName();
+                fileOutputStream.close();
+                return str2;
+            } catch (Throwable th2) {
+                th = th2;
+                fileOutputStream2 = fileOutputStream;
+                if (fileOutputStream2 != null) {
+                    fileOutputStream2.close();
                 }
                 throw th;
             }
-        } catch (Throwable th2) {
-            th = th2;
         }
+        return (String) invokeCommon.objValue;
     }
 
     public static Bitmap.CompressFormat toCompressFormat(String str) {

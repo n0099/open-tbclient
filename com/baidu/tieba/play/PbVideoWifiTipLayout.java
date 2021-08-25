@@ -23,22 +23,22 @@ public class PbVideoWifiTipLayout extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f55771e;
+    public TextView f55936e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f55772f;
+    public TextView f55937f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f55773g;
+    public TextView f55938g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f55774h;
+    public TextView f55939h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f55775i;
+    public TextView f55940i;
 
     /* renamed from: j  reason: collision with root package name */
-    public View.OnClickListener f55776j;
+    public View.OnClickListener f55941j;
 
     /* loaded from: classes7.dex */
     public class a implements View.OnClickListener {
@@ -46,7 +46,7 @@ public class PbVideoWifiTipLayout extends LinearLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PbVideoWifiTipLayout f55777e;
+        public final /* synthetic */ PbVideoWifiTipLayout f55942e;
 
         public a(PbVideoWifiTipLayout pbVideoWifiTipLayout) {
             Interceptable interceptable = $ic;
@@ -63,16 +63,16 @@ public class PbVideoWifiTipLayout extends LinearLayout {
                     return;
                 }
             }
-            this.f55777e = pbVideoWifiTipLayout;
+            this.f55942e = pbVideoWifiTipLayout;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                c.a.o0.m.a.u(true, this.f55777e.getContext(), this.f55777e.getResources().getString(R.string.free_data_privilege), TbConfig.URL_BAIDU_SINGKIL);
-                if (this.f55777e.f55776j != null) {
-                    this.f55777e.f55776j.onClick(view);
+                c.a.p0.m.a.v(true, this.f55942e.getContext(), this.f55942e.getResources().getString(R.string.free_data_privilege), TbConfig.URL_BAIDU_SINGKIL);
+                if (this.f55942e.f55941j != null) {
+                    this.f55942e.f55941j.onClick(view);
                 }
             }
         }
@@ -103,12 +103,12 @@ public class PbVideoWifiTipLayout extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             LinearLayout.inflate(getContext(), R.layout.layout_video_wifi_tip, this);
-            this.f55771e = (TextView) findViewById(R.id.tv_video_duration);
-            this.f55772f = (TextView) findViewById(R.id.tv_video_data);
-            this.f55773g = (TextView) findViewById(R.id.tv_play);
-            this.f55774h = (TextView) findViewById(R.id.tv_divider);
+            this.f55936e = (TextView) findViewById(R.id.tv_video_duration);
+            this.f55937f = (TextView) findViewById(R.id.tv_video_data);
+            this.f55938g = (TextView) findViewById(R.id.tv_play);
+            this.f55939h = (TextView) findViewById(R.id.tv_divider);
             TextView textView = (TextView) findViewById(R.id.tv_open_free_data);
-            this.f55775i = textView;
+            this.f55940i = textView;
             textView.setOnClickListener(new a(this));
         }
     }
@@ -116,13 +116,13 @@ public class PbVideoWifiTipLayout extends LinearLayout {
     public TextView getTvOpenFreeData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f55775i : (TextView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f55940i : (TextView) invokeV.objValue;
     }
 
     public TextView getTvPlay() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f55773g : (TextView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f55938g : (TextView) invokeV.objValue;
     }
 
     public void setData(VideoInfo videoInfo) {
@@ -136,14 +136,14 @@ public class PbVideoWifiTipLayout extends LinearLayout {
     public void setFreeClickListener(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, onClickListener) == null) {
-            this.f55776j = onClickListener;
+            this.f55941j = onClickListener;
         }
     }
 
     public void setOnPlayClickListener(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, onClickListener) == null) {
-            this.f55773g.setOnClickListener(onClickListener);
+            this.f55938g.setOnClickListener(onClickListener);
         }
     }
 
@@ -151,18 +151,18 @@ public class PbVideoWifiTipLayout extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048579, this, i2, i3) == null) {
             if (i2 > 0) {
-                this.f55771e.setText(String.format(getResources().getString(R.string.pb_video_duration), StringHelper.stringForVideoTime(i2 * 1000)));
+                this.f55936e.setText(String.format(getResources().getString(R.string.pb_video_duration), StringHelper.stringForVideoTime(i2 * 1000)));
             } else {
-                this.f55771e.setVisibility(8);
-                this.f55774h.setVisibility(8);
+                this.f55936e.setVisibility(8);
+                this.f55939h.setVisibility(8);
             }
             if (i3 > 0) {
-                this.f55772f.setText(String.format(getResources().getString(R.string.pb_video_data), new DecimalFormat(XAdSDKPorxyConfig.REMOTE_VERSION_DEFAULT).format(i3 / 1048576.0f)));
+                this.f55937f.setText(String.format(getResources().getString(R.string.pb_video_data), new DecimalFormat(XAdSDKPorxyConfig.REMOTE_VERSION_DEFAULT).format(i3 / 1048576.0f)));
             } else {
-                this.f55772f.setVisibility(8);
-                this.f55774h.setVisibility(8);
+                this.f55937f.setVisibility(8);
+                this.f55939h.setVisibility(8);
             }
-            this.f55775i.setVisibility(0);
+            this.f55940i.setVisibility(0);
         }
     }
 

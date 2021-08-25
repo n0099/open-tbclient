@@ -12,11 +12,11 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static a f4089b;
+    public static a f4329b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f4090a;
+    public String f4330a;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -36,14 +36,14 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f4089b == null) {
+            if (f4329b == null) {
                 synchronized (a.class) {
-                    if (f4089b == null) {
-                        f4089b = new a();
+                    if (f4329b == null) {
+                        f4329b = new a();
                     }
                 }
             }
-            return f4089b;
+            return f4329b;
         }
         return (a) invokeV.objValue;
     }
@@ -52,8 +52,8 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (!TextUtils.isEmpty(this.f4090a)) {
-                return this.f4090a;
+            if (!TextUtils.isEmpty(this.f4330a)) {
+                return this.f4330a;
             }
             return b.a().getAppName();
         }
@@ -63,7 +63,7 @@ public class a {
     public void c(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            this.f4090a = str;
+            this.f4330a = str;
         }
     }
 }

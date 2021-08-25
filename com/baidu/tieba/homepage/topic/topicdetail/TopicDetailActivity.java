@@ -7,9 +7,9 @@ import androidx.core.view.InputDeviceCompat;
 import c.a.e.e.m.b;
 import c.a.e.e.p.j;
 import c.a.e.e.p.k;
-import c.a.e.k.e.n;
-import c.a.o0.a.g;
-import c.a.o0.a.w;
+import c.a.e.l.e.n;
+import c.a.p0.a.g;
+import c.a.p0.a.w;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
@@ -40,7 +40,7 @@ import java.util.regex.Pattern;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> implements c.a.p0.f1.k.a.a {
+public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> implements c.a.q0.f1.k.a.a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String SCHEME_TOPIC_DETAIL = "tbtopicdetail://";
     public static final String TOPIC_ID_PREFFIX = "topic_id=";
@@ -58,7 +58,7 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ TopicDetailActivity f52185a;
+        public final /* synthetic */ TopicDetailActivity f52346a;
 
         public a(TopicDetailActivity topicDetailActivity) {
             Interceptable interceptable = $ic;
@@ -75,10 +75,10 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
                     return;
                 }
             }
-            this.f52185a = topicDetailActivity;
+            this.f52346a = topicDetailActivity;
         }
 
-        @Override // c.a.o0.a.g.b
+        @Override // c.a.p0.a.g.b
         public void onCallBack(HashMap<String, Object> hashMap) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, hashMap) == null) && hashMap != null && (hashMap.get(g.v) instanceof String)) {
@@ -86,7 +86,7 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
                 if (StringUtils.isNull(str)) {
                     return;
                 }
-                this.f52185a.topicID = b.f(str, -1L);
+                this.f52346a.topicID = b.f(str, -1L);
             }
         }
     }
@@ -167,14 +167,14 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
         }
     }
 
-    @Override // com.baidu.tbadk.BaseActivity, c.a.o0.m0.a
+    @Override // com.baidu.tbadk.BaseActivity, c.a.p0.m0.a
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "a024" : (String) invokeV.objValue;
     }
 
-    @Override // c.a.p0.f1.k.a.a
+    @Override // c.a.q0.f1.k.a.a
     public void loadData() {
         int i2;
         String substring;
@@ -231,12 +231,12 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
         }
     }
 
-    @Override // c.a.p0.f1.k.a.a
-    public void netCallback(int i2, c.a.p0.f1.k.a.c.a aVar) {
+    @Override // c.a.q0.f1.k.a.a
+    public void netCallback(int i2, c.a.q0.f1.k.a.c.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048580, this, i2, aVar) == null) {
             this.mTopicDetailView.hideLoadingView();
-            if (i2 == 0 && aVar != null && !ListUtils.isEmpty(aVar.f17610f)) {
+            if (i2 == 0 && aVar != null && !ListUtils.isEmpty(aVar.f17943f)) {
                 this.mTopicDetailView.hideNetRefreshView();
                 this.mTopicDetailView.setData(aVar);
                 return;
@@ -245,7 +245,7 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
         }
     }
 
-    @Override // c.a.p0.f1.k.a.a
+    @Override // c.a.q0.f1.k.a.a
     public void netThreadCallback(int i2, boolean z, List<n> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z), list}) == null) {

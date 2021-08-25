@@ -91,9 +91,9 @@ public class TbHttpResponsedMessage extends HttpResponsedMessage {
         NetWorkState.mErrorNums.addAndGet(eVar.d().size() - 1);
         NetWorkState.StatisticsData statisticsData = new NetWorkState.StatisticsData();
         statisticsData.mMode = getMode(j.I());
-        statisticsData.mSize = dVar.f2249b;
-        statisticsData.mTime = dVar.f2253f;
-        statisticsData.mTimesNum = dVar.f2252e;
+        statisticsData.mSize = dVar.f2307b;
+        statisticsData.mTime = dVar.f2311f;
+        statisticsData.mTimesNum = dVar.f2310e;
         statisticsData.mMethod = eVar.b().h() != HttpMessageTask.HTTP_METHOD.POST ? 2 : 1;
         NetWorkState.addStatisticsData(statisticsData);
     }

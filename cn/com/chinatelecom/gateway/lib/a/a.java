@@ -17,13 +17,13 @@ public class a {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f35388a = "a";
+    public static final String f35494a = "a";
 
     /* renamed from: b  reason: collision with root package name */
-    public static byte[] f35389b;
+    public static byte[] f35495b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static byte[] f35390c;
+    public static byte[] f35496c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -39,8 +39,8 @@ public class a {
                 return;
             }
         }
-        f35389b = "0000000000000000".getBytes();
-        f35390c = "vrf5g7h0tededwx3".getBytes();
+        f35495b = "0000000000000000".getBytes();
+        f35496c = "vrf5g7h0tededwx3".getBytes();
     }
 
     public a() {
@@ -62,14 +62,14 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
             try {
-                IvParameterSpec ivParameterSpec = new IvParameterSpec(f35389b);
+                IvParameterSpec ivParameterSpec = new IvParameterSpec(f35495b);
                 SecretKeySpec secretKeySpec = new SecretKeySpec(str2.getBytes(), "AES");
                 Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
                 byte[] bytes = str.getBytes("utf-8");
                 cipher.init(1, secretKeySpec, ivParameterSpec);
                 return e.a(cipher.doFinal(bytes));
             } catch (Throwable th) {
-                CtAuth.warn(f35388a, "encryptAesNew error", th);
+                CtAuth.warn(f35494a, "encryptAesNew error", th);
                 return null;
             }
         }
@@ -94,13 +94,13 @@ public class a {
                         bArr[i2] = 0;
                     }
                 }
-                IvParameterSpec ivParameterSpec = new IvParameterSpec(f35390c);
+                IvParameterSpec ivParameterSpec = new IvParameterSpec(f35496c);
                 SecretKeySpec secretKeySpec = new SecretKeySpec(str2.getBytes(), "AES");
                 Cipher cipher = Cipher.getInstance("AES/CBC/NoPadding");
                 cipher.init(1, secretKeySpec, ivParameterSpec);
                 return cipher.doFinal(bArr);
             } catch (Throwable th) {
-                CtAuth.warn(f35388a, "encrypt4Ux error", th);
+                CtAuth.warn(f35494a, "encrypt4Ux error", th);
                 return null;
             }
         }
@@ -112,7 +112,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2)) == null) {
             try {
-                IvParameterSpec ivParameterSpec = new IvParameterSpec(f35389b);
+                IvParameterSpec ivParameterSpec = new IvParameterSpec(f35495b);
                 SecretKeySpec secretKeySpec = new SecretKeySpec(str2.getBytes(), "AES");
                 Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
                 cipher.init(2, secretKeySpec, ivParameterSpec);
@@ -120,10 +120,10 @@ public class a {
                 if (doFinal != null) {
                     return new String(doFinal);
                 }
-                CtAuth.info(f35388a, "Aes decrypt result is empty");
+                CtAuth.info(f35494a, "Aes decrypt result is empty");
                 return "";
             } catch (Throwable th) {
-                CtAuth.warn(f35388a, "decryptAesNew error", th);
+                CtAuth.warn(f35494a, "decryptAesNew error", th);
                 return "";
             }
         }

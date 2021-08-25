@@ -14,15 +14,8 @@ import com.airbnb.lottie.animation.LPaint;
 import com.airbnb.lottie.animation.keyframe.BaseKeyframeAnimation;
 import com.airbnb.lottie.animation.keyframe.ValueCallbackKeyframeAnimation;
 import com.airbnb.lottie.value.LottieValueCallback;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
 public class SolidLayer extends BaseLayer {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
     @Nullable
     public BaseKeyframeAnimation<ColorFilter, ColorFilter> colorFilterAnimation;
     public final Layer layerModel;
@@ -31,25 +24,8 @@ public class SolidLayer extends BaseLayer {
     public final float[] points;
     public final RectF rect;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public SolidLayer(LottieDrawable lottieDrawable, Layer layer) {
         super(lottieDrawable, layer);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {lottieDrawable, layer};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((LottieDrawable) objArr2[0], (Layer) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
         this.rect = new RectF();
         this.paint = new LPaint();
         this.points = new float[8];
@@ -62,24 +38,20 @@ public class SolidLayer extends BaseLayer {
 
     @Override // com.airbnb.lottie.model.layer.BaseLayer, com.airbnb.lottie.model.KeyPathElement
     public <T> void addValueCallback(T t, @Nullable LottieValueCallback<T> lottieValueCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, t, lottieValueCallback) == null) {
-            super.addValueCallback(t, lottieValueCallback);
-            if (t == LottieProperty.COLOR_FILTER) {
-                if (lottieValueCallback == null) {
-                    this.colorFilterAnimation = null;
-                } else {
-                    this.colorFilterAnimation = new ValueCallbackKeyframeAnimation(lottieValueCallback);
-                }
+        super.addValueCallback(t, lottieValueCallback);
+        if (t == LottieProperty.COLOR_FILTER) {
+            if (lottieValueCallback == null) {
+                this.colorFilterAnimation = null;
+            } else {
+                this.colorFilterAnimation = new ValueCallbackKeyframeAnimation(lottieValueCallback);
             }
         }
     }
 
     @Override // com.airbnb.lottie.model.layer.BaseLayer
     public void drawLayer(Canvas canvas, Matrix matrix, int i2) {
-        int alpha;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas, matrix, i2) == null) || (alpha = Color.alpha(this.layerModel.getSolidColor())) == 0) {
+        int alpha = Color.alpha(this.layerModel.getSolidColor());
+        if (alpha == 0) {
             return;
         }
         int intValue = (int) ((i2 / 255.0f) * (((alpha / 255.0f) * (this.transform.getOpacity() == null ? 100 : this.transform.getOpacity().getValue().intValue())) / 100.0f) * 255.0f);
@@ -124,12 +96,9 @@ public class SolidLayer extends BaseLayer {
 
     @Override // com.airbnb.lottie.model.layer.BaseLayer, com.airbnb.lottie.animation.content.DrawingContent
     public void getBounds(RectF rectF, Matrix matrix, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(Constants.METHOD_SEND_USER_MSG, this, rectF, matrix, z) == null) {
-            super.getBounds(rectF, matrix, z);
-            this.rect.set(0.0f, 0.0f, this.layerModel.getSolidWidth(), this.layerModel.getSolidHeight());
-            this.boundsMatrix.mapRect(this.rect);
-            rectF.set(this.rect);
-        }
+        super.getBounds(rectF, matrix, z);
+        this.rect.set(0.0f, 0.0f, this.layerModel.getSolidWidth(), this.layerModel.getSolidHeight());
+        this.boundsMatrix.mapRect(this.rect);
+        rectF.set(this.rect);
     }
 }

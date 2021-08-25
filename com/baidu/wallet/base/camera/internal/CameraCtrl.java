@@ -117,7 +117,7 @@ public class CameraCtrl implements Camera.ErrorCallback, NoProguard {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static CameraCtrl f59886a;
+        public static CameraCtrl f60086a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -133,7 +133,7 @@ public class CameraCtrl implements Camera.ErrorCallback, NoProguard {
                     return;
                 }
             }
-            f59886a = new CameraCtrl();
+            f60086a = new CameraCtrl();
         }
 
         public a() {
@@ -226,7 +226,7 @@ public class CameraCtrl implements Camera.ErrorCallback, NoProguard {
     public static CameraCtrl getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? a.f59886a : (CameraCtrl) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? a.f60086a : (CameraCtrl) invokeV.objValue;
     }
 
     private Camera.Size getSimilarRatioSize(int i2, int i3, List<Camera.Size> list, int i4) {
@@ -316,7 +316,7 @@ public class CameraCtrl implements Camera.ErrorCallback, NoProguard {
                 try {
                     this._cameraProxy = b.a();
                     if (-1 != i2 && isSupportMultiCamera()) {
-                        this._cameraProxy.f59893a = (Camera) this._newVersionMethods[MethodIndex.open.ordinal()].invoke(Camera.class, Integer.valueOf(i2));
+                        this._cameraProxy.f60093a = (Camera) this._newVersionMethods[MethodIndex.open.ordinal()].invoke(Camera.class, Integer.valueOf(i2));
                         Camera.Parameters d2 = this._cameraProxy.d();
                         focusMode = d2.getFocusMode();
                         if (!focusMode.equals(DebugKt.DEBUG_PROPERTY_VALUE_AUTO) && !focusMode.equals("macro")) {
@@ -353,7 +353,7 @@ public class CameraCtrl implements Camera.ErrorCallback, NoProguard {
                                     Method method = this._newVersionMethods[MethodIndex.setDisplayOrientation.ordinal()];
                                     if (method != null) {
                                         try {
-                                            method.invoke(this._cameraProxy.f59893a, Integer.valueOf(i5));
+                                            method.invoke(this._cameraProxy.f60093a, Integer.valueOf(i5));
                                             this._rotation = i5;
                                         } catch (Exception e2) {
                                             LogUtil.e(Tag, "", e2);
@@ -437,7 +437,7 @@ public class CameraCtrl implements Camera.ErrorCallback, NoProguard {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ CameraCtrl f59885a;
+                public final /* synthetic */ CameraCtrl f60085a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -454,7 +454,7 @@ public class CameraCtrl implements Camera.ErrorCallback, NoProguard {
                             return;
                         }
                     }
-                    this.f59885a = this;
+                    this.f60085a = this;
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */

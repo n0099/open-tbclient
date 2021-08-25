@@ -16,7 +16,7 @@ public class r implements di {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f76941a;
+    public Context f77142a;
 
     public r(Context context) {
         Interceptable interceptable = $ic;
@@ -33,21 +33,21 @@ public class r implements di {
                 return;
             }
         }
-        this.f76941a = context;
+        this.f77142a = context;
     }
 
     @Override // com.xiaomi.push.di
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? b.m114a(this.f76941a).d() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? b.m114a(this.f77142a).d() : (String) invokeV.objValue;
     }
 
     @Override // com.xiaomi.push.di
     public void a(ie ieVar, hf hfVar, hs hsVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ieVar, hfVar, hsVar) == null) {
-            an.a(this.f76941a).a((an) ieVar, hfVar, hsVar);
+            an.a(this.f77142a).a((an) ieVar, hfVar, hsVar);
         }
     }
 }

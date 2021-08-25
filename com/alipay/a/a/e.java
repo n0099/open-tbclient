@@ -15,7 +15,7 @@ public final class e {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static List<i> f35475a;
+    public static List<i> f35581a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -32,15 +32,15 @@ public final class e {
             }
         }
         ArrayList arrayList = new ArrayList();
-        f35475a = arrayList;
+        f35581a = arrayList;
         arrayList.add(new l());
-        f35475a.add(new d());
-        f35475a.add(new c());
-        f35475a.add(new h());
-        f35475a.add(new k());
-        f35475a.add(new b());
-        f35475a.add(new a());
-        f35475a.add(new g());
+        f35581a.add(new d());
+        f35581a.add(new c());
+        f35581a.add(new h());
+        f35581a.add(new k());
+        f35581a.add(new b());
+        f35581a.add(new a());
+        f35581a.add(new g());
     }
 
     public static final <T> T a(Object obj, Type type) {
@@ -48,7 +48,7 @@ public final class e {
         T t;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, obj, type)) == null) {
-            for (i iVar : f35475a) {
+            for (i iVar : f35581a) {
                 if (iVar.a(com.alipay.a.b.a.a(type)) && (t = (T) iVar.a(obj, type)) != null) {
                     return t;
                 }

@@ -2,15 +2,15 @@ package com.baidu.tieba.ala.livecard.adapters;
 
 import android.view.View;
 import android.view.ViewGroup;
-import c.a.o0.s.q.b2;
-import c.a.o0.s.q.c2;
-import c.a.p0.a0.b0;
-import c.a.p0.a0.z;
-import c.a.p0.o.e;
-import c.a.p0.o.f;
-import c.a.p0.v.i.e.c;
-import c.a.p0.v0.j;
-import c.a.p0.v0.k;
+import c.a.p0.s.q.b2;
+import c.a.p0.s.q.c2;
+import c.a.q0.a0.b0;
+import c.a.q0.a0.z;
+import c.a.q0.o.e;
+import c.a.q0.o.f;
+import c.a.q0.v.i.e.c;
+import c.a.q0.v0.j;
+import c.a.q0.v0.k;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.widget.ListView.TypeAdapter;
@@ -66,7 +66,7 @@ public class FrsSplitAlaShareItemAdapter extends k<b2, FrsPageAlaShareHolder> im
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ FrsSplitAlaShareItemAdapter f49451b;
+        public final /* synthetic */ FrsSplitAlaShareItemAdapter f49559b;
 
         public a(FrsSplitAlaShareItemAdapter frsSplitAlaShareItemAdapter) {
             Interceptable interceptable = $ic;
@@ -83,11 +83,11 @@ public class FrsSplitAlaShareItemAdapter extends k<b2, FrsPageAlaShareHolder> im
                     return;
                 }
             }
-            this.f49451b = frsSplitAlaShareItemAdapter;
+            this.f49559b = frsSplitAlaShareItemAdapter;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // c.a.p0.a0.b0
+        @Override // c.a.q0.a0.b0
         /* renamed from: d */
         public void a(View view, c2 c2Var) {
             CustomMessage customMessage;
@@ -100,11 +100,11 @@ public class FrsSplitAlaShareItemAdapter extends k<b2, FrsPageAlaShareHolder> im
                 } else {
                     customMessage = new CustomMessage(2921016);
                 }
-                if (customMessage == null || this.f49451b.o == null) {
+                if (customMessage == null || this.f49559b.o == null) {
                     return;
                 }
                 customMessage.setData(c2Var);
-                this.f49451b.o.sendMessage(customMessage);
+                this.f49559b.o.sendMessage(customMessage);
             }
         }
     }
@@ -131,7 +131,7 @@ public class FrsSplitAlaShareItemAdapter extends k<b2, FrsPageAlaShareHolder> im
         this.A = new a(this);
     }
 
-    @Override // c.a.p0.a0.z
+    @Override // c.a.q0.a0.z
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
@@ -139,7 +139,7 @@ public class FrsSplitAlaShareItemAdapter extends k<b2, FrsPageAlaShareHolder> im
         }
     }
 
-    @Override // c.a.p0.o.f
+    @Override // c.a.q0.o.f
     public void g(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
@@ -147,7 +147,7 @@ public class FrsSplitAlaShareItemAdapter extends k<b2, FrsPageAlaShareHolder> im
         }
     }
 
-    @Override // c.a.p0.a0.z
+    @Override // c.a.q0.a0.z
     public void r(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
@@ -155,7 +155,7 @@ public class FrsSplitAlaShareItemAdapter extends k<b2, FrsPageAlaShareHolder> im
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // c.a.e.k.e.a
+    @Override // c.a.e.l.e.a
     /* renamed from: w0 */
     public FrsPageAlaShareHolder U(ViewGroup viewGroup) {
         InterceptResult invokeL;
@@ -165,9 +165,9 @@ public class FrsSplitAlaShareItemAdapter extends k<b2, FrsPageAlaShareHolder> im
             if (tbPageContext == null) {
                 return null;
             }
-            c cVar = new c(tbPageContext, this.f2908i);
+            c cVar = new c(tbPageContext, this.f2970i);
             this.y = cVar;
-            cVar.V(this.f2908i);
+            cVar.V(this.f2970i);
             this.y.a(this.x);
             this.y.m(this.A);
             return new FrsPageAlaShareHolder(this.y);
@@ -176,7 +176,7 @@ public class FrsSplitAlaShareItemAdapter extends k<b2, FrsPageAlaShareHolder> im
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // c.a.p0.v0.k, c.a.e.k.e.a
+    @Override // c.a.q0.v0.k, c.a.e.l.e.a
     /* renamed from: x0 */
     public View a0(int i2, View view, ViewGroup viewGroup, b2 b2Var, FrsPageAlaShareHolder frsPageAlaShareHolder) {
         InterceptResult invokeCommon;

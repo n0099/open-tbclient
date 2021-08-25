@@ -8,7 +8,7 @@ import android.view.View;
 import android.view.animation.Animation;
 import androidx.core.view.InputDeviceCompat;
 import c.a.e.c.g.a;
-import c.a.o0.s.c;
+import c.a.p0.s.c;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.listener.MessageListener;
 import com.baidu.adp.framework.message.Message;

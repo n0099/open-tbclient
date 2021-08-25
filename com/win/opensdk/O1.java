@@ -12,14 +12,14 @@ public class O1 {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final O1 f76449c;
+    public static final O1 f76650c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public double f76450a;
+    public double f76651a;
 
     /* renamed from: b  reason: collision with root package name */
-    public double f76451b;
+    public double f76652b;
 
     static {
         InterceptResult invokeClinit;
@@ -34,7 +34,7 @@ public class O1 {
                 return;
             }
         }
-        f76449c = new O1();
+        f76650c = new O1();
     }
 
     public O1() {

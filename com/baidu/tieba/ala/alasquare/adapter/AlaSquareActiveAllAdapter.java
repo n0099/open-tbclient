@@ -1,25 +1,25 @@
 package com.baidu.tieba.ala.alasquare.adapter;
 
 import android.view.View;
-import c.a.e.k.e.a;
+import c.a.e.l.e.a;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class AlaSquareActiveAllAdapter extends a<Object, SquareActiveAllViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class SquareActiveAllViewHolder extends TypeAdapter.ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public c.a.p0.v.d.i.a mView;
+        public c.a.q0.v.d.i.a mView;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public SquareActiveAllViewHolder(AlaSquareActiveAllAdapter alaSquareActiveAllAdapter, c.a.p0.v.d.i.a aVar) {
+        public SquareActiveAllViewHolder(AlaSquareActiveAllAdapter alaSquareActiveAllAdapter, c.a.q0.v.d.i.a aVar) {
             super(aVar.j());
             Interceptable interceptable = $ic;
             if (interceptable != null) {

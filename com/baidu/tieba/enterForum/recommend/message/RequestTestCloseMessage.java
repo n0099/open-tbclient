@@ -1,6 +1,6 @@
 package com.baidu.tieba.enterForum.recommend.message;
 
-import c.a.o0.b1.w;
+import c.a.p0.b1.w;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -18,7 +18,7 @@ public class RequestTestCloseMessage extends NetMessage {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: common  reason: collision with root package name */
-    public CommonReq f50003common;
+    public CommonReq f50111common;
     public long fromPage;
     public long testId;
 
@@ -47,7 +47,7 @@ public class RequestTestCloseMessage extends NetMessage {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             DataReq.Builder builder = new DataReq.Builder();
-            builder.f79452common = this.f50003common;
+            builder.f79653common = this.f50111common;
             builder.test_id = Long.valueOf(this.testId);
             builder.from_page = Long.valueOf(this.fromPage);
             if (z) {
@@ -63,7 +63,7 @@ public class RequestTestCloseMessage extends NetMessage {
     public void setCommon(CommonReq commonReq) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, commonReq) == null) {
-            this.f50003common = commonReq;
+            this.f50111common = commonReq;
         }
     }
 

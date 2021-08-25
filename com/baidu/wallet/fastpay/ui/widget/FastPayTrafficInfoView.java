@@ -21,25 +21,25 @@ public class FastPayTrafficInfoView extends RelativeLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public TextView f60797a;
+    public TextView f60997a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f60798b;
+    public TextView f60998b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f60799c;
+    public TextView f60999c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TextView f60800d;
+    public TextView f61000d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f60801e;
+    public TextView f61001e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f60802f;
+    public TextView f61002f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f60803g;
+    public TextView f61003g;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public FastPayTrafficInfoView(Context context) {
@@ -66,73 +66,73 @@ public class FastPayTrafficInfoView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
             LayoutInflater.from(getContext()).inflate(ResUtils.layout(getContext(), "wallet_fp_traffic_info_item"), this);
-            this.f60803g = (TextView) findViewById(ResUtils.id(getContext(), "wallet_to_buy"));
-            this.f60797a = (TextView) findViewById(ResUtils.id(getContext(), "wallet_traffic_info_current_price"));
-            this.f60798b = (TextView) findViewById(ResUtils.id(getContext(), "wallet_traffic_info_formal_price"));
-            this.f60799c = (TextView) findViewById(ResUtils.id(getContext(), "wallet_traffic_info_available_area"));
-            this.f60800d = (TextView) findViewById(ResUtils.id(getContext(), "wallet_traffic_info_available_time"));
-            this.f60801e = (TextView) findViewById(ResUtils.id(getContext(), "wallet_traffic_info_discount_info"));
-            this.f60802f = (TextView) findViewById(ResUtils.id(getContext(), "wallet_traffic_info_hui_des"));
+            this.f61003g = (TextView) findViewById(ResUtils.id(getContext(), "wallet_to_buy"));
+            this.f60997a = (TextView) findViewById(ResUtils.id(getContext(), "wallet_traffic_info_current_price"));
+            this.f60998b = (TextView) findViewById(ResUtils.id(getContext(), "wallet_traffic_info_formal_price"));
+            this.f60999c = (TextView) findViewById(ResUtils.id(getContext(), "wallet_traffic_info_available_area"));
+            this.f61000d = (TextView) findViewById(ResUtils.id(getContext(), "wallet_traffic_info_available_time"));
+            this.f61001e = (TextView) findViewById(ResUtils.id(getContext(), "wallet_traffic_info_discount_info"));
+            this.f61002f = (TextView) findViewById(ResUtils.id(getContext(), "wallet_traffic_info_hui_des"));
         }
     }
 
     public void setActualPrice(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || this.f60797a == null || TextUtils.isEmpty(str)) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || this.f60997a == null || TextUtils.isEmpty(str)) {
             return;
         }
-        this.f60797a.setText(str);
+        this.f60997a.setText(str);
     }
 
     public void setDiscountInfo(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || this.f60801e == null || TextUtils.isEmpty(str)) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || this.f61001e == null || TextUtils.isEmpty(str)) {
             return;
         }
-        this.f60801e.setVisibility(0);
-        this.f60801e.setText(str);
+        this.f61001e.setVisibility(0);
+        this.f61001e.setText(str);
     }
 
     public void setHuiDes(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) || this.f60802f == null || TextUtils.isEmpty(str)) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) || this.f61002f == null || TextUtils.isEmpty(str)) {
             return;
         }
-        this.f60802f.setText(str);
-        this.f60802f.setVisibility(0);
+        this.f61002f.setText(str);
+        this.f61002f.setVisibility(0);
     }
 
     public void setOnBuyClickListener(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, onClickListener) == null) {
-            this.f60803g.setOnClickListener(onClickListener);
+            this.f61003g.setOnClickListener(onClickListener);
         }
     }
 
     public void setOriginalmalPrice(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, str) == null) || this.f60798b == null || TextUtils.isEmpty(str)) {
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, str) == null) || this.f60998b == null || TextUtils.isEmpty(str)) {
             return;
         }
-        this.f60798b.setText(str);
-        this.f60798b.getPaint().setFlags(17);
+        this.f60998b.setText(str);
+        this.f60998b.getPaint().setFlags(17);
     }
 
     public void setUsePeriod(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, str) == null) || this.f60800d == null || TextUtils.isEmpty(str)) {
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, str) == null) || this.f61000d == null || TextUtils.isEmpty(str)) {
             return;
         }
-        this.f60800d.setText(str);
+        this.f61000d.setText(str);
     }
 
     public void setUseProvince(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, str) == null) || this.f60799c == null || TextUtils.isEmpty(str)) {
+        if (!(interceptable == null || interceptable.invokeL(1048582, this, str) == null) || this.f60999c == null || TextUtils.isEmpty(str)) {
             return;
         }
-        this.f60799c.setVisibility(0);
-        TextView textView = this.f60799c;
+        this.f60999c.setVisibility(0);
+        TextView textView = this.f60999c;
         textView.setText(str + "，");
     }
 

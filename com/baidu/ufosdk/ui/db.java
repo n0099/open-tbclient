@@ -13,34 +13,34 @@ public final class db {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public TextView f59436a;
+    public TextView f59636a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ImageView f59437b;
+    public ImageView f59637b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f59438c;
+    public TextView f59638c;
 
     /* renamed from: d  reason: collision with root package name */
-    public RelativeLayout f59439d;
+    public RelativeLayout f59639d;
 
     /* renamed from: e  reason: collision with root package name */
-    public RelativeLayout f59440e;
+    public RelativeLayout f59640e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f59441f;
+    public TextView f59641f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f59442g;
+    public TextView f59642g;
 
     /* renamed from: h  reason: collision with root package name */
-    public i f59443h;
+    public i f59643h;
 
     /* renamed from: i  reason: collision with root package name */
-    public ImageView f59444i;
+    public ImageView f59644i;
 
     /* renamed from: j  reason: collision with root package name */
-    public TextView f59445j;
+    public TextView f59645j;
 
     public db() {
         Interceptable interceptable = $ic;

@@ -39,22 +39,22 @@ public class t extends u {
     public void a(Context context, com.bytedance.sdk.openadsdk.core.e.m mVar, AdSlot adSlot) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048576, this, context, mVar, adSlot) == null) {
-            this.f66528d = "feed_video_middle_page";
+            this.f66728d = "feed_video_middle_page";
             if (mVar == null) {
                 return;
             }
             if (mVar.V() != null) {
-                this.f66525a = new NativeExpressVideoView(context, mVar, adSlot, this.f66528d);
+                this.f66725a = new NativeExpressVideoView(context, mVar, adSlot, this.f66728d);
             } else {
-                this.f66525a = new NativeExpressView(context, mVar, adSlot, this.f66528d);
+                this.f66725a = new NativeExpressView(context, mVar, adSlot, this.f66728d);
             }
-            a(this.f66525a, this.f66527c);
-            this.f66525a.setBackupListener(new c(this) { // from class: com.bytedance.sdk.openadsdk.core.nativeexpress.t.1
+            a(this.f66725a, this.f66727c);
+            this.f66725a.setBackupListener(new c(this) { // from class: com.bytedance.sdk.openadsdk.core.nativeexpress.t.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ t f66541a;
+                public final /* synthetic */ t f66741a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -71,7 +71,7 @@ public class t extends u {
                             return;
                         }
                     }
-                    this.f66541a = this;
+                    this.f66741a = this;
                 }
 
                 @Override // com.bytedance.sdk.openadsdk.core.nativeexpress.c
@@ -91,14 +91,14 @@ public class t extends u {
     public View getExpressAdView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f66525a : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f66725a : (View) invokeV.objValue;
     }
 
     @Override // com.bytedance.sdk.openadsdk.core.nativeexpress.r, com.bytedance.sdk.openadsdk.TTNativeExpressAd
     public void setCanInterruptVideoPlay(boolean z) {
         NativeExpressView nativeExpressView;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) && (nativeExpressView = this.f66525a) != null && (nativeExpressView instanceof NativeExpressVideoView)) {
+        if ((interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) && (nativeExpressView = this.f66725a) != null && (nativeExpressView instanceof NativeExpressVideoView)) {
             ((NativeExpressVideoView) nativeExpressView).setCanInterruptVideoPlay(z);
         }
     }

@@ -13,10 +13,10 @@ public class e {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
-            if (!l.f2512a) {
+            if (!l.f2570a) {
                 l.y(context);
             }
-            return l.f2514c;
+            return l.f2572c;
         }
         return invokeL.intValue;
     }

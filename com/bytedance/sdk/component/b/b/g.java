@@ -23,14 +23,14 @@ public final class g {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final g f64493a;
+    public static final g f64693a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Set<b> f64494b;
+    public final Set<b> f64694b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final com.bytedance.sdk.component.b.b.a.i.c f64495c;
+    public final com.bytedance.sdk.component.b.b.a.i.c f64695c;
 
     /* loaded from: classes9.dex */
     public static final class a {
@@ -38,7 +38,7 @@ public final class g {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final List<b> f64496a;
+        public final List<b> f64696a;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -53,13 +53,13 @@ public final class g {
                     return;
                 }
             }
-            this.f64496a = new ArrayList();
+            this.f64696a = new ArrayList();
         }
 
         public g a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new g(new LinkedHashSet(this.f64496a), null) : (g) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new g(new LinkedHashSet(this.f64696a), null) : (g) invokeV.objValue;
         }
     }
 
@@ -69,32 +69,32 @@ public final class g {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final String f64497a;
+        public final String f64697a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final String f64498b;
+        public final String f64698b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final String f64499c;
+        public final String f64699c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final com.bytedance.sdk.component.b.a.f f64500d;
+        public final com.bytedance.sdk.component.b.a.f f64700d;
 
         public boolean a(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-                if (this.f64497a.startsWith(CertificatePinner.Pin.WILDCARD)) {
+                if (this.f64697a.startsWith(CertificatePinner.Pin.WILDCARD)) {
                     int indexOf = str.indexOf(46);
-                    if ((str.length() - indexOf) - 1 == this.f64498b.length()) {
-                        String str2 = this.f64498b;
+                    if ((str.length() - indexOf) - 1 == this.f64698b.length()) {
+                        String str2 = this.f64698b;
                         if (str.regionMatches(false, indexOf + 1, str2, 0, str2.length())) {
                             return true;
                         }
                     }
                     return false;
                 }
-                return str.equals(this.f64498b);
+                return str.equals(this.f64698b);
             }
             return invokeL.booleanValue;
         }
@@ -105,7 +105,7 @@ public final class g {
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
                 if (obj instanceof b) {
                     b bVar = (b) obj;
-                    if (this.f64497a.equals(bVar.f64497a) && this.f64499c.equals(bVar.f64499c) && this.f64500d.equals(bVar.f64500d)) {
+                    if (this.f64697a.equals(bVar.f64697a) && this.f64699c.equals(bVar.f64699c) && this.f64700d.equals(bVar.f64700d)) {
                         return true;
                     }
                 }
@@ -117,14 +117,14 @@ public final class g {
         public int hashCode() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? ((((527 + this.f64497a.hashCode()) * 31) + this.f64499c.hashCode()) * 31) + this.f64500d.hashCode() : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? ((((527 + this.f64697a.hashCode()) * 31) + this.f64699c.hashCode()) * 31) + this.f64700d.hashCode() : invokeV.intValue;
         }
 
         public String toString() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                return this.f64499c + this.f64500d.b();
+                return this.f64699c + this.f64700d.b();
             }
             return (String) invokeV.objValue;
         }
@@ -143,7 +143,7 @@ public final class g {
                 return;
             }
         }
-        f64493a = new a().a();
+        f64693a = new a().a();
     }
 
     public g(Set<b> set, com.bytedance.sdk.component.b.b.a.i.c cVar) {
@@ -161,8 +161,8 @@ public final class g {
                 return;
             }
         }
-        this.f64494b = set;
-        this.f64495c = cVar;
+        this.f64694b = set;
+        this.f64695c = cVar;
     }
 
     public static com.bytedance.sdk.component.b.a.f b(X509Certificate x509Certificate) {
@@ -178,7 +178,7 @@ public final class g {
             if (a2.isEmpty()) {
                 return;
             }
-            com.bytedance.sdk.component.b.b.a.i.c cVar = this.f64495c;
+            com.bytedance.sdk.component.b.b.a.i.c cVar = this.f64695c;
             if (cVar != null) {
                 list = cVar.a(list, str);
             }
@@ -190,22 +190,22 @@ public final class g {
                 com.bytedance.sdk.component.b.a.f fVar2 = null;
                 for (int i3 = 0; i3 < size2; i3++) {
                     b bVar = a2.get(i3);
-                    if (bVar.f64499c.equals("sha256/")) {
+                    if (bVar.f64699c.equals("sha256/")) {
                         if (fVar == null) {
                             fVar = b(x509Certificate);
                         }
-                        if (bVar.f64500d.equals(fVar)) {
+                        if (bVar.f64700d.equals(fVar)) {
                             return;
                         }
-                    } else if (bVar.f64499c.equals("sha1/")) {
+                    } else if (bVar.f64699c.equals("sha1/")) {
                         if (fVar2 == null) {
                             fVar2 = a(x509Certificate);
                         }
-                        if (bVar.f64500d.equals(fVar2)) {
+                        if (bVar.f64700d.equals(fVar2)) {
                             return;
                         }
                     } else {
-                        throw new AssertionError("unsupported hashAlgorithm: " + bVar.f64499c);
+                        throw new AssertionError("unsupported hashAlgorithm: " + bVar.f64699c);
                     }
                 }
             }
@@ -241,7 +241,7 @@ public final class g {
             }
             if (obj instanceof g) {
                 g gVar = (g) obj;
-                if (com.bytedance.sdk.component.b.b.a.c.a(this.f64495c, gVar.f64495c) && this.f64494b.equals(gVar.f64494b)) {
+                if (com.bytedance.sdk.component.b.b.a.c.a(this.f64695c, gVar.f64695c) && this.f64694b.equals(gVar.f64694b)) {
                     return true;
                 }
             }
@@ -254,8 +254,8 @@ public final class g {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            com.bytedance.sdk.component.b.b.a.i.c cVar = this.f64495c;
-            return ((cVar != null ? cVar.hashCode() : 0) * 31) + this.f64494b.hashCode();
+            com.bytedance.sdk.component.b.b.a.i.c cVar = this.f64695c;
+            return ((cVar != null ? cVar.hashCode() : 0) * 31) + this.f64694b.hashCode();
         }
         return invokeV.intValue;
     }
@@ -265,7 +265,7 @@ public final class g {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
             List<b> emptyList = Collections.emptyList();
-            for (b bVar : this.f64494b) {
+            for (b bVar : this.f64694b) {
                 if (bVar.a(str)) {
                     if (emptyList.isEmpty()) {
                         emptyList = new ArrayList<>();
@@ -281,7 +281,7 @@ public final class g {
     public g a(com.bytedance.sdk.component.b.b.a.i.c cVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cVar)) == null) ? com.bytedance.sdk.component.b.b.a.c.a(this.f64495c, cVar) ? this : new g(this.f64494b, cVar) : (g) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cVar)) == null) ? com.bytedance.sdk.component.b.b.a.c.a(this.f64695c, cVar) ? this : new g(this.f64694b, cVar) : (g) invokeL.objValue;
     }
 
     public static String a(Certificate certificate) {

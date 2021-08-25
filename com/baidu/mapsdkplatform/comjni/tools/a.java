@@ -43,16 +43,16 @@ public class a {
             if (bundle2 != null) {
                 Bundle bundle3 = bundle2.getBundle("ll");
                 if (bundle3 != null) {
-                    aVar.f41501b = new Point((int) bundle3.getDouble("ptx"), (int) bundle3.getDouble("pty"));
+                    aVar.f41608b = new Point((int) bundle3.getDouble("ptx"), (int) bundle3.getDouble("pty"));
                 }
                 Bundle bundle4 = bundle2.getBundle("ru");
                 if (bundle4 != null) {
-                    aVar.f41502c = new Point((int) bundle4.getDouble("ptx"), (int) bundle4.getDouble("pty"));
+                    aVar.f41609c = new Point((int) bundle4.getDouble("ptx"), (int) bundle4.getDouble("pty"));
                 }
             }
             for (ParcelItem parcelItem : (ParcelItem[]) bundle.getParcelableArray("poly_line")) {
-                if (aVar.f41503d == null) {
-                    aVar.f41503d = new ArrayList<>();
+                if (aVar.f41610d == null) {
+                    aVar.f41610d = new ArrayList<>();
                 }
                 Bundle bundle5 = parcelItem.getBundle();
                 if (bundle5 != null) {
@@ -65,11 +65,11 @@ public class a {
                         }
                     }
                     arrayList.trimToSize();
-                    aVar.f41503d.add(arrayList);
+                    aVar.f41610d.add(arrayList);
                 }
             }
-            aVar.f41503d.trimToSize();
-            aVar.f41500a = (int) bundle.getDouble("type");
+            aVar.f41610d.trimToSize();
+            aVar.f41607a = (int) bundle.getDouble("type");
             return aVar;
         }
         return (com.baidu.mapapi.model.inner.a) invokeL.objValue;

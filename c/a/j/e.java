@@ -24,10 +24,10 @@ public final class e {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Pattern f3444a;
+    public static Pattern f3646a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f3445b;
+    public static String f3647b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -43,8 +43,8 @@ public final class e {
                 return;
             }
         }
-        f3445b = a();
-        f3444a = Pattern.compile("^((0|1\\d?\\d?|2[0-4]?\\d?|25[0-5]?|[3-9]\\d?)\\.){3}(0|1\\d?\\d?|2[0-4]?\\d?|25[0-5]?|[3-9]\\d?)$");
+        f3647b = a();
+        f3646a = Pattern.compile("^((0|1\\d?\\d?|2[0-4]?\\d?|25[0-5]?|[3-9]\\d?)\\.){3}(0|1\\d?\\d?|2[0-4]?\\d?|25[0-5]?|[3-9]\\d?)$");
     }
 
     public static String a() {
@@ -105,7 +105,7 @@ public final class e {
     public static boolean e(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, str)) == null) ? f3444a.matcher(str).matches() : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, str)) == null) ? f3646a.matcher(str).matches() : invokeL.booleanValue;
     }
 
     public static String f(String str, byte[] bArr) {
@@ -174,13 +174,13 @@ public final class e {
     public static String k(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65547, null, str)) == null) ? b(f3445b, str.getBytes()) : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65547, null, str)) == null) ? b(f3647b, str.getBytes()) : (String) invokeL.objValue;
     }
 
     public static String l(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65548, null, str)) == null) ? f(f3445b, Base64.decode(str, 0)) : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65548, null, str)) == null) ? f(f3647b, Base64.decode(str, 0)) : (String) invokeL.objValue;
     }
 
     public static Key m(String str) {

@@ -16,7 +16,7 @@ public class a implements DislikeInfo {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final b f67147a;
+    public final b f67347a;
 
     public a(b bVar) {
         Interceptable interceptable = $ic;
@@ -33,7 +33,7 @@ public class a implements DislikeInfo {
                 return;
             }
         }
-        this.f67147a = bVar;
+        this.f67347a = bVar;
     }
 
     @Override // com.bytedance.sdk.openadsdk.DislikeInfo
@@ -41,7 +41,7 @@ public class a implements DislikeInfo {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            b bVar = this.f67147a;
+            b bVar = this.f67347a;
             if (bVar == null) {
                 return null;
             }
@@ -55,7 +55,7 @@ public class a implements DislikeInfo {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            b bVar = this.f67147a;
+            b bVar = this.f67347a;
             if (bVar == null) {
                 return null;
             }

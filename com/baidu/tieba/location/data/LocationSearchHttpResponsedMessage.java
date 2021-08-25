@@ -1,6 +1,6 @@
 package com.baidu.tieba.location.data;
 
-import c.a.p0.s1.c.a;
+import c.a.q0.s1.c.a;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;

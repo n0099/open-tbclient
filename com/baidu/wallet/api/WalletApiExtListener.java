@@ -56,7 +56,7 @@ public interface WalletApiExtListener {
                         return;
                     }
                 }
-                SUCCESS = new SyncResult(c.f35984g, 0, 0);
+                SUCCESS = new SyncResult(c.f36090g, 0, 0);
                 FAIL = new SyncResult("FAIL", 1, 1);
                 BDUSSEMPTY = new SyncResult("BDUSSEMPTY", 2, 2);
                 SyncResult syncResult = new SyncResult("BDUSSEXPIRED", 3, 3);

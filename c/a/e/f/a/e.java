@@ -11,34 +11,34 @@ public class e {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public float[] f2662a;
+    public float[] f2720a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f2663b;
+    public boolean f2721b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f2664c;
+    public boolean f2722c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f2665d;
+    public int f2723d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f2666e;
+    public int f2724e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f2667f;
+    public boolean f2725f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f2668g;
+    public boolean f2726g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f2669h;
+    public boolean f2727h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f2670i;
+    public boolean f2728i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f2671j;
+    public int f2729j;
     public float k;
     public Matrix l;
     public int m;
@@ -58,10 +58,10 @@ public class e {
                 return;
             }
         }
-        this.f2662a = new float[8];
-        this.f2669h = false;
-        this.f2670i = true;
-        this.f2671j = b.f2656a;
+        this.f2720a = new float[8];
+        this.f2727h = false;
+        this.f2728i = true;
+        this.f2729j = b.f2714a;
         this.k = 1.0f;
         this.o = false;
     }

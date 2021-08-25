@@ -21,7 +21,7 @@ public class a {
 
     /* renamed from: b.a.a.a.x.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0008a implements b {
+    public class C0008a implements b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 

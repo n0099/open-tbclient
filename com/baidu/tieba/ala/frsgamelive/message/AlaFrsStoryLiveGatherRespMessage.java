@@ -1,6 +1,6 @@
 package com.baidu.tieba.ala.frsgamelive.message;
 
-import c.a.o0.s.q.c2;
+import c.a.p0.s.q.c2;
 import com.baidu.ala.AlaCmdConfigHttp;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;

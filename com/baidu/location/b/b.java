@@ -13,14 +13,14 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Object f40790a;
+    public static Object f40897a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static b f40791b;
+    public static b f40898b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f40792c;
+    public int f40899c;
 
     static {
         InterceptResult invokeClinit;
@@ -35,7 +35,7 @@ public class b {
                 return;
             }
         }
-        f40790a = new Object();
+        f40897a = new Object();
     }
 
     public b() {
@@ -51,7 +51,7 @@ public class b {
                 return;
             }
         }
-        this.f40792c = -1;
+        this.f40899c = -1;
     }
 
     public static b a() {
@@ -59,11 +59,11 @@ public class b {
         b bVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            synchronized (f40790a) {
-                if (f40791b == null) {
-                    f40791b = new b();
+            synchronized (f40897a) {
+                if (f40898b == null) {
+                    f40898b = new b();
                 }
-                bVar = f40791b;
+                bVar = f40898b;
             }
             return bVar;
         }
@@ -72,10 +72,10 @@ public class b {
 
     public void a(int i2, int i3, String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIIL(1048576, this, i2, i3, str) == null) || i3 == this.f40792c) {
+        if (!(interceptable == null || interceptable.invokeIIL(1048576, this, i2, i3, str) == null) || i3 == this.f40899c) {
             return;
         }
-        this.f40792c = i3;
+        this.f40899c = i3;
         Bundle bundle = new Bundle();
         bundle.putInt("loctype", i2);
         bundle.putInt("diagtype", i3);

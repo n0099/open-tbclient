@@ -102,21 +102,21 @@ public final class Sets {
         public Comparator<? super E> comparator() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? ((SortedSet) this.f33991e).comparator() : (Comparator) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? ((SortedSet) this.f34097e).comparator() : (Comparator) invokeV.objValue;
         }
 
         @Override // java.util.SortedSet
         public E first() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (E) Iterators.m(this.f33991e.iterator(), this.f33992f) : (E) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (E) Iterators.m(this.f34097e.iterator(), this.f34098f) : (E) invokeV.objValue;
         }
 
         @Override // java.util.SortedSet
         public SortedSet<E> headSet(E e2) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, e2)) == null) ? new b(((SortedSet) this.f33991e).headSet(e2), this.f33992f) : (SortedSet) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, e2)) == null) ? new b(((SortedSet) this.f34097e).headSet(e2), this.f34098f) : (SortedSet) invokeL.objValue;
         }
 
         /* JADX WARN: Type inference failed for: r1v1, types: [E, java.lang.Object] */
@@ -127,10 +127,10 @@ public final class Sets {
             if (interceptable != null && (invokeV = interceptable.invokeV(1048579, this)) != null) {
                 return (E) invokeV.objValue;
             }
-            SortedSet sortedSet = (SortedSet) this.f33991e;
+            SortedSet sortedSet = (SortedSet) this.f34097e;
             while (true) {
                 ?? r1 = (Object) sortedSet.last();
-                if (this.f33992f.apply(r1)) {
+                if (this.f34098f.apply(r1)) {
                     return r1;
                 }
                 sortedSet = sortedSet.headSet(r1);
@@ -141,14 +141,14 @@ public final class Sets {
         public SortedSet<E> subSet(E e2, E e3) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, e2, e3)) == null) ? new b(((SortedSet) this.f33991e).subSet(e2, e3), this.f33992f) : (SortedSet) invokeLL.objValue;
+            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, e2, e3)) == null) ? new b(((SortedSet) this.f34097e).subSet(e2, e3), this.f34098f) : (SortedSet) invokeLL.objValue;
         }
 
         @Override // java.util.SortedSet
         public SortedSet<E> tailSet(E e2) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, e2)) == null) ? new b(((SortedSet) this.f33991e).tailSet(e2), this.f33992f) : (SortedSet) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, e2)) == null) ? new b(((SortedSet) this.f34097e).tailSet(e2), this.f34098f) : (SortedSet) invokeL.objValue;
         }
     }
 
@@ -223,7 +223,7 @@ public final class Sets {
             }
             if (set instanceof a) {
                 a aVar = (a) set;
-                return new a((Set) aVar.f33991e, Predicates.c(aVar.f33992f, oVar));
+                return new a((Set) aVar.f34097e, Predicates.c(aVar.f34098f, oVar));
             }
             c.i.d.a.n.p(set);
             c.i.d.a.n.p(oVar);
@@ -238,7 +238,7 @@ public final class Sets {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, sortedSet, oVar)) == null) {
             if (sortedSet instanceof a) {
                 a aVar = (a) sortedSet;
-                return new b((SortedSet) aVar.f33991e, Predicates.c(aVar.f33992f, oVar));
+                return new b((SortedSet) aVar.f34097e, Predicates.c(aVar.f34098f, oVar));
             }
             c.i.d.a.n.p(sortedSet);
             c.i.d.a.n.p(oVar);

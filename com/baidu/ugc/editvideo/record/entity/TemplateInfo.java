@@ -2,9 +2,9 @@ package com.baidu.ugc.editvideo.record.entity;
 
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.v0.j.b;
-import c.a.v0.t.h;
-import c.a.v0.t.w;
+import c.a.w0.j.b;
+import c.a.w0.t.h;
+import c.a.w0.t.w;
 import com.baidu.minivideo.effect.core.vlogedit.MediaAEffect;
 import com.baidu.minivideo.effect.core.vlogedit.MediaTextureData;
 import com.baidu.minivideo.effect.core.vlogedit.MediaTrackConfig;

@@ -2,9 +2,9 @@ package com.baidu.swan.pms.node;
 
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.n0.n.j.d;
-import c.a.n0.n.j.e;
-import c.a.n0.n.j.j.c;
+import c.a.o0.n.j.d;
+import c.a.o0.n.j.e;
+import c.a.o0.n.j.j.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tieba.service.AsInstallService;
@@ -44,10 +44,10 @@ public final class Node {
                 return;
             }
         }
-        HOST = new Node("HOST", 0, "host", c.class, c.a.n0.n.j.j.d.class);
-        PACKAGE = new Node("PACKAGE", 1, AsInstallService.SCHEME_PACKAGE_ADDED, c.a.n0.n.j.k.d.class, c.a.n0.n.j.k.e.class, true);
-        CERES = new Node("CERES", 2, "ceres", c.a.n0.n.j.h.c.class, c.a.n0.n.j.h.d.class);
-        Node node = new Node("COMMON", 3, "common", c.a.n0.n.j.i.c.class, c.a.n0.n.j.i.d.class);
+        HOST = new Node("HOST", 0, "host", c.class, c.a.o0.n.j.j.d.class);
+        PACKAGE = new Node("PACKAGE", 1, AsInstallService.SCHEME_PACKAGE_ADDED, c.a.o0.n.j.k.d.class, c.a.o0.n.j.k.e.class, true);
+        CERES = new Node("CERES", 2, "ceres", c.a.o0.n.j.h.c.class, c.a.o0.n.j.h.d.class);
+        Node node = new Node("COMMON", 3, "common", c.a.o0.n.j.i.c.class, c.a.o0.n.j.i.d.class);
         COMMON = node;
         $VALUES = new Node[]{HOST, PACKAGE, CERES, node};
     }
@@ -102,7 +102,7 @@ public final class Node {
             try {
                 return paramsProvider.newInstance();
             } catch (IllegalAccessException | InstantiationException e2) {
-                if (c.a.n0.n.c.f11582a) {
+                if (c.a.o0.n.c.f11828a) {
                     e2.printStackTrace();
                 }
                 return null;

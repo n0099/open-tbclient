@@ -18,13 +18,13 @@ public interface l<T> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f2165a;
+        public String f2223a;
 
         /* renamed from: b  reason: collision with root package name */
-        public T f2166b;
+        public T f2224b;
 
         /* renamed from: c  reason: collision with root package name */
-        public long f2167c;
+        public long f2225c;
 
         public b() {
             Interceptable interceptable = $ic;

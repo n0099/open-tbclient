@@ -15,7 +15,7 @@ public abstract class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public File f68371a;
+    public File f68571a;
 
     public a(File file) {
         Interceptable interceptable = $ic;
@@ -32,7 +32,7 @@ public abstract class a {
                 return;
             }
         }
-        this.f68371a = file;
+        this.f68571a = file;
     }
 
     public abstract InputStream a(File file, String str) throws IOException;
@@ -40,7 +40,7 @@ public abstract class a {
     public final InputStream a(String str) throws IOException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? a(this.f68371a, str) : (InputStream) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? a(this.f68571a, str) : (InputStream) invokeL.objValue;
     }
 
     public abstract boolean b(File file, String str) throws IOException;
@@ -48,6 +48,6 @@ public abstract class a {
     public final boolean b(String str) throws IOException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) ? b(this.f68371a, str) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) ? b(this.f68571a, str) : invokeL.booleanValue;
     }
 }

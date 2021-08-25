@@ -16,7 +16,7 @@ public class e extends DiskFileOperate implements c.a.e.e.a.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ArrayList<String> f2072a;
+    public ArrayList<String> f2130a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public e(String str, String str2, DiskFileOperate.Action action, ArrayList<String> arrayList) {
@@ -37,7 +37,7 @@ public class e extends DiskFileOperate implements c.a.e.e.a.a {
                 return;
             }
         }
-        this.f2072a = arrayList;
+        this.f2130a = arrayList;
     }
 
     @Override // c.a.e.e.a.a
@@ -45,10 +45,10 @@ public class e extends DiskFileOperate implements c.a.e.e.a.a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, file)) == null) {
-            if (this.f2072a != null && file != null) {
+            if (this.f2130a != null && file != null) {
                 String name = file.getName();
                 if (!TextUtils.isEmpty(name)) {
-                    Iterator<String> it = this.f2072a.iterator();
+                    Iterator<String> it = this.f2130a.iterator();
                     while (it.hasNext()) {
                         if (name.equals(it.next())) {
                             return true;

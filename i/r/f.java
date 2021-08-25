@@ -17,26 +17,26 @@ public class f {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final f f78476f;
+    public static final f f78677f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final i.r.b f78477g;
+    public static final i.r.b f78678g;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final AtomicReference<i.r.b> f78478a;
+    public final AtomicReference<i.r.b> f78679a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final AtomicReference<d> f78479b;
+    public final AtomicReference<d> f78680b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final AtomicReference<h> f78480c;
+    public final AtomicReference<h> f78681c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final AtomicReference<i.r.a> f78481d;
+    public final AtomicReference<i.r.a> f78682d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final AtomicReference<g> f78482e;
+    public final AtomicReference<g> f78683e;
 
     /* loaded from: classes10.dex */
     public static class a extends i.r.b {
@@ -93,8 +93,8 @@ public class f {
                 return;
             }
         }
-        f78476f = new f();
-        f78477g = new a();
+        f78677f = new f();
+        f78678g = new a();
     }
 
     public f() {
@@ -110,18 +110,18 @@ public class f {
                 return;
             }
         }
-        this.f78478a = new AtomicReference<>();
-        this.f78479b = new AtomicReference<>();
-        this.f78480c = new AtomicReference<>();
-        this.f78481d = new AtomicReference<>();
-        this.f78482e = new AtomicReference<>();
+        this.f78679a = new AtomicReference<>();
+        this.f78680b = new AtomicReference<>();
+        this.f78681c = new AtomicReference<>();
+        this.f78682d = new AtomicReference<>();
+        this.f78683e = new AtomicReference<>();
     }
 
     @Deprecated
     public static f c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f78476f : (f) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f78677f : (f) invokeV.objValue;
     }
 
     public static Object e(Class<?> cls, Properties properties) {
@@ -171,15 +171,15 @@ public class f {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.f78481d.get() == null) {
+            if (this.f78682d.get() == null) {
                 Object e2 = e(i.r.a.class, System.getProperties());
                 if (e2 == null) {
-                    this.f78481d.compareAndSet(null, new b(this));
+                    this.f78682d.compareAndSet(null, new b(this));
                 } else {
-                    this.f78481d.compareAndSet(null, (i.r.a) e2);
+                    this.f78682d.compareAndSet(null, (i.r.a) e2);
                 }
             }
-            return this.f78481d.get();
+            return this.f78682d.get();
         }
         return (i.r.a) invokeV.objValue;
     }
@@ -188,15 +188,15 @@ public class f {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.f78478a.get() == null) {
+            if (this.f78679a.get() == null) {
                 Object e2 = e(i.r.b.class, System.getProperties());
                 if (e2 == null) {
-                    this.f78478a.compareAndSet(null, f78477g);
+                    this.f78679a.compareAndSet(null, f78678g);
                 } else {
-                    this.f78478a.compareAndSet(null, (i.r.b) e2);
+                    this.f78679a.compareAndSet(null, (i.r.b) e2);
                 }
             }
-            return this.f78478a.get();
+            return this.f78679a.get();
         }
         return (i.r.b) invokeV.objValue;
     }
@@ -205,15 +205,15 @@ public class f {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.f78479b.get() == null) {
+            if (this.f78680b.get() == null) {
                 Object e2 = e(d.class, System.getProperties());
                 if (e2 == null) {
-                    this.f78479b.compareAndSet(null, e.f());
+                    this.f78680b.compareAndSet(null, e.f());
                 } else {
-                    this.f78479b.compareAndSet(null, (d) e2);
+                    this.f78680b.compareAndSet(null, (d) e2);
                 }
             }
-            return this.f78479b.get();
+            return this.f78680b.get();
         }
         return (d) invokeV.objValue;
     }
@@ -222,15 +222,15 @@ public class f {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (this.f78482e.get() == null) {
+            if (this.f78683e.get() == null) {
                 Object e2 = e(g.class, System.getProperties());
                 if (e2 == null) {
-                    this.f78482e.compareAndSet(null, g.h());
+                    this.f78683e.compareAndSet(null, g.h());
                 } else {
-                    this.f78482e.compareAndSet(null, (g) e2);
+                    this.f78683e.compareAndSet(null, (g) e2);
                 }
             }
-            return this.f78482e.get();
+            return this.f78683e.get();
         }
         return (g) invokeV.objValue;
     }
@@ -239,15 +239,15 @@ public class f {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (this.f78480c.get() == null) {
+            if (this.f78681c.get() == null) {
                 Object e2 = e(h.class, System.getProperties());
                 if (e2 == null) {
-                    this.f78480c.compareAndSet(null, i.e());
+                    this.f78681c.compareAndSet(null, i.e());
                 } else {
-                    this.f78480c.compareAndSet(null, (h) e2);
+                    this.f78681c.compareAndSet(null, (h) e2);
                 }
             }
-            return this.f78480c.get();
+            return this.f78681c.get();
         }
         return (h) invokeV.objValue;
     }

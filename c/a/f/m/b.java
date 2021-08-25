@@ -1,8 +1,8 @@
 package c.a.f.m;
 
 import androidx.core.view.InputDeviceCompat;
-import c.a.p0.x2.l0.e;
-import c.a.p0.x2.l0.g;
+import c.a.q0.x2.l0.e;
+import c.a.q0.x2.l0.g;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.mobads.container.util.SDKLogTypeConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,9 +15,9 @@ public class b {
     public static void a(c.a.f.m.g.a aVar, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65536, null, aVar, str) == null) {
-            c.a.p0.x2.l0.c f2 = g.f(aVar);
+            c.a.q0.x2.l0.c f2 = g.f(aVar);
             f2.c(str);
-            f2.j(aVar.f3221h);
+            f2.j(aVar.f3341h);
             e.b().d(f2);
         }
     }
@@ -25,9 +25,9 @@ public class b {
     public static void b(c.a.f.m.g.a aVar, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(65537, null, aVar, i2) == null) {
-            c.a.p0.x2.l0.c f2 = g.f(aVar);
-            f2.j(aVar.f3221h);
-            f2.l(aVar.f3219f);
+            c.a.q0.x2.l0.c f2 = g.f(aVar);
+            f2.j(aVar.f3341h);
+            f2.l(aVar.f3339f);
             f2.m(i2);
             e.b().d(f2);
         }
@@ -50,8 +50,8 @@ public class b {
     public static void e(c.a.f.m.g.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, aVar) == null) {
-            c.a.p0.x2.l0.c f2 = g.f(aVar);
-            f2.j(aVar.f3221h);
+            c.a.q0.x2.l0.c f2 = g.f(aVar);
+            f2.j(aVar.f3341h);
             e.b().d(f2);
         }
     }
@@ -66,7 +66,7 @@ public class b {
     public static void g(c.a.f.m.g.a aVar, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(AdIconUtil.BAIDU_LOGO_ID, null, aVar, i2) == null) {
-            c.a.p0.x2.l0.c n = g.n(aVar);
+            c.a.q0.x2.l0.c n = g.n(aVar);
             n.i(SDKLogTypeConstants.CLOSE_GAME_TYPE);
             boolean z = i2 == 1000;
             n.c(z ? "APP" : "URL");

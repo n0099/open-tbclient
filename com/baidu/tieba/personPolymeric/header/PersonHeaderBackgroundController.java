@@ -35,30 +35,30 @@ public class PersonHeaderBackgroundController {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public TbPageContext f55670a;
+    public TbPageContext f55835a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TbImageView f55671b;
+    public TbImageView f55836b;
 
     /* renamed from: c  reason: collision with root package name */
-    public View f55672c;
+    public View f55837c;
 
     /* renamed from: d  reason: collision with root package name */
-    public UserData f55673d;
+    public UserData f55838d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f55674e;
+    public boolean f55839e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View.OnClickListener f55675f;
+    public View.OnClickListener f55840f;
 
     /* loaded from: classes7.dex */
-    public class a extends c<c.a.e.k.d.a> {
+    public class a extends c<c.a.e.l.d.a> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PersonHeaderBackgroundController f55676a;
+        public final /* synthetic */ PersonHeaderBackgroundController f55841a;
 
         public a(PersonHeaderBackgroundController personHeaderBackgroundController) {
             Interceptable interceptable = $ic;
@@ -75,7 +75,7 @@ public class PersonHeaderBackgroundController {
                     return;
                 }
             }
-            this.f55676a = personHeaderBackgroundController;
+            this.f55841a = personHeaderBackgroundController;
         }
 
         @Override // c.a.e.e.l.c
@@ -96,12 +96,12 @@ public class PersonHeaderBackgroundController {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // c.a.e.e.l.c
-        public void onLoaded(c.a.e.k.d.a aVar, String str, int i2) {
+        public void onLoaded(c.a.e.l.d.a aVar, String str, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar, str, i2) == null) {
                 super.onLoaded((a) aVar, str, i2);
                 if (aVar != null) {
-                    aVar.h(this.f55676a.f55671b);
+                    aVar.h(this.f55841a.f55836b);
                 }
             }
         }
@@ -113,7 +113,7 @@ public class PersonHeaderBackgroundController {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PersonHeaderBackgroundController f55677e;
+        public final /* synthetic */ PersonHeaderBackgroundController f55842e;
 
         public b(PersonHeaderBackgroundController personHeaderBackgroundController) {
             Interceptable interceptable = $ic;
@@ -130,20 +130,20 @@ public class PersonHeaderBackgroundController {
                     return;
                 }
             }
-            this.f55677e = personHeaderBackgroundController;
+            this.f55842e = personHeaderBackgroundController;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             int i2;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && this.f55677e.f55674e) {
-                if (this.f55677e.f55673d == null || !this.f55677e.f55673d.isBaijiahaoUser()) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && this.f55842e.f55839e) {
+                if (this.f55842e.f55838d == null || !this.f55842e.f55838d.isBaijiahaoUser()) {
                     TiebaStatic.log(new StatisticItem("c12502").param("obj_locate", "3"));
-                    String userId = this.f55677e.f55673d.getUserId();
-                    String bg_pic = this.f55677e.f55673d.getBg_pic();
+                    String userId = this.f55842e.f55838d.getUserId();
+                    String bg_pic = this.f55842e.f55838d.getBg_pic();
                     try {
-                        i2 = c.a.e.e.m.b.d((String) this.f55677e.f(bg_pic).get("props_id"), -1);
+                        i2 = c.a.e.e.m.b.d((String) this.f55842e.f(bg_pic).get("props_id"), -1);
                     } catch (URISyntaxException unused) {
                         i2 = -1;
                     }
@@ -153,10 +153,10 @@ public class PersonHeaderBackgroundController {
                         if (currentAccountInfo != null && !StringUtils.isNull(bg_pic) && !StringUtils.isNull(currentAccountInfo.getPersonalBgUrl()) && bg_pic.equalsIgnoreCase(currentAccountInfo.getPersonalBgUrl())) {
                             i3 = 1;
                         }
-                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonalBackgroundPreviewActivityConfig(this.f55677e.f55671b.getContext(), i2, i3)));
+                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonalBackgroundPreviewActivityConfig(this.f55842e.f55836b.getContext(), i2, i3)));
                         return;
                     }
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonalBackdropGroupActivityConfig(this.f55677e.f55671b.getContext())));
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonalBackdropGroupActivityConfig(this.f55842e.f55836b.getContext())));
                 }
             }
         }
@@ -177,13 +177,13 @@ public class PersonHeaderBackgroundController {
                 return;
             }
         }
-        this.f55675f = new b(this);
-        this.f55670a = tbPageContext;
-        this.f55671b = tbImageView;
-        this.f55674e = z;
+        this.f55840f = new b(this);
+        this.f55835a = tbPageContext;
+        this.f55836b = tbImageView;
+        this.f55839e = z;
         tbImageView.setDefaultBgResource(R.drawable.bg_pic_mine);
-        this.f55672c = view;
-        view.setOnClickListener(this.f55675f);
+        this.f55837c = view;
+        view.setOnClickListener(this.f55840f);
     }
 
     public void e(UserData userData) {
@@ -191,12 +191,12 @@ public class PersonHeaderBackgroundController {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, userData) == null) || userData == null) {
             return;
         }
-        this.f55673d = userData;
+        this.f55838d = userData;
         String bg_pic = userData.getBg_pic();
         if (k.isEmpty(bg_pic)) {
             return;
         }
-        d.h().k(bg_pic, 10, new a(this), 0, 0, this.f55670a.getUniqueId(), new Object[0]);
+        d.h().k(bg_pic, 10, new a(this), 0, 0, this.f55835a.getUniqueId(), new Object[0]);
     }
 
     public final Map<String, String> f(String str) throws URISyntaxException {

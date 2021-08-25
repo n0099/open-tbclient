@@ -105,7 +105,7 @@ public final class GetUserCouponStoreParams extends RequestParams {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return "ChargeCurrencyReqParams{cmd=" + getCmd() + "uid=" + getUid() + ", seq=" + getSeq() + ", appId=" + getAppId() + ", ticket =" + getToken() + ",goodsType = " + this.goodsType + ", hasUsed =" + this.hasUsed + ", page =" + this.page + ", pageSize =" + this.pageSize + ", includeExpire =" + this.includeExpire + ExtendedMessageFormat.END_FE;
+            return "ChargeCurrencyReqParams{cmd=" + getCmd() + "uid=" + getUid() + ", seq=" + getSeq() + ", appId=" + getAppId() + ",goodsType = " + this.goodsType + ", hasUsed =" + this.hasUsed + ", page =" + this.page + ", pageSize =" + this.pageSize + ", includeExpire =" + this.includeExpire + ExtendedMessageFormat.END_FE;
         }
         return (String) invokeV.objValue;
     }

@@ -11,34 +11,34 @@ public class t {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f42068a;
+    public int f42175a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f42069b;
+    public String f42176b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f42070c;
+    public String f42177c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f42071d;
+    public String f42178d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f42072e;
+    public int f42179e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f42073f;
+    public int f42180f;
 
     /* renamed from: g  reason: collision with root package name */
-    public GeoPoint f42074g;
+    public GeoPoint f42181g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f42075h;
+    public int f42182h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f42076i;
+    public int f42183i;
 
     /* renamed from: j  reason: collision with root package name */
-    public boolean f42077j;
+    public boolean f42184j;
     public int k;
     public int l;
 

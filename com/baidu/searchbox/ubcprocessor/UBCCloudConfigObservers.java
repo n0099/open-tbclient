@@ -1,7 +1,7 @@
 package com.baidu.searchbox.ubcprocessor;
 
-import c.a.g0.a.b.b;
-import c.a.g0.a.b.d;
+import c.a.h0.a.b.b;
+import c.a.h0.a.b.d;
 import com.baidu.pyramid.annotation.Inject;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;

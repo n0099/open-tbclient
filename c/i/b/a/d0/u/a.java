@@ -13,7 +13,7 @@ public abstract class a extends l {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: j  reason: collision with root package name */
-    public b f32925j;
+    public b f33031j;
     public int[] k;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -46,13 +46,13 @@ public abstract class a extends l {
     public final b h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f32925j : (b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f33031j : (b) invokeV.objValue;
     }
 
     public void i(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
-            this.f32925j = bVar;
+            this.f33031j = bVar;
             this.k = bVar.b();
         }
     }

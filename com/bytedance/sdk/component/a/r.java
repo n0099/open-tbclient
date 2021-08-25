@@ -19,29 +19,29 @@ public class r {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static w f63777a;
+    public static w f63977a;
     public transient /* synthetic */ FieldHolder $fh;
     @NonNull
 
     /* renamed from: b  reason: collision with root package name */
-    public final a f63778b;
+    public final a f63978b;
     @Nullable
 
     /* renamed from: c  reason: collision with root package name */
-    public final WebView f63779c;
+    public final WebView f63979c;
     @NonNull
 
     /* renamed from: d  reason: collision with root package name */
-    public final j f63780d;
+    public final j f63980d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final List<n> f63781e;
+    public final List<n> f63981e;
 
     /* renamed from: f  reason: collision with root package name */
-    public o f63782f;
+    public o f63982f;
 
     /* renamed from: g  reason: collision with root package name */
-    public volatile boolean f63783g;
+    public volatile boolean f63983g;
 
     public r(j jVar) {
         w wVar;
@@ -59,25 +59,25 @@ public class r {
                 return;
             }
         }
-        this.f63781e = new ArrayList();
-        this.f63783g = false;
-        this.f63780d = jVar;
-        v a2 = (!jVar.f63758h || (wVar = f63777a) == null) ? null : wVar.a(jVar.k);
-        if (jVar.f63751a != null) {
-            a aVar = jVar.f63752b;
+        this.f63981e = new ArrayList();
+        this.f63983g = false;
+        this.f63980d = jVar;
+        v a2 = (!jVar.f63958h || (wVar = f63977a) == null) ? null : wVar.a(jVar.k);
+        if (jVar.f63951a != null) {
+            a aVar = jVar.f63952b;
             if (aVar == null) {
-                this.f63778b = new z();
+                this.f63978b = new z();
             } else {
-                this.f63778b = aVar;
+                this.f63978b = aVar;
             }
         } else {
-            this.f63778b = jVar.f63752b;
+            this.f63978b = jVar.f63952b;
         }
-        this.f63778b.a(jVar, a2);
-        this.f63779c = jVar.f63751a;
-        this.f63781e.add(jVar.f63760j);
-        i.a(jVar.f63756f);
-        y.a(jVar.f63757g);
+        this.f63978b.a(jVar, a2);
+        this.f63979c = jVar.f63951a;
+        this.f63981e.add(jVar.f63960j);
+        i.a(jVar.f63956f);
+        y.a(jVar.f63957g);
     }
 
     public static j a(@NonNull WebView webView) {
@@ -88,7 +88,7 @@ public class r {
 
     private void b() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65538, this) == null) && this.f63783g) {
+        if ((interceptable == null || interceptable.invokeV(65538, this) == null) && this.f63983g) {
             i.a(new IllegalStateException("JsBridge2 is already released!!!"));
         }
     }
@@ -98,7 +98,7 @@ public class r {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048581, this, str, t) == null) {
             b();
-            this.f63778b.a(str, (String) t);
+            this.f63978b.a(str, (String) t);
         }
     }
 
@@ -115,8 +115,8 @@ public class r {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, str, str2, eVar)) == null) {
             b();
-            this.f63778b.f63719g.a(str, eVar);
-            o oVar = this.f63782f;
+            this.f63978b.f63919g.a(str, eVar);
+            o oVar = this.f63982f;
             if (oVar != null) {
                 oVar.a(str);
             }
@@ -138,8 +138,8 @@ public class r {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, str2, bVar)) == null) {
             b();
-            this.f63778b.f63719g.a(str, bVar);
-            o oVar = this.f63782f;
+            this.f63978b.f63919g.a(str, bVar);
+            o oVar = this.f63982f;
             if (oVar != null) {
                 oVar.a(str);
             }
@@ -150,12 +150,12 @@ public class r {
 
     public void a() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || this.f63783g) {
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || this.f63983g) {
             return;
         }
-        this.f63778b.b();
-        this.f63783g = true;
-        for (n nVar : this.f63781e) {
+        this.f63978b.b();
+        this.f63983g = true;
+        for (n nVar : this.f63981e) {
             if (nVar != null) {
                 nVar.a();
             }

@@ -1,7 +1,7 @@
 package com.baidu.tieba.hottopic.data;
 
-import c.a.e.k.e.n;
-import c.a.p0.a0.d0.a;
+import c.a.e.l.e.n;
+import c.a.q0.a0.d0.a;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
@@ -71,7 +71,7 @@ public class PostForumData extends a implements Serializable {
         return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) ? (n) ListUtils.getItem(this.mRelateForumDataList, i2) : (n) invokeI.objValue;
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, c.a.e.k.e.n
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, c.a.e.l.e.n
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

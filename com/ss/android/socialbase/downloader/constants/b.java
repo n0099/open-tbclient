@@ -13,19 +13,19 @@ public final class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final b f75450a;
+    public static final b f75651a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final b f75451b;
+    public static final b f75652b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final b f75452c;
+    public static final b f75653c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final b f75453d;
+    public static final b f75654d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final /* synthetic */ b[] f75454e;
+    public static final /* synthetic */ b[] f75655e;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -41,12 +41,12 @@ public final class b {
                 return;
             }
         }
-        f75450a = new b("BYTE_INVALID_RETRY_STATUS_NONE", 0);
-        f75451b = new b("BYTE_INVALID_RETRY_STATUS_RESTART", 1);
-        f75452c = new b("BYTE_INVALID_RETRY_STATUS_DOWNLOADING", 2);
+        f75651a = new b("BYTE_INVALID_RETRY_STATUS_NONE", 0);
+        f75652b = new b("BYTE_INVALID_RETRY_STATUS_RESTART", 1);
+        f75653c = new b("BYTE_INVALID_RETRY_STATUS_DOWNLOADING", 2);
         b bVar = new b("BYTE_INVALID_RETRY_STATUS_DOWNLOADED", 3);
-        f75453d = bVar;
-        f75454e = new b[]{f75450a, f75451b, f75452c, bVar};
+        f75654d = bVar;
+        f75655e = new b[]{f75651a, f75652b, f75653c, bVar};
     }
 
     public b(String str, int i2) {
@@ -77,6 +77,6 @@ public final class b {
     public static b[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (b[]) f75454e.clone() : (b[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (b[]) f75655e.clone() : (b[]) invokeV.objValue;
     }
 }

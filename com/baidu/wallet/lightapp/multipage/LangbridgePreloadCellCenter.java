@@ -46,20 +46,20 @@ public class LangbridgePreloadCellCenter implements NoProguard, i.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public LinkedHashMap<String, LinkedHashMap<b, c>> f61786a;
+    public LinkedHashMap<String, LinkedHashMap<b, c>> f61986a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Handler f61787b;
+    public Handler f61987b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Context f61788c;
+    public Context f61988c;
 
     /* loaded from: classes8.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static LangbridgePreloadCellCenter f61806a;
+        public static LangbridgePreloadCellCenter f62006a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -75,7 +75,7 @@ public class LangbridgePreloadCellCenter implements NoProguard, i.a {
                     return;
                 }
             }
-            f61806a = new LangbridgePreloadCellCenter();
+            f62006a = new LangbridgePreloadCellCenter();
         }
     }
 
@@ -85,25 +85,25 @@ public class LangbridgePreloadCellCenter implements NoProguard, i.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f61807a;
+        public String f62007a;
 
         /* renamed from: b  reason: collision with root package name */
-        public Integer f61808b;
+        public Integer f62008b;
 
         /* renamed from: c  reason: collision with root package name */
-        public HashMap f61809c;
+        public HashMap f62009c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f61810d;
+        public String f62010d;
 
         /* renamed from: e  reason: collision with root package name */
-        public long f61811e;
+        public long f62011e;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f61812f;
+        public int f62012f;
 
         /* renamed from: g  reason: collision with root package name */
-        public String f61813g;
+        public String f62013g;
 
         public b(String str, long j2) {
             Interceptable interceptable = $ic;
@@ -120,20 +120,20 @@ public class LangbridgePreloadCellCenter implements NoProguard, i.a {
                     return;
                 }
             }
-            this.f61812f = 0;
-            this.f61807a = str;
-            this.f61811e = j2;
-            this.f61808b = Integer.valueOf(CheckUtils.stripUrlParams(str).hashCode());
-            this.f61809c = (HashMap) LangbridgePreloadCellCenter.getURLRequest(str);
-            this.f61810d = LangbridgePreloadCellCenter.c(str);
-            this.f61813g = LangbridgePreloadCellCenter.d(str);
+            this.f62012f = 0;
+            this.f62007a = str;
+            this.f62011e = j2;
+            this.f62008b = Integer.valueOf(CheckUtils.stripUrlParams(str).hashCode());
+            this.f62009c = (HashMap) LangbridgePreloadCellCenter.getURLRequest(str);
+            this.f62010d = LangbridgePreloadCellCenter.c(str);
+            this.f62013g = LangbridgePreloadCellCenter.d(str);
         }
 
         public String toString() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return "originUrl = " + this.f61807a + "\tdeadTime = " + this.f61811e + "\turlHashCode = " + this.f61808b + "\turlReMap = " + this.f61809c.toString() + "\tref = " + this.f61810d + "\turlTag = " + this.f61813g;
+                return "originUrl = " + this.f62007a + "\tdeadTime = " + this.f62011e + "\turlHashCode = " + this.f62008b + "\turlReMap = " + this.f62009c.toString() + "\tref = " + this.f62010d + "\turlTag = " + this.f62013g;
             }
             return (String) invokeV.objValue;
         }
@@ -174,13 +174,13 @@ public class LangbridgePreloadCellCenter implements NoProguard, i.a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65559, null, context)) == null) {
-            LangbridgePreloadCellCenter langbridgePreloadCellCenter = a.f61806a;
-            if (langbridgePreloadCellCenter.f61788c == null && context != null) {
-                langbridgePreloadCellCenter.f61788c = DxmApplicationContextImpl.getApplicationContext(context);
-                a.f61806a.f61787b = new Handler(Looper.getMainLooper());
-                a.f61806a.c();
+            LangbridgePreloadCellCenter langbridgePreloadCellCenter = a.f62006a;
+            if (langbridgePreloadCellCenter.f61988c == null && context != null) {
+                langbridgePreloadCellCenter.f61988c = DxmApplicationContextImpl.getApplicationContext(context);
+                a.f62006a.f61987b = new Handler(Looper.getMainLooper());
+                a.f62006a.c();
             }
-            return a.f61806a;
+            return a.f62006a;
         }
         return (LangbridgePreloadCellCenter) invokeL.objValue;
     }
@@ -231,7 +231,7 @@ public class LangbridgePreloadCellCenter implements NoProguard, i.a {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ LangbridgePreloadCellCenter f61803a;
+                public final /* synthetic */ LangbridgePreloadCellCenter f62003a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -248,7 +248,7 @@ public class LangbridgePreloadCellCenter implements NoProguard, i.a {
                             return;
                         }
                     }
-                    this.f61803a = this;
+                    this.f62003a = this;
                 }
 
                 @Override // java.lang.Runnable
@@ -257,16 +257,16 @@ public class LangbridgePreloadCellCenter implements NoProguard, i.a {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         try {
-                            for (Map.Entry entry : this.f61803a.f61786a.entrySet()) {
+                            for (Map.Entry entry : this.f62003a.f61986a.entrySet()) {
                                 String str = (String) entry.getKey();
                                 Iterator it = ((Map) entry.getValue()).keySet().iterator();
                                 while (it != null && it.hasNext()) {
                                     b bVar = (b) it.next();
-                                    if (bVar != null && (cVar = (c) ((LinkedHashMap) this.f61803a.f61786a.get(str)).get(bVar)) != null) {
+                                    if (bVar != null && (cVar = (c) ((LinkedHashMap) this.f62003a.f61986a.get(str)).get(bVar)) != null) {
                                         cVar.i();
                                     }
                                 }
-                                this.f61803a.f61786a.remove(str);
+                                this.f62003a.f61986a.remove(str);
                             }
                         } catch (Throwable th) {
                             th.printStackTrace();
@@ -277,7 +277,7 @@ public class LangbridgePreloadCellCenter implements NoProguard, i.a {
             if (Looper.getMainLooper() == Looper.myLooper()) {
                 runnable.run();
             } else {
-                this.f61787b.post(runnable);
+                this.f61987b.post(runnable);
             }
         }
     }
@@ -291,10 +291,10 @@ public class LangbridgePreloadCellCenter implements NoProguard, i.a {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ String f61801a;
+                public final /* synthetic */ String f62001a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ LangbridgePreloadCellCenter f61802b;
+                public final /* synthetic */ LangbridgePreloadCellCenter f62002b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -311,8 +311,8 @@ public class LangbridgePreloadCellCenter implements NoProguard, i.a {
                             return;
                         }
                     }
-                    this.f61802b = this;
-                    this.f61801a = str;
+                    this.f62002b = this;
+                    this.f62001a = str;
                 }
 
                 @Override // java.lang.Runnable
@@ -321,16 +321,16 @@ public class LangbridgePreloadCellCenter implements NoProguard, i.a {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         try {
-                            for (Map.Entry entry : this.f61802b.f61786a.entrySet()) {
-                                if (((String) entry.getKey()).equals(this.f61801a)) {
+                            for (Map.Entry entry : this.f62002b.f61986a.entrySet()) {
+                                if (((String) entry.getKey()).equals(this.f62001a)) {
                                     Iterator it = ((Map) entry.getValue()).keySet().iterator();
                                     while (it != null && it.hasNext()) {
                                         b bVar = (b) it.next();
-                                        if (bVar != null && (cVar = (c) ((LinkedHashMap) this.f61802b.f61786a.get(this.f61801a)).get(bVar)) != null) {
+                                        if (bVar != null && (cVar = (c) ((LinkedHashMap) this.f62002b.f61986a.get(this.f62001a)).get(bVar)) != null) {
                                             cVar.i();
                                         }
                                     }
-                                    this.f61802b.f61786a.remove(this.f61801a);
+                                    this.f62002b.f61986a.remove(this.f62001a);
                                 }
                             }
                         } catch (Throwable th) {
@@ -342,7 +342,7 @@ public class LangbridgePreloadCellCenter implements NoProguard, i.a {
             if (Looper.getMainLooper() == Looper.myLooper()) {
                 runnable.run();
             } else {
-                this.f61787b.post(runnable);
+                this.f61987b.post(runnable);
             }
         }
     }
@@ -353,21 +353,21 @@ public class LangbridgePreloadCellCenter implements NoProguard, i.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(Constants.METHOD_SEND_USER_MSG, this, str, str2, z)) == null) {
             c cVar = null;
-            if (!i.a().a(this.f61788c).MW_ON) {
+            if (!i.a().a(this.f61988c).MW_ON) {
                 DXMSdkSAUtils.onEventWithValues("#preloadURLMatchRet", Arrays.asList("-1"));
                 return null;
             }
             if (!TextUtils.isEmpty(str)) {
-                b a3 = a(str, this.f61786a.get(str2));
+                b a3 = a(str, this.f61986a.get(str2));
                 if (a3 != null) {
                     LogUtil.d(TAG, "getCell success");
-                    cVar = this.f61786a.get(str2).get(a3);
-                    this.f61786a.get(str2).remove(a3);
+                    cVar = this.f61986a.get(str2).get(a3);
+                    this.f61986a.get(str2).remove(a3);
                     e();
-                } else if (z && (a2 = a(str, this.f61786a.get("PRELOAD"))) != null) {
+                } else if (z && (a2 = a(str, this.f61986a.get("PRELOAD"))) != null) {
                     LogUtil.d(TAG, "getCell success");
-                    cVar = this.f61786a.get("PRELOAD").get(a2);
-                    this.f61786a.get("PRELOAD").remove(a2);
+                    cVar = this.f61986a.get("PRELOAD").get(a2);
+                    this.f61986a.get("PRELOAD").remove(a2);
                     e();
                 }
             }
@@ -380,10 +380,10 @@ public class LangbridgePreloadCellCenter implements NoProguard, i.a {
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ c f61795a;
+                    public final /* synthetic */ c f61995a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ LangbridgePreloadCellCenter f61796b;
+                    public final /* synthetic */ LangbridgePreloadCellCenter f61996b;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -400,17 +400,17 @@ public class LangbridgePreloadCellCenter implements NoProguard, i.a {
                                 return;
                             }
                         }
-                        this.f61796b = this;
-                        this.f61795a = cVar;
+                        this.f61996b = this;
+                        this.f61995a = cVar;
                     }
 
                     @Override // java.lang.Runnable
                     public void run() {
                         Interceptable interceptable2 = $ic;
-                        if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.f61795a.b() == null) {
+                        if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.f61995a.b() == null) {
                             return;
                         }
-                        this.f61795a.b().onResume();
+                        this.f61995a.b().onResume();
                     }
                 });
                 DXMSdkSAUtils.onEventWithValues("#preloadURLMatchRet", Arrays.asList("0", str));
@@ -428,13 +428,13 @@ public class LangbridgePreloadCellCenter implements NoProguard, i.a {
                 return null;
             }
             HashSet<String> hashSet = new HashSet<>();
-            for (Map.Entry<String, LinkedHashMap<b, c>> entry : this.f61786a.entrySet()) {
+            for (Map.Entry<String, LinkedHashMap<b, c>> entry : this.f61986a.entrySet()) {
                 if (entry.getKey().equals(str)) {
                     Iterator<b> it = entry.getValue().keySet().iterator();
                     while (it != null && it.hasNext()) {
                         b next = it.next();
                         if (next != null) {
-                            hashSet.add(this.f61786a.get(str).get(next).k());
+                            hashSet.add(this.f61986a.get(str).get(next).k());
                         }
                     }
                 }
@@ -456,14 +456,14 @@ public class LangbridgePreloadCellCenter implements NoProguard, i.a {
     public void preload(ArrayList<String> arrayList, String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048582, this, arrayList, str, str2) == null) {
-            preload(arrayList, i.a().a(this.f61788c).MW_PRELOAD_LIFE_TIME, str, str2);
+            preload(arrayList, i.a().a(this.f61988c).MW_PRELOAD_LIFE_TIME, str, str2);
         }
     }
 
     public void preloadUrls(String[] strArr, boolean z) {
         int i2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLZ(1048583, this, strArr, z) == null) || !i.a().a(this.f61788c).MW_ON || strArr == null || strArr.length <= 0) {
+        if (!(interceptable == null || interceptable.invokeLZ(1048583, this, strArr, z) == null) || !i.a().a(this.f61988c).MW_ON || strArr == null || strArr.length <= 0) {
             return;
         }
         ArraySet arraySet = new ArraySet();
@@ -484,20 +484,20 @@ public class LangbridgePreloadCellCenter implements NoProguard, i.a {
                                 i2 = 0;
                             }
                             if (i2 <= 0) {
-                                i2 = i.a().a(this.f61788c).MW_PRELOAD_LIFE_TIME;
+                                i2 = i.a().a(this.f61988c).MW_PRELOAD_LIFE_TIME;
                             }
-                            this.f61787b.post(new Runnable(this, str, i2) { // from class: com.baidu.wallet.lightapp.multipage.LangbridgePreloadCellCenter.1
+                            this.f61987b.post(new Runnable(this, str, i2) { // from class: com.baidu.wallet.lightapp.multipage.LangbridgePreloadCellCenter.1
                                 public static /* synthetic */ Interceptable $ic;
                                 public transient /* synthetic */ FieldHolder $fh;
 
                                 /* renamed from: a  reason: collision with root package name */
-                                public final /* synthetic */ String f61789a;
+                                public final /* synthetic */ String f61989a;
 
                                 /* renamed from: b  reason: collision with root package name */
-                                public final /* synthetic */ int f61790b;
+                                public final /* synthetic */ int f61990b;
 
                                 /* renamed from: c  reason: collision with root package name */
-                                public final /* synthetic */ LangbridgePreloadCellCenter f61791c;
+                                public final /* synthetic */ LangbridgePreloadCellCenter f61991c;
 
                                 {
                                     Interceptable interceptable2 = $ic;
@@ -514,16 +514,16 @@ public class LangbridgePreloadCellCenter implements NoProguard, i.a {
                                             return;
                                         }
                                     }
-                                    this.f61791c = this;
-                                    this.f61789a = str;
-                                    this.f61790b = i2;
+                                    this.f61991c = this;
+                                    this.f61989a = str;
+                                    this.f61990b = i2;
                                 }
 
                                 @Override // java.lang.Runnable
                                 public void run() {
                                     Interceptable interceptable2 = $ic;
                                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                                        this.f61791c.a(this.f61789a, this.f61790b, (String) null, (String) null);
+                                        this.f61991c.a(this.f61989a, this.f61990b, (String) null, (String) null);
                                     }
                                 }
                             });
@@ -545,18 +545,18 @@ public class LangbridgePreloadCellCenter implements NoProguard, i.a {
                 if (cVar == null) {
                     return;
                 }
-                if (this.f61786a.size() <= 0) {
+                if (this.f61986a.size() <= 0) {
                     return;
                 }
                 b bVar = null;
                 String str = null;
-                for (String str2 : this.f61786a.keySet()) {
-                    if (this.f61786a.get(str2) != null && (keySet = this.f61786a.get(str2).keySet()) != null) {
+                for (String str2 : this.f61986a.keySet()) {
+                    if (this.f61986a.get(str2) != null && (keySet = this.f61986a.get(str2).keySet()) != null) {
                         Iterator<b> it = keySet.iterator();
                         while (true) {
                             if (it.hasNext()) {
                                 b next = it.next();
-                                if (cVar == this.f61786a.get(str2).get(next)) {
+                                if (cVar == this.f61986a.get(str2).get(next)) {
                                     str = str2;
                                     bVar = next;
                                     break;
@@ -565,16 +565,16 @@ public class LangbridgePreloadCellCenter implements NoProguard, i.a {
                         }
                     }
                 }
-                if (bVar != null && !TextUtils.isEmpty(str) && (cVar2 = this.f61786a.get(str).get(bVar)) != null && cVar2 == cVar) {
+                if (bVar != null && !TextUtils.isEmpty(str) && (cVar2 = this.f61986a.get(str).get(bVar)) != null && cVar2 == cVar) {
                     a(new Runnable(this, cVar2) { // from class: com.baidu.wallet.lightapp.multipage.LangbridgePreloadCellCenter.2
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
 
                         /* renamed from: a  reason: collision with root package name */
-                        public final /* synthetic */ c f61792a;
+                        public final /* synthetic */ c f61992a;
 
                         /* renamed from: b  reason: collision with root package name */
-                        public final /* synthetic */ LangbridgePreloadCellCenter f61793b;
+                        public final /* synthetic */ LangbridgePreloadCellCenter f61993b;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -591,19 +591,19 @@ public class LangbridgePreloadCellCenter implements NoProguard, i.a {
                                     return;
                                 }
                             }
-                            this.f61793b = this;
-                            this.f61792a = cVar2;
+                            this.f61993b = this;
+                            this.f61992a = cVar2;
                         }
 
                         @Override // java.lang.Runnable
                         public void run() {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                                this.f61792a.i();
+                                this.f61992a.i();
                             }
                         }
                     });
-                    this.f61786a.get(str).remove(bVar);
+                    this.f61986a.get(str).remove(bVar);
                     LogUtil.i(TAG, "remove cell from repload webviewPool，origin url: " + bVar);
                 }
             }
@@ -618,10 +618,10 @@ public class LangbridgePreloadCellCenter implements NoProguard, i.a {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ boolean f61804a;
+                public final /* synthetic */ boolean f62004a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ LangbridgePreloadCellCenter f61805b;
+                public final /* synthetic */ LangbridgePreloadCellCenter f62005b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -638,8 +638,8 @@ public class LangbridgePreloadCellCenter implements NoProguard, i.a {
                             return;
                         }
                     }
-                    this.f61805b = this;
-                    this.f61804a = z;
+                    this.f62005b = this;
+                    this.f62004a = z;
                 }
 
                 @Override // java.lang.Runnable
@@ -648,13 +648,13 @@ public class LangbridgePreloadCellCenter implements NoProguard, i.a {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         try {
-                            for (Map.Entry entry : this.f61805b.f61786a.entrySet()) {
+                            for (Map.Entry entry : this.f62005b.f61986a.entrySet()) {
                                 String str = (String) entry.getKey();
                                 Iterator it = ((Map) entry.getValue()).keySet().iterator();
                                 while (it != null && it.hasNext()) {
                                     b bVar = (b) it.next();
-                                    if (bVar != null && (cVar = (c) ((LinkedHashMap) this.f61805b.f61786a.get(str)).get(bVar)) != null && cVar.b() != null) {
-                                        if (this.f61804a) {
+                                    if (bVar != null && (cVar = (c) ((LinkedHashMap) this.f62005b.f61986a.get(str)).get(bVar)) != null && cVar.b() != null) {
+                                        if (this.f62004a) {
                                             cVar.b().onResume();
                                         } else {
                                             cVar.b().onPause();
@@ -684,7 +684,7 @@ public class LangbridgePreloadCellCenter implements NoProguard, i.a {
                 return;
             }
         }
-        this.f61786a = new LinkedHashMap<>();
+        this.f61986a = new LinkedHashMap<>();
         i.a().a(this);
     }
 
@@ -692,12 +692,12 @@ public class LangbridgePreloadCellCenter implements NoProguard, i.a {
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65553, this) == null) {
-            this.f61787b.postDelayed(new Runnable(this) { // from class: com.baidu.wallet.lightapp.multipage.LangbridgePreloadCellCenter.3
+            this.f61987b.postDelayed(new Runnable(this) { // from class: com.baidu.wallet.lightapp.multipage.LangbridgePreloadCellCenter.3
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ LangbridgePreloadCellCenter f61794a;
+                public final /* synthetic */ LangbridgePreloadCellCenter f61994a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -714,18 +714,18 @@ public class LangbridgePreloadCellCenter implements NoProguard, i.a {
                             return;
                         }
                     }
-                    this.f61794a = this;
+                    this.f61994a = this;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f61794a.d();
-                        this.f61794a.c();
+                        this.f61994a.d();
+                        this.f61994a.c();
                     }
                 }
-            }, i.a().a(this.f61788c).MW_PRELOAD_CHECK_TIME * 1000);
+            }, i.a().a(this.f61988c).MW_PRELOAD_CHECK_TIME * 1000);
         }
     }
 
@@ -734,17 +734,17 @@ public class LangbridgePreloadCellCenter implements NoProguard, i.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65557, this) == null) {
             synchronized (this) {
-                if (this.f61786a.size() <= 0) {
+                if (this.f61986a.size() <= 0) {
                     return;
                 }
-                for (Map.Entry<String, LinkedHashMap<b, c>> entry : this.f61786a.entrySet()) {
+                for (Map.Entry<String, LinkedHashMap<b, c>> entry : this.f61986a.entrySet()) {
                     Set<b> keySet = entry.getValue().keySet();
                     Vector<b> vector = new Vector();
                     Long valueOf = Long.valueOf(System.currentTimeMillis());
                     for (b bVar : keySet) {
-                        if (bVar.f61811e <= valueOf.longValue()) {
-                            LogUtil.d(TAG, "release cell : " + bVar.f61807a);
-                            c cVar = this.f61786a.get(entry.getKey()).get(bVar);
+                        if (bVar.f62011e <= valueOf.longValue()) {
+                            LogUtil.d(TAG, "release cell : " + bVar.f62007a);
+                            c cVar = this.f61986a.get(entry.getKey()).get(bVar);
                             if (cVar != null) {
                                 cVar.i();
                             }
@@ -752,7 +752,7 @@ public class LangbridgePreloadCellCenter implements NoProguard, i.a {
                         }
                     }
                     for (b bVar2 : vector) {
-                        this.f61786a.get(entry.getKey()).remove(bVar2);
+                        this.f61986a.get(entry.getKey()).remove(bVar2);
                     }
                 }
             }
@@ -761,39 +761,39 @@ public class LangbridgePreloadCellCenter implements NoProguard, i.a {
 
     public void preload(ArrayList<String> arrayList, int i2, String str, String str2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLILL(1048581, this, arrayList, i2, str, str2) == null) || !i.a().a(this.f61788c).MW_ON || arrayList == null || arrayList.size() <= 0) {
+        if (!(interceptable == null || interceptable.invokeLILL(1048581, this, arrayList, i2, str, str2) == null) || !i.a().a(this.f61988c).MW_ON || arrayList == null || arrayList.size() <= 0) {
             return;
         }
         Iterator<String> it = arrayList.iterator();
         while (it.hasNext()) {
             a(it.next(), i2, str, str2);
         }
-        LogUtil.d(TAG, "preload map = " + this.f61786a.toString());
+        LogUtil.d(TAG, "preload map = " + this.f61986a.toString());
     }
 
     private void b() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65548, this) == null) || this.f61786a.size() <= 0) {
+        if (!(interceptable == null || interceptable.invokeV(65548, this) == null) || this.f61986a.size() <= 0) {
             return;
         }
         String str = null;
         b bVar = null;
-        for (String str2 : this.f61786a.keySet()) {
-            for (b bVar2 : this.f61786a.get(str2).keySet()) {
-                if (bVar == null || bVar2.f61811e < bVar.f61811e) {
+        for (String str2 : this.f61986a.keySet()) {
+            for (b bVar2 : this.f61986a.get(str2).keySet()) {
+                if (bVar == null || bVar2.f62011e < bVar.f62011e) {
                     str = str2;
                     bVar = bVar2;
                 }
             }
         }
-        if (TextUtils.isEmpty(str) || bVar == null || this.f61786a.get(str) == null) {
+        if (TextUtils.isEmpty(str) || bVar == null || this.f61986a.get(str) == null) {
             return;
         }
-        c cVar = this.f61786a.get(str).get(bVar);
+        c cVar = this.f61986a.get(str).get(bVar);
         if (cVar != null) {
             cVar.i();
         }
-        this.f61786a.get(str).remove(bVar);
+        this.f61986a.get(str).remove(bVar);
         DXMSdkSAUtils.onEventWithValues("#popOldestPreloadUrl", Arrays.asList(bVar.toString()));
     }
 
@@ -810,19 +810,19 @@ public class LangbridgePreloadCellCenter implements NoProguard, i.a {
                 if (TextUtils.isEmpty(str2)) {
                     str2 = "PRELOAD";
                 }
-                b a2 = a(str, this.f61786a.get(str2));
+                b a2 = a(str, this.f61986a.get(str2));
                 if (a2 != null) {
-                    c cVar = this.f61786a.get(str2).get(a2);
+                    c cVar = this.f61986a.get(str2).get(a2);
                     if (cVar != null) {
                         LogUtil.i(TAG, "had preloaded, refresh" + a2);
-                        a2.f61812f = 0;
+                        a2.f62012f = 0;
                         b(str2, a2, cVar);
                     }
-                    a2.f61811e = valueOf.longValue();
+                    a2.f62011e = valueOf.longValue();
                     DXMSdkSAUtils.onEventWithValues("#preloadURLRet", Arrays.asList("0", str));
                     return;
                 }
-                if (a() >= i.a().a(this.f61788c).MW_PRELOAD_POOL_SUM) {
+                if (a() >= i.a().a(this.f61988c).MW_PRELOAD_POOL_SUM) {
                     b();
                 }
                 LightappBrowserWebView lightappWebViewFromPool = LightappWebViewCenter.getInstance().getLightappWebViewFromPool();
@@ -831,7 +831,7 @@ public class LangbridgePreloadCellCenter implements NoProguard, i.a {
                     lightappWebViewFromPool = LightappWebViewCenter.getInstance().getLightappWebViewFromPool();
                 }
                 if (lightappWebViewFromPool != null) {
-                    LangbridgeCell langbridgeCell = new LangbridgeCell(this.f61788c, lightappWebViewFromPool, str2, str3);
+                    LangbridgeCell langbridgeCell = new LangbridgeCell(this.f61988c, lightappWebViewFromPool, str2, str3);
                     b bVar = new b(str, valueOf.longValue());
                     a(str2, bVar, langbridgeCell);
                     b(str2, bVar, langbridgeCell);
@@ -867,28 +867,28 @@ public class LangbridgePreloadCellCenter implements NoProguard, i.a {
     /* JADX INFO: Access modifiers changed from: private */
     public void b(String str, b bVar, c cVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(65550, this, str, bVar, cVar) == null) || bVar == null || cVar == null || TextUtils.isEmpty(bVar.f61807a)) {
+        if (!(interceptable == null || interceptable.invokeLLL(65550, this, str, bVar, cVar) == null) || bVar == null || cVar == null || TextUtils.isEmpty(bVar.f62007a)) {
             return;
         }
-        LogUtil.d(TAG, "preloadUrlbyCell url = " + bVar.f61807a + " ; cell = " + cVar + " ; reloadTimes = " + bVar.f61812f);
-        int i2 = bVar.f61812f;
-        bVar.f61812f = i2 + (-1);
+        LogUtil.d(TAG, "preloadUrlbyCell url = " + bVar.f62007a + " ; cell = " + cVar + " ; reloadTimes = " + bVar.f62012f);
+        int i2 = bVar.f62012f;
+        bVar.f62012f = i2 + (-1);
         if (i2 >= 0) {
-            cVar.a(bVar.f61807a, new com.baidu.wallet.lightapp.multipage.b(this, cVar, str, bVar) { // from class: com.baidu.wallet.lightapp.multipage.LangbridgePreloadCellCenter.5
+            cVar.a(bVar.f62007a, new com.baidu.wallet.lightapp.multipage.b(this, cVar, str, bVar) { // from class: com.baidu.wallet.lightapp.multipage.LangbridgePreloadCellCenter.5
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ c f61797a;
+                public final /* synthetic */ c f61997a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ String f61798b;
+                public final /* synthetic */ String f61998b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ b f61799c;
+                public final /* synthetic */ b f61999c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ LangbridgePreloadCellCenter f61800d;
+                public final /* synthetic */ LangbridgePreloadCellCenter f62000d;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -905,10 +905,10 @@ public class LangbridgePreloadCellCenter implements NoProguard, i.a {
                             return;
                         }
                     }
-                    this.f61800d = this;
-                    this.f61797a = cVar;
-                    this.f61798b = str;
-                    this.f61799c = bVar;
+                    this.f62000d = this;
+                    this.f61997a = cVar;
+                    this.f61998b = str;
+                    this.f61999c = bVar;
                 }
 
                 @Override // com.baidu.wallet.lightapp.multipage.b
@@ -918,26 +918,26 @@ public class LangbridgePreloadCellCenter implements NoProguard, i.a {
                         if (i3 == 0) {
                             LogUtil.d(LangbridgePreloadCellCenter.TAG, "preload success url = " + str3);
                         } else if (i3 != 1101 && i3 != 1102) {
-                            if (this.f61799c.f61812f < 0) {
-                                this.f61797a.i();
-                                if (this.f61800d.f61786a.containsKey(this.f61798b) && ((LinkedHashMap) this.f61800d.f61786a.get(this.f61798b)).values() != null) {
-                                    ((LinkedHashMap) this.f61800d.f61786a.get(this.f61798b)).values().remove(this.f61797a);
+                            if (this.f61999c.f62012f < 0) {
+                                this.f61997a.i();
+                                if (this.f62000d.f61986a.containsKey(this.f61998b) && ((LinkedHashMap) this.f62000d.f61986a.get(this.f61998b)).values() != null) {
+                                    ((LinkedHashMap) this.f62000d.f61986a.get(this.f61998b)).values().remove(this.f61997a);
                                 }
                                 e a2 = e.a();
-                                Context context = this.f61800d.f61788c;
+                                Context context = this.f62000d.f61988c;
                                 a2.a(context, 1, "preload fail", Arrays.asList(str3, "" + i3, str2));
                                 LogUtil.d(LangbridgePreloadCellCenter.TAG, "preloadUrlbyCell onError destory url = " + str3);
                                 return;
                             }
                             LogUtil.d(LangbridgePreloadCellCenter.TAG, "preloadUrlbyCell onError code = " + i3 + " ; desc = " + str2 + " ; url = " + str3);
-                            this.f61800d.b(this.f61798b, this.f61799c, this.f61797a);
+                            this.f62000d.b(this.f61998b, this.f61999c, this.f61997a);
                         } else {
-                            this.f61797a.i();
-                            if (this.f61800d.f61786a.containsKey(this.f61798b) && ((LinkedHashMap) this.f61800d.f61786a.get(this.f61798b)).values() != null) {
-                                ((LinkedHashMap) this.f61800d.f61786a.get(this.f61798b)).values().remove(this.f61797a);
+                            this.f61997a.i();
+                            if (this.f62000d.f61986a.containsKey(this.f61998b) && ((LinkedHashMap) this.f62000d.f61986a.get(this.f61998b)).values() != null) {
+                                ((LinkedHashMap) this.f62000d.f61986a.get(this.f61998b)).values().remove(this.f61997a);
                             }
                             e a3 = e.a();
-                            Context context2 = this.f61800d.f61788c;
+                            Context context2 = this.f62000d.f61988c;
                             a3.a(context2, 1, "preload exception", Arrays.asList(str3, "" + i3, str2));
                             LogUtil.d(LangbridgePreloadCellCenter.TAG, "preloadUrlbyCell onException destory url = " + str3);
                         }
@@ -965,8 +965,8 @@ public class LangbridgePreloadCellCenter implements NoProguard, i.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
             int i2 = 0;
-            for (String str : this.f61786a.keySet()) {
-                i2 += this.f61786a.get(str).size();
+            for (String str : this.f61986a.keySet()) {
+                i2 += this.f61986a.get(str).size();
             }
             return i2;
         }
@@ -976,13 +976,13 @@ public class LangbridgePreloadCellCenter implements NoProguard, i.a {
     private void a(String str, b bVar, c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65546, this, str, bVar, cVar) == null) {
-            if (this.f61786a.containsKey(str)) {
-                this.f61786a.get(str).put(bVar, cVar);
+            if (this.f61986a.containsKey(str)) {
+                this.f61986a.get(str).put(bVar, cVar);
                 return;
             }
             LinkedHashMap<b, c> linkedHashMap = new LinkedHashMap<>();
             linkedHashMap.put(bVar, cVar);
-            this.f61786a.put(str, linkedHashMap);
+            this.f61986a.put(str, linkedHashMap);
         }
     }
 
@@ -998,7 +998,7 @@ public class LangbridgePreloadCellCenter implements NoProguard, i.a {
             }
             b bVar2 = new b(str, 0L);
             Integer valueOf = Integer.valueOf(CheckUtils.stripUrlParams(str).hashCode());
-            HashMap hashMap2 = bVar2.f61809c;
+            HashMap hashMap2 = bVar2.f62009c;
             DXMSdkSAUtils.onEventStart("#webviewPoolMatchTime");
             LogUtil.d(TAG, "targetIns = " + bVar2.toString());
             if (valueOf != null) {
@@ -1009,22 +1009,22 @@ public class LangbridgePreloadCellCenter implements NoProguard, i.a {
                         break;
                     }
                     bVar = (b) ((Map.Entry) it.next()).getKey();
-                    if (bVar != null && bVar.f61808b != null) {
-                        if (!TextUtils.isEmpty(bVar2.f61813g) && bVar2.f61813g.equals(bVar.f61813g)) {
+                    if (bVar != null && bVar.f62008b != null) {
+                        if (!TextUtils.isEmpty(bVar2.f62013g) && bVar2.f62013g.equals(bVar.f62013g)) {
                             atomicBoolean.set(true);
                             break;
                         }
                         LogUtil.d(TAG, "poolIns = " + bVar.toString());
-                        if (bVar.f61807a.equals(bVar2.f61807a)) {
+                        if (bVar.f62007a.equals(bVar2.f62007a)) {
                             atomicBoolean.set(true);
                             break;
                         }
-                        hashMap = bVar.f61809c;
-                        if (valueOf.equals(bVar.f61808b)) {
+                        hashMap = bVar.f62009c;
+                        if (valueOf.equals(bVar.f62008b)) {
                             LogUtil.d(TAG, "protocol+host is match");
                             atomicBoolean.compareAndSet(false, true);
-                            String str2 = bVar2.f61810d;
-                            if (str2 != bVar.f61810d && (TextUtils.isEmpty(str2) || !bVar2.f61810d.equals(bVar.f61810d))) {
+                            String str2 = bVar2.f62010d;
+                            if (str2 != bVar.f62010d && (TextUtils.isEmpty(str2) || !bVar2.f62010d.equals(bVar.f62010d))) {
                                 LogUtil.d(TAG, "ref is not match");
                                 atomicBoolean.set(false);
                             } else {

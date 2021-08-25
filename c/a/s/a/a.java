@@ -20,20 +20,20 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: e  reason: collision with root package name */
-    public static volatile a f29629e;
+    public static volatile a f29767e;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f29630a;
+    public int f29768a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f29631b;
+    public String f29769b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Context f29632c;
+    public Context f29770c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f29633d;
+    public boolean f29771d;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -48,21 +48,21 @@ public class a {
                 return;
             }
         }
-        this.f29631b = "";
+        this.f29769b = "";
     }
 
     public static a d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f29629e == null) {
+            if (f29767e == null) {
                 synchronized (a.class) {
-                    if (f29629e == null) {
-                        f29629e = new a();
+                    if (f29767e == null) {
+                        f29767e = new a();
                     }
                 }
             }
-            return f29629e;
+            return f29767e;
         }
         return (a) invokeV.objValue;
     }
@@ -70,30 +70,30 @@ public class a {
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f29631b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f29769b : (String) invokeV.objValue;
     }
 
     public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f29633d : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f29771d : invokeV.booleanValue;
     }
 
     public int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f29630a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f29768a : invokeV.intValue;
     }
 
     public void e(Context context, String str, int i2, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{context, str, Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
-            this.f29631b = str;
+            this.f29769b = str;
             if (context != null) {
-                this.f29632c = context.getApplicationContext();
+                this.f29770c = context.getApplicationContext();
             }
-            this.f29630a = i2;
-            this.f29633d = z;
+            this.f29768a = i2;
+            this.f29771d = z;
         }
     }
 
@@ -101,11 +101,11 @@ public class a {
         byte[] a2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{jSONArray, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)}) == null) {
-            if (TextUtils.isEmpty(this.f29631b) || this.f29632c == null || jSONArray == null || jSONArray.length() == 0) {
+            if (TextUtils.isEmpty(this.f29769b) || this.f29770c == null || jSONArray == null || jSONArray.length() == 0) {
                 c.a("IMLiteUBC", "cuid is empty or context null or upload json is null");
                 return;
             }
-            Context context = this.f29632c;
+            Context context = this.f29770c;
             if (jSONArray == null || jSONArray.length() == 0) {
                 c.a("UBCUploader", "upload json is null");
                 return;
@@ -140,9 +140,9 @@ public class a {
             d dVar = new d(context);
             c.a.s.a.b.a a4 = c.a.s.a.b.a.a(context);
             if (context == null || TextUtils.isEmpty(dVar.a())) {
-                dVar.b(c.a.s.a.b.a.f29635d, Constants.ERROR_MSG_PARAMETER_ERROR.getBytes());
+                dVar.b(c.a.s.a.b.a.f29773d, Constants.ERROR_MSG_PARAMETER_ERROR.getBytes());
             } else if (z3) {
-                c.a.s.a.c.a.a().b(new a.RunnableC1384a(a4, dVar, bArr, dVar));
+                c.a.s.a.c.a.a().b(new a.RunnableC1393a(a4, dVar, bArr, dVar));
             } else {
                 a4.e(dVar.b(), dVar.a(), bArr, dVar.d(), dVar.c(), dVar);
             }

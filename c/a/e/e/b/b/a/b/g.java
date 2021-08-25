@@ -12,7 +12,7 @@ public class g implements h {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public float f2079a;
+    public float f2137a;
 
     public g(float f2) {
         Interceptable interceptable = $ic;
@@ -29,35 +29,35 @@ public class g implements h {
                 return;
             }
         }
-        this.f2079a = f2;
+        this.f2137a = f2;
     }
 
     @Override // c.a.e.e.b.b.a.b.h
     public Object a(c.a.e.e.b.b.a.e.c cVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cVar)) == null) ? Float.valueOf(this.f2079a) : invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cVar)) == null) ? Float.valueOf(this.f2137a) : invokeL.objValue;
     }
 
     @Override // c.a.e.e.b.b.a.b.h
     public Object b(c.a.e.e.b.b.a.e.c cVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar)) == null) ? Float.valueOf(this.f2079a) : invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar)) == null) ? Float.valueOf(this.f2137a) : invokeL.objValue;
     }
 
     @Override // c.a.e.e.b.b.a.b.h
     public Object c(c.a.e.e.b.b.a.e.c cVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cVar)) == null) ? Float.valueOf(this.f2079a) : invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cVar)) == null) ? Float.valueOf(this.f2137a) : invokeL.objValue;
     }
 
     @Override // c.a.e.e.b.b.a.b.h
     public Object d(c.a.e.e.b.b.a.e.c cVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, cVar)) == null) ? Float.valueOf(this.f2079a) : invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, cVar)) == null) ? Float.valueOf(this.f2137a) : invokeL.objValue;
     }
 
     @Override // c.a.e.e.b.b.a.b.h
@@ -71,6 +71,6 @@ public class g implements h {
     public Object f(c.a.e.e.b.b.a.e.c cVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, cVar)) == null) ? Double.valueOf(this.f2079a) : invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, cVar)) == null) ? Double.valueOf(this.f2137a) : invokeL.objValue;
     }
 }

@@ -30,49 +30,49 @@ public class a {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: j  reason: collision with root package name */
-    public static String f34332j = "";
+    public static String f34438j = "";
     public static String k = "";
     public static String l = "";
     public static volatile a m;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f34333a;
+    public boolean f34439a;
 
     /* renamed from: b  reason: collision with root package name */
-    public volatile boolean f34334b;
+    public volatile boolean f34440b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Context f34335c;
+    public Context f34441c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final List<Pair<com.ss.android.downloadlib.a.b.b, d>> f34336d;
+    public final List<Pair<com.ss.android.downloadlib.a.b.b, d>> f34442d;
 
     /* renamed from: e  reason: collision with root package name */
-    public c f34337e;
+    public c f34443e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final List<b> f34338f;
+    public final List<b> f34444f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final ServiceConnection f34339g;
+    public final ServiceConnection f34445g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f34340h;
+    public String f34446h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final Object f34341i;
+    public final Object f34447i;
 
     /* renamed from: c.p.a.d.a$i.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class ServiceConnectionC1517a implements ServiceConnection {
+    public class ServiceConnectionC1521a implements ServiceConnection {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f34342e;
+        public final /* synthetic */ a f34448e;
 
-        public ServiceConnectionC1517a(a aVar) {
+        public ServiceConnectionC1521a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -87,18 +87,18 @@ public class a {
                     return;
                 }
             }
-            this.f34342e = aVar;
+            this.f34448e = aVar;
         }
 
         @Override // android.content.ServiceConnection
         public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, componentName, iBinder) == null) {
-                synchronized (this.f34342e.f34341i) {
-                    this.f34342e.d(false);
-                    this.f34342e.f34337e = c.a.a(iBinder);
-                    this.f34342e.g();
-                    for (b bVar : this.f34342e.f34338f) {
+                synchronized (this.f34448e.f34447i) {
+                    this.f34448e.d(false);
+                    this.f34448e.f34443e = c.a.a(iBinder);
+                    this.f34448e.g();
+                    for (b bVar : this.f34448e.f34444f) {
                         bVar.a();
                     }
                 }
@@ -109,10 +109,10 @@ public class a {
         public void onServiceDisconnected(ComponentName componentName) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, componentName) == null) {
-                synchronized (this.f34342e.f34341i) {
-                    this.f34342e.d(false);
-                    this.f34342e.f34337e = null;
-                    for (b bVar : this.f34342e.f34338f) {
+                synchronized (this.f34448e.f34447i) {
+                    this.f34448e.d(false);
+                    this.f34448e.f34443e = null;
+                    for (b bVar : this.f34448e.f34444f) {
                         bVar.b();
                     }
                 }
@@ -155,13 +155,13 @@ public class a {
                 return;
             }
         }
-        this.f34333a = false;
-        this.f34334b = false;
-        this.f34336d = new ArrayList();
-        this.f34338f = new ArrayList();
-        this.f34339g = new ServiceConnectionC1517a(this);
-        this.f34340h = "";
-        this.f34341i = new Object();
+        this.f34439a = false;
+        this.f34440b = false;
+        this.f34442d = new ArrayList();
+        this.f34444f = new ArrayList();
+        this.f34445g = new ServiceConnectionC1521a(this);
+        this.f34446h = "";
+        this.f34447i = new Object();
     }
 
     public static a b() {
@@ -185,7 +185,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
             Intent intent = new Intent();
-            intent.setAction(f34332j);
+            intent.setAction(f34438j);
             List<ResolveInfo> queryIntentServices = context.getPackageManager().queryIntentServices(intent, 0);
             if (queryIntentServices == null || queryIntentServices.size() != 1) {
                 return null;
@@ -209,19 +209,19 @@ public class a {
     public void c(com.ss.android.downloadlib.a.b.b bVar, d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar, dVar) == null) {
-            synchronized (this.f34341i) {
-                bVar.f75269e = l;
-                if (TextUtils.isEmpty(bVar.f75270f)) {
-                    bVar.f75270f = this.f34340h;
+            synchronized (this.f34447i) {
+                bVar.f75470e = l;
+                if (TextUtils.isEmpty(bVar.f75471f)) {
+                    bVar.f75471f = this.f34446h;
                 }
-                if (this.f34337e != null) {
+                if (this.f34443e != null) {
                     try {
-                        this.f34337e.a(bVar, dVar);
+                        this.f34443e.a(bVar, dVar);
                     } catch (RemoteException e2) {
                         e2.printStackTrace();
                     }
-                } else if (h() || e(this.f34335c, this.f34333a)) {
-                    this.f34336d.add(Pair.create(bVar, dVar));
+                } else if (h() || e(this.f34441c, this.f34439a)) {
+                    this.f34442d.add(Pair.create(bVar, dVar));
                 }
             }
         }
@@ -230,7 +230,7 @@ public class a {
     public void d(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            this.f34334b = z;
+            this.f34440b = z;
         }
     }
 
@@ -238,23 +238,23 @@ public class a {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048579, this, context, z)) == null) {
-            if (TextUtils.isEmpty(f34332j)) {
+            if (TextUtils.isEmpty(f34438j)) {
                 JSONObject v = l.v();
                 String optString = v.optString("s");
-                f34332j = c.p.a.e.a.h.d.b(v.optString(IAdRequestParam.COST_NAME), optString);
+                f34438j = c.p.a.e.a.h.d.b(v.optString(IAdRequestParam.COST_NAME), optString);
                 k = c.p.a.e.a.h.d.b(v.optString("u"), optString);
                 l = c.p.a.e.a.h.d.b(v.optString("w"), optString);
             }
-            this.f34333a = z;
+            this.f34439a = z;
             if (context != null) {
-                this.f34335c = context.getApplicationContext();
+                this.f34441c = context.getApplicationContext();
                 if (TextUtils.isEmpty(l)) {
-                    l = this.f34335c.getPackageName();
+                    l = this.f34441c.getPackageName();
                 }
-                if (this.f34337e != null || h()) {
+                if (this.f34443e != null || h()) {
                     return true;
                 }
-                return this.f34335c.bindService(a(context), this.f34339g, 33);
+                return this.f34441c.bindService(a(context), this.f34445g, 33);
             }
             return true;
         }
@@ -264,32 +264,32 @@ public class a {
     public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            if (this.f34337e != null) {
-                this.f34335c.unbindService(this.f34339g);
-                this.f34337e = null;
+            if (this.f34443e != null) {
+                this.f34441c.unbindService(this.f34445g);
+                this.f34443e = null;
             }
-            this.f34338f.clear();
-            this.f34336d.clear();
+            this.f34444f.clear();
+            this.f34442d.clear();
         }
     }
 
     public void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            for (Pair<com.ss.android.downloadlib.a.b.b, d> pair : this.f34336d) {
+            for (Pair<com.ss.android.downloadlib.a.b.b, d> pair : this.f34442d) {
                 try {
-                    this.f34337e.a((com.ss.android.downloadlib.a.b.b) pair.first, (d) pair.second);
+                    this.f34443e.a((com.ss.android.downloadlib.a.b.b) pair.first, (d) pair.second);
                 } catch (RemoteException e2) {
                     e2.printStackTrace();
                 }
             }
-            this.f34336d.clear();
+            this.f34442d.clear();
         }
     }
 
     public boolean h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f34334b : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f34440b : invokeV.booleanValue;
     }
 }

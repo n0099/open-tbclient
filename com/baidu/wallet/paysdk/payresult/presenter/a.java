@@ -32,26 +32,26 @@ public class a implements b.a {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f62213f = "a";
+    public static final String f62413f = "a";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public WeakReference<BaseActivity> f62214a;
+    public WeakReference<BaseActivity> f62414a;
 
     /* renamed from: b  reason: collision with root package name */
-    public b.InterfaceC1847b f62215b;
+    public b.InterfaceC1851b f62415b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f62216c;
+    public int f62416c;
 
     /* renamed from: d  reason: collision with root package name */
-    public PayRequest f62217d;
+    public PayRequest f62417d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f62218e;
+    public boolean f62418e;
 
     /* renamed from: g  reason: collision with root package name */
-    public IPayResultDataAdapter f62219g;
+    public IPayResultDataAdapter f62419g;
 
     static {
         InterceptResult invokeClinit;
@@ -68,13 +68,13 @@ public class a implements b.a {
         }
     }
 
-    public a(b.InterfaceC1847b interfaceC1847b, BaseActivity baseActivity, Bundle bundle) {
+    public a(b.InterfaceC1851b interfaceC1851b, BaseActivity baseActivity, Bundle bundle) {
         PayRequest payRequest;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {interfaceC1847b, baseActivity, bundle};
+            Object[] objArr = {interfaceC1851b, baseActivity, bundle};
             interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -84,35 +84,35 @@ public class a implements b.a {
                 return;
             }
         }
-        this.f62216c = 0;
-        this.f62218e = true;
-        this.f62214a = new WeakReference<>(baseActivity);
-        this.f62215b = interfaceC1847b;
+        this.f62416c = 0;
+        this.f62418e = true;
+        this.f62414a = new WeakReference<>(baseActivity);
+        this.f62415b = interfaceC1851b;
         d(bundle);
-        if (this.f62216c == 1 && (payRequest = this.f62217d) != null) {
+        if (this.f62416c == 1 && (payRequest = this.f62417d) != null) {
             IPayResultDataAdapter a2 = com.baidu.wallet.paysdk.payresult.adapters.a.a(baseActivity, payRequest.getPayFrom());
-            this.f62219g = a2;
+            this.f62419g = a2;
             if (a2 == null) {
-                this.f62219g = com.baidu.wallet.paysdk.payresult.adapters.a.a(this.f62214a.get(), this.f62216c);
+                this.f62419g = com.baidu.wallet.paysdk.payresult.adapters.a.a(this.f62414a.get(), this.f62416c);
                 return;
             }
             return;
         }
-        this.f62219g = com.baidu.wallet.paysdk.payresult.adapters.a.a(this.f62214a.get(), this.f62216c);
+        this.f62419g = com.baidu.wallet.paysdk.payresult.adapters.a.a(this.f62414a.get(), this.f62416c);
     }
 
     @Override // com.baidu.wallet.paysdk.payresult.presenter.b.a
     public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f62219g.isBelongPaySdk() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f62419g.isBelongPaySdk() : invokeV.booleanValue;
     }
 
     @Override // com.baidu.wallet.paysdk.payresult.presenter.b.a
     public void c() {
         IPayResultDataAdapter iPayResultDataAdapter;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (iPayResultDataAdapter = this.f62219g) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (iPayResultDataAdapter = this.f62419g) == null) {
             return;
         }
         iPayResultDataAdapter.clearDataOnDestroy();
@@ -121,23 +121,23 @@ public class a implements b.a {
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.f62215b.showExpectedTime(this.f62219g.getExpectedTime());
+            this.f62415b.showExpectedTime(this.f62419g.getExpectedTime());
         }
     }
 
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            PayResultContent payResultContent = this.f62219g.getPayResultContent();
+            PayResultContent payResultContent = this.f62419g.getPayResultContent();
             if (payResultContent != null) {
-                this.f62215b.setTitleLogo(payResultContent.title_url);
-                this.f62215b.showPayResultRealMoneyText(payResultContent.cash_amount);
-                this.f62215b.showTotalAmountInfo(payResultContent.total_amount, payResultContent.order_prefix, payResultContent.cash_amount);
-                this.f62215b.showDiscountTypeInfo(payResultContent.discount_info, payResultContent.discount_amount, payResultContent.discount_prefix);
-                this.f62215b.showPayTypeInfo(payResultContent.paytype_info, payResultContent.discount_amount, payResultContent.cash_amount, payResultContent.total_amount);
+                this.f62415b.setTitleLogo(payResultContent.title_url);
+                this.f62415b.showPayResultRealMoneyText(payResultContent.cash_amount);
+                this.f62415b.showTotalAmountInfo(payResultContent.total_amount, payResultContent.order_prefix, payResultContent.cash_amount);
+                this.f62415b.showDiscountTypeInfo(payResultContent.discount_info, payResultContent.discount_amount, payResultContent.discount_prefix);
+                this.f62415b.showPayTypeInfo(payResultContent.paytype_info, payResultContent.discount_amount, payResultContent.cash_amount, payResultContent.total_amount);
                 return;
             }
-            this.f62215b.showPayResultMoneyLayoutVisible(false);
+            this.f62415b.showPayResultMoneyLayoutVisible(false);
         }
     }
 
@@ -146,7 +146,7 @@ public class a implements b.a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            IPayResultDataAdapter iPayResultDataAdapter = this.f62219g;
+            IPayResultDataAdapter iPayResultDataAdapter = this.f62419g;
             if (iPayResultDataAdapter == null) {
                 return new ArrayList<>();
             }
@@ -159,7 +159,7 @@ public class a implements b.a {
     public void g() {
         IPayResultDataAdapter iPayResultDataAdapter;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || (iPayResultDataAdapter = this.f62219g) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || (iPayResultDataAdapter = this.f62419g) == null) {
             return;
         }
         iPayResultDataAdapter.handleOKBtnOnclick();
@@ -170,27 +170,27 @@ public class a implements b.a {
         IPayResultDataAdapter iPayResultDataAdapter;
         PayResultContent.CrossMarket crossMarket;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048587, this) == null) || (iPayResultDataAdapter = this.f62219g) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048587, this) == null) || (iPayResultDataAdapter = this.f62419g) == null) {
             return;
         }
         if (iPayResultDataAdapter.getPayResultContent() != null) {
-            this.f62215b.showAuthDialog(this.f62219g.getPayResultContent().compliance);
+            this.f62415b.showAuthDialog(this.f62419g.getPayResultContent().compliance);
         }
-        IPayResultDataAdapter iPayResultDataAdapter2 = this.f62219g;
-        if (iPayResultDataAdapter2 == null || iPayResultDataAdapter2.getPayResultContent() == null || (crossMarket = this.f62219g.getPayResultContent().cross_market) == null || TextUtils.isEmpty(crossMarket.jump_url)) {
+        IPayResultDataAdapter iPayResultDataAdapter2 = this.f62419g;
+        if (iPayResultDataAdapter2 == null || iPayResultDataAdapter2.getPayResultContent() == null || (crossMarket = this.f62419g.getPayResultContent().cross_market) == null || TextUtils.isEmpty(crossMarket.jump_url)) {
             return;
         }
-        this.f62215b.showMarketDialog(crossMarket.pic_url, crossMarket.jump_url);
+        this.f62415b.showMarketDialog(crossMarket.pic_url, crossMarket.jump_url);
     }
 
     public void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            PayResultContent payResultContent = this.f62219g.getPayResultContent();
-            if (this.f62219g.isPaySuccess()) {
-                this.f62215b.showPaySuccess(a(this.f62219g.getPaySuccessContents(), payResultContent));
+            PayResultContent payResultContent = this.f62419g.getPayResultContent();
+            if (this.f62419g.isPaySuccess()) {
+                this.f62415b.showPaySuccess(a(this.f62419g.getPaySuccessContents(), payResultContent));
             } else {
-                this.f62215b.showPaying(a(this.f62219g.getPayingContents(), payResultContent));
+                this.f62415b.showPaying(a(this.f62419g.getPayingContents(), payResultContent));
             }
         }
     }
@@ -201,11 +201,11 @@ public class a implements b.a {
         PayResultContent payResultContent;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            IPayResultDataAdapter iPayResultDataAdapter = this.f62219g;
-            if (iPayResultDataAdapter == null || (payResultContent = iPayResultDataAdapter.getPayResultContent()) == null || payResultContent.feedback_info == null || !this.f62218e) {
+            IPayResultDataAdapter iPayResultDataAdapter = this.f62419g;
+            if (iPayResultDataAdapter == null || (payResultContent = iPayResultDataAdapter.getPayResultContent()) == null || payResultContent.feedback_info == null || !this.f62418e) {
                 return false;
             }
-            this.f62218e = false;
+            this.f62418e = false;
             return true;
         }
         return invokeV.booleanValue;
@@ -217,15 +217,15 @@ public class a implements b.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
             FeedbackDialog.a aVar = new FeedbackDialog.a();
-            IPayResultDataAdapter iPayResultDataAdapter = this.f62219g;
+            IPayResultDataAdapter iPayResultDataAdapter = this.f62419g;
             if (iPayResultDataAdapter != null && iPayResultDataAdapter.getPayResultContent() != null) {
-                aVar.f62883a = this.f62219g.getPayResultContent().feedback_info;
-                aVar.f62884b = new FeedbackDialog.b(this) { // from class: com.baidu.wallet.paysdk.payresult.presenter.a.1
+                aVar.f63083a = this.f62419g.getPayResultContent().feedback_info;
+                aVar.f63084b = new FeedbackDialog.b(this) { // from class: com.baidu.wallet.paysdk.payresult.presenter.a.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ a f62220a;
+                    public final /* synthetic */ a f62420a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -242,18 +242,18 @@ public class a implements b.a {
                                 return;
                             }
                         }
-                        this.f62220a = this;
+                        this.f62420a = this;
                     }
 
                     @Override // com.baidu.wallet.paysdk.ui.widget.FeedbackDialog.b
                     public void a(FeedbackDialog.c cVar) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar) == null) {
-                            x xVar = (x) PayBeanFactory.getInstance().getBean((Context) this.f62220a.f62214a.get(), PayBeanFactory.BEAN_ID_SAVE_FEEDBACK, a.f62213f);
-                            xVar.a(this.f62220a.f62219g.getPayResultContent().trans_no, cVar);
+                            x xVar = (x) PayBeanFactory.getInstance().getBean((Context) this.f62420a.f62414a.get(), PayBeanFactory.BEAN_ID_SAVE_FEEDBACK, a.f62413f);
+                            xVar.a(this.f62420a.f62419g.getPayResultContent().trans_no, cVar);
                             xVar.execBean();
-                            this.f62220a.f62215b.finishPage();
-                            this.f62220a.g();
+                            this.f62420a.f62415b.finishPage();
+                            this.f62420a.g();
                         }
                     }
 
@@ -261,8 +261,8 @@ public class a implements b.a {
                     public void a() {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            this.f62220a.f62215b.finishPage();
-                            this.f62220a.g();
+                            this.f62420a.f62415b.finishPage();
+                            this.f62420a.g();
                         }
                     }
                 };
@@ -276,19 +276,19 @@ public class a implements b.a {
     public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f62219g != null : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f62419g != null : invokeV.booleanValue;
     }
 
     @Override // com.baidu.wallet.paysdk.payresult.presenter.b.a
     public void b(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
-            bundle.putSerializable(BeanConstants.KEY_PAY_RESULT_TYPE, Integer.valueOf(this.f62216c));
-            PayRequest payRequest = this.f62217d;
+            bundle.putSerializable(BeanConstants.KEY_PAY_RESULT_TYPE, Integer.valueOf(this.f62416c));
+            PayRequest payRequest = this.f62417d;
             if (payRequest != null) {
                 bundle.putSerializable("mPayRequest", payRequest);
             }
-            IPayResultDataAdapter iPayResultDataAdapter = this.f62219g;
+            IPayResultDataAdapter iPayResultDataAdapter = this.f62419g;
             if (iPayResultDataAdapter != null) {
                 iPayResultDataAdapter.onSaveInstanceState(bundle);
             }
@@ -299,7 +299,7 @@ public class a implements b.a {
     public boolean a(Bundle bundle) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle)) == null) ? this.f62219g.onCreateCheckInvalide(bundle) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle)) == null) ? this.f62419g.onCreateCheckInvalide(bundle) : invokeL.booleanValue;
     }
 
     @Override // com.baidu.wallet.paysdk.payresult.presenter.b.a
@@ -307,25 +307,25 @@ public class a implements b.a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, bundle)) == null) {
-            String actionBarTextId = this.f62219g.getActionBarTextId();
+            String actionBarTextId = this.f62419g.getActionBarTextId();
             if (TextUtils.isEmpty(actionBarTextId)) {
                 actionBarTextId = "bd_wallet_payresult_title";
             }
-            this.f62215b.initActionBar(actionBarTextId);
-            this.f62215b.initViewElements();
+            this.f62415b.initActionBar(actionBarTextId);
+            this.f62415b.initViewElements();
             i();
             e();
             d();
-            this.f62215b.showAuthorizeMsg(this.f62219g.getAuthorizeMsg());
-            if (this.f62219g.isShowLBSPayText()) {
-                b.InterfaceC1847b interfaceC1847b = this.f62215b;
-                interfaceC1847b.setOKBtnText(ResUtils.getString(this.f62214a.get(), "ebpay_confirm_ret_msg") + this.f62219g.getLBSPayText());
+            this.f62415b.showAuthorizeMsg(this.f62419g.getAuthorizeMsg());
+            if (this.f62419g.isShowLBSPayText()) {
+                b.InterfaceC1851b interfaceC1851b = this.f62415b;
+                interfaceC1851b.setOKBtnText(ResUtils.getString(this.f62414a.get(), "ebpay_confirm_ret_msg") + this.f62419g.getLBSPayText());
             }
-            if (this.f62219g.showResultPage()) {
+            if (this.f62419g.showResultPage()) {
                 return true;
             }
             g();
-            this.f62215b.finishPage();
+            this.f62415b.finishPage();
             return false;
         }
         return invokeL.booleanValue;
@@ -336,17 +336,17 @@ public class a implements b.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, bundle) == null) {
             if (bundle != null) {
-                this.f62216c = bundle.getInt(BeanConstants.KEY_PAY_RESULT_TYPE);
-                this.f62217d = (PayRequest) bundle.getSerializable("mPayRequest");
-            } else if (this.f62214a.get().getIntent() == null || this.f62214a.get().getIntent().getExtras() == null) {
+                this.f62416c = bundle.getInt(BeanConstants.KEY_PAY_RESULT_TYPE);
+                this.f62417d = (PayRequest) bundle.getSerializable("mPayRequest");
+            } else if (this.f62414a.get().getIntent() == null || this.f62414a.get().getIntent().getExtras() == null) {
             } else {
-                int i2 = this.f62214a.get().getIntent().getExtras().getInt(BeanConstants.KEY_PAY_RESULT_TYPE);
-                this.f62216c = i2;
-                if (i2 == 5 && (payResultContent = (PayResultContent) this.f62214a.get().getIntent().getExtras().get(BeanConstants.KEY_PAY_RESULT_HCE_DATA)) != null) {
+                int i2 = this.f62414a.get().getIntent().getExtras().getInt(BeanConstants.KEY_PAY_RESULT_TYPE);
+                this.f62416c = i2;
+                if (i2 == 5 && (payResultContent = (PayResultContent) this.f62414a.get().getIntent().getExtras().get(BeanConstants.KEY_PAY_RESULT_HCE_DATA)) != null) {
                     PayDataCache.getInstance().setPayReslutContent(payResultContent);
                     PayRequestCache.getInstance().addBeanRequestToCache(BeanConstants.REQUEST_ID_PAY, new PayRequest());
                 }
-                this.f62217d = (PayRequest) PayRequestCache.getInstance().getBeanRequestFromCache(BeanConstants.REQUEST_ID_PAY);
+                this.f62417d = (PayRequest) PayRequestCache.getInstance().getBeanRequestFromCache(BeanConstants.REQUEST_ID_PAY);
             }
         }
     }

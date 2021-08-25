@@ -4,11 +4,11 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import c.a.n0.a.a2.d;
-import c.a.n0.a.k;
-import c.a.n0.g.c.a;
-import c.a.n0.g.c.d.b;
-import c.a.n0.g.c.d.e;
+import c.a.o0.a.a2.d;
+import c.a.o0.a.k;
+import c.a.o0.g.c.a;
+import c.a.o0.g.c.d.b;
+import c.a.o0.g.c.d.e;
 import com.baidu.searchbox.process.ipc.util.ProcessUtils;
 import com.baidu.swan.apps.network.SwanAppNetworkUtils;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -38,7 +38,7 @@ public class AppDownloadNetworkStateReceiver extends BroadcastReceiver {
                 return;
             }
         }
-        DEBUG = k.f6803a;
+        DEBUG = k.f7049a;
     }
 
     public AppDownloadNetworkStateReceiver() {
@@ -67,7 +67,7 @@ public class AppDownloadNetworkStateReceiver extends BroadcastReceiver {
                 a.n().D();
                 return;
             }
-            c.a.n0.a.v1.c.e.a z2 = d.g().z();
+            c.a.o0.a.v1.c.e.a z2 = d.g().z();
             if (z2 != null) {
                 Bundle bundle = new Bundle();
                 bundle.putString(KEY_OPERATION, "resumeAllDownload");
@@ -76,7 +76,7 @@ public class AppDownloadNetworkStateReceiver extends BroadcastReceiver {
         } else if (ProcessUtils.isMainProcess()) {
             a.n().u();
         } else {
-            c.a.n0.a.v1.c.e.a z3 = d.g().z();
+            c.a.o0.a.v1.c.e.a z3 = d.g().z();
             if (z3 != null) {
                 Bundle bundle2 = new Bundle();
                 bundle2.putString(KEY_OPERATION, "pauseAllDownload");

@@ -25,27 +25,27 @@ public final class n {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f31903a;
+    public int f32009a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f31904b;
+    public int f32010b;
     @Nullable
 
     /* renamed from: c  reason: collision with root package name */
-    public Runnable f31905c;
+    public Runnable f32011c;
     @Nullable
 
     /* renamed from: d  reason: collision with root package name */
-    public ExecutorService f31906d;
+    public ExecutorService f32012d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Deque<y.b> f31907e;
+    public final Deque<y.b> f32013e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final Deque<y.b> f31908f;
+    public final Deque<y.b> f32014f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final Deque<y> f31909g;
+    public final Deque<y> f32015g;
 
     static {
         InterceptResult invokeClinit;
@@ -77,19 +77,19 @@ public final class n {
                 return;
             }
         }
-        this.f31903a = 64;
-        this.f31904b = 5;
-        this.f31907e = new ArrayDeque();
-        this.f31908f = new ArrayDeque();
-        this.f31909g = new ArrayDeque();
-        this.f31906d = executorService;
+        this.f32009a = 64;
+        this.f32010b = 5;
+        this.f32013e = new ArrayDeque();
+        this.f32014f = new ArrayDeque();
+        this.f32015g = new ArrayDeque();
+        this.f32012d = executorService;
     }
 
     public void a(y.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
             synchronized (this) {
-                this.f31907e.add(bVar);
+                this.f32013e.add(bVar);
             }
             g();
         }
@@ -99,7 +99,7 @@ public final class n {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, yVar) == null) {
             synchronized (this) {
-                this.f31909g.add(yVar);
+                this.f32015g.add(yVar);
             }
         }
     }
@@ -110,10 +110,10 @@ public final class n {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             synchronized (this) {
-                if (this.f31906d == null) {
-                    this.f31906d = new ThreadPoolExecutor(0, Integer.MAX_VALUE, 60L, TimeUnit.SECONDS, new SynchronousQueue(), c.d.b.e0.e.F("OkHttp Dispatcher", false));
+                if (this.f32012d == null) {
+                    this.f32012d = new ThreadPoolExecutor(0, Integer.MAX_VALUE, 60L, TimeUnit.SECONDS, new SynchronousQueue(), c.d.b.e0.e.F("OkHttp Dispatcher", false));
                 }
-                executorService = this.f31906d;
+                executorService = this.f32012d;
             }
             return executorService;
         }
@@ -123,14 +123,14 @@ public final class n {
     public void d(y.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bVar) == null) {
-            f(this.f31908f, bVar);
+            f(this.f32014f, bVar);
         }
     }
 
     public void e(y yVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, yVar) == null) {
-            f(this.f31909g, yVar);
+            f(this.f32015g, yVar);
         }
     }
 
@@ -140,7 +140,7 @@ public final class n {
         if (interceptable == null || interceptable.invokeLL(1048581, this, deque, t) == null) {
             synchronized (this) {
                 if (deque.remove(t)) {
-                    runnable = this.f31905c;
+                    runnable = this.f32011c;
                 } else {
                     throw new AssertionError("Call wasn't in-flight!");
                 }
@@ -160,15 +160,15 @@ public final class n {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             ArrayList arrayList = new ArrayList();
             synchronized (this) {
-                Iterator<y.b> it = this.f31907e.iterator();
+                Iterator<y.b> it = this.f32013e.iterator();
                 while (it.hasNext()) {
                     y.b next = it.next();
-                    if (this.f31908f.size() >= this.f31903a) {
+                    if (this.f32014f.size() >= this.f32009a) {
                         break;
-                    } else if (i(next) < this.f31904b) {
+                    } else if (i(next) < this.f32010b) {
                         it.remove();
                         arrayList.add(next);
-                        this.f31908f.add(next);
+                        this.f32014f.add(next);
                     }
                 }
                 z = h() > 0;
@@ -188,7 +188,7 @@ public final class n {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             synchronized (this) {
-                size = this.f31908f.size() + this.f31909g.size();
+                size = this.f32014f.size() + this.f32015g.size();
             }
             return size;
         }
@@ -200,8 +200,8 @@ public final class n {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bVar)) == null) {
             int i2 = 0;
-            for (y.b bVar2 : this.f31908f) {
-                if (!bVar2.f().f31961j && bVar2.g().equals(bVar.g())) {
+            for (y.b bVar2 : this.f32014f) {
+                if (!bVar2.f().f32067j && bVar2.g().equals(bVar.g())) {
                     i2++;
                 }
             }
@@ -223,10 +223,10 @@ public final class n {
                 return;
             }
         }
-        this.f31903a = 64;
-        this.f31904b = 5;
-        this.f31907e = new ArrayDeque();
-        this.f31908f = new ArrayDeque();
-        this.f31909g = new ArrayDeque();
+        this.f32009a = 64;
+        this.f32010b = 5;
+        this.f32013e = new ArrayDeque();
+        this.f32014f = new ArrayDeque();
+        this.f32015g = new ArrayDeque();
     }
 }

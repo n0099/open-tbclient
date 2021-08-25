@@ -14,7 +14,7 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static b f43139a;
+    public static b f43246a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -30,7 +30,7 @@ public class b {
                 return;
             }
         }
-        f43139a = new b();
+        f43246a = new b();
     }
 
     public b() {
@@ -53,7 +53,7 @@ public class b {
             synchronized (this) {
                 String o = bw.o(context);
                 if (!TextUtils.isEmpty(o)) {
-                    k.f43651a.a(System.currentTimeMillis(), o);
+                    k.f43758a.a(System.currentTimeMillis(), o);
                 }
             }
         }
