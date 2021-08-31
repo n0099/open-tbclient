@@ -4508,6 +4508,7 @@ public class VideoPlayFragment extends BaseFragment implements b.InterfaceC0663b
             this.n0.a().hide();
             this.D.setVisibility(8);
             this.E.setText(StringUtils.isNull(((c.a.q0.y3.e.c) this.n0.a().findToolById(28)).g().getText().toString()) ? R.string.reply_something : R.string.draft_to_replay);
+            c.a.e.e.m.e.a().removeCallbacks(this.D0);
         }
     }
 
