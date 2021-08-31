@@ -78,6 +78,7 @@ public class AdVideoFlowView extends RelativeLayout implements m, View.OnClickLi
     public int T;
     public Handler U;
     public boolean V;
+    public boolean W;
 
     /* renamed from: e  reason: collision with root package name */
     public View f56332e;
@@ -469,7 +470,7 @@ public class AdVideoFlowView extends RelativeLayout implements m, View.OnClickLi
         if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
             this.I = true;
             this.R = 0;
-            if (z) {
+            if (z && this.W) {
                 startPlay();
                 return;
             }
@@ -503,6 +504,7 @@ public class AdVideoFlowView extends RelativeLayout implements m, View.OnClickLi
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
             this.R = 0;
+            this.W = z;
             if (this.I) {
                 if (z) {
                     startPlay();

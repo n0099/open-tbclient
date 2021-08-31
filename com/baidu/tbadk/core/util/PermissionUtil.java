@@ -111,7 +111,6 @@ public class PermissionUtil {
                     if (SapiAccountManager.getInstance() != null) {
                         SapiAccountManager.getInstance().setAgreeDangerousProtocol(true);
                     }
-                    TbadkCoreApplication.getInst().initWebsocketBase();
                     return true;
                 }
                 return invokeL.booleanValue;
