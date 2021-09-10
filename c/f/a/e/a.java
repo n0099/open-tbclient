@@ -18,16 +18,16 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final InterfaceC1468a f32164a;
+    public final InterfaceC1468a f32273a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f32165b;
+    public final String f32274b;
 
     /* renamed from: c  reason: collision with root package name */
-    public File f32166c;
+    public File f32275c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f32167d;
+    public long f32276d;
 
     /* renamed from: c.f.a.e.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
@@ -93,7 +93,7 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            File file = new File(this.f32166c, g(str));
+            File file = new File(this.f32275c, g(str));
             if (file.exists()) {
                 file.setLastModified(System.currentTimeMillis());
             }
@@ -104,10 +104,10 @@ public class a {
 
     public final void b() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f32167d >= 0) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f32276d >= 0) {
             return;
         }
-        this.f32167d = 52428800 - f();
+        this.f32276d = 52428800 - f();
     }
 
     public void d(String str, byte[] bArr) {
@@ -119,14 +119,14 @@ public class a {
             c(a3.getParentFile());
             e(bArr, a3);
             b();
-            long length = this.f32167d - a(str).length();
-            if (length < 0 && (interfaceC1468a = this.f32164a) != null && (a2 = interfaceC1468a.a(this.f32166c)) != null) {
+            long length = this.f32276d - a(str).length();
+            if (length < 0 && (interfaceC1468a = this.f32273a) != null && (a2 = interfaceC1468a.a(this.f32275c)) != null) {
                 for (File file : a2) {
                     length += file.length();
                     file.delete();
                 }
             }
-            this.f32167d = length;
+            this.f32276d = length;
         }
     }
 
@@ -134,7 +134,7 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            File[] listFiles = this.f32166c.listFiles();
+            File[] listFiles = this.f32275c.listFiles();
             long j2 = 0;
             if (listFiles != null && listFiles.length > 0) {
                 for (File file : listFiles) {
@@ -150,7 +150,7 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            return String.valueOf(str.hashCode()) + this.f32165b;
+            return String.valueOf(str.hashCode()) + this.f32274b;
         }
         return (String) invokeL.objValue;
     }
@@ -170,21 +170,21 @@ public class a {
                 return;
             }
         }
-        this.f32167d = Long.MIN_VALUE;
-        this.f32165b = str2;
+        this.f32276d = Long.MIN_VALUE;
+        this.f32274b = str2;
         if (CheckUtils.isExternalStorageWriteable(context)) {
             File externalFilesDir = context.getExternalFilesDir(null);
             if (externalFilesDir != null) {
-                this.f32166c = new File(externalFilesDir, str);
+                this.f32275c = new File(externalFilesDir, str);
             } else {
-                this.f32166c = new File(context.getCacheDir(), str);
+                this.f32275c = new File(context.getCacheDir(), str);
             }
         } else {
-            this.f32166c = new File(context.getCacheDir(), str);
+            this.f32275c = new File(context.getCacheDir(), str);
         }
-        if (!this.f32166c.exists()) {
-            this.f32166c.mkdirs();
+        if (!this.f32275c.exists()) {
+            this.f32275c.mkdirs();
         }
-        this.f32164a = interfaceC1468a;
+        this.f32273a = interfaceC1468a;
     }
 }

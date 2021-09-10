@@ -4,7 +4,7 @@ import android.content.Context;
 import android.widget.LinearLayout;
 import androidx.core.view.InputDeviceCompat;
 import c.a.e.e.p.k;
-import c.a.p0.f0.h;
+import c.a.q0.g0.h;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -25,7 +25,7 @@ public abstract class LiveTabBaseSubFragment extends BaseFragment {
     public final String FRS_DYNAMIC_FRAGMENT_SHOW;
 
     /* renamed from: e  reason: collision with root package name */
-    public h f49262e;
+    public h f49397e;
     public boolean isAfterLazyLoaded;
     public boolean isHideTopHeader;
     public Context mContext;
@@ -41,7 +41,7 @@ public abstract class LiveTabBaseSubFragment extends BaseFragment {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ LiveTabBaseSubFragment f49263a;
+        public final /* synthetic */ LiveTabBaseSubFragment f49398a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(LiveTabBaseSubFragment liveTabBaseSubFragment, int i2) {
@@ -61,7 +61,7 @@ public abstract class LiveTabBaseSubFragment extends BaseFragment {
                     return;
                 }
             }
-            this.f49263a = liveTabBaseSubFragment;
+            this.f49398a = liveTabBaseSubFragment;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -70,7 +70,7 @@ public abstract class LiveTabBaseSubFragment extends BaseFragment {
             Boolean bool;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && (bool = (Boolean) customResponsedMessage.getData()) != null && bool.booleanValue()) {
-                this.f49263a.isHideTopHeader = false;
+                this.f49398a.isHideTopHeader = false;
             }
         }
     }
@@ -124,7 +124,7 @@ public abstract class LiveTabBaseSubFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
             super.onChangeSkinType(i2);
-            h hVar = this.f49262e;
+            h hVar = this.f49397e;
             if (hVar != null) {
                 hVar.onChangeSkinType();
             }
@@ -145,18 +145,18 @@ public abstract class LiveTabBaseSubFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             this.mTopContainer.setVisibility(0);
-            if (this.f49262e == null) {
-                this.f49262e = new h(this.mContext, null);
+            if (this.f49397e == null) {
+                this.f49397e = new h(this.mContext, null);
             }
-            this.f49262e.e();
-            this.f49262e.i(R.drawable.new_pic_emotion_03);
-            this.f49262e.n(this.mContext.getResources().getString(R.string.no_data_common_txt));
-            this.f49262e.onChangeSkinType();
+            this.f49397e.e();
+            this.f49397e.i(R.drawable.new_pic_emotion_03);
+            this.f49397e.n(this.mContext.getResources().getString(R.string.no_data_common_txt));
+            this.f49397e.onChangeSkinType();
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -1);
-            if (this.f49262e.b() == null || this.f49262e.b().getParent() != null) {
+            if (this.f49397e.b() == null || this.f49397e.b().getParent() != null) {
                 return;
             }
-            this.mTopContainer.addView(this.f49262e.b(), layoutParams);
+            this.mTopContainer.addView(this.f49397e.b(), layoutParams);
         }
     }
 }

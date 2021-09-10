@@ -14,7 +14,7 @@ import io.reactivex.internal.fuseable.QueueDisposable;
 import io.reactivex.internal.fuseable.SimpleQueue;
 import io.reactivex.internal.util.QueueDrainHelper;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class InnerQueuedObserver<T> extends AtomicReference<Disposable> implements Observer<T>, Disposable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -5417183359794346637L;

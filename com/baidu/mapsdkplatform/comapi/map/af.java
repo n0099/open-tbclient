@@ -16,7 +16,7 @@ public class af {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public com.baidu.mapsdkplatform.comjni.map.basemap.a f42092a;
+    public com.baidu.mapsdkplatform.comjni.map.basemap.a f42203a;
 
     public af(com.baidu.mapsdkplatform.comjni.map.basemap.a aVar) {
         Interceptable interceptable = $ic;
@@ -33,7 +33,7 @@ public class af {
                 return;
             }
         }
-        this.f42092a = aVar;
+        this.f42203a = aVar;
     }
 
     public Point a(GeoPoint geoPoint) {
@@ -44,7 +44,7 @@ public class af {
                 return null;
             }
             Point point = new Point(0, 0);
-            String b2 = this.f42092a.b((int) geoPoint.getLongitudeE6(), (int) geoPoint.getLatitudeE6());
+            String b2 = this.f42203a.b((int) geoPoint.getLongitudeE6(), (int) geoPoint.getLatitudeE6());
             if (b2 != null && !b2.isEmpty()) {
                 try {
                     JSONObject jSONObject = new JSONObject(b2);
@@ -64,7 +64,7 @@ public class af {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeII = interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3)) == null) {
             GeoPoint geoPoint = new GeoPoint(0.0d, 0.0d);
-            String a2 = this.f42092a.a(i2, i3);
+            String a2 = this.f42203a.a(i2, i3);
             if (a2 != null && !a2.isEmpty()) {
                 try {
                     JSONObject jSONObject = new JSONObject(a2);

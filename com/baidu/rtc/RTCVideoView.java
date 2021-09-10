@@ -119,33 +119,6 @@ public class RTCVideoView extends SurfaceViewRenderer {
         this.mExtVideoSink = null;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public RTCVideoView(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.mExtSinkNeedRender = false;
-        this.stuckDataCalculator = new StuckDataCalculator(600);
-        this.isEnableSLIDataReport = false;
-        this.isVideoTrackChanged = false;
-        this.mOnFirstFrameEvent = null;
-        this.mExtVideoSink = null;
-    }
-
     private void updateReportEvents(VideoFrame videoFrame) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(65538, this, videoFrame) == null) && this.isVideoTrackChanged) {
@@ -186,10 +159,10 @@ public class RTCVideoView extends SurfaceViewRenderer {
                 }
                 this.mExtVideoSink.onFrame(RTCVideoFrame.newfromVideoFrame(videoFrame));
             }
-            if (onlyforVideoCallbackdata()) {
-                onRTCVideoFrame(RTCVideoFrame.newfromVideoFrame(videoFrame));
-            } else {
+            if (!onlyforVideoCallbackdata()) {
                 super.onFrame(videoFrame);
+            } else {
+                onRTCVideoFrame(RTCVideoFrame.newfromVideoFrame(videoFrame));
             }
         }
     }
@@ -231,14 +204,6 @@ public class RTCVideoView extends SurfaceViewRenderer {
         }
     }
 
-    public void setExtVideoSink(VideoSink videoSink, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048583, this, videoSink, z) == null) {
-            this.mExtVideoSink = videoSink;
-            this.mExtSinkNeedRender = z;
-        }
-    }
-
     public void setFirstFrameEventListener(Runnable runnable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, runnable) == null) {
@@ -266,5 +231,40 @@ public class RTCVideoView extends SurfaceViewRenderer {
         if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
             this.isVideoTrackChanged = z;
         }
+    }
+
+    public void setExtVideoSink(VideoSink videoSink, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(1048583, this, videoSink, z) == null) {
+            this.mExtVideoSink = videoSink;
+            this.mExtSinkNeedRender = z;
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public RTCVideoView(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.mExtSinkNeedRender = false;
+        this.stuckDataCalculator = new StuckDataCalculator(600);
+        this.isEnableSLIDataReport = false;
+        this.isVideoTrackChanged = false;
+        this.mOnFirstFrameEvent = null;
+        this.mExtVideoSink = null;
     }
 }

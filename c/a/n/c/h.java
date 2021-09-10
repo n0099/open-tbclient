@@ -17,10 +17,10 @@ public class h {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f4339a;
+    public String f4075a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f4340b;
+    public String f4076b;
 
     public h() {
         Interceptable interceptable = $ic;
@@ -41,7 +41,7 @@ public class h {
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f4340b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f4076b : (String) invokeV.objValue;
     }
 
     public final String b(Context context) {
@@ -58,7 +58,7 @@ public class h {
             stringBuffer.append("_");
             stringBuffer.append("android");
             stringBuffer.append("_");
-            stringBuffer.append(this.f4339a);
+            stringBuffer.append(this.f4075a);
             stringBuffer.append("_");
             stringBuffer.append(densityDpi);
             return stringBuffer.toString();
@@ -88,8 +88,8 @@ public class h {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             Context appContext = AppRuntime.getAppContext();
-            this.f4339a = c(appContext);
-            this.f4340b = b(appContext);
+            this.f4075a = c(appContext);
+            this.f4076b = b(appContext);
         }
     }
 }

@@ -90,7 +90,11 @@ public class s extends h {
                 return;
             }
         }
-        this.l = new ItemCardView(context);
+        if ((TbadkCoreApplication.getInst().getPersonalizeViewData().m instanceof ItemCardView) && TbadkCoreApplication.getInst().getPersonalizeViewData().m.getParent() == null) {
+            this.l = (ItemCardView) TbadkCoreApplication.getInst().getPersonalizeViewData().m;
+        } else {
+            this.l = new ItemCardView(context);
+        }
         v();
         q(UtilHelper.getDimenPixelSize(R.dimen.M_H_X003));
     }
@@ -122,12 +126,12 @@ public class s extends h {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // c.a.l.p
     /* renamed from: s */
-    public void onBindDataToView(c.a.p0.s.q.a aVar) {
+    public void onBindDataToView(c.a.q0.s.q.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
-            if (aVar != null && aVar.getThreadData() != null && aVar.getThreadData().q0() != null) {
+            if (aVar != null && aVar.getThreadData() != null && aVar.getThreadData().s0() != null) {
                 this.l.setVisibility(0);
-                this.l.setData(aVar.getThreadData().q0(), 13, aVar.getThreadData().B);
+                this.l.setData(aVar.getThreadData().s0(), 13, aVar.getThreadData().D);
                 return;
             }
             this.l.setVisibility(8);

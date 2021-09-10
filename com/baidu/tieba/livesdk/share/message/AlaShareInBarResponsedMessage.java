@@ -1,6 +1,6 @@
 package com.baidu.tieba.livesdk.share.message;
 
-import c.a.q0.r1.l.b.a;
+import c.a.r0.s1.l.b.a;
 import com.baidu.ala.AlaCmdConfigHttp;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;

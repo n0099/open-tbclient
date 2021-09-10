@@ -18,14 +18,14 @@ public final class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final b f78148c;
+    public static final b f78328c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final ExecutorService f78149a;
+    public final ExecutorService f78329a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Executor f78150b;
+    public final Executor f78330b;
 
     /* loaded from: classes10.dex */
     public static /* synthetic */ class a {
@@ -46,7 +46,7 @@ public final class b {
                 return;
             }
         }
-        f78148c = new b();
+        f78328c = new b();
     }
 
     public b() {
@@ -62,21 +62,21 @@ public final class b {
                 return;
             }
         }
-        this.f78149a = !c() ? Executors.newCachedThreadPool() : e.a.b();
+        this.f78329a = !c() ? Executors.newCachedThreadPool() : e.a.b();
         Executors.newSingleThreadScheduledExecutor();
-        this.f78150b = new ExecutorC2106b(null);
+        this.f78330b = new ExecutorC2106b(null);
     }
 
     public static ExecutorService a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f78148c.f78149a : (ExecutorService) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f78328c.f78329a : (ExecutorService) invokeV.objValue;
     }
 
     public static Executor b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? f78148c.f78150b : (Executor) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? f78328c.f78330b : (Executor) invokeV.objValue;
     }
 
     public static boolean c() {
@@ -99,7 +99,7 @@ public final class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public ThreadLocal<Integer> f78151e;
+        public ThreadLocal<Integer> f78331e;
 
         public ExecutorC2106b() {
             Interceptable interceptable = $ic;
@@ -114,22 +114,22 @@ public final class b {
                     return;
                 }
             }
-            this.f78151e = new ThreadLocal<>();
+            this.f78331e = new ThreadLocal<>();
         }
 
         public final int a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                Integer num = this.f78151e.get();
+                Integer num = this.f78331e.get();
                 if (num == null) {
                     num = 0;
                 }
                 int intValue = num.intValue() - 1;
                 if (intValue == 0) {
-                    this.f78151e.remove();
+                    this.f78331e.remove();
                 } else {
-                    this.f78151e.set(Integer.valueOf(intValue));
+                    this.f78331e.set(Integer.valueOf(intValue));
                 }
                 return intValue;
             }
@@ -140,12 +140,12 @@ public final class b {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                Integer num = this.f78151e.get();
+                Integer num = this.f78331e.get();
                 if (num == null) {
                     num = 0;
                 }
                 int intValue = num.intValue() + 1;
-                this.f78151e.set(Integer.valueOf(intValue));
+                this.f78331e.set(Integer.valueOf(intValue));
                 return intValue;
             }
             return invokeV.intValue;

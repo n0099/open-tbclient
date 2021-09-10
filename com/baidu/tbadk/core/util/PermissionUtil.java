@@ -5,9 +5,9 @@ import android.content.Context;
 import androidx.collection.ArrayMap;
 import c.a.e.e.j.b.a;
 import c.a.e.e.p.l;
-import c.a.p0.b1.g;
-import c.a.p0.h0.b;
-import c.a.p0.h0.h;
+import c.a.q0.d1.g;
+import c.a.q0.j0.b;
+import c.a.q0.j0.h;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.client.socket.link.BdSocketLinkService;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -40,6 +40,7 @@ public class PermissionUtil {
     public static /* synthetic */ Interceptable $ic;
     public static boolean isAgreePrivacyPolicy;
     public static boolean isSdkInited;
+    public static String localMacAddress;
     public static b mAgreePrivacyPolicyEventListener;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -75,7 +76,7 @@ public class PermissionUtil {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // c.a.p0.h0.b
+            @Override // c.a.q0.j0.b
             public boolean onEvent(PrivacyPolicyEvent privacyPolicyEvent) {
                 InterceptResult invokeL;
                 Interceptable interceptable2 = $ic;
@@ -103,7 +104,7 @@ public class PermissionUtil {
                     TbadkCoreApplication.getInst().initAxeSdk();
                     TbadkCoreApplication.getInst().initUBC();
                     BdStatisticsManager.getInstance().setCommonDataMac(PermissionUtil.getLocalMacAddress(TbadkCoreApplication.getInst()));
-                    BdStatisticsManager.getInstance().setOaid(PermissionUtil.getLocalMacAddress(TbadkCoreApplication.getInst()));
+                    BdStatisticsManager.getInstance().setOaid(PermissionUtil.getLastCachedOid(TbadkCoreApplication.getInst()));
                     BdStatisticsManager.getInstance().setAndroidId(TbadkCoreApplication.getInst().getAndroidId());
                     FH.setAgreePolicy(TbadkCoreApplication.getInst(), PermissionUtil.isAgreePrivacyPolicy);
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921554));
@@ -404,13 +405,22 @@ public class PermissionUtil {
     public static String getLocalMacAddress(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65556, null, context)) == null) ? !isAgreePrivacyPolicy() ? "" : g.c().d(context) : (String) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65556, null, context)) == null) {
+            if (isAgreePrivacyPolicy()) {
+                if (localMacAddress == null) {
+                    localMacAddress = g.d().e(context);
+                }
+                return localMacAddress;
+            }
+            return "";
+        }
+        return (String) invokeL.objValue;
     }
 
     public static boolean isAgreePrivacyPolicy() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65557, null)) == null) ? isAgreePrivacyPolicy || c.a.p0.s.d0.b.j().g("key_secret_is_show", false) || c.a.p0.s.d0.b.j().g("key_secret_is_show_new", false) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65557, null)) == null) ? isAgreePrivacyPolicy || c.a.q0.s.d0.b.j().g("key_secret_is_show", false) || c.a.q0.s.d0.b.j().g("key_secret_is_show_new", false) : invokeV.booleanValue;
     }
 
     public static Context providerContext(Context context) {
@@ -562,7 +572,7 @@ public class PermissionUtil {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65570, null, z) == null) {
             isAgreePrivacyPolicy = z;
-            c.a.p0.s.d0.b.j().t("key_secret_is_show_new", z);
+            c.a.q0.s.d0.b.j().t("key_secret_is_show_new", z);
             GrowthStatsUtil.statisticActivity();
             h.i(new PrivacyPolicyEvent(Boolean.valueOf(z)));
             FH.setAgreePolicy(TbadkCoreApplication.getInst(), isAgreePrivacyPolicy);
@@ -574,10 +584,10 @@ public class PermissionUtil {
 
     public static void syncAgreeStatus(boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(65571, null, z) == null) && z && c.a.p0.s.d0.b.j().g("key_secret_is_show", false)) {
+        if ((interceptable == null || interceptable.invokeZ(65571, null, z) == null) && z && c.a.q0.s.d0.b.j().g("key_secret_is_show", false)) {
             isAgreePrivacyPolicy = true;
-            c.a.p0.s.d0.b.j().t("key_secret_is_show_new", true);
-            c.a.p0.s.d0.b.j().C("key_secret_is_show");
+            c.a.q0.s.d0.b.j().t("key_secret_is_show_new", true);
+            c.a.q0.s.d0.b.j().C("key_secret_is_show");
         }
     }
 

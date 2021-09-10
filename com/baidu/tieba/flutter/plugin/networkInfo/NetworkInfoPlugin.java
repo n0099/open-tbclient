@@ -216,7 +216,7 @@ public class NetworkInfoPlugin implements FlutterPlugin, NetworkInfoAuto.HostNet
         if (interceptable == null || interceptable.invokeL(1048580, this, flutterPluginBinding) == null) {
             this.mFlutterNetworkInfo = new NetworkInfoAuto.FlutterNetworkInfo(flutterPluginBinding.getBinaryMessenger());
             MessageManager.getInstance().registerListener(this.mNetworkChangedListener);
-            c.a.q0.r0.a.e.j.i(flutterPluginBinding.getBinaryMessenger(), this);
+            c.a.r0.s0.a.e.j.i(flutterPluginBinding.getBinaryMessenger(), this);
         }
     }
 
@@ -226,7 +226,7 @@ public class NetworkInfoPlugin implements FlutterPlugin, NetworkInfoAuto.HostNet
         if (interceptable == null || interceptable.invokeL(1048581, this, flutterPluginBinding) == null) {
             MessageManager.getInstance().unRegisterListener(this.mNetworkChangedListener);
             this.mFlutterNetworkInfo = null;
-            c.a.q0.r0.a.e.j.i(flutterPluginBinding.getBinaryMessenger(), null);
+            c.a.r0.s0.a.e.j.i(flutterPluginBinding.getBinaryMessenger(), null);
         }
     }
 }

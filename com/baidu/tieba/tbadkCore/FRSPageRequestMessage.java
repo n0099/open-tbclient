@@ -1,8 +1,8 @@
 package com.baidu.tieba.tbadkCore;
 
 import androidx.core.view.InputDeviceCompat;
-import c.a.p0.b1.w;
-import c.a.q0.x2.j0.a;
+import c.a.q0.d1.x;
+import c.a.r0.y2.j0.a;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -338,7 +338,7 @@ public class FRSPageRequestMessage extends NetMessage {
             builder.category_id = Integer.valueOf(this.categoryId);
             builder.call_from = Integer.valueOf(this.callFrom);
             builder.app_pos = a.e().a();
-            w.c(builder, true, false, true);
+            x.c(builder, true, false, true);
             FrsPageReqIdl.Builder builder2 = new FrsPageReqIdl.Builder();
             builder2.data = builder.build(false);
             return builder2.build(false);

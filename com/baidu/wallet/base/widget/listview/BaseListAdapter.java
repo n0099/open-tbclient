@@ -20,13 +20,13 @@ public abstract class BaseListAdapter<T> extends BaseAdapter {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f60581a;
+    public Context f60761a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<T> f60582b;
+    public List<T> f60762b;
 
     /* renamed from: c  reason: collision with root package name */
-    public InnerAdapter<T> f60583c;
+    public InnerAdapter<T> f60763c;
     public ViewGroup mParent;
 
     /* loaded from: classes8.dex */
@@ -75,15 +75,15 @@ public abstract class BaseListAdapter<T> extends BaseAdapter {
                 return;
             }
         }
-        this.f60582b = new ArrayList();
-        this.f60581a = context;
-        this.f60583c = new InnerAdapter<>(context, this);
+        this.f60762b = new ArrayList();
+        this.f60761a = context;
+        this.f60763c = new InnerAdapter<>(context, this);
     }
 
     public void addList(List<T> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
-            this.f60582b.addAll(list);
+            this.f60762b.addAll(list);
             notifyDataSetChanged();
         }
     }
@@ -91,7 +91,7 @@ public abstract class BaseListAdapter<T> extends BaseAdapter {
     public void clearList() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f60582b.clear();
+            this.f60762b.clear();
             notifyDataSetChanged();
         }
     }
@@ -99,21 +99,21 @@ public abstract class BaseListAdapter<T> extends BaseAdapter {
     public Context getContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f60581a : (Context) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f60761a : (Context) invokeV.objValue;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f60582b.size() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f60762b.size() : invokeV.intValue;
     }
 
     @Override // android.widget.Adapter
     public T getItem(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) ? this.f60582b.get(i2) : (T) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) ? this.f60762b.get(i2) : (T) invokeI.objValue;
     }
 
     @Override // android.widget.Adapter
@@ -142,7 +142,7 @@ public abstract class BaseListAdapter<T> extends BaseAdapter {
     public List<T> getList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f60582b : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f60762b : (List) invokeV.objValue;
     }
 
     @Override // android.widget.Adapter
@@ -151,7 +151,7 @@ public abstract class BaseListAdapter<T> extends BaseAdapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeILL = interceptable.invokeILL(1048585, this, i2, view, viewGroup)) == null) {
             this.mParent = viewGroup;
-            return this.f60583c.getView(i2, view, viewGroup);
+            return this.f60763c.getView(i2, view, viewGroup);
         }
         return (View) invokeILL.objValue;
     }
@@ -160,16 +160,16 @@ public abstract class BaseListAdapter<T> extends BaseAdapter {
     public int getViewTypeCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f60583c.getViewBundles().size() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f60763c.getViewBundles().size() : invokeV.intValue;
     }
 
     public void initList(List<T> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, list) == null) {
-            if (this.f60582b.size() > 0) {
-                this.f60582b.clear();
+            if (this.f60762b.size() > 0) {
+                this.f60762b.clear();
             }
-            this.f60582b.addAll(list);
+            this.f60762b.addAll(list);
             notifyDataSetChanged();
         }
     }

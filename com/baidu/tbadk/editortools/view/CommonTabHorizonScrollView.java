@@ -9,7 +9,7 @@ import android.widget.HorizontalScrollView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import c.a.p0.x.z.a;
+import c.a.q0.x.z.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.editortools.view.CommonTabWidgetView;
@@ -27,22 +27,22 @@ public class CommonTabHorizonScrollView extends HorizontalScrollView {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public DeskLinearLayout f48230e;
+    public DeskLinearLayout f48358e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f48231f;
+    public int f48359f;
 
     /* renamed from: g  reason: collision with root package name */
-    public List<c.a.p0.x.z.a> f48232g;
+    public List<c.a.q0.x.z.a> f48360g;
 
     /* renamed from: h  reason: collision with root package name */
-    public CommonTabWidgetView.b f48233h;
+    public CommonTabWidgetView.b f48361h;
 
     /* renamed from: i  reason: collision with root package name */
-    public LinearLayout.LayoutParams f48234i;
+    public LinearLayout.LayoutParams f48362i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f48235j;
+    public int f48363j;
     public int k;
     public TextView l;
     public View m;
@@ -59,10 +59,10 @@ public class CommonTabHorizonScrollView extends HorizontalScrollView {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final int f48236e;
+        public final int f48364e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ CommonTabHorizonScrollView f48237f;
+        public final /* synthetic */ CommonTabHorizonScrollView f48365f;
 
         public /* synthetic */ b(CommonTabHorizonScrollView commonTabHorizonScrollView, int i2, a aVar) {
             this(commonTabHorizonScrollView, i2);
@@ -72,7 +72,7 @@ public class CommonTabHorizonScrollView extends HorizontalScrollView {
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f48237f.f48233h.onTabSelected(this.f48236e);
+                this.f48365f.f48361h.onTabSelected(this.f48364e);
             }
         }
 
@@ -91,8 +91,8 @@ public class CommonTabHorizonScrollView extends HorizontalScrollView {
                     return;
                 }
             }
-            this.f48237f = commonTabHorizonScrollView;
-            this.f48236e = i2;
+            this.f48365f = commonTabHorizonScrollView;
+            this.f48364e = i2;
         }
     }
 
@@ -115,7 +115,7 @@ public class CommonTabHorizonScrollView extends HorizontalScrollView {
                 return;
             }
         }
-        this.f48231f = -1;
+        this.f48359f = -1;
         c();
     }
 
@@ -139,13 +139,13 @@ public class CommonTabHorizonScrollView extends HorizontalScrollView {
             linearLayout.addView(tbImageView, new LinearLayout.LayoutParams(-1, -1));
             SkinManager.setBackgroundResource(linearLayout, R.drawable.bg_expression_bar);
             int i2 = this.k;
-            int i3 = this.f48235j;
+            int i3 = this.f48363j;
             tbImageView.setPadding(i2, i3, i2, i3);
             linearLayout.setClickable(true);
             linearLayout.setFocusable(true);
-            SkinManager.setImageResource(tbImageView, bVar.f15188b);
-            linearLayout.setOnClickListener(new b(this, this.f48230e.getChildCount() - 1, null));
-            this.f48230e.addView(linearLayout, this.f48230e.getChildCount() - 1, this.f48234i);
+            SkinManager.setImageResource(tbImageView, bVar.f15181b);
+            linearLayout.setOnClickListener(new b(this, this.f48358e.getChildCount() - 1, null));
+            this.f48358e.addView(linearLayout, this.f48358e.getChildCount() - 1, this.f48362i);
             return tbImageView;
         }
         return (TbImageView) invokeL.objValue;
@@ -158,21 +158,21 @@ public class CommonTabHorizonScrollView extends HorizontalScrollView {
             setFillViewport(true);
             setHorizontalScrollBarEnabled(false);
             DeskLinearLayout deskLinearLayout = new DeskLinearLayout(getContext());
-            this.f48230e = deskLinearLayout;
+            this.f48358e = deskLinearLayout;
             deskLinearLayout.setOrientation(0);
-            this.f48230e.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
-            this.f48230e.setBaselineAligned(false);
-            addView(this.f48230e);
-            this.f48235j = getResources().getDimensionPixelSize(R.dimen.ds8);
+            this.f48358e.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
+            this.f48358e.setBaselineAligned(false);
+            addView(this.f48358e);
+            this.f48363j = getResources().getDimensionPixelSize(R.dimen.ds8);
             this.k = getResources().getDimensionPixelSize(R.dimen.ds10);
-            this.f48230e.setPadding(0, getResources().getDimensionPixelSize(R.dimen.ds10), 0, 0);
-            this.f48234i = new LinearLayout.LayoutParams(getResources().getDimensionPixelSize(R.dimen.ds106), -1);
+            this.f48358e.setPadding(0, getResources().getDimensionPixelSize(R.dimen.ds10), 0, 0);
+            this.f48362i = new LinearLayout.LayoutParams(getResources().getDimensionPixelSize(R.dimen.ds106), -1);
             this.m = new View(getContext());
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(0, -1);
             layoutParams.weight = 1.0f;
             this.m.setLayoutParams(layoutParams);
             SkinManager.setBackgroundResource(this.m, R.drawable.bg_expression_bar_n);
-            this.f48230e.addView(this.m);
+            this.f48358e.addView(this.m);
         }
     }
 
@@ -184,9 +184,9 @@ public class CommonTabHorizonScrollView extends HorizontalScrollView {
                 SkinManager.setBackgroundResource(textView, R.drawable.icon_news_head_prompt_one, i2);
                 this.l.setTextColor((i2 == 1 || i2 == 4) ? Color.parseColor("#ffd2d2d2") : -1);
             }
-            int childCount = this.f48230e.getChildCount();
+            int childCount = this.f48358e.getChildCount();
             for (int i3 = 0; i3 < childCount; i3++) {
-                View childAt = this.f48230e.getChildAt(i3);
+                View childAt = this.f48358e.getChildAt(i3);
                 if (childAt != null) {
                     SkinManager.setBackgroundResource(childAt, R.drawable.bg_expression_bar, i2);
                     if (i3 == childCount - 1) {
@@ -194,10 +194,10 @@ public class CommonTabHorizonScrollView extends HorizontalScrollView {
                     }
                     TbImageView tbImageView = (TbImageView) ((LinearLayout) childAt).getChildAt(0);
                     if (tbImageView != null) {
-                        if (i3 == this.f48231f) {
-                            SkinManager.setImageResource(tbImageView, this.f48232g.get(i3).f().f15187a, i2);
+                        if (i3 == this.f48359f) {
+                            SkinManager.setImageResource(tbImageView, this.f48360g.get(i3).f().f15180a, i2);
                         } else {
-                            SkinManager.setImageResource(tbImageView, this.f48232g.get(i3).f().f15188b, i2);
+                            SkinManager.setImageResource(tbImageView, this.f48360g.get(i3).f().f15181b, i2);
                         }
                     }
                 }
@@ -208,17 +208,17 @@ public class CommonTabHorizonScrollView extends HorizontalScrollView {
     public void removeTabWidget(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            this.f48230e.removeViewAt(i2);
-            int i3 = this.f48231f;
+            this.f48358e.removeViewAt(i2);
+            int i3 = this.f48359f;
             if (i3 != i2) {
                 if (i3 > i2) {
-                    this.f48231f = i3 - 1;
+                    this.f48359f = i3 - 1;
                     return;
                 }
                 return;
             }
             int i4 = i3 - 1;
-            this.f48231f = i4;
+            this.f48359f = i4;
             if (i4 < 0) {
                 i4 = 0;
             }
@@ -229,45 +229,45 @@ public class CommonTabHorizonScrollView extends HorizontalScrollView {
     public void reset() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.f48231f = -1;
-            this.f48230e.removeAllViews();
+            this.f48359f = -1;
+            this.f48358e.removeAllViews();
         }
     }
 
     public void setCurrentTab(int i2) {
         int i3;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048582, this, i2) == null) || i2 == (i3 = this.f48231f)) {
+        if (!(interceptable == null || interceptable.invokeI(1048582, this, i2) == null) || i2 == (i3 = this.f48359f)) {
             return;
         }
         if (i3 != -1) {
-            LinearLayout linearLayout = (LinearLayout) this.f48230e.getChildAt(i3);
+            LinearLayout linearLayout = (LinearLayout) this.f48358e.getChildAt(i3);
             if (linearLayout == null) {
                 return;
             }
             linearLayout.setSelected(false);
-            ((TbImageView) linearLayout.getChildAt(0)).setImageResource(this.f48232g.get(this.f48231f).f().f15188b);
+            ((TbImageView) linearLayout.getChildAt(0)).setImageResource(this.f48360g.get(this.f48359f).f().f15181b);
         }
-        this.f48231f = i2;
-        LinearLayout linearLayout2 = (LinearLayout) this.f48230e.getChildAt(i2);
+        this.f48359f = i2;
+        LinearLayout linearLayout2 = (LinearLayout) this.f48358e.getChildAt(i2);
         if (linearLayout2 == null) {
             return;
         }
         linearLayout2.setSelected(true);
-        SkinManager.setImageResource((TbImageView) linearLayout2.getChildAt(0), this.f48232g.get(this.f48231f).f().f15187a);
+        SkinManager.setImageResource((TbImageView) linearLayout2.getChildAt(0), this.f48360g.get(this.f48359f).f().f15180a);
     }
 
-    public void setDatas(List<c.a.p0.x.z.a> list) {
+    public void setDatas(List<c.a.q0.x.z.a> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, list) == null) {
-            this.f48232g = list;
+            this.f48360g = list;
         }
     }
 
     public void setOnTabSelectedListener(CommonTabWidgetView.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bVar) == null) {
-            this.f48233h = bVar;
+            this.f48361h = bVar;
         }
     }
 
@@ -290,7 +290,7 @@ public class CommonTabHorizonScrollView extends HorizontalScrollView {
                 return;
             }
         }
-        this.f48231f = -1;
+        this.f48359f = -1;
         c();
     }
 
@@ -312,7 +312,7 @@ public class CommonTabHorizonScrollView extends HorizontalScrollView {
                 return;
             }
         }
-        this.f48231f = -1;
+        this.f48359f = -1;
         c();
     }
 }

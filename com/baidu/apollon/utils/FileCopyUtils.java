@@ -25,7 +25,7 @@ public abstract class FileCopyUtils {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f38119a = 4096;
+    public static final int f38238a = 4096;
     public transient /* synthetic */ FieldHolder $fh;
 
     public FileCopyUtils() {

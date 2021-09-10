@@ -11,10 +11,10 @@ public class c {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f3400a = "";
+    public static String f3391a = "";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f3401b = "";
+    public static String f3392b = "";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -35,14 +35,14 @@ public class c {
     public static void a(@NonNull String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
-            f3401b = str;
+            f3392b = str;
         }
     }
 
     public static void b(@NonNull h hVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, null, hVar) == null) {
-            f3400a = hVar.f3425d;
+            f3391a = hVar.f3416d;
         }
     }
 }

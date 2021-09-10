@@ -13,10 +13,10 @@ public final class x {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public g f35662a;
+    public g f35771a;
 
     /* renamed from: b  reason: collision with root package name */
-    public z f35663b;
+    public z f35772b;
 
     public x(g gVar) {
         Interceptable interceptable = $ic;
@@ -33,19 +33,19 @@ public final class x {
                 return;
             }
         }
-        this.f35662a = gVar;
-        this.f35663b = new z(this);
+        this.f35771a = gVar;
+        this.f35772b = new z(this);
     }
 
     public final g a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f35662a : (g) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f35771a : (g) invokeV.objValue;
     }
 
     public final <T> T a(Class<T> cls) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cls)) == null) ? (T) Proxy.newProxyInstance(cls.getClassLoader(), new Class[]{cls}, new y(this.f35662a, cls, this.f35663b)) : (T) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cls)) == null) ? (T) Proxy.newProxyInstance(cls.getClassLoader(), new Class[]{cls}, new y(this.f35771a, cls, this.f35772b)) : (T) invokeL.objValue;
     }
 }

@@ -10,10 +10,10 @@ public final class f<Data> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final c f75282a;
+    public final c f75462a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Data[] f75283b;
+    public final Data[] f75463b;
 
     public f(c cVar, Data... dataArr) {
         Interceptable interceptable = $ic;
@@ -30,7 +30,7 @@ public final class f<Data> {
                 return;
             }
         }
-        this.f75282a = cVar;
-        this.f75283b = dataArr;
+        this.f75462a = cVar;
+        this.f75463b = dataArr;
     }
 }

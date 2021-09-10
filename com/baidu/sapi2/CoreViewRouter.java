@@ -114,34 +114,34 @@ public class CoreViewRouter implements NoProguard {
     public Context B;
 
     /* renamed from: a  reason: collision with root package name */
-    public AbstractThirdPartyService f44353a;
+    public AbstractThirdPartyService f44468a;
 
     /* renamed from: b  reason: collision with root package name */
-    public WebAuthListener f44354b;
+    public WebAuthListener f44469b;
 
     /* renamed from: c  reason: collision with root package name */
-    public WebLoginDTO f44355c;
+    public WebLoginDTO f44470c;
 
     /* renamed from: d  reason: collision with root package name */
-    public WebRegDTO f44356d;
+    public WebRegDTO f44471d;
 
     /* renamed from: e  reason: collision with root package name */
-    public WebBindWidgetDTO f44357e;
+    public WebBindWidgetDTO f44472e;
 
     /* renamed from: f  reason: collision with root package name */
-    public WebSocialLoginDTO f44358f;
+    public WebSocialLoginDTO f44473f;
 
     /* renamed from: g  reason: collision with root package name */
-    public AccountCenterDTO f44359g;
+    public AccountCenterDTO f44474g;
 
     /* renamed from: h  reason: collision with root package name */
-    public NormalizeGuestAccountDTO f44360h;
+    public NormalizeGuestAccountDTO f44475h;
 
     /* renamed from: i  reason: collision with root package name */
-    public RealNameDTO f44361i;
+    public RealNameDTO f44476i;
 
     /* renamed from: j  reason: collision with root package name */
-    public SwitchAccountDTO f44362j;
+    public SwitchAccountDTO f44477j;
     public IdCardOcrDTO k;
     public AccountCenterCallback l;
     public AccountRealNameCallback m;
@@ -165,13 +165,13 @@ public class CoreViewRouter implements NoProguard {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ExtendSysWebViewMethodResult f44369a;
+        public final /* synthetic */ ExtendSysWebViewMethodResult f44484a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ ExtendSysWebViewMethodCallback f44370b;
+        public final /* synthetic */ ExtendSysWebViewMethodCallback f44485b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ CoreViewRouter f44371c;
+        public final /* synthetic */ CoreViewRouter f44486c;
 
         public a(CoreViewRouter coreViewRouter, ExtendSysWebViewMethodResult extendSysWebViewMethodResult, ExtendSysWebViewMethodCallback extendSysWebViewMethodCallback) {
             Interceptable interceptable = $ic;
@@ -188,9 +188,9 @@ public class CoreViewRouter implements NoProguard {
                     return;
                 }
             }
-            this.f44371c = coreViewRouter;
-            this.f44369a = extendSysWebViewMethodResult;
-            this.f44370b = extendSysWebViewMethodCallback;
+            this.f44486c = coreViewRouter;
+            this.f44484a = extendSysWebViewMethodResult;
+            this.f44485b = extendSysWebViewMethodCallback;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -199,9 +199,9 @@ public class CoreViewRouter implements NoProguard {
         public void onFailure(PassFaceRecogResult passFaceRecogResult) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, passFaceRecogResult) == null) {
-                ExtendSysWebViewMethodResult extendSysWebViewMethodResult = this.f44369a;
+                ExtendSysWebViewMethodResult extendSysWebViewMethodResult = this.f44484a;
                 extendSysWebViewMethodResult.recogResult = passFaceRecogResult;
-                this.f44370b.onFinish(extendSysWebViewMethodResult);
+                this.f44485b.onFinish(extendSysWebViewMethodResult);
             }
         }
 
@@ -211,9 +211,9 @@ public class CoreViewRouter implements NoProguard {
         public void onSuccess(PassFaceRecogResult passFaceRecogResult) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, passFaceRecogResult) == null) {
-                ExtendSysWebViewMethodResult extendSysWebViewMethodResult = this.f44369a;
+                ExtendSysWebViewMethodResult extendSysWebViewMethodResult = this.f44484a;
                 extendSysWebViewMethodResult.recogResult = passFaceRecogResult;
-                this.f44370b.onFinish(extendSysWebViewMethodResult);
+                this.f44485b.onFinish(extendSysWebViewMethodResult);
             }
         }
     }
@@ -224,31 +224,31 @@ public class CoreViewRouter implements NoProguard {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Activity f44372a;
+        public final /* synthetic */ Activity f44487a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f44373b;
+        public final /* synthetic */ String f44488b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ Map f44374c;
+        public final /* synthetic */ Map f44489c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ String f44375d;
+        public final /* synthetic */ String f44490d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SapiAccount f44376e;
+        public final /* synthetic */ SapiAccount f44491e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ PassFaceRecogCallback f44377f;
+        public final /* synthetic */ PassFaceRecogCallback f44492f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ ExtendSysWebViewMethodResult f44378g;
+        public final /* synthetic */ ExtendSysWebViewMethodResult f44493g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ ExtendSysWebViewMethodCallback f44379h;
+        public final /* synthetic */ ExtendSysWebViewMethodCallback f44494h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ CoreViewRouter f44380i;
+        public final /* synthetic */ CoreViewRouter f44495i;
 
         public b(CoreViewRouter coreViewRouter, Activity activity, String str, Map map, String str2, SapiAccount sapiAccount, PassFaceRecogCallback passFaceRecogCallback, ExtendSysWebViewMethodResult extendSysWebViewMethodResult, ExtendSysWebViewMethodCallback extendSysWebViewMethodCallback) {
             Interceptable interceptable = $ic;
@@ -265,15 +265,15 @@ public class CoreViewRouter implements NoProguard {
                     return;
                 }
             }
-            this.f44380i = coreViewRouter;
-            this.f44372a = activity;
-            this.f44373b = str;
-            this.f44374c = map;
-            this.f44375d = str2;
-            this.f44376e = sapiAccount;
-            this.f44377f = passFaceRecogCallback;
-            this.f44378g = extendSysWebViewMethodResult;
-            this.f44379h = extendSysWebViewMethodCallback;
+            this.f44495i = coreViewRouter;
+            this.f44487a = activity;
+            this.f44488b = str;
+            this.f44489c = map;
+            this.f44490d = str2;
+            this.f44491e = sapiAccount;
+            this.f44492f = passFaceRecogCallback;
+            this.f44493g = extendSysWebViewMethodResult;
+            this.f44494h = extendSysWebViewMethodCallback;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -282,9 +282,9 @@ public class CoreViewRouter implements NoProguard {
         public void onFailure(GetTplStokenResult getTplStokenResult) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, getTplStokenResult) == null) {
-                this.f44378g.params.put(BaiduRimConstants.RETCODE_KEY, Integer.valueOf(getTplStokenResult.getResultCode()));
-                this.f44378g.params.put("retMsg", getTplStokenResult.getResultMsg());
-                this.f44379h.onFinish(this.f44378g);
+                this.f44493g.params.put(BaiduRimConstants.RETCODE_KEY, Integer.valueOf(getTplStokenResult.getResultCode()));
+                this.f44493g.params.put("retMsg", getTplStokenResult.getResultMsg());
+                this.f44494h.onFinish(this.f44493g);
             }
         }
 
@@ -294,7 +294,7 @@ public class CoreViewRouter implements NoProguard {
         public void onSuccess(GetTplStokenResult getTplStokenResult) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, getTplStokenResult) == null) {
-                BiometricsManager.getInstance().recogWithBduss(this.f44372a, this.f44373b, this.f44374c, this.f44375d, this.f44376e.bduss, getTplStokenResult.tplStokenMap.get("pp"), this.f44377f);
+                BiometricsManager.getInstance().recogWithBduss(this.f44487a, this.f44488b, this.f44489c, this.f44490d, this.f44491e.bduss, getTplStokenResult.tplStokenMap.get("pp"), this.f44492f);
             }
         }
 
@@ -319,7 +319,7 @@ public class CoreViewRouter implements NoProguard {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ CoreViewRouter f44381a;
+        public final /* synthetic */ CoreViewRouter f44496a;
 
         public c(CoreViewRouter coreViewRouter) {
             Interceptable interceptable = $ic;
@@ -336,7 +336,7 @@ public class CoreViewRouter implements NoProguard {
                     return;
                 }
             }
-            this.f44381a = coreViewRouter;
+            this.f44496a = coreViewRouter;
         }
 
         @Override // com.baidu.sapi2.share.ShareCallPacking.ShareLoginCallBack
@@ -347,7 +347,7 @@ public class CoreViewRouter implements NoProguard {
                 WebAuthResult webAuthResult = new WebAuthResult();
                 webAuthResult.setResultCode(i2);
                 webAuthResult.setResultMsg(str);
-                WebAuthListener webAuthListener = this.f44381a.f44354b;
+                WebAuthListener webAuthListener = this.f44496a.f44469b;
                 CoreViewRouter.getInstance().release();
                 if (webAuthListener != null) {
                     webAuthListener.onFailure(webAuthResult);
@@ -362,8 +362,8 @@ public class CoreViewRouter implements NoProguard {
                 WebAuthResult webAuthResult = new WebAuthResult();
                 webAuthResult.accountType = AccountType.NORMAL;
                 webAuthResult.setResultCode(0);
-                if (this.f44381a.f44354b != null) {
-                    this.f44381a.f44354b.onSuccess(webAuthResult);
+                if (this.f44496a.f44469b != null) {
+                    this.f44496a.f44469b.onSuccess(webAuthResult);
                 }
                 CoreViewRouter.getInstance().release();
             }
@@ -376,10 +376,10 @@ public class CoreViewRouter implements NoProguard {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ QrLoginCallback f44382a;
+        public final /* synthetic */ QrLoginCallback f44497a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ CoreViewRouter f44383b;
+        public final /* synthetic */ CoreViewRouter f44498b;
 
         public d(CoreViewRouter coreViewRouter, QrLoginCallback qrLoginCallback) {
             Interceptable interceptable = $ic;
@@ -396,8 +396,8 @@ public class CoreViewRouter implements NoProguard {
                     return;
                 }
             }
-            this.f44383b = coreViewRouter;
-            this.f44382a = qrLoginCallback;
+            this.f44498b = coreViewRouter;
+            this.f44497a = qrLoginCallback;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -405,7 +405,7 @@ public class CoreViewRouter implements NoProguard {
         public void onFailure(WebAuthResult webAuthResult) {
             QrLoginCallback qrLoginCallback;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webAuthResult) == null) || (qrLoginCallback = this.f44382a) == null) {
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webAuthResult) == null) || (qrLoginCallback = this.f44497a) == null) {
                 return;
             }
             qrLoginCallback.onLocalLogin(webAuthResult);
@@ -416,7 +416,7 @@ public class CoreViewRouter implements NoProguard {
         public void onSuccess(WebAuthResult webAuthResult) {
             QrLoginCallback qrLoginCallback;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048579, this, webAuthResult) == null) || (qrLoginCallback = this.f44382a) == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048579, this, webAuthResult) == null) || (qrLoginCallback = this.f44497a) == null) {
                 return;
             }
             qrLoginCallback.onLocalLogin(webAuthResult);
@@ -429,13 +429,13 @@ public class CoreViewRouter implements NoProguard {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ QrLoginCallback f44384a;
+        public final /* synthetic */ QrLoginCallback f44499a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ List f44385b;
+        public final /* synthetic */ List f44500b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ CoreViewRouter f44386c;
+        public final /* synthetic */ CoreViewRouter f44501c;
 
         public e(CoreViewRouter coreViewRouter, QrLoginCallback qrLoginCallback, List list) {
             Interceptable interceptable = $ic;
@@ -452,19 +452,19 @@ public class CoreViewRouter implements NoProguard {
                     return;
                 }
             }
-            this.f44386c = coreViewRouter;
-            this.f44384a = qrLoginCallback;
-            this.f44385b = list;
+            this.f44501c = coreViewRouter;
+            this.f44499a = qrLoginCallback;
+            this.f44500b = list;
         }
 
         @Override // com.baidu.sapi2.callback.QrLoginCallback
         public void onFinish(QrLoginResult qrLoginResult) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, qrLoginResult) == null) {
-                this.f44384a.onFinish(qrLoginResult);
-                if (this.f44385b.size() == 1) {
-                    ((WebAuthResult) this.f44385b.get(0)).finishActivity();
-                    this.f44384a.onLocalLogin((WebAuthResult) this.f44385b.get(0));
+                this.f44499a.onFinish(qrLoginResult);
+                if (this.f44500b.size() == 1) {
+                    ((WebAuthResult) this.f44500b.get(0)).finishActivity();
+                    this.f44499a.onLocalLogin((WebAuthResult) this.f44500b.get(0));
                 }
             }
         }
@@ -483,16 +483,16 @@ public class CoreViewRouter implements NoProguard {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ List f44387a;
+        public final /* synthetic */ List f44502a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f44388b;
+        public final /* synthetic */ String f44503b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ boolean f44389c;
+        public final /* synthetic */ boolean f44504c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ CoreViewRouter f44390d;
+        public final /* synthetic */ CoreViewRouter f44505d;
 
         public f(CoreViewRouter coreViewRouter, List list, String str, boolean z) {
             Interceptable interceptable = $ic;
@@ -509,10 +509,10 @@ public class CoreViewRouter implements NoProguard {
                     return;
                 }
             }
-            this.f44390d = coreViewRouter;
-            this.f44387a = list;
-            this.f44388b = str;
-            this.f44389c = z;
+            this.f44505d = coreViewRouter;
+            this.f44502a = list;
+            this.f44503b = str;
+            this.f44504c = z;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -528,9 +528,9 @@ public class CoreViewRouter implements NoProguard {
         public void onSuccess(WebAuthResult webAuthResult) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, webAuthResult) == null) {
-                this.f44387a.add(webAuthResult);
-                String str = this.f44388b.indexOf("?") > 0 ? "&" : "?";
-                this.f44390d.a(this.f44388b + str + "login_action_type=" + SapiUtils.getLastLoginType() + "&clientfrom=android", this.f44389c);
+                this.f44502a.add(webAuthResult);
+                String str = this.f44503b.indexOf("?") > 0 ? "&" : "?";
+                this.f44505d.a(this.f44503b + str + "login_action_type=" + SapiUtils.getLastLoginType() + "&clientfrom=android", this.f44504c);
             }
         }
     }
@@ -541,16 +541,16 @@ public class CoreViewRouter implements NoProguard {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Activity f44391a;
+        public final /* synthetic */ Activity f44506a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ RegisterUserFaceIDCallback f44392b;
+        public final /* synthetic */ RegisterUserFaceIDCallback f44507b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ FaceIDRegDTO f44393c;
+        public final /* synthetic */ FaceIDRegDTO f44508c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ CoreViewRouter f44394d;
+        public final /* synthetic */ CoreViewRouter f44509d;
 
         public g(CoreViewRouter coreViewRouter, Activity activity, RegisterUserFaceIDCallback registerUserFaceIDCallback, FaceIDRegDTO faceIDRegDTO) {
             Interceptable interceptable = $ic;
@@ -567,17 +567,17 @@ public class CoreViewRouter implements NoProguard {
                     return;
                 }
             }
-            this.f44394d = coreViewRouter;
-            this.f44391a = activity;
-            this.f44392b = registerUserFaceIDCallback;
-            this.f44393c = faceIDRegDTO;
+            this.f44509d = coreViewRouter;
+            this.f44506a = activity;
+            this.f44507b = registerUserFaceIDCallback;
+            this.f44508c = faceIDRegDTO;
         }
 
         @Override // com.baidu.sapi2.callback.AuthWidgetCallback
         public void onFailure(SapiResult sapiResult) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, sapiResult) == null) {
-                this.f44392b.onFailure(sapiResult);
+                this.f44507b.onFailure(sapiResult);
             }
         }
 
@@ -585,10 +585,10 @@ public class CoreViewRouter implements NoProguard {
         public void onSuccess(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-                CoreViewRouter coreViewRouter = this.f44394d;
-                Activity activity = this.f44391a;
-                RegisterUserFaceIDCallback registerUserFaceIDCallback = this.f44392b;
-                FaceIDRegDTO faceIDRegDTO = this.f44393c;
+                CoreViewRouter coreViewRouter = this.f44509d;
+                Activity activity = this.f44506a;
+                RegisterUserFaceIDCallback registerUserFaceIDCallback = this.f44507b;
+                FaceIDRegDTO faceIDRegDTO = this.f44508c;
                 coreViewRouter.b(activity, registerUserFaceIDCallback, "faceDetect", str, faceIDRegDTO.livingUname, faceIDRegDTO.showGuidePage, faceIDRegDTO.subpro, faceIDRegDTO.businessSence);
             }
         }
@@ -600,19 +600,19 @@ public class CoreViewRouter implements NoProguard {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Activity f44395a;
+        public final /* synthetic */ Activity f44510a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ FaceIDVerifyDTO f44396b;
+        public final /* synthetic */ FaceIDVerifyDTO f44511b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ VerifyUserFaceIDCallback f44397c;
+        public final /* synthetic */ VerifyUserFaceIDCallback f44512c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ RealNameFaceIDResult f44398d;
+        public final /* synthetic */ RealNameFaceIDResult f44513d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CoreViewRouter f44399e;
+        public final /* synthetic */ CoreViewRouter f44514e;
 
         public h(CoreViewRouter coreViewRouter, Activity activity, FaceIDVerifyDTO faceIDVerifyDTO, VerifyUserFaceIDCallback verifyUserFaceIDCallback, RealNameFaceIDResult realNameFaceIDResult) {
             Interceptable interceptable = $ic;
@@ -629,11 +629,11 @@ public class CoreViewRouter implements NoProguard {
                     return;
                 }
             }
-            this.f44399e = coreViewRouter;
-            this.f44395a = activity;
-            this.f44396b = faceIDVerifyDTO;
-            this.f44397c = verifyUserFaceIDCallback;
-            this.f44398d = realNameFaceIDResult;
+            this.f44514e = coreViewRouter;
+            this.f44510a = activity;
+            this.f44511b = faceIDVerifyDTO;
+            this.f44512c = verifyUserFaceIDCallback;
+            this.f44513d = realNameFaceIDResult;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -642,9 +642,9 @@ public class CoreViewRouter implements NoProguard {
         public void onFailure(GetTplStokenResult getTplStokenResult) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, getTplStokenResult) == null) {
-                this.f44398d.setResultCode(getTplStokenResult.getResultCode());
-                this.f44398d.setResultMsg(getTplStokenResult.getResultMsg());
-                this.f44397c.onFailure(this.f44398d);
+                this.f44513d.setResultCode(getTplStokenResult.getResultCode());
+                this.f44513d.setResultMsg(getTplStokenResult.getResultMsg());
+                this.f44512c.onFailure(this.f44513d);
             }
         }
 
@@ -656,15 +656,15 @@ public class CoreViewRouter implements NoProguard {
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, getTplStokenResult) == null) {
                 String str = getTplStokenResult.tplStokenMap.get("pp");
                 if (!TextUtils.isEmpty(str)) {
-                    CoreViewRouter coreViewRouter = this.f44399e;
-                    Activity activity = this.f44395a;
-                    FaceIDVerifyDTO faceIDVerifyDTO = this.f44396b;
-                    coreViewRouter.a(activity, faceIDVerifyDTO.subpro, (Map<String, String>) null, "0", faceIDVerifyDTO.bduss, str, faceIDVerifyDTO.businessSence, this.f44397c, this.f44398d);
+                    CoreViewRouter coreViewRouter = this.f44514e;
+                    Activity activity = this.f44510a;
+                    FaceIDVerifyDTO faceIDVerifyDTO = this.f44511b;
+                    coreViewRouter.a(activity, faceIDVerifyDTO.subpro, (Map<String, String>) null, "0", faceIDVerifyDTO.bduss, str, faceIDVerifyDTO.businessSence, this.f44512c, this.f44513d);
                     return;
                 }
-                this.f44398d.setResultCode(-402);
-                this.f44398d.setResultMsg("服务异常，请稍后再试");
-                this.f44397c.onFailure(this.f44398d);
+                this.f44513d.setResultCode(-402);
+                this.f44513d.setResultMsg("服务异常，请稍后再试");
+                this.f44512c.onFailure(this.f44513d);
             }
         }
 
@@ -689,13 +689,13 @@ public class CoreViewRouter implements NoProguard {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ RealNameFaceIDResult f44400a;
+        public final /* synthetic */ RealNameFaceIDResult f44515a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ VerifyUserFaceIDCallback f44401b;
+        public final /* synthetic */ VerifyUserFaceIDCallback f44516b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ CoreViewRouter f44402c;
+        public final /* synthetic */ CoreViewRouter f44517c;
 
         public i(CoreViewRouter coreViewRouter, RealNameFaceIDResult realNameFaceIDResult, VerifyUserFaceIDCallback verifyUserFaceIDCallback) {
             Interceptable interceptable = $ic;
@@ -712,9 +712,9 @@ public class CoreViewRouter implements NoProguard {
                     return;
                 }
             }
-            this.f44402c = coreViewRouter;
-            this.f44400a = realNameFaceIDResult;
-            this.f44401b = verifyUserFaceIDCallback;
+            this.f44517c = coreViewRouter;
+            this.f44515a = realNameFaceIDResult;
+            this.f44516b = verifyUserFaceIDCallback;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -723,9 +723,9 @@ public class CoreViewRouter implements NoProguard {
         public void onFailure(PassFaceRecogResult passFaceRecogResult) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, passFaceRecogResult) == null) {
-                this.f44400a.setResultCode(passFaceRecogResult.getResultCode());
-                this.f44400a.setResultMsg(passFaceRecogResult.getResultMsg());
-                this.f44401b.onFailure(this.f44400a);
+                this.f44515a.setResultCode(passFaceRecogResult.getResultCode());
+                this.f44515a.setResultMsg(passFaceRecogResult.getResultMsg());
+                this.f44516b.onFailure(this.f44515a);
             }
         }
 
@@ -735,13 +735,13 @@ public class CoreViewRouter implements NoProguard {
         public void onSuccess(PassFaceRecogResult passFaceRecogResult) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, passFaceRecogResult) == null) {
-                this.f44400a.setResultCode(passFaceRecogResult.getResultCode());
-                this.f44400a.setResultMsg(passFaceRecogResult.getResultMsg());
-                RealNameFaceIDResult realNameFaceIDResult = this.f44400a;
+                this.f44515a.setResultCode(passFaceRecogResult.getResultCode());
+                this.f44515a.setResultMsg(passFaceRecogResult.getResultMsg());
+                RealNameFaceIDResult realNameFaceIDResult = this.f44515a;
                 realNameFaceIDResult.authSid = passFaceRecogResult.authSid;
                 realNameFaceIDResult.callBackKey = passFaceRecogResult.callbackkey;
                 realNameFaceIDResult.setResultCode(0);
-                this.f44401b.onSuccess(this.f44400a);
+                this.f44516b.onSuccess(this.f44515a);
             }
         }
     }
@@ -752,16 +752,16 @@ public class CoreViewRouter implements NoProguard {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ UnRealNameFaceIDResult f44403a;
+        public final /* synthetic */ UnRealNameFaceIDResult f44518a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f44404b;
+        public final /* synthetic */ String f44519b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ FaceIDCallback f44405c;
+        public final /* synthetic */ FaceIDCallback f44520c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ CoreViewRouter f44406d;
+        public final /* synthetic */ CoreViewRouter f44521d;
 
         public j(CoreViewRouter coreViewRouter, UnRealNameFaceIDResult unRealNameFaceIDResult, String str, FaceIDCallback faceIDCallback) {
             Interceptable interceptable = $ic;
@@ -778,10 +778,10 @@ public class CoreViewRouter implements NoProguard {
                     return;
                 }
             }
-            this.f44406d = coreViewRouter;
-            this.f44403a = unRealNameFaceIDResult;
-            this.f44404b = str;
-            this.f44405c = faceIDCallback;
+            this.f44521d = coreViewRouter;
+            this.f44518a = unRealNameFaceIDResult;
+            this.f44519b = str;
+            this.f44520c = faceIDCallback;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -790,8 +790,8 @@ public class CoreViewRouter implements NoProguard {
         public void onFailure(PassFaceRecogResult passFaceRecogResult) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, passFaceRecogResult) == null) {
-                this.f44403a.setResultCode(passFaceRecogResult.getResultCode());
-                this.f44405c.onFailure(this.f44403a);
+                this.f44518a.setResultCode(passFaceRecogResult.getResultCode());
+                this.f44520c.onFailure(this.f44518a);
             }
         }
 
@@ -802,20 +802,20 @@ public class CoreViewRouter implements NoProguard {
             JSONObject jSONObject;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, passFaceRecogResult) == null) {
-                this.f44403a.setResultMsg(passFaceRecogResult.getResultMsg());
-                if (this.f44404b.equals("faceDetect") && (jSONObject = passFaceRecogResult.extraJson) != null) {
-                    this.f44403a.registerResult = jSONObject.toString();
+                this.f44518a.setResultMsg(passFaceRecogResult.getResultMsg());
+                if (this.f44519b.equals("faceDetect") && (jSONObject = passFaceRecogResult.extraJson) != null) {
+                    this.f44518a.registerResult = jSONObject.toString();
                 }
-                UnRealNameFaceIDResult unRealNameFaceIDResult = this.f44403a;
+                UnRealNameFaceIDResult unRealNameFaceIDResult = this.f44518a;
                 String str = passFaceRecogResult.callbackkey;
                 unRealNameFaceIDResult.callBackKey = str;
                 if (TextUtils.isEmpty(str)) {
-                    this.f44403a.setResultCode(-205);
-                    this.f44405c.onFailure(this.f44403a);
+                    this.f44518a.setResultCode(-205);
+                    this.f44520c.onFailure(this.f44518a);
                     return;
                 }
-                this.f44403a.setResultCode(0);
-                this.f44405c.onSuccess(this.f44403a);
+                this.f44518a.setResultCode(0);
+                this.f44520c.onSuccess(this.f44518a);
             }
         }
     }
@@ -826,22 +826,22 @@ public class CoreViewRouter implements NoProguard {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ int f44407a;
+        public final /* synthetic */ int f44522a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ Activity f44408b;
+        public final /* synthetic */ Activity f44523b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ ExtendSysWebViewMethodCallback f44409c;
+        public final /* synthetic */ ExtendSysWebViewMethodCallback f44524c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ JSONObject f44410d;
+        public final /* synthetic */ JSONObject f44525d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ExtendSysWebViewMethodResult f44411e;
+        public final /* synthetic */ ExtendSysWebViewMethodResult f44526e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ CoreViewRouter f44412f;
+        public final /* synthetic */ CoreViewRouter f44527f;
 
         public k(CoreViewRouter coreViewRouter, int i2, Activity activity, ExtendSysWebViewMethodCallback extendSysWebViewMethodCallback, JSONObject jSONObject, ExtendSysWebViewMethodResult extendSysWebViewMethodResult) {
             Interceptable interceptable = $ic;
@@ -858,21 +858,21 @@ public class CoreViewRouter implements NoProguard {
                     return;
                 }
             }
-            this.f44412f = coreViewRouter;
-            this.f44407a = i2;
-            this.f44408b = activity;
-            this.f44409c = extendSysWebViewMethodCallback;
-            this.f44410d = jSONObject;
-            this.f44411e = extendSysWebViewMethodResult;
+            this.f44527f = coreViewRouter;
+            this.f44522a = i2;
+            this.f44523b = activity;
+            this.f44524c = extendSysWebViewMethodCallback;
+            this.f44525d = jSONObject;
+            this.f44526e = extendSysWebViewMethodResult;
         }
 
         @Override // com.baidu.sapi2.callback.SapiCallback
         public void onFailure(SapiResult sapiResult) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, sapiResult) == null) {
-                this.f44411e.setResultCode(sapiResult.getResultCode());
-                this.f44411e.setResultMsg(sapiResult.getResultMsg());
-                this.f44409c.onFinish(this.f44411e);
+                this.f44526e.setResultCode(sapiResult.getResultCode());
+                this.f44526e.setResultMsg(sapiResult.getResultMsg());
+                this.f44524c.onFinish(this.f44526e);
             }
         }
 
@@ -894,26 +894,26 @@ public class CoreViewRouter implements NoProguard {
         public void onSuccess(SapiResult sapiResult) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, sapiResult) == null) {
-                int i2 = this.f44407a;
+                int i2 = this.f44522a;
                 switch (i2) {
                     case 1:
                     case 2:
                     case 3:
                     case 4:
-                        this.f44412f.a(this.f44408b, this.f44409c, this.f44410d, i2, this.f44411e);
+                        this.f44527f.a(this.f44523b, this.f44524c, this.f44525d, i2, this.f44526e);
                         return;
                     case 5:
-                        this.f44412f.u = this.f44409c;
-                        String optString = this.f44410d.optString("url");
-                        String optString2 = this.f44410d.optString("title");
-                        Intent intent = new Intent(this.f44412f.B, LoadExternalWebViewActivity.class);
+                        this.f44527f.u = this.f44524c;
+                        String optString = this.f44525d.optString("url");
+                        String optString2 = this.f44525d.optString("title");
+                        Intent intent = new Intent(this.f44527f.B, LoadExternalWebViewActivity.class);
                         intent.putExtra(LoadExternalWebViewActivity.EXTRA_EXTERNAL_TITLE, optString2);
                         intent.putExtra("extra_external_url", optString);
                         intent.setFlags(268435456);
-                        this.f44412f.B.startActivity(intent);
+                        this.f44527f.B.startActivity(intent);
                         return;
                     case 6:
-                        JSONArray optJSONArray = this.f44410d.optJSONArray("di_keys");
+                        JSONArray optJSONArray = this.f44525d.optJSONArray("di_keys");
                         ArrayList arrayList = new ArrayList();
                         int length = optJSONArray.length();
                         for (int i3 = 0; i3 < length; i3++) {
@@ -922,15 +922,15 @@ public class CoreViewRouter implements NoProguard {
                             }
                         }
                         String diCookieInfo = SapiDeviceInfo.getDiCookieInfo(arrayList, false);
-                        this.f44411e.params.put(BaiduRimConstants.RETCODE_KEY, "0");
-                        this.f44411e.params.put("result", diCookieInfo);
-                        this.f44409c.onFinish(this.f44411e);
+                        this.f44526e.params.put(BaiduRimConstants.RETCODE_KEY, "0");
+                        this.f44526e.params.put("result", diCookieInfo);
+                        this.f44524c.onFinish(this.f44526e);
                         return;
                     default:
-                        this.f44411e.params.put(BaiduRimConstants.RETCODE_KEY, "-301");
-                        Map<String, Object> map = this.f44411e.params;
-                        map.put("retMsg", "action :" + this.f44407a + " is not support");
-                        this.f44409c.onFinish(this.f44411e);
+                        this.f44526e.params.put(BaiduRimConstants.RETCODE_KEY, "-301");
+                        Map<String, Object> map = this.f44526e.params;
+                        map.put("retMsg", "action :" + this.f44522a + " is not support");
+                        this.f44524c.onFinish(this.f44526e);
                         return;
                 }
             }
@@ -1004,7 +1004,7 @@ public class CoreViewRouter implements NoProguard {
     public AccountCenterDTO getAccountCenterDTO() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f44359g : (AccountCenterDTO) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f44474g : (AccountCenterDTO) invokeV.objValue;
     }
 
     public AccountRealNameCallback getAccountRealNameCallback() {
@@ -1064,7 +1064,7 @@ public class CoreViewRouter implements NoProguard {
     public NormalizeGuestAccountDTO getNormalizeGuestAccountDTO() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f44360h : (NormalizeGuestAccountDTO) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f44475h : (NormalizeGuestAccountDTO) invokeV.objValue;
     }
 
     public OneKeyLoginCallback getOneKeyLoginCallback() {
@@ -1082,7 +1082,7 @@ public class CoreViewRouter implements NoProguard {
     public RealNameDTO getRealNameDTO() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.f44361i : (RealNameDTO) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.f44476i : (RealNameDTO) invokeV.objValue;
     }
 
     public String getSmsLoginStatExtra() {
@@ -1107,23 +1107,23 @@ public class CoreViewRouter implements NoProguard {
     public WebSocialLoginDTO getSocialLoginDTO() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.f44358f : (WebSocialLoginDTO) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.f44473f : (WebSocialLoginDTO) invokeV.objValue;
     }
 
     public SwitchAccountDTO getSwitchAccountDTO() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.f44362j : (SwitchAccountDTO) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.f44477j : (SwitchAccountDTO) invokeV.objValue;
     }
 
     public AbstractThirdPartyService getThirdPartyService() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
-            if (this.f44353a == null) {
+            if (this.f44468a == null) {
                 a();
             }
-            return this.f44353a;
+            return this.f44468a;
         }
         return (AbstractThirdPartyService) invokeV.objValue;
     }
@@ -1131,7 +1131,7 @@ public class CoreViewRouter implements NoProguard {
     public WebAuthListener getWebAuthListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? this.f44354b : (WebAuthListener) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? this.f44469b : (WebAuthListener) invokeV.objValue;
     }
 
     public WebBindWidgetCallback getWebBindWidgetCallback() {
@@ -1143,26 +1143,26 @@ public class CoreViewRouter implements NoProguard {
     public WebBindWidgetDTO getWebBindWidgetDTO() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? this.f44357e : (WebBindWidgetDTO) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? this.f44472e : (WebBindWidgetDTO) invokeV.objValue;
     }
 
     public WebLoginDTO getWebLoginDTO() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) ? this.f44355c : (WebLoginDTO) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) ? this.f44470c : (WebLoginDTO) invokeV.objValue;
     }
 
     public WebRegDTO getWebRegDTO() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) ? this.f44356d : (WebRegDTO) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) ? this.f44471d : (WebRegDTO) invokeV.objValue;
     }
 
     public void handleWXLoginResp(Activity activity, String str, String str2, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLI(1048602, this, activity, str, str2, i2) == null) {
             AbstractThirdPartyService thirdPartyService = getThirdPartyService();
-            this.f44353a = thirdPartyService;
+            this.f44468a = thirdPartyService;
             if (thirdPartyService == null) {
                 return;
             }
@@ -1186,7 +1186,7 @@ public class CoreViewRouter implements NoProguard {
                     webAuthResult.setResultMsg(ShareResult.ERROR_MSG_TARGET_APP_NOT_INSTALLED);
                     webAuthListener.onFailure(webAuthResult);
                 }
-                this.f44354b = webAuthListener;
+                this.f44469b = webAuthListener;
                 ArrayList<? extends Parcelable> arrayList = new ArrayList<>();
                 if (!TextUtils.isEmpty(str)) {
                     arrayList.add(new PassNameValuePair("extrajson", str));
@@ -1211,7 +1211,7 @@ public class CoreViewRouter implements NoProguard {
                 accountCenterDTO.bduss = currentAccount.bduss;
             }
             this.l = accountCenterCallback;
-            this.f44359g = accountCenterDTO;
+            this.f44474g = accountCenterDTO;
             Intent intent = new Intent(this.B, AccountCenterActivity.class);
             intent.setFlags(268435456);
             this.B.startActivity(intent);
@@ -1222,7 +1222,7 @@ public class CoreViewRouter implements NoProguard {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048605, this, context, accountRealNameCallback, realNameDTO) == null) {
             this.m = accountRealNameCallback;
-            this.f44361i = realNameDTO;
+            this.f44476i = realNameDTO;
             Intent intent = new Intent(context, AccountRealNameActivity.class);
             if (realNameDTO != null) {
                 intent.putExtra("EXTRA_BDUSS", realNameDTO.bduss);
@@ -1264,7 +1264,7 @@ public class CoreViewRouter implements NoProguard {
             if (SapiContext.getInstance().getSapiOptions().getOpenBdussTpls().contains(SapiAccountManager.getInstance().getConfignation().tpl) && (currentAccount = SapiContext.getInstance().getCurrentAccount()) != null) {
                 webBindWidgetDTO.bduss = currentAccount.bduss;
             }
-            this.f44357e = webBindWidgetDTO;
+            this.f44472e = webBindWidgetDTO;
             Intent intent = new Intent(this.B, BindWidgetActivity.class);
             intent.putExtra(BindWidgetActivity.EXTRA_BIND_WIDGET_ACTION, webBindWidgetDTO.bindWidgetAction);
             intent.putExtra("EXTRA_BDUSS", webBindWidgetDTO.bduss);
@@ -1353,8 +1353,8 @@ public class CoreViewRouter implements NoProguard {
     public void loadSwitchAccount(SwitchAccountDTO switchAccountDTO, WebAuthListener webAuthListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048618, this, switchAccountDTO, webAuthListener) == null) {
-            this.f44362j = switchAccountDTO;
-            this.f44354b = webAuthListener;
+            this.f44477j = switchAccountDTO;
+            this.f44469b = webAuthListener;
             Intent intent = new Intent(this.B, SwitchAccountActivity.class);
             intent.setFlags(268435456);
             this.B.startActivity(intent);
@@ -1368,7 +1368,7 @@ public class CoreViewRouter implements NoProguard {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048620, this, webAuthListener, socialType) == null) {
             WebSocialLoginDTO webSocialLoginDTO = new WebSocialLoginDTO();
-            this.f44358f = webSocialLoginDTO;
+            this.f44473f = webSocialLoginDTO;
             webSocialLoginDTO.socialType = socialType;
             loadThirdPartyLogin(webAuthListener, webSocialLoginDTO);
         }
@@ -1378,7 +1378,7 @@ public class CoreViewRouter implements NoProguard {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048621, this, context, str, webAuthListener) == null) {
             AbstractThirdPartyService thirdPartyService = getThirdPartyService();
-            this.f44353a = thirdPartyService;
+            this.f44468a = thirdPartyService;
             if (thirdPartyService == null) {
                 if (webAuthListener != null) {
                     WebAuthResult webAuthResult = new WebAuthResult();
@@ -1391,12 +1391,12 @@ public class CoreViewRouter implements NoProguard {
             }
             WebLoginDTO webLoginDTO = new WebLoginDTO();
             webLoginDTO.finishActivityAfterSuc = true;
-            this.f44355c = webLoginDTO;
+            this.f44470c = webLoginDTO;
             WebSocialLoginDTO webSocialLoginDTO = new WebSocialLoginDTO();
             webSocialLoginDTO.finishActivityAfterSuc = true;
-            this.f44358f = webSocialLoginDTO;
-            this.f44354b = webAuthListener;
-            this.f44353a.loadYYSSOLogin(context, str);
+            this.f44473f = webSocialLoginDTO;
+            this.f44469b = webAuthListener;
+            this.f44468a.loadYYSSOLogin(context, str);
         }
     }
 
@@ -1426,16 +1426,16 @@ public class CoreViewRouter implements NoProguard {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048624, this) == null) {
             synchronized (this) {
-                this.f44354b = null;
-                this.f44355c = null;
-                this.f44357e = null;
-                this.f44358f = null;
-                this.f44360h = null;
+                this.f44469b = null;
+                this.f44470c = null;
+                this.f44472e = null;
+                this.f44473f = null;
+                this.f44475h = null;
                 this.l = null;
                 this.n = null;
                 this.o = null;
                 this.p = null;
-                this.f44359g = null;
+                this.f44474g = null;
                 this.m = null;
                 this.q = null;
                 this.r = null;
@@ -1446,7 +1446,7 @@ public class CoreViewRouter implements NoProguard {
                 this.t = null;
                 this.u = null;
                 this.v = null;
-                this.f44362j = null;
+                this.f44477j = null;
                 PassportViewManager.getInstance().release();
                 D = null;
             }
@@ -1470,7 +1470,7 @@ public class CoreViewRouter implements NoProguard {
     public void setThirdPartyService(AbstractThirdPartyService abstractThirdPartyService) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048627, this, abstractThirdPartyService) == null) {
-            this.f44353a = abstractThirdPartyService;
+            this.f44468a = abstractThirdPartyService;
         }
     }
 
@@ -1519,7 +1519,7 @@ public class CoreViewRouter implements NoProguard {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048633, this, context, normalizeGuestAccountCallback, normalizeGuestAccountDTO) == null) {
             this.s = normalizeGuestAccountCallback;
-            this.f44360h = normalizeGuestAccountDTO;
+            this.f44475h = normalizeGuestAccountDTO;
             Intent intent = new Intent(context, NormalizeGuestAccountActivity.class);
             intent.putExtra("EXTRA_BDUSS", normalizeGuestAccountDTO.bduss);
             if (!(context instanceof Activity)) {
@@ -1532,8 +1532,8 @@ public class CoreViewRouter implements NoProguard {
     public void startRegister(WebAuthListener webAuthListener, WebRegDTO webRegDTO) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048634, this, webAuthListener, webRegDTO) == null) {
-            this.f44354b = webAuthListener;
-            this.f44356d = webRegDTO;
+            this.f44469b = webAuthListener;
+            this.f44471d = webRegDTO;
             Intent intent = new Intent(this.B, RegisterActivity.class);
             intent.setFlags(268435456);
             this.B.startActivity(intent);
@@ -1666,19 +1666,19 @@ public class CoreViewRouter implements NoProguard {
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ OneKeyLoginCallback f44363a;
+                    public final /* synthetic */ OneKeyLoginCallback f44478a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ String f44364b;
+                    public final /* synthetic */ String f44479b;
 
                     /* renamed from: c  reason: collision with root package name */
-                    public final /* synthetic */ boolean f44365c;
+                    public final /* synthetic */ boolean f44480c;
 
                     /* renamed from: d  reason: collision with root package name */
-                    public final /* synthetic */ Context f44366d;
+                    public final /* synthetic */ Context f44481d;
 
                     /* renamed from: e  reason: collision with root package name */
-                    public final /* synthetic */ CoreViewRouter f44367e;
+                    public final /* synthetic */ CoreViewRouter f44482e;
 
                     /* renamed from: com.baidu.sapi2.CoreViewRouter$12$a */
                     /* loaded from: classes5.dex */
@@ -1687,7 +1687,7 @@ public class CoreViewRouter implements NoProguard {
                         public transient /* synthetic */ FieldHolder $fh;
 
                         /* renamed from: a  reason: collision with root package name */
-                        public final /* synthetic */ AnonymousClass12 f44368a;
+                        public final /* synthetic */ AnonymousClass12 f44483a;
 
                         public a(AnonymousClass12 anonymousClass12) {
                             Interceptable interceptable = $ic;
@@ -1704,16 +1704,16 @@ public class CoreViewRouter implements NoProguard {
                                     return;
                                 }
                             }
-                            this.f44368a = anonymousClass12;
+                            this.f44483a = anonymousClass12;
                         }
 
                         @Override // com.baidu.sapi2.callback.inner.LoadExternalWebViewActivityCallback
                         public void needLoadExternalWebView(String str, String str2) {
                             Interceptable interceptable = $ic;
                             if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
-                                AnonymousClass12 anonymousClass12 = this.f44368a;
-                                if (anonymousClass12.f44365c) {
-                                    Intent intent = new Intent(anonymousClass12.f44366d, LoadExternalWebViewActivity.class);
+                                AnonymousClass12 anonymousClass12 = this.f44483a;
+                                if (anonymousClass12.f44480c) {
+                                    Intent intent = new Intent(anonymousClass12.f44481d, LoadExternalWebViewActivity.class);
                                     intent.putExtra(LoadExternalWebViewActivity.EXTRA_EXTERNAL_TITLE, str);
                                     String str3 = (str2 + "&adapter=3") + "&lastLoginType=oneKeyLogin";
                                     if (SapiAccountManager.getInstance().getSapiConfiguration().supportFaceLogin) {
@@ -1721,16 +1721,16 @@ public class CoreViewRouter implements NoProguard {
                                     }
                                     intent.putExtra("extra_external_url", str3);
                                     intent.putExtra(LoadExternalWebViewActivity.EXTRA_BUSINESS_FROM, "business_from_one_key_login");
-                                    Context context = this.f44368a.f44366d;
+                                    Context context = this.f44483a.f44481d;
                                     if (context instanceof Activity) {
                                         context.startActivity(intent);
                                         return;
                                     }
                                     intent.setFlags(268435456);
-                                    this.f44368a.f44367e.B.startActivity(intent);
+                                    this.f44483a.f44482e.B.startActivity(intent);
                                     return;
                                 }
-                                new OneKeyLoginSdkCall().loadOneKeyLoginFail(this.f44368a.f44363a, -111, null);
+                                new OneKeyLoginSdkCall().loadOneKeyLoginFail(this.f44483a.f44478a, -111, null);
                             }
                         }
                     }
@@ -1750,11 +1750,11 @@ public class CoreViewRouter implements NoProguard {
                                 return;
                             }
                         }
-                        this.f44367e = this;
-                        this.f44363a = oneKeyLoginCallback;
-                        this.f44364b = str;
-                        this.f44365c = z;
-                        this.f44366d = context;
+                        this.f44482e = this;
+                        this.f44478a = oneKeyLoginCallback;
+                        this.f44479b = str;
+                        this.f44480c = z;
+                        this.f44481d = context;
                     }
 
                     @Override // com.baidu.sapi2.outsdk.OneKeyLoginSdkCall.TokenListener
@@ -1763,9 +1763,9 @@ public class CoreViewRouter implements NoProguard {
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, jSONObject) == null) {
                             String optString = jSONObject.optString("token");
                             if (!TextUtils.isEmpty(optString)) {
-                                SapiAccountManager.getInstance().getAccountService().loadOneKeyLogin(this.f44363a, optString, this.f44364b, new a(this));
+                                SapiAccountManager.getInstance().getAccountService().loadOneKeyLogin(this.f44478a, optString, this.f44479b, new a(this));
                             } else {
-                                new OneKeyLoginSdkCall().loadOneKeyLoginFail(this.f44363a, -102, null);
+                                new OneKeyLoginSdkCall().loadOneKeyLoginFail(this.f44478a, -102, null);
                             }
                         }
                     }
@@ -1777,10 +1777,10 @@ public class CoreViewRouter implements NoProguard {
     public void loadThirdPartyLogin(WebAuthListener webAuthListener, WebSocialLoginDTO webSocialLoginDTO) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048619, this, webAuthListener, webSocialLoginDTO) == null) {
-            this.f44354b = webAuthListener;
-            this.f44358f = webSocialLoginDTO;
+            this.f44469b = webAuthListener;
+            this.f44473f = webSocialLoginDTO;
             AbstractThirdPartyService thirdPartyService = getThirdPartyService();
-            this.f44353a = thirdPartyService;
+            this.f44468a = thirdPartyService;
             if (thirdPartyService == null) {
                 return;
             }
@@ -1830,8 +1830,8 @@ public class CoreViewRouter implements NoProguard {
         StatLoadLogin statLoadLogin = new StatLoadLogin();
         SapiWebView.statLoadLogin = statLoadLogin;
         statLoadLogin.tOpenLoginPage = System.currentTimeMillis();
-        this.f44354b = webAuthListener;
-        this.f44355c = webLoginDTO;
+        this.f44469b = webAuthListener;
+        this.f44470c = webLoginDTO;
         Intent intent = new Intent(context, cls);
         intent.putExtra(LoginActivity.EXTRA_LOGIN_TYPE, webLoginDTO.loginType);
         intent.putExtra(LoginActivity.EXTRA_LOGIN_FINISH_AFTER_SUC, webLoginDTO.finishActivityAfterSuc);
@@ -1856,7 +1856,7 @@ public class CoreViewRouter implements NoProguard {
     public void startSchemeLoginForQA(Context context, String str, WebAuthListener webAuthListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048636, this, context, str, webAuthListener) == null) {
-            this.f44354b = webAuthListener;
+            this.f44469b = webAuthListener;
             Intent intent = new Intent(context, LoadExternalWebViewActivity.class);
             intent.putExtra("extra_external_url", str);
             if (context instanceof Activity) {
@@ -1968,10 +1968,10 @@ public class CoreViewRouter implements NoProguard {
                 extendSysWebViewMethodCallback.onFinish(extendSysWebViewMethodResult);
                 return;
             }
-            eVar.f44760j = currentAccount.bduss;
+            eVar.f44875j = currentAccount.bduss;
             ArrayList arrayList = new ArrayList();
             arrayList.add("pp");
-            SapiAccountManager.getInstance().getAccountService().getTplStoken(new b(this, activity, str, map, str2, currentAccount, passFaceRecogCallback, extendSysWebViewMethodResult, extendSysWebViewMethodCallback), eVar.f44760j, arrayList);
+            SapiAccountManager.getInstance().getAccountService().getTplStoken(new b(this, activity, str, map, str2, currentAccount, passFaceRecogCallback, extendSysWebViewMethodResult, extendSysWebViewMethodCallback), eVar.f44875j, arrayList);
         }
     }
 

@@ -1,7 +1,7 @@
 package com.baidu.tieba.flutter.plugin.networkService;
 
 import androidx.core.view.InputDeviceCompat;
-import c.a.p0.i0.b.g;
+import c.a.q0.k0.b.g;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.mobads.container.util.AdIconUtil;

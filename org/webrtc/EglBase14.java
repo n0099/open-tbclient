@@ -120,20 +120,26 @@ public class EglBase14 implements EglBase {
 
     public static EGLContext createEglContext(@Nullable Context context, EGLDisplay eGLDisplay, EGLConfig eGLConfig) {
         InterceptResult invokeLLL;
+        EGLContext eGLContext;
         EGLContext eglCreateContext;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, eGLDisplay, eGLConfig)) == null) {
-            if (context == null || context.egl14Context != EGL14.EGL_NO_CONTEXT) {
-                EGLContext eGLContext = context == null ? EGL14.EGL_NO_CONTEXT : context.egl14Context;
-                synchronized (EglBase.lock) {
-                    eglCreateContext = EGL14.eglCreateContext(eGLDisplay, eGLConfig, eGLContext, new int[]{EglBase10.EGL_CONTEXT_CLIENT_VERSION, 2, ZeusMonitorType.MONITOR_TYPE_AD_FILTER}, 0);
-                }
-                if (eglCreateContext != EGL14.EGL_NO_CONTEXT) {
-                    return eglCreateContext;
-                }
-                throw new RuntimeException("Failed to create EGL context: 0x" + Integer.toHexString(EGL14.eglGetError()));
+            if (context != null && context.egl14Context == EGL14.EGL_NO_CONTEXT) {
+                throw new RuntimeException("Invalid sharedContext");
             }
-            throw new RuntimeException("Invalid sharedContext");
+            int[] iArr = {EglBase10.EGL_CONTEXT_CLIENT_VERSION, 2, ZeusMonitorType.MONITOR_TYPE_AD_FILTER};
+            if (context != null) {
+                eGLContext = context.egl14Context;
+            } else {
+                eGLContext = EGL14.EGL_NO_CONTEXT;
+            }
+            synchronized (EglBase.lock) {
+                eglCreateContext = EGL14.eglCreateContext(eGLDisplay, eGLConfig, eGLContext, iArr, 0);
+            }
+            if (eglCreateContext != EGL14.EGL_NO_CONTEXT) {
+                return eglCreateContext;
+            }
+            throw new RuntimeException("Failed to create EGL context: 0x" + Integer.toHexString(EGL14.eglGetError()));
         }
         return (EGLContext) invokeLLL.objValue;
     }
@@ -145,15 +151,15 @@ public class EglBase14 implements EglBase {
                 throw new IllegalStateException("Input must be either a Surface or SurfaceTexture");
             }
             checkIsNotReleased();
-            if (this.eglSurface != EGL14.EGL_NO_SURFACE) {
-                throw new RuntimeException("Already has an EGLSurface");
+            if (this.eglSurface == EGL14.EGL_NO_SURFACE) {
+                EGLSurface eglCreateWindowSurface = EGL14.eglCreateWindowSurface(this.eglDisplay, this.eglConfig, obj, new int[]{ZeusMonitorType.MONITOR_TYPE_AD_FILTER}, 0);
+                this.eglSurface = eglCreateWindowSurface;
+                if (eglCreateWindowSurface != EGL14.EGL_NO_SURFACE) {
+                    return;
+                }
+                throw new RuntimeException("Failed to create window surface: 0x" + Integer.toHexString(EGL14.eglGetError()));
             }
-            EGLSurface eglCreateWindowSurface = EGL14.eglCreateWindowSurface(this.eglDisplay, this.eglConfig, obj, new int[]{ZeusMonitorType.MONITOR_TYPE_AD_FILTER}, 0);
-            this.eglSurface = eglCreateWindowSurface;
-            if (eglCreateWindowSurface != EGL14.EGL_NO_SURFACE) {
-                return;
-            }
-            throw new RuntimeException("Failed to create window surface: 0x" + Integer.toHexString(EGL14.eglGetError()));
+            throw new RuntimeException("Already has an EGLSurface");
         }
     }
 
@@ -163,17 +169,17 @@ public class EglBase14 implements EglBase {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, eGLDisplay, iArr)) == null) {
             EGLConfig[] eGLConfigArr = new EGLConfig[1];
             int[] iArr2 = new int[1];
-            if (!EGL14.eglChooseConfig(eGLDisplay, iArr, 0, eGLConfigArr, 0, 1, iArr2, 0)) {
-                throw new RuntimeException("eglChooseConfig failed: 0x" + Integer.toHexString(EGL14.eglGetError()));
-            } else if (iArr2[0] > 0) {
-                EGLConfig eGLConfig = eGLConfigArr[0];
-                if (eGLConfig != null) {
-                    return eGLConfig;
+            if (EGL14.eglChooseConfig(eGLDisplay, iArr, 0, eGLConfigArr, 0, 1, iArr2, 0)) {
+                if (iArr2[0] > 0) {
+                    EGLConfig eGLConfig = eGLConfigArr[0];
+                    if (eGLConfig != null) {
+                        return eGLConfig;
+                    }
+                    throw new RuntimeException("eglChooseConfig returned null");
                 }
-                throw new RuntimeException("eglChooseConfig returned null");
-            } else {
                 throw new RuntimeException("Unable to find any matching EGL config");
             }
+            throw new RuntimeException("eglChooseConfig failed: 0x" + Integer.toHexString(EGL14.eglGetError()));
         }
         return (EGLConfig) invokeLL.objValue;
     }
@@ -183,14 +189,14 @@ public class EglBase14 implements EglBase {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
             EGLDisplay eglGetDisplay = EGL14.eglGetDisplay(0);
-            if (eglGetDisplay == EGL14.EGL_NO_DISPLAY) {
-                throw new RuntimeException("Unable to get EGL14 display: 0x" + Integer.toHexString(EGL14.eglGetError()));
+            if (eglGetDisplay != EGL14.EGL_NO_DISPLAY) {
+                int[] iArr = new int[2];
+                if (EGL14.eglInitialize(eglGetDisplay, iArr, 0, iArr, 1)) {
+                    return eglGetDisplay;
+                }
+                throw new RuntimeException("Unable to initialize EGL14: 0x" + Integer.toHexString(EGL14.eglGetError()));
             }
-            int[] iArr = new int[2];
-            if (EGL14.eglInitialize(eglGetDisplay, iArr, 0, iArr, 1)) {
-                return eglGetDisplay;
-            }
-            throw new RuntimeException("Unable to initialize EGL14: 0x" + Integer.toHexString(EGL14.eglGetError()));
+            throw new RuntimeException("Unable to get EGL14 display: 0x" + Integer.toHexString(EGL14.eglGetError()));
         }
         return (EGLDisplay) invokeV.objValue;
     }
@@ -223,23 +229,15 @@ public class EglBase14 implements EglBase {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3) == null) {
             checkIsNotReleased();
-            if (this.eglSurface != EGL14.EGL_NO_SURFACE) {
-                throw new RuntimeException("Already has an EGLSurface");
+            if (this.eglSurface == EGL14.EGL_NO_SURFACE) {
+                EGLSurface eglCreatePbufferSurface = EGL14.eglCreatePbufferSurface(this.eglDisplay, this.eglConfig, new int[]{12375, i2, 12374, i3, ZeusMonitorType.MONITOR_TYPE_AD_FILTER}, 0);
+                this.eglSurface = eglCreatePbufferSurface;
+                if (eglCreatePbufferSurface != EGL14.EGL_NO_SURFACE) {
+                    return;
+                }
+                throw new RuntimeException("Failed to create pixel buffer surface with size " + i2 + "x" + i3 + ": 0x" + Integer.toHexString(EGL14.eglGetError()));
             }
-            EGLSurface eglCreatePbufferSurface = EGL14.eglCreatePbufferSurface(this.eglDisplay, this.eglConfig, new int[]{12375, i2, 12374, i3, ZeusMonitorType.MONITOR_TYPE_AD_FILTER}, 0);
-            this.eglSurface = eglCreatePbufferSurface;
-            if (eglCreatePbufferSurface != EGL14.EGL_NO_SURFACE) {
-                return;
-            }
-            throw new RuntimeException("Failed to create pixel buffer surface with size " + i2 + "x" + i3 + ": 0x" + Integer.toHexString(EGL14.eglGetError()));
-        }
-    }
-
-    @Override // org.webrtc.EglBase
-    public void createSurface(SurfaceTexture surfaceTexture) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, surfaceTexture) == null) {
-            createSurfaceInternal(surfaceTexture);
+            throw new RuntimeException("Already has an EGLSurface");
         }
     }
 
@@ -263,14 +261,6 @@ public class EglBase14 implements EglBase {
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // org.webrtc.EglBase
-    public Context getEglBaseContext() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? new Context(this.eglContext) : (Context) invokeV.objValue;
-    }
-
     @Override // org.webrtc.EglBase
     public boolean hasSurface() {
         InterceptResult invokeV;
@@ -283,14 +273,15 @@ public class EglBase14 implements EglBase {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             checkIsNotReleased();
-            if (this.eglSurface == EGL14.EGL_NO_SURFACE) {
-                throw new RuntimeException("No EGLSurface - can't make current");
-            }
-            synchronized (EglBase.lock) {
-                if (!EGL14.eglMakeCurrent(this.eglDisplay, this.eglSurface, this.eglSurface, this.eglContext)) {
-                    throw new RuntimeException("eglMakeCurrent failed: 0x" + Integer.toHexString(EGL14.eglGetError()));
+            if (this.eglSurface != EGL14.EGL_NO_SURFACE) {
+                synchronized (EglBase.lock) {
+                    if (!EGL14.eglMakeCurrent(this.eglDisplay, this.eglSurface, this.eglSurface, this.eglContext)) {
+                        throw new RuntimeException("eglMakeCurrent failed: 0x" + Integer.toHexString(EGL14.eglGetError()));
+                    }
                 }
+                return;
             }
+            throw new RuntimeException("No EGLSurface - can't make current");
         }
     }
 
@@ -350,13 +341,30 @@ public class EglBase14 implements EglBase {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
             checkIsNotReleased();
-            if (this.eglSurface == EGL14.EGL_NO_SURFACE) {
-                throw new RuntimeException("No EGLSurface - can't swap buffers");
+            if (this.eglSurface != EGL14.EGL_NO_SURFACE) {
+                synchronized (EglBase.lock) {
+                    EGL14.eglSwapBuffers(this.eglDisplay, this.eglSurface);
+                }
+                return;
             }
-            synchronized (EglBase.lock) {
-                EGL14.eglSwapBuffers(this.eglDisplay, this.eglSurface);
-            }
+            throw new RuntimeException("No EGLSurface - can't swap buffers");
         }
+    }
+
+    @Override // org.webrtc.EglBase
+    public void createSurface(SurfaceTexture surfaceTexture) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, surfaceTexture) == null) {
+            createSurfaceInternal(surfaceTexture);
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // org.webrtc.EglBase
+    public Context getEglBaseContext() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? new Context(this.eglContext) : (Context) invokeV.objValue;
     }
 
     @Override // org.webrtc.EglBase
@@ -364,13 +372,14 @@ public class EglBase14 implements EglBase {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048590, this, j2) == null) {
             checkIsNotReleased();
-            if (this.eglSurface == EGL14.EGL_NO_SURFACE) {
-                throw new RuntimeException("No EGLSurface - can't swap buffers");
+            if (this.eglSurface != EGL14.EGL_NO_SURFACE) {
+                synchronized (EglBase.lock) {
+                    EGLExt.eglPresentationTimeANDROID(this.eglDisplay, this.eglSurface, j2);
+                    EGL14.eglSwapBuffers(this.eglDisplay, this.eglSurface);
+                }
+                return;
             }
-            synchronized (EglBase.lock) {
-                EGLExt.eglPresentationTimeANDROID(this.eglDisplay, this.eglSurface, j2);
-                EGL14.eglSwapBuffers(this.eglDisplay, this.eglSurface);
-            }
+            throw new RuntimeException("No EGLSurface - can't swap buffers");
         }
     }
 }

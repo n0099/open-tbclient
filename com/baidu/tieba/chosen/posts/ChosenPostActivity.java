@@ -1,9 +1,9 @@
 package com.baidu.tieba.chosen.posts;
 
 import android.os.Bundle;
-import c.a.p0.i0.c.a;
-import c.a.q0.b0.a.b;
-import c.a.q0.b0.a.c.d;
+import c.a.q0.k0.c.a;
+import c.a.r0.b0.a.b;
+import c.a.r0.b0.a.c.d;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
@@ -44,10 +44,10 @@ public class ChosenPostActivity extends BaseActivity<ChosenPostActivity> impleme
         }
     }
 
-    private void handlePictureClick(c.a.p0.i0.c.b bVar) {
+    private void handlePictureClick(c.a.q0.k0.c.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, this, bVar) == null) {
-            c.a.p0.i0.b.a a2 = bVar.a();
+            c.a.q0.k0.b.a a2 = bVar.a();
             if (a2 instanceof d) {
                 sendMessage(((d) a2).a(getPageContext().getPageActivity()));
             }
@@ -90,7 +90,7 @@ public class ChosenPostActivity extends BaseActivity<ChosenPostActivity> impleme
         return (b) invokeV.objValue;
     }
 
-    @Override // c.a.p0.i0.c.a
+    @Override // c.a.q0.k0.c.a
     public boolean isEventMustSelf() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -131,8 +131,8 @@ public class ChosenPostActivity extends BaseActivity<ChosenPostActivity> impleme
         }
     }
 
-    @Override // c.a.p0.i0.c.a
-    public boolean onEventDispatch(c.a.p0.i0.c.b bVar) {
+    @Override // c.a.q0.k0.c.a
+    public boolean onEventDispatch(c.a.q0.k0.c.b bVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, bVar)) == null) {

@@ -21,10 +21,10 @@ public class i {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f65731a;
+    public String f65911a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f65732b;
+    public Context f65912b;
 
     public i(Context context, String str) {
         Interceptable interceptable = $ic;
@@ -41,8 +41,8 @@ public class i {
                 return;
             }
         }
-        this.f65732b = context;
-        this.f65731a = TextUtils.isEmpty(str) ? "" : str;
+        this.f65912b = context;
+        this.f65911a = TextUtils.isEmpty(str) ? "" : str;
     }
 
     @Nullable
@@ -50,7 +50,7 @@ public class i {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
-            Context context = this.f65732b;
+            Context context = this.f65912b;
             return context == null ? o.a() : context;
         }
         return (Context) invokeV.objValue;
@@ -60,7 +60,7 @@ public class i {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
-            return this.f65731a + "_adslot";
+            return this.f65911a + "_adslot";
         }
         return (String) invokeV.objValue;
     }
@@ -69,7 +69,7 @@ public class i {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
-            return this.f65731a + "_adslot_preload";
+            return this.f65911a + "_adslot_preload";
         }
         return (String) invokeV.objValue;
     }
@@ -98,7 +98,7 @@ public class i {
             if (TextUtils.isEmpty(str)) {
                 str = "0";
             }
-            return this.f65731a + "_cache_" + str;
+            return this.f65911a + "_cache_" + str;
         }
         return (String) invokeL.objValue;
     }

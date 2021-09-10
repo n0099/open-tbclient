@@ -14,7 +14,7 @@ public class NumberEditTextPasteFilter implements IEditTextPasteFilter {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f60688a = "NumberEditTextPasteFilter";
+    public static final String f60868a = "NumberEditTextPasteFilter";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {

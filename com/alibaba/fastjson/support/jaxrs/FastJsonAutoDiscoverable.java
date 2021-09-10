@@ -1,5 +1,6 @@
 package com.alibaba.fastjson.support.jaxrs;
 
+import com.baidu.cyberplayer.sdk.videodownload.CyberVideoDownloader;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import javax.annotation.Priority;
 import javax.ws.rs.core.FeatureContext;
 import org.glassfish.jersey.internal.spi.AutoDiscoverable;
-@Priority(1999)
+@Priority(CyberVideoDownloader.DMDownloadError.Unknown)
 /* loaded from: classes4.dex */
 public class FastJsonAutoDiscoverable implements AutoDiscoverable {
     public static /* synthetic */ Interceptable $ic = null;

@@ -136,70 +136,6 @@ public class RendererCommon {
         }
     }
 
-    /* loaded from: classes2.dex */
-    public static class VideoLayoutMeasure {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public ScalingType scalingTypeMatchOrientation;
-        public ScalingType scalingTypeMismatchOrientation;
-
-        public VideoLayoutMeasure() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            ScalingType scalingType = ScalingType.SCALE_ASPECT_BALANCED;
-            this.scalingTypeMatchOrientation = scalingType;
-            this.scalingTypeMismatchOrientation = scalingType;
-        }
-
-        public Point measure(int i2, int i3, int i4, int i5) {
-            InterceptResult invokeIIII;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeIIII = interceptable.invokeIIII(1048576, this, i2, i3, i4, i5)) == null) {
-                int defaultSize = View.getDefaultSize(Integer.MAX_VALUE, i2);
-                int defaultSize2 = View.getDefaultSize(Integer.MAX_VALUE, i3);
-                if (i4 == 0 || i5 == 0 || defaultSize == 0 || defaultSize2 == 0) {
-                    return new Point(defaultSize, defaultSize2);
-                }
-                float f2 = i4 / i5;
-                Point displaySize = RendererCommon.getDisplaySize(((f2 > 1.0f ? 1 : (f2 == 1.0f ? 0 : -1)) > 0) == (((float) defaultSize) / ((float) defaultSize2) > 1.0f) ? this.scalingTypeMatchOrientation : this.scalingTypeMismatchOrientation, f2, defaultSize, defaultSize2);
-                if (View.MeasureSpec.getMode(i2) == 1073741824) {
-                    displaySize.x = defaultSize;
-                }
-                if (View.MeasureSpec.getMode(i3) == 1073741824) {
-                    displaySize.y = defaultSize2;
-                }
-                return displaySize;
-            }
-            return (Point) invokeIIII.objValue;
-        }
-
-        public void setScalingType(ScalingType scalingType) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, scalingType) == null) {
-                this.scalingTypeMatchOrientation = scalingType;
-                this.scalingTypeMismatchOrientation = scalingType;
-            }
-        }
-
-        public void setScalingType(ScalingType scalingType, ScalingType scalingType2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, scalingType, scalingType2) == null) {
-                this.scalingTypeMatchOrientation = scalingType;
-                this.scalingTypeMismatchOrientation = scalingType2;
-            }
-        }
-    }
-
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
@@ -254,17 +190,9 @@ public class RendererCommon {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, fArr)) == null) {
-            float f2 = fArr[0];
-            float f3 = fArr[4];
-            float f4 = fArr[12];
-            float f5 = fArr[1];
-            float f6 = fArr[5];
-            float f7 = fArr[13];
-            float f8 = fArr[3];
-            float f9 = fArr[7];
-            float f10 = fArr[15];
+            float[] fArr2 = {fArr[0], fArr[4], fArr[12], fArr[1], fArr[5], fArr[13], fArr[3], fArr[7], fArr[15]};
             Matrix matrix = new Matrix();
-            matrix.setValues(new float[]{f2, f3, f4, f5, f6, f7, f8, f9, f10});
+            matrix.setValues(fArr2);
             return matrix;
         }
         return (Matrix) invokeL.objValue;
@@ -287,12 +215,6 @@ public class RendererCommon {
             return 1.0f;
         }
         return invokeL.floatValue;
-    }
-
-    public static Point getDisplaySize(float f2, float f3, int i2, int i3) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.BAIDU_LOGO_ID, null, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Integer.valueOf(i2), Integer.valueOf(i3)})) == null) ? (f2 == 0.0f || f3 == 0.0f) ? new Point(i2, i3) : new Point(Math.min(i2, Math.round((i3 / f2) * f3)), Math.min(i3, Math.round((i2 / f2) / f3))) : (Point) invokeCommon.objValue;
     }
 
     public static Point getDisplaySize(ScalingType scalingType, float f2, int i2, int i3) {
@@ -324,5 +246,81 @@ public class RendererCommon {
             return fArr;
         }
         return (float[]) invokeCommon.objValue;
+    }
+
+    /* loaded from: classes2.dex */
+    public static class VideoLayoutMeasure {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public ScalingType scalingTypeMatchOrientation;
+        public ScalingType scalingTypeMismatchOrientation;
+
+        public VideoLayoutMeasure() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            ScalingType scalingType = ScalingType.SCALE_ASPECT_BALANCED;
+            this.scalingTypeMatchOrientation = scalingType;
+            this.scalingTypeMismatchOrientation = scalingType;
+        }
+
+        public Point measure(int i2, int i3, int i4, int i5) {
+            InterceptResult invokeIIII;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeIIII = interceptable.invokeIIII(1048576, this, i2, i3, i4, i5)) == null) {
+                int defaultSize = View.getDefaultSize(Integer.MAX_VALUE, i2);
+                int defaultSize2 = View.getDefaultSize(Integer.MAX_VALUE, i3);
+                if (i4 != 0 && i5 != 0 && defaultSize != 0 && defaultSize2 != 0) {
+                    float f2 = i4 / i5;
+                    Point displaySize = RendererCommon.getDisplaySize(((f2 > 1.0f ? 1 : (f2 == 1.0f ? 0 : -1)) > 0) == (((float) defaultSize) / ((float) defaultSize2) > 1.0f) ? this.scalingTypeMatchOrientation : this.scalingTypeMismatchOrientation, f2, defaultSize, defaultSize2);
+                    if (View.MeasureSpec.getMode(i2) == 1073741824) {
+                        displaySize.x = defaultSize;
+                    }
+                    if (View.MeasureSpec.getMode(i3) == 1073741824) {
+                        displaySize.y = defaultSize2;
+                    }
+                    return displaySize;
+                }
+                return new Point(defaultSize, defaultSize2);
+            }
+            return (Point) invokeIIII.objValue;
+        }
+
+        public void setScalingType(ScalingType scalingType) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, scalingType) == null) {
+                this.scalingTypeMatchOrientation = scalingType;
+                this.scalingTypeMismatchOrientation = scalingType;
+            }
+        }
+
+        public void setScalingType(ScalingType scalingType, ScalingType scalingType2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, scalingType, scalingType2) == null) {
+                this.scalingTypeMatchOrientation = scalingType;
+                this.scalingTypeMismatchOrientation = scalingType2;
+            }
+        }
+    }
+
+    public static Point getDisplaySize(float f2, float f3, int i2, int i3) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.BAIDU_LOGO_ID, null, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Integer.valueOf(i2), Integer.valueOf(i3)})) == null) {
+            if (f2 != 0.0f && f3 != 0.0f) {
+                return new Point(Math.min(i2, Math.round((i3 / f2) * f3)), Math.min(i3, Math.round((i2 / f2) / f3)));
+            }
+            return new Point(i2, i3);
+        }
+        return (Point) invokeCommon.objValue;
     }
 }

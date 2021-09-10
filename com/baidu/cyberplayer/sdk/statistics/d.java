@@ -8,6 +8,7 @@ import com.android.internal.http.multipart.Part;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.cyberplayer.sdk.CyberLog;
 import com.baidu.cyberplayer.sdk.CyberPlayerManager;
+import com.baidu.cyberplayer.sdk.CyberVersion;
 import com.baidu.cyberplayer.sdk.o;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -28,13 +29,13 @@ public class d {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f39122a;
+    public String f39230a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f39123b;
+    public String f39231b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f39124c;
+    public String f39232c;
 
     public d() {
         Interceptable interceptable = $ic;
@@ -49,10 +50,10 @@ public class d {
                 return;
             }
         }
-        this.f39122a = null;
-        this.f39123b = null;
-        this.f39124c = null;
-        this.f39124c = "video_session";
+        this.f39230a = null;
+        this.f39231b = null;
+        this.f39232c = null;
+        this.f39232c = "video_session";
         a(CyberPlayerManager.getApplicationContext());
     }
 
@@ -71,10 +72,10 @@ public class d {
                 return;
             }
         }
-        this.f39122a = null;
-        this.f39123b = null;
-        this.f39124c = null;
-        this.f39124c = str;
+        this.f39230a = null;
+        this.f39231b = null;
+        this.f39232c = null;
+        this.f39232c = str;
         a(CyberPlayerManager.getApplicationContext());
     }
 
@@ -228,15 +229,15 @@ public class d {
 
     public void a() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || TextUtils.isEmpty(this.f39122a) || TextUtils.isEmpty(this.f39123b)) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || TextUtils.isEmpty(this.f39230a) || TextUtils.isEmpty(this.f39231b)) {
             return;
         }
         ReentrantLock reentrantLock = new ReentrantLock(true);
         reentrantLock.lock();
         try {
-            String str = this.f39122a;
+            String str = this.f39230a;
             if (b(str)) {
-                String str2 = this.f39123b;
+                String str2 = this.f39231b;
                 a(str2);
                 if (b(str, str2)) {
                     a(str);
@@ -258,21 +259,21 @@ public class d {
             return;
         }
         new File(b2).mkdirs();
-        String coreVersion = CyberPlayerManager.getCoreVersion();
-        this.f39122a = b2 + File.separator + this.f39124c + "_" + coreVersion + ".bak";
-        this.f39123b = b2 + File.separator + this.f39124c + "_log_" + coreVersion + ".tmp";
+        String coreVersionInternal = CyberVersion.getCoreVersionInternal();
+        this.f39230a = b2 + File.separator + this.f39232c + "_" + coreVersionInternal + ".bak";
+        this.f39231b = b2 + File.separator + this.f39232c + "_log_" + coreVersionInternal + ".tmp";
     }
 
     public void a(byte[] bArr) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bArr) == null) || bArr == null || TextUtils.isEmpty(this.f39122a)) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bArr) == null) || bArr == null || TextUtils.isEmpty(this.f39230a)) {
             return;
         }
         ReentrantLock reentrantLock = new ReentrantLock(true);
         reentrantLock.lock();
         try {
             try {
-                a(this.f39122a, bArr, Part.CRLF);
+                a(this.f39230a, bArr, Part.CRLF);
             } catch (AssertionError unused) {
                 CyberLog.e("DpStatFileWriter", "write data to file fail");
             }
@@ -291,7 +292,7 @@ public class d {
                 FileInputStream fileInputStream = new FileInputStream(str);
                 InputStreamReader inputStreamReader = new InputStreamReader(fileInputStream, "UTF-8");
                 BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
-                String a2 = DpSessionDatasUploader.getInstance().a("sailor_monitor", this.f39124c.equals("live_show_session") ? 24 : 1);
+                String a2 = DpSessionDatasUploader.getInstance().a("sailor_monitor", this.f39232c.equals("live_show_session") ? 24 : 1);
                 if (TextUtils.isEmpty(a2)) {
                     z = true;
                 } else {

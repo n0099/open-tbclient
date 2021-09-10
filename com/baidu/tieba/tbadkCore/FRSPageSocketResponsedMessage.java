@@ -2,8 +2,8 @@ package com.baidu.tieba.tbadkCore;
 
 import androidx.core.view.InputDeviceCompat;
 import c.a.e.e.m.b;
-import c.a.q0.i3.e;
-import c.a.q0.i3.m;
+import c.a.r0.j3.e;
+import c.a.r0.j3.m;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.message.Message;
@@ -124,12 +124,12 @@ public class FRSPageSocketResponsedMessage extends MvcSocketResponsedMessage<m, 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.ResponsedMessage
     public void beforeDispatchInBackGround(int i2, byte[] bArr) {
-        int d2;
+        int e2;
         CustomResponsedMessage runTask;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048579, this, i2, bArr) == null) {
             super.beforeDispatchInBackGround(i2, (int) bArr);
-            if (this.responseData.getBookInfo() == null || StringUtils.isNull(this.responseData.getBookInfo().a(), true) || this.responseData.getBookInfo().a().equals("0") || this.responseData.getBookInfo().b() != 3 || (d2 = b.d(this.responseData.getBookInfo().a(), -1)) <= 0 || (runTask = MessageManager.getInstance().runTask(2001423, Integer.class, Long.valueOf(d2))) == null) {
+            if (this.responseData.getBookInfo() == null || StringUtils.isNull(this.responseData.getBookInfo().a(), true) || this.responseData.getBookInfo().a().equals("0") || this.responseData.getBookInfo().b() != 3 || (e2 = b.e(this.responseData.getBookInfo().a(), -1)) <= 0 || (runTask = MessageManager.getInstance().runTask(2001423, Integer.class, Long.valueOf(e2))) == null) {
                 return;
             }
             this.responseData.setMangaReadRecordChapterId(Integer.valueOf(((Integer) runTask.getData()).intValue()));

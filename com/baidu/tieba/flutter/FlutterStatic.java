@@ -7,7 +7,7 @@ import android.text.TextUtils;
 import androidx.annotation.RequiresApi;
 import androidx.core.view.InputDeviceCompat;
 import c.a.e.c.f.b;
-import c.a.q0.i3.i0.n;
+import c.a.r0.j3.i0.n;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -82,6 +82,7 @@ public class FlutterStatic {
             }
             registerFlutterRule();
             FlutterDelegateStatic.registerFlutterFragment();
+            FlutterDelegateStatic.registerInitEngine();
             FlutterNewCategoryDelegateStatic.registerFlutterFragment();
             FlutterEnterForumDelegateStatic.registerFlutterFragment();
             INativeRouter iNativeRouter = new INativeRouter() { // from class: com.baidu.tieba.flutter.FlutterStatic.1

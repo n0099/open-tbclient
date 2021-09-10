@@ -16,7 +16,7 @@ public final class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final c f32168a;
+    public static final c f32277a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c.f.a.f.a$a  reason: collision with other inner class name */
@@ -124,21 +124,21 @@ public final class a {
             }
         }
         if (Build.VERSION.SDK_INT >= 23) {
-            f32168a = new b(null);
+            f32277a = new b(null);
         } else {
-            f32168a = new c(null);
+            f32277a = new c(null);
         }
     }
 
     public static int a(@NonNull Context context, @NonNull String str, @NonNull String str2) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, context, str, str2)) == null) ? f32168a.a(context, str, str2) : invokeLLL.intValue;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, context, str, str2)) == null) ? f32277a.a(context, str, str2) : invokeLLL.intValue;
     }
 
     public static String b(@NonNull String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? f32168a.b(str) : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? f32277a.b(str) : (String) invokeL.objValue;
     }
 }

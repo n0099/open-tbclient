@@ -9,10 +9,11 @@ import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import c.a.e.a.h;
 import com.baidu.adp.base.BdBaseApplication;
-import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.launch.stats.SpeedStatsManager;
+import com.baidu.searchbox.launch.stats.SpeedStatsStampTable;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.ContinuousAnimationView;
@@ -126,8 +127,10 @@ public class TbFlutterFragment extends FlutterFragment {
     public void onAttach(@NonNull Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
+            SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.FLUTTER_FRAGMENT_ATTACH_START_KEY);
             super.onAttach(context);
-            MessageManager.getInstance().registerListener(this.skinTypeChangeListener);
+            registerListener(this.skinTypeChangeListener);
+            SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.FLUTTER_FRAGMENT_ATTACH_END_KEY);
         }
     }
 

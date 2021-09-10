@@ -22,37 +22,37 @@ public final class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final s f31594a;
+    public final s f31703a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final o f31595b;
+    public final o f31704b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final SocketFactory f31596c;
+    public final SocketFactory f31705c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final b f31597d;
+    public final b f31706d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final List<Protocol> f31598e;
+    public final List<Protocol> f31707e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final List<k> f31599f;
+    public final List<k> f31708f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final ProxySelector f31600g;
+    public final ProxySelector f31709g;
     @Nullable
 
     /* renamed from: h  reason: collision with root package name */
-    public final Proxy f31601h;
+    public final Proxy f31710h;
     @Nullable
 
     /* renamed from: i  reason: collision with root package name */
-    public final SSLSocketFactory f31602i;
+    public final SSLSocketFactory f31711i;
     @Nullable
 
     /* renamed from: j  reason: collision with root package name */
-    public final HostnameVerifier f31603j;
+    public final HostnameVerifier f31712j;
     @Nullable
     public final g k;
 
@@ -75,22 +75,22 @@ public final class a {
         aVar.q(sSLSocketFactory != null ? "https" : "http");
         aVar.e(str);
         aVar.l(i2);
-        this.f31594a = aVar.a();
+        this.f31703a = aVar.a();
         if (oVar != null) {
-            this.f31595b = oVar;
+            this.f31704b = oVar;
             if (socketFactory != null) {
-                this.f31596c = socketFactory;
+                this.f31705c = socketFactory;
                 if (bVar != null) {
-                    this.f31597d = bVar;
+                    this.f31706d = bVar;
                     if (list != null) {
-                        this.f31598e = c.d.b.e0.e.s(list);
+                        this.f31707e = c.d.b.e0.e.s(list);
                         if (list2 != null) {
-                            this.f31599f = c.d.b.e0.e.s(list2);
+                            this.f31708f = c.d.b.e0.e.s(list2);
                             if (proxySelector != null) {
-                                this.f31600g = proxySelector;
-                                this.f31601h = proxy;
-                                this.f31602i = sSLSocketFactory;
-                                this.f31603j = hostnameVerifier;
+                                this.f31709g = proxySelector;
+                                this.f31710h = proxy;
+                                this.f31711i = sSLSocketFactory;
+                                this.f31712j = hostnameVerifier;
                                 this.k = gVar;
                                 return;
                             }
@@ -117,26 +117,26 @@ public final class a {
     public List<k> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f31599f : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f31708f : (List) invokeV.objValue;
     }
 
     public o c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f31595b : (o) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f31704b : (o) invokeV.objValue;
     }
 
     public boolean d(a aVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, aVar)) == null) ? this.f31595b.equals(aVar.f31595b) && this.f31597d.equals(aVar.f31597d) && this.f31598e.equals(aVar.f31598e) && this.f31599f.equals(aVar.f31599f) && this.f31600g.equals(aVar.f31600g) && c.d.b.e0.e.p(this.f31601h, aVar.f31601h) && c.d.b.e0.e.p(this.f31602i, aVar.f31602i) && c.d.b.e0.e.p(this.f31603j, aVar.f31603j) && c.d.b.e0.e.p(this.k, aVar.k) && l().w() == aVar.l().w() : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, aVar)) == null) ? this.f31704b.equals(aVar.f31704b) && this.f31706d.equals(aVar.f31706d) && this.f31707e.equals(aVar.f31707e) && this.f31708f.equals(aVar.f31708f) && this.f31709g.equals(aVar.f31709g) && c.d.b.e0.e.p(this.f31710h, aVar.f31710h) && c.d.b.e0.e.p(this.f31711i, aVar.f31711i) && c.d.b.e0.e.p(this.f31712j, aVar.f31712j) && c.d.b.e0.e.p(this.k, aVar.k) && l().w() == aVar.l().w() : invokeL.booleanValue;
     }
 
     @Nullable
     public HostnameVerifier e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f31603j : (HostnameVerifier) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f31712j : (HostnameVerifier) invokeV.objValue;
     }
 
     public boolean equals(@Nullable Object obj) {
@@ -145,7 +145,7 @@ public final class a {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
             if (obj instanceof a) {
                 a aVar = (a) obj;
-                if (this.f31594a.equals(aVar.f31594a) && d(aVar)) {
+                if (this.f31703a.equals(aVar.f31703a) && d(aVar)) {
                     return true;
                 }
             }
@@ -157,32 +157,32 @@ public final class a {
     public List<Protocol> f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f31598e : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f31707e : (List) invokeV.objValue;
     }
 
     @Nullable
     public Proxy g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f31601h : (Proxy) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f31710h : (Proxy) invokeV.objValue;
     }
 
     public b h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f31597d : (b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f31706d : (b) invokeV.objValue;
     }
 
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            int hashCode = (((((((((((527 + this.f31594a.hashCode()) * 31) + this.f31595b.hashCode()) * 31) + this.f31597d.hashCode()) * 31) + this.f31598e.hashCode()) * 31) + this.f31599f.hashCode()) * 31) + this.f31600g.hashCode()) * 31;
-            Proxy proxy = this.f31601h;
+            int hashCode = (((((((((((527 + this.f31703a.hashCode()) * 31) + this.f31704b.hashCode()) * 31) + this.f31706d.hashCode()) * 31) + this.f31707e.hashCode()) * 31) + this.f31708f.hashCode()) * 31) + this.f31709g.hashCode()) * 31;
+            Proxy proxy = this.f31710h;
             int hashCode2 = (hashCode + (proxy != null ? proxy.hashCode() : 0)) * 31;
-            SSLSocketFactory sSLSocketFactory = this.f31602i;
+            SSLSocketFactory sSLSocketFactory = this.f31711i;
             int hashCode3 = (hashCode2 + (sSLSocketFactory != null ? sSLSocketFactory.hashCode() : 0)) * 31;
-            HostnameVerifier hostnameVerifier = this.f31603j;
+            HostnameVerifier hostnameVerifier = this.f31712j;
             int hashCode4 = (hashCode3 + (hostnameVerifier != null ? hostnameVerifier.hashCode() : 0)) * 31;
             g gVar = this.k;
             return hashCode4 + (gVar != null ? gVar.hashCode() : 0);
@@ -193,26 +193,26 @@ public final class a {
     public ProxySelector i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f31600g : (ProxySelector) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f31709g : (ProxySelector) invokeV.objValue;
     }
 
     public SocketFactory j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f31596c : (SocketFactory) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f31705c : (SocketFactory) invokeV.objValue;
     }
 
     @Nullable
     public SSLSocketFactory k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f31602i : (SSLSocketFactory) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f31711i : (SSLSocketFactory) invokeV.objValue;
     }
 
     public s l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f31594a : (s) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f31703a : (s) invokeV.objValue;
     }
 
     public String toString() {
@@ -221,15 +221,15 @@ public final class a {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
             StringBuilder sb = new StringBuilder();
             sb.append("Address{");
-            sb.append(this.f31594a.l());
+            sb.append(this.f31703a.l());
             sb.append(":");
-            sb.append(this.f31594a.w());
-            if (this.f31601h != null) {
+            sb.append(this.f31703a.w());
+            if (this.f31710h != null) {
                 sb.append(", proxy=");
-                sb.append(this.f31601h);
+                sb.append(this.f31710h);
             } else {
                 sb.append(", proxySelector=");
-                sb.append(this.f31600g);
+                sb.append(this.f31709g);
             }
             sb.append("}");
             return sb.toString();

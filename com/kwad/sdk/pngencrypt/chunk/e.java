@@ -14,13 +14,13 @@ public class e {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public List<PngChunk> f72967a;
+    public List<PngChunk> f73147a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final com.kwad.sdk.pngencrypt.k f72968b;
+    public final com.kwad.sdk.pngencrypt.k f73148b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f72969c;
+    public boolean f73149c;
 
     public e(com.kwad.sdk.pngencrypt.k kVar) {
         Interceptable interceptable = $ic;
@@ -37,9 +37,9 @@ public class e {
                 return;
             }
         }
-        this.f72967a = new ArrayList();
-        this.f72969c = false;
-        this.f72968b = kVar;
+        this.f73147a = new ArrayList();
+        this.f73149c = false;
+        this.f73148b = kVar;
     }
 
     public static List<PngChunk> a(List<PngChunk> list, String str, String str2) {
@@ -50,7 +50,7 @@ public class e {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ String f72970a;
+            public final /* synthetic */ String f73150a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -67,24 +67,24 @@ public class e {
                         return;
                     }
                 }
-                this.f72970a = str;
+                this.f73150a = str;
             }
 
             @Override // com.kwad.sdk.pngencrypt.chunk.c
             public boolean a(PngChunk pngChunk) {
                 InterceptResult invokeL;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, pngChunk)) == null) ? pngChunk.f72935a.equals(this.f72970a) : invokeL.booleanValue;
+                return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, pngChunk)) == null) ? pngChunk.f73115a.equals(this.f73150a) : invokeL.booleanValue;
             }
         }) : b.a(list, new c(str, str2) { // from class: com.kwad.sdk.pngencrypt.chunk.e.2
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ String f72971a;
+            public final /* synthetic */ String f73151a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ String f72972b;
+            public final /* synthetic */ String f73152b;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -101,8 +101,8 @@ public class e {
                         return;
                     }
                 }
-                this.f72971a = str;
-                this.f72972b = str2;
+                this.f73151a = str;
+                this.f73152b = str2;
             }
 
             @Override // com.kwad.sdk.pngencrypt.chunk.c
@@ -110,9 +110,9 @@ public class e {
                 InterceptResult invokeL;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, pngChunk)) == null) {
-                    if (pngChunk.f72935a.equals(this.f72971a)) {
-                        if (!(pngChunk instanceof ae) || ((ae) pngChunk).c().equals(this.f72972b)) {
-                            return !(pngChunk instanceof x) || ((x) pngChunk).c().equals(this.f72972b);
+                    if (pngChunk.f73115a.equals(this.f73151a)) {
+                        if (!(pngChunk instanceof ae) || ((ae) pngChunk).c().equals(this.f73152b)) {
+                            return !(pngChunk instanceof x) || ((x) pngChunk).c().equals(this.f73152b);
                         }
                         return false;
                     }
@@ -126,22 +126,22 @@ public class e {
     public List<PngChunk> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f72967a : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f73147a : (List) invokeV.objValue;
     }
 
     public List<? extends PngChunk> a(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) ? a(this.f72967a, str, str2) : (List) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) ? a(this.f73147a, str, str2) : (List) invokeLL.objValue;
     }
 
     public void a(PngChunk pngChunk, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, pngChunk, i2) == null) {
             pngChunk.a(i2);
-            this.f72967a.add(pngChunk);
-            if (pngChunk.f72935a.equals("PLTE")) {
-                this.f72969c = true;
+            this.f73147a.add(pngChunk);
+            if (pngChunk.f73115a.equals("PLTE")) {
+                this.f73149c = true;
             }
         }
     }
@@ -150,7 +150,7 @@ public class e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return "ChunkList: read: " + this.f72967a.size();
+            return "ChunkList: read: " + this.f73147a.size();
         }
         return (String) invokeV.objValue;
     }

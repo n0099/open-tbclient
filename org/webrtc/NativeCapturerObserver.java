@@ -53,25 +53,6 @@ public class NativeCapturerObserver implements CapturerObserver {
         this.surfaceTextureHelper = null;
     }
 
-    public NativeCapturerObserver(long j2, SurfaceTextureHelper surfaceTextureHelper) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j2), surfaceTextureHelper};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.nativeSource = j2;
-        this.surfaceTextureHelper = surfaceTextureHelper;
-    }
-
     public static native void nativeCapturerStarted(long j2, boolean z);
 
     public static native void nativeCapturerStopped(long j2);
@@ -120,5 +101,24 @@ public class NativeCapturerObserver implements CapturerObserver {
             }
             nativeOnFrameCaptured(this.nativeSource, videoFrame.getBuffer().getWidth(), videoFrame.getBuffer().getHeight(), videoFrame.getRotation(), videoFrame.getTimestampNs(), videoFrame.getBuffer());
         }
+    }
+
+    public NativeCapturerObserver(long j2, SurfaceTextureHelper surfaceTextureHelper) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Long.valueOf(j2), surfaceTextureHelper};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.nativeSource = j2;
+        this.surfaceTextureHelper = surfaceTextureHelper;
     }
 }

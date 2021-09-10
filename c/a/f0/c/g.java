@@ -19,22 +19,22 @@ public class g implements Cloneable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f3435e;
+    public String f3426e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Uri f3436f;
+    public Uri f3427f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f3437g;
+    public int f3428g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String[] f3438h;
+    public String[] f3429h;
 
     /* renamed from: i  reason: collision with root package name */
-    public HashMap<String, String> f3439i;
+    public HashMap<String, String> f3430i;
 
     /* renamed from: j  reason: collision with root package name */
-    public boolean f3440j;
+    public boolean f3431j;
     public g k;
     public boolean l;
     public JSONObject m;
@@ -71,14 +71,14 @@ public class g implements Cloneable {
                 return;
             }
         }
-        this.f3435e = UnitedSchemeConstants.SCHEME_INVOKE_TYPE_INSIDE;
-        this.f3437g = -1;
-        this.f3440j = false;
+        this.f3426e = UnitedSchemeConstants.SCHEME_INVOKE_TYPE_INSIDE;
+        this.f3428g = -1;
+        this.f3431j = false;
         this.l = false;
-        this.f3435e = str;
-        this.f3436f = uri;
-        this.f3438h = j.c(uri);
-        this.f3439i = j.b(uri.toString());
+        this.f3426e = str;
+        this.f3427f = uri;
+        this.f3429h = j.c(uri);
+        this.f3430i = j.b(uri.toString());
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -87,8 +87,8 @@ public class g implements Cloneable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            Uri uri = this.f3436f;
-            g gVar = new g(uri, this.f3435e, j.c(uri), (HashMap) this.f3439i.clone());
+            Uri uri = this.f3427f;
+            g gVar = new g(uri, this.f3426e, j.c(uri), (HashMap) this.f3430i.clone());
             gVar.k = this;
             gVar.l = this.l;
             gVar.n = this.n;
@@ -102,12 +102,12 @@ public class g implements Cloneable {
         String path;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            Uri uri = this.f3436f;
+            Uri uri = this.f3427f;
             if (uri != null) {
-                if (j.d(uri) && (path = this.f3436f.getPath()) != null && path.length() > 1) {
-                    return this.f3436f.getPath().substring(1);
+                if (j.d(uri) && (path = this.f3427f.getPath()) != null && path.length() > 1) {
+                    return this.f3427f.getPath().substring(1);
                 }
-                return this.f3436f.getHost() + this.f3436f.getPath();
+                return this.f3427f.getHost() + this.f3427f.getPath();
             }
             return "";
         }
@@ -117,19 +117,19 @@ public class g implements Cloneable {
     public HashMap<String, String> f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f3439i : (HashMap) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f3430i : (HashMap) invokeV.objValue;
     }
 
     public String g(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048580, this, z)) == null) {
-            if (this.f3438h != null) {
+            if (this.f3429h != null) {
                 if (z) {
-                    this.f3437g++;
+                    this.f3428g++;
                 }
-                int i2 = this.f3437g;
-                String[] strArr = this.f3438h;
+                int i2 = this.f3428g;
+                String[] strArr = this.f3429h;
                 if (i2 < strArr.length) {
                     return strArr[i2];
                 }
@@ -143,30 +143,30 @@ public class g implements Cloneable {
     public Uri h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f3436f : (Uri) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f3427f : (Uri) invokeV.objValue;
     }
 
     public boolean i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f3440j : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f3431j : invokeV.booleanValue;
     }
 
     public void j(String str, String str2) {
         Uri uri;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048583, this, str, str2) == null) || (uri = this.f3436f) == null || str == null || str2 == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048583, this, str, str2) == null) || (uri = this.f3427f) == null || str == null || str2 == null) {
             return;
         }
         Uri parse = Uri.parse(uri.toString().replace(str, str2));
-        this.f3436f = parse;
-        this.f3438h = j.c(parse);
+        this.f3427f = parse;
+        this.f3429h = j.c(parse);
     }
 
     public void k(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
-            this.f3440j = z;
+            this.f3431j = z;
         }
     }
 
@@ -185,13 +185,13 @@ public class g implements Cloneable {
                 return;
             }
         }
-        this.f3435e = UnitedSchemeConstants.SCHEME_INVOKE_TYPE_INSIDE;
-        this.f3437g = -1;
-        this.f3440j = false;
+        this.f3426e = UnitedSchemeConstants.SCHEME_INVOKE_TYPE_INSIDE;
+        this.f3428g = -1;
+        this.f3431j = false;
         this.l = false;
-        this.f3436f = uri;
-        this.f3435e = str;
-        this.f3438h = strArr;
-        this.f3439i = hashMap;
+        this.f3427f = uri;
+        this.f3426e = str;
+        this.f3429h = strArr;
+        this.f3430i = hashMap;
     }
 }

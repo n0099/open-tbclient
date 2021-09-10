@@ -13,36 +13,36 @@ public final class j {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final int f32538a;
+    public final int f32647a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f32539b;
+    public final int f32648b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final long f32540c;
+    public final long f32649c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final long f32541d;
+    public final long f32650d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final long f32542e;
+    public final long f32651e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final Format f32543f;
+    public final Format f32652f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final int f32544g;
+    public final int f32653g;
     @Nullable
 
     /* renamed from: h  reason: collision with root package name */
-    public final long[] f32545h;
+    public final long[] f32654h;
     @Nullable
 
     /* renamed from: i  reason: collision with root package name */
-    public final long[] f32546i;
+    public final long[] f32655i;
 
     /* renamed from: j  reason: collision with root package name */
-    public final int f32547j;
+    public final int f32656j;
     @Nullable
     public final k[] k;
 
@@ -61,17 +61,17 @@ public final class j {
                 return;
             }
         }
-        this.f32538a = i2;
-        this.f32539b = i3;
-        this.f32540c = j2;
-        this.f32541d = j3;
-        this.f32542e = j4;
-        this.f32543f = format;
-        this.f32544g = i4;
+        this.f32647a = i2;
+        this.f32648b = i3;
+        this.f32649c = j2;
+        this.f32650d = j3;
+        this.f32651e = j4;
+        this.f32652f = format;
+        this.f32653g = i4;
         this.k = kVarArr;
-        this.f32547j = i5;
-        this.f32545h = jArr;
-        this.f32546i = jArr2;
+        this.f32656j = i5;
+        this.f32654h = jArr;
+        this.f32655i = jArr2;
     }
 
     public k a(int i2) {

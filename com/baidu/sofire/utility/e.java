@@ -29,7 +29,7 @@ public final class e {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f45317a = "";
+    public static String f45432a = "";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -73,22 +73,22 @@ public final class e {
         if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, context)) == null) {
             synchronized (e.class) {
                 try {
-                    if (!TextUtils.isEmpty(f45317a)) {
-                        return f45317a;
+                    if (!TextUtils.isEmpty(f45432a)) {
+                        return f45432a;
                     }
                     com.baidu.sofire.h.a a2 = com.baidu.sofire.h.a.a(context);
                     String l = a2.l();
                     if (!TextUtils.isEmpty(l)) {
                         String e2 = c.e(l);
                         if (!TextUtils.isEmpty(e2)) {
-                            f45317a = e2;
+                            f45432a = e2;
                             return e2;
                         }
                     }
                     String k = a2.k();
                     if (!TextUtils.isEmpty(k)) {
                         a2.c(new String(Base64.encode(g.a("30212102dicudiab".getBytes(), k.getBytes("UTF-8"), true), 10), "UTF-8"));
-                        f45317a = k;
+                        f45432a = k;
                         return k;
                     }
                     String g2 = g(context);
@@ -102,10 +102,10 @@ public final class e {
                     if (TextUtils.isEmpty(k2)) {
                         a2.b(str);
                         a2.c(str2);
-                        f45317a = str;
+                        f45432a = str;
                         return str;
                     }
-                    f45317a = k2;
+                    f45432a = k2;
                     return k2;
                 } catch (Throwable unused) {
                     c.a();
@@ -122,7 +122,7 @@ public final class e {
         if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, context)) == null) {
             try {
                 com.baidu.sofire.h.a a2 = com.baidu.sofire.h.a.a(context);
-                String string = a2.f45226c.getString("sgud", "");
+                String string = a2.f45341c.getString("sgud", "");
                 if (TextUtils.isEmpty(string)) {
                     if (Build.VERSION.SDK_INT > 25) {
                         return "";
@@ -140,8 +140,8 @@ public final class e {
                     if (TextUtils.isEmpty(a3)) {
                         return "";
                     }
-                    a2.f45227d.putString("sgud", a3);
-                    a2.f45227d.commit();
+                    a2.f45342d.putString("sgud", a3);
+                    a2.f45342d.commit();
                     return a3;
                 }
                 return string;

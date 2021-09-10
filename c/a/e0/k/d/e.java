@@ -37,9 +37,9 @@ public class e extends Handler {
         if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
             super.handleMessage(message);
             f fVar = (f) message.obj;
-            ImageView imageView = fVar.f3144a;
-            if (((String) imageView.getTag()).equals(fVar.f3145b)) {
-                imageView.setImageBitmap(fVar.f3146c);
+            ImageView imageView = fVar.f3135a;
+            if (((String) imageView.getTag()).equals(fVar.f3136b)) {
+                imageView.setImageBitmap(fVar.f3137c);
             } else {
                 c.a.e0.n.d.e("不是最新数据");
             }

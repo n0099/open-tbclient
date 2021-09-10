@@ -13,10 +13,10 @@ public class b extends HttpClient.ProtoResultCallback {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ a.InterfaceC1689a f44200a;
+    public final /* synthetic */ a.InterfaceC1689a f44315a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ a f44201b;
+    public final /* synthetic */ a f44316b;
 
     public b(a aVar, a.InterfaceC1689a interfaceC1689a) {
         Interceptable interceptable = $ic;
@@ -33,15 +33,15 @@ public class b extends HttpClient.ProtoResultCallback {
                 return;
             }
         }
-        this.f44201b = aVar;
-        this.f44200a = interfaceC1689a;
+        this.f44316b = aVar;
+        this.f44315a = interfaceC1689a;
     }
 
     @Override // com.baidu.mapapi.http.HttpClient.ProtoResultCallback
     public void onFailed(HttpClient.HttpStateError httpStateError) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, httpStateError) == null) {
-            this.f44200a.a(httpStateError);
+            this.f44315a.a(httpStateError);
         }
     }
 
@@ -50,8 +50,8 @@ public class b extends HttpClient.ProtoResultCallback {
         c a2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            a.InterfaceC1689a interfaceC1689a = this.f44200a;
-            a2 = this.f44201b.a(str);
+            a.InterfaceC1689a interfaceC1689a = this.f44315a;
+            a2 = this.f44316b.a(str);
             interfaceC1689a.a((a.InterfaceC1689a) a2);
         }
     }

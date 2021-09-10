@@ -11,7 +11,7 @@ import io.reactivex.Scheduler;
 import io.reactivex.exceptions.Exceptions;
 import io.reactivex.functions.Function;
 import java.util.concurrent.Callable;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class RxAndroidPlugins {
     public static /* synthetic */ Interceptable $ic;
     public static volatile Function<Callable<Scheduler>, Scheduler> onInitMainThreadHandler;

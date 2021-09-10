@@ -14,13 +14,13 @@ public final class k implements e.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Context f33631a;
+    public final Context f33740a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final p<? super e> f33632b;
+    public final p<? super e> f33741b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final e.a f33633c;
+    public final e.a f33742c;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public k(Context context, String str) {
@@ -49,7 +49,7 @@ public final class k implements e.a {
     public j a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new j(this.f33631a, this.f33632b, this.f33633c.a()) : (j) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new j(this.f33740a, this.f33741b, this.f33742c.a()) : (j) invokeV.objValue;
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -88,8 +88,8 @@ public final class k implements e.a {
                 return;
             }
         }
-        this.f33631a = context.getApplicationContext();
-        this.f33632b = pVar;
-        this.f33633c = aVar;
+        this.f33740a = context.getApplicationContext();
+        this.f33741b = pVar;
+        this.f33742c = aVar;
     }
 }

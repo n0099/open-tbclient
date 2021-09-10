@@ -14,13 +14,13 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public File f1600a;
+    public String f1600a;
 
     /* renamed from: b  reason: collision with root package name */
-    public CharSequence f1601b;
+    public File f1601b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f1602c;
+    public CharSequence f1602c;
 
     /* loaded from: classes.dex */
     public static class a {
@@ -28,7 +28,7 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public CharSequence f1603a;
+        public String f1603a;
 
         /* renamed from: b  reason: collision with root package name */
         public File f1604b;
@@ -37,7 +37,7 @@ public class b {
         public CharSequence f1605c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f1606d;
+        public CharSequence f1606d;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -56,7 +56,7 @@ public class b {
         public b a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new b(this.f1606d, this.f1604b, this.f1605c, this.f1603a) : (b) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new b(this.f1603a, this.f1604b, this.f1605c, this.f1606d) : (b) invokeV.objValue;
         }
 
         public a b(File file) {
@@ -83,7 +83,7 @@ public class b {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-                this.f1606d = str;
+                this.f1603a = str;
                 return this;
             }
             return (a) invokeL.objValue;
@@ -105,25 +105,25 @@ public class b {
                 return;
             }
         }
-        this.f1602c = str;
-        this.f1600a = file;
-        this.f1601b = charSequence;
+        this.f1600a = str;
+        this.f1601b = file;
+        this.f1602c = charSequence;
     }
 
     public File a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f1600a : (File) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f1601b : (File) invokeV.objValue;
     }
 
     public CharSequence b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (TextUtils.isEmpty(this.f1601b)) {
-                this.f1601b = c.a.a.c.d.b.a(c());
+            if (TextUtils.isEmpty(this.f1602c)) {
+                this.f1602c = c.a.a.c.d.b.a(c());
             }
-            return this.f1601b;
+            return this.f1602c;
         }
         return (CharSequence) invokeV.objValue;
     }
@@ -131,6 +131,6 @@ public class b {
     public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f1602c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f1600a : (String) invokeV.objValue;
     }
 }

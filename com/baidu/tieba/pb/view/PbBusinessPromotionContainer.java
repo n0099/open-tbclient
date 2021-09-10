@@ -7,8 +7,8 @@ import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import c.a.e.e.p.l;
-import c.a.p0.s.q.c2;
-import c.a.p0.s.q.y1;
+import c.a.q0.s.q.d2;
+import c.a.q0.s.q.z1;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -33,22 +33,22 @@ public class PbBusinessPromotionContainer extends RelativeLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public RelativeLayout f55519e;
+    public RelativeLayout f55677e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TbImageView f55520f;
+    public TbImageView f55678f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f55521g;
+    public TextView f55679g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f55522h;
+    public TextView f55680h;
 
     /* renamed from: i  reason: collision with root package name */
-    public c2 f55523i;
+    public d2 f55681i;
 
     /* renamed from: j  reason: collision with root package name */
-    public View.OnClickListener f55524j;
+    public View.OnClickListener f55682j;
     public boolean k;
     public boolean l;
     public boolean m;
@@ -62,7 +62,7 @@ public class PbBusinessPromotionContainer extends RelativeLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PbBusinessPromotionContainer f55525e;
+        public final /* synthetic */ PbBusinessPromotionContainer f55683e;
 
         public a(PbBusinessPromotionContainer pbBusinessPromotionContainer) {
             Interceptable interceptable = $ic;
@@ -79,16 +79,16 @@ public class PbBusinessPromotionContainer extends RelativeLayout {
                     return;
                 }
             }
-            this.f55525e = pbBusinessPromotionContainer;
+            this.f55683e = pbBusinessPromotionContainer;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                view.setTag(this.f55525e.f55523i);
-                if (this.f55525e.f55524j != null) {
-                    this.f55525e.f55524j.onClick(view);
+                view.setTag(this.f55683e.f55681i);
+                if (this.f55683e.f55682j != null) {
+                    this.f55683e.f55682j.onClick(view);
                 }
             }
         }
@@ -100,7 +100,7 @@ public class PbBusinessPromotionContainer extends RelativeLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PbBusinessPromotionContainer f55526a;
+        public final /* synthetic */ PbBusinessPromotionContainer f55684a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(PbBusinessPromotionContainer pbBusinessPromotionContainer, int i2) {
@@ -120,7 +120,7 @@ public class PbBusinessPromotionContainer extends RelativeLayout {
                     return;
                 }
             }
-            this.f55526a = pbBusinessPromotionContainer;
+            this.f55684a = pbBusinessPromotionContainer;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -129,9 +129,9 @@ public class PbBusinessPromotionContainer extends RelativeLayout {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof Long)) {
                 long longValue = ((Long) customResponsedMessage.getData()).longValue();
-                if (this.f55526a.f55523i != null && this.f55526a.f55523i.T() == longValue && this.f55526a.m) {
-                    this.f55526a.l = false;
-                    this.f55526a.g();
+                if (this.f55684a.f55681i != null && this.f55684a.f55681i.T() == longValue && this.f55684a.m) {
+                    this.f55684a.l = false;
+                    this.f55684a.g();
                 }
             }
         }
@@ -143,7 +143,7 @@ public class PbBusinessPromotionContainer extends RelativeLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PbBusinessPromotionContainer f55527a;
+        public final /* synthetic */ PbBusinessPromotionContainer f55685a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public c(PbBusinessPromotionContainer pbBusinessPromotionContainer, int i2) {
@@ -163,7 +163,7 @@ public class PbBusinessPromotionContainer extends RelativeLayout {
                     return;
                 }
             }
-            this.f55527a = pbBusinessPromotionContainer;
+            this.f55685a = pbBusinessPromotionContainer;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -172,9 +172,9 @@ public class PbBusinessPromotionContainer extends RelativeLayout {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof Long)) {
                 long longValue = ((Long) customResponsedMessage.getData()).longValue();
-                if (this.f55527a.f55523i != null && this.f55527a.f55523i.T() == longValue && this.f55527a.m) {
-                    this.f55527a.l = true;
-                    this.f55527a.g();
+                if (this.f55685a.f55681i != null && this.f55685a.f55681i.T() == longValue && this.f55685a.m) {
+                    this.f55685a.l = true;
+                    this.f55685a.g();
                 }
             }
         }
@@ -218,21 +218,21 @@ public class PbBusinessPromotionContainer extends RelativeLayout {
         }
     }
 
-    public void bindForumData(c2 c2Var, y1 y1Var, boolean z) {
+    public void bindForumData(d2 d2Var, z1 z1Var, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(1048576, this, c2Var, y1Var, z) == null) {
-            if (c2Var != null && y1Var != null && !StringUtils.isNull(y1Var.getForumName())) {
-                this.f55523i = c2Var;
+        if (interceptable == null || interceptable.invokeLLZ(1048576, this, d2Var, z1Var, z) == null) {
+            if (d2Var != null && z1Var != null && !StringUtils.isNull(z1Var.getForumName())) {
+                this.f55681i = d2Var;
                 f(z);
                 this.m = true;
                 setVisibility(0);
-                this.f55520f.startLoad(y1Var.b(), 10, false);
-                this.f55521g.setText(y1Var.getForumName());
+                this.f55678f.startLoad(z1Var.b(), 10, false);
+                this.f55679g.setText(z1Var.getForumName());
                 if (this.k) {
                     return;
                 }
                 this.k = true;
-                this.l = y1Var.getIsLike();
+                this.l = z1Var.getIsLike();
                 g();
                 return;
             }
@@ -271,38 +271,38 @@ public class PbBusinessPromotionContainer extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             if (this.l) {
-                this.f55522h.setText(getResources().getString(R.string.followed));
-                SkinManager.setViewTextColor(this.f55522h, R.color.CAM_X0109);
-                SkinManager.setBackgroundResource(this.f55522h, 17170445);
-                this.f55522h.setOnClickListener(null);
+                this.f55680h.setText(getResources().getString(R.string.followed));
+                SkinManager.setViewTextColor(this.f55680h, R.color.CAM_X0109);
+                SkinManager.setBackgroundResource(this.f55680h, 17170445);
+                this.f55680h.setOnClickListener(null);
                 return;
             }
-            this.f55522h.setText(getResources().getString(R.string.attention));
-            SkinManager.setViewTextColor(this.f55522h, R.color.CAM_X0101);
-            SkinManager.setBackgroundResource(this.f55522h, R.drawable.pb_business_promotion_attention_bg);
-            this.f55522h.setOnClickListener(this.n);
+            this.f55680h.setText(getResources().getString(R.string.attention));
+            SkinManager.setViewTextColor(this.f55680h, R.color.CAM_X0101);
+            SkinManager.setBackgroundResource(this.f55680h, R.drawable.pb_business_promotion_attention_bg);
+            this.f55680h.setOnClickListener(this.n);
         }
     }
 
     public void onChangeSkinType() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            SkinManager.setViewTextColor(this.f55521g, R.color.CAM_X0105);
-            SkinManager.setBackgroundResource(this.f55519e, R.drawable.pb_business_promotion_bg);
+            SkinManager.setViewTextColor(this.f55679g, R.color.CAM_X0105);
+            SkinManager.setBackgroundResource(this.f55677e, R.drawable.pb_business_promotion_bg);
             if (this.l) {
-                SkinManager.setViewTextColor(this.f55522h, R.color.CAM_X0109);
-                SkinManager.setBackgroundResource(this.f55522h, 17170445);
+                SkinManager.setViewTextColor(this.f55680h, R.color.CAM_X0109);
+                SkinManager.setBackgroundResource(this.f55680h, 17170445);
                 return;
             }
-            SkinManager.setViewTextColor(this.f55522h, R.color.CAM_X0101);
-            SkinManager.setBackgroundResource(this.f55522h, R.drawable.pb_business_promotion_attention_bg);
+            SkinManager.setViewTextColor(this.f55680h, R.color.CAM_X0101);
+            SkinManager.setBackgroundResource(this.f55680h, R.drawable.pb_business_promotion_attention_bg);
         }
     }
 
     public void setAfterItemClickListener(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, onClickListener) == null) {
-            this.f55524j = onClickListener;
+            this.f55682j = onClickListener;
         }
     }
 
@@ -353,15 +353,15 @@ public class PbBusinessPromotionContainer extends RelativeLayout {
         this.o = new b(this, 2001336);
         this.p = new c(this, 2001335);
         LayoutInflater.from(context).inflate(R.layout.layout_pb_business_promotion, this);
-        this.f55519e = (RelativeLayout) findViewById(R.id.id_pb_business_promotion_wrapper);
-        this.f55520f = (TbImageView) findViewById(R.id.id_pb_business_promotion_avatar);
-        this.f55521g = (TextView) findViewById(R.id.id_pb_business_promotion_forum_name);
-        this.f55522h = (TextView) findViewById(R.id.id_pb_business_promotion_attention);
-        this.f55520f.setRadius(l.g(context, R.dimen.tbds24));
-        this.f55520f.setConrers(5);
-        this.f55520f.setDefaultResource(17170445);
-        this.f55520f.setDefaultBgResource(17170445);
-        this.f55519e.setOnClickListener(this.n);
+        this.f55677e = (RelativeLayout) findViewById(R.id.id_pb_business_promotion_wrapper);
+        this.f55678f = (TbImageView) findViewById(R.id.id_pb_business_promotion_avatar);
+        this.f55679g = (TextView) findViewById(R.id.id_pb_business_promotion_forum_name);
+        this.f55680h = (TextView) findViewById(R.id.id_pb_business_promotion_attention);
+        this.f55678f.setRadius(l.g(context, R.dimen.tbds24));
+        this.f55678f.setConrers(5);
+        this.f55678f.setDefaultResource(17170445);
+        this.f55678f.setDefaultBgResource(17170445);
+        this.f55677e.setOnClickListener(this.n);
         MessageManager.getInstance().registerListener(this.p);
         MessageManager.getInstance().registerListener(this.o);
     }

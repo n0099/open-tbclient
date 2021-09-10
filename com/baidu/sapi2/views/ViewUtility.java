@@ -36,7 +36,7 @@ public class ViewUtility implements NoProguard {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ float f44873a;
+        public final /* synthetic */ float f44988a;
 
         public a(float f2) {
             Interceptable interceptable = $ic;
@@ -53,7 +53,7 @@ public class ViewUtility implements NoProguard {
                     return;
                 }
             }
-            this.f44873a = f2;
+            this.f44988a = f2;
         }
 
         @Override // android.view.View.OnTouchListener
@@ -69,7 +69,7 @@ public class ViewUtility implements NoProguard {
                     }
                     return false;
                 } else if (Build.VERSION.SDK_INT >= 11) {
-                    view.setAlpha(this.f44873a);
+                    view.setAlpha(this.f44988a);
                     return false;
                 } else {
                     return false;

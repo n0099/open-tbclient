@@ -16,7 +16,7 @@ public class AutoHideSoftInputDialog extends Dialog {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f79769e;
+    public Context f80009e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AutoHideSoftInputDialog(Context context, int i2) {
@@ -37,7 +37,7 @@ public class AutoHideSoftInputDialog extends Dialog {
                 return;
             }
         }
-        this.f79769e = context;
+        this.f80009e = context;
     }
 
     @Override // android.app.Dialog, android.content.DialogInterface
@@ -48,7 +48,7 @@ public class AutoHideSoftInputDialog extends Dialog {
             if (currentFocus instanceof EditText) {
                 ((InputMethodManager) getContext().getSystemService("input_method")).hideSoftInputFromWindow(currentFocus.getWindowToken(), 0);
             }
-            if (i.f78937a.a(this.f79769e)) {
+            if (i.f79175a.a(this.f80009e)) {
                 super.dismiss();
             }
         }

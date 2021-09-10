@@ -24,7 +24,7 @@ public class b {
     public static String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? TextUtils.isEmpty(f1589b) ? "armeabi-v7a" : f1589b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? TextUtils.isEmpty(f1588a) ? "armeabi-v7a" : f1588a : (String) invokeV.objValue;
     }
 
     public static String b(Context context) {
@@ -133,7 +133,7 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
             String str = "https://rtc-so.cdn.bcebos.com" + i() + h();
-            f1588a = str;
+            f1589b = str;
             return str;
         }
         return (String) invokeV.objValue;
@@ -143,10 +143,10 @@ public class b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, context)) == null) {
-            if (TextUtils.isEmpty(f1588a)) {
+            if (TextUtils.isEmpty(f1589b)) {
                 j();
             }
-            return c(context, f1588a) + File.separator + "jniLibs" + File.separator + a();
+            return c(context, f1589b) + File.separator + "jniLibs" + File.separator + a();
         }
         return (String) invokeL.objValue;
     }
@@ -185,7 +185,10 @@ public class b {
                 for (byte b2 : MessageDigest.getInstance("MD5").digest(str.getBytes())) {
                     String hexString = Integer.toHexString(b2 & 255);
                     if (hexString.length() == 1) {
-                        hexString = "0" + hexString;
+                        StringBuilder sb = new StringBuilder();
+                        sb.append("0");
+                        sb.append(hexString);
+                        hexString = sb.toString();
                     }
                     str2 = str2 + hexString;
                 }
@@ -204,7 +207,7 @@ public class b {
             if (TextUtils.isEmpty(str)) {
                 str = "armeabi-v7a";
             }
-            f1589b = str;
+            f1588a = str;
         }
     }
 }

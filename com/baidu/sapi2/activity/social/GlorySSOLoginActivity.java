@@ -65,15 +65,15 @@ public class GlorySSOLoginActivity extends BaseSSOLoginActivity {
     private void a(int i2, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(65538, this, i2, str) == null) {
-            if (((BaseSSOLoginActivity) this).f44695g == 2001) {
+            if (((BaseSSOLoginActivity) this).f44810g == 2001) {
                 Intent intent = new Intent();
                 intent.putExtra("result_code", i2);
                 intent.putExtra(AbstractThirdPartyService.EXTRA_RESULT_MSG, str);
                 setResult(1002, intent);
             } else if (CoreViewRouter.getInstance().getWebAuthListener() != null) {
-                ((BaseSSOLoginActivity) this).f44696h.setResultCode(i2);
-                ((BaseSSOLoginActivity) this).f44696h.setResultMsg(str);
-                CoreViewRouter.getInstance().getWebAuthListener().onFailure(((BaseSSOLoginActivity) this).f44696h);
+                ((BaseSSOLoginActivity) this).f44811h.setResultCode(i2);
+                ((BaseSSOLoginActivity) this).f44811h.setResultMsg(str);
+                CoreViewRouter.getInstance().getWebAuthListener().onFailure(((BaseSSOLoginActivity) this).f44811h);
                 CoreViewRouter.getInstance().release();
             }
             finish();

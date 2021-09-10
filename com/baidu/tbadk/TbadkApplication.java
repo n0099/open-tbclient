@@ -13,7 +13,7 @@ import androidx.core.view.InputDeviceCompat;
 import c.a.e.e.m.c;
 import c.a.e.h.h.b;
 import c.a.e.h.j.g.d;
-import c.a.p0.o0.l;
+import c.a.q0.q0.l;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
@@ -297,7 +297,7 @@ public class TbadkApplication extends TbadkCoreApplication {
                     boolean z3 = Build.VERSION.SDK_INT < 28 ? isXiaomiPushSdkShouldOpen : false;
                     if (!this.isKeepLiveProcess) {
                         if (!this.mPluginIsInited) {
-                            PluginPackageManager.O().i0(c.a.p0.q0.c.n(), new c.a.p0.q0.d(), z3, null);
+                            PluginPackageManager.O().i0(c.a.q0.s0.c.n(), new c.a.q0.s0.d(), z3, null);
                         }
                         PluginSettings l = d.k().l();
                         if (l != null) {
@@ -416,7 +416,7 @@ public class TbadkApplication extends TbadkCoreApplication {
             return;
         }
         super.loadPatchs();
-        int k = c.a.p0.s.d0.b.j().k("plugin_patch_hook_failed_count", 0);
+        int k = c.a.q0.s.d0.b.j().k("plugin_patch_hook_failed_count", 0);
         PluginPackageManager.O().v0(k);
         if (checkSyncPatchBlacklist() && c.a.e.h.g.d.l() && k == 0 && PluginPackageManager.O().n0()) {
             long currentTimeMillis = System.currentTimeMillis();
@@ -434,7 +434,7 @@ public class TbadkApplication extends TbadkCoreApplication {
     public void loginShareRemove() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            c.a.p0.s.d0.b.j().C("account_share");
+            c.a.q0.s.d0.b.j().C("account_share");
         }
     }
 

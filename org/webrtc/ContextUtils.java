@@ -37,10 +37,11 @@ public class ContextUtils {
     public static void initialize(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, null, context) == null) {
-            if (context == null) {
-                throw new IllegalArgumentException("Application context cannot be null for ContextUtils.initialize.");
+            if (context != null) {
+                applicationContext = context;
+                return;
             }
-            applicationContext = context;
+            throw new IllegalArgumentException("Application context cannot be null for ContextUtils.initialize.");
         }
     }
 }

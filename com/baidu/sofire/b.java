@@ -15,13 +15,13 @@ public final class b {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f45074a = -1;
+    public static int f45189a = -1;
 
     /* renamed from: b  reason: collision with root package name */
-    public static ThreadLocal<StringBuilder> f45075b;
+    public static ThreadLocal<StringBuilder> f45190b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static int f45076c;
+    public static int f45191c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -37,7 +37,7 @@ public final class b {
                 return;
             }
         }
-        f45075b = new ThreadLocal<>();
+        f45190b = new ThreadLocal<>();
     }
 
     public static String a(Throwable th) {

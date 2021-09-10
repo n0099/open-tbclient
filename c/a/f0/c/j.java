@@ -20,7 +20,7 @@ public final class j {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f3446a;
+    public static final boolean f3437a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -36,7 +36,7 @@ public final class j {
                 return;
             }
         }
-        f3446a = f.f3434b;
+        f3437a = f.f3425b;
     }
 
     public static String a(int i2) {
@@ -51,26 +51,26 @@ public final class j {
                                 if (i2 != 302) {
                                     switch (i2) {
                                         case 401:
-                                            return c.a().getString(c.a.l0.d.prologue_united_scheme_err_message_action_sec_check_fail);
+                                            return c.a().getString(c.a.m0.d.prologue_united_scheme_err_message_action_sec_check_fail);
                                         case 402:
-                                            return c.a().getString(c.a.l0.d.prologue_united_scheme_err_message_action_acl_check_fail);
+                                            return c.a().getString(c.a.m0.d.prologue_united_scheme_err_message_action_acl_check_fail);
                                         case 403:
-                                            return c.a().getString(c.a.l0.d.prologue_united_scheme_err_message_action_allow_close);
+                                            return c.a().getString(c.a.m0.d.prologue_united_scheme_err_message_action_allow_close);
                                         default:
-                                            return c.a().getString(c.a.l0.d.prologue_united_scheme_err_message_parse_fail);
+                                            return c.a().getString(c.a.m0.d.prologue_united_scheme_err_message_parse_fail);
                                     }
                                 }
-                                return c.a().getString(c.a.l0.d.prologue_united_scheme_err_message_action_notfound);
+                                return c.a().getString(c.a.m0.d.prologue_united_scheme_err_message_action_notfound);
                             }
-                            return c.a().getString(c.a.l0.d.prologue_united_scheme_err_message_module_notfound);
+                            return c.a().getString(c.a.m0.d.prologue_united_scheme_err_message_module_notfound);
                         }
-                        return c.a().getString(c.a.l0.d.prologue_united_scheme_err_message_params_parse_fail);
+                        return c.a().getString(c.a.m0.d.prologue_united_scheme_err_message_params_parse_fail);
                     }
-                    return c.a().getString(c.a.l0.d.prologue_united_scheme_err_message_parse_fail);
+                    return c.a().getString(c.a.m0.d.prologue_united_scheme_err_message_parse_fail);
                 }
-                return c.a().getString(c.a.l0.d.prologue_united_scheme_err_message_not_support);
+                return c.a().getString(c.a.m0.d.prologue_united_scheme_err_message_not_support);
             }
-            return c.a().getString(c.a.l0.d.prologue_united_scheme_err_message_ok);
+            return c.a().getString(c.a.m0.d.prologue_united_scheme_err_message_ok);
         }
         return (String) invokeI.objValue;
     }
@@ -104,7 +104,7 @@ public final class j {
                     try {
                         hashMap.put(URLDecoder.decode(str2.substring(0, indexOf3)), URLDecoder.decode(str2.substring(indexOf3 + 1)));
                     } catch (IllegalArgumentException e2) {
-                        if (f3446a) {
+                        if (f3437a) {
                             e2.printStackTrace();
                         }
                     }
@@ -160,7 +160,7 @@ public final class j {
             if (uri == null) {
                 return false;
             }
-            return TextUtils.equals(f.f3433a, uri.getScheme()) && !TextUtils.isEmpty(uri.getHost());
+            return TextUtils.equals(f.f3424a, uri.getScheme()) && !TextUtils.isEmpty(uri.getHost());
         }
         return invokeL.booleanValue;
     }

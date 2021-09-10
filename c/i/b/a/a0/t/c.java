@@ -16,20 +16,20 @@ public final class c implements c.i.b.a.a0.e {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int f32652e;
+    public static final int f32761e;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final long f32653a;
+    public final long f32762a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final d f32654b;
+    public final d f32763b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final c.i.b.a.i0.l f32655c;
+    public final c.i.b.a.i0.l f32764c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f32656d;
+    public boolean f32765d;
 
     static {
         InterceptResult invokeClinit;
@@ -44,7 +44,7 @@ public final class c implements c.i.b.a.a0.e {
                 return;
             }
         }
-        f32652e = c.i.b.a.i0.v.q("ID3");
+        f32761e = c.i.b.a.i0.v.q("ID3");
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -69,8 +69,8 @@ public final class c implements c.i.b.a.a0.e {
     public void a(long j2, long j3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)}) == null) {
-            this.f32656d = false;
-            this.f32654b.b();
+            this.f32765d = false;
+            this.f32763b.b();
         }
     }
 
@@ -95,12 +95,12 @@ public final class c implements c.i.b.a.a0.e {
             return invokeL.booleanValue;
         }
         c.i.b.a.i0.l lVar = new c.i.b.a.i0.l(10);
-        c.i.b.a.i0.k kVar = new c.i.b.a.i0.k(lVar.f33703a);
+        c.i.b.a.i0.k kVar = new c.i.b.a.i0.k(lVar.f33812a);
         int i2 = 0;
         while (true) {
-            fVar.c(lVar.f33703a, 0, 10);
+            fVar.c(lVar.f33812a, 0, 10);
             lVar.J(0);
-            if (lVar.A() != f32652e) {
+            if (lVar.A() != f32761e) {
                 break;
             }
             lVar.K(3);
@@ -115,7 +115,7 @@ public final class c implements c.i.b.a.a0.e {
             int i4 = 0;
             int i5 = 0;
             while (true) {
-                fVar.c(lVar.f33703a, 0, 2);
+                fVar.c(lVar.f33812a, 0, 2);
                 lVar.J(0);
                 if ((lVar.D() & 65526) != 65520) {
                     break;
@@ -124,7 +124,7 @@ public final class c implements c.i.b.a.a0.e {
                 if (i4 >= 4 && i5 > 188) {
                     return true;
                 }
-                fVar.c(lVar.f33703a, 0, 4);
+                fVar.c(lVar.f33812a, 0, 4);
                 kVar.l(14);
                 int g2 = kVar.g(13);
                 if (g2 <= 6) {
@@ -142,17 +142,17 @@ public final class c implements c.i.b.a.a0.e {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, fVar, kVar)) == null) {
-            int read = fVar.read(this.f32655c.f33703a, 0, 200);
+            int read = fVar.read(this.f32764c.f33812a, 0, 200);
             if (read == -1) {
                 return -1;
             }
-            this.f32655c.J(0);
-            this.f32655c.I(read);
-            if (!this.f32656d) {
-                this.f32654b.e(this.f32653a, true);
-                this.f32656d = true;
+            this.f32764c.J(0);
+            this.f32764c.I(read);
+            if (!this.f32765d) {
+                this.f32763b.e(this.f32762a, true);
+                this.f32765d = true;
             }
-            this.f32654b.c(this.f32655c);
+            this.f32763b.c(this.f32764c);
             return 0;
         }
         return invokeLL.intValue;
@@ -162,7 +162,7 @@ public final class c implements c.i.b.a.a0.e {
     public void f(c.i.b.a.a0.g gVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, gVar) == null) {
-            this.f32654b.f(gVar, new w.d(0, 1));
+            this.f32763b.f(gVar, new w.d(0, 1));
             gVar.j();
             gVar.p(new l.a(-9223372036854775807L));
         }
@@ -190,8 +190,8 @@ public final class c implements c.i.b.a.a0.e {
                 return;
             }
         }
-        this.f32653a = j2;
-        this.f32654b = new d(true);
-        this.f32655c = new c.i.b.a.i0.l(200);
+        this.f32762a = j2;
+        this.f32763b = new d(true);
+        this.f32764c = new c.i.b.a.i0.l(200);
     }
 }

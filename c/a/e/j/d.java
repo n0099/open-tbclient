@@ -10,7 +10,7 @@ public class d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f2904a;
+    public static final String f2895a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -26,6 +26,6 @@ public class d {
                 return;
             }
         }
-        f2904a = String.format("aps_%s", "137");
+        f2895a = String.format("aps_%s", "137");
     }
 }

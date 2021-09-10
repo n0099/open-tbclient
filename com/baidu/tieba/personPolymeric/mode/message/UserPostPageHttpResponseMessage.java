@@ -1,8 +1,10 @@
 package com.baidu.tieba.personPolymeric.mode.message;
 
 import UserPost.UserPostResIdl;
+import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.Message;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
 import com.baidu.tieba.personPolymeric.mode.PersonPostModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -19,6 +21,8 @@ public class UserPostPageHttpResponseMessage extends TbHttpResponsedMessage {
     public boolean isHost;
     public int page;
     public PersonPostModel personPostModel;
+    @Nullable
+    public MetaData threadAuthor;
     public User threadUser;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -58,6 +62,7 @@ public class UserPostPageHttpResponseMessage extends TbHttpResponsedMessage {
                 this.page = userPostPageRequestMessage.getPn();
                 this.from = userPostPageRequestMessage.getFrom();
                 this.threadUser = userPostPageRequestMessage.getThreadUser();
+                this.threadAuthor = userPostPageRequestMessage.getThreadAuthor();
             }
         }
     }
@@ -69,7 +74,7 @@ public class UserPostPageHttpResponseMessage extends TbHttpResponsedMessage {
         if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, bArr) == null) {
             PersonPostModel personPostModel = new PersonPostModel(null, null, this.isHost, this.from);
             this.personPostModel = personPostModel;
-            UserPostResIdl parseProtobuf = personPostModel.parseProtobuf(bArr, this.page, this.threadUser);
+            UserPostResIdl parseProtobuf = personPostModel.parseProtobuf(bArr, this.page, this.threadUser, this.threadAuthor);
             setError(parseProtobuf.error.errorno.intValue());
             setErrorString(parseProtobuf.error.usermsg);
             this.personPostModel.setErrorCode(parseProtobuf.error.errorno.intValue());

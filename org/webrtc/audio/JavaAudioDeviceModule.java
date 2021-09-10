@@ -250,59 +250,31 @@ public class JavaAudioDeviceModule implements AudioDeviceModule {
         public boolean useStereoInput;
         public boolean useStereoOutput;
 
-        public Builder(Context context) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {context};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.audioSource = 7;
-            this.useHardwareAcousticEchoCanceler = JavaAudioDeviceModule.isBuiltInAcousticEchoCancelerSupported();
-            this.useHardwareNoiseSuppressor = JavaAudioDeviceModule.isBuiltInNoiseSuppressorSupported();
-            this.context = context;
-            AudioManager audioManager = (AudioManager) context.getSystemService(MediaStreamTrack.AUDIO_TRACK_KIND);
-            this.audioManager = audioManager;
-            this.sampleRate = WebRtcAudioManager.getSampleRate(audioManager);
-        }
-
         public /* synthetic */ Builder(Context context, AnonymousClass1 anonymousClass1) {
             this(context);
         }
 
         public AudioDeviceModule createAudioDeviceModule() {
             InterceptResult invokeV;
-            String str;
-            String str2;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 Logging.d(JavaAudioDeviceModule.TAG, "createAudioDeviceModule");
                 if (this.useHardwareNoiseSuppressor) {
-                    str = "HW NS will be used.";
+                    Logging.d(JavaAudioDeviceModule.TAG, "HW NS will be used.");
                 } else {
                     if (JavaAudioDeviceModule.isBuiltInNoiseSuppressorSupported()) {
                         Logging.d(JavaAudioDeviceModule.TAG, "Overriding default behavior; now using WebRTC NS!");
                     }
-                    str = "HW NS will not be used.";
+                    Logging.d(JavaAudioDeviceModule.TAG, "HW NS will not be used.");
                 }
-                Logging.d(JavaAudioDeviceModule.TAG, str);
                 if (this.useHardwareAcousticEchoCanceler) {
-                    str2 = "HW AEC will be used.";
+                    Logging.d(JavaAudioDeviceModule.TAG, "HW AEC will be used.");
                 } else {
                     if (JavaAudioDeviceModule.isBuiltInAcousticEchoCancelerSupported()) {
                         Logging.d(JavaAudioDeviceModule.TAG, "Overriding default behavior; now using WebRTC AEC!");
                     }
-                    str2 = "HW AEC will not be used.";
+                    Logging.d(JavaAudioDeviceModule.TAG, "HW AEC will not be used.");
                 }
-                Logging.d(JavaAudioDeviceModule.TAG, str2);
                 return new JavaAudioDeviceModule(this.context, this.audioManager, new WebRtcAudioRecord(this.context, this.audioManager, this.audioSource, this.externalRecord, this.audioRecordErrorCallback, this.samplesReadyCallback, this.useHardwareAcousticEchoCanceler, this.useHardwareNoiseSuppressor), new WebRtcAudioTrack(this.context, this.audioManager, this.audioContentType, this.remoteSamplesReadyCallback, this.audioTrackErrorCallback), this.sampleRate, this.useStereoInput, this.useStereoOutput, null);
             }
             return (AudioDeviceModule) invokeV.objValue;
@@ -436,6 +408,30 @@ public class JavaAudioDeviceModule implements AudioDeviceModule {
             }
             return (Builder) invokeZ.objValue;
         }
+
+        public Builder(Context context) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {context};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.audioSource = 7;
+            this.useHardwareAcousticEchoCanceler = JavaAudioDeviceModule.isBuiltInAcousticEchoCancelerSupported();
+            this.useHardwareNoiseSuppressor = JavaAudioDeviceModule.isBuiltInNoiseSuppressorSupported();
+            this.context = context;
+            AudioManager audioManager = (AudioManager) context.getSystemService(MediaStreamTrack.AUDIO_TRACK_KIND);
+            this.audioManager = audioManager;
+            this.sampleRate = WebRtcAudioManager.getSampleRate(audioManager);
+        }
     }
 
     /* loaded from: classes2.dex */
@@ -451,32 +447,6 @@ public class JavaAudioDeviceModule implements AudioDeviceModule {
     /* loaded from: classes2.dex */
     public interface SamplesReadyCallback {
         void onWebRtcAudioRecordSamplesReady(AudioSamples audioSamples);
-    }
-
-    public JavaAudioDeviceModule(Context context, AudioManager audioManager, WebRtcAudioRecord webRtcAudioRecord, WebRtcAudioTrack webRtcAudioTrack, int i2, boolean z, boolean z2) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, audioManager, webRtcAudioRecord, webRtcAudioTrack, Integer.valueOf(i2), Boolean.valueOf(z), Boolean.valueOf(z2)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.nativeLock = new Object();
-        this.stuckEvent = null;
-        this.context = context;
-        this.audioManager = audioManager;
-        this.audioInput = webRtcAudioRecord;
-        this.audioOutput = webRtcAudioTrack;
-        this.sampleRate = i2;
-        this.useStereoInput = z;
-        this.useStereoOutput = z2;
     }
 
     public /* synthetic */ JavaAudioDeviceModule(Context context, AudioManager audioManager, WebRtcAudioRecord webRtcAudioRecord, WebRtcAudioTrack webRtcAudioTrack, int i2, boolean z, boolean z2, AnonymousClass1 anonymousClass1) {
@@ -582,5 +552,31 @@ public class JavaAudioDeviceModule implements AudioDeviceModule {
                 webRtcAudioTrack.setStuckEventListener(sLIReportInterface);
             }
         }
+    }
+
+    public JavaAudioDeviceModule(Context context, AudioManager audioManager, WebRtcAudioRecord webRtcAudioRecord, WebRtcAudioTrack webRtcAudioTrack, int i2, boolean z, boolean z2) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, audioManager, webRtcAudioRecord, webRtcAudioTrack, Integer.valueOf(i2), Boolean.valueOf(z), Boolean.valueOf(z2)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.nativeLock = new Object();
+        this.stuckEvent = null;
+        this.context = context;
+        this.audioManager = audioManager;
+        this.audioInput = webRtcAudioRecord;
+        this.audioOutput = webRtcAudioTrack;
+        this.sampleRate = i2;
+        this.useStereoInput = z;
+        this.useStereoOutput = z2;
     }
 }

@@ -40,7 +40,7 @@ public final class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public com.bytedance.mobsec.metasec.ml.b f31364a;
+        public com.bytedance.mobsec.metasec.ml.b f31473a;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -55,7 +55,7 @@ public final class c {
                     return;
                 }
             }
-            this.f31364a = null;
+            this.f31473a = null;
         }
 
         @Override // ms.bd.c.b.a
@@ -64,11 +64,11 @@ public final class c {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2), str, obj})) == null) {
                 Context a2 = ms.bd.c.a.c().a();
-                if (this.f31364a == null) {
+                if (this.f31473a == null) {
                     synchronized (this) {
-                        if (this.f31364a == null) {
+                        if (this.f31473a == null) {
                             com.bytedance.mobsec.metasec.ml.b bVar = new com.bytedance.mobsec.metasec.ml.b(a2);
-                            this.f31364a = bVar;
+                            this.f31473a = bVar;
                             bVar.a();
                         }
                     }
@@ -115,17 +115,17 @@ public final class c {
                 if (Build.VERSION.SDK_INT >= 17) {
                     defaultDisplay.getRealSize(point);
                 } else if (Build.VERSION.SDK_INT < 13) {
-                    p1.f79083a = defaultDisplay.getWidth();
+                    p1.f79321a = defaultDisplay.getWidth();
                     height = defaultDisplay.getHeight();
-                    p1.f79084b = height;
-                    return p1.f79083a + "*" + p1.f79084b;
+                    p1.f79322b = height;
+                    return p1.f79321a + "*" + p1.f79322b;
                 } else {
                     defaultDisplay.getSize(point);
                 }
-                p1.f79083a = point.x;
+                p1.f79321a = point.x;
                 height = point.y;
-                p1.f79084b = height;
-                return p1.f79083a + "*" + p1.f79084b;
+                p1.f79322b = height;
+                return p1.f79321a + "*" + p1.f79322b;
             }
             return invokeCommon.objValue;
         }

@@ -2,10 +2,10 @@ package com.baidu.swan.games.view.button.settings;
 
 import android.content.Context;
 import android.view.View;
-import c.a.o0.a.g1.f;
-import c.a.o0.a.h;
-import c.a.o0.a.h0.g.g;
-import c.a.o0.a.z1.b.f.e;
+import c.a.p0.a.g1.f;
+import c.a.p0.a.h;
+import c.a.p0.a.h0.g.g;
+import c.a.p0.a.z1.b.f.e;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.v8engine.event.EventTargetImpl;
@@ -56,7 +56,7 @@ public class OpenSettingButton extends ApiButton {
                 return;
             }
             g.b i2 = W.i("navigateTo");
-            i2.n(g.f5900g, g.f5902i);
+            i2.n(g.f5928g, g.f5930i);
             i2.k("authority", null).a();
         }
     }

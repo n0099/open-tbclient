@@ -164,18 +164,18 @@ public class b {
         }
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:54:0x00a2 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:84:0x0025 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:91:0x0072 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:95:0x0025 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:96:0x0025 */
-    /* JADX WARN: Code restructure failed: missing block: B:19:0x0051, code lost:
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:54:0x00a1 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:86:0x0024 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:91:0x0071 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:95:0x0024 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:96:0x0024 */
+    /* JADX WARN: Code restructure failed: missing block: B:19:0x0050, code lost:
         r3 = r6[2].trim();
      */
     /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:55:0x00a4  */
-    /* JADX WARN: Removed duplicated region for block: B:65:0x00bb A[Catch: Exception -> 0x00be, TRY_LEAVE, TryCatch #1 {Exception -> 0x00be, blocks: (B:63:0x00b6, B:65:0x00bb), top: B:74:0x00b6 }] */
-    /* JADX WARN: Removed duplicated region for block: B:74:0x00b6 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:55:0x00a3  */
+    /* JADX WARN: Removed duplicated region for block: B:65:0x00ba A[Catch: Exception -> 0x00bd, TRY_LEAVE, TryCatch #4 {Exception -> 0x00bd, blocks: (B:63:0x00b5, B:65:0x00ba), top: B:78:0x00b5 }] */
+    /* JADX WARN: Removed duplicated region for block: B:78:0x00b5 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /* JADX WARN: Type inference failed for: r3v10 */
     /* JADX WARN: Type inference failed for: r3v12 */
     /* JADX WARN: Type inference failed for: r3v13 */
@@ -351,8 +351,8 @@ public class b {
                 this.f1743b = Long.valueOf(parseLong2);
                 return d2;
             }
-            this.f1744c = new RandomAccessFile("/proc/stat", r.f42169a);
-            this.f1745d = new RandomAccessFile("/proc/" + Process.myPid() + "/stat", r.f42169a);
+            this.f1744c = new RandomAccessFile("/proc/stat", r.f42280a);
+            this.f1745d = new RandomAccessFile("/proc/" + Process.myPid() + "/stat", r.f42280a);
             String readLine3 = this.f1744c.readLine();
             String readLine22 = this.f1745d.readLine();
             String[] split3 = readLine3.split(" ");

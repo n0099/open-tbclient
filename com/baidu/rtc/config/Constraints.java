@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class Constraints {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String BRTC_SDK_VERSION_PREFIX = "BRTC.Android.SDK V";
-    public static final String RTC_VERSION = "1.3.2";
+    public static final String RTC_VERSION = "1.3.3";
     public transient /* synthetic */ FieldHolder $fh;
 
     public Constraints() {
@@ -29,7 +29,7 @@ public class Constraints {
     public static String sdkVersion() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? "BRTC.Android.SDK V1.3.2" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? "BRTC.Android.SDK V1.3.3" : (String) invokeV.objValue;
     }
 
     public static String version() {

@@ -46,7 +46,7 @@ public class UserTropicGiftBagActivity extends BaseActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ UserTropicGiftBagActivity f57361e;
+        public final /* synthetic */ UserTropicGiftBagActivity f57523e;
 
         public a(UserTropicGiftBagActivity userTropicGiftBagActivity) {
             Interceptable interceptable = $ic;
@@ -63,21 +63,21 @@ public class UserTropicGiftBagActivity extends BaseActivity {
                     return;
                 }
             }
-            this.f57361e = userTropicGiftBagActivity;
+            this.f57523e = userTropicGiftBagActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                TbPageContext<?> pageContext = this.f57361e.getPageContext();
-                if (view.getId() == this.f57361e.mKnow.getId()) {
+                TbPageContext<?> pageContext = this.f57523e.getPageContext();
+                if (view.getId() == this.f57523e.mKnow.getId()) {
                     UrlManager.getInstance().dealOneLink(pageContext, new String[]{TbConfig.URL_JUMP_TAG_CARDBOX}, true);
-                    this.f57361e.sendStatisticLog(2);
-                    this.f57361e.finish();
+                    this.f57523e.sendStatisticLog(2);
+                    this.f57523e.finish();
                 }
-                if (view.getId() == this.f57361e.mClose.getId()) {
-                    this.f57361e.finish();
+                if (view.getId() == this.f57523e.mClose.getId()) {
+                    this.f57523e.finish();
                 }
             }
         }
@@ -158,19 +158,18 @@ public class UserTropicGiftBagActivity extends BaseActivity {
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
             super.onChangeSkinType(i2);
             SkinManager.setImageResource(this.mVipPic, R.drawable.icon_tropic);
-            boolean z = false;
-            this.mVipPic.setIsNight(i2 == 4 || i2 == 1);
+            this.mVipPic.setSkinType(i2);
             SkinManager.setImageResource(this.mLineTropicLeft, R.drawable.icon_tropic_left);
-            this.mLineTropicRight.setIsNight(i2 == 4 || i2 == 1);
+            this.mLineTropicLeft.setSkinType(i2);
             SkinManager.setImageResource(this.mLineTropicRight, R.drawable.icon_tropic_right);
-            this.mLineTropicRight.setIsNight(i2 == 4 || i2 == 1);
+            this.mLineTropicRight.setSkinType(i2);
             SkinManager.setBackgroundColor(this.mRoundCornerLayout, R.color.CAM_X0205);
             SkinManager.setViewTextColor(this.mTropicGreetings, R.color.CAM_X0105);
             SkinManager.setViewTextColor(this.mSevenDayVip, R.color.CAM_X0105);
             SkinManager.setViewTextColor(this.mSevenDayVipDec, R.color.CAM_X0109);
             SkinManager.setViewTextColorSelector(this.mKnow, R.color.CAM_X0302, R.color.cp_link_tip_a_alpha50);
             SkinManager.setImageResource(this.mClose, R.drawable.icon_popup_close);
-            this.mClose.setIsNight((i2 == 4 || i2 == 1) ? true : true);
+            this.mClose.setSkinType(i2);
         }
     }
 

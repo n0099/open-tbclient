@@ -15,7 +15,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import c.a.q0.x.c.d;
+import c.a.r0.x.c.d;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ImageUtil;
 import com.baidu.tieba.R;
@@ -40,22 +40,22 @@ public class CameraView extends FrameLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public b f49699e;
+    public b f49834e;
 
     /* renamed from: f  reason: collision with root package name */
-    public d f49700f;
+    public d f49835f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View f49701g;
+    public View f49836g;
 
     /* renamed from: h  reason: collision with root package name */
-    public MaskView f49702h;
+    public MaskView f49837h;
 
     /* renamed from: i  reason: collision with root package name */
-    public ImageView f49703i;
+    public ImageView f49838i;
 
     /* renamed from: j  reason: collision with root package name */
-    public TextView f49704j;
+    public TextView f49839j;
     public LinearLayout k;
 
     /* loaded from: classes7.dex */
@@ -70,13 +70,13 @@ public class CameraView extends FrameLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public File f49705a;
+        public File f49840a;
 
         /* renamed from: b  reason: collision with root package name */
-        public c f49706b;
+        public c f49841b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ CameraView f49707c;
+        public final /* synthetic */ CameraView f49842c;
 
         /* loaded from: classes7.dex */
         public class a implements Runnable {
@@ -84,10 +84,10 @@ public class CameraView extends FrameLayout {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ byte[] f49708e;
+            public final /* synthetic */ byte[] f49843e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ b f49709f;
+            public final /* synthetic */ b f49844f;
 
             public a(b bVar, byte[] bArr) {
                 Interceptable interceptable = $ic;
@@ -104,17 +104,17 @@ public class CameraView extends FrameLayout {
                         return;
                     }
                 }
-                this.f49709f = bVar;
-                this.f49708e = bArr;
+                this.f49844f = bVar;
+                this.f49843e = bArr;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    int orientation = ImageUtil.getOrientation(this.f49708e);
-                    b bVar = this.f49709f;
-                    this.f49709f.f49706b.a(bVar.f49707c.b(bVar.f49705a, this.f49708e, orientation));
+                    int orientation = ImageUtil.getOrientation(this.f49843e);
+                    b bVar = this.f49844f;
+                    this.f49844f.f49841b.a(bVar.f49842c.b(bVar.f49840a, this.f49843e, orientation));
                 }
             }
         }
@@ -134,14 +134,14 @@ public class CameraView extends FrameLayout {
                     return;
                 }
             }
-            this.f49707c = cameraView;
+            this.f49842c = cameraView;
         }
 
-        @Override // c.a.q0.x.c.d.b
+        @Override // c.a.r0.x.c.d.b
         public void a(byte[] bArr) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, bArr) == null) {
-                c.a.q0.x.c.c.c(new a(this, bArr));
+                c.a.r0.x.c.c.c(new a(this, bArr));
             }
         }
 
@@ -173,7 +173,7 @@ public class CameraView extends FrameLayout {
                 return;
             }
         }
-        this.f49699e = new b(this, null);
+        this.f49834e = new b(this, null);
         new Handler(Looper.getMainLooper());
         d();
     }
@@ -185,16 +185,16 @@ public class CameraView extends FrameLayout {
             return (Bitmap) invokeLLI.objValue;
         }
         try {
-            Rect f2 = this.f49700f.f();
-            if (this.f49702h.getWidth() != 0 && this.f49702h.getHeight() != 0 && f2.width() != 0 && f2.height() != 0) {
+            Rect f2 = this.f49835f.f();
+            if (this.f49837h.getWidth() != 0 && this.f49837h.getHeight() != 0 && f2.width() != 0 && f2.height() != 0) {
                 BitmapRegionDecoder newInstance = BitmapRegionDecoder.newInstance(bArr, 0, bArr.length, true);
                 int width = i2 % 180 == 0 ? newInstance.getWidth() : newInstance.getHeight();
                 int height = i2 % 180 == 0 ? newInstance.getHeight() : newInstance.getWidth();
-                Rect frameRect = this.f49702h.getFrameRect();
-                int width2 = (frameRect.left * width) / this.f49702h.getWidth();
-                int height2 = (frameRect.top * height) / this.f49702h.getHeight();
-                int width3 = (frameRect.right * width) / this.f49702h.getWidth();
-                int height3 = (frameRect.bottom * height) / this.f49702h.getHeight();
+                Rect frameRect = this.f49837h.getFrameRect();
+                int width2 = (frameRect.left * width) / this.f49837h.getWidth();
+                int height2 = (frameRect.top * height) / this.f49837h.getHeight();
+                int width3 = (frameRect.right * width) / this.f49837h.getWidth();
+                int height3 = (frameRect.bottom * height) / this.f49837h.getHeight();
                 if (f2.top < 0) {
                     int height4 = (f2.height() * getWidth()) / f2.width();
                     int height5 = (((height4 + frameRect.height()) / 2) * getWidth()) / f2.width();
@@ -203,8 +203,8 @@ public class CameraView extends FrameLayout {
                     height2 = height6;
                 } else if (f2.left < 0) {
                     int width4 = (f2.width() * getHeight()) / f2.height();
-                    int width5 = (((width4 - this.f49702h.getFrameRect().width()) / 2) * getHeight()) / f2.height();
-                    int width6 = (((width4 + this.f49702h.getFrameRect().width()) / 2) * getHeight()) / f2.height();
+                    int width5 = (((width4 - this.f49837h.getFrameRect().width()) / 2) * getHeight()) / f2.height();
+                    int width6 = (((width4 + this.f49837h.getFrameRect().width()) / 2) * getHeight()) / f2.height();
                     width2 = (width5 * width) / f2.width();
                     width3 = (width6 * width) / f2.width();
                 }
@@ -301,32 +301,32 @@ public class CameraView extends FrameLayout {
     public final void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            c.a.q0.x.c.b bVar = new c.a.q0.x.c.b(getContext());
-            this.f49700f = bVar;
+            c.a.r0.x.c.b bVar = new c.a.r0.x.c.b(getContext());
+            this.f49835f = bVar;
             View a2 = bVar.a();
-            this.f49701g = a2;
+            this.f49836g = a2;
             addView(a2);
             MaskView maskView = new MaskView(getContext());
-            this.f49702h = maskView;
+            this.f49837h = maskView;
             addView(maskView);
             ImageView imageView = new ImageView(getContext());
-            this.f49703i = imageView;
+            this.f49838i = imageView;
             addView(imageView);
             LinearLayout linearLayout = new LinearLayout(getContext());
             this.k = linearLayout;
             linearLayout.setOrientation(1);
-            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, c.a.q0.x.e.b.a(25));
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, c.a.r0.x.e.b.a(25));
             layoutParams.gravity = 17;
             TextView textView = new TextView(getContext());
-            this.f49704j = textView;
+            this.f49839j = textView;
             textView.setBackgroundResource(R.drawable.bd_ocr_round_corner);
-            this.f49704j.setAlpha(0.5f);
-            this.f49704j.setPadding(c.a.q0.x.e.b.a(10), 0, c.a.q0.x.e.b.a(10), 0);
-            this.k.addView(this.f49704j, layoutParams);
-            this.f49704j.setGravity(17);
-            this.f49704j.setTextColor(-1);
-            this.f49704j.setTextSize(2, 14.0f);
-            this.f49704j.setText(c(-1));
+            this.f49839j.setAlpha(0.5f);
+            this.f49839j.setPadding(c.a.r0.x.e.b.a(10), 0, c.a.r0.x.e.b.a(10), 0);
+            this.k.addView(this.f49839j, layoutParams);
+            this.f49839j.setGravity(17);
+            this.f49839j.setTextColor(-1);
+            this.f49839j.setTextSize(2, 14.0f);
+            this.f49839j.setText(c(-1));
             addView(this.k, layoutParams);
         }
     }
@@ -334,7 +334,7 @@ public class CameraView extends FrameLayout {
     public d getCameraControl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f49700f : (d) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f49835f : (d) invokeV.objValue;
     }
 
     @Override // android.widget.FrameLayout, android.view.ViewGroup, android.view.View
@@ -342,16 +342,16 @@ public class CameraView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
             int i6 = i5 - i3;
-            this.f49701g.layout(i2, 0, i4, i6);
-            this.f49702h.layout(i2, 0, i4, i6);
-            int a2 = c.a.q0.x.e.b.a(250);
-            int a3 = c.a.q0.x.e.b.a(25);
+            this.f49836g.layout(i2, 0, i4, i6);
+            this.f49837h.layout(i2, 0, i4, i6);
+            int a2 = c.a.r0.x.e.b.a(250);
+            int a3 = c.a.r0.x.e.b.a(25);
             int width = (getWidth() - a2) / 2;
-            int a4 = this.f49702h.getFrameRect().bottom + c.a.q0.x.e.b.a(16);
+            int a4 = this.f49837h.getFrameRect().bottom + c.a.r0.x.e.b.a(16);
             int i7 = a2 + width;
             int i8 = a3 + a4;
             this.k.layout(width, a4, i7, i8);
-            this.f49703i.layout(width, a4, i7, i8);
+            this.f49838i.layout(width, a4, i7, i8);
         }
     }
 
@@ -370,22 +370,22 @@ public class CameraView extends FrameLayout {
     public void setMaskType(int i2, Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048583, this, i2, context) == null) {
-            this.f49702h.setMaskType(i2);
+            this.f49837h.setMaskType(i2);
             boolean z = false;
-            this.f49702h.setVisibility(0);
-            this.f49703i.setVisibility(0);
+            this.f49837h.setVisibility(0);
+            this.f49838i.setVisibility(0);
             int i3 = R.drawable.bd_ocr_hint_align_id_card;
             if (i2 == 1) {
                 i3 = R.drawable.bd_ocr_round_corner;
             } else if (i2 != 2) {
-                this.f49702h.setVisibility(4);
-                this.f49703i.setVisibility(4);
+                this.f49837h.setVisibility(4);
+                this.f49838i.setVisibility(4);
                 z = true;
             } else {
                 i3 = R.drawable.bd_ocr_round_corner;
             }
             if (z) {
-                this.f49703i.setImageResource(i3);
+                this.f49838i.setImageResource(i3);
                 this.k.setVisibility(4);
             }
         }
@@ -394,14 +394,14 @@ public class CameraView extends FrameLayout {
     public void setOrientation(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
-            this.f49700f.c(i2);
+            this.f49835f.c(i2);
         }
     }
 
     public void start() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            this.f49700f.start();
+            this.f49835f.start();
             setKeepScreenOn(true);
         }
     }
@@ -409,7 +409,7 @@ public class CameraView extends FrameLayout {
     public void stop() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            this.f49700f.stop();
+            this.f49835f.stop();
             setKeepScreenOn(false);
         }
     }
@@ -417,9 +417,9 @@ public class CameraView extends FrameLayout {
     public void takePicture(File file, c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048587, this, file, cVar) == null) {
-            this.f49699e.f49705a = file;
-            this.f49699e.f49706b = cVar;
-            this.f49700f.b(this.f49699e);
+            this.f49834e.f49840a = file;
+            this.f49834e.f49841b = cVar;
+            this.f49835f.b(this.f49834e);
         }
     }
 
@@ -442,7 +442,7 @@ public class CameraView extends FrameLayout {
                 return;
             }
         }
-        this.f49699e = new b(this, null);
+        this.f49834e = new b(this, null);
         new Handler(Looper.getMainLooper());
         d();
     }
@@ -466,7 +466,7 @@ public class CameraView extends FrameLayout {
                 return;
             }
         }
-        this.f49699e = new b(this, null);
+        this.f49834e = new b(this, null);
         new Handler(Looper.getMainLooper());
         d();
     }

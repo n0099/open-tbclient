@@ -28,34 +28,34 @@ public class AdSlot {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f65145a;
+    public String f65325a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f65146b;
+    public int f65326b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f65147c;
+    public int f65327c;
 
     /* renamed from: d  reason: collision with root package name */
-    public float f65148d;
+    public float f65328d;
 
     /* renamed from: e  reason: collision with root package name */
-    public float f65149e;
+    public float f65329e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f65150f;
+    public int f65330f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f65151g;
+    public boolean f65331g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f65152h;
+    public boolean f65332h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f65153i;
+    public String f65333i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f65154j;
+    public int f65334j;
     public String k;
     public String l;
     public int m;
@@ -85,34 +85,34 @@ public class AdSlot {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f65155a;
+        public String f65335a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f65156b;
+        public int f65336b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f65157c;
+        public int f65337c;
 
         /* renamed from: d  reason: collision with root package name */
-        public boolean f65158d;
+        public boolean f65338d;
 
         /* renamed from: e  reason: collision with root package name */
-        public boolean f65159e;
+        public boolean f65339e;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f65160f;
+        public int f65340f;
 
         /* renamed from: g  reason: collision with root package name */
-        public String f65161g;
+        public String f65341g;
 
         /* renamed from: h  reason: collision with root package name */
-        public int f65162h;
+        public int f65342h;
 
         /* renamed from: i  reason: collision with root package name */
-        public String f65163i;
+        public String f65343i;
 
         /* renamed from: j  reason: collision with root package name */
-        public String f65164j;
+        public String f65344j;
         public int k;
         public int l;
         public String m;
@@ -142,14 +142,14 @@ public class AdSlot {
                     return;
                 }
             }
-            this.f65156b = 640;
-            this.f65157c = MediaSessionCompat.MAX_BITMAP_SIZE_IN_DP;
-            this.f65158d = true;
-            this.f65159e = false;
-            this.f65160f = 1;
-            this.f65161g = "";
-            this.f65162h = 0;
-            this.f65164j = "defaultUser";
+            this.f65336b = 640;
+            this.f65337c = MediaSessionCompat.MAX_BITMAP_SIZE_IN_DP;
+            this.f65338d = true;
+            this.f65339e = false;
+            this.f65340f = 1;
+            this.f65341g = "";
+            this.f65342h = 0;
+            this.f65344j = "defaultUser";
             this.k = 2;
             this.q = true;
         }
@@ -159,24 +159,24 @@ public class AdSlot {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 AdSlot adSlot = new AdSlot(null);
-                adSlot.f65145a = this.f65155a;
-                adSlot.f65150f = this.f65160f;
-                adSlot.f65151g = this.f65158d;
-                adSlot.f65152h = this.f65159e;
-                adSlot.f65146b = this.f65156b;
-                adSlot.f65147c = this.f65157c;
+                adSlot.f65325a = this.f65335a;
+                adSlot.f65330f = this.f65340f;
+                adSlot.f65331g = this.f65338d;
+                adSlot.f65332h = this.f65339e;
+                adSlot.f65326b = this.f65336b;
+                adSlot.f65327c = this.f65337c;
                 float f2 = this.o;
                 if (f2 <= 0.0f) {
-                    adSlot.f65148d = this.f65156b;
-                    adSlot.f65149e = this.f65157c;
+                    adSlot.f65328d = this.f65336b;
+                    adSlot.f65329e = this.f65337c;
                 } else {
-                    adSlot.f65148d = f2;
-                    adSlot.f65149e = this.p;
+                    adSlot.f65328d = f2;
+                    adSlot.f65329e = this.p;
                 }
-                adSlot.f65153i = this.f65161g;
-                adSlot.f65154j = this.f65162h;
-                adSlot.k = this.f65163i;
-                adSlot.l = this.f65164j;
+                adSlot.f65333i = this.f65341g;
+                adSlot.f65334j = this.f65342h;
+                adSlot.k = this.f65343i;
+                adSlot.l = this.f65344j;
                 adSlot.m = this.k;
                 adSlot.o = this.l;
                 adSlot.q = this.q;
@@ -206,7 +206,7 @@ public class AdSlot {
                     k.c(TTAdConstant.TAG, "setAdCount: adCount must less than or equal to 20 ");
                     i2 = 20;
                 }
-                this.f65160f = i2;
+                this.f65340f = i2;
                 return this;
             }
             return (Builder) invokeI.objValue;
@@ -246,7 +246,7 @@ public class AdSlot {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-                this.f65155a = str;
+                this.f65335a = str;
                 return this;
             }
             return (Builder) invokeL.objValue;
@@ -307,8 +307,8 @@ public class AdSlot {
             InterceptResult invokeII;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeII = interceptable.invokeII(1048587, this, i2, i3)) == null) {
-                this.f65156b = i2;
-                this.f65157c = i3;
+                this.f65336b = i2;
+                this.f65337c = i3;
                 return this;
             }
             return (Builder) invokeII.objValue;
@@ -328,7 +328,7 @@ public class AdSlot {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, str)) == null) {
-                this.f65163i = str;
+                this.f65343i = str;
                 return this;
             }
             return (Builder) invokeL.objValue;
@@ -368,7 +368,7 @@ public class AdSlot {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048593, this, i2)) == null) {
-                this.f65162h = i2;
+                this.f65342h = i2;
                 return this;
             }
             return (Builder) invokeI.objValue;
@@ -378,7 +378,7 @@ public class AdSlot {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, str)) == null) {
-                this.f65161g = str;
+                this.f65341g = str;
                 return this;
             }
             return (Builder) invokeL.objValue;
@@ -388,7 +388,7 @@ public class AdSlot {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZ = interceptable.invokeZ(1048595, this, z)) == null) {
-                this.f65158d = z;
+                this.f65338d = z;
                 return this;
             }
             return (Builder) invokeZ.objValue;
@@ -408,7 +408,7 @@ public class AdSlot {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048597, this, str)) == null) {
-                this.f65164j = str;
+                this.f65344j = str;
                 return this;
             }
             return (Builder) invokeL.objValue;
@@ -418,7 +418,7 @@ public class AdSlot {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
-                this.f65159e = true;
+                this.f65339e = true;
                 return this;
             }
             return (Builder) invokeV.objValue;
@@ -478,7 +478,7 @@ public class AdSlot {
     public int getAdCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f65150f : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f65330f : invokeV.intValue;
     }
 
     public String getAdId() {
@@ -508,7 +508,7 @@ public class AdSlot {
     public String getCodeId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f65145a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f65325a : (String) invokeV.objValue;
     }
 
     public String getCreativeId() {
@@ -526,13 +526,13 @@ public class AdSlot {
     public float getExpressViewAcceptedHeight() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f65149e : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f65329e : invokeV.floatValue;
     }
 
     public float getExpressViewAcceptedWidth() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f65148d : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f65328d : invokeV.floatValue;
     }
 
     public String getExt() {
@@ -550,13 +550,13 @@ public class AdSlot {
     public int getImgAcceptedHeight() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f65147c : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f65327c : invokeV.intValue;
     }
 
     public int getImgAcceptedWidth() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f65146b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f65326b : invokeV.intValue;
     }
 
     public String getMediaExtra() {
@@ -590,13 +590,13 @@ public class AdSlot {
     public int getRewardAmount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.f65154j : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.f65334j : invokeV.intValue;
     }
 
     public String getRewardName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.f65153i : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.f65333i : (String) invokeV.objValue;
     }
 
     public String getUserData() {
@@ -620,19 +620,19 @@ public class AdSlot {
     public boolean isSupportDeepLink() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? this.f65151g : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? this.f65331g : invokeV.booleanValue;
     }
 
     public boolean isSupportRenderConrol() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) ? this.f65152h : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) ? this.f65332h : invokeV.booleanValue;
     }
 
     public void setAdCount(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048601, this, i2) == null) {
-            this.f65150f = i2;
+            this.f65330f = i2;
         }
     }
 
@@ -670,17 +670,17 @@ public class AdSlot {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("mCodeId", this.f65145a);
+                jSONObject.put("mCodeId", this.f65325a);
                 jSONObject.put("mIsAutoPlay", this.q);
-                jSONObject.put("mImgAcceptedWidth", this.f65146b);
-                jSONObject.put("mImgAcceptedHeight", this.f65147c);
-                jSONObject.put("mExpressViewAcceptedWidth", this.f65148d);
-                jSONObject.put("mExpressViewAcceptedHeight", this.f65149e);
-                jSONObject.put("mAdCount", this.f65150f);
-                jSONObject.put("mSupportDeepLink", this.f65151g);
-                jSONObject.put("mSupportRenderControl", this.f65152h);
-                jSONObject.put("mRewardName", this.f65153i);
-                jSONObject.put("mRewardAmount", this.f65154j);
+                jSONObject.put("mImgAcceptedWidth", this.f65326b);
+                jSONObject.put("mImgAcceptedHeight", this.f65327c);
+                jSONObject.put("mExpressViewAcceptedWidth", this.f65328d);
+                jSONObject.put("mExpressViewAcceptedHeight", this.f65329e);
+                jSONObject.put("mAdCount", this.f65330f);
+                jSONObject.put("mSupportDeepLink", this.f65331g);
+                jSONObject.put("mSupportRenderControl", this.f65332h);
+                jSONObject.put("mRewardName", this.f65333i);
+                jSONObject.put("mRewardAmount", this.f65334j);
                 jSONObject.put("mMediaExtra", this.k);
                 jSONObject.put("mUserID", this.l);
                 jSONObject.put("mOrientation", this.m);
@@ -703,7 +703,7 @@ public class AdSlot {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) {
-            return "AdSlot{mCodeId='" + this.f65145a + ExtendedMessageFormat.QUOTE + ", mImgAcceptedWidth=" + this.f65146b + ", mImgAcceptedHeight=" + this.f65147c + ", mExpressViewAcceptedWidth=" + this.f65148d + ", mExpressViewAcceptedHeight=" + this.f65149e + ", mAdCount=" + this.f65150f + ", mSupportDeepLink=" + this.f65151g + ", mSupportRenderControl=" + this.f65152h + ", mRewardName='" + this.f65153i + ExtendedMessageFormat.QUOTE + ", mRewardAmount=" + this.f65154j + ", mMediaExtra='" + this.k + ExtendedMessageFormat.QUOTE + ", mUserID='" + this.l + ExtendedMessageFormat.QUOTE + ", mOrientation=" + this.m + ", mNativeAdType=" + this.o + ", mIsAutoPlay=" + this.q + ", mPrimeRit" + this.t + ", mAdloadSeq" + this.s + ", mAdId" + this.v + ", mCreativeId" + this.w + ", mExt" + this.x + ", mUserData" + this.y + ExtendedMessageFormat.END_FE;
+            return "AdSlot{mCodeId='" + this.f65325a + ExtendedMessageFormat.QUOTE + ", mImgAcceptedWidth=" + this.f65326b + ", mImgAcceptedHeight=" + this.f65327c + ", mExpressViewAcceptedWidth=" + this.f65328d + ", mExpressViewAcceptedHeight=" + this.f65329e + ", mAdCount=" + this.f65330f + ", mSupportDeepLink=" + this.f65331g + ", mSupportRenderControl=" + this.f65332h + ", mRewardName='" + this.f65333i + ExtendedMessageFormat.QUOTE + ", mRewardAmount=" + this.f65334j + ", mMediaExtra='" + this.k + ExtendedMessageFormat.QUOTE + ", mUserID='" + this.l + ExtendedMessageFormat.QUOTE + ", mOrientation=" + this.m + ", mNativeAdType=" + this.o + ", mIsAutoPlay=" + this.q + ", mPrimeRit" + this.t + ", mAdloadSeq" + this.s + ", mAdId" + this.v + ", mCreativeId" + this.w + ", mExt" + this.x + ", mUserData" + this.y + ExtendedMessageFormat.END_FE;
         }
         return (String) invokeV.objValue;
     }

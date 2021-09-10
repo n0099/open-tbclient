@@ -23,13 +23,13 @@ public final class a implements c.i.b.a.c0.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final l f32879a;
+    public final l f32988a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final k f32880b;
+    public final k f32989b;
 
     /* renamed from: c  reason: collision with root package name */
-    public s f32881c;
+    public s f32990c;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -44,8 +44,8 @@ public final class a implements c.i.b.a.c0.a {
                 return;
             }
         }
-        this.f32879a = new l();
-        this.f32880b = new k();
+        this.f32988a = new l();
+        this.f32989b = new k();
     }
 
     @Override // c.i.b.a.c0.a
@@ -53,34 +53,34 @@ public final class a implements c.i.b.a.c0.a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cVar)) == null) {
-            s sVar = this.f32881c;
-            if (sVar == null || cVar.f32873j != sVar.e()) {
-                s sVar2 = new s(cVar.f33981h);
-                this.f32881c = sVar2;
-                sVar2.a(cVar.f33981h - cVar.f32873j);
+            s sVar = this.f32990c;
+            if (sVar == null || cVar.f32982j != sVar.e()) {
+                s sVar2 = new s(cVar.f34090h);
+                this.f32990c = sVar2;
+                sVar2.a(cVar.f34090h - cVar.f32982j);
             }
-            ByteBuffer byteBuffer = cVar.f33980g;
+            ByteBuffer byteBuffer = cVar.f34089g;
             byte[] array = byteBuffer.array();
             int limit = byteBuffer.limit();
-            this.f32879a.H(array, limit);
-            this.f32880b.k(array, limit);
-            this.f32880b.n(39);
-            long g2 = (this.f32880b.g(1) << 32) | this.f32880b.g(32);
-            this.f32880b.n(20);
-            int g3 = this.f32880b.g(12);
-            int g4 = this.f32880b.g(8);
+            this.f32988a.H(array, limit);
+            this.f32989b.k(array, limit);
+            this.f32989b.n(39);
+            long g2 = (this.f32989b.g(1) << 32) | this.f32989b.g(32);
+            this.f32989b.n(20);
+            int g3 = this.f32989b.g(12);
+            int g4 = this.f32989b.g(8);
             Metadata.Entry entry = null;
-            this.f32879a.K(14);
+            this.f32988a.K(14);
             if (g4 == 0) {
                 entry = new SpliceNullCommand();
             } else if (g4 == 255) {
-                entry = PrivateCommand.parseFromSection(this.f32879a, g3, g2);
+                entry = PrivateCommand.parseFromSection(this.f32988a, g3, g2);
             } else if (g4 == 4) {
-                entry = SpliceScheduleCommand.parseFromSection(this.f32879a);
+                entry = SpliceScheduleCommand.parseFromSection(this.f32988a);
             } else if (g4 == 5) {
-                entry = SpliceInsertCommand.parseFromSection(this.f32879a, g2, this.f32881c);
+                entry = SpliceInsertCommand.parseFromSection(this.f32988a, g2, this.f32990c);
             } else if (g4 == 6) {
-                entry = TimeSignalCommand.parseFromSection(this.f32879a, g2, this.f32881c);
+                entry = TimeSignalCommand.parseFromSection(this.f32988a, g2, this.f32990c);
             }
             return entry == null ? new Metadata(new Metadata.Entry[0]) : new Metadata(entry);
         }

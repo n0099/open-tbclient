@@ -1,6 +1,6 @@
 package com.baidu.tieba.im.model;
 
-import c.a.q0.j1.f.c;
+import c.a.r0.k1.f.c;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -147,7 +147,7 @@ public class GroupMsglistModel extends CommonGroupMsglistModel {
                 return false;
             }
             LoadDraftMessage.a aVar = new LoadDraftMessage.a();
-            aVar.f53037a = this.mGroup.getGroupId() + "";
+            aVar.f53183a = this.mGroup.getGroupId() + "";
             super.sendMessage(new LoadGroupDraftMessage(aVar));
             return true;
         }
@@ -163,10 +163,10 @@ public class GroupMsglistModel extends CommonGroupMsglistModel {
                 return false;
             }
             LoadHistoryMessage.a aVar = new LoadHistoryMessage.a();
-            aVar.f53041c = 20;
-            aVar.f53039a = null;
-            aVar.f53040b = null;
-            aVar.f53042d = this.mGroup.getGroupId() + "";
+            aVar.f53187c = 20;
+            aVar.f53185a = null;
+            aVar.f53186b = null;
+            aVar.f53188d = this.mGroup.getGroupId() + "";
             LoadGroupHistoryMessage loadGroupHistoryMessage = new LoadGroupHistoryMessage(aVar);
             loadGroupHistoryMessage.setCallback(cVar);
             super.sendMessage(loadGroupHistoryMessage);
@@ -185,7 +185,7 @@ public class GroupMsglistModel extends CommonGroupMsglistModel {
                 return false;
             }
             LoadHistoryMessage.a aVar = new LoadHistoryMessage.a();
-            aVar.f53041c = 20;
+            aVar.f53187c = 20;
             MsgPageData msgPageData = this.mDatas;
             long j3 = 0;
             if (msgPageData == null || msgPageData.getChatMessages() == null || this.mDatas.getChatMessages().size() <= 0 || this.mDatas.getChatMessages().get(0) == null) {
@@ -194,9 +194,9 @@ public class GroupMsglistModel extends CommonGroupMsglistModel {
                 j3 = this.mDatas.getChatMessages().get(0).getMsgId();
                 j2 = this.mDatas.getChatMessages().get(0).getRecordId();
             }
-            aVar.f53039a = String.valueOf(j3);
-            aVar.f53040b = String.valueOf(j2);
-            aVar.f53042d = this.mGroup.getGroupId() + "";
+            aVar.f53185a = String.valueOf(j3);
+            aVar.f53186b = String.valueOf(j2);
+            aVar.f53188d = this.mGroup.getGroupId() + "";
             super.sendMessage(new LoadGroupHistoryMessage(aVar));
             return false;
         }
@@ -222,8 +222,8 @@ public class GroupMsglistModel extends CommonGroupMsglistModel {
             if (groupData == null || groupData.getGroupId() == 0) {
                 return false;
             }
-            aVar.f53065b = String.valueOf(this.mGroup.getGroupId());
-            aVar.f53064a = str;
+            aVar.f53211b = String.valueOf(this.mGroup.getGroupId());
+            aVar.f53210a = str;
             super.sendMessage(new GroupSaveDraftMessage(aVar));
             return true;
         }

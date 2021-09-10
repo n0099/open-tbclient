@@ -1,6 +1,6 @@
 package com.baidu.tieba.memberCenter.index;
 
-import c.a.p0.b1.w;
+import c.a.q0.d1.x;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -46,7 +46,7 @@ public class DoDailyTaskRequestMessage extends NetMessage {
             builder.task_id = Long.valueOf(this.taskId);
             builder.user_id = Long.valueOf(this.userId);
             if (z) {
-                w.a(builder, true);
+                x.a(builder, true);
             }
             DoDailyTaskReqIdl.Builder builder2 = new DoDailyTaskReqIdl.Builder();
             builder2.data = builder.build(false);

@@ -32,7 +32,7 @@ public final class i {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static SimpleDateFormat f59424a;
+    public static SimpleDateFormat f59604a;
     public transient /* synthetic */ FieldHolder $fh;
 
     public static int a() {
@@ -109,10 +109,10 @@ public final class i {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(65543, null, j2)) == null) {
-            if (f59424a == null) {
-                f59424a = new SimpleDateFormat("MM-dd HH:mm");
+            if (f59604a == null) {
+                f59604a = new SimpleDateFormat("MM-dd HH:mm");
             }
-            return f59424a.format(new Date(j2));
+            return f59604a.format(new Date(j2));
         }
         return (String) invokeJ.objValue;
     }
@@ -226,10 +226,10 @@ public final class i {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(65549, null, j2)) == null) {
-            if (f59424a == null) {
-                f59424a = new SimpleDateFormat("yy-MM-dd");
+            if (f59604a == null) {
+                f59604a = new SimpleDateFormat("yy-MM-dd");
             }
-            return f59424a.format(new Date(j2));
+            return f59604a.format(new Date(j2));
         }
         return (String) invokeJ.objValue;
     }
@@ -251,9 +251,9 @@ public final class i {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(65551, null, j2)) == null) {
             SimpleDateFormat simpleDateFormat = new SimpleDateFormat("MM-dd HH:mm");
-            f59424a = simpleDateFormat;
+            f59604a = simpleDateFormat;
             String format = simpleDateFormat.format(new Date(j2));
-            f59424a = null;
+            f59604a = null;
             return format.split(" ")[1];
         }
         return (String) invokeJ.objValue;

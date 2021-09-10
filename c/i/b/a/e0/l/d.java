@@ -18,19 +18,19 @@ public abstract class d implements c.i.b.a.e0.f {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final LinkedList<h> f33372a;
+    public final LinkedList<h> f33481a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final LinkedList<i> f33373b;
+    public final LinkedList<i> f33482b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final PriorityQueue<h> f33374c;
+    public final PriorityQueue<h> f33483c;
 
     /* renamed from: d  reason: collision with root package name */
-    public h f33375d;
+    public h f33484d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f33376e;
+    public long f33485e;
 
     public d() {
         Interceptable interceptable = $ic;
@@ -45,22 +45,22 @@ public abstract class d implements c.i.b.a.e0.f {
                 return;
             }
         }
-        this.f33372a = new LinkedList<>();
+        this.f33481a = new LinkedList<>();
         for (int i4 = 0; i4 < 10; i4++) {
-            this.f33372a.add(new h());
+            this.f33481a.add(new h());
         }
-        this.f33373b = new LinkedList<>();
+        this.f33482b = new LinkedList<>();
         for (int i5 = 0; i5 < 2; i5++) {
-            this.f33373b.add(new e(this));
+            this.f33482b.add(new e(this));
         }
-        this.f33374c = new PriorityQueue<>();
+        this.f33483c = new PriorityQueue<>();
     }
 
     @Override // c.i.b.a.e0.f
     public void b(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2) == null) {
-            this.f33376e = j2;
+            this.f33485e = j2;
         }
     }
 
@@ -72,14 +72,14 @@ public abstract class d implements c.i.b.a.e0.f {
     public void flush() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.f33376e = 0L;
-            while (!this.f33374c.isEmpty()) {
-                k(this.f33374c.poll());
+            this.f33485e = 0L;
+            while (!this.f33483c.isEmpty()) {
+                k(this.f33483c.poll());
             }
-            h hVar = this.f33375d;
+            h hVar = this.f33484d;
             if (hVar != null) {
                 k(hVar);
-                this.f33375d = null;
+                this.f33484d = null;
             }
         }
     }
@@ -91,12 +91,12 @@ public abstract class d implements c.i.b.a.e0.f {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            c.i.b.a.i0.a.f(this.f33375d == null);
-            if (this.f33372a.isEmpty()) {
+            c.i.b.a.i0.a.f(this.f33484d == null);
+            if (this.f33481a.isEmpty()) {
                 return null;
             }
-            h pollFirst = this.f33372a.pollFirst();
-            this.f33375d = pollFirst;
+            h pollFirst = this.f33481a.pollFirst();
+            this.f33484d = pollFirst;
             return pollFirst;
         }
         return (h) invokeV.objValue;
@@ -109,13 +109,13 @@ public abstract class d implements c.i.b.a.e0.f {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            if (this.f33373b.isEmpty()) {
+            if (this.f33482b.isEmpty()) {
                 return null;
             }
-            while (!this.f33374c.isEmpty() && this.f33374c.peek().f33981h <= this.f33376e) {
-                h poll = this.f33374c.poll();
+            while (!this.f33483c.isEmpty() && this.f33483c.peek().f34090h <= this.f33485e) {
+                h poll = this.f33483c.poll();
                 if (poll.j()) {
-                    i pollFirst = this.f33373b.pollFirst();
+                    i pollFirst = this.f33482b.pollFirst();
                     pollFirst.e(4);
                     k(poll);
                     return pollFirst;
@@ -124,8 +124,8 @@ public abstract class d implements c.i.b.a.e0.f {
                 if (i()) {
                     c.i.b.a.e0.e e2 = e();
                     if (!poll.i()) {
-                        i pollFirst2 = this.f33373b.pollFirst();
-                        pollFirst2.n(poll.f33981h, e2, Long.MAX_VALUE);
+                        i pollFirst2 = this.f33482b.pollFirst();
+                        pollFirst2.n(poll.f34090h, e2, Long.MAX_VALUE);
                         k(poll);
                         return pollFirst2;
                     }
@@ -145,13 +145,13 @@ public abstract class d implements c.i.b.a.e0.f {
     public void d(h hVar) throws SubtitleDecoderException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, hVar) == null) {
-            c.i.b.a.i0.a.a(hVar == this.f33375d);
+            c.i.b.a.i0.a.a(hVar == this.f33484d);
             if (hVar.i()) {
                 k(hVar);
             } else {
-                this.f33374c.add(hVar);
+                this.f33483c.add(hVar);
             }
-            this.f33375d = null;
+            this.f33484d = null;
         }
     }
 
@@ -159,7 +159,7 @@ public abstract class d implements c.i.b.a.e0.f {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, hVar) == null) {
             hVar.f();
-            this.f33372a.add(hVar);
+            this.f33481a.add(hVar);
         }
     }
 
@@ -167,7 +167,7 @@ public abstract class d implements c.i.b.a.e0.f {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, iVar) == null) {
             iVar.f();
-            this.f33373b.add(iVar);
+            this.f33482b.add(iVar);
         }
     }
 

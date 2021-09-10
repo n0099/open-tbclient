@@ -22,13 +22,13 @@ public class d extends BaseAdapter {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final List<FilterWord> f67406a;
+    public final List<FilterWord> f67586a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f67407b;
+    public Context f67587b;
 
     /* renamed from: c  reason: collision with root package name */
-    public a f67408c;
+    public a f67588c;
 
     /* loaded from: classes9.dex */
     public interface a {
@@ -41,13 +41,13 @@ public class d extends BaseAdapter {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public TextView f67412a;
+        public TextView f67592a;
 
         /* renamed from: b  reason: collision with root package name */
-        public FlowLayout f67413b;
+        public FlowLayout f67593b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ d f67414c;
+        public final /* synthetic */ d f67594c;
 
         public b(d dVar) {
             Interceptable interceptable = $ic;
@@ -64,7 +64,7 @@ public class d extends BaseAdapter {
                     return;
                 }
             }
-            this.f67414c = dVar;
+            this.f67594c = dVar;
         }
     }
 
@@ -83,8 +83,8 @@ public class d extends BaseAdapter {
                 return;
             }
         }
-        this.f67406a = list;
-        this.f67407b = context;
+        this.f67586a = list;
+        this.f67587b = context;
     }
 
     @Override // android.widget.Adapter
@@ -92,7 +92,7 @@ public class d extends BaseAdapter {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            List<FilterWord> list = this.f67406a;
+            List<FilterWord> list = this.f67586a;
             if (list == null) {
                 return 0;
             }
@@ -105,7 +105,7 @@ public class d extends BaseAdapter {
     public Object getItem(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) ? this.f67406a.get(i2) : invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) ? this.f67586a.get(i2) : invokeI.objValue;
     }
 
     @Override // android.widget.Adapter
@@ -124,28 +124,28 @@ public class d extends BaseAdapter {
         if (interceptable == null || (invokeILL = interceptable.invokeILL(1048581, this, i2, view, viewGroup)) == null) {
             if (view == null) {
                 bVar = new b();
-                view2 = LayoutInflater.from(this.f67407b).inflate(t.f(this.f67407b, "tt_dialog_listview_item"), viewGroup, false);
-                bVar.f67412a = (TextView) view2.findViewById(t.e(this.f67407b, "tt_item_tv"));
-                bVar.f67413b = (FlowLayout) view2.findViewById(t.e(this.f67407b, "tt_item_tv_son"));
+                view2 = LayoutInflater.from(this.f67587b).inflate(t.f(this.f67587b, "tt_dialog_listview_item"), viewGroup, false);
+                bVar.f67592a = (TextView) view2.findViewById(t.e(this.f67587b, "tt_item_tv"));
+                bVar.f67593b = (FlowLayout) view2.findViewById(t.e(this.f67587b, "tt_item_tv_son"));
                 view2.setTag(bVar);
             } else {
                 view2 = view;
                 bVar = (b) view.getTag();
             }
-            FilterWord filterWord = this.f67406a.get(i2);
-            bVar.f67412a.setText(filterWord.getName());
+            FilterWord filterWord = this.f67586a.get(i2);
+            bVar.f67592a.setText(filterWord.getName());
             if (!filterWord.hasSecondOptions()) {
-                if (i2 != this.f67406a.size() - 1) {
-                    bVar.f67412a.setBackgroundResource(t.d(this.f67407b, "tt_dislike_middle_seletor"));
+                if (i2 != this.f67586a.size() - 1) {
+                    bVar.f67592a.setBackgroundResource(t.d(this.f67587b, "tt_dislike_middle_seletor"));
                 } else {
-                    bVar.f67412a.setBackgroundResource(t.d(this.f67407b, "tt_dislike_bottom_seletor"));
+                    bVar.f67592a.setBackgroundResource(t.d(this.f67587b, "tt_dislike_bottom_seletor"));
                 }
             }
             if (i2 == 0) {
-                bVar.f67412a.setBackgroundResource(t.d(this.f67407b, "tt_dislike_top_seletor"));
+                bVar.f67592a.setBackgroundResource(t.d(this.f67587b, "tt_dislike_top_seletor"));
             }
             if (filterWord.hasSecondOptions()) {
-                bVar.f67413b.removeAllViews();
+                bVar.f67593b.removeAllViews();
                 List<FilterWord> options = filterWord.getOptions();
                 for (int i3 = 0; i3 < options.size(); i3++) {
                     FilterWord filterWord2 = options.get(i3);
@@ -156,13 +156,13 @@ public class d extends BaseAdapter {
                         public transient /* synthetic */ FieldHolder $fh;
 
                         /* renamed from: a  reason: collision with root package name */
-                        public final /* synthetic */ int f67409a;
+                        public final /* synthetic */ int f67589a;
 
                         /* renamed from: b  reason: collision with root package name */
-                        public final /* synthetic */ FilterWord f67410b;
+                        public final /* synthetic */ FilterWord f67590b;
 
                         /* renamed from: c  reason: collision with root package name */
-                        public final /* synthetic */ d f67411c;
+                        public final /* synthetic */ d f67591c;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -179,25 +179,25 @@ public class d extends BaseAdapter {
                                     return;
                                 }
                             }
-                            this.f67411c = this;
-                            this.f67409a = i2;
-                            this.f67410b = filterWord2;
+                            this.f67591c = this;
+                            this.f67589a = i2;
+                            this.f67590b = filterWord2;
                         }
 
                         @Override // android.view.View.OnClickListener
                         public void onClick(View view3) {
                             Interceptable interceptable2 = $ic;
-                            if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, view3) == null) || this.f67411c.f67408c == null) {
+                            if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, view3) == null) || this.f67591c.f67588c == null) {
                                 return;
                             }
-                            this.f67411c.f67408c.a(this.f67409a, this.f67410b);
+                            this.f67591c.f67588c.a(this.f67589a, this.f67590b);
                         }
                     });
-                    bVar.f67413b.addView(a2);
+                    bVar.f67593b.addView(a2);
                 }
-                bVar.f67413b.setVisibility(0);
+                bVar.f67593b.setVisibility(0);
             } else {
-                bVar.f67413b.setVisibility(8);
+                bVar.f67593b.setVisibility(8);
             }
             return view2;
         }
@@ -208,12 +208,12 @@ public class d extends BaseAdapter {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
-            TextView textView = new TextView(this.f67407b);
+            TextView textView = new TextView(this.f67587b);
             ViewGroup.MarginLayoutParams marginLayoutParams = new ViewGroup.MarginLayoutParams(-2, -2);
-            marginLayoutParams.setMargins(0, 0, com.bytedance.sdk.openadsdk.dislike.a.a.b().a(this.f67407b, 8.0f), com.bytedance.sdk.openadsdk.dislike.a.a.b().a(this.f67407b, 8.0f));
+            marginLayoutParams.setMargins(0, 0, com.bytedance.sdk.openadsdk.dislike.a.a.b().a(this.f67587b, 8.0f), com.bytedance.sdk.openadsdk.dislike.a.a.b().a(this.f67587b, 8.0f));
             textView.setLayoutParams(marginLayoutParams);
-            textView.setPadding(com.bytedance.sdk.openadsdk.dislike.a.a.b().a(this.f67407b, 21.0f), com.bytedance.sdk.openadsdk.dislike.a.a.b().a(this.f67407b, 6.0f), com.bytedance.sdk.openadsdk.dislike.a.a.b().a(this.f67407b, 21.0f), com.bytedance.sdk.openadsdk.dislike.a.a.b().a(this.f67407b, 6.0f));
-            textView.setBackgroundResource(t.d(this.f67407b, "tt_dislike_flowlayout_tv_bg"));
+            textView.setPadding(com.bytedance.sdk.openadsdk.dislike.a.a.b().a(this.f67587b, 21.0f), com.bytedance.sdk.openadsdk.dislike.a.a.b().a(this.f67587b, 6.0f), com.bytedance.sdk.openadsdk.dislike.a.a.b().a(this.f67587b, 21.0f), com.bytedance.sdk.openadsdk.dislike.a.a.b().a(this.f67587b, 6.0f));
+            textView.setBackgroundResource(t.d(this.f67587b, "tt_dislike_flowlayout_tv_bg"));
             textView.setTextColor(Color.parseColor("#BF161823"));
             textView.setTextSize(14.0f);
             textView.setAlpha(0.75f);
@@ -225,7 +225,7 @@ public class d extends BaseAdapter {
     public void a(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-            this.f67408c = aVar;
+            this.f67588c = aVar;
         }
     }
 
@@ -234,8 +234,8 @@ public class d extends BaseAdapter {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) || list == null || list.isEmpty()) {
             return;
         }
-        this.f67406a.clear();
-        this.f67406a.addAll(list);
+        this.f67586a.clear();
+        this.f67586a.addAll(list);
         notifyDataSetChanged();
     }
 }

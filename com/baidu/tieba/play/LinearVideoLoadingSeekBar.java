@@ -11,7 +11,7 @@ import android.util.AttributeSet;
 import android.widget.SeekBar;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import c.a.q0.i3.c;
+import c.a.r0.j3.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R$styleable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -29,19 +29,19 @@ public class LinearVideoLoadingSeekBar extends SeekBar {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f55930e;
+    public int f56088e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f55931f;
+    public int f56089f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f55932g;
+    public boolean f56090g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final int f55933h;
+    public final int f56091h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Handler f55934i;
+    public Handler f56092i;
 
     /* loaded from: classes7.dex */
     public class a extends Handler {
@@ -49,7 +49,7 @@ public class LinearVideoLoadingSeekBar extends SeekBar {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ LinearVideoLoadingSeekBar f55935a;
+        public final /* synthetic */ LinearVideoLoadingSeekBar f56093a;
 
         public a(LinearVideoLoadingSeekBar linearVideoLoadingSeekBar) {
             Interceptable interceptable = $ic;
@@ -66,7 +66,7 @@ public class LinearVideoLoadingSeekBar extends SeekBar {
                     return;
                 }
             }
-            this.f55935a = linearVideoLoadingSeekBar;
+            this.f56093a = linearVideoLoadingSeekBar;
         }
 
         @Override // android.os.Handler
@@ -74,8 +74,8 @@ public class LinearVideoLoadingSeekBar extends SeekBar {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
                 super.handleMessage(message);
-                this.f55935a.invalidate();
-                if (this.f55935a.f55932g) {
+                this.f56093a.invalidate();
+                if (this.f56093a.f56090g) {
                     sendEmptyMessageDelayed(1, 16L);
                 }
             }
@@ -113,15 +113,15 @@ public class LinearVideoLoadingSeekBar extends SeekBar {
             Paint paint = new Paint();
             paint.setStyle(Paint.Style.FILL_AND_STROKE);
             paint.setAntiAlias(true);
-            int i2 = this.f55930e + (width / 30);
-            this.f55930e = i2;
+            int i2 = this.f56088e + (width / 30);
+            this.f56088e = i2;
             if (i2 >= width) {
-                this.f55930e = 0;
+                this.f56088e = 0;
             }
-            paint.setColor(c.a(this.f55933h, width == 0 ? 1.0f : Math.max(255 - ((this.f55930e * 255) / width), 30) / 255.0f));
-            paint.setStrokeWidth(this.f55931f);
+            paint.setColor(c.a(this.f56091h, width == 0 ? 1.0f : Math.max(255 - ((this.f56088e * 255) / width), 30) / 255.0f));
+            paint.setStrokeWidth(this.f56089f);
             float f2 = width / 2.0f;
-            int i3 = this.f55930e;
+            int i3 = this.f56088e;
             float f3 = ((height - paddingBottom) + paddingTop) / 2.0f;
             canvas.drawLine(f2 - (i3 / 2.0f), f3, f2 + (i3 / 2.0f), f3, paint);
         }
@@ -132,7 +132,7 @@ public class LinearVideoLoadingSeekBar extends SeekBar {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.onDetachedFromWindow();
-            this.f55934i.removeCallbacksAndMessages(null);
+            this.f56092i.removeCallbacksAndMessages(null);
         }
     }
 
@@ -141,7 +141,7 @@ public class LinearVideoLoadingSeekBar extends SeekBar {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, canvas) == null) {
             synchronized (this) {
-                if (this.f55932g) {
+                if (this.f56090g) {
                     b(canvas);
                 } else {
                     super.onDraw(canvas);
@@ -153,10 +153,10 @@ public class LinearVideoLoadingSeekBar extends SeekBar {
     public void setLoading(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.f55932g = z;
+            this.f56090g = z;
             if (z) {
-                this.f55930e = 0;
-                this.f55934i.sendEmptyMessageDelayed(1, 33L);
+                this.f56088e = 0;
+                this.f56092i.sendEmptyMessageDelayed(1, 33L);
             }
         }
     }
@@ -201,13 +201,13 @@ public class LinearVideoLoadingSeekBar extends SeekBar {
                 return;
             }
         }
-        this.f55930e = 0;
-        this.f55931f = 1;
-        this.f55932g = false;
-        this.f55934i = new a(this);
+        this.f56088e = 0;
+        this.f56089f = 1;
+        this.f56090g = false;
+        this.f56092i = new a(this);
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R$styleable.LinearVideoLoadingSeekBar);
-        this.f55933h = obtainStyledAttributes.getColor(R$styleable.LinearVideoLoadingSeekBar_progressColor, -16777216);
-        this.f55931f = obtainStyledAttributes.getDimensionPixelSize(R$styleable.LinearVideoLoadingSeekBar_loadingViewHeight, this.f55931f);
+        this.f56091h = obtainStyledAttributes.getColor(R$styleable.LinearVideoLoadingSeekBar_progressColor, -16777216);
+        this.f56089f = obtainStyledAttributes.getDimensionPixelSize(R$styleable.LinearVideoLoadingSeekBar_loadingViewHeight, this.f56089f);
         obtainStyledAttributes.recycle();
     }
 }

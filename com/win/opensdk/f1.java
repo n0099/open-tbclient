@@ -20,20 +20,20 @@ public class f1 {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static f1 f76842d;
+    public static f1 f77022d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f76843e;
+    public static String f77023e;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f76844a;
+    public Context f77024a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f76845b;
+    public long f77025b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f76846c;
+    public long f77026c;
 
     static {
         InterceptResult invokeClinit;
@@ -48,7 +48,7 @@ public class f1 {
                 return;
             }
         }
-        f76843e = s1.f76985d + "jy/cf?";
+        f77023e = s1.f77165d + "jy/cf?";
     }
 
     public f1(Context context) {
@@ -66,21 +66,21 @@ public class f1 {
                 return;
             }
         }
-        this.f76844a = context;
+        this.f77024a = context;
     }
 
     public static f1 a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
-            if (f76842d == null) {
+            if (f77022d == null) {
                 synchronized (f1.class) {
-                    if (f76842d == null) {
-                        f76842d = new f1(context);
+                    if (f77022d == null) {
+                        f77022d = new f1(context);
                     }
                 }
             }
-            return f76842d;
+            return f77022d;
         }
         return (f1) invokeL.objValue;
     }
@@ -88,85 +88,85 @@ public class f1 {
     public final String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? f76843e : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? f77023e : (String) invokeV.objValue;
     }
 
     public final void a(t1 t1Var) {
         JSONObject jSONObject;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t1Var) == null) || t1Var == null || (jSONObject = t1Var.f76998c) == null || jSONObject.length() == 0) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t1Var) == null) || t1Var == null || (jSONObject = t1Var.f77178c) == null || jSONObject.length() == 0) {
             return;
         }
         try {
-            JSONObject jSONObject2 = t1Var.f76998c;
-            U1.c(this.f76844a, jSONObject2.optString("bt", ""));
+            JSONObject jSONObject2 = t1Var.f77178c;
+            U1.c(this.f77024a, jSONObject2.optString("bt", ""));
             int optInt = jSONObject2.optInt("time", 12);
-            SharedPreferences.Editor edit = this.f76844a.getSharedPreferences("_prefs", 0).edit();
+            SharedPreferences.Editor edit = this.f77024a.getSharedPreferences("_prefs", 0).edit();
             edit.putInt("interval", optInt);
             edit.apply();
             int optInt2 = jSONObject2.optInt("wt", 5);
-            SharedPreferences.Editor edit2 = this.f76844a.getSharedPreferences("_prefs", 0).edit();
+            SharedPreferences.Editor edit2 = this.f77024a.getSharedPreferences("_prefs", 0).edit();
             edit2.putInt("timeout_sec", optInt2);
             edit2.apply();
             JSONArray optJSONArray = jSONObject2.optJSONArray("ids");
-            Context context = this.f76844a;
+            Context context = this.f77024a;
             String jSONArray = optJSONArray.toString();
             SharedPreferences.Editor edit3 = context.getSharedPreferences("_prefs", 0).edit();
             edit3.putString(TiebaStatic.Params.PID_MERGE, jSONArray);
             edit3.apply();
             String optString = jSONObject2.optString("psdid");
-            SharedPreferences.Editor edit4 = this.f76844a.getSharedPreferences("_prefs", 0).edit();
+            SharedPreferences.Editor edit4 = this.f77024a.getSharedPreferences("_prefs", 0).edit();
             edit4.putString("psdid", optString);
             edit4.apply();
             int optInt3 = jSONObject2.optInt("psdt");
-            SharedPreferences.Editor edit5 = this.f76844a.getSharedPreferences("_prefs", 0).edit();
+            SharedPreferences.Editor edit5 = this.f77024a.getSharedPreferences("_prefs", 0).edit();
             edit5.putInt("psdt", optInt3);
             edit5.apply();
             int optInt4 = jSONObject2.optInt("psd");
-            SharedPreferences.Editor edit6 = this.f76844a.getSharedPreferences("_prefs", 0).edit();
+            SharedPreferences.Editor edit6 = this.f77024a.getSharedPreferences("_prefs", 0).edit();
             edit6.putInt("psd", optInt4);
             edit6.apply();
             int optInt5 = jSONObject2.optInt("hbsw");
-            SharedPreferences.Editor edit7 = this.f76844a.getSharedPreferences("_prefs", 0).edit();
+            SharedPreferences.Editor edit7 = this.f77024a.getSharedPreferences("_prefs", 0).edit();
             edit7.putInt("hbsw", optInt5);
             edit7.apply();
             JSONArray optJSONArray2 = jSONObject2.optJSONArray("bp");
-            Context context2 = this.f76844a;
+            Context context2 = this.f77024a;
             String jSONArray2 = optJSONArray2.toString();
             SharedPreferences.Editor edit8 = context2.getSharedPreferences("_prefs", 0).edit();
             edit8.putString("bp", jSONArray2);
             edit8.apply();
             int optInt6 = jSONObject2.optInt("bs", 0);
-            SharedPreferences.Editor edit9 = this.f76844a.getSharedPreferences("_prefs", 0).edit();
+            SharedPreferences.Editor edit9 = this.f77024a.getSharedPreferences("_prefs", 0).edit();
             edit9.putInt("bro_high", optInt6);
             edit9.apply();
             int optInt7 = jSONObject2.optInt("pro", 4);
-            SharedPreferences.Editor edit10 = this.f76844a.getSharedPreferences("_prefs", 0).edit();
+            SharedPreferences.Editor edit10 = this.f77024a.getSharedPreferences("_prefs", 0).edit();
             edit10.putInt("re_pro", optInt7);
             edit10.apply();
             int optInt8 = jSONObject2.optInt("scbsw", 0);
-            SharedPreferences.Editor edit11 = this.f76844a.getSharedPreferences("_prefs", 0).edit();
+            SharedPreferences.Editor edit11 = this.f77024a.getSharedPreferences("_prefs", 0).edit();
             edit11.putInt("scb_sw", optInt8);
             edit11.apply();
             int optInt9 = jSONObject2.optInt("scbtsi", 300);
-            SharedPreferences.Editor edit12 = this.f76844a.getSharedPreferences("_prefs", 0).edit();
+            SharedPreferences.Editor edit12 = this.f77024a.getSharedPreferences("_prefs", 0).edit();
             edit12.putInt("scb_tsi", optInt9);
             edit12.apply();
             long optInt10 = jSONObject2.optInt("bdtsi", 24);
-            SharedPreferences.Editor edit13 = this.f76844a.getSharedPreferences("_prefs", 0).edit();
+            SharedPreferences.Editor edit13 = this.f77024a.getSharedPreferences("_prefs", 0).edit();
             edit13.putLong("bdtsi", optInt10);
             edit13.apply();
             long optInt11 = jSONObject2.optInt("las", 12);
-            SharedPreferences.Editor edit14 = this.f76844a.getSharedPreferences("_prefs", 0).edit();
+            SharedPreferences.Editor edit14 = this.f77024a.getSharedPreferences("_prefs", 0).edit();
             edit14.putLong("las", optInt11);
             edit14.apply();
             int optInt12 = jSONObject2.optInt("jumpsw", 0);
-            SharedPreferences.Editor edit15 = this.f76844a.getSharedPreferences("_prefs", 0).edit();
+            SharedPreferences.Editor edit15 = this.f77024a.getSharedPreferences("_prefs", 0).edit();
             edit15.putInt("jumpsw", optInt12);
             edit15.apply();
-            U1.c(this.f76844a, new Date().getTime());
+            U1.c(this.f77024a, new Date().getTime());
         } catch (Exception e2) {
-            Z0.a(this.f76844a).a(101, this.f76846c).a();
+            Z0.a(this.f77024a).a(101, this.f77026c).a();
             e2.printStackTrace();
         }
     }
@@ -174,7 +174,7 @@ public class f1 {
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            U1.c(this.f76844a, new Date().getTime());
+            U1.c(this.f77024a, new Date().getTime());
         }
     }
 }

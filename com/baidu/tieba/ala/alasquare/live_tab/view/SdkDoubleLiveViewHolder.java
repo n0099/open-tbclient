@@ -1,7 +1,7 @@
 package com.baidu.tieba.ala.alasquare.live_tab.view;
 
 import android.view.View;
-import c.a.q0.v.d.c.h.e;
+import c.a.r0.v.d.c.h.e;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;

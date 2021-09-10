@@ -25,19 +25,19 @@ public class EmotionCenterForumView extends RelativeLayout implements View.OnCli
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TbPageContext f50459e;
+    public TbPageContext f50624e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f50460f;
+    public TextView f50625f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f50461g;
+    public TextView f50626g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ImageView f50462h;
+    public ImageView f50627h;
 
     /* renamed from: i  reason: collision with root package name */
-    public EmotionCenterData.EmotionForumData f50463i;
+    public EmotionCenterData.EmotionForumData f50628i;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public EmotionCenterForumView(TbPageContext tbPageContext) {
@@ -57,7 +57,7 @@ public class EmotionCenterForumView extends RelativeLayout implements View.OnCli
                 return;
             }
         }
-        this.f50459e = tbPageContext;
+        this.f50624e = tbPageContext;
         a();
     }
 
@@ -65,9 +65,9 @@ public class EmotionCenterForumView extends RelativeLayout implements View.OnCli
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             LayoutInflater.from(getContext()).inflate(R.layout.emotion_forum_layout, this);
-            this.f50460f = (TextView) findViewById(R.id.forum_title_tv);
-            this.f50461g = (TextView) findViewById(R.id.forum_recommend_tv);
-            this.f50462h = (ImageView) findViewById(R.id.forum_arrow);
+            this.f50625f = (TextView) findViewById(R.id.forum_title_tv);
+            this.f50626g = (TextView) findViewById(R.id.forum_recommend_tv);
+            this.f50627h = (ImageView) findViewById(R.id.forum_arrow);
             setOnClickListener(this);
         }
     }
@@ -75,17 +75,17 @@ public class EmotionCenterForumView extends RelativeLayout implements View.OnCli
     public void onChangeSkin(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            SkinManager.setViewTextColor(this.f50460f, R.color.CAM_X0105, i2);
-            SkinManager.setViewTextColor(this.f50461g, R.color.cp_cont_r, i2);
-            SkinManager.setBackgroundResource(this.f50462h, R.drawable.emotion_center_arrow, i2);
+            SkinManager.setViewTextColor(this.f50625f, R.color.CAM_X0105, i2);
+            SkinManager.setViewTextColor(this.f50626g, R.color.cp_cont_r, i2);
+            SkinManager.setBackgroundResource(this.f50627h, R.drawable.emotion_center_arrow, i2);
         }
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view) == null) && view == this && this.f50463i != null) {
-            this.f50459e.sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.f50459e.getPageActivity()).createNormalCfg(this.f50463i.forum_name, null)));
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view) == null) && view == this && this.f50628i != null) {
+            this.f50624e.sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.f50624e.getPageActivity()).createNormalCfg(this.f50628i.forum_name, null)));
         }
     }
 
@@ -93,7 +93,7 @@ public class EmotionCenterForumView extends RelativeLayout implements View.OnCli
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, emotionForumData) == null) {
             onChangeSkin(TbadkCoreApplication.getInst().getSkinType());
-            this.f50463i = emotionForumData;
+            this.f50628i = emotionForumData;
         }
     }
 

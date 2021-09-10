@@ -70,34 +70,34 @@ public class f {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f35167a = "f";
+    public static final String f35276a = "f";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f35168b;
+    public static String f35277b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile SparseArray<Boolean> f35169c;
+    public static volatile SparseArray<Boolean> f35278c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static volatile SparseArray<List<l>> f35170d;
+    public static volatile SparseArray<List<l>> f35279d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final char[] f35171e;
+    public static final char[] f35280e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static Pattern f35172f;
+    public static Pattern f35281f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static Pattern f35173g;
+    public static Pattern f35282g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static ConnectivityManager f35174h;
+    public static ConnectivityManager f35283h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static Boolean f35175i;
+    public static Boolean f35284i;
 
     /* renamed from: j  reason: collision with root package name */
-    public static Boolean f35176j;
+    public static Boolean f35285j;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -114,12 +114,12 @@ public class f {
             }
         }
         Pattern.compile(".*\\d+ *- *(\\d+) */ *\\d+");
-        f35168b = null;
-        f35169c = new SparseArray<>();
-        f35170d = new SparseArray<>();
-        f35171e = new char[]{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
-        f35172f = null;
-        f35173g = null;
+        f35277b = null;
+        f35278c = new SparseArray<>();
+        f35279d = new SparseArray<>();
+        f35280e = new char[]{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
+        f35281f = null;
+        f35282g = null;
     }
 
     public static void A(IOException iOException, String str) throws BaseException {
@@ -188,7 +188,7 @@ public class f {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            String str = f35168b;
+            String str = f35277b;
             if (TextUtils.isEmpty(str)) {
                 try {
                     int myPid = Process.myPid();
@@ -200,7 +200,7 @@ public class f {
                                     c.p.a.e.b.c.a.g("Process", "processName = " + runningAppProcessInfo.processName);
                                 }
                                 String str2 = runningAppProcessInfo.processName;
-                                f35168b = str2;
+                                f35277b = str2;
                                 return str2;
                             }
                         }
@@ -209,7 +209,7 @@ public class f {
                     e2.printStackTrace();
                 }
                 String X0 = X0();
-                f35168b = X0;
+                f35277b = X0;
                 return X0;
             }
             return str;
@@ -300,15 +300,15 @@ public class f {
         if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, downloadInfo)) == null) {
             boolean z = false;
             if (!downloadInfo.isDeleteCacheIfCheckFailed() && TextUtils.isEmpty(downloadInfo.getLastModified())) {
-                c.p.a.e.b.c.a.g(f35167a, "dcache::last modify is emtpy, so just return cache");
+                c.p.a.e.b.c.a.g(f35276a, "dcache::last modify is emtpy, so just return cache");
             } else {
-                String str = f35167a;
+                String str = f35276a;
                 c.p.a.e.b.c.a.g(str, "dcache::curt=" + System.currentTimeMillis() + " expired=" + downloadInfo.getCacheExpiredTime());
                 if (System.currentTimeMillis() > downloadInfo.getCacheExpiredTime()) {
                     z = true;
                 }
             }
-            String str2 = f35167a;
+            String str2 = f35276a;
             c.p.a.e.b.c.a.g(str2, "cacheExpired::dcache::name=" + downloadInfo.getName() + " expired=" + z);
             return z;
         }
@@ -347,17 +347,17 @@ public class f {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
-            Boolean bool = f35175i;
+            Boolean bool = f35284i;
             if (bool != null) {
                 return bool.booleanValue();
             }
             String A0 = A0(c.p.a.e.b.g.e.n());
             if (A0 == null || !A0.contains(":")) {
-                f35175i = Boolean.valueOf(A0 != null && A0.equals(c.p.a.e.b.g.e.n().getPackageName()));
+                f35284i = Boolean.valueOf(A0 != null && A0.equals(c.p.a.e.b.g.e.n().getPackageName()));
             } else {
-                f35175i = Boolean.FALSE;
+                f35284i = Boolean.FALSE;
             }
-            return f35175i.booleanValue();
+            return f35284i.booleanValue();
         }
         return invokeV.booleanValue;
     }
@@ -423,11 +423,11 @@ public class f {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(65552, null, i2)) == null) {
-            com.ss.android.socialbase.downloader.constants.f fVar = com.ss.android.socialbase.downloader.constants.f.f75660a;
-            if (i2 == com.ss.android.socialbase.downloader.constants.f.f75661b.ordinal()) {
-                return com.ss.android.socialbase.downloader.constants.f.f75661b;
+            com.ss.android.socialbase.downloader.constants.f fVar = com.ss.android.socialbase.downloader.constants.f.f75840a;
+            if (i2 == com.ss.android.socialbase.downloader.constants.f.f75841b.ordinal()) {
+                return com.ss.android.socialbase.downloader.constants.f.f75841b;
             }
-            return i2 == com.ss.android.socialbase.downloader.constants.f.f75662c.ordinal() ? com.ss.android.socialbase.downloader.constants.f.f75662c : fVar;
+            return i2 == com.ss.android.socialbase.downloader.constants.f.f75842c.ordinal() ? com.ss.android.socialbase.downloader.constants.f.f75842c : fVar;
         }
         return (com.ss.android.socialbase.downloader.constants.f) invokeI.objValue;
     }
@@ -774,7 +774,7 @@ public class f {
                     return (Long.parseLong(matcher.group(2)) - Long.parseLong(matcher.group(1))) + 1;
                 }
             } catch (Exception e2) {
-                String str = f35167a;
+                String str = f35276a;
                 c.p.a.e.b.c.a.j(str, "parse content-length from content-range failed " + e2);
             }
             return -1L;
@@ -809,7 +809,7 @@ public class f {
                 try {
                     return Long.parseLong(split[1]);
                 } catch (NumberFormatException unused) {
-                    String str2 = f35167a;
+                    String str2 = f35276a;
                     c.p.a.e.b.c.a.j(str2, "parse instance length failed with " + str);
                 }
             }
@@ -996,19 +996,19 @@ public class f {
                 return null;
             }
             try {
-                if (f35172f == null) {
-                    f35172f = Pattern.compile("attachment;\\s*filename\\s*=\\s*\"([^\"]*)\"");
+                if (f35281f == null) {
+                    f35281f = Pattern.compile("attachment;\\s*filename\\s*=\\s*\"([^\"]*)\"");
                 }
-                matcher = f35172f.matcher(str);
+                matcher = f35281f.matcher(str);
             } catch (Exception unused) {
             }
             if (matcher.find()) {
                 return matcher.group(1);
             }
-            if (f35173g == null) {
-                f35173g = Pattern.compile("attachment;\\s*filename\\s*=\\s*(.*)");
+            if (f35282g == null) {
+                f35282g = Pattern.compile("attachment;\\s*filename\\s*=\\s*(.*)");
             }
-            Matcher matcher2 = f35173g.matcher(str);
+            Matcher matcher2 = f35282g.matcher(str);
             if (matcher2.find()) {
                 return matcher2.group(1);
             }
@@ -1217,10 +1217,10 @@ public class f {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65599, null, context)) == null) {
-            ConnectivityManager connectivityManager = f35174h;
+            ConnectivityManager connectivityManager = f35283h;
             if (connectivityManager == null) {
                 ConnectivityManager connectivityManager2 = (ConnectivityManager) context.getSystemService("connectivity");
-                f35174h = connectivityManager2;
+                f35283h = connectivityManager2;
                 return connectivityManager2;
             }
             return connectivityManager;
@@ -1593,7 +1593,7 @@ public class f {
                     for (int i6 = 0; i6 < i3; i6++) {
                         int i7 = bArr[i6 + i2] & 255;
                         int i8 = i5 + 1;
-                        char[] cArr2 = f35171e;
+                        char[] cArr2 = f35280e;
                         cArr[i5] = cArr2[i7 >> 4];
                         i5 = i8 + 1;
                         cArr[i8] = cArr2[i7 & 15];
@@ -1611,19 +1611,19 @@ public class f {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65622, null)) == null) {
-            Boolean bool = f35176j;
+            Boolean bool = f35285j;
             if (bool != null) {
                 return bool.booleanValue();
             }
             String A0 = A0(c.p.a.e.b.g.e.n());
             if (A0 != null) {
                 if (A0.equals(c.p.a.e.b.g.e.n().getPackageName() + ":downloader")) {
-                    f35176j = Boolean.TRUE;
-                    return f35176j.booleanValue();
+                    f35285j = Boolean.TRUE;
+                    return f35285j.booleanValue();
                 }
             }
-            f35176j = Boolean.FALSE;
-            return f35176j.booleanValue();
+            f35285j = Boolean.FALSE;
+            return f35285j.booleanValue();
         }
         return invokeV.booleanValue;
     }
@@ -1734,7 +1734,7 @@ public class f {
             arrayList.add(new com.ss.android.socialbase.downloader.model.c("Accept-Encoding", "identity"));
             String format = j3 <= 0 ? String.format("bytes=%s-", String.valueOf(j2)) : String.format("bytes=%s-%s", String.valueOf(j2), String.valueOf(j3));
             arrayList.add(new com.ss.android.socialbase.downloader.model.c("Range", format));
-            String str2 = f35167a;
+            String str2 = f35276a;
             c.p.a.e.b.c.a.g(str2, " range CurrentOffset:" + j2 + " EndOffset:" + j3 + ", range = " + format);
             return arrayList;
         }
@@ -1768,8 +1768,8 @@ public class f {
     public static void u(int i2, boolean z, BaseException baseException) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65631, null, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z), baseException}) == null) {
-            synchronized (f35169c) {
-                List<l> list = f35170d.get(i2);
+            synchronized (f35278c) {
+                List<l> list = f35279d.get(i2);
                 if (list != null) {
                     for (l lVar : list) {
                         if (lVar != null) {
@@ -1781,9 +1781,9 @@ public class f {
                         }
                     }
                 }
-                String str = f35167a;
+                String str = f35276a;
                 c.p.a.e.b.c.a.g(str, "handleTempSaveCallback id:" + i2);
-                f35169c.remove(i2);
+                f35278c.remove(i2);
             }
         }
     }
@@ -1851,36 +1851,36 @@ public class f {
         boolean z2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65637, null, downloadInfo, zVar, lVar) == null) {
-            c.p.a.e.b.c.a.g(f35167a, "saveFileAsTargetName targetName is " + downloadInfo.getTargetFilePath());
+            c.p.a.e.b.c.a.g(f35276a, "saveFileAsTargetName targetName is " + downloadInfo.getTargetFilePath());
             try {
             } catch (Throwable th) {
-                c.p.a.e.b.c.a.g(f35167a, "saveFileAsTargetName throwable " + th.getMessage());
+                c.p.a.e.b.c.a.g(f35276a, "saveFileAsTargetName throwable " + th.getMessage());
                 if (lVar == null) {
                 }
             }
-            synchronized (f35169c) {
-                if (f35169c.get(downloadInfo.getId()) == Boolean.TRUE) {
-                    c.p.a.e.b.c.a.g(f35167a, "has another same task is saving temp file");
+            synchronized (f35278c) {
+                if (f35278c.get(downloadInfo.getId()) == Boolean.TRUE) {
+                    c.p.a.e.b.c.a.g(f35276a, "has another same task is saving temp file");
                     if (lVar != null) {
-                        List<l> list = f35170d.get(downloadInfo.getId());
+                        List<l> list = f35279d.get(downloadInfo.getId());
                         if (list == null) {
                             list = new ArrayList<>();
-                            f35170d.put(downloadInfo.getId(), list);
+                            f35279d.put(downloadInfo.getId(), list);
                         }
                         list.add(lVar);
                     }
                     return;
                 }
-                c.p.a.e.b.c.a.g(f35167a, "saveTempFileStatusMap put id:" + downloadInfo.getId());
-                f35169c.put(downloadInfo.getId(), Boolean.TRUE);
+                c.p.a.e.b.c.a.g(f35276a, "saveTempFileStatusMap put id:" + downloadInfo.getId());
+                f35278c.put(downloadInfo.getId(), Boolean.TRUE);
                 File file = new File(downloadInfo.getTempPath(), downloadInfo.getTempName());
                 File file2 = new File(downloadInfo.getSavePath(), downloadInfo.getName());
                 boolean U0 = U0(downloadInfo.getSavePath());
                 if (file2.exists()) {
-                    c.p.a.e.b.c.a.g(f35167a, "targetFile exist");
+                    c.p.a.e.b.c.a.g(f35276a, "targetFile exist");
                     int b2 = b(file2, downloadInfo.getMd5());
                     if (G(b2)) {
-                        c.p.a.e.b.c.a.g(f35167a, "tempFile not exist , targetFile exists and md5 check valid");
+                        c.p.a.e.b.c.a.g(f35276a, "tempFile not exist , targetFile exists and md5 check valid");
                         downloadInfo.setTTMd5CheckStatus(b2);
                         if (lVar != null) {
                             lVar.a();
@@ -1970,7 +1970,7 @@ public class f {
                     if (z) {
                     }
                 }
-                c.p.a.e.b.c.a.g(f35167a, "saveFileAsTargetName throwable " + th.getMessage());
+                c.p.a.e.b.c.a.g(f35276a, "saveFileAsTargetName throwable " + th.getMessage());
                 if (lVar == null) {
                     lVar.a(new BaseException(1038, a0(th, "saveFileAsTargetName")));
                 }

@@ -26,7 +26,6 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.ar.arplay.core.engine.ARPDataInteraction;
 import com.baidu.ar.arplay.core.engine.ARPEngine;
 import com.baidu.ar.arplay.core.message.ARPMessage;
-import com.baidu.ar.arplay.core.message.ARPMessageType;
 import com.baidu.ar.arplay.d.a;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -342,7 +341,7 @@ public class b {
             hashMap3.put("error_msg", aVar.gu);
             hashMap2.put("data", hashMap3);
             hashMap.put("event_data", hashMap2);
-            ARPMessage.getInstance().sendMessage(ARPMessageType.MSG_TYPE_SDK_LUA_BRIDGE, hashMap);
+            ARPMessage.getInstance().sendMessage(1902, hashMap);
             o(i2);
         }
     }
@@ -561,7 +560,7 @@ public class b {
             HashMap hashMap2 = new HashMap();
             hashMap2.put("texture_id", Integer.valueOf(i2));
             hashMap.put("event_data", hashMap2);
-            ARPMessage.getInstance().sendMessage(ARPMessageType.MSG_TYPE_SDK_LUA_BRIDGE, hashMap);
+            ARPMessage.getInstance().sendMessage(1902, hashMap);
         }
     }
 
@@ -574,7 +573,7 @@ public class b {
             HashMap hashMap2 = new HashMap();
             hashMap2.put("texture_id", Integer.valueOf(i2));
             hashMap.put("event_data", hashMap2);
-            ARPMessage.getInstance().sendMessage(ARPMessageType.MSG_TYPE_SDK_LUA_BRIDGE, hashMap);
+            ARPMessage.getInstance().sendMessage(1902, hashMap);
         }
     }
 

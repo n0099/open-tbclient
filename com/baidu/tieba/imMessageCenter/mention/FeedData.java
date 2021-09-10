@@ -2,10 +2,11 @@ package com.baidu.tieba.imMessageCenter.mention;
 
 import androidx.core.view.InputDeviceCompat;
 import c.a.e.e.p.k;
-import c.a.p0.i0.b.a;
+import c.a.q0.k0.b.a;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.atomData.ImageViewerConfig;
+import com.baidu.tbadk.core.atomData.VideoPlayActivityConfig;
 import com.baidu.tbadk.core.data.BaijiahaoData;
 import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tbadk.core.data.OriginalThreadInfo;
@@ -271,7 +272,7 @@ public class FeedData implements Serializable, a {
             this.hideForumName = jSONObject.optInt("hide_fname");
             this.mIsStory = jSONObject.optInt("is_story") == 1;
             this.postFrom = jSONObject.optString("post_from");
-            boolean z = jSONObject.optInt("is_share_thread") == 1;
+            boolean z = jSONObject.optInt(VideoPlayActivityConfig.IS_SHARE_THREAD) == 1;
             this.mIsShareThread = z;
             if (z) {
                 OriginalThreadInfo originalThreadInfo = new OriginalThreadInfo();
@@ -407,10 +408,10 @@ public class FeedData implements Serializable, a {
                 if (!this.mIsShareThread) {
                     i2 = 0;
                 }
-                jSONObject.put("is_share_thread", i2);
+                jSONObject.put(VideoPlayActivityConfig.IS_SHARE_THREAD, i2);
                 if (this.mOriginalThreadInfo != null) {
                     JSONObject jSONObject5 = new JSONObject();
-                    jSONObject5.put("title", this.mOriginalThreadInfo.f47307g);
+                    jSONObject5.put("title", this.mOriginalThreadInfo.f47423g);
                     jSONObject.put("origin_thread_info", jSONObject5);
                 }
                 jSONArray.put(jSONObject);

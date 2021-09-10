@@ -333,7 +333,7 @@ public class a implements ARPMessage.MessageHandler {
                 case 1501:
                     f(hashMap);
                     return;
-                case ARPMessageType.MSG_TYPE_LUA_SDK_BRIDGE /* 1901 */:
+                case 1901:
                     e(hashMap);
                     return;
                 default:

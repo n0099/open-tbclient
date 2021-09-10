@@ -54,7 +54,9 @@ public class b extends c.a.e.c.e.a<CustomMessage<?>, CustomMessageTask> {
             this.f1994b = null;
             setPriority(customMessageTask.getPriority());
             setParallel(customMessageTask.getParallel());
-            setTag(customMessage.getTag());
+            if (customMessage != null) {
+                setTag(customMessage.getTag());
+            }
             setKey(String.valueOf(customMessageTask.getCmd()));
             setParallel(customMessageTask.getTaskParallel());
             if (customMessageTask.isImme()) {

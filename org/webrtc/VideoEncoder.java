@@ -168,126 +168,6 @@ public interface VideoEncoder {
     }
 
     /* loaded from: classes2.dex */
-    public static class ScalingSettings {
-        public static /* synthetic */ Interceptable $ic;
-        public static final ScalingSettings OFF;
-        public transient /* synthetic */ FieldHolder $fh;
-        @Nullable
-        public final Integer high;
-        @Nullable
-        public final Integer low;
-        public final boolean on;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-115301527, "Lorg/webrtc/VideoEncoder$ScalingSettings;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-115301527, "Lorg/webrtc/VideoEncoder$ScalingSettings;");
-                    return;
-                }
-            }
-            OFF = new ScalingSettings();
-        }
-
-        public ScalingSettings() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
-                }
-            }
-            this.on = false;
-            this.low = null;
-            this.high = null;
-        }
-
-        public ScalingSettings(int i2, int i3) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2), Integer.valueOf(i3)};
-                interceptable.invokeUnInit(65538, newInitContext);
-                int i4 = newInitContext.flag;
-                if ((i4 & 1) != 0) {
-                    int i5 = i4 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65538, newInitContext);
-                    return;
-                }
-            }
-            this.on = true;
-            this.low = Integer.valueOf(i2);
-            this.high = Integer.valueOf(i3);
-        }
-
-        @Deprecated
-        public ScalingSettings(boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Boolean.valueOf(z)};
-                interceptable.invokeUnInit(65539, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65539, newInitContext);
-                    return;
-                }
-            }
-            this.on = z;
-            this.low = null;
-            this.high = null;
-        }
-
-        @Deprecated
-        public ScalingSettings(boolean z, int i2, int i3) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3)};
-                interceptable.invokeUnInit(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
-                int i4 = newInitContext.flag;
-                if ((i4 & 1) != 0) {
-                    int i5 = i4 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
-                    return;
-                }
-            }
-            this.on = z;
-            this.low = Integer.valueOf(i2);
-            this.high = Integer.valueOf(i3);
-        }
-
-        public String toString() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (this.on) {
-                    return "[ " + this.low + StringUtil.ARRAY_ELEMENT_SEPARATOR + this.high + " ]";
-                }
-                return "OFF";
-            }
-            return (String) invokeV.objValue;
-        }
-    }
-
-    /* loaded from: classes2.dex */
     public static class Settings {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -348,4 +228,124 @@ public interface VideoEncoder {
 
     @CalledByNative
     VideoCodecStatus setRateAllocation(BitrateAllocation bitrateAllocation, int i2);
+
+    /* loaded from: classes2.dex */
+    public static class ScalingSettings {
+        public static /* synthetic */ Interceptable $ic;
+        public static final ScalingSettings OFF;
+        public transient /* synthetic */ FieldHolder $fh;
+        @Nullable
+        public final Integer high;
+        @Nullable
+        public final Integer low;
+        public final boolean on;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-115301527, "Lorg/webrtc/VideoEncoder$ScalingSettings;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-115301527, "Lorg/webrtc/VideoEncoder$ScalingSettings;");
+                    return;
+                }
+            }
+            OFF = new ScalingSettings();
+        }
+
+        public ScalingSettings(int i2, int i3) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Integer.valueOf(i2), Integer.valueOf(i3)};
+                interceptable.invokeUnInit(65538, newInitContext);
+                int i4 = newInitContext.flag;
+                if ((i4 & 1) != 0) {
+                    int i5 = i4 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65538, newInitContext);
+                    return;
+                }
+            }
+            this.on = true;
+            this.low = Integer.valueOf(i2);
+            this.high = Integer.valueOf(i3);
+        }
+
+        public String toString() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                if (this.on) {
+                    return "[ " + this.low + StringUtil.ARRAY_ELEMENT_SEPARATOR + this.high + " ]";
+                }
+                return "OFF";
+            }
+            return (String) invokeV.objValue;
+        }
+
+        public ScalingSettings() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
+            this.on = false;
+            this.low = null;
+            this.high = null;
+        }
+
+        @Deprecated
+        public ScalingSettings(boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Boolean.valueOf(z)};
+                interceptable.invokeUnInit(65539, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65539, newInitContext);
+                    return;
+                }
+            }
+            this.on = z;
+            this.low = null;
+            this.high = null;
+        }
+
+        @Deprecated
+        public ScalingSettings(boolean z, int i2, int i3) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3)};
+                interceptable.invokeUnInit(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
+                int i4 = newInitContext.flag;
+                if ((i4 & 1) != 0) {
+                    int i5 = i4 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
+                    return;
+                }
+            }
+            this.on = z;
+            this.low = Integer.valueOf(i2);
+            this.high = Integer.valueOf(i3);
+        }
+    }
 }

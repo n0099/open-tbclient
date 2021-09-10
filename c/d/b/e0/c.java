@@ -11,7 +11,7 @@ public abstract class c implements Runnable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final String f31651e;
+    public final String f31760e;
 
     public c(String str, Object... objArr) {
         Interceptable interceptable = $ic;
@@ -28,7 +28,7 @@ public abstract class c implements Runnable {
                 return;
             }
         }
-        this.f31651e = e.q(str, objArr);
+        this.f31760e = e.q(str, objArr);
     }
 
     public abstract void d();
@@ -38,7 +38,7 @@ public abstract class c implements Runnable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             String name = Thread.currentThread().getName();
-            Thread.currentThread().setName(this.f31651e);
+            Thread.currentThread().setName(this.f31760e);
             try {
                 d();
             } finally {

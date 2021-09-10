@@ -18,7 +18,7 @@ public class e extends DefaultDownloadCallback {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public DefaultDownloadCallback f2905a;
+    public DefaultDownloadCallback f2896a;
 
     public e(DefaultDownloadCallback defaultDownloadCallback) {
         Interceptable interceptable = $ic;
@@ -35,7 +35,7 @@ public class e extends DefaultDownloadCallback {
                 return;
             }
         }
-        this.f2905a = defaultDownloadCallback;
+        this.f2896a = defaultDownloadCallback;
     }
 
     @Override // com.baidu.searchbox.pms.callback.DefaultDownloadCallback, com.baidu.searchbox.pms.callback.DownloadCallback
@@ -45,7 +45,7 @@ public class e extends DefaultDownloadCallback {
             return;
         }
         BdLog.e(errorInfo.errorMsg);
-        DefaultDownloadCallback defaultDownloadCallback = this.f2905a;
+        DefaultDownloadCallback defaultDownloadCallback = this.f2896a;
         if (defaultDownloadCallback != null) {
             defaultDownloadCallback.onDownloadError(packageInfo, errorInfo);
         }
@@ -64,7 +64,7 @@ public class e extends DefaultDownloadCallback {
             if (file2.exists()) {
                 file2.delete();
             }
-            if (!file.renameTo(file2) || (defaultDownloadCallback = this.f2905a) == null) {
+            if (!file.renameTo(file2) || (defaultDownloadCallback = this.f2896a) == null) {
                 return;
             }
             defaultDownloadCallback.onDownloadSuccess(packageInfo, errorInfo);

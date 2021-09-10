@@ -26,7 +26,7 @@ public interface a extends IInterface {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public IBinder f63879a;
+            public IBinder f64059a;
 
             public C1872a(IBinder iBinder) {
                 Interceptable interceptable = $ic;
@@ -43,7 +43,7 @@ public interface a extends IInterface {
                         return;
                     }
                 }
-                this.f63879a = iBinder;
+                this.f64059a = iBinder;
             }
 
             @Override // com.bytedance.embedapplog.a
@@ -55,7 +55,7 @@ public interface a extends IInterface {
                     Parcel obtain2 = Parcel.obtain();
                     try {
                         obtain.writeInterfaceToken("com.bun.lib.MsaIdInterface");
-                        this.f63879a.transact(1, obtain, obtain2, 0);
+                        this.f64059a.transact(1, obtain, obtain2, 0);
                         obtain2.readException();
                         return obtain2.readString();
                     } finally {
@@ -70,7 +70,7 @@ public interface a extends IInterface {
             public IBinder asBinder() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f63879a : (IBinder) invokeV.objValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f64059a : (IBinder) invokeV.objValue;
             }
 
             @Override // com.bytedance.embedapplog.a
@@ -82,7 +82,7 @@ public interface a extends IInterface {
                     Parcel obtain2 = Parcel.obtain();
                     try {
                         obtain.writeInterfaceToken("com.bun.lib.MsaIdInterface");
-                        this.f63879a.transact(2, obtain, obtain2, 0);
+                        this.f64059a.transact(2, obtain, obtain2, 0);
                         obtain2.readException();
                         return obtain2.readInt() != 0;
                     } finally {
@@ -102,7 +102,7 @@ public interface a extends IInterface {
                     Parcel obtain2 = Parcel.obtain();
                     try {
                         obtain.writeInterfaceToken("com.bun.lib.MsaIdInterface");
-                        this.f63879a.transact(3, obtain, obtain2, 0);
+                        this.f64059a.transact(3, obtain, obtain2, 0);
                         obtain2.readException();
                         return obtain2.readString();
                     } finally {
@@ -122,7 +122,7 @@ public interface a extends IInterface {
                     Parcel obtain2 = Parcel.obtain();
                     try {
                         obtain.writeInterfaceToken("com.bun.lib.MsaIdInterface");
-                        this.f63879a.transact(4, obtain, obtain2, 0);
+                        this.f64059a.transact(4, obtain, obtain2, 0);
                         obtain2.readException();
                         return obtain2.readString();
                     } finally {
@@ -142,7 +142,7 @@ public interface a extends IInterface {
                     Parcel obtain2 = Parcel.obtain();
                     try {
                         obtain.writeInterfaceToken("com.bun.lib.MsaIdInterface");
-                        this.f63879a.transact(5, obtain, obtain2, 0);
+                        this.f64059a.transact(5, obtain, obtain2, 0);
                         obtain2.readException();
                         return obtain2.readInt() != 0;
                     } finally {
@@ -161,7 +161,7 @@ public interface a extends IInterface {
                     Parcel obtain2 = Parcel.obtain();
                     try {
                         obtain.writeInterfaceToken("com.bun.lib.MsaIdInterface");
-                        this.f63879a.transact(6, obtain, obtain2, 0);
+                        this.f64059a.transact(6, obtain, obtain2, 0);
                         obtain2.readException();
                     } finally {
                         obtain2.recycle();

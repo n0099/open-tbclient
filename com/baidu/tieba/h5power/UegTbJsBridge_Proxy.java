@@ -1,9 +1,9 @@
 package com.baidu.tieba.h5power;
 
 import c.a.e.e.p.k;
-import c.a.q0.i3.m0.d.a;
-import c.a.q0.i3.m0.d.c;
-import c.a.q0.i3.m0.d.e;
+import c.a.r0.j3.m0.d.a;
+import c.a.r0.j3.m0.d.c;
+import c.a.r0.j3.m0.d.e;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.browser.UegTbJsBridge;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -43,7 +43,7 @@ public class UegTbJsBridge_Proxy extends a {
         this.mNotificationNameList = new HashSet<>();
     }
 
-    @Override // c.a.q0.i3.m0.d.a
+    @Override // c.a.r0.j3.m0.d.a
     public c dispatch(e eVar, c cVar) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -54,39 +54,42 @@ public class UegTbJsBridge_Proxy extends a {
             String b2 = eVar.b();
             JSONObject e2 = eVar.e();
             if (b2.equals("host/callNativeSMS")) {
-                cVar.o(true);
+                cVar.p(true);
                 c callNativeSMS = this.mJsBridge.callNativeSMS(e2.optString("phoneNumber"), e2.optString("content"));
                 if (callNativeSMS != null) {
-                    cVar.t(callNativeSMS.e());
-                    cVar.q(callNativeSMS.b());
-                    cVar.l(callNativeSMS.a());
+                    cVar.v(callNativeSMS.f());
+                    cVar.r(callNativeSMS.b());
+                    cVar.m(callNativeSMS.a());
+                    cVar.u(callNativeSMS.e());
                 }
-                cVar.u(0);
+                cVar.w(0);
             } else if (b2.equals("device/setBlockPopInfo")) {
-                cVar.o(true);
+                cVar.p(true);
                 c blockPopInfo = this.mJsBridge.setBlockPopInfo(e2.optInt("canPost"), e2.optString("blockInfo"), e2.optString("aheadInfo"), e2.optString("aheadUrl"), e2.optString("okInfo"), e2.optInt("aheadType"));
                 if (blockPopInfo != null) {
-                    cVar.t(blockPopInfo.e());
-                    cVar.q(blockPopInfo.b());
-                    cVar.l(blockPopInfo.a());
+                    cVar.v(blockPopInfo.f());
+                    cVar.r(blockPopInfo.b());
+                    cVar.m(blockPopInfo.a());
+                    cVar.u(blockPopInfo.e());
                 }
-                cVar.u(0);
+                cVar.w(0);
             } else if (b2.equals("account/bindMobileNumber")) {
-                cVar.o(true);
+                cVar.p(true);
                 c bindingMobileNumber = this.mJsBridge.bindingMobileNumber();
                 if (bindingMobileNumber != null) {
-                    cVar.t(bindingMobileNumber.e());
-                    cVar.q(bindingMobileNumber.b());
-                    cVar.l(bindingMobileNumber.a());
+                    cVar.v(bindingMobileNumber.f());
+                    cVar.r(bindingMobileNumber.b());
+                    cVar.m(bindingMobileNumber.a());
+                    cVar.u(bindingMobileNumber.e());
                 }
-                cVar.u(0);
+                cVar.w(0);
             }
             return cVar;
         }
         return (c) invokeLL.objValue;
     }
 
-    @Override // c.a.q0.i3.m0.d.a
+    @Override // c.a.r0.j3.m0.d.a
     public List<c> processNotification(String str, HashMap hashMap) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;

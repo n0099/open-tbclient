@@ -11,7 +11,7 @@ public abstract class i<T> implements k {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final i.o.d.h f78349e;
+    public final i.o.d.h f78587e;
 
     public i() {
         Interceptable interceptable = $ic;
@@ -26,13 +26,13 @@ public abstract class i<T> implements k {
                 return;
             }
         }
-        this.f78349e = new i.o.d.h();
+        this.f78587e = new i.o.d.h();
     }
 
     public final void a(k kVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, kVar) == null) {
-            this.f78349e.a(kVar);
+            this.f78587e.a(kVar);
         }
     }
 
@@ -44,14 +44,14 @@ public abstract class i<T> implements k {
     public final boolean isUnsubscribed() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f78349e.isUnsubscribed() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f78587e.isUnsubscribed() : invokeV.booleanValue;
     }
 
     @Override // i.k
     public final void unsubscribe() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.f78349e.unsubscribe();
+            this.f78587e.unsubscribe();
         }
     }
 }

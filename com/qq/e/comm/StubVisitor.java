@@ -15,7 +15,7 @@ public class StubVisitor {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile StubVisitor f75103a;
+    public static volatile StubVisitor f75283a;
     public transient /* synthetic */ FieldHolder $fh;
 
     public StubVisitor() {
@@ -36,14 +36,14 @@ public class StubVisitor {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f75103a == null) {
+            if (f75283a == null) {
                 synchronized (StubVisitor.class) {
-                    if (f75103a == null) {
-                        f75103a = new StubVisitor();
+                    if (f75283a == null) {
+                        f75283a = new StubVisitor();
                     }
                 }
             }
-            return f75103a;
+            return f75283a;
         }
         return (StubVisitor) invokeV.objValue;
     }

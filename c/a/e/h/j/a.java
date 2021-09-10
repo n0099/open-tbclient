@@ -18,17 +18,17 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static a f2825d;
+    public static a f2816d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public c f2826a;
+    public c f2817a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ArrayList<b> f2827b;
+    public ArrayList<b> f2818b;
 
     /* renamed from: c  reason: collision with root package name */
-    public C0044a f2828c;
+    public C0044a f2819c;
 
     /* renamed from: c.a.e.h.j.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
@@ -37,10 +37,10 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public b f2829a;
+        public b f2820a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ a f2830b;
+        public final /* synthetic */ a f2821b;
 
         public C0044a(a aVar, b bVar) {
             Interceptable interceptable = $ic;
@@ -57,8 +57,8 @@ public class a {
                     return;
                 }
             }
-            this.f2830b = aVar;
-            this.f2829a = bVar;
+            this.f2821b = aVar;
+            this.f2820a = bVar;
         }
 
         public final boolean b(String str) {
@@ -100,9 +100,9 @@ public class a {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, strArr)) == null) {
-                b bVar = this.f2829a;
+                b bVar = this.f2820a;
                 if (bVar != null) {
-                    return Boolean.valueOf(b(bVar.f2831a));
+                    return Boolean.valueOf(b(bVar.f2822a));
                 }
                 return Boolean.FALSE;
             }
@@ -115,26 +115,26 @@ public class a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, bool) == null) {
                 super.onPostExecute((C0044a) bool);
-                this.f2830b.f2828c = null;
-                if (this.f2830b.f2827b.size() > 0) {
-                    Iterator it = this.f2830b.f2827b.iterator();
+                this.f2821b.f2819c = null;
+                if (this.f2821b.f2818b.size() > 0) {
+                    Iterator it = this.f2821b.f2818b.iterator();
                     while (true) {
                         if (!it.hasNext()) {
                             break;
                         }
                         b bVar = (b) it.next();
-                        if (this.f2830b.g(this.f2829a, bVar)) {
-                            this.f2830b.f2827b.remove(bVar);
+                        if (this.f2821b.g(this.f2820a, bVar)) {
+                            this.f2821b.f2818b.remove(bVar);
                             break;
                         }
                     }
                 }
-                if (bool != null && bool.booleanValue() && this.f2830b.f2826a != null) {
-                    c cVar = this.f2830b.f2826a;
-                    b bVar2 = this.f2829a;
-                    cVar.a(bVar2.f2832b, bVar2.f2831a);
+                if (bool != null && bool.booleanValue() && this.f2821b.f2817a != null) {
+                    c cVar = this.f2821b.f2817a;
+                    b bVar2 = this.f2820a;
+                    cVar.a(bVar2.f2823b, bVar2.f2822a);
                 }
-                this.f2830b.i();
+                this.f2821b.i();
             }
         }
     }
@@ -145,10 +145,10 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f2831a;
+        public String f2822a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f2832b;
+        public String f2823b;
 
         public b(String str, String str2) {
             Interceptable interceptable = $ic;
@@ -165,8 +165,8 @@ public class a {
                     return;
                 }
             }
-            this.f2832b = str;
-            this.f2831a = str2;
+            this.f2823b = str;
+            this.f2822a = str2;
         }
     }
 
@@ -188,21 +188,21 @@ public class a {
                 return;
             }
         }
-        this.f2827b = new ArrayList<>();
+        this.f2818b = new ArrayList<>();
     }
 
     public static a h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) {
-            if (f2825d == null) {
+            if (f2816d == null) {
                 synchronized (a.class) {
-                    if (f2825d == null) {
-                        f2825d = new a();
+                    if (f2816d == null) {
+                        f2816d = new a();
                     }
                 }
             }
-            return f2825d;
+            return f2816d;
         }
         return (a) invokeV.objValue;
     }
@@ -212,13 +212,13 @@ public class a {
         if (!(interceptable == null || interceptable.invokeLL(1048576, this, arrayList, cVar) == null) || arrayList == null || arrayList.size() == 0) {
             return;
         }
-        this.f2826a = cVar;
+        this.f2817a = cVar;
         Iterator<b> it = arrayList.iterator();
         while (it.hasNext()) {
             b next = it.next();
-            if (next != null && !TextUtils.isEmpty(next.f2831a) && !TextUtils.isEmpty(next.f2832b)) {
+            if (next != null && !TextUtils.isEmpty(next.f2822a) && !TextUtils.isEmpty(next.f2823b)) {
                 boolean z = false;
-                Iterator<b> it2 = this.f2827b.iterator();
+                Iterator<b> it2 = this.f2818b.iterator();
                 while (true) {
                     if (!it2.hasNext()) {
                         break;
@@ -228,7 +228,7 @@ public class a {
                     }
                 }
                 if (!z) {
-                    this.f2827b.add(next);
+                    this.f2818b.add(next);
                 }
             }
         }
@@ -238,14 +238,14 @@ public class a {
     public final boolean g(b bVar, b bVar2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar, bVar2)) == null) ? (bVar == null || bVar2 == null || TextUtils.isEmpty(bVar2.f2831a) || TextUtils.isEmpty(bVar2.f2832b) || TextUtils.isEmpty(bVar.f2831a) || TextUtils.isEmpty(bVar.f2832b) || !bVar2.f2832b.equals(bVar.f2832b) || !bVar2.f2831a.equals(bVar.f2831a)) ? false : true : invokeLL.booleanValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar, bVar2)) == null) ? (bVar == null || bVar2 == null || TextUtils.isEmpty(bVar2.f2822a) || TextUtils.isEmpty(bVar2.f2823b) || TextUtils.isEmpty(bVar.f2822a) || TextUtils.isEmpty(bVar.f2823b) || !bVar2.f2823b.equals(bVar.f2823b) || !bVar2.f2822a.equals(bVar.f2822a)) ? false : true : invokeLL.booleanValue;
     }
 
     public final void i() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.f2827b.size() != 0 && this.f2828c == null) {
-            C0044a c0044a = new C0044a(this, this.f2827b.get(0));
-            this.f2828c = c0044a;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.f2818b.size() != 0 && this.f2819c == null) {
+            C0044a c0044a = new C0044a(this, this.f2818b.get(0));
+            this.f2819c = c0044a;
             c0044a.execute(new String[0]);
         }
     }

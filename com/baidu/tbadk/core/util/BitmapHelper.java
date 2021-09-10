@@ -1348,7 +1348,7 @@ public class BitmapHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65584, null, context, uri, i2)) == null) {
             try {
-                parcelFileDescriptor = context.getContentResolver().openFileDescriptor(uri, r.f42169a);
+                parcelFileDescriptor = context.getContentResolver().openFileDescriptor(uri, r.f42280a);
             } catch (Throwable unused) {
                 parcelFileDescriptor = null;
             }

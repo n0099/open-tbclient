@@ -35,13 +35,13 @@ public class ThirdActivityProxy extends ActivityProxy {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, intent)) == null) {
             String stringExtra = intent.getStringExtra(Plugin.INTENT_EXTRA_SERVICE);
             d.a c2 = stringExtra != null ? d.a().c(stringExtra) : null;
-            if (c2 != null && c2.f2774a != null) {
+            if (c2 != null && c2.f2765a != null) {
                 if (d.a().b() == 1) {
                     d.a().e(stringExtra);
-                    c2.f2774a.stopSelf();
+                    c2.f2765a.stopSelf();
                     return true;
                 }
-                c2.f2774a.onDestroy();
+                c2.f2765a.onDestroy();
                 d.a().e(stringExtra);
                 return true;
             }

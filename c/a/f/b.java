@@ -11,10 +11,10 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final BdUniqueId f3278a;
+    public static final BdUniqueId f3269a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final BdUniqueId f3279b;
+    public static final BdUniqueId f3270b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -30,7 +30,7 @@ public class b {
                 return;
             }
         }
-        f3278a = BdUniqueId.gen();
-        f3279b = BdUniqueId.gen();
+        f3269a = BdUniqueId.gen();
+        f3270b = BdUniqueId.gen();
     }
 }

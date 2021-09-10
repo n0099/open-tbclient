@@ -1,101 +1,111 @@
 package c.a.q0.c1;
 
-import android.content.Context;
-import androidx.core.view.InputDeviceCompat;
-import c.a.e.e.p.l;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import c.a.e.e.n.g;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.HttpMessageListener;
+import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.core.util.NetWork;
-import com.baidu.tbadk.core.util.UrlSchemaHelper;
+import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.tbadk.trackConfig.TrackConfigResponseMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.net.URLEncoder;
 /* loaded from: classes3.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    /* renamed from: a  reason: collision with root package name */
+    public b f12804a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public HttpMessageListener f12805b;
+
     /* renamed from: c.a.q0.c1.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class RunnableC0792a implements Runnable {
+    public class C0647a extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public RunnableC0792a() {
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ a f12806a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public C0647a(a aVar, int i2) {
+            super(i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {aVar, Integer.valueOf(i2)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f12806a = aVar;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && (httpResponsedMessage instanceof TrackConfigResponseMessage)) {
+                TrackConfigResponseMessage trackConfigResponseMessage = (TrackConfigResponseMessage) httpResponsedMessage;
+                if (this.f12806a.f12804a != null) {
+                    this.f12806a.f12804a.a(trackConfigResponseMessage.isSuccess(), trackConfigResponseMessage.getData());
                 }
             }
         }
+    }
 
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                a.e();
+    /* loaded from: classes3.dex */
+    public interface b {
+        void a(boolean z, boolean z2);
+    }
+
+    public a() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.f12805b = new C0647a(this, CmdConfigHttp.CMD_TRACK_CONFIG);
+        MessageManager.getInstance().registerListener(this.f12805b);
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_TRACK_CONFIG, TbConfig.SERVER_ADDRESS + TbConfig.GET_TRACK_CONFIG);
+        tbHttpMessageTask.setResponsedClass(TrackConfigResponseMessage.class);
+        MessageManager.getInstance().registerTask(tbHttpMessageTask);
+        g.h(TbSingleton.getInstance().isIsOpenTrack());
+    }
+
+    public void b(b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
+            this.f12804a = bVar;
         }
     }
 
-    public static boolean b(NetWork netWork) {
-        InterceptResult invokeL;
+    public void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, netWork)) == null) {
-            if (netWork == null) {
-                return false;
-            }
-            if ((netWork.isNetSuccess() ? netWork.getServerErrorCode() : netWork.getNetErrorCode()) == 1990055) {
-                d();
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean c(int i2) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i2)) == null) {
-            switch (i2) {
-                case 202001:
-                case 205001:
-                case 309456:
-                case CmdConfigHttp.CMD_CHECK_REAL_NAME /* 1003325 */:
-                    return true;
-                default:
-                    return false;
-            }
-        }
-        return invokeI.booleanValue;
-    }
-
-    public static void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
-            if (!l.C()) {
-                TbadkCoreApplication.getInst().handler.post(new RunnableC0792a());
-            } else {
-                e();
-            }
-        }
-    }
-
-    public static final void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
-            Context applicationContext = TbadkCoreApplication.getInst().getApplicationContext();
-            c.a.p0.m.a.r(applicationContext, "", UrlSchemaHelper.REAL_NAME_AUTH_URL + "&u=" + URLEncoder.encode(UrlSchemaHelper.FINISH_THIS_WEBVIEW), true, true, true, true, true, false);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            MessageManager.getInstance().sendMessage(new HttpMessage(CmdConfigHttp.CMD_TRACK_CONFIG));
         }
     }
 }

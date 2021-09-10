@@ -12,18 +12,18 @@ import java.util.Collections;
 import java.util.Comparator;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class m {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class a implements Comparator<JSONObject> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f29531e;
+        public final /* synthetic */ String f15361e;
 
         public a(String str) {
             Interceptable interceptable = $ic;
@@ -40,7 +40,7 @@ public class m {
                     return;
                 }
             }
-            this.f29531e = str;
+            this.f15361e = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -49,7 +49,7 @@ public class m {
         public int compare(JSONObject jSONObject, JSONObject jSONObject2) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jSONObject, jSONObject2)) == null) ? jSONObject.optString(this.f29531e, "").compareTo(jSONObject2.optString(this.f29531e, "")) : invokeLL.intValue;
+            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jSONObject, jSONObject2)) == null) ? jSONObject.optString(this.f15361e, "").compareTo(jSONObject2.optString(this.f15361e, "")) : invokeLL.intValue;
         }
     }
 

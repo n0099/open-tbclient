@@ -1,7 +1,7 @@
 package com.baidu.tieba.ueg;
 
 import c.a.e.e.m.b;
-import c.a.p0.b1.w;
+import c.a.q0.d1.x;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -43,9 +43,9 @@ public class UEGCancelRequestMessage extends NetMessage {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             DataReq.Builder builder = new DataReq.Builder();
-            builder.user_id = Long.valueOf(b.f(this.uId, 0L));
+            builder.user_id = Long.valueOf(b.g(this.uId, 0L));
             if (z) {
-                w.a(builder, true);
+                x.a(builder, true);
             }
             QueryBlockAndAppealInfoReqIdl.Builder builder2 = new QueryBlockAndAppealInfoReqIdl.Builder();
             builder2.data = builder.build(false);

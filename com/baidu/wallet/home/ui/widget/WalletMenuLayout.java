@@ -71,13 +71,13 @@ public class WalletMenuLayout extends LinearLayout {
                         public transient /* synthetic */ FieldHolder $fh;
 
                         /* renamed from: a  reason: collision with root package name */
-                        public final /* synthetic */ a f61166a;
+                        public final /* synthetic */ a f61346a;
 
                         /* renamed from: b  reason: collision with root package name */
-                        public final /* synthetic */ HomeCfgResponse.TitleItemData f61167b;
+                        public final /* synthetic */ HomeCfgResponse.TitleItemData f61347b;
 
                         /* renamed from: c  reason: collision with root package name */
-                        public final /* synthetic */ WalletMenuLayout f61168c;
+                        public final /* synthetic */ WalletMenuLayout f61348c;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -94,16 +94,16 @@ public class WalletMenuLayout extends LinearLayout {
                                     return;
                                 }
                             }
-                            this.f61168c = this;
-                            this.f61166a = aVar;
-                            this.f61167b = titleItemData;
+                            this.f61348c = this;
+                            this.f61346a = aVar;
+                            this.f61347b = titleItemData;
                         }
 
                         @Override // android.view.View.OnClickListener
                         public void onClick(View view) {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                                this.f61166a.a(this.f61167b);
+                                this.f61346a.a(this.f61347b);
                             }
                         }
                     });

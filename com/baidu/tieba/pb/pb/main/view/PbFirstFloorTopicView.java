@@ -22,16 +22,16 @@ public class PbFirstFloorTopicView extends LinearLayout implements View.OnClickL
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f55163e;
+    public Context f55311e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f55164f;
+    public int f55312f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f55165g;
+    public int f55313g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f55166h;
+    public int f55314h;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PbFirstFloorTopicView(Context context) {
@@ -51,7 +51,7 @@ public class PbFirstFloorTopicView extends LinearLayout implements View.OnClickL
                 return;
             }
         }
-        this.f55163e = null;
+        this.f55311e = null;
         c(context);
     }
 
@@ -59,9 +59,9 @@ public class PbFirstFloorTopicView extends LinearLayout implements View.OnClickL
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            LinearLayout linearLayout = new LinearLayout(this.f55163e);
+            LinearLayout linearLayout = new LinearLayout(this.f55311e);
             SkinManager.setBackgroundColor(linearLayout, R.color.transparent);
-            linearLayout.setLayoutParams(new LinearLayout.LayoutParams(this.f55166h, -2));
+            linearLayout.setLayoutParams(new LinearLayout.LayoutParams(this.f55314h, -2));
             linearLayout.setGravity(17);
             addView(linearLayout);
             return linearLayout;
@@ -72,7 +72,7 @@ public class PbFirstFloorTopicView extends LinearLayout implements View.OnClickL
     public final void b(LinearLayout linearLayout, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, linearLayout, str) == null) {
-            TextView textView = new TextView(this.f55163e);
+            TextView textView = new TextView(this.f55311e);
             textView.setText(str);
             textView.setGravity(17);
             SkinManager.setBackgroundColor(textView, R.color.CAM_X0204);
@@ -81,11 +81,11 @@ public class PbFirstFloorTopicView extends LinearLayout implements View.OnClickL
             textView.setTypeface(null, 1);
             textView.setMinLines(1);
             textView.setMaxLines(1);
-            textView.setWidth(this.f55164f);
+            textView.setWidth(this.f55312f);
             textView.setOnClickListener(this);
             linearLayout.addView(textView);
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) textView.getLayoutParams();
-            int i2 = this.f55165g;
+            int i2 = this.f55313g;
             layoutParams.leftMargin = i2;
             layoutParams.rightMargin = i2;
         }
@@ -95,10 +95,10 @@ public class PbFirstFloorTopicView extends LinearLayout implements View.OnClickL
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
             setOrientation(1);
-            this.f55163e = context;
-            this.f55165g = l.g(context, R.dimen.ds8);
-            this.f55166h = l.k(this.f55163e);
-            this.f55164f = l.k(this.f55163e) / 2;
+            this.f55311e = context;
+            this.f55313g = l.g(context, R.dimen.ds8);
+            this.f55314h = l.k(this.f55311e);
+            this.f55312f = l.k(this.f55311e) / 2;
         }
     }
 
@@ -143,7 +143,7 @@ public class PbFirstFloorTopicView extends LinearLayout implements View.OnClickL
         if (linearLayout == null || linearLayout.getChildCount() != 0) {
             return;
         }
-        this.f55164f = this.f55166h;
+        this.f55312f = this.f55314h;
         b(linearLayout, (String) ListUtils.getItem(arrayList, count - 1));
     }
 
@@ -166,7 +166,7 @@ public class PbFirstFloorTopicView extends LinearLayout implements View.OnClickL
                 return;
             }
         }
-        this.f55163e = null;
+        this.f55311e = null;
         c(context);
     }
 
@@ -189,7 +189,7 @@ public class PbFirstFloorTopicView extends LinearLayout implements View.OnClickL
                 return;
             }
         }
-        this.f55163e = null;
+        this.f55311e = null;
         c(context);
     }
 }

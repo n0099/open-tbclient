@@ -74,7 +74,7 @@ public class ScreenCapturerAndroid implements VideoCapturer, VideoSink {
     }
 
     @Override // org.webrtc.VideoCapturer
-    public void changeCaptureFormat(int i2, int i3, int i4) {
+    public synchronized void changeCaptureFormat(int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIII(1048576, this, i2, i3, i4) == null) {
             synchronized (this) {
@@ -121,7 +121,7 @@ public class ScreenCapturerAndroid implements VideoCapturer, VideoSink {
     }
 
     @Override // org.webrtc.VideoCapturer
-    public void dispose() {
+    public synchronized void dispose() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             synchronized (this) {
@@ -137,20 +137,22 @@ public class ScreenCapturerAndroid implements VideoCapturer, VideoSink {
     }
 
     @Override // org.webrtc.VideoCapturer
-    public void initialize(SurfaceTextureHelper surfaceTextureHelper, Context context, CapturerObserver capturerObserver) {
+    public synchronized void initialize(SurfaceTextureHelper surfaceTextureHelper, Context context, CapturerObserver capturerObserver) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048579, this, surfaceTextureHelper, context, capturerObserver) == null) {
             synchronized (this) {
                 checkNotDisposed();
-                if (capturerObserver == null) {
+                if (capturerObserver != null) {
+                    this.capturerObserver = capturerObserver;
+                    if (surfaceTextureHelper != null) {
+                        this.surfaceTextureHelper = surfaceTextureHelper;
+                        this.mediaProjectionManager = (MediaProjectionManager) context.getSystemService("media_projection");
+                    } else {
+                        throw new RuntimeException("surfaceTextureHelper not set.");
+                    }
+                } else {
                     throw new RuntimeException("capturerObserver not set.");
                 }
-                this.capturerObserver = capturerObserver;
-                if (surfaceTextureHelper == null) {
-                    throw new RuntimeException("surfaceTextureHelper not set.");
-                }
-                this.surfaceTextureHelper = surfaceTextureHelper;
-                this.mediaProjectionManager = (MediaProjectionManager) context.getSystemService("media_projection");
             }
         }
     }
@@ -175,7 +177,7 @@ public class ScreenCapturerAndroid implements VideoCapturer, VideoSink {
     }
 
     @Override // org.webrtc.VideoCapturer
-    public void startCapture(int i2, int i3, int i4) {
+    public synchronized void startCapture(int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIII(1048582, this, i2, i3, i4) == null) {
             synchronized (this) {
@@ -193,7 +195,7 @@ public class ScreenCapturerAndroid implements VideoCapturer, VideoSink {
     }
 
     @Override // org.webrtc.VideoCapturer
-    public void stopCapture() {
+    public synchronized void stopCapture() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             synchronized (this) {

@@ -15,7 +15,7 @@ public class PersonPrivateData extends OrmObject {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f48115e;
+    public int f48243e;
 
     public PersonPrivateData() {
         Interceptable interceptable = $ic;
@@ -30,7 +30,7 @@ public class PersonPrivateData extends OrmObject {
                 return;
             }
         }
-        this.f48115e = 1;
+        this.f48243e = 1;
     }
 
     public void parserJson(JSONObject jSONObject) {
@@ -39,7 +39,7 @@ public class PersonPrivateData extends OrmObject {
             return;
         }
         jSONObject.optInt("location", 1);
-        this.f48115e = jSONObject.optInt("like", 1);
+        this.f48243e = jSONObject.optInt("like", 1);
         jSONObject.optInt("group", 1);
         jSONObject.optInt("post", 1);
         jSONObject.optInt("friend", 1);
@@ -49,7 +49,7 @@ public class PersonPrivateData extends OrmObject {
     public int w() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f48115e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f48243e : invokeV.intValue;
     }
 
     public void x(PrivSets privSets) {
@@ -59,7 +59,7 @@ public class PersonPrivateData extends OrmObject {
         }
         try {
             privSets.location.intValue();
-            this.f48115e = privSets.like.intValue();
+            this.f48243e = privSets.like.intValue();
             privSets.group.intValue();
             privSets.post.intValue();
             privSets.friend.intValue();

@@ -31,9 +31,9 @@ public abstract class aa {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, vVar, str)) == null) {
-            Charset charset = com.bytedance.sdk.component.b.b.a.c.f64367e;
+            Charset charset = com.bytedance.sdk.component.b.b.a.c.f64547e;
             if (vVar != null && (charset = vVar.a()) == null) {
-                charset = com.bytedance.sdk.component.b.b.a.c.f64367e;
+                charset = com.bytedance.sdk.component.b.b.a.c.f64547e;
                 vVar = v.a(vVar + "; charset=utf-8");
             }
             return a(vVar, str.getBytes(charset));
@@ -71,16 +71,16 @@ public abstract class aa {
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ v f64635a;
+                    public final /* synthetic */ v f64815a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ int f64636b;
+                    public final /* synthetic */ int f64816b;
 
                     /* renamed from: c  reason: collision with root package name */
-                    public final /* synthetic */ byte[] f64637c;
+                    public final /* synthetic */ byte[] f64817c;
 
                     /* renamed from: d  reason: collision with root package name */
-                    public final /* synthetic */ int f64638d;
+                    public final /* synthetic */ int f64818d;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -97,31 +97,31 @@ public abstract class aa {
                                 return;
                             }
                         }
-                        this.f64635a = vVar;
-                        this.f64636b = i3;
-                        this.f64637c = bArr;
-                        this.f64638d = i2;
+                        this.f64815a = vVar;
+                        this.f64816b = i3;
+                        this.f64817c = bArr;
+                        this.f64818d = i2;
                     }
 
                     @Override // com.bytedance.sdk.component.b.b.aa
                     public v a() {
                         InterceptResult invokeV;
                         Interceptable interceptable2 = $ic;
-                        return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? this.f64635a : (v) invokeV.objValue;
+                        return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? this.f64815a : (v) invokeV.objValue;
                     }
 
                     @Override // com.bytedance.sdk.component.b.b.aa
                     public long b() {
                         InterceptResult invokeV;
                         Interceptable interceptable2 = $ic;
-                        return (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f64636b : invokeV.longValue;
+                        return (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f64816b : invokeV.longValue;
                     }
 
                     @Override // com.bytedance.sdk.component.b.b.aa
                     public void a(com.bytedance.sdk.component.b.a.d dVar) throws IOException {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dVar) == null) {
-                            dVar.c(this.f64637c, this.f64638d, this.f64636b);
+                            dVar.c(this.f64817c, this.f64818d, this.f64816b);
                         }
                     }
                 };

@@ -3,10 +3,10 @@ package com.baidu.swan.bdprivate.extensions.loginauthmobile;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import c.a.o0.a.v2.q0;
-import c.a.o0.b.f;
-import c.a.o0.b.g;
-import c.a.o0.b.h;
+import c.a.p0.a.v2.q0;
+import c.a.p0.b.f;
+import c.a.p0.b.g;
+import c.a.p0.b.h;
 import com.baidu.swan.apps.core.container.NgWebView;
 import com.baidu.swan.apps.view.SwanAppActionBar;
 import com.baidu.swan.bdprivate.activity.BaseActivity;
@@ -27,7 +27,7 @@ public class LoginServiceAgreementActivity extends BaseActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ LoginServiceAgreementActivity f46620e;
+        public final /* synthetic */ LoginServiceAgreementActivity f46735e;
 
         public a(LoginServiceAgreementActivity loginServiceAgreementActivity) {
             Interceptable interceptable = $ic;
@@ -44,14 +44,14 @@ public class LoginServiceAgreementActivity extends BaseActivity {
                     return;
                 }
             }
-            this.f46620e = loginServiceAgreementActivity;
+            this.f46735e = loginServiceAgreementActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f46620e.finish();
+                this.f46735e.finish();
             }
         }
     }

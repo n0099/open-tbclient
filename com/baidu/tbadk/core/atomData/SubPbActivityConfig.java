@@ -41,6 +41,7 @@ public class SubPbActivityConfig extends IntentConfig {
     public static final String KEY_IS_FROM_DYNAMIC = "key_is_from_dynamic";
     public static final String KEY_IS_FROM_SCHEMA = "is_from_schema";
     public static final String KEY_IS_JUMP_FROM_PB = "is_jump_from_pb";
+    public static final String KEY_IS_JUMP_FROM_VIDEO_MIDDLE = "is_jump_from_video_middle";
     public static final String KEY_IS_JUMP_FROM_VIDEO_TAB = "is_jump_from_video_tab";
     public static final String KEY_IS_JUMP_FROM_VIDEO_TAB_CHILD = "video_tab_child";
     public static final String KEY_IS_MANAGER = "key_is_manager";
@@ -131,7 +132,7 @@ public class SubPbActivityConfig extends IntentConfig {
     public void setBjhData(BaijiahaoData baijiahaoData) {
         Intent intent;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, baijiahaoData) == null) || (intent = getIntent()) == null || baijiahaoData == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048585, this, baijiahaoData) == null) || (intent = getIntent()) == null || baijiahaoData == null) {
             return;
         }
         int i2 = baijiahaoData.oriUgcType;
@@ -149,7 +150,7 @@ public class SubPbActivityConfig extends IntentConfig {
     public void setDeletedReasonInfoIsGrayCaleForum(int i2) {
         Intent intent;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048585, this, i2) == null) || (intent = getIntent()) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048586, this, i2) == null) || (intent = getIntent()) == null) {
             return;
         }
         intent.putExtra(KEY_DELETED_REASON_INFO_IS_GRAY_CALE_FORUM, i2);
@@ -158,7 +159,7 @@ public class SubPbActivityConfig extends IntentConfig {
     public void setDeletedReasonInfoIsIsBoomGrow(int i2) {
         Intent intent;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048586, this, i2) == null) || (intent = getIntent()) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048587, this, i2) == null) || (intent = getIntent()) == null) {
             return;
         }
         intent.putExtra(KEY_DELETED_REASON_INFO_IS_IS_BOOM_GROW, i2);
@@ -167,7 +168,7 @@ public class SubPbActivityConfig extends IntentConfig {
     public void setForumHeadUrl(String str) {
         Intent intent;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048587, this, str) == null) || (intent = getIntent()) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048588, this, str) == null) || (intent = getIntent()) == null) {
             return;
         }
         intent.putExtra(KEY_FORUM_HEAD_URL, str);
@@ -176,7 +177,7 @@ public class SubPbActivityConfig extends IntentConfig {
     public void setFromFrsForumId(String str) {
         Intent intent;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048588, this, str) == null) || (intent = getIntent()) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048589, this, str) == null) || (intent = getIntent()) == null) {
             return;
         }
         intent.putExtra(KEY_FROM_FRS_FORUM_ID, str);
@@ -185,7 +186,7 @@ public class SubPbActivityConfig extends IntentConfig {
     public void setFromVideoPageUniqueId(BdUniqueId bdUniqueId) {
         Intent intent;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048589, this, bdUniqueId) == null) || (intent = getIntent()) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048590, this, bdUniqueId) == null) || (intent = getIntent()) == null) {
             return;
         }
         intent.putExtra("key_from_video_page_id", bdUniqueId);
@@ -194,7 +195,7 @@ public class SubPbActivityConfig extends IntentConfig {
     public void setHasForumRule(int i2) {
         Intent intent;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048590, this, i2) == null) || (intent = getIntent()) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048591, this, i2) == null) || (intent = getIntent()) == null) {
             return;
         }
         intent.putExtra(KEY_HAS_FORUM_RULE, i2);
@@ -203,7 +204,7 @@ public class SubPbActivityConfig extends IntentConfig {
     public void setHighLightPostId(String str) {
         Intent intent;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048591, this, str) == null) || (intent = getIntent()) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048592, this, str) == null) || (intent = getIntent()) == null) {
             return;
         }
         intent.putExtra("high_light_post_id", str);
@@ -212,7 +213,7 @@ public class SubPbActivityConfig extends IntentConfig {
     public void setIsFromeSchema(boolean z) {
         Intent intent;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048592, this, z) == null) || (intent = getIntent()) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048593, this, z) == null) || (intent = getIntent()) == null) {
             return;
         }
         intent.putExtra(KEY_IS_FROM_SCHEMA, z);
@@ -221,7 +222,7 @@ public class SubPbActivityConfig extends IntentConfig {
     public void setIsManager(int i2) {
         Intent intent;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048593, this, i2) == null) || (intent = getIntent()) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048594, this, i2) == null) || (intent = getIntent()) == null) {
             return;
         }
         intent.putExtra(KEY_IS_MANAGER, i2);
@@ -230,7 +231,7 @@ public class SubPbActivityConfig extends IntentConfig {
     public void setIsOpenEditor(boolean z) {
         Intent intent;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048594, this, z) == null) || (intent = getIntent()) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048595, this, z) == null) || (intent = getIntent()) == null) {
             return;
         }
         intent.putExtra(KEY_IS_OPEN_EDITOR, z);
@@ -239,7 +240,7 @@ public class SubPbActivityConfig extends IntentConfig {
     public void setKeyFromForumId(String str) {
         Intent intent;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048595, this, str) == null) || (intent = getIntent()) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048596, this, str) == null) || (intent = getIntent()) == null) {
             return;
         }
         intent.putExtra("from_forum_id", str);
@@ -248,7 +249,7 @@ public class SubPbActivityConfig extends IntentConfig {
     public void setKeyIsUseSpid(boolean z) {
         Intent intent;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048596, this, z) == null) || (intent = getIntent()) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048597, this, z) == null) || (intent = getIntent()) == null) {
             return;
         }
         intent.putExtra(KEY_IS_USE_SPID, z);
@@ -257,7 +258,7 @@ public class SubPbActivityConfig extends IntentConfig {
     public void setKeyOriUgcTopPid(String str) {
         Intent intent;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048597, this, str) == null) || (intent = getIntent()) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048598, this, str) == null) || (intent = getIntent()) == null) {
             return;
         }
         intent.putExtra(KEY_ORI_UGC_TOP_PID, str);
@@ -266,7 +267,7 @@ public class SubPbActivityConfig extends IntentConfig {
     public void setKeyPageStartFrom(int i2) {
         Intent intent;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048598, this, i2) == null) || (intent = getIntent()) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048599, this, i2) == null) || (intent = getIntent()) == null) {
             return;
         }
         intent.putExtra(KEY_PAGE_START_FROM, i2);
@@ -275,7 +276,7 @@ public class SubPbActivityConfig extends IntentConfig {
     public void setMainPostMaskVisibly(boolean z) {
         Intent intent;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048599, this, z) == null) || (intent = getIntent()) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048600, this, z) == null) || (intent = getIntent()) == null) {
             return;
         }
         intent.putExtra(KEY_MAIN_POST_MASK_VISIBLE, z);
@@ -284,7 +285,7 @@ public class SubPbActivityConfig extends IntentConfig {
     public void setTiebaPlusData(boolean z, String str, String str2, String str3, boolean z2) {
         Intent intent;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048600, this, new Object[]{Boolean.valueOf(z), str, str2, str3, Boolean.valueOf(z2)}) == null) || (intent = getIntent()) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048601, this, new Object[]{Boolean.valueOf(z), str, str2, str3, Boolean.valueOf(z2)}) == null) || (intent = getIntent()) == null) {
             return;
         }
         intent.putExtra("key_is_tieba_plus", z);
@@ -297,7 +298,7 @@ public class SubPbActivityConfig extends IntentConfig {
     public void setUserLevel(int i2) {
         Intent intent;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048601, this, i2) == null) || (intent = getIntent()) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048602, this, i2) == null) || (intent = getIntent()) == null) {
             return;
         }
         intent.putExtra(KEY_FORUM_HEAD_URL, i2);
@@ -306,7 +307,7 @@ public class SubPbActivityConfig extends IntentConfig {
     public void setWorksInfoData(@Nullable WorksInfoData worksInfoData) {
         Intent intent;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048602, this, worksInfoData) == null) || (intent = getIntent()) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048603, this, worksInfoData) == null) || (intent = getIntent()) == null) {
             return;
         }
         intent.putExtra(KEY_WORKS_INFO_DATA, (Serializable) worksInfoData);
@@ -315,7 +316,7 @@ public class SubPbActivityConfig extends IntentConfig {
     public void showOpenEditorTips(String str) {
         Intent intent;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048603, this, str) == null) || (intent = getIntent()) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048604, this, str) == null) || (intent = getIntent()) == null) {
             return;
         }
         intent.putExtra("key_open_editor_tips", str);
@@ -369,7 +370,13 @@ public class SubPbActivityConfig extends IntentConfig {
     public SubPbActivityConfig createSubPbActivityConfig(String str, String str2, String str3, boolean z, boolean z2, String str4, boolean z3, String str5, int i2, SmallTailInfo smallTailInfo, AntiData antiData, boolean z4, ArrayList<IconData> arrayList, int i3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{str, str2, str3, Boolean.valueOf(z), Boolean.valueOf(z2), str4, Boolean.valueOf(z3), str5, Integer.valueOf(i2), smallTailInfo, antiData, Boolean.valueOf(z4), arrayList, Integer.valueOf(i3)})) == null) {
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{str, str2, str3, Boolean.valueOf(z), Boolean.valueOf(z2), str4, Boolean.valueOf(z3), str5, Integer.valueOf(i2), smallTailInfo, antiData, Boolean.valueOf(z4), arrayList, Integer.valueOf(i3)})) == null) ? createSubPbActivityConfig(str, str2, str3, z, z2, str4, z3, str5, i2, smallTailInfo, antiData, z4, arrayList, i3, false) : (SubPbActivityConfig) invokeCommon.objValue;
+    }
+
+    public SubPbActivityConfig createSubPbActivityConfig(String str, String str2, String str3, boolean z, boolean z2, String str4, boolean z3, String str5, int i2, SmallTailInfo smallTailInfo, AntiData antiData, boolean z4, ArrayList<IconData> arrayList, int i3, boolean z5) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{str, str2, str3, Boolean.valueOf(z), Boolean.valueOf(z2), str4, Boolean.valueOf(z3), str5, Integer.valueOf(i2), smallTailInfo, antiData, Boolean.valueOf(z4), arrayList, Integer.valueOf(i3), Boolean.valueOf(z5)})) == null) {
             Intent intent = getIntent();
             intent.putExtra("thread_id", str);
             intent.putExtra("post_id", str2);
@@ -385,6 +392,7 @@ public class SubPbActivityConfig extends IntentConfig {
             intent.putExtra(KEY_IS_SHOW_GO_TO_SUBJECT, z4);
             intent.putExtra(KEY_IS_JUMP_FROM_VIDEO_TAB, z2);
             intent.putExtra(KEY_IS_JUMP_FROM_VIDEO_TAB_CHILD, i3);
+            intent.putExtra(KEY_IS_JUMP_FROM_VIDEO_MIDDLE, z5);
             return this;
         }
         return (SubPbActivityConfig) invokeCommon.objValue;

@@ -52,10 +52,10 @@ public class BdMemberCenterListView extends BdTypeListView {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f54065a;
+        public int f54211a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f54066b;
+        public int f54212b;
 
         public b(int i2, int i3, int i4, int i5) {
             Interceptable interceptable = $ic;
@@ -72,14 +72,14 @@ public class BdMemberCenterListView extends BdTypeListView {
                     return;
                 }
             }
-            this.f54065a = i3;
-            this.f54066b = i5;
+            this.f54211a = i3;
+            this.f54212b = i5;
         }
 
         public int a(float f2) {
             InterceptResult invokeF;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeF = interceptable.invokeF(1048576, this, f2)) == null) ? (int) (this.f54065a + (f2 / 2.5f)) : invokeF.intValue;
+            return (interceptable == null || (invokeF = interceptable.invokeF(1048576, this, f2)) == null) ? (int) (this.f54211a + (f2 / 2.5f)) : invokeF.intValue;
         }
     }
 
@@ -164,15 +164,15 @@ public class BdMemberCenterListView extends BdTypeListView {
                             if (view != null && view.getParent() == this && this.S != null && this.P.isShown() && this.P.getTop() >= 0 && Math.abs(f4) >= this.W && Math.abs(f3) < this.W) {
                                 int a2 = this.S.a(this.R - this.Q);
                                 b bVar = this.S;
-                                if (a2 > bVar.f54065a && a2 <= bVar.f54066b) {
+                                if (a2 > bVar.f54211a && a2 <= bVar.f54212b) {
                                     this.T = true;
                                     this.P.setLayoutParams(new AbsListView.LayoutParams(this.P.getWidth(), a2));
-                                    y(a2 - this.S.f54065a);
+                                    y(a2 - this.S.f54211a);
                                 } else {
                                     b bVar2 = this.S;
-                                    if (a2 <= bVar2.f54065a) {
+                                    if (a2 <= bVar2.f54211a) {
                                         this.T = false;
-                                    } else if (a2 > bVar2.f54066b) {
+                                    } else if (a2 > bVar2.f54212b) {
                                         this.T = true;
                                     } else {
                                         this.T = false;
@@ -244,12 +244,12 @@ public class BdMemberCenterListView extends BdTypeListView {
         }
         View view = this.P;
         int height = view == null ? 0 : view.getHeight();
-        if (height >= this.S.f54066b - (this.a0 / 2)) {
+        if (height >= this.S.f54212b - (this.a0 / 2)) {
             doRefresh();
         } else {
             this.mRefreshListener.b();
         }
-        this.O.startScroll(0, height, 0, this.S.f54065a - height, 200);
+        this.O.startScroll(0, height, 0, this.S.f54211a - height, 200);
         invalidate();
         this.T = false;
     }

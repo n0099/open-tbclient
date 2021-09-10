@@ -20,7 +20,7 @@ public class c implements g {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final WeakReference<Context> f67421a;
+    public final WeakReference<Context> f67601a;
 
     public c(Context context) {
         Interceptable interceptable = $ic;
@@ -37,7 +37,7 @@ public class c implements g {
                 return;
             }
         }
-        this.f67421a = new WeakReference<>(context);
+        this.f67601a = new WeakReference<>(context);
     }
 
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:37:0x009c */

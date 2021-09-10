@@ -30,14 +30,14 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f68078a;
+    public static final boolean f68258a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public HashMap<String, Boolean> f68079b;
+    public HashMap<String, Boolean> f68259b;
 
     /* renamed from: c  reason: collision with root package name */
-    public C1925a f68080c;
+    public C1925a f68260c;
 
     /* renamed from: com.bytedance.sdk.openadsdk.n.f.a$1  reason: invalid class name */
     /* loaded from: classes9.dex */
@@ -51,7 +51,7 @@ public class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final a f68093a;
+        public static final a f68273a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -67,7 +67,7 @@ public class a {
                     return;
                 }
             }
-            f68093a = new a(null);
+            f68273a = new a(null);
         }
     }
 
@@ -84,7 +84,7 @@ public class a {
                 return;
             }
         }
-        f68078a = k.c();
+        f68258a = k.c();
     }
 
     public /* synthetic */ a(AnonymousClass1 anonymousClass1) {
@@ -94,7 +94,7 @@ public class a {
     public static a a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? b.f68093a : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? b.f68273a : (a) invokeV.objValue;
     }
 
     public static c c() {
@@ -132,7 +132,7 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.f68080c != null) {
+            if (this.f68260c != null) {
                 return true;
             }
             c c2 = c();
@@ -145,9 +145,9 @@ public class a {
             f.a().d();
             try {
                 C1925a c1925a = new C1925a(this);
-                this.f68080c = c1925a;
+                this.f68260c = c1925a;
                 c1925a.setName("tt_pangle_thread_video_cache_preloader");
-                this.f68080c.start();
+                this.f68260c.start();
                 e.a(c2, o.a());
                 d.c().a(30000L, 30000L, 30000L);
                 d.c().a(10485759);
@@ -172,7 +172,7 @@ public class a {
                 return;
             }
         }
-        this.f68079b = new HashMap<>();
+        this.f68259b = new HashMap<>();
         b();
     }
 
@@ -181,7 +181,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bVar)) == null) {
             if (b()) {
-                this.f68080c.a(bVar);
+                this.f68260c.a(bVar);
                 return true;
             }
             return false;
@@ -196,19 +196,19 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f68081a;
+        public final /* synthetic */ a f68261a;
 
         /* renamed from: b  reason: collision with root package name */
-        public Queue<C1926a> f68082b;
+        public Queue<C1926a> f68262b;
 
         /* renamed from: c  reason: collision with root package name */
-        public boolean f68083c;
+        public boolean f68263c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final Queue<C1926a> f68084d;
+        public final Queue<C1926a> f68264d;
 
         /* renamed from: e  reason: collision with root package name */
-        public Queue<C1926a> f68085e;
+        public Queue<C1926a> f68265e;
 
         /* renamed from: com.bytedance.sdk.openadsdk.n.f.a$a$a  reason: collision with other inner class name */
         /* loaded from: classes9.dex */
@@ -217,25 +217,25 @@ public class a {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public int f68086a;
+            public int f68266a;
 
             /* renamed from: b  reason: collision with root package name */
-            public String f68087b;
+            public String f68267b;
 
             /* renamed from: c  reason: collision with root package name */
-            public String[] f68088c;
+            public String[] f68268c;
 
             /* renamed from: d  reason: collision with root package name */
-            public int f68089d;
+            public int f68269d;
 
             /* renamed from: e  reason: collision with root package name */
-            public String f68090e;
+            public String f68270e;
 
             /* renamed from: f  reason: collision with root package name */
-            public com.bytedance.sdk.openadsdk.n.f.b f68091f;
+            public com.bytedance.sdk.openadsdk.n.f.b f68271f;
 
             /* renamed from: g  reason: collision with root package name */
-            public final /* synthetic */ C1925a f68092g;
+            public final /* synthetic */ C1925a f68272g;
 
             public C1926a(C1925a c1925a) {
                 Interceptable interceptable = $ic;
@@ -252,7 +252,7 @@ public class a {
                         return;
                     }
                 }
-                this.f68092g = c1925a;
+                this.f68272g = c1925a;
             }
         }
 
@@ -271,11 +271,11 @@ public class a {
                     return;
                 }
             }
-            this.f68081a = aVar;
-            this.f68084d = new ArrayBlockingQueue(10);
-            this.f68082b = new LinkedBlockingQueue();
-            this.f68083c = true;
-            this.f68085e = new LinkedBlockingQueue();
+            this.f68261a = aVar;
+            this.f68264d = new ArrayBlockingQueue(10);
+            this.f68262b = new LinkedBlockingQueue();
+            this.f68263c = true;
+            this.f68265e = new LinkedBlockingQueue();
         }
 
         private C1926a a(int i2, com.bytedance.sdk.openadsdk.n.f.b bVar) {
@@ -283,13 +283,13 @@ public class a {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeIL = interceptable.invokeIL(65537, this, i2, bVar)) == null) {
                 b();
-                k.b("VideoCachePreloader", "pool: " + this.f68084d.size());
-                C1926a poll = this.f68084d.poll();
+                k.b("VideoCachePreloader", "pool: " + this.f68264d.size());
+                C1926a poll = this.f68264d.poll();
                 if (poll == null) {
                     poll = new C1926a(this);
                 }
-                poll.f68086a = i2;
-                poll.f68091f = bVar;
+                poll.f68266a = i2;
+                poll.f68271f = bVar;
                 return poll;
             }
             return (C1926a) invokeIL.objValue;
@@ -312,7 +312,7 @@ public class a {
             if (interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, c1926a) == null) {
                 synchronized (this) {
                     b();
-                    this.f68085e.add(c1926a);
+                    this.f68265e.add(c1926a);
                     notify();
                 }
             }
@@ -325,7 +325,7 @@ public class a {
                 if (c1926a == null) {
                     return;
                 }
-                this.f68082b.offer(c1926a);
+                this.f68262b.offer(c1926a);
                 notify();
             }
         }
@@ -335,18 +335,18 @@ public class a {
             String[] strArr;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                while (this.f68083c) {
+                while (this.f68263c) {
                     synchronized (this) {
-                        if (!this.f68085e.isEmpty()) {
+                        if (!this.f68265e.isEmpty()) {
                             c();
                         }
-                        while (!this.f68082b.isEmpty()) {
-                            C1926a poll = this.f68082b.poll();
+                        while (!this.f68262b.isEmpty()) {
+                            C1926a poll = this.f68262b.poll();
                             if (poll != null) {
-                                int i2 = poll.f68086a;
+                                int i2 = poll.f68266a;
                                 if (i2 != 0) {
                                     if (i2 == 1) {
-                                        d.c().a(poll.f68087b);
+                                        d.c().a(poll.f68267b);
                                     } else if (i2 == 2) {
                                         d.c().d();
                                     } else if (i2 == 3) {
@@ -359,16 +359,16 @@ public class a {
                                         }
                                     } else if (i2 == 4) {
                                         d.c().d();
-                                        this.f68083c = false;
+                                        this.f68263c = false;
                                     }
-                                } else if (poll.f68088c != null && poll.f68088c.length > 0) {
+                                } else if (poll.f68268c != null && poll.f68268c.length > 0) {
                                     ArrayList arrayList = new ArrayList();
-                                    for (String str : poll.f68088c) {
+                                    for (String str : poll.f68268c) {
                                         if (com.bytedance.sdk.openadsdk.n.g.d.a(str)) {
                                             arrayList.add(str);
                                         }
                                     }
-                                    d.c().a(false, !TextUtils.isEmpty(poll.f68090e), poll.f68089d, poll.f68087b, (String[]) arrayList.toArray(new String[arrayList.size()]));
+                                    d.c().a(false, !TextUtils.isEmpty(poll.f68270e), poll.f68269d, poll.f68267b, (String[]) arrayList.toArray(new String[arrayList.size()]));
                                 }
                                 a(poll);
                             }
@@ -390,18 +390,18 @@ public class a {
             }
             a();
             while (true) {
-                C1926a poll = this.f68085e.poll();
+                C1926a poll = this.f68265e.poll();
                 if (poll == null) {
                     return;
                 }
-                poll.f68087b = poll.f68091f.a();
-                poll.f68088c = new String[]{poll.f68091f.a()};
-                poll.f68089d = poll.f68091f.d();
-                poll.f68090e = poll.f68091f.b();
-                if (!TextUtils.isEmpty(poll.f68091f.b())) {
-                    poll.f68087b = poll.f68091f.b();
+                poll.f68267b = poll.f68271f.a();
+                poll.f68268c = new String[]{poll.f68271f.a()};
+                poll.f68269d = poll.f68271f.d();
+                poll.f68270e = poll.f68271f.b();
+                if (!TextUtils.isEmpty(poll.f68271f.b())) {
+                    poll.f68267b = poll.f68271f.b();
                 }
-                poll.f68091f = null;
+                poll.f68271f = null;
                 c(poll);
             }
         }
@@ -410,11 +410,11 @@ public class a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(65539, this, c1926a) == null) {
                 a();
-                c1926a.f68088c = null;
-                c1926a.f68087b = null;
-                c1926a.f68086a = -1;
-                c1926a.f68091f = null;
-                this.f68084d.offer(c1926a);
+                c1926a.f68268c = null;
+                c1926a.f68267b = null;
+                c1926a.f68266a = -1;
+                c1926a.f68271f = null;
+                this.f68264d.offer(c1926a);
             }
         }
 

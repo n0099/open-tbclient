@@ -7,7 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import c.a.q0.i2.h.e;
+import c.a.r0.j2.h.e;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
@@ -22,10 +22,10 @@ public class PbThreadPostView extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f55167e;
+    public Context f55315e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View.OnClickListener f55168f;
+    public View.OnClickListener f55316f;
     public View mThreadPostContainer;
     public TextView mVoteThreadPostButton;
     public TextView mVoteThreadPostContent;
@@ -63,7 +63,7 @@ public class PbThreadPostView extends LinearLayout {
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f55167e = getContext();
+            this.f55315e = getContext();
             setClipChildren(false);
             setClipToPadding(false);
             setOrientation(1);
@@ -84,8 +84,8 @@ public class PbThreadPostView extends LinearLayout {
 
     public void setChildOnClickLinstener(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, onClickListener) == null) && this.f55168f == null) {
-            this.f55168f = onClickListener;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, onClickListener) == null) && this.f55316f == null) {
+            this.f55316f = onClickListener;
             this.mVoteThreadPostButton.setOnClickListener(onClickListener);
         }
     }

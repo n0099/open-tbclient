@@ -21,7 +21,7 @@ public class d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String[][] f35486a;
+    public static final String[][] f35595a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -37,7 +37,7 @@ public class d {
                 return;
             }
         }
-        f35486a = new String[][]{new String[]{"com.duowan.mobile", "7.10.0"}};
+        f35595a = new String[][]{new String[]{"com.duowan.mobile", "7.10.0"}};
     }
 
     public static int a(Context context) {
@@ -47,7 +47,7 @@ public class d {
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
             try {
                 boolean z = false;
-                for (String[] strArr2 : f35486a) {
+                for (String[] strArr2 : f35595a) {
                     if (strArr2.length > 1) {
                         String str = strArr2[0];
                         try {
@@ -155,7 +155,7 @@ public class d {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, context)) == null) {
-            for (String[] strArr : f35486a) {
+            for (String[] strArr : f35595a) {
                 String str = strArr[0];
                 Intent intent = new Intent();
                 intent.setClassName(str, "com.yy.udbauth.open.activity.AgentActivity");

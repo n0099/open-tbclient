@@ -8,7 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import c.a.p0.s.q.c2;
+import c.a.q0.s.q.d2;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -30,16 +30,16 @@ public class FeedBackTopListView extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f58760e;
+    public Context f58941e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ArrayList<c2> f58761f;
+    public ArrayList<d2> f58942f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TbPageContext<?> f58762g;
+    public TbPageContext<?> f58943g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f58763h;
+    public int f58944h;
 
     /* loaded from: classes7.dex */
     public class a implements View.OnClickListener {
@@ -47,10 +47,10 @@ public class FeedBackTopListView extends LinearLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f58764e;
+        public final /* synthetic */ String f58945e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ FeedBackTopListView f58765f;
+        public final /* synthetic */ FeedBackTopListView f58946f;
 
         public a(FeedBackTopListView feedBackTopListView, String str) {
             Interceptable interceptable = $ic;
@@ -67,15 +67,15 @@ public class FeedBackTopListView extends LinearLayout {
                     return;
                 }
             }
-            this.f58765f = feedBackTopListView;
-            this.f58764e = str;
+            this.f58946f = feedBackTopListView;
+            this.f58945e = str;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2004001, new PbActivityConfig(this.f58765f.f58760e).createNormalCfg(this.f58764e, null, WriteActivityConfig.FEED_BACK)));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2004001, new PbActivityConfig(this.f58946f.f58941e).createNormalCfg(this.f58945e, null, WriteActivityConfig.FEED_BACK)));
             }
         }
     }
@@ -101,46 +101,46 @@ public class FeedBackTopListView extends LinearLayout {
         }
     }
 
-    public final View b(c2 c2Var, int i2) {
+    public final View b(d2 d2Var, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, c2Var, i2)) == null) {
-            if (c2Var == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, d2Var, i2)) == null) {
+            if (d2Var == null) {
                 return null;
             }
-            View inflate = LayoutInflater.from(this.f58760e).inflate(R.layout.frs_top_item, (ViewGroup) null);
+            View inflate = LayoutInflater.from(this.f58941e).inflate(R.layout.frs_top_item, (ViewGroup) null);
             LinearLayout linearLayout = (LinearLayout) inflate.findViewById(R.id.frs_top_item);
             TextView textView = (TextView) inflate.findViewById(R.id.frs_top_title);
             inflate.findViewById(R.id.frs_top_divider);
-            String q1 = c2Var.q1();
-            textView.setText(c2Var.getTitle());
-            this.f58762g.getLayoutMode().k(this.f58763h == 1);
-            this.f58762g.getLayoutMode().j(inflate);
+            String s1 = d2Var.s1();
+            textView.setText(d2Var.getTitle());
+            this.f58943g.getLayoutMode().k(this.f58944h == 1);
+            this.f58943g.getLayoutMode().j(inflate);
             BitmapDrawable bitmapDrawable = (BitmapDrawable) SkinManager.getDrawable(R.drawable.icon_notice);
             SkinManager.setBackgroundResource(linearLayout, R.drawable.bg_frs_top_middle_selector);
             if (bitmapDrawable != null) {
                 bitmapDrawable.setBounds(0, 0, bitmapDrawable.getIntrinsicWidth(), bitmapDrawable.getIntrinsicHeight());
             }
             textView.setCompoundDrawables(bitmapDrawable, null, null, null);
-            linearLayout.setOnClickListener(new a(this, q1));
+            linearLayout.setOnClickListener(new a(this, s1));
             return inflate;
         }
         return (View) invokeLI.objValue;
     }
 
-    public void c(ArrayList<c2> arrayList, TbPageContext<?> tbPageContext) {
+    public void c(ArrayList<d2> arrayList, TbPageContext<?> tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, arrayList, tbPageContext) == null) {
-            this.f58762g = tbPageContext;
+            this.f58943g = tbPageContext;
             if (arrayList != null && arrayList.size() != 0) {
                 setVisibility(0);
                 if (arrayList.size() > 3) {
-                    this.f58761f = new ArrayList<>(arrayList.subList(0, 3));
+                    this.f58942f = new ArrayList<>(arrayList.subList(0, 3));
                 } else {
-                    this.f58761f = arrayList;
+                    this.f58942f = arrayList;
                 }
-                for (int i2 = 0; i2 < this.f58761f.size(); i2++) {
-                    addView(b(this.f58761f.get(i2), i2));
+                for (int i2 = 0; i2 < this.f58942f.size(); i2++) {
+                    addView(b(this.f58942f.get(i2), i2));
                 }
                 return;
             }
@@ -167,10 +167,10 @@ public class FeedBackTopListView extends LinearLayout {
                 return;
             }
         }
-        this.f58760e = null;
-        this.f58761f = null;
-        this.f58763h = 3;
-        this.f58760e = context;
-        this.f58763h = TbadkCoreApplication.getInst().getSkinType();
+        this.f58941e = null;
+        this.f58942f = null;
+        this.f58944h = 3;
+        this.f58941e = context;
+        this.f58944h = TbadkCoreApplication.getInst().getSkinType();
     }
 }

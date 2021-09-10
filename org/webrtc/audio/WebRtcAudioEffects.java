@@ -179,26 +179,26 @@ public class WebRtcAudioEffects {
             if (isNoiseSuppressorSupported()) {
                 NoiseSuppressor create2 = NoiseSuppressor.create(i2);
                 this.ns = create2;
-                if (create2 == null) {
-                    Logging.e(TAG, "Failed to create the NoiseSuppressor instance");
+                if (create2 != null) {
+                    boolean enabled2 = create2.getEnabled();
+                    z = (this.shouldEnableNs && isNoiseSuppressorSupported()) ? false : false;
+                    if (this.ns.setEnabled(z) != 0) {
+                        Logging.e(TAG, "Failed to set the NoiseSuppressor state");
+                    }
+                    StringBuilder sb2 = new StringBuilder();
+                    sb2.append("NoiseSuppressor: was ");
+                    sb2.append(enabled2 ? SapiOptions.KEY_CACHE_ENABLED : "disabled");
+                    sb2.append(", enable: ");
+                    sb2.append(z);
+                    sb2.append(", is now: ");
+                    if (!this.ns.getEnabled()) {
+                        str = "disabled";
+                    }
+                    sb2.append(str);
+                    Logging.d(TAG, sb2.toString());
                     return;
                 }
-                boolean enabled2 = create2.getEnabled();
-                z = (this.shouldEnableNs && isNoiseSuppressorSupported()) ? false : false;
-                if (this.ns.setEnabled(z) != 0) {
-                    Logging.e(TAG, "Failed to set the NoiseSuppressor state");
-                }
-                StringBuilder sb2 = new StringBuilder();
-                sb2.append("NoiseSuppressor: was ");
-                sb2.append(enabled2 ? SapiOptions.KEY_CACHE_ENABLED : "disabled");
-                sb2.append(", enable: ");
-                sb2.append(z);
-                sb2.append(", is now: ");
-                if (!this.ns.getEnabled()) {
-                    str = "disabled";
-                }
-                sb2.append(str);
-                Logging.d(TAG, sb2.toString());
+                Logging.e(TAG, "Failed to create the NoiseSuppressor instance");
             }
         }
     }
@@ -229,12 +229,12 @@ public class WebRtcAudioEffects {
                 Logging.w(TAG, "Platform AEC is not supported");
                 this.shouldEnableAec = false;
                 return false;
-            } else if (this.aec == null || z == this.shouldEnableAec) {
-                this.shouldEnableAec = z;
-                return true;
-            } else {
+            } else if (this.aec != null && z != this.shouldEnableAec) {
                 Logging.e(TAG, "Platform AEC state can't be modified while recording");
                 return false;
+            } else {
+                this.shouldEnableAec = z;
+                return true;
             }
         }
         return invokeZ.booleanValue;
@@ -249,12 +249,12 @@ public class WebRtcAudioEffects {
                 Logging.w(TAG, "Platform NS is not supported");
                 this.shouldEnableNs = false;
                 return false;
-            } else if (this.ns == null || z == this.shouldEnableNs) {
-                this.shouldEnableNs = z;
-                return true;
-            } else {
+            } else if (this.ns != null && z != this.shouldEnableNs) {
                 Logging.e(TAG, "Platform NS state can't be modified while recording");
                 return false;
+            } else {
+                this.shouldEnableNs = z;
+                return true;
             }
         }
         return invokeZ.booleanValue;

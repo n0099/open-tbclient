@@ -1,6 +1,6 @@
 package com.baidu.tieba.signall;
 
-import c.a.q0.e3.c;
+import c.a.r0.f3.c;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;

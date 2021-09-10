@@ -21,10 +21,10 @@ public class LangBrigdeSlideLayout extends PullToRefreshBase<LightappWebView> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public LightappBrowserWebView f61589a;
+    public LightappBrowserWebView f61769a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f61590b;
+    public boolean f61770b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public LangBrigdeSlideLayout(Context context) {
@@ -44,7 +44,7 @@ public class LangBrigdeSlideLayout extends PullToRefreshBase<LightappWebView> {
                 return;
             }
         }
-        this.f61590b = true;
+        this.f61770b = true;
     }
 
     @Override // com.baidu.wallet.base.widget.pulltorefresh.PullToRefreshBase
@@ -66,7 +66,7 @@ public class LangBrigdeSlideLayout extends PullToRefreshBase<LightappWebView> {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ LangBrigdeSlideLayout f61591a;
+            public final /* synthetic */ LangBrigdeSlideLayout f61771a;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
             {
@@ -86,7 +86,7 @@ public class LangBrigdeSlideLayout extends PullToRefreshBase<LightappWebView> {
                         return;
                     }
                 }
-                this.f61591a = this;
+                this.f61771a = this;
             }
 
             @Override // com.baidu.wallet.base.widget.pulltorefresh.LoadingLayout
@@ -114,7 +114,7 @@ public class LangBrigdeSlideLayout extends PullToRefreshBase<LightappWebView> {
     public boolean isReadyForPullDown() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f61589a.isTop && this.f61590b : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f61769a.isTop && this.f61770b : invokeV.booleanValue;
     }
 
     @Override // com.baidu.wallet.base.widget.pulltorefresh.PullToRefreshBase
@@ -130,7 +130,7 @@ public class LangBrigdeSlideLayout extends PullToRefreshBase<LightappWebView> {
     public void setSupportPullDown(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            this.f61590b = z;
+            this.f61770b = z;
             if (z) {
                 return;
             }
@@ -152,11 +152,11 @@ public class LangBrigdeSlideLayout extends PullToRefreshBase<LightappWebView> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, context, attributeSet)) == null) {
             LightappBrowserWebView lightappWebView = LightappWebViewCenter.getInstance().getLightappWebView(context);
-            this.f61589a = lightappWebView;
+            this.f61769a = lightappWebView;
             if (lightappWebView != null) {
                 lightappWebView.setId(ResUtils.id(context, "cust_webview"));
             }
-            return this.f61589a;
+            return this.f61769a;
         }
         return (LightappWebView) invokeLL.objValue;
     }
@@ -180,6 +180,6 @@ public class LangBrigdeSlideLayout extends PullToRefreshBase<LightappWebView> {
                 return;
             }
         }
-        this.f61590b = true;
+        this.f61770b = true;
     }
 }

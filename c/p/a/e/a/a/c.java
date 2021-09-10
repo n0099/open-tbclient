@@ -18,7 +18,7 @@ public class c extends a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d  reason: collision with root package name */
-    public final JSONObject f34802d;
+    public final JSONObject f34911d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public c(Context context, c.p.a.e.b.j.a aVar, String str, JSONObject jSONObject) {
@@ -39,7 +39,7 @@ public class c extends a {
                 return;
             }
         }
-        this.f34802d = jSONObject;
+        this.f34911d = jSONObject;
     }
 
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
@@ -107,13 +107,13 @@ public class c extends a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            String optString = this.f34802d.optString("action");
-            String optString2 = this.f34802d.optString("category");
-            int optInt = this.f34802d.optInt("flags", 1342210048);
-            String optString3 = this.f34802d.optString("path_extra_key");
-            String optString4 = this.f34802d.optString("path_data_key");
-            JSONObject optJSONObject = this.f34802d.optJSONObject("extra");
-            JSONObject optJSONObject2 = this.f34802d.optJSONObject("extra_type");
+            String optString = this.f34911d.optString("action");
+            String optString2 = this.f34911d.optString("category");
+            int optInt = this.f34911d.optInt("flags", 1342210048);
+            String optString3 = this.f34911d.optString("path_extra_key");
+            String optString4 = this.f34911d.optString("path_data_key");
+            JSONObject optJSONObject = this.f34911d.optJSONObject("extra");
+            JSONObject optJSONObject2 = this.f34911d.optJSONObject("extra_type");
             if (TextUtils.isEmpty(optString)) {
                 return null;
             }
@@ -123,13 +123,13 @@ public class c extends a {
             }
             if (!TextUtils.isEmpty(optString4)) {
                 try {
-                    intent.setData(Uri.parse(String.format(optString4, this.f34801c)));
+                    intent.setData(Uri.parse(String.format(optString4, this.f34910c)));
                 } catch (Throwable unused) {
                 }
             }
             intent.setFlags(optInt);
             if (!TextUtils.isEmpty(optString3)) {
-                intent.putExtra(optString3, this.f34801c);
+                intent.putExtra(optString3, this.f34910c);
             }
             b(intent, optJSONObject, optJSONObject2);
             return intent;

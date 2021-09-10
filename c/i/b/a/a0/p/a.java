@@ -14,13 +14,13 @@ public final class a implements b.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final long f32421a;
+    public final long f32530a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f32422b;
+    public final int f32531b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final long f32423c;
+    public final long f32532c;
 
     public a(long j2, int i2, long j3) {
         Interceptable interceptable = $ic;
@@ -37,16 +37,16 @@ public final class a implements b.a {
                 return;
             }
         }
-        this.f32421a = j2;
-        this.f32422b = i2;
-        this.f32423c = j3 == -1 ? -9223372036854775807L : g(j3);
+        this.f32530a = j2;
+        this.f32531b = i2;
+        this.f32532c = j3 == -1 ? -9223372036854775807L : g(j3);
     }
 
     @Override // c.i.b.a.a0.l
     public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f32423c != -9223372036854775807L : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f32532c != -9223372036854775807L : invokeV.booleanValue;
     }
 
     @Override // c.i.b.a.a0.l
@@ -54,11 +54,11 @@ public final class a implements b.a {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2)) == null) {
-            long j3 = this.f32423c;
+            long j3 = this.f32532c;
             if (j3 == -9223372036854775807L) {
                 return 0L;
             }
-            return this.f32421a + ((v.l(j2, 0L, j3) * this.f32422b) / 8000000);
+            return this.f32530a + ((v.l(j2, 0L, j3) * this.f32531b) / 8000000);
         }
         return invokeJ.longValue;
     }
@@ -67,13 +67,13 @@ public final class a implements b.a {
     public long g(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2)) == null) ? ((Math.max(0L, j2 - this.f32421a) * 1000000) * 8) / this.f32422b : invokeJ.longValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2)) == null) ? ((Math.max(0L, j2 - this.f32530a) * 1000000) * 8) / this.f32531b : invokeJ.longValue;
     }
 
     @Override // c.i.b.a.a0.l
     public long h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f32423c : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f32532c : invokeV.longValue;
     }
 }

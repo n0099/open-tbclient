@@ -15,14 +15,14 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile b f31402c;
+    public static volatile b f31511c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public c.b.c.b.c.c.b f31403a;
+    public c.b.c.b.c.c.b f31512a;
 
     /* renamed from: b  reason: collision with root package name */
-    public SQLiteDatabase f31404b;
+    public SQLiteDatabase f31513b;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -42,14 +42,14 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f31402c == null) {
+            if (f31511c == null) {
                 synchronized (b.class) {
-                    if (f31402c == null) {
-                        f31402c = new b();
+                    if (f31511c == null) {
+                        f31511c = new b();
                     }
                 }
             }
-            return f31402c;
+            return f31511c;
         }
         return (b) invokeV.objValue;
     }
@@ -58,11 +58,11 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             try {
-                this.f31404b = new d(context).getWritableDatabase();
+                this.f31513b = new d(context).getWritableDatabase();
             } catch (Throwable th) {
                 l.k.c(th);
             }
-            this.f31403a = new c.b.c.b.c.c.b();
+            this.f31512a = new c.b.c.b.c.c.b();
         }
     }
 
@@ -70,8 +70,8 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
             synchronized (this) {
-                if (this.f31403a != null) {
-                    this.f31403a.f(this.f31404b, aVar);
+                if (this.f31512a != null) {
+                    this.f31512a.f(this.f31513b, aVar);
                 }
             }
         }
@@ -82,8 +82,8 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
             synchronized (this) {
-                if (this.f31403a != null) {
-                    return this.f31403a.g(this.f31404b, str);
+                if (this.f31512a != null) {
+                    return this.f31512a.g(this.f31513b, str);
                 }
                 return false;
             }

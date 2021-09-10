@@ -14,7 +14,7 @@ public class H1 {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static HashMap f76620a;
+    public static HashMap f76800a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -31,14 +31,14 @@ public class H1 {
             }
         }
         Executors.newFixedThreadPool(1);
-        f76620a = new HashMap();
+        f76800a = new HashMap();
     }
 
     public static synchronized void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
             synchronized (H1.class) {
-                f76620a.remove(str);
+                f76800a.remove(str);
             }
         }
     }
@@ -47,10 +47,10 @@ public class H1 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65538, null, str, g1) == null) {
             synchronized (H1.class) {
-                HashSet hashSet = (HashSet) f76620a.get(str);
+                HashSet hashSet = (HashSet) f76800a.get(str);
                 if (hashSet == null) {
                     hashSet = new HashSet();
-                    f76620a.put(str, hashSet);
+                    f76800a.put(str, hashSet);
                 }
                 hashSet.add(g1);
             }
@@ -60,7 +60,7 @@ public class H1 {
     public static void a(String str, String str2, Object obj) {
         HashSet hashSet;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(65539, null, str, str2, obj) == null) || (hashSet = (HashSet) f76620a.get(str)) == null || hashSet.size() <= 0) {
+        if (!(interceptable == null || interceptable.invokeLLL(65539, null, str, str2, obj) == null) || (hashSet = (HashSet) f76800a.get(str)) == null || hashSet.size() <= 0) {
             return;
         }
         Iterator it = hashSet.iterator();

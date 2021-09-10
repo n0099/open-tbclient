@@ -20,6 +20,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import h.c.g0;
 import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
@@ -27,6 +28,7 @@ import javax.annotation.Nullable;
 import org.webrtc.Camera2Session;
 import org.webrtc.CameraEnumerationAndroid;
 import org.webrtc.CameraSession;
+import org.webrtc.VideoFrame;
 @TargetApi(21)
 /* loaded from: classes2.dex */
 public class Camera2Session implements CameraSession {
@@ -87,16 +89,16 @@ public class Camera2Session implements CameraSession {
             }
         }
 
-        public /* synthetic */ CameraCaptureCallback(AnonymousClass1 anonymousClass1) {
-            this();
-        }
-
         @Override // android.hardware.camera2.CameraCaptureSession.CaptureCallback
         public void onCaptureFailed(CameraCaptureSession cameraCaptureSession, CaptureRequest captureRequest, CaptureFailure captureFailure) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(1048576, this, cameraCaptureSession, captureRequest, captureFailure) == null) {
                 Logging.d(Camera2Session.TAG, "Capture failed: " + captureFailure);
             }
+        }
+
+        public /* synthetic */ CameraCaptureCallback(AnonymousClass1 anonymousClass1) {
+            this();
         }
     }
 
@@ -122,10 +124,6 @@ public class Camera2Session implements CameraSession {
                 }
             }
             this.this$0 = camera2Session;
-        }
-
-        public /* synthetic */ CameraStateCallback(Camera2Session camera2Session, AnonymousClass1 anonymousClass1) {
-            this(camera2Session);
         }
 
         private String getErrorDescription(int i2) {
@@ -204,6 +202,10 @@ public class Camera2Session implements CameraSession {
                 }
             }
         }
+
+        public /* synthetic */ CameraStateCallback(Camera2Session camera2Session, AnonymousClass1 anonymousClass1) {
+            this(camera2Session);
+        }
     }
 
     /* loaded from: classes2.dex */
@@ -230,87 +232,65 @@ public class Camera2Session implements CameraSession {
             this.this$0 = camera2Session;
         }
 
-        public /* synthetic */ CaptureSessionCallback(Camera2Session camera2Session, AnonymousClass1 anonymousClass1) {
-            this(camera2Session);
-        }
-
         private void chooseFocusMode(CaptureRequest.Builder builder) {
-            String str;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(65538, this, builder) == null) {
-                int[] iArr = (int[]) this.this$0.cameraCharacteristics.get(CameraCharacteristics.CONTROL_AF_AVAILABLE_MODES);
-                int length = iArr.length;
-                int i2 = 0;
-                while (true) {
-                    if (i2 >= length) {
-                        str = "Auto-focus is not available.";
-                        break;
-                    } else if (iArr[i2] == 3) {
+                for (int i2 : (int[]) this.this$0.cameraCharacteristics.get(CameraCharacteristics.CONTROL_AF_AVAILABLE_MODES)) {
+                    if (i2 == 3) {
                         builder.set(CaptureRequest.CONTROL_AF_MODE, 3);
-                        str = "Using continuous video auto-focus.";
-                        break;
-                    } else {
-                        i2++;
+                        Logging.d(Camera2Session.TAG, "Using continuous video auto-focus.");
+                        return;
                     }
                 }
-                Logging.d(Camera2Session.TAG, str);
+                Logging.d(Camera2Session.TAG, "Auto-focus is not available.");
             }
         }
 
         private void chooseStabilizationMode(CaptureRequest.Builder builder) {
-            String str;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(65539, this, builder) == null) {
                 int[] iArr = (int[]) this.this$0.cameraCharacteristics.get(CameraCharacteristics.LENS_INFO_AVAILABLE_OPTICAL_STABILIZATION);
-                int i2 = 0;
                 if (iArr != null) {
-                    for (int i3 : iArr) {
-                        if (i3 == 1) {
+                    for (int i2 : iArr) {
+                        if (i2 == 1) {
                             builder.set(CaptureRequest.LENS_OPTICAL_STABILIZATION_MODE, 1);
                             builder.set(CaptureRequest.CONTROL_VIDEO_STABILIZATION_MODE, 0);
-                            str = "Using optical stabilization.";
-                            break;
+                            Logging.d(Camera2Session.TAG, "Using optical stabilization.");
+                            return;
                         }
                     }
                 }
-                int[] iArr2 = (int[]) this.this$0.cameraCharacteristics.get(CameraCharacteristics.CONTROL_AVAILABLE_VIDEO_STABILIZATION_MODES);
-                int length = iArr2.length;
-                while (true) {
-                    if (i2 >= length) {
-                        str = "Stabilization not available.";
-                        break;
-                    } else if (iArr2[i2] == 1) {
+                for (int i3 : (int[]) this.this$0.cameraCharacteristics.get(CameraCharacteristics.CONTROL_AVAILABLE_VIDEO_STABILIZATION_MODES)) {
+                    if (i3 == 1) {
                         builder.set(CaptureRequest.CONTROL_VIDEO_STABILIZATION_MODE, 1);
                         builder.set(CaptureRequest.LENS_OPTICAL_STABILIZATION_MODE, 0);
-                        str = "Using video stabilization.";
-                        break;
-                    } else {
-                        i2++;
+                        Logging.d(Camera2Session.TAG, "Using video stabilization.");
+                        return;
                     }
                 }
-                Logging.d(Camera2Session.TAG, str);
+                Logging.d(Camera2Session.TAG, "Stabilization not available.");
             }
         }
 
-        public static /* synthetic */ void lambda$onConfigured$0(CaptureSessionCallback captureSessionCallback, VideoFrame videoFrame) {
-            captureSessionCallback.this$0.checkIsOnCameraThread();
-            if (captureSessionCallback.this$0.state != SessionState.RUNNING) {
-                Logging.d(Camera2Session.TAG, "Texture frame captured but camera is no longer running.");
+        public /* synthetic */ void a(VideoFrame videoFrame) {
+            this.this$0.checkIsOnCameraThread();
+            if (this.this$0.state == SessionState.RUNNING) {
+                if (!this.this$0.firstFrameReported) {
+                    this.this$0.firstFrameReported = true;
+                    Camera2Session.camera2StartTimeMsHistogram.addSample((int) TimeUnit.NANOSECONDS.toMillis(System.nanoTime() - this.this$0.constructionTimeNs));
+                }
+                VideoFrame videoFrame2 = new VideoFrame(g0.a((TextureBufferImpl) videoFrame.getBuffer(), this.this$0.isCameraFrontFacing, -this.this$0.cameraOrientation), this.this$0.getFrameOrientation(), videoFrame.getTimestampNs());
+                this.this$0.events.onFrameCaptured(this.this$0, videoFrame2);
+                videoFrame2.release();
                 return;
             }
-            if (!captureSessionCallback.this$0.firstFrameReported) {
-                captureSessionCallback.this$0.firstFrameReported = true;
-                Camera2Session.camera2StartTimeMsHistogram.addSample((int) TimeUnit.NANOSECONDS.toMillis(System.nanoTime() - captureSessionCallback.this$0.constructionTimeNs));
-            }
-            VideoFrame videoFrame2 = new VideoFrame(CameraSession_CC.createTextureBufferWithModifiedTransformMatrix((TextureBufferImpl) videoFrame.getBuffer(), captureSessionCallback.this$0.isCameraFrontFacing, -captureSessionCallback.this$0.cameraOrientation), captureSessionCallback.this$0.getFrameOrientation(), videoFrame.getTimestampNs());
-            captureSessionCallback.this$0.events.onFrameCaptured(captureSessionCallback.this$0, videoFrame2);
-            videoFrame2.release();
+            Logging.d(Camera2Session.TAG, "Texture frame captured but camera is no longer running.");
         }
 
         @Override // android.hardware.camera2.CameraCaptureSession.StateCallback
         public void onConfigureFailed(CameraCaptureSession cameraCaptureSession) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, cameraCaptureSession) == null) {
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cameraCaptureSession) == null) {
                 this.this$0.checkIsOnCameraThread();
                 cameraCaptureSession.close();
                 this.this$0.reportError("Failed to configure capture session.");
@@ -320,7 +300,7 @@ public class Camera2Session implements CameraSession {
         @Override // android.hardware.camera2.CameraCaptureSession.StateCallback
         public void onConfigured(CameraCaptureSession cameraCaptureSession) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cameraCaptureSession) == null) {
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cameraCaptureSession) == null) {
                 this.this$0.checkIsOnCameraThread();
                 Logging.d(Camera2Session.TAG, "Camera capture session configured.");
                 this.this$0.captureSession = cameraCaptureSession;
@@ -333,7 +313,7 @@ public class Camera2Session implements CameraSession {
                     chooseFocusMode(createCaptureRequest);
                     createCaptureRequest.addTarget(this.this$0.surface);
                     cameraCaptureSession.setRepeatingRequest(createCaptureRequest.build(), new CameraCaptureCallback(null), this.this$0.cameraThreadHandler);
-                    this.this$0.surfaceTextureHelper.startListening(new VideoSink() { // from class: org.webrtc._$$Lambda$Camera2Session$CaptureSessionCallback$UDvzHNj8_cAJE1WNByx98pxD9vA
+                    this.this$0.surfaceTextureHelper.startListening(new VideoSink() { // from class: h.c.f
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
 
@@ -341,7 +321,7 @@ public class Camera2Session implements CameraSession {
                         public final void onFrame(VideoFrame videoFrame) {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeL(1048576, this, videoFrame) == null) {
-                                Camera2Session.CaptureSessionCallback.lambda$onConfigured$0(Camera2Session.CaptureSessionCallback.this, videoFrame);
+                                Camera2Session.CaptureSessionCallback.this.a(videoFrame);
                             }
                         }
                     });
@@ -352,6 +332,10 @@ public class Camera2Session implements CameraSession {
                     camera2Session.reportError("Failed to start capture request. " + e2);
                 }
             }
+        }
+
+        public /* synthetic */ CaptureSessionCallback(Camera2Session camera2Session, AnonymousClass1 anonymousClass1) {
+            this(camera2Session);
         }
     }
 
@@ -490,15 +474,15 @@ public class Camera2Session implements CameraSession {
             List<Size> supportedSizes = Camera2Enumerator.getSupportedSizes(this.cameraCharacteristics);
             Logging.d(TAG, "Available preview sizes: " + supportedSizes);
             Logging.d(TAG, "Available fps ranges: " + convertFramerates);
-            if (convertFramerates.isEmpty() || supportedSizes.isEmpty()) {
-                reportError("No supported capture formats.");
+            if (!convertFramerates.isEmpty() && !supportedSizes.isEmpty()) {
+                CameraEnumerationAndroid.CaptureFormat.FramerateRange closestSupportedFramerateRange = CameraEnumerationAndroid.getClosestSupportedFramerateRange(convertFramerates, this.framerate);
+                Size closestSupportedSize = CameraEnumerationAndroid.getClosestSupportedSize(supportedSizes, this.width, this.height);
+                CameraEnumerationAndroid.reportCameraResolution(camera2ResolutionHistogram, closestSupportedSize);
+                this.captureFormat = new CameraEnumerationAndroid.CaptureFormat(closestSupportedSize.width, closestSupportedSize.height, closestSupportedFramerateRange);
+                Logging.d(TAG, "Using capture format: " + this.captureFormat);
                 return;
             }
-            CameraEnumerationAndroid.CaptureFormat.FramerateRange closestSupportedFramerateRange = CameraEnumerationAndroid.getClosestSupportedFramerateRange(convertFramerates, this.framerate);
-            Size closestSupportedSize = CameraEnumerationAndroid.getClosestSupportedSize(supportedSizes, this.width, this.height);
-            CameraEnumerationAndroid.reportCameraResolution(camera2ResolutionHistogram, closestSupportedSize);
-            this.captureFormat = new CameraEnumerationAndroid.CaptureFormat(closestSupportedSize.width, closestSupportedSize.height, closestSupportedFramerateRange);
-            Logging.d(TAG, "Using capture format: " + this.captureFormat);
+            reportError("No supported capture formats.");
         }
     }
 
@@ -507,11 +491,11 @@ public class Camera2Session implements CameraSession {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65566, this)) == null) {
-            int deviceOrientation = CameraSession_CC.getDeviceOrientation(this.applicationContext);
+            int b2 = g0.b(this.applicationContext);
             if (!this.isCameraFrontFacing) {
-                deviceOrientation = 360 - deviceOrientation;
+                b2 = 360 - b2;
             }
-            return (this.cameraOrientation + deviceOrientation) % 360;
+            return (this.cameraOrientation + b2) % 360;
         }
         return invokeV.intValue;
     }

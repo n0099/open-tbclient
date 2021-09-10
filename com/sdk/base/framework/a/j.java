@@ -18,34 +18,34 @@ public final class j {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final j f75328a;
+    public static final j f75508a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final j f75329b;
+    public static final j f75509b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static j f75330c;
+    public static j f75510c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static j f75331d;
+    public static j f75511d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static j f75332e;
+    public static j f75512e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static j f75333f;
+    public static j f75513f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static j f75334g;
+    public static j f75514g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static j f75335h;
+    public static j f75515h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static j f75336i;
+    public static j f75516i;
 
     /* renamed from: j  reason: collision with root package name */
-    public static j f75337j;
+    public static j f75517j;
     public transient /* synthetic */ FieldHolder $fh;
     public final String k;
 
@@ -62,16 +62,16 @@ public final class j {
                 return;
             }
         }
-        f75328a = new j("GET", 0, "GET");
-        f75329b = new j("POST", 1, "POST");
-        f75330c = new j(HttpPut.METHOD_NAME, 2, HttpPut.METHOD_NAME);
-        f75331d = new j("HEAD", 3, "HEAD");
-        f75332e = new j("MOVE", 4, "MOVE");
-        f75333f = new j("COPY", 5, "COPY");
-        f75334g = new j(HttpDelete.METHOD_NAME, 6, HttpDelete.METHOD_NAME);
-        f75335h = new j(HttpOptions.METHOD_NAME, 7, HttpOptions.METHOD_NAME);
-        f75336i = new j(HttpTrace.METHOD_NAME, 8, HttpTrace.METHOD_NAME);
-        f75337j = new j("CONNECT", 9, "CONNECT");
+        f75508a = new j("GET", 0, "GET");
+        f75509b = new j("POST", 1, "POST");
+        f75510c = new j(HttpPut.METHOD_NAME, 2, HttpPut.METHOD_NAME);
+        f75511d = new j("HEAD", 3, "HEAD");
+        f75512e = new j("MOVE", 4, "MOVE");
+        f75513f = new j("COPY", 5, "COPY");
+        f75514g = new j(HttpDelete.METHOD_NAME, 6, HttpDelete.METHOD_NAME);
+        f75515h = new j(HttpOptions.METHOD_NAME, 7, HttpOptions.METHOD_NAME);
+        f75516i = new j(HttpTrace.METHOD_NAME, 8, HttpTrace.METHOD_NAME);
+        f75517j = new j("CONNECT", 9, "CONNECT");
     }
 
     public j(String str, int i2, String str2) {

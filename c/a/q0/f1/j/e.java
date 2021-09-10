@@ -1,12 +1,7 @@
 package c.a.q0.f1.j;
 
-import c.a.p0.s.f0.f;
-import com.baidu.tbadk.core.data.ErrorData;
+import android.view.View;
 /* loaded from: classes3.dex */
-public interface e extends f.g {
-    void callLoadMore();
-
-    void onNetCallback(c.a.q0.f1.j.h.c cVar);
-
-    void onServerError(ErrorData errorData);
+public interface e {
+    void a(View view, int i2, int i3, int i4, int i5);
 }

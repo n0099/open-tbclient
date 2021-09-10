@@ -13,10 +13,10 @@ public class n0 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public m0 f76931a;
+    public m0 f77111a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Set f76932b;
+    public Set f77112b;
 
     public n0(m0 m0Var) {
         Interceptable interceptable = $ic;
@@ -33,13 +33,13 @@ public class n0 {
                 return;
             }
         }
-        this.f76932b = new HashSet();
-        this.f76931a = m0Var;
+        this.f77112b = new HashSet();
+        this.f77111a = m0Var;
     }
 
     public void a(String str, boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLZ(1048576, this, str, z) == null) || this.f76932b.contains(str)) {
+        if (!(interceptable == null || interceptable.invokeLZ(1048576, this, str, z) == null) || this.f77112b.contains(str)) {
             return;
         }
         new j0(this, str, z).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, new Void[0]);

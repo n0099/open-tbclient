@@ -22,7 +22,7 @@ public class PayResultAdapter extends BasePayResultAdapter {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d  reason: collision with root package name */
-    public CountDownTimer f62407d;
+    public CountDownTimer f62587d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PayResultAdapter(BaseActivity baseActivity) {
@@ -42,29 +42,29 @@ public class PayResultAdapter extends BasePayResultAdapter {
                 return;
             }
         }
-        this.f62404a = new WeakReference<>(baseActivity);
+        this.f62584a = new WeakReference<>(baseActivity);
     }
 
     @Override // com.baidu.wallet.paysdk.payresult.adapters.BasePayResultAdapter, com.baidu.wallet.paysdk.payresult.adapters.IPayResultDataAdapter
     public void handleOKBtnOnclick() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            PayResultContent payResultContent = this.f62406c;
+            PayResultContent payResultContent = this.f62586c;
             if (payResultContent != null) {
                 if (payResultContent.isPaySuccess) {
-                    PayRequest payRequest = this.f62405b;
+                    PayRequest payRequest = this.f62585b;
                     if (payRequest != null && BeanConstants.PAY_FROM_B_SAO_C.equals(payRequest.mPayFrom)) {
-                        GlobalUtils.hideKeyboard(this.f62404a.get().getActivity());
-                        a(BeanConstants.EV_SCANCODE_EXIT, this.f62406c.notify);
+                        GlobalUtils.hideKeyboard(this.f62584a.get().getActivity());
+                        a(BeanConstants.EV_SCANCODE_EXIT, this.f62586c.notify);
                         return;
                     }
-                    PayCallBackManager.callBackClientSuccess(this.f62404a.get().getActivity(), this.f62406c.notify);
+                    PayCallBackManager.callBackClientSuccess(this.f62584a.get().getActivity(), this.f62586c.notify);
                     return;
                 }
-                PayCallBackManager.callBackClientPaying(this.f62404a.get().getActivity());
+                PayCallBackManager.callBackClientPaying(this.f62584a.get().getActivity());
                 return;
             }
-            PayCallBackManager.callBackClientPaying(this.f62404a.get().getActivity());
+            PayCallBackManager.callBackClientPaying(this.f62584a.get().getActivity());
         }
     }
 
@@ -75,23 +75,23 @@ public class PayResultAdapter extends BasePayResultAdapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle)) == null) {
             super.onCreateCheckInvalide(bundle);
-            if (this.f62406c == null || (payRequest = this.f62405b) == null) {
+            if (this.f62586c == null || (payRequest = this.f62585b) == null) {
                 return false;
             }
             if (!BeanConstants.PAY_FROM_B_SAO_C.equals(payRequest.mPayFrom) || BaiduPay.getInstance().getScanCallback() == null) {
                 return true;
             }
-            CountDownTimer countDownTimer = this.f62407d;
+            CountDownTimer countDownTimer = this.f62587d;
             if (countDownTimer != null) {
                 countDownTimer.cancel();
-                this.f62407d = null;
+                this.f62587d = null;
             }
             CountDownTimer countDownTimer2 = new CountDownTimer(this, 3000L, 1000L) { // from class: com.baidu.wallet.paysdk.payresult.adapters.PayResultAdapter.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ PayResultAdapter f62408a;
+                public final /* synthetic */ PayResultAdapter f62588a;
 
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                 {
@@ -112,16 +112,16 @@ public class PayResultAdapter extends BasePayResultAdapter {
                             return;
                         }
                     }
-                    this.f62408a = this;
+                    this.f62588a = this;
                 }
 
                 @Override // android.os.CountDownTimer
                 public void onFinish() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        GlobalUtils.hideKeyboard(this.f62408a.f62404a.get().getActivity());
-                        PayResultAdapter payResultAdapter = this.f62408a;
-                        payResultAdapter.a(BeanConstants.EV_SCANCODE_EXIT, payResultAdapter.f62406c.notify);
+                        GlobalUtils.hideKeyboard(this.f62588a.f62584a.get().getActivity());
+                        PayResultAdapter payResultAdapter = this.f62588a;
+                        payResultAdapter.a(BeanConstants.EV_SCANCODE_EXIT, payResultAdapter.f62586c.notify);
                     }
                 }
 
@@ -132,7 +132,7 @@ public class PayResultAdapter extends BasePayResultAdapter {
                     }
                 }
             };
-            this.f62407d = countDownTimer2;
+            this.f62587d = countDownTimer2;
             countDownTimer2.start();
             return true;
         }

@@ -20,7 +20,7 @@ public final class c {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f36057a = "idnjfhncnsfuobcnt847y929o449u474w7j3h22aoddc98euk#%&&)*&^%#";
+    public static String f36166a = "idnjfhncnsfuobcnt847y929o449u474w7j3h22aoddc98euk#%&&)*&^%#";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -43,8 +43,8 @@ public final class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
             String str = new String();
-            for (int i2 = 0; i2 < f36057a.length() - 1; i2 += 4) {
-                str = str + f36057a.charAt(i2);
+            for (int i2 = 0; i2 < f36166a.length() - 1; i2 += 4) {
+                str = str + f36166a.charAt(i2);
             }
             return str;
         }

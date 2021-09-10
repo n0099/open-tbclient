@@ -11,10 +11,10 @@ public final class r implements Runnable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final /* synthetic */ AtomicBoolean f34038e;
+    public final /* synthetic */ AtomicBoolean f34147e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final /* synthetic */ q f34039f;
+    public final /* synthetic */ q f34148f;
 
     public r(q qVar, AtomicBoolean atomicBoolean) {
         Interceptable interceptable = $ic;
@@ -31,18 +31,18 @@ public final class r implements Runnable {
                 return;
             }
         }
-        this.f34039f = qVar;
-        this.f34038e = atomicBoolean;
+        this.f34148f = qVar;
+        this.f34147e = atomicBoolean;
     }
 
     @Override // java.lang.Runnable
     public final void run() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f34038e.getAndSet(true)) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f34147e.getAndSet(true)) {
             return;
         }
-        q qVar = this.f34039f;
-        l lVar = qVar.f34037g;
-        l.n(qVar.f34035e, qVar.f34036f);
+        q qVar = this.f34148f;
+        l lVar = qVar.f34146g;
+        l.n(qVar.f34144e, qVar.f34145f);
     }
 }

@@ -6,8 +6,8 @@ import android.view.View;
 import android.widget.LinearLayout;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import c.a.p0.v0.a;
-import c.a.q0.b4.k.e;
+import c.a.q0.x0.a;
+import c.a.r0.c4.k.e;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.suspended.SuspendedActivity;
@@ -45,7 +45,7 @@ public class AlbumFloatActivity extends SuspendedActivity {
             if (this.albumView == null) {
                 e eVar = new e(this, null, linearLayout.getId(), R.id.root_stub);
                 this.albumView = eVar;
-                eVar.U(navigationBar);
+                eVar.V(navigationBar);
             }
             return this.albumView;
         }

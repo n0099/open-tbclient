@@ -8,6 +8,7 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.PbActivityConfig;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.view.ThreadGodReplyLayout;
@@ -23,7 +24,7 @@ public class n extends h {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ThreadGodReplyLayout l;
-    public c.a.p0.s.q.a m;
+    public c.a.q0.s.q.a m;
     public StatisticItem n;
 
     /* loaded from: classes.dex */
@@ -32,7 +33,7 @@ public class n extends h {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ n f3852e;
+        public final /* synthetic */ n f3845e;
 
         public a(n nVar) {
             Interceptable interceptable = $ic;
@@ -49,16 +50,16 @@ public class n extends h {
                     return;
                 }
             }
-            this.f3852e = nVar;
+            this.f3845e = nVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f3852e.c() == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f3845e.c() == null) {
                 return;
             }
-            this.f3852e.c().a(view, this.f3852e.m);
+            this.f3845e.c().a(view, this.f3845e.m);
         }
     }
 
@@ -68,10 +69,10 @@ public class n extends h {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ View.OnClickListener f3853e;
+        public final /* synthetic */ View.OnClickListener f3846e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ n f3854f;
+        public final /* synthetic */ n f3847f;
 
         public b(n nVar, View.OnClickListener onClickListener) {
             Interceptable interceptable = $ic;
@@ -88,21 +89,21 @@ public class n extends h {
                     return;
                 }
             }
-            this.f3854f = nVar;
-            this.f3853e = onClickListener;
+            this.f3847f = nVar;
+            this.f3846e = onClickListener;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                PbActivityConfig pbActivityConfig = new PbActivityConfig(this.f3854f.f3789f);
-                String q1 = this.f3854f.m.getThreadData().q1();
-                PbActivityConfig createNormalCfg = pbActivityConfig.createNormalCfg(q1, this.f3854f.m.getThreadData().t1().E() + "", 1, "other");
-                createNormalCfg.setStartFrom(this.f3854f.f3788e.i());
+                PbActivityConfig pbActivityConfig = new PbActivityConfig(this.f3847f.f3782f);
+                String s1 = this.f3847f.m.getThreadData().s1();
+                PbActivityConfig createNormalCfg = pbActivityConfig.createNormalCfg(s1, this.f3847f.m.getThreadData().v1().E() + "", 1, "other");
+                createNormalCfg.setStartFrom(this.f3847f.f3781e.i());
                 MessageManager.getInstance().sendMessage(new CustomMessage(2004001, createNormalCfg));
-                this.f3854f.f3788e.o(new a.C0096a(1));
-                this.f3853e.onClick(view);
+                this.f3847f.f3781e.o(new a.C0095a(1));
+                this.f3846e.onClick(view);
             }
         }
     }
@@ -113,7 +114,7 @@ public class n extends h {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ n f3855a;
+        public final /* synthetic */ n f3848a;
 
         public c(n nVar) {
             Interceptable interceptable = $ic;
@@ -130,15 +131,15 @@ public class n extends h {
                     return;
                 }
             }
-            this.f3855a = nVar;
+            this.f3848a = nVar;
         }
 
         @Override // c.a.l.v0.a.b
-        public boolean a(a.C0096a c0096a) {
+        public boolean a(a.C0095a c0095a) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, c0096a)) == null) {
-                c.a.q0.a0.m.l(this.f3855a.l.getGodReplyContent(), this.f3855a.m.getThreadData().f0(), R.color.CAM_X0105, R.color.CAM_X0109);
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, c0095a)) == null) {
+                c.a.r0.a0.m.l(this.f3848a.l.getGodReplyContent(), this.f3848a.m.getThreadData().f0(), R.color.CAM_X0105, R.color.CAM_X0109);
                 return false;
             }
             return invokeL.booleanValue;
@@ -164,7 +165,11 @@ public class n extends h {
             }
         }
         q(c.a.e.e.p.l.g(context, R.dimen.M_H_X003));
-        this.l = new ThreadGodReplyLayout(context);
+        if ((TbadkCoreApplication.getInst().getPersonalizeViewData().r instanceof ThreadGodReplyLayout) && TbadkCoreApplication.getInst().getPersonalizeViewData().r.getParent() == null) {
+            this.l = (ThreadGodReplyLayout) TbadkCoreApplication.getInst().getPersonalizeViewData().r;
+        } else {
+            this.l = new ThreadGodReplyLayout(context);
+        }
         a aVar = new a(this);
         this.l.setAfterClickListener(aVar);
         this.l.setOnClickListener(new b(this, aVar));
@@ -206,14 +211,14 @@ public class n extends h {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // c.a.l.p
     /* renamed from: u */
-    public void onBindDataToView(c.a.p0.s.q.a aVar) {
+    public void onBindDataToView(c.a.q0.s.q.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, aVar) == null) {
             this.m = aVar;
-            PostData t1 = aVar.getThreadData().t1();
-            if (this.n != null && t1 != null && t1.t() != null && t1.t().getUserId() != null) {
-                this.n.param("tid", aVar.getThreadData().B).param("post_id", t1.E()).param("uid", t1.t().getUserId());
-                c.a.q0.a0.t.b().a(this.n);
+            PostData v1 = aVar.getThreadData().v1();
+            if (this.n != null && v1 != null && v1.t() != null && v1.t().getUserId() != null) {
+                this.n.param("tid", aVar.getThreadData().D).param("post_id", v1.E()).param("uid", v1.t().getUserId());
+                c.a.r0.a0.t.b().a(this.n);
             }
             this.l.setData(aVar.getThreadData());
         }

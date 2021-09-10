@@ -9,26 +9,26 @@ public final class a {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f44769a = false;
+    public static final boolean f44884a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f44770b = "com.baidu.sapi2.portrait";
+    public static final String f44885b = "com.baidu.sapi2.portrait";
     @Deprecated
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f44771c = "com.baidu.sapi2.portrait";
+    public static final String f44886c = "com.baidu.sapi2.portrait";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f44772d = "release";
+    public static final String f44887d = "release";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f44773e = "";
+    public static final String f44888e = "";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final int f44774f = 1;
+    public static final int f44889f = 1;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f44775g = "9.3.7.1";
+    public static final String f44890g = "9.3.7.1";
     public transient /* synthetic */ FieldHolder $fh;
 
     public a() {

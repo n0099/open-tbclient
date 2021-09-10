@@ -20,16 +20,16 @@ public class MemoryModifyLastMsgMessage extends CustomResponsedMessage<a> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f53049a;
+        public String f53195a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f53050b;
+        public int f53196b;
 
         /* renamed from: c  reason: collision with root package name */
-        public ChatMessage f53051c;
+        public ChatMessage f53197c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f53052d;
+        public int f53198d;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -60,10 +60,10 @@ public class MemoryModifyLastMsgMessage extends CustomResponsedMessage<a> {
                     return;
                 }
             }
-            this.f53049a = str;
-            this.f53050b = i2;
-            this.f53051c = chatMessage;
-            this.f53052d = i3;
+            this.f53195a = str;
+            this.f53196b = i2;
+            this.f53197c = chatMessage;
+            this.f53198d = i3;
         }
     }
 

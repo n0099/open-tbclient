@@ -15,7 +15,7 @@ import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
 import c.a.e.e.p.k;
 import c.a.e.e.p.l;
-import c.a.p0.s.s.a;
+import c.a.q0.s.s.a;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.ProxyAdkBaseActivity;
@@ -42,23 +42,23 @@ public class FaceBuyWebViewActivity extends ProxyAdkBaseActivity<FaceBuyWebViewA
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public BaseWebView f50295e;
+    public BaseWebView f50460e;
 
     /* renamed from: f  reason: collision with root package name */
-    public NavigationBar f50296f;
+    public NavigationBar f50461f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f50297g;
+    public String f50462g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f50298h;
+    public String f50463h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f50299i;
+    public String f50464i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f50300j;
-    public c.a.p0.s.s.a k;
+    public int f50465j;
+    public c.a.q0.s.s.a k;
     public final Handler l;
     public final Runnable m;
 
@@ -68,7 +68,7 @@ public class FaceBuyWebViewActivity extends ProxyAdkBaseActivity<FaceBuyWebViewA
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ FaceBuyWebViewActivity f50301e;
+        public final /* synthetic */ FaceBuyWebViewActivity f50466e;
 
         public a(FaceBuyWebViewActivity faceBuyWebViewActivity) {
             Interceptable interceptable = $ic;
@@ -85,16 +85,16 @@ public class FaceBuyWebViewActivity extends ProxyAdkBaseActivity<FaceBuyWebViewA
                     return;
                 }
             }
-            this.f50301e = faceBuyWebViewActivity;
+            this.f50466e = faceBuyWebViewActivity;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                String guessUrl = URLUtil.guessUrl(this.f50301e.f50297g);
+                String guessUrl = URLUtil.guessUrl(this.f50466e.f50462g);
                 if (URLUtil.isNetworkUrl(guessUrl)) {
-                    this.f50301e.f50295e.loadUrl(guessUrl);
+                    this.f50466e.f50460e.loadUrl(guessUrl);
                 }
             }
         }
@@ -106,7 +106,7 @@ public class FaceBuyWebViewActivity extends ProxyAdkBaseActivity<FaceBuyWebViewA
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ FaceBuyWebViewActivity f50302e;
+        public final /* synthetic */ FaceBuyWebViewActivity f50467e;
 
         public b(FaceBuyWebViewActivity faceBuyWebViewActivity) {
             Interceptable interceptable = $ic;
@@ -123,14 +123,14 @@ public class FaceBuyWebViewActivity extends ProxyAdkBaseActivity<FaceBuyWebViewA
                     return;
                 }
             }
-            this.f50302e = faceBuyWebViewActivity;
+            this.f50467e = faceBuyWebViewActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f50302e.m();
+                this.f50467e.m();
             }
         }
     }
@@ -141,7 +141,7 @@ public class FaceBuyWebViewActivity extends ProxyAdkBaseActivity<FaceBuyWebViewA
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ FaceBuyWebViewActivity f50303e;
+        public final /* synthetic */ FaceBuyWebViewActivity f50468e;
 
         public c(FaceBuyWebViewActivity faceBuyWebViewActivity) {
             Interceptable interceptable = $ic;
@@ -158,15 +158,15 @@ public class FaceBuyWebViewActivity extends ProxyAdkBaseActivity<FaceBuyWebViewA
                     return;
                 }
             }
-            this.f50303e = faceBuyWebViewActivity;
+            this.f50468e = faceBuyWebViewActivity;
         }
 
-        @Override // c.a.p0.s.s.a.e
-        public void onClick(c.a.p0.s.s.a aVar) {
+        @Override // c.a.q0.s.s.a.e
+        public void onClick(c.a.q0.s.s.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
                 aVar.dismiss();
-                this.f50303e.closeActivity();
+                this.f50468e.closeActivity();
             }
         }
     }
@@ -177,7 +177,7 @@ public class FaceBuyWebViewActivity extends ProxyAdkBaseActivity<FaceBuyWebViewA
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ FaceBuyWebViewActivity f50304e;
+        public final /* synthetic */ FaceBuyWebViewActivity f50469e;
 
         public d(FaceBuyWebViewActivity faceBuyWebViewActivity) {
             Interceptable interceptable = $ic;
@@ -194,11 +194,11 @@ public class FaceBuyWebViewActivity extends ProxyAdkBaseActivity<FaceBuyWebViewA
                     return;
                 }
             }
-            this.f50304e = faceBuyWebViewActivity;
+            this.f50469e = faceBuyWebViewActivity;
         }
 
-        @Override // c.a.p0.s.s.a.e
-        public void onClick(c.a.p0.s.s.a aVar) {
+        @Override // c.a.q0.s.s.a.e
+        public void onClick(c.a.q0.s.s.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
                 aVar.dismiss();
@@ -251,7 +251,7 @@ public class FaceBuyWebViewActivity extends ProxyAdkBaseActivity<FaceBuyWebViewA
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             try {
-                c.a.p0.s.l.a.b().d(TbadkCoreApplication.getCurrentBduss());
+                c.a.q0.s.l.a.b().d(TbadkCoreApplication.getCurrentBduss());
                 CookieSyncManager.createInstance(getPageContext().getContext());
                 CookieManager.getInstance().setAcceptCookie(true);
                 CookieSyncManager.getInstance().sync();
@@ -265,17 +265,17 @@ public class FaceBuyWebViewActivity extends ProxyAdkBaseActivity<FaceBuyWebViewA
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
             if (bundle != null) {
-                this.f50297g = bundle.getString(WebViewActivityConfig.TAG_URL);
-                this.f50298h = bundle.getString("tag_hook_url");
-                this.f50299i = bundle.getString(WebViewActivityConfig.TAG_TITLE);
-                this.f50300j = bundle.getInt("tag_position");
+                this.f50462g = bundle.getString(WebViewActivityConfig.TAG_URL);
+                this.f50463h = bundle.getString("tag_hook_url");
+                this.f50464i = bundle.getString(WebViewActivityConfig.TAG_TITLE);
+                this.f50465j = bundle.getInt("tag_position");
             } else {
-                this.f50297g = getIntent().getStringExtra(WebViewActivityConfig.TAG_URL);
-                this.f50298h = getIntent().getStringExtra("tag_hook_url");
-                this.f50299i = getIntent().getStringExtra(WebViewActivityConfig.TAG_TITLE);
-                this.f50300j = getIntent().getIntExtra("tag_position", -1);
+                this.f50462g = getIntent().getStringExtra(WebViewActivityConfig.TAG_URL);
+                this.f50463h = getIntent().getStringExtra("tag_hook_url");
+                this.f50464i = getIntent().getStringExtra(WebViewActivityConfig.TAG_TITLE);
+                this.f50465j = getIntent().getIntExtra("tag_position", -1);
             }
-            this.f50296f.setTitleText(this.f50299i);
+            this.f50461f.setTitleText(this.f50464i);
             this.l.postDelayed(this.m, 150L);
         }
     }
@@ -285,15 +285,15 @@ public class FaceBuyWebViewActivity extends ProxyAdkBaseActivity<FaceBuyWebViewA
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             setContentView(R.layout.face_buy_webview_activity);
             ((LinearLayout.LayoutParams) ((TextView) findViewById(R.id.top_view)).getLayoutParams()).height = UtilHelper.getLightStatusBarHeight() + l.g(getActivity(), R.dimen.ds98);
-            this.f50295e = (BaseWebView) findViewById(R.id.webview);
+            this.f50460e = (BaseWebView) findViewById(R.id.webview);
             NavigationBar navigationBar = (NavigationBar) findViewById(R.id.view_navigation_bar);
-            this.f50296f = navigationBar;
+            this.f50461f = navigationBar;
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new b(this));
-            this.f50296f.setTitleText("");
-            this.f50295e.setOnLoadUrlListener(this);
-            this.f50295e.setOnPageFinishedListener(this);
-            this.f50295e.setOnPageStartedListener(this);
-            this.f50295e.setHorizontalScrollBarEnabled(false);
+            this.f50461f.setTitleText("");
+            this.f50460e.setOnLoadUrlListener(this);
+            this.f50460e.setOnPageFinishedListener(this);
+            this.f50460e.setOnPageStartedListener(this);
+            this.f50460e.setHorizontalScrollBarEnabled(false);
         }
     }
 
@@ -301,7 +301,7 @@ public class FaceBuyWebViewActivity extends ProxyAdkBaseActivity<FaceBuyWebViewA
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             if (this.k == null) {
-                c.a.p0.s.s.a aVar = new c.a.p0.s.s.a(getPageContext().getPageActivity());
+                c.a.q0.s.s.a aVar = new c.a.q0.s.s.a(getPageContext().getPageActivity());
                 this.k = aVar;
                 aVar.setTitle(R.string.inform);
                 this.k.setCancelable(false);
@@ -319,11 +319,11 @@ public class FaceBuyWebViewActivity extends ProxyAdkBaseActivity<FaceBuyWebViewA
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
             super.onChangeSkinType(i2);
-            NavigationBar navigationBar = this.f50296f;
+            NavigationBar navigationBar = this.f50461f;
             if (navigationBar != null) {
                 navigationBar.onChangeSkinType(getPageContext(), i2);
             }
-            BaseWebView baseWebView = this.f50295e;
+            BaseWebView baseWebView = this.f50460e;
             if (baseWebView != null) {
                 SkinManager.setBgColor(baseWebView, i2);
             }
@@ -393,10 +393,10 @@ public class FaceBuyWebViewActivity extends ProxyAdkBaseActivity<FaceBuyWebViewA
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, bundle) == null) {
             super.onSaveInstanceState(bundle);
-            bundle.putString(WebViewActivityConfig.TAG_URL, this.f50297g);
-            bundle.putString("tag_hook_url", this.f50298h);
-            bundle.putString(WebViewActivityConfig.TAG_TITLE, this.f50299i);
-            bundle.putInt("tag_position", this.f50300j);
+            bundle.putString(WebViewActivityConfig.TAG_URL, this.f50462g);
+            bundle.putString("tag_hook_url", this.f50463h);
+            bundle.putString(WebViewActivityConfig.TAG_TITLE, this.f50464i);
+            bundle.putInt("tag_position", this.f50465j);
         }
     }
 
@@ -405,16 +405,16 @@ public class FaceBuyWebViewActivity extends ProxyAdkBaseActivity<FaceBuyWebViewA
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048589, this, webView, str)) == null) {
-            if (str != null && !k.isEmpty(str) && !k.isEmpty(this.f50298h)) {
+            if (str != null && !k.isEmpty(str) && !k.isEmpty(this.f50463h)) {
                 String lowerCase = str.toLowerCase();
-                if (lowerCase.contains(this.f50298h.toLowerCase())) {
+                if (lowerCase.contains(this.f50463h.toLowerCase())) {
                     Matcher matcher = n.matcher(str);
                     if (matcher.find()) {
                         try {
                             String group = matcher.group(1);
                             Intent intent = new Intent();
                             intent.putExtra("tag_order_id", group);
-                            intent.putExtra("tag_position", this.f50300j);
+                            intent.putExtra("tag_position", this.f50465j);
                             setResult(-1, intent);
                             closeActivity();
                             return true;

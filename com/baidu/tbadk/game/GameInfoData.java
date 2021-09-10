@@ -3,7 +3,7 @@ package com.baidu.tbadk.game;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import c.a.e.e.m.b;
-import c.a.p0.i0.b.a;
+import c.a.q0.k0.b.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.GameCenterCoreUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -102,7 +102,7 @@ public class GameInfoData implements Serializable, a {
     private String dealPackageSize(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, this, str)) == null) ? String.format("%.1f", Float.valueOf(b.c(str, 0.0f))) : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65537, this, str)) == null) ? String.format("%.1f", Float.valueOf(b.d(str, 0.0f))) : (String) invokeL.objValue;
     }
 
     public static GameInfoData fromGameInfo(GameInfo gameInfo) {

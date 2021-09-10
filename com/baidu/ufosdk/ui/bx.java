@@ -13,7 +13,7 @@ public final class bx implements eq {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ FeedbackInputActivity f59586a;
+    public final /* synthetic */ FeedbackInputActivity f59766a;
 
     public bx(FeedbackInputActivity feedbackInputActivity) {
         Interceptable interceptable = $ic;
@@ -30,7 +30,7 @@ public final class bx implements eq {
                 return;
             }
         }
-        this.f59586a = feedbackInputActivity;
+        this.f59766a = feedbackInputActivity;
     }
 
     @Override // com.baidu.ufosdk.ui.eq
@@ -38,11 +38,11 @@ public final class bx implements eq {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
             if (str.equals("我的反馈")) {
-                this.f59586a.t = true;
-                Intent intent = new Intent(this.f59586a, FeedbackListActivity.class);
-                intent.putExtra("feedback_channel", com.baidu.ufosdk.b.f59377j);
-                this.f59586a.startActivity(intent);
-                this.f59586a.finish();
+                this.f59766a.t = true;
+                Intent intent = new Intent(this.f59766a, FeedbackListActivity.class);
+                intent.putExtra("feedback_channel", com.baidu.ufosdk.b.f59557j);
+                this.f59766a.startActivity(intent);
+                this.f59766a.finish();
             } else if (str.equals("人工反馈")) {
                 new Thread(new by(this)).start();
             } else if (str.toLowerCase().startsWith("href")) {
@@ -56,7 +56,7 @@ public final class bx implements eq {
                     try {
                         com.baidu.ufosdk.f.c.a("打开浏览器...");
                         com.baidu.ufosdk.f.c.a(">>跳转链接：" + substring);
-                        this.f59586a.startActivity(new Intent("android.intent.action.VIEW", Uri.parse(substring)));
+                        this.f59766a.startActivity(new Intent("android.intent.action.VIEW", Uri.parse(substring)));
                     } catch (Exception e2) {
                         e2.printStackTrace();
                     }
@@ -67,10 +67,10 @@ public final class bx implements eq {
                         Intent intent2 = new Intent();
                         intent2.setAction("android.intent.action.VIEW");
                         intent2.setData(Uri.parse(substring));
-                        this.f59586a.startActivity(intent2);
+                        this.f59766a.startActivity(intent2);
                     } catch (Exception e3) {
                         e3.printStackTrace();
-                        Toast.makeText(this.f59586a.getApplicationContext(), "打开失败，未安装百度地图！", 0).show();
+                        Toast.makeText(this.f59766a.getApplicationContext(), "打开失败，未安装百度地图！", 0).show();
                     }
                 }
             }

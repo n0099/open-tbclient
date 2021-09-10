@@ -20,7 +20,7 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Executor f32250a;
+    public Executor f32359a;
 
     /* loaded from: classes4.dex */
     public interface a {
@@ -46,7 +46,7 @@ public class b {
                 return;
             }
         }
-        this.f32250a = new ThreadPoolExecutor(1, 1, 0L, TimeUnit.MILLISECONDS, new LinkedBlockingQueue(), Executors.defaultThreadFactory(), new ThreadPoolExecutor.AbortPolicy());
+        this.f32359a = new ThreadPoolExecutor(1, 1, 0L, TimeUnit.MILLISECONDS, new LinkedBlockingQueue(), Executors.defaultThreadFactory(), new ThreadPoolExecutor.AbortPolicy());
     }
 
     public final void a(a aVar, String str) {
@@ -69,7 +69,7 @@ public class b {
             if (FileUtils.existsFile(file)) {
                 file.delete();
             }
-            this.f32250a.execute(new c.f.b.c.a(str, str2, str3, aVar));
+            this.f32359a.execute(new c.f.b.c.a(str, str2, str3, aVar));
         }
     }
 }

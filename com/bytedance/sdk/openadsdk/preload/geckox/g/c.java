@@ -21,7 +21,7 @@ public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Map<String, Pair<FileLock, AtomicLong>> f68583a;
+    public static final Map<String, Pair<FileLock, AtomicLong>> f68763a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -37,17 +37,17 @@ public class c {
                 return;
             }
         }
-        f68583a = new HashMap();
+        f68763a = new HashMap();
     }
 
     public static void a(String str) throws Exception {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
-            synchronized (f68583a) {
-                Pair<FileLock, AtomicLong> pair = f68583a.get(str);
+            synchronized (f68763a) {
+                Pair<FileLock, AtomicLong> pair = f68763a.get(str);
                 if (pair == null) {
                     Pair<FileLock, AtomicLong> pair2 = new Pair<>(FileLock.a(str, Process.myPid()), new AtomicLong(0L));
-                    f68583a.put(str, pair2);
+                    f68763a.put(str, pair2);
                     pair = pair2;
                 }
                 ((AtomicLong) pair.second).incrementAndGet();
@@ -58,8 +58,8 @@ public class c {
     public static void b(String str) throws Exception {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, null, str) == null) {
-            synchronized (f68583a) {
-                Pair<FileLock, AtomicLong> pair = f68583a.get(str);
+            synchronized (f68763a) {
+                Pair<FileLock, AtomicLong> pair = f68763a.get(str);
                 if (pair != null) {
                     int i2 = (((AtomicLong) pair.second).decrementAndGet() > 0L ? 1 : (((AtomicLong) pair.second).decrementAndGet() == 0L ? 0 : -1));
                     if (i2 < 0) {
@@ -67,7 +67,7 @@ public class c {
                     }
                     if (i2 == 0) {
                         ((FileLock) pair.first).a();
-                        f68583a.remove(str);
+                        f68763a.remove(str);
                     }
                 } else {
                     throw new RuntimeException("using.lock illegal state");
@@ -79,12 +79,12 @@ public class c {
     public static void c(String str) throws Exception {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, null, str) == null) {
-            synchronized (f68583a) {
+            synchronized (f68763a) {
                 FileLock b2 = FileLock.b(str);
                 if (b2 == null) {
                     return;
                 }
-                Pair<FileLock, AtomicLong> pair = f68583a.get(str);
+                Pair<FileLock, AtomicLong> pair = f68763a.get(str);
                 if (pair != null && ((AtomicLong) pair.second).get() != 0) {
                     b2.a();
                     FileLock.a(str, Process.myPid());
@@ -100,7 +100,7 @@ public class c {
                         public transient /* synthetic */ FieldHolder $fh;
 
                         /* renamed from: a  reason: collision with root package name */
-                        public final /* synthetic */ File f68584a;
+                        public final /* synthetic */ File f68764a;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -117,14 +117,14 @@ public class c {
                                     return;
                                 }
                             }
-                            this.f68584a = file;
+                            this.f68764a = file;
                         }
 
                         @Override // java.lang.Runnable
                         public void run() {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                                d.a(this.f68584a);
+                                d.a(this.f68764a);
                             }
                         }
                     });

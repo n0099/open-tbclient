@@ -24,7 +24,7 @@ public abstract class m<T> {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ h f73044a;
+            public final /* synthetic */ h f73224a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -41,7 +41,7 @@ public abstract class m<T> {
                         return;
                     }
                 }
-                this.f73044a = hVar;
+                this.f73224a = hVar;
             }
         } : (i) invokeL.objValue;
     }

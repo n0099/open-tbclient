@@ -4,27 +4,27 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f37628a = false;
+    public static final boolean f37747a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f37629b = "com.baidu.apollon";
+    public static final String f37748b = "com.baidu.apollon";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f37630c = "release";
+    public static final String f37749c = "release";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f37631d = "common";
+    public static final String f37750d = "common";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int f37632e = 152;
+    public static final int f37751e = 152;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f37633f = "1.5.2";
+    public static final String f37752f = "1.5.2";
     public transient /* synthetic */ FieldHolder $fh;
 
     public a() {

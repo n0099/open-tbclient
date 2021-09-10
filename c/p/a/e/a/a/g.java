@@ -38,8 +38,8 @@ public class g extends a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            Intent intent = new Intent(c.p.a.e.b.d.c.f34972c + ".filemanager.intent.action.BROWSER_FILE");
-            intent.putExtra("CurrentDir", this.f34801c);
+            Intent intent = new Intent(c.p.a.e.b.d.c.f35081c + ".filemanager.intent.action.BROWSER_FILE");
+            intent.putExtra("CurrentDir", this.f34910c);
             intent.putExtra("CurrentMode", 1);
             intent.addFlags(268435456);
             intent.addFlags(32768);

@@ -1,0 +1,94 @@
+package c.a.v0.a.e;
+
+import c.a.v0.a.c;
+import com.baidu.android.common.others.lang.StringUtil;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Map;
+/* loaded from: classes4.dex */
+public final class j {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    /* loaded from: classes4.dex */
+    public static class a extends c.a.v0.a.f.c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ Map f30325e;
+
+        /* renamed from: f  reason: collision with root package name */
+        public final /* synthetic */ com.baidu.ubs.analytics.a.a f30326f;
+
+        /* renamed from: g  reason: collision with root package name */
+        public final /* synthetic */ String f30327g;
+
+        /* renamed from: h  reason: collision with root package name */
+        public final /* synthetic */ String f30328h;
+
+        public a(Map map, com.baidu.ubs.analytics.a.a aVar, String str, String str2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {map, aVar, str, str2};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f30325e = map;
+            this.f30326f = aVar;
+            this.f30327g = str;
+            this.f30328h = str2;
+        }
+
+        @Override // c.a.v0.a.f.c
+        public final void a() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                if (this.f30325e != null) {
+                    StringBuffer stringBuffer = new StringBuffer();
+                    stringBuffer.append(StringUtil.ARRAY_START);
+                    for (Map.Entry entry : this.f30325e.entrySet()) {
+                        stringBuffer.append("\"");
+                        stringBuffer.append(entry.getKey());
+                        stringBuffer.append("\":\"");
+                        stringBuffer.append(entry.getValue().toString().replace("\"", "\\\""));
+                        stringBuffer.append("\",");
+                    }
+                    StringBuffer stringBuffer2 = new StringBuffer(stringBuffer.subSequence(0, stringBuffer.length() - 1));
+                    stringBuffer2.append("}");
+                    this.f30326f.w(stringBuffer2.toString());
+                }
+                try {
+                    this.f30326f.x(m.e().I());
+                    this.f30326f.u(String.valueOf(System.currentTimeMillis()));
+                    this.f30326f.t(this.f30327g);
+                    this.f30326f.s(this.f30328h == null ? "" : this.f30328h);
+                    new c.b().c(this.f30326f);
+                } catch (Exception e2) {
+                    if (e2.getMessage() != null) {
+                        c.a.v0.a.f.a.b(e2.getMessage());
+                    }
+                }
+            }
+        }
+    }
+
+    public static void a(String str, String str2, String str3, Map<String, String> map) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(65536, null, str, str2, str3, map) == null) {
+            com.baidu.ubs.analytics.a.a aVar = new com.baidu.ubs.analytics.a.a();
+            aVar.v(str);
+            c.a.v0.a.f.b.c(new a(map, aVar, str2, str3));
+        }
+    }
+}

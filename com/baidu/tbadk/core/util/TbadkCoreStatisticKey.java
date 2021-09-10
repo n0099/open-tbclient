@@ -137,6 +137,7 @@ public class TbadkCoreStatisticKey {
     public static final String KEY_SMART_COLOR_FETCH_COLOR = "c14170";
     public static final String KEY_TASK_ENTRANCE = "c13422";
     public static final String KEY_THREAD_ACHIEVEMENT_SHARE = "c10898";
+    public static final String KEY_THREAD_FIRE_CLICK = "c14266";
     public static final String KEY_TIEBA_UID_SHARE_DIALOG_CLICK = "c14148";
     public static final String KEY_TIEBA_UID_SHARE_DIALOG_SHOW = "c14147";
     public static final String KEY_TOPIC_DETAIL_CARD_AGREE_CLICK = "c13358";

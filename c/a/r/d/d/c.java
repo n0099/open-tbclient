@@ -9,13 +9,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class c extends AbstractCursor {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Bundle f29453e;
+    public Bundle f15283e;
 
     public c(Bundle bundle) {
         Interceptable interceptable = $ic;
@@ -32,7 +32,7 @@ public class c extends AbstractCursor {
                 return;
             }
         }
-        this.f29453e = bundle;
+        this.f15283e = bundle;
     }
 
     @Override // android.database.AbstractCursor, android.database.Cursor
@@ -66,7 +66,7 @@ public class c extends AbstractCursor {
     public Bundle getExtras() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f29453e : (Bundle) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f15283e : (Bundle) invokeV.objValue;
     }
 
     @Override // android.database.AbstractCursor, android.database.Cursor

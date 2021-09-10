@@ -17,7 +17,7 @@ public class AutoLineWrapLayout extends ViewGroup {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f50202e;
+    public int f50367e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AutoLineWrapLayout(Context context) {
@@ -43,7 +43,7 @@ public class AutoLineWrapLayout extends ViewGroup {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f50202e = l.g(getContext(), R.dimen.ds20);
+            this.f50367e = l.g(getContext(), R.dimen.ds20);
         }
     }
 
@@ -59,8 +59,8 @@ public class AutoLineWrapLayout extends ViewGroup {
                 View childAt = getChildAt(i6);
                 int measuredWidth = childAt.getMeasuredWidth();
                 int measuredHeight = childAt.getMeasuredHeight();
-                i7 = i6 == 0 ? i7 + measuredWidth : i7 + this.f50202e + measuredWidth;
-                int i9 = this.f50202e;
+                i7 = i6 == 0 ? i7 + measuredWidth : i7 + this.f50367e + measuredWidth;
+                int i9 = this.f50367e;
                 int i10 = ((measuredHeight + i9) * i8) + i9 + measuredHeight + i3;
                 if (i7 > i4) {
                     i7 = measuredWidth + i2;

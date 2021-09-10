@@ -14,10 +14,10 @@ public final class v extends u {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ArrayList<String> f76353a;
+    public ArrayList<String> f76533a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ArrayList<String> f76354b;
+    public ArrayList<String> f76534b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public v(int i2) {
@@ -37,8 +37,8 @@ public final class v extends u {
                 return;
             }
         }
-        this.f76353a = null;
-        this.f76354b = null;
+        this.f76533a = null;
+        this.f76534b = null;
     }
 
     @Override // com.vivo.push.b.u, com.vivo.push.y
@@ -46,21 +46,21 @@ public final class v extends u {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
             super.c(aVar);
-            aVar.a("content", this.f76353a);
-            aVar.a("error_msg", this.f76354b);
+            aVar.a("content", this.f76533a);
+            aVar.a("error_msg", this.f76534b);
         }
     }
 
     public final ArrayList<String> d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f76353a : (ArrayList) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f76533a : (ArrayList) invokeV.objValue;
     }
 
     public final List<String> e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f76354b : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f76534b : (List) invokeV.objValue;
     }
 
     @Override // com.vivo.push.b.u, com.vivo.push.y
@@ -75,8 +75,8 @@ public final class v extends u {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
             super.d(aVar);
-            this.f76353a = aVar.b("content");
-            this.f76354b = aVar.b("error_msg");
+            this.f76533a = aVar.b("content");
+            this.f76534b = aVar.b("error_msg");
         }
     }
 }

@@ -22,22 +22,22 @@ public class VoteCountDownView extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f58176e;
+    public Context f58357e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f58177f;
+    public View f58358f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View f58178g;
+    public View f58359g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f58179h;
+    public TextView f58360h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f58180i;
+    public TextView f58361i;
 
     /* renamed from: j  reason: collision with root package name */
-    public CountDownTimer f58181j;
+    public CountDownTimer f58362j;
     public b k;
 
     /* loaded from: classes7.dex */
@@ -46,7 +46,7 @@ public class VoteCountDownView extends LinearLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ VoteCountDownView f58182a;
+        public final /* synthetic */ VoteCountDownView f58363a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(VoteCountDownView voteCountDownView, long j2, long j3) {
@@ -67,15 +67,15 @@ public class VoteCountDownView extends LinearLayout {
                     return;
                 }
             }
-            this.f58182a = voteCountDownView;
+            this.f58363a = voteCountDownView;
         }
 
         @Override // android.os.CountDownTimer
         public void onFinish() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f58182a.setContent(0L, 0L);
-                this.f58182a.b();
+                this.f58363a.setContent(0L, 0L);
+                this.f58363a.b();
             }
         }
 
@@ -84,7 +84,7 @@ public class VoteCountDownView extends LinearLayout {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2) == null) {
                 long j3 = j2 + 60000;
-                this.f58182a.setContent(j3 / 3600000, (j3 % 3600000) / 60000);
+                this.f58363a.setContent(j3 / 3600000, (j3 % 3600000) / 60000);
             }
         }
     }
@@ -127,17 +127,17 @@ public class VoteCountDownView extends LinearLayout {
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f58177f = findViewById(R.id.hour_num_container);
-            this.f58178g = findViewById(R.id.minute_num_container);
-            this.f58179h = (TextView) findViewById(R.id.hour_num_count_down_view);
-            this.f58180i = (TextView) findViewById(R.id.minute_num_count_down_view);
+            this.f58358f = findViewById(R.id.hour_num_container);
+            this.f58359g = findViewById(R.id.minute_num_container);
+            this.f58360h = (TextView) findViewById(R.id.hour_num_count_down_view);
+            this.f58361i = (TextView) findViewById(R.id.minute_num_count_down_view);
         }
     }
 
     public final void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f58176e = getContext();
+            this.f58357e = getContext();
             setOrientation(0);
             setClipToPadding(false);
             setClipChildren(false);
@@ -149,9 +149,9 @@ public class VoteCountDownView extends LinearLayout {
 
     public final void e(long j2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeJ(1048579, this, j2) == null) && this.f58181j == null) {
+        if ((interceptable == null || interceptable.invokeJ(1048579, this, j2) == null) && this.f58362j == null) {
             a aVar = new a(this, j2, 1000L);
-            this.f58181j = aVar;
+            this.f58362j = aVar;
             aVar.start();
         }
     }
@@ -159,28 +159,28 @@ public class VoteCountDownView extends LinearLayout {
     public void onDestroy() {
         CountDownTimer countDownTimer;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (countDownTimer = this.f58181j) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (countDownTimer = this.f58362j) == null) {
             return;
         }
         countDownTimer.cancel();
-        this.f58181j = null;
+        this.f58362j = null;
     }
 
     public void onSkinChange(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-            SkinManager.setBackgroundResource(this.f58177f, R.drawable.bg_gradient_round, i2);
-            SkinManager.setBackgroundResource(this.f58178g, R.drawable.bg_gradient_round, i2);
-            SkinManager.setViewTextColor(this.f58179h, R.color.CAM_X0101, 1, i2);
-            SkinManager.setViewTextColor(this.f58179h, R.color.CAM_X0101, 1, i2);
+            SkinManager.setBackgroundResource(this.f58358f, R.drawable.bg_gradient_round, i2);
+            SkinManager.setBackgroundResource(this.f58359g, R.drawable.bg_gradient_round, i2);
+            SkinManager.setViewTextColor(this.f58360h, R.color.CAM_X0101, 1, i2);
+            SkinManager.setViewTextColor(this.f58360h, R.color.CAM_X0101, 1, i2);
         }
     }
 
     public void setContent(long j2, long j3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)}) == null) {
-            this.f58180i.setText(String.valueOf(j3));
-            this.f58179h.setText(String.valueOf(j2));
+            this.f58361i.setText(String.valueOf(j3));
+            this.f58360h.setText(String.valueOf(j2));
         }
     }
 

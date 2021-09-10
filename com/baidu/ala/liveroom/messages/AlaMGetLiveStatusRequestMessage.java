@@ -2,7 +2,7 @@ package com.baidu.ala.liveroom.messages;
 
 import alaim.AlaMgetLiveStatus.AlaMgetLiveStatusReqIdl;
 import alaim.AlaMgetLiveStatus.DataReq;
-import c.a.p0.b1.w;
+import c.a.q0.d1.x;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.ala.AlaCmdConfigHttp;
 import com.baidu.ala.AlaCmdConfigSocket;
@@ -52,7 +52,7 @@ public class AlaMGetLiveStatusRequestMessage extends NetMessage {
             builder.live_ids = this.mIds;
             builder.audience_count = Long.valueOf(this.mAudienceCount);
             if (z) {
-                w.a(builder, true);
+                x.a(builder, true);
             }
             AlaMgetLiveStatusReqIdl.Builder builder2 = new AlaMgetLiveStatusReqIdl.Builder();
             builder2.data = builder.build(false);

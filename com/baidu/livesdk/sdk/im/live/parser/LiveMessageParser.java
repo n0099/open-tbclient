@@ -140,7 +140,7 @@ public class LiveMessageParser {
         return (LiveMessageBean) invokeL.objValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:16:0x0039 A[Catch: Exception -> 0x0033, TryCatch #2 {Exception -> 0x0033, blocks: (B:6:0x001b, B:8:0x0028, B:16:0x0039, B:17:0x0057, B:26:0x007b, B:28:0x008b, B:29:0x0091, B:31:0x00a3, B:32:0x00a9, B:34:0x00af, B:35:0x00b5, B:37:0x00dd, B:38:0x00e3, B:40:0x00ed, B:41:0x00f3, B:43:0x00fd, B:44:0x0103, B:46:0x0133, B:47:0x0139, B:49:0x0141, B:19:0x005e, B:21:0x006a, B:24:0x0077, B:11:0x002f), top: B:61:0x001b, inners: #0, #1 }] */
+    /* JADX WARN: Removed duplicated region for block: B:16:0x0038 A[Catch: Exception -> 0x0032, TryCatch #2 {Exception -> 0x0032, blocks: (B:6:0x001b, B:8:0x0027, B:16:0x0038, B:17:0x0054, B:26:0x0077, B:28:0x0087, B:29:0x008d, B:31:0x009f, B:32:0x00a5, B:34:0x00ab, B:35:0x00b1, B:37:0x00d9, B:38:0x00df, B:40:0x00e9, B:41:0x00ef, B:43:0x00f9, B:44:0x00ff, B:46:0x012f, B:47:0x0135, B:49:0x013d, B:19:0x005a, B:21:0x0066, B:24:0x0073, B:11:0x002e), top: B:61:0x001b, inners: #0, #1 }] */
     /* JADX WARN: Removed duplicated region for block: B:62:? A[RETURN, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.

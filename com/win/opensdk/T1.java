@@ -9,7 +9,7 @@ public class T1 {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f76724a;
+    public static boolean f76904a;
     public transient /* synthetic */ FieldHolder $fh;
 
     public static boolean a() {
@@ -17,7 +17,7 @@ public class T1 {
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            boolean z = f76724a;
+            boolean z = f76904a;
             if (z) {
                 return z;
             }
@@ -36,7 +36,7 @@ public class T1 {
                 i2++;
             }
             boolean z2 = str != null;
-            f76724a = z2;
+            f76904a = z2;
             return z2;
         }
         return invokeV.booleanValue;

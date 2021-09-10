@@ -343,7 +343,7 @@ public final class SapiAccountService implements ISAccountService {
                 arrayList.add(new PassNameValuePair("connect", "1"));
             }
             if (this.configuration.language == Language.ENGLISH) {
-                arrayList.add(new PassNameValuePair("lang", f.f39388a));
+                arrayList.add(new PassNameValuePair("lang", f.f39499a));
             }
             arrayList.add(new PassNameValuePair("suppcheck", "1"));
             if (this.configuration.supportFaceLogin) {
@@ -874,7 +874,7 @@ public final class SapiAccountService implements ISAccountService {
                 arrayList.add(new PassNameValuePair("connect", "1"));
             }
             if (this.configuration.language == Language.ENGLISH) {
-                arrayList.add(new PassNameValuePair("lang", f.f39388a));
+                arrayList.add(new PassNameValuePair("lang", f.f39499a));
             }
             arrayList.add(new PassNameValuePair("suppcheck", "1"));
             if (this.configuration.supportFaceLogin) {

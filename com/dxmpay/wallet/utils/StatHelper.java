@@ -55,13 +55,13 @@ public class StatHelper {
     public static final String STD_PAY_CHANNEL = "0";
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f69752a = false;
+    public static boolean f69932a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f69753b = false;
+    public static boolean f69933b = false;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f69754c = "";
+    public static String f69934c = "";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
@@ -219,10 +219,10 @@ public class StatHelper {
         hashMap.put("card_type", getCardType());
         hashMap.put("pay_from", getPayFrom());
         hashMap.put(HAS_BANK_CARD, getHasBankCard());
-        if (f69752a) {
+        if (f69932a) {
             hashMap.put(PAY_BANKSIGN, "1");
         }
-        if (f69753b) {
+        if (f69933b) {
             hashMap.put(PAY_CATEGORY, "1");
         }
         if ("4".equals(getPayFrom())) {
@@ -424,7 +424,7 @@ public class StatHelper {
     public static void clearProcesssId() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65562, null) == null) {
-            f69754c = null;
+            f69934c = null;
         }
     }
 
@@ -447,8 +447,8 @@ public class StatHelper {
             a.c(Key.signPay.name(), null);
             a.c(Key.code.name(), null);
             a.c(Key.msg.name(), null);
-            f69752a = false;
-            f69753b = false;
+            f69932a = false;
+            f69933b = false;
         }
     }
 
@@ -602,11 +602,11 @@ public class StatHelper {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65585, null)) == null) {
-            if (!TextUtils.isEmpty(f69754c)) {
-                return f69754c;
+            if (!TextUtils.isEmpty(f69934c)) {
+                return f69934c;
             }
             String a2 = a();
-            f69754c = a2;
+            f69934c = a2;
             return a2;
         }
         return (String) invokeV.objValue;
@@ -698,14 +698,14 @@ public class StatHelper {
     public static void setDowngrade(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65594, null, z) == null) {
-            f69753b = z;
+            f69933b = z;
         }
     }
 
     public static void setPayBankSign(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65595, null, z) == null) {
-            f69752a = z;
+            f69932a = z;
         }
     }
 

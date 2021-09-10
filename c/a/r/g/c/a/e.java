@@ -6,13 +6,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f29607a;
+    public long f15437a;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public e() {
@@ -35,13 +35,13 @@ public class e {
     public long a(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j2)) == null) ? j2 & this.f29607a : invokeJ.longValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j2)) == null) ? j2 & this.f15437a : invokeJ.longValue;
     }
 
     public void b(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2) == null) {
-            this.f29607a = j2;
+            this.f15437a = j2;
         }
     }
 
@@ -49,9 +49,9 @@ public class e {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)})) == null) {
-            long j4 = this.f29607a;
+            long j4 = this.f15437a;
             long j5 = (j2 & j3) | ((~j3) & j4);
-            this.f29607a = j5;
+            this.f15437a = j5;
             return (j5 ^ j4) != 0;
         }
         return invokeCommon.booleanValue;
@@ -60,7 +60,7 @@ public class e {
     public long d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f29607a : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f15437a : invokeV.longValue;
     }
 
     public e(long j2) {
@@ -78,6 +78,6 @@ public class e {
                 return;
             }
         }
-        this.f29607a = j2;
+        this.f15437a = j2;
     }
 }

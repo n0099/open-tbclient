@@ -14,7 +14,7 @@ public class f extends ai.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ a f77066a;
+    public final /* synthetic */ a f77246a;
 
     public f(a aVar) {
         Interceptable interceptable = $ic;
@@ -31,7 +31,7 @@ public class f extends ai.a {
                 return;
             }
         }
-        this.f77066a = aVar;
+        this.f77246a = aVar;
     }
 
     @Override // com.xiaomi.push.ai.a
@@ -48,9 +48,9 @@ public class f extends ai.a {
         ExecutorService executorService;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            b2 = this.f77066a.b();
+            b2 = this.f77246a.b();
             if (b2 > 0) {
-                executorService = this.f77066a.f41a;
+                executorService = this.f77246a.f41a;
                 executorService.execute(new g(this));
             }
         }

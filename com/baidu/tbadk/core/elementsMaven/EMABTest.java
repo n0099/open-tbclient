@@ -1,7 +1,7 @@
 package com.baidu.tbadk.core.elementsMaven;
 
 import android.text.TextUtils;
-import c.a.p0.s.u.a;
+import c.a.q0.s.u.a;
 import com.baidu.tbadk.TbSingleton;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -35,15 +35,15 @@ public class EMABTest {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(65537, null, i2, str)) == null) {
-            String o = a.o(i2);
-            if (TextUtils.isEmpty(o)) {
+            String q = a.q(i2);
+            if (TextUtils.isEmpty(q)) {
                 return 0;
             }
-            String a2 = c.a.q0.k0.a.a(o);
+            String a2 = c.a.r0.l0.a.a(q);
             if (TextUtils.isEmpty(a2)) {
                 return 0;
             }
-            return a.s(a2, str);
+            return a.u(a2, str);
         }
         return invokeIL.intValue;
     }

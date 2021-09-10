@@ -20,13 +20,13 @@ public class d<T> implements m.a<T>, Future<m<T>> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Request<?> f64051a;
+    public Request<?> f64231a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f64052b;
+    public boolean f64232b;
 
     /* renamed from: c  reason: collision with root package name */
-    public m<T> f64053c;
+    public m<T> f64233c;
 
     public d() {
         Interceptable interceptable = $ic;
@@ -41,7 +41,7 @@ public class d<T> implements m.a<T>, Future<m<T>> {
                 return;
             }
         }
-        this.f64052b = false;
+        this.f64232b = false;
     }
 
     public static <E> d<E> a() {
@@ -72,13 +72,13 @@ public class d<T> implements m.a<T>, Future<m<T>> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048580, this, z)) == null) {
             synchronized (this) {
-                if (this.f64051a == null) {
+                if (this.f64231a == null) {
                     return false;
                 }
                 if (isDone()) {
                     return false;
                 }
-                this.f64051a.cancel();
+                this.f64231a.cancel();
                 return true;
             }
         }
@@ -90,7 +90,7 @@ public class d<T> implements m.a<T>, Future<m<T>> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            Request<?> request = this.f64051a;
+            Request<?> request = this.f64231a;
             if (request == null) {
                 return false;
             }
@@ -106,7 +106,7 @@ public class d<T> implements m.a<T>, Future<m<T>> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             synchronized (this) {
-                if (!this.f64052b) {
+                if (!this.f64232b) {
                     z = isCancelled();
                 }
             }
@@ -129,8 +129,8 @@ public class d<T> implements m.a<T>, Future<m<T>> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, l)) == null) {
             synchronized (this) {
-                if (this.f64052b) {
-                    return this.f64053c;
+                if (this.f64232b) {
+                    return this.f64233c;
                 }
                 if (l == null) {
                     while (!isDone()) {
@@ -144,8 +144,8 @@ public class d<T> implements m.a<T>, Future<m<T>> {
                         uptimeMillis = SystemClock.uptimeMillis();
                     }
                 }
-                if (this.f64052b) {
-                    return this.f64053c;
+                if (this.f64232b) {
+                    return this.f64233c;
                 }
                 throw new TimeoutException();
             }
@@ -158,8 +158,8 @@ public class d<T> implements m.a<T>, Future<m<T>> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, mVar) == null) {
             synchronized (this) {
-                this.f64052b = true;
-                this.f64053c = mVar;
+                this.f64232b = true;
+                this.f64233c = mVar;
                 notifyAll();
             }
         }
@@ -170,8 +170,8 @@ public class d<T> implements m.a<T>, Future<m<T>> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, mVar) == null) {
             synchronized (this) {
-                this.f64052b = true;
-                this.f64053c = mVar;
+                this.f64232b = true;
+                this.f64233c = mVar;
                 notifyAll();
             }
         }

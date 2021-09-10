@@ -36,7 +36,7 @@ public class MessageCenterActivity extends BaseFragmentActivity implements Voice
         this.mSkinType = 3;
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, c.a.p0.m0.a
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, c.a.q0.o0.a
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -116,6 +116,7 @@ public class MessageCenterActivity extends BaseFragmentActivity implements Voice
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             super.onResume();
             adjustResizeForSoftInput();
+            this.mFragment.setUserVisibleHint(true);
         }
     }
 }

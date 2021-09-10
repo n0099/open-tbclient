@@ -20,7 +20,7 @@ public class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final Context f70919a;
+        public final Context f71099a;
 
         public a(Context context) {
             Interceptable interceptable = $ic;
@@ -37,21 +37,21 @@ public class c {
                     return;
                 }
             }
-            this.f70919a = context;
+            this.f71099a = context;
         }
 
         @Override // android.content.ContextWrapper, android.content.Context
         public Context getApplicationContext() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f70919a : (Context) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f71099a : (Context) invokeV.objValue;
         }
 
         @Override // android.content.ContextWrapper, android.content.Context
         public ApplicationInfo getApplicationInfo() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f70919a.getApplicationInfo() : (ApplicationInfo) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f71099a.getApplicationInfo() : (ApplicationInfo) invokeV.objValue;
         }
     }
 

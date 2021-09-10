@@ -13,10 +13,10 @@ public class PhoneNumberEditTextPasteFilter implements IEditTextPasteFilter {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f39641a = "PhoneNumberEditTextPasteFilter";
+    public static final String f39752a = "PhoneNumberEditTextPasteFilter";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f39642b = "86";
+    public static final String f39753b = "86";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {

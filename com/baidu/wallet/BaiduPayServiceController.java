@@ -40,14 +40,14 @@ public class BaiduPayServiceController {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ILightappInvokerCallback f59829a;
+    public ILightappInvokerCallback f60009a;
 
     /* loaded from: classes8.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static BaiduPayServiceController f59833a;
+        public static BaiduPayServiceController f60013a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -63,7 +63,7 @@ public class BaiduPayServiceController {
                     return;
                 }
             }
-            f59833a = new BaiduPayServiceController();
+            f60013a = new BaiduPayServiceController();
         }
     }
 
@@ -107,7 +107,7 @@ public class BaiduPayServiceController {
     public static BaiduPayServiceController getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) ? a.f59833a : (BaiduPayServiceController) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) ? a.f60013a : (BaiduPayServiceController) invokeV.objValue;
     }
 
     public void doScanCode(Context context) {
@@ -125,10 +125,10 @@ public class BaiduPayServiceController {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ RouterCallback f59831a;
+                public final /* synthetic */ RouterCallback f60011a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ BaiduPayServiceController f59832b;
+                public final /* synthetic */ BaiduPayServiceController f60012b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -145,8 +145,8 @@ public class BaiduPayServiceController {
                             return;
                         }
                     }
-                    this.f59832b = this;
-                    this.f59831a = routerCallback;
+                    this.f60012b = this;
+                    this.f60011a = routerCallback;
                 }
 
                 @Override // com.baidu.wallet.api.CheckCallBack
@@ -156,7 +156,7 @@ public class BaiduPayServiceController {
                         HashMap hashMap = new HashMap();
                         hashMap.put("errorCode", Integer.valueOf(i2));
                         StatisticManager.onEventWithValues(PayStatServiceEvent.PAY_CHECK_PWD_FROM_H5_RESULT, new ArrayList(), hashMap);
-                        if (this.f59831a != null) {
+                        if (this.f60011a != null) {
                             HashMap hashMap2 = new HashMap();
                             HashMap hashMap3 = new HashMap();
                             if (i2 == 0) {
@@ -166,7 +166,7 @@ public class BaiduPayServiceController {
                                 hashMap3.put(com.dxmpay.wallet.core.beans.BeanConstants.DXM_OCR_KEY_ERROR_DES, str2);
                             }
                             hashMap2.put("result", BaiduPayDelegate.getInstance().assembleResult(hashMap3, i2 == 0));
-                            this.f59831a.onResult(i2 == 0 ? 0 : 1, hashMap2);
+                            this.f60011a.onResult(i2 == 0 ? 0 : 1, hashMap2);
                         }
                     }
                 }
@@ -205,7 +205,7 @@ public class BaiduPayServiceController {
                 return;
             }
         }
-        this.f59829a = null;
+        this.f60009a = null;
     }
 
     public void doScanCode(Context context, boolean z, String str) {
@@ -274,7 +274,7 @@ public class BaiduPayServiceController {
         if (!(interceptable == null || interceptable.invokeLLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, context, str, str2, iLightappInvokerCallback) == null) || iLightappInvokerCallback == null) {
             return;
         }
-        this.f59829a = iLightappInvokerCallback;
+        this.f60009a = iLightappInvokerCallback;
         gotoWalletService(context, str, str2, true);
     }
 
@@ -358,7 +358,7 @@ public class BaiduPayServiceController {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ BaiduPayServiceController f59830a;
+                public final /* synthetic */ BaiduPayServiceController f60010a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -375,7 +375,7 @@ public class BaiduPayServiceController {
                             return;
                         }
                     }
-                    this.f59830a = this;
+                    this.f60010a = this;
                 }
 
                 @Override // com.baidu.wallet.api.CheckCallBack
@@ -385,7 +385,7 @@ public class BaiduPayServiceController {
                         HashMap hashMap = new HashMap();
                         hashMap.put("errorCode", Integer.valueOf(i2));
                         StatisticManager.onEventWithValues(PayStatServiceEvent.PAY_CHECK_PWD_FROM_H5_RESULT, new ArrayList(), hashMap);
-                        if (this.f59830a.f59829a != null) {
+                        if (this.f60010a.f60009a != null) {
                             StringBuilder sb = new StringBuilder();
                             sb.append("{\"result\":");
                             sb.append(i2 == 0 ? 0 : 1);
@@ -404,8 +404,8 @@ public class BaiduPayServiceController {
                                 sb.append(str2);
                                 sb.append("\"}}");
                             }
-                            this.f59830a.f59829a.onResult(i2 != 0 ? 1 : 0, sb.toString());
-                            this.f59830a.f59829a = null;
+                            this.f60010a.f60009a.onResult(i2 != 0 ? 1 : 0, sb.toString());
+                            this.f60010a.f60009a = null;
                         }
                     }
                 }

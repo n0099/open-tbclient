@@ -1,6 +1,6 @@
 package com.baidu.tieba.gift.myGiftList;
 
-import c.a.p0.b1.w;
+import c.a.q0.d1.x;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -50,7 +50,7 @@ public class GetPersonalGiftListRequest extends NetMessage {
             builder.st_type = this.type;
             builder.account_type = Integer.valueOf(this.userType);
             if (z) {
-                w.a(builder, true);
+                x.a(builder, true);
             }
             GetMyGiftReqIdl.Builder builder2 = new GetMyGiftReqIdl.Builder();
             builder2.data = builder.build(false);

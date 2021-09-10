@@ -11,7 +11,7 @@ public class a extends Presenter {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public b f72586a;
+    public b f72766a;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -32,7 +32,7 @@ public class a extends Presenter {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             super.a();
-            this.f72586a = (b) l();
+            this.f72766a = (b) l();
         }
     }
 }

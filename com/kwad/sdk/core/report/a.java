@@ -26,7 +26,7 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static ExecutorService f71981a;
+    public static ExecutorService f72161a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.kwad.sdk.core.report.a$a  reason: collision with other inner class name */
@@ -36,10 +36,10 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f71989a;
+        public int f72169a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f71990b;
+        public String f72170b;
 
         public C1994a(int i2, String str) {
             Interceptable interceptable = $ic;
@@ -56,8 +56,8 @@ public class a {
                     return;
                 }
             }
-            this.f71989a = i2;
-            this.f71990b = str;
+            this.f72169a = i2;
+            this.f72170b = str;
         }
     }
 
@@ -74,7 +74,7 @@ public class a {
                 return;
             }
         }
-        f71981a = com.kwad.sdk.core.i.b.g();
+        f72161a = com.kwad.sdk.core.i.b.g();
     }
 
     public static void a(AdTemplate adTemplate) {
@@ -88,7 +88,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(65538, null, adTemplate, i2) == null) {
             n.a aVar = new n.a();
-            aVar.f72041g = i2;
+            aVar.f72221g = i2;
             a(adTemplate, (int) MediaSessionCompat.MAX_BITMAP_SIZE_IN_DP, aVar, (JSONObject) null);
         }
     }
@@ -97,7 +97,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLII(65539, null, adTemplate, i2, i3) == null) {
             n.a aVar = new n.a();
-            aVar.f72038d = 69;
+            aVar.f72218d = 69;
             aVar.p = i2;
             aVar.q = i3;
             a(adTemplate, 141, aVar, (JSONObject) null);
@@ -108,7 +108,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIII(InputDeviceCompat.SOURCE_TRACKBALL, null, adTemplate, i2, i3, i4) == null) {
             n.a aVar = new n.a();
-            aVar.f72038d = i2;
+            aVar.f72218d = i2;
             aVar.p = i3;
             aVar.q = i4;
             a(adTemplate, 141, aVar, (JSONObject) null);
@@ -128,16 +128,16 @@ public class a {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ AdTemplate f71985a;
+                public final /* synthetic */ AdTemplate f72165a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ int f71986b;
+                public final /* synthetic */ int f72166b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ n.a f71987c;
+                public final /* synthetic */ n.a f72167c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ JSONObject f71988d;
+                public final /* synthetic */ JSONObject f72168d;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -154,10 +154,10 @@ public class a {
                             return;
                         }
                     }
-                    this.f71985a = adTemplate;
-                    this.f71986b = i2;
-                    this.f71987c = aVar;
-                    this.f71988d = jSONObject;
+                    this.f72165a = adTemplate;
+                    this.f72166b = i2;
+                    this.f72167c = aVar;
+                    this.f72168d = jSONObject;
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
@@ -167,7 +167,7 @@ public class a {
                 public n b() {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? new n(this.f71985a, this.f71986b, this.f71987c, this.f71988d) : (n) invokeV.objValue;
+                    return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? new n(this.f72165a, this.f72166b, this.f72167c, this.f72168d) : (n) invokeV.objValue;
                 }
             }.d();
         }
@@ -177,9 +177,9 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIL(AdIconUtil.BAIDU_LOGO_ID, null, adTemplate, i2, aVar) == null) {
             n.a aVar2 = new n.a();
-            aVar2.f72036b = i2;
+            aVar2.f72216b = i2;
             if (aVar != null) {
-                aVar2.f72039e = aVar;
+                aVar2.f72219e = aVar;
             }
             a(adTemplate, 2, aVar2, (JSONObject) null);
         }
@@ -189,8 +189,8 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLILL(65543, null, adTemplate, i2, aVar, jSONObject) == null) {
             n.a aVar2 = new n.a();
-            aVar2.f72036b = i2;
-            aVar2.f72039e = aVar;
+            aVar2.f72216b = i2;
+            aVar2.f72219e = aVar;
             a(adTemplate, 2, aVar2, jSONObject);
         }
     }
@@ -199,7 +199,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIL(65544, null, adTemplate, i2, jSONObject) == null) {
             n.a aVar = new n.a();
-            aVar.f72037c = i2;
+            aVar.f72217c = i2;
             a(adTemplate, 3, aVar, jSONObject);
         }
     }
@@ -208,7 +208,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLILL(65545, null, adTemplate, i2, jSONObject, str) == null) {
             n.a aVar = new n.a();
-            aVar.f72040f = str;
+            aVar.f72220f = str;
             a(adTemplate, i2, aVar, jSONObject);
         }
     }
@@ -235,7 +235,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65548, null, adTemplate, aVar) == null) {
             n.a aVar2 = new n.a();
-            aVar2.f72039e = aVar;
+            aVar2.f72219e = aVar;
             a(adTemplate, 2, aVar2, (JSONObject) null);
         }
     }
@@ -262,8 +262,8 @@ public class a {
             if (aVar == null) {
                 aVar = new n.a();
             }
-            aVar.f72039e = aVar2;
-            aVar.f72040f = str;
+            aVar.f72219e = aVar2;
+            aVar.f72220f = str;
             a(adTemplate, 2, aVar, jSONObject);
         }
     }
@@ -274,7 +274,7 @@ public class a {
             if (aVar == null) {
                 aVar = new n.a();
             }
-            aVar.f72040f = str;
+            aVar.f72220f = str;
             a(adTemplate, 2, aVar, jSONObject);
         }
     }
@@ -283,8 +283,8 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(65553, null, adTemplate, jSONObject, aVar, str) == null) {
             n.a aVar2 = new n.a();
-            aVar2.f72039e = aVar;
-            aVar2.f72040f = str;
+            aVar2.f72219e = aVar;
+            aVar2.f72220f = str;
             a(adTemplate, 2, aVar2, jSONObject);
         }
     }
@@ -293,7 +293,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65554, null, adTemplate) == null) {
             n.a aVar = new n.a();
-            aVar.f72042h = adTemplate.downloadSource;
+            aVar.f72222h = adTemplate.downloadSource;
             a(adTemplate, 30, aVar, (JSONObject) null);
         }
     }
@@ -302,7 +302,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(65555, null, adTemplate, i2) == null) {
             n.a aVar = new n.a();
-            aVar.f72041g = i2;
+            aVar.f72221g = i2;
             a(adTemplate, 321, aVar, (JSONObject) null);
         }
     }
@@ -311,7 +311,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIL(65556, null, adTemplate, i2, jSONObject) == null) {
             n.a aVar = new n.a();
-            aVar.f72035a = i2;
+            aVar.f72215a = i2;
             a(adTemplate, 402, aVar, jSONObject);
         }
     }
@@ -333,12 +333,12 @@ public class a {
     public static void c(AdTemplate adTemplate) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65559, null, adTemplate) == null) {
-            f71981a.submit(new Runnable(adTemplate) { // from class: com.kwad.sdk.core.report.a.2
+            f72161a.submit(new Runnable(adTemplate) { // from class: com.kwad.sdk.core.report.a.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ AdTemplate f71984a;
+                public final /* synthetic */ AdTemplate f72164a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -355,20 +355,20 @@ public class a {
                             return;
                         }
                     }
-                    this.f71984a = adTemplate;
+                    this.f72164a = adTemplate;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        AdInfo i2 = com.kwad.sdk.core.response.b.c.i(this.f71984a);
+                        AdInfo i2 = com.kwad.sdk.core.response.b.c.i(this.f72164a);
                         int b2 = ac.b(i2.downloadId, com.kwad.sdk.core.response.b.a.q(i2));
                         n.a aVar = new n.a();
-                        AdTemplate adTemplate2 = this.f71984a;
-                        aVar.f72042h = adTemplate2.downloadSource;
-                        aVar.f72043i = b2;
-                        aVar.f72044j = adTemplate2.installFrom;
+                        AdTemplate adTemplate2 = this.f72164a;
+                        aVar.f72222h = adTemplate2.downloadSource;
+                        aVar.f72223i = b2;
+                        aVar.f72224j = adTemplate2.installFrom;
                         a.a(adTemplate2, 32, aVar, (JSONObject) null);
                     }
                 }
@@ -389,7 +389,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIL(65561, null, adTemplate, i2, jSONObject) == null) {
             n.a aVar = new n.a();
-            aVar.f72038d = i2;
+            aVar.f72218d = i2;
             a(adTemplate, 140, aVar, jSONObject);
         }
     }
@@ -405,7 +405,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65563, null, adTemplate, jSONObject) == null) {
             n.a aVar = new n.a();
-            aVar.f72042h = adTemplate.downloadSource;
+            aVar.f72222h = adTemplate.downloadSource;
             a(adTemplate, 33, aVar, jSONObject);
         }
     }
@@ -429,7 +429,7 @@ public class a {
         if (interceptable == null || interceptable.invokeLIL(65566, null, adTemplate, i2, jSONObject) == null) {
             n.a aVar = new n.a();
             aVar.n = com.kwad.sdk.core.response.b.a.q(com.kwad.sdk.core.response.b.c.i(adTemplate));
-            aVar.f72038d = i2;
+            aVar.f72218d = i2;
             a(adTemplate, 140, aVar, jSONObject);
         }
     }
@@ -445,7 +445,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65568, null, adTemplate, jSONObject) == null) {
             n.a aVar = new n.a();
-            aVar.f72042h = adTemplate.downloadSource;
+            aVar.f72222h = adTemplate.downloadSource;
             a(adTemplate, 34, aVar, jSONObject);
         }
     }
@@ -461,7 +461,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(65570, null, adTemplate, i2) == null) {
             n.a aVar = new n.a();
-            aVar.f72038d = i2;
+            aVar.f72218d = i2;
             a(adTemplate, 141, aVar, (JSONObject) null);
         }
     }
@@ -476,15 +476,15 @@ public class a {
     public static void e(AdTemplate adTemplate, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65573, null, adTemplate, jSONObject) == null) {
-            f71981a.submit(new Runnable(adTemplate, jSONObject) { // from class: com.kwad.sdk.core.report.a.1
+            f72161a.submit(new Runnable(adTemplate, jSONObject) { // from class: com.kwad.sdk.core.report.a.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ AdTemplate f71982a;
+                public final /* synthetic */ AdTemplate f72162a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ JSONObject f71983b;
+                public final /* synthetic */ JSONObject f72163b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -501,8 +501,8 @@ public class a {
                             return;
                         }
                     }
-                    this.f71982a = adTemplate;
-                    this.f71983b = jSONObject;
+                    this.f72162a = adTemplate;
+                    this.f72163b = jSONObject;
                 }
 
                 @Override // java.lang.Runnable
@@ -510,11 +510,11 @@ public class a {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         n.a aVar = new n.a();
-                        AdTemplate adTemplate2 = this.f71982a;
-                        aVar.f72042h = adTemplate2.downloadSource;
+                        AdTemplate adTemplate2 = this.f72162a;
+                        aVar.f72222h = adTemplate2.downloadSource;
                         a.f(adTemplate2, aVar);
-                        a.a(this.f71982a, 31, aVar, this.f71983b);
-                        AdInfo i2 = com.kwad.sdk.core.response.b.c.i(this.f71982a);
+                        a.a(this.f72162a, 31, aVar, this.f72163b);
+                        AdInfo i2 = com.kwad.sdk.core.response.b.c.i(this.f72162a);
                         ac.a(i2.downloadFilePath, i2.downloadId);
                     }
                 }
@@ -557,7 +557,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65577, null, adTemplate, jSONObject) == null) {
             n.a aVar = new n.a();
-            aVar.f72042h = adTemplate.downloadSource;
+            aVar.f72222h = adTemplate.downloadSource;
             a(adTemplate, 35, aVar, jSONObject);
         }
     }

@@ -13,7 +13,7 @@ public class j extends g {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static j f43715b;
+    public static j f43830b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -29,7 +29,7 @@ public class j extends g {
                 return;
             }
         }
-        f43715b = new j();
+        f43830b = new j();
     }
 
     public j() {
@@ -49,7 +49,7 @@ public class j extends g {
     public static j c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f43715b : (j) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f43830b : (j) invokeV.objValue;
     }
 
     @Override // com.baidu.mobstat.dxmpay.g

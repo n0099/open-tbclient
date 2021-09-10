@@ -5,8 +5,8 @@ import android.content.Intent;
 import android.util.Pair;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
-import c.a.p0.g0.c;
-import c.a.p0.g0.d;
+import c.a.q0.h0.c;
+import c.a.q0.h0.d;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -28,15 +28,15 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.vivo.push.PushClientConstants;
 /* loaded from: classes7.dex */
-public class ImMessageCenterDelegateStatic extends c.a.p0.g0.b {
+public class ImMessageCenterDelegateStatic extends c.a.q0.h0.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public MessageRedDotView f53224a;
+    public MessageRedDotView f53370a;
 
     /* renamed from: b  reason: collision with root package name */
-    public CustomMessageListener f53225b;
+    public CustomMessageListener f53371b;
 
     /* loaded from: classes7.dex */
     public static class a extends CustomMessageListener {
@@ -80,7 +80,7 @@ public class ImMessageCenterDelegateStatic extends c.a.p0.g0.b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ImMessageCenterDelegateStatic f53226a;
+        public final /* synthetic */ ImMessageCenterDelegateStatic f53372a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(ImMessageCenterDelegateStatic imMessageCenterDelegateStatic, int i2) {
@@ -100,7 +100,7 @@ public class ImMessageCenterDelegateStatic extends c.a.p0.g0.b {
                     return;
                 }
             }
-            this.f53226a = imMessageCenterDelegateStatic;
+            this.f53372a = imMessageCenterDelegateStatic;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -120,7 +120,7 @@ public class ImMessageCenterDelegateStatic extends c.a.p0.g0.b {
                 } catch (Exception unused2) {
                     i2 = 0;
                 }
-                this.f53226a.b(z, i2);
+                this.f53372a.b(z, i2);
             }
         }
     }
@@ -160,22 +160,22 @@ public class ImMessageCenterDelegateStatic extends c.a.p0.g0.b {
     public final void b(boolean z, int i2) {
         MessageRedDotView messageRedDotView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2)}) == null) || (messageRedDotView = this.f53224a) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2)}) == null) || (messageRedDotView = this.f53370a) == null) {
             return;
         }
         if (z) {
             messageRedDotView.setThreeDotMode(2);
-            this.f53224a.refresh(i2);
-            this.f53224a.setVisibility(0);
+            this.f53370a.refresh(i2);
+            this.f53370a.setVisibility(0);
             if (TbSingleton.getInstance().isShowVivoBadge()) {
-                c(this.f53224a.getContext(), i2);
+                c(this.f53370a.getContext(), i2);
                 return;
             }
             return;
         }
         messageRedDotView.setVisibility(8);
         if (TbSingleton.getInstance().isShowVivoBadge()) {
-            c(this.f53224a.getContext(), 0);
+            c(this.f53370a.getContext(), 0);
         }
     }
 
@@ -192,67 +192,67 @@ public class ImMessageCenterDelegateStatic extends c.a.p0.g0.b {
         }
     }
 
-    @Override // c.a.p0.g0.b
+    @Override // c.a.q0.h0.b
     public c createFragmentTabStructure() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             c cVar = new c();
-            cVar.f13476a = new MessageCenterFragment();
-            cVar.f13480e = 3;
-            cVar.f13477b = R.string.my_message;
-            cVar.f13481f = R.raw.lottie_tab_msg;
-            cVar.f13484i = c.l;
-            cVar.f13483h = c.a.p0.g0.e.c.d().c("message");
+            cVar.f13467a = new MessageCenterFragment();
+            cVar.f13471e = 3;
+            cVar.f13468b = R.string.my_message;
+            cVar.f13472f = R.raw.lottie_tab_msg;
+            cVar.f13475i = c.l;
+            cVar.f13474h = c.a.q0.h0.e.c.d().c("message");
             return cVar;
         }
         return (c) invokeV.objValue;
     }
 
-    @Override // c.a.p0.g0.b
+    @Override // c.a.q0.h0.b
     public TbFragmentTabIndicator getTabIndicator(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, context)) == null) {
             this.mIndicator = (MaintabBottomIndicator) LayoutInflater.from(context).inflate(R.layout.maintab_bottom_indicator, (ViewGroup) null);
-            this.f53224a = new MessageRedDotView(context);
+            this.f53370a = new MessageRedDotView(context);
             TbFragmentTabIndicator.a aVar = new TbFragmentTabIndicator.a();
             TbFragmentTabIndicator tbFragmentTabIndicator = this.mIndicator;
-            aVar.f48288f = tbFragmentTabIndicator;
-            aVar.f48283a = this.f53224a;
-            aVar.f48284b = true;
+            aVar.f48418f = tbFragmentTabIndicator;
+            aVar.f48413a = this.f53370a;
+            aVar.f48414b = true;
             tbFragmentTabIndicator.addTipWrapContent("msg", aVar);
-            this.f53224a.setVisibility(4);
+            this.f53370a.setVisibility(4);
             if (!TbSingleton.getInstance().isShowVivoBadge()) {
-                c(this.f53224a.getContext(), 0);
+                c(this.f53370a.getContext(), 0);
             }
             return this.mIndicator;
         }
         return (TbFragmentTabIndicator) invokeL.objValue;
     }
 
-    @Override // c.a.p0.g0.b
+    @Override // c.a.q0.h0.b
     public boolean isAvailable() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? MainTabActivityConfig.IMMESSAGE_CENTER_DELEGATE_AVAIBLE : invokeV.booleanValue;
     }
 
-    @Override // c.a.p0.g0.b
+    @Override // c.a.q0.h0.b
     public void onAdd() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.f53225b = new b(this, 2921002);
-            MessageManager.getInstance().registerListener(this.f53225b);
+            this.f53371b = new b(this, 2921002);
+            MessageManager.getInstance().registerListener(this.f53371b);
         }
     }
 
-    @Override // c.a.p0.g0.b
+    @Override // c.a.q0.h0.b
     public void onRemove() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             super.onRemove();
-            MessageManager.getInstance().unRegisterListener(this.f53225b);
+            MessageManager.getInstance().unRegisterListener(this.f53371b);
         }
     }
 }

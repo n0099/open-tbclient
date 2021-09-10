@@ -56,7 +56,7 @@ public class OAdSqlLiteAccessObj {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, oAdSqlLiteDownloadingInfo) == null) {
             try {
                 SQLiteDatabase readableDatabase = this.mDBHelper.getReadableDatabase();
-                readableDatabase.delete(OAdSqlLiteHelper.TABLE_NAME, "url=? and local_file=? and process_name=?", new String[]{oAdSqlLiteDownloadingInfo.getURL(), oAdSqlLiteDownloadingInfo.getDownloadedFilePath(), this.processName});
+                readableDatabase.delete("download_info", "url=? and local_file=? and process_name=?", new String[]{oAdSqlLiteDownloadingInfo.getURL(), oAdSqlLiteDownloadingInfo.getDownloadedFilePath(), this.processName});
                 readableDatabase.close();
             } catch (Exception e2) {
                 RemoteXAdLogger.getInstance().e(TAG, e2.getMessage());

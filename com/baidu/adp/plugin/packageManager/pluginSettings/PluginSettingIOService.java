@@ -53,7 +53,7 @@ public class PluginSettingIOService extends Service {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PluginSettingIOService f36235a;
+        public final /* synthetic */ PluginSettingIOService f36354a;
 
         public a(PluginSettingIOService pluginSettingIOService) {
             Interceptable interceptable = $ic;
@@ -70,7 +70,7 @@ public class PluginSettingIOService extends Service {
                     return;
                 }
             }
-            this.f36235a = pluginSettingIOService;
+            this.f36354a = pluginSettingIOService;
         }
 
         @Override // android.os.Handler
@@ -87,10 +87,10 @@ public class PluginSettingIOService extends Service {
             if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
                 switch (message.what) {
                     case 1:
-                        this.f36235a.mClients.add(message.replyTo);
+                        this.f36354a.mClients.add(message.replyTo);
                         return;
                     case 2:
-                        this.f36235a.mClients.remove(message.replyTo);
+                        this.f36354a.mClients.remove(message.replyTo);
                         return;
                     case 3:
                     case 5:
@@ -102,8 +102,8 @@ public class PluginSettingIOService extends Service {
                             return;
                         }
                         PluginSettings pluginSettings = (PluginSettings) data8.getSerializable("plugin_settings");
-                        this.f36235a.save(pluginSettings, null);
-                        this.f36235a.sendUpdateMsg(pluginSettings);
+                        this.f36354a.save(pluginSettings, null);
+                        this.f36354a.sendUpdateMsg(pluginSettings);
                         return;
                     case 6:
                         if (c.b().d() == null || (data = message.getData()) == null) {
@@ -113,8 +113,8 @@ public class PluginSettingIOService extends Service {
                         PluginSetting findPluginSetting = c.b().d().findPluginSetting(data.getString(PluginSettingIOService.KEY_SETTING_NAME));
                         if (findPluginSetting != null) {
                             findPluginSetting.forbidden = z;
-                            this.f36235a.save(c.b().d(), null);
-                            this.f36235a.sendUpdateMsg(6, data);
+                            this.f36354a.save(c.b().d(), null);
+                            this.f36354a.sendUpdateMsg(6, data);
                             return;
                         }
                         return;
@@ -123,16 +123,16 @@ public class PluginSettingIOService extends Service {
                             return;
                         }
                         c.b().d().removePluginSetting(data2.getString(PluginSettingIOService.KEY_SETTING_NAME));
-                        this.f36235a.save(c.b().d(), null);
-                        this.f36235a.sendUpdateMsg(7, data2);
+                        this.f36354a.save(c.b().d(), null);
+                        this.f36354a.sendUpdateMsg(7, data2);
                         return;
                     case 8:
                         if (c.b().d() == null || (data3 = message.getData()) == null) {
                             return;
                         }
                         c.b().d().setAllPluginEnable(data3.getBoolean(PluginSettingIOService.KEY_ENABLE));
-                        this.f36235a.save(c.b().d(), null);
-                        this.f36235a.sendUpdateMsg(8, data3);
+                        this.f36354a.save(c.b().d(), null);
+                        this.f36354a.sendUpdateMsg(8, data3);
                         return;
                     case 9:
                         if (c.b().d() == null || (data4 = message.getData()) == null) {
@@ -142,8 +142,8 @@ public class PluginSettingIOService extends Service {
                         PluginSetting findPluginSetting2 = c.b().d().findPluginSetting(data4.getString(PluginSettingIOService.KEY_SETTING_NAME));
                         if (findPluginSetting2 != null) {
                             findPluginSetting2.enable = z2;
-                            this.f36235a.save(c.b().d(), null);
-                            this.f36235a.sendUpdateMsg(9, data4);
+                            this.f36354a.save(c.b().d(), null);
+                            this.f36354a.sendUpdateMsg(9, data4);
                             return;
                         }
                         return;
@@ -152,8 +152,8 @@ public class PluginSettingIOService extends Service {
                             return;
                         }
                         c.b().d().setContainerSetting(data5.getString("key_version"));
-                        this.f36235a.save(c.b().d(), null);
-                        this.f36235a.sendUpdateMsg(10, data5);
+                        this.f36354a.save(c.b().d(), null);
+                        this.f36354a.sendUpdateMsg(10, data5);
                         return;
                     case 11:
                         if (c.b().d() == null || (data6 = message.getData()) == null) {
@@ -163,8 +163,8 @@ public class PluginSettingIOService extends Service {
                         PluginSetting findPluginSetting3 = c.b().d().findPluginSetting(data6.getString(PluginSettingIOService.KEY_SETTING_NAME));
                         if (findPluginSetting3 != null) {
                             findPluginSetting3.installStatus = i2;
-                            this.f36235a.save(c.b().d(), null);
-                            this.f36235a.sendUpdateMsg(11, data6);
+                            this.f36354a.save(c.b().d(), null);
+                            this.f36354a.sendUpdateMsg(11, data6);
                             return;
                         }
                         return;
@@ -173,8 +173,8 @@ public class PluginSettingIOService extends Service {
                             return;
                         }
                         c.b().d().setForbiddenFeatures(data7.getString(PluginSettingIOService.KEY_FORBIDDEN_FEATURE));
-                        this.f36235a.save(c.b().d(), null);
-                        this.f36235a.sendUpdateMsg(12, data7);
+                        this.f36354a.save(c.b().d(), null);
+                        this.f36354a.sendUpdateMsg(12, data7);
                         return;
                 }
             }

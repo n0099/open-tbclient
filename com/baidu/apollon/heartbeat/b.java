@@ -15,31 +15,31 @@ public final class b {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f37798a = "b";
+    public static final String f37917a = "b";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public com.baidu.apollon.a.a f37799b;
+    public com.baidu.apollon.a.a f37918b;
 
     /* loaded from: classes5.dex */
     public final class a {
         public static /* synthetic */ Interceptable $ic = null;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final int f37805a = 1;
+        public static final int f37924a = 1;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final int f37806b = 2;
+        public static final int f37925b = 2;
 
         /* renamed from: c  reason: collision with root package name */
-        public static final int f37807c = 3;
+        public static final int f37926c = 3;
 
         /* renamed from: d  reason: collision with root package name */
-        public static final int f37808d = 4;
+        public static final int f37927d = 4;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b f37809e;
+        public final /* synthetic */ b f37928e;
 
         public a(b bVar) {
             Interceptable interceptable = $ic;
@@ -56,7 +56,7 @@ public final class b {
                     return;
                 }
             }
-            this.f37809e = bVar;
+            this.f37928e = bVar;
         }
     }
 
@@ -66,17 +66,17 @@ public final class b {
         public static /* synthetic */ Interceptable $ic = null;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final int f37810a = 1;
+        public static final int f37929a = 1;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final int f37811b = 2;
+        public static final int f37930b = 2;
 
         /* renamed from: c  reason: collision with root package name */
-        public static final int f37812c = 3;
+        public static final int f37931c = 3;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ b f37813d;
+        public final /* synthetic */ b f37932d;
 
         public C1611b(b bVar) {
             Interceptable interceptable = $ic;
@@ -93,7 +93,7 @@ public final class b {
                     return;
                 }
             }
-            this.f37813d = bVar;
+            this.f37932d = bVar;
         }
     }
 
@@ -125,7 +125,7 @@ public final class b {
                 return;
             }
         }
-        this.f37799b = null;
+        this.f37918b = null;
         b();
     }
 
@@ -133,14 +133,14 @@ public final class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
             com.baidu.apollon.a.a aVar = new com.baidu.apollon.a.a(1);
-            this.f37799b = aVar;
+            this.f37918b = aVar;
             aVar.getClass();
             aVar.a(new a.b(aVar, 1, 3, 1, new a.InterfaceC1609a(this) { // from class: com.baidu.apollon.heartbeat.b.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ b f37800a;
+                public final /* synthetic */ b f37919a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -157,28 +157,28 @@ public final class b {
                             return;
                         }
                     }
-                    this.f37800a = this;
+                    this.f37919a = this;
                 }
 
                 @Override // com.baidu.apollon.a.a.InterfaceC1609a
                 public void a() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        String str = b.f37798a;
-                        LogUtil.i(str, b.f37798a + " Idle ---> Active.");
+                        String str = b.f37917a;
+                        LogUtil.i(str, b.f37917a + " Idle ---> Active.");
                         HeartBeatManager.getInstance().a(0L);
                         HeartBeatManager.getInstance().startHeartBeat();
                     }
                 }
             }));
-            com.baidu.apollon.a.a aVar2 = this.f37799b;
+            com.baidu.apollon.a.a aVar2 = this.f37918b;
             aVar2.getClass();
             aVar2.a(new a.b(aVar2, 3, 1, 2, new a.InterfaceC1609a(this) { // from class: com.baidu.apollon.heartbeat.b.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ b f37801a;
+                public final /* synthetic */ b f37920a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -195,27 +195,27 @@ public final class b {
                             return;
                         }
                     }
-                    this.f37801a = this;
+                    this.f37920a = this;
                 }
 
                 @Override // com.baidu.apollon.a.a.InterfaceC1609a
                 public void a() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        String str = b.f37798a;
-                        LogUtil.i(str, b.f37798a + " Active ---> Idle.");
+                        String str = b.f37917a;
+                        LogUtil.i(str, b.f37917a + " Active ---> Idle.");
                         HeartBeatManager.getInstance().stopHeartBeat();
                     }
                 }
             }));
-            com.baidu.apollon.a.a aVar3 = this.f37799b;
+            com.baidu.apollon.a.a aVar3 = this.f37918b;
             aVar3.getClass();
             aVar3.a(new a.b(aVar3, 3, 2, 3, new a.InterfaceC1609a(this) { // from class: com.baidu.apollon.heartbeat.b.3
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ b f37802a;
+                public final /* synthetic */ b f37921a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -232,27 +232,27 @@ public final class b {
                             return;
                         }
                     }
-                    this.f37802a = this;
+                    this.f37921a = this;
                 }
 
                 @Override // com.baidu.apollon.a.a.InterfaceC1609a
                 public void a() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        String str = b.f37798a;
-                        LogUtil.i(str, b.f37798a + " Active ---> HalfActive.");
+                        String str = b.f37917a;
+                        LogUtil.i(str, b.f37917a + " Active ---> HalfActive.");
                         HeartBeatManager.getInstance().a(Calendar.getInstance().getTimeInMillis() / 1000);
                     }
                 }
             }));
-            com.baidu.apollon.a.a aVar4 = this.f37799b;
+            com.baidu.apollon.a.a aVar4 = this.f37918b;
             aVar4.getClass();
             aVar4.a(new a.b(aVar4, 2, 3, 4, new a.InterfaceC1609a(this) { // from class: com.baidu.apollon.heartbeat.b.4
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ b f37803a;
+                public final /* synthetic */ b f37922a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -269,28 +269,28 @@ public final class b {
                             return;
                         }
                     }
-                    this.f37803a = this;
+                    this.f37922a = this;
                 }
 
                 @Override // com.baidu.apollon.a.a.InterfaceC1609a
                 public void a() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        String str = b.f37798a;
-                        LogUtil.i(str, b.f37798a + " HalfActive ---> Active.");
+                        String str = b.f37917a;
+                        LogUtil.i(str, b.f37917a + " HalfActive ---> Active.");
                         HeartBeatManager.getInstance().a(0L);
                         HeartBeatManager.getInstance().startHeartBeat();
                     }
                 }
             }));
-            com.baidu.apollon.a.a aVar5 = this.f37799b;
+            com.baidu.apollon.a.a aVar5 = this.f37918b;
             aVar5.getClass();
             aVar5.a(new a.b(aVar5, 2, 1, 2, new a.InterfaceC1609a(this) { // from class: com.baidu.apollon.heartbeat.b.5
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ b f37804a;
+                public final /* synthetic */ b f37923a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -307,15 +307,15 @@ public final class b {
                             return;
                         }
                     }
-                    this.f37804a = this;
+                    this.f37923a = this;
                 }
 
                 @Override // com.baidu.apollon.a.a.InterfaceC1609a
                 public void a() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        String str = b.f37798a;
-                        LogUtil.i(str, b.f37798a + " HalfActive ---> Idle.");
+                        String str = b.f37917a;
+                        LogUtil.i(str, b.f37917a + " HalfActive ---> Idle.");
                         HeartBeatManager.getInstance().stopHeartBeat();
                     }
                 }
@@ -327,14 +327,14 @@ public final class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
             if (i2 >= 1 && i2 <= 4) {
-                com.baidu.apollon.a.a aVar = this.f37799b;
+                com.baidu.apollon.a.a aVar = this.f37918b;
                 if (aVar != null) {
                     aVar.b(i2);
                     return;
                 }
-                throw new RuntimeException(f37798a + " sendEvent but the mStateMachine is null.");
+                throw new RuntimeException(f37917a + " sendEvent but the mStateMachine is null.");
             }
-            throw new IllegalArgumentException(f37798a + " invalid params eventId:" + i2);
+            throw new IllegalArgumentException(f37917a + " invalid params eventId:" + i2);
         }
     }
 }

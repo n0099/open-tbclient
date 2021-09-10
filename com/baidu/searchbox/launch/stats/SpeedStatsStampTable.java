@@ -7,6 +7,12 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public final class SpeedStatsStampTable {
     public static /* synthetic */ Interceptable $ic = null;
+    public static final int ALA_LIVE_TAB_ON_CREATE_END_STAMP_KEY = 5037;
+    public static final int ALA_LIVE_TAB_ON_CREATE_START_STAMP_KEY = 5036;
+    public static final int ALA_LIVE_TAB_ON_CREATE_VIEW_END_STAMP_KEY = 5039;
+    public static final int ALA_LIVE_TAB_ON_CREATE_VIEW_START_STAMP_KEY = 5038;
+    public static final int ALA_LIVE_TAB_ON_RESUME_END_STAMP_KEY = 5041;
+    public static final int ALA_LIVE_TAB_ON_RESUME_START_STAMP_KEY = 5040;
     public static final int APP_CONFIG_INIT_END_STAMP_KEY = 1009;
     public static final int APP_CONFIG_INIT_STAMP_KEY = 2002;
     public static final int APP_CREATE_END_STAMP_KEY = 2006;
@@ -26,9 +32,23 @@ public final class SpeedStatsStampTable {
     public static final int CLEAR_CONCERN_CACHE_WHEN_VERSION_UPDATE_END_STAMP_KEY = 3023;
     public static final int CLEAR_CONCERN_CACHE_WHEN_VERSION_UPDATE_START_STAMP_KEY = 3022;
     public static final int CMDROUTER_INIT_STAMP_KEY = 2012;
+    public static final int CONCERN_TAB_END_STAMP_KEY = 5021;
+    public static final int CONCERN_TAB_ON_CREATE_VIEW_END_STAMP_KEY = 5023;
+    public static final int CONCERN_TAB_ON_CREATE_VIEW_START_STAMP_KEY = 5022;
+    public static final int CONCERN_TAB_ON_RESUME_END_STAMP_KEY = 5025;
+    public static final int CONCERN_TAB_ON_RESUME_START_STAMP_KEY = 5024;
+    public static final int CONCERN_TAB_START_STAMP_KEY = 5020;
+    public static final int CREATE_FLUTTER_FRAGMENT_END_KEY = 3039;
+    public static final int CREATE_FLUTTER_FRAGMENT_START_KEY = 3038;
     public static final int CUSTOM_VIEW_PAPER_INIT_START_STAMP_KEY = 4010;
     public static final int CUSTOM_VIEW_PAPER_VIEW_INIT_END_STAMP_KEY = 4011;
     public static final int ELAPSED_CPU_START_STAMP_KEY = 1001;
+    public static final int FLUTTER_FRAGMENT_ATTACH_END_KEY = 3041;
+    public static final int FLUTTER_FRAGMENT_ATTACH_START_KEY = 3040;
+    public static final int GAME_VIDEO_TAB_ON_CREATE_END_STAMP_KEY = 5043;
+    public static final int GAME_VIDEO_TAB_ON_CREATE_START_STAMP_KEY = 5042;
+    public static final int GAME_VIDEO_TAB_ON_CREATE_VIEW_END_STAMP_KEY = 5045;
+    public static final int GAME_VIDEO_TAB_ON_CREATE_VIEW_START_STAMP_KEY = 5044;
     public static final int HOME_FRAGMENT_CHECK_CONCERN_RED_TIP_END_STAMP_KEY = 4024;
     public static final int HOME_FRAGMENT_CHECK_CONCERN_RED_TIP_START_STAMP_KEY = 4023;
     public static final int HOME_FRAGMENT_FIRST_LOAD_END_STAMP_KEY = 4022;
@@ -61,6 +81,12 @@ public final class SpeedStatsStampTable {
     public static final int HOME_VIEW_DISPATCH_DRAW_START_STAMP_KEY = 5016;
     public static final int HOME_VIEW_ON_LAYOUT_END_STAMP_KEY = 5015;
     public static final int HOME_VIEW_ON_LAYOUT_START_STAMP_KEY = 5008;
+    public static final int HOT_TOPIC_TAB_END_STAMP_KEY = 5027;
+    public static final int HOT_TOPIC_TAB_ON_CREATE_END_STAMP_KEY = 5031;
+    public static final int HOT_TOPIC_TAB_ON_CREATE_START_STAMP_KEY = 5030;
+    public static final int HOT_TOPIC_TAB_ON_CREATE_VIEW_END_STAMP_KEY = 5029;
+    public static final int HOT_TOPIC_TAB_ON_CREATE_VIEW_START_STAMP_KEY = 5028;
+    public static final int HOT_TOPIC_TAB_START_STAMP_KEY = 5026;
     public static final int INIT_ACCOUNT_CHANGE_STAMP_KEY = 2007;
     public static final int INIT_ACCOUNT_LOGIN_STAMP_KEY = 2020;
     public static final int INIT_ALL_STAMP_KEY = 2016;
@@ -112,6 +138,8 @@ public final class SpeedStatsStampTable {
     public static final int LOKI_INIT_END_STAMP_KEY = 1007;
     public static final int MAINACTIVITY_CREATE_END_STAMP_KEY = 3028;
     public static final int MAINACTIVITY_CREATE_START_STAMP_KEY = 3002;
+    public static final int MAINACTIVITY_GET_CACHE_KEY = 3043;
+    public static final int MAINACTIVITY_GET_NET_CACHE_KEY = 3044;
     public static final int MAINACTIVITY_ONRESUME_END_STAMP_KEY = 3032;
     public static final int MAINACTIVITY_ONRESUME_START_STAMP_KEY = 3031;
     public static final int MAINACTIVITY_ONSTART_END_STAMP_KEY = 3030;
@@ -141,11 +169,12 @@ public final class SpeedStatsStampTable {
     public static final int SEARCHBOX_VIEW_ON_MEASURE_END_STAMP_KEY = 5002;
     public static final int SEARCHBOX_VIEW_ON_MEASURE_START_STAMP_KEY = 5001;
     public static final int SHAREP_GET_STAMP_KEY = 2011;
-    public static final int SPLASHACTIVITY_ADLOAD_END_STAMP_KEY = 3035;
     public static final int SPLASHACTIVITY_ADLOAD_START_STAMP_KEY = 3034;
     public static final int SPLASHACTIVITY_ADSHOW_END_STAMP_KEY = 3037;
     public static final int SPLASHACTIVITY_ADSHOW_START_STAMP_KEY = 3036;
+    public static final int SPLASHACTIVITY_AD_CALLSHOW_STAMP_KEY = 3042;
     public static final int SPLASHACTIVITY_ONCREATE_END_STAMP_KEY = 3033;
+    public static final int SPLASHACTIVITY_TB_ADLOAD_END_STAMP_KEY = 3035;
     public static final int SPLASH_ACTIVITY_END_STAMP_KEY = 3001;
     public static final int SPLASH_ACTIVITY_START_STAMP_KEY = 3000;
     public static final int START_TRACK_CONFIG_REQUEST_END_STAMP_KEY = 3019;
@@ -159,6 +188,10 @@ public final class SpeedStatsStampTable {
     public static final int TRY_LOAD_NATIVE_FUN_START_STAMP_KEY = 3026;
     public static final int UPDATE_PROFILE_INFO_END_STAMP_KEY = 3025;
     public static final int UPDATE_PROFILE_INFO_START_STAMP_KEY = 3024;
+    public static final int VIDEO_TAB_ON_CREATE_END_STAMP_KEY = 5033;
+    public static final int VIDEO_TAB_ON_CREATE_START_STAMP_KEY = 5032;
+    public static final int VIDEO_TAB_ON_CREATE_VIEW_END_STAMP_KEY = 5035;
+    public static final int VIDEO_TAB_ON_CREATE_VIEW_START_STAMP_KEY = 5034;
     public static final int WEBVIEW_SUFFIX_STAMP_KEY = 2013;
     public transient /* synthetic */ FieldHolder $fh;
 

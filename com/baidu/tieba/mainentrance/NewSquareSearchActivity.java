@@ -20,6 +20,7 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.CreateBarGuideActivityConfig;
 import com.baidu.tbadk.core.atomData.LoginActivityConfig;
@@ -53,7 +54,7 @@ public class NewSquareSearchActivity extends BaseActivity<NewSquareSearchActivit
     public boolean mIsFromEnterForum;
     public final c.a.e.c.g.a mSearchSuggestListListener;
     public HotSearchInfoData mTransmitHotSearchInfo;
-    public c.a.q0.t1.i.e mViewController;
+    public c.a.r0.u1.i.e mViewController;
 
     /* loaded from: classes7.dex */
     public class a extends c.a.e.c.g.a {
@@ -61,7 +62,7 @@ public class NewSquareSearchActivity extends BaseActivity<NewSquareSearchActivit
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ NewSquareSearchActivity f53910a;
+        public final /* synthetic */ NewSquareSearchActivity f54056a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(NewSquareSearchActivity newSquareSearchActivity, int i2, int i3) {
@@ -82,7 +83,7 @@ public class NewSquareSearchActivity extends BaseActivity<NewSquareSearchActivit
                     return;
                 }
             }
-            this.f53910a = newSquareSearchActivity;
+            this.f54056a = newSquareSearchActivity;
         }
 
         @Override // c.a.e.c.g.a
@@ -92,12 +93,12 @@ public class NewSquareSearchActivity extends BaseActivity<NewSquareSearchActivit
                 boolean z = responsedMessage instanceof SearchListHttpResMessage;
                 if (z || (responsedMessage instanceof SearchListSocketResMessage)) {
                     if (responsedMessage.getError() != 0) {
-                        if (this.f53910a.hasRemindSearchResultForNet) {
+                        if (this.f54056a.hasRemindSearchResultForNet) {
                             return;
                         }
-                        NewSquareSearchActivity newSquareSearchActivity = this.f53910a;
+                        NewSquareSearchActivity newSquareSearchActivity = this.f54056a;
                         newSquareSearchActivity.showToast(newSquareSearchActivity.getActivity().getString(R.string.neterror));
-                        this.f53910a.hasRemindSearchResultForNet = true;
+                        this.f54056a.hasRemindSearchResultForNet = true;
                         return;
                     }
                     DataRes dataRes = null;
@@ -119,7 +120,7 @@ public class NewSquareSearchActivity extends BaseActivity<NewSquareSearchActivit
                             }
                         }
                     }
-                    this.f53910a.mViewController.z(dataRes, str);
+                    this.f54056a.mViewController.z(dataRes, str);
                 }
             }
         }
@@ -131,7 +132,7 @@ public class NewSquareSearchActivity extends BaseActivity<NewSquareSearchActivit
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ NewSquareSearchActivity f53911a;
+        public final /* synthetic */ NewSquareSearchActivity f54057a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(NewSquareSearchActivity newSquareSearchActivity, int i2) {
@@ -151,7 +152,7 @@ public class NewSquareSearchActivity extends BaseActivity<NewSquareSearchActivit
                     return;
                 }
             }
-            this.f53911a = newSquareSearchActivity;
+            this.f54057a = newSquareSearchActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -159,7 +160,7 @@ public class NewSquareSearchActivity extends BaseActivity<NewSquareSearchActivit
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof String)) {
-                this.f53911a.creatBar(customResponsedMessage.getData().toString());
+                this.f54057a.creatBar(customResponsedMessage.getData().toString());
             }
         }
     }
@@ -170,7 +171,7 @@ public class NewSquareSearchActivity extends BaseActivity<NewSquareSearchActivit
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ NewSquareSearchActivity f53912e;
+        public final /* synthetic */ NewSquareSearchActivity f54058e;
 
         public c(NewSquareSearchActivity newSquareSearchActivity) {
             Interceptable interceptable = $ic;
@@ -187,14 +188,14 @@ public class NewSquareSearchActivity extends BaseActivity<NewSquareSearchActivit
                     return;
                 }
             }
-            this.f53912e = newSquareSearchActivity;
+            this.f54058e = newSquareSearchActivity;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                l.K(this.f53912e.getPageContext().getPageActivity(), this.f53912e.mViewController.o());
+                l.K(this.f54058e.getPageContext().getPageActivity(), this.f54058e.mViewController.o());
             }
         }
     }
@@ -205,7 +206,7 @@ public class NewSquareSearchActivity extends BaseActivity<NewSquareSearchActivit
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ NewSquareSearchActivity f53913e;
+        public final /* synthetic */ NewSquareSearchActivity f54059e;
 
         public d(NewSquareSearchActivity newSquareSearchActivity) {
             Interceptable interceptable = $ic;
@@ -222,14 +223,14 @@ public class NewSquareSearchActivity extends BaseActivity<NewSquareSearchActivit
                     return;
                 }
             }
-            this.f53913e = newSquareSearchActivity;
+            this.f54059e = newSquareSearchActivity;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f53913e.closeActivity();
+                this.f54059e.closeActivity();
             }
         }
     }
@@ -240,7 +241,7 @@ public class NewSquareSearchActivity extends BaseActivity<NewSquareSearchActivit
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ NewSquareSearchActivity f53914e;
+        public final /* synthetic */ NewSquareSearchActivity f54060e;
 
         public e(NewSquareSearchActivity newSquareSearchActivity) {
             Interceptable interceptable = $ic;
@@ -257,7 +258,7 @@ public class NewSquareSearchActivity extends BaseActivity<NewSquareSearchActivit
                     return;
                 }
             }
-            this.f53914e = newSquareSearchActivity;
+            this.f54060e = newSquareSearchActivity;
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
@@ -285,8 +286,8 @@ public class NewSquareSearchActivity extends BaseActivity<NewSquareSearchActivit
                         shareItem.O = optString5;
                         shareItem.P = optString6;
                         shareItem.Q = optString7;
-                        shareItem.W = jSONObject.optInt("shareimg");
-                        shareItem.e0 = jSONObject.optInt("weixin_disable");
+                        shareItem.Z = jSONObject.optInt("shareimg");
+                        shareItem.h0 = jSONObject.optInt("weixin_disable");
                         String optString8 = jSONObject.optString("extdata");
                         if (!StringUtils.isNull(optString8)) {
                             try {
@@ -378,7 +379,7 @@ public class NewSquareSearchActivity extends BaseActivity<NewSquareSearchActivit
                 return;
             }
             try {
-                this.mHotSearchInfo = (HotSearchInfoData) OrmObject.objectWithJsonStr(c.a.p0.s.d0.b.j().p("hot_search_info", ""), HotSearchInfoData.class);
+                this.mHotSearchInfo = (HotSearchInfoData) OrmObject.objectWithJsonStr(c.a.q0.s.d0.b.j().p("hot_search_info", ""), HotSearchInfoData.class);
             } catch (Exception e2) {
                 BdLog.e(e2);
             }
@@ -418,14 +419,14 @@ public class NewSquareSearchActivity extends BaseActivity<NewSquareSearchActivit
             }
             String currentAccount = TbadkCoreApplication.getCurrentAccount();
             if (currentAccount != null && currentAccount.length() > 0) {
-                c.a.p0.s.a0.b.e(getPageContext().getPageActivity(), 1);
+                c.a.q0.s.a0.b.e(getPageContext().getPageActivity(), 1);
             } else {
-                c.a.p0.s.a0.b.e(getPageContext().getPageActivity(), 2);
+                c.a.q0.s.a0.b.e(getPageContext().getPageActivity(), 2);
             }
         }
     }
 
-    @Override // com.baidu.tbadk.BaseActivity, c.a.p0.m0.a
+    @Override // com.baidu.tbadk.BaseActivity, c.a.q0.o0.a
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -451,7 +452,7 @@ public class NewSquareSearchActivity extends BaseActivity<NewSquareSearchActivit
             addGlobalLayoutListener();
             registerListener(this.mSearchSuggestListListener);
             registerListener(this.mCreateBarListener);
-            this.mViewController = new c.a.q0.t1.i.e(this, this.mIsFromEnterForum);
+            this.mViewController = new c.a.r0.u1.i.e(this, this.mIsFromEnterForum);
             this.mHotForumModel = new HotForumModel(getPageContext(), this);
             loadHotSearch();
         }
@@ -462,12 +463,13 @@ public class NewSquareSearchActivity extends BaseActivity<NewSquareSearchActivit
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.onDestroy();
-            c.a.q0.t1.i.e eVar = this.mViewController;
+            c.a.r0.u1.i.e eVar = this.mViewController;
             if (eVar != null) {
                 eVar.s();
             }
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921504, null));
             TbPageExtraHelper.v(getCurrentPageKey());
+            TbSingleton.getInstance().setFromWhichSearchSource("");
         }
     }
 
@@ -479,7 +481,7 @@ public class NewSquareSearchActivity extends BaseActivity<NewSquareSearchActivit
     }
 
     @Override // com.baidu.tieba.mainentrance.HotForumModel.b
-    public void onHotForumDataSuccess(List<c.a.q0.t1.b> list, List<c.a.q0.t1.c> list2, HotSearchInfoData hotSearchInfoData, String str) {
+    public void onHotForumDataSuccess(List<c.a.r0.u1.b> list, List<c.a.r0.u1.c> list2, HotSearchInfoData hotSearchInfoData, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(1048582, this, list, list2, hotSearchInfoData, str) == null) {
             updateHotSearchCache(hotSearchInfoData);
@@ -521,11 +523,12 @@ public class NewSquareSearchActivity extends BaseActivity<NewSquareSearchActivit
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             super.onResume();
-            c.a.q0.t1.i.e eVar = this.mViewController;
+            c.a.r0.u1.i.e eVar = this.mViewController;
             if (eVar != null) {
                 eVar.t();
             }
             registerGetShareContentTask();
+            TbSingleton.getInstance().setFromWhichSearchSource("");
         }
     }
 

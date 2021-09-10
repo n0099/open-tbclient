@@ -4,7 +4,6 @@ import android.content.Context;
 import android.os.Environment;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
-import com.baidu.searchbox.launch.stats.ActivitySpeedStats;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -294,7 +293,7 @@ public class f {
     public static void b(File file) throws IOException {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(65544, null, file) == null) && file.exists()) {
-            k.f(ActivitySpeedStats.SPLASH_LOADAD_DURATION, "当文件存在更新文件的修改时间");
+            k.f("splashLoadAd", "当文件存在更新文件的修改时间");
             long currentTimeMillis = System.currentTimeMillis();
             if (file.setLastModified(currentTimeMillis)) {
                 return;

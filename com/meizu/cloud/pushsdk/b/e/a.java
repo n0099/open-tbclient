@@ -9,7 +9,7 @@ import java.io.IOException;
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f74464a;
+    public static String f74644a;
 
     public static k a(com.meizu.cloud.pushsdk.b.a.b bVar) throws com.meizu.cloud.pushsdk.b.b.a {
         try {
@@ -46,10 +46,10 @@ public final class a {
         String str;
         com.meizu.cloud.pushsdk.b.c.c o;
         if (bVar.h() == null) {
-            String str2 = f74464a;
+            String str2 = f74644a;
             if (str2 != null) {
                 bVar.a(str2);
-                str = f74464a;
+                str = f74644a;
             }
             o = bVar.o();
             if (o == null) {

@@ -18,7 +18,7 @@ public final class b implements com.baidu.sofire.j.b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public a f45257a;
+    public a f45372a;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -39,13 +39,13 @@ public final class b implements com.baidu.sofire.j.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, context, cVar) == null) {
             a aVar = new a(context, cVar);
-            this.f45257a = aVar;
-            aVar.f45253c = new ServiceConnection(aVar) { // from class: com.baidu.sofire.k.a.1
+            this.f45372a = aVar;
+            aVar.f45368c = new ServiceConnection(aVar) { // from class: com.baidu.sofire.k.a.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a */
-                public final /* synthetic */ a f45256a;
+                public final /* synthetic */ a f45371a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -62,7 +62,7 @@ public final class b implements com.baidu.sofire.j.b {
                             return;
                         }
                     }
-                    this.f45256a = aVar;
+                    this.f45371a = aVar;
                 }
 
                 @Override // android.content.ServiceConnection
@@ -70,7 +70,7 @@ public final class b implements com.baidu.sofire.j.b {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLL(1048576, this, componentName, iBinder) == null) {
                         synchronized (this) {
-                            this.f45256a.f45252b = c.a.a(iBinder);
+                            this.f45371a.f45367b = c.a.a(iBinder);
                         }
                     }
                 }
@@ -79,13 +79,13 @@ public final class b implements com.baidu.sofire.j.b {
                 public final void onServiceDisconnected(ComponentName componentName) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, componentName) == null) {
-                        this.f45256a.f45252b = null;
+                        this.f45371a.f45367b = null;
                     }
                 }
             };
             Intent intent = new Intent("com.uodis.opendevice.OPENIDS_SERVICE");
             intent.setPackage("com.huawei.hwid");
-            aVar.f45251a.bindService(intent, aVar.f45253c, 1);
+            aVar.f45366a.bindService(intent, aVar.f45368c, 1);
         }
     }
 
@@ -93,6 +93,6 @@ public final class b implements com.baidu.sofire.j.b {
     public final String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f45257a.a() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f45372a.a() : (String) invokeV.objValue;
     }
 }

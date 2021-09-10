@@ -19,34 +19,34 @@ public class a {
     public String F;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f68616a;
+    public String f68796a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f68617b;
+    public String f68797b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f68618c;
+    public String f68798c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f68619d;
+    public String f68799d;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<StatisticModel.PackageStatisticModel.DownloadFailRecords> f68620e;
+    public List<StatisticModel.PackageStatisticModel.DownloadFailRecords> f68800e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f68621f;
+    public long f68801f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f68622g;
+    public long f68802g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f68623h;
+    public boolean f68803h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f68624i;
+    public boolean f68804i;
 
     /* renamed from: j  reason: collision with root package name */
-    public boolean f68625j;
+    public boolean f68805j;
     public boolean k;
     public long l;
     public long m;
@@ -77,7 +77,7 @@ public class a {
                 return;
             }
         }
-        this.f68620e = new CopyOnWriteArrayList();
+        this.f68800e = new CopyOnWriteArrayList();
         this.w = new CopyOnWriteArrayList();
     }
 }

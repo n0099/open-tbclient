@@ -63,7 +63,7 @@ public final class AssetFileDescriptorLocalUriFetcher extends LocalUriFetcher<As
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, uri, contentResolver)) == null) {
-            AssetFileDescriptor openAssetFileDescriptor = contentResolver.openAssetFileDescriptor(uri, r.f42169a);
+            AssetFileDescriptor openAssetFileDescriptor = contentResolver.openAssetFileDescriptor(uri, r.f42280a);
             if (openAssetFileDescriptor != null) {
                 return openAssetFileDescriptor;
             }

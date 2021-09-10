@@ -57,34 +57,34 @@ public class a {
     public boolean R;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f43988a;
+    public String f44103a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f43989b;
+    public String f44104b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f43990c;
+    public String f44105c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f43991d;
+    public int f44106d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f43992e;
+    public int f44107e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f43993f;
+    public int f44108f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f43994g;
+    public int f44109g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f43995h;
+    public int f44110h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f43996i;
+    public int f44111i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f43997j;
+    public int f44112j;
     public String k;
     public int l;
     public float m;
@@ -130,15 +130,15 @@ public class a {
                 return;
             }
         }
-        this.f43988a = "";
-        this.f43989b = "";
-        this.f43991d = -1;
-        this.f43992e = -1;
-        this.f43993f = -1;
-        this.f43994g = -1;
-        this.f43995h = 0;
-        this.f43996i = 0;
-        this.f43997j = 0;
+        this.f44103a = "";
+        this.f44104b = "";
+        this.f44106d = -1;
+        this.f44107e = -1;
+        this.f44108f = -1;
+        this.f44109g = -1;
+        this.f44110h = 0;
+        this.f44111i = 0;
+        this.f44112j = 0;
         this.k = "-1";
         this.l = -1;
         this.m = -1.0f;
@@ -191,26 +191,26 @@ public class a {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
             HashMap hashMap = new HashMap();
             Log.w(S, "onStat");
-            if (this.f43991d != -1) {
-                hashMap.put("camera_with_per", this.f43991d + "");
+            if (this.f44106d != -1) {
+                hashMap.put("camera_with_per", this.f44106d + "");
             }
-            if (this.f43992e != -1) {
-                hashMap.put("camera_open_per", this.f43992e + "");
+            if (this.f44107e != -1) {
+                hashMap.put("camera_open_per", this.f44107e + "");
             }
-            if (this.f43993f != -1) {
-                hashMap.put("net_get_potrt", this.f43993f + "");
+            if (this.f44108f != -1) {
+                hashMap.put("net_get_potrt", this.f44108f + "");
             }
-            if (this.f43994g != -1) {
-                hashMap.put("find_face_last", this.f43994g + "");
+            if (this.f44109g != -1) {
+                hashMap.put("find_face_last", this.f44109g + "");
             }
-            if (this.f43995h != 0) {
-                hashMap.put("find_face_num", this.f43995h + "");
+            if (this.f44110h != 0) {
+                hashMap.put("find_face_num", this.f44110h + "");
             }
-            if (this.f43996i != 0) {
-                hashMap.put("living_pass_eye_num", this.f43996i + "");
+            if (this.f44111i != 0) {
+                hashMap.put("living_pass_eye_num", this.f44111i + "");
             }
-            if (this.f43997j != 0) {
-                hashMap.put("living_pass_mouth_num", this.f43997j + "");
+            if (this.f44112j != 0) {
+                hashMap.put("living_pass_mouth_num", this.f44112j + "");
             }
             if (this.k != "-1" && this.R) {
                 hashMap.put("living_pass_type", this.k + "");
@@ -291,7 +291,7 @@ public class a {
             hashMap.put("abtest_illum", this.n + "");
             hashMap.put("time_whole", (this.P - this.E) + "");
             hashMap.put("error_code", this.Q + "");
-            hashMap.put("recog_type", this.f43988a);
+            hashMap.put("recog_type", this.f44103a);
             hashMap.put("guide_liveness", this.o + "");
             DisplayMetrics displayMetrics = new DisplayMetrics();
             ((WindowManager) context.getSystemService("window")).getDefaultDisplay().getMetrics(displayMetrics);
@@ -299,12 +299,12 @@ public class a {
             int i3 = displayMetrics.widthPixels;
             hashMap.put("screen_size", i3 + "," + i2);
             hashMap.put("os_ver", PassBiometricUtil.getOSVersion());
-            if (!TextUtils.isEmpty(this.f43989b)) {
-                hashMap.put("subpro", this.f43989b);
+            if (!TextUtils.isEmpty(this.f44104b)) {
+                hashMap.put("subpro", this.f44104b);
             }
             hashMap.put("net_type", NetworkUtils.getNetworkClass(context));
-            if (!TextUtils.isEmpty(this.f43990c)) {
-                hashMap.put("pre_size", this.f43990c);
+            if (!TextUtils.isEmpty(this.f44105c)) {
+                hashMap.put("pre_size", this.f44105c);
             }
             String str2 = S;
             Log.w(str2, "onStat|map|" + new JSONObject(hashMap));

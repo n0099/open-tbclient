@@ -15,7 +15,7 @@ public class e implements ai {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ BaiduMap f41556a;
+    public final /* synthetic */ BaiduMap f41667a;
 
     public e(BaiduMap baiduMap) {
         Interceptable interceptable = $ic;
@@ -32,7 +32,7 @@ public class e implements ai {
                 return;
             }
         }
-        this.f41556a = baiduMap;
+        this.f41667a = baiduMap;
     }
 
     @Override // com.baidu.mapsdkplatform.comapi.map.ai
@@ -45,22 +45,22 @@ public class e implements ai {
         TileOverlay tileOverlay2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), context})) == null) {
-            lock = this.f41556a.J;
+            lock = this.f41667a.J;
             lock.lock();
             try {
-                tileOverlay = this.f41556a.G;
+                tileOverlay = this.f41667a.G;
                 if (tileOverlay != null) {
-                    tileOverlay2 = this.f41556a.G;
+                    tileOverlay2 = this.f41667a.G;
                     Tile a2 = tileOverlay2.a(i2, i3, i4);
                     if (a2 != null) {
                         return a2.toBundle();
                     }
                 }
-                lock3 = this.f41556a.J;
+                lock3 = this.f41667a.J;
                 lock3.unlock();
                 return null;
             } finally {
-                lock2 = this.f41556a.J;
+                lock2 = this.f41667a.J;
                 lock2.unlock();
             }
         }

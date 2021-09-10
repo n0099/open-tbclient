@@ -3,8 +3,8 @@ package com.baidu.tieba.pluginCenter;
 import android.os.Bundle;
 import android.view.View;
 import c.a.e.g.c;
-import c.a.p0.i0.f.a;
-import c.a.p0.i0.f.b;
+import c.a.q0.k0.f.a;
+import c.a.q0.k0.f.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.util.SkinManager;
@@ -25,7 +25,7 @@ public class NpsPluginCenterActivity extends BaseActivity {
     public int mFromType;
     public NavigationBar mNavigationBar;
     public NoDataView mNoDataView;
-    public b<Object, c.a.p0.i0.d.b, a<Object, c.a.p0.i0.d.b>> mPluginCenterAdapter;
+    public b<Object, c.a.q0.k0.d.b, a<Object, c.a.q0.k0.d.b>> mPluginCenterAdapter;
     public View mRootView;
     public List<Object> mShowList;
 

@@ -15,20 +15,20 @@ public final class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final b f33882e;
+    public static final b f33991e;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final int f33883a;
+    public final int f33992a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f33884b;
+    public final int f33993b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final int f33885c;
+    public final int f33994c;
 
     /* renamed from: d  reason: collision with root package name */
-    public AudioAttributes f33886d;
+    public AudioAttributes f33995d;
 
     /* loaded from: classes4.dex */
     public static /* synthetic */ class a {
@@ -43,13 +43,13 @@ public final class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f33887a;
+        public int f33996a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f33888b;
+        public int f33997b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f33889c;
+        public int f33998c;
 
         public C1501b() {
             Interceptable interceptable = $ic;
@@ -64,15 +64,15 @@ public final class b {
                     return;
                 }
             }
-            this.f33887a = 0;
-            this.f33888b = 0;
-            this.f33889c = 1;
+            this.f33996a = 0;
+            this.f33997b = 0;
+            this.f33998c = 1;
         }
 
         public b a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new b(this.f33887a, this.f33888b, this.f33889c, null) : (b) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new b(this.f33996a, this.f33997b, this.f33998c, null) : (b) invokeV.objValue;
         }
     }
 
@@ -89,7 +89,7 @@ public final class b {
                 return;
             }
         }
-        f33882e = new C1501b().a();
+        f33991e = new C1501b().a();
     }
 
     public /* synthetic */ b(int i2, int i3, int i4, a aVar) {
@@ -101,10 +101,10 @@ public final class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.f33886d == null) {
-                this.f33886d = new AudioAttributes.Builder().setContentType(this.f33883a).setFlags(this.f33884b).setUsage(this.f33885c).build();
+            if (this.f33995d == null) {
+                this.f33995d = new AudioAttributes.Builder().setContentType(this.f33992a).setFlags(this.f33993b).setUsage(this.f33994c).build();
             }
-            return this.f33886d;
+            return this.f33995d;
         }
         return (AudioAttributes) invokeV.objValue;
     }
@@ -120,7 +120,7 @@ public final class b {
                 return false;
             }
             b bVar = (b) obj;
-            return this.f33883a == bVar.f33883a && this.f33884b == bVar.f33884b && this.f33885c == bVar.f33885c;
+            return this.f33992a == bVar.f33992a && this.f33993b == bVar.f33993b && this.f33994c == bVar.f33994c;
         }
         return invokeL.booleanValue;
     }
@@ -128,7 +128,7 @@ public final class b {
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? ((((527 + this.f33883a) * 31) + this.f33884b) * 31) + this.f33885c : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? ((((527 + this.f33992a) * 31) + this.f33993b) * 31) + this.f33994c : invokeV.intValue;
     }
 
     public b(int i2, int i3, int i4) {
@@ -146,8 +146,8 @@ public final class b {
                 return;
             }
         }
-        this.f33883a = i2;
-        this.f33884b = i3;
-        this.f33885c = i4;
+        this.f33992a = i2;
+        this.f33993b = i3;
+        this.f33994c = i4;
     }
 }

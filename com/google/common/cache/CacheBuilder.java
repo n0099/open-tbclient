@@ -35,34 +35,34 @@ public final class CacheBuilder<K, V> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f70104a;
+    public boolean f70284a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f70105b;
+    public int f70285b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f70106c;
+    public int f70286c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f70107d;
+    public long f70287d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f70108e;
+    public long f70288e;
 
     /* renamed from: f  reason: collision with root package name */
-    public j<? super K, ? super V> f70109f;
+    public j<? super K, ? super V> f70289f;
 
     /* renamed from: g  reason: collision with root package name */
-    public LocalCache.Strength f70110g;
+    public LocalCache.Strength f70290g;
 
     /* renamed from: h  reason: collision with root package name */
-    public LocalCache.Strength f70111h;
+    public LocalCache.Strength f70291h;
 
     /* renamed from: i  reason: collision with root package name */
-    public long f70112i;
+    public long f70292i;
 
     /* renamed from: j  reason: collision with root package name */
-    public long f70113j;
+    public long f70293j;
     public long k;
     public Equivalence<Object> l;
     public Equivalence<Object> m;
@@ -327,13 +327,13 @@ public final class CacheBuilder<K, V> {
                 return;
             }
         }
-        this.f70104a = true;
-        this.f70105b = -1;
-        this.f70106c = -1;
-        this.f70107d = -1L;
-        this.f70108e = -1L;
-        this.f70112i = -1L;
-        this.f70113j = -1L;
+        this.f70284a = true;
+        this.f70285b = -1;
+        this.f70286c = -1;
+        this.f70287d = -1L;
+        this.f70288e = -1L;
+        this.f70292i = -1L;
+        this.f70293j = -1L;
         this.k = -1L;
         this.p = q;
     }
@@ -348,9 +348,9 @@ public final class CacheBuilder<K, V> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, strength)) == null) {
-            n.A(this.f70110g == null, "Key strength was already set to %s", this.f70110g);
+            n.A(this.f70290g == null, "Key strength was already set to %s", this.f70290g);
             n.p(strength);
-            this.f70110g = strength;
+            this.f70290g = strength;
             return this;
         }
         return (CacheBuilder) invokeL.objValue;
@@ -360,9 +360,9 @@ public final class CacheBuilder<K, V> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, strength)) == null) {
-            n.A(this.f70111h == null, "Value strength was already set to %s", this.f70111h);
+            n.A(this.f70291h == null, "Value strength was already set to %s", this.f70291h);
             n.p(strength);
-            this.f70111h = strength;
+            this.f70291h = strength;
             return this;
         }
         return (CacheBuilder) invokeL.objValue;
@@ -399,12 +399,12 @@ public final class CacheBuilder<K, V> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, jVar)) == null) {
-            n.w(this.f70109f == null);
-            if (this.f70104a) {
-                n.z(this.f70107d == -1, "weigher can not be combined with maximum size", this.f70107d);
+            n.w(this.f70289f == null);
+            if (this.f70284a) {
+                n.z(this.f70287d == -1, "weigher can not be combined with maximum size", this.f70287d);
             }
             n.p(jVar);
-            this.f70109f = jVar;
+            this.f70289f = jVar;
             return this;
         }
         return (CacheBuilder) invokeL.objValue;
@@ -441,11 +441,11 @@ public final class CacheBuilder<K, V> {
     public final void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            if (this.f70109f == null) {
-                n.x(this.f70108e == -1, "maximumWeight requires weigher");
-            } else if (this.f70104a) {
-                n.x(this.f70108e != -1, "weigher requires maximumWeight");
-            } else if (this.f70108e == -1) {
+            if (this.f70289f == null) {
+                n.x(this.f70288e == -1, "maximumWeight requires weigher");
+            } else if (this.f70284a) {
+                n.x(this.f70288e != -1, "weigher requires maximumWeight");
+            } else if (this.f70288e == -1) {
                 t.log(Level.WARNING, "ignoring weigher specified without maximumWeight");
             }
         }
@@ -455,9 +455,9 @@ public final class CacheBuilder<K, V> {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i2)) == null) {
-            n.y(this.f70106c == -1, "concurrency level was already set to %s", this.f70106c);
+            n.y(this.f70286c == -1, "concurrency level was already set to %s", this.f70286c);
             n.d(i2 > 0);
-            this.f70106c = i2;
+            this.f70286c = i2;
             return this;
         }
         return (CacheBuilder) invokeI.objValue;
@@ -467,9 +467,9 @@ public final class CacheBuilder<K, V> {
         InterceptResult invokeJL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJL = interceptable.invokeJL(1048586, this, j2, timeUnit)) == null) {
-            n.z(this.f70113j == -1, "expireAfterAccess was already set to %s ns", this.f70113j);
+            n.z(this.f70293j == -1, "expireAfterAccess was already set to %s ns", this.f70293j);
             n.j(j2 >= 0, "duration cannot be negative: %s %s", j2, timeUnit);
-            this.f70113j = timeUnit.toNanos(j2);
+            this.f70293j = timeUnit.toNanos(j2);
             return this;
         }
         return (CacheBuilder) invokeJL.objValue;
@@ -479,9 +479,9 @@ public final class CacheBuilder<K, V> {
         InterceptResult invokeJL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJL = interceptable.invokeJL(1048587, this, j2, timeUnit)) == null) {
-            n.z(this.f70112i == -1, "expireAfterWrite was already set to %s ns", this.f70112i);
+            n.z(this.f70292i == -1, "expireAfterWrite was already set to %s ns", this.f70292i);
             n.j(j2 >= 0, "duration cannot be negative: %s %s", j2, timeUnit);
-            this.f70112i = timeUnit.toNanos(j2);
+            this.f70292i = timeUnit.toNanos(j2);
             return this;
         }
         return (CacheBuilder) invokeJL.objValue;
@@ -491,7 +491,7 @@ public final class CacheBuilder<K, V> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            int i2 = this.f70106c;
+            int i2 = this.f70286c;
             if (i2 == -1) {
                 return 4;
             }
@@ -504,7 +504,7 @@ public final class CacheBuilder<K, V> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            long j2 = this.f70113j;
+            long j2 = this.f70293j;
             if (j2 == -1) {
                 return 0L;
             }
@@ -517,7 +517,7 @@ public final class CacheBuilder<K, V> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            long j2 = this.f70112i;
+            long j2 = this.f70292i;
             if (j2 == -1) {
                 return 0L;
             }
@@ -530,7 +530,7 @@ public final class CacheBuilder<K, V> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            int i2 = this.f70105b;
+            int i2 = this.f70285b;
             if (i2 == -1) {
                 return 16;
             }
@@ -548,17 +548,17 @@ public final class CacheBuilder<K, V> {
     public LocalCache.Strength m() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? (LocalCache.Strength) c.i.d.a.j.a(this.f70110g, LocalCache.Strength.STRONG) : (LocalCache.Strength) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? (LocalCache.Strength) c.i.d.a.j.a(this.f70290g, LocalCache.Strength.STRONG) : (LocalCache.Strength) invokeV.objValue;
     }
 
     public long n() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
-            if (this.f70112i == 0 || this.f70113j == 0) {
+            if (this.f70292i == 0 || this.f70293j == 0) {
                 return 0L;
             }
-            return this.f70109f == null ? this.f70107d : this.f70108e;
+            return this.f70289f == null ? this.f70287d : this.f70288e;
         }
         return invokeV.longValue;
     }
@@ -607,7 +607,7 @@ public final class CacheBuilder<K, V> {
     public LocalCache.Strength t() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) ? (LocalCache.Strength) c.i.d.a.j.a(this.f70111h, LocalCache.Strength.STRONG) : (LocalCache.Strength) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) ? (LocalCache.Strength) c.i.d.a.j.a(this.f70291h, LocalCache.Strength.STRONG) : (LocalCache.Strength) invokeV.objValue;
     }
 
     public String toString() {
@@ -615,33 +615,33 @@ public final class CacheBuilder<K, V> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
             j.b c2 = c.i.d.a.j.c(this);
-            int i2 = this.f70105b;
+            int i2 = this.f70285b;
             if (i2 != -1) {
                 c2.b("initialCapacity", i2);
             }
-            int i3 = this.f70106c;
+            int i3 = this.f70286c;
             if (i3 != -1) {
                 c2.b("concurrencyLevel", i3);
             }
-            long j2 = this.f70107d;
+            long j2 = this.f70287d;
             if (j2 != -1) {
                 c2.c("maximumSize", j2);
             }
-            long j3 = this.f70108e;
+            long j3 = this.f70288e;
             if (j3 != -1) {
                 c2.c("maximumWeight", j3);
             }
-            if (this.f70112i != -1) {
-                c2.d("expireAfterWrite", this.f70112i + NotificationStyle.NOTIFICATION_STYLE);
+            if (this.f70292i != -1) {
+                c2.d("expireAfterWrite", this.f70292i + NotificationStyle.NOTIFICATION_STYLE);
             }
-            if (this.f70113j != -1) {
-                c2.d("expireAfterAccess", this.f70113j + NotificationStyle.NOTIFICATION_STYLE);
+            if (this.f70293j != -1) {
+                c2.d("expireAfterAccess", this.f70293j + NotificationStyle.NOTIFICATION_STYLE);
             }
-            LocalCache.Strength strength = this.f70110g;
+            LocalCache.Strength strength = this.f70290g;
             if (strength != null) {
                 c2.d("keyStrength", c.i.d.a.a.c(strength.toString()));
             }
-            LocalCache.Strength strength2 = this.f70111h;
+            LocalCache.Strength strength2 = this.f70291h;
             if (strength2 != null) {
                 c2.d("valueStrength", c.i.d.a.a.c(strength2.toString()));
             }
@@ -662,7 +662,7 @@ public final class CacheBuilder<K, V> {
     public <K1 extends K, V1 extends V> c.i.d.b.j<K1, V1> u() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) ? (c.i.d.b.j) c.i.d.a.j.a(this.f70109f, OneWeigher.INSTANCE) : (c.i.d.b.j) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) ? (c.i.d.b.j) c.i.d.a.j.a(this.f70289f, OneWeigher.INSTANCE) : (c.i.d.b.j) invokeV.objValue;
     }
 
     public CacheBuilder<K, V> v(Equivalence<Object> equivalence) {
@@ -681,11 +681,11 @@ public final class CacheBuilder<K, V> {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(1048604, this, j2)) == null) {
-            n.z(this.f70107d == -1, "maximum size was already set to %s", this.f70107d);
-            n.z(this.f70108e == -1, "maximum weight was already set to %s", this.f70108e);
-            n.x(this.f70109f == null, "maximum size can not be combined with weigher");
+            n.z(this.f70287d == -1, "maximum size was already set to %s", this.f70287d);
+            n.z(this.f70288e == -1, "maximum weight was already set to %s", this.f70288e);
+            n.x(this.f70289f == null, "maximum size can not be combined with weigher");
             n.e(j2 >= 0, "maximum size must not be negative");
-            this.f70107d = j2;
+            this.f70287d = j2;
             return this;
         }
         return (CacheBuilder) invokeJ.objValue;
@@ -695,9 +695,9 @@ public final class CacheBuilder<K, V> {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(1048605, this, j2)) == null) {
-            n.z(this.f70108e == -1, "maximum weight was already set to %s", this.f70108e);
-            n.z(this.f70107d == -1, "maximum size was already set to %s", this.f70107d);
-            this.f70108e = j2;
+            n.z(this.f70288e == -1, "maximum weight was already set to %s", this.f70288e);
+            n.z(this.f70287d == -1, "maximum size was already set to %s", this.f70287d);
+            this.f70288e = j2;
             n.e(j2 >= 0, "maximum weight must not be negative");
             return this;
         }

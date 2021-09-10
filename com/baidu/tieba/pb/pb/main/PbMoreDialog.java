@@ -6,9 +6,9 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
 import c.a.e.a.f;
-import c.a.p0.b.d;
-import c.a.p0.s.s.i;
-import c.a.q0.i2.h.r;
+import c.a.q0.b.d;
+import c.a.q0.s.s.i;
+import c.a.r0.j2.h.r;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.dialog.PopupDialog;
@@ -45,7 +45,7 @@ public class PbMoreDialog extends PopupDialog {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PbMoreDialog f55042e;
+        public final /* synthetic */ PbMoreDialog f55191e;
 
         public a(PbMoreDialog pbMoreDialog) {
             Interceptable interceptable = $ic;
@@ -62,15 +62,15 @@ public class PbMoreDialog extends PopupDialog {
                     return;
                 }
             }
-            this.f55042e = pbMoreDialog;
+            this.f55191e = pbMoreDialog;
         }
 
-        @Override // c.a.p0.s.s.i.e
+        @Override // c.a.q0.s.s.i.e
         public void onItemClick(i iVar, int i2, View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLIL(1048576, this, iVar, i2, view) == null) {
-                this.f55042e.dismiss();
-                this.f55042e.A.onClick(view);
+                this.f55191e.dismiss();
+                this.f55191e.A.onClick(view);
             }
         }
     }
@@ -147,7 +147,7 @@ public class PbMoreDialog extends PopupDialog {
             int i7 = R.id.tag_forbid_user_portrait;
             sparseArray3.put(i7, sparseArray.get(i7));
             sparseArray3.put(R.id.tag_forbid_user_post_id, str);
-            if (!c.a.q0.i2.k.e.d1.a.i(rVar) && booleanValue2) {
+            if (!c.a.r0.j2.k.e.f1.a.i(rVar) && booleanValue2) {
                 sparseArray3.put(R.id.tag_user_mute_visible, Boolean.TRUE);
                 int i8 = R.id.tag_is_mem;
                 sparseArray3.put(i8, sparseArray.get(i8));
@@ -212,7 +212,7 @@ public class PbMoreDialog extends PopupDialog {
         }
         boolean booleanValue5 = sparseArray.get(R.id.tag_user_mute_visible) instanceof Boolean ? ((Boolean) sparseArray.get(R.id.tag_user_mute_visible)).booleanValue() : false;
         boolean booleanValue6 = sparseArray.get(R.id.tag_should_manage_visible) instanceof Boolean ? ((Boolean) sparseArray.get(R.id.tag_should_manage_visible)).booleanValue() : false;
-        if (!c.a.q0.i2.k.e.d1.a.i(rVar) && !booleanValue6 && booleanValue5) {
+        if (!c.a.r0.j2.k.e.f1.a.i(rVar) && !booleanValue6 && booleanValue5) {
             SparseArray sparseArray5 = new SparseArray();
             sparseArray5.put(R.id.tag_user_mute_visible, Boolean.TRUE);
             int i21 = R.id.tag_is_mem;
@@ -256,7 +256,7 @@ public class PbMoreDialog extends PopupDialog {
         getEmotionTextView().setVisibility(8);
         getMarkTextView().setVisibility(8);
         getSaveLocalTextView().setVisibility(8);
-        c.a.q0.i2.k.e.d1.a.l(this.w, postData, rVar);
+        c.a.r0.j2.k.e.f1.a.l(this.w, postData, rVar);
     }
 
     /* JADX WARN: Removed duplicated region for block: B:103:0x0438  */
@@ -304,7 +304,7 @@ public class PbMoreDialog extends PopupDialog {
             int i7 = R.id.tag_forbid_user_portrait;
             sparseArray4.put(i7, sparseArray.get(i7));
             sparseArray4.put(R.id.tag_forbid_user_post_id, str);
-            if (!c.a.q0.i2.k.e.d1.a.i(rVar) && booleanValue3) {
+            if (!c.a.r0.j2.k.e.f1.a.i(rVar) && booleanValue3) {
                 sparseArray4.put(R.id.tag_user_mute_visible, Boolean.TRUE);
                 int i8 = R.id.tag_is_mem;
                 sparseArray4.put(i8, sparseArray.get(i8));
@@ -369,7 +369,7 @@ public class PbMoreDialog extends PopupDialog {
         }
         boolean booleanValue6 = sparseArray.get(R.id.tag_user_mute_visible) instanceof Boolean ? ((Boolean) sparseArray.get(R.id.tag_user_mute_visible)).booleanValue() : false;
         boolean booleanValue7 = sparseArray.get(R.id.tag_should_manage_visible) instanceof Boolean ? ((Boolean) sparseArray.get(R.id.tag_should_manage_visible)).booleanValue() : false;
-        if (!c.a.q0.i2.k.e.d1.a.i(rVar) && !booleanValue7 && booleanValue6) {
+        if (!c.a.r0.j2.k.e.f1.a.i(rVar) && !booleanValue7 && booleanValue6) {
             SparseArray sparseArray6 = new SparseArray();
             sparseArray6.put(R.id.tag_user_mute_visible, Boolean.TRUE);
             int i21 = R.id.tag_is_mem;
@@ -424,7 +424,7 @@ public class PbMoreDialog extends PopupDialog {
             z3 = ((Boolean) sparseArray.get(R.id.tag_richtext_emotion)).booleanValue();
             if (this.z.getPageActivity() instanceof NewSubPbActivity) {
                 NewSubPbActivity newSubPbActivity = (NewSubPbActivity) this.z.getPageActivity();
-                if (z3 && newSubPbActivity.getSubPbModel() != null && newSubPbActivity.getSubPbModel().i0() != null && newSubPbActivity.getSubPbModel().i0().l() != null && !newSubPbActivity.getSubPbModel().i0().l().N1()) {
+                if (z3 && newSubPbActivity.getSubPbModel() != null && newSubPbActivity.getSubPbModel().i0() != null && newSubPbActivity.getSubPbModel().i0().l() != null && !newSubPbActivity.getSubPbModel().i0().l().Q1()) {
                     z3 = true;
                 }
             }
@@ -450,7 +450,7 @@ public class PbMoreDialog extends PopupDialog {
                 getManageTextView().setVisibility(8);
                 getReportTextView().setVisibility(8);
             }
-            if (d.O()) {
+            if (d.C()) {
                 if (postData != null) {
                     SparseArray sparseArray7 = new SparseArray();
                     sparseArray7.put(R.id.tag_load_sub_data, postData);
@@ -484,7 +484,7 @@ public class PbMoreDialog extends PopupDialog {
                     getDisagreeTextView().setText(string);
                 }
             }
-            c.a.q0.i2.k.e.d1.a.l(this.w, postData, rVar);
+            c.a.r0.j2.k.e.f1.a.l(this.w, postData, rVar);
         }
         z3 = false;
         if (!(sparseArray.get(R.id.tag_richtext_image) instanceof Boolean)) {
@@ -499,16 +499,16 @@ public class PbMoreDialog extends PopupDialog {
         getDisagreeTextView().setVisibility(8);
         if (z2) {
         }
-        if (d.O()) {
+        if (d.C()) {
         }
-        c.a.q0.i2.k.e.d1.a.l(this.w, postData, rVar);
+        c.a.r0.j2.k.e.f1.a.l(this.w, postData, rVar);
     }
 
     public final void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             a aVar = new a(this);
-            if (d.O()) {
+            if (d.C()) {
                 setDefaultContentView(null, new String[]{this.z.getString(R.string.action_reply), this.z.getString(R.string.action_share), this.z.getString(R.string.action_dislike), this.z.getString(R.string.no_interesting), this.z.getString(R.string.save_to_emotion), this.z.getString(R.string.save_to_local), this.z.getString(R.string.copy), this.z.getString(R.string.mark), this.z.getString(R.string.report_text), this.z.getString(R.string.delete), this.z.getString(R.string.mute), this.z.getString(R.string.block_user)}, aVar);
                 this.x = h(getItemView(0));
                 this.y = h(getItemView(1));

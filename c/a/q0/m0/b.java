@@ -1,27 +1,40 @@
 package c.a.q0.m0;
 
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.atomData.ForumSquareActivityConfig;
+import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(TbPageContext<?> tbPageContext, String str) {
-        ForumSquareActivityConfig forumSquareActivityConfig;
+    /* renamed from: a  reason: collision with root package name */
+    public BaseFragment f13613a;
+
+    public b(BaseFragment baseFragment) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65536, null, tbPageContext, str) == null) || tbPageContext == null) {
-            return;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {baseFragment};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
-        if (!StringUtils.isNull(str)) {
-            forumSquareActivityConfig = new ForumSquareActivityConfig(tbPageContext.getPageActivity(), str);
-        } else {
-            forumSquareActivityConfig = new ForumSquareActivityConfig(tbPageContext.getPageActivity());
-        }
-        tbPageContext.sendMessage(new CustomMessage(2002001, forumSquareActivityConfig));
+        this.f13613a = baseFragment;
+    }
+
+    public BaseFragment a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f13613a : (BaseFragment) invokeV.objValue;
     }
 }

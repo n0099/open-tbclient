@@ -14,17 +14,17 @@ public class O {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static O f76641d;
+    public static O f76821d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ThreadPoolExecutor f76642a;
+    public ThreadPoolExecutor f76822a;
 
     /* renamed from: b  reason: collision with root package name */
-    public T f76643b;
+    public T f76823b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f76644c;
+    public boolean f76824c;
 
     static {
         InterceptResult invokeClinit;
@@ -39,7 +39,7 @@ public class O {
                 return;
             }
         }
-        f76641d = new O();
+        f76821d = new O();
     }
 
     public O() {
@@ -55,7 +55,7 @@ public class O {
                 return;
             }
         }
-        this.f76644c = false;
-        this.f76642a = (ThreadPoolExecutor) Executors.newCachedThreadPool();
+        this.f76824c = false;
+        this.f76822a = (ThreadPoolExecutor) Executors.newCachedThreadPool();
     }
 }

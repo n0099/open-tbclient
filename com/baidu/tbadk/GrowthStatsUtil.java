@@ -3,7 +3,7 @@ package com.baidu.tbadk;
 import android.net.Uri;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.p0.s.d0.b;
+import c.a.q0.b0.a;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.datacollector.growth.GrowthCollectManager;
 import com.baidu.searchbox.datacollector.growth.model.ActiveData;
@@ -156,9 +156,9 @@ public class GrowthStatsUtil {
 
     public static void statisticActivity() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65543, null) == null) && PermissionUtil.isAgreePrivacyPolicy() && b.j().k("key_growth_app_launch_time", 0) == 0) {
+        if ((interceptable == null || interceptable.invokeV(65543, null) == null) && PermissionUtil.isAgreePrivacyPolicy()) {
             GrowthCollectManager.statisticActiveData(new ActiveData.Builder(TbadkCoreApplication.getFrom()).build(), TbadkCoreApplication.getInst());
-            b.j().v("key_growth_app_launch_time", 1);
+            a.a();
         }
     }
 

@@ -125,34 +125,34 @@ public class BaseActivity extends TitleActivity {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ValueCallback<Uri> f44492a;
+    public ValueCallback<Uri> f44607a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ValueCallback<Uri[]> f44493b;
+    public ValueCallback<Uri[]> f44608b;
 
     /* renamed from: c  reason: collision with root package name */
-    public SapiWebView.PickPhotoResult f44494c;
+    public SapiWebView.PickPhotoResult f44609c;
 
     /* renamed from: d  reason: collision with root package name */
-    public SapiWebView.BiometricsIdentifyResult f44495d;
+    public SapiWebView.BiometricsIdentifyResult f44610d;
 
     /* renamed from: e  reason: collision with root package name */
-    public SapiScheme f44496e;
+    public SapiScheme f44611e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f44497f;
+    public int f44612f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f44498g;
+    public int f44613g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ImageCropCallback.ImageCropResult f44499h;
+    public ImageCropCallback.ImageCropResult f44614h;
 
     /* renamed from: i  reason: collision with root package name */
-    public ScreenShotManager f44500i;
+    public ScreenShotManager f44615i;
 
     /* renamed from: j  reason: collision with root package name */
-    public IdcardOcrImageCallback f44501j;
+    public IdcardOcrImageCallback f44616j;
     public boolean loginStatusChange;
     public SapiWebView sapiWebView;
 
@@ -190,13 +190,13 @@ public class BaseActivity extends TitleActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             ScreenShotManager screenShotManager = new ScreenShotManager();
-            this.f44500i = screenShotManager;
+            this.f44615i = screenShotManager;
             screenShotManager.init(getContentResolver(), new IScreenShotListener(this) { // from class: com.baidu.sapi2.activity.BaseActivity.24
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ BaseActivity f44523a;
+                public final /* synthetic */ BaseActivity f44638a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -213,19 +213,19 @@ public class BaseActivity extends TitleActivity {
                             return;
                         }
                     }
-                    this.f44523a = this;
+                    this.f44638a = this;
                 }
 
                 @Override // com.baidu.sapi2.shell.listener.IScreenShotListener
                 public void onScreenShot() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f44523a.runOnUiThread(new Runnable(this) { // from class: com.baidu.sapi2.activity.BaseActivity.24.1
+                        this.f44638a.runOnUiThread(new Runnable(this) { // from class: com.baidu.sapi2.activity.BaseActivity.24.1
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
 
                             /* renamed from: a  reason: collision with root package name */
-                            public final /* synthetic */ AnonymousClass24 f44524a;
+                            public final /* synthetic */ AnonymousClass24 f44639a;
 
                             {
                                 Interceptable interceptable3 = $ic;
@@ -242,14 +242,14 @@ public class BaseActivity extends TitleActivity {
                                         return;
                                     }
                                 }
-                                this.f44524a = this;
+                                this.f44639a = this;
                             }
 
                             @Override // java.lang.Runnable
                             public void run() {
                                 SapiWebView sapiWebView;
                                 Interceptable interceptable3 = $ic;
-                                if (!(interceptable3 == null || interceptable3.invokeV(1048576, this) == null) || (sapiWebView = this.f44524a.f44523a.sapiWebView) == null) {
+                                if (!(interceptable3 == null || interceptable3.invokeV(1048576, this) == null) || (sapiWebView = this.f44639a.f44638a.sapiWebView) == null) {
                                     return;
                                 }
                                 sapiWebView.loadUrl(BaseActivity.l);
@@ -258,7 +258,7 @@ public class BaseActivity extends TitleActivity {
                     }
                 }
             });
-            this.f44500i.register();
+            this.f44615i.register();
         }
     }
 
@@ -284,7 +284,7 @@ public class BaseActivity extends TitleActivity {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ BaseActivity f44515a;
+                public final /* synthetic */ BaseActivity f44630a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -301,7 +301,7 @@ public class BaseActivity extends TitleActivity {
                             return;
                         }
                     }
-                    this.f44515a = this;
+                    this.f44630a = this;
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
@@ -309,9 +309,9 @@ public class BaseActivity extends TitleActivity {
                 public void onFailure(PassFaceRecogResult passFaceRecogResult) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, passFaceRecogResult) == null) {
-                        JSONObject a2 = this.f44515a.a(passFaceRecogResult.getResultCode(), passFaceRecogResult.getResultMsg(), null, null);
-                        if (this.f44515a.f44495d != null) {
-                            this.f44515a.f44495d.setIdentifyToken(a2.toString());
+                        JSONObject a2 = this.f44630a.a(passFaceRecogResult.getResultCode(), passFaceRecogResult.getResultMsg(), null, null);
+                        if (this.f44630a.f44610d != null) {
+                            this.f44630a.f44610d.setIdentifyToken(a2.toString());
                         }
                     }
                 }
@@ -321,9 +321,9 @@ public class BaseActivity extends TitleActivity {
                 public void onSuccess(PassFaceRecogResult passFaceRecogResult) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048579, this, passFaceRecogResult) == null) {
-                        JSONObject a2 = this.f44515a.a(passFaceRecogResult.getResultCode(), passFaceRecogResult.getResultMsg(), passFaceRecogResult.callbackkey, passFaceRecogResult.authSid);
-                        if (this.f44515a.f44495d != null) {
-                            this.f44515a.f44495d.setIdentifyToken(a2.toString());
+                        JSONObject a2 = this.f44630a.a(passFaceRecogResult.getResultCode(), passFaceRecogResult.getResultMsg(), passFaceRecogResult.callbackkey, passFaceRecogResult.authSid);
+                        if (this.f44630a.f44610d != null) {
+                            this.f44630a.f44610d.setIdentifyToken(a2.toString());
                         }
                     }
                 }
@@ -347,16 +347,16 @@ public class BaseActivity extends TitleActivity {
                 activityResultCallback.onActivityResult(i2, i3, intent);
             }
             if (i2 == 1001) {
-                if (this.f44494c == null) {
+                if (this.f44609c == null) {
                     return;
                 }
                 if (i3 == -1 && imageCropCallback2 != null) {
-                    imageCropCallback2.onImageCrop(this, Uri.fromFile(new File(Environment.getExternalStorageDirectory(), "camera_temp_image.jpg")), this.f44497f, this.f44498g, new ImageCropCallback.ImageCropResult(this) { // from class: com.baidu.sapi2.activity.BaseActivity.20
+                    imageCropCallback2.onImageCrop(this, Uri.fromFile(new File(Environment.getExternalStorageDirectory(), "camera_temp_image.jpg")), this.f44612f, this.f44613g, new ImageCropCallback.ImageCropResult(this) { // from class: com.baidu.sapi2.activity.BaseActivity.20
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
 
                         /* renamed from: a  reason: collision with root package name */
-                        public final /* synthetic */ BaseActivity f44519a;
+                        public final /* synthetic */ BaseActivity f44634a;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -373,7 +373,7 @@ public class BaseActivity extends TitleActivity {
                                     return;
                                 }
                             }
-                            this.f44519a = this;
+                            this.f44634a = this;
                         }
 
                         @Override // com.baidu.sapi2.callback.ImageCropCallback.ImageCropResult
@@ -381,27 +381,27 @@ public class BaseActivity extends TitleActivity {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeL(1048576, this, str) == null) {
                                 if (str != null) {
-                                    this.f44519a.f44494c.setImageData(str);
+                                    this.f44634a.f44609c.setImageData(str);
                                 } else {
-                                    this.f44519a.f44494c.setImageData("");
+                                    this.f44634a.f44609c.setImageData("");
                                 }
                             }
                         }
                     });
                 } else {
-                    this.f44494c.setImageData("");
+                    this.f44609c.setImageData("");
                 }
             } else if (i2 == 1002) {
-                if (this.f44494c == null) {
+                if (this.f44609c == null) {
                     return;
                 }
                 if (i3 == -1 && intent.getData() != null && imageCropCallback2 != null) {
-                    imageCropCallback2.onImageCrop(this, intent.getData(), this.f44497f, this.f44498g, new ImageCropCallback.ImageCropResult(this) { // from class: com.baidu.sapi2.activity.BaseActivity.21
+                    imageCropCallback2.onImageCrop(this, intent.getData(), this.f44612f, this.f44613g, new ImageCropCallback.ImageCropResult(this) { // from class: com.baidu.sapi2.activity.BaseActivity.21
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
 
                         /* renamed from: a  reason: collision with root package name */
-                        public final /* synthetic */ BaseActivity f44520a;
+                        public final /* synthetic */ BaseActivity f44635a;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -418,7 +418,7 @@ public class BaseActivity extends TitleActivity {
                                     return;
                                 }
                             }
-                            this.f44520a = this;
+                            this.f44635a = this;
                         }
 
                         @Override // com.baidu.sapi2.callback.ImageCropCallback.ImageCropResult
@@ -426,25 +426,25 @@ public class BaseActivity extends TitleActivity {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeL(1048576, this, str) == null) {
                                 if (str != null) {
-                                    this.f44520a.f44494c.setImageData(str);
+                                    this.f44635a.f44609c.setImageData(str);
                                 } else {
-                                    this.f44520a.f44494c.setImageData("");
+                                    this.f44635a.f44609c.setImageData("");
                                 }
                             }
                         }
                     });
                 } else {
-                    this.f44494c.setImageData("");
+                    this.f44609c.setImageData("");
                 }
             } else if (i2 == 2001 && i3 == 3001) {
                 a(intent);
             } else if (i2 == 1005) {
                 if (intent == null) {
-                    if (this.f44501j != null) {
+                    if (this.f44616j != null) {
                         IdcardOcrImageRusult idcardOcrImageRusult = new IdcardOcrImageRusult();
                         idcardOcrImageRusult.setResultCode(-404);
                         idcardOcrImageRusult.setResultMsg(IdCardOcrResult.MESSAGE_ALBUM_ERROR);
-                        this.f44501j.onFailure(idcardOcrImageRusult);
+                        this.f44616j.onFailure(idcardOcrImageRusult);
                         return;
                     }
                     return;
@@ -452,22 +452,22 @@ public class BaseActivity extends TitleActivity {
                 a(intent.getData());
             } else if (i2 != 1006) {
                 if (i2 == 1010) {
-                    if (this.f44492a == null) {
+                    if (this.f44607a == null) {
                         return;
                     }
-                    this.f44492a.onReceiveValue((intent == null || i3 != -1) ? null : intent.getData());
-                    this.f44492a = null;
-                } else if (i2 != 1011 || this.f44493b == null) {
+                    this.f44607a.onReceiveValue((intent == null || i3 != -1) ? null : intent.getData());
+                    this.f44607a = null;
+                } else if (i2 != 1011 || this.f44608b == null) {
                 } else {
                     Uri data = (intent == null || i3 != -1) ? null : intent.getData();
                     if (data != null) {
-                        this.f44493b.onReceiveValue(new Uri[]{data});
+                        this.f44608b.onReceiveValue(new Uri[]{data});
                     } else {
-                        this.f44493b.onReceiveValue(new Uri[0]);
+                        this.f44608b.onReceiveValue(new Uri[0]);
                     }
-                    this.f44493b = null;
+                    this.f44608b = null;
                 }
-            } else if (this.f44501j == null) {
+            } else if (this.f44616j == null) {
             } else {
                 if (intent != null && intent.getByteArrayExtra(ImageClipActivity.EXTRA_IMAGE) != null) {
                     byte[] byteArrayExtra = intent.getByteArrayExtra(ImageClipActivity.EXTRA_IMAGE);
@@ -479,13 +479,13 @@ public class BaseActivity extends TitleActivity {
                     IdcardOcrImageRusult idcardOcrImageRusult2 = new IdcardOcrImageRusult();
                     idcardOcrImageRusult2.setResultCode(0);
                     idcardOcrImageRusult2.image = Base64Utils.encodeToString(a2);
-                    this.f44501j.onSuccess(idcardOcrImageRusult2);
+                    this.f44616j.onSuccess(idcardOcrImageRusult2);
                     return;
                 }
                 IdcardOcrImageRusult idcardOcrImageRusult3 = new IdcardOcrImageRusult();
                 idcardOcrImageRusult3.setResultCode(-404);
                 idcardOcrImageRusult3.setResultMsg(IdCardOcrResult.MESSAGE_ALBUM_ERROR);
-                this.f44501j.onFailure(idcardOcrImageRusult3);
+                this.f44616j.onFailure(idcardOcrImageRusult3);
             }
         }
     }
@@ -602,7 +602,7 @@ public class BaseActivity extends TitleActivity {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ BaseActivity f44512a;
+                public final /* synthetic */ BaseActivity f44627a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -619,16 +619,16 @@ public class BaseActivity extends TitleActivity {
                             return;
                         }
                     }
-                    this.f44512a = this;
+                    this.f44627a = this;
                 }
 
                 @Override // com.baidu.pass.permissions.PermissionsCallback
                 public void onFailure(int i2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeI(1048576, this, i2) == null) {
-                        Toast.makeText(this.f44512a, BaseOptionActivity.NO_STORAGE_PERM_MSG, 1).show();
-                        if (this.f44512a.f44494c != null) {
-                            this.f44512a.f44494c.setImageData("");
+                        Toast.makeText(this.f44627a, BaseOptionActivity.NO_STORAGE_PERM_MSG, 1).show();
+                        if (this.f44627a.f44609c != null) {
+                            this.f44627a.f44609c.setImageData("");
                         }
                     }
                 }
@@ -641,13 +641,13 @@ public class BaseActivity extends TitleActivity {
                             if (Build.VERSION.SDK_INT == 19) {
                                 Intent intent = new Intent("android.intent.action.PICK", MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
                                 intent.setType(BdUploadHandler.IMAGE_MIME_TYPE);
-                                this.f44512a.startActivityForResult(intent, 1002);
+                                this.f44627a.startActivityForResult(intent, 1002);
                                 return;
                             }
                             Intent intent2 = new Intent();
                             intent2.setType(BdUploadHandler.IMAGE_MIME_TYPE);
                             intent2.setAction("android.intent.action.GET_CONTENT");
-                            this.f44512a.startActivityForResult(intent2, 1002);
+                            this.f44627a.startActivityForResult(intent2, 1002);
                         } catch (Throwable th) {
                             Log.e(th);
                         }
@@ -660,7 +660,7 @@ public class BaseActivity extends TitleActivity {
     public void releaseScreenShotManager() {
         ScreenShotManager screenShotManager;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048587, this) == null) || (screenShotManager = this.f44500i) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048587, this) == null) || (screenShotManager = this.f44615i) == null) {
             return;
         }
         screenShotManager.unRegister();
@@ -706,10 +706,10 @@ public class BaseActivity extends TitleActivity {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ ImageView f44525a;
+                public final /* synthetic */ ImageView f44640a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ BaseActivity f44526b;
+                public final /* synthetic */ BaseActivity f44641b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -726,8 +726,8 @@ public class BaseActivity extends TitleActivity {
                             return;
                         }
                     }
-                    this.f44526b = this;
-                    this.f44525a = imageView;
+                    this.f44641b = this;
+                    this.f44640a = imageView;
                 }
 
                 @Override // com.baidu.sapi2.SapiJsCallBacks.SwitchStyleForCloseBtnAndStatusBarCallBack
@@ -737,21 +737,21 @@ public class BaseActivity extends TitleActivity {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, str) == null) {
                         if (str.equals("1")) {
-                            ImageView imageView2 = this.f44525a;
+                            ImageView imageView2 = this.f44640a;
                             if (imageView2 != null) {
                                 imageView2.setColorFilter(-1);
                             }
-                            if (Build.VERSION.SDK_INT < 23 || (window2 = this.f44526b.getWindow()) == null) {
+                            if (Build.VERSION.SDK_INT < 23 || (window2 = this.f44641b.getWindow()) == null) {
                                 return;
                             }
                             window2.getDecorView().setSystemUiVisibility(1280);
                             return;
                         }
-                        ImageView imageView3 = this.f44525a;
+                        ImageView imageView3 = this.f44640a;
                         if (imageView3 != null) {
                             imageView3.setColorFilter(-16777216);
                         }
-                        if (Build.VERSION.SDK_INT < 23 || (window = this.f44526b.getWindow()) == null) {
+                        if (Build.VERSION.SDK_INT < 23 || (window = this.f44641b.getWindow()) == null) {
                             return;
                         }
                         window.getDecorView().setSystemUiVisibility(9216);
@@ -780,7 +780,7 @@ public class BaseActivity extends TitleActivity {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ BaseActivity f44502a;
+                public final /* synthetic */ BaseActivity f44617a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -797,19 +797,19 @@ public class BaseActivity extends TitleActivity {
                             return;
                         }
                     }
-                    this.f44502a = this;
+                    this.f44617a = this;
                 }
 
                 @Override // com.baidu.sapi2.SapiWebView.WebViewTitleCallback
                 public void onTitleChange(String str) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, str) == null) {
-                        String string = this.f44502a.getString(g.sapi_sdk_account_center_webview_title_online_service);
-                        String string2 = this.f44502a.getString(g.sapi_sdk_account_center_webview_title_common_problem);
+                        String string = this.f44617a.getString(g.sapi_sdk_account_center_webview_title_online_service);
+                        String string2 = this.f44617a.getString(g.sapi_sdk_account_center_webview_title_common_problem);
                         if (string.equals(str)) {
                             str = string2;
                         }
-                        this.f44502a.setTitleText(str);
+                        this.f44617a.setTitleText(str);
                     }
                 }
             });
@@ -818,7 +818,7 @@ public class BaseActivity extends TitleActivity {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ BaseActivity f44518a;
+                public final /* synthetic */ BaseActivity f44633a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -835,7 +835,7 @@ public class BaseActivity extends TitleActivity {
                             return;
                         }
                     }
-                    this.f44518a = this;
+                    this.f44633a = this;
                 }
 
                 @Override // com.baidu.sapi2.SapiWebView.LocalConfigCallback
@@ -858,7 +858,7 @@ public class BaseActivity extends TitleActivity {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ BaseActivity f44531a;
+                public final /* synthetic */ BaseActivity f44646a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -875,14 +875,14 @@ public class BaseActivity extends TitleActivity {
                             return;
                         }
                     }
-                    this.f44531a = this;
+                    this.f44646a = this;
                 }
 
                 @Override // com.baidu.sapi2.SapiWebView.FileChooserCallback
                 public void onFileChooser(ValueCallback<Uri> valueCallback) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, valueCallback) == null) {
-                        this.f44531a.a(valueCallback);
+                        this.f44646a.a(valueCallback);
                     }
                 }
 
@@ -890,7 +890,7 @@ public class BaseActivity extends TitleActivity {
                 public void onFileChooserForOSVersion5(ValueCallback<Uri[]> valueCallback) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, valueCallback) == null) {
-                        this.f44531a.b(valueCallback);
+                        this.f44646a.b(valueCallback);
                     }
                 }
             });
@@ -899,7 +899,7 @@ public class BaseActivity extends TitleActivity {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ BaseActivity f44533a;
+                public final /* synthetic */ BaseActivity f44648a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -916,20 +916,20 @@ public class BaseActivity extends TitleActivity {
                             return;
                         }
                     }
-                    this.f44533a = this;
+                    this.f44648a = this;
                 }
 
                 @Override // com.baidu.sapi2.SapiWebView.PickPhotoCallback
                 public void onPickImage(int i2, int i3, int i4, SapiWebView.PickPhotoResult pickPhotoResult) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), pickPhotoResult}) == null) {
-                        this.f44533a.f44494c = pickPhotoResult;
-                        this.f44533a.f44497f = i3;
-                        this.f44533a.f44498g = i4;
+                        this.f44648a.f44609c = pickPhotoResult;
+                        this.f44648a.f44612f = i3;
+                        this.f44648a.f44613g = i4;
                         if (1 == i2) {
-                            this.f44533a.takePhoto();
+                            this.f44648a.takePhoto();
                         } else {
-                            this.f44533a.pickPhoto();
+                            this.f44648a.pickPhoto();
                         }
                     }
                 }
@@ -939,7 +939,7 @@ public class BaseActivity extends TitleActivity {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ BaseActivity f44534a;
+                public final /* synthetic */ BaseActivity f44649a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -956,18 +956,18 @@ public class BaseActivity extends TitleActivity {
                             return;
                         }
                     }
-                    this.f44534a = this;
+                    this.f44649a = this;
                 }
 
                 @Override // com.baidu.sapi2.SapiWebView.BiometricsIdentifyCallback
                 public void onBiometricsIdentify(SapiWebView.BiometricsIdentifyResult biometricsIdentifyResult) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, biometricsIdentifyResult) == null) {
-                        this.f44534a.f44495d = biometricsIdentifyResult;
+                        this.f44649a.f44610d = biometricsIdentifyResult;
                         if ("bduss".equals(biometricsIdentifyResult.livenessRecogType)) {
-                            this.f44534a.a(biometricsIdentifyResult);
+                            this.f44649a.a(biometricsIdentifyResult);
                         } else if ("certinfo".equals(biometricsIdentifyResult.livenessRecogType) || "authtoken".equals(biometricsIdentifyResult.livenessRecogType)) {
-                            this.f44534a.livenessRecognize(null, biometricsIdentifyResult);
+                            this.f44649a.livenessRecognize(null, biometricsIdentifyResult);
                         }
                     }
                 }
@@ -977,7 +977,7 @@ public class BaseActivity extends TitleActivity {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ BaseActivity f44535a;
+                public final /* synthetic */ BaseActivity f44650a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -994,14 +994,14 @@ public class BaseActivity extends TitleActivity {
                             return;
                         }
                     }
-                    this.f44535a = this;
+                    this.f44650a = this;
                 }
 
                 @Override // com.baidu.sapi2.SapiJsCallBacks.PageStateCallback
                 public void pageState(int i2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeI(1048576, this, i2) == null) {
-                        this.f44535a.updateBottomBack(i2);
+                        this.f44650a.updateBottomBack(i2);
                     }
                 }
             });
@@ -1010,7 +1010,7 @@ public class BaseActivity extends TitleActivity {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ BaseActivity f44536a;
+                public final /* synthetic */ BaseActivity f44651a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -1027,14 +1027,14 @@ public class BaseActivity extends TitleActivity {
                             return;
                         }
                     }
-                    this.f44536a = this;
+                    this.f44651a = this;
                 }
 
                 @Override // com.baidu.sapi2.SapiWebView.BioScanFaceCallback
                 public void onBioScanFace(SapiWebView.BioScanFaceCallback.BioScanFaceResult bioScanFaceResult) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, bioScanFaceResult) == null) {
-                        BaseActivity baseActivity = this.f44536a;
+                        BaseActivity baseActivity = this.f44651a;
                         baseActivity.a(baseActivity, bioScanFaceResult);
                     }
                 }
@@ -1044,7 +1044,7 @@ public class BaseActivity extends TitleActivity {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ BaseActivity f44537a;
+                public final /* synthetic */ BaseActivity f44652a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -1061,15 +1061,15 @@ public class BaseActivity extends TitleActivity {
                             return;
                         }
                     }
-                    this.f44537a = this;
+                    this.f44652a = this;
                 }
 
                 @Override // com.baidu.sapi2.SapiWebView.InvokeScAppCallback
                 public void onInvokeScApp(String str, String str2, List<PassNameValuePair> list, SapiWebView.InvokeScAppCallback.InvokeScAppResult invokeScAppResult) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLLLL(1048576, this, str, str2, list, invokeScAppResult) == null) {
-                        this.f44537a.f44496e = new SapiScheme();
-                        this.f44537a.f44496e.invokeScApp(this.f44537a, str, str2, list, invokeScAppResult);
+                        this.f44652a.f44611e = new SapiScheme();
+                        this.f44652a.f44611e.invokeScApp(this.f44652a, str, str2, list, invokeScAppResult);
                     }
                 }
             });
@@ -1078,7 +1078,7 @@ public class BaseActivity extends TitleActivity {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ BaseActivity f44538a;
+                public final /* synthetic */ BaseActivity f44653a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -1095,14 +1095,14 @@ public class BaseActivity extends TitleActivity {
                             return;
                         }
                     }
-                    this.f44538a = this;
+                    this.f44653a = this;
                 }
 
                 @Override // com.baidu.sapi2.SapiJsCallBacks.LoginStatusChangeCallback
                 public void onChange() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f44538a.loginStatusChange = true;
+                        this.f44653a.loginStatusChange = true;
                     }
                 }
             });
@@ -1111,7 +1111,7 @@ public class BaseActivity extends TitleActivity {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ BaseActivity f44503a;
+                public final /* synthetic */ BaseActivity f44618a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -1128,23 +1128,23 @@ public class BaseActivity extends TitleActivity {
                             return;
                         }
                     }
-                    this.f44503a = this;
+                    this.f44618a = this;
                 }
 
                 @Override // com.baidu.sapi2.SapiJsCallBacks.FingerprintCallback
                 public void onCallback(SapiJsCallBacks.FingerprintResult fingerprintResult) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, fingerprintResult) == null) {
-                        BaseActivity baseActivity = this.f44503a;
+                        BaseActivity baseActivity = this.f44618a;
                         new FingerprintHelper(baseActivity, new FingerprintDialog(baseActivity)).startAuthenticate(fingerprintResult.authType, new FingerprintCallback(this, fingerprintResult) { // from class: com.baidu.sapi2.activity.BaseActivity.10.1
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
 
                             /* renamed from: a  reason: collision with root package name */
-                            public final /* synthetic */ SapiJsCallBacks.FingerprintResult f44504a;
+                            public final /* synthetic */ SapiJsCallBacks.FingerprintResult f44619a;
 
                             /* renamed from: b  reason: collision with root package name */
-                            public final /* synthetic */ AnonymousClass10 f44505b;
+                            public final /* synthetic */ AnonymousClass10 f44620b;
 
                             {
                                 Interceptable interceptable3 = $ic;
@@ -1161,15 +1161,15 @@ public class BaseActivity extends TitleActivity {
                                         return;
                                     }
                                 }
-                                this.f44505b = this;
-                                this.f44504a = fingerprintResult;
+                                this.f44620b = this;
+                                this.f44619a = fingerprintResult;
                             }
 
                             @Override // com.baidu.sapi2.touchid.FingerprintCallback
                             public void onCall(int i2) {
                                 Interceptable interceptable3 = $ic;
                                 if (interceptable3 == null || interceptable3.invokeI(1048576, this, i2) == null) {
-                                    this.f44504a.setResult(i2);
+                                    this.f44619a.setResult(i2);
                                 }
                             }
                         });
@@ -1181,7 +1181,7 @@ public class BaseActivity extends TitleActivity {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ BaseActivity f44506a;
+                public final /* synthetic */ BaseActivity f44621a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -1198,7 +1198,7 @@ public class BaseActivity extends TitleActivity {
                             return;
                         }
                     }
-                    this.f44506a = this;
+                    this.f44621a = this;
                 }
 
                 @Override // android.os.Handler
@@ -1208,13 +1208,13 @@ public class BaseActivity extends TitleActivity {
                         super.handleMessage(message);
                         AbstractThirdPartyService thirdPartyService = CoreViewRouter.getInstance().getThirdPartyService();
                         if (thirdPartyService != null) {
-                            thirdPartyService.loadThirdPartyLogin(this.f44506a, (SocialType) message.obj, 2006, null, true);
+                            thirdPartyService.loadThirdPartyLogin(this.f44621a, (SocialType) message.obj, 2006, null, true);
                             SocialLoginBase.setWXLoginCallback(new WXInvokeCallback(this) { // from class: com.baidu.sapi2.activity.BaseActivity.11.1
                                 public static /* synthetic */ Interceptable $ic;
                                 public transient /* synthetic */ FieldHolder $fh;
 
                                 /* renamed from: a  reason: collision with root package name */
-                                public final /* synthetic */ AnonymousClass11 f44507a;
+                                public final /* synthetic */ AnonymousClass11 f44622a;
 
                                 {
                                     Interceptable interceptable3 = $ic;
@@ -1231,14 +1231,14 @@ public class BaseActivity extends TitleActivity {
                                             return;
                                         }
                                     }
-                                    this.f44507a = this;
+                                    this.f44622a = this;
                                 }
 
                                 @Override // com.baidu.sapi2.social.WXInvokeCallback
                                 public void onResult(int i2, Intent intent) {
                                     Interceptable interceptable3 = $ic;
                                     if ((interceptable3 == null || interceptable3.invokeIL(1048576, this, i2, intent) == null) && i2 == 3001) {
-                                        this.f44507a.f44506a.a(intent);
+                                        this.f44622a.f44621a.a(intent);
                                     }
                                 }
                             });
@@ -1251,7 +1251,7 @@ public class BaseActivity extends TitleActivity {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ BaseActivity f44508a;
+                public final /* synthetic */ BaseActivity f44623a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -1268,14 +1268,14 @@ public class BaseActivity extends TitleActivity {
                             return;
                         }
                     }
-                    this.f44508a = this;
+                    this.f44623a = this;
                 }
 
                 @Override // com.baidu.sapi2.SapiJsCallBacks.BiometricsIdentificationLiveCallBack
                 public void getLiveImage(int i2, PassFaceRecogCallback passFaceRecogCallback) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, passFaceRecogCallback) == null) {
-                        BiometricsManager.getInstance().recogWithFaceLive(this.f44508a, i2, passFaceRecogCallback);
+                        BiometricsManager.getInstance().recogWithFaceLive(this.f44623a, i2, passFaceRecogCallback);
                     }
                 }
             });
@@ -1284,7 +1284,7 @@ public class BaseActivity extends TitleActivity {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ BaseActivity f44509a;
+                public final /* synthetic */ BaseActivity f44624a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -1301,18 +1301,18 @@ public class BaseActivity extends TitleActivity {
                             return;
                         }
                     }
-                    this.f44509a = this;
+                    this.f44624a = this;
                 }
 
                 @Override // com.baidu.sapi2.SapiJsCallBacks.IdcardOcrImageCallBack
                 public void getIdcardImage(String str, String str2, IdcardOcrImageCallback idcardOcrImageCallback) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLLL(1048576, this, str, str2, idcardOcrImageCallback) == null) {
-                        this.f44509a.f44501j = idcardOcrImageCallback;
+                        this.f44624a.f44616j = idcardOcrImageCallback;
                         if ("album".equals(str)) {
-                            this.f44509a.d();
+                            this.f44624a.d();
                         } else if ("camera".equals(str)) {
-                            this.f44509a.a(str2);
+                            this.f44624a.a(str2);
                         }
                     }
                 }
@@ -1322,7 +1322,7 @@ public class BaseActivity extends TitleActivity {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ BaseActivity f44510a;
+                public final /* synthetic */ BaseActivity f44625a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -1339,14 +1339,14 @@ public class BaseActivity extends TitleActivity {
                             return;
                         }
                     }
-                    this.f44510a = this;
+                    this.f44625a = this;
                 }
 
                 @Override // com.baidu.sapi2.SapiJsCallBacks.MakeVibrateCallBack
                 public void presetVibrate() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        VibrateUtils.presetVibrate(this.f44510a);
+                        VibrateUtils.presetVibrate(this.f44625a);
                     }
                 }
 
@@ -1354,7 +1354,7 @@ public class BaseActivity extends TitleActivity {
                 public void vibrate(long[] jArr, int i2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jArr, i2) == null) {
-                        VibrateUtils.vibrate(this.f44510a, jArr, i2);
+                        VibrateUtils.vibrate(this.f44625a, jArr, i2);
                     }
                 }
             });
@@ -1374,7 +1374,7 @@ public class BaseActivity extends TitleActivity {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ BaseActivity f44511a;
+                public final /* synthetic */ BaseActivity f44626a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -1391,16 +1391,16 @@ public class BaseActivity extends TitleActivity {
                             return;
                         }
                     }
-                    this.f44511a = this;
+                    this.f44626a = this;
                 }
 
                 @Override // com.baidu.pass.permissions.PermissionsCallback
                 public void onFailure(int i2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeI(1048576, this, i2) == null) {
-                        Toast.makeText(this.f44511a, BaseOptionActivity.NO_CAMERA_PERM_MSG, 1).show();
-                        if (this.f44511a.f44494c != null) {
-                            this.f44511a.f44494c.setImageData("");
+                        Toast.makeText(this.f44626a, BaseOptionActivity.NO_CAMERA_PERM_MSG, 1).show();
+                        if (this.f44626a.f44609c != null) {
+                            this.f44626a.f44609c.setImageData("");
                         }
                     }
                 }
@@ -1411,7 +1411,7 @@ public class BaseActivity extends TitleActivity {
                     if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
                         try {
                             if (!"mounted".equals(Environment.getExternalStorageState())) {
-                                Toast.makeText(this.f44511a, g.sapi_sdk_user_profile_sdcard_unavailable, 0).show();
+                                Toast.makeText(this.f44626a, g.sapi_sdk_user_profile_sdcard_unavailable, 0).show();
                                 return;
                             }
                             File file = new File(Environment.getExternalStorageDirectory(), "camera_temp_image.jpg");
@@ -1421,14 +1421,14 @@ public class BaseActivity extends TitleActivity {
                             Intent intent = new Intent("android.media.action.IMAGE_CAPTURE");
                             intent.setAction("android.media.action.IMAGE_CAPTURE");
                             File file2 = new File(Environment.getExternalStorageDirectory(), "camera_temp_image.jpg");
-                            if (Build.VERSION.SDK_INT >= 24 && this.f44511a.getApplicationInfo().targetSdkVersion >= 24) {
-                                BaseActivity baseActivity = this.f44511a;
-                                intent.putExtra("output", FileProvider.getUriForFile(baseActivity, this.f44511a.getPackageName() + ".passfileprovider", file2));
+                            if (Build.VERSION.SDK_INT >= 24 && this.f44626a.getApplicationInfo().targetSdkVersion >= 24) {
+                                BaseActivity baseActivity = this.f44626a;
+                                intent.putExtra("output", FileProvider.getUriForFile(baseActivity, this.f44626a.getPackageName() + ".passfileprovider", file2));
                             } else {
                                 intent.putExtra("output", Uri.fromFile(file2));
                             }
                             intent.putExtra("orientation", 0);
-                            this.f44511a.startActivityForResult(intent, 1001);
+                            this.f44626a.startActivityForResult(intent, 1001);
                         } catch (Throwable th) {
                             Log.e(th);
                         }
@@ -1469,7 +1469,7 @@ public class BaseActivity extends TitleActivity {
                         public transient /* synthetic */ FieldHolder $fh;
 
                         /* renamed from: a  reason: collision with root package name */
-                        public final /* synthetic */ BaseActivity f44529a;
+                        public final /* synthetic */ BaseActivity f44644a;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -1486,14 +1486,14 @@ public class BaseActivity extends TitleActivity {
                                     return;
                                 }
                             }
-                            this.f44529a = this;
+                            this.f44644a = this;
                         }
 
                         @Override // android.view.View.OnClickListener
                         public void onClick(View view) {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                                this.f44529a.requestPermissions(new String[]{"android.permission.WRITE_EXTERNAL_STORAGE"}, 2001);
+                                this.f44644a.requestPermissions(new String[]{"android.permission.WRITE_EXTERNAL_STORAGE"}, 2001);
                             }
                         }
                     }).setNegativeButton("关闭", new View.OnClickListener(this) { // from class: com.baidu.sapi2.activity.BaseActivity.27
@@ -1501,7 +1501,7 @@ public class BaseActivity extends TitleActivity {
                         public transient /* synthetic */ FieldHolder $fh;
 
                         /* renamed from: a  reason: collision with root package name */
-                        public final /* synthetic */ BaseActivity f44528a;
+                        public final /* synthetic */ BaseActivity f44643a;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -1518,19 +1518,19 @@ public class BaseActivity extends TitleActivity {
                                     return;
                                 }
                             }
-                            this.f44528a = this;
+                            this.f44643a = this;
                         }
 
                         @Override // android.view.View.OnClickListener
                         public void onClick(View view) {
                             Interceptable interceptable2 = $ic;
-                            if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) || this.f44528a.f44501j == null) {
+                            if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) || this.f44643a.f44616j == null) {
                                 return;
                             }
                             IdcardOcrImageRusult idcardOcrImageRusult = new IdcardOcrImageRusult();
                             idcardOcrImageRusult.setResultCode(-402);
                             idcardOcrImageRusult.setResultMsg(IdCardOcrResult.MESSAGE_NO_ALBUM_PERMISSION);
-                            this.f44528a.f44501j.onFailure(idcardOcrImageRusult);
+                            this.f44643a.f44616j.onFailure(idcardOcrImageRusult);
                         }
                     }).build().show();
                     return;
@@ -1551,7 +1551,7 @@ public class BaseActivity extends TitleActivity {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ BaseActivity f44532a;
+                public final /* synthetic */ BaseActivity f44647a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -1568,7 +1568,7 @@ public class BaseActivity extends TitleActivity {
                             return;
                         }
                     }
-                    this.f44532a = this;
+                    this.f44647a = this;
                 }
 
                 @Override // android.view.View.OnClickListener
@@ -1577,15 +1577,15 @@ public class BaseActivity extends TitleActivity {
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
                         Intent intent = new Intent("android.settings.APPLICATION_DETAILS_SETTINGS");
                         intent.addFlags(268435456);
-                        intent.setData(Uri.fromParts(AsInstallService.SCHEME_PACKAGE_ADDED, this.f44532a.getPackageName(), null));
-                        if (intent.resolveActivity(this.f44532a.getPackageManager()) != null) {
-                            this.f44532a.startActivity(intent);
+                        intent.setData(Uri.fromParts(AsInstallService.SCHEME_PACKAGE_ADDED, this.f44647a.getPackageName(), null));
+                        if (intent.resolveActivity(this.f44647a.getPackageManager()) != null) {
+                            this.f44647a.startActivity(intent);
                         }
-                        if (this.f44532a.f44501j != null) {
+                        if (this.f44647a.f44616j != null) {
                             IdcardOcrImageRusult idcardOcrImageRusult = new IdcardOcrImageRusult();
                             idcardOcrImageRusult.setResultCode(-402);
                             idcardOcrImageRusult.setResultMsg(IdCardOcrResult.MESSAGE_NO_ALBUM_PERMISSION);
-                            this.f44532a.f44501j.onFailure(idcardOcrImageRusult);
+                            this.f44647a.f44616j.onFailure(idcardOcrImageRusult);
                         }
                     }
                 }
@@ -1594,7 +1594,7 @@ public class BaseActivity extends TitleActivity {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ BaseActivity f44530a;
+                public final /* synthetic */ BaseActivity f44645a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -1611,19 +1611,19 @@ public class BaseActivity extends TitleActivity {
                             return;
                         }
                     }
-                    this.f44530a = this;
+                    this.f44645a = this;
                 }
 
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) || this.f44530a.f44501j == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) || this.f44645a.f44616j == null) {
                         return;
                     }
                     IdcardOcrImageRusult idcardOcrImageRusult = new IdcardOcrImageRusult();
                     idcardOcrImageRusult.setResultCode(-402);
                     idcardOcrImageRusult.setResultMsg(IdCardOcrResult.MESSAGE_NO_ALBUM_PERMISSION);
-                    this.f44530a.f44501j.onFailure(idcardOcrImageRusult);
+                    this.f44645a.f44616j.onFailure(idcardOcrImageRusult);
                 }
             }).build();
             build.setCancelable(false);
@@ -1638,7 +1638,7 @@ public class BaseActivity extends TitleActivity {
     public void b(ValueCallback<Uri[]> valueCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65560, this, valueCallback) == null) {
-            this.f44493b = valueCallback;
+            this.f44608b = valueCallback;
             Intent intent = new Intent("android.intent.action.GET_CONTENT");
             intent.addCategory("android.intent.category.OPENABLE");
             intent.setType(BdUploadHandler.IMAGE_MIME_TYPE);
@@ -1653,7 +1653,7 @@ public class BaseActivity extends TitleActivity {
     public void a(ValueCallback<Uri> valueCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65551, this, valueCallback) == null) {
-            this.f44492a = valueCallback;
+            this.f44607a = valueCallback;
             Intent intent = new Intent("android.intent.action.GET_CONTENT");
             intent.addCategory("android.intent.category.OPENABLE");
             intent.setType(BdUploadHandler.IMAGE_MIME_TYPE);
@@ -1669,7 +1669,7 @@ public class BaseActivity extends TitleActivity {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ BaseActivity f44521a;
+            public final /* synthetic */ BaseActivity f44636a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -1686,14 +1686,14 @@ public class BaseActivity extends TitleActivity {
                         return;
                     }
                 }
-                this.f44521a = this;
+                this.f44636a = this;
             }
 
             @Override // com.baidu.sapi2.callback.ImageCropCallback
             public void onImageCrop(Context context, Uri uri, int i2, int i3, ImageCropCallback.ImageCropResult imageCropResult) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{context, uri, Integer.valueOf(i2), Integer.valueOf(i3), imageCropResult}) == null) {
-                    this.f44521a.f44499h = imageCropResult;
+                    this.f44636a.f44614h = imageCropResult;
                     Intent intent = new Intent(context, ImageClipActivity.class);
                     if (i2 == ClipBoxView.H) {
                         intent.putExtra(ImageClipActivity.EXTRA_PARAM_FROM_BUSINESS, 0);
@@ -1702,7 +1702,7 @@ public class BaseActivity extends TitleActivity {
                     }
                     intent.putExtra(ImageClipActivity.EXTRA_PARAM_UPLOAD_IMAGE_MAX_SIZE, i3);
                     intent.setData(uri);
-                    this.f44521a.startActivityForResult(intent, 1003);
+                    this.f44636a.startActivityForResult(intent, 1003);
                 }
             }
         } : (ImageCropCallback) invokeV.objValue;
@@ -1724,10 +1724,10 @@ public class BaseActivity extends TitleActivity {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ SapiWebView.BiometricsIdentifyResult f44513a;
+                public final /* synthetic */ SapiWebView.BiometricsIdentifyResult f44628a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ BaseActivity f44514b;
+                public final /* synthetic */ BaseActivity f44629b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -1744,8 +1744,8 @@ public class BaseActivity extends TitleActivity {
                             return;
                         }
                     }
-                    this.f44514b = this;
-                    this.f44513a = biometricsIdentifyResult;
+                    this.f44629b = this;
+                    this.f44628a = biometricsIdentifyResult;
                 }
 
                 @Override // com.baidu.sapi2.callback.SapiCallback
@@ -1774,8 +1774,8 @@ public class BaseActivity extends TitleActivity {
                         } catch (JSONException e2) {
                             Log.e(e2);
                         }
-                        if (this.f44514b.f44495d != null) {
-                            this.f44514b.f44495d.setIdentifyToken(jSONObject.toString());
+                        if (this.f44629b.f44610d != null) {
+                            this.f44629b.f44610d.setIdentifyToken(jSONObject.toString());
                         }
                     }
                 }
@@ -1787,9 +1787,9 @@ public class BaseActivity extends TitleActivity {
                     if (interceptable2 == null || interceptable2.invokeL(1048580, this, getTplStokenResult) == null) {
                         String str = getTplStokenResult.tplStokenMap.get("pp");
                         if (!TextUtils.isEmpty(str)) {
-                            SapiWebView.BiometricsIdentifyResult biometricsIdentifyResult2 = this.f44513a;
+                            SapiWebView.BiometricsIdentifyResult biometricsIdentifyResult2 = this.f44628a;
                             if (biometricsIdentifyResult2.biometricType == 1) {
-                                this.f44514b.livenessRecognize(str, biometricsIdentifyResult2);
+                                this.f44629b.livenessRecognize(str, biometricsIdentifyResult2);
                                 return;
                             }
                             return;
@@ -1801,8 +1801,8 @@ public class BaseActivity extends TitleActivity {
                         } catch (JSONException e2) {
                             Log.e(e2);
                         }
-                        if (this.f44514b.f44495d != null) {
-                            this.f44514b.f44495d.setIdentifyToken(jSONObject.toString());
+                        if (this.f44629b.f44610d != null) {
+                            this.f44629b.f44610d.setIdentifyToken(jSONObject.toString());
                         }
                     }
                 }
@@ -1820,10 +1820,10 @@ public class BaseActivity extends TitleActivity {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ SapiWebView.BioScanFaceCallback.BioScanFaceResult f44516a;
+                public final /* synthetic */ SapiWebView.BioScanFaceCallback.BioScanFaceResult f44631a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ BaseActivity f44517b;
+                public final /* synthetic */ BaseActivity f44632b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -1840,8 +1840,8 @@ public class BaseActivity extends TitleActivity {
                             return;
                         }
                     }
-                    this.f44517b = this;
-                    this.f44516a = bioScanFaceResult;
+                    this.f44632b = this;
+                    this.f44631a = bioScanFaceResult;
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
@@ -1849,8 +1849,8 @@ public class BaseActivity extends TitleActivity {
                 public void onFailure(PassFaceRecogResult passFaceRecogResult) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, passFaceRecogResult) == null) {
-                        JSONObject a2 = this.f44517b.a(passFaceRecogResult.getResultCode(), passFaceRecogResult.getResultMsg(), null, null);
-                        SapiWebView.BioScanFaceCallback.BioScanFaceResult bioScanFaceResult2 = this.f44516a;
+                        JSONObject a2 = this.f44632b.a(passFaceRecogResult.getResultCode(), passFaceRecogResult.getResultMsg(), null, null);
+                        SapiWebView.BioScanFaceCallback.BioScanFaceResult bioScanFaceResult2 = this.f44631a;
                         if (bioScanFaceResult2 != null) {
                             bioScanFaceResult2.setScanFaceIdentifyResult(a2.toString());
                         }
@@ -1864,7 +1864,7 @@ public class BaseActivity extends TitleActivity {
                     String str;
                     JSONObject jSONObject;
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeL(1048579, this, passFaceRecogResult) == null) || (bioScanFaceResult2 = this.f44516a) == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeL(1048579, this, passFaceRecogResult) == null) || (bioScanFaceResult2 = this.f44631a) == null) {
                         return;
                     }
                     if (bioScanFaceResult2.type == 1) {
@@ -1879,14 +1879,14 @@ public class BaseActivity extends TitleActivity {
                             jSONObject.put("errno", passFaceRecogResult.getResultCode());
                             jSONObject.put("errmsg", passFaceRecogResult.getResultMsg());
                             str = jSONObject.toString();
-                            this.f44516a.setScanFaceIdentifyResult(str);
+                            this.f44631a.setScanFaceIdentifyResult(str);
                             return;
                         }
                         str = "";
-                        this.f44516a.setScanFaceIdentifyResult(str);
+                        this.f44631a.setScanFaceIdentifyResult(str);
                         return;
                     }
-                    this.f44516a.setScanFaceIdentifyResult(this.f44517b.a(passFaceRecogResult.getResultCode(), passFaceRecogResult.getResultMsg(), passFaceRecogResult.callbackkey, passFaceRecogResult.authSid).toString());
+                    this.f44631a.setScanFaceIdentifyResult(this.f44632b.a(passFaceRecogResult.getResultCode(), passFaceRecogResult.getResultMsg(), passFaceRecogResult.callbackkey, passFaceRecogResult.authSid).toString());
                 }
             };
             if (bioScanFaceResult.type == 1) {
@@ -1931,7 +1931,7 @@ public class BaseActivity extends TitleActivity {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ BaseActivity f44522a;
+            public final /* synthetic */ BaseActivity f44637a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -1948,7 +1948,7 @@ public class BaseActivity extends TitleActivity {
                         return;
                     }
                 }
-                this.f44522a = this;
+                this.f44637a = this;
             }
 
             @Override // com.baidu.sapi2.callback.ActivityResultCallback
@@ -1957,12 +1957,12 @@ public class BaseActivity extends TitleActivity {
                 if ((interceptable2 == null || interceptable2.invokeIIL(1048576, this, i2, i3, intent) == null) && i2 == 1003) {
                     if (i3 == -1) {
                         byte[] byteArrayExtra = intent.getByteArrayExtra(ImageClipActivity.EXTRA_IMAGE);
-                        if (byteArrayExtra == null || this.f44522a.f44499h == null) {
+                        if (byteArrayExtra == null || this.f44637a.f44614h == null) {
                             return;
                         }
-                        this.f44522a.f44499h.onImageResult(SecurityUtil.base64Encode(byteArrayExtra));
-                    } else if (this.f44522a.f44499h != null) {
-                        this.f44522a.f44499h.onImageResult(null);
+                        this.f44637a.f44614h.onImageResult(SecurityUtil.base64Encode(byteArrayExtra));
+                    } else if (this.f44637a.f44614h != null) {
+                        this.f44637a.f44614h.onImageResult(null);
                     }
                 }
             }
@@ -2014,7 +2014,7 @@ public class BaseActivity extends TitleActivity {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ BaseActivity f44527a;
+                public final /* synthetic */ BaseActivity f44642a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -2031,13 +2031,13 @@ public class BaseActivity extends TitleActivity {
                             return;
                         }
                     }
-                    this.f44527a = this;
+                    this.f44642a = this;
                 }
 
                 @Override // com.baidu.sapi2.callback.IdCardOcrCallback
                 public void onFailure(IdCardOcrResult idCardOcrResult) {
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, idCardOcrResult) == null) || this.f44527a.f44501j == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, idCardOcrResult) == null) || this.f44642a.f44616j == null) {
                         return;
                     }
                     IdcardOcrImageRusult idcardOcrImageRusult = new IdcardOcrImageRusult();
@@ -2045,13 +2045,13 @@ public class BaseActivity extends TitleActivity {
                     idcardOcrImageRusult.image = idCardOcrResult.image;
                     idcardOcrImageRusult.setResultCode(idCardOcrResult.getResultCode());
                     idcardOcrImageRusult.setResultMsg(idCardOcrResult.getResultMsg());
-                    this.f44527a.f44501j.onFailure(idcardOcrImageRusult);
+                    this.f44642a.f44616j.onFailure(idcardOcrImageRusult);
                 }
 
                 @Override // com.baidu.sapi2.callback.IdCardOcrCallback
                 public void onSuccess(IdCardOcrResult idCardOcrResult) {
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, idCardOcrResult) == null) || this.f44527a.f44501j == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, idCardOcrResult) == null) || this.f44642a.f44616j == null) {
                         return;
                     }
                     IdcardOcrImageRusult idcardOcrImageRusult = new IdcardOcrImageRusult();
@@ -2059,7 +2059,7 @@ public class BaseActivity extends TitleActivity {
                     idcardOcrImageRusult.image = idCardOcrResult.image;
                     idcardOcrImageRusult.setResultCode(idCardOcrResult.getResultCode());
                     idcardOcrImageRusult.setResultMsg(idCardOcrResult.getResultMsg());
-                    this.f44527a.f44501j.onSuccess(idcardOcrImageRusult);
+                    this.f44642a.f44616j.onSuccess(idcardOcrImageRusult);
                 }
             });
         }

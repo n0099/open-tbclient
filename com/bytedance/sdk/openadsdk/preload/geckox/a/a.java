@@ -36,19 +36,19 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f68477a;
+        public String f68657a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f68478b;
+        public String f68658b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f68479c;
+        public int f68659c;
 
         /* renamed from: d  reason: collision with root package name */
-        public long f68480d;
+        public long f68660d;
 
         /* renamed from: e  reason: collision with root package name */
-        public File f68481e;
+        public File f68661e;
 
         public C1930a(String str, String str2, int i2, long j2, File file) {
             Interceptable interceptable = $ic;
@@ -65,11 +65,11 @@ public class a {
                     return;
                 }
             }
-            this.f68477a = str;
-            this.f68478b = str2;
-            this.f68479c = i2;
-            this.f68480d = j2;
-            this.f68481e = file;
+            this.f68657a = str;
+            this.f68658b = str2;
+            this.f68659c = i2;
+            this.f68660d = j2;
+            this.f68661e = file;
         }
     }
 
@@ -79,17 +79,17 @@ public class a {
             return;
         }
         for (C1930a c1930a : list) {
-            File file = c1930a.f68481e;
+            File file = c1930a.f68661e;
             long uptimeMillis = SystemClock.uptimeMillis();
             boolean a2 = d.a(file);
             long uptimeMillis2 = SystemClock.uptimeMillis();
             if (a2) {
                 if (aVar != null) {
-                    aVar.b(c1930a.f68478b);
+                    aVar.b(c1930a.f68658b);
                 }
-                b.a(context).a(c1930a.f68477a, c1930a.f68478b, c1930a.f68479c, 200, c1930a.f68480d, 0, null, uptimeMillis2 - uptimeMillis, 1);
+                b.a(context).a(c1930a.f68657a, c1930a.f68658b, c1930a.f68659c, 200, c1930a.f68660d, 0, null, uptimeMillis2 - uptimeMillis, 1);
             } else {
-                b.a(context).a(c1930a.f68477a, c1930a.f68478b, c1930a.f68479c, 201, c1930a.f68480d, 601, "delete failed", uptimeMillis2 - uptimeMillis, 1);
+                b.a(context).a(c1930a.f68657a, c1930a.f68658b, c1930a.f68659c, 201, c1930a.f68660d, 601, "delete failed", uptimeMillis2 - uptimeMillis, 1);
             }
         }
     }
@@ -113,13 +113,13 @@ public class a {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ Context f68474a;
+            public final /* synthetic */ Context f68654a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ List f68475b;
+            public final /* synthetic */ List f68655b;
 
             /* renamed from: c  reason: collision with root package name */
-            public final /* synthetic */ com.bytedance.sdk.openadsdk.preload.geckox.e.a f68476c;
+            public final /* synthetic */ com.bytedance.sdk.openadsdk.preload.geckox.e.a f68656c;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -136,9 +136,9 @@ public class a {
                         return;
                     }
                 }
-                this.f68474a = context;
-                this.f68475b = list;
-                this.f68476c = aVar;
+                this.f68654a = context;
+                this.f68655b = list;
+                this.f68656c = aVar;
             }
 
             @Override // java.lang.Runnable
@@ -146,7 +146,7 @@ public class a {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                     try {
-                        a.b(this.f68474a, this.f68475b, this.f68476c);
+                        a.b(this.f68654a, this.f68655b, this.f68656c);
                     } catch (Exception e3) {
                         com.bytedance.sdk.openadsdk.preload.geckox.h.b.a("clean-channel", "", e3);
                     }
@@ -181,17 +181,17 @@ public class a {
                 Map.Entry<String, ComponentModel.b> next = it6.next();
                 String key = next.getKey();
                 File file6 = new File(file, key);
-                if (file6.isDirectory() && (value = next.getValue()) != null && (list = value.f68606a) != null && !list.isEmpty()) {
-                    List<ComponentModel.a> list3 = value.f68606a;
+                if (file6.isDirectory() && (value = next.getValue()) != null && (list = value.f68786a) != null && !list.isEmpty()) {
+                    List<ComponentModel.a> list3 = value.f68786a;
                     HashSet hashSet = new HashSet();
                     Iterator<ComponentModel.a> it7 = list3.iterator();
                     while (it7.hasNext()) {
                         ComponentModel.a next2 = it7.next();
-                        String str3 = next2.f68603a;
+                        String str3 = next2.f68783a;
                         if (!hashSet.contains(str3)) {
                             hashSet.add(str3);
-                            int i2 = next2.f68604b;
-                            List<Long> list4 = next2.f68605c;
+                            int i2 = next2.f68784b;
+                            List<Long> list4 = next2.f68785c;
                             File file7 = new File(file6, str3);
                             String str4 = "";
                             String str5 = "--pending-delete";
@@ -285,7 +285,7 @@ public class a {
         if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, bVar) == null) && bVar.c()) {
             Common common2 = new Common(bVar.j(), bVar.n(), bVar.q(), com.bytedance.sdk.openadsdk.preload.geckox.utils.a.b(bVar.a()), i.a(bVar.a()), bVar.k(), bVar.l());
             StatisticModel statisticModel = new StatisticModel();
-            statisticModel.f68615common = common2;
+            statisticModel.f68795common = common2;
             statisticModel.packages.addAll(a(bVar.a()));
             if (statisticModel.packages.isEmpty()) {
                 return;
@@ -308,13 +308,13 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(AdIconUtil.AD_TEXT_ID, null, bVar, str, str2) == null) {
             com.bytedance.sdk.openadsdk.preload.geckox.i.c a2 = bVar.h().a(str, str2);
-            if (a2.f68591c == 200) {
-                if (new JSONObject(a2.f68590b).getInt("status") != 0) {
+            if (a2.f68771c == 200) {
+                if (new JSONObject(a2.f68770b).getInt("status") != 0) {
                     throw new RuntimeException("upload failed");
                 }
                 return;
             }
-            throw new NetworkErrorException("net work get failed, code: " + a2.f68591c + ", url:" + str);
+            throw new NetworkErrorException("net work get failed, code: " + a2.f68771c + ", url:" + str);
         }
     }
 }

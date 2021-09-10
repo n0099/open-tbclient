@@ -21,22 +21,22 @@ public class a extends Thread {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public f f32263e;
+    public f f32372e;
 
     /* renamed from: f  reason: collision with root package name */
-    public e f32264f;
+    public e f32373f;
 
     /* renamed from: g  reason: collision with root package name */
-    public g f32265g;
+    public g f32374g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final Handler f32266h;
+    public final Handler f32375h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final int f32267i;
+    public final int f32376i;
 
     /* renamed from: j  reason: collision with root package name */
-    public String f32268j;
+    public String f32377j;
     public boolean k;
     public boolean l;
     public volatile long m;
@@ -136,7 +136,7 @@ public class a extends Thread {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f32269e;
+        public final /* synthetic */ a f32378e;
 
         public d(a aVar) {
             Interceptable interceptable = $ic;
@@ -153,15 +153,15 @@ public class a extends Thread {
                     return;
                 }
             }
-            this.f32269e = aVar;
+            this.f32378e = aVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f32269e.m = 0L;
-                this.f32269e.n = false;
+                this.f32378e.m = 0L;
+                this.f32378e.n = false;
             }
         }
     }
@@ -214,17 +214,17 @@ public class a extends Thread {
                 return;
             }
         }
-        this.f32263e = p;
-        this.f32264f = q;
-        this.f32265g = r;
-        this.f32266h = new Handler(Looper.getMainLooper());
-        this.f32268j = "";
+        this.f32372e = p;
+        this.f32373f = q;
+        this.f32374g = r;
+        this.f32375h = new Handler(Looper.getMainLooper());
+        this.f32377j = "";
         this.k = false;
         this.l = true;
         this.m = 0L;
         this.n = false;
         this.o = new d(this);
-        this.f32267i = i2;
+        this.f32376i = i2;
     }
 
     public a c(f fVar) {
@@ -232,9 +232,9 @@ public class a extends Thread {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, fVar)) == null) {
             if (fVar == null) {
-                this.f32263e = p;
+                this.f32372e = p;
             } else {
-                this.f32263e = fVar;
+                this.f32372e = fVar;
             }
             return this;
         }
@@ -245,7 +245,7 @@ public class a extends Thread {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            this.f32268j = null;
+            this.f32377j = null;
             return this;
         }
         return (a) invokeV.objValue;
@@ -257,12 +257,12 @@ public class a extends Thread {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             setName("|ANR-WatchDog|");
-            long j2 = this.f32267i;
+            long j2 = this.f32376i;
             while (!isInterrupted()) {
                 boolean z = this.m == 0;
                 this.m += j2;
                 if (z) {
-                    this.f32266h.post(this.o);
+                    this.f32375h.post(this.o);
                 }
                 try {
                     Thread.sleep(j2);
@@ -270,21 +270,21 @@ public class a extends Thread {
                         if (!this.l && (Debug.isDebuggerConnected() || Debug.waitingForDebugger())) {
                             this.n = true;
                         } else {
-                            j2 = this.f32264f.a(this.m);
+                            j2 = this.f32373f.a(this.m);
                             if (j2 <= 0) {
-                                if (this.f32268j != null) {
-                                    NewMainOnly = ANRError.New(this.m, this.f32268j, this.k);
+                                if (this.f32377j != null) {
+                                    NewMainOnly = ANRError.New(this.m, this.f32377j, this.k);
                                 } else {
                                     NewMainOnly = ANRError.NewMainOnly(this.m);
                                 }
-                                this.f32263e.onAppNotResponding(NewMainOnly);
-                                j2 = this.f32267i;
+                                this.f32372e.onAppNotResponding(NewMainOnly);
+                                j2 = this.f32376i;
                                 this.n = true;
                             }
                         }
                     }
                 } catch (InterruptedException e2) {
-                    this.f32265g.a(e2);
+                    this.f32374g.a(e2);
                     return;
                 }
             }

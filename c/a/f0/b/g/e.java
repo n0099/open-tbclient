@@ -2,7 +2,7 @@ package c.a.f0.b.g;
 
 import androidx.annotation.IdRes;
 import androidx.annotation.NonNull;
-import c.a.i0.a.b;
+import c.a.j0.a.b;
 import com.baidu.prologue.business.data.SplashStyleRecorder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -13,16 +13,16 @@ public class e {
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static c.a.i0.a.b a(@NonNull h hVar) {
+    public static c.a.j0.a.b a(@NonNull h hVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, hVar)) == null) {
-            b.C0076b c0076b = new b.C0076b(hVar.e(), hVar.f3428g);
+            b.C0076b c0076b = new b.C0076b(hVar.e(), hVar.f3419g);
             c0076b.w("rsplash");
-            c0076b.l(hVar.f3427f == 1);
+            c0076b.l(hVar.f3418f == 1);
             c0076b.h(b());
             c0076b.p(c());
-            c0076b.r(hVar.f3427f == 1);
+            c0076b.r(hVar.f3418f == 1);
             c0076b.q(d(hVar.m));
             c0076b.E(hVar.n * 1000);
             c0076b.C(1);
@@ -48,17 +48,17 @@ public class e {
             c0076b.n(hVar.H);
             return c0076b.a();
         }
-        return (c.a.i0.a.b) invokeL.objValue;
+        return (c.a.j0.a.b) invokeL.objValue;
     }
 
     public static int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (c.a.f0.a.b.a.f3346a.get() == null || c.a.f0.a.b.a.f3346a.get().d() == 0) {
+            if (c.a.f0.a.b.a.f3337a.get() == null || c.a.f0.a.b.a.f3337a.get().d() == 0) {
                 return 120;
             }
-            return c.a.f0.a.b.a.f3346a.get().d();
+            return c.a.f0.a.b.a.f3337a.get().d();
         }
         return invokeV.intValue;
     }
@@ -68,10 +68,10 @@ public class e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (c.a.f0.a.b.a.f3346a.get() == null) {
+            if (c.a.f0.a.b.a.f3337a.get() == null) {
                 return -1;
             }
-            return c.a.f0.a.b.a.f3346a.get().e();
+            return c.a.f0.a.b.a.f3337a.get().e();
         }
         return invokeV.intValue;
     }
@@ -81,13 +81,13 @@ public class e {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i2)) == null) {
-            if (c.a.f0.a.b.a.f3346a.get() == null) {
+            if (c.a.f0.a.b.a.f3337a.get() == null) {
                 return -1;
             }
             if (i2 == 1) {
-                return c.a.f0.a.b.a.f3346a.get().E();
+                return c.a.f0.a.b.a.f3337a.get().E();
             }
-            return c.a.f0.a.b.a.f3346a.get().B();
+            return c.a.f0.a.b.a.f3337a.get().B();
         }
         return invokeI.intValue;
     }

@@ -8,6 +8,7 @@ import c.a.l.v0.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.card.view.MutiImgTextLayout;
 import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -15,13 +16,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
-public class z extends c.a.l.a<c.a.p0.s.q.a> {
+public class z extends c.a.l.a<c.a.q0.s.q.a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: j  reason: collision with root package name */
-    public MutiImgTextLayout f3895j;
-    public c.a.p0.s.q.a k;
+    public MutiImgTextLayout f3887j;
+    public c.a.q0.s.q.a k;
     public int l;
     public String m;
 
@@ -31,7 +32,7 @@ public class z extends c.a.l.a<c.a.p0.s.q.a> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ z f3896a;
+        public final /* synthetic */ z f3888a;
 
         public a(z zVar) {
             Interceptable interceptable = $ic;
@@ -48,18 +49,18 @@ public class z extends c.a.l.a<c.a.p0.s.q.a> {
                     return;
                 }
             }
-            this.f3896a = zVar;
+            this.f3888a = zVar;
         }
 
         @Override // c.a.l.v0.a.b
-        public boolean a(a.C0096a c0096a) {
+        public boolean a(a.C0095a c0095a) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, c0096a)) == null) {
-                if (this.f3896a.k != null && this.f3896a.k.getThreadData() != null) {
-                    c.a.q0.a0.m.a(this.f3896a.k.getThreadData().f0());
-                    c.a.q0.a0.m.l(this.f3896a.f3895j.mTitle, this.f3896a.k.getThreadData().f0(), R.color.CAM_X0105, R.color.CAM_X0109);
-                    c.a.q0.a0.m.l(this.f3896a.f3895j.mAbstract, this.f3896a.k.getThreadData().f0(), R.color.CAM_X0105, R.color.CAM_X0109);
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, c0095a)) == null) {
+                if (this.f3888a.k != null && this.f3888a.k.getThreadData() != null) {
+                    c.a.r0.a0.m.a(this.f3888a.k.getThreadData().f0());
+                    c.a.r0.a0.m.l(this.f3888a.f3887j.mTitle, this.f3888a.k.getThreadData().f0(), R.color.CAM_X0105, R.color.CAM_X0109);
+                    c.a.r0.a0.m.l(this.f3888a.f3887j.mAbstract, this.f3888a.k.getThreadData().f0(), R.color.CAM_X0105, R.color.CAM_X0109);
                 }
                 return false;
             }
@@ -86,15 +87,19 @@ public class z extends c.a.l.a<c.a.p0.s.q.a> {
             }
         }
         this.l = 3;
-        this.f3895j = new MutiImgTextLayout(context);
-        this.f3895j.setLayoutParams(new RecyclerView.LayoutParams(-1, -2));
+        if ((TbadkCoreApplication.getInst().getPersonalizeViewData().f14237h instanceof MutiImgTextLayout) && TbadkCoreApplication.getInst().getPersonalizeViewData().f14237h.getParent() == null) {
+            this.f3887j = (MutiImgTextLayout) TbadkCoreApplication.getInst().getPersonalizeViewData().f14237h;
+        } else {
+            this.f3887j = new MutiImgTextLayout(context);
+        }
+        this.f3887j.setLayoutParams(new RecyclerView.LayoutParams(-1, -2));
     }
 
     @Override // c.a.l.a
     public View f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f3895j : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f3887j : (View) invokeV.objValue;
     }
 
     @Override // c.a.l.a
@@ -106,10 +111,10 @@ public class z extends c.a.l.a<c.a.p0.s.q.a> {
     }
 
     @Override // c.a.l.a
-    public void k(c.a.q0.a0.b0<c.a.p0.s.q.a> b0Var) {
+    public void k(c.a.r0.a0.b0<c.a.q0.s.q.a> b0Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, b0Var) == null) {
-            this.f3895j.setSubClickListener(b0Var);
+            this.f3887j.setSubClickListener(b0Var);
         }
     }
 
@@ -124,12 +129,12 @@ public class z extends c.a.l.a<c.a.p0.s.q.a> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // c.a.l.p
     /* renamed from: p */
-    public void onBindDataToView(c.a.p0.s.q.a aVar) {
+    public void onBindDataToView(c.a.q0.s.q.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, aVar) == null) {
             this.k = aVar;
-            this.f3895j.setFrom(this.m);
-            this.f3895j.onBindDataToView(aVar);
+            this.f3887j.setFrom(this.m);
+            this.f3887j.onBindDataToView(aVar);
         }
     }
 
@@ -143,14 +148,14 @@ public class z extends c.a.l.a<c.a.p0.s.q.a> {
     public void r(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
-            this.f3895j.setFromCDN(z);
+            this.f3887j.setFromCDN(z);
         }
     }
 
     public void s(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
-            this.f3895j.setNeedFrsTabName(z);
+            this.f3887j.setNeedFrsTabName(z);
         }
     }
 }

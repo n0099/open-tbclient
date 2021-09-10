@@ -7,6 +7,7 @@ import android.graphics.PointF;
 import android.graphics.Rect;
 import android.graphics.RectF;
 import android.widget.ImageView;
+import com.baidu.adp.newwidget.ImageView.DrawerArgs;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -38,10 +39,10 @@ public class c extends a {
     public void a(d dVar, ImageView imageView) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, dVar, imageView) == null) {
-            e eVar = this.k;
-            if (eVar.f2722c) {
-                float f2 = eVar.f2723d / 2.0f;
-                if (!eVar.f2726g) {
+            DrawerArgs drawerArgs = this.k;
+            if (drawerArgs.f36300c) {
+                float f2 = drawerArgs.f36301d / 2.0f;
+                if (!drawerArgs.f36304g) {
                     this.f2710g.set(f2, f2, imageView.getWidth() - f2, imageView.getHeight() - f2);
                     return;
                 }
@@ -59,7 +60,7 @@ public class c extends a {
     @Override // c.a.e.f.a.a
     public void f(Canvas canvas, ImageView imageView) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas, imageView) == null) && this.k.f2722c) {
+        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas, imageView) == null) && this.k.f36300c) {
             canvas.drawRect(this.f2710g, this.f2706c);
         }
     }
@@ -73,12 +74,12 @@ public class c extends a {
                 canvas.concat(matrix);
             }
             if (dVar.e()) {
-                Bitmap bitmap = dVar.f2717a.getBitmap();
+                Bitmap bitmap = dVar.f2718a.getBitmap();
                 this.q.set(0, 0, bitmap.getWidth(), bitmap.getHeight());
                 canvas.drawBitmap(bitmap, this.q, this.f2709f, this.f2705b);
             } else if (dVar.d()) {
                 this.q.set(0, 0, dVar.b(), dVar.a());
-                dVar.f2718b.g(canvas, this.q, this.f2709f, this.f2705b);
+                dVar.f2719b.g(canvas, this.q, this.f2709f, this.f2705b);
             }
         }
     }

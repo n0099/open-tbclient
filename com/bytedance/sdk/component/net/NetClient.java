@@ -142,7 +142,7 @@ public class NetClient {
     public static void openDeubg() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, null) == null) {
-            c.a(c.a.f64190a);
+            c.a(c.a.f64370a);
         }
     }
 

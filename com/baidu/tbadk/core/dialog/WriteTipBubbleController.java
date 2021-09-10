@@ -3,7 +3,7 @@ package com.baidu.tbadk.core.dialog;
 import android.view.View;
 import androidx.annotation.NonNull;
 import c.a.e.e.p.k;
-import c.a.q0.e0.e;
+import c.a.r0.e0.e;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.TiebaStatic;
@@ -21,13 +21,13 @@ public class WriteTipBubbleController {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public TbPageContext f47371a;
+    public TbPageContext f47491a;
 
     /* renamed from: b  reason: collision with root package name */
-    public e f47372b;
+    public e f47492b;
 
     /* renamed from: c  reason: collision with root package name */
-    public b f47373c;
+    public b f47493c;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes6.dex */
@@ -97,10 +97,10 @@ public class WriteTipBubbleController {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f47374e;
+        public final /* synthetic */ String f47494e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ WriteTipBubbleController f47375f;
+        public final /* synthetic */ WriteTipBubbleController f47495f;
 
         public a(WriteTipBubbleController writeTipBubbleController, String str) {
             Interceptable interceptable = $ic;
@@ -117,21 +117,21 @@ public class WriteTipBubbleController {
                     return;
                 }
             }
-            this.f47375f = writeTipBubbleController;
-            this.f47374e = str;
+            this.f47495f = writeTipBubbleController;
+            this.f47494e = str;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f47375f.f47373c == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f47495f.f47493c == null) {
                 return;
             }
-            this.f47375f.f47373c.a(view, this.f47374e);
-            if (this.f47375f.f47372b == null || !this.f47375f.f47372b.J()) {
+            this.f47495f.f47493c.a(view, this.f47494e);
+            if (this.f47495f.f47492b == null || !this.f47495f.f47492b.J()) {
                 return;
             }
-            this.f47375f.f47372b.I();
+            this.f47495f.f47492b.I();
         }
     }
 
@@ -155,14 +155,14 @@ public class WriteTipBubbleController {
                 return;
             }
         }
-        this.f47371a = tbPageContext;
-        this.f47373c = bVar;
+        this.f47491a = tbPageContext;
+        this.f47493c = bVar;
     }
 
     public void c() {
         e eVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (eVar = this.f47372b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (eVar = this.f47492b) == null) {
             return;
         }
         eVar.I();
@@ -170,52 +170,52 @@ public class WriteTipBubbleController {
 
     public void d(@NonNull View view, @NonNull String str, @NonNull String str2, @NonNull ANCHOR_VIEW_FROM anchor_view_from) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, str, str2, anchor_view_from) == null) || this.f47371a == null || view == null || k.isEmpty(str) || k.isEmpty(str2)) {
+        if (!(interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, str, str2, anchor_view_from) == null) || this.f47491a == null || view == null || k.isEmpty(str) || k.isEmpty(str2)) {
             return;
         }
-        if (this.f47372b == null) {
-            e eVar = new e(this.f47371a, view);
-            this.f47372b = eVar;
+        if (this.f47492b == null) {
+            e eVar = new e(this.f47491a, view);
+            this.f47492b = eVar;
             eVar.g0(R.drawable.pic_post_findlink);
-            this.f47372b.S(2);
-            this.f47372b.Q(true);
-            this.f47372b.f0(19);
-            this.f47372b.X(R.color.CAM_X0105);
-            this.f47372b.N(5000);
+            this.f47492b.S(2);
+            this.f47492b.Q(true);
+            this.f47492b.f0(19);
+            this.f47492b.X(R.color.CAM_X0105);
+            this.f47492b.N(5000);
         }
         if (anchor_view_from == ANCHOR_VIEW_FROM.FROM_EDITOR_TOOL) {
-            this.f47372b.O(32);
-            this.f47372b.L(2);
-            int dimensionPixelSize = this.f47371a.getResources().getDimensionPixelSize(R.dimen.tbds32);
-            int dimensionPixelSize2 = this.f47371a.getResources().getDimensionPixelSize(R.dimen.ds4);
-            this.f47372b.Z(dimensionPixelSize, 0, dimensionPixelSize, dimensionPixelSize);
-            this.f47372b.j0(0);
-            this.f47372b.k0(-dimensionPixelSize2);
-            this.f47372b.P(R.dimen.tbds177);
-            this.f47372b.i0(R.dimen.tbds484);
+            this.f47492b.O(32);
+            this.f47492b.L(2);
+            int dimensionPixelSize = this.f47491a.getResources().getDimensionPixelSize(R.dimen.tbds32);
+            int dimensionPixelSize2 = this.f47491a.getResources().getDimensionPixelSize(R.dimen.ds4);
+            this.f47492b.Z(dimensionPixelSize, 0, dimensionPixelSize, dimensionPixelSize);
+            this.f47492b.j0(0);
+            this.f47492b.k0(-dimensionPixelSize2);
+            this.f47492b.P(R.dimen.tbds177);
+            this.f47492b.i0(R.dimen.tbds484);
         } else if (anchor_view_from == ANCHOR_VIEW_FROM.FROM_EDIT_TEXT) {
-            this.f47372b.O(32);
-            this.f47372b.L(5);
-            int dimensionPixelSize3 = this.f47371a.getResources().getDimensionPixelSize(R.dimen.tbds32);
-            int dimensionPixelSize4 = this.f47371a.getResources().getDimensionPixelSize(R.dimen.tbds32);
-            this.f47372b.Z(dimensionPixelSize3, 0, dimensionPixelSize3, dimensionPixelSize3);
-            this.f47372b.j0(0);
-            this.f47372b.k0(-dimensionPixelSize4);
-            this.f47372b.P(R.dimen.tbds177);
-            this.f47372b.i0(R.dimen.tbds484);
+            this.f47492b.O(32);
+            this.f47492b.L(5);
+            int dimensionPixelSize3 = this.f47491a.getResources().getDimensionPixelSize(R.dimen.tbds32);
+            int dimensionPixelSize4 = this.f47491a.getResources().getDimensionPixelSize(R.dimen.tbds32);
+            this.f47492b.Z(dimensionPixelSize3, 0, dimensionPixelSize3, dimensionPixelSize3);
+            this.f47492b.j0(0);
+            this.f47492b.k0(-dimensionPixelSize4);
+            this.f47492b.P(R.dimen.tbds177);
+            this.f47492b.i0(R.dimen.tbds484);
         } else if (anchor_view_from == ANCHOR_VIEW_FROM.FROM_PB_REPLY) {
-            this.f47372b.O(16);
-            this.f47372b.L(2);
-            int dimensionPixelSize5 = this.f47371a.getResources().getDimensionPixelSize(R.dimen.tbds32);
-            int dimensionPixelSize6 = this.f47371a.getResources().getDimensionPixelSize(R.dimen.ds4);
-            this.f47372b.Z(dimensionPixelSize5, 0, dimensionPixelSize5, dimensionPixelSize5);
-            this.f47372b.j0(0);
-            this.f47372b.k0(-dimensionPixelSize6);
-            this.f47372b.P(R.dimen.tbds177);
-            this.f47372b.i0(R.dimen.tbds484);
+            this.f47492b.O(16);
+            this.f47492b.L(2);
+            int dimensionPixelSize5 = this.f47491a.getResources().getDimensionPixelSize(R.dimen.tbds32);
+            int dimensionPixelSize6 = this.f47491a.getResources().getDimensionPixelSize(R.dimen.ds4);
+            this.f47492b.Z(dimensionPixelSize5, 0, dimensionPixelSize5, dimensionPixelSize5);
+            this.f47492b.j0(0);
+            this.f47492b.k0(-dimensionPixelSize6);
+            this.f47492b.P(R.dimen.tbds177);
+            this.f47492b.i0(R.dimen.tbds484);
         }
-        this.f47372b.M(new a(this, str2));
-        this.f47372b.l0(str);
+        this.f47492b.M(new a(this, str2));
+        this.f47492b.l0(str);
         TiebaStatic.log("c13801");
     }
 }

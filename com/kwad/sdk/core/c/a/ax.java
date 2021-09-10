@@ -34,8 +34,8 @@ public class ax implements com.kwad.sdk.core.d<h.a> {
         if (!(interceptable == null || interceptable.invokeLL(1048576, this, aVar, jSONObject) == null) || jSONObject == null) {
             return;
         }
-        aVar.f71332a = jSONObject.optString("imei");
-        aVar.f71333b = jSONObject.optString("oaid");
+        aVar.f71512a = jSONObject.optString("imei");
+        aVar.f71513b = jSONObject.optString("oaid");
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -47,8 +47,8 @@ public class ax implements com.kwad.sdk.core.d<h.a> {
             if (jSONObject == null) {
                 jSONObject = new JSONObject();
             }
-            com.kwad.sdk.utils.q.a(jSONObject, "imei", aVar.f71332a);
-            com.kwad.sdk.utils.q.a(jSONObject, "oaid", aVar.f71333b);
+            com.kwad.sdk.utils.q.a(jSONObject, "imei", aVar.f71512a);
+            com.kwad.sdk.utils.q.a(jSONObject, "oaid", aVar.f71513b);
             return jSONObject;
         }
         return (JSONObject) invokeLL.objValue;

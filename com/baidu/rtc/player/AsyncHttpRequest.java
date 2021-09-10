@@ -1,6 +1,7 @@
 package com.baidu.rtc.player;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.rtc.player.AsyncHttpRequest;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -68,7 +69,7 @@ public class AsyncHttpRequest {
     public void request() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            new Thread(new Runnable() { // from class: com.baidu.rtc.player._$$Lambda$nhAQyNvvnw91BLNrKiuShmRJCLw
+            new Thread(new Runnable() { // from class: c.a.i0.d.a
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -104,7 +105,11 @@ public class AsyncHttpRequest {
                 } else {
                     z = false;
                 }
-                httpURLConnection.setRequestProperty("Content-Type", this.contentType == null ? "text/plain; charset=utf-8" : this.contentType);
+                if (this.contentType == null) {
+                    httpURLConnection.setRequestProperty("Content-Type", "text/plain; charset=utf-8");
+                } else {
+                    httpURLConnection.setRequestProperty("Content-Type", this.contentType);
+                }
                 httpURLConnection.setRequestProperty("Accept", "application/json");
                 if (z && bArr.length > 0) {
                     OutputStream outputStream = httpURLConnection.getOutputStream();
@@ -112,17 +117,17 @@ public class AsyncHttpRequest {
                     outputStream.close();
                 }
                 int responseCode = httpURLConnection.getResponseCode();
-                if (responseCode == 200) {
-                    InputStream inputStream = httpURLConnection.getInputStream();
-                    String drainStream = drainStream(inputStream);
-                    inputStream.close();
+                if (responseCode != 200) {
+                    AsyncHttpEvents asyncHttpEvents = this.events;
+                    asyncHttpEvents.onHttpError("Non-200 response to " + this.method + " code " + responseCode + " to URL: " + this.url + ZeusCrashHandler.NAME_SEPERATOR + httpURLConnection.getHeaderField((String) null));
                     httpURLConnection.disconnect();
-                    this.events.onHttpComplete(drainStream);
                     return;
                 }
-                AsyncHttpEvents asyncHttpEvents = this.events;
-                asyncHttpEvents.onHttpError("Non-200 response to " + this.method + " code " + responseCode + " to URL: " + this.url + ZeusCrashHandler.NAME_SEPERATOR + httpURLConnection.getHeaderField((String) null));
+                InputStream inputStream = httpURLConnection.getInputStream();
+                String drainStream = drainStream(inputStream);
+                inputStream.close();
                 httpURLConnection.disconnect();
+                this.events.onHttpComplete(drainStream);
             } catch (SocketTimeoutException unused) {
                 AsyncHttpEvents asyncHttpEvents2 = this.events;
                 asyncHttpEvents2.onHttpError("HTTP " + this.method + " to " + this.url + " timeout");

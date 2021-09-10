@@ -32,7 +32,7 @@ public class FlipLoadingLayout extends LoadingLayout {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f48686a;
+        public static final /* synthetic */ int[] f48821a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -49,13 +49,13 @@ public class FlipLoadingLayout extends LoadingLayout {
                 }
             }
             int[] iArr = new int[PullToRefreshBase.Mode.values().length];
-            f48686a = iArr;
+            f48821a = iArr;
             try {
                 iArr[PullToRefreshBase.Mode.PULL_FROM_END.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f48686a[PullToRefreshBase.Mode.PULL_FROM_START.ordinal()] = 2;
+                f48821a[PullToRefreshBase.Mode.PULL_FROM_START.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
         }
@@ -97,7 +97,7 @@ public class FlipLoadingLayout extends LoadingLayout {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
-            int i2 = a.f48686a[this.mMode.ordinal()];
+            int i2 = a.f48821a[this.mMode.ordinal()];
             return i2 != 1 ? (i2 == 2 && this.mScrollDirection == PullToRefreshBase.Orientation.HORIZONTAL) ? 270.0f : 0.0f : this.mScrollDirection == PullToRefreshBase.Orientation.HORIZONTAL ? 90.0f : 180.0f;
         }
         return invokeV.floatValue;

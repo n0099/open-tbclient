@@ -65,7 +65,7 @@ public abstract class PayBaseBeanActivity extends BeanActivity {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public f f62838a;
+    public f f63018a;
 
     public PayBaseBeanActivity() {
         Interceptable interceptable = $ic;
@@ -142,10 +142,10 @@ public abstract class PayBaseBeanActivity extends BeanActivity {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.f62838a == null) {
-                this.f62838a = new f(this);
+            if (this.f63018a == null) {
+                this.f63018a = new f(this);
             }
-            return this.f62838a;
+            return this.f63018a;
         }
         return (f) invokeV.objValue;
     }
@@ -262,7 +262,7 @@ public abstract class PayBaseBeanActivity extends BeanActivity {
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ PayBaseBeanActivity f62841a;
+                    public final /* synthetic */ PayBaseBeanActivity f63021a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -279,14 +279,14 @@ public abstract class PayBaseBeanActivity extends BeanActivity {
                                 return;
                             }
                         }
-                        this.f62841a = this;
+                        this.f63021a = this;
                     }
 
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                            WalletGlobalUtils.safeDismissDialog(this.f62841a, 12);
+                            WalletGlobalUtils.safeDismissDialog(this.f63021a, 12);
                         }
                     }
                 });
@@ -306,7 +306,7 @@ public abstract class PayBaseBeanActivity extends BeanActivity {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ PayBaseBeanActivity f62839a;
+                public final /* synthetic */ PayBaseBeanActivity f63019a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -323,14 +323,14 @@ public abstract class PayBaseBeanActivity extends BeanActivity {
                             return;
                         }
                     }
-                    this.f62839a = this;
+                    this.f63019a = this;
                 }
 
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                        WalletGlobalUtils.safeDismissDialog(this.f62839a, 4);
+                        WalletGlobalUtils.safeDismissDialog(this.f63019a, 4);
                     }
                 }
             });
@@ -339,7 +339,7 @@ public abstract class PayBaseBeanActivity extends BeanActivity {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ PayBaseBeanActivity f62840a;
+                public final /* synthetic */ PayBaseBeanActivity f63020a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -356,14 +356,14 @@ public abstract class PayBaseBeanActivity extends BeanActivity {
                             return;
                         }
                     }
-                    this.f62840a = this;
+                    this.f63020a = this;
                 }
 
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                        WalletGlobalUtils.safeDismissDialog(this.f62840a, 4);
+                        WalletGlobalUtils.safeDismissDialog(this.f63020a, 4);
                         BindFastRequest bindFastRequest = (BindFastRequest) PayRequestCache.getInstance().getRequest(PayRequestCache.BindCategory.Other);
                         if (bindFastRequest != null && bindFastRequest.mBindFrom == 0) {
                             StatHelper.statServiceEvent(PayStatServiceEvent.PAY_BIND_CARD_FAILED, null, StatHelper.SENSOR_ERR_2, "payBindCardCancel");
@@ -373,7 +373,7 @@ public abstract class PayBaseBeanActivity extends BeanActivity {
                         if (!PayDataCache.getInstance().isFromPreCashier()) {
                             StatHelper.statServiceEvent(PayStatServiceEvent.STD_PAY_CANCEL);
                         }
-                        PayCallBackManager.callBackClientCancel(this.f62840a, "PayBaseBeanActivity.onPrepareDialog().1");
+                        PayCallBackManager.callBackClientCancel(this.f63020a, "PayBaseBeanActivity.onPrepareDialog().1");
                     }
                 }
             });

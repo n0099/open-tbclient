@@ -16,12 +16,13 @@ import androidx.core.view.InputDeviceCompat;
 import c.a.e.a.i;
 import c.a.e.a.j;
 import c.a.e.f.a.a;
-import c.a.q0.i2.i.c;
+import c.a.r0.j2.i.c;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.newwidget.ImageView.BDImageView;
+import com.baidu.adp.newwidget.ImageView.DrawerArgs;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -48,40 +49,41 @@ public class TbImageView extends BDImageView implements Runnable, View.OnClickLi
     public static final int CORNER_NONE = 0;
     public static final int CORNER_TOP_LEFT = 1;
     public static final int CORNER_TOP_RIGHT = 2;
-    public static HashMap<String, SoftReference<c.a.e.l.d.a>> N = null;
+    public static HashMap<String, SoftReference<c.a.e.l.d.a>> O = null;
     public static final int PLACE_HOLDER_HUAJI_BIG = 3;
     public static final int PLACE_HOLDER_HUAJI_MIDDLE = 2;
     public static final int PLACE_HOLDER_HUAJI_NONE = 0;
     public static final int PLACE_HOLDER_HUAJI_SMALL = 1;
     public static final int PLACE_HOLDER_HUAJI_SUPER_BIG = 4;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean A;
-    public RectF B;
-    public Path C;
-    public RectF D;
-    public final Matrix E;
-    public c.a.p0.d1.c F;
-    public String G;
-    public boolean H;
-    public int I;
+    public TbRichTextView.x A;
+    public boolean B;
+    public RectF C;
+    public Path D;
+    public RectF E;
+    public final Matrix F;
+    public c.a.q0.f1.c G;
+    public String H;
+    public boolean I;
     public int J;
-    public final c.a.q0.i2.i.c K;
-    public a.InterfaceC0041a L;
-    public CustomMessageListener M;
+    public int K;
+    public c.a.r0.j2.i.c L;
+    public a.b M;
+    public CustomMessageListener N;
     public boolean isBitmapPic;
     public boolean isLongPic;
     public boolean isSmartCrop;
     public final c.a.e.e.l.c<c.a.e.l.d.a> mCallback;
     public int mConrers;
     public int mDefaultId;
-    public f mEvent;
+    public g mEvent;
     public int mHeight;
     public boolean mIsGif;
     public boolean mIsGifPic;
-    public HashMap<String, e> mLogMap;
-    public g mOnDrawListener;
+    public HashMap<String, f> mLogMap;
+    public h mOnDrawListener;
     public BdUniqueId mPageId;
-    public HashMap<String, e> mRequestMap;
+    public HashMap<String, f> mRequestMap;
     public float mSmartCropCenterPointHeightRatio;
     public float mSmartCropCenterPointWidthRatio;
     public boolean mSupportNoImage;
@@ -96,18 +98,18 @@ public class TbImageView extends BDImageView implements Runnable, View.OnClickLi
     public int t;
     public int u;
     public boolean v;
-    public int w;
-    public View.OnClickListener x;
-    public c.a.q0.i2.i.c y;
-    public TbRichTextView.x z;
+    public boolean w;
+    public int x;
+    public View.OnClickListener y;
+    public c.a.r0.j2.i.c z;
 
     /* loaded from: classes6.dex */
-    public class a implements c.a {
+    public class a extends c.a.e.e.l.c<c.a.e.l.d.a> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ TbImageView f48477a;
+        public final /* synthetic */ TbImageView f48611a;
 
         public a(TbImageView tbImageView) {
             Interceptable interceptable = $ic;
@@ -124,83 +126,7 @@ public class TbImageView extends BDImageView implements Runnable, View.OnClickLi
                     return;
                 }
             }
-            this.f48477a = tbImageView;
-        }
-
-        @Override // c.a.q0.i2.i.c.a
-        public boolean a(View view, MotionEvent motionEvent) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view, motionEvent)) == null) {
-                return false;
-            }
-            return invokeLL.booleanValue;
-        }
-
-        @Override // c.a.q0.i2.i.c.a
-        public boolean b(View view, MotionEvent motionEvent) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, motionEvent)) == null) {
-                if (this.f48477a.getBdImage() != null || this.f48477a.getDrawable() != null || !this.f48477a.A) {
-                    if (this.f48477a.x != null) {
-                        this.f48477a.x.onClick(view);
-                        return true;
-                    } else if (this.f48477a.y != null) {
-                        this.f48477a.y.a(view);
-                        return this.f48477a.y.onSingleTapConfirmed(motionEvent);
-                    } else {
-                        return false;
-                    }
-                }
-                this.f48477a.startLoading();
-                c.a.e.e.l.d h2 = c.a.e.e.l.d.h();
-                TbImageView tbImageView = this.f48477a;
-                h2.k(tbImageView.mUrl, tbImageView.mType, tbImageView.mCallback, tbImageView.mWidth, tbImageView.mHeight, tbImageView.mPageId, new Object[0]);
-                return true;
-            }
-            return invokeLL.booleanValue;
-        }
-
-        @Override // c.a.q0.i2.i.c.a
-        public boolean c(View view, MotionEvent motionEvent) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, view, motionEvent)) == null) {
-                if (this.f48477a.y != null) {
-                    this.f48477a.y.a(view);
-                    return this.f48477a.y.onDoubleTap(motionEvent);
-                }
-                return false;
-            }
-            return invokeLL.booleanValue;
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b extends c.a.e.e.l.c<c.a.e.l.d.a> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ TbImageView f48478a;
-
-        public b(TbImageView tbImageView) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {tbImageView};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f48478a = tbImageView;
+            this.f48611a = tbImageView;
         }
 
         @Override // c.a.e.e.l.c
@@ -208,10 +134,10 @@ public class TbImageView extends BDImageView implements Runnable, View.OnClickLi
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
                 super.onCancelled(str);
-                this.f48478a.stopLoading();
-                f fVar = this.f48478a.mEvent;
-                if (fVar != null) {
-                    fVar.onCancel();
+                this.f48611a.stopLoading();
+                g gVar = this.f48611a.mEvent;
+                if (gVar != null) {
+                    gVar.onCancel();
                 }
             }
         }
@@ -230,39 +156,39 @@ public class TbImageView extends BDImageView implements Runnable, View.OnClickLi
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar, str, i2) == null) {
                 if (aVar != null) {
-                    this.f48478a.I = aVar.r();
-                    this.f48478a.J = aVar.m();
+                    this.f48611a.J = aVar.r();
+                    this.f48611a.K = aVar.m();
                     c.a.e.e.l.d h2 = c.a.e.e.l.d.h();
-                    TbImageView tbImageView = this.f48478a;
+                    TbImageView tbImageView = this.f48611a;
                     String g2 = h2.g(tbImageView.mUrl, tbImageView.mType);
-                    e eVar = this.f48478a.mLogMap.get(g2);
-                    if (eVar != null) {
+                    f fVar = this.f48611a.mLogMap.get(g2);
+                    if (fVar != null) {
                         c.a.e.e.l.a.d(i2 == 1, i2 == 2, i2 == 3);
                         if (i2 == 3) {
-                            c.a.e.e.l.a.e(true, System.currentTimeMillis() - eVar.f48483c);
+                            c.a.e.e.l.a.e(true, System.currentTimeMillis() - fVar.f48618c);
                         }
-                        this.f48478a.mLogMap.remove(g2);
+                        this.f48611a.mLogMap.remove(g2);
                     }
                 }
-                this.f48478a.stopLoading();
-                this.f48478a.q(aVar);
-                f fVar = this.f48478a.mEvent;
-                if (fVar != null) {
-                    fVar.a(str, aVar != null);
+                this.f48611a.stopLoading();
+                this.f48611a.q(aVar);
+                g gVar = this.f48611a.mEvent;
+                if (gVar != null) {
+                    gVar.a(str, aVar != null);
                 }
             }
         }
     }
 
     /* loaded from: classes6.dex */
-    public class c implements a.InterfaceC0041a {
+    public class b implements a.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ TbImageView f48479a;
+        public final /* synthetic */ TbImageView f48612a;
 
-        public c(TbImageView tbImageView) {
+        public b(TbImageView tbImageView) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -277,16 +203,16 @@ public class TbImageView extends BDImageView implements Runnable, View.OnClickLi
                     return;
                 }
             }
-            this.f48479a = tbImageView;
+            this.f48612a = tbImageView;
         }
 
-        @Override // c.a.e.f.a.a.InterfaceC0041a
+        @Override // c.a.e.f.a.a.b
         public boolean a(Canvas canvas, Drawable drawable) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, canvas, drawable)) == null) {
-                if (this.f48479a.getBdImage() == null && this.f48479a.H) {
-                    this.f48479a.drawBackground(canvas, drawable);
+                if (this.f48612a.getBdImage() == null && this.f48612a.I) {
+                    this.f48612a.drawBackground(canvas, drawable);
                     return true;
                 }
                 return false;
@@ -296,15 +222,15 @@ public class TbImageView extends BDImageView implements Runnable, View.OnClickLi
     }
 
     /* loaded from: classes6.dex */
-    public class d extends CustomMessageListener {
+    public class c extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ TbImageView f48480a;
+        public final /* synthetic */ TbImageView f48613a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public d(TbImageView tbImageView, int i2) {
+        public c(TbImageView tbImageView, int i2) {
             super(i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -321,7 +247,7 @@ public class TbImageView extends BDImageView implements Runnable, View.OnClickLi
                     return;
                 }
             }
-            this.f48480a = tbImageView;
+            this.f48613a = tbImageView;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -331,33 +257,100 @@ public class TbImageView extends BDImageView implements Runnable, View.OnClickLi
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof String)) {
                 String str = (String) customResponsedMessage.getData();
                 c.a.e.e.l.d h2 = c.a.e.e.l.d.h();
-                TbImageView tbImageView = this.f48480a;
+                TbImageView tbImageView = this.f48613a;
                 String g2 = h2.g(tbImageView.mUrl, tbImageView.mType);
                 if (g2 == null || !g2.equals(str)) {
                     return;
                 }
-                this.f48480a.destroyDrawingCache();
-                this.f48480a.invalidate();
+                this.f48613a.destroyDrawingCache();
+                this.f48613a.invalidate();
             }
         }
     }
 
     /* loaded from: classes6.dex */
-    public class e {
+    public class d implements c.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f48481a;
+        public final /* synthetic */ TbImageView f48614a;
 
-        /* renamed from: b  reason: collision with root package name */
-        public int f48482b;
+        public d(TbImageView tbImageView) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {tbImageView};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f48614a = tbImageView;
+        }
 
-        /* renamed from: c  reason: collision with root package name */
-        public long f48483c;
+        @Override // c.a.r0.j2.i.c.a
+        public boolean a(View view, MotionEvent motionEvent) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view, motionEvent)) == null) {
+                return false;
+            }
+            return invokeLL.booleanValue;
+        }
 
-        /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ TbImageView f48484d;
+        @Override // c.a.r0.j2.i.c.a
+        public boolean b(View view, MotionEvent motionEvent) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, motionEvent)) == null) {
+                if (this.f48614a.getBdImage() != null || this.f48614a.getDrawable() != null || !this.f48614a.B) {
+                    if (this.f48614a.y != null) {
+                        this.f48614a.y.onClick(view);
+                        return true;
+                    } else if (this.f48614a.z != null) {
+                        this.f48614a.z.a(view);
+                        return this.f48614a.z.onSingleTapConfirmed(motionEvent);
+                    } else {
+                        return false;
+                    }
+                }
+                this.f48614a.startLoading();
+                c.a.e.e.l.d h2 = c.a.e.e.l.d.h();
+                TbImageView tbImageView = this.f48614a;
+                h2.k(tbImageView.mUrl, tbImageView.mType, tbImageView.mCallback, tbImageView.mWidth, tbImageView.mHeight, tbImageView.mPageId, new Object[0]);
+                return true;
+            }
+            return invokeLL.booleanValue;
+        }
+
+        @Override // c.a.r0.j2.i.c.a
+        public boolean c(View view, MotionEvent motionEvent) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, view, motionEvent)) == null) {
+                if (this.f48614a.z != null) {
+                    this.f48614a.z.a(view);
+                    return this.f48614a.z.onDoubleTap(motionEvent);
+                }
+                return false;
+            }
+            return invokeLL.booleanValue;
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class e implements c.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ TbImageView f48615a;
 
         public e(TbImageView tbImageView) {
             Interceptable interceptable = $ic;
@@ -374,19 +367,104 @@ public class TbImageView extends BDImageView implements Runnable, View.OnClickLi
                     return;
                 }
             }
-            this.f48484d = tbImageView;
+            this.f48615a = tbImageView;
+        }
+
+        @Override // c.a.r0.j2.i.c.a
+        public boolean a(View view, MotionEvent motionEvent) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view, motionEvent)) == null) {
+                return false;
+            }
+            return invokeLL.booleanValue;
+        }
+
+        @Override // c.a.r0.j2.i.c.a
+        public boolean b(View view, MotionEvent motionEvent) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, motionEvent)) == null) {
+                if (this.f48615a.getBdImage() != null || this.f48615a.getDrawable() != null || !this.f48615a.B) {
+                    if (this.f48615a.y != null) {
+                        this.f48615a.y.onClick(view);
+                        return true;
+                    } else if (this.f48615a.z != null) {
+                        this.f48615a.z.a(view);
+                        return this.f48615a.z.onSingleTapConfirmed(motionEvent);
+                    } else {
+                        return false;
+                    }
+                }
+                this.f48615a.startLoading();
+                c.a.e.e.l.d h2 = c.a.e.e.l.d.h();
+                TbImageView tbImageView = this.f48615a;
+                h2.k(tbImageView.mUrl, tbImageView.mType, tbImageView.mCallback, tbImageView.mWidth, tbImageView.mHeight, tbImageView.mPageId, new Object[0]);
+                return true;
+            }
+            return invokeLL.booleanValue;
+        }
+
+        @Override // c.a.r0.j2.i.c.a
+        public boolean c(View view, MotionEvent motionEvent) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, view, motionEvent)) == null) {
+                if (this.f48615a.z != null) {
+                    this.f48615a.z.a(view);
+                    return this.f48615a.z.onDoubleTap(motionEvent);
+                }
+                return false;
+            }
+            return invokeLL.booleanValue;
         }
     }
 
     /* loaded from: classes6.dex */
-    public interface f {
+    public class f {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public String f48616a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public int f48617b;
+
+        /* renamed from: c  reason: collision with root package name */
+        public long f48618c;
+
+        /* renamed from: d  reason: collision with root package name */
+        public final /* synthetic */ TbImageView f48619d;
+
+        public f(TbImageView tbImageView) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {tbImageView};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f48619d = tbImageView;
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public interface g {
         void a(String str, boolean z);
 
         void onCancel();
     }
 
     /* loaded from: classes6.dex */
-    public interface g {
+    public interface h {
         void a(TbImageView tbImageView, Canvas canvas);
 
         void b(TbImageView tbImageView, Canvas canvas);
@@ -422,18 +500,18 @@ public class TbImageView extends BDImageView implements Runnable, View.OnClickLi
         this.isSmartCrop = false;
         this.mSupportNoImage = false;
         this.v = true;
-        this.w = 3;
-        this.B = new RectF();
-        this.C = new Path();
-        this.D = new RectF();
-        this.E = new Matrix();
-        this.H = false;
-        this.I = 0;
+        this.w = true;
+        this.x = 3;
+        this.C = new RectF();
+        this.D = new Path();
+        this.E = new RectF();
+        this.F = new Matrix();
+        this.I = false;
         this.J = 0;
-        this.K = new c.a.q0.i2.i.c(new a(this));
-        this.mCallback = new b(this);
-        this.L = new c(this);
-        this.M = new d(this, 2016308);
+        this.K = 0;
+        this.mCallback = new a(this);
+        this.M = new b(this);
+        this.N = new c(this, 2016308);
         init();
     }
 
@@ -442,7 +520,7 @@ public class TbImageView extends BDImageView implements Runnable, View.OnClickLi
         if (interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this) == null) {
             this.mRequestMap = new HashMap<>();
             this.mLogMap = new HashMap<>();
-            this.F = new c.a.p0.d1.c(this);
+            this.G = new c.a.q0.f1.c(this);
             r();
             this.q = 30.0f;
             setConrers(0);
@@ -450,7 +528,7 @@ public class TbImageView extends BDImageView implements Runnable, View.OnClickLi
             if (aVar == null) {
                 return;
             }
-            aVar.o(this.L);
+            aVar.o(this.M);
         }
     }
 
@@ -484,7 +562,7 @@ public class TbImageView extends BDImageView implements Runnable, View.OnClickLi
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, motionEvent)) == null) {
-            TbRichTextView.x xVar = this.z;
+            TbRichTextView.x xVar = this.A;
             if (xVar != null) {
                 xVar.dispatchTouchEvent(motionEvent);
             }
@@ -497,38 +575,38 @@ public class TbImageView extends BDImageView implements Runnable, View.OnClickLi
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, canvas, drawable) == null) {
             canvas.save();
-            this.C.reset();
-            this.B.right = getWidth();
-            this.B.bottom = getHeight();
-            this.C.addRoundRect(this.B, this.mArgs.f2720a, Path.Direction.CW);
+            this.D.reset();
+            this.C.right = getWidth();
+            this.C.bottom = getHeight();
+            this.D.addRoundRect(this.C, this.mArgs.f36298a, Path.Direction.CW);
             int i2 = this.mConrers ^ 15;
             RectF rectF = new RectF(0.0f, 0.0f, getWidth(), getHeight());
             if ((i2 & 1) != 0) {
-                Path path = this.C;
-                float[] fArr = this.mArgs.f2720a;
+                Path path = this.D;
+                float[] fArr = this.mArgs.f36298a;
                 path.addRect(0.0f, 0.0f, fArr[0], fArr[1], Path.Direction.CW);
             }
             if ((i2 & 2) != 0) {
-                Path path2 = this.C;
+                Path path2 = this.D;
                 float f2 = rectF.right;
-                float[] fArr2 = this.mArgs.f2720a;
+                float[] fArr2 = this.mArgs.f36298a;
                 path2.addRect(f2 - fArr2[2], 0.0f, f2, fArr2[3], Path.Direction.CW);
             }
             if ((i2 & 4) != 0) {
-                Path path3 = this.C;
+                Path path3 = this.D;
                 float f3 = rectF.bottom;
-                float[] fArr3 = this.mArgs.f2720a;
+                float[] fArr3 = this.mArgs.f36298a;
                 path3.addRect(0.0f, f3 - fArr3[5], fArr3[4], f3, Path.Direction.CW);
             }
             if ((i2 & 8) != 0) {
-                Path path4 = this.C;
+                Path path4 = this.D;
                 float f4 = rectF.right;
-                float[] fArr4 = this.mArgs.f2720a;
+                float[] fArr4 = this.mArgs.f36298a;
                 float f5 = rectF.bottom;
                 path4.addRect(f4 - fArr4[6], f5 - fArr4[7], f4, f5, Path.Direction.CW);
             }
             if (!canvas.isHardwareAccelerated() || !UtilHelper.isHuaWeiU9508Device()) {
-                canvas.clipPath(this.C);
+                canvas.clipPath(this.D);
             }
             drawable.draw(canvas);
             canvas.restore();
@@ -537,28 +615,28 @@ public class TbImageView extends BDImageView implements Runnable, View.OnClickLi
 
     @Override // com.baidu.adp.newwidget.ImageView.BDImageView
     public void drawContentTag(Canvas canvas, ImageView imageView) {
-        c.a.e.f.a.e eVar;
+        DrawerArgs drawerArgs;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048581, this, canvas, imageView) == null) {
             super.drawContentTag(canvas, imageView);
-            if (this.F == null || (eVar = this.mArgs) == null) {
+            if (this.G == null || (drawerArgs = this.mArgs) == null) {
                 return;
             }
-            if (eVar.f2728i && (this.mIsGifPic || isGif())) {
-                this.F.a(canvas, getContext().getString(R.string.icon_tag_gif), true);
-            } else if (this.mArgs.f2727h && isLongPic()) {
-                this.F.a(canvas, getContext().getString(R.string.icon_tag_long), true);
+            if (drawerArgs.f36306i && (this.mIsGifPic || isGif())) {
+                this.G.a(canvas, getContext().getString(R.string.icon_tag_gif), true);
+            } else if (this.mArgs.f36305h && isLongPic()) {
+                this.G.a(canvas, getContext().getString(R.string.icon_tag_long), true);
             } else {
-                String str = this.G;
+                String str = this.H;
                 if (str != null) {
-                    this.F.a(canvas, str, false);
+                    this.G.a(canvas, str, false);
                 }
             }
-            int i2 = this.mArgs.f2729j;
-            if (i2 == c.a.e.f.a.b.f2716c) {
-                this.F.b(canvas, getContext().getString(R.string.wonderful_comment), R.color.CAM_X0305);
-            } else if (i2 == c.a.e.f.a.b.f2715b) {
-                this.F.b(canvas, getContext().getString(R.string.god_level_comment), R.color.CAM_X0310);
+            int i2 = this.mArgs.f36307j;
+            if (i2 == c.a.e.f.a.b.f2717c) {
+                this.G.b(canvas, getContext().getString(R.string.wonderful_comment), R.color.CAM_X0305);
+            } else if (i2 == c.a.e.f.a.b.f2716b) {
+                this.G.b(canvas, getContext().getString(R.string.god_level_comment), R.color.CAM_X0310);
             }
         }
     }
@@ -573,9 +651,9 @@ public class TbImageView extends BDImageView implements Runnable, View.OnClickLi
                 Object tag = getTag();
                 if (tag instanceof String) {
                     String str = (String) tag;
-                    aVar = c.a.p0.b0.c.k().m(str);
+                    aVar = c.a.q0.c0.c.k().m(str);
                     if (aVar == null) {
-                        aVar = c.a.p0.b0.c.k().l(str);
+                        aVar = c.a.q0.c0.c.k().l(str);
                     }
                 } else {
                     aVar = null;
@@ -598,8 +676,8 @@ public class TbImageView extends BDImageView implements Runnable, View.OnClickLi
         c.a.e.l.d.a aVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            if (N == null) {
-                N = new HashMap<>();
+            if (O == null) {
+                O = new HashMap<>();
             }
             String valueOf = String.valueOf(this.u);
             if (this.v) {
@@ -609,11 +687,11 @@ public class TbImageView extends BDImageView implements Runnable, View.OnClickLi
                     valueOf = valueOf + SkinManager.darkSuffix;
                 }
             }
-            if (this.w != TbadkCoreApplication.getInst().getSkinType()) {
+            if (this.x != TbadkCoreApplication.getInst().getSkinType()) {
                 this.mNeedRecomputeMatrix = true;
-                this.w = TbadkCoreApplication.getInst().getSkinType();
+                this.x = TbadkCoreApplication.getInst().getSkinType();
             }
-            if (!N.containsKey(valueOf) || (softReference = N.get(valueOf)) == null || (aVar = softReference.get()) == null || !aVar.w()) {
+            if (!O.containsKey(valueOf) || (softReference = O.get(valueOf)) == null || (aVar = softReference.get()) == null || !aVar.w()) {
                 Bitmap bitmap = null;
                 int i2 = this.u;
                 if (i2 > 0) {
@@ -631,7 +709,7 @@ public class TbImageView extends BDImageView implements Runnable, View.OnClickLi
                     }
                 }
                 c.a.e.l.d.a aVar2 = new c.a.e.l.d.a(bitmap, false, String.valueOf(this.u));
-                N.put(valueOf, new SoftReference<>(aVar2));
+                O.put(valueOf, new SoftReference<>(aVar2));
                 return aVar2;
             }
             return aVar;
@@ -642,14 +720,14 @@ public class TbImageView extends BDImageView implements Runnable, View.OnClickLi
     public boolean getDrawCorner() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.H : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.I : invokeV.booleanValue;
     }
 
     public int getGifIconHeight() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            c.a.p0.d1.c cVar = this.F;
+            c.a.q0.f1.c cVar = this.G;
             if (cVar != null) {
                 return (int) cVar.d(getContext().getString(R.string.icon_tag_gif));
             }
@@ -662,7 +740,7 @@ public class TbImageView extends BDImageView implements Runnable, View.OnClickLi
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            c.a.p0.d1.c cVar = this.F;
+            c.a.q0.f1.c cVar = this.G;
             if (cVar != null) {
                 return (int) cVar.e(getContext().getString(R.string.icon_tag_gif));
             }
@@ -675,28 +753,28 @@ public class TbImageView extends BDImageView implements Runnable, View.OnClickLi
     public int getLoadedHeight() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.J : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.K : invokeV.intValue;
     }
 
     @Deprecated
     public int getLoadedWidth() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.I : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.J : invokeV.intValue;
     }
 
     public View.OnClickListener getOnClickListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.x : (View.OnClickListener) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.y : (View.OnClickListener) invokeV.objValue;
     }
 
     public float[] getRadius() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            c.a.e.f.a.e eVar = this.mArgs;
-            return eVar == null ? BDImageView.parseCornerRadii(0.0f) : eVar.f2720a;
+            DrawerArgs drawerArgs = this.mArgs;
+            return drawerArgs == null ? BDImageView.parseCornerRadii(0.0f) : drawerArgs.f36298a;
         }
         return (float[]) invokeV.objValue;
     }
@@ -752,15 +830,15 @@ public class TbImageView extends BDImageView implements Runnable, View.OnClickLi
     }
 
     public final void n(boolean z, Canvas canvas) {
-        g gVar;
+        h hVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZL(1048599, this, z, canvas) == null) || (gVar = this.mOnDrawListener) == null) {
+        if (!(interceptable == null || interceptable.invokeZL(1048599, this, z, canvas) == null) || (hVar = this.mOnDrawListener) == null) {
             return;
         }
         if (z) {
-            gVar.b(this, canvas);
+            hVar.b(this, canvas);
         } else {
-            gVar.a(this, canvas);
+            hVar.a(this, canvas);
         }
     }
 
@@ -771,25 +849,25 @@ public class TbImageView extends BDImageView implements Runnable, View.OnClickLi
                 if (this.mConrers != 0 || getDrawCorner()) {
                     setDrawerType(1);
                     int i2 = this.mConrers ^ 15;
-                    this.D.set(0.0f, 0.0f, getWidth(), getHeight());
+                    this.E.set(0.0f, 0.0f, getWidth(), getHeight());
                     if ((i2 & 1) != 0) {
-                        float[] fArr = this.mArgs.f2720a;
+                        float[] fArr = this.mArgs.f36298a;
                         canvas.drawRect(0.0f, 0.0f, fArr[0], fArr[1], this.mDrawer.f2705b);
                     }
                     if ((i2 & 2) != 0) {
-                        float f2 = this.D.right;
-                        float[] fArr2 = this.mArgs.f2720a;
+                        float f2 = this.E.right;
+                        float[] fArr2 = this.mArgs.f36298a;
                         canvas.drawRect(f2 - fArr2[2], 0.0f, f2, fArr2[3], this.mDrawer.f2705b);
                     }
                     if ((i2 & 4) != 0) {
-                        float f3 = this.D.bottom;
-                        float[] fArr3 = this.mArgs.f2720a;
+                        float f3 = this.E.bottom;
+                        float[] fArr3 = this.mArgs.f36298a;
                         canvas.drawRect(0.0f, f3 - fArr3[5], fArr3[4], f3, this.mDrawer.f2705b);
                     }
                     if ((i2 & 8) != 0) {
-                        RectF rectF = this.D;
+                        RectF rectF = this.E;
                         float f4 = rectF.right;
-                        float[] fArr4 = this.mArgs.f2720a;
+                        float[] fArr4 = this.mArgs.f36298a;
                         float f5 = rectF.bottom;
                         canvas.drawRect(f4 - fArr4[6], f5 - fArr4[7], f4, f5, this.mDrawer.f2705b);
                     }
@@ -808,14 +886,14 @@ public class TbImageView extends BDImageView implements Runnable, View.OnClickLi
                 this.o = true;
             }
             if (a2 != null) {
-                CustomMessageListener customMessageListener = this.M;
+                CustomMessageListener customMessageListener = this.N;
                 BdUniqueId bdUniqueId = this.mPageId;
                 if (bdUniqueId == null) {
                     bdUniqueId = a2.getUniqueId();
                 }
                 customMessageListener.setTag(bdUniqueId);
             }
-            MessageManager.getInstance().registerListener(this.M);
+            MessageManager.getInstance().registerListener(this.N);
             getViewTreeObserver().addOnPreDrawListener(this);
         }
     }
@@ -823,12 +901,12 @@ public class TbImageView extends BDImageView implements Runnable, View.OnClickLi
     public void onClick(View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048602, this, view) == null) {
-            if (getBdImage() == null && getDrawable() == null && this.A) {
+            if (getBdImage() == null && getDrawable() == null && this.B) {
                 startLoading();
                 c.a.e.e.l.d.h().k(this.mUrl, this.mType, this.mCallback, this.mWidth, this.mHeight, this.mPageId, new Object[0]);
                 return;
             }
-            View.OnClickListener onClickListener = this.x;
+            View.OnClickListener onClickListener = this.y;
             if (onClickListener != null) {
                 onClickListener.onClick(view);
             }
@@ -843,7 +921,7 @@ public class TbImageView extends BDImageView implements Runnable, View.OnClickLi
             getViewTreeObserver().removeOnPreDrawListener(this);
             this.o = false;
             stopLoad();
-            MessageManager.getInstance().unRegisterListener(this.M);
+            MessageManager.getInstance().unRegisterListener(this.N);
         }
     }
 
@@ -868,13 +946,13 @@ public class TbImageView extends BDImageView implements Runnable, View.OnClickLi
             if (TbadkCoreApplication.getInst().isPicReqSwitchOn()) {
                 this.mWidth = getMeasuredWidth();
                 this.mHeight = getMeasuredHeight();
-                Iterator<Map.Entry<String, e>> it = this.mRequestMap.entrySet().iterator();
+                Iterator<Map.Entry<String, f>> it = this.mRequestMap.entrySet().iterator();
                 while (it.hasNext()) {
-                    Map.Entry<String, e> next = it.next();
+                    Map.Entry<String, f> next = it.next();
                     next.getKey();
-                    e value = next.getValue();
+                    f value = next.getValue();
                     it.remove();
-                    c.a.e.e.l.d.h().k(value.f48481a, value.f48482b, this.mCallback, this.mWidth, this.mHeight, this.mPageId, new Object[0]);
+                    c.a.e.e.l.d.h().k(value.f48616a, value.f48617b, this.mCallback, this.mWidth, this.mHeight, this.mPageId, new Object[0]);
                 }
                 return true;
             }
@@ -912,33 +990,33 @@ public class TbImageView extends BDImageView implements Runnable, View.OnClickLi
                 if (this.mConrers != 0 || getDrawBorder()) {
                     setDrawerType(1);
                     int i2 = this.mConrers ^ 15;
-                    this.D.set(0.0f, 0.0f, getWidth(), getHeight());
+                    this.E.set(0.0f, 0.0f, getWidth(), getHeight());
                     this.mDrawer.f2706c.setStrokeWidth(this.mDrawer.f2706c.getStrokeWidth());
                     if ((i2 & 1) != 0) {
-                        canvas.drawLine(0.0f, 0.0f, this.mArgs.f2720a[0], 0.0f, this.mDrawer.f2706c);
-                        canvas.drawLine(0.0f, 0.0f, 0.0f, this.mArgs.f2720a[1], this.mDrawer.f2706c);
+                        canvas.drawLine(0.0f, 0.0f, this.mArgs.f36298a[0], 0.0f, this.mDrawer.f2706c);
+                        canvas.drawLine(0.0f, 0.0f, 0.0f, this.mArgs.f36298a[1], this.mDrawer.f2706c);
                     }
                     if ((i2 & 2) != 0) {
-                        float f2 = this.D.right;
-                        canvas.drawLine(f2 - this.mArgs.f2720a[2], 0.0f, f2, 0.0f, this.mDrawer.f2706c);
-                        float f3 = this.D.right;
-                        canvas.drawLine(f3, 0.0f, f3, this.mArgs.f2720a[3], this.mDrawer.f2706c);
+                        float f2 = this.E.right;
+                        canvas.drawLine(f2 - this.mArgs.f36298a[2], 0.0f, f2, 0.0f, this.mDrawer.f2706c);
+                        float f3 = this.E.right;
+                        canvas.drawLine(f3, 0.0f, f3, this.mArgs.f36298a[3], this.mDrawer.f2706c);
                     }
                     if ((i2 & 4) != 0) {
-                        float f4 = this.D.bottom;
-                        canvas.drawLine(0.0f, f4 - this.mArgs.f2720a[5], 0.0f, f4, this.mDrawer.f2706c);
-                        float f5 = this.D.bottom;
-                        canvas.drawLine(0.0f, f5, this.mArgs.f2720a[4], f5, this.mDrawer.f2706c);
+                        float f4 = this.E.bottom;
+                        canvas.drawLine(0.0f, f4 - this.mArgs.f36298a[5], 0.0f, f4, this.mDrawer.f2706c);
+                        float f5 = this.E.bottom;
+                        canvas.drawLine(0.0f, f5, this.mArgs.f36298a[4], f5, this.mDrawer.f2706c);
                     }
                     if ((i2 & 8) != 0) {
-                        RectF rectF = this.D;
+                        RectF rectF = this.E;
                         float f6 = rectF.right;
                         float f7 = rectF.bottom;
-                        canvas.drawLine(f6 - this.mArgs.f2720a[6], f7, f6, f7, this.mDrawer.f2706c);
-                        RectF rectF2 = this.D;
+                        canvas.drawLine(f6 - this.mArgs.f36298a[6], f7, f6, f7, this.mDrawer.f2706c);
+                        RectF rectF2 = this.E;
                         float f8 = rectF2.right;
                         float f9 = rectF2.bottom;
-                        canvas.drawLine(f8, f9, f8, f9 - this.mArgs.f2720a[7], this.mDrawer.f2706c);
+                        canvas.drawLine(f8, f9, f8, f9 - this.mArgs.f36298a[7], this.mDrawer.f2706c);
                     }
                 }
             }
@@ -956,11 +1034,17 @@ public class TbImageView extends BDImageView implements Runnable, View.OnClickLi
     public final void r() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048610, this) == null) {
-            boolean z = false;
-            if (this.v) {
-                this.mArgs.f2725f = (TbadkCoreApplication.getInst().getSkinType() == 1 || TbadkCoreApplication.getInst().getSkinType() == 4) ? true : true;
+            if (this.v && this.w) {
+                int skinType = TbadkCoreApplication.getInst().getSkinType();
+                if (skinType == 1) {
+                    this.mArgs.f36303f = DrawerArgs.SkinType.NIGHT;
+                } else if (skinType != 4) {
+                    this.mArgs.f36303f = DrawerArgs.SkinType.DAY;
+                } else {
+                    this.mArgs.f36303f = DrawerArgs.SkinType.DARK;
+                }
             } else {
-                this.mArgs.f2725f = false;
+                this.mArgs.f36303f = DrawerArgs.SkinType.DAY;
             }
             int i2 = this.p ? this.s : this.mDefaultId;
             if (i2 != this.u) {
@@ -978,12 +1062,12 @@ public class TbImageView extends BDImageView implements Runnable, View.OnClickLi
                 setDefaultBg(null);
             }
             if (this.v) {
-                this.F.j(TbadkCoreApplication.getInst().getSkinType());
+                this.G.j(TbadkCoreApplication.getInst().getSkinType());
             }
         }
     }
 
-    @Override // com.baidu.adp.newwidget.ImageView.BDImageView, c.a.e.f.a.i
+    @Override // com.baidu.adp.newwidget.ImageView.BDImageView, c.a.e.f.a.h
     public void refresh() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048611, this) == null) {
@@ -1013,9 +1097,9 @@ public class TbImageView extends BDImageView implements Runnable, View.OnClickLi
             if (f4 > 360.0f - f3) {
                 this.r = 0.0f;
             }
-            this.E.reset();
-            this.E.postRotate(this.r, getWidth() / 2.0f, getHeight() / 2.0f);
-            setExtraMatrix(this.E);
+            this.F.reset();
+            this.F.postRotate(this.r, getWidth() / 2.0f, getHeight() / 2.0f);
+            setExtraMatrix(this.F);
             invalidate();
             m();
         }
@@ -1056,7 +1140,7 @@ public class TbImageView extends BDImageView implements Runnable, View.OnClickLi
     public void setDispatchTouchListener(TbRichTextView.x xVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048618, this, xVar) == null) {
-            this.z = xVar;
+            this.A = xVar;
         }
     }
 
@@ -1071,7 +1155,7 @@ public class TbImageView extends BDImageView implements Runnable, View.OnClickLi
     public void setDrawCorner(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048620, this, z) == null) {
-            this.H = z;
+            this.I = z;
         }
     }
 
@@ -1084,21 +1168,21 @@ public class TbImageView extends BDImageView implements Runnable, View.OnClickLi
             if (aVar == null) {
                 return;
             }
-            aVar.o(this.L);
+            aVar.o(this.M);
         }
     }
 
-    public void setEvent(f fVar) {
+    public void setEvent(g gVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048622, this, fVar) == null) {
-            this.mEvent = fVar;
+        if (interceptable == null || interceptable.invokeL(1048622, this, gVar) == null) {
+            this.mEvent = gVar;
         }
     }
 
     public void setInterceptOnClick(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048623, this, z) == null) {
-            this.A = z;
+            this.B = z;
         }
     }
 
@@ -1134,18 +1218,21 @@ public class TbImageView extends BDImageView implements Runnable, View.OnClickLi
     public void setOnClickListener(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048628, this, onClickListener) == null) {
-            super.setOnTouchListener(this.K);
+            if (this.L == null) {
+                this.L = new c.a.r0.j2.i.c(new d(this));
+            }
+            super.setOnTouchListener(this.L);
             if (!isClickable()) {
                 setClickable(true);
             }
-            this.x = onClickListener;
+            this.y = onClickListener;
         }
     }
 
-    public void setOnDrawListener(g gVar) {
+    public void setOnDrawListener(h hVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048629, this, gVar) == null) {
-            this.mOnDrawListener = gVar;
+        if (interceptable == null || interceptable.invokeL(1048629, this, hVar) == null) {
+            this.mOnDrawListener = hVar;
         }
     }
 
@@ -1156,8 +1243,8 @@ public class TbImageView extends BDImageView implements Runnable, View.OnClickLi
             if (this.o || bdUniqueId == null) {
                 return;
             }
-            this.M.setTag(bdUniqueId);
-            MessageManager.getInstance().registerListener(this.M);
+            this.N.setTag(bdUniqueId);
+            MessageManager.getInstance().registerListener(this.N);
             this.o = true;
         }
     }
@@ -1231,18 +1318,18 @@ public class TbImageView extends BDImageView implements Runnable, View.OnClickLi
     }
 
     public void setTagColor(int i2) {
-        c.a.p0.d1.c cVar;
+        c.a.q0.f1.c cVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048637, this, i2) == null) || (cVar = this.F) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048637, this, i2) == null) || (cVar = this.G) == null) {
             return;
         }
         cVar.h(i2);
     }
 
     public void setTagPaddingDis(int i2, int i3) {
-        c.a.p0.d1.c cVar;
+        c.a.q0.f1.c cVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeII(1048638, this, i2, i3) == null) || (cVar = this.F) == null) {
+        if (!(interceptable == null || interceptable.invokeII(1048638, this, i2, i3) == null) || (cVar = this.G) == null) {
             return;
         }
         cVar.g(i2, i3);
@@ -1251,37 +1338,47 @@ public class TbImageView extends BDImageView implements Runnable, View.OnClickLi
     public void setTagStr(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048639, this, str) == null) {
-            this.G = str;
+            this.H = str;
         }
     }
 
     public void setTagTextSize(int i2) {
-        c.a.p0.d1.c cVar;
+        c.a.q0.f1.c cVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048640, this, i2) == null) || (cVar = this.F) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048640, this, i2) == null) || (cVar = this.G) == null) {
             return;
         }
         cVar.i(i2);
     }
 
-    public void setTbGestureDetector(c.a.q0.i2.i.c cVar) {
+    public void setTbGestureDetector(c.a.r0.j2.i.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048641, this, cVar) == null) {
-            super.setOnTouchListener(this.K);
-            this.y = cVar;
+            if (this.L == null) {
+                this.L = new c.a.r0.j2.i.c(new e(this));
+            }
+            super.setOnTouchListener(this.L);
+            this.z = cVar;
+        }
+    }
+
+    public void setUseNightOrDarkMask(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048642, this, z) == null) {
+            this.w = z;
         }
     }
 
     public void startLoad(String str, int i2, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048645, this, new Object[]{str, Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048646, this, new Object[]{str, Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
             startLoad(str, i2, 0, 0, z);
         }
     }
 
     public void startLoading() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048647, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048648, this) == null) {
             this.p = true;
             m();
         }
@@ -1289,7 +1386,7 @@ public class TbImageView extends BDImageView implements Runnable, View.OnClickLi
 
     public void stopLoad() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048648, this) == null) || TextUtils.isEmpty(this.mUrl)) {
+        if (!(interceptable == null || interceptable.invokeV(1048649, this) == null) || TextUtils.isEmpty(this.mUrl)) {
             return;
         }
         c.a.e.e.l.d.h().d(this.mUrl, this.mType, this.mCallback);
@@ -1299,19 +1396,19 @@ public class TbImageView extends BDImageView implements Runnable, View.OnClickLi
 
     public void stopLoading() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048649, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048650, this) == null) {
             this.p = false;
             removeCallbacks(this);
             this.r = 0.0f;
-            this.E.reset();
-            setExtraMatrix(this.E);
+            this.F.reset();
+            setExtraMatrix(this.F);
             invalidate();
         }
     }
 
     public void startLoad(String str, int i2, boolean z, boolean z2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048646, this, new Object[]{str, Integer.valueOf(i2), Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048647, this, new Object[]{str, Integer.valueOf(i2), Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
             startLoad(str, i2, 0, 0, z, z2);
         }
     }
@@ -1320,7 +1417,7 @@ public class TbImageView extends BDImageView implements Runnable, View.OnClickLi
         BdUniqueId bdUniqueId;
         boolean z2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048642, this, new Object[]{str, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Boolean.valueOf(z)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048643, this, new Object[]{str, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Boolean.valueOf(z)}) == null) {
             i c2 = j.c(getContext());
             if (c2 != null) {
                 BdUniqueId bdUniqueId2 = this.mPageId;
@@ -1340,7 +1437,7 @@ public class TbImageView extends BDImageView implements Runnable, View.OnClickLi
     public void startLoad(String str, int i2, int i3, int i4, boolean z, boolean z2) {
         BdUniqueId bdUniqueId;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048644, this, new Object[]{str, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048645, this, new Object[]{str, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
             i c2 = j.c(getContext());
             if (c2 != null) {
                 BdUniqueId bdUniqueId2 = this.mPageId;
@@ -1357,10 +1454,10 @@ public class TbImageView extends BDImageView implements Runnable, View.OnClickLi
 
     public void startLoad(String str, int i2, int i3, int i4, boolean z, BdUniqueId bdUniqueId, boolean z2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048643, this, new Object[]{str, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Boolean.valueOf(z), bdUniqueId, Boolean.valueOf(z2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048644, this, new Object[]{str, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Boolean.valueOf(z), bdUniqueId, Boolean.valueOf(z2)}) == null) {
             if (TextUtils.isEmpty(str)) {
                 this.mUrl = str;
-                int i5 = this.w;
+                int i5 = this.x;
                 if (i5 == 3 || i5 == TbadkCoreApplication.getInst().getSkinType()) {
                     return;
                 }
@@ -1376,11 +1473,11 @@ public class TbImageView extends BDImageView implements Runnable, View.OnClickLi
                 requestLayout();
             } else if (bdImage != null) {
                 invalidate();
-                this.I = bdImage.r();
-                this.J = bdImage.m();
-                f fVar = this.mEvent;
-                if (fVar != null) {
-                    fVar.a(str, true);
+                this.J = bdImage.r();
+                this.K = bdImage.m();
+                g gVar = this.mEvent;
+                if (gVar != null) {
+                    gVar.a(str, true);
                     return;
                 }
                 return;
@@ -1399,29 +1496,29 @@ public class TbImageView extends BDImageView implements Runnable, View.OnClickLi
                 invalidate();
             } else if (z3 && !c.a.e.e.p.j.z()) {
                 invalidate();
-                f fVar2 = this.mEvent;
-                if (fVar2 != null) {
-                    fVar2.a(str, false);
+                g gVar2 = this.mEvent;
+                if (gVar2 != null) {
+                    gVar2.a(str, false);
                 }
             } else {
                 if (z) {
                     startLoading();
                 }
                 String g2 = c.a.e.e.l.d.h().g(str, i2);
-                e eVar = new e(this);
-                eVar.f48481a = str;
-                eVar.f48482b = i2;
-                eVar.f48483c = System.currentTimeMillis();
-                this.mLogMap.put(g2, eVar);
+                f fVar = new f(this);
+                fVar.f48616a = str;
+                fVar.f48617b = i2;
+                fVar.f48618c = System.currentTimeMillis();
+                this.mLogMap.put(g2, fVar);
                 if (TbadkCoreApplication.getInst().isPicReqSwitchOn()) {
                     String g3 = c.a.e.e.l.d.h().g(str, i2);
                     if (this.mRequestMap.containsKey(g3)) {
                         return;
                     }
-                    e eVar2 = new e(this);
-                    eVar2.f48481a = str;
-                    eVar2.f48482b = i2;
-                    this.mRequestMap.put(g3, eVar2);
+                    f fVar2 = new f(this);
+                    fVar2.f48616a = str;
+                    fVar2.f48617b = i2;
+                    this.mRequestMap.put(g3, fVar2);
                     return;
                 }
                 c.a.e.e.l.d.h().k(this.mUrl, this.mType, this.mCallback, i3, i4, this.mPageId, new Object[0]);
@@ -1481,18 +1578,18 @@ public class TbImageView extends BDImageView implements Runnable, View.OnClickLi
         this.isSmartCrop = false;
         this.mSupportNoImage = false;
         this.v = true;
-        this.w = 3;
-        this.B = new RectF();
-        this.C = new Path();
-        this.D = new RectF();
-        this.E = new Matrix();
-        this.H = false;
-        this.I = 0;
+        this.w = true;
+        this.x = 3;
+        this.C = new RectF();
+        this.D = new Path();
+        this.E = new RectF();
+        this.F = new Matrix();
+        this.I = false;
         this.J = 0;
-        this.K = new c.a.q0.i2.i.c(new a(this));
-        this.mCallback = new b(this);
-        this.L = new c(this);
-        this.M = new d(this, 2016308);
+        this.K = 0;
+        this.mCallback = new a(this);
+        this.M = new b(this);
+        this.N = new c(this, 2016308);
         init();
     }
 }

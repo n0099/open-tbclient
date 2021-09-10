@@ -1,156 +1,182 @@
 package c.a.q0.a0;
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
+import android.text.TextUtils;
+import c.a.e.e.m.h;
+import c.a.e.e.p.l;
+import c.a.q0.s.l.c;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.card.data.BaseCardInfo;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.AccountData;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.data.CloseAdData;
+import com.baidu.tbadk.data.PayMemberInfoData;
+import com.baidu.tbadk.data.UserData;
+import com.baidu.tbadk.getUserInfo.GetUserInfoHttpResponseMessage;
+import com.baidu.tbadk.getUserInfo.GetUserInfoRequstData;
+import com.baidu.tbadk.getUserInfo.GetUserInfoSocketResponseMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public abstract class b<T extends BaseCardInfo> implements View.OnClickListener {
+public class b {
     public static /* synthetic */ Interceptable $ic;
+
+    /* renamed from: b  reason: collision with root package name */
+    public static b f12693b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* renamed from: e  reason: collision with root package name */
-    public int f15231e;
+    /* renamed from: a  reason: collision with root package name */
+    public UserData f12694a;
 
-    /* renamed from: f  reason: collision with root package name */
-    public TbPageContext<?> f15232f;
+    /* loaded from: classes3.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
-    /* renamed from: g  reason: collision with root package name */
-    public Context f15233g;
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ AccountData f12695e;
 
-    /* renamed from: h  reason: collision with root package name */
-    public View f15234h;
+        public a(b bVar, AccountData accountData) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {bVar, accountData};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f12695e = accountData;
+        }
 
-    /* renamed from: i  reason: collision with root package name */
-    public b0<T> f15235i;
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                c.g(this.f12695e);
+            }
+        }
+    }
 
-    /* renamed from: j  reason: collision with root package name */
-    public BdUniqueId f15236j;
-    public String k;
-    public int l;
-
-    public b(TbPageContext<?> tbPageContext) {
+    public b() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.f15231e = 3;
-        this.f15236j = null;
-        this.f15232f = tbPageContext;
-        this.f15233g = tbPageContext.getPageActivity();
-        this.f15234h = LayoutInflater.from(d()).inflate(f(), (ViewGroup) null, false);
     }
 
-    public Context d() {
+    public static b a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f15233g : (Context) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (f12693b == null) {
+                synchronized (b.class) {
+                    if (f12693b == null) {
+                        f12693b = new b();
+                    }
+                }
+            }
+            return f12693b;
+        }
+        return (b) invokeV.objValue;
     }
 
-    public String e() {
+    public UserData b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.k : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f12694a : (UserData) invokeV.objValue;
     }
 
-    public abstract int f();
-
-    public b0<T> g() {
-        InterceptResult invokeV;
+    public void c() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f15235i : (b0) invokeV.objValue;
-    }
-
-    public BdUniqueId h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f15236j : (BdUniqueId) invokeV.objValue;
-    }
-
-    public TbPageContext<?> i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f15232f : (TbPageContext) invokeV.objValue;
-    }
-
-    public View j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f15234h : (View) invokeV.objValue;
-    }
-
-    public abstract void k(T t);
-
-    public abstract void l(TbPageContext<?> tbPageContext, int i2);
-
-    public void m(b0<T> b0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, b0Var) == null) {
-            this.f15235i = b0Var;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            c.a.r0.j3.d0.a.h(303024, GetUserInfoSocketResponseMessage.class, false, false);
+            c.a.r0.j3.d0.a.c(303024, CmdConfigHttp.CMD_GET_USER_INFO, TbConfig.GET_USER_INFO, GetUserInfoHttpResponseMessage.class, false, false, false, false);
         }
     }
 
-    public void n(BdUniqueId bdUniqueId) {
+    public void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, bdUniqueId) == null) {
-            this.f15236j = bdUniqueId;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            GetUserInfoRequstData getUserInfoRequstData = new GetUserInfoRequstData(CmdConfigHttp.CMD_GET_USER_INFO, 303024);
+            AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
+            if (currentAccountObj != null) {
+                getUserInfoRequstData.setUid(c.a.e.e.m.b.g(currentAccountObj.getID(), 0L));
+            }
+            getUserInfoRequstData.setScreenWidth(l.k(TbadkCoreApplication.getInst().getApp()));
+            MessageManager.getInstance().sendMessage(getUserInfoRequstData);
         }
     }
 
-    public void o(int i2) {
-        View view;
+    public void e(UserData userData) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048587, this, i2) == null) || (view = this.f15234h) == null) {
-            return;
-        }
-        view.setVisibility(i2);
-    }
-
-    public void setFrom(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
-            this.k = str;
-        }
-    }
-
-    public b(TbPageContext<?> tbPageContext, ViewGroup viewGroup) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, viewGroup};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+        if (interceptable == null || interceptable.invokeL(1048579, this, userData) == null) {
+            this.f12694a = userData;
+            if (userData == null) {
                 return;
             }
+            AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
+            if (currentAccountObj == null) {
+                currentAccountObj = new AccountData();
+            }
+            if (!StringUtils.isNull(userData.getUserName())) {
+                currentAccountObj.setAccount(userData.getUserName());
+            }
+            if (!StringUtils.isNull(userData.getPortrait())) {
+                currentAccountObj.setPortrait(userData.getPortrait());
+            }
+            if (userData.getBaijiahaoInfo() != null && !StringUtils.isNull(userData.getBaijiahaoInfo().avatar)) {
+                currentAccountObj.setBjhAvatar(userData.getBaijiahaoInfo().avatar);
+            }
+            currentAccountObj.setSex(userData.getSex());
+            currentAccountObj.setMemberType(userData.getIsMem());
+            currentAccountObj.setVipInfo(userData.getUserVipInfo());
+            currentAccountObj.setPersonalBgUrl(userData.getBg_pic());
+            if (userData.getGodUserData() != null) {
+                currentAccountObj.setGodType(userData.getGodUserData().getType());
+            }
+            if (userData.getNewGodData() != null) {
+                currentAccountObj.setNewGodStatus(userData.getNewGodData().getStatus());
+            }
+            if (!TextUtils.isEmpty(userData.getUk())) {
+                currentAccountObj.setUk(userData.getUk());
+            }
+            currentAccountObj.setIsBigV(userData.isBigV());
+            currentAccountObj.setNameShow(userData.getName_show());
+            TbadkCoreApplication.getInst().setDefaultBubble(userData.getBimg_url());
+            PayMemberInfoData payMemberInfoData = userData.getPayMemberInfoData();
+            if (currentAccountObj.getVipInfo() != null) {
+                currentAccountObj.setMemberIconUrl(currentAccountObj.getVipInfo().getVipIconUrl());
+            } else {
+                currentAccountObj.setMemberIconUrl(null);
+            }
+            CloseAdData closeAdData = userData.getCloseAdData();
+            if (closeAdData != null) {
+                currentAccountObj.setMemberCloseAdIsOpen(closeAdData.w());
+                currentAccountObj.setMemberCloseAdVipClose(closeAdData.x());
+            }
+            currentAccountObj.setUserIcons(userData.getIconInfo());
+            currentAccountObj.setIsSelectTail(userData.getIsSelectTail());
+            h.a().c(new a(this, currentAccountObj));
+            MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2001247, payMemberInfoData));
         }
-        this.f15231e = 3;
-        this.f15236j = null;
-        this.f15232f = tbPageContext;
-        this.f15233g = tbPageContext.getPageActivity();
-        this.f15234h = LayoutInflater.from(d()).inflate(f(), viewGroup, false);
     }
 }

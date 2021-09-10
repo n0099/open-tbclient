@@ -12,7 +12,7 @@ public class i2 implements n1 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ k2 f76876a;
+    public final /* synthetic */ k2 f77056a;
 
     public i2(k2 k2Var) {
         Interceptable interceptable = $ic;
@@ -29,7 +29,7 @@ public class i2 implements n1 {
                 return;
             }
         }
-        this.f76876a = k2Var;
+        this.f77056a = k2Var;
     }
 
     @Override // com.win.opensdk.n1
@@ -43,7 +43,7 @@ public class i2 implements n1 {
     public void a(Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
-            this.f76876a.a((Info) obj);
+            this.f77056a.a((Info) obj);
         }
     }
 
@@ -51,7 +51,7 @@ public class i2 implements n1 {
     public void onFail(PBError pBError) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pBError) == null) {
-            this.f76876a.f76910h.onFail(pBError);
+            this.f77056a.f77090h.onFail(pBError);
         }
     }
 }

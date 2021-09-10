@@ -1,68 +1,79 @@
 package c.a.e.f.a;
 
-import android.graphics.Matrix;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
 public class e {
     public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public float[] f2720a;
+    public static e f2721a;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* renamed from: b  reason: collision with root package name */
-    public boolean f2721b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public boolean f2722c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public int f2723d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public int f2724e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public boolean f2725f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public boolean f2726g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public boolean f2727h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public boolean f2728i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public int f2729j;
-    public float k;
-    public Matrix l;
-    public int m;
-    public boolean n;
-    public boolean o;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1239874365, "Lc/a/e/f/a/e;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1239874365, "Lc/a/e/f/a/e;");
+                return;
+            }
+        }
+        f2721a = new e();
+    }
 
     public e() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.f2720a = new float[8];
-        this.f2727h = false;
-        this.f2728i = true;
-        this.f2729j = b.f2714a;
-        this.k = 1.0f;
-        this.o = false;
+    }
+
+    public static e b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f2721a : (e) invokeV.objValue;
+    }
+
+    public a a(int i2) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
+            switch (i2) {
+                case 0:
+                    return new c();
+                case 1:
+                    return new k();
+                case 2:
+                    return new g();
+                case 3:
+                    return new m();
+                case 4:
+                    return new l();
+                case 5:
+                    return new f();
+                case 6:
+                    return new i();
+                default:
+                    return new c();
+            }
+        }
+        return (a) invokeI.objValue;
     }
 }

@@ -23,7 +23,7 @@ public class a extends ExtractorProvider {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public DuMediaExtractor f31161a;
+    public DuMediaExtractor f31268a;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -39,7 +39,7 @@ public class a extends ExtractorProvider {
             }
         }
         try {
-            this.f31161a = new DuMediaExtractor();
+            this.f31268a = new DuMediaExtractor();
             b();
         } catch (Throwable th) {
             th.printStackTrace();
@@ -72,7 +72,7 @@ public class a extends ExtractorProvider {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            DuMediaExtractor duMediaExtractor = this.f31161a;
+            DuMediaExtractor duMediaExtractor = this.f31268a;
             if (duMediaExtractor != null) {
                 try {
                     return duMediaExtractor.h();
@@ -90,7 +90,7 @@ public class a extends ExtractorProvider {
     public void release() {
         DuMediaExtractor duMediaExtractor;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (duMediaExtractor = this.f31161a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (duMediaExtractor = this.f31268a) == null) {
             return;
         }
         try {
@@ -100,7 +100,7 @@ public class a extends ExtractorProvider {
                 e2.printStackTrace();
             }
         } finally {
-            this.f31161a = null;
+            this.f31268a = null;
         }
     }
 
@@ -108,7 +108,7 @@ public class a extends ExtractorProvider {
     public void setDataSource(Context context, Uri uri) {
         DuMediaExtractor duMediaExtractor;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048579, this, context, uri) == null) || (duMediaExtractor = this.f31161a) == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048579, this, context, uri) == null) || (duMediaExtractor = this.f31268a) == null) {
             return;
         }
         try {
@@ -122,7 +122,7 @@ public class a extends ExtractorProvider {
     public void setDataSource(Context context, Uri uri, Map<String, String> map) {
         DuMediaExtractor duMediaExtractor;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(1048580, this, context, uri, map) == null) || (duMediaExtractor = this.f31161a) == null) {
+        if (!(interceptable == null || interceptable.invokeLLL(1048580, this, context, uri, map) == null) || (duMediaExtractor = this.f31268a) == null) {
             return;
         }
         try {
@@ -143,7 +143,7 @@ public class a extends ExtractorProvider {
     public void setDataSource(String str) {
         DuMediaExtractor duMediaExtractor;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, str) == null) || (duMediaExtractor = this.f31161a) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048582, this, str) == null) || (duMediaExtractor = this.f31268a) == null) {
             return;
         }
         try {
@@ -158,7 +158,7 @@ public class a extends ExtractorProvider {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Integer.valueOf(i2), str, Long.valueOf(j2)}) == null) {
             CyberLog.i("CyberExtractorImpl", "setOption: " + str + "," + j2);
-            DuMediaExtractor duMediaExtractor = this.f31161a;
+            DuMediaExtractor duMediaExtractor = this.f31268a;
             if (duMediaExtractor != null) {
                 try {
                     duMediaExtractor.c(i2, str, j2);

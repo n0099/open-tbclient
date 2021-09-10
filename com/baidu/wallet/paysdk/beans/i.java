@@ -23,7 +23,7 @@ public class i extends BaseBean<FindPWDFromOldCardCheckSmsResponse> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public BindFastRequest f62236a;
+    public BindFastRequest f62416a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public <T> i(Context context) {
@@ -43,8 +43,8 @@ public class i extends BaseBean<FindPWDFromOldCardCheckSmsResponse> {
                 return;
             }
         }
-        this.f62236a = null;
-        this.f62236a = (BindFastRequest) PayRequestCache.getInstance().getBeanRequestFromCache(PayRequestCache.BindCategory.Pwd.name());
+        this.f62416a = null;
+        this.f62416a = (BindFastRequest) PayRequestCache.getInstance().getBeanRequestFromCache(PayRequestCache.BindCategory.Pwd.name());
     }
 
     @Override // com.dxmpay.apollon.beans.ApollonBean
@@ -61,8 +61,8 @@ public class i extends BaseBean<FindPWDFromOldCardCheckSmsResponse> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             ArrayList arrayList = new ArrayList();
-            arrayList.add(new RestNameValuePair("card_no", PayUtils.encrypt("card_no", this.f62236a.getmBankCard())));
-            arrayList.add(new RestNameValuePair("sms_vcode", this.f62236a.mSmsVCode));
+            arrayList.add(new RestNameValuePair("card_no", PayUtils.encrypt("card_no", this.f62416a.getmBankCard())));
+            arrayList.add(new RestNameValuePair("sms_vcode", this.f62416a.mSmsVCode));
             arrayList.add(new RestNameValuePair("key", SecurePay.getInstance().getpwProxy()));
             return arrayList;
         }

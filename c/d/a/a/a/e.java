@@ -22,11 +22,11 @@ public class e {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Handler f31581b;
+    public static Handler f31690b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f31582a;
+    public boolean f31691a;
 
     /* loaded from: classes4.dex */
     public class a extends Handler {
@@ -60,7 +60,7 @@ public class e {
                 int i2 = message.what;
                 if (10001 == i2) {
                     f fVar = (f) message.obj;
-                    c.d.a.a.a.b.a().c(StatApi.getAppContext(), fVar.f31589f);
+                    c.d.a.a.a.b.a().c(StatApi.getAppContext(), fVar.f31698f);
                     d.a().c(fVar);
                 } else if (10002 != i2) {
                     if (10003 == i2) {
@@ -80,7 +80,7 @@ public class e {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static e f31583a;
+        public static e f31692a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -96,7 +96,7 @@ public class e {
                     return;
                 }
             }
-            f31583a = new e(null);
+            f31692a = new e(null);
         }
     }
 
@@ -107,13 +107,13 @@ public class e {
     public static e a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.f31583a : (e) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.f31692a : (e) invokeV.objValue;
     }
 
     public void b(String str, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048576, this, str, i2) == null) {
-            f31581b.obtainMessage(10002, i2, -1, str).sendToTarget();
+            f31690b.obtainMessage(10002, i2, -1, str).sendToTarget();
         }
     }
 
@@ -139,18 +139,18 @@ public class e {
         if (!e() && StrategyProcess.getInstance().needDownloadStrategy()) {
             LogSender.getInstance().a();
         }
-        f31581b.obtainMessage(10001, f.a(str, j2, str2, g.a(), c.d.a.a.a.a.a(), collection, map, str3)).sendToTarget();
+        f31690b.obtainMessage(10001, f.a(str, j2, str2, g.a(), c.d.a.a.a.a.a(), collection, map, str3)).sendToTarget();
     }
 
     public boolean e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (this.f31582a) {
+            if (this.f31691a) {
                 return false;
             }
-            this.f31582a = true;
-            f31581b.sendEmptyMessage(10003);
+            this.f31691a = true;
+            f31690b.sendEmptyMessage(10003);
             LogSender.getInstance().a();
             return true;
         }
@@ -170,7 +170,7 @@ public class e {
                 return;
             }
         }
-        this.f31582a = false;
-        f31581b = new a(this, c.a().b().getLooper());
+        this.f31691a = false;
+        f31690b = new a(this, c.a().b().getLooper());
     }
 }

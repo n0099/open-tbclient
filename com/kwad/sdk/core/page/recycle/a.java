@@ -23,10 +23,10 @@ public abstract class a extends com.kwad.sdk.c.d {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public RecyclerView f71907a;
+    public RecyclerView f72087a;
 
     /* renamed from: b  reason: collision with root package name */
-    public d f71908b;
+    public d f72088b;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -45,7 +45,7 @@ public abstract class a extends com.kwad.sdk.c.d {
     private void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, this) == null) {
-            this.f71907a.setAdapter(this.f71908b);
+            this.f72087a.setAdapter(this.f72088b);
         }
     }
 
@@ -62,16 +62,16 @@ public abstract class a extends com.kwad.sdk.c.d {
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f71907a.setItemAnimator(null);
-            this.f71907a.setLayoutManager(e());
-            this.f71908b = a(this.f71907a);
+            this.f72087a.setItemAnimator(null);
+            this.f72087a.setLayoutManager(e());
+            this.f72088b = a(this.f72087a);
         }
     }
 
     public RecyclerView d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f71907a : (RecyclerView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f72087a : (RecyclerView) invokeV.objValue;
     }
 
     public RecyclerView.LayoutManager e() {
@@ -109,7 +109,7 @@ public abstract class a extends com.kwad.sdk.c.d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048585, this, layoutInflater, viewGroup, bundle)) == null) {
             View a2 = a(layoutInflater, viewGroup, bundle);
-            this.f71907a = (RecyclerView) a2.findViewById(f());
+            this.f72087a = (RecyclerView) a2.findViewById(f());
             return a2;
         }
         return (View) invokeLLL.objValue;
@@ -128,7 +128,7 @@ public abstract class a extends com.kwad.sdk.c.d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             super.onDestroyView();
-            this.f71907a.clearOnChildAttachStateChangeListeners();
+            this.f72087a.clearOnChildAttachStateChangeListeners();
         }
     }
 

@@ -5,8 +5,9 @@ import android.graphics.Bitmap;
 import android.opengl.GLES20;
 import android.opengl.GLUtils;
 import android.os.Handler;
-import c.a.w0.b;
+import c.a.x0.b;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.launch.stats.SpeedStatsStampTable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -121,12 +122,12 @@ public class OutputSurfaceWithFilter extends BaseOutputSurface {
             int i4 = (min * 112) / 720;
             GLES20.glViewport(i3, (this.mVideoHeight - i4) - i3, (min * 300) / 720, i4);
             GLES20.glDisable(2929);
-            GLES20.glEnable(3042);
+            GLES20.glEnable(SpeedStatsStampTable.SPLASHACTIVITY_AD_CALLSHOW_STAMP_KEY);
             GLES20.glBlendFunc(1, BankSignFactory.BEAN_ID_BIND_CARD);
             this.mFullScreenFUDisplay.setAngle(180.0f);
             this.mFullScreenFUDisplay.setScale(1.0f, -1.0f);
             this.mFullScreenFUDisplay.drawFrame(this.mWaterMarkTextureId, GlUtil.IDENTITY_MATRIX, true);
-            GLES20.glDisable(3042);
+            GLES20.glDisable(SpeedStatsStampTable.SPLASHACTIVITY_AD_CALLSHOW_STAMP_KEY);
             GLES20.glViewport(0, 0, this.mVideoWidth, this.mVideoHeight);
         }
     }

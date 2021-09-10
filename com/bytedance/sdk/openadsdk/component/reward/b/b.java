@@ -25,34 +25,34 @@ public class b implements f {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public g f65592a;
+    public g f65772a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f65593b;
+    public int f65773b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f65594c;
+    public boolean f65774c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f65595d;
+    public boolean f65775d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Activity f65596e;
+    public Activity f65776e;
 
     /* renamed from: f  reason: collision with root package name */
-    public m f65597f;
+    public m f65777f;
 
     /* renamed from: g  reason: collision with root package name */
-    public e f65598g;
+    public e f65778g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f65599h;
+    public String f65779h;
 
     /* renamed from: i  reason: collision with root package name */
-    public HomeWatcherReceiver f65600i;
+    public HomeWatcherReceiver f65780i;
 
     /* renamed from: j  reason: collision with root package name */
-    public boolean f65601j;
+    public boolean f65781j;
     public boolean k;
     public c l;
     public boolean m;
@@ -73,26 +73,26 @@ public class b implements f {
                 return;
             }
         }
-        this.f65601j = false;
-        this.f65593b = -1;
-        this.f65595d = false;
+        this.f65781j = false;
+        this.f65773b = -1;
+        this.f65775d = false;
         this.k = false;
         this.n = false;
-        this.f65596e = activity;
+        this.f65776e = activity;
     }
 
     private void q() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65538, this) == null) && o.a(this.f65597f)) {
+        if ((interceptable == null || interceptable.invokeV(65538, this) == null) && o.a(this.f65777f)) {
             try {
                 HomeWatcherReceiver homeWatcherReceiver = new HomeWatcherReceiver();
-                this.f65600i = homeWatcherReceiver;
+                this.f65780i = homeWatcherReceiver;
                 homeWatcherReceiver.a(new HomeWatcherReceiver.a(this) { // from class: com.bytedance.sdk.openadsdk.component.reward.b.b.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ b f65602a;
+                    public final /* synthetic */ b f65782a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -109,14 +109,14 @@ public class b implements f {
                                 return;
                             }
                         }
-                        this.f65602a = this;
+                        this.f65782a = this;
                     }
 
                     @Override // com.bytedance.sdk.component.utils.HomeWatcherReceiver.a
                     public void a() {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            this.f65602a.f65595d = true;
+                            this.f65782a.f65775d = true;
                         }
                     }
 
@@ -124,11 +124,11 @@ public class b implements f {
                     public void b() {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                            this.f65602a.f65595d = true;
+                            this.f65782a.f65775d = true;
                         }
                     }
                 });
-                this.f65596e.getApplicationContext().registerReceiver(this.f65600i, new IntentFilter("android.intent.action.CLOSE_SYSTEM_DIALOGS"));
+                this.f65776e.getApplicationContext().registerReceiver(this.f65780i, new IntentFilter("android.intent.action.CLOSE_SYSTEM_DIALOGS"));
             } catch (Throwable unused) {
             }
         }
@@ -137,18 +137,18 @@ public class b implements f {
     private void r() {
         g gVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65539, this) == null) && o.a(this.f65597f) && (gVar = this.f65592a) != null) {
+        if ((interceptable == null || interceptable.invokeV(65539, this) == null) && o.a(this.f65777f) && (gVar = this.f65772a) != null) {
             gVar.a(this);
-            this.f65592a.b();
+            this.f65772a.b();
         }
     }
 
     private void s() {
         g gVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) && o.a(this.f65597f) && (gVar = this.f65592a) != null) {
+        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) && o.a(this.f65777f) && (gVar = this.f65772a) != null) {
             gVar.c();
-            this.f65592a.a((f) null);
+            this.f65772a.a((f) null);
         }
     }
 
@@ -158,16 +158,16 @@ public class b implements f {
             return;
         }
         this.n = true;
-        this.f65598g = eVar;
-        this.f65597f = mVar;
-        this.f65599h = str;
+        this.f65778g = eVar;
+        this.f65777f = mVar;
+        this.f65779h = str;
         this.l = cVar;
         f();
     }
 
     public void b() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && o.a(this.f65597f)) {
+        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && o.a(this.f65777f)) {
             this.m = true;
         }
     }
@@ -175,22 +175,22 @@ public class b implements f {
     public void c() {
         g gVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048587, this) == null) && o.a(this.f65597f)) {
-            this.f65601j = true;
+        if ((interceptable == null || interceptable.invokeV(1048587, this) == null) && o.a(this.f65777f)) {
+            this.f65781j = true;
             r();
-            if ((this.m || p()) && !this.f65594c && (gVar = this.f65592a) != null && gVar.d() == 0) {
-                this.f65594c = true;
+            if ((this.m || p()) && !this.f65774c && (gVar = this.f65772a) != null && gVar.d() == 0) {
+                this.f65774c = true;
                 this.l.b(true);
-                this.f65598g.a(true);
+                this.f65778g.a(true);
             }
         }
     }
 
     public void d() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048588, this) == null) && o.a(this.f65597f)) {
-            this.f65601j = false;
-            if (o.j(this.f65597f)) {
+        if ((interceptable == null || interceptable.invokeV(1048588, this) == null) && o.a(this.f65777f)) {
+            this.f65781j = false;
+            if (o.j(this.f65777f)) {
                 j();
                 a("go_background");
             }
@@ -199,82 +199,82 @@ public class b implements f {
 
     public void e() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048589, this) == null) && o.a(this.f65597f)) {
-            a(this.f65596e);
+        if ((interceptable == null || interceptable.invokeV(1048589, this) == null) && o.a(this.f65777f)) {
+            a(this.f65776e);
             s();
         }
     }
 
     public void f() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048590, this) == null) && o.a(this.f65597f)) {
-            if (o.j(this.f65597f)) {
+        if ((interceptable == null || interceptable.invokeV(1048590, this) == null) && o.a(this.f65777f)) {
+            if (o.j(this.f65777f)) {
                 q();
             }
-            g gVar = new g(this.f65596e.getApplicationContext());
-            this.f65592a = gVar;
+            g gVar = new g(this.f65776e.getApplicationContext());
+            this.f65772a = gVar;
             gVar.a(this);
-            this.f65593b = this.f65592a.d();
-            k.b("onVolumeChanged", "onCreate >>>>>> mVolume = " + this.f65593b);
-            if (this.f65593b == 0) {
-                this.f65594c = true;
+            this.f65773b = this.f65772a.d();
+            k.b("onVolumeChanged", "onCreate >>>>>> mVolume = " + this.f65773b);
+            if (this.f65773b == 0) {
+                this.f65774c = true;
             }
         }
     }
 
     public void g() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048591, this) == null) && o.a(this.f65597f)) {
-            this.f65598g.v();
+        if ((interceptable == null || interceptable.invokeV(1048591, this) == null) && o.a(this.f65777f)) {
+            this.f65778g.v();
         }
     }
 
     public void h() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048592, this) == null) && o.a(this.f65597f)) {
-            this.f65598g.u();
+        if ((interceptable == null || interceptable.invokeV(1048592, this) == null) && o.a(this.f65777f)) {
+            this.f65778g.u();
         }
     }
 
     public void i() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048593, this) == null) && o.a(this.f65597f)) {
+        if ((interceptable == null || interceptable.invokeV(1048593, this) == null) && o.a(this.f65777f)) {
             this.k = true;
         }
     }
 
     public void j() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048594, this) == null) && o.a(this.f65597f)) {
-            this.f65598g.z();
+        if ((interceptable == null || interceptable.invokeV(1048594, this) == null) && o.a(this.f65777f)) {
+            this.f65778g.z();
         }
     }
 
     public void k() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048595, this) == null) && o.a(this.f65597f)) {
-            this.f65598g.A();
+        if ((interceptable == null || interceptable.invokeV(1048595, this) == null) && o.a(this.f65777f)) {
+            this.f65778g.A();
         }
     }
 
     public void l() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048596, this) == null) && o.a(this.f65597f)) {
+        if ((interceptable == null || interceptable.invokeV(1048596, this) == null) && o.a(this.f65777f)) {
             HashMap hashMap = new HashMap();
-            if (this.f65597f.V() != null) {
-                hashMap.put("playable_url", this.f65597f.V().j());
+            if (this.f65777f.V() != null) {
+                hashMap.put("playable_url", this.f65777f.V().j());
             }
-            com.bytedance.sdk.openadsdk.e.d.j(this.f65596e, this.f65597f, this.f65599h, "click_playable_download_button_loading", hashMap);
+            com.bytedance.sdk.openadsdk.e.d.j(this.f65776e, this.f65777f, this.f65779h, "click_playable_download_button_loading", hashMap);
         }
     }
 
     public void m() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048597, this) == null) && o.a(this.f65597f)) {
+        if ((interceptable == null || interceptable.invokeV(1048597, this) == null) && o.a(this.f65777f)) {
             if (this.m || p()) {
-                boolean z = !this.f65594c;
-                this.f65594c = z;
-                this.f65598g.a(z);
+                boolean z = !this.f65774c;
+                this.f65774c = z;
+                this.f65778g.a(z);
             }
         }
     }
@@ -282,7 +282,7 @@ public class b implements f {
     public String n() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? o.j(this.f65597f) ? "playable" : o.k(this.f65597f) ? this.m ? "playable" : "video_player" : "endcard" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? o.j(this.f65777f) ? "playable" : o.k(this.f65777f) ? this.m ? "playable" : "video_player" : "endcard" : (String) invokeV.objValue;
     }
 
     public boolean o() {
@@ -291,7 +291,7 @@ public class b implements f {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
             if (p()) {
                 k.b("RewardFullPlayableManager", "exitPrePosePlayable");
-                this.f65598g.D();
+                this.f65778g.D();
                 this.l.e(false);
                 this.l.c(false);
                 return true;
@@ -304,19 +304,19 @@ public class b implements f {
     public boolean p() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) ? this.f65598g.G() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) ? this.f65778g.G() : invokeV.booleanValue;
     }
 
     public boolean b(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i2)) == null) {
-            if (o.a(this.f65597f) && !this.k) {
-                int d2 = q.d(this.f65597f.ao());
-                boolean a2 = this.f65598g.a(i2);
+            if (o.a(this.f65777f) && !this.k) {
+                int d2 = q.d(this.f65777f.ao());
+                boolean a2 = this.f65778g.a(i2);
                 int l = com.bytedance.sdk.openadsdk.core.o.h().l(String.valueOf(d2));
                 if (l == 0) {
-                    return a2 && this.f65598g.t();
+                    return a2 && this.f65778g.t();
                 } else if (l == 1) {
                     return a2;
                 } else {
@@ -330,8 +330,8 @@ public class b implements f {
 
     public void a() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && o.a(this.f65597f)) {
-            this.f65598g.w();
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && o.a(this.f65777f)) {
+            this.f65778g.w();
         }
     }
 
@@ -339,7 +339,7 @@ public class b implements f {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
             k.b("RewardFullPlayableManager", "startPrePosePlayable");
-            this.f65598g.C();
+            this.f65778g.C();
             this.l.e(true);
             this.l.c(true);
             a(z);
@@ -348,10 +348,10 @@ public class b implements f {
 
     private void a(Context context) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65537, this, context) == null) && o.a(this.f65597f)) {
+        if ((interceptable == null || interceptable.invokeL(65537, this, context) == null) && o.a(this.f65777f)) {
             try {
-                this.f65600i.a(null);
-                context.unregisterReceiver(this.f65600i);
+                this.f65780i.a(null);
+                context.unregisterReceiver(this.f65780i);
             } catch (Throwable unused) {
             }
         }
@@ -359,35 +359,35 @@ public class b implements f {
 
     public void a(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048581, this, str) == null) && o.a(this.f65597f) && this.f65595d) {
+        if ((interceptable == null || interceptable.invokeL(1048581, this, str) == null) && o.a(this.f65777f) && this.f65775d) {
             HashMap hashMap = new HashMap();
-            hashMap.put("duration", Long.valueOf(this.f65598g.y()));
-            com.bytedance.sdk.openadsdk.e.d.g(this.f65596e, this.f65597f, this.f65599h, str, hashMap);
+            hashMap.put("duration", Long.valueOf(this.f65778g.y()));
+            com.bytedance.sdk.openadsdk.e.d.g(this.f65776e, this.f65777f, this.f65779h, str, hashMap);
             if ("return_foreground".equals(str)) {
-                this.f65595d = false;
+                this.f65775d = false;
             }
         }
     }
 
     public void a(Map<String, Object> map) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048582, this, map) == null) && o.a(this.f65597f) && map != null) {
-            map.put("duration", Long.valueOf(this.f65598g.y()));
+        if ((interceptable == null || interceptable.invokeL(1048582, this, map) == null) && o.a(this.f65777f) && map != null) {
+            map.put("duration", Long.valueOf(this.f65778g.y()));
         }
     }
 
     public void a(com.bytedance.sdk.openadsdk.core.b.e eVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, eVar) == null) && o.a(this.f65597f)) {
-            this.f65598g.a(eVar);
+        if ((interceptable == null || interceptable.invokeL(1048580, this, eVar) == null) && o.a(this.f65777f)) {
+            this.f65778g.a(eVar);
         }
     }
 
     public void a(int i2, com.bytedance.sdk.openadsdk.core.widget.d dVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i2, dVar) == null) && o.a(this.f65597f)) {
+        if ((interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i2, dVar) == null) && o.a(this.f65777f)) {
             String str = "试玩时长达标才能领取奖励";
-            if (com.bytedance.sdk.openadsdk.core.o.h().l(String.valueOf(i2)) != 1 && this.f65598g.t()) {
+            if (com.bytedance.sdk.openadsdk.core.o.h().l(String.valueOf(i2)) != 1 && this.f65778g.t()) {
                 str = "试玩后才能领取奖励";
             }
             dVar.a(str).b("继续试玩").c("放弃奖励");
@@ -396,11 +396,11 @@ public class b implements f {
 
     public void a(boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048583, this, z) == null) && this.f65598g.E()) {
-            boolean z2 = z || this.f65592a.d() == 0;
-            this.f65594c = z2;
+        if ((interceptable == null || interceptable.invokeZ(1048583, this, z) == null) && this.f65778g.E()) {
+            boolean z2 = z || this.f65772a.d() == 0;
+            this.f65774c = z2;
             this.l.b(z2);
-            this.f65598g.a(z2);
+            this.f65778g.a(z2);
         }
     }
 
@@ -408,12 +408,12 @@ public class b implements f {
     public void a(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            this.f65593b = i2;
-            if ((this.m || p()) && this.f65601j) {
+            this.f65773b = i2;
+            if ((this.m || p()) && this.f65781j) {
                 boolean z = i2 == 0;
-                this.f65594c = z;
+                this.f65774c = z;
                 this.l.b(z);
-                this.f65598g.a(this.f65594c);
+                this.f65778g.a(this.f65774c);
             }
         }
     }

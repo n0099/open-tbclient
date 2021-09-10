@@ -47,7 +47,7 @@ public class ItemFetchUrlHttpMsg extends HttpMessage {
         addParam(AsInstallService.SCHEME_PACKAGE_ADDED, item.apk_name);
         addParam("query", str);
         if (downloadData != null && (downloadData.getExtra() instanceof ItemDownloadExtraData)) {
-            addParam("req_type", ((ItemDownloadExtraData) downloadData.getExtra()).shouzhuScene == 4002 ? 6 : 5);
+            addParam("req_type", ((ItemDownloadExtraData) downloadData.getExtra()).shouzhuScene == 4001 ? 5 : 6);
         }
         this.downloadData = downloadData;
         this.pkgName = item.apk_name;

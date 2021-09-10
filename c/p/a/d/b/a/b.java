@@ -69,7 +69,7 @@ public class b {
             while (it.hasNext()) {
                 c.b next = it.next();
                 if (next != null) {
-                    jSONObject.put(String.valueOf(next.f34483b), next.b());
+                    jSONObject.put(String.valueOf(next.f34592b), next.b());
                 }
             }
         } catch (Exception e2) {

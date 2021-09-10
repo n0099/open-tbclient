@@ -18,22 +18,22 @@ public class AutoLinearLayout extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f47990e;
+    public Context f48118e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f47991f;
+    public int f48119f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f47992g;
+    public int f48120g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f47993h;
+    public int f48121h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f47994i;
+    public int f48122i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f47995j;
+    public int f48123j;
     public int k;
     public int l;
 
@@ -55,19 +55,19 @@ public class AutoLinearLayout extends LinearLayout {
                 return;
             }
         }
-        this.f47991f = 0;
-        this.f47992g = 0;
-        this.f47993h = 0;
-        this.f47995j = 0;
+        this.f48119f = 0;
+        this.f48120g = 0;
+        this.f48121h = 0;
+        this.f48123j = 0;
         this.k = 0;
         this.l = 0;
-        this.f47990e = context;
+        this.f48118e = context;
         setOrientation(0);
-        this.f47992g = l.g(context, R.dimen.ds24);
-        this.f47993h = l.g(context, R.dimen.ds20);
+        this.f48120g = l.g(context, R.dimen.ds24);
+        this.f48121h = l.g(context, R.dimen.ds20);
         this.k = l.g(context, R.dimen.ds32);
-        this.f47994i = l.k(this.f47990e) - (this.k * 2);
-        this.l = (int) this.f47990e.getResources().getDimension(R.dimen.ds60);
+        this.f48122i = l.k(this.f48118e) - (this.k * 2);
+        this.l = (int) this.f48118e.getResources().getDimension(R.dimen.ds60);
     }
 
     private int getCulumnsCount() {
@@ -77,7 +77,7 @@ public class AutoLinearLayout extends LinearLayout {
             int makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(0, 0);
             int makeMeasureSpec2 = View.MeasureSpec.makeMeasureSpec(this.l, 1073741824);
             int childCount = getChildCount();
-            int i2 = this.f47994i;
+            int i2 = this.f48122i;
             int i3 = 0;
             int i4 = 0;
             for (int i5 = 0; i5 < childCount; i5++) {
@@ -88,13 +88,13 @@ public class AutoLinearLayout extends LinearLayout {
                     if (i2 < measuredWidth) {
                         i3++;
                         if (i3 == 1) {
-                            this.f47995j = i5;
+                            this.f48123j = i5;
                         }
-                        i4 = measuredWidth + this.f47993h + 0;
+                        i4 = measuredWidth + this.f48121h + 0;
                     } else {
-                        i4 += measuredWidth + this.f47993h;
+                        i4 += measuredWidth + this.f48121h;
                     }
-                    i2 = this.f47994i - i4;
+                    i2 = this.f48122i - i4;
                 }
             }
             return i3 + 1;
@@ -105,7 +105,7 @@ public class AutoLinearLayout extends LinearLayout {
     public final void a(int i2) {
         int i3;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048576, this, i2) == null) || (i3 = this.f47995j) > i2) {
+        if (!(interceptable == null || interceptable.invokeI(1048576, this, i2) == null) || (i3 = this.f48123j) > i2) {
             return;
         }
         removeViews(i3, i2 - i3);
@@ -116,7 +116,7 @@ public class AutoLinearLayout extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
             int childCount = getChildCount();
-            int dimension = (int) this.f47990e.getResources().getDimension(R.dimen.ds24);
+            int dimension = (int) this.f48118e.getResources().getDimension(R.dimen.ds24);
             int i6 = 0;
             int i7 = 0;
             for (int i8 = 0; i8 < childCount; i8++) {
@@ -125,11 +125,11 @@ public class AutoLinearLayout extends LinearLayout {
                     int measuredWidth = childAt.getMeasuredWidth();
                     int measuredHeight = childAt.getMeasuredHeight();
                     if (i6 != 0 && i7 < measuredWidth) {
-                        dimension += this.f47992g + measuredHeight;
+                        dimension += this.f48120g + measuredHeight;
                         i6 = 0;
                     }
                     childAt.layout(i6, dimension, i6 + measuredWidth, measuredHeight + dimension);
-                    int i9 = this.f47993h;
+                    int i9 = this.f48121h;
                     i7 = (((i4 - i2) - i6) - measuredWidth) - i9;
                     i6 += measuredWidth + i9;
                 }
@@ -145,17 +145,17 @@ public class AutoLinearLayout extends LinearLayout {
             int makeMeasureSpec2 = View.MeasureSpec.makeMeasureSpec(this.l, 1073741824);
             int childCount = getChildCount();
             int culumnsCount = getCulumnsCount();
-            if (this.f47991f != 0 && this.f47995j != 0) {
+            if (this.f48119f != 0 && this.f48123j != 0) {
                 a(childCount);
             }
-            if (this.f47991f != 0) {
-                for (int i4 = 0; i4 < this.f47995j; i4++) {
+            if (this.f48119f != 0) {
+                for (int i4 = 0; i4 < this.f48123j; i4++) {
                     View childAt = getChildAt(i4);
                     if (childAt != null) {
                         childAt.measure(makeMeasureSpec, makeMeasureSpec2);
                     }
                 }
-                this.f47995j = 0;
+                this.f48123j = 0;
             } else {
                 for (int i5 = 0; i5 < childCount; i5++) {
                     View childAt2 = getChildAt(i5);
@@ -164,10 +164,10 @@ public class AutoLinearLayout extends LinearLayout {
                     }
                 }
             }
-            if (this.f47991f != 0) {
-                setMeasuredDimension(LinearLayout.resolveSize(0, i2), LinearLayout.resolveSize((this.l * this.f47991f) + this.f47992g, i3));
+            if (this.f48119f != 0) {
+                setMeasuredDimension(LinearLayout.resolveSize(0, i2), LinearLayout.resolveSize((this.l * this.f48119f) + this.f48120g, i3));
             } else {
-                setMeasuredDimension(LinearLayout.resolveSize(0, i2), LinearLayout.resolveSize((this.l * culumnsCount) + (culumnsCount * this.f47992g), i3));
+                setMeasuredDimension(LinearLayout.resolveSize(0, i2), LinearLayout.resolveSize((this.l * culumnsCount) + (culumnsCount * this.f48120g), i3));
             }
         }
     }
@@ -182,21 +182,21 @@ public class AutoLinearLayout extends LinearLayout {
     public void setMarginRight(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            this.f47993h = i2;
+            this.f48121h = i2;
         }
     }
 
     public void setParentWidth(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-            this.f47994i = i2;
+            this.f48122i = i2;
         }
     }
 
     public void setShowColumns(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-            this.f47991f = i2;
+            this.f48119f = i2;
         }
     }
 
@@ -219,18 +219,18 @@ public class AutoLinearLayout extends LinearLayout {
                 return;
             }
         }
-        this.f47991f = 0;
-        this.f47992g = 0;
-        this.f47993h = 0;
-        this.f47995j = 0;
+        this.f48119f = 0;
+        this.f48120g = 0;
+        this.f48121h = 0;
+        this.f48123j = 0;
         this.k = 0;
         this.l = 0;
-        this.f47990e = context;
+        this.f48118e = context;
         setOrientation(0);
-        this.f47992g = l.g(context, R.dimen.ds24);
-        this.f47993h = l.g(context, R.dimen.ds20);
+        this.f48120g = l.g(context, R.dimen.ds24);
+        this.f48121h = l.g(context, R.dimen.ds20);
         this.k = l.g(context, R.dimen.ds32);
-        this.f47994i = l.k(this.f47990e) - (this.k * 2);
-        this.l = (int) this.f47990e.getResources().getDimension(R.dimen.ds60);
+        this.f48122i = l.k(this.f48118e) - (this.k * 2);
+        this.l = (int) this.f48118e.getResources().getDimension(R.dimen.ds60);
     }
 }

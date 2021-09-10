@@ -3,8 +3,8 @@ package com.baidu.tieba.personExtra;
 import androidx.core.view.InputDeviceCompat;
 import c.a.e.a.f;
 import c.a.e.e.d.l;
-import c.a.p0.s.r.a;
-import c.a.q0.m2.b;
+import c.a.q0.s.r.a;
+import c.a.r0.n2.b;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.HttpMessage;
@@ -27,23 +27,23 @@ public class PersonBarModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final String f55735i;
+    public static final String f55893i;
 
     /* renamed from: j  reason: collision with root package name */
-    public static TbHttpMessageTask f55736j;
+    public static TbHttpMessageTask f55894j;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public b f55737e;
+    public b f55895e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f55738f;
+    public boolean f55896f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f55739g;
+    public String f55897g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f55740h;
+    public int f55898h;
 
     static {
         InterceptResult invokeClinit;
@@ -59,11 +59,11 @@ public class PersonBarModel extends BdBaseModel {
             }
         }
         String str = TbConfig.SERVER_ADDRESS + "c/f/forum/like";
-        f55735i = str;
+        f55893i = str;
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.PIC_LIKE_BAR_CMD, str);
-        f55736j = tbHttpMessageTask;
+        f55894j = tbHttpMessageTask;
         tbHttpMessageTask.setResponsedClass(PersonBarResponseMessage.class);
-        MessageManager.getInstance().registerTask(f55736j);
+        MessageManager.getInstance().registerTask(f55894j);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -84,13 +84,13 @@ public class PersonBarModel extends BdBaseModel {
                 return;
             }
         }
-        this.f55737e = new b();
-        this.f55738f = z;
+        this.f55895e = new b();
+        this.f55896f = z;
     }
 
     public void A(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && this.f55740h == 1 && this.f55738f) {
+        if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && this.f55898h == 1 && this.f55896f) {
             String id = TbadkCoreApplication.getCurrentAccountObj() != null ? TbadkCoreApplication.getCurrentAccountObj().getID() : "";
             if (str != null) {
                 try {
@@ -109,14 +109,14 @@ public class PersonBarModel extends BdBaseModel {
     public void B(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            this.f55740h = i2;
+            this.f55898h = i2;
         }
     }
 
     public void C(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.f55739g = str;
+            this.f55897g = str;
         }
     }
 
@@ -143,7 +143,7 @@ public class PersonBarModel extends BdBaseModel {
     public String getId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f55739g : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f55897g : (String) invokeV.objValue;
     }
 
     public void setSex(int i2) {
@@ -155,13 +155,13 @@ public class PersonBarModel extends BdBaseModel {
     public b w() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f55737e : (b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f55895e : (b) invokeV.objValue;
     }
 
     public boolean x() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f55738f : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f55896f : invokeV.booleanValue;
     }
 
     public void y() {

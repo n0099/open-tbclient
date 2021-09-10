@@ -21,34 +21,34 @@ public class p1 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final y1 f31291a;
+    public final y1 f31400a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final z1 f31292b;
+    public final z1 f31401b;
 
     /* renamed from: c  reason: collision with root package name */
-    public w f31293c;
+    public w f31402c;
 
     /* renamed from: d  reason: collision with root package name */
-    public w f31294d;
+    public w f31403d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f31295e;
+    public String f31404e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f31296f;
+    public long f31405f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f31297g;
+    public int f31406g;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f31298h;
+    public long f31407h;
 
     /* renamed from: i  reason: collision with root package name */
-    public volatile boolean f31299i;
+    public volatile boolean f31408i;
 
     /* renamed from: j  reason: collision with root package name */
-    public long f31300j;
+    public long f31409j;
     public int k;
     public String l;
     public u m;
@@ -98,9 +98,9 @@ public class p1 {
                 return;
             }
         }
-        this.f31298h = -1L;
-        this.f31292b = z1Var;
-        this.f31291a = y1Var;
+        this.f31407h = -1L;
+        this.f31401b = z1Var;
+        this.f31400a = y1Var;
     }
 
     public static long a(y1 y1Var) {
@@ -136,7 +136,7 @@ public class p1 {
             if (o == null) {
                 o = new b(null);
             }
-            o.f31282e = System.currentTimeMillis();
+            o.f31391e = System.currentTimeMillis();
             return o;
         }
         return (b) invokeV.objValue;
@@ -149,15 +149,15 @@ public class p1 {
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)})) == null) {
             synchronized (this) {
                 bundle = null;
-                if (this.f31291a.G() && i() && j2 - this.f31296f > j3) {
+                if (this.f31400a.G() && i() && j2 - this.f31405f > j3) {
                     bundle = new Bundle();
                     bundle.putInt("session_no", this.k);
-                    int i2 = this.f31297g + 1;
-                    this.f31297g = i2;
+                    int i2 = this.f31406g + 1;
+                    this.f31406g = i2;
                     bundle.putInt("send_times", i2);
-                    bundle.putLong("current_duration", (j2 - this.f31296f) / 1000);
-                    bundle.putString("session_start_time", p.d(this.f31298h));
-                    this.f31296f = j2;
+                    bundle.putLong("current_duration", (j2 - this.f31405f) / 1000);
+                    bundle.putString("session_start_time", p.d(this.f31407h));
+                    this.f31405f = j2;
                 }
             }
             return bundle;
@@ -182,21 +182,21 @@ public class p1 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLZ(Constants.METHOD_SEND_USER_MSG, this, pVar, arrayList, z) == null) {
             synchronized (this) {
-                long j2 = pVar instanceof b ? -1L : pVar.f31282e;
-                this.f31295e = UUID.randomUUID().toString();
-                n = this.f31291a.b();
-                this.f31298h = j2;
-                this.f31299i = z;
-                this.f31300j = 0L;
-                if (h0.f31238b) {
-                    h0.a("startSession, " + this.f31295e + ", hadUi:" + z + " data:" + pVar, null);
+                long j2 = pVar instanceof b ? -1L : pVar.f31391e;
+                this.f31404e = UUID.randomUUID().toString();
+                n = this.f31400a.b();
+                this.f31407h = j2;
+                this.f31408i = z;
+                this.f31409j = 0L;
+                if (h0.f31347b) {
+                    h0.a("startSession, " + this.f31404e + ", hadUi:" + z + " data:" + pVar, null);
                 }
                 if (z) {
                     Calendar calendar = Calendar.getInstance();
                     String str = "" + calendar.get(1) + calendar.get(2) + calendar.get(5);
                     if (TextUtils.isEmpty(this.l)) {
-                        this.l = this.f31291a.x();
-                        this.k = this.f31291a.A();
+                        this.l = this.f31400a.x();
+                        this.k = this.f31400a.A();
                     }
                     if (!str.equals(this.l)) {
                         this.l = str;
@@ -204,24 +204,24 @@ public class p1 {
                     } else {
                         this.k++;
                     }
-                    this.f31291a.t(str, this.k);
-                    this.f31297g = 0;
+                    this.f31400a.t(str, this.k);
+                    this.f31406g = 0;
                 }
                 if (j2 != -1) {
                     u uVar = new u();
-                    uVar.f31284g = this.f31295e;
-                    uVar.f31283f = a(this.f31291a);
-                    uVar.f31282e = this.f31298h;
-                    uVar.n = this.f31292b.p();
-                    uVar.m = this.f31292b.n();
-                    if (this.f31291a.W()) {
-                        uVar.f31286i = AppLog.getAbConfigVersion();
-                        uVar.f31287j = AppLog.getAbSDKVersion();
+                    uVar.f31393g = this.f31404e;
+                    uVar.f31392f = a(this.f31400a);
+                    uVar.f31391e = this.f31407h;
+                    uVar.n = this.f31401b.p();
+                    uVar.m = this.f31401b.n();
+                    if (this.f31400a.W()) {
+                        uVar.f31395i = AppLog.getAbConfigVersion();
+                        uVar.f31396j = AppLog.getAbSDKVersion();
                     }
                     arrayList.add(uVar);
                     this.m = uVar;
-                    if (h0.f31238b) {
-                        h0.a("gen launch, " + uVar.f31284g + ", hadUi:" + z, null);
+                    if (h0.f31347b) {
+                        h0.a("gen launch, " + uVar.f31393g + ", hadUi:" + z, null);
                     }
                 }
             }
@@ -235,15 +235,15 @@ public class p1 {
             boolean z = pVar instanceof w;
             boolean e2 = e(pVar);
             boolean z2 = true;
-            if (this.f31298h == -1) {
+            if (this.f31407h == -1) {
                 d(pVar, arrayList, e(pVar));
-            } else if (!this.f31299i && e2) {
+            } else if (!this.f31408i && e2) {
                 d(pVar, arrayList, true);
             } else {
-                long j2 = this.f31300j;
-                if (j2 != 0 && pVar.f31282e > j2 + this.f31291a.Y()) {
+                long j2 = this.f31409j;
+                if (j2 != 0 && pVar.f31391e > j2 + this.f31400a.Y()) {
                     d(pVar, arrayList, e2);
-                } else if (this.f31298h > pVar.f31282e + MainTabActivity.SERVICE_BETWEEN_TIME) {
+                } else if (this.f31407h > pVar.f31391e + MainTabActivity.SERVICE_BETWEEN_TIME) {
                     d(pVar, arrayList, e2);
                 } else {
                     z2 = false;
@@ -252,33 +252,33 @@ public class p1 {
             if (z) {
                 w wVar = (w) pVar;
                 if (wVar.q()) {
-                    this.f31296f = pVar.f31282e;
-                    this.f31300j = 0L;
+                    this.f31405f = pVar.f31391e;
+                    this.f31409j = 0L;
                     arrayList.add(pVar);
                     if (TextUtils.isEmpty(wVar.n)) {
-                        w wVar2 = this.f31294d;
-                        if (wVar2 != null && (wVar.f31282e - wVar2.f31282e) - wVar2.m < 500) {
+                        w wVar2 = this.f31403d;
+                        if (wVar2 != null && (wVar.f31391e - wVar2.f31391e) - wVar2.m < 500) {
                             wVar.n = wVar2.o;
                         } else {
-                            w wVar3 = this.f31293c;
-                            if (wVar3 != null && (wVar.f31282e - wVar3.f31282e) - wVar3.m < 500) {
+                            w wVar3 = this.f31402c;
+                            if (wVar3 != null && (wVar.f31391e - wVar3.f31391e) - wVar3.m < 500) {
                                 wVar.n = wVar3.o;
                             }
                         }
                     }
                 } else {
-                    Bundle b2 = b(pVar.f31282e, 0L);
+                    Bundle b2 = b(pVar.f31391e, 0L);
                     if (b2 != null) {
                         AppLog.onEventV3("play_session", b2);
                     }
-                    this.f31296f = 0L;
-                    this.f31300j = wVar.f31282e;
+                    this.f31405f = 0L;
+                    this.f31409j = wVar.f31391e;
                     arrayList.add(pVar);
                     if (wVar.r()) {
-                        this.f31293c = wVar;
+                        this.f31402c = wVar;
                     } else {
-                        this.f31294d = wVar;
-                        this.f31293c = null;
+                        this.f31403d = wVar;
+                        this.f31402c = null;
                     }
                 }
             } else if (!(pVar instanceof b)) {
@@ -295,24 +295,24 @@ public class p1 {
         if (!(interceptable == null || interceptable.invokeL(1048580, this, pVar) == null) || pVar == null) {
             return;
         }
-        pVar.f31285h = this.f31292b.t();
-        pVar.f31284g = this.f31295e;
-        pVar.f31283f = a(this.f31291a);
-        if (this.f31291a.W()) {
-            pVar.f31286i = AppLog.getAbConfigVersion();
-            pVar.f31287j = AppLog.getAbSDKVersion();
+        pVar.f31394h = this.f31401b.t();
+        pVar.f31393g = this.f31404e;
+        pVar.f31392f = a(this.f31400a);
+        if (this.f31400a.W()) {
+            pVar.f31395i = AppLog.getAbConfigVersion();
+            pVar.f31396j = AppLog.getAbSDKVersion();
         }
     }
 
     public boolean h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f31299i : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f31408i : invokeV.booleanValue;
     }
 
     public boolean i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? h() && this.f31300j == 0 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? h() && this.f31409j == 0 : invokeV.booleanValue;
     }
 }

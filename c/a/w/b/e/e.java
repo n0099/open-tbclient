@@ -68,7 +68,7 @@ public class e extends d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
             super.q(i2);
-            LinearLayout linearLayout = this.f30370i;
+            LinearLayout linearLayout = this.f30452i;
             if (linearLayout == null) {
                 return;
             }

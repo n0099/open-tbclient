@@ -35,7 +35,7 @@ public abstract class MsgCommonItemAdapter<T> extends a<ChatMessage, MsgViewHold
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public T f52733a;
+        public T f52879a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public MsgViewHolder(View view, T t) {
@@ -55,13 +55,13 @@ public abstract class MsgCommonItemAdapter<T> extends a<ChatMessage, MsgViewHold
                     return;
                 }
             }
-            this.f52733a = t;
+            this.f52879a = t;
         }
 
         public T getMsgItemView() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f52733a : (T) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f52879a : (T) invokeV.objValue;
         }
     }
 

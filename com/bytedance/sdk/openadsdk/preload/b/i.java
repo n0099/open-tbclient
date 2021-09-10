@@ -13,16 +13,16 @@ public final class i implements b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public e f68451a;
+    public e f68631a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f68452b;
+    public int f68632b;
 
     /* renamed from: c  reason: collision with root package name */
-    public List<h> f68453c;
+    public List<h> f68633c;
 
     /* renamed from: d  reason: collision with root package name */
-    public d f68454d;
+    public d f68634d;
 
     /* loaded from: classes9.dex */
     public static final class a extends Exception {
@@ -65,19 +65,19 @@ public final class i implements b {
                 return;
             }
         }
-        this.f68453c = list;
-        this.f68452b = i2;
-        this.f68451a = eVar;
-        this.f68454d = dVar;
+        this.f68633c = list;
+        this.f68632b = i2;
+        this.f68631a = eVar;
+        this.f68634d = dVar;
     }
 
     private d c(Class cls) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, this, cls)) == null) {
-            d dVar = this.f68454d;
+            d dVar = this.f68634d;
             while (dVar != null && dVar.getClass() != cls) {
-                dVar = dVar.f68432a;
+                dVar = dVar.f68612a;
             }
             return dVar;
         }
@@ -91,21 +91,21 @@ public final class i implements b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
-            d dVar = this.f68454d;
+            d dVar = this.f68634d;
             if (dVar != null) {
-                dVar.f68434c = obj;
+                dVar.f68614c = obj;
                 dVar.f();
             }
-            if (this.f68452b >= this.f68453c.size()) {
+            if (this.f68632b >= this.f68633c.size()) {
                 return obj;
             }
-            h hVar = this.f68453c.get(this.f68452b);
+            h hVar = this.f68633c.get(this.f68632b);
             Class<? extends d> a2 = hVar.a();
-            d dVar2 = (d) this.f68451a.a(a2);
+            d dVar2 = (d) this.f68631a.a(a2);
             if (dVar2 != null) {
                 com.bytedance.sdk.openadsdk.preload.b.b.a b2 = hVar.b();
-                i iVar = new i(this.f68453c, this.f68452b + 1, this.f68451a, dVar2);
-                dVar2.a(iVar, this.f68454d, obj, b2, hVar.c());
+                i iVar = new i(this.f68633c, this.f68632b + 1, this.f68631a, dVar2);
+                dVar2.a(iVar, this.f68634d, obj, b2, hVar.c());
                 dVar2.d();
                 try {
                     Object a_ = dVar2.a_(iVar, obj);
@@ -131,7 +131,7 @@ public final class i implements b {
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cls)) == null) {
             d c2 = c(cls);
             if (c2 != null) {
-                return c2.f68434c;
+                return c2.f68614c;
             }
             throw new IllegalArgumentException("can not find pre Interceptor , class:" + cls);
         }
@@ -145,7 +145,7 @@ public final class i implements b {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cls)) == null) {
             d c2 = c(cls);
             if (c2 != null) {
-                return c2.f68433b;
+                return c2.f68613b;
             }
             throw new IllegalArgumentException("can not find pre Interceptor , class:" + cls);
         }

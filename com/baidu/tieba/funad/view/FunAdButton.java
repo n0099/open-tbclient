@@ -26,22 +26,22 @@ public class FunAdButton extends View {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f51685e;
+    public int f51850e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f51686f;
+    public int f51851f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f51687g;
+    public int f51852g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f51688h;
+    public int f51853h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final int f51689i;
+    public final int f51854i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f51690j;
+    public int f51855j;
     public int k;
     public int l;
     public int m;
@@ -158,7 +158,7 @@ public class FunAdButton extends View {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i2)) == null) {
-            return View.MeasureSpec.getMode(i2) == Integer.MIN_VALUE ? Math.max((this.f51689i * 2) + ((int) this.o.measureText(this.r)), this.f51690j) : View.MeasureSpec.getSize(i2);
+            return View.MeasureSpec.getMode(i2) == Integer.MIN_VALUE ? Math.max((this.f51854i * 2) + ((int) this.o.measureText(this.r)), this.f51855j) : View.MeasureSpec.getSize(i2);
         }
         return invokeI.intValue;
     }
@@ -178,10 +178,10 @@ public class FunAdButton extends View {
     public void onChangeSkinType() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            SkinManager.setBackgroundResource(this, this.f51688h);
-            this.l = SkinManager.getColor(this.f51685e);
-            this.m = SkinManager.getColor(this.f51686f);
-            this.q = SkinManager.getColor(this.f51687g);
+            SkinManager.setBackgroundResource(this, this.f51853h);
+            this.l = SkinManager.getColor(this.f51850e);
+            this.m = SkinManager.getColor(this.f51851f);
+            this.q = SkinManager.getColor(this.f51852g);
         }
     }
 
@@ -221,7 +221,7 @@ public class FunAdButton extends View {
     public void setBackgroundSkin(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048588, this, i2) == null) {
-            this.f51688h = i2;
+            this.f51853h = i2;
         }
     }
 
@@ -279,7 +279,7 @@ public class FunAdButton extends View {
     public void setTextColorInitSkin(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048597, this, i2) == null) {
-            this.f51686f = i2;
+            this.f51851f = i2;
         }
     }
 
@@ -323,17 +323,17 @@ public class FunAdButton extends View {
                 return;
             }
         }
-        this.f51685e = R.color.CAM_X0101;
-        this.f51686f = R.color.CAM_X0304;
-        this.f51687g = R.color.CAM_X0302;
-        this.f51688h = R.drawable.ad_download_progress_button_bg;
-        this.f51689i = getResources().getDimensionPixelSize(R.dimen.M_W_X006);
-        this.f51690j = getResources().getDimensionPixelSize(R.dimen.tbds198);
+        this.f51850e = R.color.CAM_X0101;
+        this.f51851f = R.color.CAM_X0304;
+        this.f51852g = R.color.CAM_X0302;
+        this.f51853h = R.drawable.ad_download_progress_button_bg;
+        this.f51854i = getResources().getDimensionPixelSize(R.dimen.M_W_X006);
+        this.f51855j = getResources().getDimensionPixelSize(R.dimen.tbds198);
         this.k = 0;
-        this.l = SkinManager.getColor(this.f51685e);
-        this.m = SkinManager.getColor(this.f51686f);
+        this.l = SkinManager.getColor(this.f51850e);
+        this.m = SkinManager.getColor(this.f51851f);
         this.p = 10.0f;
-        this.q = SkinManager.getColor(this.f51687g);
+        this.q = SkinManager.getColor(this.f51852g);
         this.s = 100;
         this.t = 0;
         this.w = 0;

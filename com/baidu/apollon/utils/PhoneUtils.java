@@ -69,34 +69,34 @@ public final class PhoneUtils {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Pattern f38140a;
+    public static final Pattern f38259a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Pattern f38141b;
+    public static final Pattern f38260b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final Pattern f38142c;
+    public static final Pattern f38261c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final Pattern f38143d;
+    public static final Pattern f38262d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f38144e = "PhoneUtils";
+    public static final String f38263e = "PhoneUtils";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f38145f = "_pay.preferences";
+    public static final String f38264f = "_pay.preferences";
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f38146g = "cuid_1";
+    public static final String f38265g = "cuid_1";
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f38147h = "cuid_2";
+    public static final String f38266h = "cuid_2";
 
     /* renamed from: i  reason: collision with root package name */
-    public static final String f38148i = "wime";
+    public static final String f38267i = "wime";
 
     /* renamed from: j  reason: collision with root package name */
-    public static final String f38149j = "identity_code";
+    public static final String f38268j = "identity_code";
     public static final String k = "phone_number";
     public static final String l = "card_no";
     public static final String m = "valid_date";
@@ -122,10 +122,10 @@ public final class PhoneUtils {
         public static final String PROCESSOR_ARM_PREFIX = "armv";
 
         /* renamed from: a  reason: collision with root package name */
-        public static final String f38150a = "processor";
+        public static final String f38269a = "processor";
 
         /* renamed from: b  reason: collision with root package name */
-        public static final String f38151b = "features";
+        public static final String f38270b = "features";
         public transient /* synthetic */ FieldHolder $fh;
         public String features;
         public String processor;
@@ -195,10 +195,10 @@ public final class PhoneUtils {
             }
         }
         q = new ArrayList<>();
-        f38140a = Pattern.compile("((\\d|[A-F]){32}).*");
-        f38141b = Pattern.compile("((\\d|[a-f]){32}).*");
-        f38142c = Pattern.compile("((\\d|[A-F]){32}).*(\\|.*)");
-        f38143d = Pattern.compile("((\\d|[a-f]){32}).*(\\|.*)");
+        f38259a = Pattern.compile("((\\d|[A-F]){32}).*");
+        f38260b = Pattern.compile("((\\d|[a-f]){32}).*");
+        f38261c = Pattern.compile("((\\d|[A-F]){32}).*(\\|.*)");
+        f38262d = Pattern.compile("((\\d|[a-f]){32}).*(\\|.*)");
         q.add("card_no");
         q.add("valid_date");
         q.add("cvv2");
@@ -352,11 +352,11 @@ public final class PhoneUtils {
             if (cuid == null) {
                 return null;
             }
-            if (f38142c.matcher(cuid).matches()) {
+            if (f38261c.matcher(cuid).matches()) {
                 str2 = matcher.group(1) + matcher.group(3);
             }
             if (str2 == null) {
-                if (f38143d.matcher(cuid).matches()) {
+                if (f38262d.matcher(cuid).matches()) {
                     str = matcher2.group(1) + matcher2.group(3);
                 } else {
                     str = "";
@@ -893,10 +893,10 @@ public final class PhoneUtils {
             if (deviceID == null) {
                 return null;
             }
-            Matcher matcher = f38140a.matcher(deviceID);
+            Matcher matcher = f38259a.matcher(deviceID);
             String group = matcher.matches() ? matcher.group(1) : null;
             if (group == null) {
-                Matcher matcher2 = f38141b.matcher(deviceID);
+                Matcher matcher2 = f38260b.matcher(deviceID);
                 return matcher2.matches() ? matcher2.group(1) : "";
             }
             return group;

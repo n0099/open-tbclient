@@ -2,7 +2,7 @@ package com.baidu.tbadk.core.util.videoPreload;
 
 import android.text.TextUtils;
 import c.a.e.e.p.j;
-import c.a.p0.s.d0.b;
+import c.a.q0.s.d0.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.switchs.VideoPreLoadSwitch;
 import com.baidu.titan.sdk.runtime.FieldHolder;

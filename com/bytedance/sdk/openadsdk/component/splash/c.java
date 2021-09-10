@@ -7,7 +7,6 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
 import com.baidu.mobads.container.util.AdIconUtil;
-import com.baidu.searchbox.launch.stats.ActivitySpeedStats;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -175,19 +174,19 @@ public class c {
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ boolean f65926a;
+                    public final /* synthetic */ boolean f66106a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ File f65927b;
+                    public final /* synthetic */ File f66107b;
 
                     /* renamed from: c  reason: collision with root package name */
-                    public final /* synthetic */ com.bytedance.sdk.openadsdk.core.e.a f65928c;
+                    public final /* synthetic */ com.bytedance.sdk.openadsdk.core.e.a f66108c;
 
                     /* renamed from: d  reason: collision with root package name */
-                    public final /* synthetic */ m f65929d;
+                    public final /* synthetic */ m f66109d;
 
                     /* renamed from: e  reason: collision with root package name */
-                    public final /* synthetic */ long f65930e;
+                    public final /* synthetic */ long f66110e;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -204,18 +203,18 @@ public class c {
                                 return;
                             }
                         }
-                        this.f65926a = aN;
-                        this.f65927b = a2;
-                        this.f65928c = aVar;
-                        this.f65929d = mVar;
-                        this.f65930e = elapsedRealtime;
+                        this.f66106a = aN;
+                        this.f66107b = a2;
+                        this.f66108c = aVar;
+                        this.f66109d = mVar;
+                        this.f66110e = elapsedRealtime;
                     }
 
                     @Override // com.bytedance.sdk.component.net.callback.NetCallback
                     public void onFailure(NetExecutor netExecutor, IOException iOException) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeLL(1048576, this, netExecutor, iOException) == null) {
-                            c.a(this.f65930e, true, false, this.f65929d, -2L, new NetResponse(false, -2, iOException.getMessage(), null, null, this.f65930e, SystemClock.elapsedRealtime()));
+                            c.a(this.f66110e, true, false, this.f66109d, -2L, new NetResponse(false, -2, iOException.getMessage(), null, null, this.f66110e, SystemClock.elapsedRealtime()));
                         }
                     }
 
@@ -224,16 +223,16 @@ public class c {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, netExecutor, netResponse) == null) {
                             if (netResponse.isSuccess() && netResponse.getFile() != null && netResponse.getFile().exists()) {
-                                if (!this.f65926a) {
-                                    c.a(this.f65927b);
-                                    a.a(o.a()).a(this.f65927b);
+                                if (!this.f66106a) {
+                                    c.a(this.f66107b);
+                                    a.a(o.a()).a(this.f66107b);
                                 }
-                                a.a(o.a()).b(new q(this.f65928c, this.f65929d, null));
-                                a.a(o.a()).a(new q(this.f65928c, this.f65929d, null));
-                                c.a(this.f65930e, true, true, this.f65929d, 0L, netResponse);
+                                a.a(o.a()).b(new q(this.f66108c, this.f66109d, null));
+                                a.a(o.a()).a(new q(this.f66108c, this.f66109d, null));
+                                c.a(this.f66110e, true, true, this.f66109d, 0L, netResponse);
                                 return;
                             }
-                            c.a(this.f65930e, true, false, this.f65929d, netResponse.getCode(), netResponse);
+                            c.a(this.f66110e, true, false, this.f66109d, netResponse.getCode(), netResponse);
                         }
                     }
                 });
@@ -284,10 +283,10 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, context, str, str2)) == null) {
             if (o.h().C() == 1) {
-                k.f(ActivitySpeedStats.SPLASH_LOADAD_DURATION, "视频存储使用内部存储");
+                k.f("splashLoadAd", "视频存储使用内部存储");
                 return f.b(context, com.bytedance.sdk.openadsdk.multipro.b.b(), str, str2);
             }
-            k.f(ActivitySpeedStats.SPLASH_LOADAD_DURATION, "视频存储使用外存储");
+            k.f("splashLoadAd", "视频存储使用外存储");
             return f.a(context, com.bytedance.sdk.openadsdk.multipro.b.b(), str, str2);
         }
         return (File) invokeLLL.objValue;

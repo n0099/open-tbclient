@@ -8,20 +8,20 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static a f12487b;
+    public static a f4372b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public InterfaceC0639a f12488a;
+    public InterfaceC0113a f4373a;
 
     /* renamed from: c.a.p.c.a$a  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    public interface InterfaceC0639a {
+    /* loaded from: classes.dex */
+    public interface InterfaceC0113a {
         void a(String str, HashMap<String, Object> hashMap);
     }
 
@@ -58,21 +58,21 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f12487b == null) {
+            if (f4372b == null) {
                 synchronized (a.class) {
-                    if (f12487b == null) {
-                        f12487b = new a();
+                    if (f4372b == null) {
+                        f4372b = new a();
                     }
                 }
             }
-            return f12487b;
+            return f4372b;
         }
         return (a) invokeV.objValue;
     }
 
-    public InterfaceC0639a a() {
+    public InterfaceC0113a a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f12488a : (InterfaceC0639a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f4373a : (InterfaceC0113a) invokeV.objValue;
     }
 }

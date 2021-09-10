@@ -14,11 +14,11 @@ public final class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static a f35675b;
+    public static a f35784b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f35676a;
+    public int f35785a;
 
     static {
         InterceptResult invokeClinit;
@@ -33,7 +33,7 @@ public final class a {
                 return;
             }
         }
-        f35675b = new a();
+        f35784b = new a();
     }
 
     public a() {
@@ -49,26 +49,26 @@ public final class a {
                 return;
             }
         }
-        this.f35676a = 0;
+        this.f35785a = 0;
     }
 
     public static a a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f35675b : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f35784b : (a) invokeV.objValue;
     }
 
     public final void a(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-            this.f35676a = i2;
+            this.f35785a = i2;
         }
     }
 
     public final int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f35676a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f35785a : invokeV.intValue;
     }
 
     public final String c() {
@@ -79,7 +79,7 @@ public final class a {
             if (com.alipay.security.mobile.module.a.a.b(a2)) {
                 return a2;
             }
-            int i2 = this.f35676a;
+            int i2 = this.f35785a;
             return i2 != 1 ? i2 != 3 ? i2 != 4 ? "https://mobilegw.alipay.com/mgw.htm" : "http://mobilegw.aaa.alipay.net/mgw.htm" : "http://mobilegw-1-64.test.alipay.net/mgw.htm" : "http://mobilegw.stable.alipay.net/mgw.htm";
         }
         return (String) invokeV.objValue;

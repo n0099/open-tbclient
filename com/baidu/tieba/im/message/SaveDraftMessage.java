@@ -16,10 +16,10 @@ public abstract class SaveDraftMessage extends CustomMessage<a> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f53064a;
+        public String f53210a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f53065b;
+        public String f53211b;
 
         public a() {
             Interceptable interceptable = $ic;

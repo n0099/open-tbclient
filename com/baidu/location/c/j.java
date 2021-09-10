@@ -14,10 +14,10 @@ public class j implements Runnable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ boolean f41113a;
+    public final /* synthetic */ boolean f41224a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ i.a f41114b;
+    public final /* synthetic */ i.a f41225b;
 
     public j(i.a aVar, boolean z) {
         Interceptable interceptable = $ic;
@@ -34,8 +34,8 @@ public class j implements Runnable {
                 return;
             }
         }
-        this.f41114b = aVar;
-        this.f41113a = z;
+        this.f41225b = aVar;
+        this.f41224a = z;
     }
 
     @Override // java.lang.Runnable
@@ -43,11 +43,11 @@ public class j implements Runnable {
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            z = this.f41114b.f41110a.f41109j;
+            z = this.f41225b.f41221a.f41220j;
             if (!z) {
-                this.f41114b.f41110a.f41109j = this.f41113a;
+                this.f41225b.f41221a.f41220j = this.f41224a;
             }
-            this.f41114b.f41110a.q();
+            this.f41225b.f41221a.q();
             l.c().h();
             if (System.currentTimeMillis() - t.b() <= 5000) {
                 x.a().c();

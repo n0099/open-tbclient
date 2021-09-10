@@ -382,42 +382,42 @@ public class b {
                         }
                         this.f2287a.c().f2328b = responseCode;
                         String headerField2 = this.f2288b.getHeaderField("Content-Range");
-                        int d2 = (headerField2 == null || (indexOf = headerField2.indexOf("/")) == -1) ? 0 : c.a.e.e.m.b.d(headerField2.substring(indexOf + 1), 0);
-                        if (d2 == 0 && this.f2287a.c().f2328b == 200 && (headerField = this.f2288b.getHeaderField("Content-Length")) != null) {
-                            d2 = c.a.e.e.m.b.d(headerField, 0);
+                        int e2 = (headerField2 == null || (indexOf = headerField2.indexOf("/")) == -1) ? 0 : c.a.e.e.m.b.e(headerField2.substring(indexOf + 1), 0);
+                        if (e2 == 0 && this.f2287a.c().f2328b == 200 && (headerField = this.f2288b.getHeaderField("Content-Length")) != null) {
+                            e2 = c.a.e.e.m.b.e(headerField, 0);
                         }
-                        this.f2287a.c().f2332f = String.valueOf(d2);
+                        this.f2287a.c().f2332f = String.valueOf(e2);
                         if (!o()) {
                             str2 = "";
                             if (responseCode == 302) {
                                 str2 = (z3 ? "isReConn " : "") + "url=" + n + "-newUrl=" + url;
                             } else if (responseCode == 416) {
-                                if (d2 > 0 && d2 == length) {
+                                if (e2 > 0 && e2 == length) {
                                     this.f2292f = System.currentTimeMillis();
                                     c.a.e.e.m.a.c(null);
                                     c.a.e.e.m.a.e(this.f2288b);
                                     c.a.e.e.m.a.d(r15);
                                     return false;
                                 }
-                                str2 = "fileLen=" + length + "-contentLen=" + d2;
+                                str2 = "fileLen=" + length + "-contentLen=" + e2;
                             }
                             throw new UnsupportedOperationException(str2);
                         } else if (this.f2288b.getContentType() != null && this.f2288b.getContentType().contains("text/vnd.wap.wml")) {
                             this.f2288b.disconnect();
                             this.f2287a.c().f2328b = 0;
-                            boolean d3 = d(str, hVar, i2, i3, z, dVar2, z2);
+                            boolean d2 = d(str, hVar, i2, i3, z, dVar2, z2);
                             this.f2292f = System.currentTimeMillis();
                             c.a.e.e.m.a.c(null);
                             c.a.e.e.m.a.e(this.f2288b);
                             c.a.e.e.m.a.d(r15);
-                            return d3;
+                            return d2;
                         } else {
                             dVar2.f2306a = i6.getBytes().length;
                             long length2 = this.f2288b.getHeaderFields().toString().getBytes().length;
                             dVar2.f2307b = length2;
-                            long j2 = d2;
+                            long j2 = e2;
                             dVar2.f2307b = length2 + j2;
-                            if (d2 != 0 && length >= j2) {
+                            if (e2 != 0 && length >= j2) {
                                 this.f2292f = System.currentTimeMillis();
                                 this.f2292f = System.currentTimeMillis();
                                 c.a.e.e.m.a.c(null);
@@ -439,9 +439,9 @@ public class b {
                             }
                             try {
                                 byte[] bArr = new byte[1024];
-                                int i7 = d2 > 0 ? d2 / 50 : 0;
+                                int i7 = e2 > 0 ? e2 / 50 : 0;
                                 if (hVar != null && length > 0) {
-                                    hVar.onProgress((int) length, d2);
+                                    hVar.onProgress((int) length, e2);
                                 }
                                 int i8 = 0;
                                 loop0: while (true) {
@@ -455,11 +455,11 @@ public class b {
                                             r15.write(bArr, 0, read);
                                             i8 += read;
                                             i9 += read;
-                                            if (hVar == null || (i9 <= i7 && i8 != d2)) {
+                                            if (hVar == null || (i9 <= i7 && i8 != e2)) {
                                                 i7 = i7;
                                             } else {
                                                 int i10 = i7;
-                                                hVar.onProgress((int) (i8 + length), d2);
+                                                hVar.onProgress((int) (i8 + length), e2);
                                                 i7 = i10;
                                             }
                                         } catch (Exception unused) {

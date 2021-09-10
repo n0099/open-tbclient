@@ -49,7 +49,13 @@ public class WebRtcAudioManager {
     public static int getInputBufferSize(Context context, AudioManager audioManager, int i2, int i3) {
         InterceptResult invokeLLII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLII = interceptable.invokeLLII(65538, null, context, audioManager, i2, i3)) == null) ? isLowLatencyInputSupported(context) ? getLowLatencyFramesPerBuffer(audioManager) : getMinInputFrameSize(i2, i3) : invokeLLII.intValue;
+        if (interceptable == null || (invokeLLII = interceptable.invokeLLII(65538, null, context, audioManager, i2, i3)) == null) {
+            if (isLowLatencyInputSupported(context)) {
+                return getLowLatencyFramesPerBuffer(audioManager);
+            }
+            return getMinInputFrameSize(i2, i3);
+        }
+        return invokeLLII.intValue;
     }
 
     public static int getLowLatencyFramesPerBuffer(AudioManager audioManager) {
@@ -87,7 +93,13 @@ public class WebRtcAudioManager {
     public static int getOutputBufferSize(Context context, AudioManager audioManager, int i2, int i3) {
         InterceptResult invokeLLII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLII = interceptable.invokeLLII(AdIconUtil.BAIDU_LOGO_ID, null, context, audioManager, i2, i3)) == null) ? isLowLatencyOutputSupported(context) ? getLowLatencyFramesPerBuffer(audioManager) : getMinOutputFrameSize(i2, i3) : invokeLLII.intValue;
+        if (interceptable == null || (invokeLLII = interceptable.invokeLLII(AdIconUtil.BAIDU_LOGO_ID, null, context, audioManager, i2, i3)) == null) {
+            if (isLowLatencyOutputSupported(context)) {
+                return getLowLatencyFramesPerBuffer(audioManager);
+            }
+            return getMinOutputFrameSize(i2, i3);
+        }
+        return invokeLLII.intValue;
     }
 
     @CalledByNative

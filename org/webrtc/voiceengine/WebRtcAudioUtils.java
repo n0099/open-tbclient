@@ -140,7 +140,7 @@ public final class WebRtcAudioUtils {
         return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? Arrays.asList(BLACKLISTED_NS_MODELS) : (List) invokeV.objValue;
     }
 
-    public static int getDefaultSampleRateHz() {
+    public static synchronized int getDefaultSampleRateHz() {
         InterceptResult invokeV;
         int i2;
         Interceptable interceptable = $ic;
@@ -183,7 +183,7 @@ public final class WebRtcAudioUtils {
         return invokeV.booleanValue;
     }
 
-    public static boolean isDefaultSampleRateOverridden() {
+    public static synchronized boolean isDefaultSampleRateOverridden() {
         InterceptResult invokeV;
         boolean z;
         Interceptable interceptable = $ic;
@@ -320,7 +320,7 @@ public final class WebRtcAudioUtils {
         return (interceptable == null || (invokeV = interceptable.invokeV(65557, null)) == null) ? Build.HARDWARE.equals("goldfish") && Build.BRAND.startsWith("generic_") : invokeV.booleanValue;
     }
 
-    public static void setDefaultSampleRateHz(int i2) {
+    public static synchronized void setDefaultSampleRateHz(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(65558, null, i2) == null) {
             synchronized (WebRtcAudioUtils.class) {
@@ -330,7 +330,7 @@ public final class WebRtcAudioUtils {
         }
     }
 
-    public static void setWebRtcBasedAcousticEchoCanceler(boolean z) {
+    public static synchronized void setWebRtcBasedAcousticEchoCanceler(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65559, null, z) == null) {
             synchronized (WebRtcAudioUtils.class) {
@@ -339,7 +339,7 @@ public final class WebRtcAudioUtils {
         }
     }
 
-    public static void setWebRtcBasedAutomaticGainControl(boolean z) {
+    public static synchronized void setWebRtcBasedAutomaticGainControl(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65560, null, z) == null) {
             synchronized (WebRtcAudioUtils.class) {
@@ -348,7 +348,7 @@ public final class WebRtcAudioUtils {
         }
     }
 
-    public static void setWebRtcBasedNoiseSuppressor(boolean z) {
+    public static synchronized void setWebRtcBasedNoiseSuppressor(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65561, null, z) == null) {
             synchronized (WebRtcAudioUtils.class) {
@@ -363,7 +363,7 @@ public final class WebRtcAudioUtils {
         return (interceptable == null || (invokeI = interceptable.invokeI(65562, null, i2)) == null) ? i2 != 0 ? i2 != 1 ? i2 != 2 ? i2 != 3 ? i2 != 4 ? i2 != 5 ? "STREAM_INVALID" : "STREAM_NOTIFICATION" : "STREAM_ALARM" : "STREAM_MUSIC" : "STREAM_RING" : "STREAM_SYSTEM" : "STREAM_VOICE_CALL" : (String) invokeI.objValue;
     }
 
-    public static boolean useWebRtcBasedAcousticEchoCanceler() {
+    public static synchronized boolean useWebRtcBasedAcousticEchoCanceler() {
         InterceptResult invokeV;
         boolean z;
         Interceptable interceptable = $ic;
@@ -379,7 +379,7 @@ public final class WebRtcAudioUtils {
         return invokeV.booleanValue;
     }
 
-    public static boolean useWebRtcBasedAutomaticGainControl() {
+    public static synchronized boolean useWebRtcBasedAutomaticGainControl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65564, null)) == null) {
@@ -390,7 +390,7 @@ public final class WebRtcAudioUtils {
         return invokeV.booleanValue;
     }
 
-    public static boolean useWebRtcBasedNoiseSuppressor() {
+    public static synchronized boolean useWebRtcBasedNoiseSuppressor() {
         InterceptResult invokeV;
         boolean z;
         Interceptable interceptable = $ic;

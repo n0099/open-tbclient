@@ -37,28 +37,6 @@ public class IceCandidate {
     }
 
     @CalledByNative
-    public IceCandidate(String str, int i2, String str2, String str3) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i2), str2, str3};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.sdpMid = str;
-        this.sdpMLineIndex = i2;
-        this.sdp = str2;
-        this.serverUrl = str3;
-    }
-
-    @CalledByNative
     public String getSdp() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -79,5 +57,27 @@ public class IceCandidate {
             return this.sdpMid + ":" + this.sdpMLineIndex + ":" + this.sdp + ":" + this.serverUrl;
         }
         return (String) invokeV.objValue;
+    }
+
+    @CalledByNative
+    public IceCandidate(String str, int i2, String str2, String str3) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, Integer.valueOf(i2), str2, str3};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.sdpMid = str;
+        this.sdpMLineIndex = i2;
+        this.sdp = str2;
+        this.serverUrl = str3;
     }
 }

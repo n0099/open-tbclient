@@ -32,7 +32,7 @@ public class d extends c {
     public void a(Notification notification, MessageV3 messageV3) {
         super.a(notification, messageV3);
         MessageV4 parse = MessageV4.parse(messageV3);
-        if (parse.getActVideoSetting() == null || (parse.getActVideoSetting().isWifiDisplay() && !com.meizu.cloud.pushsdk.util.a.b(this.f74748a))) {
+        if (parse.getActVideoSetting() == null || (parse.getActVideoSetting().isWifiDisplay() && !com.meizu.cloud.pushsdk.util.a.b(this.f74928a))) {
             c.l.a.a.a.b("AbstractPushNotification", "only wifi can download act");
             return;
         }

@@ -1,6 +1,6 @@
 package com.baidu.tieba.message;
 
-import c.a.p0.b1.w;
+import c.a.q0.d1.x;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -19,7 +19,7 @@ public class RequestBlessMessage extends NetMessage {
     public int click_type;
 
     /* renamed from: common  reason: collision with root package name */
-    public CommonReq f54241common;
+    public CommonReq f54387common;
     public Long pk_id;
     public int pk_index;
     public int pk_type;
@@ -51,7 +51,7 @@ public class RequestBlessMessage extends NetMessage {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             DataReq.Builder builder = new DataReq.Builder();
-            builder.f79673common = this.f54241common;
+            builder.f79913common = this.f54387common;
             builder.pk_id = this.pk_id;
             builder.topic_id = this.topic_id;
             builder.pk_index = Integer.valueOf(this.pk_index);
@@ -59,7 +59,7 @@ public class RequestBlessMessage extends NetMessage {
             builder.pk_type = Integer.valueOf(this.pk_type);
             builder.user_pk_id = Long.valueOf(this.user_pk_id);
             if (z) {
-                w.a(builder, true);
+                x.a(builder, true);
             }
             UserPkReqIdl.Builder builder2 = new UserPkReqIdl.Builder();
             builder2.data = builder.build(false);
@@ -78,7 +78,7 @@ public class RequestBlessMessage extends NetMessage {
     public void setCommon(CommonReq commonReq) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, commonReq) == null) {
-            this.f54241common = commonReq;
+            this.f54387common = commonReq;
         }
     }
 

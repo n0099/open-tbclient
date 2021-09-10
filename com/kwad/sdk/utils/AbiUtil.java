@@ -17,7 +17,7 @@ public final class AbiUtil {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Abi f73695a;
+    public static Abi f73875a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
@@ -99,7 +99,7 @@ public final class AbiUtil {
         Abi abi;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            Abi abi2 = f73695a;
+            Abi abi2 = f73875a;
             if (abi2 != null) {
                 return abi2;
             }
@@ -108,27 +108,27 @@ public final class AbiUtil {
                 if (i2 < 23) {
                     if (i2 >= 21) {
                         try {
-                            f73695a = ((Boolean) Reflect.a("dalvik.system.VMRuntime").d("getRuntime").d("is64Bit").a()).booleanValue() ? Abi.ARM64_V8A : Abi.ARMEABI_V7A;
+                            f73875a = ((Boolean) Reflect.a("dalvik.system.VMRuntime").d("getRuntime").d("is64Bit").a()).booleanValue() ? Abi.ARM64_V8A : Abi.ARMEABI_V7A;
                         } catch (Throwable th) {
                             th.printStackTrace();
                             try {
-                                f73695a = KsAdSDKImpl.get().getContext().getApplicationInfo().nativeLibraryDir.contains("arm64") ? Abi.ARM64_V8A : Abi.UNKNOWN;
+                                f73875a = KsAdSDKImpl.get().getContext().getApplicationInfo().nativeLibraryDir.contains("arm64") ? Abi.ARM64_V8A : Abi.UNKNOWN;
                             } catch (Throwable th2) {
                                 th2.printStackTrace();
                                 abi = Abi.UNKNOWN;
                             }
                         }
                     }
-                    return f73695a;
+                    return f73875a;
                 } else if (Process.is64Bit()) {
                     abi = Abi.ARM64_V8A;
                 }
-                f73695a = abi;
-                return f73695a;
+                f73875a = abi;
+                return f73875a;
             }
             abi = Abi.ARMEABI_V7A;
-            f73695a = abi;
-            return f73695a;
+            f73875a = abi;
+            return f73875a;
         }
         return (Abi) invokeV.objValue;
     }

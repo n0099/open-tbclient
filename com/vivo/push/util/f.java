@@ -12,7 +12,7 @@ public final class f implements ThreadFactory {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ String f76497a;
+    public final /* synthetic */ String f76677a;
 
     public f(String str) {
         Interceptable interceptable = $ic;
@@ -29,7 +29,7 @@ public final class f implements ThreadFactory {
                 return;
             }
         }
-        this.f76497a = str;
+        this.f76677a = str;
     }
 
     @Override // java.util.concurrent.ThreadFactory
@@ -38,7 +38,7 @@ public final class f implements ThreadFactory {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, runnable)) == null) {
             Thread thread = new Thread(runnable);
-            thread.setName(this.f76497a);
+            thread.setName(this.f76677a);
             thread.setDaemon(true);
             return thread;
         }

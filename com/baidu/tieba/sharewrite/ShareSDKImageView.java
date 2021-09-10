@@ -12,8 +12,8 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class ShareSDKImageView extends TbClipImageView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int P;
     public int Q;
+    public int R;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public ShareSDKImageView(Context context) {
@@ -43,8 +43,8 @@ public class ShareSDKImageView extends TbClipImageView {
             setGifIconSupport(false);
             setDrawBorder(false);
             setIsRound(false);
-            setDefaultResource(this.P);
-            setDefaultBgResource(this.Q);
+            setDefaultResource(this.Q);
+            setDefaultBgResource(this.R);
         }
     }
 
@@ -88,8 +88,8 @@ public class ShareSDKImageView extends TbClipImageView {
                 return;
             }
         }
-        this.P = R.drawable.pic_share_link;
-        this.Q = R.color.CAM_X0110;
+        this.Q = R.drawable.pic_share_link;
+        this.R = R.color.CAM_X0110;
         init();
     }
 }

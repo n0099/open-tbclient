@@ -12,13 +12,13 @@ public class e {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f64935a;
+    public long f65115a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f64936b;
+    public long f65116b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f64937c;
+    public long f65117c;
 
     public e() {
         Interceptable interceptable = $ic;
@@ -37,27 +37,27 @@ public class e {
     public void a(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2) == null) {
-            this.f64935a = j2;
+            this.f65115a = j2;
         }
     }
 
     public void b(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2) == null) {
-            this.f64936b = j2;
+            this.f65116b = j2;
         }
     }
 
     public void c(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048579, this, j2) == null) {
-            this.f64937c = j2;
+            this.f65117c = j2;
         }
     }
 
     public long a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f64936b : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f65116b : invokeV.longValue;
     }
 }

@@ -2,9 +2,9 @@ package com.baidu.tieba.flutter.plugin.performanceMonitor;
 
 import androidx.annotation.NonNull;
 import c.a.e.e.n.a;
-import c.a.p0.o0.j;
-import c.a.p0.o0.k;
-import c.a.q0.r0.a.g.e;
+import c.a.q0.q0.j;
+import c.a.q0.q0.k;
+import c.a.r0.s0.a.g.e;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -239,7 +239,7 @@ public class PerformanceMonitorPlugin implements FlutterPlugin, PerformanceMonit
         statsItem.c("try", params.get("tryTimes"));
         statsItem.c("ct", params.get("contentType"));
         statsItem.c("dc", params.get("dartCodecCost"));
-        statsItem.c(h.f39413g, params.get("loadingCost"));
+        statsItem.c(h.f39524g, params.get("loadingCost"));
         statsItem.c("trans", params.get("channelTransTime"));
         statsItem.c("cc", params.get("codecCost"));
         statsItem.c("tc", params.get("totalCost"));

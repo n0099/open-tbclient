@@ -16,10 +16,10 @@ public class BusLineSearch extends l {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public IBusLineSearch f41626a;
+    public IBusLineSearch f41737a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f41627b;
+    public boolean f41738b;
 
     public BusLineSearch() {
         Interceptable interceptable = $ic;
@@ -34,8 +34,8 @@ public class BusLineSearch extends l {
                 return;
             }
         }
-        this.f41627b = false;
-        this.f41626a = new c();
+        this.f41738b = false;
+        this.f41737a = new c();
     }
 
     public static BusLineSearch newInstance() {
@@ -50,11 +50,11 @@ public class BusLineSearch extends l {
 
     public void destroy() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f41627b) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f41738b) {
             return;
         }
-        this.f41627b = true;
-        this.f41626a.a();
+        this.f41738b = true;
+        this.f41737a.a();
         BMapManager.destroy();
     }
 
@@ -62,7 +62,7 @@ public class BusLineSearch extends l {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, busLineSearchOption)) == null) {
-            IBusLineSearch iBusLineSearch = this.f41626a;
+            IBusLineSearch iBusLineSearch = this.f41737a;
             if (iBusLineSearch != null) {
                 if (busLineSearchOption == null || busLineSearchOption.mCity == null || busLineSearchOption.mUid == null) {
                     throw new IllegalArgumentException("BDMapSDKException: option or city or uid can not be null");
@@ -77,7 +77,7 @@ public class BusLineSearch extends l {
     public void setOnGetBusLineSearchResultListener(OnGetBusLineSearchResultListener onGetBusLineSearchResultListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, onGetBusLineSearchResultListener) == null) {
-            IBusLineSearch iBusLineSearch = this.f41626a;
+            IBusLineSearch iBusLineSearch = this.f41737a;
             if (iBusLineSearch == null) {
                 throw new IllegalStateException("BDMapSDKException: searcher is null, please call newInstance first.");
             }

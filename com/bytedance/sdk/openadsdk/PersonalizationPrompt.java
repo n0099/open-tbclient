@@ -15,10 +15,10 @@ public class PersonalizationPrompt {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f65188a;
+    public String f65368a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f65189b;
+    public String f65369b;
 
     public PersonalizationPrompt() {
         Interceptable interceptable = $ic;
@@ -37,14 +37,14 @@ public class PersonalizationPrompt {
     private void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, this, str) == null) {
-            this.f65189b = str;
+            this.f65369b = str;
         }
     }
 
     private void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, this, str) == null) {
-            this.f65188a = str;
+            this.f65368a = str;
         }
     }
 
@@ -71,13 +71,13 @@ public class PersonalizationPrompt {
     public String getName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f65188a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f65368a : (String) invokeV.objValue;
     }
 
     public String getUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f65189b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f65369b : (String) invokeV.objValue;
     }
 
     public JSONObject toJson() {

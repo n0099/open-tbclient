@@ -14,10 +14,10 @@ public class e {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f35506a = "e";
+    public static final String f35615a = "e";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final char[] f35507b;
+    public static final char[] f35616b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -33,7 +33,7 @@ public class e {
                 return;
             }
         }
-        f35507b = new char[]{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
+        f35616b = new char[]{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
     }
 
     public e() {
@@ -59,8 +59,8 @@ public class e {
             }
             StringBuilder sb = new StringBuilder();
             for (int i2 = 0; i2 < bArr.length; i2++) {
-                sb.append(f35507b[(bArr[i2] >> 4) & 15]);
-                sb.append(f35507b[bArr[i2] & 15]);
+                sb.append(f35616b[(bArr[i2] >> 4) & 15]);
+                sb.append(f35616b[bArr[i2] & 15]);
             }
             return sb.toString();
         }
@@ -98,7 +98,7 @@ public class e {
             try {
                 return str.getBytes("UTF-8");
             } catch (Throwable th) {
-                CtAuth.warn(f35506a, "getBytes error", th);
+                CtAuth.warn(f35615a, "getBytes error", th);
                 return bArr;
             }
         }

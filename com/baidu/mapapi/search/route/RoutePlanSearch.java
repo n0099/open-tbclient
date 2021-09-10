@@ -13,10 +13,10 @@ public class RoutePlanSearch extends com.baidu.mapapi.search.core.l {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public com.baidu.platform.core.d.e f41804a;
+    public com.baidu.platform.core.d.e f41915a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f41805b;
+    public boolean f41916b;
 
     public RoutePlanSearch() {
         Interceptable interceptable = $ic;
@@ -31,8 +31,8 @@ public class RoutePlanSearch extends com.baidu.mapapi.search.core.l {
                 return;
             }
         }
-        this.f41805b = false;
-        this.f41804a = new com.baidu.platform.core.d.j();
+        this.f41916b = false;
+        this.f41915a = new com.baidu.platform.core.d.j();
     }
 
     public static RoutePlanSearch newInstance() {
@@ -50,7 +50,7 @@ public class RoutePlanSearch extends com.baidu.mapapi.search.core.l {
         PlanNode planNode;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bikingRoutePlanOption)) == null) {
-            if (this.f41804a != null) {
+            if (this.f41915a != null) {
                 if (bikingRoutePlanOption == null || bikingRoutePlanOption.mTo == null || (planNode = bikingRoutePlanOption.mFrom) == null) {
                     throw new IllegalArgumentException("BDMapSDKException: route plan option , origin or destination can not be null");
                 }
@@ -60,7 +60,7 @@ public class RoutePlanSearch extends com.baidu.mapapi.search.core.l {
                 if (bikingRoutePlanOption.mTo.getLocation() == null && (bikingRoutePlanOption.mTo.getName() == null || bikingRoutePlanOption.mTo.getName() == "")) {
                     throw new IllegalArgumentException("BDMapSDKException: route plan option , destination is illegal");
                 }
-                return this.f41804a.a(bikingRoutePlanOption);
+                return this.f41915a.a(bikingRoutePlanOption);
             }
             throw new IllegalStateException("BDMapSDKException: RoutePlanSearch is null, please call newInstance() first.");
         }
@@ -69,11 +69,11 @@ public class RoutePlanSearch extends com.baidu.mapapi.search.core.l {
 
     public void destroy() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f41805b) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f41916b) {
             return;
         }
-        this.f41805b = true;
-        this.f41804a.a();
+        this.f41916b = true;
+        this.f41915a.a();
         BMapManager.destroy();
     }
 
@@ -81,7 +81,7 @@ public class RoutePlanSearch extends com.baidu.mapapi.search.core.l {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, drivingRoutePlanOption)) == null) {
-            com.baidu.platform.core.d.e eVar = this.f41804a;
+            com.baidu.platform.core.d.e eVar = this.f41915a;
             if (eVar != null) {
                 if (drivingRoutePlanOption == null || drivingRoutePlanOption.mTo == null || drivingRoutePlanOption.mFrom == null) {
                     throw new IllegalArgumentException("BDMapSDKException: route plan option , origin or destination can not be null");
@@ -98,7 +98,7 @@ public class RoutePlanSearch extends com.baidu.mapapi.search.core.l {
         PlanNode planNode;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, massTransitRoutePlanOption)) == null) {
-            if (this.f41804a != null) {
+            if (this.f41915a != null) {
                 if (massTransitRoutePlanOption == null || massTransitRoutePlanOption.mTo == null || (planNode = massTransitRoutePlanOption.mFrom) == null) {
                     throw new IllegalArgumentException("BDMapSDKException: route plan option,origin or destination can not be null");
                 }
@@ -108,7 +108,7 @@ public class RoutePlanSearch extends com.baidu.mapapi.search.core.l {
                 if (massTransitRoutePlanOption.mTo.getLocation() == null && (massTransitRoutePlanOption.mTo.getName() == null || massTransitRoutePlanOption.mTo.getCity() == null)) {
                     throw new IllegalArgumentException("BDMapSDKException: route plan option,destination is illegal");
                 }
-                return this.f41804a.a(massTransitRoutePlanOption);
+                return this.f41915a.a(massTransitRoutePlanOption);
             }
             throw new IllegalStateException("BDMapSDKException: RoutePlanSearch is null, please call newInstance() first.");
         }
@@ -118,7 +118,7 @@ public class RoutePlanSearch extends com.baidu.mapapi.search.core.l {
     public void setOnGetRoutePlanResultListener(OnGetRoutePlanResultListener onGetRoutePlanResultListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, onGetRoutePlanResultListener) == null) {
-            com.baidu.platform.core.d.e eVar = this.f41804a;
+            com.baidu.platform.core.d.e eVar = this.f41915a;
             if (eVar == null) {
                 throw new IllegalStateException("BDMapSDKException: RoutePlanSearch is null, please call newInstance() first.");
             }
@@ -133,7 +133,7 @@ public class RoutePlanSearch extends com.baidu.mapapi.search.core.l {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, transitRoutePlanOption)) == null) {
-            com.baidu.platform.core.d.e eVar = this.f41804a;
+            com.baidu.platform.core.d.e eVar = this.f41915a;
             if (eVar != null) {
                 if (transitRoutePlanOption == null || transitRoutePlanOption.mCityName == null || transitRoutePlanOption.mTo == null || transitRoutePlanOption.mFrom == null) {
                     throw new IllegalArgumentException("BDMapSDKException: route plan option,origin or destination or city can not be null");
@@ -149,7 +149,7 @@ public class RoutePlanSearch extends com.baidu.mapapi.search.core.l {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, indoorRoutePlanOption)) == null) {
-            com.baidu.platform.core.d.e eVar = this.f41804a;
+            com.baidu.platform.core.d.e eVar = this.f41915a;
             if (eVar != null) {
                 if (indoorRoutePlanOption == null || indoorRoutePlanOption.mTo == null || indoorRoutePlanOption.mFrom == null) {
                     throw new IllegalArgumentException("BDMapSDKException: option , origin or destination can not be null");
@@ -165,7 +165,7 @@ public class RoutePlanSearch extends com.baidu.mapapi.search.core.l {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, walkingRoutePlanOption)) == null) {
-            com.baidu.platform.core.d.e eVar = this.f41804a;
+            com.baidu.platform.core.d.e eVar = this.f41915a;
             if (eVar != null) {
                 if (walkingRoutePlanOption == null || walkingRoutePlanOption.mTo == null || walkingRoutePlanOption.mFrom == null) {
                     throw new IllegalArgumentException("BDMapSDKException: option , origin or destination can not be null");

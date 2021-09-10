@@ -95,10 +95,10 @@ public class e extends com.baidu.platform.base.e {
                 str4 = str7;
             }
             aVar.a(IAdRequestParam.SN, str5);
-            aVar.a(com.baidu.fsg.base.statistics.f.f39388a, str6);
+            aVar.a(com.baidu.fsg.base.statistics.f.f39499a, str6);
             String str8 = "&" + aVar.a() + ("&start=" + name + "&end=" + name2);
-            this.f44190a.a("url", "http://map.baidu.com/?newmap=1&s=" + str2 + (AppMD5.encodeUrlParamsValue(str8) + str4));
-            this.f44190a.a("from", "android_map_sdk");
+            this.f44305a.a("url", "http://map.baidu.com/?newmap=1&s=" + str2 + (AppMD5.encodeUrlParamsValue(str8) + str4));
+            this.f44305a.a("from", "android_map_sdk");
         }
     }
 

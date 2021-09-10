@@ -27,7 +27,7 @@ public class c {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ String f68495a;
+                public final /* synthetic */ String f68675a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -44,7 +44,7 @@ public class c {
                             return;
                         }
                     }
-                    this.f68495a = str;
+                    this.f68675a = str;
                 }
 
                 @Override // java.lang.Runnable
@@ -52,9 +52,9 @@ public class c {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         try {
-                            c.d(this.f68495a);
+                            c.d(this.f68675a);
                         } catch (Throwable th) {
-                            com.bytedance.sdk.openadsdk.preload.geckox.utils.c.a(new RuntimeException("delete old channel version failed，path：" + this.f68495a, th));
+                            com.bytedance.sdk.openadsdk.preload.geckox.utils.c.a(new RuntimeException("delete old channel version failed，path：" + this.f68675a, th));
                         }
                     }
                 }
@@ -214,7 +214,7 @@ public class c {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ File f68496a;
+                public final /* synthetic */ File f68676a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -231,14 +231,14 @@ public class c {
                             return;
                         }
                     }
-                    this.f68496a = file;
+                    this.f68676a = file;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        d.a(this.f68496a);
+                        d.a(this.f68676a);
                     }
                 }
             });

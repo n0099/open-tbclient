@@ -47,7 +47,7 @@ public class RequestPersonalMsgReadMessage extends TbSocketMessage implements a 
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             try {
                 DataReq.Builder builder = new DataReq.Builder();
-                builder.groupId = c.a.q0.j1.s.a.f21001i;
+                builder.groupId = c.a.r0.k1.s.a.f21571i;
                 builder.msgType = 22;
                 builder.msgId = Long.valueOf(this.hasSentMsgId);
                 builder.toUid = Long.valueOf(this.toUid);

@@ -79,7 +79,7 @@ public class p {
                     if (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
                         ArrayList arrayList = new ArrayList();
                         arrayList.add(Integer.valueOf((int) ARPMessageType.MSG_TYPE_STATISTICS));
-                        arrayList.add(Integer.valueOf((int) ARPMessageType.MSG_TYPE_LUA_SDK_BRIDGE));
+                        arrayList.add(1901);
                         return arrayList;
                     }
                     return (List) invokeV.objValue;

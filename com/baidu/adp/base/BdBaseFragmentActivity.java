@@ -14,10 +14,10 @@ import androidx.fragment.app.FragmentActivity;
 import c.a.e.a.b;
 import c.a.e.a.f;
 import c.a.e.a.g;
-import c.a.e.a.h;
 import c.a.e.a.i;
 import c.a.e.e.l.d;
 import c.a.e.e.p.l;
+import c.a.e.f.a.h;
 import c.a.e.l.e.q;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
@@ -46,7 +46,7 @@ public abstract class BdBaseFragmentActivity<T> extends FragmentActivity impleme
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BdBaseFragmentActivity f36121e;
+        public final /* synthetic */ BdBaseFragmentActivity f36230e;
 
         public a(BdBaseFragmentActivity bdBaseFragmentActivity) {
             Interceptable interceptable = $ic;
@@ -63,14 +63,14 @@ public abstract class BdBaseFragmentActivity<T> extends FragmentActivity impleme
                     return;
                 }
             }
-            this.f36121e = bdBaseFragmentActivity;
+            this.f36230e = bdBaseFragmentActivity;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                BdBaseFragmentActivity bdBaseFragmentActivity = this.f36121e;
+                BdBaseFragmentActivity bdBaseFragmentActivity = this.f36230e;
                 bdBaseFragmentActivity.onPreLoad(bdBaseFragmentActivity.onGetPreLoadListView());
             }
         }
@@ -100,8 +100,8 @@ public abstract class BdBaseFragmentActivity<T> extends FragmentActivity impleme
         if (!(interceptable == null || interceptable.invokeL(65537, this, view) == null) || view == null) {
             return;
         }
-        if (view instanceof c.a.e.f.a.i) {
-            ((c.a.e.f.a.i) view).refresh();
+        if (view instanceof h) {
+            ((h) view).refresh();
         }
         if (view instanceof ViewGroup) {
             ViewGroup viewGroup = (ViewGroup) view;
@@ -126,7 +126,7 @@ public abstract class BdBaseFragmentActivity<T> extends FragmentActivity impleme
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            Resources b2 = h.a().b();
+            Resources b2 = c.a.e.a.h.a().b();
             return (b2 == null || !BdBaseApplication.getInst().getIsPluginResourcOpen()) ? super.getResources() : b2;
         }
         return (Resources) invokeV.objValue;
@@ -176,7 +176,7 @@ public abstract class BdBaseFragmentActivity<T> extends FragmentActivity impleme
             if (this.mId == null) {
                 this.mId = BdUniqueId.gen();
             }
-            b.f().n(getPageContext().getPageActivity());
+            b.f().o(getPageContext().getPageActivity());
         }
     }
 
@@ -189,7 +189,7 @@ public abstract class BdBaseFragmentActivity<T> extends FragmentActivity impleme
             MessageManager.getInstance().removeMessage(this.mId);
             d.h().b(this.mId);
             this.mHandler.removeCallbacks(this.preLoadRunnable);
-            b.f().l(getPageContext().getPageActivity());
+            b.f().m(getPageContext().getPageActivity());
         }
     }
 

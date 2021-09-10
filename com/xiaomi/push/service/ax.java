@@ -14,7 +14,7 @@ public class ax extends XMPushService.i {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ av.b.c f77968a;
+    public final /* synthetic */ av.b.c f78148a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ax(av.b.c cVar, int i2) {
@@ -34,7 +34,7 @@ public class ax extends XMPushService.i {
                 return;
             }
         }
-        this.f77968a = cVar;
+        this.f78148a = cVar;
     }
 
     @Override // com.xiaomi.push.service.XMPushService.i
@@ -48,10 +48,10 @@ public class ax extends XMPushService.i {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            av.b.c cVar = this.f77968a;
-            if (cVar.f77962a == cVar.f922a.f909a) {
-                com.xiaomi.channel.commonutils.logger.b.b("clean peer, chid = " + this.f77968a.f922a.f77956g);
-                this.f77968a.f922a.f909a = null;
+            av.b.c cVar = this.f78148a;
+            if (cVar.f78142a == cVar.f922a.f909a) {
+                com.xiaomi.channel.commonutils.logger.b.b("clean peer, chid = " + this.f78148a.f922a.f78136g);
+                this.f78148a.f922a.f909a = null;
             }
         }
     }

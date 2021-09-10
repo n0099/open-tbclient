@@ -67,7 +67,7 @@ public class PersonPolymericActivity extends BaseFragmentActivity implements Voi
         }
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, c.a.p0.m0.a
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, c.a.q0.o0.a
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -128,7 +128,7 @@ public class PersonPolymericActivity extends BaseFragmentActivity implements Voi
             setContentView(R.layout.person_new_fragment_view);
             this.mFragment = new PersonPolymericFragment();
             getSupportFragmentManager().beginTransaction().add(R.id.fragment_container, this.mFragment).commit();
-            if (getIntent() != null && getIntent().getParcelableExtra(IntentConfig.KEY_URI) != null && !b.f().h("MainTabActivity")) {
+            if (getIntent() != null && getIntent().getParcelableExtra(IntentConfig.KEY_URI) != null && !b.f().i("MainTabActivity")) {
                 this.mIsFromSchema = true;
             }
             if (this.mIsFromSchema) {

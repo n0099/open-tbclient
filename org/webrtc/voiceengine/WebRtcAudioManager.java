@@ -90,29 +90,14 @@ public class WebRtcAudioManager {
 
             @Override // java.util.TimerTask, java.lang.Runnable
             public void run() {
-                StringBuilder sb;
-                int i2;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                     int mode = this.this$0.audioManager.getMode();
                     if (mode == 1) {
-                        sb = new StringBuilder();
-                        sb.append("STREAM_RING stream volume: ");
-                        sb.append(this.this$0.audioManager.getStreamVolume(2));
-                        sb.append(" (max=");
-                        i2 = this.maxRingVolume;
-                    } else if (mode != 3) {
-                        return;
-                    } else {
-                        sb = new StringBuilder();
-                        sb.append("VOICE_CALL stream volume: ");
-                        sb.append(this.this$0.audioManager.getStreamVolume(0));
-                        sb.append(" (max=");
-                        i2 = this.maxVoiceCallVolume;
+                        Logging.d(WebRtcAudioManager.TAG, "STREAM_RING stream volume: " + this.this$0.audioManager.getStreamVolume(2) + " (max=" + this.maxRingVolume + SmallTailInfo.EMOTION_SUFFIX);
+                    } else if (mode == 3) {
+                        Logging.d(WebRtcAudioManager.TAG, "VOICE_CALL stream volume: " + this.this$0.audioManager.getStreamVolume(0) + " (max=" + this.maxVoiceCallVolume + SmallTailInfo.EMOTION_SUFFIX);
                     }
-                    sb.append(i2);
-                    sb.append(SmallTailInfo.EMOTION_SUFFIX);
-                    Logging.d(WebRtcAudioManager.TAG, sb.toString());
                 }
             }
         }
@@ -261,18 +246,21 @@ public class WebRtcAudioManager {
 
     private int getSampleRateForApiLevel() {
         InterceptResult invokeV;
-        String property;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65544, this)) == null) {
-            if (Build.VERSION.SDK_INT >= 17 && (property = this.audioManager.getProperty("android.media.property.OUTPUT_SAMPLE_RATE")) != null) {
-                return Integer.parseInt(property);
+            if (Build.VERSION.SDK_INT < 17) {
+                return WebRtcAudioUtils.getDefaultSampleRateHz();
             }
-            return WebRtcAudioUtils.getDefaultSampleRateHz();
+            String property = this.audioManager.getProperty("android.media.property.OUTPUT_SAMPLE_RATE");
+            if (property == null) {
+                return WebRtcAudioUtils.getDefaultSampleRateHz();
+            }
+            return Integer.parseInt(property);
         }
         return invokeV.intValue;
     }
 
-    public static boolean getStereoInput() {
+    public static synchronized boolean getStereoInput() {
         InterceptResult invokeV;
         boolean z;
         Interceptable interceptable = $ic;
@@ -285,7 +273,7 @@ public class WebRtcAudioManager {
         return invokeV.booleanValue;
     }
 
-    public static boolean getStereoOutput() {
+    public static synchronized boolean getStereoOutput() {
         InterceptResult invokeV;
         boolean z;
         Interceptable interceptable = $ic;
@@ -375,7 +363,7 @@ public class WebRtcAudioManager {
 
     private native void nativeCacheAudioParameters(int i2, int i3, int i4, boolean z, boolean z2, boolean z3, boolean z4, boolean z5, boolean z6, boolean z7, int i5, int i6, long j2);
 
-    public static void setBlacklistDeviceForOpenSLESUsage(boolean z) {
+    public static synchronized void setBlacklistDeviceForOpenSLESUsage(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65557, null, z) == null) {
             synchronized (WebRtcAudioManager.class) {
@@ -385,7 +373,7 @@ public class WebRtcAudioManager {
         }
     }
 
-    public static void setStereoInput(boolean z) {
+    public static synchronized void setStereoInput(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65558, null, z) == null) {
             synchronized (WebRtcAudioManager.class) {
@@ -395,7 +383,7 @@ public class WebRtcAudioManager {
         }
     }
 
-    public static void setStereoOutput(boolean z) {
+    public static synchronized void setStereoOutput(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65559, null, z) == null) {
             synchronized (WebRtcAudioManager.class) {

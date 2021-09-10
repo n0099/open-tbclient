@@ -17,16 +17,16 @@ public final class a {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f37858a = 0;
+    public static final int f37977a = 0;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f37859b = 1;
+    public static final int f37978b = 1;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f37860c = 3;
+    public static final int f37979c = 3;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final b f37861d;
+    public static final b f37980d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.baidu.apollon.permission.a$1  reason: invalid class name */
@@ -151,9 +151,9 @@ public final class a {
             }
         }
         if (Build.VERSION.SDK_INT >= 23) {
-            f37861d = new C1613a(null);
+            f37980d = new C1613a(null);
         } else {
-            f37861d = new b(null);
+            f37980d = new b(null);
         }
     }
 
@@ -174,18 +174,18 @@ public final class a {
     public static String a(@NonNull String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? f37861d.a(str) : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? f37980d.a(str) : (String) invokeL.objValue;
     }
 
     public static int a(@NonNull Context context, @NonNull String str, int i2, @NonNull String str2) {
         InterceptResult invokeLLIL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLIL = interceptable.invokeLLIL(65538, null, context, str, i2, str2)) == null) ? f37861d.a(context, str, i2, str2) : invokeLLIL.intValue;
+        return (interceptable == null || (invokeLLIL = interceptable.invokeLLIL(65538, null, context, str, i2, str2)) == null) ? f37980d.a(context, str, i2, str2) : invokeLLIL.intValue;
     }
 
     public static int a(@NonNull Context context, @NonNull String str, @NonNull String str2) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, context, str, str2)) == null) ? f37861d.a(context, str, str2) : invokeLLL.intValue;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, context, str, str2)) == null) ? f37980d.a(context, str, str2) : invokeLLL.intValue;
     }
 }

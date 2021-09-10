@@ -62,7 +62,7 @@ public class a {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ ExitInstallListener f67415a;
+            public final /* synthetic */ ExitInstallListener f67595a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -79,14 +79,14 @@ public class a {
                         return;
                     }
                 }
-                this.f67415a = exitInstallListener;
+                this.f67595a = exitInstallListener;
             }
 
             @Override // c.p.a.d.b.a.a.b
             public void a() {
                 ExitInstallListener exitInstallListener2;
                 Interceptable interceptable2 = $ic;
-                if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || (exitInstallListener2 = this.f67415a) == null) {
+                if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || (exitInstallListener2 = this.f67595a) == null) {
                     return;
                 }
                 exitInstallListener2.onExitInstall();

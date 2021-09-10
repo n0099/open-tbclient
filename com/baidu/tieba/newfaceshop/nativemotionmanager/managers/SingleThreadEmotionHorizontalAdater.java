@@ -20,10 +20,10 @@ public class SingleThreadEmotionHorizontalAdater extends BaseAdapter {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<EmotionPackageData> f54549e;
+    public List<EmotionPackageData> f54697e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TbPageContext f54550f;
+    public TbPageContext f54698f;
 
     /* loaded from: classes7.dex */
     public static class EmotionGridViewHolder extends TypeAdapter.ViewHolder {
@@ -31,7 +31,7 @@ public class SingleThreadEmotionHorizontalAdater extends BaseAdapter {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public SingleThreadEmotionHorizontalView f54551a;
+        public SingleThreadEmotionHorizontalView f54699a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public EmotionGridViewHolder(View view) {
@@ -51,13 +51,13 @@ public class SingleThreadEmotionHorizontalAdater extends BaseAdapter {
                     return;
                 }
             }
-            this.f54551a = (SingleThreadEmotionHorizontalView) view;
+            this.f54699a = (SingleThreadEmotionHorizontalView) view;
         }
 
         public void setData(EmotionPackageData emotionPackageData) {
             SingleThreadEmotionHorizontalView singleThreadEmotionHorizontalView;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, emotionPackageData) == null) || (singleThreadEmotionHorizontalView = this.f54551a) == null || emotionPackageData == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, emotionPackageData) == null) || (singleThreadEmotionHorizontalView = this.f54699a) == null || emotionPackageData == null) {
                 return;
             }
             singleThreadEmotionHorizontalView.setData(emotionPackageData);
@@ -79,22 +79,22 @@ public class SingleThreadEmotionHorizontalAdater extends BaseAdapter {
                 return;
             }
         }
-        this.f54549e = list;
-        this.f54550f = tbPageContext;
+        this.f54697e = list;
+        this.f54698f = tbPageContext;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f54549e.size() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f54697e.size() : invokeV.intValue;
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) ? this.f54549e.get(i2) : invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) ? this.f54697e.get(i2) : invokeI.objValue;
     }
 
     @Override // android.widget.Adapter
@@ -111,7 +111,7 @@ public class SingleThreadEmotionHorizontalAdater extends BaseAdapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeILL = interceptable.invokeILL(1048579, this, i2, view, viewGroup)) == null) {
             if (view == null) {
-                view = new SingleThreadEmotionHorizontalView(this.f54550f);
+                view = new SingleThreadEmotionHorizontalView(this.f54698f);
                 view.setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
                 emotionGridViewHolder = new EmotionGridViewHolder(view);
                 view.setTag(emotionGridViewHolder);
@@ -121,7 +121,7 @@ public class SingleThreadEmotionHorizontalAdater extends BaseAdapter {
             if (emotionGridViewHolder == null) {
                 emotionGridViewHolder = (EmotionGridViewHolder) view.getTag();
             }
-            emotionGridViewHolder.setData(this.f54549e.get(i2));
+            emotionGridViewHolder.setData(this.f54697e.get(i2));
             return view;
         }
         return (View) invokeILL.objValue;

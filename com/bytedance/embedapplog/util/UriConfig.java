@@ -17,28 +17,28 @@ public class UriConfig {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f63885a;
+    public final String f64065a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f63886b;
+    public final String f64066b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final String[] f63887c;
+    public final String[] f64067c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final String[] f63888d;
+    public final String[] f64068d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final String f63889e;
+    public final String f64069e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final String f63890f;
+    public final String f64070f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final String f63891g;
+    public final String f64071g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final String f63892h;
+    public final String f64072h;
 
     /* loaded from: classes9.dex */
     public static /* synthetic */ class a {
@@ -52,28 +52,28 @@ public class UriConfig {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f63893a;
+        public String f64073a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f63894b;
+        public String f64074b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String[] f63895c;
+        public String[] f64075c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String[] f63896d;
+        public String[] f64076d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f63897e;
+        public String f64077e;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f63898f;
+        public String f64078f;
 
         /* renamed from: g  reason: collision with root package name */
-        public String f63899g;
+        public String f64079g;
 
         /* renamed from: h  reason: collision with root package name */
-        public String f63900h;
+        public String f64080h;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -93,7 +93,7 @@ public class UriConfig {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-                this.f63893a = str;
+                this.f64073a = str;
                 return this;
             }
             return (b) invokeL.objValue;
@@ -103,7 +103,7 @@ public class UriConfig {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, strArr)) == null) {
-                this.f63895c = strArr;
+                this.f64075c = strArr;
                 return this;
             }
             return (b) invokeL.objValue;
@@ -119,7 +119,7 @@ public class UriConfig {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-                this.f63894b = str;
+                this.f64074b = str;
                 return this;
             }
             return (b) invokeL.objValue;
@@ -129,7 +129,7 @@ public class UriConfig {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, strArr)) == null) {
-                this.f63896d = strArr;
+                this.f64076d = strArr;
                 return this;
             }
             return (b) invokeL.objValue;
@@ -139,7 +139,7 @@ public class UriConfig {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-                this.f63897e = str;
+                this.f64077e = str;
                 return this;
             }
             return (b) invokeL.objValue;
@@ -149,7 +149,7 @@ public class UriConfig {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
-                this.f63898f = str;
+                this.f64078f = str;
                 return this;
             }
             return (b) invokeL.objValue;
@@ -159,7 +159,7 @@ public class UriConfig {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
-                this.f63900h = str;
+                this.f64080h = str;
                 return this;
             }
             return (b) invokeL.objValue;
@@ -204,49 +204,49 @@ public class UriConfig {
     public String getAbUri() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f63890f : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f64070f : (String) invokeV.objValue;
     }
 
     public String getActiveUri() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f63886b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f64066b : (String) invokeV.objValue;
     }
 
     public String getMonitorUri() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f63892h : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f64072h : (String) invokeV.objValue;
     }
 
     public String getProfileUri() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f63891g : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f64071g : (String) invokeV.objValue;
     }
 
     public String[] getRealUris() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f63888d : (String[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f64068d : (String[]) invokeV.objValue;
     }
 
     public String getRegisterUri() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f63885a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f64065a : (String) invokeV.objValue;
     }
 
     public String[] getSendUris() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f63887c : (String[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f64067c : (String[]) invokeV.objValue;
     }
 
     public String getSettingUri() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f63889e : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f64069e : (String) invokeV.objValue;
     }
 
     public UriConfig(b bVar) {
@@ -264,13 +264,13 @@ public class UriConfig {
                 return;
             }
         }
-        this.f63885a = bVar.f63893a;
-        this.f63886b = bVar.f63894b;
-        this.f63887c = bVar.f63895c;
-        this.f63888d = bVar.f63896d;
-        this.f63889e = bVar.f63897e;
-        this.f63890f = bVar.f63898f;
-        this.f63891g = bVar.f63899g;
-        this.f63892h = bVar.f63900h;
+        this.f64065a = bVar.f64073a;
+        this.f64066b = bVar.f64074b;
+        this.f64067c = bVar.f64075c;
+        this.f64068d = bVar.f64076d;
+        this.f64069e = bVar.f64077e;
+        this.f64070f = bVar.f64078f;
+        this.f64071g = bVar.f64079g;
+        this.f64072h = bVar.f64080h;
     }
 }

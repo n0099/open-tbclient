@@ -54,16 +54,16 @@ public class BiometricsManager implements NoProguard {
     public static final String TAG = "BiometricsManager";
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f44732a = "刷脸核验规则说明";
+    public static final String f44847a = "刷脸核验规则说明";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f44733b = "scene:certlogin";
+    public static final String f44848b = "scene:certlogin";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f44734c = "scene:uncertlogin";
+    public static final String f44849c = "scene:uncertlogin";
 
     /* renamed from: d  reason: collision with root package name */
-    public static BiometricsManager f44735d;
+    public static BiometricsManager f44850d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes5.dex */
@@ -72,10 +72,10 @@ public class BiometricsManager implements NoProguard {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PassFaceRecogCallback f44736a;
+        public final /* synthetic */ PassFaceRecogCallback f44851a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ BiometricsManager f44737b;
+        public final /* synthetic */ BiometricsManager f44852b;
 
         public a(BiometricsManager biometricsManager, PassFaceRecogCallback passFaceRecogCallback) {
             Interceptable interceptable = $ic;
@@ -92,8 +92,8 @@ public class BiometricsManager implements NoProguard {
                     return;
                 }
             }
-            this.f44737b = biometricsManager;
-            this.f44736a = passFaceRecogCallback;
+            this.f44852b = biometricsManager;
+            this.f44851a = passFaceRecogCallback;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -102,7 +102,7 @@ public class BiometricsManager implements NoProguard {
         public void onFailure(PassFaceRecogResult passFaceRecogResult) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, passFaceRecogResult) == null) {
-                this.f44736a.onFailure(passFaceRecogResult);
+                this.f44851a.onFailure(passFaceRecogResult);
             }
         }
 
@@ -112,7 +112,7 @@ public class BiometricsManager implements NoProguard {
         public void onSuccess(PassFaceRecogResult passFaceRecogResult) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, passFaceRecogResult) == null) {
-                this.f44736a.onSuccess(passFaceRecogResult);
+                this.f44851a.onSuccess(passFaceRecogResult);
             }
         }
     }
@@ -123,13 +123,13 @@ public class BiometricsManager implements NoProguard {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Activity f44738a;
+        public final /* synthetic */ Activity f44853a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f44739b;
+        public final /* synthetic */ String f44854b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ BiometricsManager f44740c;
+        public final /* synthetic */ BiometricsManager f44855c;
 
         public b(BiometricsManager biometricsManager, Activity activity, String str) {
             Interceptable interceptable = $ic;
@@ -146,9 +146,9 @@ public class BiometricsManager implements NoProguard {
                     return;
                 }
             }
-            this.f44740c = biometricsManager;
-            this.f44738a = activity;
-            this.f44739b = str;
+            this.f44855c = biometricsManager;
+            this.f44853a = activity;
+            this.f44854b = str;
         }
 
         @Override // android.text.style.ClickableSpan
@@ -156,8 +156,8 @@ public class BiometricsManager implements NoProguard {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
                 String explainCameraDeatilUrl = SapiAccountManager.getInstance().getAccountService().getExplainCameraDeatilUrl();
-                CoreViewRouter.getInstance().loadRemoteProcessWebViewActivity(this.f44738a, BiometricsManager.f44732a, explainCameraDeatilUrl + "&notLogin=1");
-                SapiStatUtil.statExplainCamera("seeDetail", this.f44739b);
+                CoreViewRouter.getInstance().loadRemoteProcessWebViewActivity(this.f44853a, BiometricsManager.f44847a, explainCameraDeatilUrl + "&notLogin=1");
+                SapiStatUtil.statExplainCamera("seeDetail", this.f44854b);
             }
         }
     }
@@ -168,25 +168,25 @@ public class BiometricsManager implements NoProguard {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PassBiometric f44741a;
+        public final /* synthetic */ PassBiometric f44856a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ PassFaceOperation f44742b;
+        public final /* synthetic */ PassFaceOperation f44857b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ PassFaceRecogCallback f44743c;
+        public final /* synthetic */ PassFaceRecogCallback f44858c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ PassFaceRecogDTO f44744d;
+        public final /* synthetic */ PassFaceRecogDTO f44859d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Activity f44745e;
+        public final /* synthetic */ Activity f44860e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f44746f;
+        public final /* synthetic */ String f44861f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ BiometricsManager f44747g;
+        public final /* synthetic */ BiometricsManager f44862g;
 
         public c(BiometricsManager biometricsManager, PassBiometric passBiometric, PassFaceOperation passFaceOperation, PassFaceRecogCallback passFaceRecogCallback, PassFaceRecogDTO passFaceRecogDTO, Activity activity, String str) {
             Interceptable interceptable = $ic;
@@ -203,22 +203,22 @@ public class BiometricsManager implements NoProguard {
                     return;
                 }
             }
-            this.f44747g = biometricsManager;
-            this.f44741a = passBiometric;
-            this.f44742b = passFaceOperation;
-            this.f44743c = passFaceRecogCallback;
-            this.f44744d = passFaceRecogDTO;
-            this.f44745e = activity;
-            this.f44746f = str;
+            this.f44862g = biometricsManager;
+            this.f44856a = passBiometric;
+            this.f44857b = passFaceOperation;
+            this.f44858c = passFaceRecogCallback;
+            this.f44859d = passFaceRecogDTO;
+            this.f44860e = activity;
+            this.f44861f = str;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f44747g.a(this.f44741a, this.f44742b, this.f44743c, this.f44744d, this.f44745e);
+                this.f44862g.a(this.f44856a, this.f44857b, this.f44858c, this.f44859d, this.f44860e);
                 SapiContext.getInstance().setIsAlreadyShowExplainCamera(true);
-                SapiStatUtil.statExplainCamera("agree", this.f44746f);
+                SapiStatUtil.statExplainCamera("agree", this.f44861f);
             }
         }
     }
@@ -229,13 +229,13 @@ public class BiometricsManager implements NoProguard {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PassFaceRecogCallback f44748a;
+        public final /* synthetic */ PassFaceRecogCallback f44863a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f44749b;
+        public final /* synthetic */ String f44864b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ BiometricsManager f44750c;
+        public final /* synthetic */ BiometricsManager f44865c;
 
         public d(BiometricsManager biometricsManager, PassFaceRecogCallback passFaceRecogCallback, String str) {
             Interceptable interceptable = $ic;
@@ -252,9 +252,9 @@ public class BiometricsManager implements NoProguard {
                     return;
                 }
             }
-            this.f44750c = biometricsManager;
-            this.f44748a = passFaceRecogCallback;
-            this.f44749b = str;
+            this.f44865c = biometricsManager;
+            this.f44863a = passFaceRecogCallback;
+            this.f44864b = str;
         }
 
         @Override // android.view.View.OnClickListener
@@ -263,8 +263,8 @@ public class BiometricsManager implements NoProguard {
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
                 PassFaceRecogResult passFaceRecogResult = new PassFaceRecogResult();
                 passFaceRecogResult.setResultCode(-307);
-                this.f44748a.onFailure(passFaceRecogResult);
-                SapiStatUtil.statExplainCamera("refuse", this.f44749b);
+                this.f44863a.onFailure(passFaceRecogResult);
+                SapiStatUtil.statExplainCamera("refuse", this.f44864b);
             }
         }
     }
@@ -280,34 +280,34 @@ public class BiometricsManager implements NoProguard {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f44751a;
+        public String f44866a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f44752b;
+        public int f44867b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f44753c;
+        public int f44868c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f44754d;
+        public String f44869d;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f44755e;
+        public int f44870e;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f44756f;
+        public String f44871f;
 
         /* renamed from: g  reason: collision with root package name */
-        public String f44757g;
+        public String f44872g;
 
         /* renamed from: h  reason: collision with root package name */
-        public String f44758h;
+        public String f44873h;
 
         /* renamed from: i  reason: collision with root package name */
-        public String f44759i;
+        public String f44874i;
 
         /* renamed from: j  reason: collision with root package name */
-        public String f44760j;
+        public String f44875j;
         public String k;
         public String l;
         public String m;
@@ -379,10 +379,10 @@ public class BiometricsManager implements NoProguard {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) {
-            if (f44735d == null) {
-                f44735d = new BiometricsManager();
+            if (f44850d == null) {
+                f44850d = new BiometricsManager();
             }
-            return f44735d;
+            return f44850d;
         }
         return (BiometricsManager) invokeV.objValue;
     }
@@ -420,7 +420,7 @@ public class BiometricsManager implements NoProguard {
                 passFaceRecogDTO.exUid = str6;
             }
             passFaceRecogDTO.passProductId = str;
-            if (!TextUtils.isEmpty(str) && (str.contains(f44733b) || str.contains(f44734c))) {
+            if (!TextUtils.isEmpty(str) && (str.contains(f44848b) || str.contains(f44849c))) {
                 Log.e(TAG, "scene:certlogin and scene:uncertlogin");
             }
             if (a(activity, passFaceRecogCallback, biometric, passFaceOperation, passFaceRecogDTO, str)) {

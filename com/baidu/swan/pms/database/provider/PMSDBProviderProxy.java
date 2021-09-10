@@ -9,8 +9,8 @@ import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import c.a.o0.n.c;
-import c.a.o0.n.g.e.b;
+import c.a.p0.n.c;
+import c.a.p0.n.g.e.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -48,7 +48,7 @@ public class PMSDBProviderProxy extends ContentProvider {
             SQLiteDatabase writableDatabase = getProvider().b().getWritableDatabase();
             try {
                 try {
-                    boolean z = c.f11828a;
+                    boolean z = c.f11856a;
                     writableDatabase.beginTransaction();
                     ContentProviderResult[] applyBatch = super.applyBatch(arrayList);
                     for (ContentProviderResult contentProviderResult : applyBatch) {
@@ -59,16 +59,16 @@ public class PMSDBProviderProxy extends ContentProvider {
                     writableDatabase.setTransactionSuccessful();
                     return applyBatch;
                 } catch (Exception e2) {
-                    if (c.f11828a) {
+                    if (c.f11856a) {
                         String str = "applyBatch Exception:" + e2.getMessage();
                     }
                     writableDatabase.endTransaction();
-                    boolean z2 = c.f11828a;
+                    boolean z2 = c.f11856a;
                     return new ContentProviderResult[0];
                 }
             } finally {
                 writableDatabase.endTransaction();
-                boolean z3 = c.f11828a;
+                boolean z3 = c.f11856a;
             }
         }
         return (ContentProviderResult[]) invokeL.objValue;

@@ -16,13 +16,13 @@ public final class y implements Runnable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ Context f76406a;
+    public final /* synthetic */ Context f76586a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ Map f76407b;
+    public final /* synthetic */ Map f76587b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ t f76408c;
+    public final /* synthetic */ t f76588c;
 
     public y(t tVar, Context context, Map map) {
         Interceptable interceptable = $ic;
@@ -39,18 +39,18 @@ public final class y implements Runnable {
                 return;
             }
         }
-        this.f76408c = tVar;
-        this.f76406a = context;
-        this.f76407b = map;
+        this.f76588c = tVar;
+        this.f76586a = context;
+        this.f76587b = map;
     }
 
     @Override // java.lang.Runnable
     public final void run() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            String packageName = this.f76406a.getPackageName();
+            String packageName = this.f76586a.getPackageName();
             try {
-                List<ActivityManager.RunningTaskInfo> runningTasks = ((ActivityManager) this.f76406a.getSystemService("activity")).getRunningTasks(100);
+                List<ActivityManager.RunningTaskInfo> runningTasks = ((ActivityManager) this.f76586a.getSystemService("activity")).getRunningTasks(100);
                 if (runningTasks != null) {
                     for (ActivityManager.RunningTaskInfo runningTaskInfo : runningTasks) {
                         ComponentName componentName = runningTaskInfo.topActivity;
@@ -59,8 +59,8 @@ public final class y implements Runnable {
                             Intent intent = new Intent();
                             intent.setComponent(componentName);
                             intent.setFlags(270532608);
-                            t.b(intent, this.f76407b);
-                            this.f76406a.startActivity(intent);
+                            t.b(intent, this.f76587b);
+                            this.f76586a.startActivity(intent);
                             return;
                         }
                     }
@@ -68,11 +68,11 @@ public final class y implements Runnable {
             } catch (Exception e2) {
                 com.vivo.push.util.p.a("OnNotificationClickTask", "start recentIntent is error", e2);
             }
-            Intent launchIntentForPackage = this.f76406a.getPackageManager().getLaunchIntentForPackage(this.f76406a.getPackageName());
+            Intent launchIntentForPackage = this.f76586a.getPackageManager().getLaunchIntentForPackage(this.f76586a.getPackageName());
             if (launchIntentForPackage != null) {
                 launchIntentForPackage.setFlags(268435456);
-                t.b(launchIntentForPackage, this.f76407b);
-                this.f76406a.startActivity(launchIntentForPackage);
+                t.b(launchIntentForPackage, this.f76587b);
+                this.f76586a.startActivity(launchIntentForPackage);
                 return;
             }
             com.vivo.push.util.p.a("OnNotificationClickTask", "LaunchIntent is null");

@@ -1,6 +1,7 @@
 package org.webrtc;
 
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -8,7 +9,9 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.nio.ByteBuffer;
 import javax.annotation.Nullable;
+import org.webrtc.EncodedImage;
 import org.webrtc.VideoEncoder;
+import org.webrtc.VideoEncoderWrapper;
 /* loaded from: classes2.dex */
 public class VideoEncoderWrapper {
     public static /* synthetic */ Interceptable $ic;
@@ -32,7 +35,7 @@ public class VideoEncoderWrapper {
     public static VideoEncoder.Callback createEncoderCallback(final long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(65537, null, j2)) == null) ? new VideoEncoder.Callback() { // from class: org.webrtc._$$Lambda$VideoEncoderWrapper$dRHADZXMoanHTOdEf2Act96Dzi0
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(65538, null, j2)) == null) ? new VideoEncoder.Callback() { // from class: h.c.z
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -51,7 +54,7 @@ public class VideoEncoderWrapper {
     public static Integer getScalingSettingsHigh(VideoEncoder.ScalingSettings scalingSettings) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, scalingSettings)) == null) ? scalingSettings.high : (Integer) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, scalingSettings)) == null) ? scalingSettings.high : (Integer) invokeL.objValue;
     }
 
     @Nullable
@@ -59,14 +62,14 @@ public class VideoEncoderWrapper {
     public static Integer getScalingSettingsLow(VideoEncoder.ScalingSettings scalingSettings) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, scalingSettings)) == null) ? scalingSettings.low : (Integer) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, scalingSettings)) == null) ? scalingSettings.low : (Integer) invokeL.objValue;
     }
 
     @CalledByNative
     public static boolean getScalingSettingsOn(VideoEncoder.ScalingSettings scalingSettings) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, scalingSettings)) == null) ? scalingSettings.on : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, scalingSettings)) == null) ? scalingSettings.on : invokeL.booleanValue;
     }
 
     public static native void nativeOnEncodedFrame(long j2, ByteBuffer byteBuffer, int i2, int i3, long j3, int i4, int i5, boolean z, Integer num);

@@ -5,9 +5,10 @@ import android.location.Location;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import c.a.e.e.p.k;
-import c.a.p0.s.q.c2;
+import c.a.q0.s.q.d2;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
@@ -37,7 +38,7 @@ import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class ShareItem {
     public static /* synthetic */ Interceptable $ic;
-    public static final String s0;
+    public static final String v0;
     public transient /* synthetic */ FieldHolder $fh;
     public Bundle A;
     public Location B;
@@ -61,69 +62,75 @@ public class ShareItem {
     public OriginalThreadInfo.ShareInfo T;
     public ForwardInfo U;
     public String V;
-    public int W;
-    public WeakReference<Bitmap> X;
-    public Bundle Y;
-    public boolean Z;
+    @Nullable
+    public String W;
+    @Nullable
+    public String X;
+    @Nullable
+    public String Y;
+    public int Z;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f47977a;
-    public boolean a0;
+    public boolean f48105a;
+    public WeakReference<Bitmap> a0;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f47978b;
-    public boolean b0;
+    public boolean f48106b;
+    public Bundle b0;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f47979c;
+    public boolean f48107c;
     public boolean c0;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f47980d;
+    public boolean f48108d;
     public boolean d0;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f47981e;
-    public int e0;
+    public boolean f48109e;
+    public boolean e0;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f47982f;
-    public String f0;
+    public boolean f48110f;
+    public boolean f0;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f47983g;
+    public boolean f48111g;
     public boolean g0;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f47984h;
-    public boolean h0;
+    public boolean f48112h;
+    public int h0;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f47985i;
+    public boolean f48113i;
     public String i0;
 
     /* renamed from: j  reason: collision with root package name */
-    public boolean f47986j;
-    public int j0;
+    public boolean f48114j;
+    public boolean j0;
     public boolean k;
-    public String k0;
+    public boolean k0;
     public boolean l;
     public String l0;
     public boolean m;
-    public String m0;
+    public int m0;
     public String n;
     public String n0;
     public int o;
     public String o0;
     public String p;
-    public JSONArray p0;
+    public String p0;
     public String q;
-    public JSONObject q0;
+    public String q0;
     public String r;
-    public List<Integer> r0;
+    public String r0;
     public String s;
+    public JSONArray s0;
     public String t;
+    public JSONObject t0;
     public String u;
+    public List<Integer> u0;
     public Uri v;
     public String w;
     public String x;
@@ -143,7 +150,7 @@ public class ShareItem {
                 return;
             }
         }
-        s0 = FileHelper.EXTERNAL_STORAGE_DIRECTORY + "/" + TbConfig.getTempDirName() + "/share/SHARED_IMAGE";
+        v0 = FileHelper.EXTERNAL_STORAGE_DIRECTORY + "/" + TbConfig.getTempDirName() + "/share/SHARED_IMAGE";
     }
 
     public ShareItem() {
@@ -159,16 +166,16 @@ public class ShareItem {
                 return;
             }
         }
-        this.f47977a = false;
-        this.f47978b = false;
-        this.f47979c = false;
-        this.f47980d = false;
-        this.f47981e = false;
-        this.f47982f = false;
-        this.f47983g = false;
-        this.f47984h = false;
-        this.f47985i = false;
-        this.f47986j = false;
+        this.f48105a = false;
+        this.f48106b = false;
+        this.f48107c = false;
+        this.f48108d = false;
+        this.f48109e = false;
+        this.f48110f = false;
+        this.f48111g = false;
+        this.f48112h = false;
+        this.f48113i = false;
+        this.f48114j = false;
         this.k = false;
         this.l = false;
         this.m = false;
@@ -180,22 +187,22 @@ public class ShareItem {
         this.H = 0;
         this.I = 0;
         this.R = -1L;
-        this.W = 0;
-        this.Z = false;
-        this.a0 = true;
-        this.b0 = false;
-        this.c0 = true;
+        this.Z = 0;
+        this.c0 = false;
         this.d0 = true;
-        this.e0 = 0;
+        this.e0 = false;
+        this.f0 = true;
         this.g0 = true;
-        this.h0 = false;
+        this.h0 = 0;
+        this.j0 = true;
+        this.k0 = false;
         this.r = null;
         this.s = null;
         this.t = null;
         this.u = null;
         this.v = null;
         this.B = null;
-        this.X = null;
+        this.a0 = null;
         this.C = null;
         this.q = null;
         this.x = null;
@@ -206,7 +213,7 @@ public class ShareItem {
     public List<Integer> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.r0 : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.u0 : (List) invokeV.objValue;
     }
 
     public byte[] b() {
@@ -214,7 +221,7 @@ public class ShareItem {
         Bitmap bitmap;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            WeakReference<Bitmap> weakReference = this.X;
+            WeakReference<Bitmap> weakReference = this.a0;
             if (weakReference != null && (bitmap = weakReference.get()) != null && !bitmap.isRecycled()) {
                 ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
                 r1 = bitmap.compress(Bitmap.CompressFormat.PNG, 85, byteArrayOutputStream) ? byteArrayOutputStream.toByteArray() : null;
@@ -233,7 +240,7 @@ public class ShareItem {
         Bitmap bitmap;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            WeakReference<Bitmap> weakReference = this.X;
+            WeakReference<Bitmap> weakReference = this.a0;
             if (weakReference == null || (bitmap = weakReference.get()) == null || bitmap.isRecycled()) {
                 return null;
             }
@@ -245,13 +252,13 @@ public class ShareItem {
     public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.Z : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.c0 : invokeV.booleanValue;
     }
 
     public Bundle e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.Y : (Bundle) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.b0 : (Bundle) invokeV.objValue;
     }
 
     public boolean f() {
@@ -266,14 +273,14 @@ public class ShareItem {
 
     public void g() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || this.X == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || this.a0 == null) {
             return;
         }
         FileOutputStream fileOutputStream = null;
         try {
             try {
                 if (FileHelper.checkSD()) {
-                    File file = new File(s0);
+                    File file = new File(v0);
                     if (file.exists()) {
                         file.delete();
                     }
@@ -288,7 +295,7 @@ public class ShareItem {
                             fileOutputStream2.write(b2);
                             fileOutputStream2.close();
                             this.v = Uri.fromFile(file);
-                            this.X = null;
+                            this.a0 = null;
                             try {
                                 fileOutputStream2.close();
                             } catch (IOException e2) {
@@ -330,28 +337,28 @@ public class ShareItem {
     public void h(List<Integer> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, list) == null) {
-            this.r0 = list;
+            this.u0 = list;
         }
     }
 
     public void i(Bitmap bitmap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bitmap) == null) {
-            this.X = new WeakReference<>(bitmap);
+            this.a0 = new WeakReference<>(bitmap);
         }
     }
 
     public void j(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
-            this.Z = z;
+            this.c0 = z;
         }
     }
 
     public void k(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, bundle) == null) {
-            this.Y = bundle;
+            this.b0 = bundle;
         }
     }
 
@@ -410,56 +417,56 @@ public class ShareItem {
             return (ForwardInfo) invokeL.objValue;
         }
 
-        public static ForwardInfo generateForwardInfo(c2 c2Var) {
+        public static ForwardInfo generateForwardInfo(d2 d2Var) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, c2Var)) == null) ? generateForwardInfo(c2Var, 0) : (ForwardInfo) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, d2Var)) == null) ? generateForwardInfo(d2Var, 0) : (ForwardInfo) invokeL.objValue;
         }
 
-        public static ForwardInfo generateForwardInfo(c2 c2Var, int i2) {
+        public static ForwardInfo generateForwardInfo(d2 d2Var, int i2) {
             InterceptResult invokeLI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, c2Var, i2)) == null) ? generateForwardInfo(c2Var, i2, null) : (ForwardInfo) invokeLI.objValue;
+            return (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, d2Var, i2)) == null) ? generateForwardInfo(d2Var, i2, null) : (ForwardInfo) invokeLI.objValue;
         }
 
-        public static ForwardInfo generateForwardInfo(c2 c2Var, int i2, PostData postData) {
+        public static ForwardInfo generateForwardInfo(d2 d2Var, int i2, PostData postData) {
             InterceptResult invokeLIL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65539, null, c2Var, i2, postData)) == null) {
+            if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65539, null, d2Var, i2, postData)) == null) {
                 String str = null;
-                if (c2Var == null) {
+                if (d2Var == null) {
                     return null;
                 }
                 ForwardInfo forwardInfo = new ForwardInfo();
                 forwardInfo.isShareType = false;
-                if (c2Var.w1 && c2Var.v1 != null) {
+                if (d2Var.y1 && d2Var.x1 != null) {
                     forwardInfo.isShareType = true;
                 }
                 if (forwardInfo.isShareType) {
-                    BaijiahaoData baijiahaoData = c2Var.v1.p;
+                    BaijiahaoData baijiahaoData = d2Var.x1.p;
                     if (baijiahaoData != null && !TextUtils.isEmpty(baijiahaoData.oriUgcNid)) {
                         forwardInfo.isDynamic = true;
                     }
-                    forwardInfo.showText = c2Var.v1.d();
-                    OriginalThreadInfo originalThreadInfo = c2Var.v1;
-                    forwardInfo.showPicUrl = originalThreadInfo.f47303c;
-                    forwardInfo.showType = originalThreadInfo.f47301a;
+                    forwardInfo.showText = d2Var.x1.d();
+                    OriginalThreadInfo originalThreadInfo = d2Var.x1;
+                    forwardInfo.showPicUrl = originalThreadInfo.f47419c;
+                    forwardInfo.showType = originalThreadInfo.f47417a;
                     forwardInfo.originalBaijiahaoData = originalThreadInfo.p;
-                    forwardInfo.originalTid = originalThreadInfo.f47306f;
+                    forwardInfo.originalTid = originalThreadInfo.f47422f;
                     if (i2 == 1) {
                         if (postData != null && postData.K() != null) {
                             str = postData.K().toString();
-                        } else if (c2Var.o() != null) {
-                            str = c2Var.p().toString();
+                        } else if (d2Var.o() != null) {
+                            str = d2Var.p().toString();
                         }
-                    } else if (c2Var.H2() != null) {
-                        str = c2Var.H2().toString();
+                    } else if (d2Var.M2() != null) {
+                        str = d2Var.M2().toString();
                     }
                     if (!TextUtils.isEmpty(str)) {
                         forwardInfo.transmitOriginThreadComment = str;
                     }
-                    if (c2Var.J() != null && !TextUtils.isEmpty(c2Var.J().getName_show())) {
-                        forwardInfo.transmitThreadAuthorNameShow = c2Var.J().getName_show();
+                    if (d2Var.J() != null && !TextUtils.isEmpty(d2Var.J().getName_show())) {
+                        forwardInfo.transmitThreadAuthorNameShow = d2Var.J().getName_show();
                     }
                     if (i2 == 1 && postData != null && k.isEmpty(forwardInfo.transmitThreadAuthorNameShow) && postData.t() != null) {
                         forwardInfo.transmitThreadAuthorNameShow = postData.t().getName_show();
@@ -468,56 +475,56 @@ public class ShareItem {
                         forwardInfo.transmitThreadAuthorNameShow = TbadkCoreApplication.getCurrentAccountNameShow();
                     }
                 } else {
-                    if (c2Var.L() != null && !TextUtils.isEmpty(c2Var.L().oriUgcNid)) {
+                    if (d2Var.L() != null && !TextUtils.isEmpty(d2Var.L().oriUgcNid)) {
                         forwardInfo.isDynamic = true;
                     }
-                    OriginalThreadInfo k = OriginalThreadInfo.k(c2Var);
+                    OriginalThreadInfo k = OriginalThreadInfo.k(d2Var);
                     if (k != null) {
                         forwardInfo.showText = k.d();
-                        forwardInfo.showPicUrl = k.f47303c;
-                        forwardInfo.showType = k.f47301a;
+                        forwardInfo.showPicUrl = k.f47419c;
+                        forwardInfo.showType = k.f47417a;
                     }
-                    forwardInfo.originalTid = c2Var.q1();
+                    forwardInfo.originalTid = d2Var.s1();
                 }
                 if (i2 == 1) {
-                    OriginalThreadInfo originalThreadInfo2 = c2Var.v1;
+                    OriginalThreadInfo originalThreadInfo2 = d2Var.x1;
                     if (originalThreadInfo2 != null && originalThreadInfo2.p != null) {
                         BaijiahaoData baijiahaoData2 = new BaijiahaoData();
                         forwardInfo.baijiahaoData = baijiahaoData2;
-                        BaijiahaoData baijiahaoData3 = c2Var.v1.p;
+                        BaijiahaoData baijiahaoData3 = d2Var.x1.p;
                         baijiahaoData2.oriUgcNid = baijiahaoData3.oriUgcNid;
                         baijiahaoData2.oriUgcTid = baijiahaoData3.oriUgcTid;
                         baijiahaoData2.oriUgcType = baijiahaoData3.oriUgcType;
                         baijiahaoData2.oriUgcVid = baijiahaoData3.oriUgcVid;
                         baijiahaoData2.forwardUrl = baijiahaoData3.forwardUrl;
-                    } else if (c2Var.L() != null) {
+                    } else if (d2Var.L() != null) {
                         BaijiahaoData baijiahaoData4 = new BaijiahaoData();
                         forwardInfo.baijiahaoData = baijiahaoData4;
-                        baijiahaoData4.oriUgcNid = c2Var.L().oriUgcNid;
-                        forwardInfo.baijiahaoData.oriUgcTid = c2Var.L().oriUgcTid;
-                        forwardInfo.baijiahaoData.oriUgcType = c2Var.L().oriUgcType;
-                        forwardInfo.baijiahaoData.oriUgcVid = c2Var.L().oriUgcVid;
-                        forwardInfo.baijiahaoData.forwardUrl = c2Var.L().forwardUrl;
+                        baijiahaoData4.oriUgcNid = d2Var.L().oriUgcNid;
+                        forwardInfo.baijiahaoData.oriUgcTid = d2Var.L().oriUgcTid;
+                        forwardInfo.baijiahaoData.oriUgcType = d2Var.L().oriUgcType;
+                        forwardInfo.baijiahaoData.oriUgcVid = d2Var.L().oriUgcVid;
+                        forwardInfo.baijiahaoData.forwardUrl = d2Var.L().forwardUrl;
                     }
-                } else if (c2Var.L() != null) {
+                } else if (d2Var.L() != null) {
                     BaijiahaoData baijiahaoData5 = new BaijiahaoData();
                     forwardInfo.baijiahaoData = baijiahaoData5;
-                    baijiahaoData5.oriUgcNid = c2Var.L().oriUgcNid;
-                    forwardInfo.baijiahaoData.oriUgcTid = c2Var.L().oriUgcTid;
-                    forwardInfo.baijiahaoData.oriUgcType = c2Var.L().oriUgcType;
-                    forwardInfo.baijiahaoData.oriUgcVid = c2Var.L().oriUgcVid;
-                    forwardInfo.baijiahaoData.forwardUrl = c2Var.L().forwardUrl;
+                    baijiahaoData5.oriUgcNid = d2Var.L().oriUgcNid;
+                    forwardInfo.baijiahaoData.oriUgcTid = d2Var.L().oriUgcTid;
+                    forwardInfo.baijiahaoData.oriUgcType = d2Var.L().oriUgcType;
+                    forwardInfo.baijiahaoData.oriUgcVid = d2Var.L().oriUgcVid;
+                    forwardInfo.baijiahaoData.forwardUrl = d2Var.L().forwardUrl;
                 }
-                if (c2Var.L() != null) {
-                    if (c2Var.L().oriUgcType == 2) {
-                        if (c2Var.o1() != null) {
-                            forwardInfo.video_duration = String.valueOf(c2Var.o1().video_duration);
+                if (d2Var.L() != null) {
+                    if (d2Var.L().oriUgcType == 2) {
+                        if (d2Var.q1() != null) {
+                            forwardInfo.video_duration = String.valueOf(d2Var.q1().video_duration);
                         }
-                    } else if ((c2Var.L().oriUgcType == 3 || c2Var.L().oriUgcType == 4) && c2Var.J() != null && !TextUtils.isEmpty(c2Var.J().getPortrait())) {
-                        if (c2Var.J().getPortrait().startsWith("http")) {
-                            forwardInfo.avatar = c2Var.J().getPortrait();
+                    } else if ((d2Var.L().oriUgcType == 3 || d2Var.L().oriUgcType == 4) && d2Var.J() != null && !TextUtils.isEmpty(d2Var.J().getPortrait())) {
+                        if (d2Var.J().getPortrait().startsWith("http")) {
+                            forwardInfo.avatar = d2Var.J().getPortrait();
                         } else {
-                            forwardInfo.avatar = TbConfig.getBigPhotoAdress() + c2Var.J().getPortrait() + ThreadAchievementShareDialogView.THREAD_IMG_SUFFIX;
+                            forwardInfo.avatar = TbConfig.getBigPhotoAdress() + d2Var.J().getPortrait() + ThreadAchievementShareDialogView.THREAD_IMG_SUFFIX;
                         }
                     }
                 }

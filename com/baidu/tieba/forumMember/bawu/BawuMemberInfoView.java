@@ -31,22 +31,22 @@ public class BawuMemberInfoView extends RelativeLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f50582e;
+    public Context f50747e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f50583f;
+    public View f50748f;
 
     /* renamed from: g  reason: collision with root package name */
-    public HeadImageView f50584g;
+    public HeadImageView f50749g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f50585h;
+    public TextView f50750h;
 
     /* renamed from: i  reason: collision with root package name */
-    public ImageView f50586i;
+    public ImageView f50751i;
 
     /* renamed from: j  reason: collision with root package name */
-    public TextView f50587j;
+    public TextView f50752j;
     public BawuRoleInfoPub k;
 
     /* loaded from: classes7.dex */
@@ -55,7 +55,7 @@ public class BawuMemberInfoView extends RelativeLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BawuMemberInfoView f50588e;
+        public final /* synthetic */ BawuMemberInfoView f50753e;
 
         public a(BawuMemberInfoView bawuMemberInfoView) {
             Interceptable interceptable = $ic;
@@ -72,18 +72,18 @@ public class BawuMemberInfoView extends RelativeLayout {
                     return;
                 }
             }
-            this.f50588e = bawuMemberInfoView;
+            this.f50753e = bawuMemberInfoView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f50588e.k == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f50753e.k == null) {
                 return;
             }
             MessageManager messageManager = MessageManager.getInstance();
-            Context context = this.f50588e.f50582e;
-            messageManager.sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(context, "" + this.f50588e.k.user_id, this.f50588e.k.user_name)));
+            Context context = this.f50753e.f50747e;
+            messageManager.sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(context, "" + this.f50753e.k.user_id, this.f50753e.k.user_name)));
         }
     }
 
@@ -105,7 +105,7 @@ public class BawuMemberInfoView extends RelativeLayout {
                 return;
             }
         }
-        this.f50582e = context;
+        this.f50747e = context;
         initView();
     }
 
@@ -122,35 +122,35 @@ public class BawuMemberInfoView extends RelativeLayout {
         } else {
             str = bawuRoleInfoPub.portrait;
         }
-        this.f50584g.startLoad(str, 12, false);
-        this.f50585h.setText(StringUtils.isNull(bawuRoleInfoPub.name_show) ? bawuRoleInfoPub.user_name : bawuRoleInfoPub.name_show);
+        this.f50749g.startLoad(str, 12, false);
+        this.f50750h.setText(StringUtils.isNull(bawuRoleInfoPub.name_show) ? bawuRoleInfoPub.user_name : bawuRoleInfoPub.name_show);
         if (StringUtils.isNull(bawuRoleInfoPub.level_name)) {
-            this.f50587j.setVisibility(8);
+            this.f50752j.setVisibility(8);
         } else {
-            this.f50587j.setText(bawuRoleInfoPub.level_name);
-            this.f50587j.setVisibility(0);
+            this.f50752j.setText(bawuRoleInfoPub.level_name);
+            this.f50752j.setVisibility(0);
         }
         int smallGradeResourceIdNew = BitmapHelper.getSmallGradeResourceIdNew(bawuRoleInfoPub.user_level.intValue());
         if (smallGradeResourceIdNew == 0) {
-            this.f50586i.setVisibility(8);
+            this.f50751i.setVisibility(8);
             return;
         }
-        ImageView imageView = this.f50586i;
-        imageView.setContentDescription(this.f50582e.getString(R.string.degree) + bawuRoleInfoPub.user_level);
-        SkinManager.setImageResource(this.f50586i, smallGradeResourceIdNew);
-        this.f50586i.setVisibility(0);
+        ImageView imageView = this.f50751i;
+        imageView.setContentDescription(this.f50747e.getString(R.string.degree) + bawuRoleInfoPub.user_level);
+        SkinManager.setImageResource(this.f50751i, smallGradeResourceIdNew);
+        this.f50751i.setVisibility(0);
     }
 
     public ImageView getLevelIcon() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f50586i : (ImageView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f50751i : (ImageView) invokeV.objValue;
     }
 
     public TextView getLevelNameView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f50587j : (TextView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f50752j : (TextView) invokeV.objValue;
     }
 
     public BawuRoleInfoPub getMemberData() {
@@ -162,29 +162,29 @@ public class BawuMemberInfoView extends RelativeLayout {
     public HeadImageView getPhotoView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f50584g : (HeadImageView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f50749g : (HeadImageView) invokeV.objValue;
     }
 
     public TextView getUserNameView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f50585h : (TextView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f50750h : (TextView) invokeV.objValue;
     }
 
     public void initView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            View inflate = LayoutInflater.from(this.f50582e).inflate(R.layout.bawu_member_info_item_layout, this);
-            this.f50583f = inflate;
+            View inflate = LayoutInflater.from(this.f50747e).inflate(R.layout.bawu_member_info_item_layout, this);
+            this.f50748f = inflate;
             HeadImageView headImageView = (HeadImageView) inflate.findViewById(R.id.imageview_bawu_member);
-            this.f50584g = headImageView;
+            this.f50749g = headImageView;
             headImageView.setIsRound(true);
-            this.f50584g.setBorderColor(SkinManager.getColor(R.color.common_color_10043));
-            this.f50584g.setBorderWidth(l.g(this.f50582e, R.dimen.ds1));
-            this.f50583f.setOnClickListener(new a(this));
-            this.f50586i = (ImageView) this.f50583f.findViewById(R.id.imageview_level_icon);
-            this.f50585h = (TextView) this.f50583f.findViewById(R.id.textview_user_name);
-            this.f50587j = (TextView) this.f50583f.findViewById(R.id.textview_user_level);
+            this.f50749g.setBorderColor(SkinManager.getColor(R.color.common_color_10043));
+            this.f50749g.setBorderWidth(l.g(this.f50747e, R.dimen.ds1));
+            this.f50748f.setOnClickListener(new a(this));
+            this.f50751i = (ImageView) this.f50748f.findViewById(R.id.imageview_level_icon);
+            this.f50750h = (TextView) this.f50748f.findViewById(R.id.textview_user_name);
+            this.f50752j = (TextView) this.f50748f.findViewById(R.id.textview_user_level);
         }
     }
 
@@ -207,7 +207,7 @@ public class BawuMemberInfoView extends RelativeLayout {
                 return;
             }
         }
-        this.f50582e = context;
+        this.f50747e = context;
         initView();
     }
 
@@ -230,7 +230,7 @@ public class BawuMemberInfoView extends RelativeLayout {
                 return;
             }
         }
-        this.f50582e = context;
+        this.f50747e = context;
         initView();
     }
 }

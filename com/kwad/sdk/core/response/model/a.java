@@ -11,34 +11,34 @@ public class a extends com.kwad.sdk.core.response.a.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f72045a;
+    public int f72225a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f72046b;
+    public String f72226b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f72047c;
+    public int f72227c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f72048d;
+    public int f72228d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f72049e;
+    public String f72229e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f72050f;
+    public String f72230f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f72051g;
+    public int f72231g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f72052h;
+    public int f72232h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f72053i;
+    public int f72233i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f72054j;
+    public int f72234j;
     public transient List<AdTemplate> k;
 
     public a() {
@@ -54,10 +54,10 @@ public class a extends com.kwad.sdk.core.response.a.a {
                 return;
             }
         }
-        this.f72047c = 1;
-        this.f72051g = 1;
-        this.f72052h = 1;
-        this.f72053i = 1;
-        this.f72054j = 1;
+        this.f72227c = 1;
+        this.f72231g = 1;
+        this.f72232h = 1;
+        this.f72233i = 1;
+        this.f72234j = 1;
     }
 }

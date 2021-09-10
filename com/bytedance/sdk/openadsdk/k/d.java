@@ -19,20 +19,20 @@ public class d {
     @SuppressLint({"StaticFieldLeak"})
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile d f67796a;
+    public static volatile d f67976a;
 
     /* renamed from: c  reason: collision with root package name */
-    public static IHttpStack f67797c;
+    public static IHttpStack f67977c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f67798b;
+    public Context f67978b;
 
     /* renamed from: d  reason: collision with root package name */
-    public com.bytedance.sdk.openadsdk.k.a.c f67799d;
+    public com.bytedance.sdk.openadsdk.k.a.c f67979d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final NetClient f67800e;
+    public final NetClient f67980e;
 
     public d(Context context) {
         Interceptable interceptable = $ic;
@@ -49,43 +49,43 @@ public class d {
                 return;
             }
         }
-        this.f67798b = context == null ? o.a() : context.getApplicationContext();
-        this.f67800e = new NetClient.Builder().connectTimeout(10000L, TimeUnit.MILLISECONDS).readTimeout(10000L, TimeUnit.MILLISECONDS).writeTimeout(10000L, TimeUnit.MILLISECONDS).enableTNC(true).build();
+        this.f67978b = context == null ? o.a() : context.getApplicationContext();
+        this.f67980e = new NetClient.Builder().connectTimeout(10000L, TimeUnit.MILLISECONDS).readTimeout(10000L, TimeUnit.MILLISECONDS).writeTimeout(10000L, TimeUnit.MILLISECONDS).enableTNC(true).build();
     }
 
     public static IHttpStack a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? f67797c : (IHttpStack) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? f67977c : (IHttpStack) invokeV.objValue;
     }
 
     public static d b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (f67796a == null) {
+            if (f67976a == null) {
                 synchronized (d.class) {
-                    if (f67796a == null) {
-                        f67796a = new d(o.a());
+                    if (f67976a == null) {
+                        f67976a = new d(o.a());
                     }
                 }
             }
-            return f67796a;
+            return f67976a;
         }
         return (d) invokeV.objValue;
     }
 
     private void e() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) && this.f67799d == null) {
-            this.f67799d = new com.bytedance.sdk.openadsdk.k.a.c();
+        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) && this.f67979d == null) {
+            this.f67979d = new com.bytedance.sdk.openadsdk.k.a.c();
         }
     }
 
     public NetClient c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f67800e : (NetClient) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f67980e : (NetClient) invokeV.objValue;
     }
 
     public com.bytedance.sdk.openadsdk.k.a.c d() {
@@ -93,7 +93,7 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             e();
-            return this.f67799d;
+            return this.f67979d;
         }
         return (com.bytedance.sdk.openadsdk.k.a.c) invokeV.objValue;
     }
@@ -101,7 +101,7 @@ public class d {
     public static void a(IHttpStack iHttpStack) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, null, iHttpStack) == null) {
-            f67797c = iHttpStack;
+            f67977c = iHttpStack;
         }
     }
 }

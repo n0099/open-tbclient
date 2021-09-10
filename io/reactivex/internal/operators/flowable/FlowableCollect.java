@@ -17,14 +17,14 @@ import io.reactivex.plugins.RxJavaPlugins;
 import java.util.concurrent.Callable;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class FlowableCollect<T, U> extends AbstractFlowableWithUpstream<T, U> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final BiConsumer<? super U, ? super T> collector;
     public final Callable<? extends U> initialSupplier;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static final class CollectSubscriber<T, U> extends DeferredScalarSubscription<U> implements FlowableSubscriber<T> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -3589550218733891694L;

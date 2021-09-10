@@ -13,13 +13,13 @@ public class c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f31415a;
+    public String f31524a;
 
     /* renamed from: b  reason: collision with root package name */
-    public JSONObject f31416b;
+    public JSONObject f31525b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f31417c;
+    public boolean f31526c;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -38,34 +38,34 @@ public class c {
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f31415a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f31524a : (String) invokeV.objValue;
     }
 
     public void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            this.f31415a = str;
+            this.f31524a = str;
         }
     }
 
     public void c(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
-            this.f31416b = jSONObject;
+            this.f31525b = jSONObject;
         }
     }
 
     public void d(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.f31417c = z;
+            this.f31526c = z;
         }
     }
 
     public JSONObject e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f31416b : (JSONObject) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f31525b : (JSONObject) invokeV.objValue;
     }
 
     public void f(String str) {
@@ -77,6 +77,6 @@ public class c {
     public boolean g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f31417c : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f31526c : invokeV.booleanValue;
     }
 }

@@ -15,29 +15,29 @@ public class d implements k {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Object f35293a;
+    public final Object f35402a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final List<com.ss.android.socialbase.downloader.model.c> f35294b;
+    public final List<com.ss.android.socialbase.downloader.model.c> f35403b;
 
     /* renamed from: c  reason: collision with root package name */
-    public k f35295c;
+    public k f35404c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f35296d;
+    public boolean f35405d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f35297e;
+    public long f35406e;
 
     /* renamed from: f  reason: collision with root package name */
-    public InputStream f35298f;
+    public InputStream f35407f;
 
     @Override // c.p.a.e.b.o.k
     public InputStream a() throws IOException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            InputStream inputStream = this.f35298f;
+            InputStream inputStream = this.f35407f;
             if (inputStream != null) {
                 return inputStream;
             }
@@ -51,7 +51,7 @@ public class d implements k {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            k kVar = this.f35295c;
+            k kVar = this.f35404c;
             if (kVar != null) {
                 return kVar.b();
             }
@@ -70,7 +70,7 @@ public class d implements k {
     public void c() {
         k kVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (kVar = this.f35295c) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (kVar = this.f35404c) == null) {
             return;
         }
         kVar.c();
@@ -80,7 +80,7 @@ public class d implements k {
     public void d() {
         k kVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (kVar = this.f35295c) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (kVar = this.f35404c) == null) {
             return;
         }
         kVar.d();
@@ -89,9 +89,9 @@ public class d implements k {
     public void e() throws InterruptedException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            synchronized (this.f35293a) {
-                if (this.f35296d && this.f35295c == null) {
-                    this.f35293a.wait();
+            synchronized (this.f35402a) {
+                if (this.f35405d && this.f35404c == null) {
+                    this.f35402a.wait();
                 }
             }
         }
@@ -100,7 +100,7 @@ public class d implements k {
     public List<com.ss.android.socialbase.downloader.model.c> f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f35294b : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f35403b : (List) invokeV.objValue;
     }
 
     public boolean g() {
@@ -108,8 +108,8 @@ public class d implements k {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             try {
-                if (this.f35295c != null) {
-                    return b(this.f35295c.b());
+                if (this.f35404c != null) {
+                    return b(this.f35404c.b());
                 }
                 return false;
             } catch (IOException e2) {
@@ -123,7 +123,7 @@ public class d implements k {
     public boolean h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? System.currentTimeMillis() - this.f35297e < b.f35279c : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? System.currentTimeMillis() - this.f35406e < b.f35388c : invokeV.booleanValue;
     }
 
     @Override // c.p.a.e.b.o.i
@@ -131,7 +131,7 @@ public class d implements k {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            k kVar = this.f35295c;
+            k kVar = this.f35404c;
             if (kVar != null) {
                 return kVar.a(str);
             }

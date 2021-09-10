@@ -17,17 +17,17 @@ public class d {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ArrayList<Integer> f42410a;
+    public ArrayList<Integer> f42521a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f42411b;
+    public Context f42522b;
 
     /* loaded from: classes5.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final d f42412a;
+        public static final d f42523a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -43,7 +43,7 @@ public class d {
                     return;
                 }
             }
-            f42412a = new d(null);
+            f42523a = new d(null);
         }
     }
 
@@ -60,7 +60,7 @@ public class d {
                 return;
             }
         }
-        this.f42410a = new ArrayList<>();
+        this.f42521a = new ArrayList<>();
     }
 
     public /* synthetic */ d(e eVar) {
@@ -71,7 +71,7 @@ public class d {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, str)) == null) {
-            Context context = this.f42411b;
+            Context context = this.f42522b;
             if (context == null) {
                 return -101;
             }
@@ -83,13 +83,13 @@ public class d {
     public static d a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? a.f42412a : (d) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? a.f42523a : (d) invokeV.objValue;
     }
 
     private void a(String str, int i2) {
         Context context;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, this, str, i2) == null) || (context = this.f42411b) == null) {
+        if (!(interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, this, str, i2) == null) || (context = this.f42522b) == null) {
             return;
         }
         context.getSharedPreferences("ad_auth", 0).edit().putInt(str, i2).apply();
@@ -102,7 +102,7 @@ public class d {
                 return;
             }
             for (int i3 = i2; i3 != 0; i3 /= 2) {
-                this.f42410a.add(Integer.valueOf(i3 % 2));
+                this.f42521a.add(Integer.valueOf(i3 % 2));
             }
             a("ad_key", i2);
         }
@@ -111,7 +111,7 @@ public class d {
     public void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            this.f42411b = context;
+            this.f42522b = context;
         }
     }
 
@@ -119,8 +119,8 @@ public class d {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            ArrayList<Integer> arrayList = this.f42410a;
-            return arrayList != null && arrayList.size() > 0 && this.f42410a.get(0).intValue() == 1;
+            ArrayList<Integer> arrayList = this.f42521a;
+            return arrayList != null && arrayList.size() > 0 && this.f42521a.get(0).intValue() == 1;
         }
         return invokeV.booleanValue;
     }

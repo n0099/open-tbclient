@@ -2,7 +2,7 @@ package com.baidu.tieba.aiapps.apps.permission;
 
 import android.app.Activity;
 import android.os.Bundle;
-import c.a.q0.u.b.g.a;
+import c.a.r0.u.b.g.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;

@@ -143,16 +143,17 @@ public class g implements c.a.a.c.c.d, a.InterfaceC0010a, b.a {
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
             Iterator<b.a.a.b.a.b> it = this.f1551j.iterator();
             while (true) {
-                z = true;
+                z = false;
+                boolean z2 = true;
                 if (!it.hasNext()) {
+                    z = true;
                     break;
                 }
                 if (((i) it.next()).f1560i != 105) {
-                    z = false;
+                    z2 = false;
                     continue;
                 }
-                if (!z) {
-                    z = false;
+                if (!z2) {
                     break;
                 }
             }

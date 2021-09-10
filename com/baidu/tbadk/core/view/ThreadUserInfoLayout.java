@@ -11,7 +11,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
 import c.a.e.a.j;
-import c.a.p0.s.q.c2;
+import c.a.q0.s.q.d2;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -22,6 +22,7 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.AddFriendActivityConfig;
 import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
+import com.baidu.tbadk.core.atomData.PersonPolymericActivityConfig;
 import com.baidu.tbadk.core.atomData.TbWebViewActivityConfig;
 import com.baidu.tbadk.core.data.AlaUserInfoData;
 import com.baidu.tbadk.core.data.MetaData;
@@ -55,22 +56,22 @@ public class ThreadUserInfoLayout extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public UserIconBox f47736e;
+    public UserIconBox f47859e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f47737f;
+    public TextView f47860f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f47738g;
+    public TextView f47861g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View f47739h;
+    public View f47862h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f47740i;
+    public TextView f47863i;
 
     /* renamed from: j  reason: collision with root package name */
-    public View f47741j;
+    public View f47864j;
     public FrameLayout k;
     public boolean l;
     public View m;
@@ -81,7 +82,7 @@ public class ThreadUserInfoLayout extends LinearLayout {
     public UserIconBox mUserIcon;
     public TextView mUsername;
     public TextView n;
-    public c2 o;
+    public d2 o;
     public Context p;
     public View.OnClickListener q;
     public int r;
@@ -98,7 +99,7 @@ public class ThreadUserInfoLayout extends LinearLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ThreadUserInfoLayout f47742e;
+        public final /* synthetic */ ThreadUserInfoLayout f47865e;
 
         public a(ThreadUserInfoLayout threadUserInfoLayout) {
             Interceptable interceptable = $ic;
@@ -115,17 +116,17 @@ public class ThreadUserInfoLayout extends LinearLayout {
                     return;
                 }
             }
-            this.f47742e = threadUserInfoLayout;
+            this.f47865e = threadUserInfoLayout;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             String url;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || !ViewHelper.checkUpIsLogin(this.f47742e.p) || this.f47742e.o == null || this.f47742e.o.J() == null || this.f47742e.o.J().getTShowInfoNew() == null || ListUtils.getItem(this.f47742e.o.J().getTShowInfoNew(), 0) == null || (url = this.f47742e.o.J().getTShowInfoNew().get(0).getUrl()) == null || !(j.a(this.f47742e.p) instanceof TbPageContext)) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || !ViewHelper.checkUpIsLogin(this.f47865e.p) || this.f47865e.o == null || this.f47865e.o.J() == null || this.f47865e.o.J().getTShowInfoNew() == null || ListUtils.getItem(this.f47865e.o.J().getTShowInfoNew(), 0) == null || (url = this.f47865e.o.J().getTShowInfoNew().get(0).getUrl()) == null || !(j.a(this.f47865e.p) instanceof TbPageContext)) {
                 return;
             }
-            UrlManager.getInstance().dealOneLink((TbPageContext) j.a(this.f47742e.p), new String[]{url});
+            UrlManager.getInstance().dealOneLink((TbPageContext) j.a(this.f47865e.p), new String[]{url});
         }
     }
 
@@ -135,7 +136,7 @@ public class ThreadUserInfoLayout extends LinearLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ThreadUserInfoLayout f47743e;
+        public final /* synthetic */ ThreadUserInfoLayout f47866e;
 
         public b(ThreadUserInfoLayout threadUserInfoLayout) {
             Interceptable interceptable = $ic;
@@ -152,27 +153,39 @@ public class ThreadUserInfoLayout extends LinearLayout {
                     return;
                 }
             }
-            this.f47743e = threadUserInfoLayout;
+            this.f47866e = threadUserInfoLayout;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f47743e.o == null || this.f47743e.o.J() == null || StringUtils.isNull(this.f47743e.o.J().getName_show()) || StringUtils.isNull(this.f47743e.o.J().getUserId()) || this.f47743e.o.Z() == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f47866e.o == null || this.f47866e.o.J() == null || StringUtils.isNull(this.f47866e.o.J().getName_show()) || StringUtils.isNull(this.f47866e.o.J().getUserId()) || this.f47866e.o.Z() == null) {
                 return;
             }
             if (view.getTag(R.id.tag_nick_name_activity) != null && (view.getTag(R.id.tag_nick_name_activity) instanceof String)) {
                 String str = (String) view.getTag(R.id.tag_nick_name_activity);
-                if (!TextUtils.isEmpty(str) && ViewHelper.checkUpIsLogin(this.f47743e.getContext())) {
+                if (!TextUtils.isEmpty(str) && ViewHelper.checkUpIsLogin(this.f47866e.getContext())) {
                     MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new TbWebViewActivityConfig(view.getContext(), null, str, true)));
                     return;
                 }
             }
-            PersonInfoActivityConfig personInfoActivityConfig = new PersonInfoActivityConfig(this.f47743e.p, this.f47743e.o.J().getUserId(), this.f47743e.o.J().getName_show(), this.f47743e.o.Z(), AddFriendActivityConfig.TYPE_FRS_HEAD);
-            personInfoActivityConfig.setSourceTid(this.f47743e.o.q1());
+            PersonInfoActivityConfig personInfoActivityConfig = new PersonInfoActivityConfig(this.f47866e.p, this.f47866e.o.J().getUserId(), this.f47866e.o.J().getName_show(), this.f47866e.o.Z(), AddFriendActivityConfig.TYPE_FRS_HEAD);
+            personInfoActivityConfig.setSourceTid(this.f47866e.o.s1());
+            personInfoActivityConfig.setIsVideoThread(this.f47866e.o.q1() != null);
+            if (this.f47866e.o.V0() != 1) {
+                if (this.f47866e.o.V0() != 2) {
+                    if (this.f47866e.o.V0() == 5) {
+                        personInfoActivityConfig.setVideoPersonFrom(PersonPolymericActivityConfig.VIDEO_PERSON_FROM_TOPIC_DETAIL);
+                    }
+                } else {
+                    personInfoActivityConfig.setVideoPersonFrom("frs");
+                }
+            } else {
+                personInfoActivityConfig.setVideoPersonFrom("home");
+            }
             MessageManager.getInstance().sendMessage(new CustomMessage(2002003, personInfoActivityConfig));
-            if (this.f47743e.q != null) {
-                this.f47743e.q.onClick(view);
+            if (this.f47866e.q != null) {
+                this.f47866e.q.onClick(view);
             }
         }
     }
@@ -183,7 +196,7 @@ public class ThreadUserInfoLayout extends LinearLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ThreadUserInfoLayout f47744e;
+        public final /* synthetic */ ThreadUserInfoLayout f47867e;
 
         public c(ThreadUserInfoLayout threadUserInfoLayout) {
             Interceptable interceptable = $ic;
@@ -200,17 +213,17 @@ public class ThreadUserInfoLayout extends LinearLayout {
                     return;
                 }
             }
-            this.f47744e = threadUserInfoLayout;
+            this.f47867e = threadUserInfoLayout;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f47744e.o == null || this.f47744e.o.J() == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f47867e.o == null || this.f47867e.o.J() == null) {
                 return;
             }
-            c.a.p0.m.a.p(this.f47744e.p.getApplicationContext(), TbadkCoreApplication.getInst().getString(R.string.user_icon_web_view_title), TbConfig.SERVER_ADDRESS_WEB_VIEW + "mo/q/icon/panelIcon?user_id=" + this.f47744e.o.J().getUserId(), true, true, true);
-            if (this.f47744e.r == 1) {
+            c.a.q0.m.a.o(this.f47867e.p.getApplicationContext(), TbadkCoreApplication.getInst().getString(R.string.user_icon_web_view_title), TbConfig.SERVER_ADDRESS_WEB_VIEW + "mo/q/icon/panelIcon?user_id=" + this.f47867e.o.J().getUserId(), true, true, true);
+            if (this.f47867e.r == 1) {
                 TiebaStatic.log(new StatisticItem(CommonStatisticKey.USER_ICON_VISIT).param("obj_type", 3));
             }
         }
@@ -243,27 +256,27 @@ public class ThreadUserInfoLayout extends LinearLayout {
         f(context);
     }
 
-    public final void e(c2 c2Var) {
+    public final void e(d2 d2Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, c2Var) == null) && this.r == 3) {
-            if (c2Var != null && c2Var.J() != null && c2Var.J().getAlaUserData() != null) {
-                AlaUserInfoData alaUserData = c2Var.J().getAlaUserData();
-                if (this.f47741j != null) {
-                    c.a.p0.e.b bVar = new c.a.p0.e.b();
-                    bVar.f13353a = alaUserData;
-                    bVar.f13354b = 1;
-                    this.f47741j.setTag(bVar);
+        if ((interceptable == null || interceptable.invokeL(1048576, this, d2Var) == null) && this.r == 3) {
+            if (d2Var != null && d2Var.J() != null && d2Var.J().getAlaUserData() != null) {
+                AlaUserInfoData alaUserData = d2Var.J().getAlaUserData();
+                if (this.f47864j != null) {
+                    c.a.q0.e.b bVar = new c.a.q0.e.b();
+                    bVar.f13027a = alaUserData;
+                    bVar.f13028b = 1;
+                    this.f47864j.setTag(bVar);
                     if (alaUserData.anchor_live == 0) {
-                        this.f47741j.setVisibility(8);
+                        this.f47864j.setVisibility(8);
                         return;
                     } else {
-                        this.f47741j.setVisibility(0);
+                        this.f47864j.setVisibility(0);
                         return;
                     }
                 }
                 return;
             }
-            View view = this.f47741j;
+            View view = this.f47864j;
             if (view != null) {
                 view.setVisibility(8);
             }
@@ -276,27 +289,27 @@ public class ThreadUserInfoLayout extends LinearLayout {
             this.p = context;
             View inflate = LayoutInflater.from(context).inflate(R.layout.thread_user_info_layout, (ViewGroup) this, true);
             this.mHeaderImg = (ClickableHeaderImageView) inflate.findViewById(R.id.card_home_page_normal_thread_user_header);
-            this.f47736e = (UserIconBox) inflate.findViewById(R.id.card_home_page_normal_thread_tshow_icon);
+            this.f47859e = (UserIconBox) inflate.findViewById(R.id.card_home_page_normal_thread_tshow_icon);
             this.mUsername = (TextView) inflate.findViewById(R.id.card_home_page_normal_thread_user_name);
             this.mIdentityView = (TextView) inflate.findViewById(R.id.identity_view);
             this.mUserIcon = (UserIconBox) inflate.findViewById(R.id.card_home_page_normal_thread_user_icon);
-            this.f47737f = (TextView) inflate.findViewById(R.id.thread_info_reply_time);
-            this.f47738g = (TextView) inflate.findViewById(R.id.thread_info_address);
-            this.f47739h = inflate.findViewById(R.id.divider);
+            this.f47860f = (TextView) inflate.findViewById(R.id.thread_info_reply_time);
+            this.f47861g = (TextView) inflate.findViewById(R.id.thread_info_address);
+            this.f47862h = inflate.findViewById(R.id.divider);
             this.m = findViewById(R.id.divider_forum_name);
             this.n = (TextView) findViewById(R.id.thread_info_forum_name);
             this.mShareIntro = (TextView) inflate.findViewById(R.id.card_home_page_normal_thread_share_intro);
-            this.f47740i = (TextView) inflate.findViewById(R.id.thread_user_info_has_concern_lable);
+            this.f47863i = (TextView) inflate.findViewById(R.id.thread_user_info_has_concern_lable);
             this.k = (FrameLayout) inflate.findViewById(R.id.ala_live_info_content_layout);
-            View a2 = c.a.p0.e.c.b().a(this.p, 1);
-            this.f47741j = a2;
+            View a2 = c.a.q0.e.c.b().a(this.p, 1);
+            this.f47864j = a2;
             if (a2 != null) {
                 a2.setVisibility(8);
-                this.k.addView(this.f47741j);
+                this.k.addView(this.f47864j);
             }
             setGravity(16);
             g();
-            this.f47736e.setOnClickListener(this.v);
+            this.f47859e.setOnClickListener(this.v);
             this.mUsername.setOnClickListener(this.w);
             this.mUserIcon.setOnClickListener(this.x);
         }
@@ -333,13 +346,13 @@ public class ThreadUserInfoLayout extends LinearLayout {
     }
 
     public final void h() {
-        c2 c2Var;
+        d2 d2Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (c2Var = this.o) == null || c2Var.J() == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (d2Var = this.o) == null || d2Var.J() == null) {
             return;
         }
-        c2 c2Var2 = this.o;
-        if (c2Var2.t1 > 0 && c2Var2.u1 == 0) {
+        d2 d2Var2 = this.o;
+        if (d2Var2.v1 > 0 && d2Var2.w1 == 0) {
             SkinManager.setViewTextColor(this.mUsername, R.color.CAM_X0106);
         } else if (ListUtils.isEmpty(this.o.J().getTShowInfoNew()) && !this.o.J().isBigV()) {
             SkinManager.setViewTextColor(this.mUsername, R.color.CAM_X0106);
@@ -348,17 +361,17 @@ public class ThreadUserInfoLayout extends LinearLayout {
         }
     }
 
-    public final void i(c2 c2Var) {
+    public final void i(d2 d2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, c2Var) == null) {
-            if (c2Var != null && !StringUtils.isNull(c2Var.A())) {
-                this.f47738g.setText(this.o.A());
-                this.f47738g.setVisibility(0);
-                this.f47739h.setVisibility(0);
+        if (interceptable == null || interceptable.invokeL(1048583, this, d2Var) == null) {
+            if (d2Var != null && !StringUtils.isNull(d2Var.A())) {
+                this.f47861g.setText(this.o.A());
+                this.f47861g.setVisibility(0);
+                this.f47862h.setVisibility(0);
                 return;
             }
-            this.f47738g.setVisibility(8);
-            this.f47739h.setVisibility(8);
+            this.f47861g.setVisibility(8);
+            this.f47862h.setVisibility(8);
         }
     }
 
@@ -368,45 +381,45 @@ public class ThreadUserInfoLayout extends LinearLayout {
         return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.l : invokeV.booleanValue;
     }
 
-    public final void j(c2 c2Var) {
+    public final void j(d2 d2Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048585, this, c2Var) == null) || this.f47740i == null || c2Var == null || c2Var.J() == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048585, this, d2Var) == null) || this.f47863i == null || d2Var == null || d2Var.J() == null) {
             return;
         }
-        if (c2Var.J().hadConcerned()) {
-            this.f47740i.setVisibility(0);
-            SkinManager.setViewTextColor(this.f47740i, R.color.CAM_X0109);
-            SkinManager.setBackgroundResource(this.f47740i, R.drawable.btn_rounded_corner_gray_frame_transparent_thin);
+        if (d2Var.J().hadConcerned()) {
+            this.f47863i.setVisibility(0);
+            SkinManager.setViewTextColor(this.f47863i, R.color.CAM_X0109);
+            SkinManager.setBackgroundResource(this.f47863i, R.drawable.btn_rounded_corner_gray_frame_transparent_thin);
             return;
         }
-        this.f47740i.setVisibility(8);
+        this.f47863i.setVisibility(8);
     }
 
-    public final void k(c2 c2Var) {
+    public final void k(d2 d2Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048586, this, c2Var) == null) || this.mHeaderImg == null || c2Var == null || this.o.J() == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048586, this, d2Var) == null) || this.mHeaderImg == null || d2Var == null || this.o.J() == null) {
             return;
         }
-        c2 c2Var2 = this.o;
-        if (c2Var2.t1 > 0 && c2Var2.u1 == 0) {
+        d2 d2Var2 = this.o;
+        if (d2Var2.v1 > 0 && d2Var2.w1 == 0) {
             this.mHeaderImg.setShowV(false);
         } else {
             this.mHeaderImg.setShowV(this.o.J().isBigV());
         }
     }
 
-    public final void l(c2 c2Var) {
+    public final void l(d2 d2Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048587, this, c2Var) == null) || this.mIdentityView == null || c2Var == null || c2Var.J() == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048587, this, d2Var) == null) || this.mIdentityView == null || d2Var == null || d2Var.J() == null) {
             return;
         }
-        MetaData J = c2Var.J();
+        MetaData J = d2Var.J();
         if (J.getIs_bawu() == 1) {
-            int i2 = c2Var.H1 ? R.drawable.brand_official_btn : R.drawable.user_identity_btn;
-            int i3 = c2Var.H1 ? R.color.CAM_X0101 : R.color.CAM_X0107;
+            int i2 = d2Var.J1 ? R.drawable.brand_official_btn : R.drawable.user_identity_btn;
+            int i3 = d2Var.J1 ? R.color.CAM_X0101 : R.color.CAM_X0107;
             SkinManager.setBackgroundResource(this.mIdentityView, i2);
             SkinManager.setViewTextColor(this.mIdentityView, i3);
-            if (c2Var.H1) {
+            if (d2Var.J1) {
                 this.mIdentityView.setVisibility(0);
                 this.mIdentityView.setText(R.string.brand_official);
                 return;
@@ -434,51 +447,51 @@ public class ThreadUserInfoLayout extends LinearLayout {
         this.mIdentityView.setVisibility(8);
     }
 
-    public final void m(c2 c2Var) {
+    public final void m(d2 d2Var) {
         String formatTime;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048588, this, c2Var) == null) || this.f47737f == null || c2Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048588, this, d2Var) == null) || this.f47860f == null || d2Var == null) {
             return;
         }
-        if (c2Var.t0() <= 0) {
-            this.f47737f.setVisibility(4);
+        if (d2Var.v0() <= 0) {
+            this.f47860f.setVisibility(4);
             return;
         }
-        this.f47737f.setVisibility(0);
+        this.f47860f.setVisibility(0);
         if (this.r == 2) {
-            formatTime = StringHelper.getPostTimeInterval(c2Var.t0());
-        } else if (c2Var.e2()) {
-            formatTime = StringHelper.getFormatTime(c2Var.P());
+            formatTime = StringHelper.getPostTimeInterval(d2Var.v0());
+        } else if (d2Var.h2()) {
+            formatTime = StringHelper.getFormatTime(d2Var.P());
         } else {
-            formatTime = StringHelper.getFormatTime(c2Var.t0() * 1000);
+            formatTime = StringHelper.getFormatTime(d2Var.v0() * 1000);
         }
-        this.f47737f.setText(formatTime);
+        this.f47860f.setText(formatTime);
     }
 
-    public final void n(c2 c2Var) {
+    public final void n(d2 d2Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048589, this, c2Var) == null) || this.f47736e == null || c2Var == null || c2Var.J() == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048589, this, d2Var) == null) || this.f47859e == null || d2Var == null || d2Var.J() == null) {
             return;
         }
-        ArrayList<IconData> tShowInfoNew = c2Var.J().getTShowInfoNew();
+        ArrayList<IconData> tShowInfoNew = d2Var.J().getTShowInfoNew();
         if (ListUtils.getCount(tShowInfoNew) != 0) {
-            this.f47736e.setVisibility(0);
-            this.f47736e.loadIcon(tShowInfoNew, 2, this.p.getResources().getDimensionPixelSize(R.dimen.tbds48), this.p.getResources().getDimensionPixelSize(R.dimen.tbds48), this.p.getResources().getDimensionPixelSize(R.dimen.ds8), true);
+            this.f47859e.setVisibility(0);
+            this.f47859e.loadIcon(tShowInfoNew, 2, this.p.getResources().getDimensionPixelSize(R.dimen.tbds48), this.p.getResources().getDimensionPixelSize(R.dimen.tbds48), this.p.getResources().getDimensionPixelSize(R.dimen.ds8), true);
             return;
         }
-        this.f47736e.setVisibility(8);
+        this.f47859e.setVisibility(8);
     }
 
-    public final void o(c2 c2Var) {
+    public final void o(d2 d2Var) {
         UserIconBox userIconBox;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048590, this, c2Var) == null) || (userIconBox = this.mUserIcon) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048590, this, d2Var) == null) || (userIconBox = this.mUserIcon) == null) {
             return;
         }
         if (this.t) {
             userIconBox.setVisibility(8);
-        } else if (c2Var != null && c2Var.J() != null && ((c2Var.t1 <= 0 || c2Var.u1 != 0) && this.l)) {
-            ArrayList<IconData> iconInfo = c2Var.J().getIconInfo();
+        } else if (d2Var != null && d2Var.J() != null && ((d2Var.v1 <= 0 || d2Var.w1 != 0) && this.l)) {
+            ArrayList<IconData> iconInfo = d2Var.J().getIconInfo();
             if (ListUtils.getCount(iconInfo) != 0) {
                 this.mUserIcon.setVisibility(0);
                 this.mUserIcon.loadIcon(iconInfo, 4, this.p.getResources().getDimensionPixelSize(R.dimen.tbds40), this.p.getResources().getDimensionPixelSize(R.dimen.tbds40), this.p.getResources().getDimensionPixelSize(R.dimen.ds8), true);
@@ -499,9 +512,9 @@ public class ThreadUserInfoLayout extends LinearLayout {
         onChangeSkinType();
     }
 
-    public final void p(c2 c2Var) {
+    public final void p(d2 d2Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048593, this, c2Var) == null) || this.mUsername == null || c2Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048593, this, d2Var) == null) || this.mUsername == null || d2Var == null) {
             return;
         }
         if (!StringUtils.isNull(this.o.J().getName_show())) {
@@ -515,9 +528,9 @@ public class ThreadUserInfoLayout extends LinearLayout {
             if (!NickNameActivitySwitch.isOn() || name_show == null || name_show.equals(userName)) {
                 return;
             }
-            this.mUsername.setText(c.a.q0.i2.c.b(this.p, this.mUsername.getText().toString()));
+            this.mUsername.setText(c.a.r0.j2.c.b(this.p, this.mUsername.getText().toString()));
             this.mUsername.setGravity(16);
-            this.mUsername.setTag(R.id.tag_nick_name_activity, c.a.q0.i2.c.a());
+            this.mUsername.setTag(R.id.tag_nick_name_activity, c.a.r0.j2.c.a());
             SkinManager.setViewTextColor(this.mUsername, R.color.CAM_X0312, 1);
         }
     }
@@ -528,44 +541,44 @@ public class ThreadUserInfoLayout extends LinearLayout {
         return (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, str)) == null) ? StringHelper.cutChineseAndEnglishWithSuffix(str, 14, "...") : (String) invokeL.objValue;
     }
 
-    public boolean setData(c2 c2Var) {
+    public boolean setData(d2 d2Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048595, this, c2Var)) == null) {
-            if (c2Var == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048595, this, d2Var)) == null) {
+            if (d2Var == null) {
                 setVisibility(8);
                 return false;
             }
-            this.o = c2Var;
-            if (c2Var.t1 > 0) {
-                if (c2Var.u1 == 0 && c2Var.J() != null) {
+            this.o = d2Var;
+            if (d2Var.v1 > 0) {
+                if (d2Var.w1 == 0 && d2Var.J() != null) {
                     if (!ListUtils.isEmpty(this.o.J().getTShowInfoNew())) {
                         this.o.J().getTShowInfoNew().clear();
                     }
                     this.o.J().setName_show(getContext().getString(R.string.perfect_selection_video));
                 }
-                this.f47736e.setOnClickListener(null);
+                this.f47859e.setOnClickListener(null);
                 this.mUsername.setOnClickListener(null);
                 this.mUserIcon.setOnClickListener(null);
                 this.mHeaderImg.setClickable(false);
             } else {
-                this.f47736e.setOnClickListener(this.v);
+                this.f47859e.setOnClickListener(this.v);
                 this.mUsername.setOnClickListener(this.w);
                 this.mUserIcon.setOnClickListener(this.x);
                 this.mHeaderImg.setClickable(true);
             }
-            n(c2Var);
-            p(c2Var);
-            updateShareIntro(c2Var);
-            o(c2Var);
-            l(c2Var);
-            m(c2Var);
-            i(c2Var);
-            k(c2Var);
-            updateForumName(c2Var);
+            n(d2Var);
+            p(d2Var);
+            updateShareIntro(d2Var);
+            o(d2Var);
+            l(d2Var);
+            m(d2Var);
+            i(d2Var);
+            k(d2Var);
+            updateForumName(d2Var);
             setVisibility(0);
-            j(c2Var);
-            e(c2Var);
+            j(d2Var);
+            e(d2Var);
             return true;
         }
         return invokeL.booleanValue;
@@ -631,11 +644,11 @@ public class ThreadUserInfoLayout extends LinearLayout {
         }
     }
 
-    public void updateForumName(c2 c2Var) {
+    public void updateForumName(d2 d2Var) {
         String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048603, this, c2Var) == null) {
-            if (c2Var == null) {
+        if (interceptable == null || interceptable.invokeL(1048603, this, d2Var) == null) {
+            if (d2Var == null) {
                 this.n.setVisibility(8);
                 this.m.setVisibility(8);
                 return;
@@ -643,16 +656,16 @@ public class ThreadUserInfoLayout extends LinearLayout {
             this.o.Z();
             int i2 = this.r;
             String str2 = (i2 == 3 || i2 == 4) ? null : null;
-            if (c2Var.y2()) {
-                str2 = c2Var.G1.ori_fname;
+            if (d2Var.C2()) {
+                str2 = d2Var.I1.ori_fname;
             }
             if (StringUtils.isNull(str2)) {
                 this.n.setVisibility(8);
                 this.m.setVisibility(8);
                 return;
             }
-            c2 c2Var2 = this.o;
-            if (c2Var2.t1 > 0 && c2Var2.u1 == 0) {
+            d2 d2Var2 = this.o;
+            if (d2Var2.v1 > 0 && d2Var2.w1 == 0) {
                 str = getContext().getString(R.string.select_video_list);
             } else {
                 str = StringHelper.cutChineseAndEnglishWithSuffix(str2, 12, "...") + getResources().getString(R.string.forum);
@@ -663,12 +676,12 @@ public class ThreadUserInfoLayout extends LinearLayout {
         }
     }
 
-    public void updateShareIntro(c2 c2Var) {
+    public void updateShareIntro(d2 d2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048604, this, c2Var) == null) {
-            if (this.mShareIntro != null && c2Var != null) {
+        if (interceptable == null || interceptable.invokeL(1048604, this, d2Var) == null) {
+            if (this.mShareIntro != null && d2Var != null) {
                 if (this.t) {
-                    if (StringUtils.isNull(c2Var.getRecomReason())) {
+                    if (StringUtils.isNull(d2Var.getRecomReason())) {
                         this.mShareIntro.setVisibility(8);
                         return;
                     }
@@ -677,15 +690,15 @@ public class ThreadUserInfoLayout extends LinearLayout {
                         layoutParams.bottomMargin = 0;
                         this.mShareIntro.setLayoutParams(layoutParams);
                     }
-                    this.mShareIntro.setText(c2Var.getRecomReason());
+                    this.mShareIntro.setText(d2Var.getRecomReason());
                     this.mShareIntro.setVisibility(0);
                     return;
                 }
-                if (this.o.j1() != null && this.o.j1().share_info != null && this.o.j1().share_info.share_user_count > 0 && this.o.p2()) {
-                    c2 c2Var2 = this.o;
-                    if (c2Var2.t1 <= 0 || c2Var2.u1 != 0) {
+                if (this.o.l1() != null && this.o.l1().share_info != null && this.o.l1().share_info.share_user_count > 0 && this.o.t2()) {
+                    d2 d2Var2 = this.o;
+                    if (d2Var2.v1 <= 0 || d2Var2.w1 != 0) {
                         this.mShareIntro.setVisibility(0);
-                        int i2 = this.o.j1().share_info.share_user_count;
+                        int i2 = this.o.l1().share_info.share_user_count;
                         if (i2 == 1) {
                             this.mShareIntro.setText(TbadkCoreApplication.getInst().getString(R.string.ala_live_share_live_label_simple));
                             return;
@@ -707,11 +720,11 @@ public class ThreadUserInfoLayout extends LinearLayout {
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
             h();
             SkinManager.setViewTextColor(this.mShareIntro, R.color.CAM_X0106);
-            SkinManager.setViewTextColor(this.f47737f, R.color.CAM_X0109);
-            SkinManager.setBackgroundColor(this.f47739h, R.color.CAM_X0110);
-            SkinManager.setViewTextColor(this.f47738g, R.color.CAM_X0109);
+            SkinManager.setViewTextColor(this.f47860f, R.color.CAM_X0109);
+            SkinManager.setBackgroundColor(this.f47862h, R.color.CAM_X0110);
+            SkinManager.setViewTextColor(this.f47861g, R.color.CAM_X0109);
             SkinManager.setViewTextColor(this.n, R.color.CAM_X0109);
-            SkinManager.setBackgroundColor(this.f47739h, R.color.CAM_X0110);
+            SkinManager.setBackgroundColor(this.f47862h, R.color.CAM_X0110);
             SkinManager.setBackgroundColor(this.m, R.color.CAM_X0110);
             l(this.o);
         }

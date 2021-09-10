@@ -20,11 +20,11 @@ import android.widget.ProgressBar;
 import androidx.core.view.InputDeviceCompat;
 import c.a.e.e.p.l;
 import c.a.e.l.e.q;
-import c.a.p0.f0.g;
-import c.a.p0.f0.h;
-import c.a.p0.s.a;
-import c.a.p0.s.c;
-import c.a.p0.s.f0.d;
+import c.a.q0.g0.g;
+import c.a.q0.g0.h;
+import c.a.q0.s.a;
+import c.a.q0.s.c;
+import c.a.q0.s.f0.d;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.framework.client.socket.link.BdSocketLinkService;
 import com.baidu.adp.framework.listener.CustomMessageListener;
@@ -790,6 +790,7 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements IV
             hideListMenu();
             clearAnimatable();
             clearAnimation();
+            TbadkCoreApplication.getInst().getPersonalizeViewData().a();
             super.onDestroy();
         }
     }

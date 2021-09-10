@@ -50,8 +50,8 @@ public class UpdateClientInfoMessage extends TbSocketMessage {
         this.device = new HashMap();
         try {
             if (TbadkCoreApplication.getInst().getLocationShared()) {
-                this.lat = b.b(TbadkCoreApplication.getInst().getLocationLat(), 0.0d);
-                this.lng = b.b(TbadkCoreApplication.getInst().getLocationLng(), 0.0d);
+                this.lat = b.c(TbadkCoreApplication.getInst().getLocationLat(), 0.0d);
+                this.lng = b.c(TbadkCoreApplication.getInst().getLocationLng(), 0.0d);
             }
         } catch (Exception e2) {
             BdLog.e(e2.getMessage());

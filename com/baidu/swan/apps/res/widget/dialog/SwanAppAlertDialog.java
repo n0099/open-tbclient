@@ -16,13 +16,13 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import c.a.o0.a.e;
-import c.a.o0.a.f;
-import c.a.o0.a.g;
-import c.a.o0.a.i;
-import c.a.o0.a.k;
-import c.a.o0.a.v2.d;
-import c.a.o0.a.v2.n0;
+import c.a.p0.a.e;
+import c.a.p0.a.f;
+import c.a.p0.a.g;
+import c.a.p0.a.i;
+import c.a.p0.a.k;
+import c.a.p0.a.v2.d;
+import c.a.p0.a.v2.n0;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.bdeventbus.BdEventBus;
 import com.baidu.swan.apps.SwanAppActivity;
@@ -41,11 +41,11 @@ public class SwanAppAlertDialog extends BaseDialog {
     public static final int HUNDRED = 100;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final boolean f46380g;
+    public static final boolean f46495g;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: f  reason: collision with root package name */
-    public a f46381f;
+    public a f46496f;
 
     /* loaded from: classes6.dex */
     public static class a {
@@ -53,19 +53,19 @@ public class SwanAppAlertDialog extends BaseDialog {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final b f46382a;
+        public final b f46497a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final SwanAppAlertDialog f46383b;
+        public final SwanAppAlertDialog f46498b;
 
         /* renamed from: c  reason: collision with root package name */
-        public Context f46384c;
+        public Context f46499c;
 
         /* renamed from: d  reason: collision with root package name */
-        public boolean f46385d;
+        public boolean f46500d;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f46386e;
+        public int f46501e;
 
         /* renamed from: com.baidu.swan.apps.res.widget.dialog.SwanAppAlertDialog$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
@@ -74,10 +74,10 @@ public class SwanAppAlertDialog extends BaseDialog {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ DialogInterface.OnClickListener f46387e;
+            public final /* synthetic */ DialogInterface.OnClickListener f46502e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ a f46388f;
+            public final /* synthetic */ a f46503f;
 
             public View$OnClickListenerC1734a(a aVar, DialogInterface.OnClickListener onClickListener) {
                 Interceptable interceptable = $ic;
@@ -94,19 +94,19 @@ public class SwanAppAlertDialog extends BaseDialog {
                         return;
                     }
                 }
-                this.f46388f = aVar;
-                this.f46387e = onClickListener;
+                this.f46503f = aVar;
+                this.f46502e = onClickListener;
             }
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                    this.f46388f.f46383b.onButtonClick(-1);
-                    this.f46388f.f46383b.dismiss();
-                    DialogInterface.OnClickListener onClickListener = this.f46387e;
+                    this.f46503f.f46498b.onButtonClick(-1);
+                    this.f46503f.f46498b.dismiss();
+                    DialogInterface.OnClickListener onClickListener = this.f46502e;
                     if (onClickListener != null) {
-                        onClickListener.onClick(this.f46388f.f46383b, -1);
+                        onClickListener.onClick(this.f46503f.f46498b, -1);
                     }
                 }
             }
@@ -118,13 +118,13 @@ public class SwanAppAlertDialog extends BaseDialog {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ int f46389e;
+            public final /* synthetic */ int f46504e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ DialogInterface.OnClickListener f46390f;
+            public final /* synthetic */ DialogInterface.OnClickListener f46505f;
 
             /* renamed from: g  reason: collision with root package name */
-            public final /* synthetic */ a f46391g;
+            public final /* synthetic */ a f46506g;
 
             public b(a aVar, int i2, DialogInterface.OnClickListener onClickListener) {
                 Interceptable interceptable = $ic;
@@ -141,18 +141,18 @@ public class SwanAppAlertDialog extends BaseDialog {
                         return;
                     }
                 }
-                this.f46391g = aVar;
-                this.f46389e = i2;
-                this.f46390f = onClickListener;
+                this.f46506g = aVar;
+                this.f46504e = i2;
+                this.f46505f = onClickListener;
             }
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                    this.f46391g.f46383b.onButtonClick(this.f46389e);
-                    this.f46391g.f46383b.dismiss();
-                    this.f46390f.onClick(this.f46391g.f46383b, this.f46389e);
+                    this.f46506g.f46498b.onButtonClick(this.f46504e);
+                    this.f46506g.f46498b.dismiss();
+                    this.f46505f.onClick(this.f46506g.f46498b, this.f46504e);
                 }
             }
         }
@@ -163,10 +163,10 @@ public class SwanAppAlertDialog extends BaseDialog {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ DialogInterface.OnClickListener f46392e;
+            public final /* synthetic */ DialogInterface.OnClickListener f46507e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ a f46393f;
+            public final /* synthetic */ a f46508f;
 
             public c(a aVar, DialogInterface.OnClickListener onClickListener) {
                 Interceptable interceptable = $ic;
@@ -183,19 +183,19 @@ public class SwanAppAlertDialog extends BaseDialog {
                         return;
                     }
                 }
-                this.f46393f = aVar;
-                this.f46392e = onClickListener;
+                this.f46508f = aVar;
+                this.f46507e = onClickListener;
             }
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                    this.f46393f.f46383b.onButtonClick(-2);
-                    this.f46393f.f46383b.dismiss();
-                    DialogInterface.OnClickListener onClickListener = this.f46392e;
+                    this.f46508f.f46498b.onButtonClick(-2);
+                    this.f46508f.f46498b.dismiss();
+                    DialogInterface.OnClickListener onClickListener = this.f46507e;
                     if (onClickListener != null) {
-                        onClickListener.onClick(this.f46393f.f46383b, -2);
+                        onClickListener.onClick(this.f46508f.f46498b, -2);
                     }
                 }
             }
@@ -207,10 +207,10 @@ public class SwanAppAlertDialog extends BaseDialog {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ DialogInterface.OnClickListener f46394e;
+            public final /* synthetic */ DialogInterface.OnClickListener f46509e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ a f46395f;
+            public final /* synthetic */ a f46510f;
 
             public d(a aVar, DialogInterface.OnClickListener onClickListener) {
                 Interceptable interceptable = $ic;
@@ -227,19 +227,19 @@ public class SwanAppAlertDialog extends BaseDialog {
                         return;
                     }
                 }
-                this.f46395f = aVar;
-                this.f46394e = onClickListener;
+                this.f46510f = aVar;
+                this.f46509e = onClickListener;
             }
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                    this.f46395f.f46383b.onButtonClick(-3);
-                    this.f46395f.f46383b.dismiss();
-                    DialogInterface.OnClickListener onClickListener = this.f46394e;
+                    this.f46510f.f46498b.onButtonClick(-3);
+                    this.f46510f.f46498b.dismiss();
+                    DialogInterface.OnClickListener onClickListener = this.f46509e;
                     if (onClickListener != null) {
-                        onClickListener.onClick(this.f46395f.f46383b, -3);
+                        onClickListener.onClick(this.f46510f.f46498b, -3);
                     }
                 }
             }
@@ -275,21 +275,21 @@ public class SwanAppAlertDialog extends BaseDialog {
                     return;
                 }
             }
-            this.f46385d = false;
+            this.f46500d = false;
             SwanAppAlertDialog h2 = h(context);
-            this.f46383b = h2;
+            this.f46498b = h2;
             h2.b(this);
-            this.f46382a = new b((ViewGroup) this.f46383b.getWindow().getDecorView());
-            this.f46384c = context;
-            this.f46386e = context.getResources().getDimensionPixelSize(c.a.o0.a.d.aiapps_dialog_btns_height);
+            this.f46497a = new b((ViewGroup) this.f46498b.getWindow().getDecorView());
+            this.f46499c = context;
+            this.f46501e = context.getResources().getDimensionPixelSize(c.a.p0.a.d.aiapps_dialog_btns_height);
         }
 
         public final void A() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, this.f46386e);
+                RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, this.f46501e);
                 layoutParams.addRule(3, f.dialog_message_content);
-                this.f46382a.t.setLayoutParams(layoutParams);
+                this.f46497a.t.setLayoutParams(layoutParams);
             }
         }
 
@@ -297,7 +297,7 @@ public class SwanAppAlertDialog extends BaseDialog {
             InterceptResult invokeIL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, onClickListener)) == null) {
-                C(this.f46384c.getText(i2), onClickListener);
+                C(this.f46499c.getText(i2), onClickListener);
                 return this;
             }
             return (a) invokeIL.objValue;
@@ -308,18 +308,18 @@ public class SwanAppAlertDialog extends BaseDialog {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, charSequence, onClickListener)) == null) {
                 if (TextUtils.isEmpty(charSequence)) {
-                    this.f46382a.f46401f.setVisibility(8);
-                    if (this.f46382a.f46400e.getVisibility() == 0) {
-                        this.f46382a.f46404i.setVisibility(8);
+                    this.f46497a.f46516f.setVisibility(8);
+                    if (this.f46497a.f46515e.getVisibility() == 0) {
+                        this.f46497a.f46519i.setVisibility(8);
                     }
                     return this;
                 }
-                this.f46382a.f46401f.setVisibility(0);
-                if (this.f46382a.f46400e.getVisibility() == 0) {
-                    this.f46382a.f46404i.setVisibility(0);
+                this.f46497a.f46516f.setVisibility(0);
+                if (this.f46497a.f46515e.getVisibility() == 0) {
+                    this.f46497a.f46519i.setVisibility(0);
                 }
-                this.f46382a.f46401f.setText(charSequence);
-                this.f46382a.f46401f.setOnClickListener(new c(this, onClickListener));
+                this.f46497a.f46516f.setText(charSequence);
+                this.f46497a.f46516f.setOnClickListener(new c(this, onClickListener));
                 return this;
             }
             return (a) invokeLL.objValue;
@@ -329,7 +329,7 @@ public class SwanAppAlertDialog extends BaseDialog {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) {
-                G(this.f46384c.getResources().getColor(i2));
+                G(this.f46499c.getResources().getColor(i2));
                 return this;
             }
             return (a) invokeI.objValue;
@@ -344,7 +344,7 @@ public class SwanAppAlertDialog extends BaseDialog {
                         G(Color.parseColor(str));
                         return this;
                     } catch (IllegalArgumentException e2) {
-                        if (SwanAppAlertDialog.f46380g) {
+                        if (SwanAppAlertDialog.f46495g) {
                             e2.printStackTrace();
                         }
                     }
@@ -361,7 +361,7 @@ public class SwanAppAlertDialog extends BaseDialog {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i2)) == null) {
-                this.f46382a.y = i2;
+                this.f46497a.y = i2;
                 return this;
             }
             return (a) invokeI.objValue;
@@ -371,7 +371,7 @@ public class SwanAppAlertDialog extends BaseDialog {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i2)) == null) {
-                this.f46382a.x = i2;
+                this.f46497a.x = i2;
                 return this;
             }
             return (a) invokeI.objValue;
@@ -381,7 +381,7 @@ public class SwanAppAlertDialog extends BaseDialog {
             InterceptResult invokeIL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeIL = interceptable.invokeIL(1048583, this, i2, onClickListener)) == null) {
-                I(this.f46384c.getText(i2), onClickListener);
+                I(this.f46499c.getText(i2), onClickListener);
                 return this;
             }
             return (a) invokeIL.objValue;
@@ -391,12 +391,12 @@ public class SwanAppAlertDialog extends BaseDialog {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, charSequence, onClickListener)) == null) {
-                this.f46382a.f46402g.setVisibility(0);
-                if (this.f46382a.f46400e.getVisibility() == 0) {
-                    this.f46382a.f46405j.setVisibility(0);
+                this.f46497a.f46517g.setVisibility(0);
+                if (this.f46497a.f46515e.getVisibility() == 0) {
+                    this.f46497a.f46520j.setVisibility(0);
                 }
-                this.f46382a.f46402g.setText(charSequence);
-                this.f46382a.f46402g.setOnClickListener(new d(this, onClickListener));
+                this.f46497a.f46517g.setText(charSequence);
+                this.f46497a.f46517g.setOnClickListener(new d(this, onClickListener));
                 return this;
             }
             return (a) invokeLL.objValue;
@@ -406,7 +406,7 @@ public class SwanAppAlertDialog extends BaseDialog {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZ = interceptable.invokeZ(1048585, this, z)) == null) {
-                this.f46382a.B.setVisibility(z ? 0 : 8);
+                this.f46497a.B.setVisibility(z ? 0 : 8);
                 return this;
             }
             return (a) invokeZ.objValue;
@@ -416,7 +416,7 @@ public class SwanAppAlertDialog extends BaseDialog {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, onCancelListener)) == null) {
-                this.f46382a.l = onCancelListener;
+                this.f46497a.l = onCancelListener;
                 return this;
             }
             return (a) invokeL.objValue;
@@ -426,7 +426,7 @@ public class SwanAppAlertDialog extends BaseDialog {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, onDismissListener)) == null) {
-                this.f46382a.m = onDismissListener;
+                this.f46497a.m = onDismissListener;
                 return this;
             }
             return (a) invokeL.objValue;
@@ -436,7 +436,7 @@ public class SwanAppAlertDialog extends BaseDialog {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, onKeyListener)) == null) {
-                this.f46382a.p = onKeyListener;
+                this.f46497a.p = onKeyListener;
                 return this;
             }
             return (a) invokeL.objValue;
@@ -446,7 +446,7 @@ public class SwanAppAlertDialog extends BaseDialog {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, onShowListener)) == null) {
-                this.f46382a.n = onShowListener;
+                this.f46497a.n = onShowListener;
                 return this;
             }
             return (a) invokeL.objValue;
@@ -456,7 +456,7 @@ public class SwanAppAlertDialog extends BaseDialog {
             InterceptResult invokeIL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeIL = interceptable.invokeIL(1048590, this, i2, onClickListener)) == null) {
-                P(this.f46384c.getText(i2), onClickListener);
+                P(this.f46499c.getText(i2), onClickListener);
                 return this;
             }
             return (a) invokeIL.objValue;
@@ -467,18 +467,18 @@ public class SwanAppAlertDialog extends BaseDialog {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048591, this, charSequence, onClickListener)) == null) {
                 if (TextUtils.isEmpty(charSequence)) {
-                    this.f46382a.f46400e.setVisibility(8);
-                    if (this.f46382a.f46401f.getVisibility() == 0) {
-                        this.f46382a.f46404i.setVisibility(8);
+                    this.f46497a.f46515e.setVisibility(8);
+                    if (this.f46497a.f46516f.getVisibility() == 0) {
+                        this.f46497a.f46519i.setVisibility(8);
                     }
                     return this;
                 }
-                this.f46382a.f46400e.setVisibility(0);
-                if (this.f46382a.f46401f.getVisibility() == 0) {
-                    this.f46382a.f46404i.setVisibility(0);
+                this.f46497a.f46515e.setVisibility(0);
+                if (this.f46497a.f46516f.getVisibility() == 0) {
+                    this.f46497a.f46519i.setVisibility(0);
                 }
-                this.f46382a.f46400e.setText(charSequence);
-                this.f46382a.f46400e.setOnClickListener(new View$OnClickListenerC1734a(this, onClickListener));
+                this.f46497a.f46515e.setText(charSequence);
+                this.f46497a.f46515e.setOnClickListener(new View$OnClickListenerC1734a(this, onClickListener));
                 return this;
             }
             return (a) invokeLL.objValue;
@@ -503,7 +503,7 @@ public class SwanAppAlertDialog extends BaseDialog {
                         S(Color.parseColor(str));
                         return this;
                     } catch (IllegalArgumentException e2) {
-                        if (SwanAppAlertDialog.f46380g) {
+                        if (SwanAppAlertDialog.f46495g) {
                             e2.printStackTrace();
                         }
                     }
@@ -520,9 +520,9 @@ public class SwanAppAlertDialog extends BaseDialog {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048594, this, i2)) == null) {
-                b bVar = this.f46382a;
+                b bVar = this.f46497a;
                 bVar.w = i2;
-                bVar.f46400e.setTextColor(i2);
+                bVar.f46515e.setTextColor(i2);
                 return this;
             }
             return (a) invokeI.objValue;
@@ -532,7 +532,7 @@ public class SwanAppAlertDialog extends BaseDialog {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZ = interceptable.invokeZ(1048595, this, z)) == null) {
-                this.f46382a.E = z;
+                this.f46497a.E = z;
                 return this;
             }
             return (a) invokeZ.objValue;
@@ -542,7 +542,7 @@ public class SwanAppAlertDialog extends BaseDialog {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048596, this, i2)) == null) {
-                this.f46382a.f46397b.setText(this.f46384c.getText(i2));
+                this.f46497a.f46512b.setText(this.f46499c.getText(i2));
                 return this;
             }
             return (a) invokeI.objValue;
@@ -553,7 +553,7 @@ public class SwanAppAlertDialog extends BaseDialog {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048597, this, charSequence)) == null) {
                 if (!TextUtils.isEmpty(charSequence)) {
-                    this.f46382a.f46397b.setText(charSequence);
+                    this.f46497a.f46512b.setText(charSequence);
                 } else {
                     f(true);
                 }
@@ -566,11 +566,11 @@ public class SwanAppAlertDialog extends BaseDialog {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048598, this, view)) == null) {
-                this.f46382a.o.removeAllViews();
-                this.f46382a.o.addView(view);
-                RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, this.f46386e);
+                this.f46497a.o.removeAllViews();
+                this.f46497a.o.addView(view);
+                RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, this.f46501e);
                 layoutParams.addRule(3, f.dialog_customPanel);
-                this.f46382a.t.setLayoutParams(layoutParams);
+                this.f46497a.t.setLayoutParams(layoutParams);
                 return this;
             }
             return (a) invokeL.objValue;
@@ -581,17 +581,17 @@ public class SwanAppAlertDialog extends BaseDialog {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
                 SwanAppAlertDialog c2 = c();
-                if (this.f46385d) {
+                if (this.f46500d) {
                     c2.getWindow().setType(2003);
                 }
                 try {
                     c2.show();
                 } catch (WindowManager.BadTokenException e2) {
-                    if (SwanAppAlertDialog.f46380g) {
+                    if (SwanAppAlertDialog.f46495g) {
                         e2.printStackTrace();
                     }
                 }
-                BdEventBus.Companion.getDefault().post(new c.a.o0.a.z1.b.b.a("show"));
+                BdEventBus.Companion.getDefault().post(new c.a.p0.a.z1.b.b.a("show"));
                 return c2;
             }
             return (SwanAppAlertDialog) invokeV.objValue;
@@ -607,49 +607,49 @@ public class SwanAppAlertDialog extends BaseDialog {
         public final void Z() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048601, this) == null) {
-                int color = d().getColor(c.a.o0.a.c.aiapps_dialog_title_text_color);
-                int color2 = d().getColor(c.a.o0.a.c.aiapps_dialog_btn_text_color);
-                int color3 = d().getColor(c.a.o0.a.c.aiapps_dialog_btn_text_color);
-                int color4 = d().getColor(c.a.o0.a.c.aiapps_box_dialog_message_text_color);
-                int color5 = d().getColor(c.a.o0.a.c.aiapps_dialog_gray);
-                RelativeLayout relativeLayout = this.f46382a.r;
+                int color = d().getColor(c.a.p0.a.c.aiapps_dialog_title_text_color);
+                int color2 = d().getColor(c.a.p0.a.c.aiapps_dialog_btn_text_color);
+                int color3 = d().getColor(c.a.p0.a.c.aiapps_dialog_btn_text_color);
+                int color4 = d().getColor(c.a.p0.a.c.aiapps_box_dialog_message_text_color);
+                int color5 = d().getColor(c.a.p0.a.c.aiapps_dialog_gray);
+                RelativeLayout relativeLayout = this.f46497a.r;
                 Resources d2 = d();
-                int i2 = this.f46382a.C;
+                int i2 = this.f46497a.C;
                 if (i2 == -1) {
                     i2 = e.aiapps_dialog_bg_white;
                 }
                 relativeLayout.setBackground(d2.getDrawable(i2));
-                this.f46382a.f46397b.setTextColor(color);
-                this.f46382a.f46398c.setTextColor(color4);
-                b bVar = this.f46382a;
-                TextView textView = bVar.f46400e;
+                this.f46497a.f46512b.setTextColor(color);
+                this.f46497a.f46513c.setTextColor(color4);
+                b bVar = this.f46497a;
+                TextView textView = bVar.f46515e;
                 int i3 = bVar.w;
                 if (i3 != color3) {
                     color3 = i3;
                 }
                 textView.setTextColor(color3);
-                b bVar2 = this.f46382a;
+                b bVar2 = this.f46497a;
                 int i4 = bVar2.x;
                 if (i4 != color2) {
-                    bVar2.f46401f.setTextColor(i4);
+                    bVar2.f46516f.setTextColor(i4);
                 } else if (bVar2.y != -1) {
-                    bVar2.f46401f.setTextColor(d().getColorStateList(this.f46382a.y));
+                    bVar2.f46516f.setTextColor(d().getColorStateList(this.f46497a.y));
                 } else {
-                    bVar2.f46401f.setTextColor(color2);
+                    bVar2.f46516f.setTextColor(color2);
                 }
-                this.f46382a.f46402g.setTextColor(color2);
-                if (this.f46382a.D != -1) {
-                    color5 = d().getColor(this.f46382a.D);
+                this.f46497a.f46517g.setTextColor(color2);
+                if (this.f46497a.D != -1) {
+                    color5 = d().getColor(this.f46497a.D);
                 }
-                this.f46382a.f46403h.setBackgroundColor(color5);
-                this.f46382a.f46404i.setBackgroundColor(color5);
-                this.f46382a.f46405j.setBackgroundColor(color5);
-                this.f46382a.f46400e.setBackground(d().getDrawable(e.aiapp_alertdialog_button_day_bg_right_selector));
-                this.f46382a.f46401f.setBackground(d().getDrawable(e.aiapp_alertdialog_button_day_bg_left_selector));
-                this.f46382a.f46402g.setBackground(d().getDrawable(e.aiapp_alertdialog_button_day_bg_all_selector));
+                this.f46497a.f46518h.setBackgroundColor(color5);
+                this.f46497a.f46519i.setBackgroundColor(color5);
+                this.f46497a.f46520j.setBackgroundColor(color5);
+                this.f46497a.f46515e.setBackground(d().getDrawable(e.aiapp_alertdialog_button_day_bg_right_selector));
+                this.f46497a.f46516f.setBackground(d().getDrawable(e.aiapp_alertdialog_button_day_bg_left_selector));
+                this.f46497a.f46517g.setBackground(d().getDrawable(e.aiapp_alertdialog_button_day_bg_all_selector));
                 TextView g2 = g();
                 if (g2 != null) {
-                    g2.setBackground(this.f46382a.E ? d().getDrawable(e.aiapp_alertdialog_button_day_bg_all_selector) : null);
+                    g2.setBackground(this.f46497a.E ? d().getDrawable(e.aiapp_alertdialog_button_day_bg_all_selector) : null);
                 }
             }
         }
@@ -659,8 +659,8 @@ public class SwanAppAlertDialog extends BaseDialog {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) {
                 if (n0.G()) {
-                    r(this.f46384c.getResources().getDimensionPixelSize(c.a.o0.a.d.aiapps_dialog_landscape_default_width));
-                    z(this.f46384c.getResources().getDimensionPixelSize(c.a.o0.a.d.aiapps_dialog_landscape_content_default_height));
+                    r(this.f46499c.getResources().getDimensionPixelSize(c.a.p0.a.d.aiapps_dialog_landscape_default_width));
+                    z(this.f46499c.getResources().getDimensionPixelSize(c.a.p0.a.d.aiapps_dialog_landscape_content_default_height));
                     return this;
                 }
                 return this;
@@ -672,7 +672,7 @@ public class SwanAppAlertDialog extends BaseDialog {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) {
-                ((ViewGroup.MarginLayoutParams) this.f46382a.u.getLayoutParams()).setMargins(0, 0, 0, 0);
+                ((ViewGroup.MarginLayoutParams) this.f46497a.u.getLayoutParams()).setMargins(0, 0, 0, 0);
                 return this;
             }
             return (a) invokeV.objValue;
@@ -682,25 +682,25 @@ public class SwanAppAlertDialog extends BaseDialog {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) {
-                this.f46383b.setCancelable(this.f46382a.k.booleanValue());
-                if (this.f46382a.k.booleanValue()) {
-                    this.f46383b.setCanceledOnTouchOutside(false);
+                this.f46498b.setCancelable(this.f46497a.k.booleanValue());
+                if (this.f46497a.k.booleanValue()) {
+                    this.f46498b.setCanceledOnTouchOutside(false);
                 }
-                this.f46383b.setOnCancelListener(this.f46382a.l);
-                this.f46383b.setOnDismissListener(this.f46382a.m);
-                this.f46383b.setOnShowListener(this.f46382a.n);
-                DialogInterface.OnKeyListener onKeyListener = this.f46382a.p;
+                this.f46498b.setOnCancelListener(this.f46497a.l);
+                this.f46498b.setOnDismissListener(this.f46497a.m);
+                this.f46498b.setOnShowListener(this.f46497a.n);
+                DialogInterface.OnKeyListener onKeyListener = this.f46497a.p;
                 if (onKeyListener != null) {
-                    this.f46383b.setOnKeyListener(onKeyListener);
+                    this.f46498b.setOnKeyListener(onKeyListener);
                 }
                 Z();
-                b bVar = this.f46382a;
+                b bVar = this.f46497a;
                 c cVar = bVar.z;
                 if (cVar != null) {
-                    cVar.a(this.f46383b, bVar);
+                    cVar.a(this.f46498b, bVar);
                 }
-                this.f46383b.b(this);
-                return this.f46383b;
+                this.f46498b.b(this);
+                return this.f46498b;
             }
             return (SwanAppAlertDialog) invokeV.objValue;
         }
@@ -708,20 +708,20 @@ public class SwanAppAlertDialog extends BaseDialog {
         public Resources d() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) ? this.f46384c.getResources() : (Resources) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) ? this.f46499c.getResources() : (Resources) invokeV.objValue;
         }
 
         public ViewGroup e() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) ? this.f46382a.o : (ViewGroup) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) ? this.f46497a.o : (ViewGroup) invokeV.objValue;
         }
 
         public a f(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZ = interceptable.invokeZ(1048607, this, z)) == null) {
-                this.f46382a.f46396a.setVisibility(z ? 8 : 0);
+                this.f46497a.f46511a.setVisibility(z ? 8 : 0);
                 return this;
             }
             return (a) invokeZ.objValue;
@@ -733,23 +733,23 @@ public class SwanAppAlertDialog extends BaseDialog {
             TextView textView;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) {
-                TextView textView2 = this.f46382a.f46400e;
+                TextView textView2 = this.f46497a.f46515e;
                 if (textView2 == null || textView2.getVisibility() != 0) {
                     i2 = 0;
                     textView = null;
                 } else {
-                    textView = this.f46382a.f46400e;
+                    textView = this.f46497a.f46515e;
                     i2 = 1;
                 }
-                TextView textView3 = this.f46382a.f46401f;
+                TextView textView3 = this.f46497a.f46516f;
                 if (textView3 != null && textView3.getVisibility() == 0) {
                     i2++;
-                    textView = this.f46382a.f46401f;
+                    textView = this.f46497a.f46516f;
                 }
-                TextView textView4 = this.f46382a.f46402g;
+                TextView textView4 = this.f46497a.f46517g;
                 if (textView4 != null && textView4.getVisibility() == 0) {
                     i2++;
-                    textView = this.f46382a.f46402g;
+                    textView = this.f46497a.f46517g;
                 }
                 if (i2 != 1) {
                     return null;
@@ -769,9 +769,9 @@ public class SwanAppAlertDialog extends BaseDialog {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZ = interceptable.invokeZ(1048610, this, z)) == null) {
-                ViewGroup.LayoutParams layoutParams = this.f46382a.u.getLayoutParams();
+                ViewGroup.LayoutParams layoutParams = this.f46497a.u.getLayoutParams();
                 if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
-                    ((ViewGroup.MarginLayoutParams) layoutParams).setMargins(0, z ? 0 : this.f46384c.getResources().getDimensionPixelSize(c.a.o0.a.d.aiapps_dialog_content_margin_top), 0, 0);
+                    ((ViewGroup.MarginLayoutParams) layoutParams).setMargins(0, z ? 0 : this.f46499c.getResources().getDimensionPixelSize(c.a.p0.a.d.aiapps_dialog_content_margin_top), 0, 0);
                 }
                 return this;
             }
@@ -782,7 +782,7 @@ public class SwanAppAlertDialog extends BaseDialog {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048611, this)) == null) {
-                this.f46382a.A.setPadding(0, 0, 0, 0);
+                this.f46497a.A.setPadding(0, 0, 0, 0);
                 return this;
             }
             return (a) invokeV.objValue;
@@ -792,7 +792,7 @@ public class SwanAppAlertDialog extends BaseDialog {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZ = interceptable.invokeZ(1048612, this, z)) == null) {
-                this.f46382a.t.setVisibility(z ? 0 : 8);
+                this.f46497a.t.setVisibility(z ? 0 : 8);
                 return this;
             }
             return (a) invokeZ.objValue;
@@ -810,7 +810,7 @@ public class SwanAppAlertDialog extends BaseDialog {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZ = interceptable.invokeZ(1048614, this, z)) == null) {
-                this.f46382a.k = Boolean.valueOf(z);
+                this.f46497a.k = Boolean.valueOf(z);
                 return this;
             }
             return (a) invokeZ.objValue;
@@ -820,7 +820,7 @@ public class SwanAppAlertDialog extends BaseDialog {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048615, this, cVar)) == null) {
-                this.f46382a.z = cVar;
+                this.f46497a.z = cVar;
                 return this;
             }
             return (a) invokeL.objValue;
@@ -830,7 +830,7 @@ public class SwanAppAlertDialog extends BaseDialog {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048616, this, i2)) == null) {
-                this.f46382a.D = i2;
+                this.f46497a.D = i2;
                 return this;
             }
             return (a) invokeI.objValue;
@@ -840,7 +840,7 @@ public class SwanAppAlertDialog extends BaseDialog {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048617, this, i2)) == null) {
-                b bVar = this.f46382a;
+                b bVar = this.f46497a;
                 bVar.C = i2;
                 bVar.r.setBackgroundResource(i2);
                 return this;
@@ -851,16 +851,16 @@ public class SwanAppAlertDialog extends BaseDialog {
         public void q(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048618, this, i2) == null) {
-                this.f46382a.r.getLayoutParams().height = i2;
-                this.f46382a.r.requestLayout();
+                this.f46497a.r.getLayoutParams().height = i2;
+                this.f46497a.r.requestLayout();
             }
         }
 
         public void r(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048619, this, i2) == null) {
-                this.f46382a.r.getLayoutParams().width = i2;
-                this.f46382a.r.requestLayout();
+                this.f46497a.r.getLayoutParams().width = i2;
+                this.f46497a.r.requestLayout();
             }
         }
 
@@ -870,7 +870,7 @@ public class SwanAppAlertDialog extends BaseDialog {
             if (interceptable == null || (invokeI = interceptable.invokeI(1048620, this, i2)) == null) {
                 RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, i2);
                 layoutParams.addRule(2, f.btn_panel);
-                this.f46382a.f46403h.setLayoutParams(layoutParams);
+                this.f46497a.f46518h.setLayoutParams(layoutParams);
                 return this;
             }
             return (a) invokeI.objValue;
@@ -881,9 +881,9 @@ public class SwanAppAlertDialog extends BaseDialog {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZ = interceptable.invokeZ(1048621, this, z)) == null) {
                 if (z) {
-                    this.f46382a.f46403h.setVisibility(0);
+                    this.f46497a.f46518h.setVisibility(0);
                 } else {
-                    this.f46382a.f46403h.setVisibility(8);
+                    this.f46497a.f46518h.setVisibility(8);
                 }
                 return this;
             }
@@ -894,7 +894,7 @@ public class SwanAppAlertDialog extends BaseDialog {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048622, this, i2)) == null) {
-                this.f46382a.q.setImageResource(i2);
+                this.f46497a.q.setImageResource(i2);
                 return this;
             }
             return (a) invokeI.objValue;
@@ -904,10 +904,10 @@ public class SwanAppAlertDialog extends BaseDialog {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048623, this, i2)) == null) {
-                if (this.f46382a.f46399d.getVisibility() != 0) {
-                    this.f46382a.f46399d.setVisibility(0);
+                if (this.f46497a.f46514d.getVisibility() != 0) {
+                    this.f46497a.f46514d.setVisibility(0);
                 }
-                this.f46382a.f46398c.setText(this.f46384c.getText(i2));
+                this.f46497a.f46513c.setText(this.f46499c.getText(i2));
                 A();
                 return this;
             }
@@ -918,12 +918,12 @@ public class SwanAppAlertDialog extends BaseDialog {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048624, this, spanned)) == null) {
-                if (this.f46382a.f46399d.getVisibility() != 0) {
-                    this.f46382a.f46399d.setVisibility(0);
+                if (this.f46497a.f46514d.getVisibility() != 0) {
+                    this.f46497a.f46514d.setVisibility(0);
                 }
                 if (spanned != null) {
-                    this.f46382a.f46398c.setMovementMethod(LinkMovementMethod.getInstance());
-                    this.f46382a.f46398c.setText(spanned);
+                    this.f46497a.f46513c.setMovementMethod(LinkMovementMethod.getInstance());
+                    this.f46497a.f46513c.setText(spanned);
                     A();
                 }
                 return this;
@@ -935,11 +935,11 @@ public class SwanAppAlertDialog extends BaseDialog {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048625, this, str)) == null) {
-                if (this.f46382a.f46399d.getVisibility() != 0) {
-                    this.f46382a.f46399d.setVisibility(0);
+                if (this.f46497a.f46514d.getVisibility() != 0) {
+                    this.f46497a.f46514d.setVisibility(0);
                 }
                 if (str != null) {
-                    this.f46382a.f46398c.setText(str);
+                    this.f46497a.f46513c.setText(str);
                     A();
                 }
                 return this;
@@ -951,7 +951,7 @@ public class SwanAppAlertDialog extends BaseDialog {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048626, this)) == null) {
-                this.f46382a.f46398c.setGravity(3);
+                this.f46497a.f46513c.setGravity(3);
                 return this;
             }
             return (a) invokeV.objValue;
@@ -961,7 +961,7 @@ public class SwanAppAlertDialog extends BaseDialog {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048627, this, i2)) == null) {
-                this.f46382a.a(i2);
+                this.f46497a.a(i2);
                 return this;
             }
             return (a) invokeI.objValue;
@@ -979,34 +979,34 @@ public class SwanAppAlertDialog extends BaseDialog {
         public boolean E;
 
         /* renamed from: a  reason: collision with root package name */
-        public LinearLayout f46396a;
+        public LinearLayout f46511a;
 
         /* renamed from: b  reason: collision with root package name */
-        public TextView f46397b;
+        public TextView f46512b;
 
         /* renamed from: c  reason: collision with root package name */
-        public TextView f46398c;
+        public TextView f46513c;
 
         /* renamed from: d  reason: collision with root package name */
-        public LinearLayout f46399d;
+        public LinearLayout f46514d;
 
         /* renamed from: e  reason: collision with root package name */
-        public TextView f46400e;
+        public TextView f46515e;
 
         /* renamed from: f  reason: collision with root package name */
-        public TextView f46401f;
+        public TextView f46516f;
 
         /* renamed from: g  reason: collision with root package name */
-        public TextView f46402g;
+        public TextView f46517g;
 
         /* renamed from: h  reason: collision with root package name */
-        public View f46403h;
+        public View f46518h;
 
         /* renamed from: i  reason: collision with root package name */
-        public View f46404i;
+        public View f46519i;
 
         /* renamed from: j  reason: collision with root package name */
-        public View f46405j;
+        public View f46520j;
         public Boolean k;
         public DialogInterface.OnCancelListener l;
         public DialogInterface.OnDismissListener m;
@@ -1045,35 +1045,35 @@ public class SwanAppAlertDialog extends BaseDialog {
             this.D = -1;
             this.E = true;
             this.v = viewGroup;
-            this.f46396a = (LinearLayout) viewGroup.findViewById(f.title_panel);
-            this.f46397b = (TextView) viewGroup.findViewById(f.dialog_title);
-            this.f46398c = (TextView) viewGroup.findViewById(f.dialog_message);
-            this.f46399d = (LinearLayout) viewGroup.findViewById(f.dialog_message_content);
-            this.f46400e = (TextView) viewGroup.findViewById(f.positive_button);
-            this.f46401f = (TextView) viewGroup.findViewById(f.negative_button);
-            this.f46402g = (TextView) viewGroup.findViewById(f.neutral_button);
-            this.f46404i = viewGroup.findViewById(f.divider3);
-            this.f46405j = viewGroup.findViewById(f.divider4);
+            this.f46511a = (LinearLayout) viewGroup.findViewById(f.title_panel);
+            this.f46512b = (TextView) viewGroup.findViewById(f.dialog_title);
+            this.f46513c = (TextView) viewGroup.findViewById(f.dialog_message);
+            this.f46514d = (LinearLayout) viewGroup.findViewById(f.dialog_message_content);
+            this.f46515e = (TextView) viewGroup.findViewById(f.positive_button);
+            this.f46516f = (TextView) viewGroup.findViewById(f.negative_button);
+            this.f46517g = (TextView) viewGroup.findViewById(f.neutral_button);
+            this.f46519i = viewGroup.findViewById(f.divider3);
+            this.f46520j = viewGroup.findViewById(f.divider4);
             this.o = (FrameLayout) viewGroup.findViewById(f.dialog_custom_content);
             this.q = (ImageView) viewGroup.findViewById(f.dialog_icon);
             this.r = (RelativeLayout) viewGroup.findViewById(f.searchbox_alert_dialog);
-            this.f46403h = viewGroup.findViewById(f.divider2);
+            this.f46518h = viewGroup.findViewById(f.divider2);
             this.s = (SwanAppScrollView) viewGroup.findViewById(f.message_scrollview);
             this.t = (LinearLayout) viewGroup.findViewById(f.btn_panel);
             this.u = viewGroup.findViewById(f.dialog_customPanel);
             this.A = (FrameLayout) viewGroup.findViewById(f.dialog_root);
             this.B = viewGroup.findViewById(f.nightmode_mask);
             if (d.k() || d.l()) {
-                int dimensionPixelSize = this.f46398c.getResources().getDimensionPixelSize(c.a.o0.a.d.aiapps_dialog_text_padding);
-                this.f46398c.setPadding(dimensionPixelSize, 0, dimensionPixelSize, 0);
+                int dimensionPixelSize = this.f46513c.getResources().getDimensionPixelSize(c.a.p0.a.d.aiapps_dialog_text_padding);
+                this.f46513c.setPadding(dimensionPixelSize, 0, dimensionPixelSize, 0);
             }
-            SwanAppActivity activity = c.a.o0.a.g1.f.V().getActivity();
-            if (c.a.o0.t.e.d() && c.a.o0.a.v2.f.d(activity) && c.a.o0.t.e.e(activity)) {
-                FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams((int) (c.a.o0.t.e.a(activity) * 0.8f), -2);
+            SwanAppActivity activity = c.a.p0.a.g1.f.V().getActivity();
+            if (c.a.p0.t.e.d() && c.a.p0.a.v2.f.d(activity) && c.a.p0.t.e.e(activity)) {
+                FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams((int) (c.a.p0.t.e.a(activity) * 0.8f), -2);
                 layoutParams.gravity = 17;
                 this.r.setLayoutParams(layoutParams);
             }
-            int color = this.v.getResources().getColor(c.a.o0.a.c.aiapps_dialog_btn_text_color);
+            int color = this.v.getResources().getColor(c.a.p0.a.c.aiapps_dialog_btn_text_color);
             this.w = color;
             this.x = color;
         }
@@ -1104,7 +1104,7 @@ public class SwanAppAlertDialog extends BaseDialog {
                 return;
             }
         }
-        f46380g = k.f7049a;
+        f46495g = k.f7077a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -1131,7 +1131,7 @@ public class SwanAppAlertDialog extends BaseDialog {
     public void b(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-            this.f46381f = aVar;
+            this.f46496f = aVar;
         }
     }
 
@@ -1140,14 +1140,14 @@ public class SwanAppAlertDialog extends BaseDialog {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.dismiss();
-            BdEventBus.Companion.getDefault().post(new c.a.o0.a.z1.b.b.a("hide"));
+            BdEventBus.Companion.getDefault().post(new c.a.p0.a.z1.b.b.a("hide"));
         }
     }
 
     public a getBuilder() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f46381f : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f46496f : (a) invokeV.objValue;
     }
 
     public void init() {
@@ -1167,7 +1167,7 @@ public class SwanAppAlertDialog extends BaseDialog {
     public void setMessage(String str) {
         a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, str) == null) || (aVar = this.f46381f) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, str) == null) || (aVar = this.f46496f) == null) {
             return;
         }
         aVar.x(str);

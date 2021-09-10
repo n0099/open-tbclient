@@ -895,10 +895,10 @@ public class BaseWXApiImplV10 implements IWXAPI {
             }
             Log.d("MicroMsg.SDK.WXApiImplV10", "register app " + this.context.getPackageName());
             a.C2085a c2085a = new a.C2085a();
-            c2085a.f76065a = "com.tencent.mm";
+            c2085a.f76245a = "com.tencent.mm";
             c2085a.action = "com.tencent.mm.plugin.openapi.Intent.ACTION_HANDLE_APP_REGISTER";
             c2085a.content = "weixin://registerapp?appid=" + this.appId;
-            c2085a.f76066b = j2;
+            c2085a.f76246b = j2;
             return a.a(this.context, c2085a);
         }
         return invokeLJ.booleanValue;
@@ -1103,7 +1103,7 @@ public class BaseWXApiImplV10 implements IWXAPI {
             }
             Log.d("MicroMsg.SDK.WXApiImplV10", "unregister app " + this.context.getPackageName());
             a.C2085a c2085a = new a.C2085a();
-            c2085a.f76065a = "com.tencent.mm";
+            c2085a.f76245a = "com.tencent.mm";
             c2085a.action = "com.tencent.mm.plugin.openapi.Intent.ACTION_HANDLE_APP_UNREGISTER";
             c2085a.content = "weixin://unregisterapp?appid=" + this.appId;
             a.a(this.context, c2085a);

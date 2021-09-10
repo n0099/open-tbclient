@@ -32,7 +32,7 @@ public class y {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String[] f78068a;
+    public static final String[] f78248a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -48,7 +48,7 @@ public class y {
                 return;
             }
         }
-        f78068a = new String[]{"jpg", "png", "bmp", "gif", OvalActionButton.WEBP};
+        f78248a = new String[]{"jpg", "png", "bmp", "gif", OvalActionButton.WEBP};
     }
 
     /* JADX WARN: Not initialized variable reg: 2, insn: 0x0066: MOVE  (r1 I:??[OBJECT, ARRAY]) = (r2 I:??[OBJECT, ARRAY]), block:B:24:0x0066 */

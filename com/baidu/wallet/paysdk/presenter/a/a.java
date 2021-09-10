@@ -17,7 +17,7 @@ public class a implements a.InterfaceC1850a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public a.b f62486a;
+    public a.b f62666a;
 
     public a(a.b bVar) {
         Interceptable interceptable = $ic;
@@ -34,7 +34,7 @@ public class a implements a.InterfaceC1850a {
                 return;
             }
         }
-        this.f62486a = bVar;
+        this.f62666a = bVar;
     }
 
     @Override // com.baidu.wallet.paysdk.contract.a.InterfaceC1850a

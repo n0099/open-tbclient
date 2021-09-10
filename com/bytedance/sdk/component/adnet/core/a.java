@@ -30,14 +30,14 @@ public class a implements com.bytedance.sdk.component.adnet.face.b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f64103a;
+    public static final boolean f64283a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public final IHttpStack f64104b;
+    public final IHttpStack f64284b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final b f64105c;
+    public final b f64285c;
 
     static {
         InterceptResult invokeClinit;
@@ -52,7 +52,7 @@ public class a implements com.bytedance.sdk.component.adnet.face.b {
                 return;
             }
         }
-        f64103a = o.f64180a;
+        f64283a = o.f64360a;
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -105,7 +105,7 @@ public class a implements com.bytedance.sdk.component.adnet.face.b {
             HttpResponse httpResponse = null;
             try {
                 try {
-                    performRequest = this.f64104b.performRequest(request, a(request.getCacheEntry()));
+                    performRequest = this.f64284b.performRequest(request, a(request.getCacheEntry()));
                 } catch (Throwable th) {
                     th = th;
                 }
@@ -136,7 +136,7 @@ public class a implements com.bytedance.sdk.component.adnet.face.b {
                                 }
                                 return iVar;
                             }
-                            i iVar2 = new i(304, cacheEntry.f64204b, true, SystemClock.elapsedRealtime() - elapsedRealtime, a(headers, cacheEntry));
+                            i iVar2 = new i(304, cacheEntry.f64384b, true, SystemClock.elapsedRealtime() - elapsedRealtime, a(headers, cacheEntry));
                             if (performRequest != null) {
                                 try {
                                     if (performRequest.getContent() != null) {
@@ -269,14 +269,14 @@ public class a implements com.bytedance.sdk.component.adnet.face.b {
                 return;
             }
         }
-        this.f64104b = iHttpStack;
-        this.f64105c = bVar;
+        this.f64284b = iHttpStack;
+        this.f64285c = bVar;
     }
 
     private void a(long j2, Request<?> request, byte[] bArr, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, this, new Object[]{Long.valueOf(j2), request, bArr, Integer.valueOf(i2)}) == null) {
-            if (f64103a || j2 > 3000) {
+            if (f64283a || j2 > 3000) {
                 Object[] objArr = new Object[5];
                 objArr[0] = request;
                 objArr[1] = Long.valueOf(j2);
@@ -311,11 +311,11 @@ public class a implements com.bytedance.sdk.component.adnet.face.b {
                 return Collections.emptyMap();
             }
             HashMap hashMap = new HashMap();
-            String str = c1882a.f64205c;
+            String str = c1882a.f64385c;
             if (str != null) {
                 hashMap.put("If-None-Match", str);
             }
-            long j2 = c1882a.f64207e;
+            long j2 = c1882a.f64387e;
             if (j2 > 0) {
                 hashMap.put("If-Modified-Since", com.bytedance.sdk.component.adnet.d.b.a(j2));
             }
@@ -341,10 +341,10 @@ public class a implements com.bytedance.sdk.component.adnet.face.b {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65543, this, inputStream, i2)) == null) {
-            c cVar = new c(this.f64105c, i2);
+            c cVar = new c(this.f64285c, i2);
             try {
                 if (inputStream != null) {
-                    byte[] a2 = this.f64105c.a(1024);
+                    byte[] a2 = this.f64285c.a(1024);
                     while (true) {
                         int read = inputStream.read(a2);
                         if (read == -1) {
@@ -360,7 +360,7 @@ public class a implements com.bytedance.sdk.component.adnet.face.b {
                             o.a("Error occurred when closing InputStream", new Object[0]);
                         }
                     }
-                    this.f64105c.a(a2);
+                    this.f64285c.a(a2);
                     cVar.close();
                     return byteArray;
                 }
@@ -373,7 +373,7 @@ public class a implements com.bytedance.sdk.component.adnet.face.b {
                         o.a("Error occurred when closing InputStream", new Object[0]);
                     }
                 }
-                this.f64105c.a((byte[]) null);
+                this.f64285c.a((byte[]) null);
                 cVar.close();
                 throw th;
             }
@@ -394,17 +394,17 @@ public class a implements com.bytedance.sdk.component.adnet.face.b {
                 }
             }
             if (c1882a != null) {
-                List<Header> list2 = c1882a.f64211i;
+                List<Header> list2 = c1882a.f64391i;
                 if (list2 != null) {
                     if (!list2.isEmpty()) {
-                        for (Header header2 : c1882a.f64211i) {
+                        for (Header header2 : c1882a.f64391i) {
                             if (!treeSet.contains(header2.getName())) {
                                 arrayList.add(header2);
                             }
                         }
                     }
-                } else if (!c1882a.f64210h.isEmpty()) {
-                    for (Map.Entry<String, String> entry : c1882a.f64210h.entrySet()) {
+                } else if (!c1882a.f64390h.isEmpty()) {
+                    for (Map.Entry<String, String> entry : c1882a.f64390h.entrySet()) {
                         if (!treeSet.contains(entry.getKey())) {
                             arrayList.add(new Header(entry.getKey(), entry.getValue()));
                         }

@@ -25,11 +25,11 @@ public class SDKInitBeanCallBack implements IBeanResponseCallback {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: f  reason: collision with root package name */
-    public static volatile boolean f69716f = true;
+    public static volatile boolean f69896f = true;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f69717e;
+    public Context f69897e;
 
     static {
         InterceptResult invokeClinit;
@@ -61,7 +61,7 @@ public class SDKInitBeanCallBack implements IBeanResponseCallback {
                 return;
             }
         }
-        this.f69717e = context;
+        this.f69897e = context;
     }
 
     @Override // com.dxmpay.apollon.beans.IBeanResponseCallback
@@ -75,8 +75,8 @@ public class SDKInitBeanCallBack implements IBeanResponseCallback {
     public void onBeanExecSuccess(int i2, Object obj, String str) {
         boolean z;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, obj, str) == null) && f69716f) {
-            f69716f = false;
+        if ((interceptable == null || interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, obj, str) == null) && f69896f) {
+            f69896f = false;
             if (obj instanceof SdkInitResponse) {
                 SdkInitResponse sdkInitResponse = (SdkInitResponse) obj;
                 if (!TextUtils.isEmpty(sdkInitResponse.domainConfig)) {
@@ -90,26 +90,26 @@ public class SDKInitBeanCallBack implements IBeanResponseCallback {
                     if (z) {
                         if (DebugConfig.getInstance().isOnline()) {
                             DomainConfig.getInstance().setStrategy(DomainConfig.DomainStrategyType.ONLINE, sdkInitResponse.domainConfig);
-                            SharedPreferencesUtils.setParam(this.f69717e.getApplicationContext(), BeanConstants.DOMAIN_CONFIG_NAME_ONLINE, "wallet_sdk_domain_config_key", sdkInitResponse.domainConfig);
+                            SharedPreferencesUtils.setParam(this.f69897e.getApplicationContext(), BeanConstants.DOMAIN_CONFIG_NAME_ONLINE, "wallet_sdk_domain_config_key", sdkInitResponse.domainConfig);
                         } else {
                             DomainConfig.getInstance().setStrategy(DomainConfig.DomainStrategyType.QA, sdkInitResponse.domainConfig);
-                            SharedPreferencesUtils.setParam(this.f69717e.getApplicationContext(), BeanConstants.DOMAIN_CONFIG_NAME_QA, "wallet_sdk_domain_config_key", sdkInitResponse.domainConfig);
+                            SharedPreferencesUtils.setParam(this.f69897e.getApplicationContext(), BeanConstants.DOMAIN_CONFIG_NAME_QA, "wallet_sdk_domain_config_key", sdkInitResponse.domainConfig);
                         }
                     }
                 }
                 if (!TextUtils.isEmpty(sdkInitResponse.domainSwitch)) {
                     if (TextUtils.equals("1", sdkInitResponse.domainSwitch)) {
                         if (DebugConfig.getInstance().isOnline()) {
-                            SharedPreferencesUtils.setParam(this.f69717e.getApplicationContext(), BeanConstants.DOMAIN_CHANGE_SWITCH_NAME_ONLINE, "wallet_sdk_domain_change_key", Boolean.TRUE);
+                            SharedPreferencesUtils.setParam(this.f69897e.getApplicationContext(), BeanConstants.DOMAIN_CHANGE_SWITCH_NAME_ONLINE, "wallet_sdk_domain_change_key", Boolean.TRUE);
                         } else {
-                            SharedPreferencesUtils.setParam(this.f69717e.getApplicationContext(), BeanConstants.DOMAIN_CHANGE_SWITCH_NAME_QA, "wallet_sdk_domain_change_key", Boolean.TRUE);
+                            SharedPreferencesUtils.setParam(this.f69897e.getApplicationContext(), BeanConstants.DOMAIN_CHANGE_SWITCH_NAME_QA, "wallet_sdk_domain_change_key", Boolean.TRUE);
                         }
                         a.i().h(true);
                     } else {
                         if (DebugConfig.getInstance().isOnline()) {
-                            SharedPreferencesUtils.setParam(this.f69717e.getApplicationContext(), BeanConstants.DOMAIN_CHANGE_SWITCH_NAME_ONLINE, "wallet_sdk_domain_change_key", Boolean.FALSE);
+                            SharedPreferencesUtils.setParam(this.f69897e.getApplicationContext(), BeanConstants.DOMAIN_CHANGE_SWITCH_NAME_ONLINE, "wallet_sdk_domain_change_key", Boolean.FALSE);
                         } else {
-                            SharedPreferencesUtils.setParam(this.f69717e.getApplicationContext(), BeanConstants.DOMAIN_CHANGE_SWITCH_NAME_QA, "wallet_sdk_domain_change_key", Boolean.FALSE);
+                            SharedPreferencesUtils.setParam(this.f69897e.getApplicationContext(), BeanConstants.DOMAIN_CHANGE_SWITCH_NAME_QA, "wallet_sdk_domain_change_key", Boolean.FALSE);
                         }
                         a.i().h(false);
                     }

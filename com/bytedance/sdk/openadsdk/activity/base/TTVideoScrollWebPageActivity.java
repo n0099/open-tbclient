@@ -19,7 +19,7 @@ public class TTVideoScrollWebPageActivity extends TTVideoWebPageActivity {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d  reason: collision with root package name */
-    public TTScrollView f65383d;
+    public TTScrollView f65563d;
 
     public TTVideoScrollWebPageActivity() {
         Interceptable interceptable = $ic;
@@ -41,13 +41,13 @@ public class TTVideoScrollWebPageActivity extends TTVideoWebPageActivity {
         if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
             super.onCreate(bundle);
             TTScrollView tTScrollView = (TTScrollView) findViewById(t.e(getApplicationContext(), "tt_scroll_view"));
-            this.f65383d = tTScrollView;
+            this.f65563d = tTScrollView;
             tTScrollView.setListener(new TTScrollView.a(this) { // from class: com.bytedance.sdk.openadsdk.activity.base.TTVideoScrollWebPageActivity.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ TTVideoScrollWebPageActivity f65384a;
+                public final /* synthetic */ TTVideoScrollWebPageActivity f65564a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -64,7 +64,7 @@ public class TTVideoScrollWebPageActivity extends TTVideoWebPageActivity {
                             return;
                         }
                     }
-                    this.f65384a = this;
+                    this.f65564a = this;
                 }
 
                 @Override // com.bytedance.sdk.openadsdk.core.widget.TTScrollView.a
@@ -72,11 +72,11 @@ public class TTVideoScrollWebPageActivity extends TTVideoWebPageActivity {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeZ(1048576, this, z) == null) {
                         try {
-                            if (this.f65384a.f65388c != null && (this.f65384a.f65388c instanceof g)) {
-                                if (z && !this.f65384a.f65388c.x()) {
-                                    ((g) this.f65384a.f65388c).f(false);
+                            if (this.f65564a.f65568c != null && (this.f65564a.f65568c instanceof g)) {
+                                if (z && !this.f65564a.f65568c.x()) {
+                                    ((g) this.f65564a.f65568c).f(false);
                                 } else {
-                                    this.f65384a.f65388c.i();
+                                    this.f65564a.f65568c.i();
                                 }
                             }
                         } catch (Throwable th) {
@@ -85,18 +85,18 @@ public class TTVideoScrollWebPageActivity extends TTVideoWebPageActivity {
                     }
                 }
             });
-            c cVar = this.f65388c;
+            c cVar = this.f65568c;
             if (cVar != null) {
                 cVar.d(false);
             }
-            NativeVideoTsView nativeVideoTsView = this.f65387b;
+            NativeVideoTsView nativeVideoTsView = this.f65567b;
             if (nativeVideoTsView != null) {
                 nativeVideoTsView.setVideoAdInteractionListener(new c.b(this) { // from class: com.bytedance.sdk.openadsdk.activity.base.TTVideoScrollWebPageActivity.2
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ TTVideoScrollWebPageActivity f65385a;
+                    public final /* synthetic */ TTVideoScrollWebPageActivity f65565a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -113,7 +113,7 @@ public class TTVideoScrollWebPageActivity extends TTVideoWebPageActivity {
                                 return;
                             }
                         }
-                        this.f65385a = this;
+                        this.f65565a = this;
                     }
 
                     @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.c.b
@@ -126,11 +126,11 @@ public class TTVideoScrollWebPageActivity extends TTVideoWebPageActivity {
                     @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.c.b
                     public void e_() {
                         Interceptable interceptable2 = $ic;
-                        if (!(interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f65385a.f65383d == null || this.f65385a.f65383d.a()) {
+                        if (!(interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f65565a.f65563d == null || this.f65565a.f65563d.a()) {
                             return;
                         }
                         k.b("TTVideoScrollWebPageActivity", "video start play but video is hidden so pause");
-                        c cVar2 = this.f65385a.f65388c;
+                        c cVar2 = this.f65565a.f65568c;
                         if (cVar2 != null) {
                             cVar2.j();
                         }

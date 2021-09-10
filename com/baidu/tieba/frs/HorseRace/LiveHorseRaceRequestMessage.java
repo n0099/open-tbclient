@@ -1,6 +1,6 @@
 package com.baidu.tieba.frs.HorseRace;
 
-import c.a.p0.b1.w;
+import c.a.q0.d1.x;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -18,7 +18,7 @@ public class LiveHorseRaceRequestMessage extends NetMessage {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: common  reason: collision with root package name */
-    public CommonReq f50771common;
+    public CommonReq f50936common;
     public Long forum_id;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -46,10 +46,10 @@ public class LiveHorseRaceRequestMessage extends NetMessage {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             DataReq.Builder builder = new DataReq.Builder();
-            builder.f79445common = this.f50771common;
+            builder.f79683common = this.f50936common;
             builder.forum_id = this.forum_id;
             if (z) {
-                w.a(builder, true);
+                x.a(builder, true);
             }
             GetHorseRaceLampListReqIdl.Builder builder2 = new GetHorseRaceLampListReqIdl.Builder();
             builder2.data = builder.build(false);
@@ -61,7 +61,7 @@ public class LiveHorseRaceRequestMessage extends NetMessage {
     public void setCommon(CommonReq commonReq) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, commonReq) == null) {
-            this.f50771common = commonReq;
+            this.f50936common = commonReq;
         }
     }
 

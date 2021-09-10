@@ -2,6 +2,7 @@ package com.baidu.media.dlna;
 
 import android.content.Context;
 import android.content.pm.PackageManager;
+import android.os.Build;
 import android.os.Environment;
 import android.os.Handler;
 import android.os.Looper;
@@ -30,10 +31,10 @@ public class DlnaApi {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static DlnaProvider.DlnaSearchListener f42476a;
+    public static DlnaProvider.DlnaSearchListener f42587a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Handler f42477b;
+    public static Handler f42588b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes5.dex */
@@ -70,14 +71,14 @@ public class DlnaApi {
                     if (i2 == 1) {
                         Map<String, Object> map = (Map) message.obj;
                         synchronized (DlnaApi.class) {
-                            if (DlnaApi.f42476a != null && map != null) {
-                                DlnaApi.f42476a.onDeviceChangeNotification(map);
+                            if (DlnaApi.f42587a != null && map != null) {
+                                DlnaApi.f42587a.onDeviceChangeNotification(map);
                             }
                         }
                     } else if (i2 == 2) {
                         synchronized (DlnaApi.class) {
-                            if (DlnaApi.f42476a != null) {
-                                DlnaApi.f42476a.onRefreshFinishNotification(message.arg1, message.arg2);
+                            if (DlnaApi.f42587a != null) {
+                                DlnaApi.f42587a.onRefreshFinishNotification(message.arg1, message.arg2);
                             }
                         }
                     }
@@ -102,7 +103,7 @@ public class DlnaApi {
                 return;
             }
         }
-        f42477b = new a(Looper.getMainLooper());
+        f42588b = new a(Looper.getMainLooper());
     }
 
     public DlnaApi() {
@@ -187,9 +188,10 @@ public class DlnaApi {
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, context)) == null) {
             if (context != null && (packageManager = context.getPackageManager()) != null) {
                 try {
-                    if (packageManager.checkPermission("android.permission.READ_EXTERNAL_STORAGE", context.getPackageName()) == 0) {
-                        return packageManager.checkPermission("android.permission.WRITE_EXTERNAL_STORAGE", context.getPackageName()) == 0;
+                    if (Build.VERSION.SDK_INT < 30) {
+                        return packageManager.checkPermission("android.permission.READ_EXTERNAL_STORAGE", context.getPackageName()) == 0 && packageManager.checkPermission("android.permission.WRITE_EXTERNAL_STORAGE", context.getPackageName()) == 0;
                     }
+                    CyberLog.i("DLNA API", "android 11 no ExternalStorage Permission!");
                     return false;
                 } catch (Exception e2) {
                     e2.printStackTrace();
@@ -213,7 +215,7 @@ public class DlnaApi {
             HashMap hashMap = new HashMap();
             hashMap.put("friendlyName", str);
             hashMap.put("uuid", str2);
-            Message.obtain(f42477b, 1, hashMap).sendToTarget();
+            Message.obtain(f42588b, 1, hashMap).sendToTarget();
         }
     }
 
@@ -274,7 +276,7 @@ public class DlnaApi {
     public static void onRefreshFinished(int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(65549, null, i2, i3) == null) {
-            Message obtain = Message.obtain(f42477b, 2);
+            Message obtain = Message.obtain(f42588b, 2);
             obtain.arg1 = i2;
             obtain.arg2 = i3;
             obtain.sendToTarget();
@@ -287,7 +289,7 @@ public class DlnaApi {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65550, null, dlnaSearchListener) == null) {
             synchronized (DlnaApi.class) {
-                f42476a = dlnaSearchListener;
+                f42587a = dlnaSearchListener;
             }
             try {
                 nativeSearch();
@@ -309,7 +311,7 @@ public class DlnaApi {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65551, null) == null) {
             synchronized (DlnaApi.class) {
-                f42476a = null;
+                f42587a = null;
             }
             try {
                 nativeStop();

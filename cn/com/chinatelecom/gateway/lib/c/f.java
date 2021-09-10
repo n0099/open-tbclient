@@ -13,7 +13,6 @@ import com.baidu.tieba.imageProblem.httpNet.CDNIPDirectConnect;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.tencent.connect.common.Constants;
 import java.lang.reflect.Method;
 /* loaded from: classes4.dex */
 public class f {
@@ -155,7 +154,7 @@ public class f {
                     return "14";
                 }
             }
-            return Constants.VIA_REPORT_TYPE_WPA_STATE;
+            return "15";
         }
         return (String) invokeL.objValue;
     }

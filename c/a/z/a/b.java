@@ -15,22 +15,22 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Object f31140a;
+    public static Object f31245a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Method f31141b;
+    public static Method f31246b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static Method f31142c;
+    public static Method f31247c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static Method f31143d;
+    public static Method f31248d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static Method f31144e;
+    public static Method f31249e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static boolean f31145f;
+    public static boolean f31250f;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -47,13 +47,13 @@ public class b {
             }
         }
         try {
-            f31140a = Class.forName("com.baidu.crashpad.ZwCrashpad").getConstructor(new Class[0]).newInstance(new Object[0]);
+            f31245a = Class.forName("com.baidu.crashpad.ZwCrashpad").getConstructor(new Class[0]).newInstance(new Object[0]);
             Class<?> cls = Class.forName("com.baidu.crashpad.ZwCrashpad");
-            f31141b = a.a(cls, "doInit", Context.class, String[].class);
-            f31143d = a.a(cls, "setStatisticParam", String.class);
-            f31142c = a.a(cls, "setEnabled", Boolean.TYPE);
-            f31144e = a.a(cls, "setCrashKeyValue", String.class, String.class);
-            f31145f = true;
+            f31246b = a.a(cls, "doInit", Context.class, String[].class);
+            f31248d = a.a(cls, "setStatisticParam", String.class);
+            f31247c = a.a(cls, "setEnabled", Boolean.TYPE);
+            f31249e = a.a(cls, "setCrashKeyValue", String.class, String.class);
+            f31250f = true;
         } catch (Error e2) {
             e2.printStackTrace();
         } catch (Exception e3) {
@@ -65,8 +65,8 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65537, null, context, strArr) == null) {
             try {
-                if (f31145f) {
-                    f31141b.invoke(f31140a, context, strArr);
+                if (f31250f) {
+                    f31246b.invoke(f31245a, context, strArr);
                 }
             } catch (Exception e2) {
                 e2.printStackTrace();
@@ -78,8 +78,8 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, null, str) == null) {
             try {
-                if (f31145f) {
-                    f31143d.invoke(f31140a, str);
+                if (f31250f) {
+                    f31248d.invoke(f31245a, str);
                 }
             } catch (Exception e2) {
                 e2.printStackTrace();
@@ -91,8 +91,8 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65539, null, str, str2) == null) {
             try {
-                if (f31145f) {
-                    f31144e.invoke(f31140a, str, str2);
+                if (f31250f) {
+                    f31249e.invoke(f31245a, str, str2);
                 }
             } catch (Exception e2) {
                 e2.printStackTrace();
@@ -104,8 +104,8 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TRACKBALL, null, z) == null) {
             try {
-                if (f31145f) {
-                    f31142c.invoke(f31140a, Boolean.valueOf(z));
+                if (f31250f) {
+                    f31247c.invoke(f31245a, Boolean.valueOf(z));
                 }
             } catch (Exception e2) {
                 e2.printStackTrace();
@@ -116,6 +116,6 @@ public class b {
     public static boolean e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? f31145f : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? f31250f : invokeV.booleanValue;
     }
 }

@@ -17,35 +17,35 @@ public class y {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static y f43789a;
+    public static y f43904a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f43790b;
+    public Context f43905b;
 
     /* renamed from: c  reason: collision with root package name */
-    public JSONObject f43791c;
+    public JSONObject f43906c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f43792d;
+    public long f43907d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f43793e;
+    public long f43908e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f43794f;
+    public long f43909f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f43795g;
+    public long f43910g;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f43796h;
+    public long f43911h;
 
     /* renamed from: i  reason: collision with root package name */
-    public long f43797i;
+    public long f43912i;
 
     /* renamed from: j  reason: collision with root package name */
-    public long f43798j;
+    public long f43913j;
     public long k;
     public long l;
     public long m;
@@ -69,14 +69,14 @@ public class y {
                 return;
             }
         }
-        this.f43791c = new JSONObject();
-        this.f43792d = 24L;
-        this.f43793e = 0L;
-        this.f43794f = 0L;
-        this.f43795g = 0L;
-        this.f43796h = 5L;
-        this.f43797i = 24L;
-        this.f43798j = 15L;
+        this.f43906c = new JSONObject();
+        this.f43907d = 24L;
+        this.f43908e = 0L;
+        this.f43909f = 0L;
+        this.f43910g = 0L;
+        this.f43911h = 5L;
+        this.f43912i = 24L;
+        this.f43913j = 15L;
         this.k = 15L;
         this.l = 30L;
         this.m = 12L;
@@ -84,7 +84,7 @@ public class y {
         this.o = 24L;
         this.p = "";
         this.q = "";
-        this.f43790b = context;
+        this.f43905b = context;
         m();
         j();
         k();
@@ -94,14 +94,14 @@ public class y {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            if (f43789a == null) {
+            if (f43904a == null) {
                 synchronized (y.class) {
-                    if (f43789a == null) {
-                        f43789a = new y(context);
+                    if (f43904a == null) {
+                        f43904a = new y(context);
                     }
                 }
             }
-            return f43789a;
+            return f43904a;
         }
         return (y) invokeL.objValue;
     }
@@ -114,7 +114,7 @@ public class y {
                 if (TextUtils.isEmpty(b2)) {
                     return;
                 }
-                this.f43791c = new JSONObject(b2);
+                this.f43906c = new JSONObject(b2);
             } catch (Exception unused) {
             }
         }
@@ -123,13 +123,13 @@ public class y {
     public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f43794f != 0 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f43909f != 0 : invokeV.booleanValue;
     }
 
     public long c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f43792d * 60 * 60 * 1000 : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f43907d * 60 * 60 * 1000 : invokeV.longValue;
     }
 
     public long d() {
@@ -141,19 +141,19 @@ public class y {
     public long e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f43796h * 60 * 1000 : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f43911h * 60 * 1000 : invokeV.longValue;
     }
 
     public long f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f43797i * 60 * 60 * 1000 : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f43912i * 60 * 60 * 1000 : invokeV.longValue;
     }
 
     public long g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f43798j * 24 * 60 * 60 * 1000 : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f43913j * 24 * 60 * 60 * 1000 : invokeV.longValue;
     }
 
     public long h() {
@@ -172,33 +172,33 @@ public class y {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
             try {
-                String str = new String(bv.b(false, br.a(), bp.a(bo.a(this.f43790b, ".config2").getBytes())));
+                String str = new String(bv.b(false, br.a(), bp.a(bo.a(this.f43905b, ".config2").getBytes())));
                 if (TextUtils.isEmpty(str)) {
                     return;
                 }
                 JSONObject jSONObject = new JSONObject(str);
                 try {
-                    this.f43793e = jSONObject.getLong("c");
+                    this.f43908e = jSONObject.getLong("c");
                 } catch (JSONException e2) {
                     bb.c().b(e2);
                 }
                 try {
-                    this.f43796h = jSONObject.getLong("d");
+                    this.f43911h = jSONObject.getLong("d");
                 } catch (JSONException e3) {
                     bb.c().b(e3);
                 }
                 try {
-                    this.f43797i = jSONObject.getLong("e");
+                    this.f43912i = jSONObject.getLong("e");
                 } catch (JSONException e4) {
                     bb.c().b(e4);
                 }
                 try {
-                    this.f43798j = jSONObject.getLong("i");
+                    this.f43913j = jSONObject.getLong("i");
                 } catch (JSONException e5) {
                     bb.c().b(e5);
                 }
                 try {
-                    this.f43792d = jSONObject.getLong("f");
+                    this.f43907d = jSONObject.getLong("f");
                 } catch (JSONException e6) {
                     bb.c().b(e6);
                 }
@@ -228,12 +228,12 @@ public class y {
                     bb.c().b(e11);
                 }
                 try {
-                    this.f43794f = jSONObject.getLong("mc");
+                    this.f43909f = jSONObject.getLong("mc");
                 } catch (JSONException e12) {
                     bb.c().b(e12);
                 }
                 try {
-                    this.f43795g = jSONObject.getLong("lsc");
+                    this.f43910g = jSONObject.getLong("lsc");
                 } catch (JSONException e13) {
                     bb.c().b(e13);
                 }
@@ -247,7 +247,7 @@ public class y {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
             try {
-                String str = new String(bv.b(false, br.a(), bp.a(bo.a(this.f43790b, ".sign").getBytes())));
+                String str = new String(bv.b(false, br.a(), bp.a(bo.a(this.f43905b, ".sign").getBytes())));
                 if (TextUtils.isEmpty(str)) {
                     return;
                 }
@@ -273,7 +273,7 @@ public class y {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
             long currentTimeMillis = System.currentTimeMillis();
-            long a2 = a(g.f43751h);
+            long a2 = a(g.f43866h);
             long d2 = d();
             bb c2 = bb.c();
             c2.a("canSend now=" + currentTimeMillis + ";lastSendTime=" + a2 + ";sendLogTimeInterval=" + d2);
@@ -285,7 +285,7 @@ public class y {
     public void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            bo.a(this.f43790b, ".sign", str, false);
+            bo.a(this.f43905b, ".sign", str, false);
             k();
         }
     }
@@ -311,13 +311,13 @@ public class y {
     public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f43793e != 0 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f43908e != 0 : invokeV.booleanValue;
     }
 
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            bo.a(this.f43790b, ".config2", str, false);
+            bo.a(this.f43905b, ".config2", str, false);
             j();
         }
     }
@@ -326,11 +326,11 @@ public class y {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, gVar)) == null) {
-            long j2 = gVar.f43753j;
+            long j2 = gVar.f43868j;
             try {
                 String str = gVar.toString();
-                if (this.f43791c.has(str)) {
-                    j2 = this.f43791c.getLong(str);
+                if (this.f43906c.has(str)) {
+                    j2 = this.f43906c.getLong(str);
                 }
             } catch (Exception e2) {
                 bb.c().a(e2);
@@ -343,14 +343,14 @@ public class y {
     public void a(g gVar, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, gVar, j2) == null) {
-            gVar.f43753j = j2;
+            gVar.f43868j = j2;
             try {
-                this.f43791c.put(gVar.toString(), j2);
+                this.f43906c.put(gVar.toString(), j2);
             } catch (Exception e2) {
                 bb.c().a(e2);
             }
             try {
-                bo.a("backups/system/.timestamp", this.f43791c.toString(), false);
+                bo.a("backups/system/.timestamp", this.f43906c.toString(), false);
             } catch (Exception e3) {
                 bb.c().a(e3);
             }

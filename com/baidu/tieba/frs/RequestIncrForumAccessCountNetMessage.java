@@ -1,6 +1,6 @@
 package com.baidu.tieba.frs;
 
-import c.a.p0.b1.w;
+import c.a.q0.d1.x;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -44,7 +44,7 @@ public class RequestIncrForumAccessCountNetMessage extends NetMessage {
             DataReq.Builder builder = new DataReq.Builder();
             builder.forum_id = Long.valueOf(this.mForumId);
             if (z) {
-                w.a(builder, true);
+                x.a(builder, true);
             }
             IncrForumAccessCountReqIdl.Builder builder2 = new IncrForumAccessCountReqIdl.Builder();
             builder2.data = builder.build(false);

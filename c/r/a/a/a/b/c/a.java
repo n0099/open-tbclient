@@ -19,19 +19,19 @@ public final class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public com.yxcorp.kuaishou.addfp.a.b.b f35370a;
+    public com.yxcorp.kuaishou.addfp.a.b.b f35479a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f35371b;
+    public Context f35480b;
 
     /* renamed from: c  reason: collision with root package name */
-    public d f35372c;
+    public d f35481c;
 
     /* renamed from: d  reason: collision with root package name */
-    public CountDownLatch f35373d;
+    public CountDownLatch f35482d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ServiceConnection f35374e;
+    public ServiceConnection f35483e;
 
     public a(Context context) {
         Interceptable interceptable = $ic;
@@ -48,17 +48,17 @@ public final class a {
                 return;
             }
         }
-        this.f35372c = null;
-        this.f35373d = new CountDownLatch(1);
-        this.f35374e = new b(this);
-        this.f35371b = context;
+        this.f35481c = null;
+        this.f35482d = new CountDownLatch(1);
+        this.f35483e = new b(this);
+        this.f35480b = context;
     }
 
     public final void c() {
         ServiceConnection serviceConnection;
         Context context;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (serviceConnection = this.f35374e) == null || (context = this.f35371b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (serviceConnection = this.f35483e) == null || (context = this.f35480b) == null) {
             return;
         }
         context.unbindService(serviceConnection);
@@ -68,15 +68,15 @@ public final class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
             try {
-                this.f35370a = bVar;
+                this.f35479a = bVar;
                 Intent intent = new Intent("com.uodis.opendevice.OPENIDS_SERVICE");
                 intent.setPackage("com.huawei.hwid");
-                if (!this.f35371b.bindService(intent, this.f35374e, 1)) {
+                if (!this.f35480b.bindService(intent, this.f35483e, 1)) {
                     e(false);
                     return;
                 }
-                this.f35373d.await(10L, TimeUnit.SECONDS);
-                if (this.f35372c != null) {
+                this.f35482d.await(10L, TimeUnit.SECONDS);
+                if (this.f35481c != null) {
                     e(true);
                 } else {
                     e(false);
@@ -93,12 +93,12 @@ public final class a {
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
             try {
                 if (!z) {
-                    this.f35370a.e();
+                    this.f35479a.e();
                     return;
                 }
-                String a2 = this.f35372c.a();
+                String a2 = this.f35481c.a();
                 if (TextUtils.isEmpty(a2)) {
-                    this.f35370a.a(a2);
+                    this.f35479a.a(a2);
                 }
             } catch (Throwable th) {
                 c.c(th);

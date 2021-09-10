@@ -1,6 +1,6 @@
 package com.baidu.tieba.homeExtra;
 
-import c.a.q0.n3.c;
+import c.a.r0.o3.c;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -41,7 +41,7 @@ public class HomeExtraStatic {
         public CustomResponsedMessage<c.a> run(CustomMessage<c.a> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) ? new CustomResponsedMessage<>(2156671, new c.a.q0.e1.d.a()) : (CustomResponsedMessage) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) ? new CustomResponsedMessage<>(2156671, new c.a.r0.f1.d.a()) : (CustomResponsedMessage) invokeL.objValue;
         }
     }
 
@@ -58,7 +58,7 @@ public class HomeExtraStatic {
                 return;
             }
         }
-        MessageManager.getInstance().registerTask(new c.a.q0.e1.a());
+        MessageManager.getInstance().registerTask(new c.a.r0.f1.a());
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001407, Boolean.TRUE));
         CustomMessageTask customMessageTask = new CustomMessageTask(2156671, new a());
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);

@@ -2,8 +2,8 @@ package com.baidu.tieba.memberCenter.index.adapter;
 
 import android.view.View;
 import android.widget.TextView;
-import c.a.p0.u0.a;
-import c.a.q0.w1.c.k.f;
+import c.a.q0.w0.a;
+import c.a.r0.x1.c.k.f;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.BaseFragmentActivity;
@@ -20,16 +20,16 @@ public class ExpandViewHolder extends TypeAdapter.ViewHolder {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public View f54134a;
+    public View f54280a;
 
     /* renamed from: b  reason: collision with root package name */
-    public BaseFragmentActivity f54135b;
+    public BaseFragmentActivity f54281b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f54136c;
+    public TextView f54282c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TbImageView f54137d;
+    public TbImageView f54283d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ExpandViewHolder(View view, BaseFragmentActivity baseFragmentActivity) {
@@ -49,16 +49,16 @@ public class ExpandViewHolder extends TypeAdapter.ViewHolder {
                 return;
             }
         }
-        this.f54134a = view;
-        this.f54135b = baseFragmentActivity;
-        this.f54136c = (TextView) view.findViewById(R.id.expand_text);
-        this.f54137d = (TbImageView) this.f54134a.findViewById(R.id.expand_icon);
+        this.f54280a = view;
+        this.f54281b = baseFragmentActivity;
+        this.f54282c = (TextView) view.findViewById(R.id.expand_text);
+        this.f54283d = (TbImageView) this.f54280a.findViewById(R.id.expand_icon);
     }
 
     public void onChangeSkinType() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            a.a(this.f54135b.getPageContext(), this.f54134a);
+            a.a(this.f54281b.getPageContext(), this.f54280a);
         }
     }
 
@@ -78,18 +78,18 @@ public class ExpandViewHolder extends TypeAdapter.ViewHolder {
             z2 = false;
         }
         if (z2) {
-            this.f54136c.setVisibility(0);
-            this.f54137d.setVisibility(0);
+            this.f54282c.setVisibility(0);
+            this.f54283d.setVisibility(0);
             if (z) {
-                this.f54136c.setText(R.string.unexpand_text);
-                SkinManager.setImageResource(this.f54137d, R.drawable.ic_shop_up);
+                this.f54282c.setText(R.string.unexpand_text);
+                SkinManager.setImageResource(this.f54283d, R.drawable.ic_shop_up);
             } else {
-                this.f54136c.setText(R.string.expand);
-                SkinManager.setImageResource(this.f54137d, R.drawable.ic_shop_down);
+                this.f54282c.setText(R.string.expand);
+                SkinManager.setImageResource(this.f54283d, R.drawable.ic_shop_down);
             }
         } else {
-            this.f54136c.setVisibility(8);
-            this.f54137d.setVisibility(8);
+            this.f54282c.setVisibility(8);
+            this.f54283d.setVisibility(8);
         }
         onChangeSkinType();
     }

@@ -17,7 +17,7 @@ public class g {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f35981a;
+    public static String f36090a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -87,7 +87,7 @@ public class g {
                 try {
                     String a2 = com.alipay.sdk.encrypt.e.a(a(context), str2, str);
                     if (!TextUtils.isEmpty(str2) && TextUtils.isEmpty(a2)) {
-                        com.alipay.sdk.app.statistic.a.a(aVar, com.alipay.sdk.app.statistic.b.f35806c, com.alipay.sdk.app.statistic.b.A, String.format("%s,%s", str, str2));
+                        com.alipay.sdk.app.statistic.a.a(aVar, com.alipay.sdk.app.statistic.b.f35915c, com.alipay.sdk.app.statistic.b.A, String.format("%s,%s", str, str2));
                     }
                     PreferenceManager.getDefaultSharedPreferences(context).edit().putString(str, a2).apply();
                 } catch (Throwable th) {
@@ -107,7 +107,7 @@ public class g {
                     String string = PreferenceManager.getDefaultSharedPreferences(context).getString(str, str2);
                     str3 = TextUtils.isEmpty(string) ? null : com.alipay.sdk.encrypt.e.b(a(context), string, str);
                     if (!TextUtils.isEmpty(string) && TextUtils.isEmpty(str3)) {
-                        com.alipay.sdk.app.statistic.a.a(aVar, com.alipay.sdk.app.statistic.b.f35806c, com.alipay.sdk.app.statistic.b.z, String.format("%s,%s", str, string));
+                        com.alipay.sdk.app.statistic.a.a(aVar, com.alipay.sdk.app.statistic.b.f35915c, com.alipay.sdk.app.statistic.b.z, String.format("%s,%s", str, string));
                     }
                 } catch (Exception e2) {
                     c.a(e2);
@@ -123,16 +123,16 @@ public class g {
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            if (TextUtils.isEmpty(f35981a)) {
+            if (TextUtils.isEmpty(f36090a)) {
                 try {
                     str = context.getApplicationContext().getPackageName();
                 } catch (Throwable th) {
                     c.a(th);
                     str = "";
                 }
-                f35981a = (str + "0000000000000000000000000000").substring(0, 24);
+                f36090a = (str + "0000000000000000000000000000").substring(0, 24);
             }
-            return f35981a;
+            return f36090a;
         }
         return (String) invokeL.objValue;
     }

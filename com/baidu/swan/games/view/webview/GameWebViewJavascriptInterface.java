@@ -2,8 +2,8 @@ package com.baidu.swan.games.view.webview;
 
 import android.webkit.JavascriptInterface;
 import androidx.annotation.Keep;
-import c.a.o0.a.k;
-import c.a.o0.h.o0.h.a;
+import c.a.p0.a.k;
+import c.a.p0.h.o0.h.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -34,7 +34,7 @@ public class GameWebViewJavascriptInterface {
                 return;
             }
         }
-        DEBUG = k.f7049a;
+        DEBUG = k.f7077a;
     }
 
     public GameWebViewJavascriptInterface() {

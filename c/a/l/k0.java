@@ -2,7 +2,7 @@ package c.a.l;
 
 import android.view.View;
 import android.widget.RelativeLayout;
-import c.a.p0.s.q.c2;
+import c.a.q0.s.q.d2;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -19,15 +19,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
-public class k0 extends c implements p<c2> {
+public class k0 extends c implements p<d2> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: i  reason: collision with root package name */
-    public TbPageContext f3821i;
+    public TbPageContext f3814i;
 
     /* renamed from: j  reason: collision with root package name */
-    public TbImageView f3822j;
+    public TbImageView f3815j;
     public boolean k;
 
     /* loaded from: classes.dex */
@@ -36,10 +36,10 @@ public class k0 extends c implements p<c2> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ThemeCardInUserData f3823e;
+        public final /* synthetic */ ThemeCardInUserData f3816e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ k0 f3824f;
+        public final /* synthetic */ k0 f3817f;
 
         public a(k0 k0Var, ThemeCardInUserData themeCardInUserData) {
             Interceptable interceptable = $ic;
@@ -56,15 +56,15 @@ public class k0 extends c implements p<c2> {
                     return;
                 }
             }
-            this.f3824f = k0Var;
-            this.f3823e = themeCardInUserData;
+            this.f3817f = k0Var;
+            this.f3816e = themeCardInUserData;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonalCardDetailActivityConfig(this.f3824f.f3821i.getPageActivity(), this.f3823e.getCardId())));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonalCardDetailActivityConfig(this.f3817f.f3814i.getPageActivity(), this.f3816e.getCardId())));
             }
         }
     }
@@ -85,7 +85,7 @@ public class k0 extends c implements p<c2> {
             }
         }
         this.k = true;
-        this.f3821i = tbPageContext;
+        this.f3814i = tbPageContext;
         g(-1);
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(c.a.e.e.p.l.g(tbPageContext.getPageActivity(), R.dimen.ds180), c.a.e.e.p.l.g(tbPageContext.getPageActivity(), R.dimen.ds50));
         layoutParams.addRule(11);
@@ -93,39 +93,39 @@ public class k0 extends c implements p<c2> {
         layoutParams.rightMargin = c.a.e.e.p.l.g(tbPageContext.getPageActivity(), R.dimen.tbds30);
         h(layoutParams);
         TbImageView tbImageView = new TbImageView(tbPageContext.getPageActivity());
-        this.f3822j = tbImageView;
+        this.f3815j = tbImageView;
         f(tbImageView);
     }
 
-    public void k(c2 c2Var) {
+    public void k(d2 d2Var) {
         MetaData J;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, c2Var) == null) || c2Var == null || this.f3822j == null || (J = c2Var.J()) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, d2Var) == null) || d2Var == null || this.f3815j == null || (J = d2Var.J()) == null) {
             return;
         }
         ThemeCardInUserData themeCard = J.getThemeCard();
-        if (themeCard != null && !StringUtils.isNull(themeCard.getCardImageUrlAndroid()) && !c2Var.T1) {
-            if (this.k && (this.f3822j.getLayoutParams() instanceof RelativeLayout.LayoutParams)) {
-                RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.f3822j.getLayoutParams();
-                layoutParams.rightMargin = c.a.e.e.p.l.g(this.f3821i.getPageActivity(), R.dimen.tbds106);
-                this.f3822j.setLayoutParams(layoutParams);
+        if (themeCard != null && !StringUtils.isNull(themeCard.getCardImageUrlAndroid()) && !d2Var.V1) {
+            if (this.k && (this.f3815j.getLayoutParams() instanceof RelativeLayout.LayoutParams)) {
+                RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.f3815j.getLayoutParams();
+                layoutParams.rightMargin = c.a.e.e.p.l.g(this.f3814i.getPageActivity(), R.dimen.tbds106);
+                this.f3815j.setLayoutParams(layoutParams);
             }
-            this.f3822j.setVisibility(0);
-            this.f3822j.setImageDrawable(null);
-            this.f3822j.startLoad(themeCard.getCardImageUrlAndroid(), 10, false);
-            this.f3822j.setOnClickListener(new a(this, themeCard));
+            this.f3815j.setVisibility(0);
+            this.f3815j.setImageDrawable(null);
+            this.f3815j.startLoad(themeCard.getCardImageUrlAndroid(), 10, false);
+            this.f3815j.setOnClickListener(new a(this, themeCard));
             return;
         }
-        this.f3822j.setVisibility(8);
+        this.f3815j.setVisibility(8);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // c.a.l.p
     /* renamed from: l */
-    public void onBindDataToView(c2 c2Var) {
+    public void onBindDataToView(d2 d2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, c2Var) == null) {
-            k(c2Var);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, d2Var) == null) {
+            k(d2Var);
         }
     }
 
@@ -139,7 +139,7 @@ public class k0 extends c implements p<c2> {
     public void n(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bdUniqueId) == null) {
-            this.f3822j.setPageId(bdUniqueId);
+            this.f3815j.setPageId(bdUniqueId);
         }
     }
 }

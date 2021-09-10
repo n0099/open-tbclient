@@ -20,7 +20,7 @@ public class o0 extends h {
     public transient /* synthetic */ FieldHolder $fh;
     public LinearLayout l;
     public BjhArticleLayout m;
-    public c.a.p0.s.q.a n;
+    public c.a.q0.s.q.a n;
     public int o;
 
     /* loaded from: classes.dex */
@@ -29,7 +29,7 @@ public class o0 extends h {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ o0 f3861e;
+        public final /* synthetic */ o0 f3854e;
 
         public a(o0 o0Var) {
             Interceptable interceptable = $ic;
@@ -46,18 +46,18 @@ public class o0 extends h {
                     return;
                 }
             }
-            this.f3861e = o0Var;
+            this.f3854e = o0Var;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             o0 o0Var;
-            a.InterfaceC0094a interfaceC0094a;
+            a.InterfaceC0093a interfaceC0093a;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (interfaceC0094a = (o0Var = this.f3861e).f3792i) == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (interfaceC0093a = (o0Var = this.f3854e).f3785i) == null) {
                 return;
             }
-            interfaceC0094a.a(o0Var.n);
+            interfaceC0093a.a(o0Var.n);
         }
     }
 
@@ -88,7 +88,7 @@ public class o0 extends h {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             if (this.l == null) {
-                LinearLayout linearLayout = new LinearLayout(this.f3789f);
+                LinearLayout linearLayout = new LinearLayout(this.f3782f);
                 this.l = linearLayout;
                 SkinManager.setBackgroundColor(linearLayout, R.color.CAM_X0206);
                 this.l.setOrientation(1);
@@ -96,15 +96,15 @@ public class o0 extends h {
             }
             this.l.removeAllViews();
             if (this.m == null) {
-                BjhArticleLayout bjhArticleLayout = new BjhArticleLayout(this.f3789f);
+                BjhArticleLayout bjhArticleLayout = new BjhArticleLayout(this.f3782f);
                 this.m = bjhArticleLayout;
                 bjhArticleLayout.setJumpToPbListener(new a(this));
             }
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
-            layoutParams.topMargin = this.f3789f.getResources().getDimensionPixelSize(R.dimen.M_H_X004);
-            layoutParams.leftMargin = this.f3789f.getResources().getDimensionPixelSize(R.dimen.M_W_X007);
-            layoutParams.rightMargin = this.f3789f.getResources().getDimensionPixelSize(R.dimen.M_W_X007);
-            layoutParams.bottomMargin = this.f3789f.getResources().getDimensionPixelSize(R.dimen.M_H_X005);
+            layoutParams.topMargin = this.f3782f.getResources().getDimensionPixelSize(R.dimen.M_H_X004);
+            layoutParams.leftMargin = this.f3782f.getResources().getDimensionPixelSize(R.dimen.M_W_X007);
+            layoutParams.rightMargin = this.f3782f.getResources().getDimensionPixelSize(R.dimen.M_W_X007);
+            layoutParams.bottomMargin = this.f3782f.getResources().getDimensionPixelSize(R.dimen.M_H_X005);
             this.l.addView(this.m, layoutParams);
             return this.l;
         }
@@ -112,7 +112,7 @@ public class o0 extends h {
     }
 
     @Override // c.a.l.a
-    public void k(c.a.q0.a0.b0<c.a.p0.s.q.a> b0Var) {
+    public void k(c.a.r0.a0.b0<c.a.q0.s.q.a> b0Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, b0Var) == null) {
             super.k(b0Var);
@@ -140,7 +140,7 @@ public class o0 extends h {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // c.a.l.p
     /* renamed from: s */
-    public void onBindDataToView(c.a.p0.s.q.a aVar) {
+    public void onBindDataToView(c.a.q0.s.q.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
             this.n = aVar;
@@ -151,10 +151,10 @@ public class o0 extends h {
         }
     }
 
-    public void t(a.InterfaceC0094a interfaceC0094a) {
+    public void t(a.InterfaceC0093a interfaceC0093a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, interfaceC0094a) == null) {
-            this.f3792i = interfaceC0094a;
+        if (interceptable == null || interceptable.invokeL(1048581, this, interfaceC0093a) == null) {
+            this.f3785i = interfaceC0093a;
         }
     }
 }

@@ -21,11 +21,11 @@ public final class j extends v<Date> {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final w f68221a;
+    public static final w f68401a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public final DateFormat f68222b;
+    public final DateFormat f68402b;
 
     static {
         InterceptResult invokeClinit;
@@ -40,7 +40,7 @@ public final class j extends v<Date> {
                 return;
             }
         }
-        f68221a = new w() { // from class: com.bytedance.sdk.openadsdk.preload.a.b.a.j.1
+        f68401a = new w() { // from class: com.bytedance.sdk.openadsdk.preload.a.b.a.j.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -86,7 +86,7 @@ public final class j extends v<Date> {
                 return;
             }
         }
-        this.f68222b = new SimpleDateFormat("MMM d, yyyy");
+        this.f68402b = new SimpleDateFormat("MMM d, yyyy");
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -97,12 +97,12 @@ public final class j extends v<Date> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) {
             synchronized (this) {
-                if (aVar.f() == com.bytedance.sdk.openadsdk.preload.a.d.b.f68384i) {
+                if (aVar.f() == com.bytedance.sdk.openadsdk.preload.a.d.b.f68564i) {
                     aVar.j();
                     return null;
                 }
                 try {
-                    return new Date(this.f68222b.parse(aVar.h()).getTime());
+                    return new Date(this.f68402b.parse(aVar.h()).getTime());
                 } catch (ParseException e2) {
                     throw new t(e2);
                 }
@@ -117,7 +117,7 @@ public final class j extends v<Date> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, cVar, date) == null) {
             synchronized (this) {
-                cVar.b(date == null ? null : this.f68222b.format((java.util.Date) date));
+                cVar.b(date == null ? null : this.f68402b.format((java.util.Date) date));
             }
         }
     }

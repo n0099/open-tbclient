@@ -11,7 +11,7 @@ public class ch extends Exception {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f43371a;
+    public int f43486a;
 
     public ch(int i2) {
         Interceptable interceptable = $ic;
@@ -28,13 +28,13 @@ public class ch extends Exception {
                 return;
             }
         }
-        this.f43371a = i2;
+        this.f43486a = i2;
     }
 
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f43371a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f43486a : invokeV.intValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -55,7 +55,7 @@ public class ch extends Exception {
                 return;
             }
         }
-        this.f43371a = i2;
+        this.f43486a = i2;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -76,6 +76,6 @@ public class ch extends Exception {
                 return;
             }
         }
-        this.f43371a = i2;
+        this.f43486a = i2;
     }
 }

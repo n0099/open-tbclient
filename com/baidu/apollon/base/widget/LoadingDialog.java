@@ -18,20 +18,20 @@ public class LoadingDialog extends Dialog {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f37667a = "LoadingDialog";
+    public static final String f37786a = "LoadingDialog";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f37668b;
+    public TextView f37787b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f37669c;
+    public String f37788c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Context f37670d;
+    public Context f37789d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ImageView f37671e;
+    public ImageView f37790e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public LoadingDialog(Context context) {
@@ -52,8 +52,8 @@ public class LoadingDialog extends Dialog {
                 return;
             }
         }
-        this.f37670d = null;
-        this.f37670d = context;
+        this.f37789d = null;
+        this.f37789d = context;
     }
 
     @Override // android.app.Dialog
@@ -62,13 +62,13 @@ public class LoadingDialog extends Dialog {
         if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
             super.onCreate(bundle);
             requestWindowFeature(1);
-            setContentView(ResUtils.layout(this.f37670d, "wallet_base_layout_loading_dialog"));
-            this.f37668b = (TextView) findViewById(ResUtils.id(this.f37670d, "dialog_msg"));
-            if (!TextUtils.isEmpty(this.f37669c)) {
-                this.f37668b.setText(this.f37669c);
+            setContentView(ResUtils.layout(this.f37789d, "wallet_base_layout_loading_dialog"));
+            this.f37787b = (TextView) findViewById(ResUtils.id(this.f37789d, "dialog_msg"));
+            if (!TextUtils.isEmpty(this.f37788c)) {
+                this.f37787b.setText(this.f37788c);
             }
-            ImageView imageView = (ImageView) findViewById(ResUtils.id(this.f37670d, "img_anim"));
-            this.f37671e = imageView;
+            ImageView imageView = (ImageView) findViewById(ResUtils.id(this.f37789d, "img_anim"));
+            this.f37790e = imageView;
             AnimationDrawable animationDrawable = (AnimationDrawable) imageView.getDrawable();
             animationDrawable.stop();
             animationDrawable.start();
@@ -80,7 +80,7 @@ public class LoadingDialog extends Dialog {
     public void setMessage(int i2) {
         TextView textView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) || (textView = this.f37668b) == null) {
+        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) || (textView = this.f37787b) == null) {
             return;
         }
         textView.setText(i2);
@@ -89,7 +89,7 @@ public class LoadingDialog extends Dialog {
     public void setMessage(String str) {
         TextView textView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) || (textView = this.f37668b) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) || (textView = this.f37787b) == null) {
             return;
         }
         textView.setText(str);
@@ -114,9 +114,9 @@ public class LoadingDialog extends Dialog {
                 return;
             }
         }
-        this.f37670d = null;
-        this.f37669c = str;
-        this.f37670d = context;
+        this.f37789d = null;
+        this.f37788c = str;
+        this.f37789d = context;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -138,6 +138,6 @@ public class LoadingDialog extends Dialog {
                 return;
             }
         }
-        this.f37670d = null;
+        this.f37789d = null;
     }
 }

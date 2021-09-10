@@ -1,7 +1,7 @@
 package com.baidu.tieba.setting.im.more;
 
 import c.a.e.e.m.b;
-import c.a.p0.b1.w;
+import c.a.q0.d1.x;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -42,9 +42,9 @@ public class PrivateInfoNetMessage extends NetMessage {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             ReqData.Builder builder = new ReqData.Builder();
-            builder.user_id = Long.valueOf(b.f(TbadkCoreApplication.getCurrentAccount(), 0L));
+            builder.user_id = Long.valueOf(b.g(TbadkCoreApplication.getCurrentAccount(), 0L));
             if (z) {
-                w.a(builder, true);
+                x.a(builder, true);
             }
             GetPrivateInfoReqIdl.Builder builder2 = new GetPrivateInfoReqIdl.Builder();
             builder2.data = builder.build(false);

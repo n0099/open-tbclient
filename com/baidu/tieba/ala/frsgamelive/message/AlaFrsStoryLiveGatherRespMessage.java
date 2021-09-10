@@ -1,6 +1,6 @@
 package com.baidu.tieba.ala.frsgamelive.message;
 
-import c.a.p0.s.q.c2;
+import c.a.q0.s.q.d2;
 import com.baidu.ala.AlaCmdConfigHttp;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
@@ -19,8 +19,8 @@ public class AlaFrsStoryLiveGatherRespMessage extends JsonHttpResponsedMessage {
     public transient /* synthetic */ FieldHolder $fh;
     public boolean hasMore;
     public int liveCount;
-    public List<c2> liveList;
-    public List<c2> recommandList;
+    public List<d2> liveList;
+    public List<d2> recommandList;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AlaFrsStoryLiveGatherRespMessage() {
@@ -60,9 +60,9 @@ public class AlaFrsStoryLiveGatherRespMessage extends JsonHttpResponsedMessage {
                 for (int i3 = 0; i3 < length; i3++) {
                     JSONObject optJSONObject2 = optJSONArray.optJSONObject(i3);
                     if (optJSONObject2 != null) {
-                        c2 c2Var = new c2();
-                        c2Var.R2(optJSONObject2);
-                        this.liveList.add(c2Var);
+                        d2 d2Var = new d2();
+                        d2Var.X2(optJSONObject2);
+                        this.liveList.add(d2Var);
                     }
                 }
             }
@@ -72,9 +72,9 @@ public class AlaFrsStoryLiveGatherRespMessage extends JsonHttpResponsedMessage {
                 for (int i4 = 0; i4 < length2; i4++) {
                     JSONObject optJSONObject3 = optJSONArray2.optJSONObject(i4);
                     if (optJSONObject3 != null) {
-                        c2 c2Var2 = new c2();
-                        c2Var2.R2(optJSONObject3);
-                        this.recommandList.add(c2Var2);
+                        d2 d2Var2 = new d2();
+                        d2Var2.X2(optJSONObject3);
+                        this.recommandList.add(d2Var2);
                     }
                 }
             }
@@ -87,13 +87,13 @@ public class AlaFrsStoryLiveGatherRespMessage extends JsonHttpResponsedMessage {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.liveCount : invokeV.intValue;
     }
 
-    public List<c2> getLiveList() {
+    public List<d2> getLiveList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.liveList : (List) invokeV.objValue;
     }
 
-    public List<c2> getRecommandList() {
+    public List<d2> getRecommandList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.recommandList : (List) invokeV.objValue;

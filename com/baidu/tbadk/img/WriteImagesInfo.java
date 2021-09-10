@@ -3,7 +3,7 @@ package com.baidu.tbadk.img;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import c.a.e.e.p.k;
-import c.a.p0.c0.i.d;
+import c.a.q0.d0.i.d;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
@@ -28,6 +28,7 @@ public class WriteImagesInfo extends OrmObject implements Serializable {
     public int allImageFileSize;
     public LinkedList<ImageFileInfo> chosedFiles;
     public int hasUploadFileSize;
+    public int imageChunkRetry;
     public int imageChunkSize;
     public int imageUploadConcurrency;
     public boolean isEnableChooseOriginalImg;

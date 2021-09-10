@@ -14,10 +14,10 @@ public final class f extends s1 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Context f31230e;
+    public final Context f31339e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final y1 f31231f;
+    public final y1 f31340f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public f(Context context, y1 y1Var) {
@@ -38,8 +38,8 @@ public final class f extends s1 {
                 return;
             }
         }
-        this.f31230e = context;
-        this.f31231f = y1Var;
+        this.f31339e = context;
+        this.f31340f = y1Var;
     }
 
     @Override // c.b.a.s1
@@ -47,7 +47,7 @@ public final class f extends s1 {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONObject)) == null) {
-            Map<String, String> c2 = n0.c(this.f31230e, this.f31231f.D());
+            Map<String, String> c2 = n0.c(this.f31339e, this.f31340f.D());
             if (c2 != null) {
                 jSONObject.put("oaid", new JSONObject(c2));
                 return true;

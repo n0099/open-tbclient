@@ -12,16 +12,16 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f34202a;
+    public long f34311a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f34203b;
+    public String f34312b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f34204c;
+    public String f34313c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f34205d;
+    public int f34314d;
 
     public a(String str) {
         Interceptable interceptable = $ic;
@@ -38,40 +38,40 @@ public class a {
                 return;
             }
         }
-        this.f34204c = str;
+        this.f34313c = str;
     }
 
     public void a(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-            this.f34205d = i2;
+            this.f34314d = i2;
         }
     }
 
     public void b(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2) == null) {
-            this.f34202a = j2;
+            this.f34311a = j2;
         }
     }
 
     public void c(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.f34203b = str;
+            this.f34312b = str;
         }
     }
 
     public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f34202a > System.currentTimeMillis() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f34311a > System.currentTimeMillis() : invokeV.booleanValue;
     }
 
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.f34202a = 0L;
+            this.f34311a = 0L;
         }
     }
 }

@@ -41,10 +41,10 @@ public class w extends p {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cursor)) == null) {
-            this.f31282e = cursor.getLong(0);
-            this.f31283f = cursor.getLong(1);
-            this.f31284g = cursor.getString(2);
-            this.f31285h = cursor.getString(3);
+            this.f31391e = cursor.getLong(0);
+            this.f31392f = cursor.getLong(1);
+            this.f31393g = cursor.getString(2);
+            this.f31394h = cursor.getString(3);
             this.o = cursor.getString(4);
             this.n = cursor.getString(5);
             this.m = cursor.getLong(6);
@@ -58,10 +58,10 @@ public class w extends p {
     public void e(@NonNull ContentValues contentValues) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, contentValues) == null) {
-            contentValues.put("local_time_ms", Long.valueOf(this.f31282e));
-            contentValues.put("tea_event_index", Long.valueOf(this.f31283f));
-            contentValues.put("session_id", this.f31284g);
-            contentValues.put("user_unique_id", this.f31285h);
+            contentValues.put("local_time_ms", Long.valueOf(this.f31391e));
+            contentValues.put("tea_event_index", Long.valueOf(this.f31392f));
+            contentValues.put("session_id", this.f31393g);
+            contentValues.put("user_unique_id", this.f31394h);
             contentValues.put("page_key", this.o);
             contentValues.put("refer_page_key", this.n);
             contentValues.put("duration", Long.valueOf(this.m));
@@ -76,9 +76,9 @@ public class w extends p {
             jSONObject.put("page_key", this.o);
             jSONObject.put("refer_page_key", this.n);
             jSONObject.put("duration", this.m);
-            jSONObject.put("local_time_ms", this.f31282e);
-            jSONObject.put("session_id", this.f31284g);
-            jSONObject.put("tea_event_index", this.f31283f);
+            jSONObject.put("local_time_ms", this.f31391e);
+            jSONObject.put("session_id", this.f31393g);
+            jSONObject.put("tea_event_index", this.f31392f);
             jSONObject.put("is_back", this.p);
         }
     }
@@ -95,9 +95,9 @@ public class w extends p {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, jSONObject)) == null) {
-            this.f31282e = jSONObject.optLong("local_time_ms", 0L);
-            this.f31283f = jSONObject.optLong("tea_event_index", 0L);
-            this.f31284g = jSONObject.optString("session_id", null);
+            this.f31391e = jSONObject.optLong("local_time_ms", 0L);
+            this.f31392f = jSONObject.optLong("tea_event_index", 0L);
+            this.f31393g = jSONObject.optString("session_id", null);
             this.o = jSONObject.optString("page_key", null);
             this.n = jSONObject.optString("refer_page_key", null);
             this.m = jSONObject.optLong("duration", 0L);
@@ -113,11 +113,11 @@ public class w extends p {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             JSONObject jSONObject = new JSONObject();
-            jSONObject.put("local_time_ms", this.f31282e);
-            jSONObject.put("tea_event_index", this.f31283f);
-            jSONObject.put("session_id", this.f31284g);
-            if (!TextUtils.isEmpty(this.f31285h)) {
-                jSONObject.put("user_unique_id", this.f31285h);
+            jSONObject.put("local_time_ms", this.f31391e);
+            jSONObject.put("tea_event_index", this.f31392f);
+            jSONObject.put("session_id", this.f31393g);
+            if (!TextUtils.isEmpty(this.f31394h)) {
+                jSONObject.put("user_unique_id", this.f31394h);
             }
             jSONObject.put("event", "bav2b_page");
             jSONObject.put("is_bav", 1);

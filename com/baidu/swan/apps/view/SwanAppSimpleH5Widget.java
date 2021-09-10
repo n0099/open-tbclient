@@ -1,7 +1,7 @@
 package com.baidu.swan.apps.view;
 
 import android.content.Context;
-import c.a.o0.a.h0.j.d;
+import c.a.p0.a.h0.j.d;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.browser.sailor.BdSailorWebChromeClient;
 import com.baidu.browser.sailor.BdSailorWebView;
@@ -139,7 +139,7 @@ public class SwanAppSimpleH5Widget extends SwanAppWebViewWidget {
         }
         X0(new SimpleWebViewClient(this, null));
         W0(new SimpleWebChromeClient(this));
-        this.f45760f.setOnWebViewHookHandler(this);
+        this.f45875f.setOnWebViewHookHandler(this);
     }
 
     @Override // com.baidu.swan.apps.core.slave.SwanAppWebViewWidget
@@ -152,7 +152,7 @@ public class SwanAppSimpleH5Widget extends SwanAppWebViewWidget {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.swan.apps.core.SwanAppWebViewManager, c.a.o0.a.h0.f.c
+    @Override // com.baidu.swan.apps.core.SwanAppWebViewManager, c.a.p0.a.h0.f.c
     public boolean p() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

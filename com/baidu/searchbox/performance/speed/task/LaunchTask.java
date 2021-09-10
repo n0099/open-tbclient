@@ -1,5 +1,6 @@
 package com.baidu.searchbox.performance.speed.task;
 
+import android.os.HandlerThread;
 import android.os.Looper;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.config.AppConfig;
@@ -16,6 +17,7 @@ public abstract class LaunchTask implements Runnable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG;
     public static final String TAG = "LaunchTask";
+    public static Looper asyncLooper;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -31,6 +33,9 @@ public abstract class LaunchTask implements Runnable {
                 return;
             }
         }
+        HandlerThread handlerThread = new HandlerThread(TAG);
+        handlerThread.start();
+        asyncLooper = handlerThread.getLooper();
         DEBUG = AppConfig.isDebug();
     }
 

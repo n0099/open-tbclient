@@ -3,7 +3,7 @@ package com.baidu.tieba.setting.more;
 import android.content.Context;
 import android.util.AttributeSet;
 import c.a.e.e.p.l;
-import c.a.p0.s.d0.b;
+import c.a.q0.s.d0.b;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.coreExtra.data.VersionData;

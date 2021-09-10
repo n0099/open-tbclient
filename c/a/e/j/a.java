@@ -20,7 +20,7 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static File f2903a;
+    public static File f2894a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c.a.e.j.a$a  reason: collision with other inner class name */
@@ -56,7 +56,7 @@ public class a {
                 }
                 Iterator it = list.iterator();
                 while (it.hasNext()) {
-                    if (file.equals((File) it.next()) || file.equals(a.f2903a)) {
+                    if (file.equals((File) it.next()) || file.equals(a.f2894a)) {
                         it.remove();
                         break;
                     }
@@ -98,7 +98,7 @@ public class a {
                 }
                 Iterator it = list.iterator();
                 while (it.hasNext()) {
-                    if (file.equals((File) it.next()) || file.equals(a.f2903a)) {
+                    if (file.equals((File) it.next()) || file.equals(a.f2894a)) {
                         it.remove();
                         break;
                     }
@@ -164,7 +164,7 @@ public class a {
                         } else if (i2 >= 14) {
                             C0047a.b(classLoader, file);
                         }
-                        f2903a = file;
+                        f2894a = file;
                         return true;
                     }
                 }

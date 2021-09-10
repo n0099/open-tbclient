@@ -1,6 +1,6 @@
 package com.baidu.tieba.im.model;
 
-import c.a.q0.j1.k.b;
+import c.a.r0.k1.k.b;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;

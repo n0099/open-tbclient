@@ -1,108 +1,174 @@
 package c.a.q0.e0;
 
+import android.app.Application;
+import android.content.Context;
 import android.content.Intent;
-import android.net.Uri;
-import c.a.p0.s.s.a;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.TbPageContext;
+import android.content.pm.PackageInfo;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
+import c.a.e.e.p.l;
+import c.a.q0.s.f0.p.d.b;
+import c.a.r0.y2.f0.g;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.LoginActivityConfig;
-import com.baidu.tbadk.core.frameworkData.IntentConfig;
-import com.baidu.tieba.R;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.core.view.itemcard.download.ItemDownloadExtraData;
+import com.baidu.tbadk.download.DownloadData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.Item;
 /* loaded from: classes3.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* renamed from: c.a.q0.e0.a$a  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    public static class C0818a implements a.e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TbPageContext f16904e;
-
-        /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f16905f;
-
-        public C0818a(TbPageContext tbPageContext, int i2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {tbPageContext, Integer.valueOf(i2)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f16904e = tbPageContext;
-            this.f16905f = i2;
-        }
-
-        @Override // c.a.p0.s.s.a.e
-        public void onClick(c.a.p0.s.s.a aVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                aVar.dismiss();
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new LoginActivityConfig(this.f16904e.getPageActivity(), true, this.f16905f)));
-            }
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public static class b implements a.e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // c.a.p0.s.s.a.e
-        public void onClick(c.a.p0.s.s.a aVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                aVar.dismiss();
-            }
-        }
-    }
-
-    public static void a(Intent intent, TbPageContext tbPageContext, int i2) {
-        Uri uri;
+    public static void a(DownloadData downloadData) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLI(65536, null, intent, tbPageContext, i2) == null) || intent == null || !TbadkCoreApplication.isLogin() || (uri = (Uri) intent.getParcelableExtra(IntentConfig.KEY_URI)) == null) {
+        if (interceptable == null || interceptable.invokeL(65536, null, downloadData) == null) {
+            b.a(downloadData, 400);
+            g.l().g(downloadData.getUrl(), downloadData.getId());
+        }
+    }
+
+    public static boolean b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) ? g.l().p(str) : invokeL.booleanValue;
+    }
+
+    public static int c(@NonNull DownloadData downloadData) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, downloadData)) == null) {
+            if (g.l().o(downloadData.getId())) {
+                return 5;
+            }
+            if (g.l().q(downloadData.getId())) {
+                return 1;
+            }
+            return g.l().n(downloadData.getId(), downloadData.getName()) ? 7 : 6;
+        }
+        return invokeL.intValue;
+    }
+
+    public static PackageInfo d(String str) {
+        InterceptResult invokeL;
+        PackageInfo packageInfo;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            try {
+                packageInfo = TbadkApplication.getInst().getPackageManager().getPackageInfo(str, 0);
+            } catch (Exception e2) {
+                e2.printStackTrace();
+            }
+            if (str.equals(packageInfo.packageName)) {
+                return packageInfo;
+            }
+            return null;
+        }
+        return (PackageInfo) invokeL.objValue;
+    }
+
+    public static Intent e(Context context, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str)) == null) {
+            try {
+                return context.getPackageManager().getLaunchIntentForPackage(str);
+            } catch (Exception unused) {
+                return null;
+            }
+        }
+        return (Intent) invokeLL.objValue;
+    }
+
+    public static String f(Intent intent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, intent)) == null) {
+            String dataString = intent.getDataString();
+            if (TextUtils.isEmpty(dataString)) {
+                return null;
+            }
+            String[] split = dataString.split(":");
+            return split.length == 2 ? split[1] : dataString;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static int g(@NonNull DownloadData downloadData) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, downloadData)) == null) {
+            int i2 = g.l().i(downloadData.getId(), downloadData.getName());
+            if (i2 < 0 || i2 > 100) {
+                return 0;
+            }
+            return i2;
+        }
+        return invokeL.intValue;
+    }
+
+    public static void h(DownloadData downloadData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65543, null, downloadData) == null) {
+            b.a(downloadData, 800);
+            Application app = TbadkCoreApplication.getInst().getApp();
+            UtilHelper.install_apk(app, downloadData.getId().replace(".", "_") + ".apk");
+        }
+    }
+
+    public static DownloadData i(Item item) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, item)) == null) {
+            String str = item.apk_name + ".v" + item.apk_detail.version;
+            DownloadData downloadData = new DownloadData();
+            downloadData.setType(12);
+            downloadData.setId(str);
+            downloadData.setName(item.item_name);
+            downloadData.setUrl(item.button_link);
+            downloadData.setNotifyId(g.m(str).intValue());
+            downloadData.setNeedInvokeApk(true);
+            downloadData.setNeedNotify(false);
+            ItemDownloadExtraData itemDownloadExtraData = new ItemDownloadExtraData(item.apk_detail.pkg_source.intValue());
+            itemDownloadExtraData.appName = item.item_name;
+            itemDownloadExtraData.pkgName = item.apk_name;
+            downloadData.setExtra(itemDownloadExtraData);
+            return downloadData;
+        }
+        return (DownloadData) invokeL.objValue;
+    }
+
+    public static void j(String str) {
+        Context context;
+        Intent e2;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65545, null, str) == null) || TextUtils.isEmpty(str) || (e2 = e((context = TbadkCoreApplication.getInst().getContext()), str)) == null) {
             return;
         }
-        String queryParameter = uri.getQueryParameter("portrait");
-        if (TbadkCoreApplication.getCurrentPortrait() == null || queryParameter == null || TbadkCoreApplication.getCurrentPortrait().contains(queryParameter)) {
-            return;
+        try {
+            context.startActivity(e2);
+        } catch (Exception unused) {
         }
-        c.a.p0.s.s.a aVar = new c.a.p0.s.s.a(tbPageContext.getPageActivity());
-        aVar.setContentViewSize(1);
-        aVar.setMessage(tbPageContext.getString(R.string.account_not_the_same_as_pc));
-        aVar.setPositiveButton(R.string.change_account, new C0818a(tbPageContext, i2));
-        aVar.setNegativeButton(R.string.not_change_account, new b());
-        aVar.create(tbPageContext).show();
+    }
+
+    public static boolean k(DownloadData downloadData) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, downloadData)) == null) {
+            if (l.D()) {
+                return g.l().s(downloadData);
+            }
+            c.a.q0.w.b.b(downloadData);
+            return false;
+        }
+        return invokeL.booleanValue;
     }
 }

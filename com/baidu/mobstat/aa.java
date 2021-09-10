@@ -11,13 +11,13 @@ public final class aa {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f43045a = true;
+    public static boolean f43160a = true;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f43046b;
+    public static final String f43161b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f43047c;
+    public static final String f43162c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -33,7 +33,7 @@ public final class aa {
                 return;
             }
         }
-        f43046b = Build.VERSION.SDK_INT < 9 ? "http://datax.baidu.com/xs.gif" : "https://datax.baidu.com/xs.gif";
-        f43047c = Build.VERSION.SDK_INT < 9 ? "http://dxp.baidu.com/upgrade" : "https://dxp.baidu.com/upgrade";
+        f43161b = Build.VERSION.SDK_INT < 9 ? "http://datax.baidu.com/xs.gif" : "https://datax.baidu.com/xs.gif";
+        f43162c = Build.VERSION.SDK_INT < 9 ? "http://dxp.baidu.com/upgrade" : "https://dxp.baidu.com/upgrade";
     }
 }

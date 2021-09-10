@@ -16,11 +16,11 @@ public final class LoginType {
     public static final LoginType WeiXin;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final /* synthetic */ LoginType[] f75126b;
+    public static final /* synthetic */ LoginType[] f75306b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f75127a;
+    public int f75307a;
 
     static {
         InterceptResult invokeClinit;
@@ -39,7 +39,7 @@ public final class LoginType {
         WeiXin = new LoginType("WeiXin", 1, 1);
         LoginType loginType = new LoginType(com.tencent.connect.common.Constants.SOURCE_QQ, 2, 2);
         QQ = loginType;
-        f75126b = new LoginType[]{Unknow, WeiXin, loginType};
+        f75306b = new LoginType[]{Unknow, WeiXin, loginType};
     }
 
     public LoginType(String str, int i2, int i3) {
@@ -60,7 +60,7 @@ public final class LoginType {
                 return;
             }
         }
-        this.f75127a = i3;
+        this.f75307a = i3;
         ordinal();
     }
 
@@ -73,12 +73,12 @@ public final class LoginType {
     public static LoginType[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (LoginType[]) f75126b.clone() : (LoginType[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (LoginType[]) f75306b.clone() : (LoginType[]) invokeV.objValue;
     }
 
     public final int getValue() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f75127a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f75307a : invokeV.intValue;
     }
 }

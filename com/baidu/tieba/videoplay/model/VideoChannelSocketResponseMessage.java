@@ -1,6 +1,6 @@
 package com.baidu.tieba.videoplay.model;
 
-import c.a.p0.s.q.c2;
+import c.a.q0.s.q.d2;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.video.VideoItemData;
@@ -61,9 +61,9 @@ public class VideoChannelSocketResponseMessage extends SocketResponsedMessage {
             }
             for (int i3 = 0; i3 < list.size(); i3++) {
                 VideoItemData videoItemData = new VideoItemData();
-                c2 c2Var = new c2();
-                c2Var.S2(list.get(i3));
-                videoItemData.parseProto(c2Var);
+                d2 d2Var = new d2();
+                d2Var.Y2(list.get(i3));
+                videoItemData.parseProto(d2Var);
                 this.mVideoItemDatas.add(videoItemData);
             }
         }

@@ -47,7 +47,7 @@ public final class h {
     public static final h Z;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Comparator<String> f64701a;
+    public static final Comparator<String> f64881a;
     public static final h aA;
     public static final h aB;
     public static final h aC;
@@ -102,7 +102,7 @@ public final class h {
     public static final h az;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final h f64702b;
+    public static final h f64882b;
     public static final h ba;
     public static final h bb;
     public static final h bc;
@@ -115,28 +115,28 @@ public final class h {
     public static final Map<String, h> bk;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final h f64703c;
+    public static final h f64883c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final h f64704d;
+    public static final h f64884d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final h f64705e;
+    public static final h f64885e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final h f64706f;
+    public static final h f64886f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final h f64707g;
+    public static final h f64887g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final h f64708h;
+    public static final h f64888h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final h f64709i;
+    public static final h f64889i;
 
     /* renamed from: j  reason: collision with root package name */
-    public static final h f64710j;
+    public static final h f64890j;
     public static final h k;
     public static final h l;
     public static final h m;
@@ -169,7 +169,7 @@ public final class h {
                 return;
             }
         }
-        f64701a = new Comparator<String>() { // from class: com.bytedance.sdk.component.b.b.h.1
+        f64881a = new Comparator<String>() { // from class: com.bytedance.sdk.component.b.b.h.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -212,16 +212,16 @@ public final class h {
                 return invokeLL.intValue;
             }
         };
-        bk = new TreeMap(f64701a);
-        f64702b = a("SSL_RSA_WITH_NULL_MD5", 1);
-        f64703c = a("SSL_RSA_WITH_NULL_SHA", 2);
-        f64704d = a("SSL_RSA_EXPORT_WITH_RC4_40_MD5", 3);
-        f64705e = a("SSL_RSA_WITH_RC4_128_MD5", 4);
-        f64706f = a("SSL_RSA_WITH_RC4_128_SHA", 5);
-        f64707g = a("SSL_RSA_EXPORT_WITH_DES40_CBC_SHA", 8);
-        f64708h = a("SSL_RSA_WITH_DES_CBC_SHA", 9);
-        f64709i = a("SSL_RSA_WITH_3DES_EDE_CBC_SHA", 10);
-        f64710j = a("SSL_DHE_DSS_EXPORT_WITH_DES40_CBC_SHA", 17);
+        bk = new TreeMap(f64881a);
+        f64882b = a("SSL_RSA_WITH_NULL_MD5", 1);
+        f64883c = a("SSL_RSA_WITH_NULL_SHA", 2);
+        f64884d = a("SSL_RSA_EXPORT_WITH_RC4_40_MD5", 3);
+        f64885e = a("SSL_RSA_WITH_RC4_128_MD5", 4);
+        f64886f = a("SSL_RSA_WITH_RC4_128_SHA", 5);
+        f64887g = a("SSL_RSA_EXPORT_WITH_DES40_CBC_SHA", 8);
+        f64888h = a("SSL_RSA_WITH_DES_CBC_SHA", 9);
+        f64889i = a("SSL_RSA_WITH_3DES_EDE_CBC_SHA", 10);
+        f64890j = a("SSL_DHE_DSS_EXPORT_WITH_DES40_CBC_SHA", 17);
         k = a("SSL_DHE_DSS_WITH_DES_CBC_SHA", 18);
         l = a("SSL_DHE_DSS_WITH_3DES_EDE_CBC_SHA", 19);
         m = a("SSL_DHE_RSA_EXPORT_WITH_DES40_CBC_SHA", 20);

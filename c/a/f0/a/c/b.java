@@ -28,7 +28,7 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ f f3347a;
+        public final /* synthetic */ f f3338a;
 
         public a(b bVar, f fVar) {
             Interceptable interceptable = $ic;
@@ -45,7 +45,7 @@ public class b {
                     return;
                 }
             }
-            this.f3347a = fVar;
+            this.f3338a = fVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -54,7 +54,7 @@ public class b {
         public void onResult(Throwable th) {
             f fVar;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, th) == null) || (fVar = this.f3347a) == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, th) == null) || (fVar = this.f3338a) == null) {
                 return;
             }
             fVar.b();
@@ -68,13 +68,13 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ f f3348a;
+        public final /* synthetic */ f f3339a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ LottieAnimationView f3349b;
+        public final /* synthetic */ LottieAnimationView f3340b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ Animator.AnimatorListener f3350c;
+        public final /* synthetic */ Animator.AnimatorListener f3341c;
 
         /* renamed from: c.a.f0.a.c.b$b$a */
         /* loaded from: classes.dex */
@@ -83,7 +83,7 @@ public class b {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ C0070b f3351e;
+            public final /* synthetic */ C0070b f3342e;
 
             public a(C0070b c0070b) {
                 Interceptable interceptable = $ic;
@@ -100,14 +100,14 @@ public class b {
                         return;
                     }
                 }
-                this.f3351e = c0070b;
+                this.f3342e = c0070b;
             }
 
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationCancel(Animator animator) {
                 Animator.AnimatorListener animatorListener;
                 Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeL(1048576, this, animator) == null) || (animatorListener = this.f3351e.f3350c) == null) {
+                if (!(interceptable == null || interceptable.invokeL(1048576, this, animator) == null) || (animatorListener = this.f3342e.f3341c) == null) {
                     return;
                 }
                 animatorListener.onAnimationCancel(animator);
@@ -117,7 +117,7 @@ public class b {
             public void onAnimationEnd(Animator animator) {
                 Animator.AnimatorListener animatorListener;
                 Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) || (animatorListener = this.f3351e.f3350c) == null) {
+                if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) || (animatorListener = this.f3342e.f3341c) == null) {
                     return;
                 }
                 animatorListener.onAnimationEnd(animator);
@@ -127,7 +127,7 @@ public class b {
             public void onAnimationRepeat(Animator animator) {
                 Animator.AnimatorListener animatorListener;
                 Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animator) == null) || (animatorListener = this.f3351e.f3350c) == null) {
+                if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animator) == null) || (animatorListener = this.f3342e.f3341c) == null) {
                     return;
                 }
                 animatorListener.onAnimationRepeat(animator);
@@ -137,7 +137,7 @@ public class b {
             public void onAnimationStart(Animator animator) {
                 Animator.AnimatorListener animatorListener;
                 Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeL(1048579, this, animator) == null) || (animatorListener = this.f3351e.f3350c) == null) {
+                if (!(interceptable == null || interceptable.invokeL(1048579, this, animator) == null) || (animatorListener = this.f3342e.f3341c) == null) {
                     return;
                 }
                 animatorListener.onAnimationStart(animator);
@@ -159,9 +159,9 @@ public class b {
                     return;
                 }
             }
-            this.f3348a = fVar;
-            this.f3349b = lottieAnimationView;
-            this.f3350c = animatorListener;
+            this.f3339a = fVar;
+            this.f3340b = lottieAnimationView;
+            this.f3341c = animatorListener;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -172,14 +172,14 @@ public class b {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, lottieComposition) == null) || lottieComposition == null) {
                 return;
             }
-            f fVar = this.f3348a;
+            f fVar = this.f3339a;
             if (fVar != null) {
                 fVar.a();
             }
-            this.f3349b.setVisibility(0);
-            this.f3349b.setComposition(lottieComposition);
-            this.f3349b.playAnimation();
-            this.f3349b.addAnimatorListener(new a(this));
+            this.f3340b.setVisibility(0);
+            this.f3340b.setComposition(lottieComposition);
+            this.f3340b.playAnimation();
+            this.f3340b.addAnimatorListener(new a(this));
         }
     }
 
@@ -189,7 +189,7 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ f f3352a;
+        public final /* synthetic */ f f3343a;
 
         public c(b bVar, f fVar) {
             Interceptable interceptable = $ic;
@@ -206,7 +206,7 @@ public class b {
                     return;
                 }
             }
-            this.f3352a = fVar;
+            this.f3343a = fVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -215,7 +215,7 @@ public class b {
         public void onResult(Throwable th) {
             f fVar;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, th) == null) || (fVar = this.f3352a) == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, th) == null) || (fVar = this.f3343a) == null) {
                 return;
             }
             fVar.b();
@@ -228,13 +228,13 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ f f3353a;
+        public final /* synthetic */ f f3344a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ LottieAnimationView f3354b;
+        public final /* synthetic */ LottieAnimationView f3345b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ Animator.AnimatorListener f3355c;
+        public final /* synthetic */ Animator.AnimatorListener f3346c;
 
         /* loaded from: classes.dex */
         public class a implements Animator.AnimatorListener {
@@ -242,7 +242,7 @@ public class b {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ d f3356e;
+            public final /* synthetic */ d f3347e;
 
             public a(d dVar) {
                 Interceptable interceptable = $ic;
@@ -259,14 +259,14 @@ public class b {
                         return;
                     }
                 }
-                this.f3356e = dVar;
+                this.f3347e = dVar;
             }
 
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationCancel(Animator animator) {
                 Animator.AnimatorListener animatorListener;
                 Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeL(1048576, this, animator) == null) || (animatorListener = this.f3356e.f3355c) == null) {
+                if (!(interceptable == null || interceptable.invokeL(1048576, this, animator) == null) || (animatorListener = this.f3347e.f3346c) == null) {
                     return;
                 }
                 animatorListener.onAnimationCancel(animator);
@@ -276,7 +276,7 @@ public class b {
             public void onAnimationEnd(Animator animator) {
                 Animator.AnimatorListener animatorListener;
                 Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) || (animatorListener = this.f3356e.f3355c) == null) {
+                if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) || (animatorListener = this.f3347e.f3346c) == null) {
                     return;
                 }
                 animatorListener.onAnimationEnd(animator);
@@ -286,7 +286,7 @@ public class b {
             public void onAnimationRepeat(Animator animator) {
                 Animator.AnimatorListener animatorListener;
                 Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animator) == null) || (animatorListener = this.f3356e.f3355c) == null) {
+                if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animator) == null) || (animatorListener = this.f3347e.f3346c) == null) {
                     return;
                 }
                 animatorListener.onAnimationRepeat(animator);
@@ -296,7 +296,7 @@ public class b {
             public void onAnimationStart(Animator animator) {
                 Animator.AnimatorListener animatorListener;
                 Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeL(1048579, this, animator) == null) || (animatorListener = this.f3356e.f3355c) == null) {
+                if (!(interceptable == null || interceptable.invokeL(1048579, this, animator) == null) || (animatorListener = this.f3347e.f3346c) == null) {
                     return;
                 }
                 animatorListener.onAnimationStart(animator);
@@ -318,9 +318,9 @@ public class b {
                     return;
                 }
             }
-            this.f3353a = fVar;
-            this.f3354b = lottieAnimationView;
-            this.f3355c = animatorListener;
+            this.f3344a = fVar;
+            this.f3345b = lottieAnimationView;
+            this.f3346c = animatorListener;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -331,14 +331,14 @@ public class b {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, lottieComposition) == null) || lottieComposition == null) {
                 return;
             }
-            f fVar = this.f3353a;
+            f fVar = this.f3344a;
             if (fVar != null) {
                 fVar.a();
             }
-            this.f3354b.setVisibility(0);
-            this.f3354b.setComposition(lottieComposition);
-            this.f3354b.playAnimation();
-            this.f3354b.addAnimatorListener(new a(this));
+            this.f3345b.setVisibility(0);
+            this.f3345b.setComposition(lottieComposition);
+            this.f3345b.playAnimation();
+            this.f3345b.addAnimatorListener(new a(this));
         }
     }
 
@@ -347,7 +347,7 @@ public class b {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static b f3357a;
+        public static b f3348a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -363,7 +363,7 @@ public class b {
                     return;
                 }
             }
-            f3357a = new b(null);
+            f3348a = new b(null);
         }
     }
 
@@ -381,7 +381,7 @@ public class b {
     public static b c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? e.f3357a : (b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? e.f3348a : (b) invokeV.objValue;
     }
 
     public void a(File file, LottieAnimationView lottieAnimationView, Animator.AnimatorListener animatorListener, f fVar) {
@@ -410,7 +410,7 @@ public class b {
             return;
         }
         try {
-            LottieCompositionFactory.fromUrl(c.a.f0.a.b.a.f3346a.get().p(), str).addListener(new d(this, fVar, lottieAnimationView, animatorListener)).addFailureListener(new c(this, fVar));
+            LottieCompositionFactory.fromUrl(c.a.f0.a.b.a.f3337a.get().p(), str).addListener(new d(this, fVar, lottieAnimationView, animatorListener)).addFailureListener(new c(this, fVar));
         } catch (Exception unused) {
             lottieAnimationView.setVisibility(8);
             if (fVar != null) {

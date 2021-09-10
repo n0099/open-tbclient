@@ -20,7 +20,7 @@ public class ImageLoader {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile boolean f64895a;
+    public static volatile boolean f65075a;
     public transient /* synthetic */ FieldHolder $fh;
 
     public ImageLoader() {
@@ -55,14 +55,14 @@ public class ImageLoader {
 
     public static void clearDiskCache(double d2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{Double.valueOf(d2)}) == null) && f64895a) {
+        if ((interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{Double.valueOf(d2)}) == null) && f65075a) {
             b.a().d().a(d2);
         }
     }
 
     public static void clearMemoryCache(double d2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Double.valueOf(d2)}) == null) && f64895a) {
+        if ((interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Double.valueOf(d2)}) == null) && f65075a) {
             b.a().b().a(d2);
             b.a().c().a(d2);
         }
@@ -79,7 +79,7 @@ public class ImageLoader {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, str, str2)) == null) {
-            if (f64895a) {
+            if (f65075a) {
                 if (TextUtils.isEmpty(str2)) {
                     if (TextUtils.isEmpty(str)) {
                         return null;
@@ -107,10 +107,10 @@ public class ImageLoader {
     public static void initialize(Context context, LoadConfig loadConfig) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65544, null, context, loadConfig) == null) {
-            if (f64895a) {
+            if (f65075a) {
                 c.a(com.kwad.sdk.core.imageloader.core.ImageLoader.TAG, "already init!");
             }
-            f64895a = true;
+            f65075a = true;
             if (loadConfig == null) {
                 loadConfig = LoadConfig.getDefaultConfig(context);
             }

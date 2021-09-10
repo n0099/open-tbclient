@@ -132,23 +132,23 @@ public class FrsMemberTeamViewHolder extends TypeAdapter.ViewHolder {
         }
     }
 
-    public void onChangeSkine(boolean z) {
+    public void onChangeSkine(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
             if (this.headView1.getVisibility() == 0) {
-                this.headView1.setIsNight(z);
+                this.headView1.setSkinType(i2);
                 this.headView1.refresh();
             }
             if (this.headView2.getVisibility() == 0) {
-                this.headView2.setIsNight(z);
+                this.headView2.setSkinType(i2);
                 this.headView2.refresh();
             }
             if (this.headView3.getVisibility() == 0) {
-                this.headView3.setIsNight(z);
+                this.headView3.setSkinType(i2);
                 this.headView3.refresh();
             }
             if (this.headView4.getVisibility() == 0) {
-                this.headView4.setIsNight(z);
+                this.headView4.setSkinType(i2);
                 this.headView4.refresh();
             }
         }

@@ -22,16 +22,16 @@ public final class a<T> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Pools.Pool<ArrayList<T>> f30415a;
+    public final Pools.Pool<ArrayList<T>> f30497a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final SimpleArrayMap<T, ArrayList<T>> f30416b;
+    public final SimpleArrayMap<T, ArrayList<T>> f30498b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final ArrayList<T> f30417c;
+    public final ArrayList<T> f30499c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final HashSet<T> f30418d;
+    public final HashSet<T> f30500d;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -46,20 +46,20 @@ public final class a<T> {
                 return;
             }
         }
-        this.f30415a = new Pools.SimplePool(10);
-        this.f30416b = new SimpleArrayMap<>();
-        this.f30417c = new ArrayList<>();
-        this.f30418d = new HashSet<>();
+        this.f30497a = new Pools.SimplePool(10);
+        this.f30498b = new SimpleArrayMap<>();
+        this.f30499c = new ArrayList<>();
+        this.f30500d = new HashSet<>();
     }
 
     public void a(@NonNull T t, @NonNull T t2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, t, t2) == null) {
-            if (this.f30416b.containsKey(t) && this.f30416b.containsKey(t2)) {
-                ArrayList<T> arrayList = this.f30416b.get(t);
+            if (this.f30498b.containsKey(t) && this.f30498b.containsKey(t2)) {
+                ArrayList<T> arrayList = this.f30498b.get(t);
                 if (arrayList == null) {
                     arrayList = f();
-                    this.f30416b.put(t, arrayList);
+                    this.f30498b.put(t, arrayList);
                 }
                 arrayList.add(t2);
                 return;
@@ -70,30 +70,30 @@ public final class a<T> {
 
     public void b(@NonNull T t) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t) == null) || this.f30416b.containsKey(t)) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t) == null) || this.f30498b.containsKey(t)) {
             return;
         }
-        this.f30416b.put(t, null);
+        this.f30498b.put(t, null);
     }
 
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            int size = this.f30416b.size();
+            int size = this.f30498b.size();
             for (int i2 = 0; i2 < size; i2++) {
-                ArrayList<T> valueAt = this.f30416b.valueAt(i2);
+                ArrayList<T> valueAt = this.f30498b.valueAt(i2);
                 if (valueAt != null) {
                     k(valueAt);
                 }
             }
-            this.f30416b.clear();
+            this.f30498b.clear();
         }
     }
 
     public boolean d(@NonNull T t) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, t)) == null) ? this.f30416b.containsKey(t) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, t)) == null) ? this.f30498b.containsKey(t) : invokeL.booleanValue;
     }
 
     public final void e(T t, ArrayList<T> arrayList, HashSet<T> hashSet) {
@@ -103,7 +103,7 @@ public final class a<T> {
         }
         if (!hashSet.contains(t)) {
             hashSet.add(t);
-            ArrayList<T> arrayList2 = this.f30416b.get(t);
+            ArrayList<T> arrayList2 = this.f30498b.get(t);
             if (arrayList2 != null) {
                 int size = arrayList2.size();
                 for (int i2 = 0; i2 < size; i2++) {
@@ -122,7 +122,7 @@ public final class a<T> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            ArrayList<T> acquire = this.f30415a.acquire();
+            ArrayList<T> acquire = this.f30497a.acquire();
             return acquire == null ? new ArrayList<>() : acquire;
         }
         return (ArrayList) invokeV.objValue;
@@ -132,7 +132,7 @@ public final class a<T> {
     public List g(@NonNull T t) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, t)) == null) ? this.f30416b.get(t) : (List) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, t)) == null) ? this.f30498b.get(t) : (List) invokeL.objValue;
     }
 
     @Nullable
@@ -140,15 +140,15 @@ public final class a<T> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, t)) == null) {
-            int size = this.f30416b.size();
+            int size = this.f30498b.size();
             ArrayList arrayList = null;
             for (int i2 = 0; i2 < size; i2++) {
-                ArrayList<T> valueAt = this.f30416b.valueAt(i2);
+                ArrayList<T> valueAt = this.f30498b.valueAt(i2);
                 if (valueAt != null && valueAt.contains(t)) {
                     if (arrayList == null) {
                         arrayList = new ArrayList();
                     }
-                    arrayList.add(this.f30416b.keyAt(i2));
+                    arrayList.add(this.f30498b.keyAt(i2));
                 }
             }
             return arrayList;
@@ -161,13 +161,13 @@ public final class a<T> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            this.f30417c.clear();
-            this.f30418d.clear();
-            int size = this.f30416b.size();
+            this.f30499c.clear();
+            this.f30500d.clear();
+            int size = this.f30498b.size();
             for (int i2 = 0; i2 < size; i2++) {
-                e(this.f30416b.keyAt(i2), this.f30417c, this.f30418d);
+                e(this.f30498b.keyAt(i2), this.f30499c, this.f30500d);
             }
-            return this.f30417c;
+            return this.f30499c;
         }
         return (ArrayList) invokeV.objValue;
     }
@@ -176,9 +176,9 @@ public final class a<T> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, t)) == null) {
-            int size = this.f30416b.size();
+            int size = this.f30498b.size();
             for (int i2 = 0; i2 < size; i2++) {
-                ArrayList<T> valueAt = this.f30416b.valueAt(i2);
+                ArrayList<T> valueAt = this.f30498b.valueAt(i2);
                 if (valueAt != null && valueAt.contains(t)) {
                     return true;
                 }
@@ -192,7 +192,7 @@ public final class a<T> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, arrayList) == null) {
             arrayList.clear();
-            this.f30415a.release(arrayList);
+            this.f30497a.release(arrayList);
         }
     }
 }

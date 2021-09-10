@@ -78,6 +78,10 @@ public class ItemDownloadExtraData implements Serializable {
                     this.shouzhuScene = 4002;
                     this.shouzhuCategory = 4002006;
                     return;
+                case 7:
+                    this.shouzhuScene = 4002;
+                    this.shouzhuCategory = 4002007;
+                    return;
             }
         }
     }

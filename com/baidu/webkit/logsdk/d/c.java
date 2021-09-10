@@ -26,7 +26,7 @@ public final class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f63719a;
+    public static String f63899a;
     public transient /* synthetic */ FieldHolder $fh;
 
     public static int a(String str) {
@@ -46,7 +46,7 @@ public final class c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (TextUtils.isEmpty(f63719a)) {
+            if (TextUtils.isEmpty(f63899a)) {
                 Context d2 = com.baidu.webkit.logsdk.a.b.d();
                 if (d2 == null || d2.getFilesDir() == null) {
                     return "";
@@ -55,12 +55,12 @@ public final class c {
                 if (str.endsWith(File.separator)) {
                     str = str.substring(0, str.length() - 1);
                 }
-                f63719a = str;
-                new File(f63719a).mkdirs();
-                e("BdLogSDK", "Workspace = " + f63719a);
-                return f63719a;
+                f63899a = str;
+                new File(f63899a).mkdirs();
+                e("BdLogSDK", "Workspace = " + f63899a);
+                return f63899a;
             }
-            return f63719a;
+            return f63899a;
         }
         return (String) invokeV.objValue;
     }
@@ -190,8 +190,8 @@ public final class c {
     public static void a(String str, String str2, String str3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(AdIconUtil.AD_TEXT_ID, null, str, str2, str3) == null) {
-            if (!com.baidu.webkit.logsdk.a.f63656b || TextUtils.isEmpty(str3)) {
-                boolean z = com.baidu.webkit.logsdk.a.f63655a;
+            if (!com.baidu.webkit.logsdk.a.f63836b || TextUtils.isEmpty(str3)) {
+                boolean z = com.baidu.webkit.logsdk.a.f63835a;
                 return;
             }
             String str4 = str2 + " = " + str3;
@@ -202,7 +202,7 @@ public final class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, th) == null) {
             th.printStackTrace();
-            if (com.baidu.webkit.logsdk.a.f63656b) {
+            if (com.baidu.webkit.logsdk.a.f63836b) {
                 System.exit(0);
             }
         }
@@ -377,7 +377,7 @@ public final class c {
     public static void e(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65549, null, str, str2) == null) {
-            boolean z = com.baidu.webkit.logsdk.a.f63655a;
+            boolean z = com.baidu.webkit.logsdk.a.f63835a;
         }
     }
 }

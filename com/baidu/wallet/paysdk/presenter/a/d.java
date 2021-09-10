@@ -17,10 +17,10 @@ public class d implements a.InterfaceC1850a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public a.b f62488a;
+    public a.b f62668a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final com.baidu.wallet.paysdk.a f62489b;
+    public final com.baidu.wallet.paysdk.a f62669b;
 
     public d(a.b bVar) {
         Interceptable interceptable = $ic;
@@ -37,15 +37,15 @@ public class d implements a.InterfaceC1850a {
                 return;
             }
         }
-        this.f62488a = bVar;
-        this.f62489b = new com.baidu.wallet.paysdk.a(2L);
+        this.f62668a = bVar;
+        this.f62669b = new com.baidu.wallet.paysdk.a(2L);
     }
 
     @Override // com.baidu.wallet.paysdk.contract.a.InterfaceC1850a
     public boolean a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? this.f62489b.a(str) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? this.f62669b.a(str) : invokeL.booleanValue;
     }
 
     @Override // com.baidu.wallet.paysdk.contract.a.InterfaceC1850a

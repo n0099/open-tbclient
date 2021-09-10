@@ -22,10 +22,10 @@ public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Map<String, a> f68654a;
+    public static final Map<String, a> f68834a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static IListenerManager f68655b;
+    public static IListenerManager f68835b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes9.dex */
@@ -50,7 +50,7 @@ public class c {
                 return;
             }
         }
-        f68654a = Collections.synchronizedMap(new HashMap());
+        f68834a = Collections.synchronizedMap(new HashMap());
     }
 
     public static void b(Context context, String str) {
@@ -75,7 +75,7 @@ public class c {
             if (TextUtils.isEmpty(str)) {
                 return null;
             }
-            return f68654a.remove(str);
+            return f68834a.remove(str);
         }
         return (a) invokeL.objValue;
     }
@@ -130,10 +130,10 @@ public class c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
-            if (f68655b == null) {
-                f68655b = IListenerManager.Stub.asInterface(com.bytedance.sdk.openadsdk.multipro.aidl.a.a(com.bytedance.sdk.openadsdk.core.o.a()).a(2));
+            if (f68835b == null) {
+                f68835b = IListenerManager.Stub.asInterface(com.bytedance.sdk.openadsdk.multipro.aidl.a.a(com.bytedance.sdk.openadsdk.core.o.a()).a(2));
             }
-            return f68655b;
+            return f68835b;
         }
         return (IListenerManager) invokeV.objValue;
     }
@@ -155,13 +155,13 @@ public class c {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ com.bytedance.sdk.openadsdk.core.e.m f68656a;
+            public final /* synthetic */ com.bytedance.sdk.openadsdk.core.e.m f68836a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ Context f68657b;
+            public final /* synthetic */ Context f68837b;
 
             /* renamed from: c  reason: collision with root package name */
-            public final /* synthetic */ String f68658c;
+            public final /* synthetic */ String f68838c;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -178,16 +178,16 @@ public class c {
                         return;
                     }
                 }
-                this.f68656a = mVar;
-                this.f68657b = context;
-                this.f68658c = str;
+                this.f68836a = mVar;
+                this.f68837b = context;
+                this.f68838c = str;
             }
 
             @Override // com.bytedance.sdk.openadsdk.q.c.a
             public void a() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    c.b(this.f68656a, this.f68657b, this.f68658c);
+                    c.b(this.f68836a, this.f68837b, this.f68838c);
                 }
             }
 
@@ -234,10 +234,10 @@ public class c {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ String f68659a;
+                public final /* synthetic */ String f68839a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ a f68660b;
+                public final /* synthetic */ a f68840b;
 
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                 {
@@ -257,8 +257,8 @@ public class c {
                             return;
                         }
                     }
-                    this.f68659a = str;
-                    this.f68660b = aVar;
+                    this.f68839a = str;
+                    this.f68840b = aVar;
                 }
 
                 @Override // java.lang.Runnable
@@ -266,14 +266,14 @@ public class c {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         try {
-                            c.b().registerDialogListener(this.f68659a, new com.bytedance.sdk.openadsdk.multipro.aidl.b.a(this.f68660b));
+                            c.b().registerDialogListener(this.f68839a, new com.bytedance.sdk.openadsdk.multipro.aidl.b.a(this.f68840b));
                         } catch (Throwable unused) {
                         }
                     }
                 }
             }, 5);
         } else {
-            f68654a.put(str, aVar);
+            f68834a.put(str, aVar);
         }
     }
 
@@ -288,10 +288,10 @@ public class c {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ String f68661a;
+                public final /* synthetic */ String f68841a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ int f68662b;
+                public final /* synthetic */ int f68842b;
 
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                 {
@@ -311,8 +311,8 @@ public class c {
                             return;
                         }
                     }
-                    this.f68661a = str;
-                    this.f68662b = i2;
+                    this.f68841a = str;
+                    this.f68842b = i2;
                 }
 
                 @Override // java.lang.Runnable
@@ -320,7 +320,7 @@ public class c {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         try {
-                            c.b().broadcastDialogListener(this.f68661a, this.f68662b);
+                            c.b().broadcastDialogListener(this.f68841a, this.f68842b);
                         } catch (Throwable unused) {
                         }
                     }

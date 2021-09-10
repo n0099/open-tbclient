@@ -20,7 +20,7 @@ public class b implements Parcelable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public HashMap<String, List<String>> f73950a;
+    public HashMap<String, List<String>> f74130a;
 
     static {
         InterceptResult invokeClinit;
@@ -102,19 +102,19 @@ public class b implements Parcelable {
                 return;
             }
         }
-        this.f73950a = parcel.readHashMap(String.class.getClassLoader());
+        this.f74130a = parcel.readHashMap(String.class.getClassLoader());
     }
 
     public HashMap<String, List<String>> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f73950a : (HashMap) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f74130a : (HashMap) invokeV.objValue;
     }
 
     public void a(String str) {
         HashMap<String, List<String>> hashMap;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || (hashMap = this.f73950a) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || (hashMap = this.f74130a) == null) {
             return;
         }
         hashMap.remove(str);
@@ -132,13 +132,13 @@ public class b implements Parcelable {
             if (str2 == null) {
                 throw new NullPointerException("value == null");
             }
-            if (this.f73950a == null) {
-                this.f73950a = new HashMap<>();
+            if (this.f74130a == null) {
+                this.f74130a = new HashMap<>();
             }
-            List<String> list = this.f73950a.get(str);
+            List<String> list = this.f74130a.get(str);
             if (list == null) {
                 list = new ArrayList<>();
-                this.f73950a.put(str, list);
+                this.f74130a.put(str, list);
             }
             if (list.contains(str2)) {
                 return;
@@ -160,14 +160,14 @@ public class b implements Parcelable {
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f73950a.toString() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f74130a.toString() : (String) invokeV.objValue;
     }
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048581, this, parcel, i2) == null) {
-            parcel.writeMap(this.f73950a);
+            parcel.writeMap(this.f74130a);
         }
     }
 }

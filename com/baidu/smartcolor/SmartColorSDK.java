@@ -1,6 +1,6 @@
 package com.baidu.smartcolor;
 
-import c.a.k0.a;
+import c.a.l0.a;
 import com.baidu.smartcolor.utils.Tri;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -9,12 +9,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class SmartColorSDK {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile SmartColorSDK f45049a;
+    public static volatile SmartColorSDK f45164a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -31,7 +31,7 @@ public class SmartColorSDK {
             }
         }
         System.loadLibrary("native-bridge");
-        f45049a = null;
+        f45164a = null;
     }
 
     public SmartColorSDK() {
@@ -64,14 +64,14 @@ public class SmartColorSDK {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (f45049a == null) {
+            if (f45164a == null) {
                 synchronized (SmartColorSDK.class) {
-                    if (f45049a == null) {
-                        f45049a = new SmartColorSDK();
+                    if (f45164a == null) {
+                        f45164a = new SmartColorSDK();
                     }
                 }
             }
-            return f45049a;
+            return f45164a;
         }
         return (SmartColorSDK) invokeV.objValue;
     }

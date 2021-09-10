@@ -141,7 +141,13 @@ public class WebRtcAudioTrack {
         private int writeBytes(AudioTrack audioTrack, ByteBuffer byteBuffer, int i2) {
             InterceptResult invokeLLI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLLI = interceptable.invokeLLI(65537, this, audioTrack, byteBuffer, i2)) == null) ? Build.VERSION.SDK_INT >= 21 ? audioTrack.write(byteBuffer, i2, 0) : audioTrack.write(byteBuffer.array(), byteBuffer.arrayOffset(), i2) : invokeLLI.intValue;
+            if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65537, this, audioTrack, byteBuffer, i2)) == null) {
+                if (Build.VERSION.SDK_INT >= 21) {
+                    return audioTrack.write(byteBuffer, i2, 0);
+                }
+                return audioTrack.write(byteBuffer.array(), byteBuffer.arrayOffset(), i2);
+            }
+            return invokeLLI.intValue;
         }
 
         @Override // java.lang.Thread, java.lang.Runnable
@@ -345,16 +351,20 @@ public class WebRtcAudioTrack {
                 return false;
             } else {
                 try {
-                    this.audioTrack = Build.VERSION.SDK_INT >= 21 ? createAudioTrackOnLollipopOrHigher(i2, channelCountToConfiguration, minBufferSize) : createAudioTrackOnLowerThanLollipop(i2, channelCountToConfiguration, minBufferSize);
-                    AudioTrack audioTrack = this.audioTrack;
-                    if (audioTrack == null || audioTrack.getState() != 1) {
-                        reportWebRtcAudioTrackInitError("Initialization of audio track failed.");
-                        releaseAudioResources();
-                        return false;
+                    if (Build.VERSION.SDK_INT >= 21) {
+                        this.audioTrack = createAudioTrackOnLollipopOrHigher(i2, channelCountToConfiguration, minBufferSize);
+                    } else {
+                        this.audioTrack = createAudioTrackOnLowerThanLollipop(i2, channelCountToConfiguration, minBufferSize);
                     }
-                    logMainParameters();
-                    logMainParametersExtended();
-                    return true;
+                    AudioTrack audioTrack = this.audioTrack;
+                    if (audioTrack != null && audioTrack.getState() == 1) {
+                        logMainParameters();
+                        logMainParametersExtended();
+                        return true;
+                    }
+                    reportWebRtcAudioTrackInitError("Initialization of audio track failed.");
+                    releaseAudioResources();
+                    return false;
                 } catch (IllegalArgumentException e2) {
                     reportWebRtcAudioTrackInitError(e2.getMessage());
                     releaseAudioResources();
@@ -482,21 +492,13 @@ public class WebRtcAudioTrack {
         }
     }
 
-    public static void setAudioTrackUsageAttribute(int i2) {
+    public static synchronized void setAudioTrackUsageAttribute(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(65566, null, i2) == null) {
             synchronized (WebRtcAudioTrack.class) {
                 Logging.w(TAG, "Default usage attribute is changed from: " + DEFAULT_USAGE + " to " + i2);
                 usageAttribute = i2;
             }
-        }
-    }
-
-    public static void setErrorCallback(ErrorCallback errorCallback2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65567, null, errorCallback2) == null) {
-            Logging.d(TAG, "Set extended error callback");
-            errorCallback = errorCallback2;
         }
     }
 
@@ -544,20 +546,22 @@ public class WebRtcAudioTrack {
             assertTrue(this.audioThread == null);
             try {
                 this.audioTrack.play();
-            } catch (IllegalStateException e2) {
-                AudioTrackStartErrorCode audioTrackStartErrorCode = AudioTrackStartErrorCode.AUDIO_TRACK_START_EXCEPTION;
-                reportWebRtcAudioTrackStartError(audioTrackStartErrorCode, "AudioTrack.play failed: " + e2.getMessage());
-            }
-            if (this.audioTrack.getPlayState() == 3) {
+                if (this.audioTrack.getPlayState() != 3) {
+                    AudioTrackStartErrorCode audioTrackStartErrorCode = AudioTrackStartErrorCode.AUDIO_TRACK_START_STATE_MISMATCH;
+                    reportWebRtcAudioTrackStartError(audioTrackStartErrorCode, "AudioTrack.play failed - incorrect state :" + this.audioTrack.getPlayState());
+                    releaseAudioResources();
+                    return false;
+                }
                 AudioTrackThread audioTrackThread = new AudioTrackThread(this, "AudioTrackJavaThread");
                 this.audioThread = audioTrackThread;
                 audioTrackThread.start();
                 return true;
+            } catch (IllegalStateException e2) {
+                AudioTrackStartErrorCode audioTrackStartErrorCode2 = AudioTrackStartErrorCode.AUDIO_TRACK_START_EXCEPTION;
+                reportWebRtcAudioTrackStartError(audioTrackStartErrorCode2, "AudioTrack.play failed: " + e2.getMessage());
+                releaseAudioResources();
+                return false;
             }
-            AudioTrackStartErrorCode audioTrackStartErrorCode2 = AudioTrackStartErrorCode.AUDIO_TRACK_START_STATE_MISMATCH;
-            reportWebRtcAudioTrackStartError(audioTrackStartErrorCode2, "AudioTrack.play failed - incorrect state :" + this.audioTrack.getPlayState());
-            releaseAudioResources();
-            return false;
         }
         return invokeV.booleanValue;
     }
@@ -583,5 +587,13 @@ public class WebRtcAudioTrack {
             return true;
         }
         return invokeV.booleanValue;
+    }
+
+    public static void setErrorCallback(ErrorCallback errorCallback2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65567, null, errorCallback2) == null) {
+            Logging.d(TAG, "Set extended error callback");
+            errorCallback = errorCallback2;
+        }
     }
 }

@@ -19,7 +19,13 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
             int i2 = Build.VERSION.SDK_INT;
-            return i2 >= 26 ? new d() : i2 >= 23 ? new f() : i2 >= 14 ? new a() : new e();
+            if (i2 >= 26) {
+                return new d();
+            }
+            if (i2 >= 23) {
+                return new f();
+            }
+            return i2 >= 14 ? new a() : new e();
         }
         return (b) invokeV.objValue;
     }

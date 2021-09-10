@@ -1,7 +1,7 @@
 package com.baidu.tieba.imMessageCenter;
 
 import android.text.TextUtils;
-import c.a.p0.t.f.a;
+import c.a.q0.t.f.a;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.MetaData;

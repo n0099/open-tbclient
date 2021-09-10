@@ -2,8 +2,8 @@ package com.baidu.tbadk.core.data;
 
 import android.text.TextUtils;
 import c.a.e.e.m.b;
-import c.a.q0.a0.d0.n;
-import c.a.q0.x2.y;
+import c.a.r0.a0.d0.n;
+import c.a.r0.y2.y;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -59,7 +59,7 @@ public class BannerListData implements Serializable {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, advertAppInfo, advertAppInfo2)) == null) {
-                return (advertAppInfo != null ? b.d(advertAppInfo.Z3, 0) : 0) - (advertAppInfo2 != null ? b.d(advertAppInfo2.Z3, 0) : 0);
+                return (advertAppInfo != null ? b.e(advertAppInfo.c4, 0) : 0) - (advertAppInfo2 != null ? b.e(advertAppInfo2.c4, 0) : 0);
             }
             return invokeLL.intValue;
         }
@@ -105,8 +105,8 @@ public class BannerListData implements Serializable {
             StringBuilder sb = new StringBuilder();
             int size = this.advertAppList.size();
             for (int i2 = 0; i2 < size; i2++) {
-                if (!TextUtils.isEmpty(this.advertAppList.get(i2).T3)) {
-                    sb.append(this.advertAppList.get(i2).T3);
+                if (!TextUtils.isEmpty(this.advertAppList.get(i2).W3)) {
+                    sb.append(this.advertAppList.get(i2).W3);
                     if (i2 != size - 1) {
                         sb.append(",");
                     }
@@ -149,7 +149,7 @@ public class BannerListData implements Serializable {
                 for (int i2 = 0; i2 < list.size(); i2++) {
                     if (list.get(i2) != null) {
                         AdvertAppInfo advertAppInfo = new AdvertAppInfo();
-                        advertAppInfo.K4(list.get(i2));
+                        advertAppInfo.V4(list.get(i2));
                         this.advertAppList.add(advertAppInfo);
                         if (h2 != null) {
                             h2.add(advertAppInfo);

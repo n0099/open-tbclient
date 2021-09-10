@@ -13,13 +13,13 @@ public final class g {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final int f33561a;
+    public final int f33670a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final f[] f33562b;
+    public final f[] f33671b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f33563c;
+    public int f33672c;
 
     public g(f... fVarArr) {
         Interceptable interceptable = $ic;
@@ -36,20 +36,20 @@ public final class g {
                 return;
             }
         }
-        this.f33562b = fVarArr;
-        this.f33561a = fVarArr.length;
+        this.f33671b = fVarArr;
+        this.f33670a = fVarArr.length;
     }
 
     public f a(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? this.f33562b[i2] : (f) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? this.f33671b[i2] : (f) invokeI.objValue;
     }
 
     public f[] b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (f[]) this.f33562b.clone() : (f[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (f[]) this.f33671b.clone() : (f[]) invokeV.objValue;
     }
 
     public boolean equals(Object obj) {
@@ -62,7 +62,7 @@ public final class g {
             if (obj == null || g.class != obj.getClass()) {
                 return false;
             }
-            return Arrays.equals(this.f33562b, ((g) obj).f33562b);
+            return Arrays.equals(this.f33671b, ((g) obj).f33671b);
         }
         return invokeL.booleanValue;
     }
@@ -71,10 +71,10 @@ public final class g {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (this.f33563c == 0) {
-                this.f33563c = 527 + Arrays.hashCode(this.f33562b);
+            if (this.f33672c == 0) {
+                this.f33672c = 527 + Arrays.hashCode(this.f33671b);
             }
-            return this.f33563c;
+            return this.f33672c;
         }
         return invokeV.intValue;
     }

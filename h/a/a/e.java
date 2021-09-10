@@ -10,10 +10,10 @@ public final class e {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int[] f78246a;
+    public static final int[] f78426a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int[] f78247b;
+    public static final int[] f78427b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes10.dex */
@@ -57,7 +57,7 @@ public final class e {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final byte[] f78248a;
+        public static final byte[] f78428a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -73,13 +73,13 @@ public final class e {
                     return;
                 }
             }
-            f78248a = new byte[122784];
+            f78428a = new byte[122784];
             String[] strArr = {a.a(), b.a(), c.a()};
             int i2 = 0;
             for (int i3 = 0; i3 < 3; i3++) {
                 i2 += strArr[i3].length();
             }
-            if (i2 != f78248a.length) {
+            if (i2 != f78428a.length) {
                 throw new RuntimeException("Corrupted brotli dictionary");
             }
             int i4 = 0;
@@ -87,7 +87,7 @@ public final class e {
                 String str = strArr[i5];
                 int i6 = 0;
                 while (i6 < str.length()) {
-                    f78248a[i4] = (byte) str.charAt(i6);
+                    f78428a[i4] = (byte) str.charAt(i6);
                     i6++;
                     i4++;
                 }
@@ -108,13 +108,13 @@ public final class e {
                 return;
             }
         }
-        f78246a = new int[]{0, 0, 0, 0, 0, 4096, 9216, 21504, 35840, 44032, 53248, 63488, 74752, 87040, 93696, 100864, 104704, 106752, 108928, 113536, 115968, 118528, 119872, 121280, 122016};
-        f78247b = new int[]{0, 0, 0, 0, 10, 10, 11, 11, 10, 10, 10, 10, 10, 9, 9, 8, 7, 7, 8, 7, 7, 6, 6, 5, 5};
+        f78426a = new int[]{0, 0, 0, 0, 0, 4096, 9216, 21504, 35840, 44032, 53248, 63488, 74752, 87040, 93696, 100864, 104704, 106752, 108928, 113536, 115968, 118528, 119872, 121280, 122016};
+        f78427b = new int[]{0, 0, 0, 0, 10, 10, 11, 11, 10, 10, 10, 10, 10, 9, 9, 8, 7, 7, 8, 7, 7, 6, 6, 5, 5};
     }
 
     public static byte[] a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? d.f78248a : (byte[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? d.f78428a : (byte[]) invokeV.objValue;
     }
 }

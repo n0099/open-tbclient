@@ -1,6 +1,6 @@
 package com.baidu.tieba.interestlabel.message;
 
-import c.a.q0.m1.b.b;
+import c.a.r0.n1.b.b;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;

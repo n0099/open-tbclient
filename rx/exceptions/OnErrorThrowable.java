@@ -34,7 +34,7 @@ public final class OnErrorThrowable extends RuntimeException {
             public static /* synthetic */ Interceptable $ic;
 
             /* renamed from: a  reason: collision with root package name */
-            public static final Set<Class<?>> f79132a;
+            public static final Set<Class<?>> f79370a;
             public transient /* synthetic */ FieldHolder $fh;
 
             static {
@@ -50,7 +50,7 @@ public final class OnErrorThrowable extends RuntimeException {
                         return;
                     }
                 }
-                f79132a = a();
+                f79370a = a();
             }
 
             public static Set<Class<?>> a() {
@@ -107,7 +107,7 @@ public final class OnErrorThrowable extends RuntimeException {
                 if (obj == null) {
                     return StringUtil.NULL_STRING;
                 }
-                if (a.f79132a.contains(obj.getClass())) {
+                if (a.f79370a.contains(obj.getClass())) {
                     return obj.toString();
                 }
                 if (obj instanceof String) {

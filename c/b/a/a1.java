@@ -24,10 +24,10 @@ public final class a1 implements v0 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final v0 f31208a;
+    public final v0 f31317a;
 
     /* renamed from: b  reason: collision with root package name */
-    public j0<Boolean> f31209b;
+    public j0<Boolean> f31318b;
 
     /* loaded from: classes4.dex */
     public class a extends j0<Boolean> {
@@ -84,10 +84,10 @@ public final class a1 implements v0 {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Context f31210a;
+        public final /* synthetic */ Context f31319a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ a1 f31211b;
+        public final /* synthetic */ a1 f31320b;
 
         public b(a1 a1Var, Context context) {
             Interceptable interceptable = $ic;
@@ -104,8 +104,8 @@ public final class a1 implements v0 {
                     return;
                 }
             }
-            this.f31211b = a1Var;
-            this.f31210a = context;
+            this.f31320b = a1Var;
+            this.f31319a = context;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -127,11 +127,11 @@ public final class a1 implements v0 {
                 if (biVar == null) {
                     return null;
                 }
-                String c2 = this.f31211b.c(this.f31210a);
+                String c2 = this.f31320b.c(this.f31319a);
                 if (TextUtils.isEmpty(c2)) {
                     return null;
                 }
-                return biVar.a(this.f31210a.getPackageName(), c2, "OUID");
+                return biVar.a(this.f31319a.getPackageName(), c2, "OUID");
             }
             return (String) invokeL.objValue;
         }
@@ -160,14 +160,14 @@ public final class a1 implements v0 {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-            if (this.f31208a != null && !this.f31209b.b(new Object[0]).booleanValue()) {
-                return this.f31208a.b(context);
+            if (this.f31317a != null && !this.f31318b.b(new Object[0]).booleanValue()) {
+                return this.f31317a.b(context);
             }
             Intent intent = new Intent();
             intent.setComponent(new ComponentName("com.heytap.openid", "com.heytap.openid.IdentifyService"));
             intent.setAction("action.com.heytap.openid.OPEN_ID_SERVICE");
             v0.a aVar = new v0.a();
-            aVar.f31329a = (String) new c1(context, intent, new b(this, context)).a();
+            aVar.f31438a = (String) new c1(context, intent, new b(this, context)).a();
             return aVar;
         }
         return (v0.a) invokeL.objValue;
@@ -236,8 +236,8 @@ public final class a1 implements v0 {
                 return;
             }
         }
-        this.f31209b = new a(this);
-        this.f31208a = v0Var;
+        this.f31318b = new a(this);
+        this.f31317a = v0Var;
     }
 
     @Override // c.b.a.v0
@@ -248,9 +248,9 @@ public final class a1 implements v0 {
             if (context == null) {
                 return false;
             }
-            Boolean b2 = this.f31209b.b(context);
-            if (this.f31208a != null && !b2.booleanValue()) {
-                return this.f31208a.a(context);
+            Boolean b2 = this.f31318b.b(context);
+            if (this.f31317a != null && !b2.booleanValue()) {
+                return this.f31317a.a(context);
             }
             return b2.booleanValue();
         }

@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import c.a.e.e.m.b;
 import c.a.e.e.p.l;
-import c.a.q0.i3.k0.a;
+import c.a.r0.j3.k0.a;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.fsg.face.liveness.activity.LivenessRecogActivity;
@@ -25,9 +25,9 @@ import tbclient.SkinInfo;
 public class ThreadSkinView extends TbImageView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext O;
-    public SkinInfo P;
-    public a.b Q;
+    public TbPageContext P;
+    public SkinInfo Q;
+    public a.b R;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ThreadSkinView(Context context) {
@@ -61,43 +61,43 @@ public class ThreadSkinView extends TbImageView {
     public void onClick(View view) {
         SkinInfo skinInfo;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view) == null) || (skinInfo = this.P) == null || StringUtils.isNull(skinInfo.url)) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view) == null) || (skinInfo = this.Q) == null || StringUtils.isNull(skinInfo.url)) {
             return;
         }
-        a.b bVar = this.Q;
+        a.b bVar = this.R;
         if (bVar != null) {
             bVar.c(LivenessRecogActivity.EXTRA_UPLOAD_ACTION_TYPE);
-            this.Q.e(LivenessRecogActivity.EXTRA_UPLOAD_ACTION_TYPE, "CLICK");
-            this.Q.f();
+            this.R.e(LivenessRecogActivity.EXTRA_UPLOAD_ACTION_TYPE, "CLICK");
+            this.R.f();
         }
-        UrlManager.getInstance().dealOneLink(this.O, new String[]{this.P.url});
+        UrlManager.getInstance().dealOneLink(this.P, new String[]{this.Q.url});
     }
 
     public void setData(TbPageContext tbPageContext, SkinInfo skinInfo, a.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, skinInfo, bVar) == null) {
             if (tbPageContext != null && skinInfo != null && !StringUtils.isNull(skinInfo.skin)) {
-                this.O = tbPageContext;
-                if (this.P != skinInfo && bVar != null) {
-                    this.Q = bVar;
+                this.P = tbPageContext;
+                if (this.Q != skinInfo && bVar != null) {
+                    this.R = bVar;
                     bVar.c(LivenessRecogActivity.EXTRA_UPLOAD_ACTION_TYPE);
-                    this.Q.e("obj_id", skinInfo.obj_id);
-                    this.Q.e(TiebaStatic.Params.OBJ_URL, skinInfo.url);
-                    this.Q.e("obj_name", skinInfo.monitor_id);
-                    this.Q.e(LivenessRecogActivity.EXTRA_UPLOAD_ACTION_TYPE, "VIEW_TRUE");
-                    this.Q.f();
+                    this.R.e("obj_id", skinInfo.obj_id);
+                    this.R.e(TiebaStatic.Params.OBJ_URL, skinInfo.url);
+                    this.R.e("obj_name", skinInfo.monitor_id);
+                    this.R.e(LivenessRecogActivity.EXTRA_UPLOAD_ACTION_TYPE, "VIEW_TRUE");
+                    this.R.f();
                 }
-                this.P = skinInfo;
+                this.Q = skinInfo;
                 int k = l.k(tbPageContext.getPageActivity());
                 ViewGroup.LayoutParams layoutParams = getLayoutParams();
                 layoutParams.width = k;
                 if (!StringUtils.isNull(skinInfo.skin_size)) {
                     String[] split = skinInfo.skin_size.split(",");
                     if (split.length > 1) {
-                        int d2 = b.d(split[0].trim(), -1);
-                        int d3 = b.d(split[1].trim(), -1);
-                        if (d2 > 0 && d3 > 0) {
-                            layoutParams.height = (int) (layoutParams.width * (d3 / d2));
+                        int e2 = b.e(split[0].trim(), -1);
+                        int e3 = b.e(split[1].trim(), -1);
+                        if (e2 > 0 && e3 > 0) {
+                            layoutParams.height = (int) (layoutParams.width * (e3 / e2));
                         } else {
                             layoutParams.height = (int) tbPageContext.getResources().getDimension(R.dimen.ds80);
                         }

@@ -11,7 +11,7 @@ import c.a.e.e.l.e;
 import c.a.e.e.p.j;
 import c.a.e.e.p.l;
 import c.a.e.l.d.a;
-import c.a.p0.b1.o;
+import c.a.q0.d1.p;
 import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
 import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
 import com.baidu.adp.lib.featureSwitch.SwitchManager;
@@ -133,7 +133,7 @@ public class BigImageLoaderProc implements e<a> {
         String[] split;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            if (str != null && o.b(str)) {
+            if (str != null && p.b(str)) {
                 String[] split2 = str.split("/");
                 if (split2.length > 3) {
                     try {
@@ -173,7 +173,7 @@ public class BigImageLoaderProc implements e<a> {
         int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, str)) == null) {
-            if (str != null && o.b(str)) {
+            if (str != null && p.b(str)) {
                 int lastIndexOf = str.lastIndexOf("/");
                 int lastIndexOf2 = str.lastIndexOf(".");
                 int lastIndexOf3 = str.lastIndexOf(ThreadAchievementShareDialogView.THREAD_IMG_SUFFIX);
@@ -399,7 +399,7 @@ public class BigImageLoaderProc implements e<a> {
                         needCache = webClient.needCache();
                         if (webClient.IsRequestSuccess() && webClient.errorCode == -11) {
                             BdLog.e("BIGIMAGE imagesize too big");
-                            c.a.p0.s.z.a.a(ImageLoaderProc.GIF_PLAY_LOG_TYPE, -1L, -1, "BigImageLoaderProc.getFromRemote", webClient.errorCode, "image size too large", "url", str4);
+                            c.a.q0.s.z.a.a(ImageLoaderProc.GIF_PLAY_LOG_TYPE, -1L, -1, "BigImageLoaderProc.getFromRemote", webClient.errorCode, "image size too large", "url", str4);
                         }
                         if (webClient.responseCode == 302 && (17 == getProcType() || 18 == getProcType() || 13 == getProcType() || 14 == getProcType())) {
                             try {
@@ -440,7 +440,7 @@ public class BigImageLoaderProc implements e<a> {
                 needCache = webClient.needCache();
                 if (webClient.IsRequestSuccess()) {
                     BdLog.e("BIGIMAGE imagesize too big");
-                    c.a.p0.s.z.a.a(ImageLoaderProc.GIF_PLAY_LOG_TYPE, -1L, -1, "BigImageLoaderProc.getFromRemote", webClient.errorCode, "image size too large", "url", str4);
+                    c.a.q0.s.z.a.a(ImageLoaderProc.GIF_PLAY_LOG_TYPE, -1L, -1, "BigImageLoaderProc.getFromRemote", webClient.errorCode, "image size too large", "url", str4);
                 }
                 if (webClient.responseCode == 302) {
                     InputStream openRawResource2 = TbadkCoreApplication.getInst().getResources().openRawResource(R.drawable.img_default_delete_big2, new TypedValue());

@@ -440,20 +440,7 @@ public abstract class BaiduRtcRoom {
         return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65538, null, str, str2, str3, str4)) == null) ? BaiduRtcRoomImp.getRoomInfofromPlatformServer(str, str2, str3, str4) : (RoomInfo) invokeLLLL.objValue;
     }
 
-    public static BaiduRtcRoom initWithAppID(Context context, String str, String str2) {
-        InterceptResult invokeLLL;
-        BaiduRtcRoom initWithAppID;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, context, str, str2)) == null) {
-            synchronized (BaiduRtcRoom.class) {
-                initWithAppID = initWithAppID(context, str, str2, "", false);
-            }
-            return initWithAppID;
-        }
-        return (BaiduRtcRoom) invokeLLL.objValue;
-    }
-
-    public static BaiduRtcRoom initWithAppID(Context context, String str, String str2, String str3, boolean z) {
+    public static synchronized BaiduRtcRoom initWithAppID(Context context, String str, String str2, String str3, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{context, str, str2, str3, Boolean.valueOf(z)})) == null) {
@@ -497,7 +484,7 @@ public abstract class BaiduRtcRoom {
 
     public abstract boolean configLiveServerWithUrl(String str, boolean z, boolean z2, String str2, RtcLiveTransferMode rtcLiveTransferMode);
 
-    public void destroy() {
+    public synchronized void destroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             synchronized (this) {
@@ -665,4 +652,17 @@ public abstract class BaiduRtcRoom {
     public abstract void switchLoundSpeaker();
 
     public abstract void upLoadLog();
+
+    public static synchronized BaiduRtcRoom initWithAppID(Context context, String str, String str2) {
+        InterceptResult invokeLLL;
+        BaiduRtcRoom initWithAppID;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, context, str, str2)) == null) {
+            synchronized (BaiduRtcRoom.class) {
+                initWithAppID = initWithAppID(context, str, str2, "", false);
+            }
+            return initWithAppID;
+        }
+        return (BaiduRtcRoom) invokeLLL.objValue;
+    }
 }

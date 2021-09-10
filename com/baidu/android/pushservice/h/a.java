@@ -24,10 +24,10 @@ public class a extends ThreadPoolExecutor {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f37173a;
+        public final /* synthetic */ a f37292a;
 
         /* renamed from: b  reason: collision with root package name */
-        public Object f37174b;
+        public Object f37293b;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public C1586a(a aVar, Runnable runnable, V v) {
@@ -48,8 +48,8 @@ public class a extends ThreadPoolExecutor {
                     return;
                 }
             }
-            this.f37173a = aVar;
-            this.f37174b = runnable;
+            this.f37292a = aVar;
+            this.f37293b = runnable;
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -70,8 +70,8 @@ public class a extends ThreadPoolExecutor {
                     return;
                 }
             }
-            this.f37173a = aVar;
-            this.f37174b = callable;
+            this.f37292a = aVar;
+            this.f37293b = callable;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -88,11 +88,11 @@ public class a extends ThreadPoolExecutor {
                 if (c1586a == null) {
                     return -1;
                 }
-                Object obj2 = this.f37174b;
-                if (obj2 == null || (obj = c1586a.f37174b) == null || !(obj2 instanceof c) || !(obj instanceof c)) {
+                Object obj2 = this.f37293b;
+                if (obj2 == null || (obj = c1586a.f37293b) == null || !(obj2 instanceof c) || !(obj instanceof c)) {
                     return 0;
                 }
-                return ((c) obj).d() - ((c) this.f37174b).d();
+                return ((c) obj).d() - ((c) this.f37293b).d();
             }
             return invokeL.intValue;
         }

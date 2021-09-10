@@ -1,8 +1,8 @@
 package com.baidu.tieba.write.write.vote;
 
 import android.widget.LinearLayout;
-import c.a.p0.v0.a;
-import c.a.q0.b4.u.p.b;
+import c.a.q0.x0.a;
+import c.a.r0.c4.u.o.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.suspended.SuspendedActivity;

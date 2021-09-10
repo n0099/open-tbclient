@@ -2,8 +2,8 @@ package com.baidu.searchbox.ubcprocessor;
 
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.s0.s;
-import c.a.s0.w;
+import c.a.t0.s;
+import c.a.t0.w;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.util.sp.SharedPrefsWrapper;
 import com.baidu.pyramid.runtime.service.ServiceManager;
@@ -124,7 +124,7 @@ public class UBCCloudControlProcessor implements ICloudControlProcessor {
                             this.val$step = r8;
                         }
 
-                        @Override // c.a.s0.s
+                        @Override // c.a.t0.s
                         public void setUBCConfigStatisticData(JSONObject jSONObject) {
                             ICloudControlUBCCallBack iCloudControlUBCCallBack2;
                             Interceptable interceptable2 = $ic;

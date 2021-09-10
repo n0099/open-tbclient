@@ -13,7 +13,7 @@ public class SafeDismissDialog extends Dialog {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f79770e;
+    public Context f80010e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public SafeDismissDialog(Context context, int i2) {
@@ -34,13 +34,13 @@ public class SafeDismissDialog extends Dialog {
                 return;
             }
         }
-        this.f79770e = context;
+        this.f80010e = context;
     }
 
     @Override // android.app.Dialog, android.content.DialogInterface
     public void dismiss() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && i.f78937a.a(this.f79770e)) {
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && i.f79175a.a(this.f80010e)) {
             super.dismiss();
         }
     }

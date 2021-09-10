@@ -31,31 +31,31 @@ public final class a {
     public static a X = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f35844b = "DynCon";
+    public static final String f35953b = "DynCon";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f35845c = 10000;
+    public static final int f35954c = 10000;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f35846d = "https://h5.m.taobao.com/mlapp/olist.html";
+    public static final String f35955d = "https://h5.m.taobao.com/mlapp/olist.html";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int f35847e = 10;
+    public static final int f35956e = 10;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final boolean f35848f = true;
+    public static final boolean f35957f = true;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final boolean f35849g = true;
+    public static final boolean f35958g = true;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final boolean f35850h = false;
+    public static final boolean f35959h = false;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final boolean f35851i = true;
+    public static final boolean f35960i = true;
 
     /* renamed from: j  reason: collision with root package name */
-    public static final boolean f35852j = true;
+    public static final boolean f35961j = true;
     public static final String k = "";
     public static final boolean l = false;
     public static final boolean m = false;
@@ -90,7 +90,7 @@ public final class a {
     public List<C1563a> W;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f35853a;
+    public boolean f35962a;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -107,11 +107,11 @@ public final class a {
         }
         this.I = 10000;
         this.J = false;
-        this.K = f35846d;
+        this.K = f35955d;
         this.L = 10;
         this.M = true;
         this.N = true;
-        this.f35853a = false;
+        this.f35962a = false;
         this.O = false;
         this.P = true;
         this.Q = true;
@@ -264,7 +264,7 @@ public final class a {
             if (optJSONObject != null) {
                 a(optJSONObject);
             } else {
-                c.c(f35844b, "empty config");
+                c.c(f35953b, "empty config");
             }
         } catch (Throwable th) {
             c.a(th);
@@ -278,13 +278,13 @@ public final class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final String f35857a;
+        public final String f35966a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final int f35858b;
+        public final int f35967b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final String f35859c;
+        public final String f35968c;
 
         public C1563a(String str, int i2, String str2) {
             Interceptable interceptable = $ic;
@@ -301,9 +301,9 @@ public final class a {
                     return;
                 }
             }
-            this.f35857a = str;
-            this.f35858b = i2;
-            this.f35859c = str2;
+            this.f35966a = str;
+            this.f35967b = i2;
+            this.f35968c = str2;
         }
 
         public static C1563a a(JSONObject jSONObject) {
@@ -352,7 +352,7 @@ public final class a {
                     return null;
                 }
                 try {
-                    return new JSONObject().put("pn", c1563a.f35857a).put("v", c1563a.f35858b).put("pk", c1563a.f35859c);
+                    return new JSONObject().put("pn", c1563a.f35966a).put("v", c1563a.f35967b).put("pk", c1563a.f35968c);
                 } catch (JSONException e2) {
                     c.a(e2);
                     return null;
@@ -384,10 +384,10 @@ public final class a {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             int i2 = this.I;
             if (i2 >= 1000 && i2 <= 20000) {
-                c.a(f35844b, "time = " + this.I);
+                c.a(f35953b, "time = " + this.I);
                 return this.I;
             }
-            c.a(f35844b, "time(def) = 10000");
+            c.a(f35953b, "time(def) = 10000");
             return 10000;
         }
         return invokeV.intValue;
@@ -396,7 +396,7 @@ public final class a {
     public void a(boolean z2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z2) == null) {
-            this.f35853a = z2;
+            this.f35962a = z2;
         }
     }
 
@@ -429,7 +429,7 @@ public final class a {
         if (interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, jSONObject) == null) {
             this.I = jSONObject.optInt("timeout", 10000);
             this.J = jSONObject.optBoolean(t, false);
-            this.K = jSONObject.optString(v, f35846d).trim();
+            this.K = jSONObject.optString(v, f35955d).trim();
             this.L = jSONObject.optInt(x, 10);
             this.W = C1563a.a(jSONObject.optJSONArray(w));
             this.M = jSONObject.optBoolean(G, true);
@@ -453,13 +453,13 @@ public final class a {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ com.alipay.sdk.sys.a f35854a;
+                public final /* synthetic */ com.alipay.sdk.sys.a f35963a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ Context f35855b;
+                public final /* synthetic */ Context f35964b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ a f35856c;
+                public final /* synthetic */ a f35965c;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -476,9 +476,9 @@ public final class a {
                             return;
                         }
                     }
-                    this.f35856c = this;
-                    this.f35854a = aVar;
-                    this.f35855b = context;
+                    this.f35965c = this;
+                    this.f35963a = aVar;
+                    this.f35964b = context;
                 }
 
                 @Override // java.lang.Runnable
@@ -486,10 +486,10 @@ public final class a {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         try {
-                            com.alipay.sdk.packet.b a2 = new com.alipay.sdk.packet.impl.b().a(this.f35854a, this.f35855b);
+                            com.alipay.sdk.packet.b a2 = new com.alipay.sdk.packet.impl.b().a(this.f35963a, this.f35964b);
                             if (a2 != null) {
-                                this.f35856c.b(a2.b());
-                                this.f35856c.a(com.alipay.sdk.sys.a.a());
+                                this.f35965c.b(a2.b());
+                                this.f35965c.a(com.alipay.sdk.sys.a.a());
                             }
                         } catch (Throwable th) {
                             c.a(th);

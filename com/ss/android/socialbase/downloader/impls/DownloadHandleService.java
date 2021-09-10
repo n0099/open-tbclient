@@ -19,7 +19,7 @@ public class DownloadHandleService extends Service {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f75791a;
+    public static final String f75971a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes10.dex */
@@ -28,10 +28,10 @@ public class DownloadHandleService extends Service {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f75792e;
+        public final /* synthetic */ int f75972e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ DownloadHandleService f75793f;
+        public final /* synthetic */ DownloadHandleService f75973f;
 
         public a(DownloadHandleService downloadHandleService, int i2) {
             Interceptable interceptable = $ic;
@@ -48,8 +48,8 @@ public class DownloadHandleService extends Service {
                     return;
                 }
             }
-            this.f75793f = downloadHandleService;
-            this.f75792e = i2;
+            this.f75973f = downloadHandleService;
+            this.f75972e = i2;
         }
 
         @Override // java.lang.Runnable
@@ -57,7 +57,7 @@ public class DownloadHandleService extends Service {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 try {
-                    f.c().J(this.f75792e);
+                    f.c().J(this.f75972e);
                 } catch (Exception e2) {
                     e2.printStackTrace();
                 }
@@ -78,7 +78,7 @@ public class DownloadHandleService extends Service {
                 return;
             }
         }
-        f75791a = DownloadHandleService.class.getSimpleName();
+        f75971a = DownloadHandleService.class.getSimpleName();
     }
 
     public DownloadHandleService() {

@@ -288,21 +288,21 @@ public final class DownloadManager {
                     download.mCurrentLength = j3;
                     download.mFileLength = j4;
                     long currentTimeMillis = System.currentTimeMillis();
-                    if (currentTimeMillis - download.f38793a < 200) {
+                    if (currentTimeMillis - download.f38899a < 200) {
                         return;
                     }
-                    download.f38793a = currentTimeMillis;
+                    download.f38899a = currentTimeMillis;
                     int progress = download.getProgress();
-                    if (progress != download.f38795c) {
+                    if (progress != download.f38901c) {
                         this.this$0.notifyProgressChange(j2, progress);
-                        download.f38795c = progress;
+                        download.f38901c = progress;
                     }
-                    if (currentTimeMillis - download.f38794b > 2000) {
+                    if (currentTimeMillis - download.f38900b > 2000) {
                         long currentTimeMillis2 = System.currentTimeMillis();
                         this.this$0.mDbHelper.b(download);
                         long currentTimeMillis3 = System.currentTimeMillis();
                         LogUtil.logE("DownloadManager", "1新的更新数据库用时time:" + (currentTimeMillis3 - currentTimeMillis2) + "ms");
-                        download.f38794b = currentTimeMillis;
+                        download.f38900b = currentTimeMillis;
                     }
                 }
             }
@@ -406,7 +406,7 @@ public final class DownloadManager {
             return;
         }
         if (downloadState == DownloadState.CANCEL) {
-            if (download.f38796d) {
+            if (download.f38902d) {
                 try {
                     new File(download.mSavedPath, Uri.encode(download.mFileName)).delete();
                 } catch (Exception e2) {
@@ -434,8 +434,8 @@ public final class DownloadManager {
     }
 
     /* JADX WARN: Removed duplicated region for block: B:20:0x0050  */
-    /* JADX WARN: Removed duplicated region for block: B:36:0x00ac  */
-    /* JADX WARN: Removed duplicated region for block: B:51:0x00dd  */
+    /* JADX WARN: Removed duplicated region for block: B:36:0x00a9  */
+    /* JADX WARN: Removed duplicated region for block: B:51:0x00da  */
     /* JADX WARN: Removed duplicated region for block: B:57:? A[RETURN, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -1111,7 +1111,7 @@ public final class DownloadManager {
                         for (int i2 = 0; i2 < this.val$downloadIds.length; i2++) {
                             Download download = (Download) this.this$0.mDownloadMap.get(Long.valueOf(this.val$downloadIds[i2]));
                             if (download != null) {
-                                download.f38796d = true;
+                                download.f38902d = true;
                                 this.this$0.mTaskManager.stopDownload(download.mUrl, this.val$downloadIds[i2], false);
                             }
                         }
@@ -1127,7 +1127,7 @@ public final class DownloadManager {
             for (int i2 = 0; i2 < jArr.length; i2++) {
                 Download download = (Download) this.mDownloadMap.get(Long.valueOf(jArr[i2]));
                 if (download != null) {
-                    download.f38796d = false;
+                    download.f38902d = false;
                     this.mTaskManager.stopDownload(download.mUrl, jArr[i2], false);
                 }
             }

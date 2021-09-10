@@ -22,7 +22,7 @@ public class MethodUtils {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Map<String, Method> f69277a;
+    public static Map<String, Method> f69457a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -38,7 +38,7 @@ public class MethodUtils {
                 return;
             }
         }
-        f69277a = new HashMap();
+        f69457a = new HashMap();
     }
 
     public MethodUtils() {
@@ -174,8 +174,8 @@ public class MethodUtils {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65544, null, cls, str, clsArr)) == null) {
             String a2 = a(cls, str, clsArr);
-            synchronized (f69277a) {
-                method = f69277a.get(a2);
+            synchronized (f69457a) {
+                method = f69457a.get(a2);
             }
             if (method != null) {
                 if (!method.isAccessible()) {
@@ -186,8 +186,8 @@ public class MethodUtils {
             try {
                 Method method2 = cls.getMethod(str, clsArr);
                 a.g(method2);
-                synchronized (f69277a) {
-                    f69277a.put(a2, method2);
+                synchronized (f69457a) {
+                    f69457a.put(a2, method2);
                 }
                 return method2;
             } catch (NoSuchMethodException unused) {
@@ -200,8 +200,8 @@ public class MethodUtils {
                 if (method3 != null) {
                     a.g(method3);
                 }
-                synchronized (f69277a) {
-                    f69277a.put(a2, method3);
+                synchronized (f69457a) {
+                    f69457a.put(a2, method3);
                     return method3;
                 }
             }
@@ -215,8 +215,8 @@ public class MethodUtils {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65545, null, cls, str, clsArr)) == null) {
             String a2 = a(cls, str, clsArr);
-            synchronized (f69277a) {
-                method = f69277a.get(a2);
+            synchronized (f69457a) {
+                method = f69457a.get(a2);
             }
             if (method != null) {
                 if (!method.isAccessible()) {
@@ -225,8 +225,8 @@ public class MethodUtils {
                 return method;
             }
             Method c2 = c(cls.getMethod(str, clsArr));
-            synchronized (f69277a) {
-                f69277a.put(a2, c2);
+            synchronized (f69457a) {
+                f69457a.put(a2, c2);
             }
             return c2;
         }

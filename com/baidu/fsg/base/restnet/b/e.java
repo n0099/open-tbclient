@@ -20,22 +20,22 @@ public class e implements com.baidu.fsg.base.restnet.rest.e {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public InputStream f39282a;
+    public InputStream f39393a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f39283b;
+    public int f39394b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f39284c;
+    public String f39395c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Map<String, List<String>> f39285d;
+    public Map<String, List<String>> f39396d;
 
     /* renamed from: e  reason: collision with root package name */
-    public com.baidu.fsg.base.restnet.http.a f39286e;
+    public com.baidu.fsg.base.restnet.http.a f39397e;
 
     /* renamed from: f  reason: collision with root package name */
-    public InputStream f39287f;
+    public InputStream f39398f;
 
     public e(InputStream inputStream, int i2, String str, Map<String, List<String>> map) {
         Interceptable interceptable = $ic;
@@ -52,20 +52,20 @@ public class e implements com.baidu.fsg.base.restnet.rest.e {
                 return;
             }
         }
-        this.f39282a = inputStream;
-        this.f39283b = i2;
-        this.f39284c = str;
-        this.f39285d = map;
+        this.f39393a = inputStream;
+        this.f39394b = i2;
+        this.f39395c = str;
+        this.f39396d = map;
     }
 
     private InputStream a(InputStream inputStream) throws IOException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, this, inputStream)) == null) {
-            if (this.f39287f == null) {
-                this.f39287f = new GZIPInputStream(inputStream);
+            if (this.f39398f == null) {
+                this.f39398f = new GZIPInputStream(inputStream);
             }
-            return this.f39287f;
+            return this.f39398f;
         }
         return (InputStream) invokeL.objValue;
     }
@@ -84,21 +84,21 @@ public class e implements com.baidu.fsg.base.restnet.rest.e {
     public int a() throws IOException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f39283b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f39394b : invokeV.intValue;
     }
 
     @Override // com.baidu.fsg.base.restnet.rest.e
     public String b() throws IOException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f39284c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f39395c : (String) invokeV.objValue;
     }
 
     @Override // com.baidu.fsg.base.restnet.rest.e
     public InputStream c() throws IOException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? g() ? a(this.f39282a) : this.f39282a : (InputStream) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? g() ? a(this.f39393a) : this.f39393a : (InputStream) invokeV.objValue;
     }
 
     @Override // com.baidu.fsg.base.restnet.rest.e
@@ -106,10 +106,10 @@ public class e implements com.baidu.fsg.base.restnet.rest.e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (this.f39286e == null) {
-                this.f39286e = new com.baidu.fsg.base.restnet.http.a(this.f39285d, false);
+            if (this.f39397e == null) {
+                this.f39397e = new com.baidu.fsg.base.restnet.http.a(this.f39396d, false);
             }
-            return this.f39286e;
+            return this.f39397e;
         }
         return (com.baidu.fsg.base.restnet.http.a) invokeV.objValue;
     }
@@ -125,7 +125,7 @@ public class e implements com.baidu.fsg.base.restnet.rest.e {
     public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            InputStream inputStream = this.f39287f;
+            InputStream inputStream = this.f39398f;
             if (inputStream != null) {
                 try {
                     inputStream.close();
@@ -133,7 +133,7 @@ public class e implements com.baidu.fsg.base.restnet.rest.e {
                     e2.printStackTrace();
                 }
             }
-            InputStream inputStream2 = this.f39282a;
+            InputStream inputStream2 = this.f39393a;
             if (inputStream2 != null) {
                 try {
                     inputStream2.close();

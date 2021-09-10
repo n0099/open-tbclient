@@ -13,22 +13,22 @@ public class d implements Cloneable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f30986e;
+    public int f30613e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f30987f;
+    public int f30614f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f30988g;
+    public boolean f30615g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f30989h;
+    public boolean f30616h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f30990i;
+    public int f30617i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f30991j;
+    public int f30618j;
     public long k;
 
     public d() {
@@ -44,10 +44,10 @@ public class d implements Cloneable {
                 return;
             }
         }
-        this.f30986e = 3553;
-        this.f30987f = -1;
-        this.f30988g = false;
-        this.f30989h = false;
+        this.f30613e = 3553;
+        this.f30614f = -1;
+        this.f30615g = false;
+        this.f30616h = false;
         this.k = 0L;
     }
 
@@ -70,37 +70,37 @@ public class d implements Cloneable {
     public int e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f30991j : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f30618j : invokeV.intValue;
     }
 
     public int f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f30987f : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f30614f : invokeV.intValue;
     }
 
     public int g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f30986e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f30613e : invokeV.intValue;
     }
 
     public int h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f30990i : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f30617i : invokeV.intValue;
     }
 
     public boolean i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f30987f != -1 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f30614f != -1 : invokeV.booleanValue;
     }
 
     public void j(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-            this.f30987f = i2;
+            this.f30614f = i2;
         }
     }
 
@@ -108,7 +108,7 @@ public class d implements Cloneable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return "type = " + this.f30986e + " && id = " + this.f30987f + " && cameraFrame" + this.f30988g + " && frontCamera = " + this.f30989h + " && width * height = " + this.f30990i + " * " + this.f30991j + " && timestamp = " + this.k;
+            return "type = " + this.f30613e + " && id = " + this.f30614f + " && cameraFrame" + this.f30615g + " && frontCamera = " + this.f30616h + " && width * height = " + this.f30617i + " * " + this.f30618j + " && timestamp = " + this.k;
         }
         return (String) invokeV.objValue;
     }

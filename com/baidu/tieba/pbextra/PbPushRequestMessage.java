@@ -1,6 +1,6 @@
 package com.baidu.tieba.pbextra;
 
-import c.a.p0.b1.w;
+import c.a.q0.d1.x;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -57,7 +57,7 @@ public class PbPushRequestMessage extends NetMessage {
             builder.push_type = Integer.valueOf(this.mPushType);
             builder.user_id = Long.valueOf(this.mUserId);
             if (z) {
-                w.a(builder, true);
+                x.a(builder, true);
             }
             PushThreadReqIdl.Builder builder2 = new PushThreadReqIdl.Builder();
             builder2.data = builder.build(false);

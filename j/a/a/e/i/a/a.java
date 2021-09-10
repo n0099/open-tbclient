@@ -22,25 +22,25 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final int f78814a;
+    public final int f79052a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f78815b;
+    public final int f79053b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final boolean f78816c;
+    public final boolean f79054c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final int f78817d;
+    public final int f79055d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final int f78818e;
+    public final int f79056e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final boolean f78819f;
+    public final boolean f79057f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final float f78820g;
+    public final float f79058g;
 
     public a(Activity activity) {
         Interceptable interceptable = $ic;
@@ -58,13 +58,13 @@ public class a {
             }
         }
         Resources resources = activity.getResources();
-        this.f78819f = resources.getConfiguration().orientation == 1;
-        this.f78820g = h(activity);
-        this.f78814a = c(resources, "status_bar_height");
-        this.f78815b = b(activity);
-        this.f78817d = e(activity);
-        this.f78818e = g(activity);
-        this.f78816c = this.f78817d > 0;
+        this.f79057f = resources.getConfiguration().orientation == 1;
+        this.f79058g = h(activity);
+        this.f79052a = c(resources, "status_bar_height");
+        this.f79053b = b(activity);
+        this.f79055d = e(activity);
+        this.f79056e = g(activity);
+        this.f79054c = this.f79055d > 0;
     }
 
     @TargetApi(14)
@@ -89,7 +89,7 @@ public class a {
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f78815b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f79053b : invokeV.intValue;
     }
 
     @TargetApi(14)
@@ -129,7 +129,7 @@ public class a {
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f78817d : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f79055d : invokeV.intValue;
     }
 
     @TargetApi(14)
@@ -141,7 +141,7 @@ public class a {
             if (Build.VERSION.SDK_INT < 14 || !j((Activity) context)) {
                 return 0;
             }
-            return c(resources, this.f78819f ? "navigation_bar_height" : "navigation_bar_height_landscape");
+            return c(resources, this.f79057f ? "navigation_bar_height" : "navigation_bar_height_landscape");
         }
         return invokeL.intValue;
     }
@@ -149,7 +149,7 @@ public class a {
     public int f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f78818e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f79056e : invokeV.intValue;
     }
 
     @TargetApi(14)
@@ -186,18 +186,18 @@ public class a {
     public int i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f78814a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f79052a : invokeV.intValue;
     }
 
     public boolean k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f78816c : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f79054c : invokeV.booleanValue;
     }
 
     public boolean l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f78820g >= 600.0f || this.f78819f : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f79058g >= 600.0f || this.f79057f : invokeV.booleanValue;
     }
 }

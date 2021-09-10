@@ -17,16 +17,16 @@ public class CustomExitDialog extends Dialog {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public TextView f40219a;
+    public TextView f40330a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f40220b;
+    public TextView f40331b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f40221c;
+    public TextView f40332c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TextView f40222d;
+    public TextView f40333d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public CustomExitDialog(Context context) {
@@ -55,41 +55,41 @@ public class CustomExitDialog extends Dialog {
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
             setContentView(R.layout.layout_sapi_liveness_dialog_exit);
             setCanceledOnTouchOutside(false);
-            this.f40219a = (TextView) findViewById(R.id.exit_dialog_title);
-            this.f40220b = (TextView) findViewById(R.id.exit_dialog_content);
-            this.f40221c = (TextView) findViewById(R.id.exit_dialog_positive);
-            this.f40222d = (TextView) findViewById(R.id.exit_dialog_negative);
+            this.f40330a = (TextView) findViewById(R.id.exit_dialog_title);
+            this.f40331b = (TextView) findViewById(R.id.exit_dialog_content);
+            this.f40332c = (TextView) findViewById(R.id.exit_dialog_positive);
+            this.f40333d = (TextView) findViewById(R.id.exit_dialog_negative);
         }
     }
 
     public void setDialogContext(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            this.f40220b.setVisibility(0);
-            this.f40220b.setText(str);
+            this.f40331b.setVisibility(0);
+            this.f40331b.setText(str);
         }
     }
 
     public void setDialogTitle(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            this.f40219a.setText(str);
+            this.f40330a.setText(str);
         }
     }
 
     public void setNegativeText(String str, View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, onClickListener) == null) {
-            this.f40222d.setText(str);
-            this.f40222d.setOnClickListener(onClickListener);
+            this.f40333d.setText(str);
+            this.f40333d.setOnClickListener(onClickListener);
         }
     }
 
     public void setPositiveText(String str, View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, str, onClickListener) == null) {
-            this.f40221c.setText(str);
-            this.f40221c.setOnClickListener(onClickListener);
+            this.f40332c.setText(str);
+            this.f40332c.setOnClickListener(onClickListener);
         }
     }
 

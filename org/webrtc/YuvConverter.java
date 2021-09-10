@@ -13,6 +13,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.faceunity.gles.GeneratedTexture;
 import java.nio.ByteBuffer;
 import org.webrtc.GlGenericDrawer;
+import org.webrtc.JniCommon;
 import org.webrtc.ThreadUtils;
 import org.webrtc.VideoFrame;
 /* loaded from: classes2.dex */
@@ -76,10 +77,6 @@ public class YuvConverter {
             }
         }
 
-        public /* synthetic */ ShaderCallbacks(AnonymousClass1 anonymousClass1) {
-            this();
-        }
-
         @Override // org.webrtc.GlGenericDrawer.ShaderCallbacks
         public void onNewShader(GlShader glShader) {
             Interceptable interceptable = $ic;
@@ -123,6 +120,10 @@ public class YuvConverter {
                 this.coeffs = yCoeffs;
                 this.stepSize = 1.0f;
             }
+        }
+
+        public /* synthetic */ ShaderCallbacks(AnonymousClass1 anonymousClass1) {
+            this();
         }
     }
 
@@ -187,7 +188,7 @@ public class YuvConverter {
             ByteBuffer slice2 = nativeAllocateByteBuffer.slice();
             nativeAllocateByteBuffer.position(i9);
             nativeAllocateByteBuffer.limit(i9 + i10);
-            return JavaI420Buffer.wrap(width, height, slice, i2, slice2, i2, nativeAllocateByteBuffer.slice(), i2, new Runnable() { // from class: org.webrtc._$$Lambda$YuvConverter$7X4NRtBwZ8S7c3AW7UqovfxQVrk
+            return JavaI420Buffer.wrap(width, height, slice, i2, slice2, i2, nativeAllocateByteBuffer.slice(), i2, new Runnable() { // from class: h.c.e0
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 

@@ -2,8 +2,8 @@ package com.baidu.tieba.addresslist.model;
 
 import androidx.core.view.InputDeviceCompat;
 import c.a.e.a.f;
-import c.a.p0.t.f.c;
-import c.a.q0.s.d.a;
+import c.a.q0.t.f.c;
+import c.a.r0.s.d.a;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -15,13 +15,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class AddressListModel extends BdBaseModel<BaseFragmentActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public a f49174e;
+    public a f49309e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AddressListModel(BaseFragmentActivity baseFragmentActivity) {
@@ -41,7 +41,7 @@ public class AddressListModel extends BdBaseModel<BaseFragmentActivity> {
                 return;
             }
         }
-        this.f49174e = a.d();
+        this.f49309e = a.d();
     }
 
     public void A() {
@@ -58,24 +58,24 @@ public class AddressListModel extends BdBaseModel<BaseFragmentActivity> {
         }
     }
 
-    public void C(a.InterfaceC1116a interfaceC1116a) {
+    public void C(a.InterfaceC1139a interfaceC1139a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, interfaceC1116a) == null) {
-            this.f49174e.f(interfaceC1116a);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, interfaceC1139a) == null) {
+            this.f49309e.f(interfaceC1139a);
         }
     }
 
-    public void D(List<c.a.p0.t.f.a> list) {
+    public void D(List<c.a.q0.t.f.a> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
-            this.f49174e.g(list);
+            this.f49309e.g(list);
         }
     }
 
-    public void E(a.InterfaceC1116a interfaceC1116a) {
+    public void E(a.InterfaceC1139a interfaceC1139a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, interfaceC1116a) == null) {
-            this.f49174e.h(interfaceC1116a);
+        if (interceptable == null || interceptable.invokeL(1048580, this, interfaceC1139a) == null) {
+            this.f49309e.h(interfaceC1139a);
         }
     }
 
@@ -99,20 +99,20 @@ public class AddressListModel extends BdBaseModel<BaseFragmentActivity> {
         return invokeV.booleanValue;
     }
 
-    public void w(c.a.p0.t.f.a aVar) {
+    public void w(c.a.q0.t.f.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, aVar) == null) {
-            this.f49174e.a(aVar);
+            this.f49309e.a(aVar);
         }
     }
 
     public int x(String str) {
         InterceptResult invokeL;
-        List<c.a.p0.t.f.a> c2;
+        List<c.a.q0.t.f.a> c2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
-            if (c.a(str) && (c2 = this.f49174e.c()) != null) {
-                for (c.a.p0.t.f.a aVar : c2) {
+            if (c.a(str) && (c2 = this.f49309e.c()) != null) {
+                for (c.a.q0.t.f.a aVar : c2) {
                     if (str.equals(aVar.a())) {
                         return c2.indexOf(aVar);
                     }
@@ -127,13 +127,13 @@ public class AddressListModel extends BdBaseModel<BaseFragmentActivity> {
     public void y(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048585, this, j2) == null) {
-            this.f49174e.b(j2);
+            this.f49309e.b(j2);
         }
     }
 
-    public List<c.a.p0.t.f.a> z() {
+    public List<c.a.q0.t.f.a> z() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f49174e.c() : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f49309e.c() : (List) invokeV.objValue;
     }
 }

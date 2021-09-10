@@ -28,22 +28,22 @@ public class CouponEntranceView extends FrameLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public ImageView f44257e;
+    public ImageView f44372e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f44258f;
+    public TextView f44373f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f44259g;
+    public TextView f44374g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f44260h;
+    public TextView f44375h;
 
     /* renamed from: i  reason: collision with root package name */
-    public View f44261i;
+    public View f44376i;
 
     /* renamed from: j  reason: collision with root package name */
-    public a f44262j;
+    public a f44377j;
     public a.C0065a k;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -70,7 +70,7 @@ public class CouponEntranceView extends FrameLayout {
     public void a(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-            this.f44262j = aVar;
+            this.f44377j = aVar;
             h();
         }
     }
@@ -79,11 +79,11 @@ public class CouponEntranceView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
             LayoutInflater.from(context).inflate(g.coupon_entrance, (ViewGroup) this, true);
-            this.f44257e = (ImageView) findViewById(f.coupon_icon);
-            this.f44260h = (TextView) findViewById(f.coupon_text);
-            this.f44258f = (TextView) findViewById(f.coupon_title);
-            this.f44259g = (TextView) findViewById(f.coupon_subtitle);
-            this.f44261i = findViewById(f.icon_more);
+            this.f44372e = (ImageView) findViewById(f.coupon_icon);
+            this.f44375h = (TextView) findViewById(f.coupon_text);
+            this.f44373f = (TextView) findViewById(f.coupon_title);
+            this.f44374g = (TextView) findViewById(f.coupon_subtitle);
+            this.f44376i = findViewById(f.icon_more);
         }
     }
 
@@ -99,18 +99,18 @@ public class CouponEntranceView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             this.k = null;
-            a aVar = this.f44262j;
-            if (!((aVar == null || (list = aVar.f3252b) == null || list.size() <= 0) ? false : true)) {
+            a aVar = this.f44377j;
+            if (!((aVar == null || (list = aVar.f3243b) == null || list.size() <= 0) ? false : true)) {
                 setVisibility(8);
                 return;
             }
-            Iterator<a.C0065a> it = this.f44262j.f3252b.iterator();
+            Iterator<a.C0065a> it = this.f44377j.f3243b.iterator();
             while (true) {
                 if (!it.hasNext()) {
                     break;
                 }
                 a.C0065a next = it.next();
-                if (next.f3259g == 1) {
+                if (next.f3250g == 1) {
                     this.k = next;
                     break;
                 }
@@ -120,26 +120,26 @@ public class CouponEntranceView extends FrameLayout {
                 return;
             }
             setVisibility(0);
-            b.c().b(this.f44257e, this.k.f3257e);
-            this.f44258f.setText(this.k.f3254b);
+            b.c().b(this.f44372e, this.k.f3248e);
+            this.f44373f.setText(this.k.f3245b);
             a.C0065a c0065a = this.k;
-            if (c0065a.f3253a == -1) {
-                str = c0065a.f3255c;
-                this.f44259g.setVisibility(8);
+            if (c0065a.f3244a == -1) {
+                str = c0065a.f3246c;
+                this.f44374g.setVisibility(8);
             } else {
-                str = "-" + a(this.k.f3258f.longValue()) + "元";
-                this.f44259g.setVisibility(0);
-                this.f44259g.setText(this.k.f3255c);
+                str = "-" + a(this.k.f3249f.longValue()) + "元";
+                this.f44374g.setVisibility(0);
+                this.f44374g.setText(this.k.f3246c);
             }
-            this.f44260h.setText(str);
-            if (this.f44262j.f3251a) {
-                this.f44260h.setTextColor(getResources().getColor(c.coupon_description));
-                this.f44261i.setVisibility(0);
+            this.f44375h.setText(str);
+            if (this.f44377j.f3242a) {
+                this.f44375h.setTextColor(getResources().getColor(c.coupon_description));
+                this.f44376i.setVisibility(0);
                 setEnabled(true);
                 return;
             }
-            this.f44260h.setTextColor(getResources().getColor(c.black));
-            this.f44261i.setVisibility(8);
+            this.f44375h.setTextColor(getResources().getColor(c.black));
+            this.f44376i.setVisibility(8);
             setEnabled(false);
         }
     }

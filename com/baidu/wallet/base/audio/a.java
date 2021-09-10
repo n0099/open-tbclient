@@ -20,19 +20,19 @@ public class a implements Observer {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public AudioRecorder f60050a;
+    public AudioRecorder f60230a;
 
     /* renamed from: b  reason: collision with root package name */
-    public FileOutputStream f60051b;
+    public FileOutputStream f60231b;
 
     /* renamed from: c  reason: collision with root package name */
-    public File f60052c;
+    public File f60232c;
 
     /* renamed from: d  reason: collision with root package name */
-    public b f60053d;
+    public b f60233d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f60054e;
+    public int f60234e;
 
     public a(AudioRecorder audioRecorder) {
         Interceptable interceptable = $ic;
@@ -49,48 +49,48 @@ public class a implements Observer {
                 return;
             }
         }
-        this.f60050a = audioRecorder;
-        this.f60052c = new File("/sdcard/cu.wav");
+        this.f60230a = audioRecorder;
+        this.f60232c = new File("/sdcard/cu.wav");
     }
 
     @Override // java.util.Observer
     public void update(Observable observable, Object obj) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, observable, obj) == null) && observable == this.f60050a) {
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, observable, obj) == null) && observable == this.f60230a) {
             if (obj instanceof AudioRecorder.State) {
                 AudioRecorder.State state = (AudioRecorder.State) obj;
                 if (AudioRecorder.State.OPEN == state) {
-                    this.f60054e = 0;
+                    this.f60234e = 0;
                     try {
-                        this.f60051b = new FileOutputStream(this.f60052c);
-                        FileInputStream fileInputStream = new FileInputStream(this.f60052c);
+                        this.f60231b = new FileOutputStream(this.f60232c);
+                        FileInputStream fileInputStream = new FileInputStream(this.f60232c);
                         b.a(fileInputStream).a();
                         fileInputStream.close();
                         b a2 = b.a(1, 16, 8000, 0);
-                        this.f60053d = a2;
-                        a2.a(this.f60051b);
+                        this.f60233d = a2;
+                        a2.a(this.f60231b);
                     } catch (Exception e2) {
                         e2.printStackTrace();
                     }
                 } else if (AudioRecorder.State.STOP == state) {
                     try {
-                        this.f60051b.close();
-                        this.f60053d = b.a(1, 16, 8000, this.f60054e);
-                        RandomAccessFile randomAccessFile = new RandomAccessFile(this.f60052c, "rw");
-                        this.f60053d.a(randomAccessFile);
-                        this.f60053d.a();
+                        this.f60231b.close();
+                        this.f60233d = b.a(1, 16, 8000, this.f60234e);
+                        RandomAccessFile randomAccessFile = new RandomAccessFile(this.f60232c, "rw");
+                        this.f60233d.a(randomAccessFile);
+                        this.f60233d.a();
                         randomAccessFile.close();
                     } catch (IOException e3) {
                         e3.printStackTrace();
                     }
-                    this.f60051b = null;
+                    this.f60231b = null;
                 }
-            } else if (!(obj instanceof Buffer) || this.f60051b == null) {
+            } else if (!(obj instanceof Buffer) || this.f60231b == null) {
             } else {
                 ByteBuffer byteBuffer = (ByteBuffer) obj;
                 try {
-                    this.f60054e += byteBuffer.remaining();
-                    this.f60051b.write(byteBuffer.array(), byteBuffer.position(), byteBuffer.remaining());
+                    this.f60234e += byteBuffer.remaining();
+                    this.f60231b.write(byteBuffer.array(), byteBuffer.position(), byteBuffer.remaining());
                 } catch (IOException e4) {
                     e4.printStackTrace();
                 }

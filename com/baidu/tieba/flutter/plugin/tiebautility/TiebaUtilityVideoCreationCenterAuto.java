@@ -15,6 +15,66 @@ public class TiebaUtilityVideoCreationCenterAuto {
     /* loaded from: classes7.dex */
     public interface HostUtilityVideoCreationCenter {
         void sendThread(VideoCreationCenterSendParams videoCreationCenterSendParams);
+
+        void showGuide();
+
+        void updateStatus(VideoCreationCenterBoolValue videoCreationCenterBoolValue);
+    }
+
+    /* loaded from: classes7.dex */
+    public static class VideoCreationCenterBoolValue {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public Boolean result;
+
+        public VideoCreationCenterBoolValue() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public static VideoCreationCenterBoolValue fromMap(HashMap hashMap) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, hashMap)) == null) {
+                VideoCreationCenterBoolValue videoCreationCenterBoolValue = new VideoCreationCenterBoolValue();
+                videoCreationCenterBoolValue.result = (Boolean) hashMap.get("result");
+                return videoCreationCenterBoolValue;
+            }
+            return (VideoCreationCenterBoolValue) invokeL.objValue;
+        }
+
+        public Boolean getResult() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.result : (Boolean) invokeV.objValue;
+        }
+
+        public void setResult(Boolean bool) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bool) == null) {
+                this.result = bool;
+            }
+        }
+
+        public HashMap toMap() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                HashMap hashMap = new HashMap();
+                hashMap.put("result", this.result);
+                return hashMap;
+            }
+            return (HashMap) invokeV.objValue;
+        }
     }
 
     /* loaded from: classes7.dex */
@@ -22,6 +82,7 @@ public class TiebaUtilityVideoCreationCenterAuto {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String objLocate;
+        public String pageId;
 
         public VideoCreationCenterSendParams() {
             Interceptable interceptable = $ic;
@@ -43,6 +104,7 @@ public class TiebaUtilityVideoCreationCenterAuto {
             if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, hashMap)) == null) {
                 VideoCreationCenterSendParams videoCreationCenterSendParams = new VideoCreationCenterSendParams();
                 videoCreationCenterSendParams.objLocate = (String) hashMap.get("objLocate");
+                videoCreationCenterSendParams.pageId = (String) hashMap.get("pageId");
                 return videoCreationCenterSendParams;
             }
             return (VideoCreationCenterSendParams) invokeL.objValue;
@@ -54,19 +116,33 @@ public class TiebaUtilityVideoCreationCenterAuto {
             return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.objLocate : (String) invokeV.objValue;
         }
 
+        public String getPageId() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.pageId : (String) invokeV.objValue;
+        }
+
         public void setObjLocate(String str) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
                 this.objLocate = str;
+            }
+        }
+
+        public void setPageId(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+                this.pageId = str;
             }
         }
 
         public HashMap toMap() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
                 HashMap hashMap = new HashMap();
                 hashMap.put("objLocate", this.objLocate);
+                hashMap.put("pageId", this.pageId);
                 return hashMap;
             }
             return (HashMap) invokeV.objValue;

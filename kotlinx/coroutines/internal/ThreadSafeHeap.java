@@ -21,19 +21,19 @@ public class ThreadSafeHeap<T extends ThreadSafeHeapNode & Comparable<? super T>
     public volatile int _size = 0;
 
     /* renamed from: a  reason: collision with root package name */
-    public T[] f79025a;
+    public T[] f79263a;
 
     private final T[] realloc() {
-        T[] tArr = this.f79025a;
+        T[] tArr = this.f79263a;
         if (tArr == null) {
             T[] tArr2 = (T[]) new ThreadSafeHeapNode[4];
-            this.f79025a = tArr2;
+            this.f79263a = tArr2;
             return tArr2;
         } else if (getSize() >= tArr.length) {
             Object[] copyOf = Arrays.copyOf(tArr, getSize() * 2);
             Intrinsics.checkExpressionValueIsNotNull(copyOf, "java.util.Arrays.copyOf(this, newSize)");
             T[] tArr3 = (T[]) ((ThreadSafeHeapNode[]) copyOf);
-            this.f79025a = tArr3;
+            this.f79263a = tArr3;
             return tArr3;
         } else {
             return tArr;
@@ -50,7 +50,7 @@ public class ThreadSafeHeap<T extends ThreadSafeHeapNode & Comparable<? super T>
             if (i3 >= getSize()) {
                 return;
             }
-            T[] tArr = this.f79025a;
+            T[] tArr = this.f79263a;
             if (tArr == null) {
                 Intrinsics.throwNpe();
             }
@@ -88,7 +88,7 @@ public class ThreadSafeHeap<T extends ThreadSafeHeapNode & Comparable<? super T>
 
     private final void siftUpFrom(int i2) {
         while (i2 > 0) {
-            T[] tArr = this.f79025a;
+            T[] tArr = this.f79263a;
             if (tArr == null) {
                 Intrinsics.throwNpe();
             }
@@ -111,7 +111,7 @@ public class ThreadSafeHeap<T extends ThreadSafeHeapNode & Comparable<? super T>
     }
 
     private final void swap(int i2, int i3) {
-        T[] tArr = this.f79025a;
+        T[] tArr = this.f79263a;
         if (tArr == null) {
             Intrinsics.throwNpe();
         }
@@ -175,7 +175,7 @@ public class ThreadSafeHeap<T extends ThreadSafeHeapNode & Comparable<? super T>
 
     public final void clear() {
         synchronized (this) {
-            T[] tArr = this.f79025a;
+            T[] tArr = this.f79263a;
             if (tArr != null) {
                 ArraysKt___ArraysJvmKt.fill$default(tArr, (Object) null, 0, 0, 6, (Object) null);
             }
@@ -186,7 +186,7 @@ public class ThreadSafeHeap<T extends ThreadSafeHeapNode & Comparable<? super T>
 
     @PublishedApi
     public final T firstImpl() {
-        T[] tArr = this.f79025a;
+        T[] tArr = this.f79263a;
         if (tArr != null) {
             return tArr[0];
         }
@@ -235,7 +235,7 @@ public class ThreadSafeHeap<T extends ThreadSafeHeapNode & Comparable<? super T>
                 throw new AssertionError();
             }
         }
-        T[] tArr = this.f79025a;
+        T[] tArr = this.f79263a;
         if (tArr == null) {
             Intrinsics.throwNpe();
         }

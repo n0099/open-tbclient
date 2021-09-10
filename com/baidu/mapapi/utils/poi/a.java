@@ -15,7 +15,7 @@ public final class a implements a.InterfaceC1689a<c> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ Context f41919a;
+    public final /* synthetic */ Context f42030a;
 
     public a(Context context) {
         Interceptable interceptable = $ic;
@@ -32,14 +32,14 @@ public final class a implements a.InterfaceC1689a<c> {
                 return;
             }
         }
-        this.f41919a = context;
+        this.f42030a = context;
     }
 
     @Override // com.baidu.platform.comapi.pano.a.InterfaceC1689a
     public void a(HttpClient.HttpStateError httpStateError) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, httpStateError) == null) {
-            int i2 = b.f41921b[httpStateError.ordinal()];
+            int i2 = b.f42032b[httpStateError.ordinal()];
         }
     }
 
@@ -47,9 +47,9 @@ public final class a implements a.InterfaceC1689a<c> {
     @Override // com.baidu.platform.comapi.pano.a.InterfaceC1689a
     public void a(c cVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar) == null) && cVar != null && b.f41920a[cVar.a().ordinal()] == 4 && cVar.c() == 1) {
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar) == null) && cVar != null && b.f42031a[cVar.a().ordinal()] == 4 && cVar.c() == 1) {
             try {
-                BaiduMapPoiSearch.b(cVar.b(), this.f41919a);
+                BaiduMapPoiSearch.b(cVar.b(), this.f42030a);
             } catch (Exception e2) {
                 e2.printStackTrace();
             }

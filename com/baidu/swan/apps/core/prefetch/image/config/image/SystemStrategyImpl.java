@@ -2,8 +2,8 @@ package com.baidu.swan.apps.core.prefetch.image.config.image;
 
 import android.webkit.MimeTypeMap;
 import androidx.annotation.NonNull;
-import c.a.o0.a.h0.o.h.d.b.a;
-import c.a.o0.a.h0.o.h.g.g;
+import c.a.p0.a.h0.o.h.d.b.a;
+import c.a.p0.a.h0.o.h.g.g;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.widget.OvalActionButton;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -19,7 +19,7 @@ public class SystemStrategyImpl implements a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final List<String> f45804a;
+    public final List<String> f45919a;
 
     public SystemStrategyImpl() {
         Interceptable interceptable = $ic;
@@ -34,7 +34,7 @@ public class SystemStrategyImpl implements a {
                 return;
             }
         }
-        this.f45804a = new ArrayList<String>(this) { // from class: com.baidu.swan.apps.core.prefetch.image.config.image.SystemStrategyImpl.1
+        this.f45919a = new ArrayList<String>(this) { // from class: com.baidu.swan.apps.core.prefetch.image.config.image.SystemStrategyImpl.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ SystemStrategyImpl this$0;
@@ -65,14 +65,14 @@ public class SystemStrategyImpl implements a {
         };
     }
 
-    @Override // c.a.o0.a.h0.o.h.d.b.a
+    @Override // c.a.p0.a.h0.o.h.d.b.a
     public boolean a(@NonNull g gVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, gVar)) == null) {
             String fileExtensionFromUrl = MimeTypeMap.getFileExtensionFromUrl(gVar.d());
             gVar.a(MimeTypeMap.getSingleton().getMimeTypeFromExtension(fileExtensionFromUrl));
-            return this.f45804a.contains(fileExtensionFromUrl);
+            return this.f45919a.contains(fileExtensionFromUrl);
         }
         return invokeL.booleanValue;
     }

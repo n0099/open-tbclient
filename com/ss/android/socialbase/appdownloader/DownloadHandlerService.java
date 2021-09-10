@@ -31,7 +31,7 @@ public class DownloadHandlerService extends Service {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f75542a;
+    public static final String f75722a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes10.dex */
@@ -40,7 +40,7 @@ public class DownloadHandlerService extends Service {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ DownloadHandlerService f75543e;
+        public final /* synthetic */ DownloadHandlerService f75723e;
 
         public a(DownloadHandlerService downloadHandlerService) {
             Interceptable interceptable = $ic;
@@ -57,7 +57,7 @@ public class DownloadHandlerService extends Service {
                     return;
                 }
             }
-            this.f75543e = downloadHandlerService;
+            this.f75723e = downloadHandlerService;
         }
 
         @Override // java.lang.Runnable
@@ -82,13 +82,13 @@ public class DownloadHandlerService extends Service {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ DownloadInfo f75544e;
+        public final /* synthetic */ DownloadInfo f75724e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ d.f f75545f;
+        public final /* synthetic */ d.f f75725f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ c.p.a.e.b.f.e f75546g;
+        public final /* synthetic */ c.p.a.e.b.f.e f75726g;
 
         public b(DownloadInfo downloadInfo, d.f fVar, c.p.a.e.b.f.e eVar) {
             Interceptable interceptable = $ic;
@@ -105,9 +105,9 @@ public class DownloadHandlerService extends Service {
                     return;
                 }
             }
-            this.f75544e = downloadInfo;
-            this.f75545f = fVar;
-            this.f75546g = eVar;
+            this.f75724e = downloadInfo;
+            this.f75725f = fVar;
+            this.f75726g = eVar;
         }
 
         @Override // java.lang.Runnable
@@ -116,15 +116,15 @@ public class DownloadHandlerService extends Service {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 try {
-                    File file = new File(this.f75544e.getSavePath(), this.f75544e.getName());
+                    File file = new File(this.f75724e.getSavePath(), this.f75724e.getName());
                     if (file.exists()) {
                         try {
-                            String str = (e.n() == null || (i2 = d.i(this.f75544e, file)) == null) ? "" : i2.packageName;
-                            if (this.f75545f != null) {
-                                this.f75545f.b(this.f75544e.getId(), 3, str, -3, this.f75544e.getDownloadTime());
+                            String str = (e.n() == null || (i2 = d.i(this.f75724e, file)) == null) ? "" : i2.packageName;
+                            if (this.f75725f != null) {
+                                this.f75725f.b(this.f75724e.getId(), 3, str, -3, this.f75724e.getDownloadTime());
                             }
-                            if (this.f75546g != null) {
-                                this.f75546g.a(3, this.f75544e, str, "");
+                            if (this.f75726g != null) {
+                                this.f75726g.a(3, this.f75724e, str, "");
                             }
                         } catch (Exception e2) {
                             e2.printStackTrace();
@@ -150,7 +150,7 @@ public class DownloadHandlerService extends Service {
                 return;
             }
         }
-        f75542a = DownloadHandlerService.class.getSimpleName();
+        f75722a = DownloadHandlerService.class.getSimpleName();
     }
 
     public DownloadHandlerService() {
@@ -263,7 +263,7 @@ public class DownloadHandlerService extends Service {
         if (interceptable == null || (invokeLII = interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, intent, i2, i3)) == null) {
             super.onStartCommand(intent, i2, i3);
             if (c.p.a.e.b.c.a.e()) {
-                c.p.a.e.b.c.a.g(f75542a, "onStartCommand");
+                c.p.a.e.b.c.a.g(f75722a, "onStartCommand");
             }
             a(intent);
             stopSelf();

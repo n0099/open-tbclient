@@ -32,14 +32,14 @@ public class q {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final byte[] f45342b;
+    public static final byte[] f45457b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static OkHttpClient f45343c;
+    public static OkHttpClient f45458c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f45344a;
+    public Context f45459a;
 
     static {
         InterceptResult invokeClinit;
@@ -54,7 +54,7 @@ public class q {
                 return;
             }
         }
-        f45342b = new byte[1024];
+        f45457b = new byte[1024];
     }
 
     public q(Context context) {
@@ -72,16 +72,16 @@ public class q {
                 return;
             }
         }
-        this.f45344a = context;
+        this.f45459a = context;
     }
 
     private OkHttpClient a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
-            if (f45343c == null) {
+            if (f45458c == null) {
                 synchronized (q.class) {
-                    if (f45343c == null) {
+                    if (f45458c == null) {
                         OkHttpClient.Builder builder = new OkHttpClient.Builder();
                         builder.hostnameVerifier(SSLSocketFactory.STRICT_HOSTNAME_VERIFIER);
                         builder.connectTimeout(AppConfig.TIMESTAMP_AVAILABLE_DURATION, TimeUnit.MILLISECONDS);
@@ -90,7 +90,7 @@ public class q {
                             public transient /* synthetic */ FieldHolder $fh;
 
                             /* renamed from: a  reason: collision with root package name */
-                            public final /* synthetic */ q f45345a;
+                            public final /* synthetic */ q f45460a;
 
                             {
                                 Interceptable interceptable2 = $ic;
@@ -107,7 +107,7 @@ public class q {
                                         return;
                                     }
                                 }
-                                this.f45345a = this;
+                                this.f45460a = this;
                             }
 
                             @Override // okhttp3.Interceptor
@@ -123,11 +123,11 @@ public class q {
                                 return (Response) invokeL.objValue;
                             }
                         });
-                        f45343c = builder.build();
+                        f45458c = builder.build();
                     }
                 }
             }
-            return f45343c;
+            return f45458c;
         }
         return (OkHttpClient) invokeV.objValue;
     }
@@ -138,13 +138,13 @@ public class q {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, this, str, bArr)) == null) {
             try {
                 MediaType parse = MediaType.parse("application/x-www-form-urlencoded; charset=utf-8");
-                String str2 = c.g(this.f45344a)[0];
+                String str2 = c.g(this.f45459a)[0];
                 Request.Builder url = new Request.Builder().url(str);
                 if (bArr != null) {
                     url.post(RequestBody.create(parse, bArr));
                 }
-                Request.Builder addHeader = url.addHeader("User-Agent", "eos/" + str2 + "/" + z.a(this.f45344a) + "/3.5.8.7").addHeader("Pragma", "no-cache").addHeader("Accept", "*/*");
-                return addHeader.addHeader("Accept-Language", Locale.getDefault().getLanguage() + "-" + Locale.getDefault().getCountry()).addHeader("x-device-id", o.a(e.b(this.f45344a))).build();
+                Request.Builder addHeader = url.addHeader("User-Agent", "eos/" + str2 + "/" + z.a(this.f45459a) + "/3.5.8.7").addHeader("Pragma", "no-cache").addHeader("Accept", "*/*");
+                return addHeader.addHeader("Accept-Language", Locale.getDefault().getLanguage() + "-" + Locale.getDefault().getCountry()).addHeader("x-device-id", o.a(e.b(this.f45459a))).build();
             } catch (Throwable unused) {
                 c.a();
                 return null;
@@ -158,7 +158,7 @@ public class q {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, bArr)) == null) {
             try {
-                if (s.m(this.f45344a)) {
+                if (s.m(this.f45459a)) {
                     Response execute = a().newCall(b(str, bArr)).execute();
                     int code = execute.code();
                     if (code == 200) {
@@ -180,7 +180,7 @@ public class q {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, file)) == null) {
             try {
-                if (s.m(this.f45344a)) {
+                if (s.m(this.f45459a)) {
                     Response execute = a().newCall(new Request.Builder().url(str).build()).execute();
                     int code = execute.code();
                     if (code == 200) {
@@ -212,9 +212,9 @@ public class q {
         try {
             BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(new FileOutputStream(file));
             while (true) {
-                int read = inputStream.read(f45342b);
+                int read = inputStream.read(f45457b);
                 if (read != -1) {
-                    bufferedOutputStream.write(f45342b, 0, read);
+                    bufferedOutputStream.write(f45457b, 0, read);
                     bufferedOutputStream.flush();
                 } else {
                     bufferedOutputStream.flush();

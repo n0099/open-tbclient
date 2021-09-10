@@ -11,7 +11,7 @@ public class M0 implements ViewTreeObserver.OnGlobalLayoutListener {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ ViewTreeObserver f76640a;
+    public final /* synthetic */ ViewTreeObserver f76820a;
 
     public M0(O0 o0, ViewTreeObserver viewTreeObserver) {
         Interceptable interceptable = $ic;
@@ -28,14 +28,14 @@ public class M0 implements ViewTreeObserver.OnGlobalLayoutListener {
                 return;
             }
         }
-        this.f76640a = viewTreeObserver;
+        this.f76820a = viewTreeObserver;
     }
 
     @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
     public void onGlobalLayout() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            String str = "onGlobalLayout:" + this.f76640a.isAlive();
+            String str = "onGlobalLayout:" + this.f76820a.isAlive();
         }
     }
 }

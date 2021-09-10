@@ -10,7 +10,7 @@ public class RimArmor {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static RimArmor f43858a;
+    public static RimArmor f43973a;
     public transient /* synthetic */ FieldHolder $fh;
 
     public RimArmor() {
@@ -33,10 +33,10 @@ public class RimArmor {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
             synchronized (RimArmor.class) {
-                if (f43858a == null) {
-                    f43858a = new RimArmor();
+                if (f43973a == null) {
+                    f43973a = new RimArmor();
                 }
-                rimArmor = f43858a;
+                rimArmor = f43973a;
             }
             return rimArmor;
         }

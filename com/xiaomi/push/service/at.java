@@ -11,7 +11,7 @@ public class at {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static long f77947a = 0;
+    public static long f78127a = 0;
 
     /* renamed from: a  reason: collision with other field name */
     public static String f904a = "";
@@ -41,8 +41,8 @@ public class at {
             }
             StringBuilder sb = new StringBuilder();
             sb.append(f904a);
-            long j2 = f77947a;
-            f77947a = 1 + j2;
+            long j2 = f78127a;
+            f78127a = 1 + j2;
             sb.append(j2);
             return sb.toString();
         }

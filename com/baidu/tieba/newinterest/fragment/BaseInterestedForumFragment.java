@@ -1,8 +1,8 @@
 package com.baidu.tieba.newinterest.fragment;
 
 import android.view.View;
-import c.a.q0.e2.c.b;
-import c.a.q0.e2.e.a;
+import c.a.r0.f2.c.b;
+import c.a.r0.f2.e.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.titan.sdk.runtime.FieldHolder;

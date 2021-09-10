@@ -3,7 +3,7 @@ package com.google.android.material.transition.platform;
 import android.graphics.RectF;
 import androidx.annotation.RequiresApi;
 @RequiresApi(21)
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public interface FitModeEvaluator {
     void applyMask(RectF rectF, float f2, FitModeResult fitModeResult);
 

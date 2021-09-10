@@ -16,7 +16,7 @@ public class h {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static SensorManager f67850a;
+    public static SensorManager f68030a;
     public transient /* synthetic */ FieldHolder $fh;
 
     public h() {
@@ -62,14 +62,14 @@ public class h {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, context)) == null) {
-            if (f67850a == null) {
+            if (f68030a == null) {
                 synchronized (h.class) {
-                    if (f67850a == null) {
-                        f67850a = (SensorManager) context.getSystemService("sensor");
+                    if (f68030a == null) {
+                        f68030a = (SensorManager) context.getSystemService("sensor");
                     }
                 }
             }
-            return f67850a;
+            return f68030a;
         }
         return (SensorManager) invokeL.objValue;
     }

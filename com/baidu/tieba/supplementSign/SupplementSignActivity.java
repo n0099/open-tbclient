@@ -3,7 +3,7 @@ package com.baidu.tieba.supplementSign;
 import android.content.Intent;
 import android.os.Bundle;
 import android.webkit.JsPromptResult;
-import c.a.q0.i3.m0.b;
+import c.a.r0.j3.m0.b;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.BdLog;
@@ -37,7 +37,7 @@ public class SupplementSignActivity extends TbWebViewActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ SupplementSignActivity f56869a;
+        public final /* synthetic */ SupplementSignActivity f57029a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(SupplementSignActivity supplementSignActivity, int i2) {
@@ -57,7 +57,7 @@ public class SupplementSignActivity extends TbWebViewActivity {
                     return;
                 }
             }
-            this.f56869a = supplementSignActivity;
+            this.f57029a = supplementSignActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -65,7 +65,7 @@ public class SupplementSignActivity extends TbWebViewActivity {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof Integer)) {
-                this.f56869a.mWebView.loadUrl("javascript:TbJsBridge.refreshRemainDay()");
+                this.f57029a.mWebView.loadUrl("javascript:TbJsBridge.refreshRemainDay()");
             }
         }
     }
@@ -112,7 +112,7 @@ public class SupplementSignActivity extends TbWebViewActivity {
                 this.this$0 = this;
             }
 
-            @Override // c.a.q0.i3.m0.b
+            @Override // c.a.r0.j3.m0.b
             public boolean dealJsInterface(String str, String str2, String str3, JsPromptResult jsPromptResult) {
                 InterceptResult invokeLLLL;
                 Interceptable interceptable2 = $ic;

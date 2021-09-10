@@ -11,16 +11,16 @@ public final class z {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Uri f76555a;
+    public static final Uri f76735a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Uri f76556b;
+    public static final Uri f76736b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final Uri f76557c;
+    public static final Uri f76737c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final Uri f76558d;
+    public static final Uri f76738d;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -36,10 +36,10 @@ public final class z {
                 return;
             }
         }
-        f76555a = Uri.parse("content://com.vivo.push.sdk.service.SystemPushConfig/config");
-        f76556b = Uri.parse("content://com.vivo.push.sdk.service.SystemPushConfig/permission");
-        f76557c = Uri.parse("content://com.vivo.push.sdk.service.SystemPushConfig/clientState");
-        f76558d = Uri.parse("content://com.vivo.push.sdk.service.SystemPushConfig/debugInfo");
+        f76735a = Uri.parse("content://com.vivo.push.sdk.service.SystemPushConfig/config");
+        f76736b = Uri.parse("content://com.vivo.push.sdk.service.SystemPushConfig/permission");
+        f76737c = Uri.parse("content://com.vivo.push.sdk.service.SystemPushConfig/clientState");
+        f76738d = Uri.parse("content://com.vivo.push.sdk.service.SystemPushConfig/debugInfo");
     }
 
     public static String a(int i2) {

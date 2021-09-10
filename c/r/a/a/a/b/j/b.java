@@ -14,7 +14,7 @@ public final class b implements c.r.a.a.a.b.b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f35411e;
+    public Context f35520e;
 
     public b(Context context) {
         Interceptable interceptable = $ic;
@@ -31,7 +31,7 @@ public final class b implements c.r.a.a.a.b.b {
                 return;
             }
         }
-        this.f35411e = context;
+        this.f35520e = context;
     }
 
     @Override // c.r.a.a.a.b.b
@@ -56,7 +56,7 @@ public final class b implements c.r.a.a.a.b.b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            String a2 = a.a(this.f35411e);
+            String a2 = a.a(this.f35520e);
             return TextUtils.isEmpty(a2) ? "" : a2;
         }
         return (String) invokeV.objValue;

@@ -22,23 +22,23 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final Map<String, b> f2812d;
+    public static final Map<String, b> f2803d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final Object f2813e;
+    public static final Object f2804e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static DateFormat f2814f;
+    public static DateFormat f2805f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public LinkedList<a> f2815a;
+    public LinkedList<a> f2806a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f2816b;
+    public String f2807b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f2817c;
+    public long f2808c;
 
     static {
         InterceptResult invokeClinit;
@@ -53,9 +53,9 @@ public class b {
                 return;
             }
         }
-        f2812d = new HashMap();
-        f2813e = new Object();
-        f2814f = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS", Locale.CHINESE);
+        f2803d = new HashMap();
+        f2804e = new Object();
+        f2805f = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS", Locale.CHINESE);
     }
 
     public b(String str) {
@@ -73,8 +73,8 @@ public class b {
                 return;
             }
         }
-        this.f2815a = new LinkedList<>();
-        this.f2816b = str;
+        this.f2806a = new LinkedList<>();
+        this.f2807b = str;
     }
 
     public static b c() {
@@ -90,16 +90,16 @@ public class b {
             if (TextUtils.isEmpty(str)) {
                 str = "Default";
             }
-            if (!f2812d.containsKey(str)) {
-                synchronized (f2813e) {
-                    if (!f2812d.containsKey(str)) {
+            if (!f2803d.containsKey(str)) {
+                synchronized (f2804e) {
+                    if (!f2803d.containsKey(str)) {
                         b bVar = new b(str);
-                        f2812d.put(str, bVar);
+                        f2803d.put(str, bVar);
                         return bVar;
                     }
                 }
             }
-            return f2812d.get(str);
+            return f2803d.get(str);
         }
         return (b) invokeL.objValue;
     }
@@ -114,16 +114,16 @@ public class b {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            while (this.f2815a.size() >= 70) {
-                this.f2815a.poll();
+            while (this.f2806a.size() >= 70) {
+                this.f2806a.poll();
             }
         }
     }
 
     public final void b() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.f2817c == 0) {
-            this.f2817c = System.currentTimeMillis();
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.f2808c == 0) {
+            this.f2808c = System.currentTimeMillis();
         }
     }
 
@@ -132,7 +132,7 @@ public class b {
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) == null) {
             b();
             a();
-            this.f2815a.add(new a(str, str2));
+            this.f2806a.add(new a(str, str2));
         }
     }
 
@@ -141,11 +141,11 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             StringBuilder sb = new StringBuilder();
-            sb.append("trace_" + this.f2816b + "{begin@" + f2814f.format(new Date(this.f2817c)) + "->");
-            for (int i2 = 0; i2 < this.f2815a.size(); i2++) {
-                a aVar = this.f2815a.get(i2);
-                sb.append(String.format("%s(%s)@%s", aVar.f2818a, aVar.f2819b, f2814f.format(new Date(aVar.f2820c))));
-                if (i2 < this.f2815a.size() - 1) {
+            sb.append("trace_" + this.f2807b + "{begin@" + f2805f.format(new Date(this.f2808c)) + "->");
+            for (int i2 = 0; i2 < this.f2806a.size(); i2++) {
+                a aVar = this.f2806a.get(i2);
+                sb.append(String.format("%s(%s)@%s", aVar.f2809a, aVar.f2810b, f2805f.format(new Date(aVar.f2811c))));
+                if (i2 < this.f2806a.size() - 1) {
                     sb.append("->");
                 }
             }
@@ -161,13 +161,13 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f2818a;
+        public String f2809a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f2819b;
+        public String f2810b;
 
         /* renamed from: c  reason: collision with root package name */
-        public long f2820c;
+        public long f2811c;
 
         public a(String str, String str2, long j2) {
             Interceptable interceptable = $ic;
@@ -184,9 +184,9 @@ public class b {
                     return;
                 }
             }
-            this.f2818a = str;
-            this.f2819b = str2;
-            this.f2820c = j2;
+            this.f2809a = str;
+            this.f2810b = str2;
+            this.f2811c = j2;
         }
 
         /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */

@@ -21,7 +21,7 @@ public class b extends GLSurfaceView implements i {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public e f38886a;
+    public e f38992a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(Context context) {
@@ -43,13 +43,13 @@ public class b extends GLSurfaceView implements i {
         }
         setEGLContextClientVersion(2);
         e eVar = new e();
-        this.f38886a = eVar;
+        this.f38992a = eVar;
         eVar.a(new e.a(this) { // from class: com.baidu.cyberplayer.sdk.b.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ b f38887a;
+            public final /* synthetic */ b f38993a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -66,18 +66,18 @@ public class b extends GLSurfaceView implements i {
                         return;
                     }
                 }
-                this.f38887a = this;
+                this.f38993a = this;
             }
 
             @Override // com.baidu.cyberplayer.sdk.e.a
             public void a() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    this.f38887a.requestRender();
+                    this.f38993a.requestRender();
                 }
             }
         });
-        setRenderer(this.f38886a);
+        setRenderer(this.f38992a);
         setRenderMode(0);
     }
 
@@ -86,7 +86,7 @@ public class b extends GLSurfaceView implements i {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Float.valueOf(f2), Integer.valueOf(i2), Integer.valueOf(i3)})) == null) {
-            this.f38886a.a(f2, i2, i3);
+            this.f38992a.a(f2, i2, i3);
             return null;
         }
         return (Bitmap) invokeCommon.objValue;
@@ -96,7 +96,7 @@ public class b extends GLSurfaceView implements i {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f38886a.a();
+            this.f38992a.a();
         }
     }
 
@@ -104,7 +104,7 @@ public class b extends GLSurfaceView implements i {
     public void a(int i2, int i3, int i4, int i5) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIII(Constants.METHOD_SEND_USER_MSG, this, i2, i3, i4, i5) == null) {
-            this.f38886a.a(i2, i3, i4, i5);
+            this.f38992a.a(i2, i3, i4, i5);
         }
     }
 
@@ -120,7 +120,7 @@ public class b extends GLSurfaceView implements i {
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.f38886a.b();
+            this.f38992a.b();
         }
     }
 
@@ -128,7 +128,7 @@ public class b extends GLSurfaceView implements i {
     public Surface d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f38886a.c() : (Surface) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f38992a.c() : (Surface) invokeV.objValue;
     }
 
     @Override // com.baidu.cyberplayer.sdk.i
@@ -144,7 +144,7 @@ public class b extends GLSurfaceView implements i {
     public SurfaceTexture getSurfaceTexture() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f38886a.d() : (SurfaceTexture) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f38992a.d() : (SurfaceTexture) invokeV.objValue;
     }
 
     @Override // com.baidu.cyberplayer.sdk.i
@@ -158,7 +158,7 @@ public class b extends GLSurfaceView implements i {
     public void setClientRotation(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048585, this, i2) == null) {
-            this.f38886a.b(i2);
+            this.f38992a.b(i2);
         }
     }
 
@@ -166,7 +166,7 @@ public class b extends GLSurfaceView implements i {
     public void setCyberSurfaceListener(i.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, aVar) == null) {
-            this.f38886a.a(aVar);
+            this.f38992a.a(aVar);
         }
     }
 
@@ -174,7 +174,7 @@ public class b extends GLSurfaceView implements i {
     public void setDisplayMode(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048587, this, i2) == null) {
-            this.f38886a.a(i2);
+            this.f38992a.a(i2);
         }
     }
 
@@ -182,7 +182,7 @@ public class b extends GLSurfaceView implements i {
     public void setRawFrameRotation(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048588, this, i2) == null) {
-            this.f38886a.c(i2);
+            this.f38992a.c(i2);
         }
     }
 

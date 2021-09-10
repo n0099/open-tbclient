@@ -25,22 +25,22 @@ public class EntelechyPullUpRefreshView extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public View f50917e;
+    public View f51082e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TbImageView f50918f;
+    public TbImageView f51083f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f50919g;
+    public int f51084g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Animation f50920h;
+    public Animation f51085h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f50921i;
+    public int f51086i;
 
     /* renamed from: j  reason: collision with root package name */
-    public boolean f50922j;
+    public boolean f51087j;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public EntelechyPullUpRefreshView(Context context) {
@@ -60,10 +60,10 @@ public class EntelechyPullUpRefreshView extends LinearLayout {
                 return;
             }
         }
-        this.f50919g = 3;
-        this.f50920h = null;
-        this.f50921i = R.drawable.icon_frs_reload;
-        this.f50922j = false;
+        this.f51084g = 3;
+        this.f51085h = null;
+        this.f51086i = R.drawable.icon_frs_reload;
+        this.f51087j = false;
         initUI(context, null);
     }
 
@@ -71,12 +71,12 @@ public class EntelechyPullUpRefreshView extends LinearLayout {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
-            if (this.f50920h == null) {
-                this.f50920h = AnimationUtils.loadAnimation(getContext(), R.anim.refresh_rotate);
-                this.f50920h.setInterpolator(new LinearInterpolator());
-                this.f50920h.setFillAfter(true);
+            if (this.f51085h == null) {
+                this.f51085h = AnimationUtils.loadAnimation(getContext(), R.anim.refresh_rotate);
+                this.f51085h.setInterpolator(new LinearInterpolator());
+                this.f51085h.setFillAfter(true);
             }
-            return this.f50920h;
+            return this.f51085h;
         }
         return (Animation) invokeV.objValue;
     }
@@ -84,7 +84,7 @@ public class EntelechyPullUpRefreshView extends LinearLayout {
     public void endRefreshAnimation() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f50918f.clearAnimation();
+            this.f51083f.clearAnimation();
         }
     }
 
@@ -95,51 +95,51 @@ public class EntelechyPullUpRefreshView extends LinearLayout {
         }
         if (attributeSet != null) {
             TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R$styleable.EntelechyPullUpRefreshView);
-            this.f50921i = obtainStyledAttributes.getResourceId(R$styleable.EntelechyPullUpRefreshView_tb_pull_up_icon, R.drawable.icon_frs_reload);
-            this.f50922j = obtainStyledAttributes.getBoolean(R$styleable.EntelechyPullUpRefreshView_tb_pull_show_top_line, false);
+            this.f51086i = obtainStyledAttributes.getResourceId(R$styleable.EntelechyPullUpRefreshView_tb_pull_up_icon, R.drawable.icon_frs_reload);
+            this.f51087j = obtainStyledAttributes.getBoolean(R$styleable.EntelechyPullUpRefreshView_tb_pull_show_top_line, false);
             obtainStyledAttributes.recycle();
         }
         setOrientation(1);
         setGravity(1);
         SkinManager.setBackgroundResource(this, R.color.cp_bg_line_d_alpha98);
-        if (this.f50922j) {
-            this.f50917e = new View(context);
-            this.f50917e.setLayoutParams(new LinearLayout.LayoutParams(-1, (int) context.getResources().getDimension(R.dimen.ds1)));
-            SkinManager.setBackgroundResource(this.f50917e, R.color.CAM_X0204);
-            addView(this.f50917e);
+        if (this.f51087j) {
+            this.f51082e = new View(context);
+            this.f51082e.setLayoutParams(new LinearLayout.LayoutParams(-1, (int) context.getResources().getDimension(R.dimen.ds1)));
+            SkinManager.setBackgroundResource(this.f51082e, R.color.CAM_X0204);
+            addView(this.f51082e);
         }
-        this.f50918f = new TbImageView(context);
+        this.f51083f = new TbImageView(context);
         int g2 = l.g(getContext(), R.dimen.ds48);
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(g2, g2);
         layoutParams.topMargin = l.g(getContext(), R.dimen.ds20);
-        this.f50918f.setLayoutParams(layoutParams);
-        SkinManager.setImageResource(this.f50918f, this.f50921i);
-        addView(this.f50918f);
+        this.f51083f.setLayoutParams(layoutParams);
+        SkinManager.setImageResource(this.f51083f, this.f51086i);
+        addView(this.f51083f);
     }
 
     public void onChangeSkinType(int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) || this.f50919g == i2) {
+        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) || this.f51084g == i2) {
             return;
         }
-        SkinManager.setBackgroundResource(this.f50917e, R.color.CAM_X0204);
-        SkinManager.setImageResource(this.f50918f, this.f50921i);
+        SkinManager.setBackgroundResource(this.f51082e, R.color.CAM_X0204);
+        SkinManager.setImageResource(this.f51083f, this.f51086i);
         SkinManager.setBackgroundResource(this, R.color.cp_bg_line_d_alpha98);
-        this.f50919g = i2;
+        this.f51084g = i2;
     }
 
     public void setIconResource(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            this.f50921i = i2;
-            SkinManager.setImageResource(this.f50918f, i2);
+            this.f51086i = i2;
+            SkinManager.setImageResource(this.f51083f, i2);
         }
     }
 
     public void startRefreshAnimation() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.f50918f.startAnimation(getClickRotateAnimation());
+            this.f51083f.startAnimation(getClickRotateAnimation());
         }
     }
 
@@ -162,10 +162,10 @@ public class EntelechyPullUpRefreshView extends LinearLayout {
                 return;
             }
         }
-        this.f50919g = 3;
-        this.f50920h = null;
-        this.f50921i = R.drawable.icon_frs_reload;
-        this.f50922j = false;
+        this.f51084g = 3;
+        this.f51085h = null;
+        this.f51086i = R.drawable.icon_frs_reload;
+        this.f51087j = false;
         initUI(context, attributeSet);
     }
 
@@ -188,10 +188,10 @@ public class EntelechyPullUpRefreshView extends LinearLayout {
                 return;
             }
         }
-        this.f50919g = 3;
-        this.f50920h = null;
-        this.f50921i = R.drawable.icon_frs_reload;
-        this.f50922j = false;
+        this.f51084g = 3;
+        this.f51085h = null;
+        this.f51086i = R.drawable.icon_frs_reload;
+        this.f51087j = false;
         initUI(context, attributeSet);
     }
 }

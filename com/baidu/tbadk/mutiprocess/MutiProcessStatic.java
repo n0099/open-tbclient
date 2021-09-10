@@ -1,7 +1,7 @@
 package com.baidu.tbadk.mutiprocess;
 
-import c.a.p0.h0.h;
-import c.a.p0.h0.l.a;
+import c.a.q0.j0.h;
+import c.a.q0.j0.l.a;
 import com.baidu.tbadk.mutiprocess.agree.AgreeEvent;
 import com.baidu.tbadk.mutiprocess.backbaidubox.BackBaiduBoxViewEvent;
 import com.baidu.tbadk.mutiprocess.competetask.CompeteTaskEvent;
@@ -61,16 +61,16 @@ public class MutiProcessStatic {
             try {
                 h f2 = h.f();
                 f2.l(AgreeEvent.class, new a());
-                f2.l(MissionEvent.class, new c.a.p0.h0.r.a());
-                f2.l(CompeteTaskEvent.class, new c.a.p0.h0.n.a());
-                f2.l(ShareEvent.class, new c.a.p0.h0.t.a());
-                f2.l(HistoryEvent.class, new c.a.p0.h0.p.a());
-                f2.l(BackBaiduBoxViewEvent.class, new c.a.p0.h0.m.a());
-                f2.l(SyncDataEvent.class, new c.a.p0.h0.v.a());
-                f2.l(ShowReplyInPbEvent.class, new c.a.p0.h0.u.a());
-                f2.l(LocationEvent.class, new c.a.p0.h0.q.a());
-                f2.l(PrePageKeyEvent.class, new c.a.p0.h0.s.a());
-                f2.l(CurrentPageTypeEvent.class, new c.a.p0.h0.o.a());
+                f2.l(MissionEvent.class, new c.a.q0.j0.r.a());
+                f2.l(CompeteTaskEvent.class, new c.a.q0.j0.n.a());
+                f2.l(ShareEvent.class, new c.a.q0.j0.t.a());
+                f2.l(HistoryEvent.class, new c.a.q0.j0.p.a());
+                f2.l(BackBaiduBoxViewEvent.class, new c.a.q0.j0.m.a());
+                f2.l(SyncDataEvent.class, new c.a.q0.j0.v.a());
+                f2.l(ShowReplyInPbEvent.class, new c.a.q0.j0.u.a());
+                f2.l(LocationEvent.class, new c.a.q0.j0.q.a());
+                f2.l(PrePageKeyEvent.class, new c.a.q0.j0.s.a());
+                f2.l(CurrentPageTypeEvent.class, new c.a.q0.j0.o.a());
             } catch (Exception e2) {
                 e2.printStackTrace();
             }

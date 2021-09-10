@@ -90,17 +90,14 @@ public class StuckDataCalculator {
     public void calculateStuck() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            int i2 = (this.frameStartTime > 0L ? 1 : (this.frameStartTime == 0L ? 0 : -1));
-            Handler handler = this.stuckTimer;
-            Runnable runnable = this.stuckRunnable;
-            if (i2 <= 0) {
-                handler.postDelayed(runnable, 5000L);
-                this.frameStartTime = System.currentTimeMillis();
+            if (this.frameStartTime > 0) {
+                this.stuckTimer.removeCallbacks(this.stuckRunnable);
+                reportStuckData();
+                this.stuckTimer.postDelayed(this.stuckRunnable, 5000L);
                 return;
             }
-            handler.removeCallbacks(runnable);
-            reportStuckData();
             this.stuckTimer.postDelayed(this.stuckRunnable, 5000L);
+            this.frameStartTime = System.currentTimeMillis();
         }
     }
 
@@ -109,6 +106,7 @@ public class StuckDataCalculator {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             this.frameStartTime = 0L;
             this.stuckTimer.removeCallbacks(this.stuckRunnable);
+            this.mStuckEvent = null;
         }
     }
 

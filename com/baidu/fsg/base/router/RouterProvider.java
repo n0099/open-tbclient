@@ -13,10 +13,10 @@ public abstract class RouterProvider {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f39344a;
+    public boolean f39455a;
 
     /* renamed from: b  reason: collision with root package name */
-    public HashMap<String, RouterAction> f39345b;
+    public HashMap<String, RouterAction> f39456b;
 
     public RouterProvider() {
         Interceptable interceptable = $ic;
@@ -31,27 +31,27 @@ public abstract class RouterProvider {
                 return;
             }
         }
-        this.f39344a = true;
-        this.f39345b = new HashMap<>();
+        this.f39455a = true;
+        this.f39456b = new HashMap<>();
         registerActions();
     }
 
     public RouterAction findAction(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? this.f39345b.get(str) : (RouterAction) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? this.f39456b.get(str) : (RouterAction) invokeL.objValue;
     }
 
     public boolean isValid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f39344a : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f39455a : invokeV.booleanValue;
     }
 
     public void registerAction(String str, RouterAction routerAction) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, routerAction) == null) {
-            this.f39345b.put(str, routerAction);
+            this.f39456b.put(str, routerAction);
         }
     }
 

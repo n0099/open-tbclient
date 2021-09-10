@@ -49,20 +49,20 @@ public class LivenessCameraSurfaceView extends SurfaceView {
                 return null;
             }
             a.C1654a a2 = a(activity);
-            b.a aVar = new b.a(c1654a.f40108a, c1654a.f40109b);
-            float f2 = c1654a.f40108a / c1654a.f40109b;
-            float f3 = a2.f40109b / a2.f40108a;
+            b.a aVar = new b.a(c1654a.f40219a, c1654a.f40220b);
+            float f2 = c1654a.f40219a / c1654a.f40220b;
+            float f3 = a2.f40220b / a2.f40219a;
             if (Math.abs(f2 - f3) <= 0.02d) {
                 return aVar;
             }
             if (f2 < f3) {
-                int i2 = a2.f40109b;
-                aVar.f40121a = (c1654a.f40109b * i2) / c1654a.f40108a;
-                aVar.f40122b = i2;
+                int i2 = a2.f40220b;
+                aVar.f40232a = (c1654a.f40220b * i2) / c1654a.f40219a;
+                aVar.f40233b = i2;
             } else {
-                int i3 = a2.f40108a;
-                aVar.f40121a = i3;
-                aVar.f40122b = (i3 * c1654a.f40108a) / c1654a.f40109b;
+                int i3 = a2.f40219a;
+                aVar.f40232a = i3;
+                aVar.f40233b = (i3 * c1654a.f40219a) / c1654a.f40220b;
             }
             return aVar;
         }
@@ -74,9 +74,9 @@ public class LivenessCameraSurfaceView extends SurfaceView {
         if (interceptable == null || interceptable.invokeLL(1048576, this, activity, c1654a) == null) {
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(getLayoutParams());
             b.a a2 = a(activity, c1654a);
-            if (a2 != null && (a2.f40121a != c1654a.f40108a || a2.f40122b != c1654a.f40109b)) {
-                layoutParams.width = a2.f40121a;
-                layoutParams.height = a2.f40122b;
+            if (a2 != null && (a2.f40232a != c1654a.f40219a || a2.f40233b != c1654a.f40220b)) {
+                layoutParams.width = a2.f40232a;
+                layoutParams.height = a2.f40233b;
             } else {
                 layoutParams.width = -2;
                 layoutParams.height = -1;

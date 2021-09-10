@@ -13,19 +13,19 @@ public final class g {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final g f75664a;
+    public static final g f75844a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final g f75665b;
+    public static final g f75845b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final g f75666c;
+    public static final g f75846c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final g f75667d;
+    public static final g f75847d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final /* synthetic */ g[] f75668e;
+    public static final /* synthetic */ g[] f75848e;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -41,12 +41,12 @@ public final class g {
                 return;
             }
         }
-        f75664a = new g("DELAY_RETRY_NONE", 0);
-        f75665b = new g("DELAY_RETRY_WAITING", 1);
-        f75666c = new g("DELAY_RETRY_DOWNLOADING", 2);
+        f75844a = new g("DELAY_RETRY_NONE", 0);
+        f75845b = new g("DELAY_RETRY_WAITING", 1);
+        f75846c = new g("DELAY_RETRY_DOWNLOADING", 2);
         g gVar = new g("DELAY_RETRY_DOWNLOADED", 3);
-        f75667d = gVar;
-        f75668e = new g[]{f75664a, f75665b, f75666c, gVar};
+        f75847d = gVar;
+        f75848e = new g[]{f75844a, f75845b, f75846c, gVar};
     }
 
     public g(String str, int i2) {
@@ -77,6 +77,6 @@ public final class g {
     public static g[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (g[]) f75668e.clone() : (g[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (g[]) f75848e.clone() : (g[]) invokeV.objValue;
     }
 }

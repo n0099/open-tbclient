@@ -4,7 +4,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.o0.a.k;
+import c.a.p0.a.k;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.apps.process.SwanAppIPCData;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -87,7 +87,7 @@ public class SwanAppBearInfo extends SwanAppIPCData {
                 return;
             }
         }
-        DEBUG = k.f7049a;
+        DEBUG = k.f7077a;
         CREATOR = new a();
     }
 

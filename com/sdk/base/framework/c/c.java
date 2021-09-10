@@ -16,16 +16,16 @@ public final class c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public List<d> f75363a;
+    public List<d> f75543a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<String> f75364b;
+    public List<String> f75544b;
 
     /* renamed from: c  reason: collision with root package name */
-    public List<String> f75365c;
+    public List<String> f75545c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f75366d;
+    public String f75546d;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -40,69 +40,69 @@ public final class c {
                 return;
             }
         }
-        this.f75363a = new ArrayList();
-        this.f75364b = new ArrayList();
-        this.f75365c = new ArrayList();
-        this.f75366d = "";
+        this.f75543a = new ArrayList();
+        this.f75544b = new ArrayList();
+        this.f75545c = new ArrayList();
+        this.f75546d = "";
     }
 
     public final String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f75366d : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f75546d : (String) invokeV.objValue;
     }
 
     public final void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            this.f75366d = str;
+            this.f75546d = str;
         }
     }
 
     public final void a(List<d> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
-            this.f75363a = list;
+            this.f75543a = list;
         }
     }
 
     public final List<d> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f75363a : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f75543a : (List) invokeV.objValue;
     }
 
     public final void b(List<String> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, list) == null) {
-            this.f75364b = list;
+            this.f75544b = list;
         }
     }
 
     public final List<String> c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f75364b : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f75544b : (List) invokeV.objValue;
     }
 
     public final void c(List<String> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, list) == null) {
-            this.f75365c = list;
+            this.f75545c = list;
         }
     }
 
     public final List<String> d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f75365c : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f75545c : (List) invokeV.objValue;
     }
 
     public final String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return "StatusBean{_$101005=" + this.f75363a + ", _$302001=" + this.f75364b + ", _$302002=" + this.f75365c + ", _$302003='" + this.f75366d + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
+            return "StatusBean{_$101005=" + this.f75543a + ", _$302001=" + this.f75544b + ", _$302002=" + this.f75545c + ", _$302003='" + this.f75546d + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
         }
         return (String) invokeV.objValue;
     }

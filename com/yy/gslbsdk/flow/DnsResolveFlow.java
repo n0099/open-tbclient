@@ -582,7 +582,7 @@ public class DnsResolveFlow {
                                         this.val$rsInfo.httpErrMsg = requestHttpDnsV2[1];
                                     } else {
                                         StatisticInfo statisticInfo3 = this.val$rsInfo;
-                                        statisticInfo3.httpErrCode = BannerFocusImageViewGroup.f60495f;
+                                        statisticInfo3.httpErrCode = BannerFocusImageViewGroup.f60675f;
                                         statisticInfo3.httpErrMsg = "result is null";
                                     }
                                     if (this.val$requestFailedCount.decrementAndGet() == 0) {

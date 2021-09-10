@@ -1,7 +1,7 @@
 package com.baidu.tieba.newinterest.data;
 
-import c.a.p0.b.d;
-import c.a.p0.b1.w;
+import c.a.q0.b.d;
+import c.a.q0.d1.x;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -44,9 +44,9 @@ public class InterestedForumReqMsg extends NetMessage {
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             DataReq.Builder builder = new DataReq.Builder();
             if (z) {
-                w.a(builder, true);
+                x.a(builder, true);
             }
-            if (!d.K()) {
+            if (!d.A()) {
                 builder.begin_id = 1;
                 builder.pn = 0;
             }

@@ -23,10 +23,10 @@ public class g {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static ConnectivityManager f37520a;
+    public static ConnectivityManager f37639a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static TelephonyManager f37521b;
+    public static TelephonyManager f37640b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -232,12 +232,12 @@ public class g {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, context)) == null) {
             if (context == null) {
-                return f37520a;
+                return f37639a;
             }
-            if (f37520a == null) {
-                f37520a = (ConnectivityManager) context.getSystemService("connectivity");
+            if (f37639a == null) {
+                f37639a = (ConnectivityManager) context.getSystemService("connectivity");
             }
-            return f37520a;
+            return f37639a;
         }
         return (ConnectivityManager) invokeL.objValue;
     }
@@ -248,13 +248,13 @@ public class g {
         if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, context)) == null) {
             if (context.checkCallingOrSelfPermission("android.permission.READ_PHONE_STATE") == 0) {
                 if (context == null) {
-                    return f37521b;
+                    return f37640b;
                 }
-                if (f37521b == null) {
-                    f37521b = (TelephonyManager) context.getSystemService("phone");
+                if (f37640b == null) {
+                    f37640b = (TelephonyManager) context.getSystemService("phone");
                 }
             }
-            return f37521b;
+            return f37640b;
         }
         return (TelephonyManager) invokeL.objValue;
     }

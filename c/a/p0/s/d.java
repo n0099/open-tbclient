@@ -1,101 +1,38 @@
 package c.a.p0.s;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.NewErrorData;
-import com.baidu.tbadk.core.util.NetWork;
+import android.text.TextUtils;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
 public class d {
     public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public NetWork f13818a;
+    public static String f12378a;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* renamed from: b  reason: collision with root package name */
-    public NewErrorData f13819b;
-
-    public d() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1885153340, "Lc/a/p0/s/d;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1885153340, "Lc/a/p0/s/d;");
                 return;
             }
         }
-        this.f13818a = null;
-        this.f13819b = null;
-        this.f13818a = new NetWork();
+        f12378a = b.g().getString("openstat_switch", "1");
     }
 
-    public void a(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
-            this.f13818a.addPostData(str, str2);
-        }
-    }
-
-    public void b() {
-        NetWork netWork;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (netWork = this.f13818a) == null) {
-            return;
-        }
-        netWork.cancelNetConnect();
-    }
-
-    public String c() {
+    public static boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            NetWork netWork = this.f13818a;
-            if (netWork != null) {
-                return netWork.getErrorString();
-            }
-            return null;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            String postNetData = this.f13818a.postNetData();
-            NewErrorData newErrorData = new NewErrorData();
-            this.f13819b = newErrorData;
-            newErrorData.parserJson(postNetData);
-            return postNetData;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            NetWork netWork = this.f13818a;
-            if (netWork != null) {
-                return netWork.getNetContext().getResponse().isRequestSuccess();
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void f(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.f13818a.setUrl(str);
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? TextUtils.equals(f12378a, "1") : invokeV.booleanValue;
     }
 }

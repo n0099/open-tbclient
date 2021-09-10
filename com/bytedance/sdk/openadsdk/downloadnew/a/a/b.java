@@ -29,7 +29,7 @@ public class b implements c.p.a.a.a.c.f {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final WeakReference<Context> f67417a;
+    public final WeakReference<Context> f67597a;
 
     /* loaded from: classes9.dex */
     public static class a extends g {
@@ -37,13 +37,13 @@ public class b implements c.p.a.a.a.c.f {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final c.p.a.a.a.f.d f67418a;
+        public final c.p.a.a.a.f.d f67598a;
 
         /* renamed from: b  reason: collision with root package name */
-        public com.bytedance.sdk.openadsdk.downloadnew.a.b.a f67419b;
+        public com.bytedance.sdk.openadsdk.downloadnew.a.b.a f67599b;
 
         /* renamed from: c  reason: collision with root package name */
-        public m f67420c;
+        public m f67600c;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(c.p.a.a.a.f.d dVar) {
@@ -63,20 +63,20 @@ public class b implements c.p.a.a.a.c.f {
                     return;
                 }
             }
-            this.f67418a = dVar;
+            this.f67598a = dVar;
             if (dVar == null || dVar.d() == null) {
                 return;
             }
-            String optString = this.f67418a.d().optString("ad_extra_data");
+            String optString = this.f67598a.d().optString("ad_extra_data");
             if (TextUtils.isEmpty(optString)) {
                 return;
             }
             try {
                 com.bytedance.sdk.openadsdk.downloadnew.a.b.a a2 = com.bytedance.sdk.openadsdk.downloadnew.a.b.a.a(new JSONObject(optString).optJSONObject("open_ad_sdk_download_extra"));
-                this.f67419b = a2;
-                a2.b(this.f67418a.b());
-                if (this.f67419b != null) {
-                    this.f67420c = this.f67419b.f67445a;
+                this.f67599b = a2;
+                a2.b(this.f67598a.b());
+                if (this.f67599b != null) {
+                    this.f67600c = this.f67599b.f67625a;
                 }
             } catch (Exception unused) {
             }
@@ -99,22 +99,22 @@ public class b implements c.p.a.a.a.c.f {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 try {
-                    if (this.f67418a == null) {
+                    if (this.f67598a == null) {
                         return;
                     }
-                    String a2 = this.f67418a.a();
+                    String a2 = this.f67598a.a();
                     k.f("LibEventLogger", "tag " + a2);
-                    k.f("LibEventLogger", "label " + this.f67418a.b());
-                    if (this.f67419b != null && !TextUtils.isEmpty(this.f67419b.f67446b)) {
-                        a2 = this.f67419b.f67446b;
+                    k.f("LibEventLogger", "label " + this.f67598a.b());
+                    if (this.f67599b != null && !TextUtils.isEmpty(this.f67599b.f67626b)) {
+                        a2 = this.f67599b.f67626b;
                     }
-                    if (!com.bytedance.sdk.openadsdk.downloadnew.a.g.a(a2, this.f67418a.b(), this.f67420c, new HashMap()) && this.f67419b != null && this.f67420c != null && !TextUtils.isEmpty(this.f67418a.a()) && !TextUtils.isEmpty(this.f67418a.b())) {
-                        JSONObject e2 = b.e(this.f67418a);
-                        String str = this.f67419b.f67446b;
-                        if (!a(this.f67418a.a()) || PrefetchEvent.STATE_CLICK.equals(this.f67418a.b())) {
+                    if (!com.bytedance.sdk.openadsdk.downloadnew.a.g.a(a2, this.f67598a.b(), this.f67600c, new HashMap()) && this.f67599b != null && this.f67600c != null && !TextUtils.isEmpty(this.f67598a.a()) && !TextUtils.isEmpty(this.f67598a.b())) {
+                        JSONObject e2 = b.e(this.f67598a);
+                        String str = this.f67599b.f67626b;
+                        if (!a(this.f67598a.a()) || PrefetchEvent.STATE_CLICK.equals(this.f67598a.b())) {
                             return;
                         }
-                        com.bytedance.sdk.openadsdk.e.d.b(c(), this.f67420c, str, this.f67418a.b(), e2);
+                        com.bytedance.sdk.openadsdk.e.d.b(c(), this.f67600c, str, this.f67598a.b(), e2);
                     }
                 } catch (Throwable th) {
                     k.a("LibEventLogger", "upload event log error", th);
@@ -125,7 +125,7 @@ public class b implements c.p.a.a.a.c.f {
         private boolean a(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, this, str)) == null) ? !TextUtils.isEmpty(str) && ("embeded_ad".equals(this.f67418a.a()) || "draw_ad".equals(this.f67418a.a()) || "draw_ad_landingpage".equals(this.f67418a.a()) || "banner_ad".equals(this.f67418a.a()) || "banner_call".equals(this.f67418a.a()) || "banner_ad_landingpage".equals(this.f67418a.a()) || "feed_call".equals(this.f67418a.a()) || "embeded_ad_landingpage".equals(this.f67418a.a()) || ThreadAchievementShareDialogView.THREAD_INTERACTION_VIEW_TYPE.equals(this.f67418a.a()) || "interaction_call".equals(this.f67418a.a()) || "interaction_landingpage".equals(this.f67418a.a()) || "slide_banner_ad".equals(this.f67418a.a()) || "splash_ad".equals(this.f67418a.a()) || "fullscreen_interstitial_ad".equals(this.f67418a.a()) || "splash_ad_landingpage".equals(this.f67418a.a()) || "rewarded_video".equals(this.f67418a.a()) || "rewarded_video_landingpage".equals(this.f67418a.a()) || "openad_sdk_download_complete_tag".equals(this.f67418a.a()) || "download_notification".equals(this.f67418a.a()) || "landing_h5_download_ad_button".equals(this.f67418a.a()) || "fullscreen_interstitial_ad_landingpage".equals(this.f67418a.a()) || "feed_video_middle_page".equals(this.f67418a.a()) || "stream".equals(this.f67418a.a())) : invokeL.booleanValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(65538, this, str)) == null) ? !TextUtils.isEmpty(str) && ("embeded_ad".equals(this.f67598a.a()) || "draw_ad".equals(this.f67598a.a()) || "draw_ad_landingpage".equals(this.f67598a.a()) || "banner_ad".equals(this.f67598a.a()) || "banner_call".equals(this.f67598a.a()) || "banner_ad_landingpage".equals(this.f67598a.a()) || "feed_call".equals(this.f67598a.a()) || "embeded_ad_landingpage".equals(this.f67598a.a()) || ThreadAchievementShareDialogView.THREAD_INTERACTION_VIEW_TYPE.equals(this.f67598a.a()) || "interaction_call".equals(this.f67598a.a()) || "interaction_landingpage".equals(this.f67598a.a()) || "slide_banner_ad".equals(this.f67598a.a()) || "splash_ad".equals(this.f67598a.a()) || "fullscreen_interstitial_ad".equals(this.f67598a.a()) || "splash_ad_landingpage".equals(this.f67598a.a()) || "rewarded_video".equals(this.f67598a.a()) || "rewarded_video_landingpage".equals(this.f67598a.a()) || "openad_sdk_download_complete_tag".equals(this.f67598a.a()) || "download_notification".equals(this.f67598a.a()) || "landing_h5_download_ad_button".equals(this.f67598a.a()) || "fullscreen_interstitial_ad_landingpage".equals(this.f67598a.a()) || "feed_video_middle_page".equals(this.f67598a.a()) || "stream".equals(this.f67598a.a())) : invokeL.booleanValue;
         }
     }
 
@@ -144,7 +144,7 @@ public class b implements c.p.a.a.a.c.f {
                 return;
             }
         }
-        this.f67417a = new WeakReference<>(context);
+        this.f67597a = new WeakReference<>(context);
     }
 
     private void d(c.p.a.a.a.f.d dVar) {

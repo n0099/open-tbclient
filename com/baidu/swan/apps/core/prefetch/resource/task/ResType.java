@@ -2,7 +2,7 @@ package com.baidu.swan.apps.core.prefetch.resource.task;
 
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.o0.a.k;
+import c.a.p0.a.k;
 import com.baidu.mobads.container.adrequest.AdParamInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -85,7 +85,7 @@ public final class ResType {
                 }
                 i2++;
             }
-            if (k.f7049a) {
+            if (k.f7077a) {
                 String str2 = "res type - " + resType.name();
             }
             return resType;

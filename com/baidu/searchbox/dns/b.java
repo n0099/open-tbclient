@@ -18,10 +18,10 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: i  reason: collision with root package name */
-    public static List<String> f45009i;
+    public static List<String> f45124i;
 
     /* renamed from: j  reason: collision with root package name */
-    public static boolean f45010j;
+    public static boolean f45125j;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -141,8 +141,8 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65544, null) == null) {
             synchronized (b.class) {
-                if (f45009i != null && f45009i.size() > 0) {
-                    for (String str : f45009i) {
+                if (f45124i != null && f45124i.size() > 0) {
+                    for (String str : f45124i) {
                         b(str);
                     }
                 }
@@ -168,11 +168,11 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, str) == null) {
             synchronized (b.class) {
-                if (f45009i == null) {
-                    f45009i = new ArrayList(4);
+                if (f45124i == null) {
+                    f45124i = new ArrayList(4);
                 }
-                if (!f45009i.contains(str)) {
-                    f45009i.add(str);
+                if (!f45124i.contains(str)) {
+                    f45124i.add(str);
                 }
             }
         }
@@ -214,7 +214,7 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, aVar, i2)) == null) {
             if (i2 == 3) {
-                return a(aVar, f45010j);
+                return a(aVar, f45125j);
             }
             if (i2 == 1) {
                 return a(aVar, false);

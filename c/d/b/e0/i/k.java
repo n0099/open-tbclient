@@ -15,13 +15,13 @@ public final class k {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Protocol f31743a;
+    public final Protocol f31852a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f31744b;
+    public final int f31853b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final String f31745c;
+    public final String f31854c;
 
     public k(Protocol protocol, int i2, String str) {
         Interceptable interceptable = $ic;
@@ -38,9 +38,9 @@ public final class k {
                 return;
             }
         }
-        this.f31743a = protocol;
-        this.f31744b = i2;
-        this.f31745c = str;
+        this.f31852a = protocol;
+        this.f31853b = i2;
+        this.f31854c = str;
     }
 
     public static k a(b0 b0Var) {
@@ -101,12 +101,12 @@ public final class k {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             StringBuilder sb = new StringBuilder();
-            sb.append(this.f31743a == Protocol.HTTP_1_0 ? "HTTP/1.0" : "HTTP/1.1");
+            sb.append(this.f31852a == Protocol.HTTP_1_0 ? "HTTP/1.0" : "HTTP/1.1");
             sb.append(' ');
-            sb.append(this.f31744b);
-            if (this.f31745c != null) {
+            sb.append(this.f31853b);
+            if (this.f31854c != null) {
                 sb.append(' ');
-                sb.append(this.f31745c);
+                sb.append(this.f31854c);
             }
             return sb.toString();
         }

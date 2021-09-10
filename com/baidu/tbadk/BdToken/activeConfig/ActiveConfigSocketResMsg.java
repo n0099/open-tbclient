@@ -1,6 +1,6 @@
 package com.baidu.tbadk.BdToken.activeConfig;
 
-import c.a.p0.a.b0.b;
+import c.a.q0.a.b0.b;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;

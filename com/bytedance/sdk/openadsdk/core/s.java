@@ -20,26 +20,26 @@ public class s {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile s f66823a;
+    public static volatile s f67003a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static com.bytedance.sdk.openadsdk.core.i.b f66824b;
+    public static com.bytedance.sdk.openadsdk.core.i.b f67004b;
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f66825d;
+    public static String f67005d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static volatile String f66826e;
+    public static volatile String f67006e;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public volatile boolean f66827c;
+    public volatile boolean f67007c;
 
     /* renamed from: f  reason: collision with root package name */
-    public volatile AtomicBoolean f66828f;
+    public volatile AtomicBoolean f67008f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f66829g;
+    public String f67009g;
 
     static {
         InterceptResult invokeClinit;
@@ -69,11 +69,11 @@ public class s {
                 return;
             }
         }
-        this.f66827c = false;
-        this.f66828f = new AtomicBoolean(false);
-        this.f66829g = null;
+        this.f67007c = false;
+        this.f67008f = new AtomicBoolean(false);
+        this.f67009g = null;
         if (e() == null) {
-            f66824b = com.bytedance.sdk.openadsdk.core.i.d.a();
+            f67004b = com.bytedance.sdk.openadsdk.core.i.d.a();
         }
     }
 
@@ -86,15 +86,15 @@ public class s {
     public void b(@NonNull String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            com.bytedance.sdk.openadsdk.core.i.b bVar = f66824b;
+            com.bytedance.sdk.openadsdk.core.i.b bVar = f67004b;
             if (bVar != null) {
                 bVar.b(str);
             }
-            if (this.f66827c || e() == null) {
+            if (this.f67007c || e() == null) {
                 return;
             }
             e().NM_reportNow(str);
-            this.f66827c = true;
+            this.f67007c = true;
         }
     }
 
@@ -121,11 +121,11 @@ public class s {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || TextUtils.isEmpty(str)) {
             return;
         }
-        com.bytedance.sdk.openadsdk.core.i.b bVar = f66824b;
+        com.bytedance.sdk.openadsdk.core.i.b bVar = f67004b;
         if (bVar != null) {
             bVar.a(str);
         }
-        f66825d = str;
+        f67005d = str;
         if (e() != null) {
             e().NM_setParams(str);
         }
@@ -136,32 +136,32 @@ public class s {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             try {
-                if (!TextUtils.isEmpty(this.f66829g)) {
-                    return this.f66829g;
+                if (!TextUtils.isEmpty(this.f67009g)) {
+                    return this.f67009g;
                 }
                 String a2 = h.a("sdk_app_sha1", 2592000000L);
-                this.f66829g = a2;
+                this.f67009g = a2;
                 if (!TextUtils.isEmpty(a2)) {
-                    return this.f66829g;
+                    return this.f67009g;
                 }
                 if (e() != null) {
-                    this.f66829g = e().NM_pullSg();
-                } else if (f66824b != null) {
-                    this.f66829g = f66824b.a();
+                    this.f67009g = e().NM_pullSg();
+                } else if (f67004b != null) {
+                    this.f67009g = f67004b.a();
                 }
-                if (d(this.f66829g)) {
-                    String upperCase = this.f66829g.toUpperCase();
-                    this.f66829g = upperCase;
+                if (d(this.f67009g)) {
+                    String upperCase = this.f67009g.toUpperCase();
+                    this.f67009g = upperCase;
                     h.a("sdk_app_sha1", upperCase);
-                    return this.f66829g;
+                    return this.f67009g;
                 }
                 String a3 = com.bytedance.sdk.component.utils.c.a(o.a());
-                this.f66829g = a3;
+                this.f67009g = a3;
                 if (d(a3)) {
-                    String upperCase2 = this.f66829g.toUpperCase();
-                    this.f66829g = upperCase2;
+                    String upperCase2 = this.f67009g.toUpperCase();
+                    this.f67009g = upperCase2;
                     h.a("sdk_app_sha1", upperCase2);
-                    return this.f66829g;
+                    return this.f67009g;
                 }
                 return "";
             } catch (Exception unused) {
@@ -175,17 +175,17 @@ public class s {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (f66826e != null) {
-                return f66826e;
+            if (f67006e != null) {
+                return f67006e;
             }
-            if (this.f66828f.compareAndSet(false, true)) {
+            if (this.f67008f.compareAndSet(false, true)) {
                 try {
                     com.bytedance.sdk.component.d.e.a(new com.bytedance.sdk.component.d.g(this, "getSecdid") { // from class: com.bytedance.sdk.openadsdk.core.s.1
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
 
                         /* renamed from: a  reason: collision with root package name */
-                        public final /* synthetic */ s f66830a;
+                        public final /* synthetic */ s f67010a;
 
                         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                         {
@@ -205,26 +205,26 @@ public class s {
                                     return;
                                 }
                             }
-                            this.f66830a = this;
+                            this.f67010a = this;
                         }
 
                         @Override // java.lang.Runnable
                         public void run() {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                                if (s.f66824b != null) {
-                                    String b2 = s.f66824b.b();
+                                if (s.f67004b != null) {
+                                    String b2 = s.f67004b.b();
                                     if (!TextUtils.isEmpty(b2)) {
-                                        String unused = s.f66826e = b2;
+                                        String unused = s.f67006e = b2;
                                     }
                                 }
-                                this.f66830a.f66828f.set(false);
+                                this.f67010a.f67008f.set(false);
                             }
                         }
                     });
                     return "";
                 } catch (Throwable unused) {
-                    this.f66828f.set(false);
+                    this.f67008f.set(false);
                     return "";
                 }
             }
@@ -237,14 +237,14 @@ public class s {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f66823a == null) {
+            if (f67003a == null) {
                 synchronized (s.class) {
-                    if (f66823a == null) {
-                        f66823a = new s();
+                    if (f67003a == null) {
+                        f67003a = new s();
                     }
                 }
             }
-            return f66823a;
+            return f67003a;
         }
         return (s) invokeV.objValue;
     }
@@ -256,7 +256,7 @@ public class s {
             if (e() != null) {
                 return e().NM_ssSign(str, bArr);
             }
-            com.bytedance.sdk.openadsdk.core.i.b bVar = f66824b;
+            com.bytedance.sdk.openadsdk.core.i.b bVar = f67004b;
             if (bVar != null) {
                 return bVar.a(str, bArr);
             }

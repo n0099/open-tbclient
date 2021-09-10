@@ -14,7 +14,7 @@ public class a extends TimerTask {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public CircleProgressView f44041a;
+    public CircleProgressView f44156a;
 
     /* renamed from: com.baidu.pass.biometrics.face.liveness.enums.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
@@ -23,7 +23,7 @@ public class a extends TimerTask {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f44042a;
+        public final /* synthetic */ a f44157a;
 
         public RunnableC1687a(a aVar) {
             Interceptable interceptable = $ic;
@@ -40,17 +40,17 @@ public class a extends TimerTask {
                     return;
                 }
             }
-            this.f44042a = aVar;
+            this.f44157a = aVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             int progress;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f44042a.f44041a == null || (progress = this.f44042a.f44041a.getProgress()) <= 0) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f44157a.f44156a == null || (progress = this.f44157a.f44156a.getProgress()) <= 0) {
                 return;
             }
-            this.f44042a.f44041a.setProgress(progress - 1);
+            this.f44157a.f44156a.setProgress(progress - 1);
         }
     }
 
@@ -69,7 +69,7 @@ public class a extends TimerTask {
                 return;
             }
         }
-        this.f44041a = circleProgressView;
+        this.f44156a = circleProgressView;
     }
 
     @Override // java.util.TimerTask
@@ -77,7 +77,7 @@ public class a extends TimerTask {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            this.f44041a = null;
+            this.f44156a = null;
             return super.cancel();
         }
         return invokeV.booleanValue;
@@ -87,7 +87,7 @@ public class a extends TimerTask {
     public void run() {
         CircleProgressView circleProgressView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (circleProgressView = this.f44041a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (circleProgressView = this.f44156a) == null) {
             return;
         }
         circleProgressView.post(new RunnableC1687a(this));

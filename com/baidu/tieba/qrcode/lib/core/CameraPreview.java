@@ -22,22 +22,22 @@ public class CameraPreview extends TextureView implements TextureView.SurfaceTex
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Camera f56124e;
+    public Camera f56282e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f56125f;
+    public boolean f56283f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f56126g;
+    public boolean f56284g;
 
     /* renamed from: h  reason: collision with root package name */
-    public c.a.q0.u2.b.a.b f56127h;
+    public c.a.r0.v2.b.a.b f56285h;
 
     /* renamed from: i  reason: collision with root package name */
-    public SurfaceTexture f56128i;
+    public SurfaceTexture f56286i;
 
     /* renamed from: j  reason: collision with root package name */
-    public Runnable f56129j;
+    public Runnable f56287j;
     public Camera.AutoFocusCallback k;
 
     /* loaded from: classes7.dex */
@@ -46,7 +46,7 @@ public class CameraPreview extends TextureView implements TextureView.SurfaceTex
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CameraPreview f56130e;
+        public final /* synthetic */ CameraPreview f56288e;
 
         public a(CameraPreview cameraPreview) {
             Interceptable interceptable = $ic;
@@ -63,15 +63,15 @@ public class CameraPreview extends TextureView implements TextureView.SurfaceTex
                     return;
                 }
             }
-            this.f56130e = cameraPreview;
+            this.f56288e = cameraPreview;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f56130e.f56124e != null && this.f56130e.f56125f && this.f56130e.f56126g) {
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f56288e.f56282e != null && this.f56288e.f56283f && this.f56288e.f56284g) {
                 try {
-                    this.f56130e.f56124e.autoFocus(this.f56130e.k);
+                    this.f56288e.f56282e.autoFocus(this.f56288e.k);
                 } catch (Exception unused) {
                 }
             }
@@ -84,7 +84,7 @@ public class CameraPreview extends TextureView implements TextureView.SurfaceTex
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ CameraPreview f56131a;
+        public final /* synthetic */ CameraPreview f56289a;
 
         public b(CameraPreview cameraPreview) {
             Interceptable interceptable = $ic;
@@ -101,7 +101,7 @@ public class CameraPreview extends TextureView implements TextureView.SurfaceTex
                     return;
                 }
             }
-            this.f56131a = cameraPreview;
+            this.f56289a = cameraPreview;
         }
 
         @Override // android.hardware.Camera.AutoFocusCallback
@@ -109,12 +109,12 @@ public class CameraPreview extends TextureView implements TextureView.SurfaceTex
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZL(1048576, this, z, camera) == null) {
                 if (z) {
-                    CameraPreview cameraPreview = this.f56131a;
-                    cameraPreview.postDelayed(cameraPreview.f56129j, 2000L);
+                    CameraPreview cameraPreview = this.f56289a;
+                    cameraPreview.postDelayed(cameraPreview.f56287j, 2000L);
                     return;
                 }
-                CameraPreview cameraPreview2 = this.f56131a;
-                cameraPreview2.postDelayed(cameraPreview2.f56129j, 500L);
+                CameraPreview cameraPreview2 = this.f56289a;
+                cameraPreview2.postDelayed(cameraPreview2.f56287j, 500L);
             }
         }
     }
@@ -125,7 +125,7 @@ public class CameraPreview extends TextureView implements TextureView.SurfaceTex
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CameraPreview f56132e;
+        public final /* synthetic */ CameraPreview f56290e;
 
         public c(CameraPreview cameraPreview) {
             Interceptable interceptable = $ic;
@@ -142,14 +142,14 @@ public class CameraPreview extends TextureView implements TextureView.SurfaceTex
                     return;
                 }
             }
-            this.f56132e = cameraPreview;
+            this.f56290e = cameraPreview;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f56132e.g();
+                this.f56290e.g();
             }
         }
     }
@@ -188,9 +188,9 @@ public class CameraPreview extends TextureView implements TextureView.SurfaceTex
                 return;
             }
         }
-        this.f56125f = false;
-        this.f56126g = false;
-        this.f56129j = new a(this);
+        this.f56283f = false;
+        this.f56284g = false;
+        this.f56287j = new a(this);
         this.k = new b(this);
         setSurfaceTextureListener(this);
     }
@@ -198,29 +198,29 @@ public class CameraPreview extends TextureView implements TextureView.SurfaceTex
     public void closeFlashlight() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && f()) {
-            this.f56127h.b(this.f56124e);
+            this.f56285h.b(this.f56282e);
         }
     }
 
     public final boolean f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f56124e != null && this.f56125f && this.f56126g && getContext().getPackageManager().hasSystemFeature("android.hardware.camera.flash") : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f56282e != null && this.f56283f && this.f56284g && getContext().getPackageManager().hasSystemFeature("android.hardware.camera.flash") : invokeV.booleanValue;
     }
 
     public final void g() {
         SurfaceTexture surfaceTexture;
         Camera camera;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (surfaceTexture = this.f56128i) == null || (camera = this.f56124e) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (surfaceTexture = this.f56286i) == null || (camera = this.f56282e) == null) {
             return;
         }
         try {
-            this.f56125f = true;
+            this.f56283f = true;
             camera.setPreviewTexture(surfaceTexture);
-            this.f56127h.l(this.f56124e);
-            this.f56124e.startPreview();
-            this.f56124e.autoFocus(this.k);
+            this.f56285h.l(this.f56282e);
+            this.f56282e.startPreview();
+            this.f56282e.autoFocus(this.k);
         } catch (Exception e2) {
             e2.toString();
         }
@@ -232,9 +232,9 @@ public class CameraPreview extends TextureView implements TextureView.SurfaceTex
         if (interceptable == null || interceptable.invokeII(1048579, this, i2, i3) == null) {
             int defaultSize = TextureView.getDefaultSize(getSuggestedMinimumWidth(), i2);
             int defaultSize2 = TextureView.getDefaultSize(getSuggestedMinimumHeight(), i3);
-            c.a.q0.u2.b.a.b bVar = this.f56127h;
+            c.a.r0.v2.b.a.b bVar = this.f56285h;
             if (bVar != null && bVar.g() != null) {
-                Point g2 = this.f56127h.g();
+                Point g2 = this.f56285h.g();
                 float f2 = defaultSize;
                 float f3 = defaultSize2;
                 float f4 = g2.x;
@@ -254,8 +254,8 @@ public class CameraPreview extends TextureView implements TextureView.SurfaceTex
     public void onSurfaceTextureAvailable(SurfaceTexture surfaceTexture, int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLII(1048580, this, surfaceTexture, i2, i3) == null) {
-            this.f56126g = true;
-            this.f56128i = surfaceTexture;
+            this.f56284g = true;
+            this.f56286i = surfaceTexture;
             g();
         }
     }
@@ -265,7 +265,7 @@ public class CameraPreview extends TextureView implements TextureView.SurfaceTex
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, surfaceTexture)) == null) {
-            this.f56126g = false;
+            this.f56284g = false;
             stopCameraPreview();
             return true;
         }
@@ -292,19 +292,19 @@ public class CameraPreview extends TextureView implements TextureView.SurfaceTex
     public void openFlashlight() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && f()) {
-            this.f56127h.k(this.f56124e);
+            this.f56285h.k(this.f56282e);
         }
     }
 
     public void setCamera(Camera camera) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, camera) == null) {
-            this.f56124e = camera;
+            this.f56282e = camera;
             if (camera != null) {
-                c.a.q0.u2.b.a.b bVar = new c.a.q0.u2.b.a.b(getContext());
-                this.f56127h = bVar;
-                bVar.j(this.f56124e);
-                if (this.f56125f) {
+                c.a.r0.v2.b.a.b bVar = new c.a.r0.v2.b.a.b(getContext());
+                this.f56285h = bVar;
+                bVar.j(this.f56282e);
+                if (this.f56283f) {
                     requestLayout();
                 } else {
                     g();
@@ -315,15 +315,15 @@ public class CameraPreview extends TextureView implements TextureView.SurfaceTex
 
     public void stopCameraPreview() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || this.f56124e == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || this.f56282e == null) {
             return;
         }
         try {
-            removeCallbacks(this.f56129j);
-            this.f56125f = false;
-            this.f56124e.cancelAutoFocus();
-            this.f56124e.setOneShotPreviewCallback(null);
-            this.f56124e.stopPreview();
+            removeCallbacks(this.f56287j);
+            this.f56283f = false;
+            this.f56282e.cancelAutoFocus();
+            this.f56282e.setOneShotPreviewCallback(null);
+            this.f56282e.stopPreview();
         } catch (Exception e2) {
             e2.toString();
         }

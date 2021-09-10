@@ -19,7 +19,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class PlayPicInfoCard extends BaseCardInfo implements c.a.q0.o1.o.i.a<PlayPicInfoCard> {
+public class PlayPicInfoCard extends BaseCardInfo implements c.a.r0.p1.o.i.a<PlayPicInfoCard> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final int descOnPic;
@@ -36,16 +36,16 @@ public class PlayPicInfoCard extends BaseCardInfo implements c.a.q0.o1.o.i.a<Pla
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f53681a;
+        public String f53827a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f53682b;
+        public String f53828b;
 
         /* renamed from: c  reason: collision with root package name */
-        public c.a.q0.o1.o.j.b f53683c;
+        public c.a.r0.p1.o.j.b f53829c;
 
         /* renamed from: d  reason: collision with root package name */
-        public c.a.q0.o1.o.j.a f53684d;
+        public c.a.r0.p1.o.j.a f53830d;
 
         public a(JSONObject jSONObject) {
             Interceptable interceptable = $ic;
@@ -63,22 +63,22 @@ public class PlayPicInfoCard extends BaseCardInfo implements c.a.q0.o1.o.i.a<Pla
                 }
             }
             if (jSONObject != null) {
-                this.f53681a = jSONObject.optString("lbText");
-                this.f53682b = jSONObject.optString("lbScheme");
-                c.a.q0.o1.o.j.b bVar = new c.a.q0.o1.o.j.b();
-                this.f53683c = bVar;
-                bVar.f22971d = jSONObject.optString("rText");
-                this.f53683c.f22970c = jSONObject.optInt("rIconType");
-                this.f53683c.f22968a = jSONObject.optString("rIcon");
-                this.f53683c.f22969b = jSONObject.optString("rIconN");
+                this.f53827a = jSONObject.optString("lbText");
+                this.f53828b = jSONObject.optString("lbScheme");
+                c.a.r0.p1.o.j.b bVar = new c.a.r0.p1.o.j.b();
+                this.f53829c = bVar;
+                bVar.f23561d = jSONObject.optString("rText");
+                this.f53829c.f23560c = jSONObject.optInt("rIconType");
+                this.f53829c.f23558a = jSONObject.optString("rIcon");
+                this.f53829c.f23559b = jSONObject.optString("rIconN");
                 JSONObject optJSONObject = jSONObject.optJSONObject("cb");
                 if (optJSONObject != null) {
-                    c.a.q0.o1.o.j.a aVar = new c.a.q0.o1.o.j.a(optJSONObject);
-                    this.f53684d = aVar;
+                    c.a.r0.p1.o.j.a aVar = new c.a.r0.p1.o.j.a(optJSONObject);
+                    this.f53830d = aVar;
                     if (aVar.k()) {
                         return;
                     }
-                    this.f53684d = null;
+                    this.f53830d = null;
                 }
             }
         }
@@ -105,31 +105,31 @@ public class PlayPicInfoCard extends BaseCardInfo implements c.a.q0.o1.o.i.a<Pla
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f53685a;
+        public String f53831a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f53686b;
+        public String f53832b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f53687c;
+        public String f53833c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f53688d;
+        public String f53834d;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f53689e;
+        public int f53835e;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f53690f;
+        public int f53836f;
 
         /* renamed from: g  reason: collision with root package name */
-        public int f53691g;
+        public int f53837g;
 
         /* renamed from: h  reason: collision with root package name */
-        public int f53692h;
+        public int f53838h;
 
         /* renamed from: i  reason: collision with root package name */
-        public String f53693i;
+        public String f53839i;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -152,16 +152,16 @@ public class PlayPicInfoCard extends BaseCardInfo implements c.a.q0.o1.o.i.a<Pla
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f53694a;
+        public String f53840a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f53695b;
+        public String f53841b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f53696c;
+        public int f53842c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f53697d;
+        public int f53843d;
 
         public c(JSONObject jSONObject) {
             Interceptable interceptable = $ic;
@@ -179,10 +179,10 @@ public class PlayPicInfoCard extends BaseCardInfo implements c.a.q0.o1.o.i.a<Pla
                 }
             }
             if (jSONObject != null) {
-                this.f53694a = jSONObject.optString("pic");
-                this.f53695b = jSONObject.optString("picN");
-                this.f53696c = jSONObject.optInt("xPos");
-                this.f53697d = jSONObject.optInt("yPos");
+                this.f53840a = jSONObject.optString("pic");
+                this.f53841b = jSONObject.optString("picN");
+                this.f53842c = jSONObject.optInt("xPos");
+                this.f53843d = jSONObject.optInt("yPos");
             }
         }
 
@@ -202,7 +202,7 @@ public class PlayPicInfoCard extends BaseCardInfo implements c.a.q0.o1.o.i.a<Pla
         public boolean b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (TextUtils.isEmpty(this.f53694a) && TextUtils.isEmpty(this.f53695b) && this.f53696c == 0 && this.f53697d == 0) ? false : true : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (TextUtils.isEmpty(this.f53840a) && TextUtils.isEmpty(this.f53841b) && this.f53842c == 0 && this.f53843d == 0) ? false : true : invokeV.booleanValue;
         }
     }
 
@@ -236,16 +236,16 @@ public class PlayPicInfoCard extends BaseCardInfo implements c.a.q0.o1.o.i.a<Pla
             String optString = optJSONObject.optString("pic");
             if (!TextUtils.isEmpty(optString)) {
                 b bVar = new b();
-                bVar.f53693i = this.statistics;
-                bVar.f53691g = this.statTab;
-                bVar.f53685a = optJSONObject.optString("picId");
-                bVar.f53686b = optString;
-                bVar.f53687c = optJSONObject.optString("scheme");
-                bVar.f53688d = optJSONObject.optString("desc");
-                bVar.f53689e = c.a.q0.o1.o.k.b.b(optJSONObject.optString("descColor", ""));
-                bVar.f53690f = c.a.q0.o1.o.k.b.b(optJSONObject.optString("descColorNight", ""));
+                bVar.f53839i = this.statistics;
+                bVar.f53837g = this.statTab;
+                bVar.f53831a = optJSONObject.optString("picId");
+                bVar.f53832b = optString;
+                bVar.f53833c = optJSONObject.optString("scheme");
+                bVar.f53834d = optJSONObject.optString("desc");
+                bVar.f53835e = c.a.r0.p1.o.k.b.b(optJSONObject.optString("descColor", ""));
+                bVar.f53836f = c.a.r0.p1.o.k.b.b(optJSONObject.optString("descColorNight", ""));
                 int optInt = optJSONObject.optInt("mLines");
-                bVar.f53692h = optInt <= 1 ? 1 : optInt;
+                bVar.f53838h = optInt <= 1 ? 1 : optInt;
                 this.imageResList.add(bVar);
             }
         }
@@ -294,7 +294,7 @@ public class PlayPicInfoCard extends BaseCardInfo implements c.a.q0.o1.o.i.a<Pla
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             int i3 = 1;
             for (b bVar : this.imageResList) {
-                if (bVar != null && (i2 = bVar.f53692h) > i3) {
+                if (bVar != null && (i2 = bVar.f53838h) > i3) {
                     i3 = i2;
                 }
             }
@@ -330,7 +330,7 @@ public class PlayPicInfoCard extends BaseCardInfo implements c.a.q0.o1.o.i.a<Pla
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // c.a.q0.o1.o.i.a
+    @Override // c.a.r0.p1.o.i.a
     public void doLoad(PlayPicInfoCard playPicInfoCard, TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, playPicInfoCard, tbPageContext) == null) || playPicInfoCard == null || tbPageContext == null) {
@@ -339,7 +339,7 @@ public class PlayPicInfoCard extends BaseCardInfo implements c.a.q0.o1.o.i.a<Pla
         int k = l.k(TbadkCoreApplication.getInst());
         int i2 = (int) (k * playPicInfoCard.ratio);
         for (b bVar : this.imageResList) {
-            d.h().k(bVar.f53686b, 17, null, k, i2, tbPageContext.getUniqueId(), new Object[0]);
+            d.h().k(bVar.f53832b, 17, null, k, i2, tbPageContext.getUniqueId(), new Object[0]);
         }
     }
 }

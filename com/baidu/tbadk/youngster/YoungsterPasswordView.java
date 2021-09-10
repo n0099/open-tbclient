@@ -8,9 +8,9 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import c.a.p0.e1.b.c;
-import c.a.p0.e1.b.d;
-import c.a.p0.e1.b.e;
+import c.a.q0.g1.b.c;
+import c.a.q0.g1.b.d;
+import c.a.q0.g1.b.e;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -42,22 +42,22 @@ public class YoungsterPasswordView extends LinearLayout implements View.OnClickL
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TbPageContext<?> f48895e;
+    public TbPageContext<?> f49030e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f48896f;
+    public TextView f49031f;
 
     /* renamed from: g  reason: collision with root package name */
-    public PasswordView f48897g;
+    public PasswordView f49032g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f48898h;
+    public TextView f49033h;
 
     /* renamed from: i  reason: collision with root package name */
-    public ImageView f48899i;
+    public ImageView f49034i;
 
     /* renamed from: j  reason: collision with root package name */
-    public LinearLayout f48900j;
+    public LinearLayout f49035j;
     public int k;
     public String l;
     public int m;
@@ -71,7 +71,7 @@ public class YoungsterPasswordView extends LinearLayout implements View.OnClickL
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ YoungsterPasswordView f48901a;
+        public final /* synthetic */ YoungsterPasswordView f49036a;
 
         public a(YoungsterPasswordView youngsterPasswordView) {
             Interceptable interceptable = $ic;
@@ -88,113 +88,113 @@ public class YoungsterPasswordView extends LinearLayout implements View.OnClickL
                     return;
                 }
             }
-            this.f48901a = youngsterPasswordView;
+            this.f49036a = youngsterPasswordView;
         }
 
         @Override // com.baidu.tbadk.youngster.PasswordView.g
         public void onComplete() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                String passWord = this.f48901a.f48897g.getPassWord();
-                YoungsterPasswordActivityConfig youngsterPasswordActivityConfig = new YoungsterPasswordActivityConfig(this.f48901a.getContext());
+                String passWord = this.f49036a.f49032g.getPassWord();
+                YoungsterPasswordActivityConfig youngsterPasswordActivityConfig = new YoungsterPasswordActivityConfig(this.f49036a.getContext());
                 youngsterPasswordActivityConfig.setKeyYoungsterPasswordInput(passWord);
-                switch (this.f48901a.k) {
+                switch (this.f49036a.k) {
                     case 1:
                         youngsterPasswordActivityConfig.setYoungsterPasswordPageType(2);
-                        youngsterPasswordActivityConfig.setKeyYoungsterPasswordFrom(this.f48901a.m);
+                        youngsterPasswordActivityConfig.setKeyYoungsterPasswordFrom(this.f49036a.m);
                         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, youngsterPasswordActivityConfig));
-                        this.f48901a.f48897g.clearPassword();
+                        this.f49036a.f49032g.clearPassword();
                         return;
                     case 2:
-                        if (StringUtils.isNull(this.f48901a.l)) {
+                        if (StringUtils.isNull(this.f49036a.l)) {
                             return;
                         }
-                        if (this.f48901a.l.equals(passWord)) {
+                        if (this.f49036a.l.equals(passWord)) {
                             e.f(passWord);
-                            if (this.f48901a.m == 1) {
+                            if (this.f49036a.m == 1) {
                                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921487));
-                                if (c.a.e.a.b.f().g() > 3) {
-                                    c.a.e.a.b.f().m(3);
+                                if (c.a.e.a.b.f().h() > 3) {
+                                    c.a.e.a.b.f().n(3);
                                 }
                             } else {
                                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921486, 2));
-                                c.a.p0.s.a0.b.e(this.f48901a.getContext(), 2);
+                                c.a.q0.s.a0.b.e(this.f49036a.getContext(), 2);
                             }
-                            this.f48901a.hideSoftKeyboard();
+                            this.f49036a.hideSoftKeyboard();
                             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921509, Boolean.TRUE));
-                            c.b(this.f48901a.m);
+                            c.b(this.f49036a.m);
                             return;
                         }
-                        if (this.f48901a.getParent() != null && !this.f48901a.n.isShown()) {
-                            this.f48901a.n.show((ViewGroup) this.f48901a.getParent().getParent());
+                        if (this.f49036a.getParent() != null && !this.f49036a.n.isShown()) {
+                            this.f49036a.n.show((ViewGroup) this.f49036a.getParent().getParent());
                         }
-                        this.f48901a.f48897g.clearPassword();
+                        this.f49036a.f49032g.clearPassword();
                         return;
                     case 3:
                         if (e.e(passWord)) {
                             d.b();
                             e.a();
-                            if (this.f48901a.m != 2 && this.f48901a.m != 3) {
+                            if (this.f49036a.m != 2 && this.f49036a.m != 3) {
                                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921484, 3));
-                                if (this.f48901a.f48895e != null) {
-                                    this.f48901a.f48895e.getPageActivity().finish();
+                                if (this.f49036a.f49030e != null) {
+                                    this.f49036a.f49030e.getPageActivity().finish();
                                 }
                             } else {
-                                c.a.p0.s.a0.b.e(this.f48901a.getContext(), 2);
+                                c.a.q0.s.a0.b.e(this.f49036a.getContext(), 2);
                             }
                             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921486, 3));
-                            c.a.p0.s.d0.b.j().t("key_youngster_homgpage_top_view_closed", false);
+                            c.a.q0.s.d0.b.j().t("key_youngster_homgpage_top_view_closed", false);
                             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921509, Boolean.FALSE));
                             return;
                         }
-                        if (this.f48901a.getParent() != null && !this.f48901a.n.isShown()) {
-                            this.f48901a.n.show((ViewGroup) this.f48901a.getParent().getParent());
+                        if (this.f49036a.getParent() != null && !this.f49036a.n.isShown()) {
+                            this.f49036a.n.show((ViewGroup) this.f49036a.getParent().getParent());
                         }
-                        this.f48901a.f48897g.clearPassword();
+                        this.f49036a.f49032g.clearPassword();
                         return;
                     case 4:
                         youngsterPasswordActivityConfig.setYoungsterPasswordPageType(5);
-                        youngsterPasswordActivityConfig.setKeyYoungsterPasswordFrom(this.f48901a.m);
+                        youngsterPasswordActivityConfig.setKeyYoungsterPasswordFrom(this.f49036a.m);
                         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, youngsterPasswordActivityConfig));
-                        this.f48901a.f48897g.clearPassword();
+                        this.f49036a.f49032g.clearPassword();
                         return;
                     case 5:
-                        if (StringUtils.isNull(this.f48901a.l)) {
+                        if (StringUtils.isNull(this.f49036a.l)) {
                             return;
                         }
-                        if (this.f48901a.l.equals(passWord)) {
+                        if (this.f49036a.l.equals(passWord)) {
                             e.f(passWord);
-                            if (this.f48901a.m == 2 || this.f48901a.m == 3) {
+                            if (this.f49036a.m == 2 || this.f49036a.m == 3) {
                                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921486, 5));
-                                c.a.p0.s.a0.b.e(this.f48901a.getContext(), 2);
+                                c.a.q0.s.a0.b.e(this.f49036a.getContext(), 2);
                                 return;
                             }
                             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921484, 5));
-                            if (c.a.e.a.b.f().g() > 3) {
-                                c.a.e.a.b.f().m(3);
+                            if (c.a.e.a.b.f().h() > 3) {
+                                c.a.e.a.b.f().n(3);
                                 return;
                             }
                             return;
                         }
-                        if (this.f48901a.getParent() != null && !this.f48901a.n.isShown()) {
-                            this.f48901a.n.show((ViewGroup) this.f48901a.getParent().getParent());
+                        if (this.f49036a.getParent() != null && !this.f49036a.n.isShown()) {
+                            this.f49036a.n.show((ViewGroup) this.f49036a.getParent().getParent());
                         }
-                        this.f48901a.f48897g.clearPassword();
+                        this.f49036a.f49032g.clearPassword();
                         return;
                     case 6:
                         if (e.e(passWord)) {
                             d.b();
                             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921561, 6));
-                            if (this.f48901a.f48895e != null) {
-                                this.f48901a.f48895e.getPageActivity().finish();
+                            if (this.f49036a.f49030e != null) {
+                                this.f49036a.f49030e.getPageActivity().finish();
                                 return;
                             }
                             return;
                         }
-                        if (this.f48901a.getParent() != null && !this.f48901a.n.isShown()) {
-                            this.f48901a.n.show((ViewGroup) this.f48901a.getParent().getParent());
+                        if (this.f49036a.getParent() != null && !this.f49036a.n.isShown()) {
+                            this.f49036a.n.show((ViewGroup) this.f49036a.getParent().getParent());
                         }
-                        this.f48901a.f48897g.clearPassword();
+                        this.f49036a.f49032g.clearPassword();
                         return;
                     default:
                         return;
@@ -209,7 +209,7 @@ public class YoungsterPasswordView extends LinearLayout implements View.OnClickL
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ YoungsterPasswordView f48902a;
+        public final /* synthetic */ YoungsterPasswordView f49037a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(YoungsterPasswordView youngsterPasswordView, int i2) {
@@ -229,17 +229,17 @@ public class YoungsterPasswordView extends LinearLayout implements View.OnClickL
                     return;
                 }
             }
-            this.f48902a = youngsterPasswordView;
+            this.f49037a = youngsterPasswordView;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || this.f48902a.getParent() == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || this.f49037a.getParent() == null) {
                 return;
             }
-            new BdTopToast(this.f48902a.getContext(), 2000).setIcon(false).setContent(this.f48902a.getContext().getString(R.string.youngster_settings_verify_fail)).show((ViewGroup) this.f48902a.getParent().getParent());
+            new BdTopToast(this.f49037a.getContext(), 2000).setIcon(false).setContent(this.f49037a.getContext().getString(R.string.youngster_settings_verify_fail)).show((ViewGroup) this.f49037a.getParent().getParent());
         }
     }
 
@@ -261,7 +261,7 @@ public class YoungsterPasswordView extends LinearLayout implements View.OnClickL
                 return;
             }
         }
-        this.f48895e = tbPageContext;
+        this.f49030e = tbPageContext;
         if (tbPageContext != null) {
             this.p.setTag(tbPageContext.getUniqueId());
             tbPageContext.registerListener(this.p);
@@ -272,13 +272,13 @@ public class YoungsterPasswordView extends LinearLayout implements View.OnClickL
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             LinearLayout.inflate(getContext(), R.layout.view_youngster_password, this);
-            this.f48896f = (TextView) findViewById(R.id.txt_youngster_password_title);
-            this.f48897g = (PasswordView) findViewById(R.id.password_view_youngster);
-            this.f48898h = (TextView) findViewById(R.id.txt_youngster_password_content);
-            this.f48899i = (ImageView) findViewById(R.id.img_youngster_content_arrow);
-            this.f48900j = (LinearLayout) findViewById(R.id.youngster_content_group);
-            this.f48897g.setOnPasswordInputComplete(this.o);
-            this.f48900j.setOnClickListener(this);
+            this.f49031f = (TextView) findViewById(R.id.txt_youngster_password_title);
+            this.f49032g = (PasswordView) findViewById(R.id.password_view_youngster);
+            this.f49033h = (TextView) findViewById(R.id.txt_youngster_password_content);
+            this.f49034i = (ImageView) findViewById(R.id.img_youngster_content_arrow);
+            this.f49035j = (LinearLayout) findViewById(R.id.youngster_content_group);
+            this.f49032g.setOnPasswordInputComplete(this.o);
+            this.f49035j.setOnClickListener(this);
             this.n = new BdTopToast(getContext(), 2000).setIcon(false).setContent(getContext().getString(R.string.youngster_settings_input_password_error));
         }
     }
@@ -286,7 +286,7 @@ public class YoungsterPasswordView extends LinearLayout implements View.OnClickL
     public void hideSoftKeyboard() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f48897g.hideSoftKeyboard();
+            this.f49032g.hideSoftKeyboard();
         }
     }
 
@@ -294,29 +294,29 @@ public class YoungsterPasswordView extends LinearLayout implements View.OnClickL
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
             this.k = i2;
-            this.f48899i.setVisibility(8);
+            this.f49034i.setVisibility(8);
             switch (i2) {
                 case 1:
-                    this.f48896f.setText(R.string.youngster_settings_set_password);
-                    this.f48898h.setText(R.string.youngster_settings_set_password_content);
+                    this.f49031f.setText(R.string.youngster_settings_set_password);
+                    this.f49033h.setText(R.string.youngster_settings_set_password_content);
                     return;
                 case 2:
-                    this.f48896f.setText(R.string.youngster_settings_verify_password);
-                    this.f48898h.setText(R.string.youngster_settings_set_password_content);
+                    this.f49031f.setText(R.string.youngster_settings_verify_password);
+                    this.f49033h.setText(R.string.youngster_settings_set_password_content);
                     return;
                 case 3:
                 case 6:
-                    this.f48896f.setText(R.string.youngster_settings_input_password);
-                    this.f48898h.setText(R.string.youngster_settings_input_password_content);
-                    this.f48899i.setVisibility(0);
+                    this.f49031f.setText(R.string.youngster_settings_input_password);
+                    this.f49033h.setText(R.string.youngster_settings_input_password_content);
+                    this.f49034i.setVisibility(0);
                     return;
                 case 4:
-                    this.f48896f.setText(R.string.youngster_settings_set_new_password);
-                    this.f48898h.setText(R.string.youngster_settings_reset_password_content);
+                    this.f49031f.setText(R.string.youngster_settings_set_new_password);
+                    this.f49033h.setText(R.string.youngster_settings_reset_password_content);
                     return;
                 case 5:
-                    this.f48896f.setText(R.string.youngster_settings_verify_password);
-                    this.f48898h.setText(R.string.youngster_settings_reset_password_content);
+                    this.f49031f.setText(R.string.youngster_settings_verify_password);
+                    this.f49033h.setText(R.string.youngster_settings_reset_password_content);
                     return;
                 default:
                     return;
@@ -327,17 +327,17 @@ public class YoungsterPasswordView extends LinearLayout implements View.OnClickL
     public void onChangeSkinType() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            SkinManager.setViewTextColor(this.f48896f, R.color.CAM_X0105);
-            this.f48897g.onChangeSkinType();
-            SkinManager.setViewTextColor(this.f48898h, R.color.CAM_X0109);
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f48899i, R.drawable.icon_pure_list_arrow16_right_svg, R.color.CAM_X0109, SvgManager.SvgResourceStateType.NORMAL);
+            SkinManager.setViewTextColor(this.f49031f, R.color.CAM_X0105);
+            this.f49032g.onChangeSkinType();
+            SkinManager.setViewTextColor(this.f49033h, R.color.CAM_X0109);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f49034i, R.drawable.icon_pure_list_arrow16_right_svg, R.color.CAM_X0109, SvgManager.SvgResourceStateType.NORMAL);
         }
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, view) == null) && view == this.f48900j) {
+        if ((interceptable == null || interceptable.invokeL(1048580, this, view) == null) && view == this.f49035j) {
             int i2 = this.k;
             if (i2 == 3 || i2 == 6) {
                 String youngsterVerifyUrl = YoungsterVerifyActivityConfig.getYoungsterVerifyUrl();
@@ -348,7 +348,7 @@ public class YoungsterPasswordView extends LinearLayout implements View.OnClickL
                     youngsterVerifyActivityConfig.setFixTitle(true);
                     MessageManager.getInstance().sendMessage(new CustomMessage(2002001, youngsterVerifyActivityConfig));
                 }
-                this.f48897g.clearPassword();
+                this.f49032g.clearPassword();
             }
         }
     }
@@ -363,7 +363,7 @@ public class YoungsterPasswordView extends LinearLayout implements View.OnClickL
     public void setPageContext(TbPageContext<?> tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, tbPageContext) == null) {
-            this.f48895e = tbPageContext;
+            this.f49030e = tbPageContext;
         }
     }
 
@@ -377,7 +377,7 @@ public class YoungsterPasswordView extends LinearLayout implements View.OnClickL
     public void showSoftKeyboard() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            this.f48897g.showSoftKeyboard();
+            this.f49032g.showSoftKeyboard();
         }
     }
 

@@ -1,128 +1,134 @@
 package c.a.q0.c0;
 
-import android.content.ComponentName;
-import android.content.Context;
-import android.content.Intent;
-import android.content.pm.ResolveInfo;
-import android.net.Uri;
 import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.net.URISyntaxException;
-import java.util.List;
-import java.util.Set;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 /* loaded from: classes3.dex */
 public class d {
-    public static /* synthetic */ Interceptable $ic;
+    public static /* synthetic */ Interceptable $ic = null;
+
+    /* renamed from: a  reason: collision with root package name */
+    public static String f12796a = "add_user_collect_emotoin";
+
+    /* renamed from: b  reason: collision with root package name */
+    public static String f12797b = "image_url";
+
+    /* renamed from: c  reason: collision with root package name */
+    public static String f12798c = "package_id";
+
+    /* renamed from: d  reason: collision with root package name */
+    public static String f12799d = "#(meme,setting)";
+
+    /* renamed from: e  reason: collision with root package name */
+    public static String f12800e = "#(meme,collect_";
+
+    /* renamed from: f  reason: collision with root package name */
+    public static String f12801f = "meme,collect_";
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Nullable
-    public static Intent a(Context context, String str, String str2, boolean z, c cVar) {
-        InterceptResult invokeCommon;
+    /* loaded from: classes3.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public String f12802a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public String f12803b;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(38225583, "Lc/a/q0/c0/d;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(38225583, "Lc/a/q0/c0/d;");
+        }
+    }
+
+    public static String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{context, str, str2, Boolean.valueOf(z), cVar})) == null) {
-            Intent intent = new Intent("android.intent.action.VIEW", Uri.parse(str));
-            intent.setFlags(268435456);
-            int i2 = 0;
-            List<ResolveInfo> queryIntentActivities = context.getPackageManager().queryIntentActivities(intent, 0);
-            while (true) {
-                if (i2 >= queryIntentActivities.size()) {
-                    break;
-                }
-                String str3 = queryIntentActivities.get(i2).activityInfo.packageName;
-                if (TextUtils.equals(str3, str2)) {
-                    intent.setPackage(str3);
-                    break;
-                }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            StringBuilder sb = new StringBuilder();
+            sb.append("collect_");
+            sb.append(TbadkCoreApplication.getCurrentAccount() == null ? "" : TbadkCoreApplication.getCurrentAccount());
+            return sb.toString();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return Math.abs(a().hashCode()) + "";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static void c(String str) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65539, null, str) == null) || TextUtils.isEmpty(str)) {
+            return;
+        }
+        Matcher matcher = Pattern.compile("#\\(meme,collect_[a-zA-Z0-9_,]+\\)").matcher(str);
+        int i2 = 0;
+        int i3 = 0;
+        while (matcher.find()) {
+            String[] split = matcher.group().split(",");
+            if (split != null && split.length == 5 && split[1] != null && split[1].startsWith("#\\(meme,collect_[a-zA-Z0-9_,]+\\)")) {
+                i3++;
+            }
+        }
+        Matcher matcher2 = Pattern.compile("#\\(meme,[a-zA-Z0-9_,]+\\)").matcher(str);
+        while (matcher2.find()) {
+            String[] split2 = matcher2.group().split(",");
+            if (split2 != null && split2.length == 5 && split2[1] != null && !split2[1].startsWith("#\\(meme,collect_[a-zA-Z0-9_,]+\\)") && split2[1].contains("_")) {
                 i2++;
             }
-            if (z && !TextUtils.isEmpty(str2) && TextUtils.isEmpty(intent.getPackage())) {
-                if (cVar != null) {
-                    cVar.onFailed(-104);
-                    return null;
-                }
-                return null;
-            }
-            return intent;
         }
-        return (Intent) invokeCommon.objValue;
-    }
-
-    public static Intent b(@NonNull Context context, String str, String str2, boolean z, @Nullable c cVar) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{context, str, str2, Boolean.valueOf(z), cVar})) == null) {
-            if (!d(str) && !e(str)) {
-                return a(context, str, str2, z, cVar);
-            }
-            return c(context, str, str2, cVar);
+        if (i3 > 0) {
+            StatisticItem statisticItem = new StatisticItem("c12223");
+            statisticItem.param("obj_param1", i3);
+            TiebaStatic.log(statisticItem);
         }
-        return (Intent) invokeCommon.objValue;
-    }
-
-    @Nullable
-    public static Intent c(Context context, String str, String str2, c cVar) {
-        InterceptResult invokeLLLL;
-        List<ResolveInfo> queryIntentActivities;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65538, null, context, str, str2, cVar)) == null) {
-            try {
-                Intent parseUri = Intent.parseUri(str, 1);
-                if (parseUri == null) {
-                    if (cVar != null) {
-                        cVar.onFailed(-103);
-                    }
-                    return null;
-                }
-                String str3 = parseUri.getPackage();
-                if (str3 != null && !TextUtils.isEmpty(str3)) {
-                    parseUri.setFlags(268435456);
-                    Set<String> categories = parseUri.getCategories();
-                    if (categories == null || categories.isEmpty()) {
-                        parseUri.addCategory("android.intent.category.LAUNCHER");
-                    }
-                    if (parseUri.getComponent() == null && (queryIntentActivities = context.getPackageManager().queryIntentActivities(parseUri, 0)) != null && queryIntentActivities.size() > 0) {
-                        parseUri.setComponent(new ComponentName(str3, queryIntentActivities.iterator().next().activityInfo.name));
-                    }
-                    return parseUri;
-                }
-                return context.getPackageManager().getLaunchIntentForPackage(str2);
-            } catch (URISyntaxException unused) {
-                Intent launchIntentForPackage = TextUtils.isEmpty(str2) ? null : context.getPackageManager().getLaunchIntentForPackage(str2);
-                if (launchIntentForPackage == null && cVar != null) {
-                    cVar.onFailed(-102);
-                }
-                return launchIntentForPackage;
-            }
+        if (i2 > 0) {
+            StatisticItem statisticItem2 = new StatisticItem(TbadkCoreStatisticKey.FACESHOP_USE_EMOTION);
+            statisticItem2.param("obj_param1", i2);
+            TiebaStatic.log(statisticItem2);
         }
-        return (Intent) invokeLLLL.objValue;
-    }
-
-    public static boolean d(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return false;
-            }
-            return str.startsWith("android-app:");
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean e(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return false;
-            }
-            return str.startsWith("intent:") || str.startsWith("#Intent;");
-        }
-        return invokeL.booleanValue;
     }
 }

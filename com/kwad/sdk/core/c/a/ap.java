@@ -34,8 +34,8 @@ public class ap implements com.kwad.sdk.core.d<a.C1994a> {
         if (!(interceptable == null || interceptable.invokeLL(1048576, this, c1994a, jSONObject) == null) || jSONObject == null) {
             return;
         }
-        c1994a.f71989a = jSONObject.optInt("code");
-        c1994a.f71990b = jSONObject.optString("msg");
+        c1994a.f72169a = jSONObject.optInt("code");
+        c1994a.f72170b = jSONObject.optString("msg");
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -47,8 +47,8 @@ public class ap implements com.kwad.sdk.core.d<a.C1994a> {
             if (jSONObject == null) {
                 jSONObject = new JSONObject();
             }
-            com.kwad.sdk.utils.q.a(jSONObject, "code", c1994a.f71989a);
-            com.kwad.sdk.utils.q.a(jSONObject, "msg", c1994a.f71990b);
+            com.kwad.sdk.utils.q.a(jSONObject, "code", c1994a.f72169a);
+            com.kwad.sdk.utils.q.a(jSONObject, "msg", c1994a.f72170b);
             return jSONObject;
         }
         return (JSONObject) invokeLL.objValue;

@@ -9,8 +9,9 @@ public class LaunchTaskConstants {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int AI_PROCESS = 2;
     public static final int ALL_PROCESS = -1;
-    public static final int LIFE_CYCLE_APP_CREATE = 1;
-    public static final int LIFE_CYCLE_MAIN_CREATE = 2;
+    public static final int LIFE_CYCLE_APP_CREATE = 2;
+    public static final int LIFE_CYCLE_APP_CREATE_BEFORE = 1;
+    public static final int LIFE_CYCLE_MAIN_CREATE = 3;
     public static final int LIFE_CYCLE_UI_READY = 3;
     public static final int MAIN_PROCESS = 1;
     public static final int OTHER_PROCESS = 268435456;

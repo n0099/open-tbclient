@@ -32,6 +32,7 @@ public class VideoPlayActivityConfig extends IntentConfig {
     public static final String FROM_VIDEO_ACCOUNT_TAB = "video_channel_tab";
     public static final String FROM_VIDEO_MIDDLE_VIDEO = "from_video_middle_video";
     public static final String IS_FROM_BJH_PB = "is_from_bjh_pb";
+    public static final String IS_SHARE_THREAD = "is_share_thread";
     public static final String IS_SHOW_PB_COMMENT_FLOAT = "is_show_pb_comment_float";
     public static final String KEY_NID = "key_nid";
     public static final String OBJ_ID = "obj_id";

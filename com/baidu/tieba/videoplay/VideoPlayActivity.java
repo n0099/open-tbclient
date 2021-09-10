@@ -9,9 +9,9 @@ import androidx.core.view.InputDeviceCompat;
 import androidx.fragment.app.FragmentTransaction;
 import c.a.e.a.b;
 import c.a.e.e.p.l;
-import c.a.p0.a.c;
-import c.a.p0.b.d;
-import c.a.q0.i.a;
+import c.a.q0.a.c;
+import c.a.q0.b.d;
+import c.a.r0.i.a;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.ActivityPendingTransitionFactory;
@@ -186,7 +186,7 @@ public class VideoPlayActivity extends BaseFragmentActivity {
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, bundle) == null) {
-            if (getIntent() != null && getIntent().getParcelableExtra(IntentConfig.KEY_URI) != null && !b.f().h("MainTabActivity")) {
+            if (getIntent() != null && getIntent().getParcelableExtra(IntentConfig.KEY_URI) != null && !b.f().i("MainTabActivity")) {
                 this.mIsFromSchema = true;
             }
             if (this.mIsFromSchema) {
@@ -213,11 +213,11 @@ public class VideoPlayActivity extends BaseFragmentActivity {
             if (aVar != null) {
                 aVar.h();
             }
-            if (d.g0()) {
-                c.a.q0.w0.a.i().d("6061002332-203360688");
+            if (d.R()) {
+                c.a.r0.x0.a.i().d("6061002332-203360688");
             }
-            if (d.h0()) {
-                c.a.q0.w0.a.i().c("6061002410-390177882");
+            if (d.S()) {
+                c.a.r0.x0.a.i().c("6061002410-390177882");
             }
             String str = TextUtils.isEmpty(this.mNid) ? "0" : "1";
             long currentTimeMillis = System.currentTimeMillis() - this.mStartTime;
@@ -287,7 +287,7 @@ public class VideoPlayActivity extends BaseFragmentActivity {
                 videoMiddleFragment.setPrimary(false);
                 this.mFragment.setUserVisibleHint(false);
             }
-            c.a.p0.a.d.y().E();
+            c.a.q0.a.d.y().E();
         }
     }
 
@@ -300,7 +300,7 @@ public class VideoPlayActivity extends BaseFragmentActivity {
             if (videoMiddleFragment != null) {
                 videoMiddleFragment.setPrimary(true);
                 this.mFragment.setUserVisibleHint(true);
-                c.a.p0.a.d.y().P(c.Z, this.mFragment.getMissionTid());
+                c.a.q0.a.d.y().P(c.Z, this.mFragment.getMissionTid());
             }
         }
     }

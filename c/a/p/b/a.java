@@ -19,19 +19,19 @@ import io.flutter.embedding.engine.plugins.activity.ActivityAware;
 import io.flutter.embedding.engine.plugins.activity.ActivityPluginBinding;
 import io.flutter.plugin.common.MethodCall;
 import io.flutter.plugin.common.MethodChannel;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class a implements FlutterPlugin, MethodChannel.MethodCallHandler, ActivityAware {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final long f12483g;
+    public static final long f4368g;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public MethodChannel f12484e;
+    public MethodChannel f4369e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Activity f12485f;
+    public Activity f4370f;
 
     static {
         InterceptResult invokeClinit;
@@ -46,7 +46,7 @@ public class a implements FlutterPlugin, MethodChannel.MethodCallHandler, Activi
                 return;
             }
         }
-        f12483g = System.currentTimeMillis();
+        f4368g = System.currentTimeMillis();
     }
 
     public a() {
@@ -67,7 +67,7 @@ public class a implements FlutterPlugin, MethodChannel.MethodCallHandler, Activi
     public void onAttachedToActivity(@NonNull ActivityPluginBinding activityPluginBinding) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, activityPluginBinding) == null) {
-            this.f12485f = activityPluginBinding.getActivity();
+            this.f4370f = activityPluginBinding.getActivity();
         }
     }
 
@@ -76,7 +76,7 @@ public class a implements FlutterPlugin, MethodChannel.MethodCallHandler, Activi
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, flutterPluginBinding) == null) {
             MethodChannel methodChannel = new MethodChannel(flutterPluginBinding.getFlutterEngine().getDartExecutor(), "flutter_exception_perf_plugin");
-            this.f12484e = methodChannel;
+            this.f4369e = methodChannel;
             methodChannel.setMethodCallHandler(this);
         }
     }
@@ -85,7 +85,7 @@ public class a implements FlutterPlugin, MethodChannel.MethodCallHandler, Activi
     public void onDetachedFromActivity() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f12485f = null;
+            this.f4370f = null;
         }
     }
 
@@ -93,7 +93,7 @@ public class a implements FlutterPlugin, MethodChannel.MethodCallHandler, Activi
     public void onDetachedFromActivityForConfigChanges() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f12485f = null;
+            this.f4370f = null;
         }
     }
 
@@ -101,7 +101,7 @@ public class a implements FlutterPlugin, MethodChannel.MethodCallHandler, Activi
     public void onDetachedFromEngine(@NonNull FlutterPlugin.FlutterPluginBinding flutterPluginBinding) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, flutterPluginBinding) == null) {
-            this.f12484e.setMethodCallHandler(null);
+            this.f4369e.setMethodCallHandler(null);
         }
     }
 
@@ -116,7 +116,7 @@ public class a implements FlutterPlugin, MethodChannel.MethodCallHandler, Activi
                 String str3 = (String) methodCall.argument(Constant.KEY_BUSINESS);
                 PerfFrame create = new PerfFrame.Builder().setNeedStaticperf(true).setNeedPageTrace(true).setNeedMainStackTrace(true).setNeedDynamicperf(true).create();
                 if (create != null) {
-                    create.submitPerformanceData("2301", "flutter", longValue, f12483g, str2, str, str3);
+                    create.submitPerformanceData("2301", "flutter", longValue, f4368g, str2, str, str3);
                     result.success(Boolean.TRUE);
                     return;
                 }
@@ -125,7 +125,7 @@ public class a implements FlutterPlugin, MethodChannel.MethodCallHandler, Activi
                 String str4 = (String) methodCall.argument("page");
                 String str5 = (String) methodCall.argument("event");
                 ((Long) methodCall.argument(PmsConstant.Statistic.Key.REV_TIMESTAMP)).longValue();
-                TraceManager.getInstance().saveTraceInfo(this.f12485f, null, str4, (String) methodCall.argument("tag"), "flutter", str5);
+                TraceManager.getInstance().saveTraceInfo(this.f4370f, null, str4, (String) methodCall.argument("tag"), "flutter", str5);
                 result.success(Boolean.TRUE);
             } else {
                 result.notImplemented();
@@ -137,7 +137,7 @@ public class a implements FlutterPlugin, MethodChannel.MethodCallHandler, Activi
     public void onReattachedToActivityForConfigChanges(@NonNull ActivityPluginBinding activityPluginBinding) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, activityPluginBinding) == null) {
-            this.f12485f = activityPluginBinding.getActivity();
+            this.f4370f = activityPluginBinding.getActivity();
         }
     }
 }

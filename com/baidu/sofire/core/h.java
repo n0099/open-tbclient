@@ -11,7 +11,7 @@ public final class h {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f45190a = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    public static String f45305a = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -33,7 +33,7 @@ public final class h {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            char[] charArray = f45190a.toCharArray();
+            char[] charArray = f45305a.toCharArray();
             char[] cArr = new char[16];
             for (int i2 = 0; i2 < 16; i2++) {
                 cArr[i2] = charArray[new Random().nextInt(62)];

@@ -12,7 +12,7 @@ public final class cd implements Runnable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ FeedbackInputActivity f59594a;
+    public final /* synthetic */ FeedbackInputActivity f59774a;
 
     public cd(FeedbackInputActivity feedbackInputActivity) {
         Interceptable interceptable = $ic;
@@ -29,7 +29,7 @@ public final class cd implements Runnable {
                 return;
             }
         }
-        this.f59594a = feedbackInputActivity;
+        this.f59774a = feedbackInputActivity;
     }
 
     @Override // java.lang.Runnable
@@ -41,21 +41,21 @@ public final class cd implements Runnable {
         String str3;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            str = this.f59594a.ar;
+            str = this.f59774a.ar;
             if (str != null) {
-                str3 = this.f59594a.ar;
+                str3 = this.f59774a.ar;
                 if (str3.length() > 0) {
-                    str2 = this.f59594a.ar;
-                    d2 = com.baidu.ufosdk.e.a.d(this.f59594a.getApplicationContext(), this.f59594a.f59495e, str2);
+                    str2 = this.f59774a.ar;
+                    d2 = com.baidu.ufosdk.e.a.d(this.f59774a.getApplicationContext(), this.f59774a.f59675e, str2);
                     if (d2 != null || d2.length() == 0) {
                     }
-                    handler = this.f59594a.aK;
+                    handler = this.f59774a.aK;
                     handler.obtainMessage(5, d2).sendToTarget();
                     return;
                 }
             }
             str2 = UfoSDK.appid;
-            d2 = com.baidu.ufosdk.e.a.d(this.f59594a.getApplicationContext(), this.f59594a.f59495e, str2);
+            d2 = com.baidu.ufosdk.e.a.d(this.f59774a.getApplicationContext(), this.f59774a.f59675e, str2);
             if (d2 != null) {
             }
         }

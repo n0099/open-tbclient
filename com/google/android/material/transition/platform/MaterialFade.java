@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @RequiresApi(21)
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class MaterialFade extends MaterialVisibility<FadeProvider> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final float DEFAULT_FADE_END_THRESHOLD_ENTER = 0.3f;

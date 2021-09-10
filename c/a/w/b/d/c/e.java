@@ -18,7 +18,7 @@ public class e {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public List<d> f30341a;
+    public List<d> f30423a;
 
     public e() {
         Interceptable interceptable = $ic;
@@ -44,17 +44,17 @@ public class e {
         jSONObject.optString("inner_msg");
         JSONArray optJSONArray = jSONObject.optJSONArray("items");
         if (optJSONArray != null && optJSONArray.length() > 0) {
-            this.f30341a = new ArrayList();
+            this.f30423a = new ArrayList();
             for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
                 JSONObject optJSONObject2 = optJSONArray.optJSONObject(i2);
                 if (optJSONObject2 != null) {
                     d dVar = new d();
                     dVar.a(optJSONObject2);
-                    this.f30341a.add(dVar);
+                    this.f30423a.add(dVar);
                 }
             }
         }
-        if (c.a.w.e.g.d.c(this.f30341a) || (optJSONObject = jSONObject.optJSONObject(SwanAppRelatedSwanListAdapter.PAGE_ABOUT_MORE_RELATED_SWAN)) == null) {
+        if (c.a.w.e.g.d.c(this.f30423a) || (optJSONObject = jSONObject.optJSONObject(SwanAppRelatedSwanListAdapter.PAGE_ABOUT_MORE_RELATED_SWAN)) == null) {
             return;
         }
         String optString = optJSONObject.optString("scheme");
@@ -62,11 +62,11 @@ public class e {
             return;
         }
         d dVar2 = new d();
-        dVar2.f30337d = optString;
-        dVar2.f30334a = true;
+        dVar2.f30419d = optString;
+        dVar2.f30416a = true;
         LiveHostInfo liveHostInfo = new LiveHostInfo();
         liveHostInfo.name = optJSONObject.optString(DocumentOpenUtil.TXT);
-        dVar2.f30338e = liveHostInfo;
-        this.f30341a.add(dVar2);
+        dVar2.f30420e = liveHostInfo;
+        this.f30423a.add(dVar2);
     }
 }

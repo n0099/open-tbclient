@@ -3,7 +3,7 @@ package com.baidu.tbadk.core;
 import android.content.Intent;
 import androidx.core.view.InputDeviceCompat;
 import c.a.e.e.l.d;
-import c.a.q0.j1.h.i;
+import c.a.r0.k1.h.i;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -197,18 +197,18 @@ public class LaunchStatic {
         b();
         c();
         SyncSwitch.initSyncSwitch();
-        c.a.q0.i3.n0.a.a();
-        c.a.q0.j1.y.b.a();
-        c.a.q0.j1.b.a();
+        c.a.r0.j3.n0.a.a();
+        c.a.r0.k1.y.b.a();
+        c.a.r0.k1.b.a();
         ImMemoryCacheRegister.j();
         i.i();
-        c.a.p0.m.c.e();
-        c.a.p0.s.i.a();
+        c.a.q0.m.c.e();
+        c.a.q0.s.i.a();
         WalletStaticInit.init();
-        c.a.p0.s.t.a.d();
-        c.a.p0.s.x.c.a();
-        c.a.p0.p0.a.c();
-        c.a.p0.p.a.d();
+        c.a.q0.s.t.a.d();
+        c.a.q0.s.x.c.a();
+        c.a.q0.r0.a.c();
+        c.a.q0.p.a.d();
     }
 
     public LaunchStatic() {
@@ -267,7 +267,7 @@ public class LaunchStatic {
             d.h().o(27, new BigImageLoaderProc(27));
             d.h().o(29, new SimpleForeverLoaderProc(true, 29));
             d.h().o(32, new LocalFileDrawableLoaderProc(32));
-            d.h().o(23, new c.a.p0.s.g0.b.c());
+            d.h().o(23, new c.a.q0.s.g0.b.c());
             d.h().o(33, new MemeLoaderProc2());
             d.h().o(34, new EmotionShareLoaderProc());
             d.h().o(35, new LocalFileImageLoaderProc(160, 160));
@@ -294,9 +294,9 @@ public class LaunchStatic {
             CustomMessageTask customMessageTask = new CustomMessageTask(2006002, new a());
             customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
             MessageManager.getInstance().registerTask(customMessageTask);
-            c.a.p0.a0.b.a().c();
-            c.a.q0.i3.d0.a.f(303039, ClientConfigSocketResponse.class, false);
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_CLIENT_CONFIG, c.a.q0.i3.d0.a.a(TbConfig.GET_PAY_CONFIG, 303039));
+            c.a.q0.a0.b.a().c();
+            c.a.r0.j3.d0.a.f(303039, ClientConfigSocketResponse.class, false);
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_CLIENT_CONFIG, c.a.r0.j3.d0.a.a(TbConfig.GET_PAY_CONFIG, 303039));
             tbHttpMessageTask.setResponsedClass(ClientConfigHttpProtoResponse.class);
             MessageManager.getInstance().registerTask(tbHttpMessageTask);
         }

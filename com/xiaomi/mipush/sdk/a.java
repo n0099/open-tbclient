@@ -23,7 +23,7 @@ public class a implements Application.ActivityLifecycleCallbacks {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Set<String> f77084a;
+    public Set<String> f77264a;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -38,7 +38,7 @@ public class a implements Application.ActivityLifecycleCallbacks {
                 return;
             }
         }
-        this.f77084a = new HashSet();
+        this.f77264a = new HashSet();
     }
 
     public static void a(Application application) {
@@ -89,10 +89,10 @@ public class a implements Application.ActivityLifecycleCallbacks {
         }
         String stringExtra = intent.getStringExtra(MiPushMessage.KEY_MESSAGE_ID);
         int intExtra = intent.getIntExtra("eventMessageType", -1);
-        if (TextUtils.isEmpty(stringExtra) || intExtra <= 0 || this.f77084a.contains(stringExtra)) {
+        if (TextUtils.isEmpty(stringExtra) || intExtra <= 0 || this.f77264a.contains(stringExtra)) {
             return;
         }
-        this.f77084a.add(stringExtra);
+        this.f77264a.add(stringExtra);
         if (intExtra == 3000) {
             a2 = el.a(activity.getApplicationContext());
             packageName = activity.getPackageName();

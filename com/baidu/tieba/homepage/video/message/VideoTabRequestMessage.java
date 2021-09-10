@@ -1,7 +1,7 @@
 package com.baidu.tieba.homepage.video.message;
 
 import c.a.e.e.p.l;
-import c.a.p0.b1.w;
+import c.a.q0.d1.x;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -52,7 +52,7 @@ public class VideoTabRequestMessage extends NetMessage {
             builder.load_type = Integer.valueOf(this.load_type);
             builder.page_thread_count = Integer.valueOf(this.page_thread_count);
             if (z) {
-                w.a(builder, true);
+                x.a(builder, true);
             }
             RecomVideoReqIdl.Builder builder2 = new RecomVideoReqIdl.Builder();
             builder2.data = builder.build(false);

@@ -5,13 +5,13 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class ImageMetadata {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final long f70054a;
+    public final long f70234a;
 
     public ImageMetadata() {
         Interceptable interceptable = $ic;
@@ -26,7 +26,7 @@ public class ImageMetadata {
                 return;
             }
         }
-        this.f70054a = 0L;
+        this.f70234a = 0L;
     }
 
     private native void nativeDestroyMetadataEntry(long j2, long j3);
@@ -70,7 +70,7 @@ public class ImageMetadata {
     public void finalize() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            long j2 = this.f70054a;
+            long j2 = this.f70234a;
             if (j2 != 0) {
                 nativeReleaseImageMetadata(j2);
             }

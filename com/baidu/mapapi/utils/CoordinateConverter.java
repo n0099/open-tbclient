@@ -20,10 +20,10 @@ public class CoordinateConverter {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public LatLng f41897a;
+    public LatLng f42008a;
 
     /* renamed from: b  reason: collision with root package name */
-    public CoordType f41898b;
+    public CoordType f42009b;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes5.dex */
@@ -149,26 +149,26 @@ public class CoordinateConverter {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.f41897a == null) {
+            if (this.f42008a == null) {
                 return null;
             }
-            if (this.f41898b == null) {
-                this.f41898b = CoordType.GPS;
+            if (this.f42009b == null) {
+                this.f42009b = CoordType.GPS;
             }
-            int i2 = a.f41899a[this.f41898b.ordinal()];
+            int i2 = a.f42010a[this.f42009b.ordinal()];
             if (i2 != 1) {
                 if (i2 != 2) {
                     if (i2 != 3) {
                         if (i2 != 4) {
                             return null;
                         }
-                        return c(this.f41897a);
+                        return c(this.f42008a);
                     }
-                    return d(this.f41897a);
+                    return d(this.f42008a);
                 }
-                return a(this.f41897a);
+                return a(this.f42008a);
             }
-            return b(this.f41897a);
+            return b(this.f42008a);
         }
         return (LatLng) invokeV.objValue;
     }
@@ -177,7 +177,7 @@ public class CoordinateConverter {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, latLng)) == null) {
-            this.f41897a = latLng;
+            this.f42008a = latLng;
             return this;
         }
         return (CoordinateConverter) invokeL.objValue;
@@ -187,7 +187,7 @@ public class CoordinateConverter {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, coordType)) == null) {
-            this.f41898b = coordType;
+            this.f42009b = coordType;
             return this;
         }
         return (CoordinateConverter) invokeL.objValue;

@@ -86,10 +86,6 @@ public class VideoFrameDrawer {
             }
         }
 
-        public /* synthetic */ YuvUploader(AnonymousClass1 anonymousClass1) {
-            this();
-        }
-
         @Nullable
         public int[] getYuvTextures() {
             InterceptResult invokeV;
@@ -156,6 +152,10 @@ public class VideoFrameDrawer {
                 return this.yuvTextures;
             }
             return (int[]) invokeCommon.objValue;
+        }
+
+        public /* synthetic */ YuvUploader(AnonymousClass1 anonymousClass1) {
+            this();
         }
     }
 
@@ -233,10 +233,10 @@ public class VideoFrameDrawer {
             int i8 = AnonymousClass1.$SwitchMap$org$webrtc$VideoFrame$TextureBuffer$Type[textureBuffer.getType().ordinal()];
             if (i8 == 1) {
                 glDrawer.drawOes(textureBuffer.getTextureId(), convertMatrixFromAndroidGraphicsMatrix, i2, i3, i4, i5, i6, i7);
-            } else if (i8 != 2) {
-                throw new RuntimeException("Unknown texture type.");
-            } else {
+            } else if (i8 == 2) {
                 glDrawer.drawRgb(textureBuffer.getTextureId(), convertMatrixFromAndroidGraphicsMatrix, i2, i3, i4, i5, i6, i7);
+            } else {
+                throw new RuntimeException("Unknown texture type.");
             }
         }
     }
@@ -245,6 +245,14 @@ public class VideoFrameDrawer {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, videoFrame, glDrawer) == null) {
             drawFrame(videoFrame, glDrawer, null);
+        }
+    }
+
+    public void release() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.yuvUploader.release();
+            this.lastI420Frame = null;
         }
     }
 
@@ -282,14 +290,6 @@ public class VideoFrameDrawer {
                 i420.release();
             }
             glDrawer.drawYuv(this.yuvUploader.getYuvTextures(), RendererCommon.convertMatrixFromAndroidGraphicsMatrix(this.renderMatrix), this.renderWidth, this.renderHeight, i2, i3, i4, i5);
-        }
-    }
-
-    public void release() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.yuvUploader.release();
-            this.lastI420Frame = null;
         }
     }
 }

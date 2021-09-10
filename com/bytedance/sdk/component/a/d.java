@@ -16,13 +16,13 @@ public abstract class d<P, R> extends com.bytedance.sdk.component.a.b<P, R> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f63925a;
+    public boolean f64105a;
 
     /* renamed from: b  reason: collision with root package name */
-    public a f63926b;
+    public a f64106b;
 
     /* renamed from: c  reason: collision with root package name */
-    public f f63927c;
+    public f f64107c;
 
     /* loaded from: classes9.dex */
     public interface a {
@@ -49,14 +49,14 @@ public abstract class d<P, R> extends com.bytedance.sdk.component.a.b<P, R> {
                 return;
             }
         }
-        this.f63925a = true;
+        this.f64105a = true;
     }
 
     private boolean g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
-            if (this.f63925a) {
+            if (this.f64105a) {
                 return true;
             }
             i.a(new IllegalStateException("Jsb async call already finished: " + a() + ", hashcode: " + hashCode()));
@@ -85,8 +85,8 @@ public abstract class d<P, R> extends com.bytedance.sdk.component.a.b<P, R> {
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.f63925a = false;
-            this.f63927c = null;
+            this.f64105a = false;
+            this.f64107c = null;
         }
     }
 
@@ -101,7 +101,7 @@ public abstract class d<P, R> extends com.bytedance.sdk.component.a.b<P, R> {
     public final void a(@Nullable R r) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, r) == null) && g()) {
-            this.f63926b.a(r);
+            this.f64106b.a(r);
             e();
         }
     }
@@ -109,7 +109,7 @@ public abstract class d<P, R> extends com.bytedance.sdk.component.a.b<P, R> {
     public final void a(Throwable th) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048580, this, th) == null) && g()) {
-            this.f63926b.a(th);
+            this.f64106b.a(th);
             e();
         }
     }
@@ -117,8 +117,8 @@ public abstract class d<P, R> extends com.bytedance.sdk.component.a.b<P, R> {
     public void a(@NonNull P p, @NonNull f fVar, @NonNull a aVar) throws Exception {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048579, this, p, fVar, aVar) == null) {
-            this.f63927c = fVar;
-            this.f63926b = aVar;
+            this.f64107c = fVar;
+            this.f64106b = aVar;
             a(p, fVar);
         }
     }

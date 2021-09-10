@@ -17,25 +17,25 @@ public class H5PayActivity extends Activity {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public com.alipay.sdk.widget.c f35731a;
+    public com.alipay.sdk.widget.c f35840a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f35732b;
+    public String f35841b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f35733c;
+    public String f35842c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f35734d;
+    public String f35843d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f35735e;
+    public String f35844e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f35736f;
+    public boolean f35845f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f35737g;
+    public String f35846g;
 
     public H5PayActivity() {
         Interceptable interceptable = $ic;
@@ -65,7 +65,7 @@ public class H5PayActivity extends Activity {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            Object obj = PayTask.f35762a;
+            Object obj = PayTask.f35871a;
             synchronized (obj) {
                 try {
                     obj.notify();
@@ -88,7 +88,7 @@ public class H5PayActivity extends Activity {
     public void onBackPressed() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            com.alipay.sdk.widget.c cVar = this.f35731a;
+            com.alipay.sdk.widget.c cVar = this.f35840a;
             if (cVar == null) {
                 finish();
             } else if (cVar.c()) {
@@ -131,23 +131,23 @@ public class H5PayActivity extends Activity {
                 try {
                     Bundle extras = getIntent().getExtras();
                     String string = extras.getString("url", null);
-                    this.f35732b = string;
+                    this.f35841b = string;
                     if (!k.d(string)) {
                         finish();
                         return;
                     }
-                    this.f35734d = extras.getString("cookie", null);
-                    this.f35733c = extras.getString("method", null);
-                    this.f35735e = extras.getString("title", null);
-                    this.f35737g = extras.getString("version", "v1");
-                    this.f35736f = extras.getBoolean("backisexit", false);
+                    this.f35843d = extras.getString("cookie", null);
+                    this.f35842c = extras.getString("method", null);
+                    this.f35844e = extras.getString("title", null);
+                    this.f35846g = extras.getString("version", "v1");
+                    this.f35845f = extras.getBoolean("backisexit", false);
                     try {
-                        d dVar = new d(this, a2, this.f35737g);
+                        d dVar = new d(this, a2, this.f35846g);
                         setContentView(dVar);
-                        dVar.a(this.f35735e, this.f35733c, this.f35736f);
-                        dVar.a(this.f35732b, this.f35734d);
-                        dVar.a(this.f35732b);
-                        this.f35731a = dVar;
+                        dVar.a(this.f35844e, this.f35842c, this.f35845f);
+                        dVar.a(this.f35841b, this.f35843d);
+                        dVar.a(this.f35841b);
+                        this.f35840a = dVar;
                     } catch (Throwable th) {
                         com.alipay.sdk.app.statistic.a.a(a2, "biz", "GetInstalledAppEx", th);
                         finish();
@@ -166,7 +166,7 @@ public class H5PayActivity extends Activity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             super.onDestroy();
-            com.alipay.sdk.widget.c cVar = this.f35731a;
+            com.alipay.sdk.widget.c cVar = this.f35840a;
             if (cVar != null) {
                 cVar.a();
             }

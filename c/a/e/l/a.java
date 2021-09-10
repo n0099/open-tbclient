@@ -13,7 +13,7 @@ public final class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Interpolator f2936a;
+    public static final Interpolator f2927a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c.a.e.l.a$a  reason: collision with other inner class name */
@@ -61,7 +61,7 @@ public final class a {
                 return;
             }
         }
-        f2936a = new animation.InterpolatorC0048a();
+        f2927a = new animation.InterpolatorC0048a();
     }
 
     public static int a(float f2, float f3, boolean z) {
@@ -70,9 +70,9 @@ public final class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Boolean.valueOf(z)})) == null) {
             if (z) {
-                interpolation = f2 - (f2936a.getInterpolation(f3 / (f3 - f2)) * f2);
+                interpolation = f2 - (f2927a.getInterpolation(f3 / (f3 - f2)) * f2);
             } else {
-                interpolation = f2 * f2936a.getInterpolation(f3 / f2);
+                interpolation = f2 * f2927a.getInterpolation(f3 / f2);
             }
             return (int) interpolation;
         }

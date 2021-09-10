@@ -37,13 +37,46 @@ public class TbAdvertStatic {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<c.a.p0.y0.a> run(CustomMessage<Context> customMessage) {
+        public CustomResponsedMessage<c.a.q0.a1.a> run(CustomMessage<Context> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
                 if (customMessage.getData() != null) {
-                    return new CustomResponsedMessage<>(2921390, new c.a.q0.j3.a(customMessage.getData()));
+                    c.a.r0.k3.a j2 = c.a.r0.k3.a.j();
+                    j2.n(customMessage.getData());
+                    return new CustomResponsedMessage<>(2921390, j2);
                 }
+                return null;
+            }
+            return (CustomResponsedMessage) invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public static class b implements CustomMessageTask.CustomRunnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+        public CustomResponsedMessage<?> run(CustomMessage customMessage) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
+                c.a.r0.k3.a.j().m();
                 return null;
             }
             return (CustomResponsedMessage) invokeL.objValue;
@@ -66,6 +99,9 @@ public class TbAdvertStatic {
         CustomMessageTask customMessageTask = new CustomMessageTask(2921390, new a());
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
+        CustomMessageTask customMessageTask2 = new CustomMessageTask(2921620, new b());
+        customMessageTask2.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
+        MessageManager.getInstance().registerTask(customMessageTask2);
     }
 
     public TbAdvertStatic() {

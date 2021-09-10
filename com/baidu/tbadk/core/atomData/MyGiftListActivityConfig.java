@@ -115,7 +115,7 @@ public class MyGiftListActivityConfig extends IntentConfig {
         }
         if (uri != null) {
             getIntent().putExtra("id", uri.getQueryParameter("id"));
-            getIntent().putExtra("sex", b.d(uri.getQueryParameter("sex"), 0));
+            getIntent().putExtra("sex", b.e(uri.getQueryParameter("sex"), 0));
             getIntent().putExtra("user_name", uri.getQueryParameter("user_name"));
             getIntent().putExtra("name_show", uri.getQueryParameter("name_show"));
         }

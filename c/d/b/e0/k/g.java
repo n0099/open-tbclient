@@ -34,34 +34,34 @@ public final class g {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f31870a;
+    public long f31979a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f31871b;
+    public long f31980b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final int f31872c;
+    public final int f31981c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final e f31873d;
+    public final e f31982d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Deque<r> f31874e;
+    public final Deque<r> f31983e;
 
     /* renamed from: f  reason: collision with root package name */
-    public a.InterfaceC1455a f31875f;
+    public a.InterfaceC1455a f31984f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f31876g;
+    public boolean f31985g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final b f31877h;
+    public final b f31986h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final a f31878i;
+    public final a f31987i;
 
     /* renamed from: j  reason: collision with root package name */
-    public final c f31879j;
+    public final c f31988j;
     public final c k;
     public ErrorCode l;
 
@@ -71,16 +71,16 @@ public final class g {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final Buffer f31880e;
+        public final Buffer f31989e;
 
         /* renamed from: f  reason: collision with root package name */
-        public boolean f31881f;
+        public boolean f31990f;
 
         /* renamed from: g  reason: collision with root package name */
-        public boolean f31882g;
+        public boolean f31991g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ g f31883h;
+        public final /* synthetic */ g f31992h;
 
         static {
             InterceptResult invokeClinit;
@@ -112,29 +112,29 @@ public final class g {
                     return;
                 }
             }
-            this.f31883h = gVar;
-            this.f31880e = new Buffer();
+            this.f31992h = gVar;
+            this.f31989e = new Buffer();
         }
 
         public final void a(boolean z) throws IOException {
             long min;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-                synchronized (this.f31883h) {
-                    this.f31883h.k.enter();
-                    while (this.f31883h.f31871b <= 0 && !this.f31882g && !this.f31881f && this.f31883h.l == null) {
-                        this.f31883h.t();
+                synchronized (this.f31992h) {
+                    this.f31992h.k.enter();
+                    while (this.f31992h.f31980b <= 0 && !this.f31991g && !this.f31990f && this.f31992h.l == null) {
+                        this.f31992h.t();
                     }
-                    this.f31883h.k.exitAndThrowIfTimedOut();
-                    this.f31883h.e();
-                    min = Math.min(this.f31883h.f31871b, this.f31880e.size());
-                    this.f31883h.f31871b -= min;
+                    this.f31992h.k.exitAndThrowIfTimedOut();
+                    this.f31992h.e();
+                    min = Math.min(this.f31992h.f31980b, this.f31989e.size());
+                    this.f31992h.f31980b -= min;
                 }
-                this.f31883h.k.enter();
+                this.f31992h.k.enter();
                 try {
-                    this.f31883h.f31873d.K(this.f31883h.f31872c, z && min == this.f31880e.size(), this.f31880e, min);
+                    this.f31992h.f31982d.K(this.f31992h.f31981c, z && min == this.f31989e.size(), this.f31989e, min);
                 } finally {
-                    this.f31883h.k.exitAndThrowIfTimedOut();
+                    this.f31992h.k.exitAndThrowIfTimedOut();
                 }
             }
         }
@@ -143,25 +143,25 @@ public final class g {
         public void close() throws IOException {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                synchronized (this.f31883h) {
-                    if (this.f31881f) {
+                synchronized (this.f31992h) {
+                    if (this.f31990f) {
                         return;
                     }
-                    if (!this.f31883h.f31878i.f31882g) {
-                        if (this.f31880e.size() > 0) {
-                            while (this.f31880e.size() > 0) {
+                    if (!this.f31992h.f31987i.f31991g) {
+                        if (this.f31989e.size() > 0) {
+                            while (this.f31989e.size() > 0) {
                                 a(true);
                             }
                         } else {
-                            g gVar = this.f31883h;
-                            gVar.f31873d.K(gVar.f31872c, true, null, 0L);
+                            g gVar = this.f31992h;
+                            gVar.f31982d.K(gVar.f31981c, true, null, 0L);
                         }
                     }
-                    synchronized (this.f31883h) {
-                        this.f31881f = true;
+                    synchronized (this.f31992h) {
+                        this.f31990f = true;
                     }
-                    this.f31883h.f31873d.flush();
-                    this.f31883h.d();
+                    this.f31992h.f31982d.flush();
+                    this.f31992h.d();
                 }
             }
         }
@@ -170,12 +170,12 @@ public final class g {
         public void flush() throws IOException {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                synchronized (this.f31883h) {
-                    this.f31883h.e();
+                synchronized (this.f31992h) {
+                    this.f31992h.e();
                 }
-                while (this.f31880e.size() > 0) {
+                while (this.f31989e.size() > 0) {
                     a(false);
-                    this.f31883h.f31873d.flush();
+                    this.f31992h.f31982d.flush();
                 }
             }
         }
@@ -184,15 +184,15 @@ public final class g {
         public Timeout timeout() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f31883h.k : (Timeout) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f31992h.k : (Timeout) invokeV.objValue;
         }
 
         @Override // okio.Sink
         public void write(Buffer buffer, long j2) throws IOException {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLJ(1048580, this, buffer, j2) == null) {
-                this.f31880e.write(buffer, j2);
-                while (this.f31880e.size() >= 16384) {
+                this.f31989e.write(buffer, j2);
+                while (this.f31989e.size() >= 16384) {
                     a(false);
                 }
             }
@@ -205,22 +205,22 @@ public final class g {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final Buffer f31884e;
+        public final Buffer f31993e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final Buffer f31885f;
+        public final Buffer f31994f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final long f31886g;
+        public final long f31995g;
 
         /* renamed from: h  reason: collision with root package name */
-        public boolean f31887h;
+        public boolean f31996h;
 
         /* renamed from: i  reason: collision with root package name */
-        public boolean f31888i;
+        public boolean f31997i;
 
         /* renamed from: j  reason: collision with root package name */
-        public final /* synthetic */ g f31889j;
+        public final /* synthetic */ g f31998j;
 
         static {
             InterceptResult invokeClinit;
@@ -252,10 +252,10 @@ public final class g {
                     return;
                 }
             }
-            this.f31889j = gVar;
-            this.f31884e = new Buffer();
-            this.f31885f = new Buffer();
-            this.f31886g = j2;
+            this.f31998j = gVar;
+            this.f31993e = new Buffer();
+            this.f31994f = new Buffer();
+            this.f31995g = j2;
         }
 
         public void a(BufferedSource bufferedSource, long j2) throws IOException {
@@ -266,33 +266,33 @@ public final class g {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLJ(1048576, this, bufferedSource, j2) == null) {
                 while (j2 > 0) {
-                    synchronized (this.f31889j) {
-                        z = this.f31888i;
+                    synchronized (this.f31998j) {
+                        z = this.f31997i;
                         z2 = true;
-                        z3 = this.f31885f.size() + j2 > this.f31886g;
+                        z3 = this.f31994f.size() + j2 > this.f31995g;
                     }
                     if (z3) {
                         bufferedSource.skip(j2);
-                        this.f31889j.h(ErrorCode.FLOW_CONTROL_ERROR);
+                        this.f31998j.h(ErrorCode.FLOW_CONTROL_ERROR);
                         return;
                     } else if (z) {
                         bufferedSource.skip(j2);
                         return;
                     } else {
-                        long read = bufferedSource.read(this.f31884e, j2);
+                        long read = bufferedSource.read(this.f31993e, j2);
                         if (read != -1) {
                             j2 -= read;
-                            synchronized (this.f31889j) {
-                                if (this.f31887h) {
-                                    j3 = this.f31884e.size();
-                                    this.f31884e.clear();
+                            synchronized (this.f31998j) {
+                                if (this.f31996h) {
+                                    j3 = this.f31993e.size();
+                                    this.f31993e.clear();
                                 } else {
-                                    if (this.f31885f.size() != 0) {
+                                    if (this.f31994f.size() != 0) {
                                         z2 = false;
                                     }
-                                    this.f31885f.writeAll(this.f31884e);
+                                    this.f31994f.writeAll(this.f31993e);
                                     if (z2) {
-                                        this.f31889j.notifyAll();
+                                        this.f31998j.notifyAll();
                                     }
                                     j3 = 0;
                                 }
@@ -311,7 +311,7 @@ public final class g {
         public final void b(long j2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2) == null) {
-                this.f31889j.f31873d.J(j2);
+                this.f31998j.f31982d.J(j2);
             }
         }
 
@@ -322,25 +322,25 @@ public final class g {
             ArrayList<r> arrayList;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                synchronized (this.f31889j) {
-                    this.f31887h = true;
-                    size = this.f31885f.size();
-                    this.f31885f.clear();
+                synchronized (this.f31998j) {
+                    this.f31996h = true;
+                    size = this.f31994f.size();
+                    this.f31994f.clear();
                     interfaceC1455a = null;
-                    if (this.f31889j.f31874e.isEmpty() || this.f31889j.f31875f == null) {
+                    if (this.f31998j.f31983e.isEmpty() || this.f31998j.f31984f == null) {
                         arrayList = null;
                     } else {
-                        ArrayList arrayList2 = new ArrayList(this.f31889j.f31874e);
-                        this.f31889j.f31874e.clear();
-                        interfaceC1455a = this.f31889j.f31875f;
+                        ArrayList arrayList2 = new ArrayList(this.f31998j.f31983e);
+                        this.f31998j.f31983e.clear();
+                        interfaceC1455a = this.f31998j.f31984f;
                         arrayList = arrayList2;
                     }
-                    this.f31889j.notifyAll();
+                    this.f31998j.notifyAll();
                 }
                 if (size > 0) {
                     b(size);
                 }
-                this.f31889j.d();
+                this.f31998j.d();
                 if (interfaceC1455a != null) {
                     for (r rVar : arrayList) {
                         interfaceC1455a.a(rVar);
@@ -387,34 +387,34 @@ public final class g {
                 throw new IllegalArgumentException("byteCount < 0: " + j2);
             }
             while (true) {
-                synchronized (this.f31889j) {
-                    this.f31889j.f31879j.enter();
-                    ErrorCode errorCode = this.f31889j.l != null ? this.f31889j.l : null;
-                    if (this.f31887h) {
+                synchronized (this.f31998j) {
+                    this.f31998j.f31988j.enter();
+                    ErrorCode errorCode = this.f31998j.l != null ? this.f31998j.l : null;
+                    if (this.f31996h) {
                         break;
                     }
-                    if (!this.f31889j.f31874e.isEmpty() && this.f31889j.f31875f != null) {
-                        rVar = (r) this.f31889j.f31874e.removeFirst();
-                        interfaceC1455a = this.f31889j.f31875f;
+                    if (!this.f31998j.f31983e.isEmpty() && this.f31998j.f31984f != null) {
+                        rVar = (r) this.f31998j.f31983e.removeFirst();
+                        interfaceC1455a = this.f31998j.f31984f;
                         read = -1;
                     } else {
-                        if (this.f31885f.size() > 0) {
-                            read = this.f31885f.read(buffer, Math.min(j2, this.f31885f.size()));
-                            this.f31889j.f31870a += read;
-                            if (errorCode == null && this.f31889j.f31870a >= this.f31889j.f31873d.w.d() / 2) {
-                                this.f31889j.f31873d.O(this.f31889j.f31872c, this.f31889j.f31870a);
-                                this.f31889j.f31870a = 0L;
+                        if (this.f31994f.size() > 0) {
+                            read = this.f31994f.read(buffer, Math.min(j2, this.f31994f.size()));
+                            this.f31998j.f31979a += read;
+                            if (errorCode == null && this.f31998j.f31979a >= this.f31998j.f31982d.w.d() / 2) {
+                                this.f31998j.f31982d.O(this.f31998j.f31981c, this.f31998j.f31979a);
+                                this.f31998j.f31979a = 0L;
                             }
-                        } else if (this.f31888i || errorCode != null) {
+                        } else if (this.f31997i || errorCode != null) {
                             read = -1;
                         } else {
-                            this.f31889j.t();
-                            this.f31889j.f31879j.exitAndThrowIfTimedOut();
+                            this.f31998j.t();
+                            this.f31998j.f31988j.exitAndThrowIfTimedOut();
                         }
                         rVar = null;
                         interfaceC1455a = null;
                     }
-                    this.f31889j.f31879j.exitAndThrowIfTimedOut();
+                    this.f31998j.f31988j.exitAndThrowIfTimedOut();
                     if (rVar == null || interfaceC1455a == null) {
                         break;
                     }
@@ -427,7 +427,7 @@ public final class g {
         public Timeout timeout() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f31889j.f31879j : (Timeout) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f31998j.f31988j : (Timeout) invokeV.objValue;
         }
     }
 
@@ -437,7 +437,7 @@ public final class g {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ g f31890a;
+        public final /* synthetic */ g f31999a;
 
         public c(g gVar) {
             Interceptable interceptable = $ic;
@@ -454,7 +454,7 @@ public final class g {
                     return;
                 }
             }
-            this.f31890a = gVar;
+            this.f31999a = gVar;
         }
 
         public void exitAndThrowIfTimedOut() throws IOException {
@@ -482,8 +482,8 @@ public final class g {
         public void timedOut() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                this.f31890a.h(ErrorCode.CANCEL);
-                this.f31890a.f31873d.F();
+                this.f31999a.h(ErrorCode.CANCEL);
+                this.f31999a.f31982d.F();
             }
         }
     }
@@ -518,22 +518,22 @@ public final class g {
                 return;
             }
         }
-        this.f31870a = 0L;
-        this.f31874e = new ArrayDeque();
-        this.f31879j = new c(this);
+        this.f31979a = 0L;
+        this.f31983e = new ArrayDeque();
+        this.f31988j = new c(this);
         this.k = new c(this);
         this.l = null;
         if (eVar != null) {
-            this.f31872c = i2;
-            this.f31873d = eVar;
-            this.f31871b = eVar.x.d();
-            this.f31877h = new b(this, eVar.w.d());
+            this.f31981c = i2;
+            this.f31982d = eVar;
+            this.f31980b = eVar.x.d();
+            this.f31986h = new b(this, eVar.w.d());
             a aVar = new a(this);
-            this.f31878i = aVar;
-            this.f31877h.f31888i = z2;
-            aVar.f31882g = z;
+            this.f31987i = aVar;
+            this.f31986h.f31997i = z2;
+            aVar.f31991g = z;
             if (rVar != null) {
-                this.f31874e.add(rVar);
+                this.f31983e.add(rVar);
             }
             if (l() && rVar != null) {
                 throw new IllegalStateException("locally-initiated streams shouldn't have headers yet");
@@ -549,7 +549,7 @@ public final class g {
     public void c(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048576, this, j2) == null) {
-            this.f31871b += j2;
+            this.f31980b += j2;
             if (j2 > 0) {
                 notifyAll();
             }
@@ -562,14 +562,14 @@ public final class g {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             synchronized (this) {
-                z = !this.f31877h.f31888i && this.f31877h.f31887h && (this.f31878i.f31882g || this.f31878i.f31881f);
+                z = !this.f31986h.f31997i && this.f31986h.f31996h && (this.f31987i.f31991g || this.f31987i.f31990f);
                 m = m();
             }
             if (z) {
                 f(ErrorCode.CANCEL);
             } else if (m) {
             } else {
-                this.f31873d.E(this.f31872c);
+                this.f31982d.E(this.f31981c);
             }
         }
     }
@@ -577,9 +577,9 @@ public final class g {
     public void e() throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            a aVar = this.f31878i;
-            if (!aVar.f31881f) {
-                if (!aVar.f31882g) {
+            a aVar = this.f31987i;
+            if (!aVar.f31990f) {
+                if (!aVar.f31991g) {
                     if (this.l != null) {
                         throw new StreamResetException(this.l);
                     }
@@ -594,7 +594,7 @@ public final class g {
     public void f(ErrorCode errorCode) throws IOException {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048579, this, errorCode) == null) && g(errorCode)) {
-            this.f31873d.M(this.f31872c, errorCode);
+            this.f31982d.M(this.f31981c, errorCode);
         }
     }
 
@@ -606,12 +606,12 @@ public final class g {
                 if (this.l != null) {
                     return false;
                 }
-                if (this.f31877h.f31888i && this.f31878i.f31882g) {
+                if (this.f31986h.f31997i && this.f31987i.f31991g) {
                     return false;
                 }
                 this.l = errorCode;
                 notifyAll();
-                this.f31873d.E(this.f31872c);
+                this.f31982d.E(this.f31981c);
                 return true;
             }
         }
@@ -621,14 +621,14 @@ public final class g {
     public void h(ErrorCode errorCode) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048581, this, errorCode) == null) && g(errorCode)) {
-            this.f31873d.N(this.f31872c, errorCode);
+            this.f31982d.N(this.f31981c, errorCode);
         }
     }
 
     public int i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f31872c : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f31981c : invokeV.intValue;
     }
 
     public Sink j() {
@@ -636,11 +636,11 @@ public final class g {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             synchronized (this) {
-                if (!this.f31876g && !l()) {
+                if (!this.f31985g && !l()) {
                     throw new IllegalStateException("reply before requesting the sink");
                 }
             }
-            return this.f31878i;
+            return this.f31987i;
         }
         return (Sink) invokeV.objValue;
     }
@@ -648,14 +648,14 @@ public final class g {
     public Source k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f31877h : (Source) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f31986h : (Source) invokeV.objValue;
     }
 
     public boolean l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return this.f31873d.f31809e == ((this.f31872c & 1) == 1);
+            return this.f31982d.f31918e == ((this.f31981c & 1) == 1);
         }
         return invokeV.booleanValue;
     }
@@ -668,8 +668,8 @@ public final class g {
                 if (this.l != null) {
                     return false;
                 }
-                if ((this.f31877h.f31888i || this.f31877h.f31887h) && (this.f31878i.f31882g || this.f31878i.f31881f)) {
-                    if (this.f31876g) {
+                if ((this.f31986h.f31997i || this.f31986h.f31996h) && (this.f31987i.f31991g || this.f31987i.f31990f)) {
+                    if (this.f31985g) {
                         return false;
                     }
                 }
@@ -682,13 +682,13 @@ public final class g {
     public Timeout n() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f31879j : (Timeout) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f31988j : (Timeout) invokeV.objValue;
     }
 
     public void o(BufferedSource bufferedSource, int i2) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048588, this, bufferedSource, i2) == null) {
-            this.f31877h.a(bufferedSource, i2);
+            this.f31986h.a(bufferedSource, i2);
         }
     }
 
@@ -697,14 +697,14 @@ public final class g {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
             synchronized (this) {
-                this.f31877h.f31888i = true;
+                this.f31986h.f31997i = true;
                 m = m();
                 notifyAll();
             }
             if (m) {
                 return;
             }
-            this.f31873d.E(this.f31872c);
+            this.f31982d.E(this.f31981c);
         }
     }
 
@@ -713,15 +713,15 @@ public final class g {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, list) == null) {
             synchronized (this) {
-                this.f31876g = true;
-                this.f31874e.add(c.d.b.e0.e.G(list));
+                this.f31985g = true;
+                this.f31983e.add(c.d.b.e0.e.G(list));
                 m = m();
                 notifyAll();
             }
             if (m) {
                 return;
             }
-            this.f31873d.E(this.f31872c);
+            this.f31982d.E(this.f31981c);
         }
     }
 
@@ -743,13 +743,13 @@ public final class g {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
             synchronized (this) {
-                this.f31879j.enter();
-                while (this.f31874e.isEmpty() && this.l == null) {
+                this.f31988j.enter();
+                while (this.f31983e.isEmpty() && this.l == null) {
                     t();
                 }
-                this.f31879j.exitAndThrowIfTimedOut();
-                if (!this.f31874e.isEmpty()) {
-                    removeFirst = this.f31874e.removeFirst();
+                this.f31988j.exitAndThrowIfTimedOut();
+                if (!this.f31983e.isEmpty()) {
+                    removeFirst = this.f31983e.removeFirst();
                 } else {
                     throw new StreamResetException(this.l);
                 }

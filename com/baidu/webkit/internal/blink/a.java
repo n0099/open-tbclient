@@ -22,13 +22,13 @@ public abstract class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public WebKitFactory.WebkitInstallListener f63591a;
+    public WebKitFactory.WebkitInstallListener f63771a;
 
     /* renamed from: b  reason: collision with root package name */
-    public EngineManager f63592b;
+    public EngineManager f63772b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f63593c;
+    public int f63773c;
 
     public a(EngineManager engineManager, WebKitFactory.WebkitInstallListener webkitInstallListener) {
         Interceptable interceptable = $ic;
@@ -45,9 +45,9 @@ public abstract class a {
                 return;
             }
         }
-        this.f63592b = engineManager;
-        this.f63591a = webkitInstallListener;
-        this.f63593c = 13;
+        this.f63772b = engineManager;
+        this.f63771a = webkitInstallListener;
+        this.f63773c = 13;
     }
 
     private boolean e() {
@@ -72,7 +72,7 @@ public abstract class a {
             boolean unZip = ZipUtils.getInstance().unZip(WebKitFactory.getContext(), d2, downloadLibPath, false);
             if (!unZip) {
                 Log.i(EngineManager.LOG_TAG, "BlinkEngineInstaller.install unzip failed");
-                this.f63593c = 6;
+                this.f63773c = 6;
             }
             return unZip;
         }
@@ -91,11 +91,11 @@ public abstract class a {
                 Log.i(EngineManager.LOG_TAG, "BlinkEngineInstaller.installSync file not exist");
                 return false;
             }
-            EngineManager engineManager = this.f63592b;
+            EngineManager engineManager = this.f63772b;
             if (engineManager != null) {
                 engineManager.onInstallStart(d2);
             }
-            WebKitFactory.WebkitInstallListener webkitInstallListener = this.f63591a;
+            WebKitFactory.WebkitInstallListener webkitInstallListener = this.f63771a;
             if (webkitInstallListener != null) {
                 webkitInstallListener.onInstallStart();
             }
@@ -105,21 +105,21 @@ public abstract class a {
             boolean e2 = e();
             Log.i(EngineManager.LOG_TAG, "BlinkEngineInstaller.install result=".concat(String.valueOf(e2)));
             if (e2) {
-                this.f63593c = 0;
+                this.f63773c = 0;
                 ZeusWebViewPreloadClass.getInstance().deleteSavingClassesFile();
             }
-            WebKitFactory.WebkitInstallListener webkitInstallListener2 = this.f63591a;
+            WebKitFactory.WebkitInstallListener webkitInstallListener2 = this.f63771a;
             if (webkitInstallListener2 != null) {
-                int i2 = this.f63593c;
+                int i2 = this.f63773c;
                 if (i2 == 0) {
-                    this.f63591a.onInstallFinish(this.f63593c, UtilsBlink.getDownloadLibPath(WebKitFactory.getContext()));
+                    this.f63771a.onInstallFinish(this.f63773c, UtilsBlink.getDownloadLibPath(WebKitFactory.getContext()));
                 } else {
                     webkitInstallListener2.onInstallFinish(i2, null);
                 }
             }
-            EngineManager engineManager2 = this.f63592b;
+            EngineManager engineManager2 = this.f63772b;
             if (engineManager2 != null) {
-                engineManager2.onInstallFinish(this.f63593c == 0);
+                engineManager2.onInstallFinish(this.f63773c == 0);
             }
             return e2;
         }
@@ -130,8 +130,8 @@ public abstract class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             Log.i(EngineManager.LOG_TAG, "BlinkEngineInstaller.installAsync");
-            if (this.f63592b == null || WebKitFactory.getContext() == null) {
-                WebKitFactory.WebkitInstallListener webkitInstallListener = this.f63591a;
+            if (this.f63772b == null || WebKitFactory.getContext() == null) {
+                WebKitFactory.WebkitInstallListener webkitInstallListener = this.f63771a;
                 if (webkitInstallListener != null) {
                     webkitInstallListener.onInstallFinish(13, null);
                     return;
@@ -153,10 +153,10 @@ public abstract class a {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ HandlerThread f63594a;
+                public final /* synthetic */ HandlerThread f63774a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ a f63595b;
+                public final /* synthetic */ a f63775b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -173,16 +173,16 @@ public abstract class a {
                             return;
                         }
                     }
-                    this.f63595b = this;
-                    this.f63594a = handlerThread;
+                    this.f63775b = this;
+                    this.f63774a = handlerThread;
                 }
 
                 @Override // java.lang.Runnable
                 public final void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f63595b.a();
-                        this.f63594a.quit();
+                        this.f63775b.a();
+                        this.f63774a.quit();
                     }
                 }
             });

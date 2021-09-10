@@ -10,16 +10,16 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.LinkedHashMap;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static d f12481b;
+    public static d f4366b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public LinkedHashMap<String, Integer> f12482a;
+    public LinkedHashMap<String, Integer> f4367a;
 
     static {
         InterceptResult invokeClinit;
@@ -49,21 +49,21 @@ public class d {
                 return;
             }
         }
-        this.f12482a = new LinkedHashMap<>(150, 0.75f, true);
+        this.f4367a = new LinkedHashMap<>(150, 0.75f, true);
     }
 
     public static d b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f12481b == null) {
+            if (f4366b == null) {
                 synchronized (d.class) {
-                    if (f12481b == null) {
-                        f12481b = new d();
+                    if (f4366b == null) {
+                        f4366b = new d();
                     }
                 }
             }
-            return f12481b;
+            return f4366b;
         }
         return (d) invokeV.objValue;
     }
@@ -72,7 +72,7 @@ public class d {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            Integer num = this.f12482a.get(str);
+            Integer num = this.f4367a.get(str);
             if (num != null) {
                 return num.intValue();
             }
@@ -86,16 +86,16 @@ public class d {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || TextUtils.isEmpty(str)) {
             return;
         }
-        this.f12482a.remove(str);
+        this.f4367a.remove(str);
     }
 
     public void d(String str, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, str, i2) == null) {
-            if (i2 == 0 && this.f12482a.containsKey(str)) {
+            if (i2 == 0 && this.f4367a.containsKey(str)) {
                 return;
             }
-            this.f12482a.put(str, Integer.valueOf(i2));
+            this.f4367a.put(str, Integer.valueOf(i2));
         }
     }
 }

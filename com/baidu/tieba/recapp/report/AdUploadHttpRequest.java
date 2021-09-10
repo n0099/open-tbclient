@@ -2,7 +2,7 @@ package com.baidu.tieba.recapp.report;
 
 import android.os.Build;
 import c.a.e.e.p.j;
-import c.a.q0.x2.l0.c;
+import c.a.r0.y2.l0.c;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;

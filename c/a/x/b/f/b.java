@@ -13,16 +13,16 @@ public class b extends a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final float[] f30980g;
+    public static final float[] f30607g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final float[] f30981h;
+    public static final float[] f30608h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final FloatBuffer f30982i;
+    public static final FloatBuffer f30609i;
 
     /* renamed from: j  reason: collision with root package name */
-    public static final FloatBuffer f30983j;
+    public static final FloatBuffer f30610j;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -39,10 +39,10 @@ public class b extends a {
             }
         }
         float[] fArr = {-1.0f, -1.0f, 1.0f, -1.0f, -1.0f, 1.0f, 1.0f, 1.0f};
-        f30980g = fArr;
-        f30981h = new float[]{0.0f, 0.0f, 1.0f, 0.0f, 0.0f, 1.0f, 1.0f, 1.0f};
-        f30982i = c.a.x.b.h.a.b(fArr);
-        f30983j = c.a.x.b.h.a.b(f30981h);
+        f30607g = fArr;
+        f30608h = new float[]{0.0f, 0.0f, 1.0f, 0.0f, 0.0f, 1.0f, 1.0f, 1.0f};
+        f30609i = c.a.x.b.h.a.b(fArr);
+        f30610j = c.a.x.b.h.a.b(f30608h);
     }
 
     public b() {
@@ -58,11 +58,11 @@ public class b extends a {
                 return;
             }
         }
-        this.f30974a = f30982i;
-        this.f30975b = f30983j;
-        this.f30977d = 2;
-        this.f30978e = 2 * 4;
-        this.f30976c = f30980g.length / 2;
-        this.f30979f = 8;
+        this.f30601a = f30609i;
+        this.f30602b = f30610j;
+        this.f30604d = 2;
+        this.f30605e = 2 * 4;
+        this.f30603c = f30607g.length / 2;
+        this.f30606f = 8;
     }
 }

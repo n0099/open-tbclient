@@ -38,7 +38,7 @@ public class TimeHelper {
     public static long getFormatDateLong() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.f(new SimpleDateFormat("yyyyMMdd").format(getNow()), 0L) : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.g(new SimpleDateFormat("yyyyMMdd").format(getNow()), 0L) : invokeV.longValue;
     }
 
     public static long getHourDifference(Date date, Date date2) {

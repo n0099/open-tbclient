@@ -22,7 +22,7 @@ public class aa extends BaseBean<VerifyCodeResponse> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public com.baidu.wallet.paysdk.datamodel.c f62215a;
+    public com.baidu.wallet.paysdk.datamodel.c f62395a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public aa(Context context) {
@@ -42,7 +42,7 @@ public class aa extends BaseBean<VerifyCodeResponse> {
                 return;
             }
         }
-        this.f62215a = (com.baidu.wallet.paysdk.datamodel.c) PayRequestCache.getInstance().getBeanRequestFromCache(BeanConstants.REQUEST_ID_VERIFY_CODE);
+        this.f62395a = (com.baidu.wallet.paysdk.datamodel.c) PayRequestCache.getInstance().getBeanRequestFromCache(BeanConstants.REQUEST_ID_VERIFY_CODE);
     }
 
     @Override // com.dxmpay.apollon.beans.ApollonBean
@@ -59,10 +59,10 @@ public class aa extends BaseBean<VerifyCodeResponse> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             ArrayList arrayList = new ArrayList();
-            arrayList.add(new RestNameValuePair("mobile", this.f62215a.f62302a));
-            arrayList.add(new RestNameValuePair("sp_no", this.f62215a.f62303b));
-            arrayList.add(new RestNameValuePair("order_no", this.f62215a.f62304c));
-            arrayList.add(new RestNameValuePair("pay_type", this.f62215a.f62305d));
+            arrayList.add(new RestNameValuePair("mobile", this.f62395a.f62482a));
+            arrayList.add(new RestNameValuePair("sp_no", this.f62395a.f62483b));
+            arrayList.add(new RestNameValuePair("order_no", this.f62395a.f62484c));
+            arrayList.add(new RestNameValuePair("pay_type", this.f62395a.f62485d));
             if (!TextUtils.isEmpty(PayDataCache.getInstance().getPaySessionInfo())) {
                 arrayList.add(new RestNameValuePair("session_info", PayDataCache.getInstance().getPaySessionInfo()));
             }

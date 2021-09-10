@@ -120,7 +120,7 @@ public class b {
             String[] strArr = new String[length];
             for (int i2 = 0; i2 < length; i2++) {
                 strArr[i2] = b2[i2] + ";" + packageName;
-                if (com.baidu.lbsapi.auth.a.f40503a) {
+                if (com.baidu.lbsapi.auth.a.f40614a) {
                     com.baidu.lbsapi.auth.a.a("mcode" + strArr[i2]);
                 }
             }

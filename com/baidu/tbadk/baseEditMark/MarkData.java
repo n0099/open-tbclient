@@ -8,6 +8,7 @@ import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.db.DBTableDefine;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.atomData.MangaBrowserActivityConfig;
+import com.baidu.tbadk.core.atomData.VideoPlayActivityConfig;
 import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tbadk.core.data.OriginalThreadInfo;
 import com.baidu.tbadk.core.util.StringHelper;
@@ -324,7 +325,7 @@ public class MarkData implements Serializable {
                 this.mId = this.mThreadId;
                 this.mReplyNum = jSONObject.optInt("reply_num");
                 this.mNewCounts = jSONObject.optInt("count");
-                this.isShareThread = jSONObject.optInt("is_share_thread", 0) == 1;
+                this.isShareThread = jSONObject.optInt(VideoPlayActivityConfig.IS_SHARE_THREAD, 0) == 1;
                 JSONObject optJSONObject = jSONObject.optJSONObject("origin_thread_info");
                 if (this.isShareThread) {
                     OriginalThreadInfo originalThreadInfo = new OriginalThreadInfo();

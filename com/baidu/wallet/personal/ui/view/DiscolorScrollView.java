@@ -14,7 +14,7 @@ public class DiscolorScrollView extends ScrollView {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public a f63348a;
+    public a f63528a;
 
     /* loaded from: classes8.dex */
     public interface a {
@@ -67,7 +67,7 @@ public class DiscolorScrollView extends ScrollView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIII(1048576, this, i2, i3, i4, i5) == null) {
             super.onScrollChanged(i2, i3, i4, i5);
-            a aVar = this.f63348a;
+            a aVar = this.f63528a;
             if (aVar != null) {
                 aVar.onScrollChanged(this, i2, i3, i4, i5);
             }
@@ -77,7 +77,7 @@ public class DiscolorScrollView extends ScrollView {
     public void setScrollViewListener(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-            this.f63348a = aVar;
+            this.f63528a = aVar;
         }
     }
 }

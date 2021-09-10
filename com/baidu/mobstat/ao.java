@@ -17,34 +17,34 @@ public class ao {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f43117a;
+    public String f43232a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f43118b;
+    public String f43233b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f43119c;
+    public String f43234c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f43120d;
+    public long f43235d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f43121e;
+    public long f43236e;
 
     /* renamed from: f  reason: collision with root package name */
-    public float f43122f;
+    public float f43237f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float f43123g;
+    public float f43238g;
 
     /* renamed from: h  reason: collision with root package name */
-    public float f43124h;
+    public float f43239h;
 
     /* renamed from: i  reason: collision with root package name */
-    public float f43125i;
+    public float f43240i;
 
     /* renamed from: j  reason: collision with root package name */
-    public String f43126j;
+    public String f43241j;
     public boolean k;
     public String l;
 
@@ -63,16 +63,16 @@ public class ao {
                 return;
             }
         }
-        this.f43117a = str;
-        this.f43118b = str2;
-        this.f43119c = str3;
-        this.f43120d = j2;
-        this.f43121e = j3;
-        this.f43122f = f2;
-        this.f43123g = f3;
-        this.f43124h = f4;
-        this.f43125i = f5;
-        this.f43126j = str4;
+        this.f43232a = str;
+        this.f43233b = str2;
+        this.f43234c = str3;
+        this.f43235d = j2;
+        this.f43236e = j3;
+        this.f43237f = f2;
+        this.f43238g = f3;
+        this.f43239h = f4;
+        this.f43240i = f5;
+        this.f43241j = str4;
         this.k = z;
         this.l = str5;
     }
@@ -80,13 +80,13 @@ public class ao {
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f43117a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f43232a : (String) invokeV.objValue;
     }
 
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f43126j : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f43241j : (String) invokeV.objValue;
     }
 
     public JSONObject a(long j2, String str, String str2) {
@@ -99,9 +99,9 @@ public class ao {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("n", str);
-                jSONObject.put("t", this.f43118b);
-                jSONObject.put("d", this.f43120d);
-                long j3 = this.f43121e - j2;
+                jSONObject.put("t", this.f43233b);
+                jSONObject.put("d", this.f43235d);
+                long j3 = this.f43236e - j2;
                 if (j3 <= 0) {
                     j3 = 0;
                 }
@@ -111,10 +111,10 @@ public class ao {
                 DecimalFormatSymbols decimalFormatSymbols = new DecimalFormatSymbols();
                 decimalFormatSymbols.setDecimalSeparator('.');
                 decimalFormat.setDecimalFormatSymbols(decimalFormatSymbols);
-                jSONObject.put("xc", decimalFormat.format(this.f43122f));
-                jSONObject.put("yc", decimalFormat.format(this.f43123g));
-                jSONObject.put("xt", decimalFormat.format(this.f43124h));
-                jSONObject.put("yt", decimalFormat.format(this.f43125i));
+                jSONObject.put("xc", decimalFormat.format(this.f43237f));
+                jSONObject.put("yc", decimalFormat.format(this.f43238g));
+                jSONObject.put("xt", decimalFormat.format(this.f43239h));
+                jSONObject.put("yt", decimalFormat.format(this.f43240i));
                 jSONObject.put("h5", 0);
                 jSONObject.put("sign", this.l);
                 return jSONObject;

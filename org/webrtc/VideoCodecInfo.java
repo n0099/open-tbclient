@@ -27,27 +27,6 @@ public class VideoCodecInfo {
     @Deprecated
     public final int payload;
 
-    @Deprecated
-    public VideoCodecInfo(int i2, String str, Map<String, String> map) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), str, map};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.payload = i2;
-        this.name = str;
-        this.params = map;
-    }
-
     @CalledByNative
     public VideoCodecInfo(String str, Map<String, String> map) {
         Interceptable interceptable = $ic;
@@ -106,5 +85,26 @@ public class VideoCodecInfo {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? Arrays.hashCode(new Object[]{this.name.toUpperCase(Locale.ROOT), this.params}) : invokeV.intValue;
+    }
+
+    @Deprecated
+    public VideoCodecInfo(int i2, String str, Map<String, String> map) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i2), str, map};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.payload = i2;
+        this.name = str;
+        this.params = map;
     }
 }

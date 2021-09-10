@@ -42,24 +42,6 @@ public class Camera1Enumerator implements CameraEnumerator {
         }
     }
 
-    public Camera1Enumerator(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.captureToTexture = z;
-    }
-
     public static List<CameraEnumerationAndroid.CaptureFormat.FramerateRange> convertFramerates(List<int[]> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -188,25 +170,6 @@ public class Camera1Enumerator implements CameraEnumerator {
         return (String) invokeI.objValue;
     }
 
-    public static List<CameraEnumerationAndroid.CaptureFormat> getSupportedFormats(int i2) {
-        InterceptResult invokeI;
-        List<CameraEnumerationAndroid.CaptureFormat> list;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65544, null, i2)) == null) {
-            synchronized (Camera1Enumerator.class) {
-                if (cachedSupportedFormats == null) {
-                    cachedSupportedFormats = new ArrayList();
-                    for (int i3 = 0; i3 < Camera.getNumberOfCameras(); i3++) {
-                        cachedSupportedFormats.add(enumerateFormats(i3));
-                    }
-                }
-                list = cachedSupportedFormats.get(i2);
-            }
-            return list;
-        }
-        return (List) invokeI.objValue;
-    }
-
     @Override // org.webrtc.CameraEnumerator
     public CameraVideoCapturer createCapturer(String str, CameraVideoCapturer.CameraEventsHandler cameraEventsHandler) {
         InterceptResult invokeLL;
@@ -261,5 +224,42 @@ public class Camera1Enumerator implements CameraEnumerator {
             return cameraInfo != null && cameraInfo.facing == 1;
         }
         return invokeL.booleanValue;
+    }
+
+    public Camera1Enumerator(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.captureToTexture = z;
+    }
+
+    public static synchronized List<CameraEnumerationAndroid.CaptureFormat> getSupportedFormats(int i2) {
+        InterceptResult invokeI;
+        List<CameraEnumerationAndroid.CaptureFormat> list;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65544, null, i2)) == null) {
+            synchronized (Camera1Enumerator.class) {
+                if (cachedSupportedFormats == null) {
+                    cachedSupportedFormats = new ArrayList();
+                    for (int i3 = 0; i3 < Camera.getNumberOfCameras(); i3++) {
+                        cachedSupportedFormats.add(enumerateFormats(i3));
+                    }
+                }
+                list = cachedSupportedFormats.get(i2);
+            }
+            return list;
+        }
+        return (List) invokeI.objValue;
     }
 }

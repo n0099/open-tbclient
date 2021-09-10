@@ -13,14 +13,14 @@ public class d {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f3898b = 5;
+    public static int f3901b = 5;
 
     /* renamed from: c  reason: collision with root package name */
-    public static int f3899c = 40;
+    public static int f3902c = 40;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public com.baidu.cesium.a.b f3900a;
+    public com.baidu.cesium.a.b f3903a;
 
     static {
         InterceptResult invokeClinit;
@@ -50,15 +50,15 @@ public class d {
                 return;
             }
         }
-        com.baidu.cesium.a.b bVar = new com.baidu.cesium.a.b(f3899c);
-        this.f3900a = bVar;
-        bVar.a(0, f3899c, true);
+        com.baidu.cesium.a.b bVar = new com.baidu.cesium.a.b(f3902c);
+        this.f3903a = bVar;
+        bVar.a(0, f3902c, true);
     }
 
     public void a(com.baidu.cesium.a.b bVar, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIII(1048576, this, bVar, i2, i3, i4) == null) {
-            com.baidu.cesium.a.b d2 = this.f3900a.d(i2, i2 + i3);
+            com.baidu.cesium.a.b d2 = this.f3903a.d(i2, i2 + i3);
             if (i4 != 0) {
                 if (i4 != 1) {
                     if (i4 == 2) {
@@ -72,7 +72,7 @@ public class d {
                 d2.b(bVar);
             }
             for (int i5 = 0; i5 < i3; i5++) {
-                this.f3900a.a(i2 + i5, d2.d(i5));
+                this.f3903a.a(i2 + i5, d2.d(i5));
             }
         }
     }
@@ -80,6 +80,6 @@ public class d {
     public byte[] b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f3900a.a() : (byte[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f3903a.a() : (byte[]) invokeV.objValue;
     }
 }

@@ -1,7 +1,7 @@
 package com.baidu.afd.adapter;
 
 import android.view.View;
-import c.a.q0.o1.o.l.e;
+import c.a.r0.p1.o.l.e;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;

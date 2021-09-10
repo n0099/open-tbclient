@@ -29,8 +29,8 @@ public class z extends t.d {
             }
         }
         ByteBuffer allocate = ByteBuffer.allocate(4);
-        allocate.order(bVar.f79087a ? ByteOrder.BIG_ENDIAN : ByteOrder.LITTLE_ENDIAN);
-        wVar.h(allocate, bVar.f79089c + (i2 * bVar.f79092f) + 28, 4);
-        this.f79097a = allocate.getInt() & 4294967295L;
+        allocate.order(bVar.f79325a ? ByteOrder.BIG_ENDIAN : ByteOrder.LITTLE_ENDIAN);
+        wVar.h(allocate, bVar.f79327c + (i2 * bVar.f79330f) + 28, 4);
+        this.f79335a = allocate.getInt() & 4294967295L;
     }
 }

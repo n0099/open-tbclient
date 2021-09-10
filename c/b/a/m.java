@@ -14,10 +14,10 @@ public class m extends s1 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Context f31261e;
+    public final Context f31370e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final y1 f31262f;
+    public final y1 f31371f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public m(Context context, y1 y1Var) {
@@ -38,8 +38,8 @@ public class m extends s1 {
                 return;
             }
         }
-        this.f31261e = context;
-        this.f31262f = y1Var;
+        this.f31370e = context;
+        this.f31371f = y1Var;
     }
 
     @Override // c.b.a.s1
@@ -47,12 +47,12 @@ public class m extends s1 {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONObject)) == null) {
-            TelephonyManager telephonyManager = (TelephonyManager) this.f31261e.getSystemService("phone");
+            TelephonyManager telephonyManager = (TelephonyManager) this.f31370e.getSystemService("phone");
             if (telephonyManager != null) {
                 try {
                     z1.g(jSONObject, "carrier", telephonyManager.getNetworkOperatorName());
                     z1.g(jSONObject, "mcc_mnc", telephonyManager.getNetworkOperator());
-                    z1.g(jSONObject, "udid", this.f31262f.n() ? f0.a(telephonyManager) : this.f31262f.m());
+                    z1.g(jSONObject, "udid", this.f31371f.n() ? f0.a(telephonyManager) : this.f31371f.m());
                     return true;
                 } catch (Exception e2) {
                     h0.b(e2);

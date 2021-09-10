@@ -36,10 +36,10 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ WebView f44801a;
+        public final /* synthetic */ WebView f44916a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ View f44802b;
+        public final /* synthetic */ View f44917b;
 
         /* renamed from: com.baidu.sapi2.utils.b$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
@@ -48,7 +48,7 @@ public class b {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ a f44803a;
+            public final /* synthetic */ a f44918a;
 
             public RunnableC1700a(a aVar) {
                 Interceptable interceptable = $ic;
@@ -65,15 +65,15 @@ public class b {
                         return;
                     }
                 }
-                this.f44803a = aVar;
+                this.f44918a = aVar;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.f44803a.f44802b.setVisibility(4);
-                    this.f44803a.f44801a.reload();
+                    this.f44918a.f44917b.setVisibility(4);
+                    this.f44918a.f44916a.reload();
                 }
             }
         }
@@ -93,15 +93,15 @@ public class b {
                     return;
                 }
             }
-            this.f44801a = webView;
-            this.f44802b = view;
+            this.f44916a = webView;
+            this.f44917b = view;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f44801a.post(new RunnableC1700a(this));
+                this.f44916a.post(new RunnableC1700a(this));
             }
         }
     }

@@ -3,7 +3,7 @@ package com.baidu.tieba.lego.model;
 import android.text.TextUtils;
 import c.a.e.a.f;
 import c.a.e.e.d.l;
-import c.a.q0.o1.p.e;
+import c.a.r0.p1.p.e;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.MessageManager;
@@ -26,10 +26,10 @@ public class LegoPageModel extends BdBaseModel {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public c.a.e.c.g.a f53838e;
+    public c.a.e.c.g.a f53984e;
 
     /* renamed from: f  reason: collision with root package name */
-    public b f53839f;
+    public b f53985f;
 
     /* loaded from: classes7.dex */
     public class a extends c.a.e.c.g.a {
@@ -37,7 +37,7 @@ public class LegoPageModel extends BdBaseModel {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ LegoPageModel f53840a;
+        public final /* synthetic */ LegoPageModel f53986a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(LegoPageModel legoPageModel, int i2, int i3) {
@@ -58,7 +58,7 @@ public class LegoPageModel extends BdBaseModel {
                     return;
                 }
             }
-            this.f53840a = legoPageModel;
+            this.f53986a = legoPageModel;
         }
 
         /* JADX WARN: Removed duplicated region for block: B:25:0x0060  */
@@ -73,7 +73,7 @@ public class LegoPageModel extends BdBaseModel {
             boolean z;
             int i2;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) || responsedMessage == null || this.f53840a.f53839f == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) || responsedMessage == null || this.f53986a.f53985f == null) {
                 return;
             }
             boolean z2 = false;
@@ -91,7 +91,7 @@ public class LegoPageModel extends BdBaseModel {
                     i2 = pn;
                     z = z3;
                     if (responsedMessage.getError() == 0) {
-                        this.f53840a.f53839f.b(j2, str, responsedMessage.getError(), responsedMessage.getErrorString());
+                        this.f53986a.f53985f.b(j2, str, responsedMessage.getError(), responsedMessage.getErrorString());
                         return;
                     }
                     DataRes dataRes = null;
@@ -101,18 +101,18 @@ public class LegoPageModel extends BdBaseModel {
                         dataRes = ((LegoHttpResponse) responsedMessage).getResultData();
                     }
                     if (!z2) {
-                        this.f53840a.f53839f.a(j2, str, dataRes, z);
+                        this.f53986a.f53985f.a(j2, str, dataRes, z);
                     } else {
                         if (z && dataRes != null) {
-                            c.a.p0.s.r.a.f();
-                            l<byte[]> d2 = c.a.p0.s.r.a.d("tb.lego_update");
+                            c.a.q0.s.r.a.f();
+                            l<byte[]> d2 = c.a.q0.s.r.a.d("tb.lego_update");
                             StringBuilder sb = new StringBuilder();
                             sb.append(j2);
                             sb.append("_");
                             sb.append(TextUtils.isEmpty(str) ? "" : str);
                             d2.a(sb.toString(), dataRes.toByteArray());
                         }
-                        this.f53840a.f53839f.c(j2, str, dataRes, z, i2);
+                        this.f53986a.f53985f.c(j2, str, dataRes, z, i2);
                     }
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016455, dataRes));
                     return;
@@ -154,12 +154,12 @@ public class LegoPageModel extends BdBaseModel {
                 return;
             }
         }
-        this.f53838e = new a(this, CmdConfigHttp.CMD_ENTERTAINMENT, 309312);
+        this.f53984e = new a(this, CmdConfigHttp.CMD_ENTERTAINMENT, 309312);
         setUniqueId(bdUniqueId);
         y();
-        this.f53838e.getSocketMessageListener().setSelfListener(true);
-        this.f53838e.getHttpMessageListener().setSelfListener(true);
-        registerListener(this.f53838e);
+        this.f53984e.getSocketMessageListener().setSelfListener(true);
+        this.f53984e.getHttpMessageListener().setSelfListener(true);
+        registerListener(this.f53984e);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -196,8 +196,8 @@ public class LegoPageModel extends BdBaseModel {
             legoPageRequest.setPageType(i2);
             e a2 = e.a(j2, str);
             if (a2 != null) {
-                legoPageRequest.setRn(a2.f23075d);
-                legoPageRequest.setParams(a2.f23076e);
+                legoPageRequest.setRn(a2.f23665d);
+                legoPageRequest.setParams(a2.f23666e);
             }
             legoPageRequest.getHttpMessage().addParam("page_id", j2);
             sendMessage(legoPageRequest);
@@ -207,7 +207,7 @@ public class LegoPageModel extends BdBaseModel {
     public final void y() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_ENTERTAINMENT, c.a.q0.i3.d0.a.a(TbConfig.ENTERTAINMENT_ADDRESS, 309312));
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_ENTERTAINMENT, c.a.r0.j3.d0.a.a(TbConfig.ENTERTAINMENT_ADDRESS, 309312));
             tbHttpMessageTask.setIsNeedAddCommenParam(true);
             tbHttpMessageTask.setResponsedClass(LegoHttpResponse.class);
             MessageManager.getInstance().registerTask(tbHttpMessageTask);
@@ -217,7 +217,7 @@ public class LegoPageModel extends BdBaseModel {
     public void z(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, bVar) == null) {
-            this.f53839f = bVar;
+            this.f53985f = bVar;
         }
     }
 }

@@ -22,36 +22,36 @@ public class a {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f35936a = "alipay_tid_storage";
+    public static final String f36045a = "alipay_tid_storage";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f35937b = "tidinfo";
+    public static final String f36046b = "tidinfo";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f35938c = "tid";
+    public static final String f36047c = "tid";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f35939d = "client_key";
+    public static final String f36048d = "client_key";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f35940e = "timestamp";
+    public static final String f36049e = "timestamp";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f35941f = "vimei";
+    public static final String f36050f = "vimei";
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f35942g = "vimsi";
+    public static final String f36051g = "vimsi";
 
     /* renamed from: h  reason: collision with root package name */
-    public static Context f35943h;
+    public static Context f36052h;
     public static a n;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f35944i;
+    public String f36053i;
 
     /* renamed from: j  reason: collision with root package name */
-    public String f35945j;
+    public String f36054j;
     public long k;
     public String l;
     public String m;
@@ -97,7 +97,7 @@ public class a {
                 if (n == null) {
                     n = new a();
                 }
-                if (f35943h == null) {
+                if (f36052h == null) {
                     n.b(context);
                 }
                 aVar = n;
@@ -111,7 +111,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, context) == null) {
             if (context != null) {
-                f35943h = context.getApplicationContext();
+                f36052h = context.getApplicationContext();
             }
             if (this.o) {
                 return;
@@ -139,7 +139,7 @@ public class a {
         Long valueOf = Long.valueOf(System.currentTimeMillis());
         String str5 = null;
         try {
-            a2 = C1566a.a(f35936a, f35937b, true);
+            a2 = C1566a.a(f36045a, f36046b, true);
         } catch (Exception e2) {
             e = e2;
             str = null;
@@ -149,16 +149,16 @@ public class a {
             JSONObject jSONObject = new JSONObject(a2);
             str = jSONObject.optString("tid", "");
             try {
-                str2 = jSONObject.optString(f35939d, "");
+                str2 = jSONObject.optString(f36048d, "");
                 try {
                     valueOf = Long.valueOf(jSONObject.optLong("timestamp", System.currentTimeMillis()));
-                    str3 = jSONObject.optString(f35941f, "");
+                    str3 = jSONObject.optString(f36050f, "");
                 } catch (Exception e3) {
                     e = e3;
                     str3 = null;
                 }
                 try {
-                    str4 = jSONObject.optString(f35942g, "");
+                    str4 = jSONObject.optString(f36051g, "");
                 } catch (Exception e4) {
                     e = e4;
                     c.a(e);
@@ -185,8 +185,8 @@ public class a {
                 l();
                 return;
             }
-            this.f35944i = str5;
-            this.f35945j = str2;
+            this.f36053i = str5;
+            this.f36054j = str2;
             this.k = valueOf.longValue();
             this.l = str3;
             this.m = str4;
@@ -203,12 +203,12 @@ public class a {
     private void l() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65544, this) == null) {
-            this.f35944i = "";
-            this.f35945j = f();
+            this.f36053i = "";
+            this.f36054j = f();
             this.k = System.currentTimeMillis();
             this.l = m();
             this.m = m();
-            C1566a.b(f35936a, f35937b);
+            C1566a.b(f36045a, f36046b);
         }
     }
 
@@ -234,12 +234,12 @@ public class a {
         if (interceptable == null || interceptable.invokeV(65547, this) == null) {
             try {
                 JSONObject jSONObject = new JSONObject();
-                jSONObject.put("tid", this.f35944i);
-                jSONObject.put(f35939d, this.f35945j);
+                jSONObject.put("tid", this.f36053i);
+                jSONObject.put(f36048d, this.f36054j);
                 jSONObject.put("timestamp", this.k);
-                jSONObject.put(f35941f, this.l);
-                jSONObject.put(f35942g, this.m);
-                C1566a.a(f35936a, f35937b, jSONObject.toString(), true);
+                jSONObject.put(f36050f, this.l);
+                jSONObject.put(f36051g, this.m);
+                C1566a.a(f36045a, f36046b, jSONObject.toString(), true);
             } catch (Exception e2) {
                 c.a(e2);
             }
@@ -261,7 +261,7 @@ public class a {
     public boolean e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? TextUtils.isEmpty(this.f35944i) || TextUtils.isEmpty(this.f35945j) || TextUtils.isEmpty(this.l) || TextUtils.isEmpty(this.m) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? TextUtils.isEmpty(this.f36053i) || TextUtils.isEmpty(this.f36054j) || TextUtils.isEmpty(this.l) || TextUtils.isEmpty(this.m) : invokeV.booleanValue;
     }
 
     public String f() {
@@ -318,20 +318,20 @@ public class a {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, str, str2)) == null) {
-                if (a.f35943h == null) {
+                if (a.f36052h == null) {
                     return false;
                 }
-                return a.f35943h.getSharedPreferences(str, 0).contains(str2);
+                return a.f36052h.getSharedPreferences(str, 0).contains(str2);
             }
             return invokeLL.booleanValue;
         }
 
         public static void b(String str, String str2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, str, str2) == null) || a.f35943h == null) {
+            if (!(interceptable == null || interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, str, str2) == null) || a.f36052h == null) {
                 return;
             }
-            a.f35943h.getSharedPreferences(str, 0).edit().remove(str2).apply();
+            a.f36052h.getSharedPreferences(str, 0).edit().remove(str2).apply();
         }
 
         public static String c(String str, String str2) {
@@ -344,10 +344,10 @@ public class a {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, str, str2)) == null) {
-                if (a.f35943h == null) {
+                if (a.f36052h == null) {
                     return false;
                 }
-                return a.f35943h.getSharedPreferences(str, 0).contains(str2);
+                return a.f36052h.getSharedPreferences(str, 0).contains(str2);
             }
             return invokeLL.booleanValue;
         }
@@ -356,10 +356,10 @@ public class a {
             InterceptResult invokeLLZ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65538, null, str, str2, z)) == null) {
-                if (a.f35943h == null) {
+                if (a.f36052h == null) {
                     return null;
                 }
-                String string = a.f35943h.getSharedPreferences(str, 0).getString(str2, null);
+                String string = a.f36052h.getSharedPreferences(str, 0).getString(str2, null);
                 if (!TextUtils.isEmpty(string) && z) {
                     string = e.b(a(), string, string);
                     if (TextUtils.isEmpty(string)) {
@@ -381,10 +381,10 @@ public class a {
 
         public static void a(String str, String str2, String str3, boolean z) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{str, str2, str3, Boolean.valueOf(z)}) == null) || a.f35943h == null) {
+            if (!(interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{str, str2, str3, Boolean.valueOf(z)}) == null) || a.f36052h == null) {
                 return;
             }
-            SharedPreferences sharedPreferences = a.f35943h.getSharedPreferences(str, 0);
+            SharedPreferences sharedPreferences = a.f36052h.getSharedPreferences(str, 0);
             if (z) {
                 String a2 = a();
                 String a3 = e.a(a2, str3, str3);
@@ -402,7 +402,7 @@ public class a {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
                 try {
-                    str = a.f35943h.getApplicationContext().getPackageName();
+                    str = a.f36052h.getApplicationContext().getPackageName();
                 } catch (Throwable th) {
                     c.a(th);
                     str = "";
@@ -416,13 +416,13 @@ public class a {
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f35945j : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f36054j : (String) invokeV.objValue;
     }
 
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f35944i : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f36053i : (String) invokeV.objValue;
     }
 
     private boolean a(String str, String str2, String str3, String str4) {
@@ -438,8 +438,8 @@ public class a {
             if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
                 return;
             }
-            this.f35944i = str;
-            this.f35945j = str2;
+            this.f36053i = str;
+            this.f36054j = str2;
             this.k = System.currentTimeMillis();
             o();
             n();
@@ -451,8 +451,8 @@ public class a {
         if (!(interceptable == null || interceptable.invokeLLLLL(65539, this, str, str2, str3, str4, l) == null) || a(str, str2, str3, str4)) {
             return;
         }
-        this.f35944i = str;
-        this.f35945j = str2;
+        this.f36053i = str;
+        this.f36054j = str2;
         this.l = str3;
         this.m = str4;
         if (l == null) {

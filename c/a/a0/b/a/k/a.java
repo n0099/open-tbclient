@@ -7,7 +7,7 @@ import android.opengl.GLES20;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import c.a.a0.b.a.g;
-import c.a.w0.t.h;
+import c.a.x0.t.h;
 import com.baidu.android.imsdk.IMConstants;
 import com.baidu.minivideo.effect.core.vlogedit.MediaAEffect;
 import com.baidu.minivideo.effect.core.vlogedit.MediaAEffectKeyData;
@@ -280,7 +280,7 @@ public class a {
                         next.start = j5;
                         next.end = j5 + (j7 - j8);
                     }
-                    c.a.w0.t.c.c("zmy", "aEffect start : " + next.start + " end : " + next.end);
+                    c.a.x0.t.c.c("zmy", "aEffect start : " + next.start + " end : " + next.end);
                     j5 = next.end;
                 } else if (j8 == 0) {
                     if (h.e(arrayList)) {
@@ -288,7 +288,7 @@ public class a {
                         long j9 = (j5 + j2) - mediaAEffect.duration;
                         next.end = j9;
                         j3 = j9 - j5;
-                        c.a.w0.t.c.c("zmy", "aCenters 0 start : " + next.start + " end : " + next.end + " preSegmentDuration ： " + j2);
+                        c.a.x0.t.c.c("zmy", "aCenters 0 start : " + next.start + " end : " + next.end + " preSegmentDuration ： " + j2);
                         j5 = j9;
                     } else {
                         j3 = j6;
@@ -318,12 +318,12 @@ public class a {
                             if (j15 != j11) {
                                 long j16 = (j14 + ((j15 - j14) / 2)) - (j4 / 2);
                                 mediaOneAEffect.end = j16;
-                                c.a.w0.t.c.c("zmy", "aCenters 0 after start : " + mediaOneAEffect.start + " end : " + mediaOneAEffect.end + " centerEffectDuration : " + j4);
+                                c.a.x0.t.c.c("zmy", "aCenters 0 after start : " + mediaOneAEffect.start + " end : " + mediaOneAEffect.end + " centerEffectDuration : " + j4);
                                 for (MediaOneAEffect mediaOneAEffect2 : arrayList4) {
                                     mediaOneAEffect2.start = j16;
                                     j16 += mediaOneAEffect2.end;
                                     mediaOneAEffect2.end = j16;
-                                    c.a.w0.t.c.c("zmy", "aCenterEffects after start : " + mediaOneAEffect2.start + " end : " + mediaOneAEffect2.end);
+                                    c.a.x0.t.c.c("zmy", "aCenterEffects after start : " + mediaOneAEffect2.start + " end : " + mediaOneAEffect2.end);
                                 }
                                 j13 = j15;
                                 j12 = j16;
@@ -333,7 +333,7 @@ public class a {
                         if (j12 != 0) {
                             mediaOneAEffect.start = j12;
                             mediaOneAEffect.end = j13;
-                            c.a.w0.t.c.c("zmy", "aCenters 1 after start : " + mediaOneAEffect.start + " end : " + mediaOneAEffect.end);
+                            c.a.x0.t.c.c("zmy", "aCenters 1 after start : " + mediaOneAEffect.start + " end : " + mediaOneAEffect.end);
                         }
                         j11 = 0;
                     }

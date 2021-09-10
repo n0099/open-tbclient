@@ -11,7 +11,7 @@ public class au {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile boolean f77183a;
+    public static volatile boolean f77363a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -31,11 +31,11 @@ public class au {
 
     public static void a(Class<?> cls, Context context) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65537, null, cls, context) == null) || f77183a) {
+        if (!(interceptable == null || interceptable.invokeLL(65537, null, cls, context) == null) || f77363a) {
             return;
         }
         try {
-            f77183a = true;
+            f77363a = true;
             cls.getDeclaredMethod("InitEntry", Context.class).invoke(cls, context);
         } catch (Throwable th) {
             com.xiaomi.channel.commonutils.logger.b.m73a("mdid:load lib error " + th);

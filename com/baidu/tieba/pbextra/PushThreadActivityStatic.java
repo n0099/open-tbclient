@@ -1,6 +1,6 @@
 package com.baidu.tieba.pbextra;
 
-import c.a.q0.i3.d0.a;
+import c.a.r0.j3.d0.a;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;

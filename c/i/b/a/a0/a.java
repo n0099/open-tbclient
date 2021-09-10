@@ -13,22 +13,22 @@ public final class a implements l {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final int f32325a;
+    public final int f32434a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int[] f32326b;
+    public final int[] f32435b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final long[] f32327c;
+    public final long[] f32436c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final long[] f32328d;
+    public final long[] f32437d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final long[] f32329e;
+    public final long[] f32438e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final long f32330f;
+    public final long f32439f;
 
     public a(int[] iArr, long[] jArr, long[] jArr2, long[] jArr3) {
         Interceptable interceptable = $ic;
@@ -45,23 +45,23 @@ public final class a implements l {
                 return;
             }
         }
-        this.f32326b = iArr;
-        this.f32327c = jArr;
-        this.f32328d = jArr2;
-        this.f32329e = jArr3;
+        this.f32435b = iArr;
+        this.f32436c = jArr;
+        this.f32437d = jArr2;
+        this.f32438e = jArr3;
         int length = iArr.length;
-        this.f32325a = length;
+        this.f32434a = length;
         if (length > 0) {
-            this.f32330f = jArr2[length - 1] + jArr3[length - 1];
+            this.f32439f = jArr2[length - 1] + jArr3[length - 1];
         } else {
-            this.f32330f = 0L;
+            this.f32439f = 0L;
         }
     }
 
     public int a(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j2)) == null) ? v.e(this.f32329e, j2, true, true) : invokeJ.intValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j2)) == null) ? v.e(this.f32438e, j2, true, true) : invokeJ.intValue;
     }
 
     @Override // c.i.b.a.a0.l
@@ -78,13 +78,13 @@ public final class a implements l {
     public long c(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2)) == null) ? this.f32327c[a(j2)] : invokeJ.longValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2)) == null) ? this.f32436c[a(j2)] : invokeJ.longValue;
     }
 
     @Override // c.i.b.a.a0.l
     public long h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f32330f : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f32439f : invokeV.longValue;
     }
 }

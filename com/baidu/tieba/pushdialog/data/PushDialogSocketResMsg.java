@@ -1,6 +1,6 @@
 package com.baidu.tieba.pushdialog.data;
 
-import c.a.q0.t2.d.a;
+import c.a.r0.u2.d.a;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.pushdialog.PushDialogStatic;
@@ -49,7 +49,7 @@ public class PushDialogSocketResMsg extends SocketResponsedMessage {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, bArr) == null) {
             try {
-                GetLockWindowMsgResIdl getLockWindowMsgResIdl = (GetLockWindowMsgResIdl) PushDialogStatic.f56090a.parseFrom(bArr, GetLockWindowMsgResIdl.class);
+                GetLockWindowMsgResIdl getLockWindowMsgResIdl = (GetLockWindowMsgResIdl) PushDialogStatic.f56248a.parseFrom(bArr, GetLockWindowMsgResIdl.class);
                 setError(getLockWindowMsgResIdl.error.errorno.intValue());
                 setErrorString(getLockWindowMsgResIdl.error.usermsg);
                 if (getLockWindowMsgResIdl.data != null) {

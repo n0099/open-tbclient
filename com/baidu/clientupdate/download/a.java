@@ -27,11 +27,11 @@ public class a extends SQLiteOpenHelper {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static a f38797a;
+    public static a f38903a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f38798b;
+    public Context f38904b;
 
     static {
         InterceptResult invokeClinit;
@@ -67,7 +67,7 @@ public class a extends SQLiteOpenHelper {
                 return;
             }
         }
-        this.f38798b = context;
+        this.f38904b = context;
     }
 
     public static synchronized a a(Context context) {
@@ -76,10 +76,10 @@ public class a extends SQLiteOpenHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
             synchronized (a.class) {
-                if (f38797a == null) {
-                    f38797a = new a(context);
+                if (f38903a == null) {
+                    f38903a = new a(context);
                 }
-                aVar = f38797a;
+                aVar = f38903a;
             }
             return aVar;
         }
@@ -134,14 +134,14 @@ public class a extends SQLiteOpenHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, this, aVar)) == null) {
             ContentValues contentValues = new ContentValues();
-            contentValues.put("ug", aVar.f38738b);
-            contentValues.put("sessioninfo", aVar.f38737a + "\"tm\":\"" + (System.currentTimeMillis() / 1000) + "\"}");
-            contentValues.put(SearchView.IME_OPTION_NO_MICROPHONE, aVar.f38739c);
-            contentValues.put(ConstantHelper.LOG_STM, aVar.f38741e.toString());
-            contentValues.put("sc", aVar.f38742f.toString());
-            contentValues.put(ConstantHelper.LOG_ETM, aVar.f38743g.toString());
-            contentValues.put("mg", aVar.f38744h.toString());
-            contentValues.put("ex", aVar.f38745i.toString());
+            contentValues.put("ug", aVar.f38844b);
+            contentValues.put("sessioninfo", aVar.f38843a + "\"tm\":\"" + (System.currentTimeMillis() / 1000) + "\"}");
+            contentValues.put(SearchView.IME_OPTION_NO_MICROPHONE, aVar.f38845c);
+            contentValues.put(ConstantHelper.LOG_STM, aVar.f38847e.toString());
+            contentValues.put("sc", aVar.f38848f.toString());
+            contentValues.put(ConstantHelper.LOG_ETM, aVar.f38849g.toString());
+            contentValues.put("mg", aVar.f38850h.toString());
+            contentValues.put("ex", aVar.f38851i.toString());
             return contentValues;
         }
         return (ContentValues) invokeL.objValue;
@@ -191,7 +191,7 @@ public class a extends SQLiteOpenHelper {
                 return 0;
             }
             try {
-                SQLiteDatabase writableDatabase = a(this.f38798b).getWritableDatabase();
+                SQLiteDatabase writableDatabase = a(this.f38904b).getWritableDatabase();
                 writableDatabase.beginTransaction();
                 i2 = writableDatabase.delete("downloads", b(jArr), c(jArr));
                 writableDatabase.setTransactionSuccessful();
@@ -211,11 +211,11 @@ public class a extends SQLiteOpenHelper {
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar)) == null) {
             long j2 = -1;
             try {
-                SQLiteDatabase writableDatabase = a(this.f38798b).getWritableDatabase();
+                SQLiteDatabase writableDatabase = a(this.f38904b).getWritableDatabase();
                 ContentValues c2 = c(aVar);
                 writableDatabase.beginTransaction();
                 j2 = writableDatabase.insert("logs", null, c2);
-                com.baidu.util.a.a(this.f38798b).b("lcsdk_xml", "time", System.currentTimeMillis());
+                com.baidu.util.a.a(this.f38904b).b("lcsdk_xml", "time", System.currentTimeMillis());
                 writableDatabase.setTransactionSuccessful();
                 writableDatabase.endTransaction();
                 return j2;
@@ -233,7 +233,7 @@ public class a extends SQLiteOpenHelper {
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, download)) == null) {
             long j2 = -1;
             try {
-                SQLiteDatabase writableDatabase = a(this.f38798b).getWritableDatabase();
+                SQLiteDatabase writableDatabase = a(this.f38904b).getWritableDatabase();
                 ContentValues c2 = c(download);
                 writableDatabase.beginTransaction();
                 j2 = writableDatabase.insert("downloads", null, c2);
@@ -255,7 +255,7 @@ public class a extends SQLiteOpenHelper {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             Cursor cursor = null;
             try {
-                SQLiteDatabase readableDatabase = a(this.f38798b).getReadableDatabase();
+                SQLiteDatabase readableDatabase = a(this.f38904b).getReadableDatabase();
                 readableDatabase.beginTransaction();
                 cursor = readableDatabase.query("downloads", null, null, null, null, null, null);
                 readableDatabase.setTransactionSuccessful();
@@ -279,7 +279,7 @@ public class a extends SQLiteOpenHelper {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
             Cursor cursor = null;
             try {
-                SQLiteDatabase readableDatabase = a(this.f38798b).getReadableDatabase();
+                SQLiteDatabase readableDatabase = a(this.f38904b).getReadableDatabase();
                 readableDatabase.beginTransaction();
                 cursor = readableDatabase.query("logs", null, "nm=?", new String[]{str}, null, null, null);
                 readableDatabase.setTransactionSuccessful();
@@ -309,7 +309,7 @@ public class a extends SQLiteOpenHelper {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             int i2 = 0;
             try {
-                SQLiteDatabase writableDatabase = a(this.f38798b).getWritableDatabase();
+                SQLiteDatabase writableDatabase = a(this.f38904b).getWritableDatabase();
                 writableDatabase.beginTransaction();
                 i2 = writableDatabase.delete("logs", null, null);
                 writableDatabase.setTransactionSuccessful();
@@ -327,10 +327,10 @@ public class a extends SQLiteOpenHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, aVar) == null) {
             try {
-                SQLiteDatabase writableDatabase = a(this.f38798b).getWritableDatabase();
+                SQLiteDatabase writableDatabase = a(this.f38904b).getWritableDatabase();
                 writableDatabase.beginTransaction();
-                writableDatabase.update("logs", c(aVar), "nm = ?", new String[]{aVar.f38739c});
-                com.baidu.util.a.a(this.f38798b).b("lcsdk_xml", "time", System.currentTimeMillis());
+                writableDatabase.update("logs", c(aVar), "nm = ?", new String[]{aVar.f38845c});
+                com.baidu.util.a.a(this.f38904b).b("lcsdk_xml", "time", System.currentTimeMillis());
                 writableDatabase.setTransactionSuccessful();
                 writableDatabase.endTransaction();
             } catch (IllegalStateException e2) {
@@ -346,7 +346,7 @@ public class a extends SQLiteOpenHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, download) == null) {
             try {
-                SQLiteDatabase writableDatabase = a(this.f38798b).getWritableDatabase();
+                SQLiteDatabase writableDatabase = a(this.f38904b).getWritableDatabase();
                 writableDatabase.beginTransaction();
                 writableDatabase.update("downloads", c(download), "_id = ?", new String[]{Long.toString(download.mId)});
                 writableDatabase.setTransactionSuccessful();
@@ -363,7 +363,7 @@ public class a extends SQLiteOpenHelper {
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             int i2 = 0;
             try {
-                SQLiteDatabase writableDatabase = a(this.f38798b).getWritableDatabase();
+                SQLiteDatabase writableDatabase = a(this.f38904b).getWritableDatabase();
                 writableDatabase.beginTransaction();
                 i2 = writableDatabase.delete("logs", "flag=?", new String[]{"1"});
                 writableDatabase.setTransactionSuccessful();
@@ -381,7 +381,7 @@ public class a extends SQLiteOpenHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             try {
-                SQLiteDatabase writableDatabase = a(this.f38798b).getWritableDatabase();
+                SQLiteDatabase writableDatabase = a(this.f38904b).getWritableDatabase();
                 writableDatabase.beginTransaction();
                 ContentValues contentValues = new ContentValues();
                 contentValues.put("flag", "1");
@@ -401,7 +401,7 @@ public class a extends SQLiteOpenHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             try {
-                SQLiteDatabase writableDatabase = a(this.f38798b).getWritableDatabase();
+                SQLiteDatabase writableDatabase = a(this.f38904b).getWritableDatabase();
                 writableDatabase.beginTransaction();
                 ContentValues contentValues = new ContentValues();
                 contentValues.put("flag", "0");
@@ -423,7 +423,7 @@ public class a extends SQLiteOpenHelper {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
             Cursor cursor = null;
             try {
-                SQLiteDatabase readableDatabase = a(this.f38798b).getReadableDatabase();
+                SQLiteDatabase readableDatabase = a(this.f38904b).getReadableDatabase();
                 readableDatabase.beginTransaction();
                 cursor = readableDatabase.query("logs", null, null, null, null, null, null);
                 readableDatabase.setTransactionSuccessful();
@@ -465,7 +465,7 @@ public class a extends SQLiteOpenHelper {
         Cursor cursor = null;
         try {
             try {
-                SQLiteDatabase readableDatabase = a(this.f38798b).getReadableDatabase();
+                SQLiteDatabase readableDatabase = a(this.f38904b).getReadableDatabase();
                 readableDatabase.beginTransaction();
                 cursor = readableDatabase.query("logs", null, "nm=?", new String[]{"a6"}, null, null, null);
                 readableDatabase.setTransactionSuccessful();
@@ -508,7 +508,7 @@ public class a extends SQLiteOpenHelper {
         Cursor cursor = null;
         try {
             try {
-                SQLiteDatabase readableDatabase = a(this.f38798b).getReadableDatabase();
+                SQLiteDatabase readableDatabase = a(this.f38904b).getReadableDatabase();
                 readableDatabase.beginTransaction();
                 cursor = readableDatabase.query("logs", null, "nm=?", new String[]{"a9"}, null, null, null);
                 readableDatabase.setTransactionSuccessful();

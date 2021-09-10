@@ -11,10 +11,10 @@ import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import c.a.o0.a.j0.b.c;
-import c.a.o0.a.j0.b.d;
-import c.a.o0.a.j0.c.b;
-import c.a.o0.a.k;
+import c.a.p0.a.j0.b.c;
+import c.a.p0.a.j0.b.d;
+import c.a.p0.a.j0.c.b;
+import c.a.p0.a.k;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.apps.database.cloudconfig.SwanAppConfTokenTable;
 import com.baidu.swan.apps.model.SwanAppBearInfo;
@@ -34,19 +34,19 @@ public class SwanAppDbControl {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f45826a;
+    public static final boolean f45941a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f45827b;
+    public static final int f45942b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile SwanAppDbControl f45828c;
+    public static volatile SwanAppDbControl f45943c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static a f45829d;
+    public static a f45944d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int f45830e;
+    public static final int f45945e;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
@@ -213,10 +213,10 @@ public class SwanAppDbControl {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sQLiteDatabase) == null) {
                 long currentTimeMillis = System.currentTimeMillis();
-                List<ContentValues> a2 = c.a.o0.a.c1.a.v().a();
+                List<ContentValues> a2 = c.a.p0.a.c1.a.v().a();
                 long currentTimeMillis2 = System.currentTimeMillis();
                 boolean z = false;
-                if (SwanAppDbControl.f45826a) {
+                if (SwanAppDbControl.f45941a) {
                     String str = "read old history cost" + (currentTimeMillis2 - currentTimeMillis) + "  count:" + (a2 == null ? 0 : a2.size());
                 }
                 if (a2 != null) {
@@ -262,7 +262,7 @@ public class SwanAppDbControl {
                         sQLiteDatabase.endTransaction();
                     }
                     long currentTimeMillis3 = System.currentTimeMillis();
-                    if (SwanAppDbControl.f45826a) {
+                    if (SwanAppDbControl.f45941a) {
                         String str2 = "write new history cost" + (currentTimeMillis3 - currentTimeMillis2);
                         String str3 = "migrate history total cost" + (currentTimeMillis3 - currentTimeMillis);
                     }
@@ -306,7 +306,7 @@ public class SwanAppDbControl {
                     sQLiteDatabase.execSQL("ALTER TABLE ai_apps_aps_data ADD " + SwanAppTable.max_age + " LONG default 0;");
                     sQLiteDatabase.execSQL("ALTER TABLE ai_apps_aps_data ADD " + SwanAppTable.create_time + " LONG default 0;");
                 } catch (SQLException e2) {
-                    if (SwanAppDbControl.f45826a) {
+                    if (SwanAppDbControl.f45941a) {
                         Log.getStackTraceString(e2);
                     }
                 }
@@ -378,7 +378,7 @@ public class SwanAppDbControl {
                     sQLiteDatabase.execSQL("ALTER TABLE ai_apps_aps_data ADD " + SwanAppTable.bear_info + " TEXT;");
                     sQLiteDatabase.execSQL("ALTER TABLE ai_apps_aps_data ADD " + SwanAppTable.force_fetch_meta_info + " INTEGER default 0;");
                 } catch (SQLException e2) {
-                    if (SwanAppDbControl.f45826a) {
+                    if (SwanAppDbControl.f45941a) {
                         Log.getStackTraceString(e2);
                     }
                 }
@@ -402,7 +402,7 @@ public class SwanAppDbControl {
                     sQLiteDatabase.execSQL("ALTER TABLE ai_apps_favorites ADD app_type INTEGER;");
                     sQLiteDatabase.execSQL("ALTER TABLE ai_apps_favorites ADD frame_type INTEGER;");
                 } catch (SQLException e2) {
-                    if (SwanAppDbControl.f45826a) {
+                    if (SwanAppDbControl.f45941a) {
                         Log.getStackTraceString(e2);
                     }
                 }
@@ -412,7 +412,7 @@ public class SwanAppDbControl {
         public final void o(@NonNull SQLiteDatabase sQLiteDatabase) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048590, this, sQLiteDatabase) == null) {
-                c.a.o0.a.j0.d.a.a(sQLiteDatabase);
+                c.a.p0.a.j0.d.a.a(sQLiteDatabase);
             }
         }
 
@@ -423,8 +423,8 @@ public class SwanAppDbControl {
                 a(sQLiteDatabase);
                 SwanAppConfTokenTable.a(sQLiteDatabase);
                 c.a(sQLiteDatabase);
-                c.a.o0.a.j0.c.c.a(sQLiteDatabase);
-                c.a.o0.a.j0.d.a.a(sQLiteDatabase);
+                c.a.p0.a.j0.c.c.a(sQLiteDatabase);
+                c.a.p0.a.j0.d.a.a(sQLiteDatabase);
                 d.a(sQLiteDatabase);
             }
         }
@@ -433,7 +433,7 @@ public class SwanAppDbControl {
         public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i2, int i3) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLII(1048592, this, sQLiteDatabase, i2, i3) == null) {
-                if (SwanAppDbControl.f45826a) {
+                if (SwanAppDbControl.f45941a) {
                     String str = "DB new version = " + i3 + "DB old version=" + i2;
                 }
                 while (i2 < i3) {
@@ -511,7 +511,7 @@ public class SwanAppDbControl {
                         case 24:
                             break;
                         default:
-                            if (!SwanAppDbControl.f45826a) {
+                            if (!SwanAppDbControl.f45941a) {
                                 break;
                             } else {
                                 throw new IllegalStateException("SwanAppDB do not have this version");
@@ -525,8 +525,8 @@ public class SwanAppDbControl {
         public final void p(SQLiteDatabase sQLiteDatabase) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048593, this, sQLiteDatabase) == null) {
-                c.a.o0.a.j0.c.c.a(sQLiteDatabase);
-                c.a.o0.a.j0.c.c.b(sQLiteDatabase);
+                c.a.p0.a.j0.c.c.a(sQLiteDatabase);
+                c.a.p0.a.j0.c.c.b(sQLiteDatabase);
                 b(sQLiteDatabase);
             }
         }
@@ -537,7 +537,7 @@ public class SwanAppDbControl {
                 try {
                     sQLiteDatabase.execSQL("ALTER TABLE ai_apps_aps_data ADD " + SwanAppTable.quick_app_key + " TEXT;");
                 } catch (SQLException e2) {
-                    if (SwanAppDbControl.f45826a) {
+                    if (SwanAppDbControl.f45941a) {
                         Log.getStackTraceString(e2);
                     }
                 }
@@ -555,9 +555,9 @@ public class SwanAppDbControl {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048596, this, sQLiteDatabase) == null) {
                 try {
-                    sQLiteDatabase.execSQL("ALTER TABLE ai_apps_aps_data ADD " + SwanAppTable.pay_protected + " INTEGER default " + SwanAppDbControl.f45830e + ";");
+                    sQLiteDatabase.execSQL("ALTER TABLE ai_apps_aps_data ADD " + SwanAppTable.pay_protected + " INTEGER default " + SwanAppDbControl.f45945e + ";");
                 } catch (SQLException e2) {
-                    if (SwanAppDbControl.f45826a) {
+                    if (SwanAppDbControl.f45941a) {
                         Log.getStackTraceString(e2);
                     }
                 }
@@ -576,7 +576,7 @@ public class SwanAppDbControl {
                 try {
                     sQLiteDatabase.execSQL("ALTER TABLE ai_apps_favorites ADD is_new_favor INTEGER DEFAULT 0;");
                 } catch (SQLException e2) {
-                    c.a.o0.a.e0.d.i("SwanAppDbControl", "updateSwanFavoriteTableV123 fail", e2);
+                    c.a.p0.a.e0.d.i("SwanAppDbControl", "updateSwanFavoriteTableV123 fail", e2);
                 }
             }
         }
@@ -588,7 +588,7 @@ public class SwanAppDbControl {
                     sQLiteDatabase.execSQL("ALTER TABLE ai_apps_favorites ADD pay_protected INTEGER DEFAULT 0;");
                     sQLiteDatabase.execSQL("ALTER TABLE ai_apps_history ADD pay_protected INTEGER DEFAULT 0;");
                 } catch (SQLException e2) {
-                    c.a.o0.a.e0.d.i("SwanAppDbControl", "updateSwanHistoryANDFavoriteTableV123 fail", e2);
+                    c.a.p0.a.e0.d.i("SwanAppDbControl", "updateSwanHistoryANDFavoriteTableV123 fail", e2);
                 }
             }
         }
@@ -603,7 +603,7 @@ public class SwanAppDbControl {
                     sQLiteDatabase.execSQL("ALTER TABLE ai_apps_history ADD sync_state INTEGER;");
                     sQLiteDatabase.execSQL("ALTER TABLE ai_apps_history ADD app_type TEXT;");
                 } catch (SQLException e2) {
-                    if (SwanAppDbControl.f45826a) {
+                    if (SwanAppDbControl.f45941a) {
                         Log.getStackTraceString(e2);
                     }
                 }
@@ -618,7 +618,7 @@ public class SwanAppDbControl {
                     sQLiteDatabase.execSQL("ALTER TABLE ai_apps_history ADD app_key TEXT;");
                     sQLiteDatabase.execSQL("ALTER TABLE ai_apps_history ADD version_code TEXT;");
                 } catch (SQLException e2) {
-                    if (SwanAppDbControl.f45826a) {
+                    if (SwanAppDbControl.f45941a) {
                         Log.getStackTraceString(e2);
                     }
                 }
@@ -639,9 +639,9 @@ public class SwanAppDbControl {
                 return;
             }
         }
-        f45826a = k.f7049a;
-        f45830e = PMSConstants.PayProtected.NO_PAY_PROTECTED.type;
-        f45827b = 24;
+        f45941a = k.f7077a;
+        f45945e = PMSConstants.PayProtected.NO_PAY_PROTECTED.type;
+        f45942b = 24;
     }
 
     public SwanAppDbControl() {
@@ -671,16 +671,16 @@ public class SwanAppDbControl {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
-            if (f45828c == null) {
+            if (f45943c == null) {
                 synchronized (SwanAppDbControl.class) {
-                    if (f45828c == null) {
+                    if (f45943c == null) {
                         Executors.newSingleThreadExecutor(Executors.defaultThreadFactory());
-                        f45829d = new a(context.getApplicationContext(), "ai_apps.db", f45827b);
-                        f45828c = new SwanAppDbControl();
+                        f45944d = new a(context.getApplicationContext(), "ai_apps.db", f45942b);
+                        f45943c = new SwanAppDbControl();
                     }
                 }
             }
-            return f45828c;
+            return f45943c;
         }
         return (SwanAppDbControl) invokeL.objValue;
     }
@@ -688,19 +688,19 @@ public class SwanAppDbControl {
     public int b(@Nullable String str, @Nullable String[] strArr) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, strArr)) == null) ? f45829d.getWritableDatabase().delete("ai_apps_favorites", str, strArr) : invokeLL.intValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, strArr)) == null) ? f45944d.getWritableDatabase().delete("ai_apps_favorites", str, strArr) : invokeLL.intValue;
     }
 
     public int c(@Nullable String str, @Nullable String[] strArr) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, strArr)) == null) ? f45829d.getWritableDatabase().delete("ai_apps_history", str, strArr) : invokeLL.intValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, strArr)) == null) ? f45944d.getWritableDatabase().delete("ai_apps_history", str, strArr) : invokeLL.intValue;
     }
 
     public SQLiteDatabase e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? f45829d.getWritableDatabase() : (SQLiteDatabase) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? f45944d.getWritableDatabase() : (SQLiteDatabase) invokeV.objValue;
     }
 
     public final Cursor g(String str) {
@@ -708,10 +708,10 @@ public class SwanAppDbControl {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
             try {
-                SQLiteDatabase readableDatabase = f45829d.getReadableDatabase();
+                SQLiteDatabase readableDatabase = f45944d.getReadableDatabase();
                 return readableDatabase.rawQuery("select * from ai_apps_aps_data where " + SwanAppTable.app_id.name() + " = ? ", new String[]{str});
             } catch (SQLException e2) {
-                if (f45826a) {
+                if (f45941a) {
                     e2.printStackTrace();
                 }
                 return null;
@@ -723,26 +723,26 @@ public class SwanAppDbControl {
     public SQLiteOpenHelper h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? f45829d : (SQLiteOpenHelper) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? f45944d : (SQLiteOpenHelper) invokeV.objValue;
     }
 
     public long i(@Nullable ContentValues contentValues) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, contentValues)) == null) ? f45829d.getWritableDatabase().insertWithOnConflict("ai_apps_favorites", null, contentValues, 5) : invokeL.longValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, contentValues)) == null) ? f45944d.getWritableDatabase().insertWithOnConflict("ai_apps_favorites", null, contentValues, 5) : invokeL.longValue;
     }
 
     public long j(@Nullable ContentValues contentValues) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, contentValues)) == null) ? f45829d.getWritableDatabase().insertWithOnConflict("ai_apps_history", null, contentValues, 5) : invokeL.longValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, contentValues)) == null) ? f45944d.getWritableDatabase().insertWithOnConflict("ai_apps_history", null, contentValues, 5) : invokeL.longValue;
     }
 
     public Cursor k(@Nullable String[] strArr, @Nullable String str, @Nullable String[] strArr2, @Nullable String str2) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048583, this, strArr, str, strArr2, str2)) == null) {
-            SQLiteDatabase writableDatabase = f45829d.getWritableDatabase();
+            SQLiteDatabase writableDatabase = f45944d.getWritableDatabase();
             return writableDatabase.query("ai_apps_aps_data INNER JOIN ai_apps_favorites ON ai_apps_favorites.app_id = ai_apps_aps_data." + SwanAppTable.app_id, strArr, str, strArr2, null, null, str2);
         }
         return (Cursor) invokeLLLL.objValue;
@@ -751,14 +751,14 @@ public class SwanAppDbControl {
     public Cursor l(@Nullable String[] strArr, @Nullable String str, @Nullable String[] strArr2, @Nullable String str2) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, strArr, str, strArr2, str2)) == null) ? f45829d.getWritableDatabase().query("ai_apps_favorites", strArr, str, strArr2, null, null, str2) : (Cursor) invokeLLLL.objValue;
+        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, strArr, str, strArr2, str2)) == null) ? f45944d.getWritableDatabase().query("ai_apps_favorites", strArr, str, strArr2, null, null, str2) : (Cursor) invokeLLLL.objValue;
     }
 
     public Cursor m(@Nullable String[] strArr, @Nullable String str, @Nullable String[] strArr2, @Nullable String str2) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048585, this, strArr, str, strArr2, str2)) == null) {
-            SQLiteDatabase writableDatabase = f45829d.getWritableDatabase();
+            SQLiteDatabase writableDatabase = f45944d.getWritableDatabase();
             return writableDatabase.query("ai_apps_aps_data INNER JOIN ai_apps_history ON ai_apps_history.app_id = ai_apps_aps_data." + SwanAppTable.app_id, strArr, str, strArr2, null, null, str2);
         }
         return (Cursor) invokeLLLL.objValue;
@@ -767,14 +767,14 @@ public class SwanAppDbControl {
     public Cursor n(@Nullable String[] strArr, @Nullable String str, @Nullable String[] strArr2, @Nullable String str2) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048586, this, strArr, str, strArr2, str2)) == null) ? f45829d.getWritableDatabase().query("ai_apps_history", strArr, str, strArr2, null, null, str2) : (Cursor) invokeLLLL.objValue;
+        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048586, this, strArr, str, strArr2, str2)) == null) ? f45944d.getWritableDatabase().query("ai_apps_history", strArr, str, strArr2, null, null, str2) : (Cursor) invokeLLLL.objValue;
     }
 
-    public c.a.o0.a.j0.a o(String str) {
+    public c.a.p0.a.j0.a o(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, str)) == null) {
-            c.a.o0.a.j0.a aVar = new c.a.o0.a.j0.a();
+            c.a.p0.a.j0.a aVar = new c.a.p0.a.j0.a();
             if (!TextUtils.isEmpty(str)) {
                 Cursor cursor = null;
                 try {
@@ -784,48 +784,48 @@ public class SwanAppDbControl {
                             s(cursor, aVar);
                         }
                     } catch (Exception e2) {
-                        if (f45826a) {
+                        if (f45941a) {
                             e2.printStackTrace();
                         }
                     }
                 } finally {
-                    c.a.o0.t.d.d(cursor);
+                    c.a.p0.t.d.d(cursor);
                 }
             }
             return aVar;
         }
-        return (c.a.o0.a.j0.a) invokeL.objValue;
+        return (c.a.p0.a.j0.a) invokeL.objValue;
     }
 
     public void p() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            f45828c = null;
-            f45829d = null;
+            f45943c = null;
+            f45944d = null;
         }
     }
 
     public int q(@Nullable ContentValues contentValues, @Nullable String str, @Nullable String[] strArr) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048589, this, contentValues, str, strArr)) == null) ? f45829d.getWritableDatabase().update("ai_apps_favorites", contentValues, str, strArr) : invokeLLL.intValue;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048589, this, contentValues, str, strArr)) == null) ? f45944d.getWritableDatabase().update("ai_apps_favorites", contentValues, str, strArr) : invokeLLL.intValue;
     }
 
     public int r(@Nullable ContentValues contentValues, @Nullable String str, @Nullable String[] strArr) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048590, this, contentValues, str, strArr)) == null) ? f45829d.getWritableDatabase().update("ai_apps_history", contentValues, str, strArr) : invokeLLL.intValue;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048590, this, contentValues, str, strArr)) == null) ? f45944d.getWritableDatabase().update("ai_apps_history", contentValues, str, strArr) : invokeLLL.intValue;
     }
 
-    public void s(Cursor cursor, c.a.o0.a.j0.a aVar) {
+    public void s(Cursor cursor, c.a.p0.a.j0.a aVar) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLL(1048591, this, cursor, aVar) == null) || cursor == null || cursor.getCount() <= 0) {
             return;
         }
-        if (f45826a) {
+        if (f45941a) {
             String str = "updateQueryAPSFileList: cursor=" + cursor.toString() + ", swanAppDbInfo =" + aVar.toString();
         }
-        if (f45826a) {
+        if (f45941a) {
             String str2 = "updateQueryAPSFileList: cursor.getCount()=" + cursor.getCount();
         }
         int columnIndex = cursor.getColumnIndex(SwanAppTable.app_id.name());
@@ -863,16 +863,16 @@ public class SwanAppDbControl {
         if (TextUtils.isEmpty(cursor.getString(columnIndex))) {
             return;
         }
-        aVar.f6875a = cursor.getString(columnIndex);
-        aVar.f6876b = cursor.getString(columnIndex2);
-        aVar.f6877c = cursor.getString(columnIndex3);
-        aVar.f6878d = cursor.getInt(columnIndex4);
-        aVar.f6879e = cursor.getString(columnIndex5);
-        aVar.f6880f = cursor.getString(columnIndex6);
-        aVar.f6881g = cursor.getString(columnIndex7);
-        aVar.f6882h = cursor.getString(columnIndex8);
-        aVar.f6883i = cursor.getString(columnIndex9);
-        aVar.f6884j = cursor.getString(columnIndex10);
+        aVar.f6903a = cursor.getString(columnIndex);
+        aVar.f6904b = cursor.getString(columnIndex2);
+        aVar.f6905c = cursor.getString(columnIndex3);
+        aVar.f6906d = cursor.getInt(columnIndex4);
+        aVar.f6907e = cursor.getString(columnIndex5);
+        aVar.f6908f = cursor.getString(columnIndex6);
+        aVar.f6909g = cursor.getString(columnIndex7);
+        aVar.f6910h = cursor.getString(columnIndex8);
+        aVar.f6911i = cursor.getString(columnIndex9);
+        aVar.f6912j = cursor.getString(columnIndex10);
         aVar.k = cursor.getString(columnIndex11);
         aVar.l = cursor.getString(columnIndex12);
         aVar.m = cursor.getString(columnIndex13);

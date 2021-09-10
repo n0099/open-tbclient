@@ -1,6 +1,6 @@
 package com.baidu.tieba.majorsearch.message;
 
-import c.a.q0.u1.c.a;
+import c.a.r0.v1.c.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;

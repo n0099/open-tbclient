@@ -15,7 +15,7 @@ public class j {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f35988a = "content://com.alipay.android.app.settings.data.ServerProvider/current_server";
+    public static final String f36097a = "content://com.alipay.android.app.settings.data.ServerProvider/current_server";
     public transient /* synthetic */ FieldHolder $fh;
 
     public j() {
@@ -37,13 +37,13 @@ public class j {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
             if (EnvUtils.isSandBox()) {
-                return com.alipay.sdk.cons.a.f35815b;
+                return com.alipay.sdk.cons.a.f35924b;
             }
             if (context == null) {
-                return com.alipay.sdk.cons.a.f35814a;
+                return com.alipay.sdk.cons.a.f35923a;
             }
-            String str = com.alipay.sdk.cons.a.f35814a;
-            return TextUtils.isEmpty(str) ? com.alipay.sdk.cons.a.f35814a : str;
+            String str = com.alipay.sdk.cons.a.f35923a;
+            return TextUtils.isEmpty(str) ? com.alipay.sdk.cons.a.f35923a : str;
         }
         return (String) invokeL.objValue;
     }
@@ -52,7 +52,7 @@ public class j {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            Cursor query = context.getContentResolver().query(Uri.parse(f35988a), null, null, null, null);
+            Cursor query = context.getContentResolver().query(Uri.parse(f36097a), null, null, null, null);
             if (query != null && query.getCount() > 0) {
                 r0 = query.moveToFirst() ? query.getString(query.getColumnIndex("url")) : null;
                 query.close();

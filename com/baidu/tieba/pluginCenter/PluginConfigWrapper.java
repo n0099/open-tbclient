@@ -1,6 +1,6 @@
 package com.baidu.tieba.pluginCenter;
 
-import c.a.p0.i0.b.a;
+import c.a.q0.k0.b.a;
 import com.baidu.adp.plugin.packageManager.pluginServerConfig.PluginNetConfigInfos;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;

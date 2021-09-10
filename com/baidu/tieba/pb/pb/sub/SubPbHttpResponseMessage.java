@@ -1,7 +1,7 @@
 package com.baidu.tieba.pb.pb.sub;
 
 import android.content.Context;
-import c.a.q0.i2.h.r;
+import c.a.r0.j2.h.r;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;

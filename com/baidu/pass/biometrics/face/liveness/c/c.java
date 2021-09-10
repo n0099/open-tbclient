@@ -17,10 +17,10 @@ public class c {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final float f44018a = 0.4f;
+    public static final float f44133a = 0.4f;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final float f44019b = 15.0f;
+    public static final float f44134b = 15.0f;
     public transient /* synthetic */ FieldHolder $fh;
 
     public c() {

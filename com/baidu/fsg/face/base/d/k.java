@@ -11,10 +11,10 @@ public class k implements Runnable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f39775a;
+    public String f39886a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Runnable f39776b;
+    public Runnable f39887b;
 
     public k(Runnable runnable) {
         Interceptable interceptable = $ic;
@@ -31,9 +31,9 @@ public class k implements Runnable {
                 return;
             }
         }
-        this.f39775a = "EmptyName";
-        this.f39775a = "nullname";
-        this.f39776b = runnable;
+        this.f39886a = "EmptyName";
+        this.f39886a = "nullname";
+        this.f39887b = runnable;
     }
 
     @Override // java.lang.Runnable
@@ -45,7 +45,7 @@ public class k implements Runnable {
                     Looper.prepare();
                 }
                 System.currentTimeMillis();
-                this.f39776b.run();
+                this.f39887b.run();
                 System.currentTimeMillis();
             } catch (Throwable th) {
                 th.printStackTrace();
@@ -68,8 +68,8 @@ public class k implements Runnable {
                 return;
             }
         }
-        this.f39775a = "EmptyName";
-        this.f39775a = str;
-        this.f39776b = runnable;
+        this.f39886a = "EmptyName";
+        this.f39886a = str;
+        this.f39887b = runnable;
     }
 }

@@ -15,7 +15,7 @@ public class h extends com.baidu.mapsdkplatform.comapi.synchronization.c.e {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ g f42332a;
+    public final /* synthetic */ g f42443a;
 
     public h(g gVar) {
         Interceptable interceptable = $ic;
@@ -32,7 +32,7 @@ public class h extends com.baidu.mapsdkplatform.comapi.synchronization.c.e {
                 return;
             }
         }
-        this.f42332a = gVar;
+        this.f42443a = gVar;
     }
 
     @Override // com.baidu.mapsdkplatform.comapi.synchronization.c.e
@@ -42,17 +42,17 @@ public class h extends com.baidu.mapsdkplatform.comapi.synchronization.c.e {
         g.b bVar3;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-            bVar = this.f42332a.f42329j;
+            bVar = this.f42443a.f42440j;
             Message obtainMessage = bVar.obtainMessage();
             obtainMessage.what = CustomerServiceMenu.TRANSFER_RECORD;
             obtainMessage.obj = aVar;
-            bVar2 = this.f42332a.f42329j;
+            bVar2 = this.f42443a.f42440j;
             if (bVar2 != null) {
-                bVar3 = this.f42332a.f42329j;
+                bVar3 = this.f42443a.f42440j;
                 bVar3.sendMessage(obtainMessage);
             }
-            if (c.a.f42261e == aVar || c.a.f42258b == aVar || c.a.f42259c == aVar) {
-                g.b(this.f42332a);
+            if (c.a.f42372e == aVar || c.a.f42369b == aVar || c.a.f42370c == aVar) {
+                g.b(this.f42443a);
             }
         }
     }
@@ -64,16 +64,16 @@ public class h extends com.baidu.mapsdkplatform.comapi.synchronization.c.e {
         g.b bVar3;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            bVar = this.f42332a.f42329j;
+            bVar = this.f42443a.f42440j;
             Message obtainMessage = bVar.obtainMessage();
             obtainMessage.what = 100000;
             obtainMessage.obj = str;
-            bVar2 = this.f42332a.f42329j;
+            bVar2 = this.f42443a.f42440j;
             if (bVar2 != null) {
-                bVar3 = this.f42332a.f42329j;
+                bVar3 = this.f42443a.f42440j;
                 bVar3.sendMessage(obtainMessage);
             }
-            this.f42332a.k = 0;
+            this.f42443a.k = 0;
         }
     }
 }

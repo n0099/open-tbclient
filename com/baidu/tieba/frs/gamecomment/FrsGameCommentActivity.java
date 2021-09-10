@@ -52,7 +52,7 @@ public class FrsGameCommentActivity extends BaseActivity<FrsGameCommentActivity>
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ FrsGameCommentActivity f51040e;
+        public final /* synthetic */ FrsGameCommentActivity f51205e;
 
         public a(FrsGameCommentActivity frsGameCommentActivity) {
             Interceptable interceptable = $ic;
@@ -69,7 +69,7 @@ public class FrsGameCommentActivity extends BaseActivity<FrsGameCommentActivity>
                     return;
                 }
             }
-            this.f51040e = frsGameCommentActivity;
+            this.f51205e = frsGameCommentActivity;
         }
 
         @Override // android.view.View.OnClickListener
@@ -77,13 +77,13 @@ public class FrsGameCommentActivity extends BaseActivity<FrsGameCommentActivity>
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
                 if (!j.z()) {
-                    this.f51040e.showToast(R.string.frs_head_video_slide_no_network);
+                    this.f51205e.showToast(R.string.frs_head_video_slide_no_network);
                     return;
                 }
-                this.f51040e.closeLoadingDialog();
-                FrsGameCommentActivity frsGameCommentActivity = this.f51040e;
+                this.f51205e.closeLoadingDialog();
+                FrsGameCommentActivity frsGameCommentActivity = this.f51205e;
                 frsGameCommentActivity.showLoadingDialog(frsGameCommentActivity.getPageContext().getPageActivity().getString(R.string.frs_game_comment_loading_tip));
-                this.f51040e.publishComment();
+                this.f51205e.publishComment();
             }
         }
     }
@@ -94,7 +94,7 @@ public class FrsGameCommentActivity extends BaseActivity<FrsGameCommentActivity>
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ FrsGameCommentActivity f51041e;
+        public final /* synthetic */ FrsGameCommentActivity f51206e;
 
         public b(FrsGameCommentActivity frsGameCommentActivity) {
             Interceptable interceptable = $ic;
@@ -111,43 +111,43 @@ public class FrsGameCommentActivity extends BaseActivity<FrsGameCommentActivity>
                     return;
                 }
             }
-            this.f51041e = frsGameCommentActivity;
+            this.f51206e = frsGameCommentActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                if (view == this.f51041e.mGrade1) {
-                    this.f51041e.mGrade2.setChecked(false);
-                    this.f51041e.mGrade3.setChecked(false);
-                    this.f51041e.mGrade4.setChecked(false);
-                    this.f51041e.mGrade5.setChecked(false);
-                    this.f51041e.mScore = 2;
-                } else if (view == this.f51041e.mGrade2) {
-                    this.f51041e.mGrade1.setChecked(true);
-                    this.f51041e.mGrade3.setChecked(false);
-                    this.f51041e.mGrade4.setChecked(false);
-                    this.f51041e.mGrade5.setChecked(false);
-                    this.f51041e.mScore = 4;
-                } else if (view == this.f51041e.mGrade3) {
-                    this.f51041e.mGrade1.setChecked(true);
-                    this.f51041e.mGrade2.setChecked(true);
-                    this.f51041e.mGrade4.setChecked(false);
-                    this.f51041e.mGrade5.setChecked(false);
-                    this.f51041e.mScore = 6;
-                } else if (view == this.f51041e.mGrade4) {
-                    this.f51041e.mGrade1.setChecked(true);
-                    this.f51041e.mGrade2.setChecked(true);
-                    this.f51041e.mGrade3.setChecked(true);
-                    this.f51041e.mGrade5.setChecked(false);
-                    this.f51041e.mScore = 8;
-                } else if (view == this.f51041e.mGrade5) {
-                    this.f51041e.mGrade1.setChecked(true);
-                    this.f51041e.mGrade2.setChecked(true);
-                    this.f51041e.mGrade3.setChecked(true);
-                    this.f51041e.mGrade4.setChecked(true);
-                    this.f51041e.mScore = 10;
+                if (view == this.f51206e.mGrade1) {
+                    this.f51206e.mGrade2.setChecked(false);
+                    this.f51206e.mGrade3.setChecked(false);
+                    this.f51206e.mGrade4.setChecked(false);
+                    this.f51206e.mGrade5.setChecked(false);
+                    this.f51206e.mScore = 2;
+                } else if (view == this.f51206e.mGrade2) {
+                    this.f51206e.mGrade1.setChecked(true);
+                    this.f51206e.mGrade3.setChecked(false);
+                    this.f51206e.mGrade4.setChecked(false);
+                    this.f51206e.mGrade5.setChecked(false);
+                    this.f51206e.mScore = 4;
+                } else if (view == this.f51206e.mGrade3) {
+                    this.f51206e.mGrade1.setChecked(true);
+                    this.f51206e.mGrade2.setChecked(true);
+                    this.f51206e.mGrade4.setChecked(false);
+                    this.f51206e.mGrade5.setChecked(false);
+                    this.f51206e.mScore = 6;
+                } else if (view == this.f51206e.mGrade4) {
+                    this.f51206e.mGrade1.setChecked(true);
+                    this.f51206e.mGrade2.setChecked(true);
+                    this.f51206e.mGrade3.setChecked(true);
+                    this.f51206e.mGrade5.setChecked(false);
+                    this.f51206e.mScore = 8;
+                } else if (view == this.f51206e.mGrade5) {
+                    this.f51206e.mGrade1.setChecked(true);
+                    this.f51206e.mGrade2.setChecked(true);
+                    this.f51206e.mGrade3.setChecked(true);
+                    this.f51206e.mGrade4.setChecked(true);
+                    this.f51206e.mScore = 10;
                 }
             }
         }
@@ -159,7 +159,7 @@ public class FrsGameCommentActivity extends BaseActivity<FrsGameCommentActivity>
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ FrsGameCommentActivity f51042e;
+        public final /* synthetic */ FrsGameCommentActivity f51207e;
 
         public c(FrsGameCommentActivity frsGameCommentActivity) {
             Interceptable interceptable = $ic;
@@ -176,20 +176,20 @@ public class FrsGameCommentActivity extends BaseActivity<FrsGameCommentActivity>
                     return;
                 }
             }
-            this.f51042e = frsGameCommentActivity;
+            this.f51207e = frsGameCommentActivity;
         }
 
         @Override // android.text.TextWatcher
         public void afterTextChanged(Editable editable) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, editable) == null) {
-                if (this.f51042e.mCommentEdit.getText().length() > 0) {
-                    this.f51042e.mPublish.setEnabled(true);
-                    SkinManager.setViewTextColor(this.f51042e.mPublish, R.color.cp_link_tip_g);
+                if (this.f51207e.mCommentEdit.getText().length() > 0) {
+                    this.f51207e.mPublish.setEnabled(true);
+                    SkinManager.setViewTextColor(this.f51207e.mPublish, R.color.cp_link_tip_g);
                     return;
                 }
-                this.f51042e.mPublish.setEnabled(false);
-                SkinManager.setViewTextColor(this.f51042e.mPublish, R.color.CAM_X0110);
+                this.f51207e.mPublish.setEnabled(false);
+                SkinManager.setViewTextColor(this.f51207e.mPublish, R.color.CAM_X0110);
             }
         }
 
@@ -214,7 +214,7 @@ public class FrsGameCommentActivity extends BaseActivity<FrsGameCommentActivity>
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ FrsGameCommentActivity f51043a;
+        public final /* synthetic */ FrsGameCommentActivity f51208a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public d(FrsGameCommentActivity frsGameCommentActivity, int i2) {
@@ -234,7 +234,7 @@ public class FrsGameCommentActivity extends BaseActivity<FrsGameCommentActivity>
                     return;
                 }
             }
-            this.f51043a = frsGameCommentActivity;
+            this.f51208a = frsGameCommentActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -242,17 +242,17 @@ public class FrsGameCommentActivity extends BaseActivity<FrsGameCommentActivity>
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) {
-                this.f51043a.closeLoadingDialog();
+                this.f51208a.closeLoadingDialog();
                 if (httpResponsedMessage == null || !(httpResponsedMessage instanceof FrsGameCommentResponseMessage)) {
                     return;
                 }
                 FrsGameCommentResponseMessage frsGameCommentResponseMessage = (FrsGameCommentResponseMessage) httpResponsedMessage;
                 if (frsGameCommentResponseMessage.getError() == 0) {
-                    this.f51043a.setResult(-1);
-                    this.f51043a.finish();
+                    this.f51208a.setResult(-1);
+                    this.f51208a.finish();
                 } else if (StringUtils.isNull(frsGameCommentResponseMessage.getErrorString())) {
                 } else {
-                    this.f51043a.showToast(frsGameCommentResponseMessage.getErrorString());
+                    this.f51208a.showToast(frsGameCommentResponseMessage.getErrorString());
                 }
             }
         }

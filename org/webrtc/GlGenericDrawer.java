@@ -121,26 +121,6 @@ public class GlGenericDrawer implements RendererCommon.GlDrawer {
         FULL_RECTANGLE_TEXTURE_BUFFER = GlUtil.createFloatBuffer(new float[]{0.0f, 0.0f, 1.0f, 0.0f, 0.0f, 1.0f, 1.0f, 1.0f});
     }
 
-    public GlGenericDrawer(String str, String str2, ShaderCallbacks shaderCallbacks) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, shaderCallbacks};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.vertexShader = str;
-        this.genericFragmentSource = str2;
-        this.shaderCallbacks = shaderCallbacks;
-    }
-
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public GlGenericDrawer(String str, ShaderCallbacks shaderCallbacks) {
         this(DEFAULT_VERTEX_SHADER_STRING, str, shaderCallbacks);
@@ -184,14 +164,14 @@ public class GlGenericDrawer implements RendererCommon.GlDrawer {
                 sb.append("    y - 0.391762 * u - 0.812968 * v + 0.531668,\n");
                 sb.append("    y + 2.01723 * u - 1.08563, 1);\n");
                 sb.append("}\n");
+                sb.append(str);
             } else {
                 String str2 = shaderType == ShaderType.OES ? "samplerExternalOES" : "sampler2D";
                 sb.append("uniform ");
                 sb.append(str2);
                 sb.append(" tex;\n");
-                str = str.replace("sample(", "texture2D(tex, ");
+                sb.append(str.replace("sample(", "texture2D(tex, "));
             }
-            sb.append(str);
             return sb.toString();
         }
         return (String) invokeLL.objValue;
@@ -297,5 +277,25 @@ public class GlGenericDrawer implements RendererCommon.GlDrawer {
         glShader.release();
         this.currentShader = null;
         this.currentShaderType = null;
+    }
+
+    public GlGenericDrawer(String str, String str2, ShaderCallbacks shaderCallbacks) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2, shaderCallbacks};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.vertexShader = str;
+        this.genericFragmentSource = str2;
+        this.shaderCallbacks = shaderCallbacks;
     }
 }

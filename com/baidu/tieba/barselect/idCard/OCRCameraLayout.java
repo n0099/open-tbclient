@@ -27,22 +27,22 @@ public class OCRCameraLayout extends FrameLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f49735e;
+    public int f49870e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f49736f;
+    public View f49871f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View f49737g;
+    public View f49872g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View f49738h;
+    public View f49873h;
 
     /* renamed from: i  reason: collision with root package name */
-    public View f49739i;
+    public View f49874i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f49740j;
+    public int f49875j;
     public int k;
     public int l;
     public int m;
@@ -82,7 +82,7 @@ public class OCRCameraLayout extends FrameLayout {
                 return;
             }
         }
-        this.f49735e = ORIENTATION_PORTRAIT;
+        this.f49870e = ORIENTATION_PORTRAIT;
         setWillNotDraw(false);
         this.n = new Rect();
         Paint paint = new Paint();
@@ -96,7 +96,7 @@ public class OCRCameraLayout extends FrameLayout {
         if (interceptable == null || interceptable.invokeL(1048576, this, attributeSet) == null) {
             TypedArray obtainStyledAttributes = getContext().getTheme().obtainStyledAttributes(attributeSet, R$styleable.OCRCameraLayout, 0, 0);
             try {
-                this.f49740j = obtainStyledAttributes.getResourceId(R$styleable.OCRCameraLayout_contentView, -1);
+                this.f49875j = obtainStyledAttributes.getResourceId(R$styleable.OCRCameraLayout_contentView, -1);
                 this.k = obtainStyledAttributes.getResourceId(R$styleable.OCRCameraLayout_centerView, -1);
                 this.l = obtainStyledAttributes.getResourceId(R$styleable.OCRCameraLayout_leftDownView, -1);
                 this.m = obtainStyledAttributes.getResourceId(R$styleable.OCRCameraLayout_rightUpView, -1);
@@ -111,13 +111,13 @@ public class OCRCameraLayout extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.onAttachedToWindow();
-            this.f49736f = findViewById(this.f49740j);
+            this.f49871f = findViewById(this.f49875j);
             int i2 = this.k;
             if (i2 != -1) {
-                this.f49737g = findViewById(i2);
+                this.f49872g = findViewById(i2);
             }
-            this.f49738h = findViewById(this.l);
-            this.f49739i = findViewById(this.m);
+            this.f49873h = findViewById(this.l);
+            this.f49874i = findViewById(this.m);
         }
     }
 
@@ -136,66 +136,66 @@ public class OCRCameraLayout extends FrameLayout {
         if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
             int width = getWidth();
             int height = getHeight();
-            ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.f49738h.getLayoutParams();
-            ViewGroup.MarginLayoutParams marginLayoutParams2 = (ViewGroup.MarginLayoutParams) this.f49739i.getLayoutParams();
+            ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.f49873h.getLayoutParams();
+            ViewGroup.MarginLayoutParams marginLayoutParams2 = (ViewGroup.MarginLayoutParams) this.f49874i.getLayoutParams();
             if (i4 < i5) {
                 int i6 = (width * 4) / 3;
                 int i7 = height - i6;
-                this.f49736f.layout(i2, i3, i4, i6);
+                this.f49871f.layout(i2, i3, i4, i6);
                 Rect rect = this.n;
                 rect.left = 0;
                 rect.top = i6;
                 rect.right = width;
                 rect.bottom = height;
-                View view = this.f49737g;
+                View view = this.f49872g;
                 if (view != null) {
                     int measuredWidth = (width - view.getMeasuredWidth()) / 2;
-                    int measuredHeight = ((i7 - this.f49737g.getMeasuredHeight()) / 2) + i6;
-                    View view2 = this.f49737g;
-                    view2.layout(measuredWidth, measuredHeight, view2.getMeasuredWidth() + measuredWidth, this.f49737g.getMeasuredHeight() + measuredHeight);
+                    int measuredHeight = ((i7 - this.f49872g.getMeasuredHeight()) / 2) + i6;
+                    View view2 = this.f49872g;
+                    view2.layout(measuredWidth, measuredHeight, view2.getMeasuredWidth() + measuredWidth, this.f49872g.getMeasuredHeight() + measuredHeight);
                 }
                 int i8 = marginLayoutParams.leftMargin;
-                int measuredHeight2 = ((i7 - this.f49738h.getMeasuredHeight()) / 2) + i6;
-                View view3 = this.f49738h;
-                view3.layout(i8, measuredHeight2, view3.getMeasuredWidth() + i8, this.f49738h.getMeasuredHeight() + measuredHeight2);
-                int measuredWidth2 = (width - this.f49739i.getMeasuredWidth()) - marginLayoutParams2.rightMargin;
-                int measuredHeight3 = i6 + ((i7 - this.f49739i.getMeasuredHeight()) / 2);
-                View view4 = this.f49739i;
-                view4.layout(measuredWidth2, measuredHeight3, view4.getMeasuredWidth() + measuredWidth2, this.f49739i.getMeasuredHeight() + measuredHeight3);
+                int measuredHeight2 = ((i7 - this.f49873h.getMeasuredHeight()) / 2) + i6;
+                View view3 = this.f49873h;
+                view3.layout(i8, measuredHeight2, view3.getMeasuredWidth() + i8, this.f49873h.getMeasuredHeight() + measuredHeight2);
+                int measuredWidth2 = (width - this.f49874i.getMeasuredWidth()) - marginLayoutParams2.rightMargin;
+                int measuredHeight3 = i6 + ((i7 - this.f49874i.getMeasuredHeight()) / 2);
+                View view4 = this.f49874i;
+                view4.layout(measuredWidth2, measuredHeight3, view4.getMeasuredWidth() + measuredWidth2, this.f49874i.getMeasuredHeight() + measuredHeight3);
                 return;
             }
             int i9 = (height * 4) / 3;
             int i10 = width - i9;
-            this.f49736f.layout(i2, i3, i9, height);
+            this.f49871f.layout(i2, i3, i9, height);
             Rect rect2 = this.n;
             rect2.left = i9;
             rect2.top = 0;
             rect2.right = width;
             rect2.bottom = height;
-            View view5 = this.f49737g;
+            View view5 = this.f49872g;
             if (view5 != null) {
                 int measuredWidth3 = ((i10 - view5.getMeasuredWidth()) / 2) + i9;
-                int measuredHeight4 = (height - this.f49737g.getMeasuredHeight()) / 2;
-                View view6 = this.f49737g;
-                view6.layout(measuredWidth3, measuredHeight4, view6.getMeasuredWidth() + measuredWidth3, this.f49737g.getMeasuredHeight() + measuredHeight4);
+                int measuredHeight4 = (height - this.f49872g.getMeasuredHeight()) / 2;
+                View view6 = this.f49872g;
+                view6.layout(measuredWidth3, measuredHeight4, view6.getMeasuredWidth() + measuredWidth3, this.f49872g.getMeasuredHeight() + measuredHeight4);
             }
-            int measuredWidth4 = ((i10 - this.f49738h.getMeasuredWidth()) / 2) + i9;
-            int measuredHeight5 = (height - this.f49738h.getMeasuredHeight()) - marginLayoutParams.bottomMargin;
-            View view7 = this.f49738h;
-            view7.layout(measuredWidth4, measuredHeight5, view7.getMeasuredWidth() + measuredWidth4, this.f49738h.getMeasuredHeight() + measuredHeight5);
-            int measuredWidth5 = i9 + ((i10 - this.f49739i.getMeasuredWidth()) / 2);
+            int measuredWidth4 = ((i10 - this.f49873h.getMeasuredWidth()) / 2) + i9;
+            int measuredHeight5 = (height - this.f49873h.getMeasuredHeight()) - marginLayoutParams.bottomMargin;
+            View view7 = this.f49873h;
+            view7.layout(measuredWidth4, measuredHeight5, view7.getMeasuredWidth() + measuredWidth4, this.f49873h.getMeasuredHeight() + measuredHeight5);
+            int measuredWidth5 = i9 + ((i10 - this.f49874i.getMeasuredWidth()) / 2);
             int i11 = marginLayoutParams2.topMargin;
-            View view8 = this.f49739i;
-            view8.layout(measuredWidth5, i11, view8.getMeasuredWidth() + measuredWidth5, this.f49739i.getMeasuredHeight() + i11);
+            View view8 = this.f49874i;
+            view8.layout(measuredWidth5, i11, view8.getMeasuredWidth() + measuredWidth5, this.f49874i.getMeasuredHeight() + i11);
         }
     }
 
     public void setOrientation(int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048580, this, i2) == null) || this.f49735e == i2) {
+        if (!(interceptable == null || interceptable.invokeI(1048580, this, i2) == null) || this.f49870e == i2) {
             return;
         }
-        this.f49735e = i2;
+        this.f49870e = i2;
         requestLayout();
     }
 
@@ -218,7 +218,7 @@ public class OCRCameraLayout extends FrameLayout {
                 return;
             }
         }
-        this.f49735e = ORIENTATION_PORTRAIT;
+        this.f49870e = ORIENTATION_PORTRAIT;
         setWillNotDraw(false);
         this.n = new Rect();
         Paint paint = new Paint();
@@ -247,7 +247,7 @@ public class OCRCameraLayout extends FrameLayout {
                 return;
             }
         }
-        this.f49735e = ORIENTATION_PORTRAIT;
+        this.f49870e = ORIENTATION_PORTRAIT;
         setWillNotDraw(false);
         this.n = new Rect();
         Paint paint = new Paint();

@@ -23,22 +23,22 @@ public class TabTextView extends AppCompatTextView {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final int f40764e;
+    public final int f40875e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final int f40765f;
+    public final int f40876f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f40766g;
+    public int f40877g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f40767h;
+    public int f40878h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f40768i;
+    public int f40879i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f40769j;
+    public int f40880j;
     public CharSequence k;
     public CharSequence l;
     public boolean m;
@@ -98,17 +98,17 @@ public class TabTextView extends AppCompatTextView {
                             int makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(0, 0);
                             measure(makeMeasureSpec, makeMeasureSpec);
                         }
-                        this.s = new LinearGradient(0.0f, 0.0f, getMeasuredWidth(), getMeasuredHeight(), new int[]{this.f40764e, this.f40765f}, (float[]) null, Shader.TileMode.CLAMP);
+                        this.s = new LinearGradient(0.0f, 0.0f, getMeasuredWidth(), getMeasuredHeight(), new int[]{this.f40875e, this.f40876f}, (float[]) null, Shader.TileMode.CLAMP);
                     }
                     getPaint().setShader(this.s);
                     return;
                 }
-                int i2 = this.f40767h;
+                int i2 = this.f40878h;
                 if (i2 == 0 || this.m || !this.n) {
                     return;
                 }
                 setTextColor(i2);
-                int i3 = this.f40769j;
+                int i3 = this.f40880j;
                 if (i3 != 0) {
                     setBackgroundResource(i3);
                 }
@@ -119,12 +119,12 @@ public class TabTextView extends AppCompatTextView {
                 return;
             }
             getPaint().setShader(null);
-            int i4 = this.f40766g;
+            int i4 = this.f40877g;
             if (i4 == 0 || this.m || !this.n) {
                 return;
             }
             setTextColor(i4);
-            int i5 = this.f40768i;
+            int i5 = this.f40879i;
             if (i5 != 0) {
                 setBackgroundResource(i5);
             }
@@ -160,7 +160,7 @@ public class TabTextView extends AppCompatTextView {
             if (f2 != -1.0f) {
                 setTextSize(0, f2);
             }
-            int i2 = this.f40766g;
+            int i2 = this.f40877g;
             if (i2 != 0) {
                 setTextColor(i2);
             }
@@ -184,7 +184,7 @@ public class TabTextView extends AppCompatTextView {
     public final boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? (this.f40764e == -1 || this.f40765f == -1 || !this.m) ? false : true : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? (this.f40875e == -1 || this.f40876f == -1 || !this.m) ? false : true : invokeV.booleanValue;
     }
 
     @Override // android.view.View
@@ -221,7 +221,7 @@ public class TabTextView extends AppCompatTextView {
     public void setNormalBackground(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048586, this, i2) == null) {
-            this.f40768i = i2;
+            this.f40879i = i2;
         }
     }
 
@@ -235,7 +235,7 @@ public class TabTextView extends AppCompatTextView {
     public void setSelectedBackground(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048588, this, i2) == null) {
-            this.f40769j = i2;
+            this.f40880j = i2;
         }
     }
 
@@ -249,7 +249,7 @@ public class TabTextView extends AppCompatTextView {
     public void setSelectedColor(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048590, this, i2) == null) {
-            this.f40767h = i2;
+            this.f40878h = i2;
         }
     }
 
@@ -277,7 +277,7 @@ public class TabTextView extends AppCompatTextView {
     public void setUnSelectedColor(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048594, this, i2) == null) {
-            this.f40766g = i2;
+            this.f40877g = i2;
         }
     }
 
@@ -331,10 +331,10 @@ public class TabTextView extends AppCompatTextView {
         this.m = true;
         this.n = false;
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, f.LiveFeedPageTabTextView);
-        this.f40764e = obtainStyledAttributes.getColor(f.LiveFeedPageTabTextView_live_feed_page_startTextColor, 0);
-        this.f40765f = obtainStyledAttributes.getColor(f.LiveFeedPageTabTextView_live_feed_page_endTextColor, 0);
-        this.f40767h = obtainStyledAttributes.getColor(f.LiveFeedPageTabTextView_live_feed_page_selectedTextColor, 0);
-        this.f40766g = obtainStyledAttributes.getColor(f.LiveFeedPageTabTextView_live_feed_page_normalTextColor, 0);
+        this.f40875e = obtainStyledAttributes.getColor(f.LiveFeedPageTabTextView_live_feed_page_startTextColor, 0);
+        this.f40876f = obtainStyledAttributes.getColor(f.LiveFeedPageTabTextView_live_feed_page_endTextColor, 0);
+        this.f40878h = obtainStyledAttributes.getColor(f.LiveFeedPageTabTextView_live_feed_page_selectedTextColor, 0);
+        this.f40877g = obtainStyledAttributes.getColor(f.LiveFeedPageTabTextView_live_feed_page_normalTextColor, 0);
         this.o = obtainStyledAttributes.getDimension(f.LiveFeedPageTabTextView_live_feed_page_defaultTextSize, -1.0f);
         this.p = obtainStyledAttributes.getDimension(f.LiveFeedPageTabTextView_live_feed_page_selectedTextSize, -1.0f);
         this.q = obtainStyledAttributes.getBoolean(f.LiveFeedPageTabTextView_live_feed_page_selectedBold, true);

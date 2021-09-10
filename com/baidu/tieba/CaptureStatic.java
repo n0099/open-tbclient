@@ -3,7 +3,7 @@ package com.baidu.tieba;
 import c.a.e.e.p.l;
 import c.a.e.j.c;
 import c.a.e.j.d;
-import c.a.q0.v3.f;
+import c.a.r0.w3.f;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
@@ -54,7 +54,7 @@ public class CaptureStatic {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ CustomResponsedMessage f48903a;
+            public final /* synthetic */ CustomResponsedMessage f49038a;
 
             /* renamed from: com.baidu.tieba.CaptureStatic$a$a$a  reason: collision with other inner class name */
             /* loaded from: classes6.dex */
@@ -63,7 +63,7 @@ public class CaptureStatic {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ C1745a f48904a;
+                public final /* synthetic */ C1745a f49039a;
 
                 public C1746a(C1745a c1745a) {
                     Interceptable interceptable = $ic;
@@ -80,7 +80,7 @@ public class CaptureStatic {
                             return;
                         }
                     }
-                    this.f48904a = c1745a;
+                    this.f49039a = c1745a;
                 }
 
                 @Override // com.baidu.searchbox.pms.callback.DefaultDownloadCallback, com.baidu.searchbox.pms.callback.DownloadCallback
@@ -105,7 +105,7 @@ public class CaptureStatic {
                 public void onDownloadSuccess(PackageInfo packageInfo, ErrorInfo errorInfo) {
                     Interceptable interceptable = $ic;
                     if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, packageInfo, errorInfo) == null) && packageInfo != null && "libcbffmpeg.so".equals(packageInfo.name)) {
-                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, (IntentConfig) this.f48904a.f48903a.getData()));
+                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, (IntentConfig) this.f49039a.f49038a.getData()));
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921614, Boolean.TRUE));
                     }
                 }
@@ -126,27 +126,27 @@ public class CaptureStatic {
                         return;
                     }
                 }
-                this.f48903a = customResponsedMessage;
+                this.f49038a = customResponsedMessage;
             }
 
-            @Override // c.a.q0.v3.f
+            @Override // c.a.r0.w3.f
             public void a() {
                 Interceptable interceptable = $ic;
-                if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (this.f48903a.getData() instanceof IntentConfig)) {
+                if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (this.f49038a.getData() instanceof IntentConfig)) {
                     if (new File(BdBaseApplication.getInst().getFilesDir() + File.separator + "so_cache" + File.separator + "libcbffmpeg.so").exists()) {
-                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, (IntentConfig) this.f48903a.getData()));
+                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, (IntentConfig) this.f49038a.getData()));
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921614, Boolean.TRUE));
                         return;
                     }
                     RequestParams requestParams = new RequestParams();
-                    requestParams.setRunType(d.f2904a);
+                    requestParams.setRunType(d.f2895a);
                     requestParams.setRunNode("aps");
                     requestParams.addChannel(new c(new C1746a(this)));
                     PmsManager.getInstance().execute(requestParams);
                 }
             }
 
-            @Override // c.a.q0.v3.f
+            @Override // c.a.r0.w3.f
             public void b() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -180,7 +180,7 @@ public class CaptureStatic {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2921582) {
-                c.a.q0.v3.a.b(TbadkCoreApplication.getInst(), new C1745a(this, customResponsedMessage));
+                c.a.r0.w3.a.b(TbadkCoreApplication.getInst(), new C1745a(this, customResponsedMessage));
             }
         }
     }

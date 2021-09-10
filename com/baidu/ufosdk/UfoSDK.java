@@ -143,7 +143,7 @@ public class UfoSDK {
             hashMap.put("12", "请输入反馈内容不少于4个有效字符");
             hashMap.put("13", "正在加载...");
             hashMap.put("14", "分钟以前");
-            hashMap.put(Constants.VIA_REPORT_TYPE_WPA_STATE, "个月以前");
+            hashMap.put("15", "个月以前");
             hashMap.put(Constants.VIA_REPORT_TYPE_START_WAP, "输入超过200字");
             hashMap.put(Constants.VIA_REPORT_TYPE_START_GROUP, "我的反馈");
             hashMap.put(Constants.VIA_ACT_TYPE_NINETEEN, "网络不给力，请稍后再试");
@@ -213,7 +213,7 @@ public class UfoSDK {
             hashMap.put("12", "Please input feedback not less than 4 valid characters");
             hashMap.put("13", "Loading…");
             hashMap.put("14", " minutes ago");
-            hashMap.put(Constants.VIA_REPORT_TYPE_WPA_STATE, " months ago");
+            hashMap.put("15", " months ago");
             hashMap.put(Constants.VIA_REPORT_TYPE_START_WAP, "Please don't exceed 200 characters.");
             hashMap.put(Constants.VIA_REPORT_TYPE_START_GROUP, "My Feedback");
             hashMap.put(Constants.VIA_ACT_TYPE_NINETEEN, "Network is not avaiable, please try again later.");
@@ -401,9 +401,9 @@ public class UfoSDK {
                 hashMap.put("clientid", clientid);
                 hashMap.put("appid", appid);
                 hashMap.put("devid", devid);
-                hashMap.put("uid", b.f59371d);
-                hashMap.put(DpStatConstants.KEY_USER_ID, b.f59371d);
-                hashMap.put("username", b.f59369b);
+                hashMap.put("uid", b.f59551d);
+                hashMap.put(DpStatConstants.KEY_USER_ID, b.f59551d);
+                hashMap.put("username", b.f59549b);
                 hashMap.put("output_style", 1);
                 hashMap.put("interval", String.valueOf(b.ai));
                 String a2 = k.a(com.baidu.ufosdk.c.a.a(hashMap));
@@ -534,9 +534,9 @@ public class UfoSDK {
                 hashMap.put("clientid", clientid);
                 hashMap.put("appid", appid);
                 hashMap.put("devid", devid);
-                hashMap.put("uid", b.f59371d);
-                hashMap.put(DpStatConstants.KEY_USER_ID, b.f59371d);
-                hashMap.put("username", b.f59369b);
+                hashMap.put("uid", b.f59551d);
+                hashMap.put(DpStatConstants.KEY_USER_ID, b.f59551d);
+                hashMap.put("username", b.f59549b);
                 hashMap.put("interval", String.valueOf(b.ai));
                 String a2 = k.a(com.baidu.ufosdk.c.a.a(hashMap));
                 String a3 = com.baidu.ufosdk.e.b.a("https://ufosdk.baidu.com/?m=Index&a=getmsglistcount", "sdk_encrypt=" + URLEncoder.encode(a2, "UTF-8"));
@@ -592,9 +592,9 @@ public class UfoSDK {
                 hashMap.put("clientid", clientid);
                 hashMap.put("appid", appid);
                 hashMap.put("devid", devid);
-                hashMap.put("uid", b.f59371d);
-                hashMap.put(DpStatConstants.KEY_USER_ID, b.f59371d);
-                hashMap.put("username", b.f59369b);
+                hashMap.put("uid", b.f59551d);
+                hashMap.put(DpStatConstants.KEY_USER_ID, b.f59551d);
+                hashMap.put("username", b.f59549b);
                 hashMap.put("output_style", 1);
                 hashMap.put("interval", String.valueOf(b.ai));
                 String a2 = k.a(com.baidu.ufosdk.c.a.a(hashMap));
@@ -763,7 +763,7 @@ public class UfoSDK {
     public static void openLogcatSwitch() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65574, null) == null) {
-            b.f59368a = true;
+            b.f59548a = true;
         }
     }
 
@@ -799,7 +799,7 @@ public class UfoSDK {
     public static void setBackbtnText(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65579, null, str) == null) {
-            b.f59376i = str;
+            b.f59556i = str;
         }
     }
 
@@ -813,7 +813,7 @@ public class UfoSDK {
     public static void setBaiduCuid(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65581, null, str) == null) {
-            b.f59370c = str;
+            b.f59550c = str;
         }
     }
 
@@ -841,14 +841,14 @@ public class UfoSDK {
     public static void setCurrentUserIcon(Bitmap bitmap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65585, null, bitmap) == null) {
-            b.f59374g = bitmap;
+            b.f59554g = bitmap;
         }
     }
 
     public static void setCustomLocation(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65586, null, str) == null) {
-            b.f59375h = str;
+            b.f59555h = str;
         }
     }
 
@@ -871,7 +871,7 @@ public class UfoSDK {
     public static void setExtraData(Map map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65589, null, map) == null) {
-            b.f59373f = com.baidu.ufosdk.c.a.a(map);
+            b.f59553f = com.baidu.ufosdk.c.a.a(map);
         }
     }
 
@@ -1158,21 +1158,21 @@ public class UfoSDK {
     public static void setUserId(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65630, null, str) == null) {
-            b.f59371d = str;
+            b.f59551d = str;
         }
     }
 
     public static void setUserName(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65631, null, str) == null) {
-            b.f59369b = str;
+            b.f59549b = str;
         }
     }
 
     public static void setUserStatus(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(65632, null, i2) == null) {
-            b.f59372e = i2;
+            b.f59552e = i2;
         }
     }
 }

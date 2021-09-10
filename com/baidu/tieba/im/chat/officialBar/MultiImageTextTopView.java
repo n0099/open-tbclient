@@ -8,9 +8,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import c.a.q0.j1.g.d;
-import c.a.q0.j1.l.c.a;
-import c.a.q0.j1.w.c;
+import c.a.r0.k1.g.d;
+import c.a.r0.k1.l.c.a;
+import c.a.r0.k1.w.c;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
@@ -33,22 +33,22 @@ public class MultiImageTextTopView extends RelativeLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f52779e;
+    public Context f52925e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TbImageView f52780f;
+    public TbImageView f52926f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f52781g;
+    public TextView f52927g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f52782h;
+    public TextView f52928h;
 
     /* renamed from: i  reason: collision with root package name */
-    public c.a.e.e.h.b f52783i;
+    public c.a.e.e.h.b f52929i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f52784j;
+    public int f52930j;
 
     /* loaded from: classes7.dex */
     public class a implements View.OnLongClickListener {
@@ -56,7 +56,7 @@ public class MultiImageTextTopView extends RelativeLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ MultiImageTextTopView f52785e;
+        public final /* synthetic */ MultiImageTextTopView f52931e;
 
         public a(MultiImageTextTopView multiImageTextTopView) {
             Interceptable interceptable = $ic;
@@ -73,7 +73,7 @@ public class MultiImageTextTopView extends RelativeLayout {
                     return;
                 }
             }
-            this.f52785e = multiImageTextTopView;
+            this.f52931e = multiImageTextTopView;
         }
 
         @Override // android.view.View.OnLongClickListener
@@ -81,8 +81,8 @@ public class MultiImageTextTopView extends RelativeLayout {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view)) == null) {
-                if (this.f52785e.f52783i != null) {
-                    this.f52785e.f52783i.onItemViewLongClick(view, 9, this.f52785e.f52784j, 0L);
+                if (this.f52931e.f52929i != null) {
+                    this.f52931e.f52929i.onItemViewLongClick(view, 9, this.f52931e.f52930j, 0L);
                     return false;
                 }
                 return false;
@@ -97,23 +97,23 @@ public class MultiImageTextTopView extends RelativeLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a.C0970a f52786e;
+        public final /* synthetic */ a.C1003a f52932e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ TbPageContext f52787f;
+        public final /* synthetic */ TbPageContext f52933f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ int f52788g;
+        public final /* synthetic */ int f52934g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ MultiImageTextTopView f52789h;
+        public final /* synthetic */ MultiImageTextTopView f52935h;
 
-        public b(MultiImageTextTopView multiImageTextTopView, a.C0970a c0970a, TbPageContext tbPageContext, int i2) {
+        public b(MultiImageTextTopView multiImageTextTopView, a.C1003a c1003a, TbPageContext tbPageContext, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {multiImageTextTopView, c0970a, tbPageContext, Integer.valueOf(i2)};
+                Object[] objArr = {multiImageTextTopView, c1003a, tbPageContext, Integer.valueOf(i2)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i3 = newInitContext.flag;
                 if ((i3 & 1) != 0) {
@@ -123,37 +123,37 @@ public class MultiImageTextTopView extends RelativeLayout {
                     return;
                 }
             }
-            this.f52789h = multiImageTextTopView;
-            this.f52786e = c0970a;
-            this.f52787f = tbPageContext;
-            this.f52788g = i2;
+            this.f52935h = multiImageTextTopView;
+            this.f52932e = c1003a;
+            this.f52933f = tbPageContext;
+            this.f52934g = i2;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            a.C0970a c0970a;
+            a.C1003a c1003a;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (c0970a = this.f52786e) == null || StringUtils.isNull(c0970a.f20911d)) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (c1003a = this.f52932e) == null || StringUtils.isNull(c1003a.f21481d)) {
                 return;
             }
-            UrlManager.getInstance().dealOneLink(this.f52787f, new String[]{this.f52786e.f20911d});
-            if (this.f52788g == 1) {
-                TiebaStatic.eventStat(this.f52789h.f52779e, "official_msg_ck", PrefetchEvent.STATE_CLICK, 1, "fid", this.f52786e.f20912e);
-                d j2 = c.j(this.f52786e.f20913f);
+            UrlManager.getInstance().dealOneLink(this.f52933f, new String[]{this.f52932e.f21481d});
+            if (this.f52934g == 1) {
+                TiebaStatic.eventStat(this.f52935h.f52925e, "official_msg_ck", PrefetchEvent.STATE_CLICK, 1, "fid", this.f52932e.f21482e);
+                d j2 = c.j(this.f52932e.f21483f);
                 if (j2 != null) {
-                    TiebaStatic.eventStat(this.f52789h.f52779e, "message_open_detail", PrefetchEvent.STATE_CLICK, 1, "task_type", j2.f20762a, "task_id", j2.f20763b, "loc", "0");
-                    int i2 = this.f52786e.f20914g;
-                    if ((i2 == 1 || i2 == 3) && !"0".equals(j2.f20763b)) {
-                        c.a.q0.j1.u.a.c().a(j2.f20763b);
+                    TiebaStatic.eventStat(this.f52935h.f52925e, "message_open_detail", PrefetchEvent.STATE_CLICK, 1, "task_type", j2.f21332a, "task_id", j2.f21333b, "loc", "0");
+                    int i2 = this.f52932e.f21484g;
+                    if ((i2 == 1 || i2 == 3) && !"0".equals(j2.f21333b)) {
+                        c.a.r0.k1.u.a.c().a(j2.f21333b);
                     }
                 }
                 StatisticItem statisticItem = new StatisticItem("official_message_open_detail");
-                statisticItem.param("msg_id", this.f52786e.f20915h / 100);
-                statisticItem.param("official_id", this.f52786e.f20916i);
-                statisticItem.param("official_type", this.f52786e.f20917j);
+                statisticItem.param("msg_id", this.f52932e.f21485h / 100);
+                statisticItem.param("official_id", this.f52932e.f21486i);
+                statisticItem.param("official_type", this.f52932e.f21487j);
                 statisticItem.param("operate_time", System.currentTimeMillis() / 1000);
-                statisticItem.param("task_id", this.f52786e.k);
-                statisticItem.param("obj_params1", this.f52786e.f20911d);
+                statisticItem.param("task_id", this.f52932e.k);
+                statisticItem.param("obj_params1", this.f52932e.f21481d);
                 TiebaStatic.log(statisticItem);
             }
         }
@@ -183,12 +183,12 @@ public class MultiImageTextTopView extends RelativeLayout {
     public final void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LayoutInflater.from(this.f52779e).inflate(R.layout.msg_multi_pic_text_top_view, (ViewGroup) this, true);
+            LayoutInflater.from(this.f52925e).inflate(R.layout.msg_multi_pic_text_top_view, (ViewGroup) this, true);
             TbImageView tbImageView = (TbImageView) findViewById(R.id.top_content_pic);
-            this.f52780f = tbImageView;
+            this.f52926f = tbImageView;
             tbImageView.setAutoChangeStyle(false);
-            this.f52781g = (TextView) findViewById(R.id.top_title);
-            this.f52782h = (TextView) findViewById(R.id.show_time);
+            this.f52927g = (TextView) findViewById(R.id.top_title);
+            this.f52928h = (TextView) findViewById(R.id.show_time);
             setOnLongClickListener(new a(this));
         }
     }
@@ -200,53 +200,53 @@ public class MultiImageTextTopView extends RelativeLayout {
             if (!z) {
                 skinType = 0;
             }
-            this.f52780f.setAutoChangeStyle(z);
-            SkinManager.setViewTextColor(this.f52781g, R.color.CAM_X0111, 1, skinType);
-            SkinManager.setViewTextColor(this.f52782h, R.color.common_color_10067, 1, skinType);
+            this.f52926f.setAutoChangeStyle(z);
+            SkinManager.setViewTextColor(this.f52927g, R.color.CAM_X0111, 1, skinType);
+            SkinManager.setViewTextColor(this.f52928h, R.color.common_color_10067, 1, skinType);
         }
     }
 
     public void reset() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f52781g.setText("");
-            this.f52780f.setBackgroundDrawable(null);
-            this.f52780f.setImageDrawable(null);
-            this.f52782h.setVisibility(8);
-            this.f52782h.setText("");
+            this.f52927g.setText("");
+            this.f52926f.setBackgroundDrawable(null);
+            this.f52926f.setImageDrawable(null);
+            this.f52928h.setVisibility(8);
+            this.f52928h.setText("");
         }
     }
 
-    public void setData(TbPageContext<?> tbPageContext, a.C0970a c0970a, View view, int i2) {
+    public void setData(TbPageContext<?> tbPageContext, a.C1003a c1003a, View view, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLI(1048579, this, tbPageContext, c0970a, view, i2) == null) {
-            setPadding((int) this.f52779e.getResources().getDimension(R.dimen.ds30), (int) this.f52779e.getResources().getDimension(R.dimen.ds30), (int) this.f52779e.getResources().getDimension(R.dimen.ds30), (int) this.f52779e.getResources().getDimension(R.dimen.ds30));
-            if (c0970a == null) {
+        if (interceptable == null || interceptable.invokeLLLI(1048579, this, tbPageContext, c1003a, view, i2) == null) {
+            setPadding((int) this.f52925e.getResources().getDimension(R.dimen.ds30), (int) this.f52925e.getResources().getDimension(R.dimen.ds30), (int) this.f52925e.getResources().getDimension(R.dimen.ds30), (int) this.f52925e.getResources().getDimension(R.dimen.ds30));
+            if (c1003a == null) {
                 return;
             }
-            this.f52781g.setText(!TextUtils.isEmpty(c0970a.f20908a) ? c0970a.f20908a : "");
-            if (!TextUtils.isEmpty(c0970a.f20911d)) {
-                setOnClickListener(new b(this, c0970a, tbPageContext, i2));
+            this.f52927g.setText(!TextUtils.isEmpty(c1003a.f21478a) ? c1003a.f21478a : "");
+            if (!TextUtils.isEmpty(c1003a.f21481d)) {
+                setOnClickListener(new b(this, c1003a, tbPageContext, i2));
             }
-            if (TextUtils.isEmpty(c0970a.f20910c)) {
+            if (TextUtils.isEmpty(c1003a.f21480c)) {
                 return;
             }
-            this.f52780f.setTag(c0970a.f20910c);
-            this.f52780f.startLoad(c0970a.f20910c, 10, false);
+            this.f52926f.setTag(c1003a.f21480c);
+            this.f52926f.startLoad(c1003a.f21480c, 10, false);
         }
     }
 
     public void setOnItemViewLongClickListener(c.a.e.e.h.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, bVar) == null) {
-            this.f52783i = bVar;
+            this.f52929i = bVar;
         }
     }
 
     public void setPosition(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-            this.f52784j = i2;
+            this.f52930j = i2;
         }
     }
 
@@ -254,12 +254,12 @@ public class MultiImageTextTopView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
             if (TextUtils.isEmpty(str)) {
-                this.f52782h.setVisibility(8);
-                this.f52782h.setText("");
+                this.f52928h.setVisibility(8);
+                this.f52928h.setText("");
                 return;
             }
-            this.f52782h.setVisibility(0);
-            this.f52782h.setText(str);
+            this.f52928h.setVisibility(0);
+            this.f52928h.setText(str);
         }
     }
 
@@ -303,8 +303,8 @@ public class MultiImageTextTopView extends RelativeLayout {
                 return;
             }
         }
-        this.f52783i = null;
-        this.f52779e = context;
+        this.f52929i = null;
+        this.f52925e = context;
         d();
     }
 }

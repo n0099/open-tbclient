@@ -53,6 +53,13 @@ public class SoftwareVideoDecoderFactory implements VideoDecoderFactory {
     }
 
     @Override // org.webrtc.VideoDecoderFactory
+    public VideoCodecInfo[] getSupportedCodecs() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? supportedCodecs() : (VideoCodecInfo[]) invokeV.objValue;
+    }
+
+    @Override // org.webrtc.VideoDecoderFactory
     @Nullable
     public VideoDecoder createDecoder(VideoCodecInfo videoCodecInfo) {
         InterceptResult invokeL;
@@ -67,12 +74,5 @@ public class SoftwareVideoDecoderFactory implements VideoDecoderFactory {
             return null;
         }
         return (VideoDecoder) invokeL.objValue;
-    }
-
-    @Override // org.webrtc.VideoDecoderFactory
-    public VideoCodecInfo[] getSupportedCodecs() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? supportedCodecs() : (VideoCodecInfo[]) invokeV.objValue;
     }
 }

@@ -23,19 +23,19 @@ public abstract class a implements c, aw.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final aw f71773a;
+    public final aw f71953a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final AtomicBoolean f71774b;
+    public final AtomicBoolean f71954b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Set<d> f71775c;
+    public Set<d> f71955c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final View f71776d;
+    public final View f71956d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final int f71777e;
+    public final int f71957e;
 
     public a(@NonNull View view, int i2) {
         Interceptable interceptable = $ic;
@@ -52,16 +52,16 @@ public abstract class a implements c, aw.a {
                 return;
             }
         }
-        this.f71774b = new AtomicBoolean(false);
-        this.f71776d = view;
-        this.f71777e = i2;
-        this.f71773a = new aw(this);
+        this.f71954b = new AtomicBoolean(false);
+        this.f71956d = view;
+        this.f71957e = i2;
+        this.f71953a = new aw(this);
     }
 
     private void a(boolean z) {
         Set<d> set;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(65537, this, z) == null) || (set = this.f71775c) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(65537, this, z) == null) || (set = this.f71955c) == null) {
             return;
         }
         for (d dVar : set) {
@@ -78,8 +78,8 @@ public abstract class a implements c, aw.a {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f71773a.removeMessages(TTAdConstant.STYLE_SIZE_RADIO_2_3);
-            this.f71773a.sendEmptyMessage(TTAdConstant.STYLE_SIZE_RADIO_2_3);
+            this.f71953a.removeMessages(TTAdConstant.STYLE_SIZE_RADIO_2_3);
+            this.f71953a.sendEmptyMessage(TTAdConstant.STYLE_SIZE_RADIO_2_3);
         }
     }
 
@@ -92,22 +92,22 @@ public abstract class a implements c, aw.a {
             if (dVar == null) {
                 return;
             }
-            if (this.f71775c == null) {
-                this.f71775c = new HashSet();
+            if (this.f71955c == null) {
+                this.f71955c = new HashSet();
             }
-            if (this.f71774b.get()) {
+            if (this.f71954b.get()) {
                 dVar.e();
             } else {
                 dVar.f();
             }
-            this.f71775c.add(dVar);
+            this.f71955c.add(dVar);
         }
     }
 
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f71773a.removeCallbacksAndMessages(null);
+            this.f71953a.removeCallbacksAndMessages(null);
         }
     }
 
@@ -118,7 +118,7 @@ public abstract class a implements c, aw.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, dVar) == null) {
             aa.a();
-            if (dVar == null || (set = this.f71775c) == null) {
+            if (dVar == null || (set = this.f71955c) == null) {
                 return;
             }
             set.remove(dVar);
@@ -128,12 +128,12 @@ public abstract class a implements c, aw.a {
     public final boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? av.a(this.f71776d, this.f71777e, false) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? av.a(this.f71956d, this.f71957e, false) : invokeV.booleanValue;
     }
 
     public final void d() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || this.f71774b.getAndSet(true)) {
+        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || this.f71954b.getAndSet(true)) {
             return;
         }
         a(true);
@@ -141,7 +141,7 @@ public abstract class a implements c, aw.a {
 
     public final void e() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && this.f71774b.getAndSet(false)) {
+        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && this.f71954b.getAndSet(false)) {
             a(false);
         }
     }
@@ -151,7 +151,7 @@ public abstract class a implements c, aw.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             b();
-            Set<d> set = this.f71775c;
+            Set<d> set = this.f71955c;
             if (set != null) {
                 set.clear();
             }

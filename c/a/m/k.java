@@ -34,10 +34,10 @@ public class k {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f4041a;
+    public Context f4044a;
 
     /* renamed from: b  reason: collision with root package name */
-    public f f4042b;
+    public f f4045b;
 
     /* loaded from: classes.dex */
     public static class a {
@@ -78,8 +78,8 @@ public class k {
                 return;
             }
         }
-        this.f4041a = context;
-        this.f4042b = fVar;
+        this.f4044a = context;
+        this.f4045b = fVar;
     }
 
     public static void g(String str, String str2) {
@@ -142,18 +142,18 @@ public class k {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-            List<e> h2 = this.f4042b.h(context);
+            List<e> h2 = this.f4045b.h(context);
             j jVar = null;
             if (h2 != null) {
-                String str = com.baidu.fsg.face.base.b.c.f39676g;
+                String str = com.baidu.fsg.face.base.b.c.f39787g;
                 File filesDir = context.getFilesDir();
-                if (!com.baidu.fsg.face.base.b.c.f39676g.equals(filesDir.getName())) {
+                if (!com.baidu.fsg.face.base.b.c.f39787g.equals(filesDir.getName())) {
                     String str2 = "fetal error:: app files dir name is unexpectedly :: " + filesDir.getAbsolutePath();
                     str = filesDir.getName();
                 }
                 for (e eVar : h2) {
-                    if (!eVar.f4022d) {
-                        File file = new File(new File(eVar.f4019a.dataDir, str), "libcuid.so");
+                    if (!eVar.f4025d) {
+                        File file = new File(new File(eVar.f4022a.dataDir, str), "libcuid.so");
                         if (file.exists() && (jVar = j.e(c.a.m.i.c.a(file))) != null) {
                             break;
                         }
@@ -169,7 +169,7 @@ public class k {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            j a2 = a(this.f4041a);
+            j a2 = a(this.f4044a);
             if (a2 == null) {
                 a2 = j.e(k("com.baidu.deviceid.v2"));
             }
@@ -218,7 +218,7 @@ public class k {
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jVar) == null) {
-            File file = new File(this.f4041a.getFilesDir(), "libcuid.so");
+            File file = new File(this.f4044a.getFilesDir(), "libcuid.so");
             String h2 = jVar.h();
             if (file.exists()) {
                 j e2 = j.e(c.a.m.i.c.a(file));
@@ -264,7 +264,7 @@ public class k {
                 if (j2 || !new File(Environment.getExternalStorageDirectory(), "backups/.SystemConfig/.cuid").exists() || (n = n(m(""))) == null || !n.k()) {
                     return;
                 }
-                g(n.f4038b, n.f4037a);
+                g(n.f4041b, n.f4040a);
                 return;
             }
             h(h2);
@@ -292,7 +292,7 @@ public class k {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, str2)) == null) {
             try {
-                return Settings.System.putString(this.f4041a.getContentResolver(), str, str2);
+                return Settings.System.putString(this.f4044a.getContentResolver(), str, str2);
             } catch (Exception e2) {
                 c.a.m.i.c.c(e2);
                 return false;
@@ -326,7 +326,7 @@ public class k {
             FileOutputStream fileOutputStream = null;
             try {
                 try {
-                    fileOutputStream = this.f4041a.openFileOutput("libcuid.so", i3);
+                    fileOutputStream = this.f4044a.openFileOutput("libcuid.so", i3);
                     fileOutputStream.write(str.getBytes());
                     fileOutputStream.flush();
                     if (fileOutputStream != null) {
@@ -339,10 +339,10 @@ public class k {
                     if (Build.VERSION.SDK_INT >= 21) {
                         if (i3 == 0 && DeviceId.sDataCuidInfoShable) {
                             i2 = 436;
-                            file = new File(this.f4041a.getFilesDir(), "libcuid.so");
+                            file = new File(this.f4044a.getFilesDir(), "libcuid.so");
                         } else if (!DeviceId.sDataCuidInfoShable) {
                             i2 = 432;
-                            file = new File(this.f4041a.getFilesDir(), "libcuid.so");
+                            file = new File(this.f4044a.getFilesDir(), "libcuid.so");
                         }
                         return a.a(file.getAbsolutePath(), i2);
                     }
@@ -381,7 +381,7 @@ public class k {
     public final boolean j(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) ? this.f4041a.checkPermission(str, Process.myPid(), Process.myUid()) == 0 : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) ? this.f4044a.checkPermission(str, Process.myPid(), Process.myUid()) == 0 : invokeL.booleanValue;
     }
 
     public final String k(String str) {
@@ -389,7 +389,7 @@ public class k {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) {
             try {
-                return Settings.System.getString(this.f4041a.getContentResolver(), str);
+                return Settings.System.getString(this.f4044a.getContentResolver(), str);
             } catch (Exception e2) {
                 c.a.m.i.c.c(e2);
                 return null;

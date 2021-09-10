@@ -27,22 +27,22 @@ public class DragView extends FrameLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public ViewDragHelper f46522e;
+    public ViewDragHelper f46637e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f46523f;
+    public View f46638f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f46524g;
+    public int f46639g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f46525h;
+    public int f46640h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f46526i;
+    public int f46641i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f46527j;
+    public int f46642j;
     public b k;
     public int l;
     public float m;
@@ -55,7 +55,7 @@ public class DragView extends FrameLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ DragView f46528a;
+        public final /* synthetic */ DragView f46643a;
 
         public a(DragView dragView) {
             Interceptable interceptable = $ic;
@@ -72,21 +72,21 @@ public class DragView extends FrameLayout {
                     return;
                 }
             }
-            this.f46528a = dragView;
+            this.f46643a = dragView;
         }
 
         @Override // androidx.customview.widget.ViewDragHelper.Callback
         public int clampViewPositionVertical(View view, int i2, int i3) {
             InterceptResult invokeLII;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLII = interceptable.invokeLII(1048576, this, view, i2, i3)) == null) ? i2 < this.f46528a.o ? this.f46528a.o : i2 : invokeLII.intValue;
+            return (interceptable == null || (invokeLII = interceptable.invokeLII(1048576, this, view, i2, i3)) == null) ? i2 < this.f46643a.o ? this.f46643a.o : i2 : invokeLII.intValue;
         }
 
         @Override // androidx.customview.widget.ViewDragHelper.Callback
         public int getViewVerticalDragRange(View view) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view)) == null) ? this.f46528a.getMeasuredWidth() : invokeL.intValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view)) == null) ? this.f46643a.getMeasuredWidth() : invokeL.intValue;
         }
 
         @Override // androidx.customview.widget.ViewDragHelper.Callback
@@ -94,8 +94,8 @@ public class DragView extends FrameLayout {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{view, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
                 super.onViewPositionChanged(view, i2, i3, i4, i5);
-                if (this.f46528a.k != null) {
-                    this.f46528a.k.onClosing(i3 - this.f46528a.f46525h);
+                if (this.f46643a.k != null) {
+                    this.f46643a.k.onClosing(i3 - this.f46643a.f46640h);
                 }
             }
         }
@@ -103,25 +103,25 @@ public class DragView extends FrameLayout {
         @Override // androidx.customview.widget.ViewDragHelper.Callback
         public void onViewReleased(View view, float f2, float f3) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{view, Float.valueOf(f2), Float.valueOf(f3)}) == null) || this.f46528a.f46523f == null) {
+            if (!(interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{view, Float.valueOf(f2), Float.valueOf(f3)}) == null) || this.f46643a.f46638f == null) {
                 return;
             }
-            int top = this.f46528a.f46523f.getTop() - this.f46528a.f46525h;
-            if (Math.abs(top) <= this.f46528a.l) {
-                this.f46528a.f46522e.smoothSlideViewTo(this.f46528a.getChildAt(0), this.f46528a.f46524g, this.f46528a.f46525h);
+            int top = this.f46643a.f46638f.getTop() - this.f46643a.f46640h;
+            if (Math.abs(top) <= this.f46643a.l) {
+                this.f46643a.f46637e.smoothSlideViewTo(this.f46643a.getChildAt(0), this.f46643a.f46639g, this.f46643a.f46640h);
             } else if (top < 0) {
-                this.f46528a.f46522e.smoothSlideViewTo(this.f46528a.getChildAt(0), 0, -this.f46528a.f46523f.getMeasuredHeight());
+                this.f46643a.f46637e.smoothSlideViewTo(this.f46643a.getChildAt(0), 0, -this.f46643a.f46638f.getMeasuredHeight());
             } else {
-                this.f46528a.f46522e.smoothSlideViewTo(this.f46528a.getChildAt(0), 0, this.f46528a.f46523f.getMeasuredHeight());
+                this.f46643a.f46637e.smoothSlideViewTo(this.f46643a.getChildAt(0), 0, this.f46643a.f46638f.getMeasuredHeight());
             }
-            this.f46528a.postInvalidate();
+            this.f46643a.postInvalidate();
         }
 
         @Override // androidx.customview.widget.ViewDragHelper.Callback
         public boolean tryCaptureView(View view, int i2) {
             InterceptResult invokeLI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, view, i2)) == null) ? this.f46528a.n : invokeLI.booleanValue;
+            return (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, view, i2)) == null) ? this.f46643a.n : invokeLI.booleanValue;
         }
     }
 
@@ -164,7 +164,7 @@ public class DragView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
             super.addView(view);
-            this.f46523f = view;
+            this.f46638f = view;
         }
     }
 
@@ -173,12 +173,12 @@ public class DragView extends FrameLayout {
         b bVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            if (this.f46522e.continueSettling(true)) {
+            if (this.f46637e.continueSettling(true)) {
                 ViewCompat.postInvalidateOnAnimation(this);
                 return;
             }
-            View view = this.f46523f;
-            if (view == null || Math.abs(view.getTop() - this.f46525h) < this.l || (bVar = this.k) == null) {
+            View view = this.f46638f;
+            if (view == null || Math.abs(view.getTop() - this.f46640h) < this.l || (bVar = this.k) == null) {
                 return;
             }
             bVar.onClose();
@@ -202,7 +202,7 @@ public class DragView extends FrameLayout {
     public final void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.f46522e = ViewDragHelper.create(this, this.m, new a(this));
+            this.f46637e = ViewDragHelper.create(this, this.m, new a(this));
         }
     }
 
@@ -211,7 +211,7 @@ public class DragView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             super.onFinishInflate();
-            this.f46523f = getChildAt(0);
+            this.f46638f = getChildAt(0);
         }
     }
 
@@ -230,15 +230,15 @@ public class DragView extends FrameLayout {
                 return false;
             }
             if (action != 0) {
-                if (action == 2 && Math.abs(y - this.f46527j) <= Math.abs(x - this.f46526i)) {
+                if (action == 2 && Math.abs(y - this.f46642j) <= Math.abs(x - this.f46641i)) {
                     return false;
                 }
             } else {
-                this.f46526i = x;
-                this.f46527j = y;
+                this.f46641i = x;
+                this.f46642j = y;
             }
             try {
-                return this.f46522e.shouldInterceptTouchEvent(motionEvent);
+                return this.f46637e.shouldInterceptTouchEvent(motionEvent);
             } catch (ArrayIndexOutOfBoundsException e2) {
                 e2.printStackTrace();
                 return false;
@@ -252,8 +252,8 @@ public class DragView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
             super.onLayout(z, i2, i3, i4, i5);
-            this.f46524g = getLeft();
-            this.f46525h = getTop();
+            this.f46639g = getLeft();
+            this.f46640h = getTop();
         }
     }
 
@@ -263,7 +263,7 @@ public class DragView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, motionEvent)) == null) {
             if (this.n) {
-                this.f46522e.processTouchEvent(motionEvent);
+                this.f46637e.processTouchEvent(motionEvent);
                 b bVar = this.k;
                 if (bVar != null) {
                     bVar.onDragViewTouchEvent(motionEvent);

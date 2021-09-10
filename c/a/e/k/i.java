@@ -31,10 +31,10 @@ public class i {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f2925a;
+    public static final boolean f2916a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile boolean f2926b;
+    public static volatile boolean f2917b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
@@ -43,13 +43,13 @@ public class i {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ f f2927a;
+        public final /* synthetic */ f f2918a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f2928b;
+        public final /* synthetic */ String f2919b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ Context f2929c;
+        public final /* synthetic */ Context f2920c;
 
         public a(f fVar, String str, Context context) {
             Interceptable interceptable = $ic;
@@ -66,9 +66,9 @@ public class i {
                     return;
                 }
             }
-            this.f2927a = fVar;
-            this.f2928b = str;
-            this.f2929c = context;
+            this.f2918a = fVar;
+            this.f2919b = str;
+            this.f2920c = context;
         }
 
         /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
@@ -78,45 +78,45 @@ public class i {
         public void b(int i2, String str, JSONObject jSONObject) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str, jSONObject) == null) {
-                this.f2927a.a(this.f2928b, -1, null);
+                this.f2918a.a(this.f2919b, -1, null);
                 try {
                     try {
                         if (jSONObject != null) {
-                            if (i.f2925a) {
+                            if (i.f2916a) {
                                 String str2 = "onResponse " + jSONObject;
                             }
-                            PackageInfo k = i.k(this.f2929c, jSONObject);
+                            PackageInfo k = i.k(this.f2920c, jSONObject);
                             if (k.errNo != 0) {
-                                boolean unused = i.f2925a;
+                                boolean unused = i.f2916a;
                                 if (k.errNo != -2) {
                                     String str3 = "patch data errno = " + k.errNo;
                                 }
-                                this.f2927a.a(this.f2928b, -1, null);
+                                this.f2918a.a(this.f2919b, -1, null);
                                 synchronized (i.class) {
-                                    boolean unused2 = i.f2926b = false;
+                                    boolean unused2 = i.f2917b = false;
                                 }
                                 return;
                             }
-                            j.b(this.f2929c, this.f2927a, k, true);
+                            j.b(this.f2920c, this.f2918a, k, true);
                             synchronized (i.class) {
-                                boolean unused3 = i.f2926b = false;
+                                boolean unused3 = i.f2917b = false;
                             }
                             return;
                         }
-                        this.f2927a.a(this.f2928b, -1, null);
+                        this.f2918a.a(this.f2919b, -1, null);
                         synchronized (i.class) {
-                            boolean unused4 = i.f2926b = false;
+                            boolean unused4 = i.f2917b = false;
                         }
                     } catch (Exception e2) {
                         e2.printStackTrace();
-                        this.f2927a.a(this.f2928b, -1, null);
+                        this.f2918a.a(this.f2919b, -1, null);
                         synchronized (i.class) {
-                            boolean unused5 = i.f2926b = false;
+                            boolean unused5 = i.f2917b = false;
                         }
                     }
                 } catch (Throwable th) {
                     synchronized (i.class) {
-                        boolean unused6 = i.f2926b = false;
+                        boolean unused6 = i.f2917b = false;
                         throw th;
                     }
                 }
@@ -130,10 +130,10 @@ public class i {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ File f2930a;
+        public final /* synthetic */ File f2921a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f2931b;
+        public final /* synthetic */ String f2922b;
 
         public b(File file, String str) {
             Interceptable interceptable = $ic;
@@ -150,8 +150,8 @@ public class i {
                     return;
                 }
             }
-            this.f2930a = file;
-            this.f2931b = str;
+            this.f2921a = file;
+            this.f2922b = str;
         }
 
         /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
@@ -185,13 +185,13 @@ public class i {
                 }
             }
             if (inputStream == null) {
-                boolean unused = i.f2925a;
+                boolean unused = i.f2916a;
                 return;
             }
             try {
                 try {
                     MessageDigest messageDigest = MessageDigest.getInstance("MD5");
-                    fileOutputStream = new FileOutputStream(this.f2930a);
+                    fileOutputStream = new FileOutputStream(this.f2921a);
                     try {
                         byte[] bArr = new byte[1024];
                         while (true) {
@@ -203,16 +203,16 @@ public class i {
                             messageDigest.update(bArr, 0, read);
                         }
                         String e3 = i.e(messageDigest.digest());
-                        if (i.f2925a) {
+                        if (i.f2916a) {
                             String str2 = "download file md5 = " + e3;
                         }
-                        if (!TextUtils.equals(this.f2931b, e3)) {
+                        if (!TextUtils.equals(this.f2922b, e3)) {
                             fileOutputStream.close();
-                            this.f2930a.delete();
+                            this.f2921a.delete();
                         }
                     } catch (Exception e4) {
                         e2 = e4;
-                        this.f2930a.delete();
+                        this.f2921a.delete();
                         e2.printStackTrace();
                         Closeables.closeSafely(inputStream);
                         Closeables.closeSafely(fileOutputStream);
@@ -257,8 +257,8 @@ public class i {
                 return;
             }
         }
-        f2925a = c.a.e.k.a.f2907a;
-        f2926b = false;
+        f2916a = c.a.e.k.a.f2898a;
+        f2917b = false;
     }
 
     public i() {
@@ -299,13 +299,13 @@ public class i {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65543, null, context, str, fVar) == null) {
             synchronized (i.class) {
-                if (f2926b) {
-                    boolean z = f2925a;
+                if (f2917b) {
+                    boolean z = f2916a;
                     return;
                 }
-                f2926b = true;
+                f2917b = true;
                 String z2 = e.p().z(i());
-                if (f2925a) {
+                if (f2916a) {
                     String str2 = "url = " + z2;
                 }
                 HashMap hashMap = new HashMap();
@@ -360,7 +360,7 @@ public class i {
             }
             try {
                 String jSONObject6 = jSONObject.toString();
-                if (c.a.e.k.a.f2907a) {
+                if (c.a.e.k.a.f2898a) {
                     String str = "getCcsContent = " + jSONObject6;
                 }
                 return jSONObject6.getBytes("UTF-8");
@@ -400,7 +400,7 @@ public class i {
             int optInt = jSONObject.optInt("errno", -1);
             packageInfo.errNo = optInt;
             if (optInt != 0) {
-                if (f2925a) {
+                if (f2916a) {
                     String str = "response errno = " + optInt;
                 }
                 return packageInfo;

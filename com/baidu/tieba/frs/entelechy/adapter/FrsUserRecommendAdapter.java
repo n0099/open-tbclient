@@ -7,10 +7,10 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import c.a.e.e.k.b;
 import c.a.e.e.p.l;
-import c.a.p0.s.f0.t.c;
-import c.a.q0.a0.t;
-import c.a.q0.v0.k;
-import c.a.q0.v0.w;
+import c.a.q0.s.f0.t.c;
+import c.a.r0.a0.t;
+import c.a.r0.w0.k;
+import c.a.r0.w0.w;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
@@ -44,28 +44,28 @@ public class FrsUserRecommendAdapter extends k<w, FrsUserRecommendViewHolder> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public LinearLayout f50896a;
+        public LinearLayout f51061a;
 
         /* renamed from: b  reason: collision with root package name */
-        public FlexibleHorizontalScrollView f50897b;
+        public FlexibleHorizontalScrollView f51062b;
 
         /* renamed from: c  reason: collision with root package name */
-        public UserRecommendLayout f50898c;
+        public UserRecommendLayout f51063c;
 
         /* renamed from: d  reason: collision with root package name */
-        public TextView f50899d;
+        public TextView f51064d;
 
         /* renamed from: e  reason: collision with root package name */
-        public boolean f50900e;
+        public boolean f51065e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final String f50901f;
+        public final String f51066f;
 
         /* renamed from: g  reason: collision with root package name */
-        public View.OnClickListener f50902g;
+        public View.OnClickListener f51067g;
 
         /* renamed from: h  reason: collision with root package name */
-        public View.OnClickListener f50903h;
+        public View.OnClickListener f51068h;
 
         /* loaded from: classes7.dex */
         public class a implements View.OnClickListener {
@@ -73,7 +73,7 @@ public class FrsUserRecommendAdapter extends k<w, FrsUserRecommendViewHolder> {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ FrsUserRecommendViewHolder f50904e;
+            public final /* synthetic */ FrsUserRecommendViewHolder f51069e;
 
             public a(FrsUserRecommendViewHolder frsUserRecommendViewHolder) {
                 Interceptable interceptable = $ic;
@@ -90,7 +90,7 @@ public class FrsUserRecommendAdapter extends k<w, FrsUserRecommendViewHolder> {
                         return;
                     }
                 }
-                this.f50904e = frsUserRecommendViewHolder;
+                this.f51069e = frsUserRecommendViewHolder;
             }
 
             @Override // android.view.View.OnClickListener
@@ -98,17 +98,17 @@ public class FrsUserRecommendAdapter extends k<w, FrsUserRecommendViewHolder> {
                 FrsUserRecommendViewHolder frsUserRecommendViewHolder;
                 FlexibleHorizontalScrollView flexibleHorizontalScrollView;
                 UserRecommendLayout userRecommendLayout;
-                c.a.p0.s.f0.t.a j2;
+                c.a.q0.s.f0.t.a j2;
                 Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (flexibleHorizontalScrollView = (frsUserRecommendViewHolder = this.f50904e).f50897b) == null || (userRecommendLayout = frsUserRecommendViewHolder.f50898c) == null) {
+                if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (flexibleHorizontalScrollView = (frsUserRecommendViewHolder = this.f51069e).f51062b) == null || (userRecommendLayout = frsUserRecommendViewHolder.f51063c) == null) {
                     return;
                 }
                 flexibleHorizontalScrollView.smoothScrollBy(userRecommendLayout.getChildItemWidth(), 0);
                 if ((view.getTag() instanceof c) && (j2 = ((c) view.getTag()).j()) != null) {
-                    this.f50904e.d(j2.getUserId(), 2);
+                    this.f51069e.d(j2.getUserId(), 2);
                 }
-                if (this.f50904e.f50900e) {
-                    TiebaStatic.log(new StatisticItem("c13047").param("obj_locate", 9).param("fid", this.f50904e.f50901f));
+                if (this.f51069e.f51065e) {
+                    TiebaStatic.log(new StatisticItem("c13047").param("obj_locate", 9).param("fid", this.f51069e.f51066f));
                 }
             }
         }
@@ -119,7 +119,7 @@ public class FrsUserRecommendAdapter extends k<w, FrsUserRecommendViewHolder> {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ FrsUserRecommendViewHolder f50905e;
+            public final /* synthetic */ FrsUserRecommendViewHolder f51070e;
 
             public b(FrsUserRecommendViewHolder frsUserRecommendViewHolder) {
                 Interceptable interceptable = $ic;
@@ -136,7 +136,7 @@ public class FrsUserRecommendAdapter extends k<w, FrsUserRecommendViewHolder> {
                         return;
                     }
                 }
-                this.f50905e = frsUserRecommendViewHolder;
+                this.f51070e = frsUserRecommendViewHolder;
             }
 
             @Override // android.view.View.OnClickListener
@@ -144,10 +144,10 @@ public class FrsUserRecommendAdapter extends k<w, FrsUserRecommendViewHolder> {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
                     if (view instanceof ClickableHeaderImageView) {
-                        this.f50905e.d(((ClickableHeaderImageView) view).getUserId(), 1);
+                        this.f51070e.d(((ClickableHeaderImageView) view).getUserId(), 1);
                     }
-                    if (this.f50905e.f50900e) {
-                        TiebaStatic.log(new StatisticItem("c13047").param("obj_locate", 9).param("fid", this.f50905e.f50901f));
+                    if (this.f51070e.f51065e) {
+                        TiebaStatic.log(new StatisticItem("c13047").param("obj_locate", 9).param("fid", this.f51070e.f51066f));
                     }
                 }
             }
@@ -171,19 +171,19 @@ public class FrsUserRecommendAdapter extends k<w, FrsUserRecommendViewHolder> {
                     return;
                 }
             }
-            this.f50900e = false;
-            this.f50902g = new a(this);
-            this.f50903h = new b(this);
-            this.f50900e = z;
-            this.f50901f = str;
-            this.f50897b = (FlexibleHorizontalScrollView) view.findViewById(R.id.user_recommend_scroll_container);
+            this.f51065e = false;
+            this.f51067g = new a(this);
+            this.f51068h = new b(this);
+            this.f51065e = z;
+            this.f51066f = str;
+            this.f51062b = (FlexibleHorizontalScrollView) view.findViewById(R.id.user_recommend_scroll_container);
             UserRecommendLayout userRecommendLayout = (UserRecommendLayout) view.findViewById(R.id.user_recommend_container);
-            this.f50898c = userRecommendLayout;
+            this.f51063c = userRecommendLayout;
             userRecommendLayout.setItemSpace(l.g(view.getContext(), R.dimen.ds16));
-            this.f50898c.setAfterLikeBtnClickListener(this.f50902g);
-            this.f50898c.setAfterHeaderLickListener(this.f50903h);
-            this.f50899d = (TextView) view.findViewById(R.id.user_recommend_document);
-            this.f50896a = (LinearLayout) view.findViewById(R.id.user_recommend_root);
+            this.f51063c.setAfterLikeBtnClickListener(this.f51067g);
+            this.f51063c.setAfterHeaderLickListener(this.f51068h);
+            this.f51064d = (TextView) view.findViewById(R.id.user_recommend_document);
+            this.f51061a = (LinearLayout) view.findViewById(R.id.user_recommend_root);
         }
 
         public final void d(String str, int i2) {
@@ -201,7 +201,7 @@ public class FrsUserRecommendAdapter extends k<w, FrsUserRecommendViewHolder> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ FrsUserRecommendAdapter f50906a;
+        public final /* synthetic */ FrsUserRecommendAdapter f51071a;
 
         public a(FrsUserRecommendAdapter frsUserRecommendAdapter) {
             Interceptable interceptable = $ic;
@@ -218,7 +218,7 @@ public class FrsUserRecommendAdapter extends k<w, FrsUserRecommendViewHolder> {
                     return;
                 }
             }
-            this.f50906a = frsUserRecommendAdapter;
+            this.f51071a = frsUserRecommendAdapter;
         }
 
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
@@ -260,7 +260,7 @@ public class FrsUserRecommendAdapter extends k<w, FrsUserRecommendViewHolder> {
         public UserRecommendItemView d() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? new UserRecommendItemView(this.f50906a.f2966e) : (UserRecommendItemView) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? new UserRecommendItemView(this.f51071a.f2957e) : (UserRecommendItemView) invokeV.objValue;
         }
 
         public UserRecommendItemView h(UserRecommendItemView userRecommendItemView) {
@@ -300,15 +300,15 @@ public class FrsUserRecommendAdapter extends k<w, FrsUserRecommendViewHolder> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            FrsUserRecommendViewHolder frsUserRecommendViewHolder = new FrsUserRecommendViewHolder(LayoutInflater.from(this.f2966e).inflate(R.layout.card_user_recommend_layout, viewGroup, false), this.x, this.y);
-            frsUserRecommendViewHolder.f50898c.setViewPool(this.z);
+            FrsUserRecommendViewHolder frsUserRecommendViewHolder = new FrsUserRecommendViewHolder(LayoutInflater.from(this.f2957e).inflate(R.layout.card_user_recommend_layout, viewGroup, false), this.x, this.y);
+            frsUserRecommendViewHolder.f51063c.setViewPool(this.z);
             return frsUserRecommendViewHolder;
         }
         return (FrsUserRecommendViewHolder) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // c.a.q0.v0.k, c.a.e.l.e.a
+    @Override // c.a.r0.w0.k, c.a.e.l.e.a
     /* renamed from: w0 */
     public View a0(int i2, View view, ViewGroup viewGroup, w wVar, FrsUserRecommendViewHolder frsUserRecommendViewHolder) {
         InterceptResult invokeCommon;
@@ -316,12 +316,12 @@ public class FrsUserRecommendAdapter extends k<w, FrsUserRecommendViewHolder> {
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i2), view, viewGroup, wVar, frsUserRecommendViewHolder})) == null) {
             if (wVar != null) {
                 int skinType = TbadkCoreApplication.getInst().getSkinType();
-                frsUserRecommendViewHolder.f50899d.setText(wVar.c());
-                frsUserRecommendViewHolder.f50898c.setPageContext(this.o);
-                frsUserRecommendViewHolder.f50898c.setData(wVar.d());
-                frsUserRecommendViewHolder.f50897b.setMaxOverScrollDistance(frsUserRecommendViewHolder.f50898c.getChildItemWidth());
-                frsUserRecommendViewHolder.f50899d.setTextColor(SkinManager.getColor(skinType, R.color.CAM_X0106));
-                frsUserRecommendViewHolder.f50896a.setBackgroundColor(SkinManager.getColor(skinType, R.color.CAM_X0205));
+                frsUserRecommendViewHolder.f51064d.setText(wVar.c());
+                frsUserRecommendViewHolder.f51063c.setPageContext(this.o);
+                frsUserRecommendViewHolder.f51063c.setData(wVar.d());
+                frsUserRecommendViewHolder.f51062b.setMaxOverScrollDistance(frsUserRecommendViewHolder.f51063c.getChildItemWidth());
+                frsUserRecommendViewHolder.f51064d.setTextColor(SkinManager.getColor(skinType, R.color.CAM_X0106));
+                frsUserRecommendViewHolder.f51061a.setBackgroundColor(SkinManager.getColor(skinType, R.color.CAM_X0205));
                 if (!wVar.g()) {
                     for (MetaData metaData : wVar.d()) {
                         if (metaData != null && !c.a.e.e.p.k.isEmpty(metaData.getUserId())) {

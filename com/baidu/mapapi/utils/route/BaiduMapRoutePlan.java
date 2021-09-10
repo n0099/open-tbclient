@@ -26,7 +26,7 @@ public class BaiduMapRoutePlan {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f41922a = true;
+    public static boolean f42033a = true;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -59,8 +59,8 @@ public class BaiduMapRoutePlan {
     }
 
     /* JADX WARN: Removed duplicated region for block: B:39:0x00c5  */
-    /* JADX WARN: Removed duplicated region for block: B:46:0x00d5  */
-    /* JADX WARN: Removed duplicated region for block: B:49:0x00ea  */
+    /* JADX WARN: Removed duplicated region for block: B:46:0x00d4  */
+    /* JADX WARN: Removed duplicated region for block: B:49:0x00e9  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -73,34 +73,34 @@ public class BaiduMapRoutePlan {
             StringBuilder sb = new StringBuilder();
             sb.append("http://api.map.baidu.com/direction?");
             sb.append("origin=");
-            LatLng latLng2 = routeParaOption.f41923a;
+            LatLng latLng2 = routeParaOption.f42034a;
             if (SDKInitializer.getCoordType() == CoordType.GCJ02 && latLng2 != null) {
                 latLng2 = CoordTrans.gcjToBaidu(latLng2);
             }
-            if (routeParaOption.f41923a != null && (str2 = routeParaOption.f41925c) != null && !str2.equals("") && latLng2 != null) {
+            if (routeParaOption.f42034a != null && (str2 = routeParaOption.f42036c) != null && !str2.equals("") && latLng2 != null) {
                 sb.append("latlng:");
                 sb.append(latLng2.latitude);
                 sb.append(",");
                 sb.append(latLng2.longitude);
                 sb.append("|");
                 sb.append("name:");
-            } else if (routeParaOption.f41923a != null && latLng2 != null) {
+            } else if (routeParaOption.f42034a != null && latLng2 != null) {
                 sb.append(latLng2.latitude);
                 sb.append(",");
                 sb.append(latLng2.longitude);
-                latLng = routeParaOption.f41924b;
+                latLng = routeParaOption.f42035b;
                 if (SDKInitializer.getCoordType() == CoordType.GCJ02 && latLng != null) {
                     latLng = CoordTrans.gcjToBaidu(latLng);
                 }
                 sb.append("&destination=");
-                if (routeParaOption.f41924b == null && (str = routeParaOption.f41926d) != null && !str.equals("") && latLng != null) {
+                if (routeParaOption.f42035b == null && (str = routeParaOption.f42037d) != null && !str.equals("") && latLng != null) {
                     sb.append("latlng:");
                     sb.append(latLng.latitude);
                     sb.append(",");
                     sb.append(latLng.longitude);
                     sb.append("|");
                     sb.append("name:");
-                } else if (routeParaOption.f41924b != null && latLng != null) {
+                } else if (routeParaOption.f42035b != null && latLng != null) {
                     sb.append(latLng.latitude);
                     sb.append(",");
                     sb.append(latLng.longitude);
@@ -119,7 +119,7 @@ public class BaiduMapRoutePlan {
                     intent.setData(parse);
                     context.startActivity(intent);
                 }
-                sb.append(routeParaOption.f41926d);
+                sb.append(routeParaOption.f42037d);
                 if (i2 == 0) {
                 }
                 sb.append("&mode=");
@@ -136,15 +136,15 @@ public class BaiduMapRoutePlan {
                 intent2.setData(parse2);
                 context.startActivity(intent2);
             }
-            sb.append(routeParaOption.f41925c);
-            latLng = routeParaOption.f41924b;
+            sb.append(routeParaOption.f42036c);
+            latLng = routeParaOption.f42035b;
             if (SDKInitializer.getCoordType() == CoordType.GCJ02) {
                 latLng = CoordTrans.gcjToBaidu(latLng);
             }
             sb.append("&destination=");
-            if (routeParaOption.f41924b == null) {
+            if (routeParaOption.f42035b == null) {
             }
-            if (routeParaOption.f41924b != null) {
+            if (routeParaOption.f42035b != null) {
                 sb.append(latLng.latitude);
                 sb.append(",");
                 sb.append(latLng.longitude);
@@ -164,7 +164,7 @@ public class BaiduMapRoutePlan {
                 intent22.setData(parse22);
                 context.startActivity(intent22);
             }
-            sb.append(routeParaOption.f41926d);
+            sb.append(routeParaOption.f42037d);
             if (i2 == 0) {
             }
             sb.append("&mode=");
@@ -199,25 +199,25 @@ public class BaiduMapRoutePlan {
             if (routeParaOption == null || context == null) {
                 throw new IllegalPoiSearchArgumentException("BDMapSDKException: para or context can not be null.");
             }
-            if (routeParaOption.f41924b == null && routeParaOption.f41923a == null && routeParaOption.f41926d == null && routeParaOption.f41925c == null) {
+            if (routeParaOption.f42035b == null && routeParaOption.f42034a == null && routeParaOption.f42037d == null && routeParaOption.f42036c == null) {
                 throw new IllegalNaviArgumentException("BDMapSDKException: startPoint and endPoint and endName and startName not all null.");
             }
-            if (routeParaOption.f41925c == null && routeParaOption.f41923a == null) {
+            if (routeParaOption.f42036c == null && routeParaOption.f42034a == null) {
                 throw new IllegalNaviArgumentException("BDMapSDKException: startPoint and startName not all null.");
             }
-            if (routeParaOption.f41926d == null && routeParaOption.f41924b == null) {
+            if (routeParaOption.f42037d == null && routeParaOption.f42035b == null) {
                 throw new IllegalNaviArgumentException("BDMapSDKException: endPoint and endName not all null.");
             }
-            String str2 = routeParaOption.f41925c;
-            if (((str2 == null || str2.equals("")) && routeParaOption.f41923a == null) || (((str = routeParaOption.f41926d) == null || str.equals("")) && routeParaOption.f41924b == null)) {
+            String str2 = routeParaOption.f42036c;
+            if (((str2 == null || str2.equals("")) && routeParaOption.f42034a == null) || (((str = routeParaOption.f42037d) == null || str.equals("")) && routeParaOption.f42035b == null)) {
                 return false;
             }
-            if (routeParaOption.f41928f == null) {
-                routeParaOption.f41928f = RouteParaOption.EBusStrategyType.bus_recommend_way;
+            if (routeParaOption.f42039f == null) {
+                routeParaOption.f42039f = RouteParaOption.EBusStrategyType.bus_recommend_way;
             }
             int baiduMapVersion = OpenClientUtil.getBaiduMapVersion(context);
             if (baiduMapVersion == 0) {
-                if (f41922a) {
+                if (f42033a) {
                     a(routeParaOption, context, 0);
                     return true;
                 }
@@ -225,7 +225,7 @@ public class BaiduMapRoutePlan {
             } else if (baiduMapVersion >= 810) {
                 return b.a(routeParaOption, context, 0);
             } else {
-                if (f41922a) {
+                if (f42033a) {
                     a(routeParaOption, context, 0);
                     return true;
                 }
@@ -242,29 +242,29 @@ public class BaiduMapRoutePlan {
             if (routeParaOption == null || context == null) {
                 throw new IllegalPoiSearchArgumentException("BDMapSDKException: para or context can not be null.");
             }
-            if (routeParaOption.f41924b == null && routeParaOption.f41923a == null && routeParaOption.f41926d == null && routeParaOption.f41925c == null) {
+            if (routeParaOption.f42035b == null && routeParaOption.f42034a == null && routeParaOption.f42037d == null && routeParaOption.f42036c == null) {
                 throw new IllegalNaviArgumentException("BDMapSDKException: startPoint and endPoint and endName and startName not all null.");
             }
-            if (routeParaOption.f41925c == null && routeParaOption.f41923a == null) {
+            if (routeParaOption.f42036c == null && routeParaOption.f42034a == null) {
                 throw new IllegalNaviArgumentException("BDMapSDKException: startPoint and startName not all null.");
             }
-            if (routeParaOption.f41926d == null && routeParaOption.f41924b == null) {
+            if (routeParaOption.f42037d == null && routeParaOption.f42035b == null) {
                 throw new IllegalNaviArgumentException("BDMapSDKException: endPoint and endName not all null.");
             }
-            String str = routeParaOption.f41925c;
-            if ((str == null || str.equals("")) && routeParaOption.f41923a == null) {
+            String str = routeParaOption.f42036c;
+            if ((str == null || str.equals("")) && routeParaOption.f42034a == null) {
                 return false;
             }
-            String str2 = routeParaOption.f41926d;
-            if ((str2 == null || str2.equals("")) && routeParaOption.f41924b == null) {
+            String str2 = routeParaOption.f42037d;
+            if ((str2 == null || str2.equals("")) && routeParaOption.f42035b == null) {
                 return false;
             }
-            if (routeParaOption.f41928f == null) {
-                routeParaOption.f41928f = RouteParaOption.EBusStrategyType.bus_recommend_way;
+            if (routeParaOption.f42039f == null) {
+                routeParaOption.f42039f = RouteParaOption.EBusStrategyType.bus_recommend_way;
             }
             int baiduMapVersion = OpenClientUtil.getBaiduMapVersion(context);
             if (baiduMapVersion == 0) {
-                if (f41922a) {
+                if (f42033a) {
                     a(routeParaOption, context, 1);
                     return true;
                 }
@@ -272,7 +272,7 @@ public class BaiduMapRoutePlan {
             } else if (baiduMapVersion >= 810) {
                 return b.a(routeParaOption, context, 1);
             } else {
-                if (f41922a) {
+                if (f42033a) {
                     a(routeParaOption, context, 1);
                     return true;
                 }
@@ -289,29 +289,29 @@ public class BaiduMapRoutePlan {
             if (routeParaOption == null || context == null) {
                 throw new IllegalPoiSearchArgumentException("BDMapSDKException: para or context can not be null.");
             }
-            if (routeParaOption.f41924b == null && routeParaOption.f41923a == null && routeParaOption.f41926d == null && routeParaOption.f41925c == null) {
+            if (routeParaOption.f42035b == null && routeParaOption.f42034a == null && routeParaOption.f42037d == null && routeParaOption.f42036c == null) {
                 throw new IllegalNaviArgumentException("BDMapSDKException: startPoint and endPoint and endName and startName not all null.");
             }
-            if (routeParaOption.f41925c == null && routeParaOption.f41923a == null) {
+            if (routeParaOption.f42036c == null && routeParaOption.f42034a == null) {
                 throw new IllegalNaviArgumentException("BDMapSDKException: startPoint and startName not all null.");
             }
-            if (routeParaOption.f41926d == null && routeParaOption.f41924b == null) {
+            if (routeParaOption.f42037d == null && routeParaOption.f42035b == null) {
                 throw new IllegalNaviArgumentException("BDMapSDKException: endPoint and endName not all null.");
             }
-            String str = routeParaOption.f41925c;
-            if ((str == null || str.equals("")) && routeParaOption.f41923a == null) {
+            String str = routeParaOption.f42036c;
+            if ((str == null || str.equals("")) && routeParaOption.f42034a == null) {
                 return false;
             }
-            String str2 = routeParaOption.f41926d;
-            if ((str2 == null || str2.equals("")) && routeParaOption.f41924b == null) {
+            String str2 = routeParaOption.f42037d;
+            if ((str2 == null || str2.equals("")) && routeParaOption.f42035b == null) {
                 return false;
             }
-            if (routeParaOption.f41928f == null) {
-                routeParaOption.f41928f = RouteParaOption.EBusStrategyType.bus_recommend_way;
+            if (routeParaOption.f42039f == null) {
+                routeParaOption.f42039f = RouteParaOption.EBusStrategyType.bus_recommend_way;
             }
             int baiduMapVersion = OpenClientUtil.getBaiduMapVersion(context);
             if (baiduMapVersion == 0) {
-                if (f41922a) {
+                if (f42033a) {
                     a(routeParaOption, context, 2);
                     return true;
                 }
@@ -319,7 +319,7 @@ public class BaiduMapRoutePlan {
             } else if (baiduMapVersion >= 810) {
                 return b.a(routeParaOption, context, 2);
             } else {
-                if (f41922a) {
+                if (f42033a) {
                     a(routeParaOption, context, 2);
                     return true;
                 }
@@ -332,7 +332,7 @@ public class BaiduMapRoutePlan {
     public static void setSupportWebRoute(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65543, null, z) == null) {
-            f41922a = z;
+            f42033a = z;
         }
     }
 }

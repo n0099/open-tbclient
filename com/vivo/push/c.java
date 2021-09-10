@@ -15,7 +15,7 @@ public final class c implements Handler.Callback {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ b f76360a;
+    public final /* synthetic */ b f76540a;
 
     public c(b bVar) {
         Interceptable interceptable = $ic;
@@ -32,7 +32,7 @@ public final class c implements Handler.Callback {
                 return;
             }
         }
-        this.f76360a = bVar;
+        this.f76540a = bVar;
     }
 
     @Override // android.os.Handler.Callback
@@ -49,16 +49,16 @@ public final class c implements Handler.Callback {
             int i2 = message.what;
             if (i2 == 1) {
                 com.vivo.push.util.p.a("AidlManager", "In connect, bind core service time out");
-                atomicInteger = this.f76360a.f76312f;
+                atomicInteger = this.f76540a.f76492f;
                 if (atomicInteger.get() == 2) {
-                    this.f76360a.a(1);
+                    this.f76540a.a(1);
                 }
             } else if (i2 == 2) {
-                atomicInteger2 = this.f76360a.f76312f;
+                atomicInteger2 = this.f76540a.f76492f;
                 if (atomicInteger2.get() == 4) {
-                    this.f76360a.e();
+                    this.f76540a.e();
                 }
-                this.f76360a.a(1);
+                this.f76540a.a(1);
             } else {
                 com.vivo.push.util.p.b("AidlManager", "unknow msg what [" + message.what + PreferencesUtil.RIGHT_MOUNT);
             }

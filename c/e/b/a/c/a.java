@@ -21,16 +21,16 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final List<c.e.b.a.c.b> f32106a;
+    public final List<c.e.b.a.c.b> f32215a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Handler f32107b;
+    public Handler f32216b;
 
     /* renamed from: c  reason: collision with root package name */
-    public WeakReference<Activity> f32108c;
+    public WeakReference<Activity> f32217c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final AtomicBoolean f32109d;
+    public final AtomicBoolean f32218d;
 
     /* renamed from: c.e.b.a.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
@@ -88,7 +88,7 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f32110e;
+        public final /* synthetic */ a f32219e;
 
         public b(a aVar) {
             Interceptable interceptable = $ic;
@@ -105,7 +105,7 @@ public class a {
                     return;
                 }
             }
-            this.f32110e = aVar;
+            this.f32219e = aVar;
         }
 
         @Override // java.lang.Runnable
@@ -113,14 +113,14 @@ public class a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 try {
-                    c.e.b.a.c.b bVar = (c.e.b.a.c.b) this.f32110e.f32106a.get(0);
+                    c.e.b.a.c.b bVar = (c.e.b.a.c.b) this.f32219e.f32215a.get(0);
                     if (bVar.isShowing()) {
                         return;
                     }
                     bVar.show();
                 } catch (Exception e2) {
                     e2.printStackTrace();
-                    this.f32110e.f();
+                    this.f32219e.f();
                 }
             }
         }
@@ -141,16 +141,16 @@ public class a {
                 return;
             }
         }
-        this.f32106a = new ArrayList();
-        this.f32109d = new AtomicBoolean(false);
-        this.f32108c = new WeakReference<>(activity);
-        this.f32107b = new Handler(Looper.getMainLooper());
+        this.f32215a = new ArrayList();
+        this.f32218d = new AtomicBoolean(false);
+        this.f32217c = new WeakReference<>(activity);
+        this.f32216b = new Handler(Looper.getMainLooper());
     }
 
     public List<c.e.b.a.c.b> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f32106a : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f32215a : (List) invokeV.objValue;
     }
 
     public boolean c(c.e.b.a.c.b bVar) {
@@ -160,10 +160,10 @@ public class a {
             if (bVar == null) {
                 return false;
             }
-            if (this.f32106a.isEmpty()) {
-                this.f32109d.set(false);
+            if (this.f32215a.isEmpty()) {
+                this.f32218d.set(false);
             }
-            this.f32106a.add(bVar);
+            this.f32215a.add(bVar);
             bVar.setHostQuene(this);
             i();
             return true;
@@ -174,15 +174,15 @@ public class a {
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f32106a.clear();
-            this.f32109d.set(false);
+            this.f32215a.clear();
+            this.f32218d.set(false);
         }
     }
 
     public boolean e(c.e.b.a.c.b bVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, bVar)) == null) ? this.f32106a.contains(bVar) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, bVar)) == null) ? this.f32215a.contains(bVar) : invokeL.booleanValue;
     }
 
     public void f() {
@@ -196,22 +196,22 @@ public class a {
     public void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            if (!this.f32106a.isEmpty()) {
-                this.f32106a.remove(0);
+            if (!this.f32215a.isEmpty()) {
+                this.f32215a.remove(0);
             }
-            this.f32109d.set(false);
+            this.f32218d.set(false);
         }
     }
 
     public void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            WeakReference<Activity> weakReference = this.f32108c;
-            if (weakReference == null || weakReference.get() == null || this.f32108c.get().isFinishing()) {
+            WeakReference<Activity> weakReference = this.f32217c;
+            if (weakReference == null || weakReference.get() == null || this.f32217c.get().isFinishing()) {
                 d();
-            } else if (this.f32106a.isEmpty() || this.f32109d.getAndSet(true)) {
+            } else if (this.f32215a.isEmpty() || this.f32218d.getAndSet(true)) {
             } else {
-                this.f32107b.postDelayed(new b(this), 500L);
+                this.f32216b.postDelayed(new b(this), 500L);
             }
         }
     }
@@ -219,7 +219,7 @@ public class a {
     public final void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            Collections.sort(this.f32106a, new C1462a(this));
+            Collections.sort(this.f32215a, new C1462a(this));
         }
     }
 }

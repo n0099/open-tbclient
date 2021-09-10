@@ -3,9 +3,9 @@ package com.baidu.tieba.godSquare.adapter;
 import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
-import c.a.q0.a0.b0;
-import c.a.q0.a0.d0.h;
-import c.a.q0.a1.d.b;
+import c.a.r0.a0.b0;
+import c.a.r0.a0.d0.h;
+import c.a.r0.b1.d.b;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.widget.ListView.TypeAdapter;
@@ -62,7 +62,7 @@ public class GodSquareRecGodAdapter extends c.a.e.l.e.a<h, ViewHolder> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ GodSquareRecGodAdapter f51834b;
+        public final /* synthetic */ GodSquareRecGodAdapter f51980b;
 
         public a(GodSquareRecGodAdapter godSquareRecGodAdapter) {
             Interceptable interceptable = $ic;
@@ -79,31 +79,31 @@ public class GodSquareRecGodAdapter extends c.a.e.l.e.a<h, ViewHolder> {
                     return;
                 }
             }
-            this.f51834b = godSquareRecGodAdapter;
+            this.f51980b = godSquareRecGodAdapter;
         }
 
-        @Override // c.a.q0.a0.b0
+        @Override // c.a.r0.a0.b0
         public void a(View view, BaseCardInfo baseCardInfo) {
             h hVar;
             MetaData metaData;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLL(1048576, this, view, baseCardInfo) == null) || view == null || this.f51834b.n == null || !(baseCardInfo instanceof h) || (metaData = (hVar = (h) baseCardInfo).f15262e) == null || StringUtils.isNull(metaData.getUserId())) {
+            if (!(interceptable == null || interceptable.invokeLL(1048576, this, view, baseCardInfo) == null) || view == null || this.f51980b.n == null || !(baseCardInfo instanceof h) || (metaData = (hVar = (h) baseCardInfo).f15579e) == null || StringUtils.isNull(metaData.getUserId())) {
                 return;
             }
-            if (view.getId() != this.f51834b.n.m.getId()) {
-                if (view.getId() == this.f51834b.n.j().getId() || view.getId() == this.f51834b.n.o.getId()) {
-                    TiebaStatic.log(new StatisticItem("c10951").param("obj_id", hVar.f15262e.getUserId()));
+            if (view.getId() != this.f51980b.n.m.getId()) {
+                if (view.getId() == this.f51980b.n.j().getId() || view.getId() == this.f51980b.n.o.getId()) {
+                    TiebaStatic.log(new StatisticItem("c10951").param("obj_id", hVar.f15579e.getUserId()));
                     return;
                 }
                 return;
             }
-            TiebaStatic.log(new StatisticItem("c10803").param("obj_locate", 4).param("obj_id", hVar.f15262e.getUserId()));
+            TiebaStatic.log(new StatisticItem("c10803").param("obj_locate", 4).param("obj_id", hVar.f15579e.getUserId()));
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public GodSquareRecGodAdapter(TbPageContext<?> tbPageContext) {
-        super(tbPageContext.getPageActivity(), h.f15261i);
+        super(tbPageContext.getPageActivity(), h.f15578i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

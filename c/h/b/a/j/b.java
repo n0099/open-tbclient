@@ -19,10 +19,10 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f32315a;
+    public static int f32424a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static long f32316b;
+    public static long f32425b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes4.dex */
@@ -82,14 +82,14 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f32315a == 0) {
+            if (f32424a == 0) {
                 try {
-                    f32315a = new File("/sys/devices/system/cpu/").listFiles(new a()).length;
+                    f32424a = new File("/sys/devices/system/cpu/").listFiles(new a()).length;
                 } catch (Exception unused) {
-                    f32315a = 1;
+                    f32424a = 1;
                 }
             }
-            return f32315a;
+            return f32424a;
         }
         return invokeV.intValue;
     }
@@ -99,7 +99,7 @@ public class b {
         FileReader fileReader;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (f32316b == 0) {
+            if (f32425b == 0) {
                 FileReader fileReader2 = null;
                 try {
                     try {
@@ -121,8 +121,8 @@ public class b {
                     if (fileReader2 != null) {
                         fileReader2.close();
                     }
-                    f32316b = r1;
-                    return f32316b;
+                    f32425b = r1;
+                    return f32425b;
                 } catch (Throwable th2) {
                     th = th2;
                     fileReader2 = fileReader;
@@ -134,9 +134,9 @@ public class b {
                     }
                     throw th;
                 }
-                f32316b = r1;
+                f32425b = r1;
             }
-            return f32316b;
+            return f32425b;
         }
         return invokeV.longValue;
     }

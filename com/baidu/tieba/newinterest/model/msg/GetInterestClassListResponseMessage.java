@@ -1,6 +1,6 @@
 package com.baidu.tieba.newinterest.model.msg;
 
-import c.a.q0.e2.c.b;
+import c.a.r0.f2.c.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.atomData.ForumSquareActivityConfig;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
@@ -54,6 +54,7 @@ public class GetInterestClassListResponseMessage extends JsonHttpResponsedMessag
                 b bVar = new b();
                 bVar.k(jSONArray.getJSONObject(i3).optInt("class_id"));
                 bVar.i(jSONArray.getJSONObject(i3).optString(ForumSquareActivityConfig.FORUM_CLASS_NAME));
+                bVar.m(jSONArray.getJSONObject(i3).optString(ForumSquareActivityConfig.FORUM_CLASS_NAME));
                 bVar.h(jSONArray.getJSONObject(i3).optString("class_icon"));
                 bVar.j(jSONArray.getJSONObject(i3).optString("class_pic"));
                 this.interestSelectionInfoList.add(bVar);

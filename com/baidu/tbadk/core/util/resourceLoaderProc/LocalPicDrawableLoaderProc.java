@@ -3,7 +3,7 @@ package com.baidu.tbadk.core.util.resourceLoaderProc;
 import android.graphics.Bitmap;
 import c.a.e.e.m.b;
 import c.a.e.l.d.a;
-import c.a.p0.b0.c;
+import c.a.q0.c0.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
@@ -83,7 +83,7 @@ public class LocalPicDrawableLoaderProc extends AbstractImageLoaderProc {
             String str3 = str + (TbadkCoreApplication.getInst().getSkinType() == 1 ? SkinManager.nightSufix : "");
             a m = c.k().m(str3);
             if (m == null) {
-                Bitmap bitmap = SkinManager.getBitmap(b.d(str2, 0));
+                Bitmap bitmap = SkinManager.getBitmap(b.e(str2, 0));
                 if (bitmap == null) {
                     return null;
                 }

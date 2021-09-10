@@ -16,16 +16,16 @@ public class g {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Object f35151a;
+    public Object f35260a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Queue<b> f35152b;
+    public Queue<b> f35261b;
 
     /* renamed from: c  reason: collision with root package name */
-    public a f35153c;
+    public a f35262c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Handler f35154d;
+    public Handler f35263d;
 
     /* loaded from: classes4.dex */
     public class a extends HandlerThread {
@@ -33,7 +33,7 @@ public class g {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ g f35155e;
+        public final /* synthetic */ g f35264e;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(g gVar, String str) {
@@ -53,7 +53,7 @@ public class g {
                     return;
                 }
             }
-            this.f35155e = gVar;
+            this.f35264e = gVar;
         }
 
         @Override // android.os.HandlerThread
@@ -62,12 +62,12 @@ public class g {
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 super.onLooperPrepared();
                 Looper looper = getLooper();
-                synchronized (this.f35155e.f35151a) {
-                    this.f35155e.f35154d = new Handler(looper);
+                synchronized (this.f35264e.f35260a) {
+                    this.f35264e.f35263d = new Handler(looper);
                 }
-                while (!this.f35155e.f35152b.isEmpty()) {
-                    b bVar = (b) this.f35155e.f35152b.poll();
-                    this.f35155e.f35154d.postDelayed(bVar.f35156a, bVar.f35157b);
+                while (!this.f35264e.f35261b.isEmpty()) {
+                    b bVar = (b) this.f35264e.f35261b.poll();
+                    this.f35264e.f35263d.postDelayed(bVar.f35265a, bVar.f35266b);
                 }
             }
         }
@@ -79,10 +79,10 @@ public class g {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public Runnable f35156a;
+        public Runnable f35265a;
 
         /* renamed from: b  reason: collision with root package name */
-        public long f35157b;
+        public long f35266b;
 
         public b(g gVar, Runnable runnable, long j2) {
             Interceptable interceptable = $ic;
@@ -99,8 +99,8 @@ public class g {
                     return;
                 }
             }
-            this.f35156a = runnable;
-            this.f35157b = j2;
+            this.f35265a = runnable;
+            this.f35266b = j2;
         }
     }
 
@@ -119,15 +119,15 @@ public class g {
                 return;
             }
         }
-        this.f35151a = new Object();
-        this.f35152b = new ConcurrentLinkedQueue();
-        this.f35153c = new a(this, str);
+        this.f35260a = new Object();
+        this.f35261b = new ConcurrentLinkedQueue();
+        this.f35262c = new a(this, str);
     }
 
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f35153c.start();
+            this.f35262c.start();
         }
     }
 
@@ -141,22 +141,22 @@ public class g {
     public void e(Runnable runnable, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, runnable, j2) == null) {
-            if (this.f35154d == null) {
-                synchronized (this.f35151a) {
-                    if (this.f35154d == null) {
-                        this.f35152b.add(new b(this, runnable, j2));
+            if (this.f35263d == null) {
+                synchronized (this.f35260a) {
+                    if (this.f35263d == null) {
+                        this.f35261b.add(new b(this, runnable, j2));
                         return;
                     }
                 }
             }
-            this.f35154d.postDelayed(runnable, j2);
+            this.f35263d.postDelayed(runnable, j2);
         }
     }
 
     public void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f35153c.quit();
+            this.f35262c.quit();
         }
     }
 }

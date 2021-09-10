@@ -36,22 +36,22 @@ public final class a implements c.d.b.e0.i.c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final w f31746a;
+    public final w f31855a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final c.d.b.e0.h.f f31747b;
+    public final c.d.b.e0.h.f f31856b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final BufferedSource f31748c;
+    public final BufferedSource f31857c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final BufferedSink f31749d;
+    public final BufferedSink f31858d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f31750e;
+    public int f31859e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f31751f;
+    public long f31860f;
 
     /* renamed from: c.d.b.e0.j.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
@@ -66,13 +66,13 @@ public final class a implements c.d.b.e0.i.c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final ForwardingTimeout f31756e;
+        public final ForwardingTimeout f31865e;
 
         /* renamed from: f  reason: collision with root package name */
-        public boolean f31757f;
+        public boolean f31866f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ a f31758g;
+        public final /* synthetic */ a f31867g;
 
         public c(a aVar) {
             Interceptable interceptable = $ic;
@@ -89,8 +89,8 @@ public final class a implements c.d.b.e0.i.c {
                     return;
                 }
             }
-            this.f31758g = aVar;
-            this.f31756e = new ForwardingTimeout(this.f31758g.f31749d.timeout());
+            this.f31867g = aVar;
+            this.f31865e = new ForwardingTimeout(this.f31867g.f31858d.timeout());
         }
 
         @Override // okio.Sink, java.io.Closeable, java.lang.AutoCloseable
@@ -98,13 +98,13 @@ public final class a implements c.d.b.e0.i.c {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 synchronized (this) {
-                    if (this.f31757f) {
+                    if (this.f31866f) {
                         return;
                     }
-                    this.f31757f = true;
-                    this.f31758g.f31749d.writeUtf8("0\r\n\r\n");
-                    this.f31758g.d(this.f31756e);
-                    this.f31758g.f31750e = 3;
+                    this.f31866f = true;
+                    this.f31867g.f31858d.writeUtf8("0\r\n\r\n");
+                    this.f31867g.d(this.f31865e);
+                    this.f31867g.f31859e = 3;
                 }
             }
         }
@@ -114,10 +114,10 @@ public final class a implements c.d.b.e0.i.c {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
                 synchronized (this) {
-                    if (this.f31757f) {
+                    if (this.f31866f) {
                         return;
                     }
-                    this.f31758g.f31749d.flush();
+                    this.f31867g.f31858d.flush();
                 }
             }
         }
@@ -126,23 +126,23 @@ public final class a implements c.d.b.e0.i.c {
         public Timeout timeout() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f31756e : (Timeout) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f31865e : (Timeout) invokeV.objValue;
         }
 
         @Override // okio.Sink
         public void write(Buffer buffer, long j2) throws IOException {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLJ(1048579, this, buffer, j2) == null) {
-                if (this.f31757f) {
+                if (this.f31866f) {
                     throw new IllegalStateException("closed");
                 }
                 if (j2 == 0) {
                     return;
                 }
-                this.f31758g.f31749d.writeHexadecimalUnsignedLong(j2);
-                this.f31758g.f31749d.writeUtf8(Part.CRLF);
-                this.f31758g.f31749d.write(buffer, j2);
-                this.f31758g.f31749d.writeUtf8(Part.CRLF);
+                this.f31867g.f31858d.writeHexadecimalUnsignedLong(j2);
+                this.f31867g.f31858d.writeUtf8(Part.CRLF);
+                this.f31867g.f31858d.write(buffer, j2);
+                this.f31867g.f31858d.writeUtf8(Part.CRLF);
             }
         }
     }
@@ -153,10 +153,10 @@ public final class a implements c.d.b.e0.i.c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: i  reason: collision with root package name */
-        public final s f31759i;
+        public final s f31868i;
 
         /* renamed from: j  reason: collision with root package name */
-        public long f31760j;
+        public long f31869j;
         public boolean k;
         public final /* synthetic */ a l;
 
@@ -180,42 +180,42 @@ public final class a implements c.d.b.e0.i.c {
                 }
             }
             this.l = aVar;
-            this.f31760j = -1L;
+            this.f31869j = -1L;
             this.k = true;
-            this.f31759i = sVar;
+            this.f31868i = sVar;
         }
 
         @Override // okio.Source, java.io.Closeable, java.lang.AutoCloseable
         public void close() throws IOException {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f31753f) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f31862f) {
                 return;
             }
             if (this.k && !c.d.b.e0.e.o(this, 100, TimeUnit.MILLISECONDS)) {
                 a(false, null);
             }
-            this.f31753f = true;
+            this.f31862f = true;
         }
 
         public final void g() throws IOException {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                if (this.f31760j != -1) {
-                    this.l.f31748c.readUtf8LineStrict();
+                if (this.f31869j != -1) {
+                    this.l.f31857c.readUtf8LineStrict();
                 }
                 try {
-                    this.f31760j = this.l.f31748c.readHexadecimalUnsignedLong();
-                    String trim = this.l.f31748c.readUtf8LineStrict().trim();
-                    if (this.f31760j >= 0 && (trim.isEmpty() || trim.startsWith(";"))) {
-                        if (this.f31760j == 0) {
+                    this.f31869j = this.l.f31857c.readHexadecimalUnsignedLong();
+                    String trim = this.l.f31857c.readUtf8LineStrict().trim();
+                    if (this.f31869j >= 0 && (trim.isEmpty() || trim.startsWith(";"))) {
+                        if (this.f31869j == 0) {
                             this.k = false;
-                            c.d.b.e0.i.e.e(this.l.f31746a.j(), this.f31759i, this.l.k());
+                            c.d.b.e0.i.e.e(this.l.f31855a.j(), this.f31868i, this.l.k());
                             a(true, null);
                             return;
                         }
                         return;
                     }
-                    throw new ProtocolException("expected chunk size and optional extensions but was \"" + this.f31760j + trim + "\"");
+                    throw new ProtocolException("expected chunk size and optional extensions but was \"" + this.f31869j + trim + "\"");
                 } catch (NumberFormatException e2) {
                     throw new ProtocolException(e2.getMessage());
                 }
@@ -228,18 +228,18 @@ public final class a implements c.d.b.e0.i.c {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, buffer, j2)) == null) {
                 if (j2 >= 0) {
-                    if (!this.f31753f) {
+                    if (!this.f31862f) {
                         if (this.k) {
-                            long j3 = this.f31760j;
+                            long j3 = this.f31869j;
                             if (j3 == 0 || j3 == -1) {
                                 g();
                                 if (!this.k) {
                                     return -1L;
                                 }
                             }
-                            long read = super.read(buffer, Math.min(j2, this.f31760j));
+                            long read = super.read(buffer, Math.min(j2, this.f31869j));
                             if (read != -1) {
-                                this.f31760j -= read;
+                                this.f31869j -= read;
                                 return read;
                             }
                             ProtocolException protocolException = new ProtocolException("unexpected end of stream");
@@ -262,16 +262,16 @@ public final class a implements c.d.b.e0.i.c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final ForwardingTimeout f31761e;
+        public final ForwardingTimeout f31870e;
 
         /* renamed from: f  reason: collision with root package name */
-        public boolean f31762f;
+        public boolean f31871f;
 
         /* renamed from: g  reason: collision with root package name */
-        public long f31763g;
+        public long f31872g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ a f31764h;
+        public final /* synthetic */ a f31873h;
 
         public e(a aVar, long j2) {
             Interceptable interceptable = $ic;
@@ -288,21 +288,21 @@ public final class a implements c.d.b.e0.i.c {
                     return;
                 }
             }
-            this.f31764h = aVar;
-            this.f31761e = new ForwardingTimeout(this.f31764h.f31749d.timeout());
-            this.f31763g = j2;
+            this.f31873h = aVar;
+            this.f31870e = new ForwardingTimeout(this.f31873h.f31858d.timeout());
+            this.f31872g = j2;
         }
 
         @Override // okio.Sink, java.io.Closeable, java.lang.AutoCloseable
         public void close() throws IOException {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f31762f) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f31871f) {
                 return;
             }
-            this.f31762f = true;
-            if (this.f31763g <= 0) {
-                this.f31764h.d(this.f31761e);
-                this.f31764h.f31750e = 3;
+            this.f31871f = true;
+            if (this.f31872g <= 0) {
+                this.f31873h.d(this.f31870e);
+                this.f31873h.f31859e = 3;
                 return;
             }
             throw new ProtocolException("unexpected end of stream");
@@ -311,31 +311,31 @@ public final class a implements c.d.b.e0.i.c {
         @Override // okio.Sink, java.io.Flushable
         public void flush() throws IOException {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f31762f) {
+            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f31871f) {
                 return;
             }
-            this.f31764h.f31749d.flush();
+            this.f31873h.f31858d.flush();
         }
 
         @Override // okio.Sink
         public Timeout timeout() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f31761e : (Timeout) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f31870e : (Timeout) invokeV.objValue;
         }
 
         @Override // okio.Sink
         public void write(Buffer buffer, long j2) throws IOException {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLJ(1048579, this, buffer, j2) == null) {
-                if (!this.f31762f) {
+                if (!this.f31871f) {
                     c.d.b.e0.e.e(buffer.size(), 0L, j2);
-                    if (j2 <= this.f31763g) {
-                        this.f31764h.f31749d.write(buffer, j2);
-                        this.f31763g -= j2;
+                    if (j2 <= this.f31872g) {
+                        this.f31873h.f31858d.write(buffer, j2);
+                        this.f31872g -= j2;
                         return;
                     }
-                    throw new ProtocolException("expected " + this.f31763g + " bytes but received " + j2);
+                    throw new ProtocolException("expected " + this.f31872g + " bytes but received " + j2);
                 }
                 throw new IllegalStateException("closed");
             }
@@ -348,7 +348,7 @@ public final class a implements c.d.b.e0.i.c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: i  reason: collision with root package name */
-        public long f31765i;
+        public long f31874i;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public f(a aVar, long j2) throws IOException {
@@ -369,7 +369,7 @@ public final class a implements c.d.b.e0.i.c {
                     return;
                 }
             }
-            this.f31765i = j2;
+            this.f31874i = j2;
             if (j2 == 0) {
                 a(true, null);
             }
@@ -378,13 +378,13 @@ public final class a implements c.d.b.e0.i.c {
         @Override // okio.Source, java.io.Closeable, java.lang.AutoCloseable
         public void close() throws IOException {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f31753f) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f31862f) {
                 return;
             }
-            if (this.f31765i != 0 && !c.d.b.e0.e.o(this, 100, TimeUnit.MILLISECONDS)) {
+            if (this.f31874i != 0 && !c.d.b.e0.e.o(this, 100, TimeUnit.MILLISECONDS)) {
                 a(false, null);
             }
-            this.f31753f = true;
+            this.f31862f = true;
         }
 
         @Override // c.d.b.e0.j.a.b, okio.Source
@@ -393,15 +393,15 @@ public final class a implements c.d.b.e0.i.c {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, buffer, j2)) == null) {
                 if (j2 >= 0) {
-                    if (!this.f31753f) {
-                        long j3 = this.f31765i;
+                    if (!this.f31862f) {
+                        long j3 = this.f31874i;
                         if (j3 == 0) {
                             return -1L;
                         }
                         long read = super.read(buffer, Math.min(j3, j2));
                         if (read != -1) {
-                            long j4 = this.f31765i - read;
-                            this.f31765i = j4;
+                            long j4 = this.f31874i - read;
+                            this.f31874i = j4;
                             if (j4 == 0) {
                                 a(true, null);
                             }
@@ -425,7 +425,7 @@ public final class a implements c.d.b.e0.i.c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: i  reason: collision with root package name */
-        public boolean f31766i;
+        public boolean f31875i;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public g(a aVar) {
@@ -451,13 +451,13 @@ public final class a implements c.d.b.e0.i.c {
         @Override // okio.Source, java.io.Closeable, java.lang.AutoCloseable
         public void close() throws IOException {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f31753f) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f31862f) {
                 return;
             }
-            if (!this.f31766i) {
+            if (!this.f31875i) {
                 a(false, null);
             }
-            this.f31753f = true;
+            this.f31862f = true;
         }
 
         @Override // c.d.b.e0.j.a.b, okio.Source
@@ -466,13 +466,13 @@ public final class a implements c.d.b.e0.i.c {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, buffer, j2)) == null) {
                 if (j2 >= 0) {
-                    if (!this.f31753f) {
-                        if (this.f31766i) {
+                    if (!this.f31862f) {
+                        if (this.f31875i) {
                             return -1L;
                         }
                         long read = super.read(buffer, j2);
                         if (read == -1) {
-                            this.f31766i = true;
+                            this.f31875i = true;
                             a(true, null);
                             return -1L;
                         }
@@ -501,12 +501,12 @@ public final class a implements c.d.b.e0.i.c {
                 return;
             }
         }
-        this.f31750e = 0;
-        this.f31751f = PlaybackStateCompat.ACTION_SET_REPEAT_MODE;
-        this.f31746a = wVar;
-        this.f31747b = fVar;
-        this.f31748c = bufferedSource;
-        this.f31749d = bufferedSink;
+        this.f31859e = 0;
+        this.f31860f = PlaybackStateCompat.ACTION_SET_REPEAT_MODE;
+        this.f31855a = wVar;
+        this.f31856b = fVar;
+        this.f31857c = bufferedSource;
+        this.f31858d = bufferedSink;
     }
 
     @Override // c.d.b.e0.i.c
@@ -514,8 +514,8 @@ public final class a implements c.d.b.e0.i.c {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, b0Var)) == null) {
-            c.d.b.e0.h.f fVar = this.f31747b;
-            fVar.f31709f.responseBodyStart(fVar.f31708e);
+            c.d.b.e0.h.f fVar = this.f31856b;
+            fVar.f31818f.responseBodyStart(fVar.f31817e);
             String s = b0Var.s("Content-Type");
             if (!c.d.b.e0.i.e.c(b0Var)) {
                 return new h(s, 0L, Okio.buffer(h(0L)));
@@ -536,7 +536,7 @@ public final class a implements c.d.b.e0.i.c {
     public void b(z zVar) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, zVar) == null) {
-            l(zVar.d(), i.a(zVar, this.f31747b.d().route().b().type()));
+            l(zVar.d(), i.a(zVar, this.f31856b.d().route().b().type()));
         }
     }
 
@@ -560,7 +560,7 @@ public final class a implements c.d.b.e0.i.c {
     public void cancel() {
         c.d.b.e0.h.c d2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (d2 = this.f31747b.d()) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (d2 = this.f31856b.d()) == null) {
             return;
         }
         d2.c();
@@ -580,11 +580,11 @@ public final class a implements c.d.b.e0.i.c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            if (this.f31750e == 1) {
-                this.f31750e = 2;
+            if (this.f31859e == 1) {
+                this.f31859e = 2;
                 return new c(this);
             }
-            throw new IllegalStateException("state: " + this.f31750e);
+            throw new IllegalStateException("state: " + this.f31859e);
         }
         return (Sink) invokeV.objValue;
     }
@@ -593,11 +593,11 @@ public final class a implements c.d.b.e0.i.c {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, sVar)) == null) {
-            if (this.f31750e == 4) {
-                this.f31750e = 5;
+            if (this.f31859e == 4) {
+                this.f31859e = 5;
                 return new d(this, sVar);
             }
-            throw new IllegalStateException("state: " + this.f31750e);
+            throw new IllegalStateException("state: " + this.f31859e);
         }
         return (Source) invokeL.objValue;
     }
@@ -606,7 +606,7 @@ public final class a implements c.d.b.e0.i.c {
     public void finishRequest() throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.f31749d.flush();
+            this.f31858d.flush();
         }
     }
 
@@ -614,7 +614,7 @@ public final class a implements c.d.b.e0.i.c {
     public void flushRequest() throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            this.f31749d.flush();
+            this.f31858d.flush();
         }
     }
 
@@ -622,11 +622,11 @@ public final class a implements c.d.b.e0.i.c {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(1048585, this, j2)) == null) {
-            if (this.f31750e == 1) {
-                this.f31750e = 2;
+            if (this.f31859e == 1) {
+                this.f31859e = 2;
                 return new e(this, j2);
             }
-            throw new IllegalStateException("state: " + this.f31750e);
+            throw new IllegalStateException("state: " + this.f31859e);
         }
         return (Sink) invokeJ.objValue;
     }
@@ -635,11 +635,11 @@ public final class a implements c.d.b.e0.i.c {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(1048586, this, j2)) == null) {
-            if (this.f31750e == 4) {
-                this.f31750e = 5;
+            if (this.f31859e == 4) {
+                this.f31859e = 5;
                 return new f(this, j2);
             }
-            throw new IllegalStateException("state: " + this.f31750e);
+            throw new IllegalStateException("state: " + this.f31859e);
         }
         return (Source) invokeJ.objValue;
     }
@@ -648,16 +648,16 @@ public final class a implements c.d.b.e0.i.c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            if (this.f31750e == 4) {
-                c.d.b.e0.h.f fVar = this.f31747b;
+            if (this.f31859e == 4) {
+                c.d.b.e0.h.f fVar = this.f31856b;
                 if (fVar != null) {
-                    this.f31750e = 5;
+                    this.f31859e = 5;
                     fVar.o();
                     return new g(this);
                 }
                 throw new IllegalStateException("streamAllocation == null");
             }
-            throw new IllegalStateException("state: " + this.f31750e);
+            throw new IllegalStateException("state: " + this.f31859e);
         }
         return (Source) invokeV.objValue;
     }
@@ -666,8 +666,8 @@ public final class a implements c.d.b.e0.i.c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            String readUtf8LineStrict = this.f31748c.readUtf8LineStrict(this.f31751f);
-            this.f31751f -= readUtf8LineStrict.length();
+            String readUtf8LineStrict = this.f31857c.readUtf8LineStrict(this.f31860f);
+            this.f31860f -= readUtf8LineStrict.length();
             return readUtf8LineStrict;
         }
         return (String) invokeV.objValue;
@@ -683,7 +683,7 @@ public final class a implements c.d.b.e0.i.c {
         while (true) {
             String j2 = j();
             if (j2.length() != 0) {
-                c.d.b.e0.a.f31649a.a(aVar, j2);
+                c.d.b.e0.a.f31758a.a(aVar, j2);
             } else {
                 return aVar.d();
             }
@@ -693,17 +693,17 @@ public final class a implements c.d.b.e0.i.c {
     public void l(r rVar, String str) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048590, this, rVar, str) == null) {
-            if (this.f31750e == 0) {
-                this.f31749d.writeUtf8(str).writeUtf8(Part.CRLF);
+            if (this.f31859e == 0) {
+                this.f31858d.writeUtf8(str).writeUtf8(Part.CRLF);
                 int g2 = rVar.g();
                 for (int i2 = 0; i2 < g2; i2++) {
-                    this.f31749d.writeUtf8(rVar.e(i2)).writeUtf8(": ").writeUtf8(rVar.h(i2)).writeUtf8(Part.CRLF);
+                    this.f31858d.writeUtf8(rVar.e(i2)).writeUtf8(": ").writeUtf8(rVar.h(i2)).writeUtf8(Part.CRLF);
                 }
-                this.f31749d.writeUtf8(Part.CRLF);
-                this.f31750e = 1;
+                this.f31858d.writeUtf8(Part.CRLF);
+                this.f31859e = 1;
                 return;
             }
-            throw new IllegalStateException("state: " + this.f31750e);
+            throw new IllegalStateException("state: " + this.f31859e);
         }
     }
 
@@ -712,28 +712,28 @@ public final class a implements c.d.b.e0.i.c {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048591, this, z)) == null) {
-            int i2 = this.f31750e;
+            int i2 = this.f31859e;
             if (i2 != 1 && i2 != 3) {
-                throw new IllegalStateException("state: " + this.f31750e);
+                throw new IllegalStateException("state: " + this.f31859e);
             }
             try {
                 k b2 = k.b(j());
                 b0.a aVar = new b0.a();
-                aVar.n(b2.f31743a);
-                aVar.g(b2.f31744b);
-                aVar.k(b2.f31745c);
+                aVar.n(b2.f31852a);
+                aVar.g(b2.f31853b);
+                aVar.k(b2.f31854c);
                 aVar.j(k());
-                if (z && b2.f31744b == 100) {
+                if (z && b2.f31853b == 100) {
                     return null;
                 }
-                if (b2.f31744b == 100) {
-                    this.f31750e = 3;
+                if (b2.f31853b == 100) {
+                    this.f31859e = 3;
                     return aVar;
                 }
-                this.f31750e = 4;
+                this.f31859e = 4;
                 return aVar;
             } catch (EOFException e2) {
-                IOException iOException = new IOException("unexpected end of stream on " + this.f31747b);
+                IOException iOException = new IOException("unexpected end of stream on " + this.f31856b);
                 iOException.initCause(e2);
                 throw iOException;
             }
@@ -747,16 +747,16 @@ public final class a implements c.d.b.e0.i.c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final ForwardingTimeout f31752e;
+        public final ForwardingTimeout f31861e;
 
         /* renamed from: f  reason: collision with root package name */
-        public boolean f31753f;
+        public boolean f31862f;
 
         /* renamed from: g  reason: collision with root package name */
-        public long f31754g;
+        public long f31863g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ a f31755h;
+        public final /* synthetic */ a f31864h;
 
         public b(a aVar) {
             Interceptable interceptable = $ic;
@@ -773,30 +773,30 @@ public final class a implements c.d.b.e0.i.c {
                     return;
                 }
             }
-            this.f31755h = aVar;
-            this.f31752e = new ForwardingTimeout(this.f31755h.f31748c.timeout());
-            this.f31754g = 0L;
+            this.f31864h = aVar;
+            this.f31861e = new ForwardingTimeout(this.f31864h.f31857c.timeout());
+            this.f31863g = 0L;
         }
 
         public final void a(boolean z, IOException iOException) throws IOException {
             a aVar;
             int i2;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeZL(1048576, this, z, iOException) == null) || (i2 = (aVar = this.f31755h).f31750e) == 6) {
+            if (!(interceptable == null || interceptable.invokeZL(1048576, this, z, iOException) == null) || (i2 = (aVar = this.f31864h).f31859e) == 6) {
                 return;
             }
             if (i2 == 5) {
-                aVar.d(this.f31752e);
-                a aVar2 = this.f31755h;
-                aVar2.f31750e = 6;
-                c.d.b.e0.h.f fVar = aVar2.f31747b;
+                aVar.d(this.f31861e);
+                a aVar2 = this.f31864h;
+                aVar2.f31859e = 6;
+                c.d.b.e0.h.f fVar = aVar2.f31856b;
                 if (fVar != null) {
-                    fVar.w(!z, aVar2, this.f31754g, iOException);
+                    fVar.w(!z, aVar2, this.f31863g, iOException);
                     return;
                 }
                 return;
             }
-            throw new IllegalStateException("state: " + this.f31755h.f31750e);
+            throw new IllegalStateException("state: " + this.f31864h.f31859e);
         }
 
         @Override // okio.Source
@@ -805,9 +805,9 @@ public final class a implements c.d.b.e0.i.c {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, buffer, j2)) == null) {
                 try {
-                    long read = this.f31755h.f31748c.read(buffer, j2);
+                    long read = this.f31864h.f31857c.read(buffer, j2);
                     if (read > 0) {
-                        this.f31754g += read;
+                        this.f31863g += read;
                     }
                     return read;
                 } catch (IOException e2) {
@@ -822,7 +822,7 @@ public final class a implements c.d.b.e0.i.c {
         public Timeout timeout() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f31752e : (Timeout) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f31861e : (Timeout) invokeV.objValue;
         }
 
         public /* synthetic */ b(a aVar, C1454a c1454a) {

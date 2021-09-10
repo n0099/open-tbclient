@@ -23,13 +23,13 @@ public abstract class PathUtils {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static AsyncTask<Void, Void, String[]> f59099a;
+    public static AsyncTask<Void, Void, String[]> f59279a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Context f59100b;
+    public static Context f59280b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f59101c;
+    public static String f59281c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes8.dex */
@@ -37,7 +37,7 @@ public abstract class PathUtils {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final String[] f59102a;
+        public static final String[] f59282a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -53,7 +53,7 @@ public abstract class PathUtils {
                     return;
                 }
             }
-            f59102a = PathUtils.c();
+            f59282a = PathUtils.c();
         }
     }
 
@@ -90,7 +90,7 @@ public abstract class PathUtils {
     public static String b(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i2)) == null) ? a.f59102a[i2] : (String) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i2)) == null) ? a.f59282a[i2] : (String) invokeI.objValue;
     }
 
     public static String[] c() {
@@ -98,14 +98,14 @@ public abstract class PathUtils {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
             try {
-                if (f59099a.cancel(false)) {
+                if (f59279a.cancel(false)) {
                     StrictMode.ThreadPolicy allowThreadDiskReads = StrictMode.allowThreadDiskReads();
                     StrictMode.allowThreadDiskWrites();
                     String[] d2 = d();
                     StrictMode.setThreadPolicy(allowThreadDiskReads);
                     return d2;
                 }
-                return f59099a.get();
+                return f59279a.get();
             } catch (InterruptedException | ExecutionException unused) {
                 return null;
             }
@@ -118,11 +118,11 @@ public abstract class PathUtils {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) {
             String[] strArr = new String[4];
-            strArr[0] = f59100b.getDir(f59101c, 0).getPath();
-            strArr[1] = f59100b.getDir("textures", 0).getPath();
-            strArr[2] = f59100b.getDatabasePath("foo").getParent();
-            if (f59100b.getCacheDir() != null) {
-                strArr[3] = f59100b.getCacheDir().getPath();
+            strArr[0] = f59280b.getDir(f59281c, 0).getPath();
+            strArr[1] = f59280b.getDir("textures", 0).getPath();
+            strArr[2] = f59280b.getDatabasePath("foo").getParent();
+            if (f59280b.getCacheDir() != null) {
+                strArr[3] = f59280b.getCacheDir().getPath();
             }
             return strArr;
         }

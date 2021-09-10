@@ -10,34 +10,34 @@ public final class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f45201a;
+    public int f45316a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f45202b;
+    public String f45317b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f45203c;
+    public int f45318c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f45204d;
+    public String f45319d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f45205e;
+    public long f45320e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f45206f;
+    public int f45321f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f45207g;
+    public int f45322g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f45208h;
+    public int f45323h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f45209i;
+    public int f45324i;
 
     /* renamed from: j  reason: collision with root package name */
-    public String f45210j;
+    public String f45325j;
 
     public a() {
         Interceptable interceptable = $ic;

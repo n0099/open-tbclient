@@ -1,7 +1,7 @@
 package com.baidu.tieba.newfaceshop.facemake;
 
 import android.text.TextUtils;
-import c.a.q0.d2.g.e;
+import c.a.r0.e2.g.e;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.HttpMessageListener;
@@ -31,7 +31,7 @@ public class UploadFaceGroupModel extends FaceBaseModel {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final HttpMessageListener f54515e;
+    public final HttpMessageListener f54663e;
 
     /* loaded from: classes7.dex */
     public class a extends HttpMessageListener {
@@ -39,7 +39,7 @@ public class UploadFaceGroupModel extends FaceBaseModel {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ UploadFaceGroupModel f54516a;
+        public final /* synthetic */ UploadFaceGroupModel f54664a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(UploadFaceGroupModel uploadFaceGroupModel, int i2) {
@@ -59,7 +59,7 @@ public class UploadFaceGroupModel extends FaceBaseModel {
                     return;
                 }
             }
-            this.f54516a = uploadFaceGroupModel;
+            this.f54664a = uploadFaceGroupModel;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -91,16 +91,16 @@ public class UploadFaceGroupModel extends FaceBaseModel {
                 if (obj3 != null && (obj3 instanceof Boolean)) {
                     z = ((Boolean) obj3).booleanValue();
                     if (arrayList != null) {
-                        this.f54516a.x(lVar, null);
+                        this.f54664a.x(lVar, null);
                         BdLog.e("msg extra empty");
                         return;
                     } else if (httpResponsedMessage.getError() != 0) {
-                        this.f54516a.x(lVar, httpResponsedMessage.getErrorString());
+                        this.f54664a.x(lVar, httpResponsedMessage.getErrorString());
                         return;
                     } else {
                         String groupId = ((UploadFaceGroupResponseMessage) httpResponsedMessage).getGroupId();
                         if (TextUtils.isEmpty(groupId)) {
-                            this.f54516a.x(lVar, httpResponsedMessage.getErrorString());
+                            this.f54664a.x(lVar, httpResponsedMessage.getErrorString());
                             return;
                         }
                         if (lVar != null) {
@@ -137,12 +137,12 @@ public class UploadFaceGroupModel extends FaceBaseModel {
                 return;
             }
         }
-        this.f54515e = new a(this, CmdConfigHttp.CMD_UPLOAD_FACE_GROUP);
+        this.f54663e = new a(this, CmdConfigHttp.CMD_UPLOAD_FACE_GROUP);
         setUniqueId(BdUniqueId.gen());
         registerTask();
-        this.f54515e.setTag(getUniqueId());
-        this.f54515e.setSelfListener(true);
-        registerListener(this.f54515e);
+        this.f54663e.setTag(getUniqueId());
+        this.f54663e.setSelfListener(true);
+        registerListener(this.f54663e);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -160,7 +160,7 @@ public class UploadFaceGroupModel extends FaceBaseModel {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            MessageManager.getInstance().unRegisterListener(this.f54515e);
+            MessageManager.getInstance().unRegisterListener(this.f54663e);
             MessageManager.getInstance().unRegisterTask(CmdConfigHttp.CMD_UPLOAD_FACE_GROUP);
             return true;
         }

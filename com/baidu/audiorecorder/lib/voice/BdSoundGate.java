@@ -14,14 +14,14 @@ public class BdSoundGate {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static BdSoundGate f38302c;
+    public static BdSoundGate f38421c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f38303a;
+    public int f38422a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f38304b;
+    public int f38423b;
 
     static {
         InterceptResult invokeClinit;
@@ -52,17 +52,17 @@ public class BdSoundGate {
                 return;
             }
         }
-        this.f38303a = -1;
+        this.f38422a = -1;
     }
 
     public static BdSoundGate b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f38302c == null) {
-                f38302c = new BdSoundGate();
+            if (f38421c == null) {
+                f38421c = new BdSoundGate();
             }
-            return f38302c;
+            return f38421c;
         }
         return (BdSoundGate) invokeV.objValue;
     }
@@ -78,14 +78,14 @@ public class BdSoundGate {
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f38304b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f38423b : invokeV.intValue;
     }
 
     public void c(int i2, float f2, float f3, float f4) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)}) == null) {
-            this.f38304b = i2;
-            this.f38303a = getChanger(i2, f2, f3, f4);
+            this.f38423b = i2;
+            this.f38422a = getChanger(i2, f2, f3, f4);
         }
     }
 
@@ -99,17 +99,17 @@ public class BdSoundGate {
     public void e() {
         int i2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (i2 = this.f38303a) <= 0) {
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (i2 = this.f38422a) <= 0) {
             return;
         }
         close(i2);
-        this.f38303a = -1;
+        this.f38422a = -1;
     }
 
     public void f(short[] sArr, short[] sArr2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, sArr, sArr2) == null) {
-            throughMono(this.f38303a, sArr, sArr2);
+            throughMono(this.f38422a, sArr, sArr2);
         }
     }
 }

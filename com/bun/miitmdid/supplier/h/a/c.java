@@ -12,13 +12,13 @@ public class c extends ContentObserver {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f63844a;
+    public String f64024a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f63845b;
+    public int f64025b;
 
     /* renamed from: c  reason: collision with root package name */
-    public b f63846c;
+    public b f64026c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public c(b bVar, int i2, String str) {
@@ -38,18 +38,18 @@ public class c extends ContentObserver {
                 return;
             }
         }
-        this.f63846c = bVar;
-        this.f63845b = i2;
-        this.f63844a = str;
+        this.f64026c = bVar;
+        this.f64025b = i2;
+        this.f64024a = str;
     }
 
     @Override // android.database.ContentObserver
     public void onChange(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            b bVar = this.f63846c;
+            b bVar = this.f64026c;
             if (bVar != null) {
-                bVar.a(this.f63845b, this.f63844a);
+                bVar.a(this.f64025b, this.f64024a);
             } else {
                 com.bun.miitmdid.utils.a.b("VMS_IDLG_SDK_Observer", "mIdentifierIdClient is null");
             }

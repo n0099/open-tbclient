@@ -15,10 +15,10 @@ public class d implements IMemoryCache {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final IMemoryCache f65020a;
+    public final IMemoryCache f65200a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final com.bytedance.sdk.component.image.c.a.c f65021b;
+    public final com.bytedance.sdk.component.image.c.a.c f65201b;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public d(IMemoryCache iMemoryCache) {
@@ -56,8 +56,8 @@ public class d implements IMemoryCache {
                 return;
             }
         }
-        this.f65020a = iMemoryCache;
-        this.f65021b = cVar;
+        this.f65200a = iMemoryCache;
+        this.f65201b = cVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -67,8 +67,8 @@ public class d implements IMemoryCache {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, bitmap)) == null) {
-            boolean a2 = this.f65020a.a(str, bitmap);
-            com.bytedance.sdk.component.image.c.a.c cVar = this.f65021b;
+            boolean a2 = this.f65200a.a(str, bitmap);
+            com.bytedance.sdk.component.image.c.a.c cVar = this.f65201b;
             if (cVar != null) {
                 cVar.a(str, Boolean.valueOf(a2));
             }
@@ -84,8 +84,8 @@ public class d implements IMemoryCache {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            Bitmap a2 = this.f65020a.a((IMemoryCache) str);
-            com.bytedance.sdk.component.image.c.a.c cVar = this.f65021b;
+            Bitmap a2 = this.f65200a.a((IMemoryCache) str);
+            com.bytedance.sdk.component.image.c.a.c cVar = this.f65201b;
             if (cVar != null) {
                 cVar.b(str, a2);
             }
@@ -98,7 +98,7 @@ public class d implements IMemoryCache {
     public void a(double d2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Double.valueOf(d2)}) == null) {
-            this.f65020a.a(d2);
+            this.f65200a.a(d2);
         }
     }
 }

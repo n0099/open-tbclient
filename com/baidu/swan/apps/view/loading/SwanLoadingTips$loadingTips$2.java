@@ -2,8 +2,8 @@ package com.baidu.swan.apps.view.loading;
 
 import android.app.Application;
 import android.content.res.Resources;
-import c.a.o0.a.b;
-import c.a.o0.a.c1.a;
+import c.a.p0.a.b;
+import c.a.p0.a.c1.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;

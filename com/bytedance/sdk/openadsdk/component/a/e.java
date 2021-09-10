@@ -34,34 +34,34 @@ public class e implements w.a, TTBannerAd {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final d f65479a;
+    public final d f65659a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final a f65480b;
+    public final a f65660b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Context f65481c;
+    public final Context f65661c;
 
     /* renamed from: d  reason: collision with root package name */
-    public w f65482d;
+    public w f65662d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f65483e;
+    public int f65663e;
 
     /* renamed from: f  reason: collision with root package name */
-    public m f65484f;
+    public m f65664f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TTBannerAd.AdInteractionListener f65485g;
+    public TTBannerAd.AdInteractionListener f65665g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TTAppDownloadListener f65486h;
+    public TTAppDownloadListener f65666h;
 
     /* renamed from: i  reason: collision with root package name */
-    public com.bytedance.sdk.openadsdk.dislike.ui.a f65487i;
+    public com.bytedance.sdk.openadsdk.dislike.ui.a f65667i;
 
     /* renamed from: j  reason: collision with root package name */
-    public final b f65488j;
+    public final b f65668j;
     public com.bytedance.sdk.openadsdk.downloadnew.core.a k;
     public String l;
     public AdSlot m;
@@ -82,21 +82,21 @@ public class e implements w.a, TTBannerAd {
             }
         }
         this.l = "banner_ad";
-        this.f65481c = context;
-        this.f65480b = aVar;
+        this.f65661c = context;
+        this.f65660b = aVar;
         this.m = adSlot;
-        this.f65484f = aVar.b();
-        this.f65479a = new d(context);
-        this.f65488j = b.a(this.f65481c);
-        a(this.f65479a.b(), aVar);
-        this.f65479a.a(this.f65484f.aH());
+        this.f65664f = aVar.b();
+        this.f65659a = new d(context);
+        this.f65668j = b.a(this.f65661c);
+        a(this.f65659a.b(), aVar);
+        this.f65659a.a(this.f65664f.aH());
     }
 
     @Override // com.bytedance.sdk.openadsdk.TTBannerAd
     public View getBannerView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f65479a : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f65659a : (View) invokeV.objValue;
     }
 
     @Override // com.bytedance.sdk.openadsdk.TTBannerAd
@@ -108,8 +108,8 @@ public class e implements w.a, TTBannerAd {
                 return null;
             }
             b(dislikeInteractionCallback);
-            this.f65479a.a(this.f65487i);
-            return this.f65487i;
+            this.f65659a.a(this.f65667i);
+            return this.f65667i;
         }
         return (TTAdDislike) invokeL.objValue;
     }
@@ -119,7 +119,7 @@ public class e implements w.a, TTBannerAd {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            m mVar = this.f65484f;
+            m mVar = this.f65664f;
             if (mVar == null) {
                 return -1;
             }
@@ -133,7 +133,7 @@ public class e implements w.a, TTBannerAd {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            m mVar = this.f65484f;
+            m mVar = this.f65664f;
             if (mVar != null) {
                 return mVar.av();
             }
@@ -146,7 +146,7 @@ public class e implements w.a, TTBannerAd {
     public void setBannerInteractionListener(TTBannerAd.AdInteractionListener adInteractionListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, adInteractionListener) == null) {
-            this.f65485g = adInteractionListener;
+            this.f65665g = adInteractionListener;
         }
     }
 
@@ -154,7 +154,7 @@ public class e implements w.a, TTBannerAd {
     public void setDownloadListener(TTAppDownloadListener tTAppDownloadListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, tTAppDownloadListener) == null) {
-            this.f65486h = tTAppDownloadListener;
+            this.f65666h = tTAppDownloadListener;
             com.bytedance.sdk.openadsdk.downloadnew.core.a aVar = this.k;
             if (aVar != null) {
                 aVar.a(tTAppDownloadListener);
@@ -178,25 +178,25 @@ public class e implements w.a, TTBannerAd {
             return;
         }
         this.l = "slide_banner_ad";
-        a(this.f65479a.b(), this.f65480b);
-        this.f65479a.a();
-        this.f65479a.a(1000);
+        a(this.f65659a.b(), this.f65660b);
+        this.f65659a.a();
+        this.f65659a.a(1000);
         if (i2 < 30000) {
             i2 = 30000;
         } else if (i2 > 120000) {
             i2 = 120000;
         }
-        this.f65483e = i2;
-        this.f65482d = new w(Looper.getMainLooper(), this);
+        this.f65663e = i2;
+        this.f65662d = new w(Looper.getMainLooper(), this);
     }
 
     private void b(TTAdDislike.DislikeInteractionCallback dislikeInteractionCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65547, this, dislikeInteractionCallback) == null) {
-            if (this.f65487i == null) {
-                this.f65487i = new com.bytedance.sdk.openadsdk.dislike.ui.a(this.f65481c, this.f65484f.aG(), this.l, false);
+            if (this.f65667i == null) {
+                this.f65667i = new com.bytedance.sdk.openadsdk.dislike.ui.a(this.f65661c, this.f65664f.aG(), this.l, false);
             }
-            this.f65487i.setDislikeInteractionCallback(dislikeInteractionCallback);
+            this.f65667i.setDislikeInteractionCallback(dislikeInteractionCallback);
         }
     }
 
@@ -204,7 +204,7 @@ public class e implements w.a, TTBannerAd {
     public void c() {
         w wVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65548, this) == null) || (wVar = this.f65482d) == null) {
+        if (!(interceptable == null || interceptable.invokeV(65548, this) == null) || (wVar = this.f65662d) == null) {
             return;
         }
         wVar.removeCallbacksAndMessages(null);
@@ -214,7 +214,7 @@ public class e implements w.a, TTBannerAd {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, dislikeInteractionCallback) == null) {
             b(dislikeInteractionCallback);
-            this.f65479a.a(this.f65487i);
+            this.f65659a.a(this.f65667i);
         }
     }
 
@@ -222,11 +222,11 @@ public class e implements w.a, TTBannerAd {
     public void b() {
         w wVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65546, this) == null) || (wVar = this.f65482d) == null) {
+        if (!(interceptable == null || interceptable.invokeV(65546, this) == null) || (wVar = this.f65662d) == null) {
             return;
         }
         wVar.removeCallbacksAndMessages(null);
-        this.f65482d.sendEmptyMessageDelayed(1, this.f65483e);
+        this.f65662d.sendEmptyMessageDelayed(1, this.f65663e);
     }
 
     @Override // com.bytedance.sdk.component.utils.w.a
@@ -240,12 +240,12 @@ public class e implements w.a, TTBannerAd {
     private void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            this.f65488j.a(this.m, new b.a(this) { // from class: com.bytedance.sdk.openadsdk.component.a.e.1
+            this.f65668j.a(this.m, new b.a(this) { // from class: com.bytedance.sdk.openadsdk.component.a.e.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ e f65489a;
+                public final /* synthetic */ e f65669a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -262,16 +262,16 @@ public class e implements w.a, TTBannerAd {
                             return;
                         }
                     }
-                    this.f65489a = this;
+                    this.f65669a = this;
                 }
 
                 @Override // com.bytedance.sdk.openadsdk.component.a.b.a
                 public void a(@NonNull a aVar) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-                        this.f65489a.a(aVar);
-                        this.f65489a.f65479a.e();
-                        this.f65489a.b();
+                        this.f65669a.a(aVar);
+                        this.f65669a.f65659a.e();
+                        this.f65669a.b();
                     }
                 }
 
@@ -279,7 +279,7 @@ public class e implements w.a, TTBannerAd {
                 public void a() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f65489a.b();
+                        this.f65669a.b();
                     }
                 }
             });
@@ -289,10 +289,10 @@ public class e implements w.a, TTBannerAd {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(@NonNull a aVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, aVar) == null) || this.f65479a.c() == null || this.f65479a.f()) {
+        if (!(interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, aVar) == null) || this.f65659a.c() == null || this.f65659a.f()) {
             return;
         }
-        a(this.f65479a.c(), aVar);
+        a(this.f65659a.c(), aVar);
     }
 
     private com.bytedance.sdk.openadsdk.downloadnew.core.a a(m mVar) {
@@ -300,7 +300,7 @@ public class e implements w.a, TTBannerAd {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, mVar)) == null) {
             if (mVar.X() == 4) {
-                return com.bytedance.sdk.openadsdk.downloadnew.a.a(this.f65481c, mVar, this.l);
+                return com.bytedance.sdk.openadsdk.downloadnew.a.a(this.f65661c, mVar, this.l);
             }
             return null;
         }
@@ -313,8 +313,8 @@ public class e implements w.a, TTBannerAd {
         if (interceptable == null || interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, this, cVar, aVar) == null) {
             cVar.a(aVar.a());
             m b2 = aVar.b();
-            this.f65484f = b2;
-            this.f65487i = new com.bytedance.sdk.openadsdk.dislike.ui.a(this.f65481c, b2.aG(), this.l, false);
+            this.f65664f = b2;
+            this.f65667i = new com.bytedance.sdk.openadsdk.dislike.ui.a(this.f65661c, b2.aG(), this.l, false);
             cVar.a(b2);
             com.bytedance.sdk.openadsdk.downloadnew.core.a a2 = a(b2);
             this.k = a2;
@@ -327,7 +327,7 @@ public class e implements w.a, TTBannerAd {
             com.bytedance.sdk.openadsdk.e.d.a(b2);
             EmptyView a3 = a(cVar);
             if (a3 == null) {
-                a3 = new EmptyView(this.f65481c, cVar);
+                a3 = new EmptyView(this.f65661c, cVar);
                 cVar.addView(a3);
             }
             com.bytedance.sdk.openadsdk.downloadnew.core.a aVar2 = this.k;
@@ -339,10 +339,10 @@ public class e implements w.a, TTBannerAd {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ m f65490a;
+                public final /* synthetic */ m f65670a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ e f65491b;
+                public final /* synthetic */ e f65671b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -359,30 +359,30 @@ public class e implements w.a, TTBannerAd {
                             return;
                         }
                     }
-                    this.f65491b = this;
-                    this.f65490a = b2;
+                    this.f65671b = this;
+                    this.f65670a = b2;
                 }
 
                 @Override // com.bytedance.sdk.openadsdk.core.EmptyView.a
                 public void a(boolean z) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-                        if (this.f65491b.k != null) {
+                        if (this.f65671b.k != null) {
                             if (z) {
-                                if (this.f65491b.k != null) {
-                                    this.f65491b.k.b();
+                                if (this.f65671b.k != null) {
+                                    this.f65671b.k.b();
                                 }
-                            } else if (this.f65491b.k != null) {
-                                this.f65491b.k.c();
+                            } else if (this.f65671b.k != null) {
+                                this.f65671b.k.c();
                             }
                         }
                         if (z) {
-                            this.f65491b.b();
+                            this.f65671b.b();
                             k.b("TTBannerAd", "获得焦点，开始计时");
                             return;
                         }
                         k.b("TTBannerAd", "失去焦点，停止计时");
-                        this.f65491b.c();
+                        this.f65671b.c();
                     }
                 }
 
@@ -390,9 +390,9 @@ public class e implements w.a, TTBannerAd {
                 public void b() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048579, this) == null) {
-                        this.f65491b.c();
-                        if (this.f65491b.k != null) {
-                            this.f65491b.k.d();
+                        this.f65671b.c();
+                        if (this.f65671b.k != null) {
+                            this.f65671b.k.d();
                         }
                     }
                 }
@@ -400,36 +400,36 @@ public class e implements w.a, TTBannerAd {
                 @Override // com.bytedance.sdk.openadsdk.core.EmptyView.a
                 public void a() {
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.f65491b.k == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.f65671b.k == null) {
                         return;
                     }
-                    this.f65491b.k.a();
+                    this.f65671b.k.a();
                 }
 
                 @Override // com.bytedance.sdk.openadsdk.core.EmptyView.a
                 public void a(View view) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view) == null) {
-                        this.f65491b.b();
+                        this.f65671b.b();
                         k.b("TTBannerAd", "BANNER SHOW");
-                        k.e("AdEvent", "pangolin ad show " + q.a(this.f65490a, view));
-                        com.bytedance.sdk.openadsdk.e.d.a(this.f65491b.f65481c, this.f65490a, this.f65491b.l, (Map<String, Object>) null);
-                        if (this.f65491b.f65485g != null) {
-                            this.f65491b.f65485g.onAdShow(view, this.f65490a.X());
+                        k.e("AdEvent", "pangolin ad show " + q.a(this.f65670a, view));
+                        com.bytedance.sdk.openadsdk.e.d.a(this.f65671b.f65661c, this.f65670a, this.f65671b.l, (Map<String, Object>) null);
+                        if (this.f65671b.f65665g != null) {
+                            this.f65671b.f65665g.onAdShow(view, this.f65670a.X());
                         }
                     }
                 }
             });
-            com.bytedance.sdk.openadsdk.core.b.a aVar3 = new com.bytedance.sdk.openadsdk.core.b.a(this.f65481c, b2, this.l, 2);
+            com.bytedance.sdk.openadsdk.core.b.a aVar3 = new com.bytedance.sdk.openadsdk.core.b.a(this.f65661c, b2, this.l, 2);
             aVar3.a(cVar);
-            aVar3.b(this.f65479a.d());
+            aVar3.b(this.f65659a.d());
             aVar3.a(this.k);
             aVar3.a(new b.a(this) { // from class: com.bytedance.sdk.openadsdk.component.a.e.3
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ e f65492a;
+                public final /* synthetic */ e f65672a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -446,23 +446,23 @@ public class e implements w.a, TTBannerAd {
                             return;
                         }
                     }
-                    this.f65492a = this;
+                    this.f65672a = this;
                 }
 
                 @Override // com.bytedance.sdk.openadsdk.core.b.b.a
                 public void a(View view, int i2) {
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeLI(1048576, this, view, i2) == null) || this.f65492a.f65485g == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeLI(1048576, this, view, i2) == null) || this.f65672a.f65665g == null) {
                         return;
                     }
-                    this.f65492a.f65485g.onAdClicked(view, i2);
+                    this.f65672a.f65665g.onAdClicked(view, i2);
                 }
             });
             cVar.setOnClickListener(aVar3);
             cVar.setOnTouchListener(aVar3);
             com.bytedance.sdk.openadsdk.downloadnew.core.a aVar4 = this.k;
             if (aVar4 != null) {
-                aVar4.a(this.f65486h);
+                aVar4.a(this.f65666h);
             }
             a3.setNeedCheckingShow(true);
         }

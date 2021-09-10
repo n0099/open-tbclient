@@ -13,7 +13,7 @@ public abstract class d<K, V> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Map<K, V> f3105a;
+    public Map<K, V> f3096a;
 
     public d() {
         Interceptable interceptable = $ic;
@@ -28,38 +28,38 @@ public abstract class d<K, V> {
                 return;
             }
         }
-        this.f3105a = c.a.e0.n.e.a();
+        this.f3096a = c.a.e0.n.e.a();
     }
 
     public void a(Map<K, V> map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, map) == null) {
-            this.f3105a = map;
+            this.f3096a = map;
         }
     }
 
     public V b(K k) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, k)) == null) ? this.f3105a.get(k) : (V) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, k)) == null) ? this.f3096a.get(k) : (V) invokeL.objValue;
     }
 
     public Map<K, V> c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f3105a : (Map) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f3096a : (Map) invokeV.objValue;
     }
 
     public Map<K, V> d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f3105a : (Map) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f3096a : (Map) invokeV.objValue;
     }
 
     public void e(K k, V v) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, k, v) == null) {
-            this.f3105a.put(k, v);
+            this.f3096a.put(k, v);
         }
     }
 }

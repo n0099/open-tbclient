@@ -1,8 +1,8 @@
 package com.baidu.tieba.frs.itemtab;
 
 import c.a.e.e.p.l;
-import c.a.p0.b1.w;
-import c.a.p0.i0.b.g;
+import c.a.q0.d1.x;
+import c.a.q0.k0.b.g;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -34,7 +34,7 @@ public class FrsItemTabRequestData extends OrmObject implements g {
         }
     }
 
-    @Override // c.a.p0.i0.b.i
+    @Override // c.a.q0.k0.b.i
     public Object c(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
@@ -44,7 +44,7 @@ public class FrsItemTabRequestData extends OrmObject implements g {
             builder.scr_h = Integer.valueOf(l.i(TbadkCoreApplication.getInst()));
             builder.scr_w = Integer.valueOf(l.k(TbadkCoreApplication.getInst()));
             builder.scr_dip = Integer.valueOf((int) l.h(TbadkCoreApplication.getInst()));
-            w.c(builder, true, false, true);
+            x.c(builder, true, false, true);
             ItemPageReqIdl.Builder builder2 = new ItemPageReqIdl.Builder();
             builder2.data = builder.build(false);
             return builder2.build(false);
@@ -52,7 +52,7 @@ public class FrsItemTabRequestData extends OrmObject implements g {
         return invokeZ.objValue;
     }
 
-    @Override // c.a.p0.i0.b.f
+    @Override // c.a.q0.k0.b.f
     public HashMap<String, Object> s() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -62,7 +62,7 @@ public class FrsItemTabRequestData extends OrmObject implements g {
         return (HashMap) invokeV.objValue;
     }
 
-    @Override // c.a.p0.i0.b.f
+    @Override // c.a.q0.k0.b.f
     public HashMap<String, String> u() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

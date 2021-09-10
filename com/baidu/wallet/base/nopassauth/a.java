@@ -26,20 +26,20 @@ public class a implements b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final int[] f60137g;
+    public static final int[] f60317g;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f60138c;
+    public String f60318c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f60139d;
+    public long f60319d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f60140e;
+    public int f60320e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f60141f;
+    public long f60321f;
 
     static {
         InterceptResult invokeClinit;
@@ -54,7 +54,7 @@ public class a implements b {
                 return;
             }
         }
-        f60137g = new int[]{1, 10, 100, 1000, 10000, 100000, 1000000, ABTestConstants.MAX_FATAL_ALLOCATION_FAILURE_SIZE_DEFAULT, 100000000};
+        f60317g = new int[]{1, 10, 100, 1000, 10000, 100000, 1000000, ABTestConstants.MAX_FATAL_ALLOCATION_FAILURE_SIZE_DEFAULT, 100000000};
     }
 
     public a(String str, long j2, int i2) {
@@ -72,9 +72,9 @@ public class a implements b {
                 return;
             }
         }
-        this.f60138c = str;
-        this.f60139d = j2;
-        this.f60140e = i2;
+        this.f60318c = str;
+        this.f60319d = j2;
+        this.f60320e = i2;
     }
 
     @Override // com.baidu.wallet.base.nopassauth.b
@@ -91,7 +91,7 @@ public class a implements b {
     public void a(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048579, this, j2) == null) {
-            this.f60141f = j2;
+            this.f60321f = j2;
         }
     }
 
@@ -99,7 +99,7 @@ public class a implements b {
     public long b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f60141f : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f60321f : invokeV.longValue;
     }
 
     @Override // com.baidu.wallet.base.nopassauth.b
@@ -115,40 +115,40 @@ public class a implements b {
     public String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f60138c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f60318c : (String) invokeV.objValue;
     }
 
     public long e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f60139d : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f60319d : invokeV.longValue;
     }
 
     public int f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f60140e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f60320e : invokeV.intValue;
     }
 
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.f60138c = str;
+            this.f60318c = str;
         }
     }
 
     public void b(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048582, this, j2) == null) {
-            this.f60139d = j2;
-            String str = "+++++++++HotpToken movingFactor is " + this.f60139d;
+            this.f60319d = j2;
+            String str = "+++++++++HotpToken movingFactor is " + this.f60319d;
         }
     }
 
     public void a(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            this.f60140e = i2;
+            this.f60320e = i2;
         }
     }
 
@@ -173,15 +173,15 @@ public class a implements b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
             byte[] bArr = new byte[8];
-            long j2 = this.f60139d;
+            long j2 = this.f60319d;
             for (int i2 = 7; i2 >= 0; i2--) {
                 bArr[i2] = (byte) (255 & j2);
                 j2 >>= 8;
             }
             SafePay safePay = SafePay.getInstance();
-            byte[] b2 = b(this.f60138c);
-            int[] iArr = f60137g;
-            int i3 = this.f60140e;
+            byte[] b2 = b(this.f60318c);
+            int[] iArr = f60317g;
+            int i3 = this.f60320e;
             return safePay.getDyKey(b2, bArr, iArr[i3], i3);
         }
         return (String) invokeL.objValue;

@@ -13,19 +13,19 @@ public class ap {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f43127a;
+    public String f43242a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f43128b;
+    public long f43243b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f43129c;
+    public long f43244c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f43130d;
+    public boolean f43245d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f43131e;
+    public long f43246e;
 
     public ap(String str, long j2, long j3, long j4, boolean z) {
         Interceptable interceptable = $ic;
@@ -42,54 +42,54 @@ public class ap {
                 return;
             }
         }
-        this.f43127a = str;
-        this.f43128b = j2;
-        this.f43129c = j3;
-        this.f43131e = j4;
-        this.f43130d = z;
+        this.f43242a = str;
+        this.f43243b = j2;
+        this.f43244c = j3;
+        this.f43246e = j4;
+        this.f43245d = z;
     }
 
     public void a(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2) == null) {
-            this.f43129c = j2;
+            this.f43244c = j2;
         }
     }
 
     public long b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f43128b : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f43243b : invokeV.longValue;
     }
 
     public long c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f43129c : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f43244c : invokeV.longValue;
     }
 
     public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f43130d : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f43245d : invokeV.booleanValue;
     }
 
     public long e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f43131e : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f43246e : invokeV.longValue;
     }
 
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f43127a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f43242a : (String) invokeV.objValue;
     }
 
     public void b(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048580, this, j2) == null) {
-            this.f43131e = j2;
+            this.f43246e = j2;
         }
     }
 
@@ -100,9 +100,9 @@ public class ap {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("name", str);
-                jSONObject.put("s", this.f43128b);
-                jSONObject.put("e", this.f43129c);
-                jSONObject.put("user", this.f43130d ? 1 : 0);
+                jSONObject.put("s", this.f43243b);
+                jSONObject.put("e", this.f43244c);
+                jSONObject.put("user", this.f43245d ? 1 : 0);
                 return jSONObject;
             } catch (Exception unused) {
                 return null;

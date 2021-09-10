@@ -15,7 +15,7 @@ public class f implements com.kwad.sdk.core.webview.a.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final com.kwad.sdk.core.webview.a f72330a;
+    public final com.kwad.sdk.core.webview.a f72510a;
 
     /* loaded from: classes10.dex */
     public static final class a implements com.kwad.sdk.core.b {
@@ -23,7 +23,7 @@ public class f implements com.kwad.sdk.core.webview.a.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f72331a;
+        public int f72511a;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -52,7 +52,7 @@ public class f implements com.kwad.sdk.core.webview.a.a {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
                 JSONObject jSONObject = new JSONObject();
-                com.kwad.sdk.utils.q.a(jSONObject, "screenOrientation", this.f72331a);
+                com.kwad.sdk.utils.q.a(jSONObject, "screenOrientation", this.f72511a);
                 return jSONObject;
             }
             return (JSONObject) invokeV.objValue;
@@ -74,7 +74,7 @@ public class f implements com.kwad.sdk.core.webview.a.a {
                 return;
             }
         }
-        this.f72330a = aVar;
+        this.f72510a = aVar;
     }
 
     @Override // com.kwad.sdk.core.webview.a.a
@@ -89,12 +89,12 @@ public class f implements com.kwad.sdk.core.webview.a.a {
     public void a(String str, @NonNull com.kwad.sdk.core.webview.a.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, cVar) == null) {
-            if (this.f72330a.f72243b == null) {
+            if (this.f72510a.f72423b == null) {
                 cVar.a(-1, "native adTemplate is null");
                 return;
             }
             a aVar = new a();
-            aVar.f72331a = this.f72330a.f72242a;
+            aVar.f72511a = this.f72510a.f72422a;
             cVar.a(aVar);
         }
     }

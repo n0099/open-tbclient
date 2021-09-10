@@ -21,34 +21,34 @@ public class E0 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f76601a;
+    public Context f76781a;
 
     /* renamed from: b  reason: collision with root package name */
-    public m1 f76602b;
+    public m1 f76782b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Info f76603c;
+    public Info f76783c;
 
     /* renamed from: d  reason: collision with root package name */
-    public View f76604d;
+    public View f76784d;
 
     /* renamed from: e  reason: collision with root package name */
-    public List f76605e;
+    public List f76785e;
 
     /* renamed from: f  reason: collision with root package name */
-    public PBNativeListener f76606f;
+    public PBNativeListener f76786f;
 
     /* renamed from: g  reason: collision with root package name */
-    public g2 f76607g;
+    public g2 f76787g;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f76608h;
+    public long f76788h;
 
     /* renamed from: i  reason: collision with root package name */
-    public n1 f76609i;
+    public n1 f76789i;
 
     /* renamed from: j  reason: collision with root package name */
-    public boolean f76610j;
+    public boolean f76790j;
     public long k;
     public float l;
     public float m;
@@ -80,16 +80,16 @@ public class E0 {
                 return;
             }
         }
-        this.f76605e = Collections.synchronizedList(new ArrayList());
-        this.f76608h = 0L;
-        this.f76609i = new y0(this);
-        this.f76610j = false;
+        this.f76785e = Collections.synchronizedList(new ArrayList());
+        this.f76788h = 0L;
+        this.f76789i = new y0(this);
+        this.f76790j = false;
         this.k = 0L;
-        this.f76601a = context;
-        m1 m1Var = new m1(context, str, M.f76635c);
-        this.f76602b = m1Var;
-        m1Var.f76923g = this.f76609i;
-        this.f76607g = new g2(context);
+        this.f76781a = context;
+        m1 m1Var = new m1(context, str, M.f76815c);
+        this.f76782b = m1Var;
+        m1Var.f77103g = this.f76789i;
+        this.f76787g = new g2(context);
     }
 
     public static /* synthetic */ void a(E0 e0, View view) {
@@ -129,12 +129,12 @@ public class E0 {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             try {
                 c();
-                if (this.f76602b != null) {
-                    this.f76602b.a();
-                    this.f76602b = null;
+                if (this.f76782b != null) {
+                    this.f76782b.a();
+                    this.f76782b = null;
                 }
-                if (this.f76606f != null) {
-                    this.f76606f = null;
+                if (this.f76786f != null) {
+                    this.f76786f = null;
                 }
             } catch (Exception unused) {
             }
@@ -145,7 +145,7 @@ public class E0 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            Info info = this.f76603c;
+            Info info = this.f76783c;
             return info != null && info.isEffective();
         }
         return invokeV.booleanValue;
@@ -155,14 +155,14 @@ public class E0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             try {
-                for (View view : this.f76605e) {
+                for (View view : this.f76785e) {
                     if (view != null) {
                         view.setOnClickListener(null);
                     }
                 }
-                this.f76605e.clear();
-                if (this.f76604d != null) {
-                    this.f76604d = null;
+                this.f76785e.clear();
+                if (this.f76784d != null) {
+                    this.f76784d = null;
                 }
             } catch (Exception unused) {
             }
@@ -202,19 +202,19 @@ public class E0 {
         if (!(interceptable == null || interceptable.invokeLLL(1048579, this, view, pBMediaView, list) == null) || view == null || list == null || list.size() == 0 || !b()) {
             return;
         }
-        this.f76608h = 0L;
-        if (this.f76604d != null) {
+        this.f76788h = 0L;
+        if (this.f76784d != null) {
             c();
         }
-        this.f76604d = view;
+        this.f76784d = view;
         try {
             D0 d0 = new D0(this);
             Iterator it = list.iterator();
             while (it.hasNext()) {
                 View view2 = (View) it.next();
                 if (view2 != null && !(view2 instanceof PBMediaView)) {
-                    if (!this.f76605e.contains(view2)) {
-                        this.f76605e.add(view2);
+                    if (!this.f76785e.contains(view2)) {
+                        this.f76785e.add(view2);
                     }
                     view2.setOnClickListener(d0);
                     view2.setOnTouchListener(d0);
@@ -226,24 +226,24 @@ public class E0 {
             try {
                 if (pBMediaView.getHtmlWebView() != null) {
                     h0 htmlWebView = pBMediaView.getHtmlWebView();
-                    htmlWebView.a(b() ? this.f76603c.getLoad() : "", this.f76603c);
-                    if (this.f76603c.isNat()) {
-                        htmlWebView.f76858c.setOnTouchListener(new B0(this));
+                    htmlWebView.a(b() ? this.f76783c.getLoad() : "", this.f76783c);
+                    if (this.f76783c.isNat()) {
+                        htmlWebView.f77038c.setOnTouchListener(new B0(this));
                     }
-                    htmlWebView.f76857b = new C0(this);
+                    htmlWebView.f77037b = new C0(this);
                 }
             } catch (Exception unused2) {
             }
         }
-        Z0.a(this.f76601a).b(new a1(this.f76603c)).a();
-        PBNativeListener pBNativeListener = this.f76606f;
+        Z0.a(this.f76781a).b(new a1(this.f76783c)).a();
+        PBNativeListener pBNativeListener = this.f76786f;
         if (pBNativeListener != null) {
             pBNativeListener.onDisplayed();
         }
-        if (this.f76603c != null) {
-            U1.b(this.f76601a, this.f76603c.getId() + ":" + System.currentTimeMillis(), false);
+        if (this.f76783c != null) {
+            U1.b(this.f76781a, this.f76783c.getId() + ":" + System.currentTimeMillis(), false);
         }
-        N.a(this.f76603c);
-        new O0().a(view, this.f76603c, new A0(this, view));
+        N.a(this.f76783c);
+        new O0().a(view, this.f76783c, new A0(this, view));
     }
 }

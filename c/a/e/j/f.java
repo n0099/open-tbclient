@@ -23,7 +23,7 @@ public class f extends DefaultPackageCallback {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public DefaultDownloadCallback f2906a;
+    public DefaultDownloadCallback f2897a;
 
     public f(DefaultDownloadCallback defaultDownloadCallback) {
         Interceptable interceptable = $ic;
@@ -40,7 +40,7 @@ public class f extends DefaultPackageCallback {
                 return;
             }
         }
-        this.f2906a = defaultDownloadCallback;
+        this.f2897a = defaultDownloadCallback;
     }
 
     @Override // com.baidu.searchbox.pms.callback.DefaultPackageCallback, com.baidu.searchbox.pms.callback.PackageCallback
@@ -75,6 +75,6 @@ public class f extends DefaultPackageCallback {
         }
         DownloadOptions downloadOptions = new DownloadOptions();
         downloadOptions.fileDir = new File(BdBaseApplication.getInst().getFilesDir(), "so_cache").getAbsolutePath();
-        PmsManager.getInstance().download(arrayList, downloadOptions, new e(this.f2906a));
+        PmsManager.getInstance().download(arrayList, downloadOptions, new e(this.f2897a));
     }
 }

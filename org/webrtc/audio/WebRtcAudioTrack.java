@@ -37,11 +37,11 @@ public class WebRtcAudioTrack {
     public static final int DEFAULT_AUDIO_CONTENT_TYPE = 1;
     public static final int DEFAULT_USAGE;
     public static final String TAG = "WebRtcAudioTrackExternal";
-    public static int audioContentType = 1;
+    public static int audioContentType;
     public transient /* synthetic */ FieldHolder $fh;
     public int audioFormat;
     public final AudioManager audioManager;
-    public JavaAudioDeviceModule.RemoteSamplesReadyCallback audioSamplesReadyCallback;
+    public volatile JavaAudioDeviceModule.RemoteSamplesReadyCallback audioSamplesReadyCallback;
     public AudioTrackThread audioThread;
     public AudioTrack audioTrack;
     public ByteBuffer byteBuffer;
@@ -119,7 +119,10 @@ public class WebRtcAudioTrack {
                         this.this$0.stuckDataCalculator.calculateStuck();
                     }
                     if (this.this$0.audioSamplesReadyCallback != null) {
-                        this.this$0.audioSamplesReadyCallback.onWebRtcAudioRemoteSamplesReady(new JavaAudioDeviceModule.AudioSamples(this.this$0.audioFormat, this.this$0.channelConfig, this.this$0.sampleRateInHz, Arrays.copyOfRange(this.this$0.byteBuffer.array(), this.this$0.byteBuffer.arrayOffset(), this.this$0.byteBuffer.capacity() + this.this$0.byteBuffer.arrayOffset())));
+                        byte[] copyOfRange = Arrays.copyOfRange(this.this$0.byteBuffer.array(), this.this$0.byteBuffer.arrayOffset(), this.this$0.byteBuffer.capacity() + this.this$0.byteBuffer.arrayOffset());
+                        if (this.this$0.audioSamplesReadyCallback != null) {
+                            this.this$0.audioSamplesReadyCallback.onWebRtcAudioRemoteSamplesReady(new JavaAudioDeviceModule.AudioSamples(this.this$0.audioFormat, this.this$0.channelConfig, this.this$0.sampleRateInHz, copyOfRange));
+                        }
                     }
                     int writeOnLollipop = WebRtcAudioUtils.runningOnLollipopOrHigher() ? writeOnLollipop(this.this$0.audioTrack, this.this$0.byteBuffer, capacity) : writePreLollipop(this.this$0.audioTrack, this.this$0.byteBuffer, capacity);
                     if (writeOnLollipop != capacity) {
@@ -168,6 +171,7 @@ public class WebRtcAudioTrack {
             }
         }
         DEFAULT_USAGE = getDefaultUsageAttribute();
+        audioContentType = 1;
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -190,36 +194,6 @@ public class WebRtcAudioTrack {
                 return;
             }
         }
-    }
-
-    public WebRtcAudioTrack(Context context, AudioManager audioManager, int i2, @Nullable JavaAudioDeviceModule.RemoteSamplesReadyCallback remoteSamplesReadyCallback, JavaAudioDeviceModule.AudioTrackErrorCallback audioTrackErrorCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, audioManager, Integer.valueOf(i2), remoteSamplesReadyCallback, audioTrackErrorCallback};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.stuckDataCalculator = new StuckDataCalculator(200);
-        this.isEnableSLIReport = false;
-        this.threadChecker = new ThreadUtils.ThreadChecker();
-        this.audioTrack = null;
-        this.audioThread = null;
-        this.speakerMute = false;
-        this.threadChecker.detachThread();
-        this.context = context;
-        this.audioManager = audioManager;
-        audioContentType = i2;
-        this.errorCallback = audioTrackErrorCallback;
-        this.audioSamplesReadyCallback = remoteSamplesReadyCallback;
-        this.volumeLogger = new VolumeLogger(audioManager);
     }
 
     public static void assertTrue(boolean z) {
@@ -247,7 +221,10 @@ public class WebRtcAudioTrack {
                 Logging.w(TAG, "Unable to use fast mode since requested sample rate is not native");
             }
             String str = Build.MODEL;
-            return (audioContentType == 2 || str.contains("NV6001") || str.contains("NV6101") || str.contains("XDH-0F-A1") || str.contains("NV5001")) ? new AudioTrack(new AudioAttributes.Builder().setUsage(1).setContentType(2).build(), new AudioFormat.Builder().setEncoding(2).setSampleRate(i2).setChannelMask(i3).build(), i4, 1, 0) : new AudioTrack(new AudioAttributes.Builder().setUsage(DEFAULT_USAGE).setContentType(1).build(), new AudioFormat.Builder().setEncoding(2).setSampleRate(i2).setChannelMask(i3).build(), i4, 1, 0);
+            if (audioContentType != 2 && !str.contains("NV6001") && !str.contains("NV6101") && !str.contains("XDH-0F-A1") && !str.contains("NV5001")) {
+                return new AudioTrack(new AudioAttributes.Builder().setUsage(DEFAULT_USAGE).setContentType(1).build(), new AudioFormat.Builder().setEncoding(2).setSampleRate(i2).setChannelMask(i3).build(), i4, 1, 0);
+            }
+            return new AudioTrack(new AudioAttributes.Builder().setUsage(1).setContentType(2).build(), new AudioFormat.Builder().setEncoding(2).setSampleRate(i2).setChannelMask(i3).build(), i4, 1, 0);
         }
         return (AudioTrack) invokeIII.objValue;
     }
@@ -332,16 +309,20 @@ public class WebRtcAudioTrack {
                 return false;
             } else {
                 try {
-                    this.audioTrack = WebRtcAudioUtils.runningOnLollipopOrHigher() ? createAudioTrackOnLollipopOrHigher(i2, channelCountToConfiguration, minBufferSize) : createAudioTrackOnLowerThanLollipop(i2, channelCountToConfiguration, minBufferSize);
-                    AudioTrack audioTrack = this.audioTrack;
-                    if (audioTrack == null || audioTrack.getState() != 1) {
-                        reportWebRtcAudioTrackInitError("Initialization of audio track failed.");
-                        releaseAudioResources();
-                        return false;
+                    if (WebRtcAudioUtils.runningOnLollipopOrHigher()) {
+                        this.audioTrack = createAudioTrackOnLollipopOrHigher(i2, channelCountToConfiguration, minBufferSize);
+                    } else {
+                        this.audioTrack = createAudioTrackOnLowerThanLollipop(i2, channelCountToConfiguration, minBufferSize);
                     }
-                    logMainParameters();
-                    logMainParametersExtended();
-                    return true;
+                    AudioTrack audioTrack = this.audioTrack;
+                    if (audioTrack != null && audioTrack.getState() == 1) {
+                        logMainParameters();
+                        logMainParametersExtended();
+                        return true;
+                    }
+                    reportWebRtcAudioTrackInitError("Initialization of audio track failed.");
+                    releaseAudioResources();
+                    return false;
                 } catch (IllegalArgumentException e2) {
                     reportWebRtcAudioTrackInitError(e2.getMessage());
                     releaseAudioResources();
@@ -475,20 +456,22 @@ public class WebRtcAudioTrack {
             assertTrue(this.audioThread == null);
             try {
                 this.audioTrack.play();
-            } catch (IllegalStateException e2) {
-                JavaAudioDeviceModule.AudioTrackStartErrorCode audioTrackStartErrorCode = JavaAudioDeviceModule.AudioTrackStartErrorCode.AUDIO_TRACK_START_EXCEPTION;
-                reportWebRtcAudioTrackStartError(audioTrackStartErrorCode, "AudioTrack.play failed: " + e2.getMessage());
-            }
-            if (this.audioTrack.getPlayState() == 3) {
+                if (this.audioTrack.getPlayState() != 3) {
+                    JavaAudioDeviceModule.AudioTrackStartErrorCode audioTrackStartErrorCode = JavaAudioDeviceModule.AudioTrackStartErrorCode.AUDIO_TRACK_START_STATE_MISMATCH;
+                    reportWebRtcAudioTrackStartError(audioTrackStartErrorCode, "AudioTrack.play failed - incorrect state :" + this.audioTrack.getPlayState());
+                    releaseAudioResources();
+                    return false;
+                }
                 AudioTrackThread audioTrackThread = new AudioTrackThread(this, "AudioTrackJavaThread");
                 this.audioThread = audioTrackThread;
                 audioTrackThread.start();
                 return true;
+            } catch (IllegalStateException e2) {
+                JavaAudioDeviceModule.AudioTrackStartErrorCode audioTrackStartErrorCode2 = JavaAudioDeviceModule.AudioTrackStartErrorCode.AUDIO_TRACK_START_EXCEPTION;
+                reportWebRtcAudioTrackStartError(audioTrackStartErrorCode2, "AudioTrack.play failed: " + e2.getMessage());
+                releaseAudioResources();
+                return false;
             }
-            JavaAudioDeviceModule.AudioTrackStartErrorCode audioTrackStartErrorCode2 = JavaAudioDeviceModule.AudioTrackStartErrorCode.AUDIO_TRACK_START_STATE_MISMATCH;
-            reportWebRtcAudioTrackStartError(audioTrackStartErrorCode2, "AudioTrack.play failed - incorrect state :" + this.audioTrack.getPlayState());
-            releaseAudioResources();
-            return false;
         }
         return invokeV.booleanValue;
     }
@@ -553,5 +536,35 @@ public class WebRtcAudioTrack {
         if (interceptable == null || interceptable.invokeL(1048580, this, sLIReportInterface) == null) {
             this.stuckDataCalculator.setStuckEventListener(sLIReportInterface);
         }
+    }
+
+    public WebRtcAudioTrack(Context context, AudioManager audioManager, int i2, @Nullable JavaAudioDeviceModule.RemoteSamplesReadyCallback remoteSamplesReadyCallback, JavaAudioDeviceModule.AudioTrackErrorCallback audioTrackErrorCallback) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, audioManager, Integer.valueOf(i2), remoteSamplesReadyCallback, audioTrackErrorCallback};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.stuckDataCalculator = new StuckDataCalculator(200);
+        this.isEnableSLIReport = false;
+        this.threadChecker = new ThreadUtils.ThreadChecker();
+        this.audioTrack = null;
+        this.audioThread = null;
+        this.speakerMute = false;
+        this.threadChecker.detachThread();
+        this.context = context;
+        this.audioManager = audioManager;
+        audioContentType = i2;
+        this.errorCallback = audioTrackErrorCallback;
+        this.audioSamplesReadyCallback = remoteSamplesReadyCallback;
+        this.volumeLogger = new VolumeLogger(audioManager);
     }
 }

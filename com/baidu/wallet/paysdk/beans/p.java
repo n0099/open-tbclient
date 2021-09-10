@@ -2,6 +2,7 @@ package com.baidu.wallet.paysdk.beans;
 
 import android.content.Context;
 import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.lbspay.channelpay.alipay.LBSPayAli;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -15,7 +16,6 @@ import com.baidu.wallet.paysdk.datamodel.PayRequest;
 import com.baidu.wallet.paysdk.storage.PayDataCache;
 import com.baidu.wallet.paysdk.storage.PayRequestCache;
 import com.dxmpay.apollon.restnet.RestNameValuePair;
-import com.tencent.connect.common.Constants;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes8.dex */
@@ -57,7 +57,7 @@ public class p extends q {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             ArrayList arrayList = new ArrayList();
-            arrayList.add(new RestNameValuePair("request_type", Constants.VIA_REPORT_TYPE_WPA_STATE));
+            arrayList.add(new RestNameValuePair("request_type", "15"));
             if (com.baidu.wallet.paysdk.a.b.a()) {
                 DirectPayContentResponse payResponse = PayDataCache.getInstance().getPayResponse();
                 if (a(payResponse)) {
@@ -85,7 +85,7 @@ public class p extends q {
     public int getBeanId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return 15;
         }
         return invokeV.intValue;

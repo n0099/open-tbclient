@@ -49,7 +49,7 @@ public final class IdcardUtils {
                 return;
             }
         }
-        CITYCODE = new String[]{"11", "12", "13", "14", Constants.VIA_REPORT_TYPE_WPA_STATE, "21", Constants.VIA_REPORT_TYPE_DATALINE, Constants.VIA_REPORT_TYPE_SHARE_TO_TROOPBAR, EventType.GiftEventID.SEND_GIFT_TO_USER_FAIL, EventType.GiftEventID.SEND_GIFT_TO_MULTIUSER_SUCCESS, EventType.GiftEventID.SEND_GIFT_TO_MULTIUSER_FAIL, EventType.GiftEventID.LOAD_ALL_GIFT_SUCCESS, EventType.GiftEventID.LOAD_ALL_GIFT_FAIL, "36", "37", "41", RoomMasterTable.DEFAULT_ID, "43", "44", "45", "46", "50", "51", "52", "53", "54", "61", "62", "63", WebKitFactory.OS_64, "65", "71", "81", "82", "91"};
+        CITYCODE = new String[]{"11", "12", "13", "14", "15", "21", Constants.VIA_REPORT_TYPE_DATALINE, Constants.VIA_REPORT_TYPE_SHARE_TO_TROOPBAR, EventType.GiftEventID.SEND_GIFT_TO_USER_FAIL, EventType.GiftEventID.SEND_GIFT_TO_MULTIUSER_SUCCESS, EventType.GiftEventID.SEND_GIFT_TO_MULTIUSER_FAIL, EventType.GiftEventID.LOAD_ALL_GIFT_SUCCESS, EventType.GiftEventID.LOAD_ALL_GIFT_FAIL, "36", "37", "41", RoomMasterTable.DEFAULT_ID, "43", "44", "45", "46", "50", "51", "52", "53", "54", "61", "62", "63", WebKitFactory.OS_64, "65", "71", "81", "82", "91"};
         POWER = new int[]{7, 9, 10, 5, 8, 4, 2, 1, 6, 3, 7, 9, 10, 5, 8, 4, 2};
         VERIFYCODE = new String[]{"1", "0", "X", "9", "8", "7", "6", "5", "4", "3", "2"};
         cityCodes = new HashMap();
@@ -59,7 +59,7 @@ public final class IdcardUtils {
         cityCodes.put("12", Address.Builder.TIAN_JIN);
         cityCodes.put("13", "河北");
         cityCodes.put("14", "山西");
-        cityCodes.put(Constants.VIA_REPORT_TYPE_WPA_STATE, "内蒙古");
+        cityCodes.put("15", "内蒙古");
         cityCodes.put("21", "辽宁");
         cityCodes.put(Constants.VIA_REPORT_TYPE_DATALINE, "吉林");
         cityCodes.put(Constants.VIA_REPORT_TYPE_SHARE_TO_TROOPBAR, "黑龙江");

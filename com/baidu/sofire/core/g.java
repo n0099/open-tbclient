@@ -14,16 +14,16 @@ public final class g {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f45186a;
+    public String f45301a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f45187b;
+    public String f45302b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f45188c;
+    public String f45303c;
 
     /* renamed from: d  reason: collision with root package name */
-    public IntentFilter f45189d;
+    public IntentFilter f45304d;
 
     public g(String str, IntentFilter intentFilter, String str2, String str3) {
         Interceptable interceptable = $ic;
@@ -40,10 +40,10 @@ public final class g {
                 return;
             }
         }
-        this.f45186a = str;
-        this.f45189d = intentFilter;
-        this.f45187b = str2;
-        this.f45188c = str3;
+        this.f45301a = str;
+        this.f45304d = intentFilter;
+        this.f45302b = str2;
+        this.f45303c = str3;
     }
 
     public final boolean a(g gVar) {
@@ -52,9 +52,9 @@ public final class g {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, gVar)) == null) {
             if (gVar != null) {
                 try {
-                    if (!TextUtils.isEmpty(gVar.f45186a) && !TextUtils.isEmpty(gVar.f45187b) && !TextUtils.isEmpty(gVar.f45188c) && gVar.f45186a.equals(this.f45186a) && gVar.f45187b.equals(this.f45187b) && gVar.f45188c.equals(this.f45188c)) {
-                        if (gVar.f45189d != null && this.f45189d != null) {
-                            return this.f45189d == gVar.f45189d;
+                    if (!TextUtils.isEmpty(gVar.f45301a) && !TextUtils.isEmpty(gVar.f45302b) && !TextUtils.isEmpty(gVar.f45303c) && gVar.f45301a.equals(this.f45301a) && gVar.f45302b.equals(this.f45302b) && gVar.f45303c.equals(this.f45303c)) {
+                        if (gVar.f45304d != null && this.f45304d != null) {
+                            return this.f45304d == gVar.f45304d;
                         }
                         return true;
                     }
@@ -73,7 +73,7 @@ public final class g {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             try {
-                return "PluginloaderIntentFilter:" + this.f45186a + "-" + this.f45187b + "-" + this.f45188c + "-" + this.f45189d;
+                return "PluginloaderIntentFilter:" + this.f45301a + "-" + this.f45302b + "-" + this.f45303c + "-" + this.f45304d;
             } catch (Throwable unused) {
                 return "";
             }

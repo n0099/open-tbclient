@@ -279,7 +279,7 @@ public final class ElasticConfig {
             if (optJSONObject3 != null) {
                 QUEUE_CONFIG_FIRST_PRIORITY_TASK_WEIGHT = optJSONObject3.optDouble("first", QUEUE_CONFIG_FIRST_PRIORITY_TASK_WEIGHT);
                 QUEUE_CONFIG_SECOND_PRIORITY_TASK_WEIGHT = optJSONObject3.optDouble(TypeAdapters.AnonymousClass27.SECOND, QUEUE_CONFIG_SECOND_PRIORITY_TASK_WEIGHT);
-                double optDouble = optJSONObject3.optDouble(b.f35808e, QUEUE_CONFIG_THIRD_PRIORITY_TASK_WEIGHT);
+                double optDouble = optJSONObject3.optDouble(b.f35917e, QUEUE_CONFIG_THIRD_PRIORITY_TASK_WEIGHT);
                 QUEUE_CONFIG_THIRD_PRIORITY_TASK_WEIGHT = optDouble;
                 ELASTIC_QUEUE_BLOCK_WEIGHT = new double[]{QUEUE_CONFIG_IMMEDIATE_PRIORITY_TASK_WEIGHT, QUEUE_CONFIG_FIRST_PRIORITY_TASK_WEIGHT, QUEUE_CONFIG_SECOND_PRIORITY_TASK_WEIGHT, optDouble};
             }

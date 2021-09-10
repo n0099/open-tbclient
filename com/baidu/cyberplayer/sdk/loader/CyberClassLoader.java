@@ -28,10 +28,10 @@ public class CyberClassLoader extends BaseDexClassLoader {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Class f39013a;
+    public static Class f39119a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Class f39014b;
+    public static Class f39120b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes5.dex */
@@ -177,9 +177,9 @@ public class CyberClassLoader extends BaseDexClassLoader {
     public static void a() throws Exception {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null) == null) {
-            if (f39013a == null || f39014b == null) {
+            if (f39119a == null || f39120b == null) {
                 Class<?> cls = Class.forName("dalvik.system.DexPathList");
-                f39013a = cls;
+                f39119a = cls;
                 Class<?>[] declaredClasses = cls.getDeclaredClasses();
                 int length = declaredClasses.length;
                 int i2 = 0;
@@ -189,12 +189,12 @@ public class CyberClassLoader extends BaseDexClassLoader {
                     }
                     Class<?> cls2 = declaredClasses[i2];
                     if (cls2.getSimpleName().equals("Element")) {
-                        f39014b = cls2;
+                        f39120b = cls2;
                         break;
                     }
                     i2++;
                 }
-                if (f39014b == null) {
+                if (f39120b == null) {
                     throw new AndroidRuntimeException("DexPathList$Element not found!");
                 }
             }
@@ -249,7 +249,7 @@ public class CyberClassLoader extends BaseDexClassLoader {
                 a();
                 String replace = new File(str).getName().replace(".so", ".dex");
                 DexFile loadDex = DexFile.loadDex(str, file.getAbsolutePath() + File.separator + replace, 0);
-                Constructor<?> constructor = f39014b.getConstructors()[0];
+                Constructor<?> constructor = f39120b.getConstructors()[0];
                 int length = constructor.getParameterTypes().length;
                 if (length == 4) {
                     newInstance = constructor.newInstance(new File(str), Boolean.FALSE, null, loadDex);
@@ -258,12 +258,12 @@ public class CyberClassLoader extends BaseDexClassLoader {
                 } else {
                     newInstance = constructor.newInstance(new File(str), null, loadDex);
                 }
-                Object newInstance2 = Array.newInstance(f39014b, 1);
+                Object newInstance2 = Array.newInstance(f39120b, 1);
                 Array.set(newInstance2, 0, newInstance);
                 Object a2 = a(BaseDexClassLoader.class, this, "pathList");
-                a(f39013a, a2, "dexElements", newInstance2);
+                a(f39119a, a2, "dexElements", newInstance2);
                 if (Build.VERSION.SDK_INT >= 19) {
-                    a(f39013a, a2, "dexElementsSuppressedExceptions", (Object) null);
+                    a(f39119a, a2, "dexElementsSuppressedExceptions", (Object) null);
                 }
             } catch (Exception e2) {
                 e2.printStackTrace();
@@ -355,7 +355,7 @@ public class CyberClassLoader extends BaseDexClassLoader {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
             if (str != null) {
                 try {
-                    if (str.startsWith("com.baidu.media.duplayer.") || str.startsWith("com.baidu.media.dlna.") || str.startsWith("com.baidu.media.ext.") || str.startsWith("com.baidu.media.extractor.") || str.startsWith("com.baidu.media.kernelnet.") || str.startsWith("com.baidu.media.pcdn.") || str.startsWith("com.baidu.media.recorder.") || str.startsWith("com.baidu.cybermedia.ext.rtc.") || str.startsWith("com.baidu.cloud.") || str.startsWith("com.baidu.cloudbase.") || str.startsWith("com.baidu.rtc.") || str.startsWith("org.webrtc.") || str.startsWith("tv.danmaku.ijk.media.player.") || str.startsWith("com.baidu.media.playerconfig")) {
+                    if (str.startsWith("com.baidu.media.duplayer.") || str.startsWith("com.baidu.media.dlna.") || str.startsWith("com.baidu.media.ext.") || str.startsWith("com.baidu.media.extractor.") || str.startsWith("com.baidu.media.kernelnet.") || str.startsWith("com.baidu.media.pcdn.") || str.startsWith("com.baidu.media.recorder.") || str.startsWith("com.baidu.cybermedia.ext.rtc.") || str.startsWith("com.baidu.cloud.") || str.startsWith("com.baidu.cloudbase.") || str.startsWith("com.baidu.rtc.") || str.startsWith("org.webrtc.") || str.startsWith("tv.danmaku.ijk.media.player.") || str.startsWith("com.baidu.media.playerconfig") || str.startsWith("com.baidu.media.videodownload")) {
                         return findClass(str);
                     }
                 } catch (Throwable th) {

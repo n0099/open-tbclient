@@ -19,7 +19,7 @@ public class fh extends fs {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public fc f77451a;
+    public fc f77631a;
 
     /* renamed from: a  reason: collision with other field name */
     public fd f385a;
@@ -74,9 +74,9 @@ public class fh extends fs {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
             try {
-                this.f77451a = new fc(((fs) this).f415a.getInputStream(), this);
+                this.f77631a = new fc(((fs) this).f415a.getInputStream(), this);
                 this.f385a = new fd(((fs) this).f415a.getOutputStream(), this);
-                fi fiVar = new fi(this, "Blob Reader (" + ((fl) this).f77458b + SmallTailInfo.EMOTION_SUFFIX);
+                fi fiVar = new fi(this, "Blob Reader (" + ((fl) this).f77638b + SmallTailInfo.EMOTION_SUFFIX);
                 this.f386a = fiVar;
                 fiVar.start();
             } catch (Exception e2) {
@@ -101,9 +101,9 @@ public class fh extends fs {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, exc) == null) {
             synchronized (this) {
-                if (this.f77451a != null) {
-                    this.f77451a.b();
-                    this.f77451a = null;
+                if (this.f77631a != null) {
+                    this.f77631a.b();
+                    this.f77631a = null;
                 }
                 if (this.f385a != null) {
                     try {
@@ -232,7 +232,7 @@ public class fh extends fs {
             }
             try {
                 int a2 = fdVar.a(faVar);
-                ((fl) this).f77460d = System.currentTimeMillis();
+                ((fl) this).f77640d = System.currentTimeMillis();
                 String f2 = faVar.f();
                 if (!TextUtils.isEmpty(f2)) {
                     gq.a(((fl) this).f400a, f2, a2, false, true, System.currentTimeMillis());

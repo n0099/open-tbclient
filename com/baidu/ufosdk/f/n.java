@@ -18,16 +18,16 @@ public final class n extends Handler {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ImageView f59426a;
+    public ImageView f59606a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Handler f59427b;
+    public Handler f59607b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Context f59428c;
+    public Context f59608c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TextView f59429d;
+    public TextView f59609d;
 
     public n(Context context, ImageView imageView, Handler handler) {
         Interceptable interceptable = $ic;
@@ -44,10 +44,10 @@ public final class n extends Handler {
                 return;
             }
         }
-        this.f59429d = null;
-        this.f59426a = imageView;
-        this.f59427b = handler;
-        this.f59428c = context;
+        this.f59609d = null;
+        this.f59606a = imageView;
+        this.f59607b = handler;
+        this.f59608c = context;
     }
 
     public n(Context context, TextView textView, Handler handler) {
@@ -65,10 +65,10 @@ public final class n extends Handler {
                 return;
             }
         }
-        this.f59429d = null;
-        this.f59429d = textView;
-        this.f59427b = handler;
-        this.f59428c = context;
+        this.f59609d = null;
+        this.f59609d = textView;
+        this.f59607b = handler;
+        this.f59608c = context;
     }
 
     @Override // android.os.Handler
@@ -81,26 +81,26 @@ public final class n extends Handler {
             Object obj = message.obj;
             if (obj != null) {
                 Bitmap bitmap = (Bitmap) obj;
-                if (this.f59429d != null) {
-                    ImageSpan imageSpan = new ImageSpan(this.f59428c, bitmap);
+                if (this.f59609d != null) {
+                    ImageSpan imageSpan = new ImageSpan(this.f59608c, bitmap);
                     SpannableString spannableString = new SpannableString("icon");
                     spannableString.setSpan(imageSpan, 0, 4, 33);
-                    this.f59429d.setText(spannableString.toString());
+                    this.f59609d.setText(spannableString.toString());
                     return;
                 }
-                this.f59426a.setImageBitmap(bitmap);
+                this.f59606a.setImageBitmap(bitmap);
                 if (bitmap.getHeight() > bitmap.getWidth()) {
-                    this.f59426a.setMaxWidth(i.a(this.f59428c, 80.0f));
-                    imageView = this.f59426a;
-                    a2 = i.a(this.f59428c, 120.0f);
+                    this.f59606a.setMaxWidth(i.a(this.f59608c, 80.0f));
+                    imageView = this.f59606a;
+                    a2 = i.a(this.f59608c, 120.0f);
                 } else {
-                    this.f59426a.setMaxWidth(i.a(this.f59428c, 120.0f));
-                    imageView = this.f59426a;
-                    a2 = i.a(this.f59428c, 80.0f);
+                    this.f59606a.setMaxWidth(i.a(this.f59608c, 120.0f));
+                    imageView = this.f59606a;
+                    a2 = i.a(this.f59608c, 80.0f);
                 }
                 imageView.setMaxHeight(a2);
             }
-            Handler handler = this.f59427b;
+            Handler handler = this.f59607b;
             if (handler != null) {
                 handler.obtainMessage(6).sendToTarget();
             }

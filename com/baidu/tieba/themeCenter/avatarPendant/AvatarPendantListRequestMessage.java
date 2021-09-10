@@ -1,6 +1,6 @@
 package com.baidu.tieba.themeCenter.avatarPendant;
 
-import c.a.p0.b1.w;
+import c.a.q0.d1.x;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -41,7 +41,7 @@ public class AvatarPendantListRequestMessage extends NetMessage {
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             DataReq.Builder builder = new DataReq.Builder();
             if (z) {
-                w.a(builder, true);
+                x.a(builder, true);
             }
             GetPendantByCategoryReqIdl.Builder builder2 = new GetPendantByCategoryReqIdl.Builder();
             builder2.data = builder.build(false);

@@ -18,7 +18,7 @@ public class d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final List<String> f70920a;
+    public static final List<String> f71100a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes10.dex */
@@ -89,12 +89,12 @@ public class d {
             }
         }
         ArrayList arrayList = new ArrayList();
-        f70920a = arrayList;
+        f71100a = arrayList;
         arrayList.add("com.kwad.sdk");
-        f70920a.add("com.ksad");
-        f70920a.add("com.kwai");
-        f70920a.add("kwad.support");
-        f70920a.add("android.support.rastermill");
+        f71100a.add("com.ksad");
+        f71100a.add("com.kwai");
+        f71100a.add("kwad.support");
+        f71100a.add("android.support.rastermill");
     }
 
     @NonNull

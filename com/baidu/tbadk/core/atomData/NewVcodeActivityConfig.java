@@ -43,7 +43,7 @@ public class NewVcodeActivityConfig extends IntentConfig {
         }
         getIntent().putExtra("model", writeData);
         getIntent().putExtra("is_ad", z);
-        getIntent().putExtra("page_type", b.d(str, 0));
+        getIntent().putExtra("page_type", b.e(str, 0));
     }
 
     public void setHideFeedBackButton() {

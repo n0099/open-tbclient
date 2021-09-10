@@ -20,13 +20,13 @@ public class I1 implements ServiceConnection {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f76622a;
+    public Context f76802a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f76623b;
+    public boolean f76803b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final BlockingQueue f76624c;
+    public final BlockingQueue f76804c;
 
     public I1(Context context) {
         Interceptable interceptable = $ic;
@@ -43,21 +43,21 @@ public class I1 implements ServiceConnection {
                 return;
             }
         }
-        this.f76623b = false;
-        this.f76624c = new LinkedBlockingQueue();
-        this.f76622a = context;
+        this.f76803b = false;
+        this.f76804c = new LinkedBlockingQueue();
+        this.f76802a = context;
     }
 
     public IBinder a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.f76623b) {
+            if (this.f76803b) {
                 throw new IllegalStateException("Binder already consumed");
             }
-            IBinder iBinder = (IBinder) this.f76624c.take();
+            IBinder iBinder = (IBinder) this.f76804c.take();
             if (iBinder != null) {
-                this.f76623b = true;
+                this.f76803b = true;
             }
             return iBinder;
         }
@@ -69,12 +69,12 @@ public class I1 implements ServiceConnection {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, componentName, iBinder) == null) {
             try {
-                this.f76624c.put(iBinder);
+                this.f76804c.put(iBinder);
                 String a2 = ((a) b.a(iBinder)).a();
                 if (TextUtils.isEmpty(a2)) {
                     return;
                 }
-                U1.f(this.f76622a, a2);
+                U1.f(this.f76802a, a2);
             } catch (RemoteException e2) {
                 e2.printStackTrace();
             } catch (InterruptedException e3) {

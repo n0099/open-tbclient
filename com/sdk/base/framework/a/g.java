@@ -14,22 +14,22 @@ public final class g {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final g f75316a;
+    public static final g f75496a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final g f75317b;
+    public static final g f75497b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final g f75318c;
+    public static final g f75498c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final g f75319d;
+    public static final g f75499d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final g f75320e;
+    public static final g f75500e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final g f75321f;
+    public static final g f75501f;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -45,12 +45,12 @@ public final class g {
                 return;
             }
         }
-        f75316a = new g("WAITING", 0, 0);
-        f75317b = new g("STARTED", 1, 1);
-        f75318c = new g("LOADING", 2, 2);
-        f75319d = new g("FAILURE", 3, 3);
-        f75320e = new g("CANCELLED", 4, 4);
-        f75321f = new g(com.alipay.security.mobile.module.http.model.c.f36090g, 5, 5);
+        f75496a = new g("WAITING", 0, 0);
+        f75497b = new g("STARTED", 1, 1);
+        f75498c = new g("LOADING", 2, 2);
+        f75499d = new g("FAILURE", 3, 3);
+        f75500e = new g("CANCELLED", 4, 4);
+        f75501f = new g(com.alipay.security.mobile.module.http.model.c.f36199g, 5, 5);
     }
 
     public g(String str, int i2, int i3) {

@@ -77,7 +77,7 @@ public class WinDReceiver extends BroadcastReceiver {
                 if (z) {
                     Y0 a2 = Z0.a(context);
                     try {
-                        a2.f76755b = Z0.a("wie", new a1(info));
+                        a2.f76935b = Z0.a("wie", new a1(info));
                         a2.a("co", 200);
                     } catch (JSONException unused) {
                     }
@@ -109,7 +109,7 @@ public class WinDReceiver extends BroadcastReceiver {
                     a1 a1Var = new a1(info);
                     String open = info.getOpen();
                     try {
-                        a2.f76755b = Z0.a("wiop", a1Var);
+                        a2.f76935b = Z0.a("wiop", a1Var);
                         a2.a("msg", Z0.a(open));
                     } catch (JSONException unused) {
                     }

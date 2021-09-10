@@ -30,22 +30,22 @@ public class a extends UploadBean {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f40020a;
+    public String f40131a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f40021b;
+    public String f40132b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f40022c;
+    public String f40133c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f40023d;
+    public String f40134d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f40024e;
+    public String f40135e;
 
     /* renamed from: f  reason: collision with root package name */
-    public LivenessRecogDTO f40025f;
+    public LivenessRecogDTO f40136f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a(Context context) {
@@ -67,23 +67,23 @@ public class a extends UploadBean {
             }
         }
         String zid2 = RimGlobalUtils.getZid2();
-        this.f40023d = zid2;
+        this.f40134d = zid2;
         if (TextUtils.isEmpty(zid2)) {
-            this.f40022c = RimGlobalUtils.getZid(context.getApplicationContext());
+            this.f40133c = RimGlobalUtils.getZid(context.getApplicationContext());
         }
     }
 
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            this.f40020a = str;
+            this.f40131a = str;
         }
     }
 
     public void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            this.f40024e = str;
+            this.f40135e = str;
         }
     }
 
@@ -103,12 +103,12 @@ public class a extends UploadBean {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             ArrayList arrayList = new ArrayList();
             LivenessRecogDTO livenessRecogDTO = (LivenessRecogDTO) c.a().a("request_data");
-            this.f40025f = livenessRecogDTO;
+            this.f40136f = livenessRecogDTO;
             if (livenessRecogDTO != null && (list = this.files) != null && list.get(0) != null && this.files.get(0).filedata != null) {
-                setSpParameter(this.f40025f.spParams);
-                arrayList.add(new RestNameValuePair("processid", this.f40025f.processid));
-                if (!TextUtils.isEmpty(this.f40021b)) {
-                    arrayList.add(new RestNameValuePair("image_callbackkey", this.f40021b));
+                setSpParameter(this.f40136f.spParams);
+                arrayList.add(new RestNameValuePair("processid", this.f40136f.processid));
+                if (!TextUtils.isEmpty(this.f40132b)) {
+                    arrayList.add(new RestNameValuePair("image_callbackkey", this.f40132b));
                 }
                 ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(this.files.get(0).filedata);
                 arrayList.add(new RestNameValuePair("videomd5", Md5Utils.getMd5FromInputStream(byteArrayInputStream)));
@@ -117,42 +117,42 @@ public class a extends UploadBean {
                 } catch (IOException e2) {
                     e2.printStackTrace();
                 }
-                arrayList.add(new RestNameValuePair(TableDefine.MessageColumns.COLUME_SERVICE_TYPE, this.f40025f.serviceType));
-                LivenessRecogType livenessRecogType = this.f40025f.livenessType;
+                arrayList.add(new RestNameValuePair(TableDefine.MessageColumns.COLUME_SERVICE_TYPE, this.f40136f.serviceType));
+                LivenessRecogType livenessRecogType = this.f40136f.livenessType;
                 if (livenessRecogType == LivenessRecogType.RECOG_TYPE_BDUSS) {
                     arrayList.add(new RestNameValuePair("type", "bduss"));
                     arrayList.add(new RestNameValuePair(NetworkBean.PARAM_COOKIE, a()));
                 } else if (livenessRecogType == LivenessRecogType.RECOG_TYPE_CERTINFO) {
                     arrayList.add(new RestNameValuePair("type", "certinfo"));
-                    arrayList.add(new RestNameValuePair("exuid", this.f40025f.exUid));
+                    arrayList.add(new RestNameValuePair("exuid", this.f40136f.exUid));
                     JSONObject jSONObject = new JSONObject();
                     try {
-                        jSONObject.put("name", this.f40025f.realName);
-                        jSONObject.put("cert", this.f40025f.idCardNum);
-                        jSONObject.put("bankmobile", this.f40025f.phoneNum);
+                        jSONObject.put("name", this.f40136f.realName);
+                        jSONObject.put("cert", this.f40136f.idCardNum);
+                        jSONObject.put("bankmobile", this.f40136f.phoneNum);
                         arrayList.add(new RestNameValuePair("certinfo", PayUtils.encrypt("phone_number", jSONObject.toString())));
                     } catch (Exception e3) {
                         e3.printStackTrace();
                     }
                 } else if (livenessRecogType == LivenessRecogType.RECOG_TYPE_AUTHTOKEN) {
                     arrayList.add(new RestNameValuePair("type", "authtoken"));
-                    arrayList.add(new RestNameValuePair("authtoken", this.f40025f.authToken));
+                    arrayList.add(new RestNameValuePair("authtoken", this.f40136f.authToken));
                 } else if (livenessRecogType == LivenessRecogType.RECOG_TYPE_OUTER) {
                     arrayList.add(new RestNameValuePair("type", "outer"));
-                    arrayList.add(new RestNameValuePair("exuid", this.f40025f.exUid));
+                    arrayList.add(new RestNameValuePair("exuid", this.f40136f.exUid));
                 }
             }
             arrayList.add(new RestNameValuePair("client", "android"));
-            if (!TextUtils.isEmpty(this.f40023d)) {
-                arrayList.add(new RestNameValuePair("zid2", this.f40023d));
-            } else if (!TextUtils.isEmpty(this.f40022c)) {
-                arrayList.add(new RestNameValuePair("zid", this.f40022c));
+            if (!TextUtils.isEmpty(this.f40134d)) {
+                arrayList.add(new RestNameValuePair("zid2", this.f40134d));
+            } else if (!TextUtils.isEmpty(this.f40133c)) {
+                arrayList.add(new RestNameValuePair("zid", this.f40133c));
             }
-            if (!TextUtils.isEmpty(this.f40020a)) {
+            if (!TextUtils.isEmpty(this.f40131a)) {
                 arrayList.add(new RestNameValuePair("audioStartTime", "0"));
             }
-            if (!TextUtils.isEmpty(this.f40024e)) {
-                arrayList.add(new RestNameValuePair("shouldCollectPicture", this.f40024e));
+            if (!TextUtils.isEmpty(this.f40135e)) {
+                arrayList.add(new RestNameValuePair("shouldCollectPicture", this.f40135e));
             }
             return arrayList;
         }
@@ -201,9 +201,9 @@ public class a extends UploadBean {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
             StringBuilder sb = new StringBuilder();
-            if (this.f40025f != null) {
-                sb.append("bduss=" + this.f40025f.bduss);
-                sb.append(";stoken=" + this.f40025f.stoken);
+            if (this.f40136f != null) {
+                sb.append("bduss=" + this.f40136f.bduss);
+                sb.append(";stoken=" + this.f40136f.stoken);
             }
             return PayUtils.encrypt("phone_number", sb.toString());
         }

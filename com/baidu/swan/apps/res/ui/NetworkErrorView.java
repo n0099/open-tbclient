@@ -8,9 +8,9 @@ import android.widget.FrameLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import c.a.o0.a.c;
-import c.a.o0.a.e;
-import c.a.o0.a.h;
+import c.a.p0.a.c;
+import c.a.p0.a.e;
+import c.a.p0.a.h;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.bdeventbus.BdEventBus;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -26,7 +26,7 @@ public class NetworkErrorView extends CommonEmptyView {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f46173e;
+    public int f46288e;
 
     /* loaded from: classes6.dex */
     public static class a {
@@ -34,7 +34,7 @@ public class NetworkErrorView extends CommonEmptyView {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public Object f46174a;
+        public Object f46289a;
 
         public a(int i2) {
             Interceptable interceptable = $ic;
@@ -78,7 +78,7 @@ public class NetworkErrorView extends CommonEmptyView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, null, view) == null) {
             a aVar = new a(1);
-            aVar.f46174a = view;
+            aVar.f46289a = view;
             BdEventBus.Companion.getDefault().post(aVar);
         }
     }
@@ -94,7 +94,7 @@ public class NetworkErrorView extends CommonEmptyView {
     public boolean isNight() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f46173e == 2 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f46288e == 2 : invokeV.booleanValue;
     }
 
     public void setBottomLayout(View.OnClickListener onClickListener, View view, RelativeLayout.LayoutParams layoutParams) {
@@ -155,7 +155,7 @@ public class NetworkErrorView extends CommonEmptyView {
     public void updateUI(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
-            this.f46173e = i2;
+            this.f46288e = i2;
             if (i2 == 2) {
                 setBackgroundColor(-16777216);
                 this.mIcon.setAlpha(0.5f);

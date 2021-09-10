@@ -24,32 +24,32 @@ public final class h<K, V> extends AbstractMap<K, V> implements Serializable {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final /* synthetic */ boolean f68322f;
+    public static final /* synthetic */ boolean f68502f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final Comparator<Comparable> f68323g;
+    public static final Comparator<Comparable> f68503g;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Comparator<? super K> f68324a;
+    public Comparator<? super K> f68504a;
 
     /* renamed from: b  reason: collision with root package name */
-    public d<K, V> f68325b;
+    public d<K, V> f68505b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f68326c;
+    public int f68506c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f68327d;
+    public int f68507d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final d<K, V> f68328e;
+    public final d<K, V> f68508e;
 
     /* renamed from: h  reason: collision with root package name */
-    public h<K, V>.a f68329h;
+    public h<K, V>.a f68509h;
 
     /* renamed from: i  reason: collision with root package name */
-    public h<K, V>.b f68330i;
+    public h<K, V>.b f68510i;
 
     /* loaded from: classes9.dex */
     public class a extends AbstractSet<Map.Entry<K, V>> {
@@ -57,7 +57,7 @@ public final class h<K, V> extends AbstractMap<K, V> implements Serializable {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ h f68331a;
+        public final /* synthetic */ h f68511a;
 
         public a(h hVar) {
             Interceptable interceptable = $ic;
@@ -74,14 +74,14 @@ public final class h<K, V> extends AbstractMap<K, V> implements Serializable {
                     return;
                 }
             }
-            this.f68331a = hVar;
+            this.f68511a = hVar;
         }
 
         @Override // java.util.AbstractCollection, java.util.Collection, java.util.Set
         public void clear() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f68331a.clear();
+                this.f68511a.clear();
             }
         }
 
@@ -89,7 +89,7 @@ public final class h<K, V> extends AbstractMap<K, V> implements Serializable {
         public boolean contains(Object obj) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) ? (obj instanceof Map.Entry) && this.f68331a.a((Map.Entry) obj) != null : invokeL.booleanValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) ? (obj instanceof Map.Entry) && this.f68511a.a((Map.Entry) obj) != null : invokeL.booleanValue;
         }
 
         @Override // java.util.AbstractCollection, java.util.Collection, java.lang.Iterable, java.util.Set
@@ -101,7 +101,7 @@ public final class h<K, V> extends AbstractMap<K, V> implements Serializable {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ a f68332a;
+                public final /* synthetic */ a f68512a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -119,8 +119,8 @@ public final class h<K, V> extends AbstractMap<K, V> implements Serializable {
                             return;
                         }
                     }
-                    this.f68332a = this;
-                    h hVar2 = this.f68331a;
+                    this.f68512a = this;
+                    h hVar2 = this.f68511a;
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
@@ -140,8 +140,8 @@ public final class h<K, V> extends AbstractMap<K, V> implements Serializable {
             d<K, V> a2;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) {
-                if ((obj instanceof Map.Entry) && (a2 = this.f68331a.a((Map.Entry) obj)) != null) {
-                    this.f68331a.a((d) a2, true);
+                if ((obj instanceof Map.Entry) && (a2 = this.f68511a.a((Map.Entry) obj)) != null) {
+                    this.f68511a.a((d) a2, true);
                     return true;
                 }
                 return false;
@@ -153,7 +153,7 @@ public final class h<K, V> extends AbstractMap<K, V> implements Serializable {
         public int size() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f68331a.f68326c : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f68511a.f68506c : invokeV.intValue;
         }
     }
 
@@ -163,7 +163,7 @@ public final class h<K, V> extends AbstractMap<K, V> implements Serializable {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ h f68333a;
+        public final /* synthetic */ h f68513a;
 
         public b(h hVar) {
             Interceptable interceptable = $ic;
@@ -180,14 +180,14 @@ public final class h<K, V> extends AbstractMap<K, V> implements Serializable {
                     return;
                 }
             }
-            this.f68333a = hVar;
+            this.f68513a = hVar;
         }
 
         @Override // java.util.AbstractCollection, java.util.Collection, java.util.Set
         public void clear() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f68333a.clear();
+                this.f68513a.clear();
             }
         }
 
@@ -195,7 +195,7 @@ public final class h<K, V> extends AbstractMap<K, V> implements Serializable {
         public boolean contains(Object obj) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) ? this.f68333a.containsKey(obj) : invokeL.booleanValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) ? this.f68513a.containsKey(obj) : invokeL.booleanValue;
         }
 
         @Override // java.util.AbstractCollection, java.util.Collection, java.lang.Iterable, java.util.Set
@@ -207,7 +207,7 @@ public final class h<K, V> extends AbstractMap<K, V> implements Serializable {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ b f68334a;
+                public final /* synthetic */ b f68514a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -225,15 +225,15 @@ public final class h<K, V> extends AbstractMap<K, V> implements Serializable {
                             return;
                         }
                     }
-                    this.f68334a = this;
-                    h hVar2 = this.f68333a;
+                    this.f68514a = this;
+                    h hVar2 = this.f68513a;
                 }
 
                 @Override // java.util.Iterator
                 public K next() {
                     InterceptResult invokeV2;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeV2 = interceptable2.invokeV(1048576, this)) == null) ? b().f68344f : (K) invokeV2.objValue;
+                    return (interceptable2 == null || (invokeV2 = interceptable2.invokeV(1048576, this)) == null) ? b().f68524f : (K) invokeV2.objValue;
                 }
             } : (Iterator) invokeV.objValue;
         }
@@ -242,14 +242,14 @@ public final class h<K, V> extends AbstractMap<K, V> implements Serializable {
         public boolean remove(Object obj) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) ? this.f68333a.b(obj) != null : invokeL.booleanValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) ? this.f68513a.b(obj) != null : invokeL.booleanValue;
         }
 
         @Override // java.util.AbstractCollection, java.util.Collection, java.util.Set
         public int size() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f68333a.f68326c : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f68513a.f68506c : invokeV.intValue;
         }
     }
 
@@ -259,16 +259,16 @@ public final class h<K, V> extends AbstractMap<K, V> implements Serializable {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: b  reason: collision with root package name */
-        public d<K, V> f68335b;
+        public d<K, V> f68515b;
 
         /* renamed from: c  reason: collision with root package name */
-        public d<K, V> f68336c;
+        public d<K, V> f68516c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f68337d;
+        public int f68517d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ h f68338e;
+        public final /* synthetic */ h f68518e;
 
         public c(h hVar) {
             Interceptable interceptable = $ic;
@@ -285,23 +285,23 @@ public final class h<K, V> extends AbstractMap<K, V> implements Serializable {
                     return;
                 }
             }
-            this.f68338e = hVar;
-            h hVar2 = this.f68338e;
-            this.f68335b = hVar2.f68328e.f68342d;
-            this.f68336c = null;
-            this.f68337d = hVar2.f68327d;
+            this.f68518e = hVar;
+            h hVar2 = this.f68518e;
+            this.f68515b = hVar2.f68508e.f68522d;
+            this.f68516c = null;
+            this.f68517d = hVar2.f68507d;
         }
 
         public final d<K, V> b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                d<K, V> dVar = this.f68335b;
-                h hVar = this.f68338e;
-                if (dVar != hVar.f68328e) {
-                    if (hVar.f68327d == this.f68337d) {
-                        this.f68335b = dVar.f68342d;
-                        this.f68336c = dVar;
+                d<K, V> dVar = this.f68515b;
+                h hVar = this.f68518e;
+                if (dVar != hVar.f68508e) {
+                    if (hVar.f68507d == this.f68517d) {
+                        this.f68515b = dVar.f68522d;
+                        this.f68516c = dVar;
                         return dVar;
                     }
                     throw new ConcurrentModificationException();
@@ -315,18 +315,18 @@ public final class h<K, V> extends AbstractMap<K, V> implements Serializable {
         public final boolean hasNext() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f68335b != this.f68338e.f68328e : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f68515b != this.f68518e.f68508e : invokeV.booleanValue;
         }
 
         @Override // java.util.Iterator
         public final void remove() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                d<K, V> dVar = this.f68336c;
+                d<K, V> dVar = this.f68516c;
                 if (dVar != null) {
-                    this.f68338e.a((d) dVar, true);
-                    this.f68336c = null;
-                    this.f68337d = this.f68338e.f68327d;
+                    this.f68518e.a((d) dVar, true);
+                    this.f68516c = null;
+                    this.f68517d = this.f68518e.f68507d;
                     return;
                 }
                 throw new IllegalStateException();
@@ -347,8 +347,8 @@ public final class h<K, V> extends AbstractMap<K, V> implements Serializable {
                 return;
             }
         }
-        f68322f = !h.class.desiredAssertionStatus();
-        f68323g = new Comparator<Comparable>() { // from class: com.bytedance.sdk.openadsdk.preload.a.b.h.1
+        f68502f = !h.class.desiredAssertionStatus();
+        f68503g = new Comparator<Comparable>() { // from class: com.bytedance.sdk.openadsdk.preload.a.b.h.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -379,7 +379,7 @@ public final class h<K, V> extends AbstractMap<K, V> implements Serializable {
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public h() {
-        this(f68323g);
+        this(f68503g);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -402,20 +402,20 @@ public final class h<K, V> extends AbstractMap<K, V> implements Serializable {
         d<K, V> dVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, k, z)) == null) {
-            Comparator<? super K> comparator = this.f68324a;
-            d<K, V> dVar2 = this.f68325b;
+            Comparator<? super K> comparator = this.f68504a;
+            d<K, V> dVar2 = this.f68505b;
             if (dVar2 != null) {
-                Comparable comparable = comparator == f68323g ? (Comparable) k : null;
+                Comparable comparable = comparator == f68503g ? (Comparable) k : null;
                 while (true) {
                     if (comparable != null) {
-                        i2 = comparable.compareTo(dVar2.f68344f);
+                        i2 = comparable.compareTo(dVar2.f68524f);
                     } else {
-                        i2 = comparator.compare(k, (K) dVar2.f68344f);
+                        i2 = comparator.compare(k, (K) dVar2.f68524f);
                     }
                     if (i2 == 0) {
                         return dVar2;
                     }
-                    d<K, V> dVar3 = i2 < 0 ? dVar2.f68340b : dVar2.f68341c;
+                    d<K, V> dVar3 = i2 < 0 ? dVar2.f68520b : dVar2.f68521c;
                     if (dVar3 == null) {
                         break;
                     }
@@ -425,24 +425,24 @@ public final class h<K, V> extends AbstractMap<K, V> implements Serializable {
                 i2 = 0;
             }
             if (z) {
-                d<K, V> dVar4 = this.f68328e;
+                d<K, V> dVar4 = this.f68508e;
                 if (dVar2 == null) {
-                    if (comparator == f68323g && !(k instanceof Comparable)) {
+                    if (comparator == f68503g && !(k instanceof Comparable)) {
                         throw new ClassCastException(k.getClass().getName() + " is not Comparable");
                     }
-                    dVar = new d<>(dVar2, k, dVar4, dVar4.f68343e);
-                    this.f68325b = dVar;
+                    dVar = new d<>(dVar2, k, dVar4, dVar4.f68523e);
+                    this.f68505b = dVar;
                 } else {
-                    dVar = new d<>(dVar2, k, dVar4, dVar4.f68343e);
+                    dVar = new d<>(dVar2, k, dVar4, dVar4.f68523e);
                     if (i2 < 0) {
-                        dVar2.f68340b = dVar;
+                        dVar2.f68520b = dVar;
                     } else {
-                        dVar2.f68341c = dVar;
+                        dVar2.f68521c = dVar;
                     }
                     b(dVar2, true);
                 }
-                this.f68326c++;
-                this.f68327d++;
+                this.f68506c++;
+                this.f68507d++;
                 return dVar;
             }
             return null;
@@ -467,12 +467,12 @@ public final class h<K, V> extends AbstractMap<K, V> implements Serializable {
     public void clear() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.f68325b = null;
-            this.f68326c = 0;
-            this.f68327d++;
-            d<K, V> dVar = this.f68328e;
-            dVar.f68343e = dVar;
-            dVar.f68342d = dVar;
+            this.f68505b = null;
+            this.f68506c = 0;
+            this.f68507d++;
+            d<K, V> dVar = this.f68508e;
+            dVar.f68523e = dVar;
+            dVar.f68522d = dVar;
         }
     }
 
@@ -488,12 +488,12 @@ public final class h<K, V> extends AbstractMap<K, V> implements Serializable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            h<K, V>.a aVar = this.f68329h;
+            h<K, V>.a aVar = this.f68509h;
             if (aVar != null) {
                 return aVar;
             }
             h<K, V>.a aVar2 = new a(this);
-            this.f68329h = aVar2;
+            this.f68509h = aVar2;
             return aVar2;
         }
         return (Set) invokeV.objValue;
@@ -506,7 +506,7 @@ public final class h<K, V> extends AbstractMap<K, V> implements Serializable {
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, obj)) == null) {
             d<K, V> a2 = a(obj);
             if (a2 != null) {
-                return a2.f68345g;
+                return a2.f68525g;
             }
             return null;
         }
@@ -518,12 +518,12 @@ public final class h<K, V> extends AbstractMap<K, V> implements Serializable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            h<K, V>.b bVar = this.f68330i;
+            h<K, V>.b bVar = this.f68510i;
             if (bVar != null) {
                 return bVar;
             }
             h<K, V>.b bVar2 = new b(this);
-            this.f68330i = bVar2;
+            this.f68510i = bVar2;
             return bVar2;
         }
         return (Set) invokeV.objValue;
@@ -536,8 +536,8 @@ public final class h<K, V> extends AbstractMap<K, V> implements Serializable {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048586, this, k, v)) == null) {
             if (k != null) {
                 d<K, V> a2 = a((h<K, V>) k, true);
-                V v2 = a2.f68345g;
-                a2.f68345g = v;
+                V v2 = a2.f68525g;
+                a2.f68525g = v;
                 return v2;
             }
             throw new NullPointerException("key == null");
@@ -552,7 +552,7 @@ public final class h<K, V> extends AbstractMap<K, V> implements Serializable {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, obj)) == null) {
             d<K, V> b2 = b(obj);
             if (b2 != null) {
-                return b2.f68345g;
+                return b2.f68525g;
             }
             return null;
         }
@@ -563,7 +563,7 @@ public final class h<K, V> extends AbstractMap<K, V> implements Serializable {
     public int size() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f68326c : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f68506c : invokeV.intValue;
     }
 
     public h(Comparator<? super K> comparator) {
@@ -581,10 +581,10 @@ public final class h<K, V> extends AbstractMap<K, V> implements Serializable {
                 return;
             }
         }
-        this.f68326c = 0;
-        this.f68327d = 0;
-        this.f68328e = new d<>();
-        this.f68324a = comparator == null ? f68323g : comparator;
+        this.f68506c = 0;
+        this.f68507d = 0;
+        this.f68508e = new d<>();
+        this.f68504a = comparator == null ? f68503g : comparator;
     }
 
     /* loaded from: classes9.dex */
@@ -593,28 +593,28 @@ public final class h<K, V> extends AbstractMap<K, V> implements Serializable {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public d<K, V> f68339a;
+        public d<K, V> f68519a;
 
         /* renamed from: b  reason: collision with root package name */
-        public d<K, V> f68340b;
+        public d<K, V> f68520b;
 
         /* renamed from: c  reason: collision with root package name */
-        public d<K, V> f68341c;
+        public d<K, V> f68521c;
 
         /* renamed from: d  reason: collision with root package name */
-        public d<K, V> f68342d;
+        public d<K, V> f68522d;
 
         /* renamed from: e  reason: collision with root package name */
-        public d<K, V> f68343e;
+        public d<K, V> f68523e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final K f68344f;
+        public final K f68524f;
 
         /* renamed from: g  reason: collision with root package name */
-        public V f68345g;
+        public V f68525g;
 
         /* renamed from: h  reason: collision with root package name */
-        public int f68346h;
+        public int f68526h;
 
         public d() {
             Interceptable interceptable = $ic;
@@ -629,9 +629,9 @@ public final class h<K, V> extends AbstractMap<K, V> implements Serializable {
                     return;
                 }
             }
-            this.f68344f = null;
-            this.f68343e = this;
-            this.f68342d = this;
+            this.f68524f = null;
+            this.f68523e = this;
+            this.f68522d = this;
         }
 
         public d<K, V> a() {
@@ -639,7 +639,7 @@ public final class h<K, V> extends AbstractMap<K, V> implements Serializable {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 d<K, V> dVar = this;
-                for (d<K, V> dVar2 = this.f68340b; dVar2 != null; dVar2 = dVar2.f68340b) {
+                for (d<K, V> dVar2 = this.f68520b; dVar2 != null; dVar2 = dVar2.f68520b) {
                     dVar = dVar2;
                 }
                 return dVar;
@@ -652,7 +652,7 @@ public final class h<K, V> extends AbstractMap<K, V> implements Serializable {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
                 d<K, V> dVar = this;
-                for (d<K, V> dVar2 = this.f68341c; dVar2 != null; dVar2 = dVar2.f68341c) {
+                for (d<K, V> dVar2 = this.f68521c; dVar2 != null; dVar2 = dVar2.f68521c) {
                     dVar = dVar2;
                 }
                 return dVar;
@@ -667,7 +667,7 @@ public final class h<K, V> extends AbstractMap<K, V> implements Serializable {
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
                 if (obj instanceof Map.Entry) {
                     Map.Entry entry = (Map.Entry) obj;
-                    K k = this.f68344f;
+                    K k = this.f68524f;
                     if (k == null) {
                         if (entry.getKey() != null) {
                             return false;
@@ -675,7 +675,7 @@ public final class h<K, V> extends AbstractMap<K, V> implements Serializable {
                     } else if (!k.equals(entry.getKey())) {
                         return false;
                     }
-                    V v = this.f68345g;
+                    V v = this.f68525g;
                     if (v == null) {
                         if (entry.getValue() != null) {
                             return false;
@@ -694,14 +694,14 @@ public final class h<K, V> extends AbstractMap<K, V> implements Serializable {
         public K getKey() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f68344f : (K) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f68524f : (K) invokeV.objValue;
         }
 
         @Override // java.util.Map.Entry
         public V getValue() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f68345g : (V) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f68525g : (V) invokeV.objValue;
         }
 
         @Override // java.util.Map.Entry
@@ -709,9 +709,9 @@ public final class h<K, V> extends AbstractMap<K, V> implements Serializable {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-                K k = this.f68344f;
+                K k = this.f68524f;
                 int hashCode = k == null ? 0 : k.hashCode();
-                V v = this.f68345g;
+                V v = this.f68525g;
                 return hashCode ^ (v != null ? v.hashCode() : 0);
             }
             return invokeV.intValue;
@@ -722,8 +722,8 @@ public final class h<K, V> extends AbstractMap<K, V> implements Serializable {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, v)) == null) {
-                V v2 = this.f68345g;
-                this.f68345g = v;
+                V v2 = this.f68525g;
+                this.f68525g = v;
                 return v2;
             }
             return (V) invokeL.objValue;
@@ -733,7 +733,7 @@ public final class h<K, V> extends AbstractMap<K, V> implements Serializable {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-                return this.f68344f + "=" + this.f68345g;
+                return this.f68524f + "=" + this.f68525g;
             }
             return (String) invokeV.objValue;
         }
@@ -753,13 +753,13 @@ public final class h<K, V> extends AbstractMap<K, V> implements Serializable {
                     return;
                 }
             }
-            this.f68339a = dVar;
-            this.f68344f = k;
-            this.f68346h = 1;
-            this.f68342d = dVar2;
-            this.f68343e = dVar3;
-            dVar3.f68342d = this;
-            dVar2.f68343e = this;
+            this.f68519a = dVar;
+            this.f68524f = k;
+            this.f68526h = 1;
+            this.f68522d = dVar2;
+            this.f68523e = dVar3;
+            dVar3.f68522d = this;
+            dVar2.f68523e = this;
         }
     }
 
@@ -767,17 +767,17 @@ public final class h<K, V> extends AbstractMap<K, V> implements Serializable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(65543, this, dVar, z) == null) {
             while (dVar != null) {
-                d<K, V> dVar2 = dVar.f68340b;
-                d<K, V> dVar3 = dVar.f68341c;
-                int i2 = dVar2 != null ? dVar2.f68346h : 0;
-                int i3 = dVar3 != null ? dVar3.f68346h : 0;
+                d<K, V> dVar2 = dVar.f68520b;
+                d<K, V> dVar3 = dVar.f68521c;
+                int i2 = dVar2 != null ? dVar2.f68526h : 0;
+                int i3 = dVar3 != null ? dVar3.f68526h : 0;
                 int i4 = i2 - i3;
                 if (i4 == -2) {
-                    d<K, V> dVar4 = dVar3.f68340b;
-                    d<K, V> dVar5 = dVar3.f68341c;
-                    int i5 = (dVar4 != null ? dVar4.f68346h : 0) - (dVar5 != null ? dVar5.f68346h : 0);
+                    d<K, V> dVar4 = dVar3.f68520b;
+                    d<K, V> dVar5 = dVar3.f68521c;
+                    int i5 = (dVar4 != null ? dVar4.f68526h : 0) - (dVar5 != null ? dVar5.f68526h : 0);
                     if (i5 != -1 && (i5 != 0 || z)) {
-                        if (!f68322f && i5 != 1) {
+                        if (!f68502f && i5 != 1) {
                             throw new AssertionError();
                         }
                         b((d) dVar3);
@@ -789,11 +789,11 @@ public final class h<K, V> extends AbstractMap<K, V> implements Serializable {
                         return;
                     }
                 } else if (i4 == 2) {
-                    d<K, V> dVar6 = dVar2.f68340b;
-                    d<K, V> dVar7 = dVar2.f68341c;
-                    int i6 = (dVar6 != null ? dVar6.f68346h : 0) - (dVar7 != null ? dVar7.f68346h : 0);
+                    d<K, V> dVar6 = dVar2.f68520b;
+                    d<K, V> dVar7 = dVar2.f68521c;
+                    int i6 = (dVar6 != null ? dVar6.f68526h : 0) - (dVar7 != null ? dVar7.f68526h : 0);
                     if (i6 != 1 && (i6 != 0 || z)) {
-                        if (!f68322f && i6 != -1) {
+                        if (!f68502f && i6 != -1) {
                             throw new AssertionError();
                         }
                         a((d) dVar2);
@@ -805,19 +805,19 @@ public final class h<K, V> extends AbstractMap<K, V> implements Serializable {
                         return;
                     }
                 } else if (i4 == 0) {
-                    dVar.f68346h = i2 + 1;
+                    dVar.f68526h = i2 + 1;
                     if (z) {
                         return;
                     }
-                } else if (!f68322f && i4 != -1 && i4 != 1) {
+                } else if (!f68502f && i4 != -1 && i4 != 1) {
                     throw new AssertionError();
                 } else {
-                    dVar.f68346h = Math.max(i2, i3) + 1;
+                    dVar.f68526h = Math.max(i2, i3) + 1;
                     if (!z) {
                         return;
                     }
                 }
-                dVar = dVar.f68339a;
+                dVar = dVar.f68519a;
             }
         }
     }
@@ -845,7 +845,7 @@ public final class h<K, V> extends AbstractMap<K, V> implements Serializable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, entry)) == null) {
             d<K, V> a2 = a(entry.getKey());
-            if (a2 != null && a(a2.f68345g, entry.getValue())) {
+            if (a2 != null && a(a2.f68525g, entry.getValue())) {
                 return a2;
             }
             return null;
@@ -864,112 +864,112 @@ public final class h<K, V> extends AbstractMap<K, V> implements Serializable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(1048579, this, dVar, z) == null) {
             if (z) {
-                d<K, V> dVar2 = dVar.f68343e;
-                dVar2.f68342d = dVar.f68342d;
-                dVar.f68342d.f68343e = dVar2;
+                d<K, V> dVar2 = dVar.f68523e;
+                dVar2.f68522d = dVar.f68522d;
+                dVar.f68522d.f68523e = dVar2;
             }
-            d<K, V> dVar3 = dVar.f68340b;
-            d<K, V> dVar4 = dVar.f68341c;
-            d<K, V> dVar5 = dVar.f68339a;
+            d<K, V> dVar3 = dVar.f68520b;
+            d<K, V> dVar4 = dVar.f68521c;
+            d<K, V> dVar5 = dVar.f68519a;
             int i3 = 0;
             if (dVar3 != null && dVar4 != null) {
-                d<K, V> b2 = dVar3.f68346h > dVar4.f68346h ? dVar3.b() : dVar4.a();
+                d<K, V> b2 = dVar3.f68526h > dVar4.f68526h ? dVar3.b() : dVar4.a();
                 a((d) b2, false);
-                d<K, V> dVar6 = dVar.f68340b;
+                d<K, V> dVar6 = dVar.f68520b;
                 if (dVar6 != null) {
-                    i2 = dVar6.f68346h;
-                    b2.f68340b = dVar6;
-                    dVar6.f68339a = b2;
-                    dVar.f68340b = null;
+                    i2 = dVar6.f68526h;
+                    b2.f68520b = dVar6;
+                    dVar6.f68519a = b2;
+                    dVar.f68520b = null;
                 } else {
                     i2 = 0;
                 }
-                d<K, V> dVar7 = dVar.f68341c;
+                d<K, V> dVar7 = dVar.f68521c;
                 if (dVar7 != null) {
-                    i3 = dVar7.f68346h;
-                    b2.f68341c = dVar7;
-                    dVar7.f68339a = b2;
-                    dVar.f68341c = null;
+                    i3 = dVar7.f68526h;
+                    b2.f68521c = dVar7;
+                    dVar7.f68519a = b2;
+                    dVar.f68521c = null;
                 }
-                b2.f68346h = Math.max(i2, i3) + 1;
+                b2.f68526h = Math.max(i2, i3) + 1;
                 a((d) dVar, (d) b2);
                 return;
             }
             if (dVar3 != null) {
                 a((d) dVar, (d) dVar3);
-                dVar.f68340b = null;
+                dVar.f68520b = null;
             } else if (dVar4 != null) {
                 a((d) dVar, (d) dVar4);
-                dVar.f68341c = null;
+                dVar.f68521c = null;
             } else {
                 a((d) dVar, (d) null);
             }
             b(dVar5, false);
-            this.f68326c--;
-            this.f68327d++;
+            this.f68506c--;
+            this.f68507d++;
         }
     }
 
     private void b(d<K, V> dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, this, dVar) == null) {
-            d<K, V> dVar2 = dVar.f68340b;
-            d<K, V> dVar3 = dVar.f68341c;
-            d<K, V> dVar4 = dVar2.f68340b;
-            d<K, V> dVar5 = dVar2.f68341c;
-            dVar.f68340b = dVar5;
+            d<K, V> dVar2 = dVar.f68520b;
+            d<K, V> dVar3 = dVar.f68521c;
+            d<K, V> dVar4 = dVar2.f68520b;
+            d<K, V> dVar5 = dVar2.f68521c;
+            dVar.f68520b = dVar5;
             if (dVar5 != null) {
-                dVar5.f68339a = dVar;
+                dVar5.f68519a = dVar;
             }
             a((d) dVar, (d) dVar2);
-            dVar2.f68341c = dVar;
-            dVar.f68339a = dVar2;
-            int max = Math.max(dVar3 != null ? dVar3.f68346h : 0, dVar5 != null ? dVar5.f68346h : 0) + 1;
-            dVar.f68346h = max;
-            dVar2.f68346h = Math.max(max, dVar4 != null ? dVar4.f68346h : 0) + 1;
+            dVar2.f68521c = dVar;
+            dVar.f68519a = dVar2;
+            int max = Math.max(dVar3 != null ? dVar3.f68526h : 0, dVar5 != null ? dVar5.f68526h : 0) + 1;
+            dVar.f68526h = max;
+            dVar2.f68526h = Math.max(max, dVar4 != null ? dVar4.f68526h : 0) + 1;
         }
     }
 
     private void a(d<K, V> dVar, d<K, V> dVar2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, this, dVar, dVar2) == null) {
-            d<K, V> dVar3 = dVar.f68339a;
-            dVar.f68339a = null;
+            d<K, V> dVar3 = dVar.f68519a;
+            dVar.f68519a = null;
             if (dVar2 != null) {
-                dVar2.f68339a = dVar3;
+                dVar2.f68519a = dVar3;
             }
             if (dVar3 != null) {
-                if (dVar3.f68340b == dVar) {
-                    dVar3.f68340b = dVar2;
+                if (dVar3.f68520b == dVar) {
+                    dVar3.f68520b = dVar2;
                     return;
-                } else if (!f68322f && dVar3.f68341c != dVar) {
+                } else if (!f68502f && dVar3.f68521c != dVar) {
                     throw new AssertionError();
                 } else {
-                    dVar3.f68341c = dVar2;
+                    dVar3.f68521c = dVar2;
                     return;
                 }
             }
-            this.f68325b = dVar2;
+            this.f68505b = dVar2;
         }
     }
 
     private void a(d<K, V> dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, this, dVar) == null) {
-            d<K, V> dVar2 = dVar.f68340b;
-            d<K, V> dVar3 = dVar.f68341c;
-            d<K, V> dVar4 = dVar3.f68340b;
-            d<K, V> dVar5 = dVar3.f68341c;
-            dVar.f68341c = dVar4;
+            d<K, V> dVar2 = dVar.f68520b;
+            d<K, V> dVar3 = dVar.f68521c;
+            d<K, V> dVar4 = dVar3.f68520b;
+            d<K, V> dVar5 = dVar3.f68521c;
+            dVar.f68521c = dVar4;
             if (dVar4 != null) {
-                dVar4.f68339a = dVar;
+                dVar4.f68519a = dVar;
             }
             a((d) dVar, (d) dVar3);
-            dVar3.f68340b = dVar;
-            dVar.f68339a = dVar3;
-            int max = Math.max(dVar2 != null ? dVar2.f68346h : 0, dVar4 != null ? dVar4.f68346h : 0) + 1;
-            dVar.f68346h = max;
-            dVar3.f68346h = Math.max(max, dVar5 != null ? dVar5.f68346h : 0) + 1;
+            dVar3.f68520b = dVar;
+            dVar.f68519a = dVar3;
+            int max = Math.max(dVar2 != null ? dVar2.f68526h : 0, dVar4 != null ? dVar4.f68526h : 0) + 1;
+            dVar.f68526h = max;
+            dVar3.f68526h = Math.max(max, dVar5 != null ? dVar5.f68526h : 0) + 1;
         }
     }
 }

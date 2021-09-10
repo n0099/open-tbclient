@@ -20,27 +20,27 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class PushStatic {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static CustomMessageListener f59073a;
+    public static CustomMessageListener f59253a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static CustomMessageListener f59074b;
+    public static CustomMessageListener f59254b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static CustomMessageListener f59075c;
+    public static CustomMessageListener f59255c;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: com.baidu.tieba.yunpush.PushStatic$a$a  reason: collision with other inner class name */
-        /* loaded from: classes7.dex */
+        /* loaded from: classes8.dex */
         public class RunnableC1809a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -100,7 +100,7 @@ public class PushStatic {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class b extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -135,7 +135,7 @@ public class PushStatic {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class c extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -170,7 +170,7 @@ public class PushStatic {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class d implements UploadDataListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -210,12 +210,12 @@ public class PushStatic {
                 return;
             }
         }
-        f59073a = new a(0);
-        f59074b = new b(2921613);
-        f59075c = new c(2005016);
-        MessageManager.getInstance().registerListener(2007015, f59073a);
-        MessageManager.getInstance().registerListener(f59074b);
-        MessageManager.getInstance().registerListener(f59075c);
+        f59253a = new a(0);
+        f59254b = new b(2921613);
+        f59255c = new c(2005016);
+        MessageManager.getInstance().registerListener(2007015, f59253a);
+        MessageManager.getInstance().registerListener(f59254b);
+        MessageManager.getInstance().registerListener(f59255c);
     }
 
     public PushStatic() {
@@ -267,14 +267,14 @@ public class PushStatic {
             }
             PushManager.enableMeizuProxy(context, true, "111848", "39e9cd05b2294f848dd1c10993e76b59");
             PushManager.enableVivoProxy(context, true);
-            PushManager.startWork(context, 0, c.a.q0.c4.a.a(context, Constants.API_KEY));
+            PushManager.startWork(context, 0, c.a.r0.d4.a.a(context, Constants.API_KEY));
         }
     }
 
     public static void g(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65544, null, context) == null) {
-            c.a.p0.s.d0.b j2 = c.a.p0.s.d0.b.j();
+            c.a.q0.s.d0.b j2 = c.a.q0.s.d0.b.j();
             if (j2.g(TbConfig.getVersion() + BaiduYunPushMessageReceiver.KEY_SHAREDPRE_PUSH_STARTWORK, false)) {
                 PushManager.stopWork(context);
             }

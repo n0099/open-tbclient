@@ -14,13 +14,13 @@ public final class ep extends ClickableSpan {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f59713a;
+    public int f59893a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f59714b;
+    public String f59894b;
 
     /* renamed from: c  reason: collision with root package name */
-    public eq f59715c;
+    public eq f59895c;
 
     public ep(String str, eq eqVar) {
         Interceptable interceptable = $ic;
@@ -37,19 +37,19 @@ public final class ep extends ClickableSpan {
                 return;
             }
         }
-        this.f59713a = -11821318;
-        this.f59714b = str;
-        this.f59715c = eqVar;
+        this.f59893a = -11821318;
+        this.f59894b = str;
+        this.f59895c = eqVar;
     }
 
     @Override // android.text.style.ClickableSpan
     public final void onClick(View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-            com.baidu.ufosdk.f.c.a("text clicked!!!" + this.f59714b);
-            eq eqVar = this.f59715c;
+            com.baidu.ufosdk.f.c.a("text clicked!!!" + this.f59894b);
+            eq eqVar = this.f59895c;
             if (eqVar != null) {
-                eqVar.a(this.f59714b);
+                eqVar.a(this.f59894b);
             }
         }
     }
@@ -59,7 +59,7 @@ public final class ep extends ClickableSpan {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, textPaint) == null) {
             super.updateDrawState(textPaint);
-            textPaint.setColor(this.f59713a);
+            textPaint.setColor(this.f59893a);
         }
     }
 }

@@ -15,7 +15,7 @@ public class H5OpenAuthActivity extends H5PayActivity {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f35730a;
+    public boolean f35839a;
 
     public H5OpenAuthActivity() {
         Interceptable interceptable = $ic;
@@ -30,7 +30,7 @@ public class H5OpenAuthActivity extends H5PayActivity {
                 return;
             }
         }
-        this.f35730a = false;
+        this.f35839a = false;
     }
 
     @Override // com.alipay.sdk.app.H5PayActivity
@@ -44,7 +44,7 @@ public class H5OpenAuthActivity extends H5PayActivity {
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            if (this.f35730a) {
+            if (this.f35839a) {
                 try {
                     com.alipay.sdk.sys.a a2 = a.C1565a.a(getIntent());
                     if (a2 != null) {
@@ -76,7 +76,7 @@ public class H5OpenAuthActivity extends H5PayActivity {
                     finish();
                 } catch (Throwable th) {
                     com.alipay.sdk.app.statistic.a.a(a2, "biz", com.alipay.sdk.app.statistic.b.ak, th, (intent == null || intent.getData() == null) ? StringUtil.NULL_STRING : intent.getData().toString());
-                    this.f35730a = true;
+                    this.f35839a = true;
                     throw th;
                 }
             } catch (Throwable unused) {

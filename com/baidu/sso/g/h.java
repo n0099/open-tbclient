@@ -3,7 +3,7 @@ package com.baidu.sso.g;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
-import c.a.m0.l.c;
+import c.a.n0.l.c;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -19,10 +19,10 @@ public class h extends BroadcastReceiver {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f45375e;
+        public final /* synthetic */ String f45490e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Context f45376f;
+        public final /* synthetic */ Context f45491f;
 
         public a(h hVar, String str, Context context) {
             Interceptable interceptable = $ic;
@@ -39,8 +39,8 @@ public class h extends BroadcastReceiver {
                     return;
                 }
             }
-            this.f45375e = str;
-            this.f45376f = context;
+            this.f45490e = str;
+            this.f45491f = context;
         }
 
         @Override // java.lang.Runnable
@@ -48,10 +48,10 @@ public class h extends BroadcastReceiver {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 try {
-                    if ("sso_action_t_m".equals(this.f45375e)) {
-                        c.m(this.f45376f);
-                    } else if ("android.net.conn.CONNECTIVITY_CHANGE".equals(this.f45375e) && c.k(this.f45376f) != 0 && c.a.m0.b.c.b(this.f45376f).f()) {
-                        c.a.m0.e.c.j().g(this.f45376f.getApplicationContext(), false);
+                    if ("sso_action_t_m".equals(this.f45490e)) {
+                        c.m(this.f45491f);
+                    } else if ("android.net.conn.CONNECTIVITY_CHANGE".equals(this.f45490e) && c.k(this.f45491f) != 0 && c.a.n0.b.c.b(this.f45491f).f()) {
+                        c.a.n0.e.c.j().g(this.f45491f.getApplicationContext(), false);
                     }
                 } catch (Throwable th) {
                     c.d(th);
@@ -80,6 +80,6 @@ public class h extends BroadcastReceiver {
         if (!(interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) || intent == null) {
             return;
         }
-        c.a.m0.h.a.a().post(new a(this, intent.getAction(), context));
+        c.a.n0.h.a.a().post(new a(this, intent.getAction(), context));
     }
 }

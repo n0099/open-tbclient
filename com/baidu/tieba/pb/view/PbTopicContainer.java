@@ -7,8 +7,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.annotation.Nullable;
 import c.a.e.e.p.l;
-import c.a.p0.m.a;
-import c.a.p0.r0.b;
+import c.a.q0.m.a;
+import c.a.q0.t0.b;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -32,10 +32,10 @@ public class PbTopicContainer extends LinearLayout implements View.OnClickListen
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f55559e;
+    public int f55717e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TbPageContext f55560f;
+    public TbPageContext f55718f;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public PbTopicContainer(Context context) {
@@ -85,14 +85,14 @@ public class PbTopicContainer extends LinearLayout implements View.OnClickListen
         if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view) == null) && (view.getTag() instanceof RecommendTopicData.RecommendTopicListData)) {
             TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.HOT_TOPIC_CLICK).param("obj_locate", TbadkCoreStatisticKey.HOT_TOPIC_CLICK_PB_BOTTOM));
             RecommendTopicData.RecommendTopicListData recommendTopicListData = (RecommendTopicData.RecommendTopicListData) view.getTag();
-            TbPageContext tbPageContext = this.f55560f;
+            TbPageContext tbPageContext = this.f55718f;
             if (tbPageContext != null && !b.c(tbPageContext, false, true)) {
                 HotTopicActivityConfig hotTopicActivityConfig = new HotTopicActivityConfig(getContext());
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, hotTopicActivityConfig.createNormalConfig(recommendTopicListData.getTopicId() + "", recommendTopicListData.getTopicName(), "2")));
                 return;
             }
             Context context = getContext();
-            a.m(context, "http://tieba.baidu.com/mo/q/hotMessage?topic_id=" + recommendTopicListData.getTopicId() + "&topic_name=" + recommendTopicListData.getTopicName());
+            a.l(context, "http://tieba.baidu.com/mo/q/hotMessage?topic_id=" + recommendTopicListData.getTopicId() + "&topic_name=" + recommendTopicListData.getTopicName());
         }
     }
 
@@ -102,10 +102,10 @@ public class PbTopicContainer extends LinearLayout implements View.OnClickListen
         if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i2, i3) == null) {
             int size = (View.MeasureSpec.getSize(i2) - getPaddingRight()) - getPaddingLeft();
             int childCount = getChildCount();
-            if (childCount > this.f55559e) {
+            if (childCount > this.f55717e) {
                 while (true) {
                     childCount--;
-                    if (childCount <= this.f55559e) {
+                    if (childCount <= this.f55717e) {
                         break;
                     }
                     removeViewAt(childCount);
@@ -151,14 +151,14 @@ public class PbTopicContainer extends LinearLayout implements View.OnClickListen
     public void setMaxChildCount(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            this.f55559e = i2;
+            this.f55717e = i2;
         }
     }
 
     public void setPageContext(TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, tbPageContext) == null) {
-            this.f55560f = tbPageContext;
+            this.f55718f = tbPageContext;
         }
     }
 
@@ -181,7 +181,7 @@ public class PbTopicContainer extends LinearLayout implements View.OnClickListen
                 return;
             }
         }
-        this.f55559e = 3;
+        this.f55717e = 3;
         setOrientation(0);
     }
 }

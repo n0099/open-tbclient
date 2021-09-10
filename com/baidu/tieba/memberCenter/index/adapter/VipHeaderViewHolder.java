@@ -2,7 +2,7 @@ package com.baidu.tieba.memberCenter.index.adapter;
 
 import android.view.View;
 import android.widget.TextView;
-import c.a.q0.w1.c.j.h;
+import c.a.r0.x1.c.j.h;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.view.HeadImageView;
@@ -18,22 +18,22 @@ public class VipHeaderViewHolder extends TypeAdapter.ViewHolder {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public View f54142a;
+    public View f54288a;
 
     /* renamed from: b  reason: collision with root package name */
-    public HeadImageView f54143b;
+    public HeadImageView f54289b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f54144c;
+    public TextView f54290c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TextView f54145d;
+    public TextView f54291d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TbImageView f54146e;
+    public TbImageView f54292e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TbImageView f54147f;
+    public TbImageView f54293f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public VipHeaderViewHolder(View view, BaseFragmentActivity baseFragmentActivity) {
@@ -56,15 +56,15 @@ public class VipHeaderViewHolder extends TypeAdapter.ViewHolder {
         if (view == null) {
             return;
         }
-        this.f54142a = view;
-        this.f54144c = (TextView) view.findViewById(R.id.textview_user_name);
-        this.f54145d = (TextView) view.findViewById(R.id.textview_vip_end_time);
-        this.f54143b = (HeadImageView) view.findViewById(R.id.user_photo);
-        this.f54146e = (TbImageView) view.findViewById(R.id.user_vip_icon_image);
-        this.f54147f = (TbImageView) view.findViewById(R.id.user_vip_level_image);
-        this.f54143b.setIsRound(true);
-        this.f54143b.setDefaultBgResource(0);
-        this.f54143b.setDefaultResource(R.drawable.icon_default_avatar100);
+        this.f54288a = view;
+        this.f54290c = (TextView) view.findViewById(R.id.textview_user_name);
+        this.f54291d = (TextView) view.findViewById(R.id.textview_vip_end_time);
+        this.f54289b = (HeadImageView) view.findViewById(R.id.user_photo);
+        this.f54292e = (TbImageView) view.findViewById(R.id.user_vip_icon_image);
+        this.f54293f = (TbImageView) view.findViewById(R.id.user_vip_level_image);
+        this.f54289b.setIsRound(true);
+        this.f54289b.setDefaultBgResource(0);
+        this.f54289b.setDefaultResource(R.drawable.icon_default_avatar100);
     }
 
     public void fillView(h hVar) {

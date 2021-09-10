@@ -1,6 +1,6 @@
 package com.baidu.tbadk.coreExtra.data;
 
-import c.a.p0.s.q.p;
+import c.a.q0.s.q.p;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -54,7 +54,7 @@ public class VideoPreloadData extends p implements Serializable {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.isWifi : invokeV.intValue;
     }
 
-    @Override // c.a.p0.s.q.p
+    @Override // c.a.q0.s.q.p
     public void parserJson(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048579, this, jSONObject) == null) || jSONObject == null) {

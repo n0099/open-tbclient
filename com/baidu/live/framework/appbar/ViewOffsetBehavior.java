@@ -17,13 +17,13 @@ public class ViewOffsetBehavior<V extends View> extends CoordinatorLayout.Behavi
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public b f40797a;
+    public b f40908a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f40798b;
+    public int f40909b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f40799c;
+    public int f40910c;
 
     public ViewOffsetBehavior() {
         Interceptable interceptable = $ic;
@@ -38,15 +38,15 @@ public class ViewOffsetBehavior<V extends View> extends CoordinatorLayout.Behavi
                 return;
             }
         }
-        this.f40798b = 0;
-        this.f40799c = 0;
+        this.f40909b = 0;
+        this.f40910c = 0;
     }
 
     public int E() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            b bVar = this.f40797a;
+            b bVar = this.f40908a;
             if (bVar != null) {
                 return bVar.a();
             }
@@ -66,11 +66,11 @@ public class ViewOffsetBehavior<V extends View> extends CoordinatorLayout.Behavi
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) {
-            b bVar = this.f40797a;
+            b bVar = this.f40908a;
             if (bVar != null) {
                 return bVar.d(i2);
             }
-            this.f40798b = i2;
+            this.f40909b = i2;
             return false;
         }
         return invokeI.booleanValue;
@@ -82,19 +82,19 @@ public class ViewOffsetBehavior<V extends View> extends CoordinatorLayout.Behavi
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048579, this, coordinatorLayout, v, i2)) == null) {
             F(coordinatorLayout, v, i2);
-            if (this.f40797a == null) {
-                this.f40797a = new b(v);
+            if (this.f40908a == null) {
+                this.f40908a = new b(v);
             }
-            this.f40797a.b();
-            int i3 = this.f40798b;
+            this.f40908a.b();
+            int i3 = this.f40909b;
             if (i3 != 0) {
-                this.f40797a.d(i3);
-                this.f40798b = 0;
+                this.f40908a.d(i3);
+                this.f40909b = 0;
             }
-            int i4 = this.f40799c;
+            int i4 = this.f40910c;
             if (i4 != 0) {
-                this.f40797a.c(i4);
-                this.f40799c = 0;
+                this.f40908a.c(i4);
+                this.f40910c = 0;
                 return true;
             }
             return true;
@@ -121,7 +121,7 @@ public class ViewOffsetBehavior<V extends View> extends CoordinatorLayout.Behavi
                 return;
             }
         }
-        this.f40798b = 0;
-        this.f40799c = 0;
+        this.f40909b = 0;
+        this.f40910c = 0;
     }
 }

@@ -29,34 +29,34 @@ public class PassBiometricUtil {
     public static final String CPU_TYPE_X86 = "x86";
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f43903a = "PassBiometricUtil";
+    public static final String f44018a = "PassBiometricUtil";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f43904b = 480;
+    public static final int f44019b = 480;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f43905c = 480;
+    public static final int f44020c = 480;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int f43906d = 192;
+    public static final int f44021d = 192;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int f43907e = 480;
+    public static final int f44022e = 480;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final int f43908f = 620;
+    public static final int f44023f = 620;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final int f43909g = 250;
+    public static final int f44024g = 250;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final int f43910h = 250;
+    public static final int f44025h = 250;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final int f43911i = 728;
+    public static final int f44026i = 728;
 
     /* renamed from: j  reason: collision with root package name */
-    public static final int f43912j = 194;
+    public static final int f44027j = 194;
     public static final int k = 750;
     public static final int l = 1335;
     public transient /* synthetic */ FieldHolder $fh;

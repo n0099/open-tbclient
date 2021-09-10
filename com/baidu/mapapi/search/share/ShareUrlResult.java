@@ -18,10 +18,10 @@ public class ShareUrlResult extends SearchResult implements Parcelable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f41836a;
+    public String f41947a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f41837b;
+    public int f41948b;
 
     static {
         InterceptResult invokeClinit;
@@ -68,8 +68,8 @@ public class ShareUrlResult extends SearchResult implements Parcelable {
                 return;
             }
         }
-        this.f41836a = parcel.readString();
-        this.f41837b = parcel.readInt();
+        this.f41947a = parcel.readString();
+        this.f41948b = parcel.readInt();
     }
 
     @Override // com.baidu.mapapi.search.core.SearchResult, android.os.Parcelable
@@ -85,20 +85,20 @@ public class ShareUrlResult extends SearchResult implements Parcelable {
     public String getUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f41836a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f41947a : (String) invokeV.objValue;
     }
 
     public void setType(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            this.f41837b = i2;
+            this.f41948b = i2;
         }
     }
 
     public void setUrl(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.f41836a = str;
+            this.f41947a = str;
         }
     }
 
@@ -106,8 +106,8 @@ public class ShareUrlResult extends SearchResult implements Parcelable {
     public void writeToParcel(Parcel parcel, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048580, this, parcel, i2) == null) {
-            parcel.writeString(this.f41836a);
-            parcel.writeInt(this.f41837b);
+            parcel.writeString(this.f41947a);
+            parcel.writeInt(this.f41948b);
         }
     }
 }

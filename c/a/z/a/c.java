@@ -32,16 +32,22 @@ public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile int f31146a;
+    public static volatile int f31251a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f31147b;
+    public static String f31252b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f31148c;
+    public static String f31253c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static boolean f31149d;
+    public static boolean f31254d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public static CyberPlayerManager.InstallListener2 f31255e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public static Object f31256f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes4.dex */
@@ -75,16 +81,17 @@ public class c {
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-899320831, "Lc/a/z/a/c;")) == null) {
-            return;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-899320831, "Lc/a/z/a/c;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-899320831, "Lc/a/z/a/c;");
+                return;
+            }
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-899320831, "Lc/a/z/a/c;");
-        }
+        f31256f = new Object();
     }
 
     public static void a(int i2, Map<String, String> map) {
@@ -92,15 +99,15 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(65537, null, i2, map) == null) {
             int j2 = e.b().j(i2);
-            if ((f31146a & j2) == j2) {
+            if ((f31251a & j2) == j2) {
                 return;
             }
             do {
-                i3 = (f31146a ^ j2) & j2;
+                i3 = (f31251a ^ j2) & j2;
                 if (i3 <= 0) {
                     break;
                 }
-            } while (l(1 << Integer.numberOfTrailingZeros(i3), map));
+            } while (n(1 << Integer.numberOfTrailingZeros(i3), map));
             e.b().s();
         }
     }
@@ -108,8 +115,8 @@ public class c {
     public static void b(Context context, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65538, null, context, str) == null) {
-            f31148c = str;
-            f31149d = Utils.t(context);
+            f31253c = str;
+            f31254d = Utils.t(context);
             e.b().f(context, str);
         }
     }
@@ -125,11 +132,11 @@ public class c {
             String str3 = map != null ? map.get("cache-path") : null;
             CyberTaskExcutor.getInstance().execute(new a());
             if (str3 == null) {
-                str = Utils.b(context) + File.separator + PathUtils.DIRCTORY_BAIDU + File.separator + "flyflow" + File.separator + Utils.f42506c + File.separator + context.getPackageName() + File.separator;
+                str = Utils.b(context) + File.separator + PathUtils.DIRCTORY_BAIDU + File.separator + "flyflow" + File.separator + Utils.f42617c + File.separator + context.getPackageName() + File.separator;
             } else {
-                str = str3 + File.separator + Utils.f42506c + File.separator;
+                str = str3 + File.separator + Utils.f42617c + File.separator;
             }
-            if (f31149d) {
+            if (f31254d) {
                 str = str + "remote" + File.separator;
             }
             Utils.f(str);
@@ -142,30 +149,39 @@ public class c {
             }
             Utils.c(i2);
             Utils.q();
-            m();
-            n();
+            o();
+            p();
         }
     }
 
-    public static boolean d(int i2) {
+    public static void d(CyberPlayerManager.InstallListener2 installListener2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, installListener2) == null) {
+            synchronized (f31256f) {
+                f31255e = installListener2;
+            }
+        }
+    }
+
+    public static boolean e(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(AdIconUtil.AD_TEXT_ID, null, i2)) == null) {
             int j2 = e.b().j(i2);
-            return (f31146a & j2) == j2;
+            return (f31251a & j2) == j2;
         }
         return invokeI.booleanValue;
     }
 
-    public static boolean e(int i2, String str) {
+    public static boolean f(int i2, String str) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(AdIconUtil.AD_TEXT_ID, null, i2, str)) == null) {
-            if (f31149d && CyberCfgManager.getInstance().getCfgBoolValue(CyberCfgManager.KEY_INT_ENABLE_SR, true)) {
-                if (i2 != 512) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(AdIconUtil.BAIDU_LOGO_ID, null, i2, str)) == null) {
+            if (f31254d && CyberCfgManager.getInstance().getCfgBoolValue(CyberCfgManager.KEY_INT_ENABLE_SR, true)) {
+                if (i2 != 2048) {
                     System.load(str);
                 } else {
-                    String str2 = f31148c + File.separator + "model_video-sr_1.2";
+                    String str2 = f31253c + File.separator + "model_video-sr_1.2";
                     String str3 = str2 + File.separator + "params.mlm";
                     if (!new File(str2 + File.separator + "model.mlm").exists() || !new File(str3).exists()) {
                         throw new FileNotFoundException("model_video-sr_1.2.zip");
@@ -180,11 +196,11 @@ public class c {
         return invokeIL.booleanValue;
     }
 
-    public static boolean f(String str) {
+    public static boolean g(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, str)) == null) {
-            if (f31149d && CyberCfgManager.getInstance().getCfgBoolValue(CyberCfgManager.KEY_INT_ENABLE_BSO, false)) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
+            if (f31254d && CyberCfgManager.getInstance().getCfgBoolValue(CyberCfgManager.KEY_INT_ENABLE_BSO, false)) {
                 Utils.m(str);
                 return true;
             }
@@ -193,23 +209,37 @@ public class c {
         return invokeL.booleanValue;
     }
 
-    public static String[] g() {
+    public static String[] h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? e.b().o() : (String[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) ? e.b().o() : (String[]) invokeV.objValue;
     }
 
-    public static String h() {
+    public static String i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) ? f31147b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) ? f31252b : (String) invokeV.objValue;
+    }
+
+    public static void j(int i2, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(65546, null, i2, str) == null) {
+            int i3 = i2 == 16 ? 100 : i2 == 8 ? 101 : i2 == 4 ? 102 : -1;
+            if (i3 > 0) {
+                synchronized (f31256f) {
+                    if (f31255e != null) {
+                        f31255e.onInstallInfo(i3, i2, str);
+                    }
+                }
+            }
+        }
     }
 
     /* JADX WARN: Removed duplicated region for block: B:16:0x0049  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static boolean i(int i2, Map<String, String> map) {
+    public static boolean k(int i2, Map<String, String> map) {
         InterceptResult invokeIL;
         String str;
         int i3;
@@ -217,7 +247,7 @@ public class c {
         String error;
         String str2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(65545, null, i2, map)) == null) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(65547, null, i2, map)) == null) {
             if (CyberCfgManager.getInstance().getCfgBoolValue(CyberCfgManager.KEY_INT_ENABLE_CRASHPAD, true)) {
                 String str3 = null;
                 String str4 = "-1";
@@ -243,7 +273,7 @@ public class c {
                     str = null;
                     i3 = 3;
                 }
-                if (f31149d) {
+                if (f31254d) {
                     if ((i3 & 2) != 2) {
                         return false;
                     }
@@ -264,7 +294,7 @@ public class c {
                                 str3 = CyberPlayerManager.getApplicationContext().getExternalFilesDir("").getAbsolutePath();
                             } catch (Exception unused2) {
                             }
-                            if (f31149d) {
+                            if (f31254d) {
                                 str4 = "4";
                             }
                             if (!file2.canExecute()) {
@@ -300,11 +330,11 @@ public class c {
         return invokeIL.booleanValue;
     }
 
-    public static boolean j(String str) {
+    public static boolean l(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, str)) == null) {
-            if (f31149d && CyberCfgManager.getInstance().getCfgBoolValue(CyberCfgManager.KEY_INT_ENABLE_DMO, false)) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, str)) == null) {
+            if (f31254d && CyberCfgManager.getInstance().getCfgBoolValue(CyberCfgManager.KEY_INT_ENABLE_DMO, false)) {
                 Utils.o(str);
                 return true;
             }
@@ -313,16 +343,16 @@ public class c {
         return invokeL.booleanValue;
     }
 
-    public static String k() {
+    public static String m() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) ? f31148c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) ? f31253c : (String) invokeV.objValue;
     }
 
-    public static boolean l(int i2, Map<String, String> map) {
+    public static boolean n(int i2, Map<String, String> map) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(65548, null, i2, map)) == null) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(65550, null, i2, map)) == null) {
             com.baidu.media.duplayer.d a2 = e.b().a(i2);
             boolean z = false;
             if (a2 == null) {
@@ -333,7 +363,7 @@ public class c {
             String d2 = a2.d();
             String j2 = a2.j();
             File file = new File(j2);
-            if (a2.l() == d.a.f42521a) {
+            if (a2.l() == d.a.f42632a) {
                 if (!"apk_internal_jar".equals(j2)) {
                     if (file.exists()) {
                         if (e.b().C(i2)) {
@@ -347,37 +377,38 @@ public class c {
                 }
                 z = true;
             } else {
-                if (a2.l() == d.a.f42522b) {
+                if (a2.l() == d.a.f42633b) {
                     if (!file.exists() && !a2.p()) {
-                        if (i2 == 8) {
-                            i2 = 16;
+                        if (i2 == 32) {
+                            i2 = 64;
                         }
                         throw new FileNotFoundException(e.b().q(i2));
                     } else if (e.b().u(i2)) {
+                        j(i2, j2);
                         System.load(j2);
-                        if (i2 == 16) {
+                        if (i2 == 64) {
                             c(CyberPlayerManager.getApplicationContext(), map);
                         }
                     } else if (e.b().w(i2)) {
                         IjkMediaPlayer.nativeSetEnableFFmpegExtend(j2);
                     } else if (e.b().y(i2)) {
-                        f31147b = j2;
+                        f31252b = j2;
                     } else if (e.b().E(i2)) {
-                        z = i(i2, map);
+                        z = k(i2, map);
                     } else if (e.b().A(i2)) {
-                        z = e(i2, j2);
+                        z = f(i2, j2);
                     } else if (e.b().F(i2)) {
-                        z = i2 == 4096 ? f(j2) : true;
-                        if (i2 == 8192) {
-                            z = j(j2);
+                        z = i2 == 16384 ? g(j2) : true;
+                        if (i2 == 32768) {
+                            z = l(j2);
                         }
                     }
                 }
                 z = true;
             }
-            f31146a = i2 | f31146a;
+            f31251a = i2 | f31251a;
             if (z) {
-                CyberLog.d("CyberLibsLoader", "isMediaProcess:" + f31149d + " abi:" + e.b().p() + " lib:" + a3 + " ver:" + d2 + " path:" + j2 + " load success");
+                CyberLog.d("CyberLibsLoader", "isMediaProcess:" + f31254d + " abi:" + e.b().p() + " lib:" + a3 + " ver:" + d2 + " path:" + j2 + " load success");
             }
             return true;
         }
@@ -389,9 +420,9 @@ public class c {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static void m() {
+    public static void o() {
         Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeV(65549, null) != null) {
+        if (interceptable != null && interceptable.invokeV(65551, null) != null) {
             return;
         }
         boolean z = true;
@@ -399,20 +430,20 @@ public class c {
             return;
         }
         try {
-            String str = f31148c + File.separator + "config";
+            String str = f31253c + File.separator + "config";
             String str2 = str + File.separator + LibsInfoDef.CYBER_CODEC_MONITOR_NAME + "_" + CyberCfgManager.getInstance().getCfgValue("monitor_version", LibsInfoDef.CYBER_CODEC_MONITOR_VERSION) + ".json";
             File file = new File(str);
             if (file.exists()) {
-                if (!new File(str2).exists() && !f31149d) {
+                if (!new File(str2).exists() && !f31254d) {
                     z = false;
                 }
                 if (z) {
                 }
             } else {
-                if (f31149d) {
+                if (f31254d) {
                     file.mkdirs();
                     if (z) {
-                        Utils.h(str2, f31149d);
+                        Utils.h(str2, f31254d);
                         return;
                     }
                     return;
@@ -430,9 +461,9 @@ public class c {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static void n() {
+    public static void p() {
         Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeV(65550, null) != null) {
+        if (interceptable != null && interceptable.invokeV(65552, null) != null) {
             return;
         }
         boolean z = true;
@@ -440,20 +471,20 @@ public class c {
             return;
         }
         try {
-            String str = f31148c + File.separator + "config";
+            String str = f31253c + File.separator + "config";
             String str2 = str + File.separator + LibsInfoDef.CYBER_PLAY_SCORE_STORAGE_NAME + "_" + LibsInfoDef.CYBER_PLAY_SCORE_STORAGE_VERSION + ".json";
             File file = new File(str);
             if (file.exists()) {
-                if (!new File(str2).exists() && !f31149d) {
+                if (!new File(str2).exists() && !f31254d) {
                     z = false;
                 }
                 if (z) {
                 }
             } else {
-                if (f31149d) {
+                if (f31254d) {
                     file.mkdirs();
                     if (z) {
-                        DuplayerQualityMonitorManager.getInstance().init(str2, f31149d);
+                        DuplayerQualityMonitorManager.getInstance().init(str2, f31254d);
                         return;
                     }
                     return;

@@ -1,7 +1,7 @@
 package com.baidu.swan.games.screenrecord;
 
 import androidx.core.view.InputDeviceCompat;
-import c.a.o0.a.g1.f;
+import c.a.p0.a.g1.f;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mario.audio.AudioParams;
 import com.baidu.mobads.container.info.XDeviceInfo;
@@ -22,22 +22,22 @@ public class GameRecorderController {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public AREngineDelegate f46934a;
+    public AREngineDelegate f47049a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c.a.x.c.c f46935b;
+    public c.a.x.c.c f47050b;
 
     /* renamed from: c  reason: collision with root package name */
-    public RecorderState f46936c;
+    public RecorderState f47051c;
 
     /* renamed from: d  reason: collision with root package name */
-    public c.a.x.a.a.a f46937d;
+    public c.a.x.a.a.a f47052d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f46938e;
+    public long f47053e;
 
     /* renamed from: f  reason: collision with root package name */
-    public c.a.o0.l.a.b f46939f;
+    public c.a.p0.l.a.b f47054f;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes6.dex */
@@ -104,12 +104,12 @@ public class GameRecorderController {
     }
 
     /* loaded from: classes6.dex */
-    public class a implements c.a.o0.l.a.b {
+    public class a implements c.a.p0.l.a.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ GameRecorderController f46940a;
+        public final /* synthetic */ GameRecorderController f47055a;
 
         public a(GameRecorderController gameRecorderController) {
             Interceptable interceptable = $ic;
@@ -126,16 +126,16 @@ public class GameRecorderController {
                     return;
                 }
             }
-            this.f46940a = gameRecorderController;
+            this.f47055a = gameRecorderController;
         }
 
-        @Override // c.a.o0.l.a.b
-        public void a(c.a.o0.l.a.a aVar) {
+        @Override // c.a.p0.l.a.b
+        public void a(c.a.p0.l.a.a aVar) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) || this.f46940a.f46937d == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) || this.f47055a.f47052d == null) {
                 return;
             }
-            this.f46940a.f46937d.onAudioFrameAvailable(ByteBuffer.wrap(aVar.f11809a), (int) aVar.f11810b, aVar.f11811c - this.f46940a.f46938e);
+            this.f47055a.f47052d.onAudioFrameAvailable(ByteBuffer.wrap(aVar.f11837a), (int) aVar.f11838b, aVar.f11839c - this.f47055a.f47053e);
         }
     }
 
@@ -145,7 +145,7 @@ public class GameRecorderController {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ GameRecorderController f46941e;
+        public final /* synthetic */ GameRecorderController f47056e;
 
         public b(GameRecorderController gameRecorderController) {
             Interceptable interceptable = $ic;
@@ -162,14 +162,14 @@ public class GameRecorderController {
                     return;
                 }
             }
-            this.f46941e = gameRecorderController;
+            this.f47056e = gameRecorderController;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                SwanAudioPlayer.getInstance().setOnAudioRecordListener(this.f46941e.f46939f);
+                SwanAudioPlayer.getInstance().setOnAudioRecordListener(this.f47056e.f47054f);
             }
         }
     }
@@ -180,7 +180,7 @@ public class GameRecorderController {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ GameRecorderController f46942a;
+        public final /* synthetic */ GameRecorderController f47057a;
 
         public c(GameRecorderController gameRecorderController) {
             Interceptable interceptable = $ic;
@@ -197,16 +197,16 @@ public class GameRecorderController {
                     return;
                 }
             }
-            this.f46942a = gameRecorderController;
+            this.f47057a = gameRecorderController;
         }
 
         @Override // c.a.x.c.a
         public void a(c.a.x.a.a.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                this.f46942a.f46937d = aVar;
-                this.f46942a.f46938e = System.nanoTime();
-                this.f46942a.m();
+                this.f47057a.f47052d = aVar;
+                this.f47057a.f47053e = System.nanoTime();
+                this.f47057a.m();
             }
         }
     }
@@ -217,7 +217,7 @@ public class GameRecorderController {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ boolean f46943e;
+        public final /* synthetic */ boolean f47058e;
 
         public d(GameRecorderController gameRecorderController, boolean z) {
             Interceptable interceptable = $ic;
@@ -234,14 +234,14 @@ public class GameRecorderController {
                     return;
                 }
             }
-            this.f46943e = z;
+            this.f47058e = z;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                SwanAudioPlayer.getInstance().setAudioRecord(this.f46943e);
+                SwanAudioPlayer.getInstance().setAudioRecord(this.f47058e);
             }
         }
     }
@@ -252,7 +252,7 @@ public class GameRecorderController {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ GameRecorderController f46944e;
+        public final /* synthetic */ GameRecorderController f47059e;
 
         public e(GameRecorderController gameRecorderController) {
             Interceptable interceptable = $ic;
@@ -269,16 +269,16 @@ public class GameRecorderController {
                     return;
                 }
             }
-            this.f46944e = gameRecorderController;
+            this.f47059e = gameRecorderController;
         }
 
         @Override // c.a.x.c.c
         public void onError(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-                this.f46944e.f46936c = RecorderState.IDLE;
-                if (this.f46944e.f46935b != null) {
-                    this.f46944e.f46935b.onError(i2);
+                this.f47059e.f47051c = RecorderState.IDLE;
+                if (this.f47059e.f47050b != null) {
+                    this.f47059e.f47050b.onError(i2);
                 }
             }
         }
@@ -287,9 +287,9 @@ public class GameRecorderController {
         public void onPause() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.f46944e.f46936c = RecorderState.PAUSE;
-                if (this.f46944e.f46935b != null) {
-                    this.f46944e.f46935b.onPause();
+                this.f47059e.f47051c = RecorderState.PAUSE;
+                if (this.f47059e.f47050b != null) {
+                    this.f47059e.f47050b.onPause();
                 }
             }
         }
@@ -298,9 +298,9 @@ public class GameRecorderController {
         public void onResume() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                this.f46944e.f46936c = RecorderState.RECORDING;
-                if (this.f46944e.f46935b != null) {
-                    this.f46944e.f46935b.onResume();
+                this.f47059e.f47051c = RecorderState.RECORDING;
+                if (this.f47059e.f47050b != null) {
+                    this.f47059e.f47050b.onResume();
                 }
             }
         }
@@ -309,9 +309,9 @@ public class GameRecorderController {
         public void onStart() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                this.f46944e.f46936c = RecorderState.RECORDING;
-                if (this.f46944e.f46935b != null) {
-                    this.f46944e.f46935b.onStart();
+                this.f47059e.f47051c = RecorderState.RECORDING;
+                if (this.f47059e.f47050b != null) {
+                    this.f47059e.f47050b.onStart();
                 }
             }
         }
@@ -320,10 +320,10 @@ public class GameRecorderController {
         public void w(int i2, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(1048580, this, i2, str) == null) {
-                this.f46944e.f46936c = RecorderState.STOP;
-                this.f46944e.n();
-                if (this.f46944e.f46935b != null) {
-                    this.f46944e.f46935b.w(i2, str);
+                this.f47059e.f47051c = RecorderState.STOP;
+                this.f47059e.n();
+                if (this.f47059e.f47050b != null) {
+                    this.f47059e.f47050b.w(i2, str);
                 }
             }
         }
@@ -348,13 +348,13 @@ public class GameRecorderController {
                 return;
             }
         }
-        this.f46939f = new a(this);
-        this.f46934a = aREngineDelegate;
+        this.f47054f = new a(this);
+        this.f47049a = aREngineDelegate;
         if (aREngineDelegate != null) {
-            this.f46936c = RecorderState.IDLE;
+            this.f47051c = RecorderState.IDLE;
             aREngineDelegate.setGameRecordCallback(new e(this, null));
         }
-        c.a.o0.h.c.j.b.h().e().post(new b(this));
+        c.a.p0.h.c.j.b.h().e().post(new b(this));
     }
 
     public static GameRecorderController j() {
@@ -367,7 +367,7 @@ public class GameRecorderController {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            AREngineDelegate aREngineDelegate = this.f46934a;
+            AREngineDelegate aREngineDelegate = this.f47049a;
             if (aREngineDelegate != null) {
                 return aREngineDelegate.getCurrentRecordProcess();
             }
@@ -379,20 +379,20 @@ public class GameRecorderController {
     public RecorderState l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f46936c : (RecorderState) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f47051c : (RecorderState) invokeV.objValue;
     }
 
     public final void m() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            if (this.f46937d != null) {
+            if (this.f47052d != null) {
                 int i2 = SwanAudioPlayer.mSampleRate;
                 int i3 = SwanAudioPlayer.mSampleBufSize;
                 AudioParams audioParams = new AudioParams();
                 audioParams.setSampleRate(i2 * 2);
                 audioParams.setAudioBufferSize(i3 * 2);
                 audioParams.setChannelConfig(1);
-                this.f46937d.a(true, audioParams);
+                this.f47052d.a(true, audioParams);
             }
             r(true);
         }
@@ -401,7 +401,7 @@ public class GameRecorderController {
     public final void n() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            c.a.x.a.a.a aVar = this.f46937d;
+            c.a.x.a.a.a aVar = this.f47052d;
             if (aVar != null) {
                 aVar.onAudioStop(true);
             }
@@ -412,7 +412,7 @@ public class GameRecorderController {
     public void o() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            AREngineDelegate aREngineDelegate = this.f46934a;
+            AREngineDelegate aREngineDelegate = this.f47049a;
             if (aREngineDelegate != null) {
                 aREngineDelegate.pauseRecord();
             }
@@ -423,18 +423,18 @@ public class GameRecorderController {
     public void p() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            if (this.f46934a != null && this.f46935b != null && (l() == RecorderState.RECORDING || l() == RecorderState.PAUSE)) {
-                this.f46935b.onError(-1);
+            if (this.f47049a != null && this.f47050b != null && (l() == RecorderState.RECORDING || l() == RecorderState.PAUSE)) {
+                this.f47050b.onError(-1);
             }
             s(null);
-            this.f46936c = RecorderState.IDLE;
+            this.f47051c = RecorderState.IDLE;
         }
     }
 
     public void q() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            AREngineDelegate aREngineDelegate = this.f46934a;
+            AREngineDelegate aREngineDelegate = this.f47049a;
             if (aREngineDelegate != null) {
                 aREngineDelegate.resumeRecord();
             }
@@ -445,32 +445,32 @@ public class GameRecorderController {
     public final void r(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
-            c.a.o0.h.c.j.b.h().e().post(new d(this, z));
+            c.a.p0.h.c.j.b.h().e().post(new d(this, z));
         }
     }
 
     public void s(c.a.x.c.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, cVar) == null) {
-            this.f46935b = cVar;
+            this.f47050b = cVar;
         }
     }
 
     public void t(int i2, String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(1048585, this, i2, str) == null) || this.f46934a == null) {
+        if (!(interceptable == null || interceptable.invokeIL(1048585, this, i2, str) == null) || this.f47049a == null) {
             return;
         }
         SwanAppActivity activity = f.V().getActivity();
         boolean z = activity != null && activity.isLandScape();
-        this.f46934a.setAudioEngineProxy(new c(this));
-        this.f46934a.startRecord(true, i2, str, z);
+        this.f47049a.setAudioEngineProxy(new c(this));
+        this.f47049a.startRecord(true, i2, str, z);
     }
 
     public void u() {
         AREngineDelegate aREngineDelegate;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || (aREngineDelegate = this.f46934a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || (aREngineDelegate = this.f47049a) == null) {
             return;
         }
         aREngineDelegate.stopRecord();

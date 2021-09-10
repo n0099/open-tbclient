@@ -9,7 +9,7 @@ import c.a.e.e.l.e;
 import c.a.e.e.p.j;
 import c.a.e.e.p.l;
 import c.a.e.l.d.a;
-import c.a.p0.s.k;
+import c.a.q0.s.k;
 import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
 import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
 import com.baidu.adp.lib.featureSwitch.SwitchManager;
@@ -158,7 +158,7 @@ public class MemeLoaderProc2 implements e<a> {
             if (aVar.u()) {
                 aVar.A(i2);
                 aVar.z(i3);
-                c.a.p0.b0.c.k().d(str, aVar);
+                c.a.q0.c0.c.k().d(str, aVar);
             }
         }
     }
@@ -208,7 +208,7 @@ public class MemeLoaderProc2 implements e<a> {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{str, str2, Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z), objArr})) == null) {
-            a checkIsValidPicMemoryCache = BitmapHelper.checkIsValidPicMemoryCache(str, c.a.p0.b0.c.k().m(str), i2, i3);
+            a checkIsValidPicMemoryCache = BitmapHelper.checkIsValidPicMemoryCache(str, c.a.q0.c0.c.k().m(str), i2, i3);
             if (checkIsValidPicMemoryCache == null || checkIsValidPicMemoryCache.p() == null || checkIsValidPicMemoryCache.p().isRecycled()) {
                 return null;
             }
@@ -251,7 +251,7 @@ public class MemeLoaderProc2 implements e<a> {
             byte[] downloadImageBytes = webClient.downloadImageBytes(str4, !this.isFromCDN);
             boolean needCache = webClient.needCache();
             if (downloadImageBytes != null || webClient.getResponse().f2327a) {
-                c.a.p0.b0.c.k().i(TbConfig.getPbImageSize() + downloadImageBytes.length);
+                c.a.q0.c0.c.k().i(TbConfig.getPbImageSize() + downloadImageBytes.length);
                 return storeBitmap(str4, str2, bVar, null, checkBitmapSize(BitmapHelper.Bytes2Bitmap(downloadImageBytes), e2, e3), (webClient.isGif || l.B(downloadImageBytes)) ? true : true, webClient, downloadImageBytes, needCache);
             }
             return null;

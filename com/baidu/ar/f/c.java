@@ -3,7 +3,6 @@ package com.baidu.ar.f;
 import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.ar.arplay.core.message.ARPMessage;
-import com.baidu.ar.arplay.core.message.ARPMessageType;
 import com.baidu.ar.f.a;
 import com.baidu.ar.statistic.StatisticApi;
 import com.baidu.ar.statistic.StatisticConstants;
@@ -46,7 +45,7 @@ public class c implements com.baidu.ar.lua.c {
             HashMap<String, Object> hashMap = new HashMap<>();
             hashMap.put("id", 10000);
             hashMap.put("max_acc", Float.valueOf(f5));
-            ARPMessage.getInstance().sendMessage(ARPMessageType.MSG_TYPE_SDK_LUA_BRIDGE, hashMap);
+            ARPMessage.getInstance().sendMessage(1902, hashMap);
         }
     }
 
@@ -117,7 +116,7 @@ public class c implements com.baidu.ar.lua.c {
     public List<Integer> n() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? Arrays.asList(Integer.valueOf((int) ARPMessageType.MSG_TYPE_LUA_SDK_BRIDGE)) : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? Arrays.asList(1901) : (List) invokeV.objValue;
     }
 
     public void release() {

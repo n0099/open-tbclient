@@ -8,34 +8,34 @@ public class b {
     public static String E = "wl";
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f74281a = "ui";
+    public static String f74461a = "ui";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f74282b = "ie";
+    public static String f74462b = "ie";
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f74283c = "is1";
+    public static String f74463c = "is1";
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f74284d = "is2";
+    public static String f74464d = "is2";
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f74285e = "phn";
+    public static String f74465e = "phn";
 
     /* renamed from: f  reason: collision with root package name */
-    public static String f74286f = "di";
+    public static String f74466f = "di";
 
     /* renamed from: g  reason: collision with root package name */
-    public static String f74287g = "br";
+    public static String f74467g = "br";
 
     /* renamed from: h  reason: collision with root package name */
-    public static String f74288h = "dc";
+    public static String f74468h = "dc";
 
     /* renamed from: i  reason: collision with root package name */
-    public static String f74289i = "ma";
+    public static String f74469i = "ma";
 
     /* renamed from: j  reason: collision with root package name */
-    public static String f74290j = "ot";
+    public static String f74470j = "ot";
     public static String k = "ov";
     public static String l = "ss";
     public static String m = "ll";

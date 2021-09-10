@@ -11,19 +11,19 @@ public class f {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f68054a;
+    public int f68234a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f68055b;
+    public String f68235b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f68056c;
+    public long f68236c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f68057d;
+    public long f68237d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Map<String, String> f68058e;
+    public Map<String, String> f68238e;
 
     public f() {
         Interceptable interceptable = $ic;
@@ -38,7 +38,7 @@ public class f {
                 return;
             }
         }
-        this.f68056c = -1L;
-        this.f68057d = -1L;
+        this.f68236c = -1L;
+        this.f68237d = -1L;
     }
 }

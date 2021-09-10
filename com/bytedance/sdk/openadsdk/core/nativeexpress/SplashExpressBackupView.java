@@ -47,7 +47,7 @@ public class SplashExpressBackupView extends BackupView {
                 return;
             }
         }
-        this.f66597a = context;
+        this.f66777a = context;
     }
 
     private void b() {
@@ -55,16 +55,16 @@ public class SplashExpressBackupView extends BackupView {
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
             ViewGroup.LayoutParams layoutParams = getLayoutParams();
             if (layoutParams == null) {
-                layoutParams = new ViewGroup.LayoutParams(this.f66602f, this.f66603g);
+                layoutParams = new ViewGroup.LayoutParams(this.f66782f, this.f66783g);
             }
-            layoutParams.width = this.f66602f;
-            layoutParams.height = this.f66603g;
+            layoutParams.width = this.f66782f;
+            layoutParams.height = this.f66783g;
             if (layoutParams instanceof FrameLayout.LayoutParams) {
                 ((FrameLayout.LayoutParams) layoutParams).gravity = 17;
             }
             setLayoutParams(layoutParams);
-            com.bytedance.sdk.component.utils.k.b("SplashExpressBackupView", "image mode: " + this.f66598b.ap());
-            c(this.f66598b.ap());
+            com.bytedance.sdk.component.utils.k.b("SplashExpressBackupView", "image mode: " + this.f66778b.ap());
+            c(this.f66778b.ap());
         }
     }
 
@@ -99,8 +99,8 @@ public class SplashExpressBackupView extends BackupView {
             this.n.setVisibility(0);
             this.q.setVisibility(8);
             a(this.n);
-            this.o.setText(this.f66598b.ai());
-            this.p.setText(this.f66598b.aj());
+            this.o.setText(this.f66778b.ai());
+            this.p.setText(this.f66778b.aj());
             a((View) this, true);
             a((View) this.p, true);
         }
@@ -112,13 +112,13 @@ public class SplashExpressBackupView extends BackupView {
             h();
             this.n.setVisibility(8);
             this.q.setVisibility(0);
-            if (this.f66598b.V() != null) {
+            if (this.f66778b.V() != null) {
                 FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -1);
                 layoutParams.gravity = 17;
                 this.q.addView((NativeVideoTsView) getVideoView(), layoutParams);
             }
-            this.o.setText(this.f66598b.ai());
-            this.p.setText(this.f66598b.aj());
+            this.o.setText(this.f66778b.ai());
+            this.p.setText(this.f66778b.aj());
             a((View) this, true);
             a((View) this.p, true);
         }
@@ -135,7 +135,7 @@ public class SplashExpressBackupView extends BackupView {
     private void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65544, this) == null) {
-            ImageView imageView = new ImageView(this.f66597a);
+            ImageView imageView = new ImageView(this.f66777a);
             imageView.setScaleType(ImageView.ScaleType.FIT_XY);
             a(imageView);
             addView(imageView, new ViewGroup.LayoutParams(-1, -1));
@@ -146,12 +146,12 @@ public class SplashExpressBackupView extends BackupView {
     private void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65545, this) == null) {
-            View inflate = LayoutInflater.from(this.f66597a).inflate(com.bytedance.sdk.component.utils.t.f(this.f66597a, "tt_backup_splash"), (ViewGroup) this, true);
+            View inflate = LayoutInflater.from(this.f66777a).inflate(com.bytedance.sdk.component.utils.t.f(this.f66777a, "tt_backup_splash"), (ViewGroup) this, true);
             this.m = inflate;
-            this.n = (ImageView) inflate.findViewById(com.bytedance.sdk.component.utils.t.e(this.f66597a, "tt_splash_backup_img"));
-            this.o = (TextView) this.m.findViewById(com.bytedance.sdk.component.utils.t.e(this.f66597a, "tt_splash_backup_desc"));
-            this.q = (FrameLayout) this.m.findViewById(com.bytedance.sdk.component.utils.t.e(this.f66597a, "tt_splash_backup_video_container"));
-            this.p = (Button) this.m.findViewById(com.bytedance.sdk.component.utils.t.e(this.f66597a, "tt_splash_backup_text"));
+            this.n = (ImageView) inflate.findViewById(com.bytedance.sdk.component.utils.t.e(this.f66777a, "tt_splash_backup_img"));
+            this.o = (TextView) this.m.findViewById(com.bytedance.sdk.component.utils.t.e(this.f66777a, "tt_splash_backup_desc"));
+            this.q = (FrameLayout) this.m.findViewById(com.bytedance.sdk.component.utils.t.e(this.f66777a, "tt_splash_backup_video_container"));
+            this.p = (Button) this.m.findViewById(com.bytedance.sdk.component.utils.t.e(this.f66777a, "tt_splash_backup_text"));
         }
     }
 
@@ -168,10 +168,10 @@ public class SplashExpressBackupView extends BackupView {
     public void a(@NonNull com.bytedance.sdk.openadsdk.core.e.m mVar, NativeExpressView nativeExpressView) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, mVar, nativeExpressView) == null) {
-            this.f66598b = mVar;
+            this.f66778b = mVar;
             this.l = nativeExpressView;
-            this.f66602f = com.bytedance.sdk.openadsdk.q.s.d(this.f66597a, nativeExpressView.getExpectExpressWidth());
-            this.f66603g = com.bytedance.sdk.openadsdk.q.s.d(this.f66597a, this.l.getExpectExpressWidth());
+            this.f66782f = com.bytedance.sdk.openadsdk.q.s.d(this.f66777a, nativeExpressView.getExpectExpressWidth());
+            this.f66783g = com.bytedance.sdk.openadsdk.q.s.d(this.f66777a, this.l.getExpectExpressWidth());
             b();
             this.l.addView(this, new ViewGroup.LayoutParams(-1, -1));
         }
@@ -184,11 +184,11 @@ public class SplashExpressBackupView extends BackupView {
             this.n.setVisibility(0);
             this.q.setVisibility(8);
             ViewGroup.LayoutParams layoutParams = this.n.getLayoutParams();
-            layoutParams.height = com.bytedance.sdk.openadsdk.q.s.d(this.f66597a, 291.0f);
+            layoutParams.height = com.bytedance.sdk.openadsdk.q.s.d(this.f66777a, 291.0f);
             this.n.setLayoutParams(layoutParams);
             a(this.n);
-            this.o.setText(this.f66598b.ai());
-            this.p.setText(this.f66598b.aj());
+            this.o.setText(this.f66778b.ai());
+            this.p.setText(this.f66778b.aj());
             a((View) this, true);
             a((View) this.p, true);
         }
@@ -196,9 +196,9 @@ public class SplashExpressBackupView extends BackupView {
 
     private void a(ImageView imageView) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65537, this, imageView) == null) || this.f66598b.ad().get(0) == null) {
+        if (!(interceptable == null || interceptable.invokeL(65537, this, imageView) == null) || this.f66778b.ad().get(0) == null) {
             return;
         }
-        ImageLoaderWrapper.from(this.f66598b.ad().get(0).a()).to(imageView);
+        ImageLoaderWrapper.from(this.f66778b.ad().get(0).a()).to(imageView);
     }
 }

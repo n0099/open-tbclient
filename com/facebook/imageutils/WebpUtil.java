@@ -108,7 +108,7 @@ public class WebpUtil {
                         inputStream.close();
                     }
                 }
-                if (compare(bArr, b.f60055e)) {
+                if (compare(bArr, b.f60235e)) {
                     getInt(inputStream);
                     inputStream.read(bArr);
                     if (!compare(bArr, "WEBP")) {

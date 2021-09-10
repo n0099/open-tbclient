@@ -17,8 +17,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
 import c.a.e.e.p.l;
-import c.a.q0.i3.z;
-import c.a.q0.n;
+import c.a.r0.j3.z;
+import c.a.r0.n;
 import com.baidu.adp.lib.featureSwitch.SwitchManager;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
@@ -49,22 +49,22 @@ public class SupportOtherAppDownloadDialog extends Dialog {
     public View.OnClickListener K;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f48943e;
+    public Context f49078e;
 
     /* renamed from: f  reason: collision with root package name */
-    public VersionData f48944f;
+    public VersionData f49079f;
 
     /* renamed from: g  reason: collision with root package name */
-    public CombineDownload f48945g;
+    public CombineDownload f49080g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f48946h;
+    public boolean f49081h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f48947i;
+    public boolean f49082i;
 
     /* renamed from: j  reason: collision with root package name */
-    public boolean f48948j;
+    public boolean f49083j;
     public boolean k;
     public LinearLayout l;
     public TextView m;
@@ -88,7 +88,7 @@ public class SupportOtherAppDownloadDialog extends Dialog {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SupportOtherAppDownloadDialog f48949e;
+        public final /* synthetic */ SupportOtherAppDownloadDialog f49084e;
 
         public a(SupportOtherAppDownloadDialog supportOtherAppDownloadDialog) {
             Interceptable interceptable = $ic;
@@ -105,7 +105,7 @@ public class SupportOtherAppDownloadDialog extends Dialog {
                     return;
                 }
             }
-            this.f48949e = supportOtherAppDownloadDialog;
+            this.f49084e = supportOtherAppDownloadDialog;
         }
 
         @Override // android.view.View.OnClickListener
@@ -113,13 +113,13 @@ public class SupportOtherAppDownloadDialog extends Dialog {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
                 TiebaStatic.log(TbadkCoreStatisticKey.UPDATE_IMMEDIATELY_CLICK);
-                this.f48949e.f48948j = true;
-                if (this.f48949e.f48947i) {
+                this.f49084e.f49083j = true;
+                if (this.f49084e.f49082i) {
                     Drawable drawable = SkinManager.getDrawable(R.drawable.btn_dailog_choose_d);
                     drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
-                    this.f48949e.q.setCompoundDrawables(drawable, null, null, null);
+                    this.f49084e.q.setCompoundDrawables(drawable, null, null, null);
                 }
-                this.f48949e.F.a(this.f48949e.f48947i);
+                this.f49084e.F.a(this.f49084e.f49082i);
             }
         }
     }
@@ -130,7 +130,7 @@ public class SupportOtherAppDownloadDialog extends Dialog {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SupportOtherAppDownloadDialog f48950e;
+        public final /* synthetic */ SupportOtherAppDownloadDialog f49085e;
 
         public b(SupportOtherAppDownloadDialog supportOtherAppDownloadDialog) {
             Interceptable interceptable = $ic;
@@ -147,20 +147,20 @@ public class SupportOtherAppDownloadDialog extends Dialog {
                     return;
                 }
             }
-            this.f48950e = supportOtherAppDownloadDialog;
+            this.f49085e = supportOtherAppDownloadDialog;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                if (this.f48950e.J) {
+                if (this.f49085e.J) {
                     TiebaStatic.log(TbadkCoreStatisticKey.UPDATE_INCREMENTAL_CLICK);
                 } else {
                     TiebaStatic.log(TbadkCoreStatisticKey.UPDATE_SUPER_SPEED_CLICK);
                 }
-                this.f48950e.w.setEnabled(false);
-                this.f48950e.F.b(this.f48950e.f48947i);
+                this.f49085e.w.setEnabled(false);
+                this.f49085e.F.b(this.f49085e.f49082i);
             }
         }
     }
@@ -171,7 +171,7 @@ public class SupportOtherAppDownloadDialog extends Dialog {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SupportOtherAppDownloadDialog f48951e;
+        public final /* synthetic */ SupportOtherAppDownloadDialog f49086e;
 
         public c(SupportOtherAppDownloadDialog supportOtherAppDownloadDialog) {
             Interceptable interceptable = $ic;
@@ -188,14 +188,14 @@ public class SupportOtherAppDownloadDialog extends Dialog {
                     return;
                 }
             }
-            this.f48951e = supportOtherAppDownloadDialog;
+            this.f49086e = supportOtherAppDownloadDialog;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f48951e.F.d();
+                this.f49086e.F.d();
             }
         }
     }
@@ -206,7 +206,7 @@ public class SupportOtherAppDownloadDialog extends Dialog {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SupportOtherAppDownloadDialog f48952e;
+        public final /* synthetic */ SupportOtherAppDownloadDialog f49087e;
 
         public d(SupportOtherAppDownloadDialog supportOtherAppDownloadDialog) {
             Interceptable interceptable = $ic;
@@ -223,28 +223,28 @@ public class SupportOtherAppDownloadDialog extends Dialog {
                     return;
                 }
             }
-            this.f48952e = supportOtherAppDownloadDialog;
+            this.f49087e = supportOtherAppDownloadDialog;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f48952e.f48948j) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f49087e.f49083j) {
                 return;
             }
-            if (this.f48952e.f48947i) {
+            if (this.f49087e.f49082i) {
                 Drawable drawable = SkinManager.getDrawable(R.drawable.btn_dailog_choose_n);
                 drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
-                this.f48952e.q.setCompoundDrawables(drawable, null, null, null);
-                this.f48952e.f48946h = false;
-                this.f48952e.f48947i = false;
+                this.f49087e.q.setCompoundDrawables(drawable, null, null, null);
+                this.f49087e.f49081h = false;
+                this.f49087e.f49082i = false;
                 return;
             }
             Drawable drawable2 = SkinManager.getDrawable(R.drawable.btn_dailog_choose_s);
             drawable2.setBounds(0, 0, drawable2.getMinimumWidth(), drawable2.getMinimumHeight());
-            this.f48952e.q.setCompoundDrawables(drawable2, null, null, null);
-            this.f48952e.f48946h = true;
-            this.f48952e.f48947i = true;
+            this.f49087e.q.setCompoundDrawables(drawable2, null, null, null);
+            this.f49087e.f49081h = true;
+            this.f49087e.f49082i = true;
         }
     }
 
@@ -254,7 +254,7 @@ public class SupportOtherAppDownloadDialog extends Dialog {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SupportOtherAppDownloadDialog f48953e;
+        public final /* synthetic */ SupportOtherAppDownloadDialog f49088e;
 
         public e(SupportOtherAppDownloadDialog supportOtherAppDownloadDialog) {
             Interceptable interceptable = $ic;
@@ -271,19 +271,19 @@ public class SupportOtherAppDownloadDialog extends Dialog {
                     return;
                 }
             }
-            this.f48953e = supportOtherAppDownloadDialog;
+            this.f49088e = supportOtherAppDownloadDialog;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                if (view.getId() == this.f48953e.s.getId()) {
-                    this.f48953e.F.d();
-                    SupportOtherAppDownloadDialog supportOtherAppDownloadDialog = this.f48953e;
-                    supportOtherAppDownloadDialog.goToYingyongbao(supportOtherAppDownloadDialog.f48943e);
-                } else if (view.getId() == this.f48953e.v.getId()) {
-                    this.f48953e.F.d();
+                if (view.getId() == this.f49088e.s.getId()) {
+                    this.f49088e.F.d();
+                    SupportOtherAppDownloadDialog supportOtherAppDownloadDialog = this.f49088e;
+                    supportOtherAppDownloadDialog.goToYingyongbao(supportOtherAppDownloadDialog.f49078e);
+                } else if (view.getId() == this.f49088e.v.getId()) {
+                    this.f49088e.F.d();
                 }
             }
         }
@@ -320,13 +320,13 @@ public class SupportOtherAppDownloadDialog extends Dialog {
                 return;
             }
         }
-        this.f48947i = true;
-        this.f48948j = false;
+        this.f49082i = true;
+        this.f49083j = false;
         this.k = false;
         this.I = true;
         this.J = true;
         this.K = new e(this);
-        this.f48943e = context;
+        this.f49078e = context;
     }
 
     public void changeSkinType(TbPageContext<?> tbPageContext, int i2) {
@@ -373,7 +373,7 @@ public class SupportOtherAppDownloadDialog extends Dialog {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.onBackPressed();
-            if (this.f48948j) {
+            if (this.f49083j) {
                 this.F.c();
                 this.l.setVisibility(8);
                 if (this.k) {
@@ -421,37 +421,37 @@ public class SupportOtherAppDownloadDialog extends Dialog {
             } else {
                 this.I = false;
             }
-            String size = this.f48944f.getSize();
-            String newVersion = this.f48944f.getNewVersion();
-            String newVersionDesc = this.f48944f.getNewVersionDesc();
+            String size = this.f49079f.getSize();
+            String newVersion = this.f49079f.getNewVersion();
+            String newVersionDesc = this.f49079f.getNewVersionDesc();
             StringBuilder sb = new StringBuilder();
-            sb.append(this.f48943e.getString(R.string.new_version_format));
+            sb.append(this.f49078e.getString(R.string.new_version_format));
             if (!TextUtils.isEmpty(newVersion)) {
                 sb.append(newVersion);
             }
             if (!TextUtils.isEmpty(size)) {
-                sb.append(" / " + String.format("%.2f", Float.valueOf(c.a.e.e.m.b.c(size, 0.0f) / 1048576.0f)) + "MB");
+                sb.append(" / " + String.format("%.2f", Float.valueOf(c.a.e.e.m.b.d(size, 0.0f) / 1048576.0f)) + "MB");
             }
             this.m.setText(sb.toString());
             this.n.setText(newVersionDesc);
-            if (this.f48944f.forceUpdate()) {
+            if (this.f49079f.forceUpdate()) {
                 this.k = true;
-                this.r.setText(this.f48943e.getString(R.string.quit));
+                this.r.setText(this.f49078e.getString(R.string.quit));
                 this.s.setVisibility(8);
                 this.v.setVisibility(8);
-            } else if (this.f48944f.isOfficialVersion() && l.w(this.f48943e, "com.tencent.android.qqdownloader")) {
+            } else if (this.f49079f.isOfficialVersion() && l.w(this.f49078e, "com.tencent.android.qqdownloader")) {
                 this.r.setVisibility(8);
             } else {
-                this.r.setText(this.f48943e.getString(R.string.update_after));
+                this.r.setText(this.f49078e.getString(R.string.update_after));
                 this.s.setVisibility(8);
                 this.v.setVisibility(8);
             }
-            CombineDownload combineDownload = this.f48945g;
-            if (combineDownload != null && combineDownload.showCombineDownload() && !TextUtils.isEmpty(this.f48945g.getApkMD5RSA())) {
-                this.q.setText(this.f48945g.getAppName());
-                if (!z.b(this.f48943e, this.f48945g.getAppProc()) && !TextUtils.isEmpty(this.f48945g.getAppUrl())) {
+            CombineDownload combineDownload = this.f49080g;
+            if (combineDownload != null && combineDownload.showCombineDownload() && !TextUtils.isEmpty(this.f49080g.getApkMD5RSA())) {
+                this.q.setText(this.f49080g.getAppName());
+                if (!z.b(this.f49078e, this.f49080g.getAppProc()) && !TextUtils.isEmpty(this.f49080g.getAppUrl())) {
                     this.q.setVisibility(0);
-                    Drawable drawable = this.f48943e.getResources().getDrawable(R.drawable.btn_dailog_choose_s);
+                    Drawable drawable = this.f49078e.getResources().getDrawable(R.drawable.btn_dailog_choose_s);
                     drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
                     this.q.setCompoundDrawables(drawable, null, null, null);
                 } else {
@@ -487,8 +487,8 @@ public class SupportOtherAppDownloadDialog extends Dialog {
     public void setData(VersionData versionData, CombineDownload combineDownload, f fVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048583, this, versionData, combineDownload, fVar) == null) {
-            this.f48944f = versionData;
-            this.f48945g = combineDownload;
+            this.f49079f = versionData;
+            this.f49080g = combineDownload;
             this.F = fVar;
         }
     }
@@ -504,14 +504,14 @@ public class SupportOtherAppDownloadDialog extends Dialog {
     public void setFunctionLayout(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
-            if (n.c(this.f48943e.getPackageManager())) {
+            if (n.c(this.f49078e.getPackageManager())) {
                 this.x.setVisibility(8);
             } else {
                 this.x.setVisibility(0);
             }
             if (z) {
-                VersionData versionData = this.f48944f;
-                if (versionData != null && !TextUtils.isEmpty(versionData.getPatch()) && this.f48944f.getNewVersionCode() >= 0) {
+                VersionData versionData = this.f49079f;
+                if (versionData != null && !TextUtils.isEmpty(versionData.getPatch()) && this.f49079f.getNewVersionCode() >= 0) {
                     this.y.setVisibility(0);
                     this.w.setText(R.string.incremental_update);
                     SkinManager.setBackgroundResource(this.w, R.drawable.dialog_single_button_bg_selector);
@@ -530,8 +530,8 @@ public class SupportOtherAppDownloadDialog extends Dialog {
                 TiebaStatic.log(TbadkCoreStatisticKey.UPDATE_IMMEDIATELY_SHOW);
                 return;
             }
-            VersionData versionData2 = this.f48944f;
-            if (versionData2 != null && !TextUtils.isEmpty(versionData2.getPatch()) && this.f48944f.getNewVersionCode() >= 0) {
+            VersionData versionData2 = this.f49079f;
+            if (versionData2 != null && !TextUtils.isEmpty(versionData2.getPatch()) && this.f49079f.getNewVersionCode() >= 0) {
                 this.y.setVisibility(0);
                 SkinManager.setBackgroundResource(this.w, R.drawable.dialog_middle_item_bg_selector);
                 this.w.setText(R.string.incremental_update);
@@ -568,7 +568,7 @@ public class SupportOtherAppDownloadDialog extends Dialog {
             this.y.setVisibility(8);
             this.r.setVisibility(8);
             this.u.setVisibility(8);
-            this.f48948j = true;
+            this.f49083j = true;
             this.E.setVisibility(0);
             this.o.setVisibility(0);
             TextView textView = this.o;
@@ -597,12 +597,12 @@ public class SupportOtherAppDownloadDialog extends Dialog {
                 return;
             }
         }
-        this.f48947i = true;
-        this.f48948j = false;
+        this.f49082i = true;
+        this.f49083j = false;
         this.k = false;
         this.I = true;
         this.J = true;
         this.K = new e(this);
-        this.f48943e = context;
+        this.f49078e = context;
     }
 }

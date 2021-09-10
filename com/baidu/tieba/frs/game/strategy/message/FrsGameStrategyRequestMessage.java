@@ -1,6 +1,6 @@
 package com.baidu.tieba.frs.game.strategy.message;
 
-import c.a.p0.b1.w;
+import c.a.q0.d1.x;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -58,7 +58,7 @@ public class FrsGameStrategyRequestMessage extends NetMessage {
             builder.sub_label_id = Integer.valueOf(this.mLabelId);
             builder.pn = Integer.valueOf(this.mPn);
             if (z) {
-                w.a(builder, true);
+                x.a(builder, true);
             }
             GameForumGuideTabReqIdl.Builder builder2 = new GameForumGuideTabReqIdl.Builder();
             builder2.data = builder.build(false);

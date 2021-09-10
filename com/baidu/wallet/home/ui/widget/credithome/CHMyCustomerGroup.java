@@ -25,10 +25,10 @@ public class CHMyCustomerGroup extends BaseItemLayout implements View.OnClickLis
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public NetImageView f61233a;
+    public NetImageView f61413a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f61234b;
+    public TextView f61414b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public CHMyCustomerGroup(Context context) {
@@ -65,8 +65,8 @@ public class CHMyCustomerGroup extends BaseItemLayout implements View.OnClickLis
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             LayoutInflater.from(getContext()).inflate(ResUtils.layout(getContext(), "wallet_home_ch_intelligent_customer_layout"), this);
-            this.f61233a = (NetImageView) findViewById(ResUtils.id(getContext(), "ch_intelligent_customer_icon"));
-            this.f61234b = (TextView) findViewById(ResUtils.id(getContext(), "ch_intelligent_customer_txt"));
+            this.f61413a = (NetImageView) findViewById(ResUtils.id(getContext(), "ch_intelligent_customer_icon"));
+            this.f61414b = (TextView) findViewById(ResUtils.id(getContext(), "ch_intelligent_customer_txt"));
             setOnClickListener(this);
         }
     }
@@ -92,9 +92,9 @@ public class CHMyCustomerGroup extends BaseItemLayout implements View.OnClickLis
     public void refreshData() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            NetImageView netImageView = this.f61233a;
+            NetImageView netImageView = this.f61413a;
             netImageView.setImageUrl(getWalletInterface().getAndroidPrefix() + this.mConfigData.group_logo);
-            this.f61234b.setText(this.mConfigData.group_name);
+            this.f61414b.setText(this.mConfigData.group_name);
         }
     }
 

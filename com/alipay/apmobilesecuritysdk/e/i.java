@@ -15,22 +15,22 @@ public final class i {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f35693a = "";
+    public static String f35802a = "";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f35694b = "";
+    public static String f35803b = "";
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f35695c = "";
+    public static String f35804c = "";
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f35696d = "";
+    public static String f35805d = "";
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f35697e = "";
+    public static String f35806e = "";
 
     /* renamed from: f  reason: collision with root package name */
-    public static Map<String, String> f35698f;
+    public static Map<String, String> f35807f;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -46,7 +46,7 @@ public final class i {
                 return;
             }
         }
-        f35698f = new HashMap();
+        f35807f = new HashMap();
     }
 
     public static synchronized String a(String str) {
@@ -55,8 +55,8 @@ public final class i {
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
             synchronized (i.class) {
                 String str2 = "apdidTokenCache" + str;
-                if (f35698f.containsKey(str2)) {
-                    String str3 = f35698f.get(str2);
+                if (f35807f.containsKey(str2)) {
+                    String str3 = f35807f.get(str2);
                     if (com.alipay.security.mobile.module.a.a.b(str3)) {
                         return str3;
                     }
@@ -80,9 +80,9 @@ public final class i {
         if (interceptable == null || interceptable.invokeL(65539, null, bVar) == null) {
             synchronized (i.class) {
                 if (bVar != null) {
-                    f35693a = bVar.f35679a;
-                    f35694b = bVar.f35680b;
-                    f35695c = bVar.f35681c;
+                    f35802a = bVar.f35788a;
+                    f35803b = bVar.f35789b;
+                    f35804c = bVar.f35790c;
                 }
             }
         }
@@ -93,11 +93,11 @@ public final class i {
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, cVar) == null) {
             synchronized (i.class) {
                 if (cVar != null) {
-                    f35693a = cVar.f35682a;
-                    f35694b = cVar.f35683b;
-                    f35696d = cVar.f35685d;
-                    f35697e = cVar.f35686e;
-                    f35695c = cVar.f35684c;
+                    f35802a = cVar.f35791a;
+                    f35803b = cVar.f35792b;
+                    f35805d = cVar.f35794d;
+                    f35806e = cVar.f35795e;
+                    f35804c = cVar.f35793c;
                 }
             }
         }
@@ -108,10 +108,10 @@ public final class i {
         if (interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, str, str2) == null) {
             synchronized (i.class) {
                 String str3 = "apdidTokenCache" + str;
-                if (f35698f.containsKey(str3)) {
-                    f35698f.remove(str3);
+                if (f35807f.containsKey(str3)) {
+                    f35807f.remove(str3);
                 }
-                f35698f.put(str3, str2);
+                f35807f.put(str3, str2);
             }
         }
     }
@@ -149,7 +149,7 @@ public final class i {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
             synchronized (i.class) {
-                str = f35693a;
+                str = f35802a;
             }
             return str;
         }
@@ -159,7 +159,7 @@ public final class i {
     public static void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65544, null, str) == null) {
-            f35693a = str;
+            f35802a = str;
         }
     }
 
@@ -169,7 +169,7 @@ public final class i {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
             synchronized (i.class) {
-                str = f35694b;
+                str = f35803b;
             }
             return str;
         }
@@ -179,7 +179,7 @@ public final class i {
     public static void c(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65546, null, str) == null) {
-            f35694b = str;
+            f35803b = str;
         }
     }
 
@@ -189,7 +189,7 @@ public final class i {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
             synchronized (i.class) {
-                str = f35696d;
+                str = f35805d;
             }
             return str;
         }
@@ -199,7 +199,7 @@ public final class i {
     public static void d(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65548, null, str) == null) {
-            f35695c = str;
+            f35804c = str;
         }
     }
 
@@ -209,7 +209,7 @@ public final class i {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) {
             synchronized (i.class) {
-                str = f35697e;
+                str = f35806e;
             }
             return str;
         }
@@ -219,7 +219,7 @@ public final class i {
     public static void e(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65550, null, str) == null) {
-            f35696d = str;
+            f35805d = str;
         }
     }
 
@@ -229,7 +229,7 @@ public final class i {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65551, null)) == null) {
             synchronized (i.class) {
-                str = f35695c;
+                str = f35804c;
             }
             return str;
         }
@@ -239,7 +239,7 @@ public final class i {
     public static void f(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65552, null, str) == null) {
-            f35697e = str;
+            f35806e = str;
         }
     }
 
@@ -249,7 +249,7 @@ public final class i {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65553, null)) == null) {
             synchronized (i.class) {
-                cVar = new c(f35693a, f35694b, f35695c, f35696d, f35697e);
+                cVar = new c(f35802a, f35803b, f35804c, f35805d, f35806e);
             }
             return cVar;
         }
@@ -259,12 +259,12 @@ public final class i {
     public static void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65554, null) == null) {
-            f35698f.clear();
-            f35693a = "";
-            f35694b = "";
-            f35696d = "";
-            f35697e = "";
-            f35695c = "";
+            f35807f.clear();
+            f35802a = "";
+            f35803b = "";
+            f35805d = "";
+            f35806e = "";
+            f35804c = "";
         }
     }
 }

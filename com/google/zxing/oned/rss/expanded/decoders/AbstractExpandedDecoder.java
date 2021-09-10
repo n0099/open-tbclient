@@ -62,9 +62,9 @@ public abstract class AbstractExpandedDecoder {
                                 case 59:
                                     return new AI013x0x1xDecoder(bitArray, PaymentConfirmRequestData.TERMINAL_ANDROID, "13");
                                 case 60:
-                                    return new AI013x0x1xDecoder(bitArray, "310", Constants.VIA_REPORT_TYPE_WPA_STATE);
+                                    return new AI013x0x1xDecoder(bitArray, "310", "15");
                                 case 61:
-                                    return new AI013x0x1xDecoder(bitArray, PaymentConfirmRequestData.TERMINAL_ANDROID, Constants.VIA_REPORT_TYPE_WPA_STATE);
+                                    return new AI013x0x1xDecoder(bitArray, PaymentConfirmRequestData.TERMINAL_ANDROID, "15");
                                 case 62:
                                     return new AI013x0x1xDecoder(bitArray, "310", Constants.VIA_REPORT_TYPE_START_GROUP);
                                 case 63:

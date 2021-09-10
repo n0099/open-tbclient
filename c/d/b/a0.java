@@ -20,16 +20,16 @@ public abstract class a0 {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ v f31604a;
+        public final /* synthetic */ v f31713a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ int f31605b;
+        public final /* synthetic */ int f31714b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ byte[] f31606c;
+        public final /* synthetic */ byte[] f31715c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ int f31607d;
+        public final /* synthetic */ int f31716d;
 
         public a(v vVar, int i2, byte[] bArr, int i3) {
             Interceptable interceptable = $ic;
@@ -46,17 +46,17 @@ public abstract class a0 {
                     return;
                 }
             }
-            this.f31604a = vVar;
-            this.f31605b = i2;
-            this.f31606c = bArr;
-            this.f31607d = i3;
+            this.f31713a = vVar;
+            this.f31714b = i2;
+            this.f31715c = bArr;
+            this.f31716d = i3;
         }
 
         @Override // c.d.b.a0
         public long a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f31605b : invokeV.longValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f31714b : invokeV.longValue;
         }
 
         @Override // c.d.b.a0
@@ -64,14 +64,14 @@ public abstract class a0 {
         public v b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f31604a : (v) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f31713a : (v) invokeV.objValue;
         }
 
         @Override // c.d.b.a0
         public void e(BufferedSink bufferedSink) throws IOException {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bufferedSink) == null) {
-                bufferedSink.write(this.f31606c, this.f31607d, this.f31605b);
+                bufferedSink.write(this.f31715c, this.f31716d, this.f31714b);
             }
         }
     }

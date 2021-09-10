@@ -28,19 +28,19 @@ public class ExpandableHListConnector extends BaseAdapter implements Filterable 
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public ExpandableListAdapter f52488e;
+    public ExpandableListAdapter f52634e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ArrayList<GroupMetadata> f52489f;
+    public ArrayList<GroupMetadata> f52635f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f52490g;
+    public int f52636g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f52491h;
+    public int f52637h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final DataSetObserver f52492i;
+    public final DataSetObserver f52638i;
 
     /* loaded from: classes7.dex */
     public static class GroupMetadata implements Parcelable, Comparable<GroupMetadata> {
@@ -177,7 +177,7 @@ public class ExpandableHListConnector extends BaseAdapter implements Filterable 
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ExpandableHListConnector f52493a;
+        public final /* synthetic */ ExpandableHListConnector f52639a;
 
         public a(ExpandableHListConnector expandableHListConnector) {
             Interceptable interceptable = $ic;
@@ -194,15 +194,15 @@ public class ExpandableHListConnector extends BaseAdapter implements Filterable 
                     return;
                 }
             }
-            this.f52493a = expandableHListConnector;
+            this.f52639a = expandableHListConnector;
         }
 
         @Override // android.database.DataSetObserver
         public void onChanged() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f52493a.k(true, true);
-                this.f52493a.notifyDataSetChanged();
+                this.f52639a.k(true, true);
+                this.f52639a.notifyDataSetChanged();
             }
         }
 
@@ -210,8 +210,8 @@ public class ExpandableHListConnector extends BaseAdapter implements Filterable 
         public void onInvalidated() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.f52493a.k(true, true);
-                this.f52493a.notifyDataSetInvalidated();
+                this.f52639a.k(true, true);
+                this.f52639a.notifyDataSetInvalidated();
             }
         }
     }
@@ -221,17 +221,17 @@ public class ExpandableHListConnector extends BaseAdapter implements Filterable 
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: d  reason: collision with root package name */
-        public static ArrayList<b> f52494d;
+        public static ArrayList<b> f52640d;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public c.a.q0.g1.b.a f52495a;
+        public c.a.r0.h1.b.a f52641a;
 
         /* renamed from: b  reason: collision with root package name */
-        public GroupMetadata f52496b;
+        public GroupMetadata f52642b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f52497c;
+        public int f52643c;
 
         static {
             InterceptResult invokeClinit;
@@ -246,7 +246,7 @@ public class ExpandableHListConnector extends BaseAdapter implements Filterable 
                     return;
                 }
             }
-            f52494d = new ArrayList<>(5);
+            f52640d = new ArrayList<>(5);
         }
 
         public b() {
@@ -267,9 +267,9 @@ public class ExpandableHListConnector extends BaseAdapter implements Filterable 
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-                synchronized (f52494d) {
-                    if (f52494d.size() > 0) {
-                        b remove = f52494d.remove(0);
+                synchronized (f52640d) {
+                    if (f52640d.size() > 0) {
+                        b remove = f52640d.remove(0);
                         remove.e();
                         return remove;
                     }
@@ -284,9 +284,9 @@ public class ExpandableHListConnector extends BaseAdapter implements Filterable 
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), groupMetadata, Integer.valueOf(i6)})) == null) {
                 b a2 = a();
-                a2.f52495a = c.a.q0.g1.b.a.c(i3, i4, i5, i2);
-                a2.f52496b = groupMetadata;
-                a2.f52497c = i6;
+                a2.f52641a = c.a.r0.h1.b.a.c(i3, i4, i5, i2);
+                a2.f52642b = groupMetadata;
+                a2.f52643c = i6;
                 return a2;
             }
             return (b) invokeCommon.objValue;
@@ -295,16 +295,16 @@ public class ExpandableHListConnector extends BaseAdapter implements Filterable 
         public boolean b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f52496b != null : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f52642b != null : invokeV.booleanValue;
         }
 
         public void d() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
                 e();
-                synchronized (f52494d) {
-                    if (f52494d.size() < 5) {
-                        f52494d.add(this);
+                synchronized (f52640d) {
+                    if (f52640d.size() < 5) {
+                        f52640d.add(this);
                     }
                 }
             }
@@ -313,13 +313,13 @@ public class ExpandableHListConnector extends BaseAdapter implements Filterable 
         public final void e() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                c.a.q0.g1.b.a aVar = this.f52495a;
+                c.a.r0.h1.b.a aVar = this.f52641a;
                 if (aVar != null) {
                     aVar.g();
-                    this.f52495a = null;
+                    this.f52641a = null;
                 }
-                this.f52496b = null;
-                this.f52497c = 0;
+                this.f52642b = null;
+                this.f52643c = 0;
             }
         }
     }
@@ -339,9 +339,9 @@ public class ExpandableHListConnector extends BaseAdapter implements Filterable 
                 return;
             }
         }
-        this.f52491h = Integer.MAX_VALUE;
-        this.f52492i = new a(this);
-        this.f52489f = new ArrayList<>();
+        this.f52637h = Integer.MAX_VALUE;
+        this.f52638i = new a(this);
+        this.f52635f = new ArrayList<>();
         l(expandableListAdapter);
     }
 
@@ -349,14 +349,14 @@ public class ExpandableHListConnector extends BaseAdapter implements Filterable 
     public boolean areAllItemsEnabled() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f52488e.areAllItemsEnabled() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f52634e.areAllItemsEnabled() : invokeV.booleanValue;
     }
 
     public boolean b(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
-            c.a.q0.g1.b.a c2 = c.a.q0.g1.b.a.c(2, i2, -1, -1);
+            c.a.r0.h1.b.a c2 = c.a.r0.h1.b.a.c(2, i2, -1, -1);
             b h2 = h(c2);
             c2.g();
             if (h2 == null) {
@@ -373,14 +373,14 @@ public class ExpandableHListConnector extends BaseAdapter implements Filterable 
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar)) == null) {
-            GroupMetadata groupMetadata = bVar.f52496b;
+            GroupMetadata groupMetadata = bVar.f52642b;
             if (groupMetadata == null) {
                 return false;
             }
-            this.f52489f.remove(groupMetadata);
+            this.f52635f.remove(groupMetadata);
             k(false, false);
             notifyDataSetChanged();
-            this.f52488e.onGroupCollapsed(bVar.f52496b.gPos);
+            this.f52634e.onGroupCollapsed(bVar.f52642b.gPos);
             return true;
         }
         return invokeL.booleanValue;
@@ -390,23 +390,23 @@ public class ExpandableHListConnector extends BaseAdapter implements Filterable 
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, bVar)) == null) {
-            if (bVar.f52495a.f18326a >= 0) {
-                if (this.f52491h != 0 && bVar.f52496b == null) {
-                    if (this.f52489f.size() >= this.f52491h) {
-                        GroupMetadata groupMetadata = this.f52489f.get(0);
-                        int indexOf = this.f52489f.indexOf(groupMetadata);
+            if (bVar.f52641a.f18915a >= 0) {
+                if (this.f52637h != 0 && bVar.f52642b == null) {
+                    if (this.f52635f.size() >= this.f52637h) {
+                        GroupMetadata groupMetadata = this.f52635f.get(0);
+                        int indexOf = this.f52635f.indexOf(groupMetadata);
                         b(groupMetadata.gPos);
-                        int i2 = bVar.f52497c;
+                        int i2 = bVar.f52643c;
                         if (i2 > indexOf) {
-                            bVar.f52497c = i2 - 1;
+                            bVar.f52643c = i2 - 1;
                         }
                     }
-                    int i3 = bVar.f52495a.f18326a;
-                    GroupMetadata obtain = GroupMetadata.obtain(-1, -1, i3, this.f52488e.getGroupId(i3));
-                    this.f52489f.add(bVar.f52497c, obtain);
+                    int i3 = bVar.f52641a.f18915a;
+                    GroupMetadata obtain = GroupMetadata.obtain(-1, -1, i3, this.f52634e.getGroupId(i3));
+                    this.f52635f.add(bVar.f52643c, obtain);
                     k(false, false);
                     notifyDataSetChanged();
-                    this.f52488e.onGroupExpanded(obtain.gPos);
+                    this.f52634e.onGroupExpanded(obtain.gPos);
                     return true;
                 }
                 return false;
@@ -420,7 +420,7 @@ public class ExpandableHListConnector extends BaseAdapter implements Filterable 
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Long.valueOf(j2), Integer.valueOf(i2)})) == null) {
-            int groupCount = this.f52488e.getGroupCount();
+            int groupCount = this.f52634e.getGroupCount();
             if (groupCount == 0 || j2 == Long.MIN_VALUE) {
                 return -1;
             }
@@ -463,20 +463,20 @@ public class ExpandableHListConnector extends BaseAdapter implements Filterable 
     public ExpandableListAdapter f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f52488e : (ExpandableListAdapter) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f52634e : (ExpandableListAdapter) invokeV.objValue;
     }
 
     public ArrayList<GroupMetadata> g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f52489f : (ArrayList) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f52635f : (ArrayList) invokeV.objValue;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f52488e.getGroupCount() + this.f52490g : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f52634e.getGroupCount() + this.f52636g : invokeV.intValue;
     }
 
     @Override // android.widget.Filterable
@@ -500,12 +500,12 @@ public class ExpandableHListConnector extends BaseAdapter implements Filterable 
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i2)) == null) {
             b i3 = i(i2);
-            c.a.q0.g1.b.a aVar = i3.f52495a;
-            int i4 = aVar.f18329d;
+            c.a.r0.h1.b.a aVar = i3.f52641a;
+            int i4 = aVar.f18918d;
             if (i4 == 2) {
-                child = this.f52488e.getGroup(aVar.f18326a);
+                child = this.f52634e.getGroup(aVar.f18915a);
             } else if (i4 == 1) {
-                child = this.f52488e.getChild(aVar.f18326a, aVar.f18327b);
+                child = this.f52634e.getChild(aVar.f18915a, aVar.f18916b);
             } else {
                 throw new RuntimeException("Flat list position is of unknown type");
             }
@@ -522,13 +522,13 @@ public class ExpandableHListConnector extends BaseAdapter implements Filterable 
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i2)) == null) {
             b i3 = i(i2);
-            long groupId = this.f52488e.getGroupId(i3.f52495a.f18326a);
-            c.a.q0.g1.b.a aVar = i3.f52495a;
-            int i4 = aVar.f18329d;
+            long groupId = this.f52634e.getGroupId(i3.f52641a.f18915a);
+            c.a.r0.h1.b.a aVar = i3.f52641a;
+            int i4 = aVar.f18918d;
             if (i4 == 2) {
-                combinedChildId = this.f52488e.getCombinedGroupId(groupId);
+                combinedChildId = this.f52634e.getCombinedGroupId(groupId);
             } else if (i4 == 1) {
-                combinedChildId = this.f52488e.getCombinedChildId(groupId, this.f52488e.getChildId(aVar.f18326a, aVar.f18327b));
+                combinedChildId = this.f52634e.getCombinedChildId(groupId, this.f52634e.getChildId(aVar.f18915a, aVar.f18916b));
             } else {
                 throw new RuntimeException("Flat list position is of unknown type");
             }
@@ -545,17 +545,17 @@ public class ExpandableHListConnector extends BaseAdapter implements Filterable 
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048587, this, i2)) == null) {
             b i4 = i(i2);
-            c.a.q0.g1.b.a aVar = i4.f52495a;
-            ExpandableListAdapter expandableListAdapter = this.f52488e;
+            c.a.r0.h1.b.a aVar = i4.f52641a;
+            ExpandableListAdapter expandableListAdapter = this.f52634e;
             if (expandableListAdapter instanceof HeterogeneousExpandableList) {
                 HeterogeneousExpandableList heterogeneousExpandableList = (HeterogeneousExpandableList) expandableListAdapter;
-                if (aVar.f18329d == 2) {
-                    i3 = heterogeneousExpandableList.getGroupType(aVar.f18326a);
+                if (aVar.f18918d == 2) {
+                    i3 = heterogeneousExpandableList.getGroupType(aVar.f18915a);
                 } else {
-                    i3 = heterogeneousExpandableList.getChildType(aVar.f18326a, aVar.f18327b) + heterogeneousExpandableList.getGroupTypeCount();
+                    i3 = heterogeneousExpandableList.getChildType(aVar.f18915a, aVar.f18916b) + heterogeneousExpandableList.getGroupTypeCount();
                 }
             } else {
-                i3 = aVar.f18329d == 2 ? 0 : 1;
+                i3 = aVar.f18918d == 2 ? 0 : 1;
             }
             i4.d();
             return i3;
@@ -570,15 +570,15 @@ public class ExpandableHListConnector extends BaseAdapter implements Filterable 
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeILL = interceptable.invokeILL(1048588, this, i2, view, viewGroup)) == null) {
             b i3 = i(i2);
-            c.a.q0.g1.b.a aVar = i3.f52495a;
-            int i4 = aVar.f18329d;
+            c.a.r0.h1.b.a aVar = i3.f52641a;
+            int i4 = aVar.f18918d;
             if (i4 == 2) {
-                childView = this.f52488e.getGroupView(aVar.f18326a, i3.b(), view, viewGroup);
+                childView = this.f52634e.getGroupView(aVar.f18915a, i3.b(), view, viewGroup);
             } else if (i4 == 1) {
-                boolean z = i3.f52496b.lastChildFlPos == i2;
-                ExpandableListAdapter expandableListAdapter = this.f52488e;
-                c.a.q0.g1.b.a aVar2 = i3.f52495a;
-                childView = expandableListAdapter.getChildView(aVar2.f18326a, aVar2.f18327b, z, view, viewGroup);
+                boolean z = i3.f52642b.lastChildFlPos == i2;
+                ExpandableListAdapter expandableListAdapter = this.f52634e;
+                c.a.r0.h1.b.a aVar2 = i3.f52641a;
+                childView = expandableListAdapter.getChildView(aVar2.f18915a, aVar2.f18916b, z, view, viewGroup);
             } else {
                 throw new RuntimeException("Flat list position is of unknown type");
             }
@@ -593,7 +593,7 @@ public class ExpandableHListConnector extends BaseAdapter implements Filterable 
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            ExpandableListAdapter expandableListAdapter = this.f52488e;
+            ExpandableListAdapter expandableListAdapter = this.f52634e;
             if (expandableListAdapter instanceof HeterogeneousExpandableList) {
                 HeterogeneousExpandableList heterogeneousExpandableList = (HeterogeneousExpandableList) expandableListAdapter;
                 return heterogeneousExpandableList.getGroupTypeCount() + heterogeneousExpandableList.getChildTypeCount();
@@ -603,56 +603,56 @@ public class ExpandableHListConnector extends BaseAdapter implements Filterable 
         return invokeV.intValue;
     }
 
-    public b h(c.a.q0.g1.b.a aVar) {
+    public b h(c.a.r0.h1.b.a aVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, aVar)) == null) {
-            ArrayList<GroupMetadata> arrayList = this.f52489f;
+            ArrayList<GroupMetadata> arrayList = this.f52635f;
             int size = arrayList.size();
             int i2 = size - 1;
             if (size == 0) {
-                int i3 = aVar.f18326a;
-                return b.c(i3, aVar.f18329d, i3, aVar.f18327b, null, 0);
+                int i3 = aVar.f18915a;
+                return b.c(i3, aVar.f18918d, i3, aVar.f18916b, null, 0);
             }
             int i4 = 0;
             int i5 = 0;
             while (i5 <= i2) {
                 i4 = ((i2 - i5) / 2) + i5;
                 GroupMetadata groupMetadata = arrayList.get(i4);
-                int i6 = aVar.f18326a;
+                int i6 = aVar.f18915a;
                 int i7 = groupMetadata.gPos;
                 if (i6 > i7) {
                     i5 = i4 + 1;
                 } else if (i6 < i7) {
                     i2 = i4 - 1;
                 } else if (i6 == i7) {
-                    int i8 = aVar.f18329d;
+                    int i8 = aVar.f18918d;
                     if (i8 == 2) {
-                        return b.c(groupMetadata.flPos, i8, i6, aVar.f18327b, groupMetadata, i4);
+                        return b.c(groupMetadata.flPos, i8, i6, aVar.f18916b, groupMetadata, i4);
                     }
                     if (i8 == 1) {
                         int i9 = groupMetadata.flPos;
-                        int i10 = aVar.f18327b;
+                        int i10 = aVar.f18916b;
                         return b.c(i9 + i10 + 1, i8, i6, i10, groupMetadata, i4);
                     }
                     return null;
                 }
             }
-            if (aVar.f18329d != 2) {
+            if (aVar.f18918d != 2) {
                 return null;
             }
             if (i5 > i4) {
                 GroupMetadata groupMetadata2 = arrayList.get(i5 - 1);
                 int i11 = groupMetadata2.lastChildFlPos;
-                int i12 = aVar.f18326a;
-                return b.c(i11 + (i12 - groupMetadata2.gPos), aVar.f18329d, i12, aVar.f18327b, null, i5);
+                int i12 = aVar.f18915a;
+                return b.c(i11 + (i12 - groupMetadata2.gPos), aVar.f18918d, i12, aVar.f18916b, null, i5);
             } else if (i2 < i4) {
                 int i13 = 1 + i2;
                 GroupMetadata groupMetadata3 = arrayList.get(i13);
                 int i14 = groupMetadata3.flPos;
                 int i15 = groupMetadata3.gPos;
-                int i16 = aVar.f18326a;
-                return b.c(i14 - (i15 - i16), aVar.f18329d, i16, aVar.f18327b, null, i13);
+                int i16 = aVar.f18915a;
+                return b.c(i14 - (i15 - i16), aVar.f18918d, i16, aVar.f18916b, null, i13);
             } else {
                 return null;
             }
@@ -664,7 +664,7 @@ public class ExpandableHListConnector extends BaseAdapter implements Filterable 
     public boolean hasStableIds() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.f52488e.hasStableIds() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.f52634e.hasStableIds() : invokeV.booleanValue;
     }
 
     public b i(int i2) {
@@ -672,7 +672,7 @@ public class ExpandableHListConnector extends BaseAdapter implements Filterable 
         int i3;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048592, this, i2)) == null) {
-            ArrayList<GroupMetadata> arrayList = this.f52489f;
+            ArrayList<GroupMetadata> arrayList = this.f52635f;
             int size = arrayList.size();
             int i4 = size - 1;
             if (size == 0) {
@@ -736,8 +736,8 @@ public class ExpandableHListConnector extends BaseAdapter implements Filterable 
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048594, this, i2)) == null) {
             b i3 = i(i2);
-            c.a.q0.g1.b.a aVar = i3.f52495a;
-            boolean isChildSelectable = aVar.f18329d == 1 ? this.f52488e.isChildSelectable(aVar.f18326a, aVar.f18327b) : true;
+            c.a.r0.h1.b.a aVar = i3.f52641a;
+            boolean isChildSelectable = aVar.f18918d == 1 ? this.f52634e.isChildSelectable(aVar.f18915a, aVar.f18916b) : true;
             i3.d();
             return isChildSelectable;
         }
@@ -748,8 +748,8 @@ public class ExpandableHListConnector extends BaseAdapter implements Filterable 
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048595, this, i2)) == null) {
-            for (int size = this.f52489f.size() - 1; size >= 0; size--) {
-                if (this.f52489f.get(size).gPos == i2) {
+            for (int size = this.f52635f.size() - 1; size >= 0; size--) {
+                if (this.f52635f.get(size).gPos == i2) {
                     return true;
                 }
             }
@@ -762,10 +762,10 @@ public class ExpandableHListConnector extends BaseAdapter implements Filterable 
         int childrenCount;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048596, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
-            ArrayList<GroupMetadata> arrayList = this.f52489f;
+            ArrayList<GroupMetadata> arrayList = this.f52635f;
             int size = arrayList.size();
             int i2 = 0;
-            this.f52490g = 0;
+            this.f52636g = 0;
             if (z2) {
                 boolean z3 = false;
                 for (int i3 = size - 1; i3 >= 0; i3--) {
@@ -794,9 +794,9 @@ public class ExpandableHListConnector extends BaseAdapter implements Filterable 
                 if (i6 != -1 && !z) {
                     childrenCount = i6 - groupMetadata2.flPos;
                 } else {
-                    childrenCount = this.f52488e.getChildrenCount(groupMetadata2.gPos);
+                    childrenCount = this.f52634e.getChildrenCount(groupMetadata2.gPos);
                 }
-                this.f52490g += childrenCount;
+                this.f52636g += childrenCount;
                 int i7 = groupMetadata2.gPos;
                 int i8 = i4 + (i7 - i5);
                 groupMetadata2.flPos = i8;
@@ -811,19 +811,19 @@ public class ExpandableHListConnector extends BaseAdapter implements Filterable 
     public void l(ExpandableListAdapter expandableListAdapter) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048597, this, expandableListAdapter) == null) {
-            ExpandableListAdapter expandableListAdapter2 = this.f52488e;
+            ExpandableListAdapter expandableListAdapter2 = this.f52634e;
             if (expandableListAdapter2 != null) {
-                expandableListAdapter2.unregisterDataSetObserver(this.f52492i);
+                expandableListAdapter2.unregisterDataSetObserver(this.f52638i);
             }
-            this.f52488e = expandableListAdapter;
-            expandableListAdapter.registerDataSetObserver(this.f52492i);
+            this.f52634e = expandableListAdapter;
+            expandableListAdapter.registerDataSetObserver(this.f52638i);
         }
     }
 
     public void m(ArrayList<GroupMetadata> arrayList) {
         ExpandableListAdapter expandableListAdapter;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048598, this, arrayList) == null) || arrayList == null || (expandableListAdapter = this.f52488e) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048598, this, arrayList) == null) || arrayList == null || (expandableListAdapter = this.f52634e) == null) {
             return;
         }
         int groupCount = expandableListAdapter.getGroupCount();
@@ -832,7 +832,7 @@ public class ExpandableHListConnector extends BaseAdapter implements Filterable 
                 return;
             }
         }
-        this.f52489f = arrayList;
+        this.f52635f = arrayList;
         k(true, false);
     }
 }

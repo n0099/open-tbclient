@@ -15,7 +15,7 @@ public class d implements TTAdNative.FullScreenVideoAdListener {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public TTAdNative.FullScreenVideoAdListener f65984a;
+    public TTAdNative.FullScreenVideoAdListener f66164a;
 
     public d(TTAdNative.FullScreenVideoAdListener fullScreenVideoAdListener) {
         Interceptable interceptable = $ic;
@@ -32,33 +32,33 @@ public class d implements TTAdNative.FullScreenVideoAdListener {
                 return;
             }
         }
-        this.f65984a = fullScreenVideoAdListener;
+        this.f66164a = fullScreenVideoAdListener;
     }
 
     @Override // com.bytedance.sdk.openadsdk.TTAdNative.FullScreenVideoAdListener, com.bytedance.sdk.openadsdk.c.b
     public void onError(int i2, String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(1048576, this, i2, str) == null) || this.f65984a == null) {
+        if (!(interceptable == null || interceptable.invokeIL(1048576, this, i2, str) == null) || this.f66164a == null) {
             return;
         }
         if (str == null) {
             str = "未知异常";
         }
         if (Looper.myLooper() == Looper.getMainLooper()) {
-            this.f65984a.onError(i2, str);
+            this.f66164a.onError(i2, str);
         } else {
             l.d().post(new Runnable(this, i2, str) { // from class: com.bytedance.sdk.openadsdk.core.a.d.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ int f65985a;
+                public final /* synthetic */ int f66165a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ String f65986b;
+                public final /* synthetic */ String f66166b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ d f65987c;
+                public final /* synthetic */ d f66167c;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -75,16 +75,16 @@ public class d implements TTAdNative.FullScreenVideoAdListener {
                             return;
                         }
                     }
-                    this.f65987c = this;
-                    this.f65985a = i2;
-                    this.f65986b = str;
+                    this.f66167c = this;
+                    this.f66165a = i2;
+                    this.f66166b = str;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f65987c.f65984a.onError(this.f65985a, this.f65986b);
+                        this.f66167c.f66164a.onError(this.f66165a, this.f66166b);
                     }
                 }
             });
@@ -94,21 +94,21 @@ public class d implements TTAdNative.FullScreenVideoAdListener {
     @Override // com.bytedance.sdk.openadsdk.TTAdNative.FullScreenVideoAdListener
     public void onFullScreenVideoAdLoad(TTFullScreenVideoAd tTFullScreenVideoAd) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tTFullScreenVideoAd) == null) || this.f65984a == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tTFullScreenVideoAd) == null) || this.f66164a == null) {
             return;
         }
         if (Looper.myLooper() == Looper.getMainLooper()) {
-            this.f65984a.onFullScreenVideoAdLoad(tTFullScreenVideoAd);
+            this.f66164a.onFullScreenVideoAdLoad(tTFullScreenVideoAd);
         } else {
             l.d().post(new Runnable(this, tTFullScreenVideoAd) { // from class: com.bytedance.sdk.openadsdk.core.a.d.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ TTFullScreenVideoAd f65988a;
+                public final /* synthetic */ TTFullScreenVideoAd f66168a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ d f65989b;
+                public final /* synthetic */ d f66169b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -125,15 +125,15 @@ public class d implements TTAdNative.FullScreenVideoAdListener {
                             return;
                         }
                     }
-                    this.f65989b = this;
-                    this.f65988a = tTFullScreenVideoAd;
+                    this.f66169b = this;
+                    this.f66168a = tTFullScreenVideoAd;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f65989b.f65984a.onFullScreenVideoAdLoad(this.f65988a);
+                        this.f66169b.f66164a.onFullScreenVideoAdLoad(this.f66168a);
                     }
                 }
             });
@@ -143,18 +143,18 @@ public class d implements TTAdNative.FullScreenVideoAdListener {
     @Override // com.bytedance.sdk.openadsdk.TTAdNative.FullScreenVideoAdListener
     public void onFullScreenVideoCached() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.f65984a == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.f66164a == null) {
             return;
         }
         if (Looper.myLooper() == Looper.getMainLooper()) {
-            this.f65984a.onFullScreenVideoCached();
+            this.f66164a.onFullScreenVideoCached();
         } else {
             l.d().post(new Runnable(this) { // from class: com.bytedance.sdk.openadsdk.core.a.d.3
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ d f65990a;
+                public final /* synthetic */ d f66170a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -171,14 +171,14 @@ public class d implements TTAdNative.FullScreenVideoAdListener {
                             return;
                         }
                     }
-                    this.f65990a = this;
+                    this.f66170a = this;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f65990a.f65984a.onFullScreenVideoCached();
+                        this.f66170a.f66164a.onFullScreenVideoCached();
                     }
                 }
             });

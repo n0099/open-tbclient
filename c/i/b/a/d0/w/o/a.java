@@ -14,19 +14,19 @@ public final class a extends c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public final List<C1487a> f33235c;
+    public final List<C1487a> f33344c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final List<C1487a> f33236d;
+    public final List<C1487a> f33345d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final List<C1487a> f33237e;
+    public final List<C1487a> f33346e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final Format f33238f;
+    public final Format f33347f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final List<Format> f33239g;
+    public final List<Format> f33348g;
 
     /* renamed from: c.i.b.a.d0.w.o.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
@@ -35,10 +35,10 @@ public final class a extends c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final String f33240a;
+        public final String f33349a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final Format f33241b;
+        public final Format f33350b;
 
         public C1487a(String str, Format format) {
             Interceptable interceptable = $ic;
@@ -55,8 +55,8 @@ public final class a extends c {
                     return;
                 }
             }
-            this.f33240a = str;
-            this.f33241b = format;
+            this.f33349a = str;
+            this.f33350b = format;
         }
 
         public static C1487a a(String str) {
@@ -85,11 +85,11 @@ public final class a extends c {
                 return;
             }
         }
-        this.f33235c = Collections.unmodifiableList(list2);
-        this.f33236d = Collections.unmodifiableList(list3);
-        this.f33237e = Collections.unmodifiableList(list4);
-        this.f33238f = format;
-        this.f33239g = list5 != null ? Collections.unmodifiableList(list5) : null;
+        this.f33344c = Collections.unmodifiableList(list2);
+        this.f33345d = Collections.unmodifiableList(list3);
+        this.f33346e = Collections.unmodifiableList(list4);
+        this.f33347f = format;
+        this.f33348g = list5 != null ? Collections.unmodifiableList(list5) : null;
     }
 
     public static a a(String str) {

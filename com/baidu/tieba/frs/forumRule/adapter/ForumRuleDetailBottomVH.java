@@ -3,7 +3,7 @@ package com.baidu.tieba.frs.forumRule.adapter;
 import android.view.View;
 import android.widget.ImageView;
 import c.a.e.e.p.l;
-import c.a.p0.s.u.c;
+import c.a.q0.s.u.c;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
@@ -28,7 +28,7 @@ public class ForumRuleDetailBottomVH extends TypeAdapter.ViewHolder {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public View f50959a;
+    public View f51124a;
     public BarImageView mBarManagementHeadView;
     public EMTextView mBarManagementRevise;
     public EMTextView mBarManagementTitle;
@@ -56,7 +56,7 @@ public class ForumRuleDetailBottomVH extends TypeAdapter.ViewHolder {
                 return;
             }
         }
-        this.f50959a = view;
+        this.f51124a = view;
         BarImageView barImageView = (BarImageView) view.findViewById(R.id.forum_rules_bar_management_head_view);
         this.mBarManagementHeadView = barImageView;
         barImageView.setShowOval(true);
@@ -95,25 +95,21 @@ public class ForumRuleDetailBottomVH extends TypeAdapter.ViewHolder {
     public void onChangeSkinType(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            SkinManager.setBackgroundColor(this.f50959a, R.color.CAM_X0205);
+            SkinManager.setBackgroundColor(this.f51124a, R.color.CAM_X0205);
             c d2 = c.d(this.mBarManagementTitle);
-            d2.z(R.string.F_X01);
-            d2.u(R.color.CAM_X0105);
+            d2.B(R.string.F_X01);
+            d2.w(R.color.CAM_X0105);
             c d3 = c.d(this.mBarManagementRevise);
-            d3.z(R.string.F_X01);
-            d3.u(R.color.CAM_X0109);
+            d3.B(R.string.F_X01);
+            d3.w(R.color.CAM_X0109);
             c d4 = c.d(this.mChargerOfBarTitle);
-            d4.z(R.string.F_X01);
-            d4.u(R.color.CAM_X0105);
+            d4.B(R.string.F_X01);
+            d4.w(R.color.CAM_X0105);
             c d5 = c.d(this.mTimeRevise);
-            d5.z(R.string.F_X01);
-            d5.u(R.color.CAM_X0109);
+            d5.B(R.string.F_X01);
+            d5.w(R.color.CAM_X0109);
             this.mHeadViewIndex.setImageDrawable(WebPManager.getMaskDrawable(R.drawable.icon_mask_pb_barservice14, WebPManager.ResourceStateType.NORMAL));
-            if (i2 != 4 && i2 != 1) {
-                this.mChargerOfBarHeadView.setIsNight(false);
-            } else {
-                this.mChargerOfBarHeadView.setIsNight(true);
-            }
+            this.mChargerOfBarHeadView.setSkinType(i2);
             SkinManager.setBackgroundColor(this.mCrossLine, R.color.CAM_X0111);
         }
     }

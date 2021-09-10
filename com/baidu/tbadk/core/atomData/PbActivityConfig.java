@@ -7,8 +7,8 @@ import android.graphics.Rect;
 import android.net.Uri;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.p0.s.q.c2;
-import c.a.p0.s.q.m1;
+import c.a.q0.s.q.d2;
+import c.a.q0.s.q.n1;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
@@ -314,21 +314,21 @@ public class PbActivityConfig extends IntentConfig {
         return (PbActivityConfig) invokeLLII.objValue;
     }
 
-    public PbActivityConfig createFromThreadCfg(c2 c2Var, String str, String str2, int i2, boolean z, boolean z2, boolean z3) {
+    public PbActivityConfig createFromThreadCfg(d2 d2Var, String str, String str2, int i2, boolean z, boolean z2, boolean z3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{c2Var, str, str2, Integer.valueOf(i2), Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)})) == null) {
-            if (c2Var == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{d2Var, str, str2, Integer.valueOf(i2), Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)})) == null) {
+            if (d2Var == null) {
                 return this;
             }
             Intent intent = getIntent();
-            intent.putExtra("thread_id", c2Var.q1());
-            if (c2Var.t1() != null && !StringUtils.isNull(c2Var.t1().E())) {
-                intent.putExtra("god_reply_id", c2Var.t1().E());
+            intent.putExtra("thread_id", d2Var.s1());
+            if (d2Var.v1() != null && !StringUtils.isNull(d2Var.v1().E())) {
+                intent.putExtra("god_reply_id", d2Var.v1().E());
             }
-            intent.putExtra("is_good", c2Var.o0());
-            intent.putExtra("is_top", c2Var.p0());
-            intent.putExtra("thread_time", c2Var.t0());
+            intent.putExtra("is_good", d2Var.q0());
+            intent.putExtra("is_top", d2Var.r0());
+            intent.putExtra("thread_time", d2Var.v0());
             intent.putExtra("st_type", str2);
             intent.putExtra("squence", z);
             intent.putExtra("host_only", z2);
@@ -338,24 +338,24 @@ public class PbActivityConfig extends IntentConfig {
             intent.putExtra("is_start_for_result", "1");
             intent.putExtra("request_code", i2);
             intent.putExtra("is_from_thread_config", true);
-            long num = c2Var.J0() == null ? 0L : c2Var.J0().getNum();
+            long num = d2Var.L0() == null ? 0L : d2Var.L0().getNum();
             intent.putExtra("extra_pb_cache_key", "zan=" + num);
-            if (c2Var.J() != null && c2Var.J().getGodUserData().getId() != null) {
-                intent.putExtra("extra_pb_funs_count_key", c2Var.J().getFansNum());
-                intent.putExtra("extra_pb_is_attention_key", c2Var.J().getGodUserData().getIsLike());
+            if (d2Var.J() != null && d2Var.J().getGodUserData().getId() != null) {
+                intent.putExtra("extra_pb_funs_count_key", d2Var.J().getFansNum());
+                intent.putExtra("extra_pb_is_attention_key", d2Var.J().getGodUserData().getIsLike());
             }
             intent.putExtra(KEY_VIDEO_SOURCE, this.key_video_source_value);
-            String valueOf = String.valueOf(c2Var.T());
-            String Z = c2Var.Z();
-            setFromForumId(String.valueOf(c2Var.R()));
-            if (c2Var.G1 != null) {
+            String valueOf = String.valueOf(d2Var.T());
+            String Z = d2Var.Z();
+            setFromForumId(String.valueOf(d2Var.R()));
+            if (d2Var.I1 != null) {
                 setFromForumId(valueOf);
-                OriginalForumInfo originalForumInfo = c2Var.G1;
+                OriginalForumInfo originalForumInfo = d2Var.I1;
                 String str3 = originalForumInfo.id;
                 Z = originalForumInfo.ori_fname;
                 valueOf = str3;
             }
-            setThreadData(c2Var);
+            setThreadData(d2Var);
             setForumId(String.valueOf(valueOf));
             setForumName(Z);
             addMoreIntentExtraParam();
@@ -770,13 +770,13 @@ public class PbActivityConfig extends IntentConfig {
         intent.putExtra("lego_pre_load_data", str);
     }
 
-    public void setRecomData(m1 m1Var) {
+    public void setRecomData(n1 n1Var) {
         Intent intent;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048616, this, m1Var) == null) || (intent = getIntent()) == null || m1Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048616, this, n1Var) == null) || (intent = getIntent()) == null || n1Var == null) {
             return;
         }
-        m1Var.c(intent);
+        n1Var.c(intent);
     }
 
     public void setSmartFrsPosition(int i2) {
@@ -819,29 +819,29 @@ public class PbActivityConfig extends IntentConfig {
         intent.putExtra("key_start_from", i2);
     }
 
-    public PbActivityConfig setThreadData(c2 c2Var) {
+    public PbActivityConfig setThreadData(d2 d2Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048621, this, c2Var)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048621, this, d2Var)) == null) {
             Intent intent = getIntent();
-            if (intent != null && c2Var != null) {
-                BaijiahaoData L = c2Var.L();
+            if (intent != null && d2Var != null) {
+                BaijiahaoData L = d2Var.L();
                 if (L != null) {
-                    intent.putExtra("key_is_from_dynamic", c2Var.z2());
+                    intent.putExtra("key_is_from_dynamic", d2Var.D2());
                     intent.putExtra("key_ori_ugc_nid", L.oriUgcNid);
                     intent.putExtra("key_ori_ugc_tid", L.oriUgcTid);
                     intent.putExtra("key_ori_ugc_type", L.oriUgcType);
                     intent.putExtra("key_ori_ugc_vid", L.oriUgcVid);
                 }
-                intent.putExtra("key_rec_weight", c2Var.V0);
-                intent.putExtra("key_rec_source", c2Var.U0);
-                intent.putExtra("key_rec_ab_tag", c2Var.W0);
-                intent.putExtra("key_rec_extra", c2Var.X0);
-                intent.putExtra("key_is_tieba_plus", c2Var.O2);
-                intent.putExtra("key_tieba_plus_order_id", c2Var.P2);
-                intent.putExtra("key_tieba_plus_token", c2Var.Q2);
-                intent.putExtra("key_tieba_extra_param", c2Var.R2);
-                intent.putExtra("key_tieba_plus_cant_delete", c2Var.S2);
+                intent.putExtra("key_rec_weight", d2Var.X0);
+                intent.putExtra("key_rec_source", d2Var.W0);
+                intent.putExtra("key_rec_ab_tag", d2Var.Y0);
+                intent.putExtra("key_rec_extra", d2Var.Z0);
+                intent.putExtra("key_is_tieba_plus", d2Var.Q2);
+                intent.putExtra("key_tieba_plus_order_id", d2Var.R2);
+                intent.putExtra("key_tieba_plus_token", d2Var.S2);
+                intent.putExtra("key_tieba_extra_param", d2Var.T2);
+                intent.putExtra("key_tieba_plus_cant_delete", d2Var.U2);
             }
             return this;
         }

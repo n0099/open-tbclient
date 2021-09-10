@@ -1,7 +1,7 @@
 package com.baidu.tieba.wallet;
 
 import android.app.Activity;
-import c.a.p0.e.a;
+import c.a.q0.e.a;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.pay.PayCallBack;
@@ -68,9 +68,9 @@ public class PayStatic {
                 if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Long.valueOf(j2), activity, str, iAlipayProxyCallback}) == null) {
                     try {
                         a aVar = new a();
-                        aVar.f13350a = activity;
-                        aVar.f13351b = str;
-                        aVar.f13352c = false;
+                        aVar.f13024a = activity;
+                        aVar.f13025b = str;
+                        aVar.f13026c = false;
                         iAlipayProxyCallback.onSuccess((String) MessageManager.getInstance().runTask(2921539, String.class, aVar).getData());
                     } catch (Exception e2) {
                         iAlipayProxyCallback.onFail(e2.getMessage());

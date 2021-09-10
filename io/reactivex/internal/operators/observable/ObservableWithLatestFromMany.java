@@ -77,7 +77,7 @@ public final class ObservableWithLatestFromMany<T, R> extends AbstractObservable
         public final Function<? super Object[], R> combiner;
 
         /* renamed from: d  reason: collision with root package name */
-        public final AtomicReference<Disposable> f78768d;
+        public final AtomicReference<Disposable> f79006d;
         public volatile boolean done;
         public final AtomicThrowable error;
         public final WithLatestInnerObserver[] observers;
@@ -106,7 +106,7 @@ public final class ObservableWithLatestFromMany<T, R> extends AbstractObservable
             }
             this.observers = withLatestInnerObserverArr;
             this.values = new AtomicReferenceArray<>(i2);
-            this.f78768d = new AtomicReference<>();
+            this.f79006d = new AtomicReference<>();
             this.error = new AtomicThrowable();
         }
 
@@ -126,7 +126,7 @@ public final class ObservableWithLatestFromMany<T, R> extends AbstractObservable
         public void dispose() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                DisposableHelper.dispose(this.f78768d);
+                DisposableHelper.dispose(this.f79006d);
                 for (WithLatestInnerObserver withLatestInnerObserver : this.observers) {
                     withLatestInnerObserver.dispose();
                 }
@@ -147,7 +147,7 @@ public final class ObservableWithLatestFromMany<T, R> extends AbstractObservable
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(1048579, this, i2, th) == null) {
                 this.done = true;
-                DisposableHelper.dispose(this.f78768d);
+                DisposableHelper.dispose(this.f79006d);
                 cancelAllBut(i2);
                 HalfSerializer.onError(this.actual, th, this, this.error);
             }
@@ -164,7 +164,7 @@ public final class ObservableWithLatestFromMany<T, R> extends AbstractObservable
         public boolean isDisposed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? DisposableHelper.isDisposed(this.f78768d.get()) : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? DisposableHelper.isDisposed(this.f79006d.get()) : invokeV.booleanValue;
         }
 
         @Override // io.reactivex.Observer
@@ -224,7 +224,7 @@ public final class ObservableWithLatestFromMany<T, R> extends AbstractObservable
         public void onSubscribe(Disposable disposable) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048585, this, disposable) == null) {
-                DisposableHelper.setOnce(this.f78768d, disposable);
+                DisposableHelper.setOnce(this.f79006d, disposable);
             }
         }
 
@@ -232,7 +232,7 @@ public final class ObservableWithLatestFromMany<T, R> extends AbstractObservable
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048586, this, observableSourceArr, i2) == null) {
                 WithLatestInnerObserver[] withLatestInnerObserverArr = this.observers;
-                AtomicReference<Disposable> atomicReference = this.f78768d;
+                AtomicReference<Disposable> atomicReference = this.f79006d;
                 for (int i3 = 0; i3 < i2 && !DisposableHelper.isDisposed(atomicReference.get()) && !this.done; i3++) {
                     observableSourceArr[i3].subscribe(withLatestInnerObserverArr[i3]);
                 }

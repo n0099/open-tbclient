@@ -24,7 +24,7 @@ public class b implements com.bytedance.sdk.openadsdk.multipro.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f67947a;
+    public Context f68127a;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -117,7 +117,7 @@ public class b implements com.bytedance.sdk.openadsdk.multipro.a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) {
-            return e.f67952b + "/t_frequent/";
+            return e.f68132b + "/t_frequent/";
         }
         return (String) invokeV.objValue;
     }
@@ -181,7 +181,7 @@ public class b implements com.bytedance.sdk.openadsdk.multipro.a {
     public void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, context) == null) {
-            this.f67947a = context;
+            this.f68127a = context;
         }
     }
 

@@ -16,7 +16,7 @@ public final class b implements ServiceConnection {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public /* synthetic */ a f35369e;
+    public /* synthetic */ a f35478e;
 
     public b(a aVar) {
         Interceptable interceptable = $ic;
@@ -33,7 +33,7 @@ public final class b implements ServiceConnection {
                 return;
             }
         }
-        this.f35369e = aVar;
+        this.f35478e = aVar;
     }
 
     @Override // android.content.ServiceConnection
@@ -44,18 +44,18 @@ public final class b implements ServiceConnection {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, componentName, iBinder) == null) {
             try {
-                this.f35369e.f35365b = c.a(iBinder);
-                countDownLatch3 = this.f35369e.f35367d;
+                this.f35478e.f35474b = c.a(iBinder);
+                countDownLatch3 = this.f35478e.f35476d;
                 if (countDownLatch3 == null) {
                     return;
                 }
             } catch (Throwable unused) {
-                countDownLatch = this.f35369e.f35367d;
+                countDownLatch = this.f35478e.f35476d;
                 if (countDownLatch == null) {
                     return;
                 }
             }
-            countDownLatch2 = this.f35369e.f35367d;
+            countDownLatch2 = this.f35478e.f35476d;
             countDownLatch2.countDown();
         }
     }
@@ -64,7 +64,7 @@ public final class b implements ServiceConnection {
     public final void onServiceDisconnected(ComponentName componentName) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, componentName) == null) {
-            this.f35369e.f35365b = null;
+            this.f35478e.f35474b = null;
         }
     }
 }

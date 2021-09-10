@@ -18,19 +18,19 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f34331a;
+        public String f34440a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f34332b;
+        public String f34441b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f34333c;
+        public String f34442c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f34334d;
+        public String f34443d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f34335e;
+        public String f34444e;
 
         public C1518a() {
             Interceptable interceptable = $ic;
@@ -50,7 +50,7 @@ public class a {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-                this.f34331a = str;
+                this.f34440a = str;
                 return this;
             }
             return (C1518a) invokeL.objValue;
@@ -66,7 +66,7 @@ public class a {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-                this.f34332b = str;
+                this.f34441b = str;
                 return this;
             }
             return (C1518a) invokeL.objValue;
@@ -76,7 +76,7 @@ public class a {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-                this.f34334d = str;
+                this.f34443d = str;
                 return this;
             }
             return (C1518a) invokeL.objValue;
@@ -86,7 +86,7 @@ public class a {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-                this.f34335e = str;
+                this.f34444e = str;
                 return this;
             }
             return (C1518a) invokeL.objValue;
@@ -108,10 +108,10 @@ public class a {
                 return;
             }
         }
-        String unused = c1518a.f34331a;
-        String unused2 = c1518a.f34332b;
-        String unused3 = c1518a.f34333c;
-        String unused4 = c1518a.f34334d;
-        String unused5 = c1518a.f34335e;
+        String unused = c1518a.f34440a;
+        String unused2 = c1518a.f34441b;
+        String unused3 = c1518a.f34442c;
+        String unused4 = c1518a.f34443d;
+        String unused5 = c1518a.f34444e;
     }
 }

@@ -1,5 +1,6 @@
 package c.a.e.e.m;
 
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,10 +11,26 @@ public abstract class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean a(String str, boolean z) {
+    public static boolean a(@Nullable Object obj, boolean z) {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65536, null, str, z)) == null) {
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65536, null, obj, z)) == null) {
+            try {
+                if (obj instanceof Boolean) {
+                    return ((Boolean) obj).booleanValue();
+                }
+                return obj instanceof String ? Boolean.parseBoolean((String) obj) : z;
+            } catch (Exception unused) {
+                return z;
+            }
+        }
+        return invokeLZ.booleanValue;
+    }
+
+    public static boolean b(String str, boolean z) {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65537, null, str, z)) == null) {
             if (str == null) {
                 return z;
             }
@@ -26,10 +43,10 @@ public abstract class b {
         return invokeLZ.booleanValue;
     }
 
-    public static double b(String str, double d2) {
+    public static double c(String str, double d2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{str, Double.valueOf(d2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{str, Double.valueOf(d2)})) == null) {
             if (str == null) {
                 return d2;
             }
@@ -42,10 +59,10 @@ public abstract class b {
         return invokeCommon.doubleValue;
     }
 
-    public static float c(String str, float f2) {
+    public static float d(String str, float f2) {
         InterceptResult invokeLF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLF = interceptable.invokeLF(65538, null, str, f2)) == null) {
+        if (interceptable == null || (invokeLF = interceptable.invokeLF(65539, null, str, f2)) == null) {
             if (str == null) {
                 return f2;
             }
@@ -58,10 +75,10 @@ public abstract class b {
         return invokeLF.floatValue;
     }
 
-    public static int d(String str, int i2) {
+    public static int e(String str, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, str, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, str, i2)) == null) {
             if (str == null) {
                 return i2;
             }
@@ -74,10 +91,10 @@ public abstract class b {
         return invokeLI.intValue;
     }
 
-    public static int e(String str, int i2, int i3) {
+    public static int f(String str, int i2, int i3) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(InputDeviceCompat.SOURCE_TRACKBALL, null, str, i2, i3)) == null) {
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(AdIconUtil.AD_TEXT_ID, null, str, i2, i3)) == null) {
             if (str == null) {
                 return i2;
             }
@@ -90,10 +107,10 @@ public abstract class b {
         return invokeLII.intValue;
     }
 
-    public static long f(String str, long j2) {
+    public static long g(String str, long j2) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(AdIconUtil.AD_TEXT_ID, null, str, j2)) == null) {
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(AdIconUtil.BAIDU_LOGO_ID, null, str, j2)) == null) {
             if (str == null) {
                 return j2;
             }

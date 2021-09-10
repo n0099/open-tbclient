@@ -34,7 +34,7 @@ public final class ImmutableClassToInstanceMap<B> extends d0<Class<? extends B>,
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final ImmutableMap.b<Class<? extends B>, B> f70305a;
+        public final ImmutableMap.b<Class<? extends B>, B> f70485a;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -49,7 +49,7 @@ public final class ImmutableClassToInstanceMap<B> extends d0<Class<? extends B>,
                     return;
                 }
             }
-            this.f70305a = ImmutableMap.builder();
+            this.f70485a = ImmutableMap.builder();
         }
 
         public static <B, T extends B> T b(Class<T> cls, B b2) {
@@ -62,7 +62,7 @@ public final class ImmutableClassToInstanceMap<B> extends d0<Class<? extends B>,
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                ImmutableMap<Class<? extends B>, B> a2 = this.f70305a.a();
+                ImmutableMap<Class<? extends B>, B> a2 = this.f70485a.a();
                 if (a2.isEmpty()) {
                     return ImmutableClassToInstanceMap.of();
                 }
@@ -79,7 +79,7 @@ public final class ImmutableClassToInstanceMap<B> extends d0<Class<? extends B>,
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, map)) == null) {
                 for (Map.Entry<? extends Class<? extends T>, ? extends T> entry : map.entrySet()) {
                     Class<? extends T> key = entry.getKey();
-                    this.f70305a.c(key, b(key, entry.getValue()));
+                    this.f70485a.c(key, b(key, entry.getValue()));
                 }
                 return this;
             }

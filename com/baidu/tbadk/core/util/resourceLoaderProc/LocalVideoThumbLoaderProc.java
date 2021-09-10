@@ -4,7 +4,7 @@ import android.media.ThumbnailUtils;
 import c.a.e.e.l.b;
 import c.a.e.e.l.e;
 import c.a.e.l.d.a;
-import c.a.p0.b0.c;
+import c.a.q0.c0.c;
 import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;

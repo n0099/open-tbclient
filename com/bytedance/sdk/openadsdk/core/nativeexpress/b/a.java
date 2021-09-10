@@ -20,7 +20,7 @@ public class a {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f66696a = "{\"id\":0,\"tplId\":0,\"title\":\"\",\"data\":{\"id\":\"root\",\"type\":\"vessel\",\"values\":{\"widthMode\":\"fixed\",\"width\":320,\"height\":320},\"children\":[[{\"type\":\"text\",\"values\":{\"fontSize\":19,\"fontWeight\":500,\"color\":\"#222222\",\"lineHeight\":1.3,\"data\":\"title\"}}],[{\"type\":\"text\",\"values\":{\"fontSize\":15,\"fontWeight\":500,\"color\":\"#999999\",\"lineHeight\":1,\"data\":\"subtitle\"}}],[{\"type\":\"image\",\"values\":{},\"children\":[]}],[{\"type\":\"vessel\",\"values\":{\"height\":40,\"paddingTop\":10,\"paddingRight\":15,\"paddingBottom\":10,\"paddingLeft\":15},\"children\":[[{\"type\":\"logo\",\"values\":{}},{\"type\":\"text\",\"values\":{\"widthMode\":\"auto\",\"paddingTop\":3,\"paddingRight\":0,\"paddingBottom\":3,\"paddingLeft\":6,\"fontSize\":12,\"color\":\"#999999\",\"lineHeight\":1,\"data\":\"source\"}},{\"type\":\"text\",\"values\":{\"widthMode\":\"auto\",\"paddingTop\":3,\"paddingRight\":0,\"paddingBottom\":3,\"paddingLeft\":10,\"fontSize\":12,\"color\":\"#999999\",\"lineHeight\":1,\"data\":\"time\"}},{\"type\":\"empty\",\"values\":{\"height\":18}},{\"type\":\"dislike\",\"values\":{}}]]}]]}}";
+    public static String f66876a = "{\"id\":0,\"tplId\":0,\"title\":\"\",\"data\":{\"id\":\"root\",\"type\":\"vessel\",\"values\":{\"widthMode\":\"fixed\",\"width\":320,\"height\":320},\"children\":[[{\"type\":\"text\",\"values\":{\"fontSize\":19,\"fontWeight\":500,\"color\":\"#222222\",\"lineHeight\":1.3,\"data\":\"title\"}}],[{\"type\":\"text\",\"values\":{\"fontSize\":15,\"fontWeight\":500,\"color\":\"#999999\",\"lineHeight\":1,\"data\":\"subtitle\"}}],[{\"type\":\"image\",\"values\":{},\"children\":[]}],[{\"type\":\"vessel\",\"values\":{\"height\":40,\"paddingTop\":10,\"paddingRight\":15,\"paddingBottom\":10,\"paddingLeft\":15},\"children\":[[{\"type\":\"logo\",\"values\":{}},{\"type\":\"text\",\"values\":{\"widthMode\":\"auto\",\"paddingTop\":3,\"paddingRight\":0,\"paddingBottom\":3,\"paddingLeft\":6,\"fontSize\":12,\"color\":\"#999999\",\"lineHeight\":1,\"data\":\"source\"}},{\"type\":\"text\",\"values\":{\"widthMode\":\"auto\",\"paddingTop\":3,\"paddingRight\":0,\"paddingBottom\":3,\"paddingLeft\":10,\"fontSize\":12,\"color\":\"#999999\",\"lineHeight\":1,\"data\":\"time\"}},{\"type\":\"empty\",\"values\":{\"height\":18}},{\"type\":\"dislike\",\"values\":{}}]]}]]}}";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -68,11 +68,11 @@ public class a {
                     str = null;
                 }
                 if (!TextUtils.isEmpty(str2)) {
-                    f66696a = str2;
+                    f66876a = str2;
                 } else if (com.bytedance.sdk.openadsdk.core.widget.webview.a.a.d(mVar) != null) {
-                    f66696a = com.bytedance.sdk.openadsdk.core.widget.webview.a.a.d(mVar).e();
+                    f66876a = com.bytedance.sdk.openadsdk.core.widget.webview.a.a.d(mVar).e();
                 }
-                jSONObject.put("template_Plugin", f66696a);
+                jSONObject.put("template_Plugin", f66876a);
                 jSONObject.put("diff_template_Plugin", str);
             } catch (Exception unused) {
             }
@@ -106,11 +106,11 @@ public class a {
                     str2 = null;
                 }
                 if (!TextUtils.isEmpty(str)) {
-                    f66696a = str;
+                    f66876a = str;
                 } else if (com.bytedance.sdk.openadsdk.core.widget.webview.a.a.c(mVar) != null) {
-                    f66696a = com.bytedance.sdk.openadsdk.core.widget.webview.a.a.c(mVar).e();
+                    f66876a = com.bytedance.sdk.openadsdk.core.widget.webview.a.a.c(mVar).e();
                 }
-                jSONObject.put("template_Plugin", f66696a);
+                jSONObject.put("template_Plugin", f66876a);
                 jSONObject.put("diff_template_Plugin", str2);
                 return jSONObject;
             } catch (Exception unused) {

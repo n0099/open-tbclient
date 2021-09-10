@@ -31,22 +31,22 @@ public class FragmentTabWidget extends LinearLayout {
     public View E;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Rect f47460e;
+    public final Rect f47580e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final Rect f47461f;
+    public final Rect f47581f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final Rect f47462g;
+    public final Rect f47582g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f47463h;
+    public int f47583h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f47464i;
+    public int f47584i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f47465j;
+    public int f47585j;
     public b k;
     public d l;
     public int m;
@@ -81,10 +81,10 @@ public class FragmentTabWidget extends LinearLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final int f47466e;
+        public final int f47586e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ FragmentTabWidget f47467f;
+        public final /* synthetic */ FragmentTabWidget f47587f;
 
         public /* synthetic */ c(FragmentTabWidget fragmentTabWidget, int i2, a aVar) {
             this(fragmentTabWidget, i2);
@@ -94,7 +94,7 @@ public class FragmentTabWidget extends LinearLayout {
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f47467f.k.onTabSelectionChanged(this.f47466e, true);
+                this.f47587f.k.onTabSelectionChanged(this.f47586e, true);
             }
         }
 
@@ -113,8 +113,8 @@ public class FragmentTabWidget extends LinearLayout {
                     return;
                 }
             }
-            this.f47467f = fragmentTabWidget;
-            this.f47466e = i2;
+            this.f47587f = fragmentTabWidget;
+            this.f47586e = i2;
         }
     }
 
@@ -141,11 +141,11 @@ public class FragmentTabWidget extends LinearLayout {
                 return;
             }
         }
-        this.f47460e = new Rect();
-        this.f47461f = new Rect();
-        this.f47462g = new Rect();
-        this.f47463h = 0;
-        this.f47465j = -1;
+        this.f47580e = new Rect();
+        this.f47581f = new Rect();
+        this.f47582g = new Rect();
+        this.f47583h = 0;
+        this.f47585j = -1;
         this.n = new Paint();
         this.r = 0;
         this.y = true;
@@ -197,7 +197,7 @@ public class FragmentTabWidget extends LinearLayout {
             this.q = l.e(getContext(), 2.0f);
             this.B = getResources().getDimensionPixelSize(R.dimen.ds10);
             setWillNotDraw(false);
-            this.f47464i = R.color.common_color_10274;
+            this.f47584i = R.color.common_color_10274;
         }
     }
 
@@ -219,25 +219,25 @@ public class FragmentTabWidget extends LinearLayout {
                 if (childAt != null && (childAt instanceof TbFragmentTabIndicator)) {
                     View contentTv = ((TbFragmentTabIndicator) childAt).getContentTv();
                     if (contentTv != null) {
-                        this.f47460e.set(childAt.getLeft() + contentTv.getLeft(), i8, childAt.getLeft() + contentTv.getRight(), this.w);
+                        this.f47580e.set(childAt.getLeft() + contentTv.getLeft(), i8, childAt.getLeft() + contentTv.getRight(), this.w);
                     } else {
-                        Rect rect = this.f47460e;
+                        Rect rect = this.f47580e;
                         int i10 = this.m;
                         int i11 = this.x;
                         int i12 = this.r;
                         rect.set(((i11 / 2) + i10) - (i12 / 2), i8, i10 + (i11 / 2) + (i12 / 2), this.w);
                     }
                 } else {
-                    Rect rect2 = this.f47460e;
+                    Rect rect2 = this.f47580e;
                     int i13 = this.m;
                     int i14 = this.x;
                     int i15 = this.r;
                     rect2.set(((i14 / 2) + i13) - (i15 / 2), i8, i13 + (i14 / 2) + (i15 / 2), this.w);
                 }
             } else if (i9 != 0) {
-                this.f47460e.set(((i3 / 2) + i6) - (i9 / 2), i8, i6 + (i3 / 2) + (i9 / 2), i7);
+                this.f47580e.set(((i3 / 2) + i6) - (i9 / 2), i8, i6 + (i3 / 2) + (i9 / 2), i7);
             } else {
-                this.f47460e.set(i6 + i4, i8, i6 + i4 + dimensionPixelSize, i7);
+                this.f47580e.set(i6 + i4, i8, i6 + i4 + dimensionPixelSize, i7);
             }
             postInvalidateDelayed(16L);
         }
@@ -250,14 +250,14 @@ public class FragmentTabWidget extends LinearLayout {
             super.draw(canvas);
             this.n.setColor(this.s);
             if (this.D) {
-                canvas.drawRect(this.f47461f, this.n);
+                canvas.drawRect(this.f47581f, this.n);
             }
             if (this.z) {
-                canvas.drawRect(this.f47462g, this.n);
+                canvas.drawRect(this.f47582g, this.n);
             }
             if (this.y) {
                 this.n.setColor(this.t);
-                canvas.drawRoundRect(new RectF(this.f47460e), 10.0f, 10.0f, this.n);
+                canvas.drawRoundRect(new RectF(this.f47580e), 10.0f, 10.0f, this.n);
             }
         }
     }
@@ -297,7 +297,7 @@ public class FragmentTabWidget extends LinearLayout {
     public void makeWidgetDarkSkin(boolean z, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2)}) == null) {
-            this.f47464i = i2;
+            this.f47584i = i2;
             if (z) {
                 this.t = SkinManager.getColor(4, R.color.CAM_X0105);
                 this.s = SkinManager.getColor(4, R.color.CAM_X0204);
@@ -305,7 +305,7 @@ public class FragmentTabWidget extends LinearLayout {
                 this.t = SkinManager.getColor(R.color.CAM_X0105);
                 this.s = SkinManager.getColor(R.color.CAM_X0204);
             }
-            if (this.f47464i == 0 || this.f47463h != 0) {
+            if (this.f47584i == 0 || this.f47583h != 0) {
                 return;
             }
             SkinManager.setBackgroundColor(this, i2);
@@ -315,8 +315,8 @@ public class FragmentTabWidget extends LinearLayout {
     public void onChangeSkinType(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048587, this, i2) == null) {
-            int i3 = this.f47464i;
-            if (i3 != 0 && this.f47463h == 0) {
+            int i3 = this.f47584i;
+            if (i3 != 0 && this.f47583h == 0) {
                 SkinManager.setBackgroundColor(this, i3);
             }
             this.t = SkinManager.getColor(R.color.CAM_X0105);
@@ -346,15 +346,15 @@ public class FragmentTabWidget extends LinearLayout {
             this.v = i6;
             this.w = i5 - i3;
             this.x = i6 / childCount;
-            int i7 = this.f47465j;
+            int i7 = this.f47585j;
             if (i7 != -1) {
                 changeLeft(i7, 0.0f);
             }
             int i8 = this.w;
             int i9 = this.o;
             int i10 = i8 - i9;
-            this.f47461f.set(0, i10, this.v, i9 + i10);
-            this.f47462g.set(0, 0, this.v, this.p);
+            this.f47581f.set(0, i10, this.v, i9 + i10);
+            this.f47582g.set(0, 0, this.v, this.p);
         }
     }
 
@@ -374,7 +374,7 @@ public class FragmentTabWidget extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
             removeAllViews();
-            this.f47465j = -1;
+            this.f47585j = -1;
         }
     }
 
@@ -388,14 +388,14 @@ public class FragmentTabWidget extends LinearLayout {
     public void setBackGroundDrawableResId(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048592, this, i2) == null) {
-            this.f47464i = i2;
+            this.f47584i = i2;
         }
     }
 
     public void setBackGroundStyle(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048593, this, i2) == null) {
-            this.f47463h = i2;
+            this.f47583h = i2;
         }
     }
 
@@ -413,17 +413,17 @@ public class FragmentTabWidget extends LinearLayout {
                 i3++;
             }
         }
-        int i4 = this.f47465j;
+        int i4 = this.f47585j;
         if (i4 == i2) {
             return;
         }
         if (i4 != -1) {
             getChildAt(i4).setSelected(false);
         }
-        this.f47465j = i2;
+        this.f47585j = i2;
         getChildAt(i2).setSelected(true);
         if (z) {
-            changeLeft(this.f47465j, 0.0f);
+            changeLeft(this.f47585j, 0.0f);
         }
     }
 
@@ -524,11 +524,11 @@ public class FragmentTabWidget extends LinearLayout {
                 return;
             }
         }
-        this.f47460e = new Rect();
-        this.f47461f = new Rect();
-        this.f47462g = new Rect();
-        this.f47463h = 0;
-        this.f47465j = -1;
+        this.f47580e = new Rect();
+        this.f47581f = new Rect();
+        this.f47582g = new Rect();
+        this.f47583h = 0;
+        this.f47585j = -1;
         this.n = new Paint();
         this.r = 0;
         this.y = true;

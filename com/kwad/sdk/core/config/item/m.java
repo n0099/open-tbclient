@@ -15,7 +15,7 @@ public class m extends b<String> {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile String[] f71334a;
+    public static volatile String[] f71514a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -37,7 +37,7 @@ public class m extends b<String> {
                 return;
             }
         }
-        f71334a = null;
+        f71514a = null;
     }
 
     private void a(String str) {
@@ -45,7 +45,7 @@ public class m extends b<String> {
         if (!(interceptable == null || interceptable.invokeL(65537, this, str) == null) || TextUtils.isEmpty(str)) {
             return;
         }
-        f71334a = str.split(",");
+        f71514a = str.split(",");
     }
 
     @Override // com.kwad.sdk.core.config.item.b
@@ -85,10 +85,10 @@ public class m extends b<String> {
         String[] strArr;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(1048579, this, j2)) == null) {
-            if (f71334a == null) {
+            if (f71514a == null) {
                 return false;
             }
-            for (String str : f71334a) {
+            for (String str : f71514a) {
                 if (str != null && String.valueOf(j2).equals(str.trim())) {
                     return true;
                 }

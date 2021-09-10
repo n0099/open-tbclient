@@ -205,7 +205,7 @@ public class GetChargeCurrencyConfigResponse implements IBaseJsonResponse {
                         this.currencyType = jSONObject.optInt("currencyType");
                         this.currencyName = jSONObject.optString("currencyName");
                         this.paysSettingInfo = new PaysSettingInfo();
-                        JSONObject jSONObject2 = new JSONObject(jSONObject.optString(a.f35930j));
+                        JSONObject jSONObject2 = new JSONObject(jSONObject.optString(a.f36039j));
                         this.paysSettingInfo.customerServiceHotline = jSONObject2.optString("payChargeAmountLimit");
                         this.paysSettingInfo.customerServiceMsg = jSONObject2.optString("customerServiceMsg");
                         this.paysSettingInfo.payChargeAmountLimit = jSONObject2.optInt("payChargeAmountLimit");

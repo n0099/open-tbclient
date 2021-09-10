@@ -63,7 +63,7 @@ public class a {
             byte[] bytes = str.getBytes("US-ASCII");
             int length = bytes.length;
             int i6 = 0;
-            loop0: while (i6 < length) {
+            while (i6 < length) {
                 while (true) {
                     i2 = i6 + 1;
                     b2 = f1564a[bytes[i6]];
@@ -91,7 +91,7 @@ public class a {
                     i4 = i3 + 1;
                     byte b6 = bytes[i3];
                     if (b6 == 61) {
-                        break loop0;
+                        return stringBuffer.toString().getBytes("iso8859-1");
                     }
                     b4 = f1564a[b6];
                     if (i4 >= length || b4 != -1) {
@@ -107,7 +107,7 @@ public class a {
                     i5 = i4 + 1;
                     byte b7 = bytes[i4];
                     if (b7 == 61) {
-                        break loop0;
+                        return stringBuffer.toString().getBytes("iso8859-1");
                     }
                     b5 = f1564a[b7];
                     if (i5 >= length || b5 != -1) {

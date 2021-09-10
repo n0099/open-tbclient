@@ -45,13 +45,13 @@ public final class a extends c.i.b.a.e0.c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final float f33434a;
+        public final float f33543a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final int f33435b;
+        public final int f33544b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final int f33436c;
+        public final int f33545c;
 
         public C1493a(float f2, int i2, int i3) {
             Interceptable interceptable = $ic;
@@ -68,9 +68,9 @@ public final class a extends c.i.b.a.e0.c {
                     return;
                 }
             }
-            this.f33434a = f2;
-            this.f33435b = i2;
-            this.f33436c = i3;
+            this.f33543a = f2;
+            this.f33544b = i2;
+            this.f33545c = i3;
         }
     }
 
@@ -187,7 +187,7 @@ public final class a extends c.i.b.a.e0.c {
             if (matcher.matches()) {
                 double parseLong = (Long.parseLong(matcher.group(1)) * 3600) + (Long.parseLong(matcher.group(2)) * 60) + Long.parseLong(matcher.group(3));
                 String group3 = matcher.group(4);
-                return (long) ((parseLong + (group3 != null ? Double.parseDouble(group3) : 0.0d) + (matcher.group(5) != null ? ((float) Long.parseLong(group)) / c1493a.f33434a : 0.0d) + (matcher.group(6) != null ? (Long.parseLong(group2) / c1493a.f33435b) / c1493a.f33434a : 0.0d)) * 1000000.0d);
+                return (long) ((parseLong + (group3 != null ? Double.parseDouble(group3) : 0.0d) + (matcher.group(5) != null ? ((float) Long.parseLong(group)) / c1493a.f33543a : 0.0d) + (matcher.group(6) != null ? (Long.parseLong(group2) / c1493a.f33544b) / c1493a.f33543a : 0.0d)) * 1000000.0d);
             }
             Matcher matcher2 = p.matcher(str);
             if (matcher2.matches()) {
@@ -227,11 +227,11 @@ public final class a extends c.i.b.a.e0.c {
                         d3 = 1000.0d;
                     } else if (c2 != 4) {
                         if (c2 == 5) {
-                            d3 = c1493a.f33436c;
+                            d3 = c1493a.f33545c;
                         }
                         return (long) (parseDouble * 1000000.0d);
                     } else {
-                        d3 = c1493a.f33434a;
+                        d3 = c1493a.f33543a;
                     }
                     parseDouble /= d3;
                     return (long) (parseDouble * 1000000.0d);
@@ -330,12 +330,12 @@ public final class a extends c.i.b.a.e0.c {
                     throw new SubtitleDecoderException("frameRateMultiplier doesn't have 2 parts");
                 }
             }
-            int i2 = s.f33435b;
+            int i2 = s.f33544b;
             String attributeValue3 = xmlPullParser.getAttributeValue("http://www.w3.org/ns/ttml#parameter", "subFrameRate");
             if (attributeValue3 != null) {
                 i2 = Integer.parseInt(attributeValue3);
             }
-            int i3 = s.f33436c;
+            int i3 = s.f33545c;
             String attributeValue4 = xmlPullParser.getAttributeValue("http://www.w3.org/ns/ttml#parameter", "tickRate");
             if (attributeValue4 != null) {
                 i3 = Integer.parseInt(attributeValue4);
@@ -364,7 +364,7 @@ public final class a extends c.i.b.a.e0.c {
                         map.put(H.g(), H);
                     }
                 } else if (w.e(xmlPullParser, "region") && (G = G(xmlPullParser)) != null) {
-                    map2.put(G.f33447a, G);
+                    map2.put(G.f33556a, G);
                 }
             } while (!w.c(xmlPullParser, "head"));
             return map;
@@ -448,14 +448,14 @@ public final class a extends c.i.b.a.e0.c {
                 }
             }
             if (bVar != null) {
-                long j7 = bVar.f33440d;
+                long j7 = bVar.f33549d;
                 j2 = -9223372036854775807L;
                 if (j7 != -9223372036854775807L) {
                     if (j4 != -9223372036854775807L) {
                         j4 += j7;
                     }
                     if (j5 != -9223372036854775807L) {
-                        j5 += bVar.f33440d;
+                        j5 += bVar.f33549d;
                     }
                 }
             } else {
@@ -466,7 +466,7 @@ public final class a extends c.i.b.a.e0.c {
                 if (j6 != j2) {
                     j3 = j8 + j6;
                 } else if (bVar != null) {
-                    long j9 = bVar.f33441e;
+                    long j9 = bVar.f33550e;
                     if (j9 != j2) {
                         j3 = j9;
                     }

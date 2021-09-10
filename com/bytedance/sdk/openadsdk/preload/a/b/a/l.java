@@ -17,25 +17,25 @@ public final class l<T> extends v<T> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final com.bytedance.sdk.openadsdk.preload.a.f f68225a;
+    public final com.bytedance.sdk.openadsdk.preload.a.f f68405a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final s<T> f68226b;
+    public final s<T> f68406b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final com.bytedance.sdk.openadsdk.preload.a.k<T> f68227c;
+    public final com.bytedance.sdk.openadsdk.preload.a.k<T> f68407c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final com.bytedance.sdk.openadsdk.preload.a.c.a<T> f68228d;
+    public final com.bytedance.sdk.openadsdk.preload.a.c.a<T> f68408d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final w f68229e;
+    public final w f68409e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final l<T>.a f68230f;
+    public final l<T>.a f68410f;
 
     /* renamed from: g  reason: collision with root package name */
-    public v<T> f68231g;
+    public v<T> f68411g;
 
     /* renamed from: com.bytedance.sdk.openadsdk.preload.a.b.a.l$1  reason: invalid class name */
     /* loaded from: classes9.dex */
@@ -50,7 +50,7 @@ public final class l<T> extends v<T> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ l f68232a;
+        public final /* synthetic */ l f68412a;
 
         public a(l lVar) {
             Interceptable interceptable = $ic;
@@ -67,7 +67,7 @@ public final class l<T> extends v<T> {
                     return;
                 }
             }
-            this.f68232a = lVar;
+            this.f68412a = lVar;
         }
 
         public /* synthetic */ a(l lVar, AnonymousClass1 anonymousClass1) {
@@ -81,19 +81,19 @@ public final class l<T> extends v<T> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final com.bytedance.sdk.openadsdk.preload.a.c.a<?> f68233a;
+        public final com.bytedance.sdk.openadsdk.preload.a.c.a<?> f68413a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final boolean f68234b;
+        public final boolean f68414b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final Class<?> f68235c;
+        public final Class<?> f68415c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final s<?> f68236d;
+        public final s<?> f68416d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final com.bytedance.sdk.openadsdk.preload.a.k<?> f68237e;
+        public final com.bytedance.sdk.openadsdk.preload.a.k<?> f68417e;
 
         public b(Object obj, com.bytedance.sdk.openadsdk.preload.a.c.a<?> aVar, boolean z, Class<?> cls) {
             Interceptable interceptable = $ic;
@@ -110,13 +110,13 @@ public final class l<T> extends v<T> {
                     return;
                 }
             }
-            this.f68236d = obj instanceof s ? (s) obj : null;
+            this.f68416d = obj instanceof s ? (s) obj : null;
             com.bytedance.sdk.openadsdk.preload.a.k<?> kVar = obj instanceof com.bytedance.sdk.openadsdk.preload.a.k ? (com.bytedance.sdk.openadsdk.preload.a.k) obj : null;
-            this.f68237e = kVar;
-            com.bytedance.sdk.openadsdk.preload.a.b.a.a((this.f68236d == null && kVar == null) ? false : true);
-            this.f68233a = aVar;
-            this.f68234b = z;
-            this.f68235c = cls;
+            this.f68417e = kVar;
+            com.bytedance.sdk.openadsdk.preload.a.b.a.a((this.f68416d == null && kVar == null) ? false : true);
+            this.f68413a = aVar;
+            this.f68414b = z;
+            this.f68415c = cls;
         }
 
         @Override // com.bytedance.sdk.openadsdk.preload.a.w
@@ -125,14 +125,14 @@ public final class l<T> extends v<T> {
             boolean isAssignableFrom;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, fVar, aVar)) == null) {
-                com.bytedance.sdk.openadsdk.preload.a.c.a<?> aVar2 = this.f68233a;
+                com.bytedance.sdk.openadsdk.preload.a.c.a<?> aVar2 = this.f68413a;
                 if (aVar2 != null) {
-                    isAssignableFrom = aVar2.equals(aVar) || (this.f68234b && this.f68233a.b() == aVar.a());
+                    isAssignableFrom = aVar2.equals(aVar) || (this.f68414b && this.f68413a.b() == aVar.a());
                 } else {
-                    isAssignableFrom = this.f68235c.isAssignableFrom(aVar.a());
+                    isAssignableFrom = this.f68415c.isAssignableFrom(aVar.a());
                 }
                 if (isAssignableFrom) {
-                    return new l(this.f68236d, this.f68237e, fVar, aVar, this);
+                    return new l(this.f68416d, this.f68417e, fVar, aVar, this);
                 }
                 return null;
             }
@@ -155,25 +155,25 @@ public final class l<T> extends v<T> {
                 return;
             }
         }
-        this.f68230f = new a(this, null);
-        this.f68226b = sVar;
-        this.f68227c = kVar;
-        this.f68225a = fVar;
-        this.f68228d = aVar;
-        this.f68229e = wVar;
+        this.f68410f = new a(this, null);
+        this.f68406b = sVar;
+        this.f68407c = kVar;
+        this.f68405a = fVar;
+        this.f68408d = aVar;
+        this.f68409e = wVar;
     }
 
     @Override // com.bytedance.sdk.openadsdk.preload.a.v
     public void a(com.bytedance.sdk.openadsdk.preload.a.d.c cVar, T t) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, cVar, t) == null) {
-            s<T> sVar = this.f68226b;
+            s<T> sVar = this.f68406b;
             if (sVar == null) {
                 b().a(cVar, t);
             } else if (t == null) {
                 cVar.f();
             } else {
-                com.bytedance.sdk.openadsdk.preload.a.b.l.a(sVar.a(t, this.f68228d.b(), this.f68230f), cVar);
+                com.bytedance.sdk.openadsdk.preload.a.b.l.a(sVar.a(t, this.f68408d.b(), this.f68410f), cVar);
             }
         }
     }
@@ -183,14 +183,14 @@ public final class l<T> extends v<T> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar)) == null) {
-            if (this.f68227c == null) {
+            if (this.f68407c == null) {
                 return b().b(aVar);
             }
             com.bytedance.sdk.openadsdk.preload.a.l a2 = com.bytedance.sdk.openadsdk.preload.a.b.l.a(aVar);
             if (a2.j()) {
                 return null;
             }
-            return this.f68227c.a(a2, this.f68228d.b(), this.f68230f);
+            return this.f68407c.a(a2, this.f68408d.b(), this.f68410f);
         }
         return (T) invokeL.objValue;
     }
@@ -208,12 +208,12 @@ public final class l<T> extends v<T> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
-            v<T> vVar = this.f68231g;
+            v<T> vVar = this.f68411g;
             if (vVar != null) {
                 return vVar;
             }
-            v<T> a2 = this.f68225a.a(this.f68229e, this.f68228d);
-            this.f68231g = a2;
+            v<T> a2 = this.f68405a.a(this.f68409e, this.f68408d);
+            this.f68411g = a2;
             return a2;
         }
         return (v) invokeV.objValue;

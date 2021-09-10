@@ -17,7 +17,7 @@ public final class a implements t {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final w f31679a;
+    public final w f31788a;
 
     public a(w wVar) {
         Interceptable interceptable = $ic;
@@ -34,7 +34,7 @@ public final class a implements t {
                 return;
             }
         }
-        this.f31679a = wVar;
+        this.f31788a = wVar;
     }
 
     @Override // c.d.b.t
@@ -45,7 +45,7 @@ public final class a implements t {
             g gVar = (g) aVar;
             z request = gVar.request();
             f f2 = gVar.f();
-            c.d.b.e0.i.c n = f2.n(this.f31679a, aVar, !request.f().equals("GET"));
+            c.d.b.e0.i.c n = f2.n(this.f31788a, aVar, !request.f().equals("GET"));
             c d2 = f2.d();
             if (f2.m()) {
                 z.a g2 = request.g();

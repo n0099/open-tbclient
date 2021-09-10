@@ -33,7 +33,7 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public SoftReference<Activity> f34544a;
+    public SoftReference<Activity> f34653a;
 
     /* renamed from: c.p.a.d.b.e.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
@@ -42,13 +42,13 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ long f34545a;
+        public final /* synthetic */ long f34654a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ long f34546b;
+        public final /* synthetic */ long f34655b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ a f34547c;
+        public final /* synthetic */ a f34656c;
 
         public C1527a(a aVar, long j2, long j3) {
             Interceptable interceptable = $ic;
@@ -65,9 +65,9 @@ public class a {
                     return;
                 }
             }
-            this.f34547c = aVar;
-            this.f34545a = j2;
-            this.f34546b = j3;
+            this.f34656c = aVar;
+            this.f34654a = j2;
+            this.f34655b = j3;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -77,11 +77,11 @@ public class a {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bool)) == null) {
                 if (bool.booleanValue()) {
-                    this.f34547c.b(c.C1524c.b(this.f34545a, this.f34546b));
-                    c.p.a.d.b.e.b.f("lp_app_dialog_try_show", this.f34546b);
+                    this.f34656c.b(c.C1524c.b(this.f34654a, this.f34655b));
+                    c.p.a.d.b.e.b.f("lp_app_dialog_try_show", this.f34655b);
                     return null;
                 }
-                this.f34547c.i(this.f34546b);
+                this.f34656c.i(this.f34655b);
                 return null;
             }
             return invokeL.objValue;
@@ -94,13 +94,13 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ long f34548a;
+        public final /* synthetic */ long f34657a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ long f34549b;
+        public final /* synthetic */ long f34658b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ a f34550c;
+        public final /* synthetic */ a f34659c;
 
         /* renamed from: c.p.a.d.b.e.a$b$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
@@ -109,10 +109,10 @@ public class a {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ boolean[] f34551a;
+            public final /* synthetic */ boolean[] f34660a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ b f34552b;
+            public final /* synthetic */ b f34661b;
 
             public C1528a(b bVar, boolean[] zArr) {
                 Interceptable interceptable = $ic;
@@ -129,17 +129,17 @@ public class a {
                         return;
                     }
                 }
-                this.f34552b = bVar;
-                this.f34551a = zArr;
+                this.f34661b = bVar;
+                this.f34660a = zArr;
             }
 
             @Override // c.p.a.a.a.c.r
             public void a(String str) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                    boolean[] zArr = this.f34551a;
-                    b bVar = this.f34552b;
-                    zArr[0] = bVar.f34550c.d(bVar.f34548a, bVar.f34549b, str);
+                    boolean[] zArr = this.f34660a;
+                    b bVar = this.f34661b;
+                    zArr[0] = bVar.f34659c.d(bVar.f34657a, bVar.f34658b, str);
                 }
             }
 
@@ -147,8 +147,8 @@ public class a {
             public void a(Throwable th) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
-                    c.p.a.d.b.e.b.a(2, this.f34552b.f34549b);
-                    this.f34551a[0] = false;
+                    c.p.a.d.b.e.b.a(2, this.f34661b.f34658b);
+                    this.f34660a[0] = false;
                 }
             }
         }
@@ -168,9 +168,9 @@ public class a {
                     return;
                 }
             }
-            this.f34550c = aVar;
-            this.f34548a = j2;
-            this.f34549b = j3;
+            this.f34659c = aVar;
+            this.f34657a = j2;
+            this.f34658b = j3;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -192,7 +192,7 @@ public class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static a f34553a;
+        public static a f34662a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -208,7 +208,7 @@ public class a {
                     return;
                 }
             }
-            f34553a = new a(null);
+            f34662a = new a(null);
         }
     }
 
@@ -219,7 +219,7 @@ public class a {
     public static a a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? c.f34553a : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? c.f34662a : (a) invokeV.objValue;
     }
 
     public void b(long j2) {
@@ -232,7 +232,7 @@ public class a {
     public void c(Activity activity) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) {
-            this.f34544a = new SoftReference<>(activity);
+            this.f34653a = new SoftReference<>(activity);
         }
     }
 
@@ -244,23 +244,23 @@ public class a {
                 JSONObject optJSONObject = new JSONObject(str).optJSONObject(AsInstallService.SCHEME_PACKAGE_ADDED);
                 if (optJSONObject != null && optJSONObject.length() != 0) {
                     c.C1524c c1524c = new c.C1524c();
-                    c1524c.f34490a = j2;
-                    c1524c.f34491b = j3;
-                    c1524c.f34492c = optJSONObject.optString("icon_url");
-                    c1524c.f34493d = optJSONObject.optString("app_name");
+                    c1524c.f34599a = j2;
+                    c1524c.f34600b = j3;
+                    c1524c.f34601c = optJSONObject.optString("icon_url");
+                    c1524c.f34602d = optJSONObject.optString("app_name");
                     optJSONObject.optString("package_name");
-                    c1524c.f34494e = optJSONObject.optString("version_name");
-                    c1524c.f34495f = optJSONObject.optString("developer_name");
-                    c1524c.f34497h = optJSONObject.optString("policy_url");
+                    c1524c.f34603e = optJSONObject.optString("version_name");
+                    c1524c.f34604f = optJSONObject.optString("developer_name");
+                    c1524c.f34606h = optJSONObject.optString("policy_url");
                     JSONArray optJSONArray = optJSONObject.optJSONArray("permissions");
                     if (optJSONArray != null) {
                         for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
                             JSONObject jSONObject = (JSONObject) optJSONArray.get(i2);
-                            c1524c.f34496g.add(new Pair<>(jSONObject.optString(IdCardActivity.RESULT_PERMISSION_KEY), jSONObject.optString("permission_desc")));
+                            c1524c.f34605g.add(new Pair<>(jSONObject.optString(IdCardActivity.RESULT_PERMISSION_KEY), jSONObject.optString("permission_desc")));
                         }
                     }
                     com.ss.android.downloadlib.addownload.compliance.c.a().a(c1524c);
-                    d.a().a(c1524c.a(), j3, c1524c.f34492c);
+                    d.a().a(c1524c.a(), j3, c1524c.f34601c);
                     return true;
                 }
                 c.p.a.d.b.e.b.a(7, j3);
@@ -293,9 +293,9 @@ public class a {
         long j3;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, fVar)) == null) {
-            if (!TextUtils.isEmpty(fVar.f34513b.u())) {
+            if (!TextUtils.isEmpty(fVar.f34622b.u())) {
                 try {
-                    j2 = h.r.g(new JSONObject(fVar.f34513b.u()), "convert_id");
+                    j2 = h.r.g(new JSONObject(fVar.f34622b.u()), "convert_id");
                 } catch (Exception e2) {
                     e2.printStackTrace();
                     j2 = 0;
@@ -309,10 +309,10 @@ public class a {
                 f.e.b().d("requestAppInfo getLogExtra null");
                 j3 = 0;
             }
-            long j4 = fVar.f34512a;
+            long j4 = fVar.f34621a;
             c.C1524c a2 = com.ss.android.downloadlib.addownload.compliance.c.a().a(j3, j4);
             if (a2 != null) {
-                d.a().a(a2.a(), j4, a2.f34492c);
+                d.a().a(a2.a(), j4, a2.f34601c);
                 b(a2.a());
                 c.p.a.d.b.e.b.d("lp_app_dialog_try_show", fVar);
                 return true;
@@ -322,12 +322,12 @@ public class a {
                 sb.append("convert_id=");
                 sb.append(j3);
             }
-            if (!TextUtils.isEmpty(fVar.f34513b.v())) {
+            if (!TextUtils.isEmpty(fVar.f34622b.v())) {
                 if (sb.length() > 0) {
                     sb.append("&");
                 }
                 sb.append("package_name=");
-                sb.append(fVar.f34513b.v());
+                sb.append(fVar.f34622b.v());
             }
             if (sb.length() <= 0) {
                 c.p.a.d.b.e.b.b(6, fVar);
@@ -344,8 +344,8 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            Activity activity = this.f34544a.get();
-            this.f34544a = null;
+            Activity activity = this.f34653a.get();
+            this.f34653a = null;
             return activity;
         }
         return (Activity) invokeV.objValue;
@@ -354,7 +354,7 @@ public class a {
     public void i(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048582, this, j2) == null) {
-            g a2 = c.p.a.d.g.b().a(c.g.e().v(j2).f34513b.a());
+            g a2 = c.p.a.d.g.b().a(c.g.e().v(j2).f34622b.a());
             if (a2 != null) {
                 a2.r(true, true);
                 return;

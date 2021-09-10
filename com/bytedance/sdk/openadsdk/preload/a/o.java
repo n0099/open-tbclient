@@ -14,7 +14,7 @@ public final class o extends l {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final com.bytedance.sdk.openadsdk.preload.a.b.h<String, l> f68423a;
+    public final com.bytedance.sdk.openadsdk.preload.a.b.h<String, l> f68603a;
 
     public o() {
         Interceptable interceptable = $ic;
@@ -29,15 +29,15 @@ public final class o extends l {
                 return;
             }
         }
-        this.f68423a = new com.bytedance.sdk.openadsdk.preload.a.b.h<>();
+        this.f68603a = new com.bytedance.sdk.openadsdk.preload.a.b.h<>();
     }
 
     public void a(String str, l lVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, str, lVar) == null) {
-            com.bytedance.sdk.openadsdk.preload.a.b.h<String, l> hVar = this.f68423a;
+            com.bytedance.sdk.openadsdk.preload.a.b.h<String, l> hVar = this.f68603a;
             if (lVar == null) {
-                lVar = n.f68422a;
+                lVar = n.f68602a;
             }
             hVar.put(str, lVar);
         }
@@ -46,18 +46,18 @@ public final class o extends l {
     public boolean equals(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) ? obj == this || ((obj instanceof o) && ((o) obj).f68423a.equals(this.f68423a)) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) ? obj == this || ((obj instanceof o) && ((o) obj).f68603a.equals(this.f68603a)) : invokeL.booleanValue;
     }
 
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f68423a.hashCode() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f68603a.hashCode() : invokeV.intValue;
     }
 
     public Set<Map.Entry<String, l>> n() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f68423a.entrySet() : (Set) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f68603a.entrySet() : (Set) invokeV.objValue;
     }
 }

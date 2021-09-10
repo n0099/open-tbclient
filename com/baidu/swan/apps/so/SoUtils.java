@@ -5,8 +5,8 @@ import android.os.Build;
 import android.text.TextUtils;
 import androidx.annotation.Keep;
 import androidx.core.view.InputDeviceCompat;
-import c.a.o0.a.h2.c;
-import c.a.o0.a.k;
+import c.a.p0.a.h2.c;
+import c.a.p0.a.k;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -57,7 +57,7 @@ public final class SoUtils {
                 return;
             }
         }
-        DEBUG = k.f7049a;
+        DEBUG = k.f7077a;
         sUbcImpl = new c();
         uris = new String[]{"lib/armeabi", "lib/arm64-v8a"};
     }

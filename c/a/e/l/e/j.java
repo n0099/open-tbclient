@@ -13,34 +13,34 @@ public class j {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public float f3028a;
+    public float f3019a;
 
     /* renamed from: b  reason: collision with root package name */
-    public float f3029b;
+    public float f3020b;
 
     /* renamed from: c  reason: collision with root package name */
-    public float f3030c;
+    public float f3021c;
 
     /* renamed from: d  reason: collision with root package name */
-    public float f3031d;
+    public float f3022d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f3032e;
+    public int f3023e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f3033f;
+    public int f3024f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f3034g;
+    public int f3025g;
 
     /* renamed from: h  reason: collision with root package name */
-    public float f3035h;
+    public float f3026h;
 
     /* renamed from: i  reason: collision with root package name */
-    public float f3036i;
+    public float f3027i;
 
     /* renamed from: j  reason: collision with root package name */
-    public float f3037j;
+    public float f3028j;
     public float k;
     public int l;
 
@@ -57,16 +57,16 @@ public class j {
                 return;
             }
         }
-        this.f3028a = 8.0f;
-        this.f3029b = 15.0f;
-        this.f3030c = 4.0f;
-        this.f3031d = 60.0f;
-        this.f3032e = 150;
-        this.f3033f = 150;
-        this.f3034g = 500;
-        this.f3035h = 0.4f;
-        this.f3036i = 1.0f;
-        this.f3037j = 20.0f;
+        this.f3019a = 8.0f;
+        this.f3020b = 15.0f;
+        this.f3021c = 4.0f;
+        this.f3022d = 60.0f;
+        this.f3023e = 150;
+        this.f3024f = 150;
+        this.f3025g = 500;
+        this.f3026h = 0.4f;
+        this.f3027i = 1.0f;
+        this.f3028j = 20.0f;
         this.k = 10.0f;
         this.l = 360;
     }
@@ -80,43 +80,43 @@ public class j {
     public float b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f3037j : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f3028j : invokeV.floatValue;
     }
 
     public float c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f3029b : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f3020b : invokeV.floatValue;
     }
 
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f3033f : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f3024f : invokeV.intValue;
     }
 
     public float e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f3035h : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f3026h : invokeV.floatValue;
     }
 
     public float f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f3030c : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f3021c : invokeV.floatValue;
     }
 
     public float g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f3031d : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f3022d : invokeV.floatValue;
     }
 
     public int h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f3034g : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f3025g : invokeV.intValue;
     }
 
     public float i() {
@@ -128,18 +128,18 @@ public class j {
     public float j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f3028a : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f3019a : invokeV.floatValue;
     }
 
     public int k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f3032e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f3023e : invokeV.intValue;
     }
 
     public float l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f3036i : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f3027i : invokeV.floatValue;
     }
 }

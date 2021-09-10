@@ -15,10 +15,10 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final c.a.w.j.b f30455a;
+    public static final c.a.w.j.b f30537a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final c.a.w.a.c f30456b;
+    public static final c.a.w.a.c f30538b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c.a.w.h.a$a  reason: collision with other inner class name */
@@ -94,8 +94,8 @@ public class a {
                 return;
             }
         }
-        f30455a = c.a.w.j.b.a();
-        f30456b = new c.a.w.a.c(BdAsyncTaskParallelType.SERIAL, f30455a);
+        f30537a = c.a.w.j.b.a();
+        f30538b = new c.a.w.a.c(BdAsyncTaskParallelType.SERIAL, f30537a);
     }
 
     public static <T> BdAsyncTask a(b<T> bVar, c<T> cVar) {
@@ -110,8 +110,8 @@ public class a {
         if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65538, null, bVar, cVar, i2)) == null) {
             if (bVar != null) {
                 C1414a c1414a = new C1414a(bVar, cVar);
-                c1414a.v(f30456b);
-                c1414a.x(f30455a);
+                c1414a.v(f30538b);
+                c1414a.x(f30537a);
                 c1414a.w(i2);
                 c1414a.g(new String[0]);
                 return c1414a;

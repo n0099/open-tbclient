@@ -59,28 +59,28 @@ public class d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f2802a;
+    public static boolean f2793a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Map<String, Boolean> f2803b;
+    public static Map<String, Boolean> f2794b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f2804c;
+    public static String f2795c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static boolean f2805d;
+    public static boolean f2796d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static boolean f2806e;
+    public static boolean f2797e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static boolean f2807f;
+    public static boolean f2798f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static boolean f2808g;
+    public static boolean f2799g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static Signature[] f2809h;
+    public static Signature[] f2800h;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -96,13 +96,13 @@ public class d {
                 return;
             }
         }
-        f2803b = new HashMap();
-        f2804c = null;
-        f2805d = false;
-        f2806e = false;
-        f2807f = false;
-        f2808g = false;
-        f2809h = null;
+        f2794b = new HashMap();
+        f2795c = null;
+        f2796d = false;
+        f2797e = false;
+        f2798f = false;
+        f2799g = false;
+        f2800h = null;
     }
 
     public static boolean a(File file, String str, byte[] bArr) {
@@ -521,7 +521,7 @@ public class d {
         File[] listFiles;
         String str18;
         String str19;
-        int d2;
+        int e2;
         ?? r10;
         String str20;
         FileInputStream fileInputStream;
@@ -579,11 +579,11 @@ public class d {
                         str4 = "_";
                         z7 = p;
                         str12 = o;
-                        if (!BdBaseApplication.getInst().isDebugMode() || f2802a) {
+                        if (!BdBaseApplication.getInst().isDebugMode() || f2793a) {
                             z10 = z9;
                         } else {
                             z10 = z9;
-                            if (!r(str15, file2.getAbsolutePath()).f36248a) {
+                            if (!r(str15, file2.getAbsolutePath()).f36367a) {
                                 if (pluginSetting == null || !str.startsWith("file://")) {
                                     z11 = z8;
                                     str16 = "is_third";
@@ -601,10 +601,10 @@ public class d {
                                     boolean a2 = a(file, pluginSetting.tempMd5, bArr);
                                     try {
                                         file2.delete();
-                                    } catch (Exception e2) {
-                                        BdLog.e(e2);
+                                    } catch (Exception e3) {
+                                        BdLog.e(e3);
                                     }
-                                    q(str, str15, "signature_not_match", str15 + "-SourceMd5_" + a2 + "-tmpSize_" + length + "-error_" + r.f36249b + "-step_" + r.f36250c);
+                                    q(str, str15, "signature_not_match", str15 + "-SourceMd5_" + a2 + "-tmpSize_" + length + "-error_" + r.f36368b + "-step_" + r.f36369c);
                                     return null;
                                 }
                                 ?? r7 = "version_code";
@@ -630,8 +630,8 @@ public class d {
                                                 try {
                                                     x = Util.x(inputStream);
                                                     str21 = "version_code";
-                                                } catch (Exception e3) {
-                                                    e = e3;
+                                                } catch (Exception e4) {
+                                                    e = e4;
                                                     i6 = i3;
                                                     str21 = "version_code";
                                                 }
@@ -648,8 +648,8 @@ public class d {
                                                                 try {
                                                                     c.a.e.h.h.a.b().o("plugin_install", "versionequals_apktime_notequals", str15, x.toString() + "-" + x2.toString());
                                                                     r7 = inputStream4;
-                                                                } catch (Exception e4) {
-                                                                    e = e4;
+                                                                } catch (Exception e5) {
+                                                                    e = e5;
                                                                     BdLog.e(e);
                                                                     c.a.e.h.h.a.b().o("plugin_install", "versionequals_apktime_error", str15, "exist-" + exists + "-isfile-" + isFile + "-length-" + length2 + "-" + e.getMessage());
                                                                     r7 = inputStream4;
@@ -693,12 +693,12 @@ public class d {
                                                                     return null;
                                                                 }
                                                             }
-                                                        } catch (Exception e5) {
-                                                            e = e5;
+                                                        } catch (Exception e6) {
+                                                            e = e6;
                                                             i6 = i3;
                                                         }
-                                                    } catch (Exception e6) {
-                                                        e = e6;
+                                                    } catch (Exception e7) {
+                                                        e = e7;
                                                         i6 = i3;
                                                         inputStream4 = null;
                                                         BdLog.e(e);
@@ -743,8 +743,8 @@ public class d {
                                                         BdBaseApplication.getInst().sendBroadcast(intent2);
                                                         return null;
                                                     }
-                                                } catch (Exception e7) {
-                                                    e = e7;
+                                                } catch (Exception e8) {
+                                                    e = e8;
                                                     i6 = i3;
                                                     str24 = "package_name";
                                                     inputStream4 = null;
@@ -798,8 +798,8 @@ public class d {
                                                 c.a.e.e.m.a.c(inputStream2);
                                                 throw th;
                                             }
-                                        } catch (Exception e8) {
-                                            e = e8;
+                                        } catch (Exception e9) {
+                                            e = e9;
                                             i6 = i3;
                                             str21 = "version_code";
                                             str24 = "package_name";
@@ -821,8 +821,8 @@ public class d {
                                     }
                                     try {
                                         file2.delete();
-                                    } catch (Exception e9) {
-                                        e9.printStackTrace();
+                                    } catch (Exception e10) {
+                                        e10.printStackTrace();
                                     }
                                     activityManager = (ActivityManager) BdBaseApplication.getInst().getSystemService("activity");
                                     if (activityManager != null || (runningAppProcesses = activityManager.getRunningAppProcesses()) == null) {
@@ -903,17 +903,17 @@ public class d {
                                                 } else {
                                                     throw new Exception("rename return fail");
                                                 }
-                                            } catch (Exception e10) {
+                                            } catch (Exception e11) {
                                                 try {
                                                     file4.delete();
                                                     f.f(file3, file4);
                                                     file2.delete();
-                                                } catch (IOException e11) {
+                                                } catch (IOException e12) {
                                                     if (file2.exists()) {
                                                         f.n(file2);
                                                     }
-                                                    BdLog.e(e11);
-                                                    q(str, str15, "rename_todest_fail", e10.getMessage());
+                                                    BdLog.e(e12);
+                                                    q(str, str15, "rename_todest_fail", e11.getMessage());
                                                     return null;
                                                 }
                                             }
@@ -921,16 +921,16 @@ public class d {
                                             try {
                                                 fileInputStream = new FileInputStream(file3);
                                                 try {
-                                                    Util.a d3 = Util.d(fileInputStream, file4);
+                                                    Util.a d2 = Util.d(fileInputStream, file4);
                                                     file2.delete();
-                                                    if (!d3.f36248a) {
+                                                    if (!d2.f36367a) {
                                                         str20 = str3;
                                                         try {
-                                                            q(str, str15, str20, d3.f36249b);
+                                                            q(str, str15, str20, d2.f36368b);
                                                             c.a.e.e.m.a.c(fileInputStream);
                                                             return null;
-                                                        } catch (Exception e12) {
-                                                            e = e12;
+                                                        } catch (Exception e13) {
+                                                            e = e13;
                                                             BdLog.e(e);
                                                             if (file4.exists()) {
                                                                 f.n(file4);
@@ -941,12 +941,12 @@ public class d {
                                                         }
                                                     }
                                                     c.a.e.e.m.a.c(fileInputStream);
-                                                } catch (Exception e13) {
-                                                    e = e13;
+                                                } catch (Exception e14) {
+                                                    e = e14;
                                                     str20 = str3;
                                                 }
-                                            } catch (Exception e14) {
-                                                e = e14;
+                                            } catch (Exception e15) {
+                                                e = e15;
                                                 str20 = str3;
                                                 fileInputStream = null;
                                             } catch (Throwable th4) {
@@ -972,7 +972,7 @@ public class d {
                                 long currentTimeMillis2 = System.currentTimeMillis();
                                 i(file4.getAbsolutePath(), str15, file6);
                                 c.a.e.h.h.a.b().n("plugin_extract_dex", System.currentTimeMillis() - currentTimeMillis2, str15);
-                                f2803b.put(str2 + str, Boolean.TRUE);
+                                f2794b.put(str2 + str, Boolean.TRUE);
                                 Intent intent3 = new Intent("com.baidu.adp.plugin.installed");
                                 intent3.setPackage(BdBaseApplication.getInst().getPackageName());
                                 intent3.putExtra("package_name", str15);
@@ -987,7 +987,7 @@ public class d {
                                 intent3.putExtra("is_patch", z10);
                                 intent3.putExtra("replace_method_classes", str14);
                                 intent3.putExtra("is_inject_classloader", z6);
-                                intent3.putExtra("install_flag", f2804c);
+                                intent3.putExtra("install_flag", f2795c);
                                 BdStatisticsManager.getInstance().save();
                                 BdBaseApplication.getInst().sendOrderedBroadcast(intent3, null);
                                 listFiles = Util.m().listFiles();
@@ -1004,7 +1004,7 @@ public class d {
                                             if (name.startsWith(str15) && !name.equals(sb4)) {
                                                 str19 = str34;
                                                 int lastIndexOf = name.lastIndexOf(str19);
-                                                if (lastIndexOf > 0 && (d2 = c.a.e.e.m.b.d(name.substring(lastIndexOf + 1), -1)) > 0 && d2 == i8) {
+                                                if (lastIndexOf > 0 && (e2 = c.a.e.e.m.b.e(name.substring(lastIndexOf + 1), -1)) > 0 && e2 == i8) {
                                                     break;
                                                 }
                                                 str18 = str17;
@@ -1060,7 +1060,7 @@ public class d {
                         long currentTimeMillis22 = System.currentTimeMillis();
                         i(file4.getAbsolutePath(), str15, file62);
                         c.a.e.h.h.a.b().n("plugin_extract_dex", System.currentTimeMillis() - currentTimeMillis22, str15);
-                        f2803b.put(str2 + str, Boolean.TRUE);
+                        f2794b.put(str2 + str, Boolean.TRUE);
                         Intent intent32 = new Intent("com.baidu.adp.plugin.installed");
                         intent32.setPackage(BdBaseApplication.getInst().getPackageName());
                         intent32.putExtra("package_name", str15);
@@ -1075,7 +1075,7 @@ public class d {
                         intent32.putExtra("is_patch", z10);
                         intent32.putExtra("replace_method_classes", str14);
                         intent32.putExtra("is_inject_classloader", z6);
-                        intent32.putExtra("install_flag", f2804c);
+                        intent32.putExtra("install_flag", f2795c);
                         BdStatisticsManager.getInstance().save();
                         BdBaseApplication.getInst().sendOrderedBroadcast(intent32, null);
                         listFiles = Util.m().listFiles();
@@ -1090,8 +1090,8 @@ public class d {
             if (entry == null) {
                 try {
                     file2.delete();
-                } catch (Exception e15) {
-                    BdLog.e(e15);
+                } catch (Exception e16) {
+                    BdLog.e(e16);
                 }
                 q(str, str2, "assetsmanifestnull", "avirom-" + Util.g() + "-filesize-" + length + "-exp-" + ((String) null));
                 return null;
@@ -1104,8 +1104,8 @@ public class d {
                 attribute = documentElement.getAttribute("android:versionName");
                 try {
                     elementsByTagName = documentElement.getElementsByTagName("meta-data");
-                } catch (Exception e16) {
-                    e = e16;
+                } catch (Exception e17) {
+                    e = e17;
                     str8 = attribute;
                     str5 = "has_res";
                     str6 = null;
@@ -1115,8 +1115,8 @@ public class d {
                     z3 = false;
                     z4 = false;
                 }
-            } catch (Exception e17) {
-                e = e17;
+            } catch (Exception e18) {
+                e = e18;
                 str5 = "has_res";
                 str6 = null;
                 str7 = null;
@@ -1194,8 +1194,8 @@ public class d {
                                                 elementsByTagName = nodeList;
                                                 attribute = str8;
                                                 str26 = str5;
-                                            } catch (Exception e18) {
-                                                e = e18;
+                                            } catch (Exception e19) {
+                                                e = e19;
                                                 i10 = i4;
                                                 str10 = str7;
                                                 z5 = z4;
@@ -1212,8 +1212,8 @@ public class d {
                                         elementsByTagName = nodeList;
                                         attribute = str8;
                                         str26 = str5;
-                                    } catch (Exception e19) {
-                                        e = e19;
+                                    } catch (Exception e20) {
+                                        e = e20;
                                         str5 = str26;
                                         i10 = i4;
                                         str10 = str7;
@@ -1233,8 +1233,8 @@ public class d {
                             elementsByTagName = nodeList;
                             attribute = str8;
                             str26 = str5;
-                        } catch (Exception e20) {
-                            e = e20;
+                        } catch (Exception e21) {
+                            e = e21;
                             str8 = attribute;
                         }
                     }
@@ -1248,8 +1248,8 @@ public class d {
                     if (TextUtils.isEmpty(str11)) {
                         try {
                             file2.delete();
-                        } catch (Exception e21) {
-                            BdLog.e(e21);
+                        } catch (Exception e22) {
+                            BdLog.e(e22);
                         }
                         q(str, str2, "getpackageinfo_fail", "avirom-" + Util.g() + "-filesize-" + length + "-exp-" + str9);
                         return null;
@@ -1303,7 +1303,7 @@ public class d {
                     long currentTimeMillis222 = System.currentTimeMillis();
                     i(file4.getAbsolutePath(), str15, file622);
                     c.a.e.h.h.a.b().n("plugin_extract_dex", System.currentTimeMillis() - currentTimeMillis222, str15);
-                    f2803b.put(str2 + str, Boolean.TRUE);
+                    f2794b.put(str2 + str, Boolean.TRUE);
                     Intent intent322 = new Intent("com.baidu.adp.plugin.installed");
                     intent322.setPackage(BdBaseApplication.getInst().getPackageName());
                     intent322.putExtra("package_name", str15);
@@ -1318,7 +1318,7 @@ public class d {
                     intent322.putExtra("is_patch", z10);
                     intent322.putExtra("replace_method_classes", str14);
                     intent322.putExtra("is_inject_classloader", z6);
-                    intent322.putExtra("install_flag", f2804c);
+                    intent322.putExtra("install_flag", f2795c);
                     BdStatisticsManager.getInstance().save();
                     BdBaseApplication.getInst().sendOrderedBroadcast(intent322, null);
                     listFiles = Util.m().listFiles();
@@ -1406,35 +1406,35 @@ public class d {
         if (!file.exists()) {
             q(str, str2, "apk_not_exist", "file_not_exists-apkFilePath_" + substring);
             c.a.e.h.h.a b2 = c.a.e.h.h.a.b();
-            b2.o("plugin_install", "service_apk_not_exist", str2, f2804c + "_" + substring);
+            b2.o("plugin_install", "service_apk_not_exist", str2, f2795c + "_" + substring);
             return;
         }
         int i3 = 0;
         try {
             int lastIndexOf = substring.lastIndexOf("_");
-            int d2 = lastIndexOf > 0 ? c.a.e.e.m.b.d(substring.substring(lastIndexOf + 1), -1) : -1;
-            if (d2 > 0) {
-                if (d2 < PluginPackageManager.L()) {
+            int e2 = lastIndexOf > 0 ? c.a.e.e.m.b.e(substring.substring(lastIndexOf + 1), -1) : -1;
+            if (e2 > 0) {
+                if (e2 < PluginPackageManager.L()) {
                     c.a.e.h.h.a b3 = c.a.e.h.h.a.b();
-                    b3.o("plugin_install", "low_version_code", str2, " vc=" + String.valueOf(d2) + " tiebaVC=" + PluginPackageManager.L());
+                    b3.o("plugin_install", "low_version_code", str2, " vc=" + String.valueOf(e2) + " tiebaVC=" + PluginPackageManager.L());
                     Intent intent = new Intent("com.baidu.adp.plugin.deleted");
                     intent.setPackage(BdBaseApplication.getInst().getPackageName());
                     intent.putExtra("package_name", str2);
                     intent.putExtra("install_src_file", str);
                     intent.putExtra("fail_reason", "low_version_code");
-                    intent.putExtra("version_code", d2);
+                    intent.putExtra("version_code", e2);
                     BdBaseApplication.getInst().sendBroadcast(intent);
                     return;
-                } else if (pluginSetting != null && d2 == (i2 = pluginSetting.versionCode)) {
+                } else if (pluginSetting != null && e2 == (i2 = pluginSetting.versionCode)) {
                     c.a.e.h.h.a b4 = c.a.e.h.h.a.b();
                     String str3 = pluginSetting.packageName;
-                    b4.o("plugin_install", "versionCode_is_equals", str3, i2 + " to " + d2 + "-instapkpath-" + pluginSetting.apkPath + "-md5-" + pluginSetting.md5 + "-size-" + pluginSetting.size + "-newapkfile-" + file + "-size-" + file.length() + "-srcpath-" + str);
+                    b4.o("plugin_install", "versionCode_is_equals", str3, i2 + " to " + e2 + "-instapkpath-" + pluginSetting.apkPath + "-md5-" + pluginSetting.md5 + "-size-" + pluginSetting.size + "-newapkfile-" + file + "-size-" + file.length() + "-srcpath-" + str);
                     Intent intent2 = new Intent("com.baidu.adp.plugin.installcancel");
                     intent2.setPackage(BdBaseApplication.getInst().getPackageName());
                     intent2.putExtra("package_name", str2);
                     intent2.putExtra("install_src_file", str);
                     intent2.putExtra("install_dest_file", str);
-                    intent2.putExtra("version_code", d2);
+                    intent2.putExtra("version_code", e2);
                     BdStatisticsManager.getInstance().save();
                     BdBaseApplication.getInst().sendBroadcast(intent2);
                     return;
@@ -1446,16 +1446,16 @@ public class d {
                 } else {
                     m(file, str, str2, pluginSetting);
                 }
-            } catch (Exception e2) {
-                e = e2;
+            } catch (Exception e3) {
+                e = e3;
                 i3 = 1;
                 BdLog.e(e);
                 q(str, str2, "open_apk", e.toString());
                 c.a.e.h.h.a b5 = c.a.e.h.h.a.b();
                 b5.r("plugin_install", "open_files_failed", str2, e.getMessage() + "---" + e.getClass().getName() + "---step_" + i3);
             }
-        } catch (Exception e3) {
-            e = e3;
+        } catch (Exception e4) {
+            e = e4;
         }
     }
 
@@ -1672,11 +1672,11 @@ public class d {
         BufferedReader bufferedReader;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
-            if (f2808g) {
-                return f2807f;
+            if (f2799g) {
+                return f2798f;
             }
             boolean z = true;
-            f2808g = true;
+            f2799g = true;
             BufferedReader bufferedReader2 = 0;
             try {
                 try {
@@ -1729,7 +1729,7 @@ public class d {
                                 sb.append(str);
                             }
                             objArr[0] = "ARM";
-                            objArr[1] = Integer.valueOf(c.a.e.e.m.b.d(sb.toString(), -1));
+                            objArr[1] = Integer.valueOf(c.a.e.e.m.b.e(sb.toString(), -1));
                         } else if (trim.compareToIgnoreCase("Features") == 0) {
                             if (trim2.contains("neon")) {
                                 objArr[2] = "neon";
@@ -1744,7 +1744,7 @@ public class d {
                             } else {
                                 i2 = 2;
                                 if (trim.compareToIgnoreCase("cpu family") == 0) {
-                                    objArr[1] = Integer.valueOf(c.a.e.e.m.b.d(trim2, -1));
+                                    objArr[1] = Integer.valueOf(c.a.e.e.m.b.e(trim2, -1));
                                 }
                             }
                             z = true;
@@ -1758,7 +1758,7 @@ public class d {
                 if (intValue != 7) {
                     z = false;
                 }
-                f2807f = z;
+                f2798f = z;
                 m.g(bufferedReader);
             } catch (Exception e5) {
                 e = e5;
@@ -1768,7 +1768,7 @@ public class d {
                 bufferedReader2 = bufferedReader2;
                 m.g(inputStreamReader);
                 m.e(fileInputStream);
-                return f2807f;
+                return f2798f;
             } catch (Throwable th4) {
                 th = th4;
                 bufferedReader2 = bufferedReader;
@@ -1779,7 +1779,7 @@ public class d {
             }
             m.g(inputStreamReader);
             m.e(fileInputStream);
-            return f2807f;
+            return f2798f;
         }
         return invokeV.booleanValue;
     }
@@ -1788,10 +1788,10 @@ public class d {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
-            if (f2806e) {
-                return f2805d;
+            if (f2797e) {
+                return f2796d;
             }
-            f2806e = true;
+            f2797e = true;
             String lowerCase = Build.CPU_ABI.toLowerCase();
             String str = "none";
             if (Build.VERSION.SDK_INT > 7) {
@@ -1807,12 +1807,12 @@ public class d {
             }
             if (!lowerCase.contains("armeabi-v7a") && !str.contains("armeabi-v7a") && !k()) {
                 if (lowerCase.contains("armeabi") || str.contains("armeabi")) {
-                    f2805d = true;
+                    f2796d = true;
                 }
             } else {
-                f2805d = true;
+                f2796d = true;
             }
-            return f2805d;
+            return f2796d;
         }
         return invokeV.booleanValue;
     }
@@ -1849,7 +1849,7 @@ public class d {
                         fileInputStream = new FileInputStream(file3);
                         try {
                             Util.a d2 = Util.d(fileInputStream, file2);
-                            if (d2.f36248a) {
+                            if (d2.f36367a) {
                                 if (file2.length() == file3.length()) {
                                     c.a.e.e.m.a.c(fileInputStream);
                                 } else {
@@ -1857,7 +1857,7 @@ public class d {
                                 }
                             } else {
                                 f.n(file2);
-                                throw new Exception(d2.f36249b);
+                                throw new Exception(d2.f36368b);
                             }
                         } catch (Exception e3) {
                             e = e3;
@@ -1893,13 +1893,13 @@ public class d {
                 long currentTimeMillis = System.currentTimeMillis();
                 File file = new File(Util.m(), String.valueOf(System.currentTimeMillis()));
                 Util.a d2 = Util.d(inputStream, file);
-                if (!d2.f36248a) {
+                if (!d2.f36367a) {
                     try {
                         file.delete();
                     } catch (Exception e2) {
                         BdLog.e(e2);
                     }
-                    q(str, str2, "assets_copy_temp_fail", d2.f36249b);
+                    q(str, str2, "assets_copy_temp_fail", d2.f36368b);
                     return null;
                 }
                 c.a.e.h.h.a.b().n("plugin_copy_file", System.currentTimeMillis() - currentTimeMillis, str2);
@@ -1939,16 +1939,16 @@ public class d {
                 c.a.e.h.h.a.b().q("plugin_install", "intent_action_null", null);
                 return;
             }
-            f2802a = intent.getBooleanExtra("is_debug_plugin", false);
+            f2793a = intent.getBooleanExtra("is_debug_plugin", false);
             if (action.equals(PluginInstallerService.ACTION_INSTALL)) {
                 String stringExtra = intent.getStringExtra("install_src_file");
                 String stringExtra2 = intent.getStringExtra("package_name");
                 String stringExtra3 = intent.getStringExtra("install_flag");
-                f2804c = stringExtra3;
+                f2795c = stringExtra3;
                 if (stringExtra3 == null) {
-                    f2804c = "f" + System.currentTimeMillis();
+                    f2795c = "f" + System.currentTimeMillis();
                 }
-                c.a.e.h.h.a.b().o("plugin_install", "install_service_start", stringExtra2, f2804c);
+                c.a.e.h.h.a.b().o("plugin_install", "install_service_start", stringExtra2, f2795c);
                 try {
                     pluginSetting = (PluginSetting) intent.getSerializableExtra("plugin_setting");
                 } catch (Throwable unused) {
@@ -1956,8 +1956,8 @@ public class d {
                 PluginSetting h2 = c.a.e.h.j.g.d.k().h(stringExtra2);
                 if (h2 != null && h2.installStatus == 0 && h2.tempVersionCode == 0) {
                     int lastIndexOf = stringExtra.lastIndexOf("_");
-                    int d2 = lastIndexOf > 0 ? c.a.e.e.m.b.d(stringExtra.substring(lastIndexOf + 1), -1) : -1;
-                    if (h2.enable && h2.versionCode == d2) {
+                    int e2 = lastIndexOf > 0 ? c.a.e.e.m.b.e(stringExtra.substring(lastIndexOf + 1), -1) : -1;
+                    if (h2.enable && h2.versionCode == e2) {
                         c.a.e.h.h.a.b().o("plugin_install", "setting_new_has_installed", stringExtra2, "pkgName_" + stringExtra2 + "-srcFile_" + stringExtra);
                         Intent intent2 = new Intent("com.baidu.adp.plugin.installrepeat");
                         intent2.setPackage(BdBaseApplication.getInst().getPackageName());
@@ -1968,7 +1968,7 @@ public class d {
                     }
                 }
                 String str = stringExtra2 + stringExtra;
-                if (f2803b.containsKey(str) && f2803b.get(str).booleanValue()) {
+                if (f2794b.containsKey(str) && f2794b.get(str).booleanValue()) {
                     c.a.e.h.h.a.b().o("plugin_install", "plugin_has_installed", stringExtra2, "b_pkgName_" + stringExtra2 + "-srcFile_" + stringExtra);
                     Intent intent3 = new Intent("com.baidu.adp.plugin.installrepeat");
                     intent3.setPackage(BdBaseApplication.getInst().getPackageName());
@@ -1993,7 +1993,7 @@ public class d {
             intent.putExtra("fail_reason", str3);
             intent.putExtra("package_name", str2);
             intent.putExtra("install_comment", str4);
-            intent.putExtra("install_flag", f2804c);
+            intent.putExtra("install_flag", f2795c);
             try {
                 BdBaseApplication.getInst().sendBroadcast(intent);
             } catch (Throwable th) {
@@ -2008,9 +2008,9 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65554, null, str, str2)) == null) {
             Util.a aVar = new Util.a();
-            if (f2809h == null) {
+            if (f2800h == null) {
                 try {
-                    f2809h = BdBaseApplication.getInst().getPackageManager().getPackageInfo(BdBaseApplication.getInst().getPackageName(), 64).signatures;
+                    f2800h = BdBaseApplication.getInst().getPackageManager().getPackageInfo(BdBaseApplication.getInst().getPackageName(), 64).signatures;
                 } catch (Throwable th) {
                     c.a.e.h.h.a.b().o("plugin_install", "getmainsign_frompm_fail", str, th.getMessage());
                 }
@@ -2028,30 +2028,30 @@ public class d {
                         c.a.e.h.h.a.b().o("plugin_install", "collectCertificates_ok", str, null);
                     }
                 } catch (Throwable th3) {
-                    aVar.f36249b += "-exception_" + th3.toString();
+                    aVar.f36368b += "-exception_" + th3.toString();
                     return aVar;
                 }
             }
             if (signatureArr == null) {
-                aVar.f36249b = "get_newsignatures_null_" + str2;
+                aVar.f36368b = "get_newsignatures_null_" + str2;
                 return aVar;
             }
-            Signature[] signatureArr2 = f2809h;
+            Signature[] signatureArr2 = f2800h;
             if (signatureArr2 == null) {
                 File file = new File(BdBaseApplication.getInst().getPackageCodePath());
                 if (file.exists()) {
                     try {
                         signatureArr2 = e.a(file.getAbsolutePath(), aVar);
-                        f2809h = signatureArr2;
+                        f2800h = signatureArr2;
                     } catch (Throwable th4) {
-                        aVar.f36249b += "-exception_" + th4.toString();
+                        aVar.f36368b += "-exception_" + th4.toString();
                         return aVar;
                     }
                 }
             }
             int b2 = Util.b(signatureArr2, signatureArr);
             if (b2 == 0) {
-                aVar.f36248a = true;
+                aVar.f36367a = true;
                 return aVar;
             }
             StringBuilder sb = new StringBuilder();
@@ -2081,7 +2081,7 @@ public class d {
                     sb.append(th6.getMessage());
                 }
             }
-            aVar.f36249b = "compare_signatures_fail_" + b2 + "_" + sb.toString();
+            aVar.f36368b = "compare_signatures_fail_" + b2 + "_" + sb.toString();
             return aVar;
         }
         return (Util.a) invokeLL.objValue;

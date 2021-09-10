@@ -72,11 +72,12 @@ public class CpuMonitor {
                     return;
                 }
             }
-            if (i2 <= 0) {
-                throw new AssertionError("Size value in MovingAverage ctor should be positive.");
+            if (i2 > 0) {
+                this.size = i2;
+                this.circBuffer = new double[i2];
+                return;
             }
-            this.size = i2;
-            this.circBuffer = new double[i2];
+            throw new AssertionError("Size value in MovingAverage ctor should be positive.");
         }
 
         public void addValue(double d2) {
@@ -203,7 +204,7 @@ public class CpuMonitor {
         return invokeV.intValue;
     }
 
-    private String getStatString() {
+    private synchronized String getStatString() {
         InterceptResult invokeV;
         String sb;
         Interceptable interceptable = $ic;
@@ -256,9 +257,6 @@ public class CpuMonitor {
                     this.cpusPresent = useDelimiter.nextInt() + 1;
                     useDelimiter.close();
                 } catch (Exception unused) {
-                } catch (Throwable th) {
-                    fileReader.close();
-                    throw th;
                 }
                 fileReader.close();
             } catch (FileNotFoundException | IOException unused2) {
@@ -299,18 +297,14 @@ public class CpuMonitor {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65544, this, str)) == null) {
+            long j2 = 0;
             try {
                 BufferedReader bufferedReader = new BufferedReader(new FileReader(str));
-                long parseLong = parseLong(bufferedReader.readLine());
-                try {
-                    bufferedReader.close();
-                    return parseLong;
-                } catch (FileNotFoundException | IOException unused) {
-                    return parseLong;
-                }
-            } catch (FileNotFoundException | IOException unused2) {
-                return 0L;
+                j2 = parseLong(bufferedReader.readLine());
+                bufferedReader.close();
+            } catch (FileNotFoundException | IOException unused) {
             }
+            return j2;
         }
         return invokeL.longValue;
     }
@@ -354,7 +348,7 @@ public class CpuMonitor {
         return (ProcStat) invokeV.objValue;
     }
 
-    private void resetStat() {
+    private synchronized void resetStat() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65546, this) == null) {
             synchronized (this) {
@@ -367,7 +361,7 @@ public class CpuMonitor {
         }
     }
 
-    private boolean sampleCpuUtilization() {
+    private synchronized boolean sampleCpuUtilization() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65547, this)) == null) {
@@ -411,7 +405,7 @@ public class CpuMonitor {
                 if (j2 != 0 && j3 != 0) {
                     double d2 = j2 / j3;
                     if (this.frequencyScale.getCurrent() > 0.0d) {
-                        d2 = (this.frequencyScale.getCurrent() + d2) * 0.5d;
+                        d2 = 0.5d * (this.frequencyScale.getCurrent() + d2);
                     }
                     this.frequencyScale.addValue(d2);
                     if (Build.VERSION.SDK_INT >= 19 && Build.VERSION.SDK_INT <= 24) {
@@ -423,13 +417,12 @@ public class CpuMonitor {
                         long j6 = readProcStat.systemTime - this.lastProcStat.systemTime;
                         long j7 = j5 + j6 + (readProcStat.idleTime - this.lastProcStat.idleTime);
                         if (d2 != 0.0d && j7 != 0) {
-                            double d3 = j5;
-                            double d4 = j7;
-                            double d5 = d3 / d4;
-                            this.userCpuUsage.addValue(d5);
-                            double d6 = j6 / d4;
-                            this.systemCpuUsage.addValue(d6);
-                            this.totalCpuUsage.addValue((d5 + d6) * d2);
+                            double d3 = j7;
+                            double d4 = j5 / d3;
+                            this.userCpuUsage.addValue(d4);
+                            double d5 = j6 / d3;
+                            this.systemCpuUsage.addValue(d5);
+                            this.totalCpuUsage.addValue((d4 + d5) * d2);
                             this.lastProcStat = readProcStat;
                             return true;
                         }
@@ -487,7 +480,7 @@ public class CpuMonitor {
         }
     }
 
-    public int getCpuUsageAverage() {
+    public synchronized int getCpuUsageAverage() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -501,7 +494,7 @@ public class CpuMonitor {
         return invokeV.intValue;
     }
 
-    public int getCpuUsageCurrent() {
+    public synchronized int getCpuUsageCurrent() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -515,7 +508,7 @@ public class CpuMonitor {
         return invokeV.intValue;
     }
 
-    public int getFrequencyScaleAverage() {
+    public synchronized int getFrequencyScaleAverage() {
         InterceptResult invokeV;
         int doubleToPercent;
         Interceptable interceptable = $ic;
@@ -537,7 +530,7 @@ public class CpuMonitor {
         this.executor = null;
     }
 
-    public void reset() {
+    public synchronized void reset() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             synchronized (this) {

@@ -28,13 +28,13 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f35426a;
+    public String f35535a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f35427b;
+    public String f35536b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ReentrantLock f35428c;
+    public ReentrantLock f35537c;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -49,8 +49,8 @@ public class a {
                 return;
             }
         }
-        this.f35427b = "";
-        this.f35428c = new ReentrantLock();
+        this.f35536b = "";
+        this.f35537c = new ReentrantLock();
     }
 
     public /* synthetic */ a(byte b2) {
@@ -60,7 +60,7 @@ public class a {
     public static a a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.f35429a : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.f35538a : (a) invokeV.objValue;
     }
 
     public static String b(Context context) {
@@ -200,17 +200,17 @@ public class a {
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{context, dVar, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
             long currentTimeMillis = System.currentTimeMillis();
             try {
-                this.f35428c.lock();
+                this.f35537c.lock();
             } finally {
                 try {
-                    this.f35428c.unlock();
-                    if (TextUtils.isEmpty(this.f35427b)) {
+                    this.f35537c.unlock();
+                    if (TextUtils.isEmpty(this.f35536b)) {
                     }
-                    return this.f35427b;
+                    return this.f35536b;
                 } finally {
                 }
             }
-            if (TextUtils.isEmpty(this.f35427b)) {
+            if (TextUtils.isEmpty(this.f35536b)) {
                 JSONObject jSONObject = new JSONObject();
                 String str = Build.MODEL;
                 jSONObject.put("k27", f.f(TextUtils.isEmpty(str) ? "KWE_N" : str.replace("=", "").replace("&", "")));
@@ -235,7 +235,7 @@ public class a {
                 if (z2) {
                     c.r.a.a.a.a.b.c().j();
                 }
-                String str2 = c.r.a.a.b.f35419g;
+                String str2 = c.r.a.a.b.f35528g;
                 if (TextUtils.isEmpty(str2) || str2.startsWith("KWE")) {
                     str2 = new e(context).e();
                 }
@@ -253,14 +253,14 @@ public class a {
                 StringBuilder sb = new StringBuilder("get mini lenth ");
                 sb.append(d2.length);
                 c.r.a.a.c.b.c.b(sb.toString());
-                this.f35427b = URLEncoder.encode(Base64.encodeToString(d2, 0), "utf-8");
-                this.f35428c.unlock();
-                if (TextUtils.isEmpty(this.f35427b)) {
-                    this.f35427b = "KWE_N";
+                this.f35536b = URLEncoder.encode(Base64.encodeToString(d2, 0), "utf-8");
+                this.f35537c.unlock();
+                if (TextUtils.isEmpty(this.f35536b)) {
+                    this.f35536b = "KWE_N";
                 }
-                return this.f35427b;
+                return this.f35536b;
             }
-            return this.f35427b;
+            return this.f35536b;
         }
         return (String) invokeCommon.objValue;
     }
@@ -268,7 +268,7 @@ public class a {
     public final void d(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            this.f35426a = str;
+            this.f35535a = str;
         }
     }
 
@@ -277,7 +277,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             try {
-                return !TextUtils.isEmpty(this.f35426a) ? this.f35426a : "KWE_N";
+                return !TextUtils.isEmpty(this.f35535a) ? this.f35535a : "KWE_N";
             } catch (Throwable th) {
                 c.r.a.a.c.b.c.c(th);
                 return "KWE_N";

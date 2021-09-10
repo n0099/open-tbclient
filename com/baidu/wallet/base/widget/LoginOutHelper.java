@@ -50,13 +50,13 @@ public class LoginOutHelper {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ Dialog f60340a;
+                public final /* synthetic */ Dialog f60520a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ Context f60341b;
+                public final /* synthetic */ Context f60521b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ IAfterDismissCallback f60342c;
+                public final /* synthetic */ IAfterDismissCallback f60522c;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -73,19 +73,19 @@ public class LoginOutHelper {
                             return;
                         }
                     }
-                    this.f60340a = dialog;
-                    this.f60341b = context;
-                    this.f60342c = iAfterDismissCallback;
+                    this.f60520a = dialog;
+                    this.f60521b = context;
+                    this.f60522c = iAfterDismissCallback;
                 }
 
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                        this.f60340a.dismiss();
-                        AccountManager.getInstance(DxmApplicationContextImpl.getApplicationContext(this.f60341b)).logout();
+                        this.f60520a.dismiss();
+                        AccountManager.getInstance(DxmApplicationContextImpl.getApplicationContext(this.f60521b)).logout();
                         WalletLoginHelper.getInstance().logout();
-                        IAfterDismissCallback iAfterDismissCallback2 = this.f60342c;
+                        IAfterDismissCallback iAfterDismissCallback2 = this.f60522c;
                         if (iAfterDismissCallback2 != null) {
                             iAfterDismissCallback2.onLogout();
                         }
@@ -97,10 +97,10 @@ public class LoginOutHelper {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ Dialog f60343a;
+                public final /* synthetic */ Dialog f60523a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ IAfterDismissCallback f60344b;
+                public final /* synthetic */ IAfterDismissCallback f60524b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -117,16 +117,16 @@ public class LoginOutHelper {
                             return;
                         }
                     }
-                    this.f60343a = dialog;
-                    this.f60344b = iAfterDismissCallback;
+                    this.f60523a = dialog;
+                    this.f60524b = iAfterDismissCallback;
                 }
 
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                        this.f60343a.dismiss();
-                        IAfterDismissCallback iAfterDismissCallback2 = this.f60344b;
+                        this.f60523a.dismiss();
+                        IAfterDismissCallback iAfterDismissCallback2 = this.f60524b;
                         if (iAfterDismissCallback2 != null) {
                             iAfterDismissCallback2.onCancel();
                         }

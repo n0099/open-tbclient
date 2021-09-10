@@ -10,11 +10,11 @@ import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import c.a.o0.a.a;
-import c.a.o0.a.e;
-import c.a.o0.a.f;
-import c.a.o0.a.g;
-import c.a.o0.a.h;
+import c.a.p0.a.a;
+import c.a.p0.a.e;
+import c.a.p0.a.f;
+import c.a.p0.a.g;
+import c.a.p0.a.h;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -26,10 +26,10 @@ public class LoadingLayout extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public ImageView f46530e;
+    public ImageView f46645e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f46531f;
+    public TextView f46646f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public LoadingLayout(Context context) {
@@ -56,8 +56,8 @@ public class LoadingLayout extends LinearLayout {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             View inflate = LayoutInflater.from(getContext()).inflate(g.swanapp_album_loadding_layout, (ViewGroup) null);
             inflate.setBackgroundColor(-1);
-            this.f46530e = (ImageView) inflate.findViewById(f.album_loadding_img);
-            this.f46531f = (TextView) inflate.findViewById(f.album_loadding_tv);
+            this.f46645e = (ImageView) inflate.findViewById(f.album_loadding_img);
+            this.f46646f = (TextView) inflate.findViewById(f.album_loadding_tv);
             addView(inflate);
         }
     }
@@ -75,12 +75,12 @@ public class LoadingLayout extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
             setVisibility(0);
-            this.f46530e.clearAnimation();
-            this.f46530e.setImageResource(e.swanapp_album_empty_icon);
+            this.f46645e.clearAnimation();
+            this.f46645e.setImageResource(e.swanapp_album_empty_icon);
             if (i2 == 0) {
-                this.f46531f.setText(h.swanapp_album_empty_photo);
+                this.f46646f.setText(h.swanapp_album_empty_photo);
             } else {
-                this.f46531f.setText(h.swanapp_album_empty_video);
+                this.f46646f.setText(h.swanapp_album_empty_video);
             }
         }
     }
@@ -91,8 +91,8 @@ public class LoadingLayout extends LinearLayout {
             if (z) {
                 setVisibility(0);
                 Animation loadAnimation = AnimationUtils.loadAnimation(getContext(), a.swanapp_album_rotate_loading);
-                this.f46530e.setImageResource(e.swanapp_album_progress_icon);
-                this.f46530e.startAnimation(loadAnimation);
+                this.f46645e.setImageResource(e.swanapp_album_progress_icon);
+                this.f46645e.startAnimation(loadAnimation);
                 return;
             }
             setVisibility(8);

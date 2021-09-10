@@ -1,7 +1,7 @@
 package com.baidu.tbadk.coreExtra.data;
 
 import androidx.core.view.InputDeviceCompat;
-import c.a.p0.s.q.p;
+import c.a.q0.s.q.p;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -100,7 +100,7 @@ public class NewGodData extends p implements Serializable {
         return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.mType == 2 : invokeV.booleanValue;
     }
 
-    @Override // c.a.p0.s.q.p
+    @Override // c.a.q0.s.q.p
     public void parserJson(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048585, this, jSONObject) == null) || jSONObject == null) {

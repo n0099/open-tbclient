@@ -7,8 +7,10 @@ import androidx.lifecycle.LifecycleObserver;
 import androidx.lifecycle.OnLifecycleEvent;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -20,7 +22,10 @@ public abstract class SimpleMessageListener implements LifecycleObserver {
     @NonNull
 
     /* renamed from: e  reason: collision with root package name */
-    public CustomMessageListener f48374e;
+    public CustomMessageListener f48507e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public boolean f48508f;
 
     /* loaded from: classes6.dex */
     public class a extends CustomMessageListener {
@@ -28,7 +33,7 @@ public abstract class SimpleMessageListener implements LifecycleObserver {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ b f48375a;
+        public final /* synthetic */ b f48509a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(SimpleMessageListener simpleMessageListener, int i2, b bVar) {
@@ -48,7 +53,7 @@ public abstract class SimpleMessageListener implements LifecycleObserver {
                     return;
                 }
             }
-            this.f48375a = bVar;
+            this.f48509a = bVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -58,7 +63,7 @@ public abstract class SimpleMessageListener implements LifecycleObserver {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null) {
                 return;
             }
-            this.f48375a.call(customResponsedMessage.getData());
+            this.f48509a.call(customResponsedMessage.getData());
         }
     }
 
@@ -67,12 +72,12 @@ public abstract class SimpleMessageListener implements LifecycleObserver {
         void call(@Nullable T t);
     }
 
-    public SimpleMessageListener(int i2, @NonNull b bVar) {
+    public SimpleMessageListener(int i2, boolean z, @NonNull b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), bVar};
+            Object[] objArr = {Integer.valueOf(i2), Boolean.valueOf(z), bVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i3 = newInitContext.flag;
             if ((i3 & 1) != 0) {
@@ -82,29 +87,69 @@ public abstract class SimpleMessageListener implements LifecycleObserver {
                 return;
             }
         }
-        this.f48374e = new a(this, i2, bVar);
+        this.f48508f = z;
+        this.f48507e = new a(this, i2, bVar);
     }
 
     public static <T> void sendMessage(int i2, @Nullable T t) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(65537, null, i2, t) == null) {
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(i2, t));
+        if (interceptable == null || interceptable.invokeIL(65538, null, i2, t) == null) {
+            sendMessage(i2, null, t);
         }
+    }
+
+    public void bindPage(@NonNull TbPageContext<?> tbPageContext) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, tbPageContext) == null) {
+            this.f48507e.setSelfListener(true);
+            this.f48507e.setTag(tbPageContext.getUniqueId());
+        }
+    }
+
+    @OnLifecycleEvent(Lifecycle.Event.ON_CREATE)
+    public void onCreate() {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f48508f) {
+            return;
+        }
+        MessageManager.getInstance().registerListener(this.f48507e);
+    }
+
+    @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
+    public void onDestroy() {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.f48508f) {
+            return;
+        }
+        MessageManager.getInstance().unRegisterListener(this.f48507e);
     }
 
     @OnLifecycleEvent(Lifecycle.Event.ON_PAUSE)
     public void onPause() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            MessageManager.getInstance().unRegisterListener(this.f48374e);
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && this.f48508f) {
+            MessageManager.getInstance().unRegisterListener(this.f48507e);
         }
     }
 
     @OnLifecycleEvent(Lifecycle.Event.ON_RESUME)
     public void onResume() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            MessageManager.getInstance().registerListener(this.f48374e);
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && this.f48508f) {
+            MessageManager.getInstance().registerListener(this.f48507e);
+        }
+    }
+
+    public static <T> void sendMessage(int i2, @Nullable TbPageContext<?> tbPageContext, @Nullable T t) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeILL(65537, null, i2, tbPageContext, t) == null) {
+            CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(i2, t);
+            if (tbPageContext != null) {
+                CustomMessage customMessage = new CustomMessage(i2, tbPageContext.getUniqueId());
+                customMessage.setData(t);
+                customResponsedMessage.setOrginalMessage(customMessage);
+            }
+            MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage);
         }
     }
 }

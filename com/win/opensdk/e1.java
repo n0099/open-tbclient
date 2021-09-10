@@ -13,7 +13,7 @@ public class e1 implements Runnable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ f1 f76839a;
+    public final /* synthetic */ f1 f77019a;
 
     public e1(f1 f1Var) {
         Interceptable interceptable = $ic;
@@ -30,7 +30,7 @@ public class e1 implements Runnable {
                 return;
             }
         }
-        this.f76839a = f1Var;
+        this.f77019a = f1Var;
     }
 
     @Override // java.lang.Runnable
@@ -38,9 +38,9 @@ public class e1 implements Runnable {
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            HashMap a2 = o1.a(this.f76839a.f76844a);
+            HashMap a2 = o1.a(this.f77019a.f77024a);
             try {
-                str = this.f76839a.a() + o1.a(a2);
+                str = this.f77019a.a() + o1.a(a2);
             } catch (UnsupportedEncodingException unused) {
                 str = "";
             }

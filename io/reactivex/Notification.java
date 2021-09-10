@@ -14,7 +14,7 @@ import io.reactivex.annotations.NonNull;
 import io.reactivex.annotations.Nullable;
 import io.reactivex.internal.functions.ObjectHelper;
 import io.reactivex.internal.util.NotificationLite;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class Notification<T> {
     public static /* synthetic */ Interceptable $ic;
     public static final Notification<Object> COMPLETE;

@@ -17,11 +17,11 @@ public class j {
     @SuppressLint({"StaticFieldLeak"})
 
     /* renamed from: b  reason: collision with root package name */
-    public static j f69015b;
+    public static j f69195b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f69016a;
+    public Context f69196a;
 
     public j(Context context) {
         Interceptable interceptable = $ic;
@@ -38,13 +38,13 @@ public class j {
                 return;
             }
         }
-        this.f69016a = context;
+        this.f69196a = context;
     }
 
     public static void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, null, context) == null) {
-            f69015b = new j(context);
+            f69195b = new j(context);
         }
     }
 
@@ -108,7 +108,7 @@ public class j {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            TelephonyManager telephonyManager = (TelephonyManager) this.f69016a.getSystemService("phone");
+            TelephonyManager telephonyManager = (TelephonyManager) this.f69196a.getSystemService("phone");
             if (telephonyManager != null) {
                 String simOperator = telephonyManager.getSimOperator();
                 c.b("SIMUtils", "SysOperType = " + simOperator);
@@ -122,7 +122,7 @@ public class j {
     public static j a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? f69015b : (j) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? f69195b : (j) invokeV.objValue;
     }
 
     @SuppressLint({"MissingPermission"})
@@ -133,9 +133,9 @@ public class j {
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             b.C1937b b2 = com.cmic.sso.sdk.a.b.a().b();
             String f2 = b2.f(b2.d());
-            if (TextUtils.isEmpty(f2) && n.a(this.f69016a) && (telephonyManager = (TelephonyManager) this.f69016a.getSystemService("phone")) != null) {
+            if (TextUtils.isEmpty(f2) && n.a(this.f69196a) && (telephonyManager = (TelephonyManager) this.f69196a.getSystemService("phone")) != null) {
                 f2 = telephonyManager.getSimOperator();
-                if (TextUtils.isEmpty(f2) && g.a(this.f69016a, "android.permission.READ_PHONE_STATE") && n.d()) {
+                if (TextUtils.isEmpty(f2) && g.a(this.f69196a, "android.permission.READ_PHONE_STATE") && n.d()) {
                     String str = null;
                     try {
                         str = telephonyManager.getSubscriberId();

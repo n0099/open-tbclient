@@ -34,22 +34,22 @@ public abstract class TbFragmentTabIndicator extends FrameLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public View f48283a;
+        public View f48413a;
 
         /* renamed from: b  reason: collision with root package name */
-        public boolean f48284b;
+        public boolean f48414b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f48285c;
+        public int f48415c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f48286d;
+        public int f48416d;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f48287e;
+        public int f48417e;
 
         /* renamed from: f  reason: collision with root package name */
-        public TbFragmentTabIndicator f48288f;
+        public TbFragmentTabIndicator f48418f;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -64,8 +64,8 @@ public abstract class TbFragmentTabIndicator extends FrameLayout {
                     return;
                 }
             }
-            this.f48284b = true;
-            this.f48287e = R.color.common_color_10225;
+            this.f48414b = true;
+            this.f48417e = R.color.common_color_10225;
         }
 
         public final int a(TextView textView) {
@@ -75,11 +75,11 @@ public abstract class TbFragmentTabIndicator extends FrameLayout {
                 if (textView == null) {
                     return -1;
                 }
-                String charSequence = ((TextView) this.f48283a).getText().toString();
+                String charSequence = ((TextView) this.f48413a).getText().toString();
                 if ("   ".equals(charSequence)) {
                     return 100;
                 }
-                return b.d(charSequence, -1);
+                return b.e(charSequence, -1);
             }
             return invokeL.intValue;
         }
@@ -87,26 +87,26 @@ public abstract class TbFragmentTabIndicator extends FrameLayout {
         public void b(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-                int i3 = this.f48286d;
+                int i3 = this.f48416d;
                 if (i3 != 0) {
-                    SkinManager.setBackgroundResource(this.f48283a, i3);
+                    SkinManager.setBackgroundResource(this.f48413a, i3);
                 }
-                View view = this.f48283a;
+                View view = this.f48413a;
                 if (view instanceof TextView) {
-                    int i4 = this.f48287e;
+                    int i4 = this.f48417e;
                     if (i4 != 0) {
                         SkinManager.setViewTextColor(view, i4, 1);
                     }
-                    int a2 = a((TextView) this.f48283a);
+                    int a2 = a((TextView) this.f48413a);
                     if (a2 > 0 && a2 < 10) {
-                        SkinManager.setBackgroundResource(this.f48283a, R.drawable.icon_news_head_prompt_one);
+                        SkinManager.setBackgroundResource(this.f48413a, R.drawable.icon_news_head_prompt_one);
                     } else if (a2 >= 10 && a2 < 100) {
-                        SkinManager.setBackgroundResource(this.f48283a, R.drawable.icon_news_head_prompt_two);
+                        SkinManager.setBackgroundResource(this.f48413a, R.drawable.icon_news_head_prompt_two);
                     } else if (a2 >= 100) {
-                        SkinManager.setBackgroundResource(this.f48283a, R.drawable.icon_news_head_prompt_more);
+                        SkinManager.setBackgroundResource(this.f48413a, R.drawable.icon_news_head_prompt_more);
                     }
                 }
-                View view2 = this.f48283a;
+                View view2 = this.f48413a;
                 if (view2 instanceof MessageRedDotView) {
                     ((MessageRedDotView) view2).onChangeSkinType();
                 }

@@ -44,7 +44,7 @@ public class b extends c<JSONObject> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, iVar)) == null) {
             try {
-                return m.a(new JSONObject(new String(iVar.f64155b, com.bytedance.sdk.component.adnet.d.b.a(iVar.f64156c, "utf-8"))), com.bytedance.sdk.component.adnet.d.b.a(iVar));
+                return m.a(new JSONObject(new String(iVar.f64335b, com.bytedance.sdk.component.adnet.d.b.a(iVar.f64336c, "utf-8"))), com.bytedance.sdk.component.adnet.d.b.a(iVar));
             } catch (UnsupportedEncodingException e2) {
                 return m.a(new e(e2, 604));
             } catch (JSONException e3) {

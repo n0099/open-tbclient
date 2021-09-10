@@ -15,16 +15,16 @@ public final class e {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final com.bytedance.sdk.component.b.a.f f64465a;
+    public static final com.bytedance.sdk.component.b.a.f f64645a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String[] f64466b;
+    public static final String[] f64646b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String[] f64467c;
+    public static final String[] f64647c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String[] f64468d;
+    public static final String[] f64648d;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -40,30 +40,30 @@ public final class e {
                 return;
             }
         }
-        f64465a = com.bytedance.sdk.component.b.a.f.a("PRI * HTTP/2.0\r\n\r\nSM\r\n\r\n");
-        f64468d = new String[]{"DATA", "HEADERS", "PRIORITY", "RST_STREAM", "SETTINGS", "PUSH_PROMISE", "PING", "GOAWAY", "WINDOW_UPDATE", "CONTINUATION"};
-        f64466b = new String[64];
-        f64467c = new String[256];
+        f64645a = com.bytedance.sdk.component.b.a.f.a("PRI * HTTP/2.0\r\n\r\nSM\r\n\r\n");
+        f64648d = new String[]{"DATA", "HEADERS", "PRIORITY", "RST_STREAM", "SETTINGS", "PUSH_PROMISE", "PING", "GOAWAY", "WINDOW_UPDATE", "CONTINUATION"};
+        f64646b = new String[64];
+        f64647c = new String[256];
         int i2 = 0;
         int i3 = 0;
         while (true) {
-            String[] strArr = f64467c;
+            String[] strArr = f64647c;
             if (i3 >= strArr.length) {
                 break;
             }
             strArr[i3] = com.bytedance.sdk.component.b.b.a.c.a("%8s", Integer.toBinaryString(i3)).replace(' ', '0');
             i3++;
         }
-        String[] strArr2 = f64466b;
+        String[] strArr2 = f64646b;
         strArr2[0] = "";
         strArr2[1] = "END_STREAM";
         int[] iArr = {1};
         strArr2[8] = "PADDED";
         for (int i4 = 0; i4 < 1; i4++) {
             int i5 = iArr[i4];
-            f64466b[i5 | 8] = f64466b[i5] + "|PADDED";
+            f64646b[i5 | 8] = f64646b[i5] + "|PADDED";
         }
-        String[] strArr3 = f64466b;
+        String[] strArr3 = f64646b;
         strArr3[4] = "END_HEADERS";
         strArr3[32] = "PRIORITY";
         strArr3[36] = "END_HEADERS|PRIORITY";
@@ -72,19 +72,19 @@ public final class e {
             int i7 = iArr2[i6];
             for (int i8 = 0; i8 < 1; i8++) {
                 int i9 = iArr[i8];
-                String[] strArr4 = f64466b;
+                String[] strArr4 = f64646b;
                 int i10 = i9 | i7;
-                strArr4[i10] = f64466b[i9] + '|' + f64466b[i7];
-                f64466b[i10 | 8] = f64466b[i9] + '|' + f64466b[i7] + "|PADDED";
+                strArr4[i10] = f64646b[i9] + '|' + f64646b[i7];
+                f64646b[i10 | 8] = f64646b[i9] + '|' + f64646b[i7] + "|PADDED";
             }
         }
         while (true) {
-            String[] strArr5 = f64466b;
+            String[] strArr5 = f64646b;
             if (i2 >= strArr5.length) {
                 return;
             }
             if (strArr5[i2] == null) {
-                strArr5[i2] = f64467c[i2];
+                strArr5[i2] = f64647c[i2];
             }
             i2++;
         }
@@ -126,7 +126,7 @@ public final class e {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), Byte.valueOf(b2), Byte.valueOf(b3)})) == null) {
-            String[] strArr = f64468d;
+            String[] strArr = f64648d;
             String a2 = b2 < strArr.length ? strArr[b2] : com.bytedance.sdk.component.b.b.a.c.a("0x%02x", Byte.valueOf(b2));
             String a3 = a(b2, b3);
             Object[] objArr = new Object[5];
@@ -149,17 +149,17 @@ public final class e {
             }
             if (b2 != 2 && b2 != 3) {
                 if (b2 == 4 || b2 == 6) {
-                    return b3 == 1 ? "ACK" : f64467c[b3];
+                    return b3 == 1 ? "ACK" : f64647c[b3];
                 } else if (b2 != 7 && b2 != 8) {
-                    String[] strArr = f64466b;
-                    String str = b3 < strArr.length ? strArr[b3] : f64467c[b3];
+                    String[] strArr = f64646b;
+                    String str = b3 < strArr.length ? strArr[b3] : f64647c[b3];
                     if (b2 != 5 || (b3 & 4) == 0) {
                         return (b2 != 0 || (b3 & 32) == 0) ? str : str.replace("PRIORITY", "COMPRESSED");
                     }
                     return str.replace("HEADERS", "PUSH_PROMISE");
                 }
             }
-            return f64467c[b3];
+            return f64647c[b3];
         }
         return (String) invokeCommon.objValue;
     }

@@ -3,7 +3,6 @@ package com.baidu.ar.vo;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.ar.arplay.core.engine.ARPDataInteraction;
-import com.baidu.ar.arplay.core.message.ARPMessageType;
 import com.baidu.ar.c;
 import com.baidu.ar.d.l;
 import com.baidu.ar.h.r;
@@ -310,7 +309,7 @@ public class VOAR extends c {
                     ArrayList arrayList = new ArrayList();
                     arrayList.add(401);
                     arrayList.add(4100);
-                    arrayList.add(Integer.valueOf((int) ARPMessageType.MSG_TYPE_LUA_SDK_BRIDGE));
+                    arrayList.add(1901);
                     return arrayList;
                 }
                 return (List) invokeV2.objValue;

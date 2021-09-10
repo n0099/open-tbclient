@@ -22,19 +22,19 @@ public class MzNotifyActivity extends Activity {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f37623a;
+    public String f37742a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f37624b;
+    public String f37743b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f37625c;
+    public String f37744c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f37626d;
+    public String f37745d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f37627e;
+    public String f37746e;
 
     public MzNotifyActivity() {
         Interceptable interceptable = $ic;
@@ -84,37 +84,37 @@ public class MzNotifyActivity extends Activity {
                         for (int i2 = 0; i2 < jSONArray.length(); i2++) {
                             JSONObject jSONObject2 = jSONArray.getJSONObject(i2);
                             if (!jSONObject2.isNull("Msgid")) {
-                                this.f37623a = jSONObject2.getString("Msgid");
+                                this.f37742a = jSONObject2.getString("Msgid");
                             }
                             if (!jSONObject2.isNull("msgBody")) {
-                                this.f37625c = jSONObject2.getString("msgBody");
+                                this.f37744c = jSONObject2.getString("msgBody");
                             }
                         }
-                        if (!TextUtils.isEmpty(this.f37625c)) {
-                            JSONObject jSONObject3 = new JSONObject(this.f37625c);
+                        if (!TextUtils.isEmpty(this.f37744c)) {
+                            JSONObject jSONObject3 = new JSONObject(this.f37744c);
                             if (!jSONObject3.isNull("custom_content")) {
-                                this.f37626d = jSONObject3.getString("custom_content");
+                                this.f37745d = jSONObject3.getString("custom_content");
                             }
                             if (!jSONObject3.isNull("pkg_content")) {
-                                this.f37627e = jSONObject3.getString("pkg_content");
+                                this.f37746e = jSONObject3.getString("pkg_content");
                             }
                             if (!jSONObject3.isNull("mzpri_signinfo")) {
-                                this.f37624b = jSONObject3.getString("mzpri_signinfo");
+                                this.f37743b = jSONObject3.getString("mzpri_signinfo");
                             }
                         }
                     }
-                    if (f.a(this, this.f37624b, (this.f37623a + this.f37626d).replaceAll("\\\\", ""))) {
-                        if (TextUtils.isEmpty(this.f37627e)) {
+                    if (f.a(this, this.f37743b, (this.f37742a + this.f37745d).replaceAll("\\\\", ""))) {
+                        if (TextUtils.isEmpty(this.f37746e)) {
                             parseUri = new Intent();
                             parseUri.setClassName(getPackageName(), a(this, getPackageName()));
                             parseUri.setFlags(268435456);
                         } else {
-                            parseUri = Intent.parseUri(this.f37627e, 0);
+                            parseUri = Intent.parseUri(this.f37746e, 0);
                             parseUri.setPackage(getPackageName());
                             parseUri.addFlags(268435456);
                         }
-                        if (!TextUtils.isEmpty(this.f37626d)) {
-                            JSONObject jSONObject4 = new JSONObject(this.f37626d);
+                        if (!TextUtils.isEmpty(this.f37745d)) {
+                            JSONObject jSONObject4 = new JSONObject(this.f37745d);
                             Iterator<String> keys = jSONObject4.keys();
                             while (keys.hasNext()) {
                                 String next = keys.next();

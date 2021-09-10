@@ -3,7 +3,7 @@ package com.idlefish.flutterboost;
 import android.content.Context;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.q0.n3.a;
+import c.a.r0.o3.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.switchs.FlutterCrabReportEnableSwitch;
 import com.baidu.titan.sdk.runtime.FieldHolder;

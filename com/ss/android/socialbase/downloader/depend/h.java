@@ -25,11 +25,11 @@ public interface h extends IInterface {
             public static /* synthetic */ Interceptable $ic;
 
             /* renamed from: a  reason: collision with root package name */
-            public static h f75691a;
+            public static h f75871a;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: b  reason: collision with root package name */
-            public IBinder f75692b;
+            public IBinder f75872b;
 
             public C2063a(IBinder iBinder) {
                 Interceptable interceptable = $ic;
@@ -46,7 +46,7 @@ public interface h extends IInterface {
                         return;
                     }
                 }
-                this.f75692b = iBinder;
+                this.f75872b = iBinder;
             }
 
             @Override // com.ss.android.socialbase.downloader.depend.h
@@ -58,7 +58,7 @@ public interface h extends IInterface {
                     Parcel obtain2 = Parcel.obtain();
                     try {
                         obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.depend.IDownloadAidlInterceptor");
-                        if (!this.f75692b.transact(1, obtain, obtain2, 0) && a.b() != null) {
+                        if (!this.f75872b.transact(1, obtain, obtain2, 0) && a.b() != null) {
                             return a.b().a();
                         }
                         obtain2.readException();
@@ -75,7 +75,7 @@ public interface h extends IInterface {
             public IBinder asBinder() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f75692b : (IBinder) invokeV.objValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f75872b : (IBinder) invokeV.objValue;
             }
         }
 
@@ -114,7 +114,7 @@ public interface h extends IInterface {
         public static h b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? C2063a.f75691a : (h) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? C2063a.f75871a : (h) invokeV.objValue;
         }
 
         @Override // android.os.IInterface

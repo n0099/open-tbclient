@@ -90,7 +90,7 @@ public class b {
             mVar.f(jSONObject.optInt("video_adaptation", 0));
             mVar.e(jSONObject.optInt("feed_video_opentype", 0));
             mVar.b(jSONObject.optJSONObject("session_params"));
-            mVar.c(jSONObject.optInt("render_control", nVar != null ? nVar.f66313e : 1));
+            mVar.c(jSONObject.optInt("render_control", nVar != null ? nVar.f66493e : 1));
             if (optJSONObject != null) {
                 com.bytedance.sdk.openadsdk.core.e.l lVar = new com.bytedance.sdk.openadsdk.core.e.l();
                 lVar.a(optJSONObject.optString("url"));
@@ -132,12 +132,12 @@ public class b {
             JSONObject optJSONObject4 = jSONObject.optJSONObject("click_area");
             if (optJSONObject4 != null) {
                 com.bytedance.sdk.openadsdk.core.e.e eVar = new com.bytedance.sdk.openadsdk.core.e.e();
-                eVar.f66223a = optJSONObject4.optBoolean("click_upper_content_area", true);
-                eVar.f66224b = optJSONObject4.optBoolean("click_upper_non_content_area", true);
-                eVar.f66225c = optJSONObject4.optBoolean("click_lower_content_area", true);
-                eVar.f66226d = optJSONObject4.optBoolean("click_lower_non_content_area", true);
-                eVar.f66227e = optJSONObject4.optBoolean("click_button_area", true);
-                eVar.f66228f = optJSONObject4.optBoolean("click_video_area", true);
+                eVar.f66403a = optJSONObject4.optBoolean("click_upper_content_area", true);
+                eVar.f66404b = optJSONObject4.optBoolean("click_upper_non_content_area", true);
+                eVar.f66405c = optJSONObject4.optBoolean("click_lower_content_area", true);
+                eVar.f66406d = optJSONObject4.optBoolean("click_lower_non_content_area", true);
+                eVar.f66407e = optJSONObject4.optBoolean("click_button_area", true);
+                eVar.f66408f = optJSONObject4.optBoolean("click_video_area", true);
                 mVar.a(eVar);
             }
             JSONObject optJSONObject5 = jSONObject.optJSONObject("adslot");

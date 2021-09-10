@@ -30,31 +30,31 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public com.bytedance.sdk.openadsdk.downloadnew.core.a f65790a;
+    public com.bytedance.sdk.openadsdk.downloadnew.core.a f65970a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Handler f65791b;
+    public Handler f65971b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f65792c;
+    public boolean f65972c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f65793d;
+    public boolean f65973d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f65794e;
+    public boolean f65974e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Activity f65795f;
+    public Activity f65975f;
 
     /* renamed from: g  reason: collision with root package name */
-    public m f65796g;
+    public m f65976g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f65797h;
+    public String f65977h;
 
     /* renamed from: i  reason: collision with root package name */
-    public FullRewardExpressView f65798i;
+    public FullRewardExpressView f65978i;
 
     public b(Activity activity) {
         Interceptable interceptable = $ic;
@@ -71,17 +71,17 @@ public class b {
                 return;
             }
         }
-        this.f65792c = false;
-        this.f65793d = false;
-        this.f65794e = false;
-        this.f65795f = activity;
+        this.f65972c = false;
+        this.f65973d = false;
+        this.f65974e = false;
+        this.f65975f = activity;
     }
 
     public FrameLayout b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            FullRewardExpressView fullRewardExpressView = this.f65798i;
+            FullRewardExpressView fullRewardExpressView = this.f65978i;
             if (fullRewardExpressView != null) {
                 return fullRewardExpressView.getVideoFrameLayout();
             }
@@ -93,23 +93,23 @@ public class b {
     public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f65792c : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f65972c : invokeV.booleanValue;
     }
 
     public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f65793d : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f65973d : invokeV.booleanValue;
     }
 
     public Handler e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            if (this.f65791b == null) {
-                this.f65791b = new Handler(Looper.getMainLooper());
+            if (this.f65971b == null) {
+                this.f65971b = new Handler(Looper.getMainLooper());
             }
-            return this.f65791b;
+            return this.f65971b;
         }
         return (Handler) invokeV.objValue;
     }
@@ -117,11 +117,11 @@ public class b {
     public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            FullRewardExpressView fullRewardExpressView = this.f65798i;
+            FullRewardExpressView fullRewardExpressView = this.f65978i;
             if (fullRewardExpressView != null) {
                 fullRewardExpressView.l();
             }
-            Handler handler = this.f65791b;
+            Handler handler = this.f65971b;
             if (handler != null) {
                 handler.removeCallbacksAndMessages(null);
             }
@@ -131,7 +131,7 @@ public class b {
     public void g() {
         FullRewardExpressView fullRewardExpressView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048588, this) == null) || (fullRewardExpressView = this.f65798i) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048588, this) == null) || (fullRewardExpressView = this.f65978i) == null) {
             return;
         }
         fullRewardExpressView.k();
@@ -141,7 +141,7 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            FullRewardExpressView fullRewardExpressView = this.f65798i;
+            FullRewardExpressView fullRewardExpressView = this.f65978i;
             if (fullRewardExpressView == null) {
                 return false;
             }
@@ -153,7 +153,7 @@ public class b {
     public void i() {
         FullRewardExpressView fullRewardExpressView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048590, this) == null) || (fullRewardExpressView = this.f65798i) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048590, this) == null) || (fullRewardExpressView = this.f65978i) == null) {
             return;
         }
         fullRewardExpressView.i();
@@ -162,65 +162,65 @@ public class b {
     public void j() {
         FullRewardExpressView fullRewardExpressView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048591, this) == null) || (fullRewardExpressView = this.f65798i) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048591, this) == null) || (fullRewardExpressView = this.f65978i) == null) {
             return;
         }
         fullRewardExpressView.j();
-        this.f65798i.k();
+        this.f65978i.k();
     }
 
     public void a(m mVar, AdSlot adSlot, String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, mVar, adSlot, str) == null) || this.f65794e) {
+        if (!(interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, mVar, adSlot, str) == null) || this.f65974e) {
             return;
         }
-        this.f65794e = true;
-        this.f65796g = mVar;
-        this.f65797h = str;
-        this.f65798i = new FullRewardExpressView(this.f65795f, mVar, adSlot, str);
+        this.f65974e = true;
+        this.f65976g = mVar;
+        this.f65977h = str;
+        this.f65978i = new FullRewardExpressView(this.f65975f, mVar, adSlot, str);
     }
 
     public void b(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
-            this.f65793d = z;
+            this.f65973d = z;
         }
     }
 
     public FullRewardExpressView a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f65798i : (FullRewardExpressView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f65978i : (FullRewardExpressView) invokeV.objValue;
     }
 
     public void a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            this.f65792c = z;
+            this.f65972c = z;
         }
     }
 
     public void a(e eVar, d dVar, a aVar) {
         m mVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(1048579, this, eVar, dVar, aVar) == null) || this.f65798i == null || (mVar = this.f65796g) == null) {
+        if (!(interceptable == null || interceptable.invokeLLL(1048579, this, eVar, dVar, aVar) == null) || this.f65978i == null || (mVar = this.f65976g) == null) {
             return;
         }
         com.bytedance.sdk.openadsdk.downloadnew.core.a a2 = a(mVar);
-        this.f65790a = a2;
+        this.f65970a = a2;
         if (a2 != null) {
             a2.b();
-            if (this.f65798i.getContext() != null && (this.f65798i.getContext() instanceof Activity)) {
-                this.f65790a.a((Activity) this.f65798i.getContext());
+            if (this.f65978i.getContext() != null && (this.f65978i.getContext() instanceof Activity)) {
+                this.f65970a.a((Activity) this.f65978i.getContext());
             }
         }
-        com.bytedance.sdk.openadsdk.e.d.a(this.f65796g);
-        EmptyView a3 = a((ViewGroup) this.f65798i);
+        com.bytedance.sdk.openadsdk.e.d.a(this.f65976g);
+        EmptyView a3 = a((ViewGroup) this.f65978i);
         if (a3 == null) {
-            a3 = new EmptyView(this.f65795f, this.f65798i);
-            this.f65798i.addView(a3);
+            a3 = new EmptyView(this.f65975f, this.f65978i);
+            this.f65978i.addView(a3);
         }
-        com.bytedance.sdk.openadsdk.downloadnew.core.a aVar2 = this.f65790a;
+        com.bytedance.sdk.openadsdk.downloadnew.core.a aVar2 = this.f65970a;
         if (aVar2 != null) {
             aVar2.a(a3);
         }
@@ -229,7 +229,7 @@ public class b {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ b f65799a;
+            public final /* synthetic */ b f65979a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -246,7 +246,7 @@ public class b {
                         return;
                     }
                 }
-                this.f65799a = this;
+                this.f65979a = this;
             }
 
             @Override // com.bytedance.sdk.openadsdk.core.EmptyView.a
@@ -260,7 +260,7 @@ public class b {
             public void a(boolean z) {
                 com.bytedance.sdk.openadsdk.downloadnew.core.a aVar3;
                 Interceptable interceptable2 = $ic;
-                if (!(interceptable2 == null || interceptable2.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) || (aVar3 = this.f65799a.f65790a) == null) {
+                if (!(interceptable2 == null || interceptable2.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) || (aVar3 = this.f65979a.f65970a) == null) {
                     return;
                 }
                 if (z) {
@@ -276,7 +276,7 @@ public class b {
             public void b() {
                 com.bytedance.sdk.openadsdk.downloadnew.core.a aVar3;
                 Interceptable interceptable2 = $ic;
-                if (!(interceptable2 == null || interceptable2.invokeV(1048579, this) == null) || (aVar3 = this.f65799a.f65790a) == null) {
+                if (!(interceptable2 == null || interceptable2.invokeV(1048579, this) == null) || (aVar3 = this.f65979a.f65970a) == null) {
                     return;
                 }
                 aVar3.d();
@@ -286,20 +286,20 @@ public class b {
             public void a() {
                 com.bytedance.sdk.openadsdk.downloadnew.core.a aVar3;
                 Interceptable interceptable2 = $ic;
-                if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || (aVar3 = this.f65799a.f65790a) == null) {
+                if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || (aVar3 = this.f65979a.f65970a) == null) {
                     return;
                 }
                 aVar3.a();
             }
         });
-        eVar.a(this.f65798i);
-        eVar.a(this.f65790a);
-        this.f65798i.setClickListener(eVar);
-        dVar.a(this.f65798i);
-        dVar.a(this.f65790a);
-        this.f65798i.setClickCreativeListener(dVar);
+        eVar.a(this.f65978i);
+        eVar.a(this.f65970a);
+        this.f65978i.setClickListener(eVar);
+        dVar.a(this.f65978i);
+        dVar.a(this.f65970a);
+        this.f65978i.setClickCreativeListener(dVar);
         a3.setNeedCheckingShow(false);
-        a(this.f65790a, this.f65798i, aVar);
+        a(this.f65970a, this.f65978i, aVar);
     }
 
     private void a(com.bytedance.sdk.openadsdk.downloadnew.core.a aVar, NativeExpressView nativeExpressView, a aVar2) {
@@ -307,19 +307,19 @@ public class b {
         if (!(interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, this, aVar, nativeExpressView, aVar2) == null) || aVar == null || nativeExpressView == null) {
             return;
         }
-        m mVar = this.f65796g;
+        m mVar = this.f65976g;
         aVar.a(new TTAppDownloadListener(this, aVar2, mVar != null ? mVar.ak() : "") { // from class: com.bytedance.sdk.openadsdk.component.reward.view.b.2
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ a f65800a;
+            public final /* synthetic */ a f65980a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ String f65801b;
+            public final /* synthetic */ String f65981b;
 
             /* renamed from: c  reason: collision with root package name */
-            public final /* synthetic */ b f65802c;
+            public final /* synthetic */ b f65982c;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -336,9 +336,9 @@ public class b {
                         return;
                     }
                 }
-                this.f65802c = this;
-                this.f65800a = aVar2;
-                this.f65801b = r8;
+                this.f65982c = this;
+                this.f65980a = aVar2;
+                this.f65981b = r8;
             }
 
             @Override // com.bytedance.sdk.openadsdk.TTAppDownloadListener
@@ -348,15 +348,15 @@ public class b {
                     return;
                 }
                 int i2 = (int) ((j3 * 100) / j2);
-                this.f65802c.f65795f.runOnUiThread(new Runnable(this, i2) { // from class: com.bytedance.sdk.openadsdk.component.reward.view.b.2.2
+                this.f65982c.f65975f.runOnUiThread(new Runnable(this, i2) { // from class: com.bytedance.sdk.openadsdk.component.reward.view.b.2.2
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ int f65804a;
+                    public final /* synthetic */ int f65984a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ AnonymousClass2 f65805b;
+                    public final /* synthetic */ AnonymousClass2 f65985b;
 
                     {
                         Interceptable interceptable3 = $ic;
@@ -373,32 +373,32 @@ public class b {
                                 return;
                             }
                         }
-                        this.f65805b = this;
-                        this.f65804a = i2;
+                        this.f65985b = this;
+                        this.f65984a = i2;
                     }
 
                     @Override // java.lang.Runnable
                     public void run() {
                         Interceptable interceptable3 = $ic;
                         if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
-                            a aVar3 = this.f65805b.f65800a;
-                            aVar3.a("已下载" + this.f65804a + "%");
+                            a aVar3 = this.f65985b.f65980a;
+                            aVar3.a("已下载" + this.f65984a + "%");
                         }
                     }
                 });
-                a.C1919a.a(this.f65801b, 3, i2);
+                a.C1919a.a(this.f65981b, 3, i2);
             }
 
             @Override // com.bytedance.sdk.openadsdk.TTAppDownloadListener
             public void onDownloadFailed(long j2, long j3, String str, String str2) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), str, str2}) == null) {
-                    this.f65802c.f65795f.runOnUiThread(new Runnable(this) { // from class: com.bytedance.sdk.openadsdk.component.reward.view.b.2.4
+                    this.f65982c.f65975f.runOnUiThread(new Runnable(this) { // from class: com.bytedance.sdk.openadsdk.component.reward.view.b.2.4
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
 
                         /* renamed from: a  reason: collision with root package name */
-                        public final /* synthetic */ AnonymousClass2 f65807a;
+                        public final /* synthetic */ AnonymousClass2 f65987a;
 
                         {
                             Interceptable interceptable3 = $ic;
@@ -415,19 +415,19 @@ public class b {
                                     return;
                                 }
                             }
-                            this.f65807a = this;
+                            this.f65987a = this;
                         }
 
                         @Override // java.lang.Runnable
                         public void run() {
                             Interceptable interceptable3 = $ic;
                             if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
-                                this.f65807a.f65800a.a(PayDownloadModule.STATUS_DOWNLOAD_MSG_FAIL);
+                                this.f65987a.f65980a.a(PayDownloadModule.STATUS_DOWNLOAD_MSG_FAIL);
                             }
                         }
                     });
                     if (j2 > 0) {
-                        a.C1919a.a(this.f65801b, 4, (int) ((j3 * 100) / j2));
+                        a.C1919a.a(this.f65981b, 4, (int) ((j3 * 100) / j2));
                     }
                 }
             }
@@ -436,12 +436,12 @@ public class b {
             public void onDownloadFinished(long j2, String str, String str2) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j2), str, str2}) == null) {
-                    this.f65802c.f65795f.runOnUiThread(new Runnable(this) { // from class: com.bytedance.sdk.openadsdk.component.reward.view.b.2.5
+                    this.f65982c.f65975f.runOnUiThread(new Runnable(this) { // from class: com.bytedance.sdk.openadsdk.component.reward.view.b.2.5
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
 
                         /* renamed from: a  reason: collision with root package name */
-                        public final /* synthetic */ AnonymousClass2 f65808a;
+                        public final /* synthetic */ AnonymousClass2 f65988a;
 
                         {
                             Interceptable interceptable3 = $ic;
@@ -458,18 +458,18 @@ public class b {
                                     return;
                                 }
                             }
-                            this.f65808a = this;
+                            this.f65988a = this;
                         }
 
                         @Override // java.lang.Runnable
                         public void run() {
                             Interceptable interceptable3 = $ic;
                             if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
-                                this.f65808a.f65800a.a("点击安装");
+                                this.f65988a.f65980a.a("点击安装");
                             }
                         }
                     });
-                    a.C1919a.a(this.f65801b, 5, 100);
+                    a.C1919a.a(this.f65981b, 5, 100);
                 }
             }
 
@@ -477,12 +477,12 @@ public class b {
             public void onDownloadPaused(long j2, long j3, String str, String str2) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeCommon(1048579, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), str, str2}) == null) {
-                    this.f65802c.f65795f.runOnUiThread(new Runnable(this) { // from class: com.bytedance.sdk.openadsdk.component.reward.view.b.2.3
+                    this.f65982c.f65975f.runOnUiThread(new Runnable(this) { // from class: com.bytedance.sdk.openadsdk.component.reward.view.b.2.3
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
 
                         /* renamed from: a  reason: collision with root package name */
-                        public final /* synthetic */ AnonymousClass2 f65806a;
+                        public final /* synthetic */ AnonymousClass2 f65986a;
 
                         {
                             Interceptable interceptable3 = $ic;
@@ -499,19 +499,19 @@ public class b {
                                     return;
                                 }
                             }
-                            this.f65806a = this;
+                            this.f65986a = this;
                         }
 
                         @Override // java.lang.Runnable
                         public void run() {
                             Interceptable interceptable3 = $ic;
                             if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
-                                this.f65806a.f65800a.a("下载暂停");
+                                this.f65986a.f65980a.a("下载暂停");
                             }
                         }
                     });
                     if (j2 > 0) {
-                        a.C1919a.a(this.f65801b, 2, (int) ((j3 * 100) / j2));
+                        a.C1919a.a(this.f65981b, 2, (int) ((j3 * 100) / j2));
                     }
                 }
             }
@@ -520,12 +520,12 @@ public class b {
             public void onIdle() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048580, this) == null) {
-                    this.f65802c.f65795f.runOnUiThread(new Runnable(this) { // from class: com.bytedance.sdk.openadsdk.component.reward.view.b.2.1
+                    this.f65982c.f65975f.runOnUiThread(new Runnable(this) { // from class: com.bytedance.sdk.openadsdk.component.reward.view.b.2.1
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
 
                         /* renamed from: a  reason: collision with root package name */
-                        public final /* synthetic */ AnonymousClass2 f65803a;
+                        public final /* synthetic */ AnonymousClass2 f65983a;
 
                         {
                             Interceptable interceptable3 = $ic;
@@ -542,18 +542,18 @@ public class b {
                                     return;
                                 }
                             }
-                            this.f65803a = this;
+                            this.f65983a = this;
                         }
 
                         @Override // java.lang.Runnable
                         public void run() {
                             Interceptable interceptable3 = $ic;
                             if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
-                                this.f65803a.f65800a.a("点击开始下载");
+                                this.f65983a.f65980a.a("点击开始下载");
                             }
                         }
                     });
-                    a.C1919a.a(this.f65801b, 1, 0);
+                    a.C1919a.a(this.f65981b, 1, 0);
                 }
             }
 
@@ -561,12 +561,12 @@ public class b {
             public void onInstalled(String str, String str2) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeLL(1048581, this, str, str2) == null) {
-                    this.f65802c.f65795f.runOnUiThread(new Runnable(this) { // from class: com.bytedance.sdk.openadsdk.component.reward.view.b.2.6
+                    this.f65982c.f65975f.runOnUiThread(new Runnable(this) { // from class: com.bytedance.sdk.openadsdk.component.reward.view.b.2.6
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
 
                         /* renamed from: a  reason: collision with root package name */
-                        public final /* synthetic */ AnonymousClass2 f65809a;
+                        public final /* synthetic */ AnonymousClass2 f65989a;
 
                         {
                             Interceptable interceptable3 = $ic;
@@ -583,18 +583,18 @@ public class b {
                                     return;
                                 }
                             }
-                            this.f65809a = this;
+                            this.f65989a = this;
                         }
 
                         @Override // java.lang.Runnable
                         public void run() {
                             Interceptable interceptable3 = $ic;
                             if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
-                                this.f65809a.f65800a.a("点击打开");
+                                this.f65989a.f65980a.a("点击打开");
                             }
                         }
                     });
-                    a.C1919a.a(this.f65801b, 6, 100);
+                    a.C1919a.a(this.f65981b, 6, 100);
                 }
             }
         });
@@ -605,7 +605,7 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, this, mVar)) == null) {
             if (mVar.X() == 4) {
-                return com.bytedance.sdk.openadsdk.downloadnew.a.a(this.f65795f, mVar, this.f65797h);
+                return com.bytedance.sdk.openadsdk.downloadnew.a.a(this.f65975f, mVar, this.f65977h);
             }
             return null;
         }
@@ -630,7 +630,7 @@ public class b {
     public void a(i iVar) {
         FullRewardExpressView fullRewardExpressView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, iVar) == null) || (fullRewardExpressView = this.f65798i) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, iVar) == null) || (fullRewardExpressView = this.f65978i) == null) {
             return;
         }
         fullRewardExpressView.setExpressVideoListenerProxy(iVar);
@@ -639,7 +639,7 @@ public class b {
     public void a(TTNativeExpressAd.ExpressAdInteractionListener expressAdInteractionListener) {
         FullRewardExpressView fullRewardExpressView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, expressAdInteractionListener) == null) || (fullRewardExpressView = this.f65798i) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, expressAdInteractionListener) == null) || (fullRewardExpressView = this.f65978i) == null) {
             return;
         }
         fullRewardExpressView.setExpressInteractionListener(expressAdInteractionListener);

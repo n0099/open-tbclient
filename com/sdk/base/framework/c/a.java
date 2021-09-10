@@ -18,13 +18,13 @@ public final class a {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f75356a = false;
+    public static boolean f75536a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f75357b = "";
+    public static String f75537b = "";
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f75358c = "";
+    public static String f75538c = "";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -69,7 +69,7 @@ public final class a {
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
             SInfo sInfo = new SInfo();
             sInfo.setN(BaseConfig.n);
-            sInfo.setC(BaseConfig.f75428c);
+            sInfo.setC(BaseConfig.f75608c);
             sInfo.setV(BaseConfig.v);
             sInfo.setCm(BaseConfig.cm);
             return sInfo;

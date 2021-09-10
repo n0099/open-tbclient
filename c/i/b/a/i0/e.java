@@ -12,7 +12,7 @@ public final class e {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f33675a;
+    public boolean f33784a;
 
     public e() {
         Interceptable interceptable = $ic;
@@ -32,7 +32,7 @@ public final class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             synchronized (this) {
-                while (!this.f33675a) {
+                while (!this.f33784a) {
                     wait();
                 }
             }
@@ -45,8 +45,8 @@ public final class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             synchronized (this) {
-                z = this.f33675a;
-                this.f33675a = false;
+                z = this.f33784a;
+                this.f33784a = false;
             }
             return z;
         }
@@ -58,10 +58,10 @@ public final class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             synchronized (this) {
-                if (this.f33675a) {
+                if (this.f33784a) {
                     return false;
                 }
-                this.f33675a = true;
+                this.f33784a = true;
                 notifyAll();
                 return true;
             }

@@ -1,6 +1,6 @@
 package com.baidu.tieba.themeCenter.background;
 
-import c.a.p0.b1.w;
+import c.a.q0.d1.x;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -49,7 +49,7 @@ public class BackgroundSetRequestMessage extends NetMessage {
             DataReq.Builder builder = new DataReq.Builder();
             builder.props_id = Integer.valueOf(this.propId);
             if (z) {
-                w.a(builder, true);
+                x.a(builder, true);
             }
             SetBackgroundReqIdl.Builder builder2 = new SetBackgroundReqIdl.Builder();
             builder2.data = builder.build(false);

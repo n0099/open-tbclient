@@ -60,16 +60,16 @@ public class bw {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f43320a;
+    public static String f43435a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f43321b;
+    public static String f43436b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f43322c;
+    public static String f43437c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final Pattern f43323d;
+    public static final Pattern f43438d;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -85,7 +85,7 @@ public class bw {
                 return;
             }
         }
-        f43323d = Pattern.compile("\\s*|\t|\r|\n");
+        f43438d = Pattern.compile("\\s*|\t|\r|\n");
     }
 
     public static String a(Context context, String str) {
@@ -541,7 +541,7 @@ public class bw {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65575, null, context)) == null) {
-            String str = f43321b;
+            String str = f43436b;
             if (str == null) {
                 String y = y(context);
                 String b2 = b(context, y);
@@ -549,7 +549,7 @@ public class bw {
                     b2 = c(context, y);
                 }
                 str = b2 == null ? "" : b2;
-                f43321b = str;
+                f43436b = str;
             }
             return str;
         }
@@ -609,7 +609,7 @@ public class bw {
         return invokeL.booleanValue;
     }
 
-    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: long : 0x003c: INVOKE  (r1v3 long A[REMOVE]) =  type: STATIC call: java.lang.System.currentTimeMillis():long)] */
+    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: long : 0x003b: INVOKE  (r1v3 long A[REMOVE]) =  type: STATIC call: java.lang.System.currentTimeMillis():long)] */
     public static String x(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -646,7 +646,7 @@ public class bw {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65579, null, context)) == null) {
-            String str = f43320a;
+            String str = f43435a;
             if (str == null) {
                 try {
                     List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = ((ActivityManager) context.getSystemService("activity")).getRunningAppProcesses();
@@ -666,7 +666,7 @@ public class bw {
                 if (str == null) {
                     str = "";
                 }
-                f43320a = str;
+                f43435a = str;
             }
             return str;
         }
@@ -836,7 +836,7 @@ public class bw {
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
-            String str2 = f43322c;
+            String str2 = f43437c;
             if (str2 != null) {
                 return str2;
             }
@@ -857,7 +857,7 @@ public class bw {
                     str = "flyme";
                 }
             }
-            f43322c = str;
+            f43437c = str;
             return str;
         }
         return (String) invokeV.objValue;
@@ -883,7 +883,7 @@ public class bw {
     public static String a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) ? f43323d.matcher(bx.a(context)).replaceAll("") : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) ? f43438d.matcher(bx.a(context)).replaceAll("") : (String) invokeL.objValue;
     }
 
     public static Boolean c() {

@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class f implements i {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -52,13 +52,13 @@ public class f implements i {
             JSONArray jSONArray = new JSONArray();
             if (b2) {
                 d.b a2 = dVar.a();
-                if (a2 != null && (t = a2.f29524a) != 0 && (eVar = (b.e) t) != null && eVar.b() != null) {
+                if (a2 != null && (t = a2.f15354a) != 0 && (eVar = (b.e) t) != null && eVar.b() != null) {
                     for (b.f fVar : eVar.b()) {
                         JSONObject jSONObject = new JSONObject();
                         try {
-                            jSONObject.put("aid", fVar.f29404b);
-                            jSONObject.put("pkg", fVar.f29403a);
-                            jSONObject.put("priority", fVar.f29405c);
+                            jSONObject.put("aid", fVar.f15234b);
+                            jSONObject.put("pkg", fVar.f15233a);
+                            jSONObject.put("priority", fVar.f15235c);
                             jSONArray.put(jSONObject);
                         } catch (JSONException e2) {
                             e2.printStackTrace();
@@ -85,10 +85,10 @@ public class f implements i {
                 return null;
             }
             d.b a2 = dVar.a();
-            if (a2 == null || TextUtils.isEmpty((CharSequence) a2.f29524a)) {
+            if (a2 == null || TextUtils.isEmpty((CharSequence) a2.f15354a)) {
                 return null;
             }
-            return (String) a2.f29524a;
+            return (String) a2.f15354a;
         }
         return (String) invokeL.objValue;
     }
@@ -105,10 +105,10 @@ public class f implements i {
                 return null;
             }
             d.b a2 = dVar.a();
-            if (a2 == null || TextUtils.isEmpty((CharSequence) a2.f29524a)) {
+            if (a2 == null || TextUtils.isEmpty((CharSequence) a2.f15354a)) {
                 return null;
             }
-            return (String) a2.f29524a;
+            return (String) a2.f15354a;
         }
         return (String) invokeL.objValue;
     }

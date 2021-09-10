@@ -41,25 +41,23 @@ public class RTCStats {
     public static void appendValue(StringBuilder sb, Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65537, null, sb, obj) == null) {
-            if (!(obj instanceof Object[])) {
-                if (!(obj instanceof String)) {
-                    sb.append(obj);
-                    return;
+            if (obj instanceof Object[]) {
+                Object[] objArr = (Object[]) obj;
+                sb.append('[');
+                for (int i2 = 0; i2 < objArr.length; i2++) {
+                    if (i2 != 0) {
+                        sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
+                    }
+                    appendValue(sb, objArr[i2]);
                 }
+                sb.append(']');
+            } else if (obj instanceof String) {
                 sb.append('\"');
                 sb.append(obj);
                 sb.append('\"');
-                return;
+            } else {
+                sb.append(obj);
             }
-            Object[] objArr = (Object[]) obj;
-            sb.append('[');
-            for (int i2 = 0; i2 < objArr.length; i2++) {
-                if (i2 != 0) {
-                    sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
-                }
-                appendValue(sb, objArr[i2]);
-            }
-            sb.append(']');
         }
     }
 

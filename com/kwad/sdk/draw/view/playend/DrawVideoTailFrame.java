@@ -38,36 +38,36 @@ public class DrawVideoTailFrame extends FrameLayout implements View.OnClickListe
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public AdBaseFrameLayout f72701a;
+    public AdBaseFrameLayout f72881a;
 
     /* renamed from: b  reason: collision with root package name */
-    public AdTemplate f72702b;
+    public AdTemplate f72882b;
 
     /* renamed from: c  reason: collision with root package name */
-    public AdInfo f72703c;
+    public AdInfo f72883c;
     @Nullable
 
     /* renamed from: d  reason: collision with root package name */
-    public b f72704d;
+    public b f72884d;
     @Nullable
 
     /* renamed from: e  reason: collision with root package name */
-    public KsAppDownloadListener f72705e;
+    public KsAppDownloadListener f72885e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ImageView f72706f;
+    public ImageView f72886f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ViewGroup f72707g;
+    public ViewGroup f72887g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ImageView f72708h;
+    public ImageView f72888h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f72709i;
+    public TextView f72889i;
 
     /* renamed from: j  reason: collision with root package name */
-    public AppScoreView f72710j;
+    public AppScoreView f72890j;
     public TextView k;
     public TextView l;
     public DrawDownloadProgressBar m;
@@ -146,11 +146,11 @@ public class DrawVideoTailFrame extends FrameLayout implements View.OnClickListe
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, context) == null) {
             FrameLayout.inflate(context, R.layout.ksad_draw_video_tailframe, this);
-            this.f72706f = (ImageView) findViewById(R.id.ksad_video_cover);
-            this.f72707g = (ViewGroup) findViewById(R.id.ksad_app_container);
-            this.f72708h = (ImageView) findViewById(R.id.ksad_app_icon);
-            this.f72709i = (TextView) findViewById(R.id.ksad_app_name);
-            this.f72710j = (AppScoreView) findViewById(R.id.ksad_app_score);
+            this.f72886f = (ImageView) findViewById(R.id.ksad_video_cover);
+            this.f72887g = (ViewGroup) findViewById(R.id.ksad_app_container);
+            this.f72888h = (ImageView) findViewById(R.id.ksad_app_icon);
+            this.f72889i = (TextView) findViewById(R.id.ksad_app_name);
+            this.f72890j = (AppScoreView) findViewById(R.id.ksad_app_score);
             this.k = (TextView) findViewById(R.id.ksad_app_download_count);
             this.l = (TextView) findViewById(R.id.ksad_app_ad_desc);
             DrawDownloadProgressBar drawDownloadProgressBar = (DrawDownloadProgressBar) findViewById(R.id.ksad_app_download_btn);
@@ -171,7 +171,7 @@ public class DrawVideoTailFrame extends FrameLayout implements View.OnClickListe
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ DrawVideoTailFrame f72711b;
+            public final /* synthetic */ DrawVideoTailFrame f72891b;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -188,7 +188,7 @@ public class DrawVideoTailFrame extends FrameLayout implements View.OnClickListe
                         return;
                     }
                 }
-                this.f72711b = this;
+                this.f72891b = this;
             }
 
             @Override // com.kwad.sdk.core.download.b.c
@@ -196,7 +196,7 @@ public class DrawVideoTailFrame extends FrameLayout implements View.OnClickListe
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeI(1048576, this, i2) == null) {
                     super.a(i2);
-                    this.f72711b.m.a(a.a(), i2);
+                    this.f72891b.m.a(a.a(), i2);
                 }
             }
 
@@ -204,7 +204,7 @@ public class DrawVideoTailFrame extends FrameLayout implements View.OnClickListe
             public void onDownloadFailed() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                    this.f72711b.m.a(a.u(this.f72711b.f72703c), this.f72711b.m.getMax());
+                    this.f72891b.m.a(a.u(this.f72891b.f72883c), this.f72891b.m.getMax());
                 }
             }
 
@@ -212,7 +212,7 @@ public class DrawVideoTailFrame extends FrameLayout implements View.OnClickListe
             public void onDownloadFinished() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                    this.f72711b.m.a(a.a(this.f72711b.f72702b), this.f72711b.m.getMax());
+                    this.f72891b.m.a(a.a(this.f72891b.f72882b), this.f72891b.m.getMax());
                 }
             }
 
@@ -220,7 +220,7 @@ public class DrawVideoTailFrame extends FrameLayout implements View.OnClickListe
             public void onIdle() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048579, this) == null) {
-                    this.f72711b.m.a(a.u(this.f72711b.f72703c), this.f72711b.m.getMax());
+                    this.f72891b.m.a(a.u(this.f72891b.f72883c), this.f72891b.m.getMax());
                 }
             }
 
@@ -228,7 +228,7 @@ public class DrawVideoTailFrame extends FrameLayout implements View.OnClickListe
             public void onInstalled() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048580, this) == null) {
-                    this.f72711b.m.a(a.j(this.f72711b.f72703c), this.f72711b.m.getMax());
+                    this.f72891b.m.a(a.j(this.f72891b.f72883c), this.f72891b.m.getMax());
                 }
             }
 
@@ -236,7 +236,7 @@ public class DrawVideoTailFrame extends FrameLayout implements View.OnClickListe
             public void onProgressUpdate(int i2) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeI(1048581, this, i2) == null) {
-                    DrawDownloadProgressBar drawDownloadProgressBar = this.f72711b.m;
+                    DrawDownloadProgressBar drawDownloadProgressBar = this.f72891b.m;
                     drawDownloadProgressBar.a(i2 + "%", i2);
                 }
             }
@@ -246,25 +246,25 @@ public class DrawVideoTailFrame extends FrameLayout implements View.OnClickListe
     public void a() {
         b bVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (bVar = this.f72704d) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (bVar = this.f72884d) == null) {
             return;
         }
-        KsAppDownloadListener ksAppDownloadListener = this.f72705e;
+        KsAppDownloadListener ksAppDownloadListener = this.f72885e;
         if (ksAppDownloadListener != null) {
             bVar.c(ksAppDownloadListener);
             return;
         }
         KsAppDownloadListener appDownloadListener = getAppDownloadListener();
-        this.f72705e = appDownloadListener;
-        this.f72704d.a(appDownloadListener);
+        this.f72885e = appDownloadListener;
+        this.f72884d.a(appDownloadListener);
     }
 
     public void a(AdTemplate adTemplate) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, adTemplate) == null) {
-            this.f72702b = adTemplate;
+            this.f72882b = adTemplate;
             AdInfo i2 = com.kwad.sdk.core.response.b.c.i(adTemplate);
-            this.f72703c = i2;
+            this.f72883c = i2;
             AdInfo.AdMaterialInfo.MaterialFeature C = a.C(i2);
             String str = C.coverUrl;
             this.r.a(adTemplate);
@@ -276,28 +276,28 @@ public class DrawVideoTailFrame extends FrameLayout implements View.OnClickListe
                     if (getWidth() != 0) {
                         c2 = getWidth();
                     }
-                    ViewGroup.LayoutParams layoutParams = this.f72706f.getLayoutParams();
+                    ViewGroup.LayoutParams layoutParams = this.f72886f.getLayoutParams();
                     layoutParams.width = c2;
                     layoutParams.height = (int) (c2 * (i4 / i3));
                 }
-                KSImageLoader.loadImage(this.f72706f, str, this.f72702b);
+                KSImageLoader.loadImage(this.f72886f, str, this.f72882b);
             }
-            if (a.v(this.f72703c)) {
-                KSImageLoader.loadAppIcon(this.f72708h, a.n(this.f72703c), this.f72702b, 11);
-                this.f72709i.setText(a.o(this.f72703c));
-                float s = a.s(this.f72703c);
+            if (a.v(this.f72883c)) {
+                KSImageLoader.loadAppIcon(this.f72888h, a.n(this.f72883c), this.f72882b, 11);
+                this.f72889i.setText(a.o(this.f72883c));
+                float s = a.s(this.f72883c);
                 if (s >= 3.0f) {
-                    this.f72710j.setScore(s);
-                    this.f72710j.setVisibility(0);
+                    this.f72890j.setScore(s);
+                    this.f72890j.setVisibility(0);
                 }
-                this.k.setText(a.r(this.f72703c));
-                this.l.setText(a.m(this.f72703c));
-                this.f72707g.setVisibility(0);
+                this.k.setText(a.r(this.f72883c));
+                this.l.setText(a.m(this.f72883c));
+                this.f72887g.setVisibility(0);
                 this.n.setVisibility(8);
             } else {
-                this.o.setText(a.m(this.f72703c));
-                this.p.setText(a.u(this.f72703c));
-                this.f72707g.setVisibility(8);
+                this.o.setText(a.m(this.f72883c));
+                this.p.setText(a.u(this.f72883c));
+                this.f72887g.setVisibility(8);
                 this.n.setVisibility(0);
             }
             this.m.setOnClickListener(this);
@@ -309,7 +309,7 @@ public class DrawVideoTailFrame extends FrameLayout implements View.OnClickListe
         b bVar;
         KsAppDownloadListener ksAppDownloadListener;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (bVar = this.f72704d) == null || (ksAppDownloadListener = this.f72705e) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (bVar = this.f72884d) == null || (ksAppDownloadListener = this.f72885e) == null) {
             return;
         }
         bVar.b(ksAppDownloadListener);
@@ -319,12 +319,12 @@ public class DrawVideoTailFrame extends FrameLayout implements View.OnClickListe
     public void onClick(View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, view) == null) {
-            com.kwad.sdk.core.download.b.a.a(getContext(), this.f72702b, new a.InterfaceC1986a(this) { // from class: com.kwad.sdk.draw.view.playend.DrawVideoTailFrame.2
+            com.kwad.sdk.core.download.b.a.a(getContext(), this.f72882b, new a.InterfaceC1986a(this) { // from class: com.kwad.sdk.draw.view.playend.DrawVideoTailFrame.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ DrawVideoTailFrame f72712a;
+                public final /* synthetic */ DrawVideoTailFrame f72892a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -341,27 +341,27 @@ public class DrawVideoTailFrame extends FrameLayout implements View.OnClickListe
                             return;
                         }
                     }
-                    this.f72712a = this;
+                    this.f72892a = this;
                 }
 
                 @Override // com.kwad.sdk.core.download.b.a.InterfaceC1986a
                 public void a() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        if (this.f72712a.q != null) {
-                            this.f72712a.q.onAdClicked();
+                        if (this.f72892a.q != null) {
+                            this.f72892a.q.onAdClicked();
                         }
-                        com.kwad.sdk.core.report.a.a(this.f72712a.f72702b, 2, this.f72712a.f72701a.getTouchCoords());
+                        com.kwad.sdk.core.report.a.a(this.f72892a.f72882b, 2, this.f72892a.f72881a.getTouchCoords());
                     }
                 }
-            }, this.f72704d, view == this.m);
+            }, this.f72884d, view == this.m);
         }
     }
 
     public void setAdBaseFrameLayout(AdBaseFrameLayout adBaseFrameLayout) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, adBaseFrameLayout) == null) {
-            this.f72701a = adBaseFrameLayout;
+            this.f72881a = adBaseFrameLayout;
         }
     }
 
@@ -375,7 +375,7 @@ public class DrawVideoTailFrame extends FrameLayout implements View.OnClickListe
     public void setApkDownloadHelper(@Nullable b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, bVar) == null) {
-            this.f72704d = bVar;
+            this.f72884d = bVar;
         }
     }
 }

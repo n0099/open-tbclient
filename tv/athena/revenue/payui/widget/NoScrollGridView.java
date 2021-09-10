@@ -18,7 +18,7 @@ public class NoScrollGridView extends GridView {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f79772e;
+    public int f80012e;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public NoScrollGridView(Context context) {
@@ -46,9 +46,9 @@ public class NoScrollGridView extends GridView {
         if (interceptable == null || interceptable.invokeLL(1048576, this, context, attributeSet) == null) {
             TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, h.PayUi_NoScrollGridView);
             int integer = obtainStyledAttributes.getInteger(h.PayUi_NoScrollGridView_pay_ui_gv_max_height_dp, 536870911);
-            this.f79772e = integer;
+            this.f80012e = integer;
             if (integer != 536870911) {
-                this.f79772e = c.a(integer);
+                this.f80012e = c.a(integer);
             }
             obtainStyledAttributes.recycle();
         }
@@ -58,7 +58,7 @@ public class NoScrollGridView extends GridView {
     public void onMeasure(int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3) == null) {
-            super.onMeasure(i2, View.MeasureSpec.makeMeasureSpec(this.f79772e, Integer.MIN_VALUE));
+            super.onMeasure(i2, View.MeasureSpec.makeMeasureSpec(this.f80012e, Integer.MIN_VALUE));
         }
     }
 
@@ -102,7 +102,7 @@ public class NoScrollGridView extends GridView {
                 return;
             }
         }
-        this.f79772e = 536870911;
+        this.f80012e = 536870911;
         a(context, attributeSet);
     }
 }

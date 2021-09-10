@@ -35,12 +35,12 @@ public class b extends com.baidu.platform.base.e {
     private void a(LocationShareURLOption locationShareURLOption) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, this, locationShareURLOption) == null) {
-            this.f44190a.a("qt", "cs");
+            this.f44305a.a("qt", "cs");
             Point ll2point = CoordUtil.ll2point(locationShareURLOption.mLocation);
-            com.baidu.platform.util.a aVar = this.f44190a;
+            com.baidu.platform.util.a aVar = this.f44305a;
             aVar.a("geo", ll2point.x + "|" + ll2point.y);
-            this.f44190a.a("t", locationShareURLOption.mName);
-            this.f44190a.a(BeanConstants.DXM_OCR_KEY_CNT, locationShareURLOption.mSnippet);
+            this.f44305a.a("t", locationShareURLOption.mName);
+            this.f44305a.a(BeanConstants.DXM_OCR_KEY_CNT, locationShareURLOption.mSnippet);
             b(false);
             a(false);
         }

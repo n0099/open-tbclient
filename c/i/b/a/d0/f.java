@@ -21,22 +21,22 @@ public final class f implements l {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final l[] f32938e;
+    public final l[] f33047e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final w[] f32939f;
+    public final w[] f33048f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final Object[] f32940g;
+    public final Object[] f33049g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final Map<k, Integer> f32941h;
+    public final Map<k, Integer> f33050h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final boolean[] f32942i;
+    public final boolean[] f33051i;
 
     /* renamed from: j  reason: collision with root package name */
-    public final boolean f32943j;
+    public final boolean f33052j;
     public final q k;
     public l.a l;
     public b m;
@@ -47,10 +47,10 @@ public final class f implements l {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f32944e;
+        public final /* synthetic */ int f33053e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ f f32945f;
+        public final /* synthetic */ f f33054f;
 
         public a(f fVar, int i2) {
             Interceptable interceptable = $ic;
@@ -67,15 +67,15 @@ public final class f implements l {
                     return;
                 }
             }
-            this.f32945f = fVar;
-            this.f32944e = i2;
+            this.f33054f = fVar;
+            this.f33053e = i2;
         }
 
         @Override // c.i.b.a.d0.l.a
         public void c(l lVar, w wVar, Object obj) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(1048576, this, lVar, wVar, obj) == null) {
-                this.f32945f.h(this.f32944e, wVar, obj);
+                this.f33054f.h(this.f33053e, wVar, obj);
             }
         }
     }
@@ -86,16 +86,16 @@ public final class f implements l {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: d  reason: collision with root package name */
-        public final w[] f32946d;
+        public final w[] f33055d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final int[] f32947e;
+        public final int[] f33056e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final int[] f32948f;
+        public final int[] f33057f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final boolean f32949g;
+        public final boolean f33058g;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(w[] wVarArr, boolean z, q qVar) {
@@ -127,10 +127,10 @@ public final class f implements l {
                 i4 += wVar.o();
                 iArr2[i5] = i4;
             }
-            this.f32946d = wVarArr;
-            this.f32947e = iArr;
-            this.f32948f = iArr2;
-            this.f32949g = z;
+            this.f33055d = wVarArr;
+            this.f33056e = iArr;
+            this.f33057f = iArr2;
+            this.f33058g = z;
         }
 
         @Override // c.i.b.a.d0.a, c.i.b.a.w
@@ -138,7 +138,7 @@ public final class f implements l {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
-                return super.a(!this.f32949g && z);
+                return super.a(!this.f33058g && z);
             }
             return invokeZ.intValue;
         }
@@ -148,7 +148,7 @@ public final class f implements l {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) {
-                return super.c(!this.f32949g && z);
+                return super.c(!this.f33058g && z);
             }
             return invokeZ.intValue;
         }
@@ -159,10 +159,10 @@ public final class f implements l {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z)})) == null) {
                 boolean z2 = true;
-                if (this.f32949g && i3 == 1) {
+                if (this.f33058g && i3 == 1) {
                     i3 = 2;
                 }
-                return super.e(i2, i3, (this.f32949g || !z) ? false : false);
+                return super.e(i2, i3, (this.f33058g || !z) ? false : false);
             }
             return invokeCommon.intValue;
         }
@@ -172,7 +172,7 @@ public final class f implements l {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                int[] iArr = this.f32947e;
+                int[] iArr = this.f33056e;
                 return iArr[iArr.length - 1];
             }
             return invokeV.intValue;
@@ -184,10 +184,10 @@ public final class f implements l {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z)})) == null) {
                 boolean z2 = true;
-                if (this.f32949g && i3 == 1) {
+                if (this.f33058g && i3 == 1) {
                     i3 = 2;
                 }
-                return super.k(i2, i3, (this.f32949g || !z) ? false : false);
+                return super.k(i2, i3, (this.f33058g || !z) ? false : false);
             }
             return invokeCommon.intValue;
         }
@@ -197,7 +197,7 @@ public final class f implements l {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-                int[] iArr = this.f32948f;
+                int[] iArr = this.f33057f;
                 return iArr[iArr.length - 1];
             }
             return invokeV.intValue;
@@ -220,14 +220,14 @@ public final class f implements l {
         public int s(int i2) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i2)) == null) ? v.d(this.f32947e, i2 + 1, false, false) + 1 : invokeI.intValue;
+            return (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i2)) == null) ? v.d(this.f33056e, i2 + 1, false, false) + 1 : invokeI.intValue;
         }
 
         @Override // c.i.b.a.d0.a
         public int t(int i2) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2)) == null) ? v.d(this.f32948f, i2 + 1, false, false) + 1 : invokeI.intValue;
+            return (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2)) == null) ? v.d(this.f33057f, i2 + 1, false, false) + 1 : invokeI.intValue;
         }
 
         @Override // c.i.b.a.d0.a
@@ -245,7 +245,7 @@ public final class f implements l {
                 if (i2 == 0) {
                     return 0;
                 }
-                return this.f32947e[i2 - 1];
+                return this.f33056e[i2 - 1];
             }
             return invokeI.intValue;
         }
@@ -258,7 +258,7 @@ public final class f implements l {
                 if (i2 == 0) {
                     return 0;
                 }
-                return this.f32948f[i2 - 1];
+                return this.f33057f[i2 - 1];
             }
             return invokeI.intValue;
         }
@@ -267,7 +267,7 @@ public final class f implements l {
         public w z(int i2) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(1048588, this, i2)) == null) ? this.f32946d[i2] : (w) invokeI.objValue;
+            return (interceptable == null || (invokeI = interceptable.invokeI(1048588, this, i2)) == null) ? this.f33055d[i2] : (w) invokeI.objValue;
         }
     }
 
@@ -318,17 +318,17 @@ public final class f implements l {
             return;
         }
         this.l = aVar;
-        if (this.f32938e.length == 0) {
-            aVar.c(this, w.f33850a, null);
+        if (this.f33047e.length == 0) {
+            aVar.c(this, w.f33959a, null);
             return;
         }
         int i2 = 0;
         while (true) {
-            l[] lVarArr = this.f32938e;
+            l[] lVarArr = this.f33047e;
             if (i2 >= lVarArr.length) {
                 return;
             }
-            if (!this.f32942i[i2]) {
+            if (!this.f33051i[i2]) {
                 lVarArr[i2].a(gVar, false, new a(this, i2));
             }
             i2++;
@@ -343,11 +343,11 @@ public final class f implements l {
         }
         int i2 = 0;
         while (true) {
-            l[] lVarArr = this.f32938e;
+            l[] lVarArr = this.f33047e;
             if (i2 >= lVarArr.length) {
                 return;
             }
-            if (!this.f32942i[i2]) {
+            if (!this.f33051i[i2]) {
                 lVarArr[i2].b();
             }
             i2++;
@@ -359,9 +359,9 @@ public final class f implements l {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, bVar, bVar2)) == null) {
-            int s = this.m.s(bVar.f32982a);
-            k d2 = this.f32938e[s].d(bVar.a(bVar.f32982a - this.m.v(s)), bVar2);
-            this.f32941h.put(d2, Integer.valueOf(s));
+            int s = this.m.s(bVar.f33091a);
+            k d2 = this.f33047e[s].d(bVar.a(bVar.f33091a - this.m.v(s)), bVar2);
+            this.f33050h.put(d2, Integer.valueOf(s));
             return d2;
         }
         return (k) invokeLL.objValue;
@@ -371,9 +371,9 @@ public final class f implements l {
     public void e(k kVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, kVar) == null) {
-            int intValue = this.f32941h.get(kVar).intValue();
-            this.f32941h.remove(kVar);
-            this.f32938e[intValue].e(kVar);
+            int intValue = this.f33050h.get(kVar).intValue();
+            this.f33050h.remove(kVar);
+            this.f33047e[intValue].e(kVar);
         }
     }
 
@@ -385,11 +385,11 @@ public final class f implements l {
         }
         int i2 = 0;
         while (true) {
-            l[] lVarArr = this.f32938e;
+            l[] lVarArr = this.f33047e;
             if (i2 >= lVarArr.length) {
                 return;
             }
-            if (!this.f32942i[i2]) {
+            if (!this.f33051i[i2]) {
                 lVarArr[i2].f();
             }
             i2++;
@@ -399,28 +399,28 @@ public final class f implements l {
     public final void h(int i2, w wVar, Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(1048581, this, i2, wVar, obj) == null) {
-            this.f32939f[i2] = wVar;
-            this.f32940g[i2] = obj;
+            this.f33048f[i2] = wVar;
+            this.f33049g[i2] = obj;
             int i3 = i2 + 1;
             while (true) {
-                l[] lVarArr = this.f32938e;
+                l[] lVarArr = this.f33047e;
                 if (i3 >= lVarArr.length) {
                     break;
                 }
                 if (lVarArr[i3] == lVarArr[i2]) {
-                    this.f32939f[i3] = wVar;
-                    this.f32940g[i3] = obj;
+                    this.f33048f[i3] = wVar;
+                    this.f33049g[i3] = obj;
                 }
                 i3++;
             }
-            for (w wVar2 : this.f32939f) {
+            for (w wVar2 : this.f33048f) {
                 if (wVar2 == null) {
                     return;
                 }
             }
-            b bVar = new b((w[]) this.f32939f.clone(), this.f32943j, this.k);
+            b bVar = new b((w[]) this.f33048f.clone(), this.f33052j, this.k);
             this.m = bVar;
-            this.l.c(this, bVar, this.f32940g.clone());
+            this.l.c(this, bVar, this.f33049g.clone());
         }
     }
 
@@ -464,12 +464,12 @@ public final class f implements l {
             c.i.b.a.i0.a.e(lVar);
         }
         c.i.b.a.i0.a.a(qVar.getLength() == lVarArr.length);
-        this.f32938e = lVarArr;
-        this.f32943j = z;
+        this.f33047e = lVarArr;
+        this.f33052j = z;
         this.k = qVar;
-        this.f32939f = new w[lVarArr.length];
-        this.f32940g = new Object[lVarArr.length];
-        this.f32941h = new HashMap();
-        this.f32942i = g(lVarArr);
+        this.f33048f = new w[lVarArr.length];
+        this.f33049g = new Object[lVarArr.length];
+        this.f33050h = new HashMap();
+        this.f33051i = g(lVarArr);
     }
 }

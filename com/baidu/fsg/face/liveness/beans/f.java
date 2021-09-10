@@ -12,34 +12,34 @@ public class f {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f40036a = "https://passport.baidu.com";
+    public static String f40147a = "https://passport.baidu.com";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f40037b = "https://passport.qatest.baidu.com";
+    public static String f40148b = "https://passport.qatest.baidu.com";
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f40038c = "http://passport.rdtest.baidu.com";
+    public static String f40149c = "http://passport.rdtest.baidu.com";
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f40039d = "http://wappass.baidu.com";
+    public static String f40150d = "http://wappass.baidu.com";
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f40040e = "http://wappass.qatest.baidu.com";
+    public static String f40151e = "http://wappass.qatest.baidu.com";
 
     /* renamed from: f  reason: collision with root package name */
-    public static String f40041f = "http://wappass.rdtest.baidu.com";
+    public static String f40152f = "http://wappass.rdtest.baidu.com";
 
     /* renamed from: g  reason: collision with root package name */
-    public static String f40042g = "https://gss0.bdstatic.com";
+    public static String f40153g = "https://gss0.bdstatic.com";
 
     /* renamed from: h  reason: collision with root package name */
-    public static String f40043h = "https://passport.baidu.com";
+    public static String f40154h = "https://passport.baidu.com";
 
     /* renamed from: i  reason: collision with root package name */
-    public static String f40044i = "https://passport.qatest.baidu.com";
+    public static String f40155i = "https://passport.qatest.baidu.com";
 
     /* renamed from: j  reason: collision with root package name */
-    public static String f40045j = "https://voiceprint.baidu.com/echo.fcgi";
+    public static String f40156j = "https://voiceprint.baidu.com/echo.fcgi";
     public static String k = "https://voiceprint.baidu.com/echo.fcgi";
     public static String l = "/6bMWfDe8BsgCpNKfpU_Y_D3/static/appsapi/appdistribute/android.txt";
     public static String m = "/risk/living/authfacematch";

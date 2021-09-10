@@ -16,7 +16,7 @@ public final class a {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f3120a = 1;
+    public static int f3111a = 1;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c.a.e0.k.b.a$a  reason: collision with other inner class name */
@@ -26,10 +26,10 @@ public final class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ c.a.e0.l.a f3121a;
+        public final /* synthetic */ c.a.e0.l.a f3112a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ JSONObject f3122b;
+        public final /* synthetic */ JSONObject f3113b;
 
         public C0053a(c.a.e0.l.a aVar, JSONObject jSONObject) {
             Interceptable interceptable = $ic;
@@ -46,19 +46,19 @@ public final class a {
                     return;
                 }
             }
-            this.f3121a = aVar;
-            this.f3122b = jSONObject;
+            this.f3112a = aVar;
+            this.f3113b = jSONObject;
         }
 
         @Override // c.a.e0.k.a.a
         public void b(Throwable th, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th, str) == null) {
-                c.a.e0.l.a aVar = this.f3121a;
+                c.a.e0.l.a aVar = this.f3112a;
                 if (aVar != null) {
                     aVar.a(1, str);
                 }
-                c.a.e0.k.c.a.e(this.f3122b);
+                c.a.e0.k.c.a.e(this.f3113b);
             }
         }
 
@@ -68,7 +68,7 @@ public final class a {
         public void a(String str) {
             c.a.e0.l.a aVar;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) || (aVar = this.f3121a) == null) {
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) || (aVar = this.f3112a) == null) {
                 return;
             }
             aVar.a(0, "");
@@ -81,7 +81,7 @@ public final class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ c.a.e0.l.a f3123a;
+        public final /* synthetic */ c.a.e0.l.a f3114a;
 
         public b(c.a.e0.l.a aVar) {
             Interceptable interceptable = $ic;
@@ -98,14 +98,14 @@ public final class a {
                     return;
                 }
             }
-            this.f3123a = aVar;
+            this.f3114a = aVar;
         }
 
         @Override // c.a.e0.k.a.a
         public void b(Throwable th, String str) {
             c.a.e0.l.a aVar;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th, str) == null) || (aVar = this.f3123a) == null) {
+            if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th, str) == null) || (aVar = this.f3114a) == null) {
                 return;
             }
             aVar.a(1, str);
@@ -117,7 +117,7 @@ public final class a {
         public void a(String str) {
             c.a.e0.l.a aVar;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) || (aVar = this.f3123a) == null) {
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) || (aVar = this.f3114a) == null) {
                 return;
             }
             aVar.a(0, "");
@@ -155,13 +155,13 @@ public final class a {
     public static final void c(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(65538, null, i2) == null) {
-            f3120a = i2;
+            f3111a = i2;
         }
     }
 
     public static final int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? f3120a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? f3111a : invokeV.intValue;
     }
 }

@@ -20,22 +20,22 @@ public final class b implements SharedPreferences.Editor {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public SharedPreferences.Editor f45233a;
+    public SharedPreferences.Editor f45348a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f45234b;
+    public Context f45349b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f45235c;
+    public int f45350c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f45236d;
+    public String f45351d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f45237e;
+    public boolean f45352e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f45238f;
+    public String f45353f;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public b(Context context, SharedPreferences.Editor editor, String str, boolean z, int i2) {
@@ -63,14 +63,14 @@ public final class b implements SharedPreferences.Editor {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, bundle)) == null) {
             try {
-                bundle.putString("pref_name", this.f45236d);
-                if (this.f45237e) {
-                    if (TextUtils.isEmpty(this.f45238f)) {
-                        return u.a(this.f45234b, "CallPreferences", bundle);
+                bundle.putString("pref_name", this.f45351d);
+                if (this.f45352e) {
+                    if (TextUtils.isEmpty(this.f45353f)) {
+                        return u.a(this.f45349b, "CallPreferences", bundle);
                     }
-                    return u.b(this.f45234b, "CallPreferences", bundle, this.f45238f);
+                    return u.b(this.f45349b, "CallPreferences", bundle, this.f45353f);
                 }
-                return u.a(this.f45234b, "CallPreferences", bundle);
+                return u.a(this.f45349b, "CallPreferences", bundle);
             } catch (Throwable unused) {
                 com.baidu.sofire.utility.c.a();
                 return null;
@@ -83,8 +83,8 @@ public final class b implements SharedPreferences.Editor {
     public final void apply() {
         SharedPreferences.Editor editor;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f45235c == 1) {
-            if ((!this.f45237e || TextUtils.isEmpty(this.f45238f)) && (editor = this.f45233a) != null) {
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f45350c == 1) {
+            if ((!this.f45352e || TextUtils.isEmpty(this.f45353f)) && (editor = this.f45348a) != null) {
                 editor.apply();
             }
         }
@@ -106,7 +106,7 @@ public final class b implements SharedPreferences.Editor {
         SharedPreferences.Editor editor;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.f45235c != 1 || ((this.f45237e && !TextUtils.isEmpty(this.f45238f)) || (editor = this.f45233a) == null)) {
+            if (this.f45350c != 1 || ((this.f45352e && !TextUtils.isEmpty(this.f45353f)) || (editor = this.f45348a) == null)) {
                 return true;
             }
             return editor.commit();
@@ -120,9 +120,9 @@ public final class b implements SharedPreferences.Editor {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048579, this, str, z)) == null) {
             try {
-                if (this.f45235c == 1 && (!this.f45237e || TextUtils.isEmpty(this.f45238f))) {
-                    if (this.f45233a != null && this.f45233a != null) {
-                        this.f45233a.putBoolean(str, z);
+                if (this.f45350c == 1 && (!this.f45352e || TextUtils.isEmpty(this.f45353f))) {
+                    if (this.f45348a != null && this.f45348a != null) {
+                        this.f45348a.putBoolean(str, z);
                     }
                 } else {
                     Bundle bundle = new Bundle();
@@ -145,9 +145,9 @@ public final class b implements SharedPreferences.Editor {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLF = interceptable.invokeLF(1048580, this, str, f2)) == null) {
             try {
-                if (this.f45235c == 1 && (!this.f45237e || TextUtils.isEmpty(this.f45238f))) {
-                    if (this.f45233a != null && this.f45233a != null) {
-                        this.f45233a.putFloat(str, f2);
+                if (this.f45350c == 1 && (!this.f45352e || TextUtils.isEmpty(this.f45353f))) {
+                    if (this.f45348a != null && this.f45348a != null) {
+                        this.f45348a.putFloat(str, f2);
                     }
                 } else {
                     Bundle bundle = new Bundle();
@@ -170,9 +170,9 @@ public final class b implements SharedPreferences.Editor {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048581, this, str, i2)) == null) {
             try {
-                if (this.f45235c == 1 && (!this.f45237e || TextUtils.isEmpty(this.f45238f))) {
-                    if (this.f45233a != null && this.f45233a != null) {
-                        this.f45233a.putInt(str, i2);
+                if (this.f45350c == 1 && (!this.f45352e || TextUtils.isEmpty(this.f45353f))) {
+                    if (this.f45348a != null && this.f45348a != null) {
+                        this.f45348a.putInt(str, i2);
                     }
                 } else {
                     Bundle bundle = new Bundle();
@@ -195,9 +195,9 @@ public final class b implements SharedPreferences.Editor {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048582, this, str, j2)) == null) {
             try {
-                if (this.f45235c == 1 && (!this.f45237e || TextUtils.isEmpty(this.f45238f))) {
-                    if (this.f45233a != null && this.f45233a != null) {
-                        this.f45233a.putLong(str, j2);
+                if (this.f45350c == 1 && (!this.f45352e || TextUtils.isEmpty(this.f45353f))) {
+                    if (this.f45348a != null && this.f45348a != null) {
+                        this.f45348a.putLong(str, j2);
                     }
                 } else {
                     Bundle bundle = new Bundle();
@@ -220,9 +220,9 @@ public final class b implements SharedPreferences.Editor {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, str, str2)) == null) {
             try {
-                if (this.f45235c == 1 && (!this.f45237e || TextUtils.isEmpty(this.f45238f))) {
-                    if (this.f45233a != null && this.f45233a != null) {
-                        this.f45233a.putString(str, str2);
+                if (this.f45350c == 1 && (!this.f45352e || TextUtils.isEmpty(this.f45353f))) {
+                    if (this.f45348a != null && this.f45348a != null) {
+                        this.f45348a.putString(str, str2);
                     }
                 } else {
                     Bundle bundle = new Bundle();
@@ -274,11 +274,11 @@ public final class b implements SharedPreferences.Editor {
                 return;
             }
         }
-        this.f45234b = context;
-        this.f45233a = editor;
-        this.f45235c = i2;
-        this.f45236d = str;
-        this.f45237e = z;
-        this.f45238f = null;
+        this.f45349b = context;
+        this.f45348a = editor;
+        this.f45350c = i2;
+        this.f45351d = str;
+        this.f45352e = z;
+        this.f45353f = null;
     }
 }

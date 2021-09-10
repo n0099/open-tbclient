@@ -51,7 +51,7 @@ public class BdBaseApplication extends Application {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ BdBaseApplication f36120a;
+        public final /* synthetic */ BdBaseApplication f36229a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(BdBaseApplication bdBaseApplication, Looper looper) {
@@ -71,14 +71,14 @@ public class BdBaseApplication extends Application {
                     return;
                 }
             }
-            this.f36120a = bdBaseApplication;
+            this.f36229a = bdBaseApplication;
         }
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
-                this.f36120a.handleInitMessage(message);
+                this.f36229a.handleInitMessage(message);
             }
         }
     }
@@ -130,7 +130,6 @@ public class BdBaseApplication extends Application {
             this.mContext = application;
             initWorkMode();
             initBitmapHelper();
-            initPlugin();
         }
     }
 
@@ -303,7 +302,7 @@ public class BdBaseApplication extends Application {
     public void onAppMemoryLow() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            b.f().p();
+            b.f().q();
             long currentTimeMillis = System.currentTimeMillis();
             if (currentTimeMillis - this.lastGcTime > 30000) {
                 this.lastGcTime = currentTimeMillis;
@@ -325,7 +324,7 @@ public class BdBaseApplication extends Application {
     public void setActivityStackMaxSize(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048593, this, i2) == null) {
-            b.f().q(i2);
+            b.f().r(i2);
         }
     }
 

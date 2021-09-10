@@ -9,14 +9,14 @@ import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import androidx.annotation.Nullable;
-import c.a.o0.a.v2.f0;
-import c.a.o0.a.v2.q0;
-import c.a.o0.a.v2.w;
-import c.a.o0.f.b;
-import c.a.o0.f.c;
-import c.a.o0.f.d;
-import c.a.o0.f.e;
-import c.a.o0.f.f;
+import c.a.p0.a.v2.f0;
+import c.a.p0.a.v2.q0;
+import c.a.p0.a.v2.w;
+import c.a.p0.f.b;
+import c.a.p0.f.c;
+import c.a.p0.f.d;
+import c.a.p0.f.e;
+import c.a.p0.f.f;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -40,7 +40,7 @@ public class GameNowInstallAntiBlockingActivity extends Activity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ GameNowInstallAntiBlockingActivity f46850e;
+        public final /* synthetic */ GameNowInstallAntiBlockingActivity f46965e;
 
         public a(GameNowInstallAntiBlockingActivity gameNowInstallAntiBlockingActivity) {
             Interceptable interceptable = $ic;
@@ -57,15 +57,15 @@ public class GameNowInstallAntiBlockingActivity extends Activity {
                     return;
                 }
             }
-            this.f46850e = gameNowInstallAntiBlockingActivity;
+            this.f46965e = gameNowInstallAntiBlockingActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                TextUtils.equals(this.f46850e.mType, "authorize");
-                this.f46850e.finish();
+                TextUtils.equals(this.f46965e.mType, "authorize");
+                this.f46965e.finish();
             }
         }
     }
@@ -91,7 +91,7 @@ public class GameNowInstallAntiBlockingActivity extends Activity {
             int Z = q0.Z(this);
             super.onCreate(bundle);
             q0.g(this, Z);
-            c.a.o0.f.j.o.a.q();
+            c.a.p0.f.j.o.a.q();
             setContentView(f.aiapps_install_guide_layout);
             Intent intent = getIntent();
             if (intent != null) {
@@ -108,7 +108,7 @@ public class GameNowInstallAntiBlockingActivity extends Activity {
                 findViewById(e.install_guide_image_mask).setVisibility(0);
                 imageView.setImageResource(d.aiapps_install_guide_request);
                 findViewById(e.install_guide_bg_mask).setBackgroundResource(b.aiapps_install_guide_mask);
-                c.a.o0.f.j.o.a.n();
+                c.a.p0.f.j.o.a.n();
             } else {
                 FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(-1, getResources().getDimensionPixelOffset(c.aiapps_install_guide_image_height));
                 layoutParams2.gravity = 80;
@@ -124,7 +124,7 @@ public class GameNowInstallAntiBlockingActivity extends Activity {
                     imageView.setImageResource(d.aiapps_install_guide_default);
                 }
                 findViewById(e.install_guide_bg_mask).setBackgroundResource(b.aiapps_anti_block_mask);
-                c.a.o0.f.j.o.a.o();
+                c.a.p0.f.j.o.a.o();
             }
             findViewById.setOnClickListener(new a(this));
         }

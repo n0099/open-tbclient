@@ -20,14 +20,14 @@ public final class a<E> extends v<Object> {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final w f68174a;
+    public static final w f68354a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Class<E> f68175b;
+    public final Class<E> f68355b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final v<E> f68176c;
+    public final v<E> f68356c;
 
     static {
         InterceptResult invokeClinit;
@@ -42,7 +42,7 @@ public final class a<E> extends v<Object> {
                 return;
             }
         }
-        f68174a = new w() { // from class: com.bytedance.sdk.openadsdk.preload.a.b.a.a.1
+        f68354a = new w() { // from class: com.bytedance.sdk.openadsdk.preload.a.b.a.a.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -92,8 +92,8 @@ public final class a<E> extends v<Object> {
                 return;
             }
         }
-        this.f68176c = new m(fVar, vVar, cls);
-        this.f68175b = cls;
+        this.f68356c = new m(fVar, vVar, cls);
+        this.f68355b = cls;
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r3v1, resolved type: com.bytedance.sdk.openadsdk.preload.a.v<E> */
@@ -109,7 +109,7 @@ public final class a<E> extends v<Object> {
             cVar.b();
             int length = Array.getLength(obj);
             for (int i2 = 0; i2 < length; i2++) {
-                this.f68176c.a(cVar, Array.get(obj, i2));
+                this.f68356c.a(cVar, Array.get(obj, i2));
             }
             cVar.c();
         }
@@ -120,18 +120,18 @@ public final class a<E> extends v<Object> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar)) == null) {
-            if (aVar.f() == com.bytedance.sdk.openadsdk.preload.a.d.b.f68384i) {
+            if (aVar.f() == com.bytedance.sdk.openadsdk.preload.a.d.b.f68564i) {
                 aVar.j();
                 return null;
             }
             ArrayList arrayList = new ArrayList();
             aVar.a();
             while (aVar.e()) {
-                arrayList.add(this.f68176c.b(aVar));
+                arrayList.add(this.f68356c.b(aVar));
             }
             aVar.b();
             int size = arrayList.size();
-            Object newInstance = Array.newInstance((Class<?>) this.f68175b, size);
+            Object newInstance = Array.newInstance((Class<?>) this.f68355b, size);
             for (int i2 = 0; i2 < size; i2++) {
                 Array.set(newInstance, i2, arrayList.get(i2));
             }

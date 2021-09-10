@@ -1,7 +1,7 @@
 package com.baidu.tbadk.switchs;
 
 import c.a.e.e.f.a;
-import c.a.p0.o0.k;
+import c.a.q0.q0.k;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;

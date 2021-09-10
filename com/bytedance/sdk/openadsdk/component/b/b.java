@@ -96,16 +96,16 @@ public class b extends c implements TTDrawFeedAd {
         NativeDrawVideoTsView nativeDrawVideoTsView;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            if (this.f66402h != null && this.f66403i != null) {
+            if (this.f66582h != null && this.f66583i != null) {
                 if (h()) {
                     try {
-                        nativeDrawVideoTsView = new NativeDrawVideoTsView(this.f66403i, this.f66402h);
+                        nativeDrawVideoTsView = new NativeDrawVideoTsView(this.f66583i, this.f66582h);
                         nativeDrawVideoTsView.setControllerStatusCallBack(new NativeVideoTsView.a(this) { // from class: com.bytedance.sdk.openadsdk.component.b.b.1
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
 
                             /* renamed from: a  reason: collision with root package name */
-                            public final /* synthetic */ b f65510a;
+                            public final /* synthetic */ b f65690a;
 
                             {
                                 Interceptable interceptable2 = $ic;
@@ -122,25 +122,25 @@ public class b extends c implements TTDrawFeedAd {
                                         return;
                                     }
                                 }
-                                this.f65510a = this;
+                                this.f65690a = this;
                             }
 
                             @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.NativeVideoTsView.a
                             public void a(boolean z, long j2, long j3, long j4, boolean z2) {
                                 Interceptable interceptable2 = $ic;
                                 if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), Boolean.valueOf(z2)}) == null) {
-                                    com.bytedance.sdk.openadsdk.multipro.b.a aVar = ((c) this.f65510a).f65511a;
-                                    aVar.f67933a = z;
-                                    aVar.f67937e = j2;
-                                    aVar.f67938f = j3;
-                                    aVar.f67939g = j4;
-                                    aVar.f67936d = z2;
+                                    com.bytedance.sdk.openadsdk.multipro.b.a aVar = ((c) this.f65690a).f65691a;
+                                    aVar.f68113a = z;
+                                    aVar.f68117e = j2;
+                                    aVar.f68118f = j3;
+                                    aVar.f68119g = j4;
+                                    aVar.f68116d = z2;
                                 }
                             }
                         });
                         nativeDrawVideoTsView.setVideoAdLoadListener(this);
                         nativeDrawVideoTsView.setVideoAdInteractionListener(this);
-                        int d2 = q.d(this.f66402h.ao());
+                        int d2 = q.d(this.f66582h.ao());
                         nativeDrawVideoTsView.setIsAutoPlay(a(d2));
                         nativeDrawVideoTsView.setIsQuiet(o.h().b(d2));
                         nativeDrawVideoTsView.setCanInterruptVideoPlay(this.n);
@@ -237,15 +237,15 @@ public class b extends c implements TTDrawFeedAd {
             if (3 == d2) {
                 return false;
             }
-            if (1 != d2 || !n.d(this.f66403i)) {
+            if (1 != d2 || !n.d(this.f66583i)) {
                 if (2 == d2) {
-                    if (!n.e(this.f66403i) && !n.d(this.f66403i) && !n.f(this.f66403i)) {
+                    if (!n.e(this.f66583i) && !n.d(this.f66583i) && !n.f(this.f66583i)) {
                         return false;
                     }
                 } else if (5 != d2) {
                     return false;
                 } else {
-                    if (!n.d(this.f66403i) && !n.f(this.f66403i)) {
+                    if (!n.d(this.f66583i) && !n.f(this.f66583i)) {
                         return false;
                     }
                 }

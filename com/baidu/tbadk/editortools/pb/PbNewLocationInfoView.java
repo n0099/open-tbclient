@@ -22,7 +22,7 @@ public class PbNewLocationInfoView extends TextView {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f48210e;
+    public int f48338e;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public PbNewLocationInfoView(Context context) {
@@ -48,7 +48,7 @@ public class PbNewLocationInfoView extends TextView {
     public int getState() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f48210e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f48338e : invokeV.intValue;
     }
 
     public void onChangeSkinType() {
@@ -61,7 +61,7 @@ public class PbNewLocationInfoView extends TextView {
     public void setState(int i2, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i2, str) == null) {
-            this.f48210e = i2;
+            this.f48338e = i2;
             if (i2 == 1) {
                 if (str == null) {
                     str = getResources().getString(R.string.location_loading);

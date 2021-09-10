@@ -23,7 +23,7 @@ public class EmotionDetailModel extends BdBaseModel {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public HttpMessageListener f50493e;
+    public HttpMessageListener f50658e;
 
     /* loaded from: classes7.dex */
     public class a extends HttpMessageListener {
@@ -31,7 +31,7 @@ public class EmotionDetailModel extends BdBaseModel {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ EmotionDetailModel f50494a;
+        public final /* synthetic */ EmotionDetailModel f50659a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(EmotionDetailModel emotionDetailModel, int i2) {
@@ -51,15 +51,15 @@ public class EmotionDetailModel extends BdBaseModel {
                     return;
                 }
             }
-            this.f50494a = emotionDetailModel;
+            this.f50659a = emotionDetailModel;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003361 && (httpResponsedMessage instanceof EmotionDetailResponseMessage) && this.f50494a.mLoadDataCallBack != null) {
-                this.f50494a.mLoadDataCallBack.c(((EmotionDetailResponseMessage) httpResponsedMessage).data);
+            if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003361 && (httpResponsedMessage instanceof EmotionDetailResponseMessage) && this.f50659a.mLoadDataCallBack != null) {
+                this.f50659a.mLoadDataCallBack.c(((EmotionDetailResponseMessage) httpResponsedMessage).data);
             }
         }
     }
@@ -77,14 +77,14 @@ public class EmotionDetailModel extends BdBaseModel {
                 return;
             }
         }
-        this.f50493e = new a(this, CmdConfigHttp.CMD_EMOTION_DETAIL);
+        this.f50658e = new a(this, CmdConfigHttp.CMD_EMOTION_DETAIL);
         setUniqueId(BdUniqueId.gen());
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_EMOTION_DETAIL, TbConfig.SERVER_ADDRESS + TbConfig.EMOTION_DETAIL);
         tbHttpMessageTask.setResponsedClass(EmotionDetailResponseMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        this.f50493e.setTag(getUniqueId());
-        this.f50493e.setSelfListener(true);
-        registerListener(this.f50493e);
+        this.f50658e.setTag(getUniqueId());
+        this.f50658e.setSelfListener(true);
+        registerListener(this.f50658e);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -103,7 +103,7 @@ public class EmotionDetailModel extends BdBaseModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             MessageManager.getInstance().unRegisterTask(CmdConfigHttp.CMD_EMOTION_DETAIL);
-            MessageManager.getInstance().unRegisterListener(this.f50493e);
+            MessageManager.getInstance().unRegisterListener(this.f50658e);
             return true;
         }
         return invokeV.booleanValue;

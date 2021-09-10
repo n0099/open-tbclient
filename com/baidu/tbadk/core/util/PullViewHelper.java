@@ -12,7 +12,7 @@ import android.text.TextUtils;
 import c.a.e.e.m.h;
 import c.a.e.e.p.m;
 import c.a.e.e.p.q;
-import c.a.p0.s.d0.b;
+import c.a.q0.s.d0.b;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -744,13 +744,13 @@ public class PullViewHelper {
             b.j().t("pullview_should_show_3d_loading", false);
             setShouldShowLoadingView(false);
             String p = b.j().p("pull_image_url", "");
-            int d2 = c.a.e.e.m.b.d(str3, 0);
+            int e2 = c.a.e.e.m.b.e(str3, 0);
             if (str.equals(p)) {
-                if (isImagesExist(d2)) {
+                if (isImagesExist(e2)) {
                     buildDrawablesAsync();
                     return;
                 } else if (isZipFileExist()) {
-                    h.a().c(new Runnable(this, str2, d2, str) { // from class: com.baidu.tbadk.core.util.PullViewHelper.2
+                    h.a().c(new Runnable(this, str2, e2, str) { // from class: com.baidu.tbadk.core.util.PullViewHelper.2
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
                         public final /* synthetic */ PullViewHelper this$0;
@@ -763,7 +763,7 @@ public class PullViewHelper {
                             if (interceptable2 != null) {
                                 InitContext newInitContext = TitanRuntime.newInitContext();
                                 newInitContext.initArgs = r2;
-                                Object[] objArr = {this, str2, Integer.valueOf(d2), str};
+                                Object[] objArr = {this, str2, Integer.valueOf(e2), str};
                                 interceptable2.invokeUnInit(65536, newInitContext);
                                 int i4 = newInitContext.flag;
                                 if ((i4 & 1) != 0) {
@@ -775,7 +775,7 @@ public class PullViewHelper {
                             }
                             this.this$0 = this;
                             this.val$md5 = str2;
-                            this.val$picNumInteger = d2;
+                            this.val$picNumInteger = e2;
                             this.val$pullImageUrl = str;
                         }
 
@@ -798,11 +798,11 @@ public class PullViewHelper {
                     });
                     return;
                 } else {
-                    startDownloadAsync(str, str2, d2);
+                    startDownloadAsync(str, str2, e2);
                     return;
                 }
             }
-            startDownloadAsync(str, str2, c.a.e.e.m.b.d(str3, 0));
+            startDownloadAsync(str, str2, c.a.e.e.m.b.e(str3, 0));
         }
     }
 

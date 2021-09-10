@@ -1,7 +1,6 @@
 package com.bytedance.sdk.openadsdk.d;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.launch.stats.ActivitySpeedStats;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -18,13 +17,13 @@ public class b extends a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f67325a;
+    public int f67505a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f67326b;
+    public int f67506b;
 
     /* renamed from: c  reason: collision with root package name */
-    public volatile boolean f67327c;
+    public volatile boolean f67507c;
 
     public b(int i2, int i3) {
         Interceptable interceptable = $ic;
@@ -41,11 +40,11 @@ public class b extends a {
                 return;
             }
         }
-        this.f67325a = 15;
-        this.f67326b = 3;
+        this.f67505a = 15;
+        this.f67506b = 3;
         if (i2 > 0) {
-            this.f67325a = i2;
-            this.f67326b = i3;
+            this.f67505a = i2;
+            this.f67506b = i3;
             return;
         }
         throw new IllegalArgumentException("Max count must be positive number!");
@@ -88,7 +87,7 @@ public class b extends a {
             int size = list.size();
             boolean a2 = a(b2, size);
             if (a2) {
-                k.c(ActivitySpeedStats.SPLASH_LOADAD_DURATION, "不满足删除条件，不执行删除操作(true)" + a2);
+                k.c("splashLoadAd", "不满足删除条件，不执行删除操作(true)" + a2);
                 return;
             }
             TreeMap treeMap = new TreeMap();
@@ -97,18 +96,18 @@ public class b extends a {
             }
             for (Map.Entry entry : treeMap.entrySet()) {
                 if (entry != null && !a2) {
-                    k.f(ActivitySpeedStats.SPLASH_LOADAD_DURATION, "LRUDeleteFile deleting fileTime " + ((Long) entry.getKey()).longValue());
+                    k.f("splashLoadAd", "LRUDeleteFile deleting fileTime " + ((Long) entry.getKey()).longValue());
                     File file2 = (File) entry.getValue();
                     long length = file2.length();
                     if (file2.delete()) {
                         size--;
                         b2 -= length;
-                        k.c(ActivitySpeedStats.SPLASH_LOADAD_DURATION, "删除 一个 Cache file 当前总个数：" + size);
+                        k.c("splashLoadAd", "删除 一个 Cache file 当前总个数：" + size);
                     } else {
-                        k.f(ActivitySpeedStats.SPLASH_LOADAD_DURATION, "Error deleting file " + file2 + " for trimming cache");
+                        k.f("splashLoadAd", "Error deleting file " + file2 + " for trimming cache");
                     }
                     if (a(file2, b2, size)) {
-                        k.c(ActivitySpeedStats.SPLASH_LOADAD_DURATION, "停止删除 当前总个数 totalCount：" + size + " 最大值存储上限个数 maxCount " + this.f67325a + " 最小个数 " + this.f67326b);
+                        k.c("splashLoadAd", "停止删除 当前总个数 totalCount：" + size + " 最大值存储上限个数 maxCount " + this.f67505a + " 最小个数 " + this.f67506b);
                         return;
                     }
                 }
@@ -121,23 +120,23 @@ public class b extends a {
     public boolean a(long j2, int i2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j2), Integer.valueOf(i2)})) == null) ? i2 <= this.f67325a : invokeCommon.booleanValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j2), Integer.valueOf(i2)})) == null) ? i2 <= this.f67505a : invokeCommon.booleanValue;
     }
 
     @Override // com.bytedance.sdk.openadsdk.d.a
     public boolean a(File file, long j2, int i2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{file, Long.valueOf(j2), Integer.valueOf(i2)})) == null) ? i2 <= this.f67326b : invokeCommon.booleanValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{file, Long.valueOf(j2), Integer.valueOf(i2)})) == null) ? i2 <= this.f67506b : invokeCommon.booleanValue;
     }
 
     @Override // com.bytedance.sdk.openadsdk.d.a
     public void a(List<File> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
-            if (this.f67327c) {
+            if (this.f67507c) {
                 d(list);
-                this.f67327c = false;
+                this.f67507c = false;
                 return;
             }
             c(list);
@@ -159,12 +158,12 @@ public class b extends a {
                 return;
             }
         }
-        this.f67325a = 15;
-        this.f67326b = 3;
+        this.f67505a = 15;
+        this.f67506b = 3;
         if (i2 > 0) {
-            this.f67325a = i2;
-            this.f67326b = i3;
-            this.f67327c = z;
+            this.f67505a = i2;
+            this.f67506b = i3;
+            this.f67507c = z;
             return;
         }
         throw new IllegalArgumentException("Max count must be positive number!");

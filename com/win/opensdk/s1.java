@@ -19,34 +19,34 @@ public class s1 {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a */
-    public static String f76982a = "https://pp.xdplt.com/";
+    public static String f77162a = "https://pp.xdplt.com/";
 
     /* renamed from: b */
-    public static final String f76983b;
+    public static final String f77163b;
 
     /* renamed from: c */
-    public static final String f76984c;
+    public static final String f77164c;
 
     /* renamed from: d */
-    public static String f76985d;
+    public static String f77165d;
 
     /* renamed from: e */
-    public static String f76986e;
+    public static String f77166e;
 
     /* renamed from: f */
-    public static String f76987f;
+    public static String f77167f;
 
     /* renamed from: g */
-    public static String f76988g;
+    public static String f77168g;
 
     /* renamed from: h */
-    public static String f76989h;
+    public static String f77169h;
 
     /* renamed from: i */
-    public static String f76990i;
+    public static String f77170i;
 
     /* renamed from: j */
-    public static String f76991j;
+    public static String f77171j;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -62,22 +62,22 @@ public class s1 {
                 return;
             }
         }
-        f76983b = f76982a + "behavior?";
-        f76984c = f76982a + "report?";
-        f76985d = "https://cd.xdplt.com/";
-        f76986e = "jy/da?";
-        f76987f = "?";
-        f76988g = "jy/da?";
-        f76989h = "jy/da?";
-        f76990i = "jy/da?";
-        f76991j = "jy/da?";
+        f77163b = f77162a + "behavior?";
+        f77164c = f77162a + "report?";
+        f77165d = "https://cd.xdplt.com/";
+        f77166e = "jy/da?";
+        f77167f = "?";
+        f77168g = "jy/da?";
+        f77169h = "jy/da?";
+        f77170i = "jy/da?";
+        f77171j = "jy/da?";
     }
 
     public static /* synthetic */ void a(r1 r1Var) {
         String str;
         if (r1Var != null) {
-            str = r1Var.f76978c;
-            if (TextUtils.isEmpty(str) || r1Var.f76976a == null || TextUtils.isEmpty(r1Var.f76977b)) {
+            str = r1Var.f77158c;
+            if (TextUtils.isEmpty(str) || r1Var.f77156a == null || TextUtils.isEmpty(r1Var.f77157b)) {
                 return;
             }
             W1.a(new q1(r1Var));
@@ -85,13 +85,13 @@ public class s1 {
     }
 
     public static /* synthetic */ void a(r1 r1Var, HashMap hashMap) {
-        if (r1Var.f76977b.startsWith(HomeCfgResponse.ConfigData.GROUP_LAYOUT_TYPE602)) {
-            hashMap.put("lo_timeout", String.valueOf(U1.d(r1Var.f76976a)));
-            float a2 = U1.a(r1Var.f76976a, "splash_width", 0.0f);
+        if (r1Var.f77157b.startsWith(HomeCfgResponse.ConfigData.GROUP_LAYOUT_TYPE602)) {
+            hashMap.put("lo_timeout", String.valueOf(U1.d(r1Var.f77156a)));
+            float a2 = U1.a(r1Var.f77156a, "splash_width", 0.0f);
             if (a2 > 0.0f) {
                 hashMap.put("sp_w", String.valueOf(a2));
             }
-            float a3 = U1.a(r1Var.f76976a, "splash_height", 0.0f);
+            float a3 = U1.a(r1Var.f77156a, "splash_height", 0.0f);
             if (a3 > 0.0f) {
                 hashMap.put("sp_h", String.valueOf(a3));
             }
@@ -103,8 +103,8 @@ public class s1 {
             try {
                 if (jSONObject.length() != 0) {
                     K k = new K();
-                    k.f76629c = jSONObject.optString("traceid", "");
-                    k.f76628b = jSONObject.optString("pid", "");
+                    k.f76809c = jSONObject.optString("traceid", "");
+                    k.f76808b = jSONObject.optString("pid", "");
                     jSONObject.optString("bt", "");
                     JSONArray optJSONArray = jSONObject.optJSONArray("list");
                     ArrayList arrayList = new ArrayList();
@@ -113,7 +113,7 @@ public class s1 {
                             JSONObject optJSONObject = optJSONArray.optJSONObject(i2);
                             if (optJSONObject != null && optJSONObject.length() > 0) {
                                 Info info = new Info();
-                                info.setTraceid(k.f76629c);
+                                info.setTraceid(k.f76809c);
                                 info.setPid(k.a());
                                 info.setId(optJSONObject.optString("id", ""));
                                 info.setLoad(optJSONObject.optString("load", ""));
@@ -169,7 +169,7 @@ public class s1 {
                             }
                         }
                     }
-                    k.f76627a = arrayList;
+                    k.f76807a = arrayList;
                     return k;
                 }
             } catch (Exception unused) {

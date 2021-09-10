@@ -18,7 +18,7 @@ public interface c extends IInterface {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public IBinder f71572a;
+        public IBinder f71752a;
 
         public a(IBinder iBinder) {
             Interceptable interceptable = $ic;
@@ -35,7 +35,7 @@ public interface c extends IInterface {
                     return;
                 }
             }
-            this.f71572a = iBinder;
+            this.f71752a = iBinder;
         }
 
         @Override // com.kwad.sdk.core.f.b.c
@@ -48,7 +48,7 @@ public interface c extends IInterface {
                 try {
                     try {
                         obtain.writeInterfaceToken("com.zui.deviceidservice.IDeviceidInterface");
-                        this.f71572a.transact(1, obtain, obtain2, 0);
+                        this.f71752a.transact(1, obtain, obtain2, 0);
                         obtain2.readException();
                         return obtain2.readString();
                     } catch (Exception e2) {
@@ -69,7 +69,7 @@ public interface c extends IInterface {
         public IBinder asBinder() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f71572a : (IBinder) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f71752a : (IBinder) invokeV.objValue;
         }
     }
 

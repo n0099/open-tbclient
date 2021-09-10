@@ -40,6 +40,9 @@ public class CommonStatisticKey {
     public static final String KEY_CURRENCY_SWITCH_DIALOG_CLICK_FAIL_REASON = "c14145";
     public static final String KEY_CURRENCY_SWITCH_DIALOG_CLICK_SUCCESS = "c14143";
     public static final String KEY_CURRENCY_SWITCH_DIALOG_SHOW = "c14141";
+    public static final String KEY_DOWNLOAD_MANAGER_DOWNLOADING_CLICK = "c14361";
+    public static final String KEY_DOWNLOAD_MANAGER_ORDERED_CLICK = "c14360";
+    public static final String KEY_DOWNLOAD_MANAGER_SHOW = "c14359";
     public static final String KEY_ENTER_FORUM_SUG_SHOW = "c13371";
     public static final String KEY_ENTRANCE_CLICKED = "c12611";
     public static final String KEY_EYE_SPLASH_BEAR_CLICK = "c14314";
@@ -121,6 +124,7 @@ public class CommonStatisticKey {
     public static final String KEY_TIE_PLUS_DIALOG_EXPOSE = "c14298";
     public static final String KEY_TIE_PLUS_RICH_TEXT_CLICK = "c14297";
     public static final String KEY_TIE_PLUS_RICH_TEXT_EXPOSE = "c14296";
+    public static final String KEY_TOAST_DOWNLOAD_MANAGER_CLICK = "c14362";
     public static final String KEY_UEG_POST_CLICKED = "c14048";
     public static final String KEY_VIDEO_EASTER_EGG_REPLAY = "c13044";
     public static final String KEY_VIDEO_EASTER_EGG_SHARE = "c13045";

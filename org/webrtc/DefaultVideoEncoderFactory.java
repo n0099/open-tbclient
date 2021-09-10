@@ -36,6 +36,35 @@ public class DefaultVideoEncoderFactory implements VideoEncoderFactory {
         this.hardwareVideoEncoderFactory = new HardwareVideoEncoderFactory(context, z, z2);
     }
 
+    @Override // org.webrtc.VideoEncoderFactory
+    @Nullable
+    public VideoEncoder createEncoder(VideoCodecInfo videoCodecInfo) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, videoCodecInfo)) == null) {
+            VideoEncoder createEncoder = this.softwareVideoEncoderFactory.createEncoder(videoCodecInfo);
+            VideoEncoder createEncoder2 = this.hardwareVideoEncoderFactory.createEncoder(videoCodecInfo);
+            if (createEncoder2 == null || createEncoder == null) {
+                return createEncoder2 != null ? createEncoder2 : createEncoder;
+            }
+            return new VideoEncoderFallback(createEncoder, createEncoder2);
+        }
+        return (VideoEncoder) invokeL.objValue;
+    }
+
+    @Override // org.webrtc.VideoEncoderFactory
+    public VideoCodecInfo[] getSupportedCodecs() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            LinkedHashSet linkedHashSet = new LinkedHashSet();
+            linkedHashSet.addAll(Arrays.asList(this.softwareVideoEncoderFactory.getSupportedCodecs()));
+            linkedHashSet.addAll(Arrays.asList(this.hardwareVideoEncoderFactory.getSupportedCodecs()));
+            return (VideoCodecInfo[]) linkedHashSet.toArray(new VideoCodecInfo[linkedHashSet.size()]);
+        }
+        return (VideoCodecInfo[]) invokeV.objValue;
+    }
+
     public DefaultVideoEncoderFactory(VideoEncoderFactory videoEncoderFactory) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -53,31 +82,5 @@ public class DefaultVideoEncoderFactory implements VideoEncoderFactory {
         }
         this.softwareVideoEncoderFactory = new SoftwareVideoEncoderFactory();
         this.hardwareVideoEncoderFactory = videoEncoderFactory;
-    }
-
-    @Override // org.webrtc.VideoEncoderFactory
-    @Nullable
-    public VideoEncoder createEncoder(VideoCodecInfo videoCodecInfo) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, videoCodecInfo)) == null) {
-            VideoEncoder createEncoder = this.softwareVideoEncoderFactory.createEncoder(videoCodecInfo);
-            VideoEncoder createEncoder2 = this.hardwareVideoEncoderFactory.createEncoder(videoCodecInfo);
-            return (createEncoder2 == null || createEncoder == null) ? createEncoder2 != null ? createEncoder2 : createEncoder : new VideoEncoderFallback(createEncoder, createEncoder2);
-        }
-        return (VideoEncoder) invokeL.objValue;
-    }
-
-    @Override // org.webrtc.VideoEncoderFactory
-    public VideoCodecInfo[] getSupportedCodecs() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            LinkedHashSet linkedHashSet = new LinkedHashSet();
-            linkedHashSet.addAll(Arrays.asList(this.softwareVideoEncoderFactory.getSupportedCodecs()));
-            linkedHashSet.addAll(Arrays.asList(this.hardwareVideoEncoderFactory.getSupportedCodecs()));
-            return (VideoCodecInfo[]) linkedHashSet.toArray(new VideoCodecInfo[linkedHashSet.size()]);
-        }
-        return (VideoCodecInfo[]) invokeV.objValue;
     }
 }

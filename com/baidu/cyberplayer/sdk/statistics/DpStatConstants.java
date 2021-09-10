@@ -11,6 +11,11 @@ public class DpStatConstants {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ACTION_ACTIVATE_CORE_RESULT = 20737;
     public static final int ACTION_LIB_LOAD_RESULT = 20736;
+    public static final String FILECACHE_CLOSE_TYPE = "filecache_close_type";
+    public static final String FILECACHE_CLOSE_TYPE_FORBIDDEN = "1002";
+    public static final String FILECACHE_CLOSE_TYPE_IS_BLACKURL = "1001";
+    public static final String FILECACHE_CLOSE_TYPE_OPT_DISABLE = "1004";
+    public static final String FILECACHE_CLOSE_TYPE_OPT_IS_LIVE = "1003";
     public static final String KEY_ABTEST_SID = "abtest_sid";
     public static final String KEY_APP_NAME = "app_name";
     public static final String KEY_APP_VERSION_NAME = "app_version";
@@ -53,6 +58,9 @@ public class DpStatConstants {
     public static final String KEY_USER_ID = "userid";
     public static final String KEY_WIDTH = "width";
     public static final int MEDIA_ERROR_MEDIA_PLAYER = -10000;
+    public static final String PCDN_CLOSE_TYPE = "pcdn_close_type";
+    public static final String PCDN_CLOSE_TYPE_FORBIDDEN = "1001";
+    public static final String PCDN_CLOSE_TYPE_LIBPATH_NULL = "1002";
     public static final String SERVER_TYPE_DUPLAYER_INIT = "dp_init";
     public static final String SERVER_TYPE_DUPLAYER_MONITOR = "duplayer_monitor";
     public static final String SERVER_TYPE_DUPLAYER_RTC = "duplayer_rtc";
@@ -61,6 +69,7 @@ public class DpStatConstants {
     public static final int SESSION_TYPE_FIRST_SCREEN = 20513;
     public static final int SESSION_TYPE_KERNEL = 24321;
     public static final int SESSION_TYPE_LIVE_STREAM_INFO = 20487;
+    public static final int SESSION_TYPE_MEDIA_DATA_UTILIZATION_RATE = 20517;
     public static final int SESSION_TYPE_MEDIA_FORMAT_INFO = 20514;
     public static final int SESSION_TYPE_PLAY_COMMON = 24322;
     public static final int SESSION_TYPE_RTC_COMMON = 20488;

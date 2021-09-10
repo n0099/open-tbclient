@@ -5,8 +5,8 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
-import c.a.o0.a.v2.v;
-import c.a.o0.e.l.b;
+import c.a.p0.a.v2.v;
+import c.a.p0.e.l.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -25,7 +25,7 @@ public class SwanEntryActivity extends Activity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SwanEntryActivity f49200e;
+        public final /* synthetic */ SwanEntryActivity f49335e;
 
         public a(SwanEntryActivity swanEntryActivity) {
             Interceptable interceptable = $ic;
@@ -42,14 +42,14 @@ public class SwanEntryActivity extends Activity {
                     return;
                 }
             }
-            this.f49200e = swanEntryActivity;
+            this.f49335e = swanEntryActivity;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f49200e.finish();
+                this.f49335e.finish();
             }
         }
     }

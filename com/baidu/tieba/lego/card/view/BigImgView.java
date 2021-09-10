@@ -18,7 +18,7 @@ public class BigImgView extends BaseCardView<BigImgCard> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: f  reason: collision with root package name */
-    public TbImageView f53699f;
+    public TbImageView f53845f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BigImgView(TbPageContext tbPageContext) {
@@ -46,7 +46,7 @@ public class BigImgView extends BaseCardView<BigImgCard> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             TbImageView tbImageView = new TbImageView(getContext());
-            this.f53699f = tbImageView;
+            this.f53845f = tbImageView;
             return tbImageView;
         }
         return (View) invokeV.objValue;
@@ -65,18 +65,18 @@ public class BigImgView extends BaseCardView<BigImgCard> {
     public void onUpdateCardView(BigImgCard bigImgCard) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, bigImgCard) == null) {
-            FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.f53699f.getLayoutParams();
+            FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.f53845f.getLayoutParams();
             if (bigImgCard.getRatio() > 0.0d) {
                 int ratio = (int) (bigImgCard.getRatio() * l.k(getContext()));
                 if (Math.abs(ratio - layoutParams.height) > 10) {
                     layoutParams.height = ratio;
-                    this.f53699f.setLayoutParams(layoutParams);
+                    this.f53845f.setLayoutParams(layoutParams);
                 }
             } else {
                 layoutParams.height = (int) ((l.k(getContext()) * 0.5f) + 0.5f);
-                this.f53699f.setLayoutParams(layoutParams);
+                this.f53845f.setLayoutParams(layoutParams);
             }
-            this.f53699f.startLoad(bigImgCard.getUrl(), 10, false);
+            this.f53845f.startLoad(bigImgCard.getUrl(), 10, false);
         }
     }
 }

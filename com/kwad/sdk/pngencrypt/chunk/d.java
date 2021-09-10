@@ -16,25 +16,25 @@ public class d {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final int f72960a;
+    public final int f73140a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final byte[] f72961b;
+    public final byte[] f73141b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final String f72962c;
+    public final String f73142c;
 
     /* renamed from: d  reason: collision with root package name */
-    public byte[] f72963d;
+    public byte[] f73143d;
 
     /* renamed from: e  reason: collision with root package name */
-    public byte[] f72964e;
+    public byte[] f73144e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f72965f;
+    public long f73145f;
 
     /* renamed from: g  reason: collision with root package name */
-    public CRC32 f72966g;
+    public CRC32 f73146g;
 
     public d(int i2, String str, boolean z) {
         Interceptable interceptable = $ic;
@@ -51,14 +51,14 @@ public class d {
                 return;
             }
         }
-        this.f72963d = null;
-        this.f72965f = 0L;
-        this.f72964e = new byte[4];
-        this.f72960a = i2;
-        this.f72962c = str;
-        this.f72961b = b.a(str);
+        this.f73143d = null;
+        this.f73145f = 0L;
+        this.f73144e = new byte[4];
+        this.f73140a = i2;
+        this.f73142c = str;
+        this.f73141b = b.a(str);
         for (int i5 = 0; i5 < 4; i5++) {
-            byte[] bArr = this.f72961b;
+            byte[] bArr = this.f73141b;
             if (bArr[i5] < 65 || bArr[i5] > 122 || (bArr[i5] > 90 && bArr[i5] < 97)) {
                 com.kwad.sdk.core.d.a.a(new PngjException("Bad id chunk: must be ascii letters " + str));
             }
@@ -71,9 +71,9 @@ public class d {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            byte[] bArr = this.f72963d;
-            if (bArr == null || bArr.length < this.f72960a) {
-                this.f72963d = new byte[this.f72960a];
+            byte[] bArr = this.f73143d;
+            if (bArr == null || bArr.length < this.f73140a) {
+                this.f73143d = new byte[this.f73140a];
             }
         }
     }
@@ -81,7 +81,7 @@ public class d {
     public void a(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2) == null) {
-            this.f72965f = j2;
+            this.f73145f = j2;
         }
     }
 
@@ -89,10 +89,10 @@ public class d {
         int value;
         int c2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) || (value = (int) this.f72966g.getValue()) == (c2 = com.kwad.sdk.pngencrypt.n.c(this.f72964e, 0))) {
+        if (!(interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) || (value = (int) this.f73146g.getValue()) == (c2 = com.kwad.sdk.pngencrypt.n.c(this.f73144e, 0))) {
             return;
         }
-        String format = String.format("Bad CRC in chunk: %s (offset:%d). Expected:%x Got:%x", this.f72962c, Long.valueOf(this.f72965f), Integer.valueOf(c2), Integer.valueOf(value));
+        String format = String.format("Bad CRC in chunk: %s (offset:%d). Expected:%x Got:%x", this.f73142c, Long.valueOf(this.f73145f), Integer.valueOf(c2), Integer.valueOf(value));
         if (z) {
             com.kwad.sdk.core.d.a.a(new PngjException(format));
         } else {
@@ -103,23 +103,23 @@ public class d {
     public void a(byte[] bArr, int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLII(1048579, this, bArr, i2, i3) == null) {
-            if (this.f72966g == null) {
-                this.f72966g = new CRC32();
+            if (this.f73146g == null) {
+                this.f73146g = new CRC32();
             }
-            this.f72966g.update(bArr, i2, i3);
+            this.f73146g.update(bArr, i2, i3);
         }
     }
 
     public ByteArrayInputStream b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? new ByteArrayInputStream(this.f72963d) : (ByteArrayInputStream) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? new ByteArrayInputStream(this.f73143d) : (ByteArrayInputStream) invokeV.objValue;
     }
 
     public long c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f72965f : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f73145f : invokeV.longValue;
     }
 
     public boolean equals(Object obj) {
@@ -131,15 +131,15 @@ public class d {
             }
             if (obj != null && d.class == obj.getClass()) {
                 d dVar = (d) obj;
-                String str = this.f72962c;
+                String str = this.f73142c;
                 if (str == null) {
-                    if (dVar.f72962c != null) {
+                    if (dVar.f73142c != null) {
                         return false;
                     }
-                } else if (!str.equals(dVar.f72962c)) {
+                } else if (!str.equals(dVar.f73142c)) {
                     return false;
                 }
-                return this.f72965f == dVar.f72965f;
+                return this.f73145f == dVar.f73145f;
             }
             return false;
         }
@@ -150,9 +150,9 @@ public class d {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            String str = this.f72962c;
+            String str = this.f73142c;
             int hashCode = str == null ? 0 : str.hashCode();
-            long j2 = this.f72965f;
+            long j2 = this.f73145f;
             return ((hashCode + 31) * 31) + ((int) (j2 ^ (j2 >>> 32)));
         }
         return invokeV.intValue;
@@ -162,7 +162,7 @@ public class d {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return "chunkid=" + b.a(this.f72961b) + " len=" + this.f72960a;
+            return "chunkid=" + b.a(this.f73141b) + " len=" + this.f73140a;
         }
         return (String) invokeV.objValue;
     }

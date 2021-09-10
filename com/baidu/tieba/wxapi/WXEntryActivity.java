@@ -4,8 +4,8 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
-import c.a.p0.a.g;
-import c.a.q0.g2.a;
+import c.a.q0.a.g;
+import c.a.r0.h2.a;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -30,7 +30,7 @@ import com.tencent.mm.sdk.modelmsg.ShowMessageFromWX;
 import com.tencent.mm.sdk.openapi.IWXAPI;
 import com.tencent.mm.sdk.openapi.IWXAPIEventHandler;
 import com.tencent.mm.sdk.openapi.WXAPIFactory;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class WXEntryActivity extends BaseActivity<WXEntryActivity> implements IWXAPIEventHandler {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int WX_NOTINSTALL_CODE = 123456;
@@ -78,7 +78,7 @@ public class WXEntryActivity extends BaseActivity<WXEntryActivity> implements IW
                         }
                     }
                 }
-                if (str.startsWith(g.f12598a) && g.c(Uri.parse(str))) {
+                if (str.startsWith(g.f12601a) && g.c(Uri.parse(str))) {
                     UtilHelper.dealOneScheme(getPageContext().getPageActivity(), str);
                 } else {
                     UrlManager.getInstance().dealOneLink(getPageContext(), new String[]{str});
@@ -167,8 +167,8 @@ public class WXEntryActivity extends BaseActivity<WXEntryActivity> implements IW
         int type = baseResp.getType();
         if (1 == type) {
             a aVar = new a();
-            aVar.f18359a = this;
-            aVar.f18360b = baseResp;
+            aVar.f18948a = this;
+            aVar.f18949b = baseResp;
             MessageManager.getInstance().runTask(2921351, null, aVar);
             closeActivity();
         } else if (2 == type && (baseResp instanceof SendMessageToWX.Resp)) {

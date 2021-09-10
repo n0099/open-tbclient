@@ -23,17 +23,17 @@ public class DuplayerQualityMonitorManager {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static DuplayerQualityMonitorManager f42524c;
+    public static DuplayerQualityMonitorManager f42635c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int[] f42525d;
+    public static final int[] f42636d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ConcurrentHashMap<String, Integer> f42526a;
+    public ConcurrentHashMap<String, Integer> f42637a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f42527b;
+    public int f42638b;
 
     /* loaded from: classes5.dex */
     public static class a implements Runnable {
@@ -41,10 +41,10 @@ public class DuplayerQualityMonitorManager {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f42528e;
+        public final /* synthetic */ String f42639e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f42529f;
+        public final /* synthetic */ int f42640f;
 
         public a(String str, int i2) {
             Interceptable interceptable = $ic;
@@ -61,15 +61,15 @@ public class DuplayerQualityMonitorManager {
                     return;
                 }
             }
-            this.f42528e = str;
-            this.f42529f = i2;
+            this.f42639e = str;
+            this.f42640f = i2;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                DuplayerQualityMonitorManager.getInstance().e(this.f42528e, this.f42529f);
+                DuplayerQualityMonitorManager.getInstance().e(this.f42639e, this.f42640f);
             }
         }
     }
@@ -87,7 +87,7 @@ public class DuplayerQualityMonitorManager {
                 return;
             }
         }
-        f42525d = new int[]{480, RecordConstants.DEFAULT_PREVIEW_WIDTH, 720, 1080};
+        f42636d = new int[]{480, RecordConstants.DEFAULT_PREVIEW_WIDTH, 720, 1080};
     }
 
     public DuplayerQualityMonitorManager() {
@@ -103,8 +103,8 @@ public class DuplayerQualityMonitorManager {
                 return;
             }
         }
-        this.f42526a = new ConcurrentHashMap<>();
-        this.f42527b = 100;
+        this.f42637a = new ConcurrentHashMap<>();
+        this.f42638b = 100;
     }
 
     public static synchronized DuplayerQualityMonitorManager getInstance() {
@@ -113,10 +113,10 @@ public class DuplayerQualityMonitorManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
             synchronized (DuplayerQualityMonitorManager.class) {
-                if (f42524c == null) {
-                    f42524c = new DuplayerQualityMonitorManager();
+                if (f42635c == null) {
+                    f42635c = new DuplayerQualityMonitorManager();
                 }
-                duplayerQualityMonitorManager = f42524c;
+                duplayerQualityMonitorManager = f42635c;
             }
             return duplayerQualityMonitorManager;
         }
@@ -155,13 +155,13 @@ public class DuplayerQualityMonitorManager {
             if (min <= 0) {
                 return RecordConstants.DEFAULT_PREVIEW_WIDTH;
             }
-            for (int length = f42525d.length - 1; length >= 0; length--) {
-                int[] iArr = f42525d;
+            for (int length = f42636d.length - 1; length >= 0; length--) {
+                int[] iArr = f42636d;
                 if (min >= iArr[length]) {
                     return iArr[length];
                 }
             }
-            return f42525d[0];
+            return f42636d[0];
         }
         return invokeII.intValue;
     }
@@ -188,7 +188,7 @@ public class DuplayerQualityMonitorManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048579, this, str, i2) == null) {
             CyberLog.i("DuplayerQualityMonitorManager", "onUpdateMonitorData key:" + str + " score:" + i2);
-            ConcurrentHashMap<String, Integer> concurrentHashMap = this.f42526a;
+            ConcurrentHashMap<String, Integer> concurrentHashMap = this.f42637a;
             if (concurrentHashMap != null) {
                 concurrentHashMap.put(str, Integer.valueOf(i2));
             }
@@ -200,9 +200,9 @@ public class DuplayerQualityMonitorManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{str, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), map})) == null) {
             String c2 = c(str, i2, i3, i4, map);
-            Integer num = this.f42526a.get(c2);
+            Integer num = this.f42637a.get(c2);
             CyberLog.i("DuplayerQualityMonitorManager", "getPlayQualityScore key:" + c2 + " score:" + num);
-            return num != null ? num.intValue() : this.f42527b;
+            return num != null ? num.intValue() : this.f42638b;
         }
         return invokeCommon.intValue;
     }
@@ -210,7 +210,7 @@ public class DuplayerQualityMonitorManager {
     public void init(String str, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(1048581, this, str, z) == null) {
-            this.f42527b = CyberCfgManager.getInstance().getCfgIntValue("default_play_quality_score", 100);
+            this.f42638b = CyberCfgManager.getInstance().getCfgIntValue("default_play_quality_score", 100);
             nativeInit(str, z);
         }
     }

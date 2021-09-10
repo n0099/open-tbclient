@@ -3,13 +3,16 @@ package com.baidu.tieba.flutter.plugin.tiebautility.android;
 import android.text.TextUtils;
 import android.view.KeyEvent;
 import androidx.core.view.InputDeviceCompat;
-import c.a.p0.s.a0.b;
-import c.a.p0.s.q.k1;
-import c.a.p0.s.q.m2;
-import c.a.q0.i3.i0.e;
-import c.a.q0.i3.r0.k;
-import c.a.q0.i3.w;
-import c.a.q0.y2.a;
+import c.a.q0.d1.l;
+import c.a.q0.s.a0.b;
+import c.a.q0.s.q.l1;
+import c.a.q0.s.q.n2;
+import c.a.q0.s.q.o2;
+import c.a.r0.j3.i0.e;
+import c.a.r0.j3.r0.g;
+import c.a.r0.j3.r0.k;
+import c.a.r0.j3.w;
+import c.a.r0.z2.a;
 import com.alibaba.fastjson.parser.JSONLexer;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
@@ -24,7 +27,9 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
 import com.baidu.tbadk.core.data.SignData;
+import com.baidu.tbadk.core.data.VideoNotifyPersonalPageData;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.message.BackgroundSwitchMessage;
 import com.baidu.tbadk.core.util.ForumBroadcastHelper;
@@ -42,6 +47,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.zxing.maxicode.decoder.DecodedBitStreamParser;
 import java.util.HashMap;
 import java.util.Map;
 import org.apache.commons.lang3.CharUtils;
@@ -80,12 +86,15 @@ public class NativeListeners {
     public CustomMessageListener checkFeedBackListener;
     public CustomMessageListener feedBackRedTipListener;
     public final String kSendVideoWorkStatus;
+    public final String kSendWorkBackToFlutter;
     public final String kTBCBroadcastEdditPageResume;
     public final String kTBCBroadcastPublishSuccess;
     public final String kTBCCancleLikeFrsNotification;
     public final String kTBCDeleteFrsSection;
+    public final String kTBCFlutterUpgradeVideoAccountStatusNotification;
     public final String kTBCLikeForumsInfoDeletedNotification;
     public final String kTBCLikeForumsInfoUpdateNotification;
+    public final String kTBCPersonalCenterRefreshDataNotification;
     public final String kTBCShareSdkResultNotification;
     public final String kUIApplicationEnterPersonalCenterByClickNotification;
     public final String kUIApplicationSwitchTabNotification;
@@ -104,11 +113,14 @@ public class NativeListeners {
     public HttpMessageListener mResetUserPicsListener;
     public CustomMessageListener mSendPrePageKeyToFlutterWhenTabChangedListener;
     public CustomMessageListener mSendPrePageKeyToPersonCenterFlutterPage;
+    public CustomMessageListener mSendWorkBackToPersonCenter;
     public final CustomMessageListener mSignChangedListener;
     public CustomMessageListener mThreadAgreeChangedListener;
     public CustomMessageListener mThreadWriteReplyListener;
     public CustomMessageListener mUpdatePendantListener;
     public CustomMessageListener mUpdateShareNumListener;
+    public CustomMessageListener mVideoNotifyPersonalPage;
+    public CustomMessageListener mVideoUpgradeListener;
     public CustomMessageListener mVolumeUpOnKeyDownListener;
     public CustomMessageListener mWorkPostProgress;
     public CustomMessageListener mWorkPostStatus;
@@ -166,7 +178,10 @@ public class NativeListeners {
         this.AnimateToBarEntryForumSquare = "AnimateToBarEntryForumSquare";
         this.VolumeUpOnKeyDownNotification = "VolumeUpOnKeyDownNotification";
         this.kUpdateVideoWorkProgressNotification = "UpdateThreadProgress";
+        this.kSendWorkBackToFlutter = "SendWorkBackToFlutter";
         this.kSendVideoWorkStatus = "SendVideoWorkStatus";
+        this.kTBCPersonalCenterRefreshDataNotification = "kTBCPersonalCenterRefreshDataNotification";
+        this.kTBCFlutterUpgradeVideoAccountStatusNotification = "kTBCFlutterUpgradeVideoAccountStatusNotification";
         this.mVolumeUpOnKeyDownListener = new CustomMessageListener(this, 2921381) { // from class: com.baidu.tieba.flutter.plugin.tiebautility.android.NativeListeners.3
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -617,7 +632,7 @@ public class NativeListeners {
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 AgreeData agreeData;
                 Interceptable interceptable2 = $ic;
-                if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || !(customResponsedMessage.getData() instanceof e) || (agreeData = ((e) customResponsedMessage.getData()).f20277b) == null) {
+                if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || !(customResponsedMessage.getData() instanceof e) || (agreeData = ((e) customResponsedMessage.getData()).f20841b) == null) {
                     return;
                 }
                 HashMap hashMap = new HashMap();
@@ -1046,7 +1061,7 @@ public class NativeListeners {
                 if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null) {
                     return;
                 }
-                b.f13787c = b.f13788d;
+                b.f13742c = b.f13743d;
                 this.this$0.notifyFlutter("AnimateToBarEntryForumSquare", null, null);
             }
         };
@@ -1117,12 +1132,11 @@ public class NativeListeners {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                k1 k1Var;
+                l1 l1Var;
                 Interceptable interceptable2 = $ic;
-                if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || customResponsedMessage.getData() == null || !(customResponsedMessage.getData() instanceof k1) || (k1Var = (k1) customResponsedMessage.getData()) == null || !k1Var.e()) {
-                    return;
+                if ((interceptable2 == null || interceptable2.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof l1) && (l1Var = (l1) customResponsedMessage.getData()) != null && l1Var.e() && g.i().h() == null) {
+                    this.this$0.notifyFlutter("UpdateThreadProgress", null, null);
                 }
-                this.this$0.notifyFlutter("UpdateThreadProgress", null, null);
             }
         };
         this.mWorkPostStatus = new CustomMessageListener(this, 2921592) { // from class: com.baidu.tieba.flutter.plugin.tiebautility.android.NativeListeners.28
@@ -1154,23 +1168,139 @@ public class NativeListeners {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                m2 m2Var;
+                o2 o2Var;
                 Interceptable interceptable2 = $ic;
-                if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || customResponsedMessage.getData() == null || !(customResponsedMessage.getData() instanceof m2) || (m2Var = (m2) customResponsedMessage.getData()) == null) {
+                if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || customResponsedMessage.getData() == null || !(customResponsedMessage.getData() instanceof o2) || (o2Var = (o2) customResponsedMessage.getData()) == null) {
                     return;
                 }
                 HashMap hashMap = new HashMap();
-                hashMap.put("status", m2Var.f14303a);
-                hashMap.put("videoId", m2Var.f14304b);
-                hashMap.put("errorMessage", m2Var.f14305c);
+                hashMap.put("status", o2Var.f14276a);
+                hashMap.put("videoId", o2Var.f14277b);
+                hashMap.put("errorMessage", o2Var.f14278c);
                 this.this$0.notifyFlutter("SendVideoWorkStatus", null, hashMap);
+            }
+        };
+        this.mSendWorkBackToPersonCenter = new CustomMessageListener(this, 2921625) { // from class: com.baidu.tieba.flutter.plugin.tiebautility.android.NativeListeners.29
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ NativeListeners this$0;
+
+            /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+            {
+                super(r8);
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext2 = TitanRuntime.newInitContext();
+                    newInitContext2.initArgs = r2;
+                    Object[] objArr = {this, Integer.valueOf(r8)};
+                    interceptable2.invokeUnInit(65536, newInitContext2);
+                    int i4 = newInitContext2.flag;
+                    if ((i4 & 1) != 0) {
+                        int i5 = i4 & 2;
+                        super(((Integer) newInitContext2.callArgs[0]).intValue());
+                        newInitContext2.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext2);
+                        return;
+                    }
+                }
+                this.this$0 = this;
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.baidu.adp.framework.listener.MessageListener
+            public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+                Interceptable interceptable2 = $ic;
+                if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || customResponsedMessage.getData() == null || !(customResponsedMessage.getData() instanceof n2)) {
+                    return;
+                }
+                n2 n2Var = (n2) customResponsedMessage.getData();
+                HashMap hashMap = new HashMap();
+                if (n2Var.f14271a) {
+                    hashMap.put(PersonInfoActivityConfig.IS_SHOW_PROGRESS, "1");
+                } else {
+                    hashMap.put(PersonInfoActivityConfig.IS_SHOW_PROGRESS, "0");
+                }
+                hashMap.put("pageId", n2Var.f14272b);
+                this.this$0.notifyFlutter("SendWorkBackToFlutter", null, hashMap);
+            }
+        };
+        this.mVideoNotifyPersonalPage = new CustomMessageListener(this, 2921623) { // from class: com.baidu.tieba.flutter.plugin.tiebautility.android.NativeListeners.30
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ NativeListeners this$0;
+
+            /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+            {
+                super(r8);
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext2 = TitanRuntime.newInitContext();
+                    newInitContext2.initArgs = r2;
+                    Object[] objArr = {this, Integer.valueOf(r8)};
+                    interceptable2.invokeUnInit(65536, newInitContext2);
+                    int i4 = newInitContext2.flag;
+                    if ((i4 & 1) != 0) {
+                        int i5 = i4 & 2;
+                        super(((Integer) newInitContext2.callArgs[0]).intValue());
+                        newInitContext2.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext2);
+                        return;
+                    }
+                }
+                this.this$0 = this;
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.baidu.adp.framework.listener.MessageListener
+            public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+                VideoNotifyPersonalPageData videoNotifyPersonalPageData;
+                Interceptable interceptable2 = $ic;
+                if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || customResponsedMessage.getData() == null || !(customResponsedMessage.getData() instanceof VideoNotifyPersonalPageData) || (videoNotifyPersonalPageData = (VideoNotifyPersonalPageData) customResponsedMessage.getData()) == null) {
+                    return;
+                }
+                this.this$0.notifyFlutter("kTBCPersonalCenterRefreshDataNotification", null, new HashMap(l.d(videoNotifyPersonalPageData)));
+            }
+        };
+        this.mVideoUpgradeListener = new CustomMessageListener(this, 2921624) { // from class: com.baidu.tieba.flutter.plugin.tiebautility.android.NativeListeners.31
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ NativeListeners this$0;
+
+            /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+            {
+                super(r8);
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext2 = TitanRuntime.newInitContext();
+                    newInitContext2.initArgs = r2;
+                    Object[] objArr = {this, Integer.valueOf(r8)};
+                    interceptable2.invokeUnInit(65536, newInitContext2);
+                    int i4 = newInitContext2.flag;
+                    if ((i4 & 1) != 0) {
+                        int i5 = i4 & 2;
+                        super(((Integer) newInitContext2.callArgs[0]).intValue());
+                        newInitContext2.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext2);
+                        return;
+                    }
+                }
+                this.this$0 = this;
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.baidu.adp.framework.listener.MessageListener
+            public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+                Interceptable interceptable2 = $ic;
+                if ((interceptable2 == null || interceptable2.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof Boolean) && ((Boolean) customResponsedMessage.getData()).booleanValue()) {
+                    this.this$0.notifyFlutter("kTBCFlutterUpgradeVideoAccountStatusNotification", null, null);
+                }
             }
         };
     }
 
     private void dealBeforeAttachNotification(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65539, this, str) == null) && "AnimateToBarEntryForumSquare".equals(str) && b.f13787c == b.f13789e) {
+        if ((interceptable == null || interceptable.invokeL(65539, this, str) == null) && "AnimateToBarEntryForumSquare".equals(str) && b.f13742c == b.f13744e) {
             c.a.e.e.m.e.a().postDelayed(new Runnable(this) { // from class: com.baidu.tieba.flutter.plugin.tiebautility.android.NativeListeners.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -1222,6 +1352,13 @@ public class NativeListeners {
                 case -2111678678:
                     if (str.equals("AutoRefreshCategory")) {
                         c2 = 20;
+                        break;
+                    }
+                    c2 = 65535;
+                    break;
+                case -2039579207:
+                    if (str.equals("kTBCFlutterUpgradeVideoAccountStatusNotification")) {
+                        c2 = DecodedBitStreamParser.GS;
                         break;
                     }
                     c2 = 65535;
@@ -1285,6 +1422,13 @@ public class NativeListeners {
                 case -241869128:
                     if (str.equals("FansCountUpdate")) {
                         c2 = 3;
+                        break;
+                    }
+                    c2 = 65535;
+                    break;
+                case -213083375:
+                    if (str.equals("kTBCPersonalCenterRefreshDataNotification")) {
+                        c2 = DecodedBitStreamParser.FS;
                         break;
                     }
                     c2 = 65535;
@@ -1362,6 +1506,13 @@ public class NativeListeners {
                 case 790383375:
                     if (str.equals("ChangePendantImage")) {
                         c2 = 11;
+                        break;
+                    }
+                    c2 = 65535;
+                    break;
+                case 1111371169:
+                    if (str.equals("SendWorkBackToFlutter")) {
+                        c2 = 27;
                         break;
                     }
                     c2 = 65535;
@@ -1473,6 +1624,12 @@ public class NativeListeners {
                     return this.mWorkPostProgress;
                 case 26:
                     return this.mWorkPostStatus;
+                case 27:
+                    return this.mSendWorkBackToPersonCenter;
+                case 28:
+                    return this.mVideoNotifyPersonalPage;
+                case 29:
+                    return this.mVideoUpgradeListener;
                 default:
                     return null;
             }
@@ -1556,8 +1713,8 @@ public class NativeListeners {
                 wVar.v(1);
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001266, wVar));
                 k kVar = new k();
-                kVar.f20549a = c.a.e.e.m.b.f(str2, 0L);
-                kVar.f20550b = true;
+                kVar.f21117a = c.a.e.e.m.b.g(str2, 0L);
+                kVar.f21118b = true;
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001437, kVar));
                 return null;
             } else if (c2 == 1) {

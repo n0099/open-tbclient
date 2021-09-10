@@ -17,7 +17,7 @@ public class q {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f65073a;
+    public static String f65253a;
     public transient /* synthetic */ FieldHolder $fh;
 
     public static boolean a(Context context) {
@@ -36,21 +36,21 @@ public class q {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
-            if (!TextUtils.isEmpty(f65073a)) {
-                return f65073a;
+            if (!TextUtils.isEmpty(f65253a)) {
+                return f65253a;
             }
             String a2 = a();
-            f65073a = a2;
+            f65253a = a2;
             if (!TextUtils.isEmpty(a2)) {
-                return f65073a;
+                return f65253a;
             }
             String b2 = b();
-            f65073a = b2;
+            f65253a = b2;
             if (!TextUtils.isEmpty(b2)) {
-                return f65073a;
+                return f65253a;
             }
             String c2 = c(context);
-            f65073a = c2;
+            f65253a = c2;
             return c2;
         }
         return (String) invokeL.objValue;

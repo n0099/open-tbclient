@@ -1,7 +1,6 @@
 package com.baidu.tbadk.core.util;
 
 import android.net.DhcpInfo;
-import android.net.wifi.WifiManager;
 import android.text.TextUtils;
 import androidx.appcompat.widget.TooltipCompatHandler;
 import androidx.core.view.InputDeviceCompat;
@@ -11,12 +10,12 @@ import c.a.e.e.n.a;
 import c.a.e.e.p.j;
 import c.a.e.e.p.k;
 import c.a.e.e.p.l;
-import c.a.p0.b1.o;
-import com.baidu.adp.base.BdBaseApplication;
+import c.a.q0.d1.p;
 import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.down.retry.HttpRetryStrategyDataParse;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tbadk.TbDomainConfig;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.httpNet.ICDNIPDirectConnect;
 import com.baidu.tbadk.switchs.UseHttpdnsSdkSwitch;
@@ -194,16 +193,11 @@ public class ImageLogger {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) {
-            try {
-                if (PermissionUtil.isAgreePrivacyPolicy()) {
-                    DhcpInfo dhcpInfo = ((WifiManager) BdBaseApplication.getInst().getApplicationContext().getSystemService("wifi")).getDhcpInfo();
-                    return intToIp(dhcpInfo.dns1) + "," + intToIp(dhcpInfo.dns2);
-                }
-                return "";
-            } catch (Exception e2) {
-                e2.printStackTrace();
-                return "";
+            DhcpInfo dhcpInfo = TbadkCoreApplication.getInst().getDhcpInfo();
+            if (dhcpInfo != null) {
+                return intToIp(dhcpInfo.dns1) + "," + intToIp(dhcpInfo.dns2);
             }
+            return "";
         }
         return (String) invokeV.objValue;
     }
@@ -230,7 +224,7 @@ public class ImageLogger {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeCommon(65545, null, new Object[]{str, Boolean.valueOf(z), str2, bool, dVar, str3, Long.valueOf(j2), Boolean.valueOf(z2), Integer.valueOf(i2)}) == null) && l.D() && dVar != null) {
             String str4 = "";
-            boolean b2 = o.b(str2);
+            boolean b2 = p.b(str2);
             if (ICDNIPDirectConnect.getInstance() != null) {
                 if (!ICDNIPDirectConnect.getInstance().isAlreadyInit) {
                     ICDNIPDirectConnect.getInstance().init();
@@ -264,13 +258,13 @@ public class ImageLogger {
                 }
             }
             if (z && z3) {
-                if (H && j2 < ICDNIPDirectConnect.getInstance().getCDNImageTimeData().f13667d) {
+                if (H && j2 < ICDNIPDirectConnect.getInstance().getCDNImageTimeData().f13624d) {
                     return;
                 }
-                if (!H && j.t() && j2 < ICDNIPDirectConnect.getInstance().getCDNImageTimeData().f13669f) {
+                if (!H && j.t() && j2 < ICDNIPDirectConnect.getInstance().getCDNImageTimeData().f13626f) {
                     return;
                 }
-                if (!H && j2 < ICDNIPDirectConnect.getInstance().getCDNImageTimeData().f13668e) {
+                if (!H && j2 < ICDNIPDirectConnect.getInstance().getCDNImageTimeData().f13625e) {
                     return;
                 }
             }
@@ -357,7 +351,7 @@ public class ImageLogger {
     public static String memoryUsage() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) ? c.a.p0.b0.c.k().v() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) ? c.a.q0.c0.c.k().v() : (String) invokeV.objValue;
     }
 
     public static void mobileTachometerLoger(ArrayList<String> arrayList, long j2) {

@@ -1,6 +1,9 @@
 package com.baidu.tieba.flutter.plugin.tiebautility.android;
 
-import c.a.p0.s.m.b;
+import c.a.q0.s.m.b;
+import c.a.r0.c4.i;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tieba.flutter.plugin.tiebautility.TiebaUtilityVideoCreationCenterAuto;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -29,7 +32,26 @@ public class UtilityVideoCreationCenter implements TiebaUtilityVideoCreationCent
     public void sendThread(TiebaUtilityVideoCreationCenterAuto.VideoCreationCenterSendParams videoCreationCenterSendParams) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, videoCreationCenterSendParams) == null) {
-            b.g(videoCreationCenterSendParams.getObjLocate());
+            b.e(videoCreationCenterSendParams.getObjLocate(), videoCreationCenterSendParams.getPageId());
+        }
+    }
+
+    @Override // com.baidu.tieba.flutter.plugin.tiebautility.TiebaUtilityVideoCreationCenterAuto.HostUtilityVideoCreationCenter
+    public void showGuide() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            int b2 = i.b();
+            if (i.d(b2)) {
+                i.f(TbadkApplication.getInst().getCurrentActivity(), b2, 6);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.flutter.plugin.tiebautility.TiebaUtilityVideoCreationCenterAuto.HostUtilityVideoCreationCenter
+    public void updateStatus(TiebaUtilityVideoCreationCenterAuto.VideoCreationCenterBoolValue videoCreationCenterBoolValue) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, videoCreationCenterBoolValue) == null) && videoCreationCenterBoolValue.getResult().booleanValue()) {
+            c.a.q0.s.d0.b.j().v("key_work_video_guide_pop", 0);
         }
     }
 }

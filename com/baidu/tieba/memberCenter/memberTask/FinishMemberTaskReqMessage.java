@@ -1,6 +1,6 @@
 package com.baidu.tieba.memberCenter.memberTask;
 
-import c.a.p0.b1.w;
+import c.a.q0.d1.x;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -44,7 +44,7 @@ public class FinishMemberTaskReqMessage extends NetMessage {
             DataReq.Builder builder = new DataReq.Builder();
             builder.task_id = Long.valueOf(this.taskId);
             if (z) {
-                w.a(builder, true);
+                x.a(builder, true);
             }
             FinishMemberTaskReqIdl.Builder builder2 = new FinishMemberTaskReqIdl.Builder();
             builder2.data = builder.build(false);

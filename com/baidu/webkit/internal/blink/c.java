@@ -24,26 +24,26 @@ public final class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final Object f63597e;
+    public static final Object f63777e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static c f63598f;
+    public static c f63778f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final Object f63599g;
+    public static final Object f63779g;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public a f63600a;
+    public a f63780a;
 
     /* renamed from: b  reason: collision with root package name */
-    public b f63601b;
+    public b f63781b;
 
     /* renamed from: c  reason: collision with root package name */
-    public WebViewFactory.WebKitUnzipCallback f63602c;
+    public WebViewFactory.WebKitUnzipCallback f63782c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Handler f63603d;
+    public Handler f63783d;
 
     /* loaded from: classes9.dex */
     public static class a {
@@ -51,19 +51,19 @@ public final class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f63605a;
+        public String f63785a;
 
         /* renamed from: b  reason: collision with root package name */
-        public Context f63606b;
+        public Context f63786b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f63607c;
+        public String f63787c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f63608d;
+        public String f63788d;
 
         /* renamed from: e  reason: collision with root package name */
-        public boolean f63609e;
+        public boolean f63789e;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -85,26 +85,26 @@ public final class c {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
                 synchronized (this) {
-                    if (z != this.f63609e) {
-                        this.f63609e = z;
+                    if (z != this.f63789e) {
+                        this.f63789e = z;
                     }
-                    if (this.f63609e) {
-                        if (this.f63606b.getFilesDir() == null) {
+                    if (this.f63789e) {
+                        if (this.f63786b.getFilesDir() == null) {
                             sb2 = null;
                         } else {
-                            if (this.f63606b.getApplicationInfo().nativeLibraryDir != null) {
+                            if (this.f63786b.getApplicationInfo().nativeLibraryDir != null) {
                                 sb = new StringBuilder();
-                                sb.append(this.f63606b.getApplicationInfo().nativeLibraryDir);
+                                sb.append(this.f63786b.getApplicationInfo().nativeLibraryDir);
                                 sb.append("/libzeuswebviewchromium.so");
                             } else {
                                 sb = new StringBuilder();
-                                sb.append(this.f63606b.getFilesDir().getParent());
+                                sb.append(this.f63786b.getFilesDir().getParent());
                                 sb.append("/lib/libzeuswebviewchromium.so");
                             }
                             sb2 = sb.toString();
                         }
-                        this.f63607c = sb2;
-                        this.f63608d = this.f63605a + GlobalConstants.ZEUS_LIB_LOCAL_RELATIVE_PATH;
+                        this.f63787c = sb2;
+                        this.f63788d = this.f63785a + GlobalConstants.ZEUS_LIB_LOCAL_RELATIVE_PATH;
                     }
                 }
             }
@@ -116,7 +116,7 @@ public final class c {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
                 synchronized (this) {
-                    z = this.f63609e;
+                    z = this.f63789e;
                 }
                 return z;
             }
@@ -130,13 +130,13 @@ public final class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public boolean f63610a;
+        public boolean f63790a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ c f63611b;
+        public final /* synthetic */ c f63791b;
 
         /* renamed from: c  reason: collision with root package name */
-        public Context f63612c;
+        public Context f63792c;
 
         public b(c cVar, Context context) {
             Interceptable interceptable = $ic;
@@ -153,19 +153,19 @@ public final class c {
                     return;
                 }
             }
-            this.f63611b = cVar;
-            this.f63612c = context;
+            this.f63791b = cVar;
+            this.f63792c = context;
         }
 
         /* JADX INFO: Access modifiers changed from: private */
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(65537, this) == null) {
-                this.f63610a = true;
-                synchronized (c.f63599g) {
-                    if (this.f63611b.f63602c != null) {
-                        this.f63611b.f63602c.unzipFinished();
-                        this.f63611b.f63602c = null;
+                this.f63790a = true;
+                synchronized (c.f63779g) {
+                    if (this.f63791b.f63782c != null) {
+                        this.f63791b.f63782c.unzipFinished();
+                        this.f63791b.f63782c = null;
                     }
                 }
             }
@@ -177,12 +177,12 @@ public final class c {
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 try {
                     boolean z = true;
-                    if (this.f63612c != null && SevenZipUtils.getInstance().prepare(this.f63612c, this.f63611b.f63600a.f63607c, this.f63611b.f63600a.f63608d)) {
+                    if (this.f63792c != null && SevenZipUtils.getInstance().prepare(this.f63792c, this.f63791b.f63780a.f63787c, this.f63791b.f63780a.f63788d)) {
                         ZeusPerformanceTiming.record(ZeusPerformanceTiming.Stage.Start, ZeusPerformanceTiming.KEY_UNZIP);
                         SevenZipUtils.getInstance().hook(true);
-                        SevenZipUtils.getInstance().unzipWithMeta(this.f63611b.f63600a.f63607c, this.f63611b.f63600a.f63608d);
+                        SevenZipUtils.getInstance().unzipWithMeta(this.f63791b.f63780a.f63787c, this.f63791b.f63780a.f63788d);
                         Log.i("BlinkUnzipManager", "[perf][startup][unzip] finish.");
-                        this.f63610a = true;
+                        this.f63790a = true;
                         int errorCode = SevenZipUtils.getInstance().getErrorCode();
                         if (errorCode != 0) {
                             LoadErrorCode.getInstance().set(100, "res=".concat(String.valueOf(errorCode)));
@@ -192,7 +192,7 @@ public final class c {
                             public transient /* synthetic */ FieldHolder $fh;
 
                             /* renamed from: a  reason: collision with root package name */
-                            public final /* synthetic */ b f63613a;
+                            public final /* synthetic */ b f63793a;
 
                             {
                                 Interceptable interceptable2 = $ic;
@@ -209,7 +209,7 @@ public final class c {
                                         return;
                                     }
                                 }
-                                this.f63613a = this;
+                                this.f63793a = this;
                             }
 
                             @Override // java.lang.Runnable
@@ -217,7 +217,7 @@ public final class c {
                                 Interceptable interceptable2 = $ic;
                                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                                     WebViewFactory.getProvider();
-                                    this.f63613a.a();
+                                    this.f63793a.a();
                                 }
                             }
                         });
@@ -228,7 +228,7 @@ public final class c {
                     }
                     LoadErrorCode loadErrorCode = LoadErrorCode.getInstance();
                     StringBuilder sb = new StringBuilder("502:");
-                    if (this.f63612c != null) {
+                    if (this.f63792c != null) {
                         z = false;
                     }
                     sb.append(z);
@@ -255,8 +255,8 @@ public final class c {
                 return;
             }
         }
-        f63597e = new Object();
-        f63599g = new Object();
+        f63777e = new Object();
+        f63779g = new Object();
     }
 
     public c(Context context) {
@@ -275,11 +275,11 @@ public final class c {
             }
         }
         a aVar = new a();
-        this.f63600a = aVar;
+        this.f63780a = aVar;
         try {
             Context applicationContext = context.getApplicationContext();
-            aVar.f63606b = applicationContext;
-            aVar.f63605a = applicationContext.getFilesDir().toString();
+            aVar.f63786b = applicationContext;
+            aVar.f63785a = applicationContext.getFilesDir().toString();
         } catch (Exception unused) {
         }
     }
@@ -290,10 +290,10 @@ public final class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
             synchronized (c.class) {
-                if (f63598f == null) {
-                    f63598f = new c(context);
+                if (f63778f == null) {
+                    f63778f = new c(context);
                 }
-                cVar = f63598f;
+                cVar = f63778f;
             }
             return cVar;
         }
@@ -302,18 +302,18 @@ public final class c {
 
     private void d() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65543, this) == null) || this.f63601b.isAlive() || this.f63601b.getState() == Thread.State.TERMINATED) {
+        if (!(interceptable == null || interceptable.invokeV(65543, this) == null) || this.f63781b.isAlive() || this.f63781b.getState() == Thread.State.TERMINATED) {
             return;
         }
         Log.i("BlinkUnzipManager", "[perf][startup][unzip] start task");
-        this.f63601b.start();
+        this.f63781b.start();
     }
 
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            synchronized (f63597e) {
-                if (this.f63601b != null && this.f63600a != null) {
+            synchronized (f63777e) {
+                if (this.f63781b != null && this.f63780a != null) {
                     d();
                 }
             }
@@ -323,14 +323,14 @@ public final class c {
     public final void b() throws Exception {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            synchronized (f63597e) {
+            synchronized (f63777e) {
                 try {
                     try {
-                        if (this.f63600a.a() && this.f63601b != null) {
+                        if (this.f63780a.a() && this.f63781b != null) {
                             d();
-                            this.f63601b.join(15000L);
-                            if (this.f63601b.f63610a) {
-                                this.f63601b = null;
+                            this.f63781b.join(15000L);
+                            if (this.f63781b.f63790a) {
+                                this.f63781b = null;
                             } else {
                                 LoadErrorCode.getInstance().set(102);
                                 throw new TimeoutException("unzip task not finished.");

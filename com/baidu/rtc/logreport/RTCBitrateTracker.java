@@ -36,19 +36,7 @@ public class RTCBitrateTracker {
     public static String bitrateStringForBitrate(double d2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Double.valueOf(d2)})) == null) {
-            if (d2 > 1000000.0d) {
-                return String.format("%.2fMbps", Double.valueOf(d2 * 1.0E-6d));
-            }
-            Object[] objArr = new Object[1];
-            if (d2 > 1000.0d) {
-                objArr[0] = Double.valueOf(d2 * 0.001d);
-                return String.format("%.0fKbps", objArr);
-            }
-            objArr[0] = Double.valueOf(d2);
-            return String.format("%.0fbps", objArr);
-        }
-        return (String) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Double.valueOf(d2)})) == null) ? d2 > 1000000.0d ? String.format("%.2fMbps", Double.valueOf(d2 * 1.0E-6d)) : d2 > 1000.0d ? String.format("%.0fKbps", Double.valueOf(d2 * 0.001d)) : String.format("%.0fbps", Double.valueOf(d2)) : (String) invokeCommon.objValue;
     }
 
     public static int bitrateToString(String str) {

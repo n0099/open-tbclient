@@ -74,52 +74,71 @@ public abstract class i implements b.a.a.b.a.b {
 
     public abstract Map<String, String> b(e eVar);
 
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:24:0x0058 */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Removed duplicated region for block: B:41:0x0076  */
+    /* JADX WARN: Type inference failed for: r2v3 */
+    /* JADX WARN: Type inference failed for: r2v6, types: [java.net.HttpURLConnection] */
+    /* JADX WARN: Type inference failed for: r2v7 */
+    /* JADX WARN: Type inference failed for: r7v0, types: [b.a.a.b.c.i, java.lang.Object] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
     public final void c() {
-        HttpURLConnection httpURLConnection;
+        IOException e2;
+        ProtocolException e3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        if (interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) {
+            return;
+        }
+        try {
+            URL url = new URL(this.f1558g.f1538a);
+            ?? r2 = 0;
             try {
-                HttpURLConnection httpURLConnection2 = null;
                 try {
+                    HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
                     try {
-                        httpURLConnection = (HttpURLConnection) new URL(this.f1558g.f1538a).openConnection();
-                    } catch (Throwable th) {
-                        th = th;
+                        httpURLConnection.setConnectTimeout(4000);
+                        httpURLConnection.setReadTimeout(4000);
+                        httpURLConnection.setRequestMethod("GET");
+                        h(b(this.f1558g), httpURLConnection);
+                        int responseCode = httpURLConnection.getResponseCode();
+                        if (responseCode == i()) {
+                            g(httpURLConnection);
+                            httpURLConnection.disconnect();
+                            return;
+                        }
+                        StringBuilder sb = new StringBuilder();
+                        sb.append("UnSupported response code:");
+                        sb.append(responseCode);
+                        throw new DownloadException(108, sb.toString());
+                    } catch (ProtocolException e4) {
+                        e3 = e4;
+                        throw new DownloadException(108, "Protocol error", e3);
+                    } catch (IOException e5) {
+                        e2 = e5;
+                        throw new DownloadException(108, "IO error", e2);
                     }
-                } catch (ProtocolException e2) {
-                    e = e2;
-                } catch (IOException e3) {
-                    e = e3;
-                }
-                try {
-                    httpURLConnection.setConnectTimeout(4000);
-                    httpURLConnection.setReadTimeout(4000);
-                    httpURLConnection.setRequestMethod("GET");
-                    h(b(this.f1558g), httpURLConnection);
-                    int responseCode = httpURLConnection.getResponseCode();
-                    if (responseCode == i()) {
-                        g(httpURLConnection);
-                        httpURLConnection.disconnect();
-                        return;
-                    }
-                    throw new DownloadException(108, "UnSupported response code:" + responseCode);
-                } catch (ProtocolException e4) {
-                    e = e4;
-                    throw new DownloadException(108, "Protocol error", e);
-                } catch (IOException e5) {
-                    e = e5;
-                    throw new DownloadException(108, "IO error", e);
-                } catch (Throwable th2) {
-                    th = th2;
-                    httpURLConnection2 = httpURLConnection;
-                    if (httpURLConnection2 != null) {
-                        httpURLConnection2.disconnect();
+                } catch (Throwable th) {
+                    th = th;
+                    r2 = url;
+                    if (r2 != 0) {
+                        r2.disconnect();
                     }
                     throw th;
                 }
-            } catch (MalformedURLException e6) {
-                throw new DownloadException(108, "Bad url.", e6);
+            } catch (ProtocolException e6) {
+                e3 = e6;
+            } catch (IOException e7) {
+                e2 = e7;
+            } catch (Throwable th2) {
+                th = th2;
+                if (r2 != 0) {
+                }
+                throw th;
             }
+        } catch (MalformedURLException e8) {
+            throw new DownloadException(108, "Bad url.", e8);
         }
     }
 
@@ -157,11 +176,7 @@ public abstract class i implements b.a.a.b.a.b {
             return;
         }
         synchronized (i.class) {
-            try {
-                closeable.close();
-            } catch (Throwable th) {
-                throw th;
-            }
+            closeable.close();
         }
     }
 
@@ -170,25 +185,26 @@ public abstract class i implements b.a.a.b.a.b {
         if (interceptable == null || interceptable.invokeLL(1048581, this, inputStream, randomAccessFile) == null) {
             byte[] bArr = new byte[8192];
             while (this.f1561j != 107) {
-                if (this.f1561j == 106) {
+                if (this.f1561j != 106) {
+                    try {
+                        int read = inputStream.read(bArr);
+                        if (read == -1) {
+                            return;
+                        }
+                        randomAccessFile.write(bArr, 0, read);
+                        long j2 = read;
+                        this.f1558g.f1541d += j2;
+                        synchronized (this.f1559h) {
+                            this.f1557f.f1537d += j2;
+                            ((g) this.f1559h).b(this.f1557f.f1537d, this.f1557f.f1536c);
+                        }
+                    } catch (IOException e2) {
+                        l(this.f1558g);
+                        throw new DownloadException(108, e2);
+                    }
+                } else {
                     l(this.f1558g);
                     throw new DownloadException(106, "Download paused!");
-                }
-                try {
-                    int read = inputStream.read(bArr);
-                    if (read == -1) {
-                        return;
-                    }
-                    randomAccessFile.write(bArr, 0, read);
-                    long j2 = read;
-                    this.f1558g.f1541d += j2;
-                    synchronized (this.f1559h) {
-                        this.f1557f.f1537d += j2;
-                        ((g) this.f1559h).b(this.f1557f.f1537d, this.f1557f.f1536c);
-                    }
-                } catch (IOException e2) {
-                    l(this.f1558g);
-                    throw new DownloadException(108, e2);
                 }
             }
             throw new DownloadException(107, "Download canceled!");
@@ -197,24 +213,22 @@ public abstract class i implements b.a.a.b.a.b {
 
     public final void g(HttpURLConnection httpURLConnection) {
         Throwable th;
-        Closeable closeable;
+        InputStream inputStream;
         Interceptable interceptable = $ic;
         if (interceptable != null && interceptable.invokeL(1048582, this, httpURLConnection) != null) {
             return;
         }
-        Closeable closeable2 = null;
         try {
             try {
-                InputStream inputStream = httpURLConnection.getInputStream();
+                inputStream = httpURLConnection.getInputStream();
                 try {
-                    long j2 = this.f1558g.f1539b;
-                    long j3 = this.f1558g.f1541d;
+                    long j2 = this.f1558g.f1539b + this.f1558g.f1541d;
                     try {
                         File file = this.f1557f.f1535b;
                         if (!file.exists()) {
                             file.mkdirs();
                         }
-                        RandomAccessFile a2 = a(file, this.f1557f.f1534a, j2 + j3);
+                        RandomAccessFile a2 = a(file, this.f1557f.f1534a, j2);
                         f(inputStream, a2);
                         try {
                             e(inputStream);
@@ -229,11 +243,9 @@ public abstract class i implements b.a.a.b.a.b {
                     }
                 } catch (Throwable th2) {
                     th = th2;
-                    closeable2 = inputStream;
-                    closeable = null;
                     try {
-                        e(closeable2);
-                        e(closeable);
+                        e(inputStream);
+                        e(null);
                     } catch (IOException e5) {
                         e5.printStackTrace();
                     }
@@ -244,7 +256,7 @@ public abstract class i implements b.a.a.b.a.b {
             }
         } catch (Throwable th3) {
             th = th3;
-            closeable = null;
+            inputStream = null;
         }
     }
 

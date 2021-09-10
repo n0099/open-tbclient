@@ -14,10 +14,10 @@ public class e<T> implements d.a<T> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final i.e<? super T> f78369e;
+    public final i.e<? super T> f78607e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final i.d<T> f78370f;
+    public final i.d<T> f78608f;
 
     /* loaded from: classes10.dex */
     public static final class a<T> extends i.j<T> {
@@ -25,13 +25,13 @@ public class e<T> implements d.a<T> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final i.j<? super T> f78371e;
+        public final i.j<? super T> f78609e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final i.e<? super T> f78372f;
+        public final i.e<? super T> f78610f;
 
         /* renamed from: g  reason: collision with root package name */
-        public boolean f78373g;
+        public boolean f78611g;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(i.j<? super T> jVar, i.e<? super T> eVar) {
@@ -51,20 +51,20 @@ public class e<T> implements d.a<T> {
                     return;
                 }
             }
-            this.f78371e = jVar;
-            this.f78372f = eVar;
+            this.f78609e = jVar;
+            this.f78610f = eVar;
         }
 
         @Override // i.e
         public void onCompleted() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f78373g) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f78611g) {
                 return;
             }
             try {
-                this.f78372f.onCompleted();
-                this.f78373g = true;
-                this.f78371e.onCompleted();
+                this.f78610f.onCompleted();
+                this.f78611g = true;
+                this.f78609e.onCompleted();
             } catch (Throwable th) {
                 i.m.a.f(th, this);
             }
@@ -74,17 +74,17 @@ public class e<T> implements d.a<T> {
         public void onError(Throwable th) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
-                if (this.f78373g) {
+                if (this.f78611g) {
                     i.r.c.j(th);
                     return;
                 }
-                this.f78373g = true;
+                this.f78611g = true;
                 try {
-                    this.f78372f.onError(th);
-                    this.f78371e.onError(th);
+                    this.f78610f.onError(th);
+                    this.f78609e.onError(th);
                 } catch (Throwable th2) {
                     i.m.a.e(th2);
-                    this.f78371e.onError(new CompositeException(Arrays.asList(th, th2)));
+                    this.f78609e.onError(new CompositeException(Arrays.asList(th, th2)));
                 }
             }
         }
@@ -92,12 +92,12 @@ public class e<T> implements d.a<T> {
         @Override // i.e
         public void onNext(T t) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) || this.f78373g) {
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) || this.f78611g) {
                 return;
             }
             try {
-                this.f78372f.onNext(t);
-                this.f78371e.onNext(t);
+                this.f78610f.onNext(t);
+                this.f78609e.onNext(t);
             } catch (Throwable th) {
                 i.m.a.g(th, this, t);
             }
@@ -119,8 +119,8 @@ public class e<T> implements d.a<T> {
                 return;
             }
         }
-        this.f78370f = dVar;
-        this.f78369e = eVar;
+        this.f78608f = dVar;
+        this.f78607e = eVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -129,7 +129,7 @@ public class e<T> implements d.a<T> {
     public void call(i.j<? super T> jVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, jVar) == null) {
-            this.f78370f.I(new a(jVar, this.f78369e));
+            this.f78608f.I(new a(jVar, this.f78607e));
         }
     }
 }

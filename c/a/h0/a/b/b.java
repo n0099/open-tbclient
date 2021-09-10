@@ -13,13 +13,13 @@ public class b<T> implements d<T> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public List<T> f3470a;
+    public List<T> f3461a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c.a.h0.a.a<List<T>> f3471b;
+    public c.a.h0.a.a<List<T>> f3462b;
 
     /* renamed from: c  reason: collision with root package name */
-    public c.a.h0.a.a<List<T>> f3472c;
+    public c.a.h0.a.a<List<T>> f3463c;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -45,8 +45,8 @@ public class b<T> implements d<T> {
     public void a(c.a.h0.a.a<List<T>> aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-            this.f3471b = aVar;
-            this.f3470a = null;
+            this.f3462b = aVar;
+            this.f3461a = null;
         }
     }
 
@@ -55,17 +55,17 @@ public class b<T> implements d<T> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            List<T> list = this.f3470a;
+            List<T> list = this.f3461a;
             if (list != null) {
                 return list;
             }
-            c.a.h0.a.a<List<T>> aVar = this.f3471b;
+            c.a.h0.a.a<List<T>> aVar = this.f3462b;
             if (aVar != null) {
                 List<T> list2 = aVar.get();
-                this.f3470a = list2;
+                this.f3461a = list2;
                 return list2;
             }
-            c.a.h0.a.a<List<T>> aVar2 = this.f3472c;
+            c.a.h0.a.a<List<T>> aVar2 = this.f3463c;
             if (aVar2 != null) {
                 return aVar2.get();
             }

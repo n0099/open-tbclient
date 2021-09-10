@@ -15,7 +15,7 @@ public class e2 extends WebViewClient {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ g2 f76840a;
+    public final /* synthetic */ g2 f77020a;
 
     public e2(g2 g2Var) {
         Interceptable interceptable = $ic;
@@ -32,7 +32,7 @@ public class e2 extends WebViewClient {
                 return;
             }
         }
-        this.f76840a = g2Var;
+        this.f77020a = g2Var;
     }
 
     @Override // android.webkit.WebViewClient
@@ -56,14 +56,14 @@ public class e2 extends WebViewClient {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLILL(Constants.METHOD_SEND_USER_MSG, this, webView, i2, str, str2) == null) {
             super.onReceivedError(webView, i2, str, str2);
-            this.f76840a.f76853b.setVisibility(8);
+            this.f77020a.f77033b.setVisibility(8);
             if (str.contains("TIMED_OUT")) {
-                g2 g2Var = this.f76840a;
-                if (g2Var.f76854c != null) {
-                    Y0 b2 = Z0.a(g2Var.f76852a).b(new a1(this.f76840a.f76854c), 4);
+                g2 g2Var = this.f77020a;
+                if (g2Var.f77034c != null) {
+                    Y0 b2 = Z0.a(g2Var.f77032a).b(new a1(this.f77020a.f77034c), 4);
                     b2.a("desc", str + "&errcode:" + i2 + "&fileurl:" + str2).a();
                 }
-                Toast.makeText(this.f76840a.f76852a, R.string.win_toast_network_error, 0).show();
+                Toast.makeText(this.f77020a.f77032a, R.string.win_toast_network_error, 0).show();
             }
         }
     }

@@ -13,17 +13,17 @@ public final class p {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final p f33833d;
+    public static final p f33942d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final float f33834a;
+    public final float f33943a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final float f33835b;
+    public final float f33944b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final int f33836c;
+    public final int f33945c;
 
     static {
         InterceptResult invokeClinit;
@@ -38,7 +38,7 @@ public final class p {
                 return;
             }
         }
-        f33833d = new p(1.0f, 1.0f);
+        f33942d = new p(1.0f, 1.0f);
     }
 
     public p(float f2, float f3) {
@@ -56,15 +56,15 @@ public final class p {
                 return;
             }
         }
-        this.f33834a = f2;
-        this.f33835b = f3;
-        this.f33836c = Math.round(f2 * 1000.0f);
+        this.f33943a = f2;
+        this.f33944b = f3;
+        this.f33945c = Math.round(f2 * 1000.0f);
     }
 
     public long a(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j2)) == null) ? j2 * this.f33836c : invokeJ.longValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j2)) == null) ? j2 * this.f33945c : invokeJ.longValue;
     }
 
     public boolean equals(Object obj) {
@@ -78,7 +78,7 @@ public final class p {
                 return false;
             }
             p pVar = (p) obj;
-            return this.f33834a == pVar.f33834a && this.f33835b == pVar.f33835b;
+            return this.f33943a == pVar.f33943a && this.f33944b == pVar.f33944b;
         }
         return invokeL.booleanValue;
     }
@@ -86,6 +86,6 @@ public final class p {
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? ((527 + Float.floatToRawIntBits(this.f33834a)) * 31) + Float.floatToRawIntBits(this.f33835b) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? ((527 + Float.floatToRawIntBits(this.f33943a)) * 31) + Float.floatToRawIntBits(this.f33944b) : invokeV.intValue;
     }
 }

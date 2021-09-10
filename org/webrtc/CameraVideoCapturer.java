@@ -77,42 +77,39 @@ public interface CameraVideoCapturer extends VideoCapturer {
 
                 @Override // java.lang.Runnable
                 public void run() {
-                    CameraEventsHandler cameraEventsHandler2;
-                    String str;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         int round = Math.round((this.this$0.frameCount * 1000.0f) / 2000.0f);
                         Logging.d(CameraStatistics.TAG, "Camera fps: " + round + ".");
-                        if (this.this$0.frameCount == 0) {
+                        if (this.this$0.frameCount != 0) {
+                            this.this$0.freezePeriodCount = 0;
+                        } else {
                             CameraStatistics.access$104(this.this$0);
                             if (this.this$0.freezePeriodCount * 2000 >= 4000 && this.this$0.eventsHandler != null) {
                                 Logging.e(CameraStatistics.TAG, "Camera freezed.");
                                 if (this.this$0.surfaceTextureHelper.isTextureInUse()) {
-                                    cameraEventsHandler2 = this.this$0.eventsHandler;
-                                    str = "Camera failure. Client must return video buffers.";
+                                    this.this$0.eventsHandler.onCameraFreezed("Camera failure. Client must return video buffers.");
+                                    return;
                                 } else {
-                                    cameraEventsHandler2 = this.this$0.eventsHandler;
-                                    str = "Camera failure.";
+                                    this.this$0.eventsHandler.onCameraFreezed("Camera failure.");
+                                    return;
                                 }
-                                cameraEventsHandler2.onCameraFreezed(str);
-                                return;
                             }
-                        } else {
-                            this.this$0.freezePeriodCount = 0;
                         }
                         this.this$0.frameCount = 0;
                         this.this$0.surfaceTextureHelper.getHandler().postDelayed(this, 2000L);
                     }
                 }
             };
-            if (surfaceTextureHelper == null) {
-                throw new IllegalArgumentException("SurfaceTextureHelper is null");
+            if (surfaceTextureHelper != null) {
+                this.surfaceTextureHelper = surfaceTextureHelper;
+                this.eventsHandler = cameraEventsHandler;
+                this.frameCount = 0;
+                this.freezePeriodCount = 0;
+                surfaceTextureHelper.getHandler().postDelayed(this.cameraObserver, 2000L);
+                return;
             }
-            this.surfaceTextureHelper = surfaceTextureHelper;
-            this.eventsHandler = cameraEventsHandler;
-            this.frameCount = 0;
-            this.freezePeriodCount = 0;
-            surfaceTextureHelper.getHandler().postDelayed(this.cameraObserver, 2000L);
+            throw new IllegalArgumentException("SurfaceTextureHelper is null");
         }
 
         public static /* synthetic */ int access$104(CameraStatistics cameraStatistics) {

@@ -24,7 +24,7 @@ public class AlipayResultActivity extends Activity {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final ConcurrentHashMap<String, a> f35725a;
+    public static final ConcurrentHashMap<String, a> f35834a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes4.dex */
@@ -45,7 +45,7 @@ public class AlipayResultActivity extends Activity {
                 return;
             }
         }
-        f35725a = new ConcurrentHashMap<>();
+        f35834a = new ConcurrentHashMap<>();
     }
 
     public AlipayResultActivity() {
@@ -65,12 +65,12 @@ public class AlipayResultActivity extends Activity {
     private void a(String str, Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65538, this, str, bundle) == null) {
-            a remove = f35725a.remove(str);
+            a remove = f35834a.remove(str);
             if (remove == null) {
                 return;
             }
             try {
-                remove.a(bundle.getInt("endCode"), bundle.getString(i.f35986b), bundle.getString("result"));
+                remove.a(bundle.getInt("endCode"), bundle.getString(i.f36095b), bundle.getString("result"));
             } finally {
                 finish();
             }
@@ -129,7 +129,7 @@ public class AlipayResultActivity extends Activity {
                 }
                 if (TextUtils.isEmpty(stringExtra) && bundleExtra != null) {
                     com.alipay.sdk.app.statistic.a.b(a2, "biz", com.alipay.sdk.app.statistic.b.P, "" + SystemClock.elapsedRealtime());
-                    com.alipay.sdk.app.statistic.a.b(a2, "biz", com.alipay.sdk.app.statistic.b.Q, bundleExtra.getInt("endCode", -1) + "|" + bundleExtra.getString(i.f35986b, "-"));
+                    com.alipay.sdk.app.statistic.a.b(a2, "biz", com.alipay.sdk.app.statistic.b.Q, bundleExtra.getInt("endCode", -1) + "|" + bundleExtra.getString(i.f36095b, "-"));
                     OpenAuthTask.a(stringExtra, 9000, StatHelper.SENSOR_OK, bundleExtra);
                     com.alipay.sdk.app.statistic.a.b(this, a2, "", a2.q);
                     finish();

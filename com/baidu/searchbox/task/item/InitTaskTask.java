@@ -1,6 +1,6 @@
 package com.baidu.searchbox.task.item;
 
-import c.a.p0.s.x.d;
+import c.a.q0.s.x.d;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.launch.stats.AppCreateSpeedStats;
 import com.baidu.searchbox.performance.speed.task.LaunchTask;

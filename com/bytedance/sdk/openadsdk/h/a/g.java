@@ -19,10 +19,10 @@ public class g extends com.bytedance.sdk.component.a.e<JSONObject, JSONObject> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f67727a;
+    public String f67907a;
 
     /* renamed from: b  reason: collision with root package name */
-    public w f67728b;
+    public w f67908b;
 
     public g(String str, w wVar) {
         Interceptable interceptable = $ic;
@@ -39,8 +39,8 @@ public class g extends com.bytedance.sdk.component.a.e<JSONObject, JSONObject> {
                 return;
             }
         }
-        this.f67728b = wVar;
-        this.f67727a = str;
+        this.f67908b = wVar;
+        this.f67907a = str;
     }
 
     public static void a(r rVar, w wVar) {
@@ -86,10 +86,10 @@ public class g extends com.bytedance.sdk.component.a.e<JSONObject, JSONObject> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject, fVar)) == null) {
             w.a aVar = new w.a();
-            aVar.f67057a = NotificationCompat.CATEGORY_CALL;
-            aVar.f67059c = this.f67727a;
-            aVar.f67060d = jSONObject;
-            return this.f67728b.a(aVar, 3);
+            aVar.f67237a = NotificationCompat.CATEGORY_CALL;
+            aVar.f67239c = this.f67907a;
+            aVar.f67240d = jSONObject;
+            return this.f67908b.a(aVar, 3);
         }
         return (JSONObject) invokeLL.objValue;
     }

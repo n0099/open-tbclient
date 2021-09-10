@@ -4,6 +4,7 @@ import android.opengl.GLES20;
 import androidx.core.view.InputDeviceCompat;
 import c.a.a0.b.a.e;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.launch.stats.SpeedStatsStampTable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -82,7 +83,7 @@ public class MediaBaseRenderer implements IMediaRenderer {
             this.mMtx = fArr;
             GLViewPortLocation gLViewPortLocation = this.mGLViewPortLocation;
             GLES20.glViewport(gLViewPortLocation.x, gLViewPortLocation.y, gLViewPortLocation.width, gLViewPortLocation.height);
-            GLES20.glEnable(3042);
+            GLES20.glEnable(SpeedStatsStampTable.SPLASHACTIVITY_AD_CALLSHOW_STAMP_KEY);
             GLES20.glBlendFunc(BankSignFactory.BEAN_ID_QUERY, BankSignFactory.BEAN_ID_BIND_CARD);
             if (this.mTextureMode == 1) {
                 this.mFullScreen2D.setVertexPoint(GlUtil.IDENTITY_MATRIX);
@@ -94,7 +95,7 @@ public class MediaBaseRenderer implements IMediaRenderer {
                 this.mFullScreenEXT.drawFrame(i2, fArr);
                 this.mFullScreenEXT.setScaleAndTranslate(1.0f, 1.0f, 0.0f, 0.0f);
             }
-            GLES20.glDisable(3042);
+            GLES20.glDisable(SpeedStatsStampTable.SPLASHACTIVITY_AD_CALLSHOW_STAMP_KEY);
         }
     }
 

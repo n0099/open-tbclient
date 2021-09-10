@@ -7,6 +7,7 @@ import c.a.l.v0.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.card.view.MultiImgLayout;
 import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tbadk.widget.layout.ConstrainImageLayout;
@@ -17,13 +18,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
-public class w extends c.a.l.a<c.a.p0.s.q.a> {
+public class w extends c.a.l.a<c.a.q0.s.q.a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: j  reason: collision with root package name */
-    public MultiImgLayout f3890j;
-    public c.a.p0.s.q.a k;
+    public MultiImgLayout f3882j;
+    public c.a.q0.s.q.a k;
     public int l;
     public String m;
 
@@ -33,7 +34,7 @@ public class w extends c.a.l.a<c.a.p0.s.q.a> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ w f3891a;
+        public final /* synthetic */ w f3883a;
 
         public a(w wVar) {
             Interceptable interceptable = $ic;
@@ -50,18 +51,18 @@ public class w extends c.a.l.a<c.a.p0.s.q.a> {
                     return;
                 }
             }
-            this.f3891a = wVar;
+            this.f3883a = wVar;
         }
 
         @Override // c.a.l.v0.a.b
-        public boolean a(a.C0096a c0096a) {
+        public boolean a(a.C0095a c0095a) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, c0096a)) == null) {
-                if (this.f3891a.k != null && this.f3891a.k.getThreadData() != null) {
-                    c.a.q0.a0.m.a(this.f3891a.k.getThreadData().f0());
-                    c.a.q0.a0.m.l(this.f3891a.f3890j.mTitle, this.f3891a.k.getThreadData().f0(), R.color.CAM_X0105, R.color.CAM_X0109);
-                    c.a.q0.a0.m.l(this.f3891a.f3890j.mAbstract, this.f3891a.k.getThreadData().f0(), R.color.CAM_X0105, R.color.CAM_X0109);
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, c0095a)) == null) {
+                if (this.f3883a.k != null && this.f3883a.k.getThreadData() != null) {
+                    c.a.r0.a0.m.a(this.f3883a.k.getThreadData().f0());
+                    c.a.r0.a0.m.l(this.f3883a.f3882j.mTitle, this.f3883a.k.getThreadData().f0(), R.color.CAM_X0105, R.color.CAM_X0109);
+                    c.a.r0.a0.m.l(this.f3883a.f3882j.mAbstract, this.f3883a.k.getThreadData().f0(), R.color.CAM_X0105, R.color.CAM_X0109);
                 }
                 return false;
             }
@@ -88,14 +89,18 @@ public class w extends c.a.l.a<c.a.p0.s.q.a> {
             }
         }
         this.l = 3;
-        this.f3890j = new MultiImgLayout(context);
+        if ((TbadkCoreApplication.getInst().getPersonalizeViewData().f14236g instanceof MultiImgLayout) && TbadkCoreApplication.getInst().getPersonalizeViewData().f14236g.getParent() == null) {
+            this.f3882j = (MultiImgLayout) TbadkCoreApplication.getInst().getPersonalizeViewData().f14236g;
+        } else {
+            this.f3882j = new MultiImgLayout(context);
+        }
     }
 
     @Override // c.a.l.a
     public View f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f3890j : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f3882j : (View) invokeV.objValue;
     }
 
     @Override // c.a.l.a
@@ -107,10 +112,10 @@ public class w extends c.a.l.a<c.a.p0.s.q.a> {
     }
 
     @Override // c.a.l.a
-    public void k(c.a.q0.a0.b0<c.a.p0.s.q.a> b0Var) {
+    public void k(c.a.r0.a0.b0<c.a.q0.s.q.a> b0Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, b0Var) == null) {
-            this.f3890j.setSubClickListener(b0Var);
+            this.f3882j.setSubClickListener(b0Var);
         }
     }
 
@@ -120,7 +125,7 @@ public class w extends c.a.l.a<c.a.p0.s.q.a> {
         if (interceptable == null || interceptable.invokeLI(1048580, this, tbPageContext, i2) == null) {
             if (this.l != i2) {
                 SkinManager.setBackgroundResource(f(), R.drawable.addresslist_item_bg);
-                this.f3890j.mImageGroup.onChangeSkinType();
+                this.f3882j.mImageGroup.onChangeSkinType();
             }
             this.l = i2;
         }
@@ -129,19 +134,19 @@ public class w extends c.a.l.a<c.a.p0.s.q.a> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // c.a.l.p
     /* renamed from: p */
-    public void onBindDataToView(c.a.p0.s.q.a aVar) {
+    public void onBindDataToView(c.a.q0.s.q.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, aVar) == null) {
             this.k = aVar;
-            this.f3890j.setFrom(this.m);
-            this.f3890j.onBindDataToView(aVar);
+            this.f3882j.setFrom(this.m);
+            this.f3882j.onBindDataToView(aVar);
         }
     }
 
     public void q(c.a.e.e.k.b<TbImageView> bVar) {
         MultiImgLayout multiImgLayout;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, bVar) == null) || (multiImgLayout = this.f3890j) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048582, this, bVar) == null) || (multiImgLayout = this.f3882j) == null) {
             return;
         }
         multiImgLayout.setConstrainImagePool(bVar);
@@ -150,7 +155,7 @@ public class w extends c.a.l.a<c.a.p0.s.q.a> {
     public void r(c.a.e.e.k.b<ConstrainImageLayout> bVar) {
         MultiImgLayout multiImgLayout;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048583, this, bVar) == null) || (multiImgLayout = this.f3890j) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048583, this, bVar) == null) || (multiImgLayout = this.f3882j) == null) {
             return;
         }
         multiImgLayout.setConstrainLayoutPool(bVar);
@@ -166,21 +171,21 @@ public class w extends c.a.l.a<c.a.p0.s.q.a> {
     public void t(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
-            this.f3890j.setFromCDN(z);
+            this.f3882j.setFromCDN(z);
         }
     }
 
     public void u(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
-            this.f3890j.setNeedFrsTabName(z);
+            this.f3882j.setNeedFrsTabName(z);
         }
     }
 
     public void v(c.a.e.l.c.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, bVar) == null) {
-            this.f3890j.setPreloadSizeReadyCallback(bVar);
+            this.f3882j.setPreloadSizeReadyCallback(bVar);
         }
     }
 }

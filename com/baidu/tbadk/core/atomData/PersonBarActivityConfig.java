@@ -143,7 +143,7 @@ public class PersonBarActivityConfig extends IntentConfig {
         intent.putExtra("key_sex", i2);
         intent.putExtra(IS_CHOOSE_BAR_MODE, z);
         intent.putExtra("tb_request_code", i3);
-        intent.putExtra(BAR_ID, str2);
+        intent.putExtra("bar_id", str2);
         setIntentAction(IntentAction.ActivityForResult);
         setRequestCode(i3);
     }

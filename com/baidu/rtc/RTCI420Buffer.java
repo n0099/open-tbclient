@@ -156,7 +156,7 @@ public class RTCI420Buffer implements VideoFrame.I420Buffer {
     public static RTCI420Buffer allocate(int i2, int i3) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(65538, null, i2, i3)) == null) {
+        if (interceptable == null || (invokeII = interceptable.invokeII(65539, null, i2, i3)) == null) {
             int i4 = (i3 + 1) / 2;
             int i5 = (i2 + 1) / 2;
             int i6 = i2 * i3;
@@ -172,7 +172,7 @@ public class RTCI420Buffer implements VideoFrame.I420Buffer {
             ByteBuffer slice2 = nativeAllocateByteBuffer.slice();
             nativeAllocateByteBuffer.position(i9);
             nativeAllocateByteBuffer.limit(i9 + i8);
-            return new RTCI420Buffer(i2, i3, slice, i2, slice2, i5, nativeAllocateByteBuffer.slice(), i5, new Runnable() { // from class: com.baidu.rtc._$$Lambda$RTCI420Buffer$MVKNXKaN7jHpOaqK1ceHPyNb6Ts
+            return new RTCI420Buffer(i2, i3, slice, i2, slice2, i5, nativeAllocateByteBuffer.slice(), i5, new Runnable() { // from class: c.a.i0.b
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -191,7 +191,7 @@ public class RTCI420Buffer implements VideoFrame.I420Buffer {
     public static void checkCapacity(ByteBuffer byteBuffer, int i2, int i3, int i4) {
         int i5;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLIII(65539, null, byteBuffer, i2, i3, i4) == null) || byteBuffer.capacity() >= (i5 = (i4 * (i3 - 1)) + i2)) {
+        if (!(interceptable == null || interceptable.invokeLIII(InputDeviceCompat.SOURCE_TRACKBALL, null, byteBuffer, i2, i3, i4) == null) || byteBuffer.capacity() >= (i5 = (i4 * (i3 - 1)) + i2)) {
             return;
         }
         throw new IllegalArgumentException("Buffer must be at least " + i5 + " bytes, but was " + byteBuffer.capacity());
@@ -201,21 +201,21 @@ public class RTCI420Buffer implements VideoFrame.I420Buffer {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, null, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), byteBuffer, Integer.valueOf(i4), byteBuffer2, Integer.valueOf(i5), byteBuffer3, Integer.valueOf(i6), runnable})) == null) {
-            if (byteBuffer == null || byteBuffer2 == null || byteBuffer3 == null) {
-                throw new IllegalArgumentException("Data buffers cannot be null.");
+            if (byteBuffer != null && byteBuffer2 != null && byteBuffer3 != null) {
+                if (byteBuffer.isDirect() && byteBuffer2.isDirect() && byteBuffer3.isDirect()) {
+                    ByteBuffer slice = byteBuffer.slice();
+                    ByteBuffer slice2 = byteBuffer2.slice();
+                    ByteBuffer slice3 = byteBuffer3.slice();
+                    int i7 = (i2 + 1) / 2;
+                    int i8 = (i3 + 1) / 2;
+                    checkCapacity(slice, i2, i3, i4);
+                    checkCapacity(slice2, i7, i8, i5);
+                    checkCapacity(slice3, i7, i8, i6);
+                    return new RTCI420Buffer(i2, i3, slice, i4, slice2, i5, slice3, i6, runnable);
+                }
+                throw new IllegalArgumentException("Data buffers must be direct byte buffers.");
             }
-            if (byteBuffer.isDirect() && byteBuffer2.isDirect() && byteBuffer3.isDirect()) {
-                ByteBuffer slice = byteBuffer.slice();
-                ByteBuffer slice2 = byteBuffer2.slice();
-                ByteBuffer slice3 = byteBuffer3.slice();
-                int i7 = (i2 + 1) / 2;
-                int i8 = (i3 + 1) / 2;
-                checkCapacity(slice, i2, i3, i4);
-                checkCapacity(slice2, i7, i8, i5);
-                checkCapacity(slice3, i7, i8, i6);
-                return new RTCI420Buffer(i2, i3, slice, i4, slice2, i5, slice3, i6, runnable);
-            }
-            throw new IllegalArgumentException("Data buffers must be direct byte buffers.");
+            throw new IllegalArgumentException("Data buffers cannot be null.");
         }
         return (RTCI420Buffer) invokeCommon.objValue;
     }

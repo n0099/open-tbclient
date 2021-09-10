@@ -10,9 +10,9 @@ import android.os.Build;
 import android.util.AttributeSet;
 import androidx.core.view.InputDeviceCompat;
 import c.a.e.e.p.l;
-import c.a.e.f.a.h;
-import c.a.e.f.a.k;
-import c.a.e.f.a.n;
+import c.a.e.f.a.g;
+import c.a.e.f.a.j;
+import c.a.e.f.a.m;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.TbImageView;
@@ -25,14 +25,14 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.Method;
 /* loaded from: classes7.dex */
-public class ChatClipImageItemView extends TbImageView implements k.a {
+public class ChatClipImageItemView extends TbImageView implements j.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean O;
-    public final Path P;
-    public boolean Q;
-    public a R;
-    public k pathClipDrawer;
+    public boolean P;
+    public final Path Q;
+    public boolean R;
+    public a S;
+    public j pathClipDrawer;
     public int position;
 
     /* loaded from: classes7.dex */
@@ -61,7 +61,7 @@ public class ChatClipImageItemView extends TbImageView implements k.a {
         }
     }
 
-    @Override // c.a.e.f.a.k.a
+    @Override // c.a.e.f.a.j.a
     public void drawWhenPathAvailable(Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) {
@@ -77,11 +77,11 @@ public class ChatClipImageItemView extends TbImageView implements k.a {
             boolean z = true;
             boolean z2 = (getDrawable() == null || !(getDrawable() instanceof BitmapDrawable) || ((BitmapDrawable) getDrawable()).getBitmap() == null) ? false : true;
             boolean z3 = bdImage != null && bdImage.w();
-            k kVar = this.pathClipDrawer;
+            j jVar = this.pathClipDrawer;
             if (!z3 && !z2) {
                 z = false;
             }
-            kVar.u(z);
+            jVar.u(z);
             return bdImage;
         }
         return (c.a.e.l.d.a) invokeV.objValue;
@@ -101,10 +101,10 @@ public class ChatClipImageItemView extends TbImageView implements k.a {
     public boolean isLeft() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.O : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.P : invokeV.booleanValue;
     }
 
-    @Override // c.a.e.f.a.k.a
+    @Override // c.a.e.f.a.j.a
     public Path makePath(RectF rectF) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -114,9 +114,9 @@ public class ChatClipImageItemView extends TbImageView implements k.a {
             }
             float width = rectF.width();
             float height = rectF.height();
-            this.P.reset();
-            this.P.set(t(width, height, 1.0f));
-            return this.P;
+            this.Q.reset();
+            this.Q.set(t(width, height, 1.0f));
+            return this.Q;
         }
         return (Path) invokeL.objValue;
     }
@@ -133,7 +133,7 @@ public class ChatClipImageItemView extends TbImageView implements k.a {
     public void onDraw(Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, canvas) == null) {
-            a aVar = this.R;
+            a aVar = this.S;
             if (aVar == null) {
                 SkinManager.setBackgroundColor(this, R.color.CAM_X0204);
             } else {
@@ -159,11 +159,11 @@ public class ChatClipImageItemView extends TbImageView implements k.a {
             super.onWindowVisibilityChanged(i2);
             if (i2 != 0) {
                 this.pathClipDrawer.s();
-            } else if (!this.Q) {
+            } else if (!this.R) {
                 this.pathClipDrawer.r();
                 invalidate();
             } else {
-                this.Q = false;
+                this.R = false;
             }
         }
     }
@@ -194,15 +194,15 @@ public class ChatClipImageItemView extends TbImageView implements k.a {
                 }
             }
             if (!z) {
-                this.pathClipDrawer = new n();
+                this.pathClipDrawer = new m();
             } else {
-                this.pathClipDrawer = new h();
+                this.pathClipDrawer = new g();
             }
             this.mArgs.n = true;
             this.pathClipDrawer.t(this);
-            k kVar = this.pathClipDrawer;
-            this.mDrawer = kVar;
-            kVar.p(this.mArgs);
+            j jVar = this.pathClipDrawer;
+            this.mDrawer = jVar;
+            jVar.p(this.mArgs);
         }
     }
 
@@ -216,14 +216,14 @@ public class ChatClipImageItemView extends TbImageView implements k.a {
     public void setLeft(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
-            this.O = z;
+            this.P = z;
         }
     }
 
     public void setOnDrawCallback(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, aVar) == null) {
-            this.R = aVar;
+            this.S = aVar;
         }
     }
 
@@ -241,7 +241,7 @@ public class ChatClipImageItemView extends TbImageView implements k.a {
             float f8 = f3 - f6;
             Path path = new Path();
             path.offset(0.0f, 0.0f);
-            if (this.O) {
+            if (this.P) {
                 float f9 = f5 + f4;
                 float f10 = e2;
                 float f11 = f4 + f10;
@@ -337,11 +337,11 @@ public class ChatClipImageItemView extends TbImageView implements k.a {
                 return;
             }
         }
-        this.O = true;
+        this.P = true;
         this.position = 0;
-        this.P = new Path();
-        this.Q = true;
-        this.R = null;
+        this.Q = new Path();
+        this.R = true;
+        this.S = null;
         s(context, attributeSet, i2);
     }
 }

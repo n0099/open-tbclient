@@ -17,7 +17,7 @@ public final class ea {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile ea f77378a;
+    public static volatile ea f77558a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
@@ -36,7 +36,7 @@ public final class ea {
     public HashMap<ec, ed> f319a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f77379b;
+    public String f77559b;
 
     public ea(Context context) {
         Interceptable interceptable = $ic;
@@ -56,24 +56,24 @@ public final class ea {
         HashMap<ec, ed> hashMap = new HashMap<>();
         this.f319a = hashMap;
         this.f316a = context;
-        hashMap.put(ec.f77384b, new eg());
-        this.f319a.put(ec.f77385c, new eh());
-        this.f319a.put(ec.f77383a, new dy());
-        this.f319a.put(ec.f77386d, new ef());
+        hashMap.put(ec.f77564b, new eg());
+        this.f319a.put(ec.f77565c, new eh());
+        this.f319a.put(ec.f77563a, new dy());
+        this.f319a.put(ec.f77566d, new ef());
     }
 
     public static ea a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            if (f77378a == null) {
+            if (f77558a == null) {
                 synchronized (ea.class) {
-                    if (f77378a == null) {
-                        f77378a = new ea(context);
+                    if (f77558a == null) {
+                        f77558a = new ea(context);
                     }
                 }
             }
-            return f77378a;
+            return f77558a;
         }
         return (ea) invokeL.objValue;
     }
@@ -170,13 +170,13 @@ public final class ea {
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f77379b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f77559b : (String) invokeV.objValue;
     }
 
     public void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
-            this.f77379b = str;
+            this.f77559b = str;
         }
     }
 }

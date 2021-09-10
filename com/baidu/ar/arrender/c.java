@@ -21,7 +21,6 @@ import com.baidu.ar.arplay.core.engine.engine3d.IARPCamera;
 import com.baidu.ar.arplay.core.engine.engine3d.IARPScene;
 import com.baidu.ar.arplay.core.engine.rotate.Orientation;
 import com.baidu.ar.arplay.core.engine.rotate.OrientationManager;
-import com.baidu.ar.arplay.core.message.ARPMessageType;
 import com.baidu.ar.arplay.core.pixel.PixelReadListener;
 import com.baidu.ar.arplay.core.pixel.PixelReadParams;
 import com.baidu.ar.arplay.core.pixel.PixelRotation;
@@ -204,13 +203,13 @@ public class c extends e implements OrientationManager.OrientationListener, l {
 
     private void n(boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(65545, this, z) == null) || this.f38269f == null) {
+        if (!(interceptable == null || interceptable.invokeZ(65545, this, z) == null) || this.f38388f == null) {
             return;
         }
         HashMap<String, Object> hashMap = new HashMap<>();
         hashMap.put("id", 10200);
         hashMap.put("front_camera", Integer.valueOf(!z ? 1 : 0));
-        this.f38269f.b(ARPMessageType.MSG_TYPE_SDK_LUA_BRIDGE, hashMap);
+        this.f38388f.b(1902, hashMap);
     }
 
     @Override // com.baidu.ar.arrender.e, com.baidu.ar.arrender.f
@@ -887,11 +886,11 @@ public class c extends e implements OrientationManager.OrientationListener, l {
     @Override // com.baidu.ar.arplay.core.engine.rotate.OrientationManager.OrientationListener
     public void onRotateOrientation(Orientation orientation) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048630, this, orientation) == null) || this.f38269f == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048630, this, orientation) == null) || this.f38388f == null) {
             return;
         }
         com.baidu.ar.h.b.c("ARRenderer", "sendOrientation2Render orientation = " + orientation);
-        this.f38269f.b(4001, com.baidu.ar.arrender.b.a(orientation));
+        this.f38388f.b(4001, com.baidu.ar.arrender.b.a(orientation));
     }
 
     @Override // com.baidu.ar.arrender.e, android.view.View.OnTouchListener

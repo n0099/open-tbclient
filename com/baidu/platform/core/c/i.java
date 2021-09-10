@@ -77,24 +77,24 @@ public class i extends com.baidu.platform.base.e {
         PoiFilter poiFilter;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, this, poiBoundSearchOption) == null) {
-            this.f44190a.a("query", poiBoundSearchOption.mKeyword);
-            this.f44190a.a("tag", poiBoundSearchOption.mTag);
-            com.baidu.platform.util.a aVar = this.f44190a;
+            this.f44305a.a("query", poiBoundSearchOption.mKeyword);
+            this.f44305a.a("tag", poiBoundSearchOption.mTag);
+            com.baidu.platform.util.a aVar = this.f44305a;
             aVar.a("bounds", poiBoundSearchOption.mBound.southwest.latitude + "," + poiBoundSearchOption.mBound.southwest.longitude + "," + poiBoundSearchOption.mBound.northeast.latitude + "," + poiBoundSearchOption.mBound.northeast.longitude);
-            this.f44190a.a("output", "json");
-            com.baidu.platform.util.a aVar2 = this.f44190a;
+            this.f44305a.a("output", "json");
+            com.baidu.platform.util.a aVar2 = this.f44305a;
             StringBuilder sb = new StringBuilder();
             sb.append(poiBoundSearchOption.mScope);
             sb.append("");
             aVar2.a("scope", sb.toString());
-            com.baidu.platform.util.a aVar3 = this.f44190a;
+            com.baidu.platform.util.a aVar3 = this.f44305a;
             aVar3.a(SuggestAddrField.KEY_PAGE_NUM, poiBoundSearchOption.mPageNum + "");
-            com.baidu.platform.util.a aVar4 = this.f44190a;
+            com.baidu.platform.util.a aVar4 = this.f44305a;
             aVar4.a("page_size", poiBoundSearchOption.mPageCapacity + "");
             if (poiBoundSearchOption.mScope != 2 || (poiFilter = poiBoundSearchOption.mPoiFilter) == null || TextUtils.isEmpty(poiFilter.toString())) {
                 return;
             }
-            this.f44190a.a(CloudControlRequest.REQUEST_KEY_FILTER, poiBoundSearchOption.mPoiFilter.toString());
+            this.f44305a.a(CloudControlRequest.REQUEST_KEY_FILTER, poiBoundSearchOption.mPoiFilter.toString());
         }
     }
 
@@ -104,28 +104,28 @@ public class i extends com.baidu.platform.base.e {
         PoiFilter poiFilter;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, poiCitySearchOption) == null) {
-            this.f44190a.a("query", poiCitySearchOption.mKeyword);
-            this.f44190a.a("region", poiCitySearchOption.mCity);
-            this.f44190a.a("output", "json");
-            com.baidu.platform.util.a aVar2 = this.f44190a;
+            this.f44305a.a("query", poiCitySearchOption.mKeyword);
+            this.f44305a.a("region", poiCitySearchOption.mCity);
+            this.f44305a.a("output", "json");
+            com.baidu.platform.util.a aVar2 = this.f44305a;
             aVar2.a(SuggestAddrField.KEY_PAGE_NUM, poiCitySearchOption.mPageNum + "");
-            com.baidu.platform.util.a aVar3 = this.f44190a;
+            com.baidu.platform.util.a aVar3 = this.f44305a;
             aVar3.a("page_size", poiCitySearchOption.mPageCapacity + "");
-            com.baidu.platform.util.a aVar4 = this.f44190a;
+            com.baidu.platform.util.a aVar4 = this.f44305a;
             aVar4.a("scope", poiCitySearchOption.mScope + "");
-            this.f44190a.a("tag", poiCitySearchOption.mTag);
+            this.f44305a.a("tag", poiCitySearchOption.mTag);
             if (poiCitySearchOption.mIsCityLimit) {
-                aVar = this.f44190a;
+                aVar = this.f44305a;
                 str = "true";
             } else {
-                aVar = this.f44190a;
+                aVar = this.f44305a;
                 str = "false";
             }
             aVar.a("city_limit", str);
             if (poiCitySearchOption.mScope != 2 || (poiFilter = poiCitySearchOption.mPoiFilter) == null || TextUtils.isEmpty(poiFilter.toString())) {
                 return;
             }
-            this.f44190a.a(CloudControlRequest.REQUEST_KEY_FILTER, poiCitySearchOption.mPoiFilter.toString());
+            this.f44305a.a(CloudControlRequest.REQUEST_KEY_FILTER, poiCitySearchOption.mPoiFilter.toString());
         }
     }
 
@@ -135,31 +135,31 @@ public class i extends com.baidu.platform.base.e {
         PoiFilter poiFilter;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, poiNearbySearchOption) == null) {
-            this.f44190a.a("query", poiNearbySearchOption.mKeyword);
-            com.baidu.platform.util.a aVar2 = this.f44190a;
+            this.f44305a.a("query", poiNearbySearchOption.mKeyword);
+            com.baidu.platform.util.a aVar2 = this.f44305a;
             aVar2.a("location", poiNearbySearchOption.mLocation.latitude + "," + poiNearbySearchOption.mLocation.longitude);
-            com.baidu.platform.util.a aVar3 = this.f44190a;
+            com.baidu.platform.util.a aVar3 = this.f44305a;
             aVar3.a("radius", poiNearbySearchOption.mRadius + "");
-            this.f44190a.a("output", "json");
-            com.baidu.platform.util.a aVar4 = this.f44190a;
+            this.f44305a.a("output", "json");
+            com.baidu.platform.util.a aVar4 = this.f44305a;
             aVar4.a(SuggestAddrField.KEY_PAGE_NUM, poiNearbySearchOption.mPageNum + "");
-            com.baidu.platform.util.a aVar5 = this.f44190a;
+            com.baidu.platform.util.a aVar5 = this.f44305a;
             aVar5.a("page_size", poiNearbySearchOption.mPageCapacity + "");
-            com.baidu.platform.util.a aVar6 = this.f44190a;
+            com.baidu.platform.util.a aVar6 = this.f44305a;
             aVar6.a("scope", poiNearbySearchOption.mScope + "");
-            this.f44190a.a("tag", poiNearbySearchOption.mTag);
+            this.f44305a.a("tag", poiNearbySearchOption.mTag);
             if (poiNearbySearchOption.mRadiusLimit) {
-                aVar = this.f44190a;
+                aVar = this.f44305a;
                 str = "true";
             } else {
-                aVar = this.f44190a;
+                aVar = this.f44305a;
                 str = "false";
             }
             aVar.a("radius_limit", str);
             if (poiNearbySearchOption.mScope != 2 || (poiFilter = poiNearbySearchOption.mPoiFilter) == null || TextUtils.isEmpty(poiFilter.toString())) {
                 return;
             }
-            this.f44190a.a(CloudControlRequest.REQUEST_KEY_FILTER, poiNearbySearchOption.mPoiFilter.toString());
+            this.f44305a.a(CloudControlRequest.REQUEST_KEY_FILTER, poiNearbySearchOption.mPoiFilter.toString());
         }
     }
 

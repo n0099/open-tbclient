@@ -1,7 +1,7 @@
 package com.google.android.material.slider;
 
 import androidx.annotation.NonNull;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public interface LabelFormatter {
     public static final int LABEL_FLOATING = 0;
     public static final int LABEL_GONE = 2;

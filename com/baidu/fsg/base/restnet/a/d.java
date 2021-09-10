@@ -19,7 +19,7 @@ public class d extends a<Object> {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Charset f39262a;
+    public static final Charset f39373a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -35,7 +35,7 @@ public class d extends a<Object> {
                 return;
             }
         }
-        f39262a = Charset.forName("UTF-8");
+        f39373a = Charset.forName("UTF-8");
     }
 
     public d() {
@@ -55,7 +55,7 @@ public class d extends a<Object> {
     private Charset a(com.baidu.fsg.base.restnet.http.a aVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, this, aVar)) == null) ? (aVar == null || TextUtils.isEmpty(aVar.j())) ? f39262a : Charset.forName(aVar.j()) : (Charset) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, this, aVar)) == null) ? (aVar == null || TextUtils.isEmpty(aVar.j())) ? f39373a : Charset.forName(aVar.j()) : (Charset) invokeL.objValue;
     }
 
     @Override // com.baidu.fsg.base.restnet.a.a

@@ -10,7 +10,7 @@ public class g implements Runnable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ f f77067a;
+    public final /* synthetic */ f f77247a;
 
     public g(f fVar) {
         Interceptable interceptable = $ic;
@@ -27,14 +27,14 @@ public class g implements Runnable {
                 return;
             }
         }
-        this.f77067a = fVar;
+        this.f77247a = fVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f77067a.f77066a.e();
+            this.f77247a.f77246a.e();
         }
     }
 }

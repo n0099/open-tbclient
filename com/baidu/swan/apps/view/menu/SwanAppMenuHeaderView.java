@@ -13,11 +13,11 @@ import androidx.annotation.AttrRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.graphics.TypefaceCompatApi28Impl;
-import c.a.o0.a.f1.e.b;
-import c.a.o0.a.g;
-import c.a.o0.a.h;
-import c.a.o0.a.v2.q0;
-import c.a.o0.a.v2.t;
+import c.a.p0.a.f1.e.b;
+import c.a.p0.a.g;
+import c.a.p0.a.h;
+import c.a.p0.a.v2.q0;
+import c.a.p0.a.v2.t;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.apps.view.SwanAppRoundedImageView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -31,22 +31,22 @@ public class SwanAppMenuHeaderView extends FrameLayout implements View.OnTouchLi
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f46585e;
+    public TextView f46700e;
 
     /* renamed from: f  reason: collision with root package name */
-    public SwanAppRoundedImageView f46586f;
+    public SwanAppRoundedImageView f46701f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ImageView f46587g;
+    public ImageView f46702g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View f46588h;
+    public View f46703h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f46589i;
+    public TextView f46704i;
 
     /* renamed from: j  reason: collision with root package name */
-    public e f46590j;
+    public e f46705j;
     public f k;
     public e l;
     public int m;
@@ -62,7 +62,7 @@ public class SwanAppMenuHeaderView extends FrameLayout implements View.OnTouchLi
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ SwanAppMenuHeaderView f46591a;
+        public final /* synthetic */ SwanAppMenuHeaderView f46706a;
 
         public a(SwanAppMenuHeaderView swanAppMenuHeaderView) {
             Interceptable interceptable = $ic;
@@ -79,16 +79,16 @@ public class SwanAppMenuHeaderView extends FrameLayout implements View.OnTouchLi
                     return;
                 }
             }
-            this.f46591a = swanAppMenuHeaderView;
+            this.f46706a = swanAppMenuHeaderView;
         }
 
-        @Override // c.a.o0.a.v2.t.b
+        @Override // c.a.p0.a.v2.t.b
         public void a(String str, Bitmap bitmap) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLL(1048576, this, str, bitmap) == null) || bitmap == null || this.f46591a.f46586f == null) {
+            if (!(interceptable == null || interceptable.invokeLL(1048576, this, str, bitmap) == null) || bitmap == null || this.f46706a.f46701f == null) {
                 return;
             }
-            this.f46591a.f46586f.setImageBitmap(bitmap);
+            this.f46706a.f46701f.setImageBitmap(bitmap);
         }
     }
 
@@ -98,7 +98,7 @@ public class SwanAppMenuHeaderView extends FrameLayout implements View.OnTouchLi
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SwanAppMenuHeaderView f46592e;
+        public final /* synthetic */ SwanAppMenuHeaderView f46707e;
 
         public b(SwanAppMenuHeaderView swanAppMenuHeaderView) {
             Interceptable interceptable = $ic;
@@ -115,16 +115,16 @@ public class SwanAppMenuHeaderView extends FrameLayout implements View.OnTouchLi
                     return;
                 }
             }
-            this.f46592e = swanAppMenuHeaderView;
+            this.f46707e = swanAppMenuHeaderView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f46592e.f46590j == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f46707e.f46705j == null) {
                 return;
             }
-            this.f46592e.f46590j.onClick(view);
+            this.f46707e.f46705j.onClick(view);
             view.setPressed(true);
         }
     }
@@ -135,7 +135,7 @@ public class SwanAppMenuHeaderView extends FrameLayout implements View.OnTouchLi
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SwanAppMenuHeaderView f46593e;
+        public final /* synthetic */ SwanAppMenuHeaderView f46708e;
 
         public c(SwanAppMenuHeaderView swanAppMenuHeaderView) {
             Interceptable interceptable = $ic;
@@ -152,16 +152,16 @@ public class SwanAppMenuHeaderView extends FrameLayout implements View.OnTouchLi
                     return;
                 }
             }
-            this.f46593e = swanAppMenuHeaderView;
+            this.f46708e = swanAppMenuHeaderView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f46593e.l == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f46708e.l == null) {
                 return;
             }
-            this.f46593e.l.onClick(view);
+            this.f46708e.l.onClick(view);
         }
     }
 
@@ -171,7 +171,7 @@ public class SwanAppMenuHeaderView extends FrameLayout implements View.OnTouchLi
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SwanAppMenuHeaderView f46594e;
+        public final /* synthetic */ SwanAppMenuHeaderView f46709e;
 
         public d(SwanAppMenuHeaderView swanAppMenuHeaderView) {
             Interceptable interceptable = $ic;
@@ -188,17 +188,17 @@ public class SwanAppMenuHeaderView extends FrameLayout implements View.OnTouchLi
                     return;
                 }
             }
-            this.f46594e = swanAppMenuHeaderView;
+            this.f46709e = swanAppMenuHeaderView;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f46594e.k == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f46709e.k == null) {
                 return;
             }
-            SwanAppMenuHeaderView swanAppMenuHeaderView = this.f46594e;
-            swanAppMenuHeaderView.o = swanAppMenuHeaderView.k.onLongClick(this.f46594e.f46588h);
+            SwanAppMenuHeaderView swanAppMenuHeaderView = this.f46709e;
+            swanAppMenuHeaderView.o = swanAppMenuHeaderView.k.onLongClick(this.f46709e.f46703h);
         }
     }
 
@@ -236,22 +236,22 @@ public class SwanAppMenuHeaderView extends FrameLayout implements View.OnTouchLi
     public final void g(View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-            this.f46588h = view.findViewById(c.a.o0.a.f.header_content);
-            this.f46586f = (SwanAppRoundedImageView) view.findViewById(c.a.o0.a.f.swan_app_icon);
-            this.f46585e = (TextView) view.findViewById(c.a.o0.a.f.swan_app_title);
-            this.f46589i = (TextView) view.findViewById(c.a.o0.a.f.btn_item_attenion);
-            this.f46587g = (ImageView) view.findViewById(c.a.o0.a.f.apply_guarantee);
-            b.a L = c.a.o0.a.a2.d.g().r().L();
-            this.f46586f.setImageBitmap(q0.k(L.Q(), "SwanAppMenuHeaderView", false, new a(this)));
-            this.f46585e.setText(L.K());
-            this.f46585e.setMaxWidth(getResources().getDimensionPixelSize(c.a.o0.a.d.swan_menu_title_max_width_no_icon));
+            this.f46703h = view.findViewById(c.a.p0.a.f.header_content);
+            this.f46701f = (SwanAppRoundedImageView) view.findViewById(c.a.p0.a.f.swan_app_icon);
+            this.f46700e = (TextView) view.findViewById(c.a.p0.a.f.swan_app_title);
+            this.f46704i = (TextView) view.findViewById(c.a.p0.a.f.btn_item_attenion);
+            this.f46702g = (ImageView) view.findViewById(c.a.p0.a.f.apply_guarantee);
+            b.a L = c.a.p0.a.a2.d.g().r().L();
+            this.f46701f.setImageBitmap(q0.k(L.Q(), "SwanAppMenuHeaderView", false, new a(this)));
+            this.f46700e.setText(L.K());
+            this.f46700e.setMaxWidth(getResources().getDimensionPixelSize(c.a.p0.a.d.swan_menu_title_max_width_no_icon));
             if (q0.O()) {
-                this.f46587g.setVisibility(0);
-                this.f46585e.setMaxWidth(getResources().getDimensionPixelSize(c.a.o0.a.d.swan_menu_title_max_width_with_icon));
+                this.f46702g.setVisibility(0);
+                this.f46700e.setMaxWidth(getResources().getDimensionPixelSize(c.a.p0.a.d.swan_menu_title_max_width_with_icon));
             }
-            this.f46588h.setOnTouchListener(this);
-            this.f46588h.setOnClickListener(new b(this));
-            this.f46589i.setOnClickListener(new c(this));
+            this.f46703h.setOnTouchListener(this);
+            this.f46703h.setOnClickListener(new b(this));
+            this.f46704i.setOnClickListener(new c(this));
         }
     }
 
@@ -288,8 +288,8 @@ public class SwanAppMenuHeaderView extends FrameLayout implements View.OnTouchLi
             if (action != 0) {
                 if (action == 1) {
                     removeCallbacks(this.r);
-                    if (!this.o && (eVar = this.f46590j) != null) {
-                        eVar.onClick(this.f46588h);
+                    if (!this.o && (eVar = this.f46705j) != null) {
+                        eVar.onClick(this.f46703h);
                     }
                     this.o = false;
                     view.setPressed(false);
@@ -322,7 +322,7 @@ public class SwanAppMenuHeaderView extends FrameLayout implements View.OnTouchLi
     public void setAttentionBtnShow(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.f46589i.setVisibility(z ? 0 : 8);
+            this.f46704i.setVisibility(z ? 0 : 8);
         }
     }
 
@@ -330,16 +330,16 @@ public class SwanAppMenuHeaderView extends FrameLayout implements View.OnTouchLi
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
             if (!z) {
-                this.f46589i.setText(h.aiapps_follow_action_text);
-                this.f46589i.setTypeface(Typeface.create("sans-serif-medium", 1));
-                this.f46589i.setBackground(c.a.o0.o.a.b.a.d(getContext(), c.a.o0.a.e.swanapp_attention_btn_bg));
-                this.f46589i.setTextColor(c.a.o0.o.a.b.a.c(getContext(), c.a.o0.a.c.swanapp_attention_btn_text_color));
+                this.f46704i.setText(h.aiapps_follow_action_text);
+                this.f46704i.setTypeface(Typeface.create("sans-serif-medium", 1));
+                this.f46704i.setBackground(c.a.p0.o.a.b.a.d(getContext(), c.a.p0.a.e.swanapp_attention_btn_bg));
+                this.f46704i.setTextColor(c.a.p0.o.a.b.a.c(getContext(), c.a.p0.a.c.swanapp_attention_btn_text_color));
                 return;
             }
-            this.f46589i.setText(h.swanapp_favored);
-            this.f46589i.setTypeface(Typeface.create(TypefaceCompatApi28Impl.DEFAULT_FAMILY, 0));
-            this.f46589i.setBackground(c.a.o0.o.a.b.a.d(getContext(), c.a.o0.a.e.swanapp_cancel_attention_btn_bg));
-            this.f46589i.setTextColor(c.a.o0.o.a.b.a.c(getContext(), c.a.o0.a.c.swanapp_cancel_attention_btn_text_color));
+            this.f46704i.setText(h.swanapp_favored);
+            this.f46704i.setTypeface(Typeface.create(TypefaceCompatApi28Impl.DEFAULT_FAMILY, 0));
+            this.f46704i.setBackground(c.a.p0.o.a.b.a.d(getContext(), c.a.p0.a.e.swanapp_cancel_attention_btn_bg));
+            this.f46704i.setTextColor(c.a.p0.o.a.b.a.c(getContext(), c.a.p0.a.c.swanapp_cancel_attention_btn_text_color));
         }
     }
 
@@ -353,7 +353,7 @@ public class SwanAppMenuHeaderView extends FrameLayout implements View.OnTouchLi
     public void setOnMenuHeaderClickListener(e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, eVar) == null) {
-            this.f46590j = eVar;
+            this.f46705j = eVar;
         }
     }
 
@@ -407,6 +407,6 @@ public class SwanAppMenuHeaderView extends FrameLayout implements View.OnTouchLi
         this.o = false;
         this.r = new d(this);
         g(FrameLayout.inflate(context, g.swan_app_menu_header_view, this));
-        setAttentionBtnStates(c.a.o0.a.j0.b.a.n(c.a.o0.a.a2.d.g().getAppId()));
+        setAttentionBtnStates(c.a.p0.a.j0.b.a.n(c.a.p0.a.a2.d.g().getAppId()));
     }
 }

@@ -21,17 +21,17 @@ public final class NetworkType {
     public static final NetworkType WIFI;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final /* synthetic */ NetworkType[] f75205d;
+    public static final /* synthetic */ NetworkType[] f75385d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f75206a;
+    public int f75386a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f75207b;
+    public int f75387b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f75208c;
+    public String f75388c;
 
     static {
         InterceptResult invokeClinit;
@@ -52,7 +52,7 @@ public final class NetworkType {
         NET_3G = new NetworkType("NET_3G", 3, 3, 8, "3g");
         NetworkType networkType = new NetworkType("NET_4G", 4, 4, 16, "4g");
         NET_4G = networkType;
-        f75205d = new NetworkType[]{UNKNOWN, WIFI, NET_2G, NET_3G, networkType};
+        f75385d = new NetworkType[]{UNKNOWN, WIFI, NET_2G, NET_3G, networkType};
     }
 
     public NetworkType(String str, int i2, int i3, int i4, String str2) {
@@ -73,9 +73,9 @@ public final class NetworkType {
                 return;
             }
         }
-        this.f75206a = i3;
-        this.f75207b = i4;
-        this.f75208c = str2;
+        this.f75386a = i3;
+        this.f75387b = i4;
+        this.f75388c = str2;
     }
 
     public static NetworkType valueOf(String str) {
@@ -87,24 +87,24 @@ public final class NetworkType {
     public static NetworkType[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (NetworkType[]) f75205d.clone() : (NetworkType[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (NetworkType[]) f75385d.clone() : (NetworkType[]) invokeV.objValue;
     }
 
     public final int getConnValue() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f75206a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f75386a : invokeV.intValue;
     }
 
     public final String getNameValue() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f75208c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f75388c : (String) invokeV.objValue;
     }
 
     public final int getPermValue() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f75207b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f75387b : invokeV.intValue;
     }
 }

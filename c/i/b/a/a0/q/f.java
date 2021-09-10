@@ -24,34 +24,34 @@ public final class f {
     public static final String[] D;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f32512a;
+    public static final int f32621a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f32513b;
+    public static final int f32622b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f32514c;
+    public static final int f32623c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int f32515d;
+    public static final int f32624d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int f32516e;
+    public static final int f32625e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final int f32517f;
+    public static final int f32626f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final int f32518g;
+    public static final int f32627g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final int f32519h;
+    public static final int f32628h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final int f32520i;
+    public static final int f32629i;
 
     /* renamed from: j  reason: collision with root package name */
-    public static final int f32521j;
+    public static final int f32630j;
     public static final int k;
     public static final int l;
     public static final int m;
@@ -83,16 +83,16 @@ public final class f {
                 return;
             }
         }
-        f32512a = v.q("nam");
-        f32513b = v.q("trk");
-        f32514c = v.q("cmt");
-        f32515d = v.q("day");
-        f32516e = v.q("ART");
-        f32517f = v.q("too");
-        f32518g = v.q("alb");
-        f32519h = v.q("com");
-        f32520i = v.q("wrt");
-        f32521j = v.q("lyr");
+        f32621a = v.q("nam");
+        f32622b = v.q("trk");
+        f32623c = v.q("cmt");
+        f32624d = v.q("day");
+        f32625e = v.q("ART");
+        f32626f = v.q("too");
+        f32627g = v.q("alb");
+        f32628h = v.q("com");
+        f32629i = v.q("wrt");
+        f32630j = v.q("lyr");
         k = v.q("gen");
         l = v.q("covr");
         m = v.q(GenreBox.TYPE);
@@ -216,24 +216,24 @@ public final class f {
                     }
                 } else {
                     int i4 = 16777215 & i2;
-                    if (i4 == f32514c) {
+                    if (i4 == f32623c) {
                         return a(i2, lVar);
                     }
-                    if (i4 != f32512a && i4 != f32513b) {
-                        if (i4 != f32519h && i4 != f32520i) {
-                            if (i4 == f32515d) {
+                    if (i4 != f32621a && i4 != f32622b) {
+                        if (i4 != f32628h && i4 != f32629i) {
+                            if (i4 == f32624d) {
                                 return g(i2, "TDRC", lVar);
                             }
-                            if (i4 == f32516e) {
+                            if (i4 == f32625e) {
                                 return g(i2, "TPE1", lVar);
                             }
-                            if (i4 == f32517f) {
+                            if (i4 == f32626f) {
                                 return g(i2, "TSSE", lVar);
                             }
-                            if (i4 == f32518g) {
+                            if (i4 == f32627g) {
                                 return g(i2, "TALB", lVar);
                             }
-                            if (i4 == f32521j) {
+                            if (i4 == f32630j) {
                                 return g(i2, "USLT", lVar);
                             }
                             if (i4 == k) {

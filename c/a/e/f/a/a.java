@@ -10,6 +10,7 @@ import android.graphics.PorterDuffColorFilter;
 import android.graphics.RectF;
 import android.graphics.drawable.Drawable;
 import android.widget.ImageView;
+import com.baidu.adp.newwidget.ImageView.DrawerArgs;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -26,7 +27,7 @@ public abstract class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public InterfaceC0041a f2704a;
+    public b f2704a;
 
     /* renamed from: b  reason: collision with root package name */
     public Paint f2705b;
@@ -54,14 +55,52 @@ public abstract class a {
 
     /* renamed from: j  reason: collision with root package name */
     public RectF f2713j;
-    public e k;
+    public DrawerArgs k;
     public float[] l;
     public PointF m;
     public RectF n;
 
     /* renamed from: c.a.e.f.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0041a {
+    public static /* synthetic */ class C0041a {
+        public static /* synthetic */ Interceptable $ic;
+
+        /* renamed from: a  reason: collision with root package name */
+        public static final /* synthetic */ int[] f2714a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1813185572, "Lc/a/e/f/a/a$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(1813185572, "Lc/a/e/f/a/a$a;");
+                    return;
+                }
+            }
+            int[] iArr = new int[DrawerArgs.SkinType.values().length];
+            f2714a = iArr;
+            try {
+                iArr[DrawerArgs.SkinType.NIGHT.ordinal()] = 1;
+            } catch (NoSuchFieldError unused) {
+            }
+            try {
+                f2714a[DrawerArgs.SkinType.DAY.ordinal()] = 2;
+            } catch (NoSuchFieldError unused2) {
+            }
+            try {
+                f2714a[DrawerArgs.SkinType.DARK.ordinal()] = 3;
+            } catch (NoSuchFieldError unused3) {
+            }
+        }
+    }
+
+    /* loaded from: classes.dex */
+    public interface b {
         boolean a(Canvas canvas, Drawable drawable);
     }
 
@@ -79,7 +118,7 @@ public abstract class a {
             }
         }
         o = new Matrix.ScaleToFit[]{Matrix.ScaleToFit.FILL, Matrix.ScaleToFit.START, Matrix.ScaleToFit.CENTER, Matrix.ScaleToFit.END};
-        p = new PorterDuffColorFilter(1409286144, PorterDuff.Mode.SRC_ATOP);
+        p = new PorterDuffColorFilter(Integer.MIN_VALUE, PorterDuff.Mode.SRC_ATOP);
     }
 
     public a() {
@@ -104,7 +143,7 @@ public abstract class a {
         this.f2711h = new RectF();
         this.f2712i = new RectF();
         this.f2713j = new RectF();
-        this.k = new e();
+        this.k = new DrawerArgs();
         this.l = new float[9];
         this.m = new PointF();
         this.n = new RectF();
@@ -199,9 +238,9 @@ public abstract class a {
         } else {
             this.f2709f.set(0.0f, 0.0f, width, height);
         }
-        int length = this.k.f2720a.length;
+        int length = this.k.f36298a.length;
         for (int i2 = 0; i2 < length; i2++) {
-            float[] fArr = this.k.f2720a;
+            float[] fArr = this.k.f36298a;
             if (fArr[i2] > 0.0f && fArr[i2] < 1.0f) {
                 fArr[i2] = fArr[i2] * this.f2709f.height();
             }
@@ -229,8 +268,8 @@ public abstract class a {
     public void e(Canvas canvas, Drawable drawable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, canvas, drawable) == null) {
-            InterfaceC0041a interfaceC0041a = this.f2704a;
-            if (interfaceC0041a == null || !interfaceC0041a.a(canvas, drawable)) {
+            b bVar = this.f2704a;
+            if (bVar == null || !bVar.a(canvas, drawable)) {
                 drawable.draw(canvas);
             }
         }
@@ -257,13 +296,13 @@ public abstract class a {
             if (matrix2 != null) {
                 canvas.concat(matrix2);
             }
-            c.a.e.l.d.a aVar = dVar.f2718b;
+            c.a.e.l.d.a aVar = dVar.f2719b;
             if (aVar != null && aVar.v()) {
-                if ((dVar.f2718b.p().getWidth() + paddingLeft + paddingRight > imageView.getWidth() || dVar.f2718b.p().getHeight() + paddingTop + paddingBottom > imageView.getHeight()) && (matrix = this.f2708e) != null) {
+                if ((dVar.f2719b.p().getWidth() + paddingLeft + paddingRight > imageView.getWidth() || dVar.f2719b.p().getHeight() + paddingTop + paddingBottom > imageView.getHeight()) && (matrix = this.f2708e) != null) {
                     canvas.concat(matrix);
                 }
                 this.f2713j.set(0.0f, 0.0f, imageView.getWidth(), imageView.getHeight());
-                dVar.f2718b.i(canvas, this.f2713j);
+                dVar.f2719b.i(canvas, this.f2713j);
             } else {
                 h(canvas, dVar, imageView);
             }
@@ -312,17 +351,17 @@ public abstract class a {
         }
     }
 
-    public void o(InterfaceC0041a interfaceC0041a) {
+    public void o(b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, interfaceC0041a) == null) {
-            this.f2704a = interfaceC0041a;
+        if (interceptable == null || interceptable.invokeL(1048589, this, bVar) == null) {
+            this.f2704a = bVar;
         }
     }
 
-    public void p(e eVar) {
+    public void p(DrawerArgs drawerArgs) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, eVar) == null) {
-            this.k = eVar;
+        if (interceptable == null || interceptable.invokeL(1048590, this, drawerArgs) == null) {
+            this.k = drawerArgs;
         }
     }
 
@@ -330,13 +369,13 @@ public abstract class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
             this.f2705b.setAlpha((int) (this.k.k * 255.0f));
-            if (this.k.f2725f) {
-                this.f2705b.setColorFilter(p);
-            } else {
+            if (C0041a.f2714a[this.k.f36303f.ordinal()] != 1) {
                 this.f2705b.setColorFilter(null);
+            } else {
+                this.f2705b.setColorFilter(p);
             }
-            this.f2706c.setColor(this.k.f2724e);
-            this.f2706c.setStrokeWidth(this.k.f2723d);
+            this.f2706c.setColor(this.k.f36302e);
+            this.f2706c.setStrokeWidth(this.k.f36301d);
         }
     }
 }

@@ -23,23 +23,23 @@ public class ThreadPoolService {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f43934c;
+    public static final int f44049c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final ThreadFactory f43935d;
+    public static final ThreadFactory f44050d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int f43936e = 0;
+    public static final int f44051e = 0;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final int f43937f = 1;
+    public static final int f44052f = 1;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ThreadPoolExecutor f43938a;
+    public ThreadPoolExecutor f44053a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Handler f43939b;
+    public Handler f44054b;
 
     /* loaded from: classes5.dex */
     public static class SingletonContainer {
@@ -91,13 +91,13 @@ public class ThreadPoolService {
                 return;
             }
         }
-        f43934c = Runtime.getRuntime().availableProcessors();
-        f43935d = new ThreadFactory() { // from class: com.baidu.pass.biometrics.base.utils.thread.ThreadPoolService.1
+        f44049c = Runtime.getRuntime().availableProcessors();
+        f44050d = new ThreadFactory() { // from class: com.baidu.pass.biometrics.base.utils.thread.ThreadPoolService.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final AtomicInteger f43940a;
+            public final AtomicInteger f44055a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -112,7 +112,7 @@ public class ThreadPoolService {
                         return;
                     }
                 }
-                this.f43940a = new AtomicInteger(1);
+                this.f44055a = new AtomicInteger(1);
             }
 
             @Override // java.util.concurrent.ThreadFactory
@@ -120,7 +120,7 @@ public class ThreadPoolService {
                 InterceptResult invokeL;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, runnable)) == null) {
-                    return new Thread(runnable, "pass_face_thread # " + this.f43940a.getAndIncrement());
+                    return new Thread(runnable, "pass_face_thread # " + this.f44055a.getAndIncrement());
                 }
                 return (Thread) invokeL.objValue;
             }
@@ -136,14 +136,14 @@ public class ThreadPoolService {
     public void run(TPRunnable tPRunnable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, tPRunnable) == null) {
-            this.f43938a.submit(tPRunnable);
+            this.f44053a.submit(tPRunnable);
         }
     }
 
     public void runInUiThread(TPRunnable tPRunnable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tPRunnable) == null) {
-            this.f43939b.sendMessage(this.f43939b.obtainMessage(0, tPRunnable));
+            this.f44054b.sendMessage(this.f44054b.obtainMessage(0, tPRunnable));
         }
     }
 
@@ -160,12 +160,12 @@ public class ThreadPoolService {
                 return;
             }
         }
-        this.f43939b = new Handler(this, Looper.getMainLooper()) { // from class: com.baidu.pass.biometrics.base.utils.thread.ThreadPoolService.2
+        this.f44054b = new Handler(this, Looper.getMainLooper()) { // from class: com.baidu.pass.biometrics.base.utils.thread.ThreadPoolService.2
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ ThreadPoolService f43941a;
+            public final /* synthetic */ ThreadPoolService f44056a;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
             {
@@ -185,7 +185,7 @@ public class ThreadPoolService {
                         return;
                     }
                 }
-                this.f43941a = this;
+                this.f44056a = this;
             }
 
             @Override // android.os.Handler
@@ -197,13 +197,13 @@ public class ThreadPoolService {
                         ((TPRunnable) message.obj).run();
                     } else if (i4 != 1) {
                     } else {
-                        this.f43941a.f43938a.submit(((TPRunnable) message.obj).runable);
+                        this.f44056a.f44053a.submit(((TPRunnable) message.obj).runable);
                     }
                 }
             }
         };
-        ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(Math.max(2, Math.min(f43934c - 1, 4)), Integer.MAX_VALUE, 60L, TimeUnit.SECONDS, new LinkedBlockingQueue(), f43935d);
-        this.f43938a = threadPoolExecutor;
+        ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(Math.max(2, Math.min(f44049c - 1, 4)), Integer.MAX_VALUE, 60L, TimeUnit.SECONDS, new LinkedBlockingQueue(), f44050d);
+        this.f44053a = threadPoolExecutor;
         if (Build.VERSION.SDK_INT >= 9) {
             threadPoolExecutor.allowCoreThreadTimeOut(true);
         }

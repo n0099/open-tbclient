@@ -6,6 +6,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import h.c.l0;
 import java.util.Arrays;
 import java.util.LinkedHashSet;
 import javax.annotation.Nullable;
@@ -39,33 +40,11 @@ public class DefaultVideoDecoderFactory implements VideoDecoderFactory {
         this.platformSoftwareVideoDecoderFactory = new PlatformSoftwareVideoDecoderFactory(context);
     }
 
-    public DefaultVideoDecoderFactory(VideoDecoderFactory videoDecoderFactory) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {videoDecoderFactory};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.softwareVideoDecoderFactory = new SoftwareVideoDecoderFactory();
-        this.hardwareVideoDecoderFactory = videoDecoderFactory;
-        this.platformSoftwareVideoDecoderFactory = null;
-    }
-
     @Override // org.webrtc.VideoDecoderFactory
     @Nullable
     @Deprecated
-    public VideoDecoder createDecoder(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? VideoDecoderFactory_CC.$default$createDecoder(this, str) : (VideoDecoder) invokeL.objValue;
+    public /* synthetic */ VideoDecoder createDecoder(String str) {
+        return l0.$default$createDecoder(this, str);
     }
 
     @Override // org.webrtc.VideoDecoderFactory
@@ -80,7 +59,10 @@ public class DefaultVideoDecoderFactory implements VideoDecoderFactory {
             if (createDecoder == null && (videoDecoderFactory = this.platformSoftwareVideoDecoderFactory) != null) {
                 createDecoder = videoDecoderFactory.createDecoder(videoCodecInfo);
             }
-            return (createDecoder2 == null || createDecoder == null) ? createDecoder2 != null ? createDecoder2 : createDecoder : new VideoDecoderFallback(createDecoder, createDecoder2);
+            if (createDecoder2 == null || createDecoder == null) {
+                return createDecoder2 != null ? createDecoder2 : createDecoder;
+            }
+            return new VideoDecoderFallback(createDecoder, createDecoder2);
         }
         return (VideoDecoder) invokeL.objValue;
     }
@@ -100,5 +82,25 @@ public class DefaultVideoDecoderFactory implements VideoDecoderFactory {
             return (VideoCodecInfo[]) linkedHashSet.toArray(new VideoCodecInfo[linkedHashSet.size()]);
         }
         return (VideoCodecInfo[]) invokeV.objValue;
+    }
+
+    public DefaultVideoDecoderFactory(VideoDecoderFactory videoDecoderFactory) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {videoDecoderFactory};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.softwareVideoDecoderFactory = new SoftwareVideoDecoderFactory();
+        this.hardwareVideoDecoderFactory = videoDecoderFactory;
+        this.platformSoftwareVideoDecoderFactory = null;
     }
 }

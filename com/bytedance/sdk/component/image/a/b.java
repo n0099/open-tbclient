@@ -21,7 +21,7 @@ public class b {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public WeakHashMap<String, String> f64925a;
+            public WeakHashMap<String, String> f65105a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -36,17 +36,17 @@ public class b {
                         return;
                     }
                 }
-                this.f64925a = new WeakHashMap<>();
+                this.f65105a = new WeakHashMap<>();
             }
 
             private String a(String str) {
                 InterceptResult invokeL;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeL = interceptable2.invokeL(65537, this, str)) == null) {
-                    String str2 = this.f64925a.get(str);
+                    String str2 = this.f65105a.get(str);
                     if (str2 == null) {
                         String a2 = com.bytedance.sdk.component.image.c.c.b.a(str);
-                        this.f64925a.put(str, a2);
+                        this.f65105a.put(str, a2);
                         return a2;
                     }
                     return str2;

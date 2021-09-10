@@ -34,7 +34,10 @@ public class a implements b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, context, file)) == null) {
             Object g2 = c.g(c.g(context.getClassLoader(), "pathList"), "nativeLibraryDirectories");
-            return g2 instanceof File[] ? c.f((File[]) g2, file) : ((ArrayList) g2).contains(file);
+            if (g2 instanceof File[]) {
+                return c.f((File[]) g2, file);
+            }
+            return ((ArrayList) g2).contains(file);
         }
         return invokeLL.booleanValue;
     }

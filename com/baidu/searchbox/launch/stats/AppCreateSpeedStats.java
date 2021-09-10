@@ -1,6 +1,6 @@
 package com.baidu.searchbox.launch.stats;
 
-import c.a.p0.s.d0.b;
+import c.a.q0.s.d0.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.config.AppConfig;
 import com.baidu.searchbox.launch.utils.SpeedStatsUtils;

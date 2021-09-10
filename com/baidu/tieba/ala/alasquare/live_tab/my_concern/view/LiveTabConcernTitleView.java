@@ -3,8 +3,8 @@ package com.baidu.tieba.ala.alasquare.live_tab.my_concern.view;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import c.a.q0.a0.b;
-import c.a.q0.v.d.g.c.g;
+import c.a.r0.a0.b;
+import c.a.r0.v.d.g.c.g;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
@@ -79,14 +79,14 @@ public class LiveTabConcernTitleView extends b<g> {
         l(tbPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
 
-    @Override // c.a.q0.a0.b
+    @Override // c.a.r0.a0.b
     public int f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.tab_sub_title_view : invokeV.intValue;
     }
 
-    @Override // c.a.q0.a0.b
+    @Override // c.a.r0.a0.b
     public void l(TbPageContext<?> tbPageContext, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i2) == null) {
@@ -103,14 +103,14 @@ public class LiveTabConcernTitleView extends b<g> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // c.a.q0.a0.b
+    @Override // c.a.r0.a0.b
     /* renamed from: p */
     public void k(g gVar) {
         ViewHolder viewHolder;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, gVar) == null) || gVar == null || StringUtils.isNull(gVar.f25323f) || (viewHolder = this.m) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, gVar) == null) || gVar == null || StringUtils.isNull(gVar.f25801f) || (viewHolder = this.m) == null) {
             return;
         }
-        viewHolder.mTitle.setText(gVar.f25323f);
+        viewHolder.mTitle.setText(gVar.f25801f);
     }
 }

@@ -42,7 +42,7 @@ public class d extends a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
-            m mVar = this.f65661b;
+            m mVar = this.f65841b;
             if (mVar == null) {
                 return false;
             }
@@ -70,7 +70,7 @@ public class d extends a {
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.f65666g = this.f65669j.y();
+            this.f65846g = this.f65849j.y();
         }
     }
 
@@ -91,10 +91,10 @@ public class d extends a {
     public void a(FrameLayout frameLayout) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, frameLayout) == null) {
-            FullInteractionStyleView fullInteractionStyleView = new FullInteractionStyleView(this.f65660a, this.f65666g);
+            FullInteractionStyleView fullInteractionStyleView = new FullInteractionStyleView(this.f65840a, this.f65846g);
             this.l = fullInteractionStyleView;
-            fullInteractionStyleView.setDownloadListener(this.f65667h);
-            this.l.a(this.f65661b, null, this.f65665f, this.f65664e, this.f65662c, this.f65663d);
+            fullInteractionStyleView.setDownloadListener(this.f65847h);
+            this.l.a(this.f65841b, null, this.f65845f, this.f65844e, this.f65842c, this.f65843d);
             frameLayout.addView(this.l.getInteractionStyleRootView());
         }
     }
@@ -114,7 +114,7 @@ public class d extends a {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ d f65672a;
+            public final /* synthetic */ d f65852a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -131,16 +131,16 @@ public class d extends a {
                         return;
                     }
                 }
-                this.f65672a = this;
+                this.f65852a = this;
             }
 
             @Override // com.bytedance.sdk.openadsdk.component.reward.c.a.InterfaceC1897a
             public void a(boolean z) {
                 Interceptable interceptable2 = $ic;
-                if (!(interceptable2 == null || interceptable2.invokeZ(1048576, this, z) == null) || this.f65672a.l == null) {
+                if (!(interceptable2 == null || interceptable2.invokeZ(1048576, this, z) == null) || this.f65852a.l == null) {
                     return;
                 }
-                this.f65672a.l.setIsMute(z);
+                this.f65852a.l.setIsMute(z);
             }
         } : (a.InterfaceC1897a) invokeV.objValue;
     }
@@ -151,17 +151,17 @@ public class d extends a {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cVar) == null) {
             cVar.a(8);
             cVar.b(8);
-            if (this.f65661b.d() == 2) {
-                this.f65668i.a(false);
-                this.f65668i.c(false);
-                this.f65668i.d(false);
-                this.f65668i.e(false);
+            if (this.f65841b.d() == 2) {
+                this.f65848i.a(false);
+                this.f65848i.c(false);
+                this.f65848i.d(false);
+                this.f65848i.e(false);
                 return;
             }
-            this.f65668i.a(this.f65661b.aM());
-            this.f65668i.c(f());
-            this.f65668i.d(f());
-            this.f65668i.e(true ^ f());
+            this.f65848i.a(this.f65841b.aM());
+            this.f65848i.c(f());
+            this.f65848i.d(f());
+            this.f65848i.e(true ^ f());
         }
     }
 }

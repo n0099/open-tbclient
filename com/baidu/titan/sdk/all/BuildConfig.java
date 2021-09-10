@@ -1,5 +1,5 @@
 package com.baidu.titan.sdk.all;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class BuildConfig {
     public static final String APPLICATION_ID = "com.baidu.titan.sdk.all";
     public static final String BUILD_TYPE = "release";

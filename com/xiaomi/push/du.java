@@ -18,7 +18,7 @@ public final class du {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f77318a;
+        public int f77498a;
 
         /* renamed from: a  reason: collision with other field name */
         public long f252a;
@@ -30,7 +30,7 @@ public final class du {
         public boolean f254a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f77319b;
+        public int f77499b;
 
         /* renamed from: b  reason: collision with other field name */
         public String f255b;
@@ -39,7 +39,7 @@ public final class du {
         public boolean f256b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f77320c;
+        public int f77500c;
 
         /* renamed from: c  reason: collision with other field name */
         public String f257c;
@@ -48,7 +48,7 @@ public final class du {
         public boolean f258c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f77321d;
+        public int f77501d;
 
         /* renamed from: d  reason: collision with other field name */
         public String f259d;
@@ -57,7 +57,7 @@ public final class du {
         public boolean f260d;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f77322e;
+        public int f77502e;
 
         /* renamed from: e  reason: collision with other field name */
         public String f261e;
@@ -66,22 +66,22 @@ public final class du {
         public boolean f262e;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f77323f;
+        public String f77503f;
 
         /* renamed from: f  reason: collision with other field name */
         public boolean f263f;
 
         /* renamed from: g  reason: collision with root package name */
-        public boolean f77324g;
+        public boolean f77504g;
 
         /* renamed from: h  reason: collision with root package name */
-        public boolean f77325h;
+        public boolean f77505h;
 
         /* renamed from: i  reason: collision with root package name */
-        public boolean f77326i;
+        public boolean f77506i;
 
         /* renamed from: j  reason: collision with root package name */
-        public boolean f77327j;
+        public boolean f77507j;
         public boolean k;
 
         public a() {
@@ -97,18 +97,18 @@ public final class du {
                     return;
                 }
             }
-            this.f77318a = 0;
+            this.f77498a = 0;
             this.f252a = 0L;
             this.f253a = "";
             this.f255b = "";
             this.f257c = "";
             this.f259d = "";
             this.f261e = "";
-            this.f77319b = 1;
-            this.f77320c = 0;
-            this.f77321d = 0;
-            this.f77323f = "";
-            this.f77322e = -1;
+            this.f77499b = 1;
+            this.f77500c = 0;
+            this.f77501d = 0;
+            this.f77503f = "";
+            this.f77502e = -1;
         }
 
         @Override // com.xiaomi.push.e
@@ -116,10 +116,10 @@ public final class du {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (this.f77322e < 0) {
+                if (this.f77502e < 0) {
                     b();
                 }
-                return this.f77322e;
+                return this.f77502e;
             }
             return invokeV.intValue;
         }
@@ -148,7 +148,7 @@ public final class du {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) {
                 this.f254a = true;
-                this.f77318a = i2;
+                this.f77498a = i2;
                 return this;
             }
             return (a) invokeI.objValue;
@@ -323,7 +323,7 @@ public final class du {
                 if (k()) {
                     a2 += com.xiaomi.push.c.a(11, m263f());
                 }
-                this.f77322e = a2;
+                this.f77502e = a2;
                 return a2;
             }
             return invokeV.intValue;
@@ -333,8 +333,8 @@ public final class du {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048588, this, i2)) == null) {
-                this.f77325h = true;
-                this.f77319b = i2;
+                this.f77505h = true;
+                this.f77499b = i2;
                 return this;
             }
             return (a) invokeI.objValue;
@@ -368,15 +368,15 @@ public final class du {
         public int c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.f77318a : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.f77498a : invokeV.intValue;
         }
 
         public a c(int i2) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048593, this, i2)) == null) {
-                this.f77326i = true;
-                this.f77320c = i2;
+                this.f77506i = true;
+                this.f77500c = i2;
                 return this;
             }
             return (a) invokeI.objValue;
@@ -410,15 +410,15 @@ public final class du {
         public int d() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? this.f77319b : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? this.f77499b : invokeV.intValue;
         }
 
         public a d(int i2) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048598, this, i2)) == null) {
-                this.f77327j = true;
-                this.f77321d = i2;
+                this.f77507j = true;
+                this.f77501d = i2;
                 return this;
             }
             return (a) invokeI.objValue;
@@ -452,14 +452,14 @@ public final class du {
         public int e() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) ? this.f77320c : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) ? this.f77500c : invokeV.intValue;
         }
 
         public a e(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048603, this, str)) == null) {
-                this.f77324g = true;
+                this.f77504g = true;
                 this.f261e = str;
                 return this;
             }
@@ -483,7 +483,7 @@ public final class du {
         public int f() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) ? this.f77321d : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) ? this.f77501d : invokeV.intValue;
         }
 
         public a f(String str) {
@@ -491,7 +491,7 @@ public final class du {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048607, this, str)) == null) {
                 this.k = true;
-                this.f77323f = str;
+                this.f77503f = str;
                 return this;
             }
             return (a) invokeL.objValue;
@@ -501,7 +501,7 @@ public final class du {
         public String m263f() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) ? this.f77323f : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) ? this.f77503f : (String) invokeV.objValue;
         }
 
         /* renamed from: f  reason: collision with other method in class */
@@ -514,25 +514,25 @@ public final class du {
         public boolean g() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) ? this.f77324g : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) ? this.f77504g : invokeV.booleanValue;
         }
 
         public boolean h() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048611, this)) == null) ? this.f77325h : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048611, this)) == null) ? this.f77505h : invokeV.booleanValue;
         }
 
         public boolean i() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048612, this)) == null) ? this.f77326i : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048612, this)) == null) ? this.f77506i : invokeV.booleanValue;
         }
 
         public boolean j() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048613, this)) == null) ? this.f77327j : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048613, this)) == null) ? this.f77507j : invokeV.booleanValue;
         }
 
         public boolean k() {
@@ -548,31 +548,31 @@ public final class du {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f77328a;
+        public int f77508a;
 
         /* renamed from: a  reason: collision with other field name */
         public boolean f264a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f77329b;
+        public int f77509b;
 
         /* renamed from: b  reason: collision with other field name */
         public boolean f265b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f77330c;
+        public int f77510c;
 
         /* renamed from: c  reason: collision with other field name */
         public boolean f266c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f77331d;
+        public int f77511d;
 
         /* renamed from: d  reason: collision with other field name */
         public boolean f267d;
 
         /* renamed from: e  reason: collision with root package name */
-        public boolean f77332e;
+        public boolean f77512e;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -588,10 +588,10 @@ public final class du {
                 }
             }
             this.f265b = false;
-            this.f77328a = 0;
-            this.f77329b = 0;
-            this.f77330c = 0;
-            this.f77331d = -1;
+            this.f77508a = 0;
+            this.f77509b = 0;
+            this.f77510c = 0;
+            this.f77511d = -1;
         }
 
         public static b a(byte[] bArr) {
@@ -605,10 +605,10 @@ public final class du {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (this.f77331d < 0) {
+                if (this.f77511d < 0) {
                     b();
                 }
-                return this.f77331d;
+                return this.f77511d;
             }
             return invokeV.intValue;
         }
@@ -618,7 +618,7 @@ public final class du {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
                 this.f266c = true;
-                this.f77328a = i2;
+                this.f77508a = i2;
                 return this;
             }
             return (b) invokeI.objValue;
@@ -703,7 +703,7 @@ public final class du {
                 if (m267e()) {
                     a2 += com.xiaomi.push.c.a(5, e());
                 }
-                this.f77331d = a2;
+                this.f77511d = a2;
                 return a2;
             }
             return invokeV.intValue;
@@ -714,7 +714,7 @@ public final class du {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2)) == null) {
                 this.f267d = true;
-                this.f77329b = i2;
+                this.f77509b = i2;
                 return this;
             }
             return (b) invokeI.objValue;
@@ -730,15 +730,15 @@ public final class du {
         public int c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f77328a : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f77508a : invokeV.intValue;
         }
 
         public b c(int i2) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048587, this, i2)) == null) {
-                this.f77332e = true;
-                this.f77330c = i2;
+                this.f77512e = true;
+                this.f77510c = i2;
                 return this;
             }
             return (b) invokeI.objValue;
@@ -754,7 +754,7 @@ public final class du {
         public int d() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f77329b : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f77509b : invokeV.intValue;
         }
 
         /* renamed from: d  reason: collision with other method in class */
@@ -767,14 +767,14 @@ public final class du {
         public int e() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.f77330c : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.f77510c : invokeV.intValue;
         }
 
         /* renamed from: e  reason: collision with other method in class */
         public boolean m267e() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.f77332e : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.f77512e : invokeV.booleanValue;
         }
     }
 
@@ -784,7 +784,7 @@ public final class du {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f77333a;
+        public int f77513a;
 
         /* renamed from: a  reason: collision with other field name */
         public String f268a;
@@ -793,31 +793,31 @@ public final class du {
         public boolean f269a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f77334b;
+        public String f77514b;
 
         /* renamed from: b  reason: collision with other field name */
         public boolean f270b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f77335c;
+        public String f77515c;
 
         /* renamed from: c  reason: collision with other field name */
         public boolean f271c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f77336d;
+        public String f77516d;
 
         /* renamed from: d  reason: collision with other field name */
         public boolean f272d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f77337e;
+        public String f77517e;
 
         /* renamed from: e  reason: collision with other field name */
         public boolean f273e;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f77338f;
+        public String f77518f;
 
         /* renamed from: f  reason: collision with other field name */
         public boolean f274f;
@@ -836,12 +836,12 @@ public final class du {
                 }
             }
             this.f268a = "";
-            this.f77334b = "";
-            this.f77335c = "";
-            this.f77336d = "";
-            this.f77337e = "";
-            this.f77338f = "";
-            this.f77333a = -1;
+            this.f77514b = "";
+            this.f77515c = "";
+            this.f77516d = "";
+            this.f77517e = "";
+            this.f77518f = "";
+            this.f77513a = -1;
         }
 
         @Override // com.xiaomi.push.e
@@ -849,10 +849,10 @@ public final class du {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (this.f77333a < 0) {
+                if (this.f77513a < 0) {
                     b();
                 }
-                return this.f77333a;
+                return this.f77513a;
             }
             return invokeV.intValue;
         }
@@ -959,7 +959,7 @@ public final class du {
                 if (m271f()) {
                     a2 += com.xiaomi.push.c.a(6, f());
                 }
-                this.f77333a = a2;
+                this.f77513a = a2;
                 return a2;
             }
             return invokeV.intValue;
@@ -970,7 +970,7 @@ public final class du {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
                 this.f270b = true;
-                this.f77334b = str;
+                this.f77514b = str;
                 return this;
             }
             return (c) invokeL.objValue;
@@ -980,7 +980,7 @@ public final class du {
         public String b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f77334b : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f77514b : (String) invokeV.objValue;
         }
 
         @Override // com.xiaomi.push.e
@@ -995,7 +995,7 @@ public final class du {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, str)) == null) {
                 this.f271c = true;
-                this.f77335c = str;
+                this.f77515c = str;
                 return this;
             }
             return (c) invokeL.objValue;
@@ -1004,7 +1004,7 @@ public final class du {
         public String c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f77335c : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f77515c : (String) invokeV.objValue;
         }
 
         /* renamed from: c  reason: collision with other method in class */
@@ -1019,7 +1019,7 @@ public final class du {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, str)) == null) {
                 this.f272d = true;
-                this.f77336d = str;
+                this.f77516d = str;
                 return this;
             }
             return (c) invokeL.objValue;
@@ -1028,7 +1028,7 @@ public final class du {
         public String d() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.f77336d : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.f77516d : (String) invokeV.objValue;
         }
 
         /* renamed from: d  reason: collision with other method in class */
@@ -1043,7 +1043,7 @@ public final class du {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, str)) == null) {
                 this.f273e = true;
-                this.f77337e = str;
+                this.f77517e = str;
                 return this;
             }
             return (c) invokeL.objValue;
@@ -1052,7 +1052,7 @@ public final class du {
         public String e() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.f77337e : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.f77517e : (String) invokeV.objValue;
         }
 
         /* renamed from: e  reason: collision with other method in class */
@@ -1067,7 +1067,7 @@ public final class du {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048596, this, str)) == null) {
                 this.f274f = true;
-                this.f77338f = str;
+                this.f77518f = str;
                 return this;
             }
             return (c) invokeL.objValue;
@@ -1076,7 +1076,7 @@ public final class du {
         public String f() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? this.f77338f : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? this.f77518f : (String) invokeV.objValue;
         }
 
         /* renamed from: f  reason: collision with other method in class */
@@ -1093,7 +1093,7 @@ public final class du {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f77339a;
+        public int f77519a;
 
         /* renamed from: a  reason: collision with other field name */
         public String f275a;
@@ -1102,22 +1102,22 @@ public final class du {
         public boolean f276a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f77340b;
+        public String f77520b;
 
         /* renamed from: b  reason: collision with other field name */
         public boolean f277b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f77341c;
+        public String f77521c;
 
         /* renamed from: c  reason: collision with other field name */
         public boolean f278c;
 
         /* renamed from: d  reason: collision with root package name */
-        public boolean f77342d;
+        public boolean f77522d;
 
         /* renamed from: e  reason: collision with root package name */
-        public boolean f77343e;
+        public boolean f77523e;
 
         public d() {
             Interceptable interceptable = $ic;
@@ -1134,9 +1134,9 @@ public final class du {
             }
             this.f277b = false;
             this.f275a = "";
-            this.f77340b = "";
-            this.f77341c = "";
-            this.f77339a = -1;
+            this.f77520b = "";
+            this.f77521c = "";
+            this.f77519a = -1;
         }
 
         public static d a(byte[] bArr) {
@@ -1150,10 +1150,10 @@ public final class du {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (this.f77339a < 0) {
+                if (this.f77519a < 0) {
                     b();
                 }
-                return this.f77339a;
+                return this.f77519a;
             }
             return invokeV.intValue;
         }
@@ -1255,7 +1255,7 @@ public final class du {
                 if (e()) {
                     a2 += com.xiaomi.push.c.a(4, c());
                 }
-                this.f77339a = a2;
+                this.f77519a = a2;
                 return a2;
             }
             return invokeV.intValue;
@@ -1265,8 +1265,8 @@ public final class du {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) {
-                this.f77342d = true;
-                this.f77340b = str;
+                this.f77522d = true;
+                this.f77520b = str;
                 return this;
             }
             return (d) invokeL.objValue;
@@ -1276,7 +1276,7 @@ public final class du {
         public String b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f77340b : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f77520b : (String) invokeV.objValue;
         }
 
         @Override // com.xiaomi.push.e
@@ -1290,8 +1290,8 @@ public final class du {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, str)) == null) {
-                this.f77343e = true;
-                this.f77341c = str;
+                this.f77523e = true;
+                this.f77521c = str;
                 return this;
             }
             return (d) invokeL.objValue;
@@ -1300,7 +1300,7 @@ public final class du {
         public String c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f77341c : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f77521c : (String) invokeV.objValue;
         }
 
         /* renamed from: c  reason: collision with other method in class */
@@ -1313,13 +1313,13 @@ public final class du {
         public boolean d() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.f77342d : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.f77522d : invokeV.booleanValue;
         }
 
         public boolean e() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.f77343e : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.f77523e : invokeV.booleanValue;
         }
     }
 
@@ -1329,7 +1329,7 @@ public final class du {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f77344a;
+        public int f77524a;
 
         /* renamed from: a  reason: collision with other field name */
         public b f279a;
@@ -1341,7 +1341,7 @@ public final class du {
         public boolean f281a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f77345b;
+        public int f77525b;
 
         /* renamed from: b  reason: collision with other field name */
         public String f282b;
@@ -1350,7 +1350,7 @@ public final class du {
         public boolean f283b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f77346c;
+        public int f77526c;
 
         /* renamed from: c  reason: collision with other field name */
         public String f284c;
@@ -1359,7 +1359,7 @@ public final class du {
         public boolean f285c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f77347d;
+        public int f77527d;
 
         /* renamed from: d  reason: collision with other field name */
         public String f286d;
@@ -1368,28 +1368,28 @@ public final class du {
         public boolean f287d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f77348e;
+        public String f77528e;
 
         /* renamed from: e  reason: collision with other field name */
         public boolean f288e;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f77349f;
+        public String f77529f;
 
         /* renamed from: f  reason: collision with other field name */
         public boolean f289f;
 
         /* renamed from: g  reason: collision with root package name */
-        public boolean f77350g;
+        public boolean f77530g;
 
         /* renamed from: h  reason: collision with root package name */
-        public boolean f77351h;
+        public boolean f77531h;
 
         /* renamed from: i  reason: collision with root package name */
-        public boolean f77352i;
+        public boolean f77532i;
 
         /* renamed from: j  reason: collision with root package name */
-        public boolean f77353j;
+        public boolean f77533j;
 
         public e() {
             Interceptable interceptable = $ic;
@@ -1404,17 +1404,17 @@ public final class du {
                     return;
                 }
             }
-            this.f77344a = 0;
+            this.f77524a = 0;
             this.f280a = "";
             this.f282b = "";
             this.f284c = "";
-            this.f77345b = 0;
+            this.f77525b = 0;
             this.f286d = "";
-            this.f77348e = "";
-            this.f77349f = "";
+            this.f77528e = "";
+            this.f77529f = "";
             this.f279a = null;
-            this.f77346c = 0;
-            this.f77347d = -1;
+            this.f77526c = 0;
+            this.f77527d = -1;
         }
 
         @Override // com.xiaomi.push.e
@@ -1422,10 +1422,10 @@ public final class du {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (this.f77347d < 0) {
+                if (this.f77527d < 0) {
                     b();
                 }
-                return this.f77347d;
+                return this.f77527d;
             }
             return invokeV.intValue;
         }
@@ -1442,7 +1442,7 @@ public final class du {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) {
                 this.f281a = true;
-                this.f77344a = i2;
+                this.f77524a = i2;
                 return this;
             }
             return (e) invokeI.objValue;
@@ -1509,7 +1509,7 @@ public final class du {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, bVar)) == null) {
                 if (bVar != null) {
-                    this.f77352i = true;
+                    this.f77532i = true;
                     this.f279a = bVar;
                     return this;
                 }
@@ -1613,7 +1613,7 @@ public final class du {
                 if (j()) {
                     b2 += com.xiaomi.push.c.a(10, e());
                 }
-                this.f77347d = b2;
+                this.f77527d = b2;
                 return b2;
             }
             return invokeV.intValue;
@@ -1624,7 +1624,7 @@ public final class du {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048587, this, i2)) == null) {
                 this.f288e = true;
-                this.f77345b = i2;
+                this.f77525b = i2;
                 return this;
             }
             return (e) invokeI.objValue;
@@ -1658,15 +1658,15 @@ public final class du {
         public int c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.f77344a : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.f77524a : invokeV.intValue;
         }
 
         public e c(int i2) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048592, this, i2)) == null) {
-                this.f77353j = true;
-                this.f77346c = i2;
+                this.f77533j = true;
+                this.f77526c = i2;
                 return this;
             }
             return (e) invokeI.objValue;
@@ -1700,7 +1700,7 @@ public final class du {
         public int d() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? this.f77345b : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? this.f77525b : invokeV.intValue;
         }
 
         public e d(String str) {
@@ -1731,15 +1731,15 @@ public final class du {
         public int e() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) ? this.f77346c : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) ? this.f77526c : invokeV.intValue;
         }
 
         public e e(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048601, this, str)) == null) {
-                this.f77350g = true;
-                this.f77348e = str;
+                this.f77530g = true;
+                this.f77528e = str;
                 return this;
             }
             return (e) invokeL.objValue;
@@ -1749,7 +1749,7 @@ public final class du {
         public String m277e() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) ? this.f77348e : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) ? this.f77528e : (String) invokeV.objValue;
         }
 
         /* renamed from: e  reason: collision with other method in class */
@@ -1763,8 +1763,8 @@ public final class du {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048604, this, str)) == null) {
-                this.f77351h = true;
-                this.f77349f = str;
+                this.f77531h = true;
+                this.f77529f = str;
                 return this;
             }
             return (e) invokeL.objValue;
@@ -1773,7 +1773,7 @@ public final class du {
         public String f() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) ? this.f77349f : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) ? this.f77529f : (String) invokeV.objValue;
         }
 
         /* renamed from: f  reason: collision with other method in class */
@@ -1786,25 +1786,25 @@ public final class du {
         public boolean g() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) ? this.f77350g : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) ? this.f77530g : invokeV.booleanValue;
         }
 
         public boolean h() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) ? this.f77351h : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) ? this.f77531h : invokeV.booleanValue;
         }
 
         public boolean i() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048609, this)) == null) ? this.f77352i : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048609, this)) == null) ? this.f77532i : invokeV.booleanValue;
         }
 
         public boolean j() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) ? this.f77353j : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) ? this.f77533j : invokeV.booleanValue;
         }
     }
 
@@ -1814,7 +1814,7 @@ public final class du {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f77354a;
+        public int f77534a;
 
         /* renamed from: a  reason: collision with other field name */
         public b f290a;
@@ -1826,13 +1826,13 @@ public final class du {
         public boolean f292a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f77355b;
+        public String f77535b;
 
         /* renamed from: b  reason: collision with other field name */
         public boolean f293b;
 
         /* renamed from: c  reason: collision with root package name */
-        public boolean f77356c;
+        public boolean f77536c;
 
         public f() {
             Interceptable interceptable = $ic;
@@ -1848,9 +1848,9 @@ public final class du {
                 }
             }
             this.f291a = "";
-            this.f77355b = "";
+            this.f77535b = "";
             this.f290a = null;
-            this.f77354a = -1;
+            this.f77534a = -1;
         }
 
         public static f a(byte[] bArr) {
@@ -1864,10 +1864,10 @@ public final class du {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (this.f77354a < 0) {
+                if (this.f77534a < 0) {
                     b();
                 }
-                return this.f77354a;
+                return this.f77534a;
             }
             return invokeV.intValue;
         }
@@ -1911,7 +1911,7 @@ public final class du {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, bVar)) == null) {
                 if (bVar != null) {
-                    this.f77356c = true;
+                    this.f77536c = true;
                     this.f290a = bVar;
                     return this;
                 }
@@ -1973,7 +1973,7 @@ public final class du {
                 if (c()) {
                     a2 += com.xiaomi.push.c.a(3, (com.xiaomi.push.e) a());
                 }
-                this.f77354a = a2;
+                this.f77534a = a2;
                 return a2;
             }
             return invokeV.intValue;
@@ -1984,7 +1984,7 @@ public final class du {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) {
                 this.f293b = true;
-                this.f77355b = str;
+                this.f77535b = str;
                 return this;
             }
             return (f) invokeL.objValue;
@@ -1994,7 +1994,7 @@ public final class du {
         public String b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f77355b : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f77535b : (String) invokeV.objValue;
         }
 
         @Override // com.xiaomi.push.e
@@ -2007,7 +2007,7 @@ public final class du {
         public boolean c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f77356c : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f77536c : invokeV.booleanValue;
         }
     }
 
@@ -2017,7 +2017,7 @@ public final class du {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f77357a;
+        public int f77537a;
 
         /* renamed from: a  reason: collision with other field name */
         public String f294a;
@@ -2026,13 +2026,13 @@ public final class du {
         public boolean f295a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f77358b;
+        public String f77538b;
 
         /* renamed from: b  reason: collision with other field name */
         public boolean f296b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f77359c;
+        public String f77539c;
 
         /* renamed from: c  reason: collision with other field name */
         public boolean f297c;
@@ -2051,9 +2051,9 @@ public final class du {
                 }
             }
             this.f294a = "";
-            this.f77358b = "";
-            this.f77359c = "";
-            this.f77357a = -1;
+            this.f77538b = "";
+            this.f77539c = "";
+            this.f77537a = -1;
         }
 
         public static g a(byte[] bArr) {
@@ -2067,10 +2067,10 @@ public final class du {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (this.f77357a < 0) {
+                if (this.f77537a < 0) {
                     b();
                 }
-                return this.f77357a;
+                return this.f77537a;
             }
             return invokeV.intValue;
         }
@@ -2153,7 +2153,7 @@ public final class du {
                 if (m280c()) {
                     a2 += com.xiaomi.push.c.a(3, c());
                 }
-                this.f77357a = a2;
+                this.f77537a = a2;
                 return a2;
             }
             return invokeV.intValue;
@@ -2164,7 +2164,7 @@ public final class du {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
                 this.f296b = true;
-                this.f77358b = str;
+                this.f77538b = str;
                 return this;
             }
             return (g) invokeL.objValue;
@@ -2174,7 +2174,7 @@ public final class du {
         public String b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f77358b : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f77538b : (String) invokeV.objValue;
         }
 
         @Override // com.xiaomi.push.e
@@ -2189,7 +2189,7 @@ public final class du {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, str)) == null) {
                 this.f297c = true;
-                this.f77359c = str;
+                this.f77539c = str;
                 return this;
             }
             return (g) invokeL.objValue;
@@ -2198,7 +2198,7 @@ public final class du {
         public String c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f77359c : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f77539c : (String) invokeV.objValue;
         }
 
         /* renamed from: c  reason: collision with other method in class */
@@ -2215,7 +2215,7 @@ public final class du {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f77360a;
+        public int f77540a;
 
         /* renamed from: a  reason: collision with other field name */
         public String f298a;
@@ -2224,7 +2224,7 @@ public final class du {
         public boolean f299a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f77361b;
+        public int f77541b;
 
         /* renamed from: b  reason: collision with other field name */
         public boolean f300b;
@@ -2242,9 +2242,9 @@ public final class du {
                     return;
                 }
             }
-            this.f77360a = 0;
+            this.f77540a = 0;
             this.f298a = "";
-            this.f77361b = -1;
+            this.f77541b = -1;
         }
 
         public static h a(byte[] bArr) {
@@ -2258,10 +2258,10 @@ public final class du {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (this.f77361b < 0) {
+                if (this.f77541b < 0) {
                     b();
                 }
-                return this.f77361b;
+                return this.f77541b;
             }
             return invokeV.intValue;
         }
@@ -2271,7 +2271,7 @@ public final class du {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
                 this.f299a = true;
-                this.f77360a = i2;
+                this.f77540a = i2;
                 return this;
             }
             return (h) invokeI.objValue;
@@ -2347,7 +2347,7 @@ public final class du {
                 if (b()) {
                     a2 += com.xiaomi.push.c.a(2, a());
                 }
-                this.f77361b = a2;
+                this.f77541b = a2;
                 return a2;
             }
             return invokeV.intValue;
@@ -2363,7 +2363,7 @@ public final class du {
         public int c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f77360a : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f77540a : invokeV.intValue;
         }
     }
 
@@ -2373,7 +2373,7 @@ public final class du {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f77362a;
+        public int f77542a;
 
         /* renamed from: a  reason: collision with other field name */
         public com.xiaomi.push.a f301a;
@@ -2394,8 +2394,8 @@ public final class du {
                     return;
                 }
             }
-            this.f301a = com.xiaomi.push.a.f77150a;
-            this.f77362a = -1;
+            this.f301a = com.xiaomi.push.a.f77330a;
+            this.f77542a = -1;
         }
 
         public static i a(byte[] bArr) {
@@ -2409,10 +2409,10 @@ public final class du {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (this.f77362a < 0) {
+                if (this.f77542a < 0) {
                     b();
                 }
-                return this.f77362a;
+                return this.f77542a;
             }
             return invokeV.intValue;
         }
@@ -2477,7 +2477,7 @@ public final class du {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
                 int a2 = a() ? 0 + com.xiaomi.push.c.a(1, a()) : 0;
-                this.f77362a = a2;
+                this.f77542a = a2;
                 return a2;
             }
             return invokeV.intValue;
@@ -2490,7 +2490,7 @@ public final class du {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f77363a;
+        public int f77543a;
 
         /* renamed from: a  reason: collision with other field name */
         public com.xiaomi.push.a f303a;
@@ -2502,7 +2502,7 @@ public final class du {
         public boolean f305a;
 
         /* renamed from: b  reason: collision with root package name */
-        public boolean f77364b;
+        public boolean f77544b;
 
         public j() {
             Interceptable interceptable = $ic;
@@ -2517,9 +2517,9 @@ public final class du {
                     return;
                 }
             }
-            this.f303a = com.xiaomi.push.a.f77150a;
+            this.f303a = com.xiaomi.push.a.f77330a;
             this.f304a = null;
-            this.f77363a = -1;
+            this.f77543a = -1;
         }
 
         public static j a(byte[] bArr) {
@@ -2533,10 +2533,10 @@ public final class du {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (this.f77363a < 0) {
+                if (this.f77543a < 0) {
                     b();
                 }
-                return this.f77363a;
+                return this.f77543a;
             }
             return invokeV.intValue;
         }
@@ -2596,7 +2596,7 @@ public final class du {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, bVar)) == null) {
                 if (bVar != null) {
-                    this.f77364b = true;
+                    this.f77544b = true;
                     this.f304a = bVar;
                     return this;
                 }
@@ -2634,7 +2634,7 @@ public final class du {
                 if (b()) {
                     a2 += com.xiaomi.push.c.a(2, (com.xiaomi.push.e) a());
                 }
-                this.f77363a = a2;
+                this.f77543a = a2;
                 return a2;
             }
             return invokeV.intValue;
@@ -2644,7 +2644,7 @@ public final class du {
         public boolean b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f77364b : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f77544b : invokeV.booleanValue;
         }
     }
 
@@ -2654,7 +2654,7 @@ public final class du {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f77365a;
+        public int f77545a;
 
         /* renamed from: a  reason: collision with other field name */
         public long f306a;
@@ -2666,7 +2666,7 @@ public final class du {
         public boolean f308a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f77366b;
+        public int f77546b;
 
         /* renamed from: b  reason: collision with other field name */
         public long f309b;
@@ -2678,19 +2678,19 @@ public final class du {
         public boolean f311b;
 
         /* renamed from: c  reason: collision with root package name */
-        public boolean f77367c;
+        public boolean f77547c;
 
         /* renamed from: d  reason: collision with root package name */
-        public boolean f77368d;
+        public boolean f77548d;
 
         /* renamed from: e  reason: collision with root package name */
-        public boolean f77369e;
+        public boolean f77549e;
 
         /* renamed from: f  reason: collision with root package name */
-        public boolean f77370f;
+        public boolean f77550f;
 
         /* renamed from: g  reason: collision with root package name */
-        public boolean f77371g;
+        public boolean f77551g;
 
         public k() {
             Interceptable interceptable = $ic;
@@ -2709,9 +2709,9 @@ public final class du {
             this.f310b = "";
             this.f306a = 0L;
             this.f309b = 0L;
-            this.f77370f = false;
-            this.f77365a = 0;
-            this.f77366b = -1;
+            this.f77550f = false;
+            this.f77545a = 0;
+            this.f77546b = -1;
         }
 
         public static k a(byte[] bArr) {
@@ -2725,10 +2725,10 @@ public final class du {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (this.f77366b < 0) {
+                if (this.f77546b < 0) {
                     b();
                 }
-                return this.f77366b;
+                return this.f77546b;
             }
             return invokeV.intValue;
         }
@@ -2744,8 +2744,8 @@ public final class du {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) {
-                this.f77371g = true;
-                this.f77365a = i2;
+                this.f77551g = true;
+                this.f77545a = i2;
                 return this;
             }
             return (k) invokeI.objValue;
@@ -2755,7 +2755,7 @@ public final class du {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeJ = interceptable.invokeJ(1048579, this, j2)) == null) {
-                this.f77367c = true;
+                this.f77547c = true;
                 this.f306a = j2;
                 return this;
             }
@@ -2808,8 +2808,8 @@ public final class du {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZ = interceptable.invokeZ(1048582, this, z)) == null) {
-                this.f77369e = true;
-                this.f77370f = z;
+                this.f77549e = true;
+                this.f77550f = z;
                 return this;
             }
             return (k) invokeZ.objValue;
@@ -2875,7 +2875,7 @@ public final class du {
                 if (g()) {
                     a2 += com.xiaomi.push.c.a(6, c());
                 }
-                this.f77366b = a2;
+                this.f77546b = a2;
                 return a2;
             }
             return invokeV.intValue;
@@ -2892,7 +2892,7 @@ public final class du {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeJ = interceptable.invokeJ(1048589, this, j2)) == null) {
-                this.f77368d = true;
+                this.f77548d = true;
                 this.f309b = j2;
                 return this;
             }
@@ -2927,38 +2927,38 @@ public final class du {
         public int c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.f77365a : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.f77545a : invokeV.intValue;
         }
 
         /* renamed from: c  reason: collision with other method in class */
         public boolean m281c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.f77367c : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.f77547c : invokeV.booleanValue;
         }
 
         public boolean d() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.f77368d : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.f77548d : invokeV.booleanValue;
         }
 
         public boolean e() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? this.f77370f : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? this.f77550f : invokeV.booleanValue;
         }
 
         public boolean f() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? this.f77369e : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? this.f77549e : invokeV.booleanValue;
         }
 
         public boolean g() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? this.f77371g : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? this.f77551g : invokeV.booleanValue;
         }
     }
 }

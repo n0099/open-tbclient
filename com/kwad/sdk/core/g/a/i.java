@@ -18,16 +18,16 @@ public class i implements com.kwad.sdk.core.b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f71621a;
+    public String f71801a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f71622b;
+    public String f71802b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f71623c;
+    public int f71803c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f71624d;
+    public int f71804d;
 
     public i() {
         Interceptable interceptable = $ic;
@@ -48,10 +48,10 @@ public class i implements com.kwad.sdk.core.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
             i iVar = new i();
-            iVar.f71621a = ap.m();
-            iVar.f71622b = ap.o(KsAdSDKImpl.get().getContext());
-            iVar.f71623c = z.c(KsAdSDKImpl.get().getContext());
-            iVar.f71624d = z.d(KsAdSDKImpl.get().getContext());
+            iVar.f71801a = ap.m();
+            iVar.f71802b = ap.o(KsAdSDKImpl.get().getContext());
+            iVar.f71803c = z.c(KsAdSDKImpl.get().getContext());
+            iVar.f71804d = z.d(KsAdSDKImpl.get().getContext());
             return iVar;
         }
         return (i) invokeV.objValue;
@@ -70,10 +70,10 @@ public class i implements com.kwad.sdk.core.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             JSONObject jSONObject = new JSONObject();
-            q.a(jSONObject, "ip", this.f71621a);
-            q.a(jSONObject, "mac", this.f71622b);
-            q.a(jSONObject, "connectionType", this.f71623c);
-            q.a(jSONObject, "operatorType", this.f71624d);
+            q.a(jSONObject, "ip", this.f71801a);
+            q.a(jSONObject, "mac", this.f71802b);
+            q.a(jSONObject, "connectionType", this.f71803c);
+            q.a(jSONObject, "operatorType", this.f71804d);
             return jSONObject;
         }
         return (JSONObject) invokeV.objValue;

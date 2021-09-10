@@ -26,7 +26,7 @@ public interface a extends IInterface {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public IBinder f70696a;
+            public IBinder f70876a;
 
             public C1968a(IBinder iBinder) {
                 Interceptable interceptable = $ic;
@@ -43,7 +43,7 @@ public interface a extends IInterface {
                         return;
                     }
                 }
-                this.f70696a = iBinder;
+                this.f70876a = iBinder;
             }
 
             public String a(String str, String str2, String str3) {
@@ -57,7 +57,7 @@ public interface a extends IInterface {
                         obtain.writeString(str);
                         obtain.writeString(str2);
                         obtain.writeString(str3);
-                        this.f70696a.transact(1, obtain, obtain2, 0);
+                        this.f70876a.transact(1, obtain, obtain2, 0);
                         obtain2.readException();
                         return obtain2.readString();
                     } finally {
@@ -72,7 +72,7 @@ public interface a extends IInterface {
             public IBinder asBinder() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f70696a : (IBinder) invokeV.objValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f70876a : (IBinder) invokeV.objValue;
             }
         }
 

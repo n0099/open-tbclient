@@ -7,7 +7,7 @@ import android.widget.ImageView;
 import androidx.core.view.InputDeviceCompat;
 import c.a.e.e.l.d;
 import c.a.e.e.p.l;
-import c.a.p0.a.t;
+import c.a.q0.a.t;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.ActivityPendingTransitionFactory;
@@ -42,7 +42,7 @@ public class NewUserRedPackageActivity extends BaseActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ NewUserRedPackageActivity f56427e;
+        public final /* synthetic */ NewUserRedPackageActivity f56587e;
 
         public a(NewUserRedPackageActivity newUserRedPackageActivity) {
             Interceptable interceptable = $ic;
@@ -59,31 +59,31 @@ public class NewUserRedPackageActivity extends BaseActivity {
                     return;
                 }
             }
-            this.f56427e = newUserRedPackageActivity;
+            this.f56587e = newUserRedPackageActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                if (view.getId() != this.f56427e.mCloseBtnImage.getId()) {
-                    if (view.getId() == this.f56427e.mBgImage.getId()) {
+                if (view.getId() != this.f56587e.mCloseBtnImage.getId()) {
+                    if (view.getId() == this.f56587e.mBgImage.getId()) {
                         TiebaStatic.log(new StatisticItem("c13684").param("obj_type", 2));
                         if (TbadkCoreApplication.isLogin()) {
-                            if (this.f56427e.mData != null) {
-                                UrlManager.getInstance().dealOneLink(this.f56427e.getPageContext(), new String[]{this.f56427e.mData.clickUrl});
-                                this.f56427e.finish();
+                            if (this.f56587e.mData != null) {
+                                UrlManager.getInstance().dealOneLink(this.f56587e.getPageContext(), new String[]{this.f56587e.mData.clickUrl});
+                                this.f56587e.finish();
                                 return;
                             }
                             return;
                         }
-                        this.f56427e.sendMessage(new CustomMessage(2002001, new LoginActivityConfig(this.f56427e.getActivity(), true, 25046)));
+                        this.f56587e.sendMessage(new CustomMessage(2002001, new LoginActivityConfig(this.f56587e.getActivity(), true, 25046)));
                         return;
                     }
                     return;
                 }
                 TiebaStatic.log(new StatisticItem("c13684").param("obj_type", 3));
-                this.f56427e.finish();
+                this.f56587e.finish();
             }
         }
     }

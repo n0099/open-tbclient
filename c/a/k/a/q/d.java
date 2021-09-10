@@ -16,7 +16,7 @@ public final class d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f3743a;
+    public static String f3707a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -58,10 +58,10 @@ public final class d {
         ActivityManager.RunningAppProcessInfo a2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            if (TextUtils.isEmpty(f3743a) && (a2 = a(context)) != null) {
-                f3743a = a2.processName;
+            if (TextUtils.isEmpty(f3707a) && (a2 = a(context)) != null) {
+                f3707a = a2.processName;
             }
-            return f3743a;
+            return f3707a;
         }
         return (String) invokeL.objValue;
     }

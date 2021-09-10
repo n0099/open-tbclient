@@ -5,12 +5,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import androidx.core.view.InputDeviceCompat;
 import c.a.f.d;
-import c.a.q0.o1.o.l.f;
-import c.a.q0.o1.o.l.h;
-import c.a.q0.o1.o.l.j;
-import c.a.q0.v0.o2.c;
-import c.a.q0.x2.l0.e;
-import c.a.q0.x2.l0.g;
+import c.a.r0.p1.o.l.f;
+import c.a.r0.p1.o.l.h;
+import c.a.r0.p1.o.l.j;
+import c.a.r0.w0.p2.c;
+import c.a.r0.y2.l0.e;
+import c.a.r0.y2.l0.g;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.afd.adapter.AdCardViewHolder;
 import com.baidu.tbadk.TbPageContext;
@@ -31,7 +31,7 @@ public class a extends c.a.e.l.e.a<d, AdCardViewHolder> implements f {
     public ICardInfo m;
     public d n;
     public TbPageContext o;
-    public c.a.q0.v0.h1.a p;
+    public c.a.r0.w0.h1.a p;
     public c q;
     public j r;
     public List<j> s;
@@ -39,12 +39,12 @@ public class a extends c.a.e.l.e.a<d, AdCardViewHolder> implements f {
 
     /* renamed from: c.a.f.l.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0067a implements c.a.q0.o1.o.a {
+    public class C0067a implements c.a.r0.p1.o.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f3298a;
+        public final /* synthetic */ a f3289a;
 
         public C0067a(a aVar) {
             Interceptable interceptable = $ic;
@@ -61,21 +61,21 @@ public class a extends c.a.e.l.e.a<d, AdCardViewHolder> implements f {
                     return;
                 }
             }
-            this.f3298a = aVar;
+            this.f3289a = aVar;
         }
 
-        @Override // c.a.q0.o1.o.a
+        @Override // c.a.r0.p1.o.a
         public void a(int i2, HashMap<String, Object> hashMap) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(1048576, this, i2, hashMap) == null) {
-                a aVar = this.f3298a;
-                aVar.l0(aVar.n, this.f3298a.n.k());
+                a aVar = this.f3289a;
+                aVar.l0(aVar.n, this.f3289a.n.k());
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, c.a.q0.v0.h1.a aVar, c cVar, f fVar) {
+    public a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, c.a.r0.w0.h1.a aVar, c cVar, f fVar) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -100,7 +100,7 @@ public class a extends c.a.e.l.e.a<d, AdCardViewHolder> implements f {
         this.t = fVar;
     }
 
-    @Override // c.a.q0.o1.o.l.f
+    @Override // c.a.r0.p1.o.l.f
     public void h(j jVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, jVar) == null) {
@@ -147,11 +147,11 @@ public class a extends c.a.e.l.e.a<d, AdCardViewHolder> implements f {
         }
         AdvertAppInfo w = dVar.w();
         int i3 = 2;
-        if (w != null && (iLegoAdvert = w.b4) != null && iLegoAdvert.forFree()) {
+        if (w != null && (iLegoAdvert = w.e4) != null && iLegoAdvert.forFree()) {
             i3 = 102;
         }
         e.b().d(g.b(w, i3, i2));
-        c.a.q0.o1.o.h.c.h(dVar);
+        c.a.r0.p1.o.h.c.h(dVar);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -159,10 +159,10 @@ public class a extends c.a.e.l.e.a<d, AdCardViewHolder> implements f {
     /* renamed from: m0 */
     public AdCardViewHolder U(ViewGroup viewGroup) {
         InterceptResult invokeL;
-        c.a.q0.o1.o.l.e a2;
+        c.a.r0.p1.o.l.e a2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, viewGroup)) == null) {
-            if (this.m == null || (a2 = c.a.q0.o1.o.b.h().a(this.o, this.m, 2)) == null) {
+            if (this.m == null || (a2 = c.a.r0.p1.o.b.h().a(this.o, this.m, 2)) == null) {
                 return null;
             }
             if (a2 instanceof j) {

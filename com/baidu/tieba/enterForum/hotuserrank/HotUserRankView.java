@@ -42,34 +42,34 @@ public class HotUserRankView {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public BaseFragmentActivity f50045a;
+    public BaseFragmentActivity f50210a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f50046b;
+    public View f50211b;
 
     /* renamed from: c  reason: collision with root package name */
-    public NavigationBar f50047c;
+    public NavigationBar f50212c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TbTabLayout f50048d;
+    public TbTabLayout f50213d;
 
     /* renamed from: e  reason: collision with root package name */
-    public View f50049e;
+    public View f50214e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f50050f;
+    public View f50215f;
 
     /* renamed from: g  reason: collision with root package name */
-    public CustomViewPager f50051g;
+    public CustomViewPager f50216g;
 
     /* renamed from: h  reason: collision with root package name */
-    public FragmentAdapter f50052h;
+    public FragmentAdapter f50217h;
 
     /* renamed from: i  reason: collision with root package name */
-    public List<e> f50053i;
+    public List<e> f50218i;
 
     /* renamed from: j  reason: collision with root package name */
-    public c.a.q0.m0.i.b f50054j;
+    public c.a.r0.n0.i.b f50219j;
     public View k;
     public TextView l;
     public String m;
@@ -88,7 +88,7 @@ public class HotUserRankView {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public List<e> f50055a;
+        public List<e> f50220a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public FragmentAdapter(FragmentManager fragmentManager) {
@@ -108,14 +108,14 @@ public class HotUserRankView {
                     return;
                 }
             }
-            this.f50055a = new ArrayList();
+            this.f50220a = new ArrayList();
         }
 
         @Override // androidx.viewpager.widget.PagerAdapter
         public int getCount() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f50055a.size() : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f50220a.size() : invokeV.intValue;
         }
 
         @Override // androidx.fragment.app.FragmentStatePagerAdapter
@@ -123,9 +123,9 @@ public class HotUserRankView {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
-                e eVar = this.f50055a.get(i2);
+                e eVar = this.f50220a.get(i2);
                 if (eVar != null) {
-                    return eVar.f50060a;
+                    return eVar.f50225a;
                 }
                 return null;
             }
@@ -138,8 +138,8 @@ public class HotUserRankView {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) {
-                e eVar = this.f50055a.get(i2);
-                return eVar != null ? eVar.f50061b : "";
+                e eVar = this.f50220a.get(i2);
+                return eVar != null ? eVar.f50226b : "";
             }
             return (CharSequence) invokeI.objValue;
         }
@@ -147,9 +147,9 @@ public class HotUserRankView {
         public void setData(List<e> list) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
-                this.f50055a.clear();
+                this.f50220a.clear();
                 if (!ListUtils.isEmpty(list)) {
-                    this.f50055a.addAll(list);
+                    this.f50220a.addAll(list);
                 }
                 notifyDataSetChanged();
             }
@@ -162,7 +162,7 @@ public class HotUserRankView {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ HotUserRankView f50056e;
+        public final /* synthetic */ HotUserRankView f50221e;
 
         public a(HotUserRankView hotUserRankView) {
             Interceptable interceptable = $ic;
@@ -179,14 +179,14 @@ public class HotUserRankView {
                     return;
                 }
             }
-            this.f50056e = hotUserRankView;
+            this.f50221e = hotUserRankView;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f50056e.f50051g.setViewPagerScroll();
+                this.f50221e.f50216g.setViewPagerScroll();
             }
         }
     }
@@ -197,7 +197,7 @@ public class HotUserRankView {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ HotUserRankView f50057e;
+        public final /* synthetic */ HotUserRankView f50222e;
 
         public b(HotUserRankView hotUserRankView) {
             Interceptable interceptable = $ic;
@@ -214,22 +214,22 @@ public class HotUserRankView {
                     return;
                 }
             }
-            this.f50057e = hotUserRankView;
+            this.f50222e = hotUserRankView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                if (view == this.f50057e.k) {
-                    this.f50057e.f50045a.finish();
-                } else if (view == this.f50057e.l) {
-                    if (TextUtils.isEmpty(this.f50057e.m)) {
-                        this.f50057e.f50045a.showToast(R.string.load_error_retry);
+                if (view == this.f50222e.k) {
+                    this.f50222e.f50210a.finish();
+                } else if (view == this.f50222e.l) {
+                    if (TextUtils.isEmpty(this.f50222e.m)) {
+                        this.f50222e.f50210a.showToast(R.string.load_error_retry);
                         return;
                     }
-                    UrlManager.getInstance().dealOneLink(this.f50057e.f50045a.getPageContext(), new String[]{this.f50057e.m});
-                    if (this.f50057e.f50048d.getVisibility() == 0) {
+                    UrlManager.getInstance().dealOneLink(this.f50222e.f50210a.getPageContext(), new String[]{this.f50222e.m});
+                    if (this.f50222e.f50213d.getVisibility() == 0) {
                         StatisticItem statisticItem = new StatisticItem("c13658");
                         statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
                         statisticItem.param("obj_locate", 1);
@@ -250,7 +250,7 @@ public class HotUserRankView {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ HotUserRankView f50058e;
+        public final /* synthetic */ HotUserRankView f50223e;
 
         public c(HotUserRankView hotUserRankView) {
             Interceptable interceptable = $ic;
@@ -267,7 +267,7 @@ public class HotUserRankView {
                     return;
                 }
             }
-            this.f50058e = hotUserRankView;
+            this.f50223e = hotUserRankView;
         }
 
         @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
@@ -287,13 +287,13 @@ public class HotUserRankView {
         @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
         public void onPageSelected(int i2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) || this.f50058e.f50053i.get(i2) == null || ((e) this.f50058e.f50053i.get(i2)).f50060a == null || ((e) this.f50058e.f50053i.get(i2)).f50060a.getModel() == null) {
+            if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) || this.f50223e.f50218i.get(i2) == null || ((e) this.f50223e.f50218i.get(i2)).f50225a == null || ((e) this.f50223e.f50218i.get(i2)).f50225a.getModel() == null) {
                 return;
             }
-            this.f50058e.f50054j.e(((e) this.f50058e.f50053i.get(i2)).f50060a.getModel().g());
+            this.f50223e.f50219j.e(((e) this.f50223e.f50218i.get(i2)).f50225a.getModel().g());
             StatisticItem statisticItem = new StatisticItem("c13657");
             statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
-            statisticItem.param(TiebaStatic.Params.RESOURCE_ID, ((e) this.f50058e.f50053i.get(i2)).f50061b);
+            statisticItem.param(TiebaStatic.Params.RESOURCE_ID, ((e) this.f50223e.f50218i.get(i2)).f50226b);
             TiebaStatic.log(statisticItem);
         }
     }
@@ -304,7 +304,7 @@ public class HotUserRankView {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ HotUserRankView f50059a;
+        public final /* synthetic */ HotUserRankView f50224a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public d(HotUserRankView hotUserRankView, int i2) {
@@ -324,21 +324,21 @@ public class HotUserRankView {
                     return;
                 }
             }
-            this.f50059a = hotUserRankView;
+            this.f50224a = hotUserRankView;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || !(customResponsedMessage.getData() instanceof c.a.q0.m0.i.c.c) || customResponsedMessage.getOrginalMessage() == null || customResponsedMessage.getOrginalMessage().getTag() == null || !customResponsedMessage.getOrginalMessage().getTag().equals(this.f50059a.f50045a.getUniqueId())) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || !(customResponsedMessage.getData() instanceof c.a.r0.n0.i.c.c) || customResponsedMessage.getOrginalMessage() == null || customResponsedMessage.getOrginalMessage().getTag() == null || !customResponsedMessage.getOrginalMessage().getTag().equals(this.f50224a.f50210a.getUniqueId())) {
                 return;
             }
-            c.a.q0.m0.i.c.c cVar = (c.a.q0.m0.i.c.c) customResponsedMessage.getData();
-            if (cVar.f22062c == null) {
+            c.a.r0.n0.i.c.c cVar = (c.a.r0.n0.i.c.c) customResponsedMessage.getData();
+            if (cVar.f22630c == null) {
                 return;
             }
-            this.f50059a.f50054j.e(cVar);
+            this.f50224a.f50219j.e(cVar);
         }
     }
 
@@ -348,10 +348,10 @@ public class HotUserRankView {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public HotUserRankFragment f50060a;
+        public HotUserRankFragment f50225a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f50061b;
+        public String f50226b;
 
         public e(HotUserRankView hotUserRankView) {
             Interceptable interceptable = $ic;
@@ -385,69 +385,69 @@ public class HotUserRankView {
                 return;
             }
         }
-        this.f50053i = new ArrayList();
+        this.f50218i = new ArrayList();
         this.r = new a(this);
         this.s = new b(this);
         this.t = new c(this);
         this.u = new d(this, 2921447);
-        this.f50045a = baseFragmentActivity;
+        this.f50210a = baseFragmentActivity;
         View inflate = LayoutInflater.from(baseFragmentActivity).inflate(R.layout.activity_hot_user_rank, (ViewGroup) null);
-        this.f50046b = inflate;
+        this.f50211b = inflate;
         NavigationBar navigationBar = (NavigationBar) inflate.findViewById(R.id.navigation_bar);
-        this.f50047c = navigationBar;
+        this.f50212c = navigationBar;
         View addSystemImageButton = navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.k = addSystemImageButton;
         addSystemImageButton.setOnClickListener(this.s);
-        TextView addTextButton = this.f50047c.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.f50045a.getString(R.string.hot_user_rank_rule));
+        TextView addTextButton = this.f50212c.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.f50210a.getString(R.string.hot_user_rank_rule));
         this.l = addTextButton;
         addTextButton.setOnClickListener(this.s);
-        TbTabLayout tbTabLayout = (TbTabLayout) this.f50046b.findViewById(R.id.tablayout);
-        this.f50048d = tbTabLayout;
+        TbTabLayout tbTabLayout = (TbTabLayout) this.f50211b.findViewById(R.id.tablayout);
+        this.f50213d = tbTabLayout;
         tbTabLayout.setTabTextSize(l.g(baseFragmentActivity, R.dimen.tbds46));
-        this.f50049e = this.f50046b.findViewById(R.id.tab_cover_left);
-        this.f50050f = this.f50046b.findViewById(R.id.tab_cover_right);
-        CustomViewPager customViewPager = (CustomViewPager) this.f50046b.findViewById(R.id.viewpager);
-        this.f50051g = customViewPager;
+        this.f50214e = this.f50211b.findViewById(R.id.tab_cover_left);
+        this.f50215f = this.f50211b.findViewById(R.id.tab_cover_right);
+        CustomViewPager customViewPager = (CustomViewPager) this.f50211b.findViewById(R.id.viewpager);
+        this.f50216g = customViewPager;
         customViewPager.addOnPageChangeListener(this.t);
-        this.f50051g.setViewPagerScroll(0);
-        FragmentAdapter fragmentAdapter = new FragmentAdapter(this.f50045a.getSupportFragmentManager());
-        this.f50052h = fragmentAdapter;
-        this.f50051g.setAdapter(fragmentAdapter);
-        this.f50048d.setupWithViewPager(this.f50051g);
-        this.f50054j = new c.a.q0.m0.i.b(this.f50045a.getPageContext(), this.f50046b.findViewById(R.id.bottom_view));
-        this.f50045a.registerListener(this.u);
-        this.n = this.f50046b.findViewById(R.id.update_tip);
-        this.o = (TextView) this.f50046b.findViewById(R.id.update_tip_text);
-        this.p = this.f50046b.findViewById(R.id.bottom_view_top_line);
+        this.f50216g.setViewPagerScroll(0);
+        FragmentAdapter fragmentAdapter = new FragmentAdapter(this.f50210a.getSupportFragmentManager());
+        this.f50217h = fragmentAdapter;
+        this.f50216g.setAdapter(fragmentAdapter);
+        this.f50213d.setupWithViewPager(this.f50216g);
+        this.f50219j = new c.a.r0.n0.i.b(this.f50210a.getPageContext(), this.f50211b.findViewById(R.id.bottom_view));
+        this.f50210a.registerListener(this.u);
+        this.n = this.f50211b.findViewById(R.id.update_tip);
+        this.o = (TextView) this.f50211b.findViewById(R.id.update_tip_text);
+        this.p = this.f50211b.findViewById(R.id.bottom_view_top_line);
     }
 
     public View i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f50046b : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f50211b : (View) invokeV.objValue;
     }
 
     public void j(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            SkinManager.setBackgroundColor(this.f50046b, R.color.CAM_X0201);
-            this.f50047c.onChangeSkinType(this.f50045a.getPageContext(), i2);
-            this.f50048d.setTabTextColors(SkinManager.getColor(R.color.CAM_X0108), SkinManager.getColor(R.color.CAM_X0105));
-            this.f50048d.setSelectedTabIndicatorColor(SkinManager.getColor(R.color.CAM_X0302));
-            SkinManager.setBackgroundColor(this.f50048d, R.color.CAM_X0207);
+            SkinManager.setBackgroundColor(this.f50211b, R.color.CAM_X0201);
+            this.f50212c.onChangeSkinType(this.f50210a.getPageContext(), i2);
+            this.f50213d.setTabTextColors(SkinManager.getColor(R.color.CAM_X0108), SkinManager.getColor(R.color.CAM_X0105));
+            this.f50213d.setSelectedTabIndicatorColor(SkinManager.getColor(R.color.CAM_X0302));
+            SkinManager.setBackgroundColor(this.f50213d, R.color.CAM_X0207);
             SkinManager.setViewTextColorSelector(this.l, R.color.CAM_X0105, R.color.cp_cont_b_alpha50);
-            this.f50054j.d(i2);
+            this.f50219j.d(i2);
             Drawable pureDrawable = SvgManager.getInstance().getPureDrawable(R.drawable.svg_icon_pure_toast_complete24, R.color.CAM_X0302, null);
-            int g2 = l.g(this.f50045a, R.dimen.tbds63);
-            int g3 = l.g(this.f50045a, R.dimen.tbds2);
+            int g2 = l.g(this.f50210a, R.dimen.tbds63);
+            int g3 = l.g(this.f50210a, R.dimen.tbds2);
             if (pureDrawable != null) {
                 pureDrawable.setBounds(0, g3, g2, g2 + g3);
                 this.o.setCompoundDrawables(pureDrawable, null, null, null);
             }
-            this.o.setCompoundDrawablePadding(l.g(this.f50045a, R.dimen.tbds9));
-            TBSelector.makeShadowDrawable().setBgColor(R.color.CAM_X0901).setShadowColor(R.color.CAM_X0804).setShadowSide(ShadowDrawable.ALL).setShadowRadius(l.g(this.f50045a, R.dimen.tbds21)).setOffsetX(0).setOffsetY(0).into(this.n);
-            SkinManager.setBackgroundResource(this.f50049e, R.drawable.hot_user_rank_tab_cover_left);
-            SkinManager.setBackgroundResource(this.f50050f, R.drawable.hot_user_rank_tab_cover_right);
+            this.o.setCompoundDrawablePadding(l.g(this.f50210a, R.dimen.tbds9));
+            TBSelector.makeShadowDrawable().setBgColor(R.color.CAM_X0901).setShadowColor(R.color.CAM_X0804).setShadowSide(ShadowDrawable.ALL).setShadowRadius(l.g(this.f50210a, R.dimen.tbds21)).setOffsetX(0).setOffsetY(0).into(this.n);
+            SkinManager.setBackgroundResource(this.f50214e, R.drawable.hot_user_rank_tab_cover_left);
+            SkinManager.setBackgroundResource(this.f50215f, R.drawable.hot_user_rank_tab_cover_right);
             this.p.setVisibility(i2 != 0 ? 8 : 0);
         }
     }
@@ -459,42 +459,42 @@ public class HotUserRankView {
         }
     }
 
-    public void l(List<c.a.q0.m0.i.c.d> list, long j2, int i2, String str) {
+    public void l(List<c.a.r0.n0.i.c.d> list, long j2, int i2, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{list, Long.valueOf(j2), Integer.valueOf(i2), str}) == null) {
             this.m = str;
             if (!ListUtils.isEmpty(list) || j2 > 0) {
-                this.f50053i.clear();
+                this.f50218i.clear();
                 if (ListUtils.isEmpty(list)) {
-                    this.f50048d.setVisibility(8);
+                    this.f50213d.setVisibility(8);
                     e eVar = new e(this);
                     HotUserRankFragment hotUserRankFragment = new HotUserRankFragment();
-                    eVar.f50060a = hotUserRankFragment;
+                    eVar.f50225a = hotUserRankFragment;
                     hotUserRankFragment.setForumId(j2);
-                    this.f50053i.add(eVar);
-                    this.f50052h.setData(this.f50053i);
-                    this.f50054j.f(1);
+                    this.f50218i.add(eVar);
+                    this.f50217h.setData(this.f50218i);
+                    this.f50219j.f(1);
                     return;
                 }
-                for (c.a.q0.m0.i.c.d dVar : list) {
-                    this.f50048d.addTab(this.f50048d.newTab());
+                for (c.a.r0.n0.i.c.d dVar : list) {
+                    this.f50213d.addTab(this.f50213d.newTab());
                     e eVar2 = new e(this);
                     HotUserRankFragment hotUserRankFragment2 = new HotUserRankFragment();
-                    eVar2.f50060a = hotUserRankFragment2;
-                    hotUserRankFragment2.setCategory(dVar.f22068b);
-                    eVar2.f50060a.setIsGod(this.q);
-                    eVar2.f50061b = dVar.f22067a;
-                    this.f50053i.add(eVar2);
+                    eVar2.f50225a = hotUserRankFragment2;
+                    hotUserRankFragment2.setCategory(dVar.f22636b);
+                    eVar2.f50225a.setIsGod(this.q);
+                    eVar2.f50226b = dVar.f22635a;
+                    this.f50218i.add(eVar2);
                 }
                 if (this.q) {
-                    this.f50047c.setCenterTextTitle(this.f50045a.getString(R.string.all_god_user_rank));
+                    this.f50212c.setCenterTextTitle(this.f50210a.getString(R.string.all_god_user_rank));
                 } else {
-                    this.f50047c.setCenterTextTitle(this.f50045a.getString(R.string.all_hot_user_rank));
+                    this.f50212c.setCenterTextTitle(this.f50210a.getString(R.string.all_hot_user_rank));
                 }
-                this.f50052h.setData(this.f50053i);
-                this.f50054j.f(2);
+                this.f50217h.setData(this.f50218i);
+                this.f50219j.f(2);
                 if (i2 != 0) {
-                    this.f50051g.setCurrentItem(i2);
+                    this.f50216g.setCurrentItem(i2);
                 }
                 c.a.e.e.m.e.a().postDelayed(this.r, 100L);
             }
@@ -511,7 +511,7 @@ public class HotUserRankView {
     public void n(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.f50047c.setCenterTextTitle(str);
+            this.f50212c.setCenterTextTitle(str);
         }
     }
 

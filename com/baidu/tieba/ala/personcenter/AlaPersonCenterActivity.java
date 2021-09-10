@@ -2,7 +2,7 @@ package com.baidu.tieba.ala.personcenter;
 
 import android.content.Intent;
 import android.os.Bundle;
-import c.a.q0.v.j.c.a;
+import c.a.r0.v.j.c.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbPageContext;

@@ -28,7 +28,7 @@ public class f implements c.p.a.e.b.o.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final WeakReference<Context> f67439a;
+    public final WeakReference<Context> f67619a;
 
     public f(Context context) {
         Interceptable interceptable = $ic;
@@ -45,7 +45,7 @@ public class f implements c.p.a.e.b.o.a {
                 return;
             }
         }
-        this.f67439a = new WeakReference<>(context);
+        this.f67619a = new WeakReference<>(context);
     }
 
     @Nullable
@@ -99,19 +99,19 @@ public class f implements c.p.a.e.b.o.a {
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ InputStream f67440a;
+                    public final /* synthetic */ InputStream f67620a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ Map f67441b;
+                    public final /* synthetic */ Map f67621b;
 
                     /* renamed from: c  reason: collision with root package name */
-                    public final /* synthetic */ int f67442c;
+                    public final /* synthetic */ int f67622c;
 
                     /* renamed from: d  reason: collision with root package name */
-                    public final /* synthetic */ HttpURLConnection f67443d;
+                    public final /* synthetic */ HttpURLConnection f67623d;
 
                     /* renamed from: e  reason: collision with root package name */
-                    public final /* synthetic */ f f67444e;
+                    public final /* synthetic */ f f67624e;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -128,25 +128,25 @@ public class f implements c.p.a.e.b.o.a {
                                 return;
                             }
                         }
-                        this.f67444e = this;
-                        this.f67440a = r7;
-                        this.f67441b = a3;
-                        this.f67442c = responseCode;
-                        this.f67443d = a2;
+                        this.f67624e = this;
+                        this.f67620a = r7;
+                        this.f67621b = a3;
+                        this.f67622c = responseCode;
+                        this.f67623d = a2;
                     }
 
                     @Override // c.p.a.e.b.o.k
                     public InputStream a() {
                         InterceptResult invokeV;
                         Interceptable interceptable2 = $ic;
-                        return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? this.f67440a : (InputStream) invokeV.objValue;
+                        return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? this.f67620a : (InputStream) invokeV.objValue;
                     }
 
                     @Override // c.p.a.e.b.o.i
                     public int b() {
                         InterceptResult invokeV;
                         Interceptable interceptable2 = $ic;
-                        return (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f67442c : invokeV.intValue;
+                        return (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f67622c : invokeV.intValue;
                     }
 
                     @Override // c.p.a.e.b.o.i
@@ -161,7 +161,7 @@ public class f implements c.p.a.e.b.o.a {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048580, this) == null) {
                             try {
-                                this.f67443d.disconnect();
+                                this.f67623d.disconnect();
                             } catch (Exception unused) {
                             }
                         }
@@ -171,7 +171,7 @@ public class f implements c.p.a.e.b.o.a {
                     public String a(String str2) {
                         InterceptResult invokeL;
                         Interceptable interceptable2 = $ic;
-                        return (interceptable2 == null || (invokeL = interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str2)) == null) ? (String) this.f67441b.get(str2) : (String) invokeL.objValue;
+                        return (interceptable2 == null || (invokeL = interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str2)) == null) ? (String) this.f67621b.get(str2) : (String) invokeL.objValue;
                     }
                 };
             }

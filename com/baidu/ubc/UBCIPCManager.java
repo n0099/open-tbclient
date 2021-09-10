@@ -22,7 +22,7 @@ public class UBCIPCManager {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f59349a = "UBCIPCManager";
+    public static final String f59529a = "UBCIPCManager";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -69,7 +69,7 @@ public class UBCIPCManager {
                     }
                     flow.addEvent(str, str2);
                     if (AppConfig.isDebug()) {
-                        String unused = UBCIPCManager.f59349a;
+                        String unused = UBCIPCManager.f59529a;
                         String str3 = " [add Event] flow id " + flow.getId() + " handler id " + flow.getHandle();
                     }
                 }
@@ -100,7 +100,7 @@ public class UBCIPCManager {
                     }
                     flow.end();
                     if (AppConfig.isDebug()) {
-                        String unused = UBCIPCManager.f59349a;
+                        String unused = UBCIPCManager.f59529a;
                         String str = " [end] flow id " + flow.getId() + " handler id " + flow.getHandle();
                     }
                 }
@@ -163,7 +163,7 @@ public class UBCIPCManager {
                     if (interceptable2 == null || (invokeLLI = interceptable2.invokeLLI(1048585, this, str, str2, i2)) == null) {
                         Flow beginFlow = UBC.beginFlow(str, str2, i2);
                         if (AppConfig.isDebug() && beginFlow != null) {
-                            String unused = UBCIPCManager.f59349a;
+                            String unused = UBCIPCManager.f59529a;
                             String str3 = " process name " + a.b() + " flow hashCode " + beginFlow.hashCode() + " flow id " + str + " handle id " + beginFlow.getHandle();
                         }
                         return beginFlow;

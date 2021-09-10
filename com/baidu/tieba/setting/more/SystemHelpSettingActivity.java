@@ -4,8 +4,8 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import androidx.core.view.InputDeviceCompat;
-import c.a.p0.s.s.a;
-import c.a.q0.a3.c.h;
+import c.a.q0.s.s.a;
+import c.a.r0.b3.c.h;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -29,7 +29,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class SystemHelpSettingActivity extends BaseActivity<SystemHelpSettingActivity> implements BdSwitchView.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public c.a.p0.s.s.a mBdAlertDialog;
+    public c.a.q0.s.s.a mBdAlertDialog;
     public SystemHelpSettingModel mModel;
     public h mView;
 
@@ -39,7 +39,7 @@ public class SystemHelpSettingActivity extends BaseActivity<SystemHelpSettingAct
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ SystemHelpSettingActivity f56582a;
+        public final /* synthetic */ SystemHelpSettingActivity f56742a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(SystemHelpSettingActivity systemHelpSettingActivity) {
@@ -59,7 +59,7 @@ public class SystemHelpSettingActivity extends BaseActivity<SystemHelpSettingAct
                     return;
                 }
             }
-            this.f56582a = systemHelpSettingActivity;
+            this.f56742a = systemHelpSettingActivity;
         }
 
         @Override // com.baidu.tbadk.BaseActivity.LoadDataCallBack
@@ -71,11 +71,11 @@ public class SystemHelpSettingActivity extends BaseActivity<SystemHelpSettingAct
                     return;
                 }
                 if (obj == MoreModel.TaskType.DO_CACHE_CLEAR) {
-                    this.f56582a.closeLoadingDialog();
-                    this.f56582a.mView.d().setTip("");
-                    this.f56582a.showToast(R.string.systemhelpsetting_clear_cache_success);
+                    this.f56742a.closeLoadingDialog();
+                    this.f56742a.mView.d().setTip("");
+                    this.f56742a.showToast(R.string.systemhelpsetting_clear_cache_success);
                 } else if (obj == MoreModel.TaskType.GET_SIZE) {
-                    this.f56582a.mView.d().setTip((String) objArr[1]);
+                    this.f56742a.mView.d().setTip((String) objArr[1]);
                 }
             }
         }
@@ -87,7 +87,7 @@ public class SystemHelpSettingActivity extends BaseActivity<SystemHelpSettingAct
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ SystemHelpSettingActivity f56583a;
+        public final /* synthetic */ SystemHelpSettingActivity f56743a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(SystemHelpSettingActivity systemHelpSettingActivity, int i2) {
@@ -107,7 +107,7 @@ public class SystemHelpSettingActivity extends BaseActivity<SystemHelpSettingAct
                     return;
                 }
             }
-            this.f56583a = systemHelpSettingActivity;
+            this.f56743a = systemHelpSettingActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -115,8 +115,8 @@ public class SystemHelpSettingActivity extends BaseActivity<SystemHelpSettingAct
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
-                this.f56583a.closeLoadingDialog();
-                this.f56583a.showToast(R.string.systemhelpsetting_clear_im_success);
+                this.f56743a.closeLoadingDialog();
+                this.f56743a.showToast(R.string.systemhelpsetting_clear_im_success);
             }
         }
     }
@@ -127,7 +127,7 @@ public class SystemHelpSettingActivity extends BaseActivity<SystemHelpSettingAct
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SystemHelpSettingActivity f56584e;
+        public final /* synthetic */ SystemHelpSettingActivity f56744e;
 
         public c(SystemHelpSettingActivity systemHelpSettingActivity) {
             Interceptable interceptable = $ic;
@@ -144,11 +144,11 @@ public class SystemHelpSettingActivity extends BaseActivity<SystemHelpSettingAct
                     return;
                 }
             }
-            this.f56584e = systemHelpSettingActivity;
+            this.f56744e = systemHelpSettingActivity;
         }
 
-        @Override // c.a.p0.s.s.a.e
-        public void onClick(c.a.p0.s.s.a aVar) {
+        @Override // c.a.q0.s.s.a.e
+        public void onClick(c.a.q0.s.s.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
                 aVar.dismiss();
@@ -162,7 +162,7 @@ public class SystemHelpSettingActivity extends BaseActivity<SystemHelpSettingAct
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SystemHelpSettingActivity f56585e;
+        public final /* synthetic */ SystemHelpSettingActivity f56745e;
 
         public d(SystemHelpSettingActivity systemHelpSettingActivity) {
             Interceptable interceptable = $ic;
@@ -179,16 +179,16 @@ public class SystemHelpSettingActivity extends BaseActivity<SystemHelpSettingAct
                     return;
                 }
             }
-            this.f56585e = systemHelpSettingActivity;
+            this.f56745e = systemHelpSettingActivity;
         }
 
-        @Override // c.a.p0.s.s.a.e
-        public void onClick(c.a.p0.s.s.a aVar) {
+        @Override // c.a.q0.s.s.a.e
+        public void onClick(c.a.q0.s.s.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                SystemHelpSettingActivity systemHelpSettingActivity = this.f56585e;
+                SystemHelpSettingActivity systemHelpSettingActivity = this.f56745e;
                 systemHelpSettingActivity.showLoadingDialog(systemHelpSettingActivity.getPageContext().getString(R.string.deleting));
-                this.f56585e.mModel.A();
+                this.f56745e.mModel.A();
                 aVar.dismiss();
             }
         }
@@ -200,7 +200,7 @@ public class SystemHelpSettingActivity extends BaseActivity<SystemHelpSettingAct
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SystemHelpSettingActivity f56586e;
+        public final /* synthetic */ SystemHelpSettingActivity f56746e;
 
         public e(SystemHelpSettingActivity systemHelpSettingActivity) {
             Interceptable interceptable = $ic;
@@ -217,11 +217,11 @@ public class SystemHelpSettingActivity extends BaseActivity<SystemHelpSettingAct
                     return;
                 }
             }
-            this.f56586e = systemHelpSettingActivity;
+            this.f56746e = systemHelpSettingActivity;
         }
 
-        @Override // c.a.p0.s.s.a.e
-        public void onClick(c.a.p0.s.s.a aVar) {
+        @Override // c.a.q0.s.s.a.e
+        public void onClick(c.a.q0.s.s.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
                 aVar.dismiss();
@@ -235,7 +235,7 @@ public class SystemHelpSettingActivity extends BaseActivity<SystemHelpSettingAct
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SystemHelpSettingActivity f56587e;
+        public final /* synthetic */ SystemHelpSettingActivity f56747e;
 
         public f(SystemHelpSettingActivity systemHelpSettingActivity) {
             Interceptable interceptable = $ic;
@@ -252,17 +252,17 @@ public class SystemHelpSettingActivity extends BaseActivity<SystemHelpSettingAct
                     return;
                 }
             }
-            this.f56587e = systemHelpSettingActivity;
+            this.f56747e = systemHelpSettingActivity;
         }
 
-        @Override // c.a.p0.s.s.a.e
-        public void onClick(c.a.p0.s.s.a aVar) {
+        @Override // c.a.q0.s.s.a.e
+        public void onClick(c.a.q0.s.s.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
                 aVar.dismiss();
-                SystemHelpSettingActivity systemHelpSettingActivity = this.f56587e;
+                SystemHelpSettingActivity systemHelpSettingActivity = this.f56747e;
                 systemHelpSettingActivity.showLoadingDialog(systemHelpSettingActivity.getPageContext().getString(R.string.deleting));
-                this.f56587e.mModel.B();
+                this.f56747e.mModel.B();
             }
         }
     }
@@ -312,9 +312,9 @@ public class SystemHelpSettingActivity extends BaseActivity<SystemHelpSettingAct
             }
         } else if (view == this.mView.i()) {
             if (BdSwitchView.SwitchState.ON == switchState) {
-                c.a.p0.s.d0.b.j().t("prefs_save_paled_video", true);
+                c.a.q0.s.d0.b.j().t("prefs_save_paled_video", true);
             } else {
-                c.a.p0.s.d0.b.j().t("prefs_save_paled_video", false);
+                c.a.q0.s.d0.b.j().t("prefs_save_paled_video", false);
             }
         }
     }
@@ -341,14 +341,14 @@ public class SystemHelpSettingActivity extends BaseActivity<SystemHelpSettingAct
                 if (TextUtils.isEmpty(this.mView.d().getTip())) {
                     showToast(R.string.no_cache_delete);
                 } else {
-                    this.mBdAlertDialog = new c.a.p0.s.s.a(getPageContext().getPageActivity()).setMessageId(R.string.alert_clear_all_cache).setPositiveButton(R.string.alert_yes_button, new d(this)).setNegativeButton(R.string.cancel, new c(this)).create(getPageContext()).show();
+                    this.mBdAlertDialog = new c.a.q0.s.s.a(getPageContext().getPageActivity()).setMessageId(R.string.alert_clear_all_cache).setPositiveButton(R.string.alert_yes_button, new d(this)).setNegativeButton(R.string.cancel, new c(this)).create(getPageContext()).show();
                 }
             }
         } else if (view == this.mView.e()) {
             if (this.mModel == null) {
                 return;
             }
-            this.mBdAlertDialog = new c.a.p0.s.s.a(getPageContext().getPageActivity()).setMessageId(R.string.alert_clear_cache).setPositiveButton(R.string.alert_yes_button, new f(this)).setNegativeButton(R.string.cancel, new e(this)).create(getPageContext()).show();
+            this.mBdAlertDialog = new c.a.q0.s.s.a(getPageContext().getPageActivity()).setMessageId(R.string.alert_clear_cache).setPositiveButton(R.string.alert_yes_button, new f(this)).setNegativeButton(R.string.cancel, new e(this)).create(getPageContext()).show();
         } else if (view == this.mView.h()) {
             sendMessage(new CustomMessage(2002001, new PluginCenterActivityConfig(getPageContext().getPageActivity())));
         } else if (view == this.mView.f()) {
@@ -368,7 +368,7 @@ public class SystemHelpSettingActivity extends BaseActivity<SystemHelpSettingAct
             } else {
                 this.mView.g().turnOff();
             }
-            if (c.a.p0.s.d0.b.j().g("prefs_save_paled_video", true)) {
+            if (c.a.q0.s.d0.b.j().g("prefs_save_paled_video", true)) {
                 this.mView.i().turnOn();
             } else {
                 this.mView.i().turnOff();
@@ -384,7 +384,7 @@ public class SystemHelpSettingActivity extends BaseActivity<SystemHelpSettingAct
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            c.a.p0.s.s.a aVar = this.mBdAlertDialog;
+            c.a.q0.s.s.a aVar = this.mBdAlertDialog;
             if (aVar != null && aVar.isShowing()) {
                 this.mBdAlertDialog.dismiss();
             }

@@ -9,16 +9,16 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.ar.core.exceptions.FatalException;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class CameraConfig {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f70049a;
+    public long f70229a;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class FacingDirection {
         public static final /* synthetic */ FacingDirection[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -111,7 +111,7 @@ public class CameraConfig {
                 return;
             }
         }
-        this.f70049a = 0L;
+        this.f70229a = 0L;
     }
 
     public static native void nativeDestroyCameraConfig(long j2);
@@ -127,10 +127,10 @@ public class CameraConfig {
     public void finalize() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            long j2 = this.f70049a;
+            long j2 = this.f70229a;
             if (j2 != 0) {
                 nativeDestroyCameraConfig(j2);
-                this.f70049a = 0L;
+                this.f70229a = 0L;
             }
             super.finalize();
         }

@@ -376,7 +376,7 @@ public class WebClient implements b.a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            if (c.a.p0.s.d0.b.j().k("image_no_cache_switch", 0) == 1) {
+            if (c.a.q0.s.d0.b.j().k("image_no_cache_switch", 0) == 1) {
                 return this.needCache;
             }
             return true;

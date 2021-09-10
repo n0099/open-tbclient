@@ -1,6 +1,6 @@
 package com.baidu.tieba.quickWebView.message;
 
-import c.a.p0.b1.w;
+import c.a.q0.d1.x;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -47,7 +47,7 @@ public class WebViewCacheReqMsg extends NetMessage {
             DataReq.Builder builder = new DataReq.Builder();
             builder.webview_version = this.mWebViewVersion;
             if (z) {
-                w.a(builder, true);
+                x.a(builder, true);
             }
             GetWebviewCacheInfoReqIdl.Builder builder2 = new GetWebviewCacheInfoReqIdl.Builder();
             builder2.data = builder.build(true);

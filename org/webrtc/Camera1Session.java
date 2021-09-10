@@ -4,6 +4,7 @@ import android.content.Context;
 import android.hardware.Camera;
 import android.os.Handler;
 import android.os.SystemClock;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,6 +12,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import h.c.g0;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.util.List;
@@ -18,6 +20,7 @@ import java.util.concurrent.TimeUnit;
 import org.webrtc.Camera1Session;
 import org.webrtc.CameraEnumerationAndroid;
 import org.webrtc.CameraSession;
+import org.webrtc.VideoFrame;
 /* loaded from: classes2.dex */
 public class Camera1Session implements CameraSession {
     public static /* synthetic */ Interceptable $ic = null;
@@ -65,28 +68,43 @@ public class Camera1Session implements CameraSession {
             this.this$0 = camera1Session;
         }
 
-        public static /* synthetic */ void lambda$null$0(AnonymousClass2 anonymousClass2, byte[] bArr) {
-            if (anonymousClass2.this$0.state == SessionState.RUNNING) {
-                anonymousClass2.this$0.camera.addCallbackBuffer(bArr);
+        public /* synthetic */ void a(byte[] bArr) {
+            if (this.this$0.state == SessionState.RUNNING) {
+                this.this$0.camera.addCallbackBuffer(bArr);
             }
+        }
+
+        public /* synthetic */ void b(final byte[] bArr) {
+            this.this$0.cameraThreadHandler.post(new Runnable() { // from class: h.c.c
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                @Override // java.lang.Runnable
+                public final void run() {
+                    Interceptable interceptable = $ic;
+                    if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                        Camera1Session.AnonymousClass2.this.a(bArr);
+                    }
+                }
+            });
         }
 
         @Override // android.hardware.Camera.PreviewCallback
         public void onPreviewFrame(final byte[] bArr, Camera camera) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, bArr, camera) == null) {
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, bArr, camera) == null) {
                 this.this$0.checkIsOnCameraThread();
-                if (camera != this.this$0.camera) {
-                    Logging.e(Camera1Session.TAG, "Callback from a different camera. This should never happen.");
-                } else if (this.this$0.state != SessionState.RUNNING) {
-                    Logging.d(Camera1Session.TAG, "Bytebuffer frame captured but camera is no longer running.");
-                } else {
+                if (camera == this.this$0.camera) {
+                    if (this.this$0.state != SessionState.RUNNING) {
+                        Logging.d(Camera1Session.TAG, "Bytebuffer frame captured but camera is no longer running.");
+                        return;
+                    }
                     long nanos = TimeUnit.MILLISECONDS.toNanos(SystemClock.elapsedRealtime());
                     if (!this.this$0.firstFrameReported) {
                         Camera1Session.camera1StartTimeMsHistogram.addSample((int) TimeUnit.NANOSECONDS.toMillis(System.nanoTime() - this.this$0.constructionTimeNs));
                         this.this$0.firstFrameReported = true;
                     }
-                    VideoFrame videoFrame = new VideoFrame(new NV21Buffer(bArr, this.this$0.captureFormat.width, this.this$0.captureFormat.height, new Runnable() { // from class: org.webrtc._$$Lambda$Camera1Session$2$p5BOdgAv4Bl3y54j_E8sr7VhE_o
+                    VideoFrame videoFrame = new VideoFrame(new NV21Buffer(bArr, this.this$0.captureFormat.width, this.this$0.captureFormat.height, new Runnable() { // from class: h.c.d
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
 
@@ -94,24 +112,15 @@ public class Camera1Session implements CameraSession {
                         public final void run() {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                                r0.this$0.cameraThreadHandler.post(new Runnable() { // from class: org.webrtc._$$Lambda$Camera1Session$2$iGg3rh2_flWUJL5QPX_DvORYdQM
-                                    public static /* synthetic */ Interceptable $ic;
-                                    public transient /* synthetic */ FieldHolder $fh;
-
-                                    @Override // java.lang.Runnable
-                                    public final void run() {
-                                        Interceptable interceptable3 = $ic;
-                                        if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
-                                            Camera1Session.AnonymousClass2.lambda$null$0(Camera1Session.AnonymousClass2.this, r2);
-                                        }
-                                    }
-                                });
+                                Camera1Session.AnonymousClass2.this.b(bArr);
                             }
                         }
                     }), this.this$0.getFrameOrientation(), nanos);
                     this.this$0.events.onFrameCaptured(this.this$0, videoFrame);
                     videoFrame.release();
+                    return;
                 }
+                Logging.e(Camera1Session.TAG, "Callback from a different camera. This should never happen.");
             }
         }
     }
@@ -300,41 +309,26 @@ public class Camera1Session implements CameraSession {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65554, this)) == null) {
-            int deviceOrientation = CameraSession_CC.getDeviceOrientation(this.applicationContext);
+            int b2 = g0.b(this.applicationContext);
             if (this.info.facing == 0) {
-                deviceOrientation = 360 - deviceOrientation;
+                b2 = 360 - b2;
             }
-            return (this.info.orientation + deviceOrientation) % 360;
+            return (this.info.orientation + b2) % 360;
         }
         return invokeV.intValue;
     }
 
-    public static /* synthetic */ void lambda$listenForTextureFrames$0(Camera1Session camera1Session, VideoFrame videoFrame) {
-        camera1Session.checkIsOnCameraThread();
-        if (camera1Session.state != SessionState.RUNNING) {
-            Logging.d(TAG, "Texture frame captured but camera is no longer running.");
-            return;
-        }
-        if (!camera1Session.firstFrameReported) {
-            camera1StartTimeMsHistogram.addSample((int) TimeUnit.NANOSECONDS.toMillis(System.nanoTime() - camera1Session.constructionTimeNs));
-            camera1Session.firstFrameReported = true;
-        }
-        VideoFrame videoFrame2 = new VideoFrame(CameraSession_CC.createTextureBufferWithModifiedTransformMatrix((TextureBufferImpl) videoFrame.getBuffer(), camera1Session.info.facing == 1, 0), camera1Session.getFrameOrientation(), videoFrame.getTimestampNs());
-        camera1Session.events.onFrameCaptured(camera1Session, videoFrame2);
-        videoFrame2.release();
-    }
-
     private void listenForBytebufferFrames() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65556, this) == null) {
+        if (interceptable == null || interceptable.invokeV(65555, this) == null) {
             this.camera.setPreviewCallbackWithBuffer(new AnonymousClass2(this));
         }
     }
 
     private void listenForTextureFrames() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65557, this) == null) {
-            this.surfaceTextureHelper.startListening(new VideoSink() { // from class: org.webrtc._$$Lambda$Camera1Session$IaCl5v4xeWNI0BnOxdpBB_kXaIc
+        if (interceptable == null || interceptable.invokeV(65556, this) == null) {
+            this.surfaceTextureHelper.startListening(new VideoSink() { // from class: h.c.e
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -342,7 +336,7 @@ public class Camera1Session implements CameraSession {
                 public final void onFrame(VideoFrame videoFrame) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, videoFrame) == null) {
-                        Camera1Session.lambda$listenForTextureFrames$0(Camera1Session.this, videoFrame);
+                        Camera1Session.this.a(videoFrame);
                     }
                 }
             });
@@ -351,7 +345,7 @@ public class Camera1Session implements CameraSession {
 
     private void startCapturing() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65558, this) == null) {
+        if (interceptable == null || interceptable.invokeV(65557, this) == null) {
             Logging.d(TAG, "Start capturing");
             checkIsOnCameraThread();
             this.state = SessionState.RUNNING;
@@ -414,30 +408,28 @@ public class Camera1Session implements CameraSession {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void stopInternal() {
-        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65559, this) == null) {
+        if (interceptable == null || interceptable.invokeV(65558, this) == null) {
             Logging.d(TAG, "Stop internal");
             checkIsOnCameraThread();
             SessionState sessionState = this.state;
             SessionState sessionState2 = SessionState.STOPPED;
             if (sessionState == sessionState2) {
-                str = "Camera is already stopped";
-            } else {
-                this.state = sessionState2;
-                this.surfaceTextureHelper.stopListening();
-                this.camera.stopPreview();
-                this.camera.release();
-                this.events.onCameraClosed(this);
-                str = "Stop done";
+                Logging.d(TAG, "Camera is already stopped");
+                return;
             }
-            Logging.d(TAG, str);
+            this.state = sessionState2;
+            this.surfaceTextureHelper.stopListening();
+            this.camera.stopPreview();
+            this.camera.release();
+            this.events.onCameraClosed(this);
+            Logging.d(TAG, "Stop done");
         }
     }
 
     public static void updateCameraParameters(Camera camera, Camera.Parameters parameters, CameraEnumerationAndroid.CaptureFormat captureFormat, Size size, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65560, null, new Object[]{camera, parameters, captureFormat, size, Boolean.valueOf(z)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65559, null, new Object[]{camera, parameters, captureFormat, size, Boolean.valueOf(z)}) == null) {
             List<String> supportedFocusModes = parameters.getSupportedFocusModes();
             CameraEnumerationAndroid.CaptureFormat.FramerateRange framerateRange = captureFormat.framerate;
             parameters.setPreviewFpsRange(framerateRange.min, framerateRange.max);
@@ -457,10 +449,25 @@ public class Camera1Session implements CameraSession {
         }
     }
 
+    public /* synthetic */ void a(VideoFrame videoFrame) {
+        checkIsOnCameraThread();
+        if (this.state != SessionState.RUNNING) {
+            Logging.d(TAG, "Texture frame captured but camera is no longer running.");
+            return;
+        }
+        if (!this.firstFrameReported) {
+            camera1StartTimeMsHistogram.addSample((int) TimeUnit.NANOSECONDS.toMillis(System.nanoTime() - this.constructionTimeNs));
+            this.firstFrameReported = true;
+        }
+        VideoFrame videoFrame2 = new VideoFrame(g0.a((TextureBufferImpl) videoFrame.getBuffer(), this.info.facing == 1, 0), getFrameOrientation(), videoFrame.getTimestampNs());
+        this.events.onFrameCaptured(this, videoFrame2);
+        videoFrame2.release();
+    }
+
     @Override // org.webrtc.CameraSession
     public void stop() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             Logging.d(TAG, "Stop camera1 session on camera " + this.cameraId);
             checkIsOnCameraThread();
             if (this.state != SessionState.STOPPED) {

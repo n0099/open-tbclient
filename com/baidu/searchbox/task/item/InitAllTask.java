@@ -5,13 +5,13 @@ import android.content.Context;
 import android.os.Process;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.p0.b1.x;
-import c.a.p0.s.k;
-import c.a.p0.s.q.z0;
-import c.a.p0.t.j.c;
-import c.a.p0.x0.a;
-import c.a.q0.n3.d;
-import c.a.q0.w3.h;
+import c.a.q0.d1.y;
+import c.a.q0.s.k;
+import c.a.q0.s.q.z0;
+import c.a.q0.t.j.c;
+import c.a.q0.z0.a;
+import c.a.r0.o3.d;
+import c.a.r0.x3.h;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -109,9 +109,9 @@ public class InitAllTask extends LaunchTask {
                 c.a.e.e.i.a.l().h(false);
             }
             try {
-                x.b().e();
+                y.b().e();
                 if (isMainProcess(false)) {
-                    c.a.p0.g.a.d().f();
+                    c.a.q0.g.a.d().f();
                 }
             } catch (Exception e2) {
                 BdLog.e(e2.getMessage());
@@ -223,7 +223,7 @@ public class InitAllTask extends LaunchTask {
             if (TextUtils.isEmpty(loadString)) {
                 return;
             }
-            c.a.p0.t.e.d dVar = new c.a.p0.t.e.d();
+            c.a.q0.t.e.d dVar = new c.a.q0.t.e.d();
             dVar.e(loadString);
             c a2 = c.a();
             a2.g(dVar.b() == 1);

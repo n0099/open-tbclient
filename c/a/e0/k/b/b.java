@@ -23,17 +23,17 @@ public class b {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f3124b = "payChannel";
+    public static String f3115b = "payChannel";
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f3125c = "payType";
+    public static String f3116c = "payType";
 
     /* renamed from: d  reason: collision with root package name */
-    public static volatile b f3126d;
+    public static volatile b f3117d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public e f3127a;
+    public e f3118a;
 
     /* loaded from: classes.dex */
     public class a extends c.a.e0.k.a.a<String> {
@@ -41,7 +41,7 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ c.a.e0.k.a.a f3128a;
+        public final /* synthetic */ c.a.e0.k.a.a f3119a;
 
         public a(b bVar, c.a.e0.k.a.a aVar) {
             Interceptable interceptable = $ic;
@@ -58,7 +58,7 @@ public class b {
                     return;
                 }
             }
-            this.f3128a = aVar;
+            this.f3119a = aVar;
         }
 
         @Override // c.a.e0.k.a.a
@@ -66,7 +66,7 @@ public class b {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th, str) == null) {
                 c.a.e0.k.h.a.f("7");
-                this.f3128a.b(th, str);
+                this.f3119a.b(th, str);
             }
         }
 
@@ -84,17 +84,17 @@ public class b {
                         JSONObject optJSONObject = jSONObject.optJSONObject("data");
                         if (optJSONObject == null) {
                             c.a.e0.k.h.a.d("7", optInt2 + "", jSONObject.optString("msg"));
-                            c.a.e0.k.a.a aVar = this.f3128a;
+                            c.a.e0.k.a.a aVar = this.f3119a;
                             StringBuilder sb = new StringBuilder();
                             sb.append("msg = ");
                             sb.append(jSONObject.optString("msg"));
                             aVar.b(new com.baidu.poly.a.i.b(sb.toString()), "data is empty");
                         } else {
-                            this.f3128a.a(optJSONObject);
+                            this.f3119a.a(optJSONObject);
                         }
                     } else {
                         c.a.e0.k.h.a.d("7", optInt2 + "", jSONObject.optString("errmsg"));
-                        c.a.e0.k.a.a aVar2 = this.f3128a;
+                        c.a.e0.k.a.a aVar2 = this.f3119a;
                         StringBuilder sb2 = new StringBuilder();
                         sb2.append("errmsg = ");
                         sb2.append(jSONObject.optString("errmsg"));
@@ -106,7 +106,7 @@ public class b {
                     }
                 } catch (JSONException e2) {
                     c.a.e0.k.h.a.d("7", null, null);
-                    this.f3128a.b(e2, "error");
+                    this.f3119a.b(e2, "error");
                 }
             }
         }
@@ -119,10 +119,10 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ c.a.e0.k.a.a f3129a;
+        public final /* synthetic */ c.a.e0.k.a.a f3120a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ b f3130b;
+        public final /* synthetic */ b f3121b;
 
         public C0054b(b bVar, c.a.e0.k.a.a aVar) {
             Interceptable interceptable = $ic;
@@ -139,8 +139,8 @@ public class b {
                     return;
                 }
             }
-            this.f3130b = bVar;
-            this.f3129a = aVar;
+            this.f3121b = bVar;
+            this.f3120a = aVar;
         }
 
         @Override // c.a.e0.k.a.a
@@ -148,7 +148,7 @@ public class b {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th, str) == null) {
                 c.a.e0.k.h.a.f("8");
-                this.f3129a.b(th, g.a().getResources().getString(h.common_error_tips));
+                this.f3120a.b(th, g.a().getResources().getString(h.common_error_tips));
             }
         }
 
@@ -162,13 +162,13 @@ public class b {
                     JSONObject jSONObject = new JSONObject(str);
                     int optInt = jSONObject.optInt("errno", -1);
                     if (optInt == 0) {
-                        this.f3129a.a(this.f3130b.i(jSONObject.optJSONObject("data")));
+                        this.f3120a.a(this.f3121b.i(jSONObject.optJSONObject("data")));
                     } else {
                         StringBuilder sb = new StringBuilder();
                         sb.append(optInt);
                         sb.append("");
                         c.a.e0.k.h.a.d("8", sb.toString(), jSONObject.optString("msg"));
-                        c.a.e0.k.a.a aVar = this.f3129a;
+                        c.a.e0.k.a.a aVar = this.f3120a;
                         StringBuilder sb2 = new StringBuilder();
                         sb2.append("msg = ");
                         sb2.append(jSONObject.optString("msg"));
@@ -176,7 +176,7 @@ public class b {
                     }
                 } catch (Throwable th) {
                     c.a.e0.k.h.a.d("8", null, null);
-                    this.f3129a.b(th, g.a().getResources().getString(h.common_error_tips));
+                    this.f3120a.b(th, g.a().getResources().getString(h.common_error_tips));
                 }
             }
         }
@@ -188,10 +188,10 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ c.a.e0.k.a.a f3131a;
+        public final /* synthetic */ c.a.e0.k.a.a f3122a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ b f3132b;
+        public final /* synthetic */ b f3123b;
 
         public c(b bVar, c.a.e0.k.a.a aVar) {
             Interceptable interceptable = $ic;
@@ -208,8 +208,8 @@ public class b {
                     return;
                 }
             }
-            this.f3132b = bVar;
-            this.f3131a = aVar;
+            this.f3123b = bVar;
+            this.f3122a = aVar;
         }
 
         @Override // c.a.e0.k.a.a
@@ -217,7 +217,7 @@ public class b {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th, str) == null) {
                 c.a.e0.k.h.a.f("8");
-                this.f3131a.b(th, str);
+                this.f3122a.b(th, str);
             }
         }
 
@@ -231,13 +231,13 @@ public class b {
                     JSONObject jSONObject = new JSONObject(str);
                     int optInt = jSONObject.optInt("errno", -1);
                     if (optInt == 0) {
-                        this.f3131a.a(this.f3132b.i(jSONObject.optJSONObject("data")));
+                        this.f3122a.a(this.f3123b.i(jSONObject.optJSONObject("data")));
                     } else {
                         StringBuilder sb = new StringBuilder();
                         sb.append(optInt);
                         sb.append("");
                         c.a.e0.k.h.a.d("8", sb.toString(), jSONObject.optString("msg"));
-                        c.a.e0.k.a.a aVar = this.f3131a;
+                        c.a.e0.k.a.a aVar = this.f3122a;
                         StringBuilder sb2 = new StringBuilder();
                         sb2.append("msg = ");
                         sb2.append(jSONObject.optString("msg"));
@@ -249,7 +249,7 @@ public class b {
                     }
                 } catch (Throwable th) {
                     c.a.e0.k.h.a.d("8", null, null);
-                    this.f3131a.b(th, "error");
+                    this.f3122a.b(th, "error");
                 }
             }
         }
@@ -261,7 +261,7 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ c.a.e0.k.a.a f3133a;
+        public final /* synthetic */ c.a.e0.k.a.a f3124a;
 
         public d(b bVar, c.a.e0.k.a.a aVar) {
             Interceptable interceptable = $ic;
@@ -278,14 +278,14 @@ public class b {
                     return;
                 }
             }
-            this.f3133a = aVar;
+            this.f3124a = aVar;
         }
 
         @Override // c.a.e0.k.a.a
         public void b(Throwable th, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th, str) == null) {
-                this.f3133a.b(th, str);
+                this.f3124a.b(th, str);
             }
         }
 
@@ -299,10 +299,10 @@ public class b {
                     JSONObject jSONObject = new JSONObject(str);
                     int optInt = jSONObject.optInt("errno", -1);
                     if (optInt == 0) {
-                        this.f3133a.a(jSONObject.optJSONObject("data"));
+                        this.f3124a.a(jSONObject.optJSONObject("data"));
                         return;
                     }
-                    c.a.e0.k.a.a aVar = this.f3133a;
+                    c.a.e0.k.a.a aVar = this.f3124a;
                     StringBuilder sb = new StringBuilder();
                     sb.append("msg = ");
                     sb.append(jSONObject.optString("msg"));
@@ -312,7 +312,7 @@ public class b {
                     sb2.append(optInt);
                     aVar.b(bVar, sb2.toString());
                 } catch (Throwable th) {
-                    this.f3133a.b(th, "error");
+                    this.f3124a.b(th, "error");
                 }
             }
         }
@@ -333,21 +333,21 @@ public class b {
                 return;
             }
         }
-        this.f3127a = eVar;
+        this.f3118a = eVar;
     }
 
     public static b j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f3126d == null) {
+            if (f3117d == null) {
                 synchronized (b.class) {
-                    if (f3126d == null) {
-                        f3126d = new b(new f());
+                    if (f3117d == null) {
+                        f3117d = new b(new f());
                     }
                 }
             }
-            return f3126d;
+            return f3117d;
         }
         return (b) invokeV.objValue;
     }
@@ -358,7 +358,7 @@ public class b {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, bundle, cVar)) == null) {
             c.a.e0.k.a.b bVar = new c.a.e0.k.a.b();
             f(bVar, bundle);
-            bVar.e(f3125c, "android");
+            bVar.e(f3116c, "android");
             e(bundle, bVar, cVar);
             return bVar;
         }
@@ -377,7 +377,7 @@ public class b {
                 }
             }
             e(bundle, bVar, k);
-            this.f3127a.a(c.a.e0.k.b.d.d(), k, bVar, new a(this, aVar));
+            this.f3118a.a(c.a.e0.k.b.d.d(), k, bVar, new a(this, aVar));
         }
     }
 
@@ -392,9 +392,9 @@ public class b {
                     bVar.e(str2, bundle.get(str2).toString());
                 }
             }
-            bVar.e(f3124b, str);
+            bVar.e(f3115b, str);
             e(bundle, bVar, k);
-            this.f3127a.a(c.a.e0.k.b.d.f(), k, bVar, new C0054b(this, aVar));
+            this.f3118a.a(c.a.e0.k.b.d.f(), k, bVar, new C0054b(this, aVar));
         }
     }
 
@@ -442,7 +442,7 @@ public class b {
                     bVar.e(str, bundle.get(str).toString());
                 }
             }
-            this.f3127a.a(c.a.e0.k.b.d.h(), k, bVar, new d(this, aVar));
+            this.f3118a.a(c.a.e0.k.b.d.h(), k, bVar, new d(this, aVar));
         }
     }
 
@@ -451,7 +451,7 @@ public class b {
         if (interceptable == null || interceptable.invokeLL(1048582, this, bundle, aVar) == null) {
             c.a.e0.k.a.c k = k();
             c.a.e0.k.a.b a2 = a(bundle, k);
-            this.f3127a.a(c.a.e0.k.b.d.g(), k, a2, new c(this, aVar));
+            this.f3118a.a(c.a.e0.k.b.d.g(), k, a2, new c(this, aVar));
         }
     }
 

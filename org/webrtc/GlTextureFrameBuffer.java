@@ -85,10 +85,10 @@ public class GlTextureFrameBuffer {
     public void setSize(int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048581, this, i2, i3) == null) {
-            if (i2 <= 0 || i3 <= 0) {
-                throw new IllegalArgumentException("Invalid size: " + i2 + "x" + i3);
-            } else if (i2 == this.width && i3 == this.height) {
-            } else {
+            if (i2 > 0 && i3 > 0) {
+                if (i2 == this.width && i3 == this.height) {
+                    return;
+                }
                 this.width = i2;
                 this.height = i3;
                 if (this.textureId == 0) {
@@ -114,6 +114,7 @@ public class GlTextureFrameBuffer {
                 }
                 throw new IllegalStateException("Framebuffer not complete, status: " + glCheckFramebufferStatus);
             }
+            throw new IllegalArgumentException("Invalid size: " + i2 + "x" + i3);
         }
     }
 }

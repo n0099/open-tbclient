@@ -1,6 +1,6 @@
 package com.baidu.tbadk.coreExtra.messageCenter;
 
-import c.a.p0.t.d.e;
+import c.a.q0.t.d.e;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -21,7 +21,7 @@ public class TbadkStatic {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes6.dex */
-    public static class a implements CustomMessageTask.CustomRunnable<c.a.p0.t.d.a> {
+    public static class a implements CustomMessageTask.CustomRunnable<c.a.q0.t.d.a> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -41,7 +41,7 @@ public class TbadkStatic {
 
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.CustomMessage] */
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<c.a.p0.t.d.a> run(CustomMessage<c.a.p0.t.d.a> customMessage) {
+        public CustomResponsedMessage<c.a.q0.t.d.a> run(CustomMessage<c.a.q0.t.d.a> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) ? new CustomResponsedMessage<>(2156675, new e()) : (CustomResponsedMessage) invokeL.objValue;

@@ -21,7 +21,7 @@ public class NHCreditPicItem extends BaseItemView {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public NetImageView f61298a;
+    public NetImageView f61478a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public NHCreditPicItem(Context context) {
@@ -57,10 +57,10 @@ public class NHCreditPicItem extends BaseItemView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             NetImageView netImageView = new NetImageView(getContext());
-            this.f61298a = netImageView;
+            this.f61478a = netImageView;
             netImageView.setScaleType(ImageView.ScaleType.FIT_XY);
-            this.f61298a.setImageResource(ResUtils.drawable(getContext(), "wallet_home_nh_shape_credit_background"));
-            addView(this.f61298a, new GridLayout.LayoutParams(-1, -1));
+            this.f61478a.setImageResource(ResUtils.drawable(getContext(), "wallet_home_nh_shape_credit_background"));
+            addView(this.f61478a, new GridLayout.LayoutParams(-1, -1));
         }
     }
 
@@ -69,7 +69,7 @@ public class NHCreditPicItem extends BaseItemView {
         if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || getData() == null) {
             return;
         }
-        setNetImageViewUrl(this.f61298a, getData().logo);
+        setNetImageViewUrl(this.f61478a, getData().logo);
     }
 
     @Override // com.baidu.wallet.home.ui.widget.BaseItemView

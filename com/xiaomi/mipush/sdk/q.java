@@ -14,7 +14,7 @@ public final class q extends aq.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ Context f77141a;
+    public final /* synthetic */ Context f77321a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public q(int i2, String str, Context context) {
@@ -35,14 +35,14 @@ public final class q extends aq.a {
                 return;
             }
         }
-        this.f77141a = context;
+        this.f77321a = context;
     }
 
     @Override // com.xiaomi.push.service.aq.a
     public void onCallback() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            ea.a(this.f77141a).a(com.xiaomi.push.service.aq.a(this.f77141a).a(hk.aF.a(), 0));
+            ea.a(this.f77321a).a(com.xiaomi.push.service.aq.a(this.f77321a).a(hk.aF.a(), 0));
         }
     }
 }

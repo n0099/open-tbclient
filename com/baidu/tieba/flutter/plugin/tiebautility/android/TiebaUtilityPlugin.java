@@ -1,20 +1,20 @@
 package com.baidu.tieba.flutter.plugin.tiebautility.android;
 
 import androidx.annotation.NonNull;
-import c.a.q0.r0.a.j.a3;
-import c.a.q0.r0.a.j.b3;
-import c.a.q0.r0.a.j.c3;
-import c.a.q0.r0.a.j.d3;
-import c.a.q0.r0.a.j.e3;
-import c.a.q0.r0.a.j.f3;
-import c.a.q0.r0.a.j.g3;
-import c.a.q0.r0.a.j.t2;
-import c.a.q0.r0.a.j.u2;
-import c.a.q0.r0.a.j.v2;
-import c.a.q0.r0.a.j.w2;
-import c.a.q0.r0.a.j.x2;
-import c.a.q0.r0.a.j.y2;
-import c.a.q0.r0.a.j.z2;
+import c.a.r0.s0.a.j.a3;
+import c.a.r0.s0.a.j.b3;
+import c.a.r0.s0.a.j.c3;
+import c.a.r0.s0.a.j.d3;
+import c.a.r0.s0.a.j.e3;
+import c.a.r0.s0.a.j.f3;
+import c.a.r0.s0.a.j.g3;
+import c.a.r0.s0.a.j.h3;
+import c.a.r0.s0.a.j.i3;
+import c.a.r0.s0.a.j.v2;
+import c.a.r0.s0.a.j.w2;
+import c.a.r0.s0.a.j.x2;
+import c.a.r0.s0.a.j.y2;
+import c.a.r0.s0.a.j.z2;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -92,20 +92,20 @@ public class TiebaUtilityPlugin implements FlutterPlugin {
             this.mFlutterNotification = new TiebaUtilityNotificationAuto.FlutterUtilityNotification(flutterPluginBinding.getBinaryMessenger());
             this.mNotification = new UtilityNotification(this.mFlutterNotification);
             MessageManager.getInstance().registerListener(this.sendNotifyToFlutter);
-            c3.e(flutterPluginBinding.getBinaryMessenger(), new UtilityPreference());
-            v2.g(flutterPluginBinding.getBinaryMessenger(), new UtilityAppInfo());
-            u2.g(flutterPluginBinding.getBinaryMessenger(), new UtilityAccount());
-            d3.i(flutterPluginBinding.getBinaryMessenger(), new UtilitySettings());
-            a3.d(flutterPluginBinding.getBinaryMessenger(), this.mNotification);
-            e3.c(flutterPluginBinding.getBinaryMessenger(), new UtilityStatistic());
-            b3.r(flutterPluginBinding.getBinaryMessenger(), new UtilityOpenPage());
-            z2.k(flutterPluginBinding.getBinaryMessenger(), new UtilityMessage());
-            w2.r(flutterPluginBinding.getBinaryMessenger(), new UtilityComponents());
-            x2.c(flutterPluginBinding.getBinaryMessenger(), new UtilityData());
-            y2.e(flutterPluginBinding.getBinaryMessenger(), new UtilityLocation());
-            t2.c(flutterPluginBinding.getBinaryMessenger(), new UtilityABTest());
-            f3.o(flutterPluginBinding.getBinaryMessenger(), new UtilityVideo());
-            g3.b(flutterPluginBinding.getBinaryMessenger(), new UtilityVideoCreationCenter());
+            e3.e(flutterPluginBinding.getBinaryMessenger(), new UtilityPreference());
+            x2.g(flutterPluginBinding.getBinaryMessenger(), new UtilityAppInfo());
+            w2.g(flutterPluginBinding.getBinaryMessenger(), new UtilityAccount());
+            f3.i(flutterPluginBinding.getBinaryMessenger(), new UtilitySettings());
+            c3.d(flutterPluginBinding.getBinaryMessenger(), this.mNotification);
+            g3.c(flutterPluginBinding.getBinaryMessenger(), new UtilityStatistic());
+            d3.r(flutterPluginBinding.getBinaryMessenger(), new UtilityOpenPage());
+            b3.k(flutterPluginBinding.getBinaryMessenger(), new UtilityMessage());
+            y2.r(flutterPluginBinding.getBinaryMessenger(), new UtilityComponents());
+            z2.c(flutterPluginBinding.getBinaryMessenger(), new UtilityData());
+            a3.e(flutterPluginBinding.getBinaryMessenger(), new UtilityLocation());
+            v2.c(flutterPluginBinding.getBinaryMessenger(), new UtilityABTest());
+            h3.o(flutterPluginBinding.getBinaryMessenger(), new UtilityVideo());
+            i3.d(flutterPluginBinding.getBinaryMessenger(), new UtilityVideoCreationCenter());
         }
     }
 
@@ -116,20 +116,20 @@ public class TiebaUtilityPlugin implements FlutterPlugin {
             MessageManager.getInstance().unRegisterListener(this.sendNotifyToFlutter);
             this.mFlutterNotification = null;
             this.mNotification = null;
-            c3.e(flutterPluginBinding.getBinaryMessenger(), null);
-            v2.g(flutterPluginBinding.getBinaryMessenger(), null);
-            u2.g(flutterPluginBinding.getBinaryMessenger(), null);
-            d3.i(flutterPluginBinding.getBinaryMessenger(), null);
-            a3.d(flutterPluginBinding.getBinaryMessenger(), null);
-            e3.c(flutterPluginBinding.getBinaryMessenger(), null);
-            b3.r(flutterPluginBinding.getBinaryMessenger(), null);
-            z2.k(flutterPluginBinding.getBinaryMessenger(), null);
-            w2.r(flutterPluginBinding.getBinaryMessenger(), null);
-            x2.c(flutterPluginBinding.getBinaryMessenger(), null);
-            y2.e(flutterPluginBinding.getBinaryMessenger(), null);
-            t2.c(flutterPluginBinding.getBinaryMessenger(), null);
-            f3.o(flutterPluginBinding.getBinaryMessenger(), null);
-            g3.b(flutterPluginBinding.getBinaryMessenger(), null);
+            e3.e(flutterPluginBinding.getBinaryMessenger(), null);
+            x2.g(flutterPluginBinding.getBinaryMessenger(), null);
+            w2.g(flutterPluginBinding.getBinaryMessenger(), null);
+            f3.i(flutterPluginBinding.getBinaryMessenger(), null);
+            c3.d(flutterPluginBinding.getBinaryMessenger(), null);
+            g3.c(flutterPluginBinding.getBinaryMessenger(), null);
+            d3.r(flutterPluginBinding.getBinaryMessenger(), null);
+            b3.k(flutterPluginBinding.getBinaryMessenger(), null);
+            y2.r(flutterPluginBinding.getBinaryMessenger(), null);
+            z2.c(flutterPluginBinding.getBinaryMessenger(), null);
+            a3.e(flutterPluginBinding.getBinaryMessenger(), null);
+            v2.c(flutterPluginBinding.getBinaryMessenger(), null);
+            h3.o(flutterPluginBinding.getBinaryMessenger(), null);
+            i3.d(flutterPluginBinding.getBinaryMessenger(), null);
         }
     }
 }

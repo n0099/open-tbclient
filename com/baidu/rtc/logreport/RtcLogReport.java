@@ -65,7 +65,7 @@ public class RtcLogReport {
         return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? Build.MODEL : (String) invokeV.objValue;
     }
 
-    public static RtcLogReport getInstance() {
+    public static synchronized RtcLogReport getInstance() {
         InterceptResult invokeV;
         RtcLogReport rtcLogReport;
         Interceptable interceptable = $ic;
@@ -182,7 +182,7 @@ public class RtcLogReport {
         this.executor = null;
     }
 
-    public void report(String str, int i2) {
+    public synchronized void report(String str, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i2) == null) {
             synchronized (this) {

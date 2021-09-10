@@ -13,7 +13,7 @@ public abstract class a implements c.b, c.d {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f30141a;
+    public Context f30246a;
 
     public a() {
         Interceptable interceptable = $ic;

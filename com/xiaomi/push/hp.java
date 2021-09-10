@@ -37,37 +37,37 @@ public final class hp {
     public static final hp X;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final hp f77637a;
+    public static final hp f77817a;
 
     /* renamed from: a  reason: collision with other field name */
     public static final /* synthetic */ hp[] f512a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final hp f77638b;
+    public static final hp f77818b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final hp f77639c;
+    public static final hp f77819c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final hp f77640d;
+    public static final hp f77820d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final hp f77641e;
+    public static final hp f77821e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final hp f77642f;
+    public static final hp f77822f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final hp f77643g;
+    public static final hp f77823g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final hp f77644h;
+    public static final hp f77824h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final hp f77645i;
+    public static final hp f77825i;
 
     /* renamed from: j  reason: collision with root package name */
-    public static final hp f77646j;
+    public static final hp f77826j;
     public static final hp k;
     public static final hp l;
     public static final hp m;
@@ -102,16 +102,16 @@ public final class hp {
                 return;
             }
         }
-        f77637a = new hp("Invalid", 0, "INVALID");
-        f77638b = new hp("BarClick", 1, "bar:click");
-        f77639c = new hp("BarCancel", 2, "bar:cancel");
-        f77640d = new hp("AppOpen", 3, "app:open");
-        f77641e = new hp("PackageUninstall", 4, "package uninstalled");
-        f77642f = new hp("AppUninstall", 5, "app_uninstalled");
-        f77643g = new hp("ClientInfoUpdate", 6, "client_info_update");
-        f77644h = new hp("ClientInfoUpdateOk", 7, "client_info_update_ok");
-        f77645i = new hp("ClientMIIDUpdate", 8, "client_miid_update");
-        f77646j = new hp("PullOfflineMessage", 9, "pull");
+        f77817a = new hp("Invalid", 0, "INVALID");
+        f77818b = new hp("BarClick", 1, "bar:click");
+        f77819c = new hp("BarCancel", 2, "bar:cancel");
+        f77820d = new hp("AppOpen", 3, "app:open");
+        f77821e = new hp("PackageUninstall", 4, "package uninstalled");
+        f77822f = new hp("AppUninstall", 5, "app_uninstalled");
+        f77823g = new hp("ClientInfoUpdate", 6, "client_info_update");
+        f77824h = new hp("ClientInfoUpdateOk", 7, "client_info_update_ok");
+        f77825i = new hp("ClientMIIDUpdate", 8, "client_miid_update");
+        f77826j = new hp("PullOfflineMessage", 9, "pull");
         k = new hp("IosSleep", 10, "ios_sleep");
         l = new hp("IosWakeUp", 11, "ios_wakeup");
         m = new hp("AwakeApp", 12, "awake_app");
@@ -153,7 +153,7 @@ public final class hp {
         W = new hp("ScenePushRuleDelete", 48, "scene_push_rule_delete");
         hp hpVar = new hp("ScenePushRuleTrigger", 49, "scene_push_rule_trigger");
         X = hpVar;
-        f512a = new hp[]{f77637a, f77638b, f77639c, f77640d, f77641e, f77642f, f77643g, f77644h, f77645i, f77646j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z, A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, hpVar};
+        f512a = new hp[]{f77817a, f77818b, f77819c, f77820d, f77821e, f77822f, f77823g, f77824h, f77825i, f77826j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z, A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, hpVar};
     }
 
     public hp(String str, int i2, String str2) {

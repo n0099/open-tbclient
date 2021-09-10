@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import c.a.e.e.p.l;
-import c.a.p0.n.f;
+import c.a.q0.n.f;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.widget.ListView.BdRecyclerView;
 import com.baidu.adp.widget.ListView.GridSpaceItemDecoration;
@@ -42,10 +42,10 @@ public class HomePageTabFeedCollegeSecondActivity extends BaseActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ List f52258a;
+        public final /* synthetic */ List f52404a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ HomePageTabFeedCollegeSecondActivity f52259b;
+        public final /* synthetic */ HomePageTabFeedCollegeSecondActivity f52405b;
 
         public a(HomePageTabFeedCollegeSecondActivity homePageTabFeedCollegeSecondActivity, List list) {
             Interceptable interceptable = $ic;
@@ -62,15 +62,15 @@ public class HomePageTabFeedCollegeSecondActivity extends BaseActivity {
                     return;
                 }
             }
-            this.f52259b = homePageTabFeedCollegeSecondActivity;
-            this.f52258a = list;
+            this.f52405b = homePageTabFeedCollegeSecondActivity;
+            this.f52404a = list;
         }
 
         @Override // androidx.recyclerview.widget.GridLayoutManager.SpanSizeLookup
         public int getSpanSize(int i2) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? i2 == this.f52258a.size() ? 2 : 1 : invokeI.intValue;
+            return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? i2 == this.f52404a.size() ? 2 : 1 : invokeI.intValue;
         }
     }
 
@@ -80,7 +80,7 @@ public class HomePageTabFeedCollegeSecondActivity extends BaseActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ HomePageTabFeedCollegeSecondActivity f52260e;
+        public final /* synthetic */ HomePageTabFeedCollegeSecondActivity f52406e;
 
         public b(HomePageTabFeedCollegeSecondActivity homePageTabFeedCollegeSecondActivity) {
             Interceptable interceptable = $ic;
@@ -97,11 +97,11 @@ public class HomePageTabFeedCollegeSecondActivity extends BaseActivity {
                     return;
                 }
             }
-            this.f52260e = homePageTabFeedCollegeSecondActivity;
+            this.f52406e = homePageTabFeedCollegeSecondActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // c.a.p0.n.f
+        @Override // c.a.q0.n.f
         /* renamed from: b */
         public void c(View view, SpecialColumnItemData specialColumnItemData, int i2, long j2) {
             Interceptable interceptable = $ic;
@@ -110,7 +110,7 @@ public class HomePageTabFeedCollegeSecondActivity extends BaseActivity {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // c.a.p0.n.f
+        @Override // c.a.q0.n.f
         /* renamed from: d */
         public void a(View view, SpecialColumnItemData specialColumnItemData, int i2, long j2) {
             Interceptable interceptable = $ic;
@@ -122,13 +122,13 @@ public class HomePageTabFeedCollegeSecondActivity extends BaseActivity {
                 if (i3 == 3) {
                     AlaLiveInfoCoreData alaLiveInfoCoreData = new AlaLiveInfoCoreData();
                     alaLiveInfoCoreData.liveID = specialColumnItemData.liveId;
-                    this.f52260e.sendMessage(new CustomMessage(2002001, new AlaLiveRoomActivityConfig(this.f52260e, alaLiveInfoCoreData, AlaLiveRoomActivityConfig.FROM_TYPE_LIVE_ACTIVE_VIEW, "", false, "")));
+                    this.f52406e.sendMessage(new CustomMessage(2002001, new AlaLiveRoomActivityConfig(this.f52406e, alaLiveInfoCoreData, AlaLiveRoomActivityConfig.FROM_TYPE_LIVE_ACTIVE_VIEW, "", false, "")));
                     return;
                 } else if (i3 != 4) {
                     return;
                 }
             }
-            this.f52260e.sendMessage(new CustomMessage(2004001, new PbActivityConfig(this.f52260e).createNormalCfg(String.valueOf(specialColumnItemData.threadId), null, null)));
+            this.f52406e.sendMessage(new CustomMessage(2004001, new PbActivityConfig(this.f52406e).createNormalCfg(String.valueOf(specialColumnItemData.threadId), null, null)));
         }
     }
 

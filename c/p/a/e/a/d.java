@@ -45,10 +45,10 @@ public class d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f34829a;
+    public static int f34938a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static NotificationChannel f34830b;
+    public static NotificationChannel f34939b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes4.dex */
@@ -57,13 +57,13 @@ public class d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Context f34831a;
+        public final /* synthetic */ Context f34940a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ int f34832b;
+        public final /* synthetic */ int f34941b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ boolean f34833c;
+        public final /* synthetic */ boolean f34942c;
 
         public a(Context context, int i2, boolean z) {
             Interceptable interceptable = $ic;
@@ -80,16 +80,16 @@ public class d {
                     return;
                 }
             }
-            this.f34831a = context;
-            this.f34832b = i2;
-            this.f34833c = z;
+            this.f34940a = context;
+            this.f34941b = i2;
+            this.f34942c = z;
         }
 
         @Override // c.p.a.e.a.d.k
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                int unused = d.f34829a = d.P(this.f34831a, this.f34832b, this.f34833c);
+                int unused = d.f34938a = d.P(this.f34940a, this.f34941b, this.f34942c);
             }
         }
     }
@@ -100,19 +100,19 @@ public class d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f34834e;
+        public final /* synthetic */ Context f34943e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f34835f;
+        public final /* synthetic */ int f34944f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ boolean f34836g;
+        public final /* synthetic */ boolean f34945g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ DownloadInfo f34837h;
+        public final /* synthetic */ DownloadInfo f34946h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ File f34838i;
+        public final /* synthetic */ File f34947i;
 
         public b(Context context, int i2, boolean z, DownloadInfo downloadInfo, File file) {
             Interceptable interceptable = $ic;
@@ -129,22 +129,22 @@ public class d {
                     return;
                 }
             }
-            this.f34834e = context;
-            this.f34835f = i2;
-            this.f34836g = z;
-            this.f34837h = downloadInfo;
-            this.f34838i = file;
+            this.f34943e = context;
+            this.f34944f = i2;
+            this.f34945g = z;
+            this.f34946h = downloadInfo;
+            this.f34947i = file;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                int e2 = d.e(this.f34834e, this.f34835f, this.f34836g, this.f34837h, this.f34838i);
+                int e2 = d.e(this.f34943e, this.f34944f, this.f34945g, this.f34946h, this.f34947i);
                 if (e2 == 1 && c.p.a.e.a.e.G().L() != null) {
-                    c.p.a.e.a.e.G().L().a(this.f34837h, null);
+                    c.p.a.e.a.e.G().L().a(this.f34946h, null);
                 }
-                d.I(this.f34837h, this.f34836g, e2);
+                d.I(this.f34946h, this.f34945g, e2);
             }
         }
     }
@@ -449,12 +449,12 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, context)) == null) {
             try {
-                if (f34830b == null) {
+                if (f34939b == null) {
                     NotificationChannel notificationChannel = new NotificationChannel("111111", "channel_appdownloader", 3);
-                    f34830b = notificationChannel;
+                    f34939b = notificationChannel;
                     notificationChannel.setSound(null, null);
-                    f34830b.setShowBadge(false);
-                    ((NotificationManager) context.getSystemService(ActionJsonData.TAG_NOTIFICATION)).createNotificationChannel(f34830b);
+                    f34939b.setShowBadge(false);
+                    ((NotificationManager) context.getSystemService(ActionJsonData.TAG_NOTIFICATION)).createNotificationChannel(f34939b);
                 }
             } catch (Throwable th) {
                 th.printStackTrace();
@@ -613,9 +613,9 @@ public class d {
                 return P(context, i2, z);
             }
             DownloadInfo f2 = c.p.a.e.b.g.a.H(context).f(i2);
-            f34829a = 1;
+            f34938a = 1;
             D.a(f2, new a(context, i2, z));
-            return f34829a;
+            return f34938a;
         }
         return invokeCommon.intValue;
     }

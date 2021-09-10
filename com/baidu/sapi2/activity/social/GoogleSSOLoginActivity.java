@@ -50,7 +50,7 @@ public class GoogleSSOLoginActivity extends BaseSSOLoginActivity {
                 int statusCode = e2.getStatusCode();
                 String message = e2.getMessage();
                 Log.d(n, "handleSignInResult exception code=" + statusCode + " msg=" + message);
-                a(((BaseSSOLoginActivity) this).f44695g, statusCode, message);
+                a(((BaseSSOLoginActivity) this).f44810g, statusCode, message);
             }
         }
     }

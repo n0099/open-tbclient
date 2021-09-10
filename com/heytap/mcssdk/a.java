@@ -9,22 +9,22 @@ public final class a {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f70687a = false;
+    public static final boolean f70867a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f70688b = "com.heytap.mcssdk";
+    public static final String f70868b = "com.heytap.mcssdk";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f70689c = "release";
+    public static final String f70869c = "release";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f70690d = "";
+    public static final String f70870d = "";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int f70691e = 2002;
+    public static final int f70871e = 2002;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f70692f = "2.0.2";
+    public static final String f70872f = "2.0.2";
     public transient /* synthetic */ FieldHolder $fh;
 
     public a() {

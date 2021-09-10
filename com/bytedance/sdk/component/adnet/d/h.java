@@ -14,7 +14,7 @@ public class h extends Handler {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final WeakReference<a> f64199a;
+    public final WeakReference<a> f64379a;
 
     /* loaded from: classes9.dex */
     public interface a {
@@ -39,14 +39,14 @@ public class h extends Handler {
                 return;
             }
         }
-        this.f64199a = new WeakReference<>(aVar);
+        this.f64379a = new WeakReference<>(aVar);
     }
 
     @Override // android.os.Handler
     public void handleMessage(Message message) {
         a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, message) == null) || (aVar = this.f64199a.get()) == null || message == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, message) == null) || (aVar = this.f64379a.get()) == null || message == null) {
             return;
         }
         aVar.a(message);

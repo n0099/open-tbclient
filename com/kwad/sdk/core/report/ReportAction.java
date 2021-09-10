@@ -107,7 +107,7 @@ public class ReportAction extends c {
     public String az;
 
     /* renamed from: b  reason: collision with root package name */
-    public transient SceneImpl f71968b;
+    public transient SceneImpl f72148b;
     public long ba;
     public int bb;
     public String bc;
@@ -137,28 +137,28 @@ public class ReportAction extends c {
     @Nullable
 
     /* renamed from: c  reason: collision with root package name */
-    public transient AdTemplate f71969c;
+    public transient AdTemplate f72149c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f71970d;
+    public long f72150d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f71971e;
+    public String f72151e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f71972f;
+    public long f72152f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f71973g;
+    public int f72153g;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f71974h;
+    public long f72154h;
 
     /* renamed from: i  reason: collision with root package name */
-    public long f71975i;
+    public long f72155i;
 
     /* renamed from: j  reason: collision with root package name */
-    public long f71976j;
+    public long f72156j;
     public JSONObject k;
     public JSONObject l;
     public long m;
@@ -205,10 +205,10 @@ public class ReportAction extends c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f71977a;
+        public int f72157a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f71978b;
+        public int f72158b;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -229,8 +229,8 @@ public class ReportAction extends c {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
                 a aVar = new a();
-                aVar.f71977a = b.f71979a;
-                aVar.f71978b = b.f71980b;
+                aVar.f72157a = b.f72159a;
+                aVar.f72158b = b.f72160b;
                 return aVar;
             }
             return (a) invokeV.objValue;
@@ -242,10 +242,10 @@ public class ReportAction extends c {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static int f71979a;
+        public static int f72159a;
 
         /* renamed from: b  reason: collision with root package name */
-        public static int f71980b;
+        public static int f72160b;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
@@ -264,7 +264,7 @@ public class ReportAction extends c {
                 return;
             }
         }
-        this.f71973g = -1;
+        this.f72153g = -1;
         this.n = 0;
         this.o = 0;
         this.B = -1L;
@@ -284,7 +284,7 @@ public class ReportAction extends c {
         this.aV = 0;
         this.aW = -1;
         this.aX = 0;
-        this.f71975i = j2;
+        this.f72155i = j2;
     }
 
     public ReportAction(long j2, @NonNull AdTemplate adTemplate) {
@@ -302,7 +302,7 @@ public class ReportAction extends c {
                 return;
             }
         }
-        this.f71973g = -1;
+        this.f72153g = -1;
         this.n = 0;
         this.o = 0;
         this.B = -1L;
@@ -322,8 +322,8 @@ public class ReportAction extends c {
         this.aV = 0;
         this.aW = -1;
         this.aX = 0;
-        this.f71975i = j2;
-        this.f71969c = adTemplate;
+        this.f72155i = j2;
+        this.f72149c = adTemplate;
     }
 
     public ReportAction(String str) {
@@ -341,7 +341,7 @@ public class ReportAction extends c {
                 return;
             }
         }
-        this.f71973g = -1;
+        this.f72153g = -1;
         this.n = 0;
         this.o = 0;
         this.B = -1L;
@@ -389,24 +389,24 @@ public class ReportAction extends c {
         if (bVar != null) {
             this.aV = bVar.e();
         }
-        this.f72016a = UUID.randomUUID().toString();
-        this.f71970d = System.currentTimeMillis();
-        this.f71971e = l.b();
+        this.f72196a = UUID.randomUUID().toString();
+        this.f72150d = System.currentTimeMillis();
+        this.f72151e = l.b();
         try {
-            this.f71972f = l.c();
+            this.f72152f = l.c();
         } catch (Exception e2) {
             com.kwad.sdk.core.d.a.b(e2);
         }
-        this.f71974h = l.e();
-        SceneImpl sceneImpl2 = this.f71968b;
+        this.f72154h = l.e();
+        SceneImpl sceneImpl2 = this.f72148b;
         if (sceneImpl2 == null) {
             if (adTemplate != null && (sceneImpl2 = adTemplate.mAdScene) != null) {
-                this.f71968b = sceneImpl2;
+                this.f72148b = sceneImpl2;
             }
             if (adTemplate != null) {
                 this.q = adTemplate.getShowPosition() + 1;
                 this.r = adTemplate.getServerPosition() + 1;
-                this.f71976j = com.kwad.sdk.core.response.b.c.f(adTemplate);
+                this.f72156j = com.kwad.sdk.core.response.b.c.f(adTemplate);
                 String g2 = com.kwad.sdk.core.response.b.c.g(adTemplate);
                 if (!TextUtils.isEmpty(g2)) {
                     try {
@@ -452,7 +452,7 @@ public class ReportAction extends c {
                         this.aD.expTag = com.kwad.sdk.live.mode.a.c(q);
                         b2 = com.kwad.sdk.live.mode.a.b(q);
                     } else if (i2 == 5) {
-                        this.bz = com.kwad.sdk.core.response.b.d.c(com.kwad.sdk.core.response.b.c.k(this.f71969c));
+                        this.bz = com.kwad.sdk.core.response.b.d.c(com.kwad.sdk.core.response.b.c.k(this.f72149c));
                     }
                     this.N = b2;
                 }
@@ -466,13 +466,13 @@ public class ReportAction extends c {
                 this.F = com.kwad.sdk.core.response.b.c.p(adTemplate);
             }
             this.ai = a.a();
-            if (this.f71968b == null && adTemplate != null) {
-                this.f71968b = adTemplate.mAdScene;
+            if (this.f72148b == null && adTemplate != null) {
+                this.f72148b = adTemplate.mAdScene;
             }
-            sceneImpl = this.f71968b;
+            sceneImpl = this.f72148b;
             if (sceneImpl != null) {
                 this.m = sceneImpl.getPosId();
-                this.L = this.f71968b.getUrlPackage();
+                this.L = this.f72148b.getUrlPackage();
             }
             if (this.L == null) {
                 EntryPackage b3 = com.kwad.sdk.core.scene.a.a().b(this.L.identity);
@@ -484,15 +484,15 @@ public class ReportAction extends c {
             return;
         }
         this.m = sceneImpl2.getPosId();
-        this.L = this.f71968b.getUrlPackage();
-        this.f71973g = this.f71968b.getAdStyle();
+        this.L = this.f72148b.getUrlPackage();
+        this.f72153g = this.f72148b.getAdStyle();
         if (adTemplate != null) {
         }
         this.ai = a.a();
-        if (this.f71968b == null) {
-            this.f71968b = adTemplate.mAdScene;
+        if (this.f72148b == null) {
+            this.f72148b = adTemplate.mAdScene;
         }
-        sceneImpl = this.f71968b;
+        sceneImpl = this.f72148b;
         if (sceneImpl != null) {
         }
         if (this.L == null) {
@@ -508,7 +508,7 @@ public class ReportAction extends c {
                 return;
             }
             this.ak = 3;
-            this.f71973g = jSONObject.optInt("adStyle", -1);
+            this.f72153g = jSONObject.optInt("adStyle", -1);
             this.V = jSONObject.optInt("reportType");
             this.I = jSONObject.optInt("playerControlledType", -1);
             this.aG = jSONObject.optInt("num");
@@ -521,7 +521,7 @@ public class ReportAction extends c {
             this.bo = jSONObject.optLong("loadingDurationLimt");
             this.aW = jSONObject.optInt("playerTypeInfo", -1);
             if (jSONObject.has("actionId")) {
-                this.f72016a = jSONObject.optString("actionId");
+                this.f72196a = jSONObject.optString("actionId");
             }
         }
     }
@@ -531,8 +531,8 @@ public class ReportAction extends c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) {
             super.afterToJson(jSONObject);
-            q.a(jSONObject, "actionId", this.f72016a);
-            int i2 = this.f71973g;
+            q.a(jSONObject, "actionId", this.f72196a);
+            int i2 = this.f72153g;
             if (i2 > 0) {
                 q.a(jSONObject, "adStyle", i2);
             }
@@ -584,7 +584,7 @@ public class ReportAction extends c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            a(this.f71969c);
+            a(this.f72149c);
             return this;
         }
         return (ReportAction) invokeV.objValue;

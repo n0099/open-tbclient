@@ -186,10 +186,11 @@ public class MediaStreamTrack {
                 return;
             }
         }
-        if (j2 == 0) {
-            throw new IllegalArgumentException("nativeTrack may not be null");
+        if (j2 != 0) {
+            this.nativeTrack = j2;
+            return;
         }
-        this.nativeTrack = j2;
+        throw new IllegalArgumentException("nativeTrack may not be null");
     }
 
     private void checkMediaStreamTrackExists() {

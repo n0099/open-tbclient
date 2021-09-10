@@ -11,7 +11,7 @@ public class dj {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile dj f77304a;
+    public static volatile dj f77484a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
@@ -35,14 +35,14 @@ public class dj {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f77304a == null) {
+            if (f77484a == null) {
                 synchronized (dj.class) {
-                    if (f77304a == null) {
-                        f77304a = new dj();
+                    if (f77484a == null) {
+                        f77484a = new dj();
                     }
                 }
             }
-            return f77304a;
+            return f77484a;
         }
         return (dj) invokeV.objValue;
     }

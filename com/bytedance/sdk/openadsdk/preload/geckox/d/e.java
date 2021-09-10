@@ -19,10 +19,10 @@ public class e extends com.bytedance.sdk.openadsdk.preload.b.d<String, Map<Strin
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d  reason: collision with root package name */
-    public File f68560d;
+    public File f68740d;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<String> f68561e;
+    public List<String> f68741e;
 
     public e() {
         Interceptable interceptable = $ic;
@@ -43,8 +43,8 @@ public class e extends com.bytedance.sdk.openadsdk.preload.b.d<String, Map<Strin
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, objArr) == null) {
             super.a(objArr);
-            this.f68560d = (File) objArr[0];
-            this.f68561e = (List) objArr[1];
+            this.f68740d = (File) objArr[0];
+            this.f68741e = (List) objArr[1];
         }
     }
 
@@ -58,8 +58,8 @@ public class e extends com.bytedance.sdk.openadsdk.preload.b.d<String, Map<Strin
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, bVar, str)) == null) {
             com.bytedance.sdk.openadsdk.preload.geckox.h.b.a("gecko-debug-tag", "get local channel version:", str);
             HashMap hashMap = new HashMap();
-            for (String str2 : this.f68561e) {
-                File file = new File(this.f68560d, str2);
+            for (String str2 : this.f68741e) {
+                File file = new File(this.f68740d, str2);
                 String[] list = file.list();
                 ArrayList arrayList = new ArrayList();
                 if (list != null && list.length > 0) {

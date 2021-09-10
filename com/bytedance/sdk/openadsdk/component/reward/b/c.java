@@ -17,13 +17,13 @@ public class c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public TopProxyLayout f65603a;
+    public TopProxyLayout f65783a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Activity f65604b;
+    public final Activity f65784b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f65605c;
+    public boolean f65785c;
 
     public c(Activity activity) {
         Interceptable interceptable = $ic;
@@ -40,16 +40,16 @@ public class c {
                 return;
             }
         }
-        this.f65605c = false;
-        this.f65604b = activity;
+        this.f65785c = false;
+        this.f65784b = activity;
     }
 
     private void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, this) == null) {
-            Activity activity = this.f65604b;
+            Activity activity = this.f65784b;
             TopProxyLayout topProxyLayout = (TopProxyLayout) activity.findViewById(t.e(activity, "tt_top_layout_proxy"));
-            this.f65603a = topProxyLayout;
+            this.f65783a = topProxyLayout;
             if (topProxyLayout != null) {
                 topProxyLayout.e();
             }
@@ -58,17 +58,17 @@ public class c {
 
     public void a() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f65605c) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f65785c) {
             return;
         }
-        this.f65605c = true;
+        this.f65785c = true;
         g();
     }
 
     public void b(boolean z) {
         TopProxyLayout topProxyLayout;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048582, this, z) == null) || (topProxyLayout = this.f65603a) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048582, this, z) == null) || (topProxyLayout = this.f65783a) == null) {
             return;
         }
         topProxyLayout.setSoundMute(z);
@@ -77,7 +77,7 @@ public class c {
     public void c(boolean z) {
         TopProxyLayout topProxyLayout;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) || (topProxyLayout = this.f65603a) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) || (topProxyLayout = this.f65783a) == null) {
             return;
         }
         topProxyLayout.setShowSound(z);
@@ -86,7 +86,7 @@ public class c {
     public void d(boolean z) {
         TopProxyLayout topProxyLayout;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048586, this, z) == null) || (topProxyLayout = this.f65603a) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048586, this, z) == null) || (topProxyLayout = this.f65783a) == null) {
             return;
         }
         topProxyLayout.setShowSkip(z);
@@ -95,7 +95,7 @@ public class c {
     public void e(boolean z) {
         TopProxyLayout topProxyLayout;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048588, this, z) == null) || (topProxyLayout = this.f65603a) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048588, this, z) == null) || (topProxyLayout = this.f65783a) == null) {
             return;
         }
         topProxyLayout.setShowClose(z);
@@ -104,7 +104,7 @@ public class c {
     public void f(boolean z) {
         TopProxyLayout topProxyLayout;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048590, this, z) == null) || (topProxyLayout = this.f65603a) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048590, this, z) == null) || (topProxyLayout = this.f65783a) == null) {
             return;
         }
         topProxyLayout.setSkipEnable(z);
@@ -113,7 +113,7 @@ public class c {
     public void b() {
         TopProxyLayout topProxyLayout;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (topProxyLayout = this.f65603a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (topProxyLayout = this.f65783a) == null) {
             return;
         }
         topProxyLayout.a();
@@ -122,7 +122,7 @@ public class c {
     public void c() {
         TopProxyLayout topProxyLayout;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || (topProxyLayout = this.f65603a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || (topProxyLayout = this.f65783a) == null) {
             return;
         }
         topProxyLayout.b();
@@ -131,7 +131,7 @@ public class c {
     public void d() {
         TopProxyLayout topProxyLayout;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || (topProxyLayout = this.f65603a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || (topProxyLayout = this.f65783a) == null) {
             return;
         }
         topProxyLayout.c();
@@ -141,7 +141,7 @@ public class c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            TopProxyLayout topProxyLayout = this.f65603a;
+            TopProxyLayout topProxyLayout = this.f65783a;
             if (topProxyLayout != null) {
                 return topProxyLayout.getCloseButton();
             }
@@ -153,7 +153,7 @@ public class c {
     public void f() {
         TopProxyLayout topProxyLayout;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048589, this) == null) || (topProxyLayout = this.f65603a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048589, this) == null) || (topProxyLayout = this.f65783a) == null) {
             return;
         }
         topProxyLayout.d();
@@ -162,7 +162,7 @@ public class c {
     public void a(boolean z) {
         TopProxyLayout topProxyLayout;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048580, this, z) == null) || (topProxyLayout = this.f65603a) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048580, this, z) == null) || (topProxyLayout = this.f65783a) == null) {
             return;
         }
         topProxyLayout.setShowDislike(z);
@@ -171,7 +171,7 @@ public class c {
     public void a(String str, CharSequence charSequence) {
         TopProxyLayout topProxyLayout;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048579, this, str, charSequence) == null) || (topProxyLayout = this.f65603a) == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048579, this, str, charSequence) == null) || (topProxyLayout = this.f65783a) == null) {
             return;
         }
         topProxyLayout.a(String.valueOf(str), charSequence);
@@ -180,7 +180,7 @@ public class c {
     public void a(com.bytedance.sdk.openadsdk.component.reward.top.b bVar) {
         TopProxyLayout topProxyLayout;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) || (topProxyLayout = this.f65603a) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) || (topProxyLayout = this.f65783a) == null) {
             return;
         }
         topProxyLayout.setListener(bVar);
@@ -189,7 +189,7 @@ public class c {
     public void a(float f2) {
         TopProxyLayout topProxyLayout;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f2) == null) || (topProxyLayout = this.f65603a) == null) {
+        if (!(interceptable == null || interceptable.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f2) == null) || (topProxyLayout = this.f65783a) == null) {
             return;
         }
         topProxyLayout.setCloseButtonAlpha(f2);

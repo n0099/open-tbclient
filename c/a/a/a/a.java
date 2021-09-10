@@ -146,6 +146,7 @@ public class a {
 
     public final void a() {
         byte[] bArr;
+        int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             while (this.f1568d) {
@@ -161,38 +162,43 @@ public class a {
                             return;
                         }
                         MediaCodec.BufferInfo bufferInfo = take.f1576a;
-                        int i2 = bufferInfo.size;
-                        int i3 = Integer.MAX_VALUE;
-                        for (int i4 = 0; i4 < this.f1572h; i4++) {
-                            i3 = Math.min(this.f1571g.get(i4).f1046b, i3);
+                        int i3 = bufferInfo.size;
+                        int i4 = Integer.MAX_VALUE;
+                        for (int i5 = 0; i5 < this.f1572h; i5++) {
+                            i4 = Math.min(this.f1571g.get(i5).f1046b, i4);
                         }
                         ByteBuffer byteBuffer = take.f1577b;
                         byte[] bArr3 = new byte[bufferInfo.size];
                         byteBuffer.get(bArr3);
-                        int min = Math.min(i2, i3);
+                        int min = Math.min(i3, i4);
                         if (this.f1572h > 0) {
                             bArr = new byte[min];
                             if (min > 0) {
                                 byte[][] bArr4 = (byte[][]) Array.newInstance(byte.class, this.f1572h, min);
-                                for (int i5 = 0; i5 < this.f1572h; i5++) {
-                                    this.f1571g.get(i5).b(bArr4[i5], min);
+                                for (int i6 = 0; i6 < this.f1572h; i6++) {
+                                    this.f1571g.get(i6).b(bArr4[i6], min);
                                 }
-                                for (int i6 = 0; i6 < min - 1; i6 += 2) {
-                                    for (int i7 = 0; i7 < this.f1572h; i7++) {
-                                        int i8 = i6 + 1;
-                                        short s = (short) (((short) (((bArr4[i7][i6] & 255) | ((bArr4[i7][i8] & 255) << 8)) / this.f1572h)) * this.f1574j);
-                                        bArr[i6] = (byte) (bArr[i6] + ((byte) (s & 255)));
-                                        bArr[i8] = (byte) (bArr[i8] + ((byte) ((s >> 8) & 255)));
+                                for (int i7 = 0; i7 < min - 1; i7 += 2) {
+                                    for (int i8 = 0; i8 < this.f1572h; i8++) {
+                                        int i9 = i7 + 1;
+                                        short s = (short) (((short) (((bArr4[i8][i7] & 255) | ((bArr4[i8][i9] & 255) << 8)) / this.f1572h)) * this.f1574j);
+                                        bArr[i7] = (byte) (bArr[i7] + ((byte) (s & 255)));
+                                        bArr[i9] = (byte) (bArr[i9] + ((byte) ((s >> 8) & 255)));
                                     }
                                 }
                             }
-                            for (int i9 = 0; i9 < min - 1; i9 += 2) {
-                                int i10 = i9 + 1;
-                                short s2 = (short) ((bArr[i9] & 255) | ((bArr[i10] & 255) << 8));
-                                int i11 = (int) (((short) ((bArr3[i9] & 255) | ((bArr3[i10] & 255) << 8))) * this.f1573i);
-                                short s3 = (short) ((s2 >= 0 || i11 >= 0) ? (i11 + s2) - ((i11 * s2) / 32768) : i11 + s2 + ((i11 * s2) / 32767));
-                                bArr3[i9] = (byte) (s3 & 255);
-                                bArr3[i10] = (byte) ((s3 >> 8) & 255);
+                            for (int i10 = 0; i10 < min - 1; i10 += 2) {
+                                int i11 = i10 + 1;
+                                short s2 = (short) ((bArr[i10] & 255) | ((bArr[i11] & 255) << 8));
+                                int i12 = (int) (((short) ((bArr3[i10] & 255) | ((bArr3[i11] & 255) << 8))) * this.f1573i);
+                                if (s2 < 0 && i12 < 0) {
+                                    i2 = i12 + s2 + ((i12 * s2) / 32767);
+                                } else {
+                                    i2 = (i12 + s2) - ((i12 * s2) / 32768);
+                                }
+                                short s3 = (short) i2;
+                                bArr3[i10] = (byte) (s3 & 255);
+                                bArr3[i11] = (byte) ((s3 >> 8) & 255);
                             }
                         } else {
                             bArr = null;
